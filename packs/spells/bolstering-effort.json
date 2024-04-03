@@ -1,0 +1,131 @@
+{
+	"name": "Bolstering Effort",
+	"type": "spell",
+	"img": "icons/magic/control/buff-strength-muscle-damage.webp",
+	"system": {
+		"actions": {
+			"s4amo2SRG6g4gW6O": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"6UGm6rwJ5xqnjkDq": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"O6Q6HSqTkzplDE6S": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6JFm6pi1wVW18yiU"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:</strong> Fighter class</em></p>\n<p>You blend magic with raw physicality to defend yourself from harm.</p>\n<p>Until the spell ends, each time you spend exertion, you gain temporary hit points equal to the exertion spent &times; half your proficiency bonus.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"bard",
+			"cleric",
+			"sorcerer",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Fighting Style class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"divine",
+				"protection",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/control/buff-strength-muscle-damage.webp",
+			"origin": "Item.g7L4fs8TqzF7HuDv",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "s4amo2SRG6g4gW6O",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Bolstering Effort",
+			"_id": "6JFm6pi1wVW18yiU",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Each time you spend exertion, you gain temporary hit points equal to the exertion spent × half your proficiency bonus.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "niiqdjll2amnswkm"
+}

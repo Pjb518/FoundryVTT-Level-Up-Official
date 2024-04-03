@@ -38,7 +38,8 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -84,7 +85,7 @@
 				"version": {
 					"schema": 0.013,
 					"foundry": "11.315",
-					"system": "0.17.17"
+					"system": "0.17.20"
 				}
 			}
 		},
@@ -483,7 +484,9 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"astralPlane"
+			]
 		},
 		"proficiencies": {
 			"armor": [],
@@ -557,8 +560,8 @@
 		},
 		"grants": {},
 		"spellBooks": {
-			"8UXVYCxujPQ1P1wr": {
-				"_id": "8UXVYCxujPQ1P1wr",
+			"jfnenKyMb2saaFsS": {
+				"_id": "jfnenKyMb2saaFsS",
 				"name": "New Spell Book",
 				"img": "icons/svg/book.svg",
 				"ability": "default",
@@ -591,7 +594,7 @@
 		"disposition": 0,
 		"displayBars": 30,
 		"bar1": {
-			"attribute": "attributes.hp.value"
+			"attribute": "attributes.hp"
 		},
 		"bar2": {
 			"attribute": null
@@ -719,7 +722,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -809,7 +812,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -908,7 +911,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -998,7 +1001,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1088,7 +1091,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1187,7 +1190,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1303,17 +1306,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"_id": "JQz3125Nk7BLyoLJ",
 			"img": "icons/svg/item-bag.svg",
@@ -1428,17 +1431,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "Grappled by the aberration",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"_id": "G1UjJxpoPbqjxxVX",
 			"img": "icons/svg/item-bag.svg",
@@ -1466,7 +1469,7 @@
 					"key": "system.details.cr",
 					"value": "2",
 					"mode": 6,
-					"priority": 50
+					"priority": 108839116800
 				}
 			],
 			"disabled": false,
@@ -1636,13 +1639,13 @@
 					"key": "system.bonuses.spellDC",
 					"value": "0",
 					"mode": 6,
-					"priority": 50
+					"priority": 108839116800
 				},
 				{
 					"key": "system.bonuses.maneuverDC",
 					"mode": 6,
 					"value": "0",
-					"priority": null
+					"priority": 0
 				}
 			],
 			"disabled": false,

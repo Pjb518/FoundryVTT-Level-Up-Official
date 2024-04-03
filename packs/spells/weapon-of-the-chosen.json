@@ -1,0 +1,341 @@
+{
+	"name": "Weapon of the Chosen",
+	"type": "spell",
+	"img": "icons/magic/lightning/bolt-beam-strike-blue.webp",
+	"system": {
+		"actions": {
+			"FFZ1OQvCcYqm4JFx": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"0uw9P4jAWtvLlUlm": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7
+					}
+				},
+				"rolls": {
+					"qE3biIem4mNw1KLI": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"rYzYDz0NJ3nn4VMn": {
+						"type": "damage",
+						"default": true,
+						"formula": "5d6",
+						"damageType": "lightning"
+					}
+				},
+				"prompts": {
+					"S5bJ1suS1rgcIBSq": {
+						"type": "effect",
+						"default": true,
+						"effectId": "VVJJhy2oVABJVNsK",
+						"label": "5th-level Spell"
+					},
+					"xQ7wxQemO1L4YTO4": {
+						"type": "effect",
+						"default": true,
+						"effectId": "uXttyAZhSx3RMgiJ",
+						"label": "6th-level Spell"
+					},
+					"GfpGylwD0MtapHjl": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Ec8pnHzZrX7vLyfy",
+						"label": "7th-level Spell"
+					},
+					"bpTZrvCxCr2UX7RI": {
+						"type": "effect",
+						"default": true,
+						"effectId": "5Djie3kqj6wiMXfz",
+						"label": "8th-level Spell"
+					},
+					"74hRE5XOmsckXxb7": {
+						"type": "effect",
+						"default": true,
+						"effectId": "mA0YxWycJ0YkV1Zo",
+						"label": "9th-level Spell"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"WSMwMJ0lS5XzFLsp": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>You thrust your weapon skyward, calling down power from on high. Lightning strikes your weapon and then arcs out to strike your foes. As you cast the spell, make a ranged spell attack against a creature within 30 feet. On a hit, the creature takes 5d6 lightning damage.</p><p>For the remainder of the spell’s duration, the weapon you provided as a material component deals an extra 1d6 lightning damage.</p><p><strong>Cast At Higher Levels:</strong> When you cast this spell using a spell slot of 6th level or higher, you may choose an additional target for the initial ranged spell attack, and the weapon's extra lightning damage increases by 1d6 for each slot level above 5th.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric",
+			"herald",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 5,
+		"materials": "a melee weapon",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"divine",
+				"lightning"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/lightning/bolt-beam-strike-blue.webp",
+			"origin": "Item.7vVspLdcuKDwurR2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FFZ1OQvCcYqm4JFx",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Weapon of the Chosen (5th-level Spell)",
+			"_id": "VVJJhy2oVABJVNsK",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Weapon of the Chosen\",\"formula\":\"1d6\",\"damageType\":\"lightning\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/lightning/bolt-beam-strike-blue.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an extra 1d6 lightning damage.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/lightning/bolt-beam-strike-blue.webp",
+			"origin": "Item.7vVspLdcuKDwurR2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FFZ1OQvCcYqm4JFx",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Weapon of the Chosen (6th-level Spell)",
+			"_id": "uXttyAZhSx3RMgiJ",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Weapon of the Chosen\",\"formula\":\"2d6\",\"damageType\":\"lightning\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/lightning/bolt-beam-strike-blue.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an extra 2d6 lightning damage.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/lightning/bolt-beam-strike-blue.webp",
+			"origin": "Item.7vVspLdcuKDwurR2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FFZ1OQvCcYqm4JFx",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Weapon of the Chosen (7th-level Spell)",
+			"_id": "Ec8pnHzZrX7vLyfy",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Weapon of the Chosen\",\"formula\":\"3d6\",\"damageType\":\"lightning\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/lightning/bolt-beam-strike-blue.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an extra 3d6 lightning damage.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/lightning/bolt-beam-strike-blue.webp",
+			"origin": "Item.7vVspLdcuKDwurR2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FFZ1OQvCcYqm4JFx",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Weapon of the Chosen (8th-level Spell)",
+			"_id": "5Djie3kqj6wiMXfz",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Weapon of the Chosen\",\"formula\":\"4d6\",\"damageType\":\"lightning\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/lightning/bolt-beam-strike-blue.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an extra 4d6 lightning damage.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/lightning/bolt-beam-strike-blue.webp",
+			"origin": "Item.7vVspLdcuKDwurR2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FFZ1OQvCcYqm4JFx",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Weapon of the Chosen (9th-level Spell)",
+			"_id": "mA0YxWycJ0YkV1Zo",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Weapon of the Chosen\",\"formula\":\"5d6\",\"damageType\":\"lightning\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/lightning/bolt-beam-strike-blue.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an extra 5d6 lightning damage.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "dhjvbi9qysj1lfw5"
+}

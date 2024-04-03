@@ -81,6 +81,9 @@ export default function modifyBaseOptions(options: Object) {
   delete options['system.attributes.ac.baseFormula'];
   delete options['system.attributes.ac.value'];
 
+  delete options['system.spellBooks'];
+  delete options['system.grants'];
+
   // Delete text details like bio, class, etc.
   delete options['system.details.age'];
   delete options['system.details.appearance'];

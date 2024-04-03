@@ -1,0 +1,122 @@
+{
+	"folder": null,
+	"name": "Sending Circle",
+	"type": "spell",
+	"img": "icons/magic/symbols/ring-circle-smoke-blue.webp",
+	"system": {
+		"actions": {
+			"ZKp58yFoyNsh02Uu": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "minute",
+					"cost": 1
+				},
+				"consumers": {
+					"kMATmE9WZa5t3y3N": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"fI4IRZAkdd0uECYL": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"placeTemplate": true,
+					"radius": 5
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				}
+			},
+			"ejWWCiAU4XiZvffu": {
+				"name": "End Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You create a 10-foot diameter circle on the ground, opening&nbsp;the phonic space to a permanent sending circle elsewhere&nbsp;in the world. For the duration of the spell, sounds pass&nbsp;through the two sending circles, allowing creatures on&nbsp;opposite sending circles to verbally communicate as though&nbsp;they were in the same room. You can use your action on&nbsp;your turn to end this spell early.</p>\n<p>Permanent sending circles are commonly found within major harpy enclaves, including seasonal roosts, mountain temples, and other important locations. Each circle has a unique sequence of magical runes inscribed in a certain pattern called a sigil sequence. When you cast sending circle, you inscribe runes that match the sigil sequence of a sending circle you know. When you first gain the ability to cast this spell, you learn the sigil sequences for 2 established sending circles on the Material Plane, determined by the Narrator. You can learn the sigil sequence of a sending circle you see after 1 minute of observation and study. Casting the spell in the same location every day for a year creates a permanent sending circle with its own unique sigil sequence.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"bard",
+			"druid",
+			"sorcerer",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": true
+		},
+		"concentration": false,
+		"level": 4,
+		"materials": "chunks of high-quality quartz worth 50 gold, consumed by the spell",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"communication",
+				"senses",
+				"sound"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "nms1o1dk72ra2ci4"
+}

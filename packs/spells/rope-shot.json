@@ -1,10 +1,10 @@
 {
 	"name": "Rope Shot",
 	"type": "spell",
-	"img": "icons/sundries/survival/rope-wrapped-purple.webp",
+	"img": "icons/skills/ranged/person-archery-bow-attack-orange.webp",
 	"system": {
 		"actions": {
-			"3hUdpZuRZ8kqIMgn": {
+			"PXtSia864D1YMCk1": {
 				"name": "Cast Spell",
 				"activation": {
 					"type": "action",
@@ -19,39 +19,78 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
-				"duration": {
-					"unit": "instantaneous"
-				},
 				"ranges": {
-					"F0n2pul8PnKnD0HT": {
+					"pIKgpM621teotfQq": {
 						"range": "medium"
 					}
 				},
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			},
+			"J6wuW05BwMaq1v7T": {
+				"name": "Pull Rope",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"wM0hM1m2e1Qz4D5M": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 0,
+						"points": 0
+					}
+				},
+				"rolls": {
+					"GGY8HmjZADGEGIQA": {
+						"type": "abilityCheck",
+						"default": true,
+						"ability": "str"
+					}
+				},
+				"prompts": {
+					"QxMGEUgpYRdXFtW3": {
+						"type": "abilityCheck",
+						"default": true,
+						"ability": "str"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
 				}
 			}
 		},
-		"description": "<p>As part of the action used to cast this spell, make a ranged weapon attack against a target within range of the weapon you are wielding. On a hit, the ammunition from your shot leaves a sturdy cord behind it. It has the stats of a silk rope of its length. If the target was a creature, you may make an opposed Strength check as an action while holding the rope to pull the creature 10 feet toward you. If the target is a solid object or surface, the rope is securely anchored in it, and can be climbed (provided the surface or object can support the weight of the climbing creature). The rope persists indefinitely, but vanishes if you cast this spell again.</p>",
+		"description": "<p>You enchant a magical line onto one of your arrows.</p>\n<p>As part of the action used to cast this spell, make a ranged weapon attack against a target within range of your weapon. On a hit, in addition to dealing normal weapon damage, the ammunition from your shot leaves a sturdy cord behind it. It has the stats of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.3dt9060xa6c3szrw]{Silk Rope} of its length. If the target was a Large-sized or smaller creature, you can use an action while holding the rope to make an opposed Strength check against the creature, pulling it 10 feet toward you on a success. If the target is a solid object or surface, the rope is securely anchored in it, and can be climbed (provided the surface or object can support the weight of the climbing creature). The rope persists indefinitely, but vanishes if cut or when you cast this spell again.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "arcaneSniper",
+		"source": "moarComplete",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": "6"
+				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
 		},
 		"classes": [
 			"bard",
@@ -65,9 +104,9 @@
 		},
 		"concentration": false,
 		"level": 0,
-		"materials": "A ranged weapon",
+		"materials": "a ranged weapon",
 		"materialsConsumed": false,
-		"prepared": false,
+		"prepared": 1,
 		"prerequisite": "",
 		"rare": false,
 		"ritual": false,
@@ -79,15 +118,10 @@
 			]
 		},
 		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
 	},
 	"effects": [],
 	"flags": {},

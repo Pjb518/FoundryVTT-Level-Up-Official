@@ -83,7 +83,7 @@ export default class SpellBook extends A5EDataModel {
     const spellDC = getDeterministicBonus([
       8,
       actor.system.attributes.prof,
-      actor.system.bonuses.spellDc || 0,
+      actor.system.bonuses.spellDC || 0,
       actor.system.abilities[ability].check.mod
     ].join(' + '), actor.getRollData()) || 10;
 

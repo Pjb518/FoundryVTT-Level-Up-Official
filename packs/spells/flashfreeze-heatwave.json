@@ -1,0 +1,216 @@
+{
+	"folder": null,
+	"name": "Flashfreeze Heatwave",
+	"type": "spell",
+	"img": "icons/magic/water/ice-crystal-white.webp",
+	"system": {
+		"actions": {
+			"Gb5SqxcEzz6CNl5B": {
+				"name": "Cast Spell/Freeze Area",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"CMCEm2ZGKTXbBaed": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 8,
+						"points": 11
+					}
+				},
+				"rolls": {
+					"fBB3V9qzwgxlVpKL": {
+						"type": "damage",
+						"default": true,
+						"formula": "6d6",
+						"damageType": "cold",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						},
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"6X53DtqfSy9XmMjj": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "Frozen Area",
+						"onSave": "half damage, not restrained"
+					},
+					"Zc2rBYwilFEVxS7O": {
+						"type": "effect",
+						"default": true,
+						"effectId": "hwg5N40gboQlZPHG"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"ranges": {
+					"kzlt4eIXeHKlDGeu": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 40,
+					"placeTemplate": true
+				}
+			},
+			"Wv2EKxAgFGA53gnO": {
+				"name": "Flames",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"eHrvTLt1nl4veWIu": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "6d6",
+						"damageType": "fire",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					},
+					"X7K3Vk3Uq348XjwU": {
+						"type": "damage",
+						"default": true,
+						"label": "Interrupted Movement",
+						"formula": "3d6",
+						"damageType": "",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						},
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"inj2IH8Cm85Z8Sgl": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage, not pushed"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Upon casting the spell, you instantly freeze the area, coating everything in a layer of ice. Creatures in the area take 6d6 damage and are restrained. Creatures that make their Constitution save take half damage and are not restrained. The area becomes difficult terrain until the beginning of your next turn.</p>\n<p>On the beginning of your next turn, the area erupts with intense flames, rapidly expanding the super chilled air. Creatures in the area take 6d6 fire damage and are pushed 30 feet away from the center of the sphere. Creatures that make their dexterity save take half damage and are not pushed. If a pushed creature&rsquo;s movement is interrupted by a solid object, the creature and object take 3d6 damage.</p>\n<p><strong>Cast at Higher Levels.</strong> Increase each instance of damage by 1d6 for every slot level above 8th.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 8,
+		"materials": "a steel bead previously heated white hot and rapidly cooled in ice",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"cold",
+				"fire"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/water/ice-crystal-white.webp",
+			"origin": "Item.nr9M2LKFZk621vao",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Gb5SqxcEzz6CNl5B"
+				}
+			},
+			"transfer": false,
+			"name": "Restrained",
+			"_id": "hwg5N40gboQlZPHG",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"restrained"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "gc2j4x57gy5ma2fw"
+}

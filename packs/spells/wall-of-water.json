@@ -1,0 +1,149 @@
+{
+	"folder": null,
+	"name": "Wall of Water",
+	"type": "spell",
+	"img": "icons/magic/water/water-jet-wave-blue.webp",
+	"system": {
+		"actions": {
+			"iFPGjOtmmNTtwgMq": {
+				"name": "Cast Spell as Line",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"qJMXRzPQMaurKevU": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"ranges": {
+					"mviUk0jjpQnb1T1q": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "line",
+					"quantity": 1,
+					"length": 30,
+					"width": 1,
+					"placeTemplate": true
+				}
+			},
+			"QzmWvkxxAXbxe98o": {
+				"name": "Cast Spell as Circle",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"nkzBavMRG74pIsju": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"ranges": {
+					"mviUk0jjpQnb1T1q": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "cylinder",
+					"quantity": 1,
+					"length": 30,
+					"width": 1,
+					"placeTemplate": true,
+					"radius": 20,
+					"height": 10
+				}
+			}
+		},
+		"description": "<p>A thin shimmering wall of water appears at a point you choose. The wall is 1 foot thick and 10 feet high, and either 30 feet long or 20 feet in diameter. The wall&rsquo;s space is difficult terrain.</p>\n<p>Ranged weapon attacks that pass through the wall&rsquo;s space are made at disadvantage. Fire damage is reduced by half if its line of effect passes through the wall. If an effect that deals cold damage passes through the wall, the wall freezes into opaque ice, creating light obscurement (minimum of a 5-foot-square segment). Each 5-foot-square segment has AC 13 and 10 hit points. If reduced to 0 hp, that segment of the wall is destroyed.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid",
+			"elementalistWater",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 3,
+		"materials": "a water droplet",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"nature",
+				"protection",
+				"terrain",
+				"utility",
+				"water"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "naa1e62om3jepm31"
+}

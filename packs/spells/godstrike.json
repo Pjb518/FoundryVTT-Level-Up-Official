@@ -1,0 +1,412 @@
+{
+	"name": "Godstrike",
+	"type": "spell",
+	"img": "icons/magic/light/beam-strike-village-yellow.webp",
+	"system": {
+		"actions": {
+			"PIgW4pUn4DLsrLtl": {
+				"name": "Fortifying Burst",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"cdaRbXeXOquL3emV": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 9,
+						"points": 13
+					}
+				},
+				"rolls": {
+					"4WvSDMwTsNJYVJJ6": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1 + @str.mod",
+						"damageType": "bludgeoning"
+					},
+					"iwW66H0IjKTf9Lca": {
+						"type": "damage",
+						"default": true,
+						"formula": "12d6",
+						"damageType": "force",
+						"canCrit": false
+					},
+					"d7qZdWRYRhUt7UcZ": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Radiant",
+						"formula": "12d6",
+						"damageType": "radiant"
+					},
+					"pDFXBpwflXwuplbC": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Necrotic",
+						"formula": "12d6",
+						"damageType": "necrotic"
+					},
+					"b1KaXomNk8tKzKgX": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Thunder",
+						"formula": "12d6",
+						"damageType": "thunder"
+					},
+					"LKE5bYT8j1K9NLAQ": {
+						"type": "healing",
+						"default": true,
+						"formula": "3d8 + @spellcasting.mod"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				},
+				"ranges": {
+					"pIxHS0foDKSjgsOB": {
+						"range": "self"
+					}
+				}
+			},
+			"NDGOPLuqWc16N15h": {
+				"name": "Field of Devastation",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"cdaRbXeXOquL3emV": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 9,
+						"points": 13
+					}
+				},
+				"rolls": {
+					"4WvSDMwTsNJYVJJ6": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1 + @str.mod",
+						"damageType": "bludgeoning"
+					},
+					"iwW66H0IjKTf9Lca": {
+						"type": "damage",
+						"default": true,
+						"formula": "12d6",
+						"damageType": "force",
+						"canCrit": false
+					},
+					"d7qZdWRYRhUt7UcZ": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Radiant",
+						"formula": "12d6",
+						"damageType": "radiant"
+					},
+					"pDFXBpwflXwuplbC": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Necrotic",
+						"formula": "12d6",
+						"damageType": "necrotic"
+					},
+					"b1KaXomNk8tKzKgX": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Thunder",
+						"formula": "12d6",
+						"damageType": "thunder"
+					},
+					"LKE5bYT8j1K9NLAQ": {
+						"type": "healing",
+						"default": true,
+						"formula": "3d8 + @spellcasting.mod"
+					}
+				},
+				"prompts": {
+					"NfxtSuKXkwHWUjBs": {
+						"type": "effect",
+						"default": true,
+						"effectId": "WDRdXP1wCbmmXePS"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"area": {
+					"shape": "cube",
+					"quantity": 1,
+					"placeTemplate": true,
+					"width": 50
+				},
+				"ranges": {
+					"pIxHS0foDKSjgsOB": {
+						"range": "self"
+					}
+				}
+			},
+			"PLDdCDcjqwpvH0j1": {
+				"name": "Blast of Terror",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"cdaRbXeXOquL3emV": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 9,
+						"points": 13
+					}
+				},
+				"rolls": {
+					"4WvSDMwTsNJYVJJ6": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1 + @str.mod",
+						"damageType": "bludgeoning"
+					},
+					"iwW66H0IjKTf9Lca": {
+						"type": "damage",
+						"default": true,
+						"formula": "12d6",
+						"damageType": "force",
+						"canCrit": false
+					},
+					"d7qZdWRYRhUt7UcZ": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Radiant",
+						"formula": "12d6",
+						"damageType": "radiant"
+					},
+					"pDFXBpwflXwuplbC": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Necrotic",
+						"formula": "12d6",
+						"damageType": "necrotic"
+					},
+					"b1KaXomNk8tKzKgX": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Thunder",
+						"formula": "12d6",
+						"damageType": "thunder"
+					},
+					"LKE5bYT8j1K9NLAQ": {
+						"type": "healing",
+						"default": true,
+						"formula": "3d8 + @spellcasting.mod"
+					}
+				},
+				"prompts": {
+					"STayfCnCP3p4z1nO": {
+						"type": "effect",
+						"default": true,
+						"effectId": "cvW2h2zJG6R93muB"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"placeTemplate": true,
+					"length": 90
+				},
+				"ranges": {
+					"pIxHS0foDKSjgsOB": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p>You become a conduit for your god’s wrath. You pantomime a crushing fist strike and scream imprecations against your enemies, and an enormous, glowing burst of judgmental energy streaks out from you to destroy the unworthy. Depending on the nature of your god or faith, this may be a crushing fist, an enormous sword, a cosmic tentacle, massive antlers, or some other awe-inspiring display of transcendent puissance.</p><p>As you cast this spell, you may exclude any number of creatures, objects, or structures in the area. All other creatures and objects in the area besides you take damage equal to your unarmed strike damage + 12d6 force damage + your choice of 12d6 radiant, necrotic, or thunder damage. The form, shape, and additional benefits of this spell are also determined when you cast it:</p><ul><li><p><strong>Fortifying Burst</strong>: The spell affects a 30-foot radius centered on you. Creatures inside the area who you excluded from damage regain hit points equal to 3d8 + your spellcasting modifier.</p></li><li><p><strong>Field of Devastation</strong>: The spell affects a 50-foot cube originating from you, and creatures other than you in the area stunned for 2 rounds.</p></li><li><p><strong>Blast of Terror</strong>: The spell affects a 90-foot cone originating from you, and creatures in the area are frightened of you for 1 minute.</p></li></ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 9,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"divine",
+				"force",
+				"necrotic",
+				"radiant",
+				"thunder"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/light/beam-strike-village-yellow.webp",
+			"origin": "Item.nUQfSaTIWVyWpwdq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "NDGOPLuqWc16N15h",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"_id": "WDRdXP1wCbmmXePS",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 2,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"stunned"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/light/beam-strike-village-yellow.webp",
+			"origin": "Item.nUQfSaTIWVyWpwdq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PLDdCDcjqwpvH0j1",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"_id": "cvW2h2zJG6R93muB",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"frightened"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "fjpur3ra9zdzmenj"
+}

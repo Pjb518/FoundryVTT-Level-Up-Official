@@ -4,6 +4,7 @@
  */
 export default function registerEffectLocalizationConfig(A5E) {
   A5E.effectsKeyLocalizations = {
+    'flags.a5e.deathSaveThreshold': 'A5E.effects.keys.flags.deathSaveThreshold',
     'flags.a5e.effects.bonuses.abilities': 'A5E.effects.keys.bonuses.ability',
     'flags.a5e.effects.bonuses.attacks': 'A5E.effects.keys.bonuses.attacks',
     'flags.a5e.effects.bonuses.damage': 'A5E.effects.keys.bonuses.damage',
@@ -14,6 +15,8 @@ export default function registerEffectLocalizationConfig(A5E) {
     'flags.a5e.effects.damageImmunities.all': 'A5E.effects.keys.flags.damageImmunities.all',
     'flags.a5e.effects.damageResistances.all': 'A5E.effects.keys.flags.damageResistances.all',
     'flags.a5e.effects.damageVulnerabilities.all': 'A5E.effects.keys.flags.damageVulnerabilities.all',
+    'flags.a5e.effects.movement.allDistances': 'A5E.effects.keys.flags.movement.allDistances',
+    'flags.a5e.effects.movement.allUnits': 'A5E.effects.keys.flags.movement.allUnits',
     'flags.a5e.effects.expertiseDie': 'A5E.effects.keys.flags.expertiseDie',
     'flags.a5e.effects.statusConditions': 'A5E.effects.keys.flags.statusConditions',
     'flags.a5e.effects.grants.rollMode.attack.all': 'A5E.effects.keys.flags.grantsRollMode.all',
@@ -64,6 +67,8 @@ export default function registerEffectLocalizationConfig(A5E) {
     'flags.a5e.effects.rollMode.skillCheck.slt': 'A5E.effects.keys.flags.rollMode.skillChecks.slt',
     'flags.a5e.effects.rollMode.skillCheck.ste': 'A5E.effects.keys.flags.rollMode.skillChecks.ste',
     'flags.a5e.effects.rollMode.skillCheck.sur': 'A5E.effects.keys.flags.rollMode.skillChecks.sur',
+    'flags.a5e.effects.senses.allDistances': 'A5E.effects.keys.flags.senses.allDistances',
+    'flags.a5e.effects.senses.allUnits': 'A5E.effects.keys.flags.senses.allUnits',
     'system.abilities.cha.check.bonus': 'A5E.effects.keys.abilities.charismaCheckBonus',
     'system.abilities.cha.check.expertiseDice': 'A5E.effects.keys.abilities.charismaCheckExpertiseDice',
     'system.abilities.cha.save.bonus': 'A5E.effects.keys.abilities.charismaSaveBonus',

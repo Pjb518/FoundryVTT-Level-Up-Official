@@ -1,0 +1,152 @@
+{
+	"folder": null,
+	"name": "Deep Freeze",
+	"type": "spell",
+	"img": "icons/magic/water/barrier-ice-water-cube.webp",
+	"system": {
+		"actions": {
+			"vmqO9B3diwMd6FBl": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"aWTinS39lWGVKPJK": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"qCc3md91v8GQS0rA": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "negates effect"
+					},
+					"eca58berxEuivMgk": {
+						"type": "effect",
+						"default": true,
+						"effectId": "V84jd7yLk3ccpiz4"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"hDTfBbBefqeUpHkU": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>You encase the target in a shell of ice.&nbsp;The ice has AC 13, 50 hit points; it is immune to cold damage and vulnerable to fire damage. Any cold damage that would be dealt to the ice instead heals it, up to its maximum hit points. A flying creature immediately falls to the ground, potentially dealing falling damage to the ice rather than the creature. Attacks directed at the target deal damage to the ice first; if the ice is reduced to 0 hp, any remaining damage transfers to the target.</p>\n<p>If you maintain concentration for the full minute, the target is put into suspended animation indefinitely. &nbsp;A creature in suspended animation is unconscious, but no longer ages, and does not need to eat, drink, or breathe. A creature can willingly fail its saving throw. You can end this effect at will, even if you cast it upon yourself, and the creature awakens if the ice is destroyed.</p>\n<p><strong>Cast at Higher Levels.</strong> The ice has 20 additional hit points for every slot level above 5th.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 5,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"cold",
+				"nature",
+				"protection",
+				"time"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/water/barrier-ice-water-cube.webp",
+			"origin": "Item.GyutZRHqTCjxu1ES",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vmqO9B3diwMd6FBl"
+				}
+			},
+			"transfer": false,
+			"name": "Suspended Animation",
+			"_id": "V84jd7yLk3ccpiz4",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"unconscious\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Unconscious, but no longer ages, and does not need to eat, drink, or breathe.</p>",
+			"statuses": [
+				"unconscious"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "3w5r0hl7csgts034"
+}

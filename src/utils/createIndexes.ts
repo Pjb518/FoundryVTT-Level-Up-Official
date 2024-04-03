@@ -31,6 +31,7 @@ export async function createMonsterLikeIndex(packId: string) {
       'system.details.cr',
       'system.details.creatureTypes',
       'system.details.elite',
+      'system.details.isSquad',
       'system.details.isSwarm',
       'system.details.terrain',
       'system.traits.size',

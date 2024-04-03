@@ -1,0 +1,266 @@
+{
+	"folder": null,
+	"name": "Wall of Lightning",
+	"type": "spell",
+	"img": "icons/magic/lightning/bolts-strike-salvo-blue.webp",
+	"system": {
+		"actions": {
+			"Nd3GCYQ3fIyIhodi": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"gRXAArg9AedfDY3J": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7
+					}
+				},
+				"rolls": {
+					"32xJME8kHmdkePqi": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d8",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						},
+						"damageType": "lightning",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"fTtqcaAhmTapmNPO": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "half damage, negates blinded condition",
+						"label": ""
+					},
+					"AzcbL6IoQtRtWVco": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"E88s05lqHFSPE6fQ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "jzzZyc01JGi8w4Th"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>No description available.</p>",
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"8fSJxLaUBo1GI9XT": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "wall",
+					"quantity": 1,
+					"length": 60,
+					"width": 1,
+					"height": 20
+				}
+			},
+			"ohUn5GS8vE0kvxMR": {
+				"name": "Within 5 feet/Enters",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"VKQLQP00MfrGmU6m": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "4d8",
+						"damageType": "lightning",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						}
+					}
+				},
+				"prompts": {
+					"PtcP32uE7mIugQ0m": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"h8GzSb209ZkOtW8m": {
+						"type": "effect",
+						"default": true,
+						"effectId": "EOIWgDkhwvkhOkj4"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You create a wall of continuous vertical bolts of lightning. The wall can rest on a solid surface or be free floating, and be in any orientation of your choosing. The wall can be up to 60 feet long (it does not have to be a straight line; sections of the wall can angle as long as they are contiguous), 20 feet high, and 1 foot thick. The wall blocks sight, and emits bright light out to 120 feet and dim light for an additional 120 feet in all directions.</p>\n<p>When the wall appears, each creature in its area must make a Dexterity saving throw, taking 4d8 lightning damage and being blinded for 1 minute on a failed save; it takes half as much damage and is not blinded on a successful save. A blinded creature makes a Constitution saving throw at the end of each of its turns, ending the blindness on itself on a success.</p>\n<p>A creature takes 4d8 lightning damage if it ends its turn within 5 feet of the wall. It also takes this damage the first time it enters the wall&rsquo;s space on a round. A creature ending its turn within 5 feet of the wall must make a Constitution saving throw or be blinded, as above.</p>\n<p><strong>Cast at Higher Levels.</strong> The damage increases by 1d8 for every slot level above 5th.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"artificer",
+			"druid",
+			"elementalistAir",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 5,
+		"materials": "heartwood from a lightning-struck tree",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"attack",
+				"lightning"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/lightning/bolts-strike-salvo-blue.webp",
+			"origin": "Item.TJy8lftHdnXq7uYm",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Nd3GCYQ3fIyIhodi",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"_id": "jzzZyc01JGi8w4Th",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/lightning/bolts-strike-salvo-blue.webp",
+			"origin": "Item.TJy8lftHdnXq7uYm",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ohUn5GS8vE0kvxMR",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"_id": "EOIWgDkhwvkhOkj4",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "o965ubffjwes35mo"
+}

@@ -1,0 +1,142 @@
+{
+	"name": "Incinerating Roundhouse",
+	"type": "spell",
+	"img": "icons/magic/fire/blast-jet-stream-embers-red.webp",
+	"system": {
+		"actions": {
+			"g9tTVDAjVQijXCxQ": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"IHaw77GW3pIq0Wy2": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {
+					"Lm1LxbvOhCBCMZ9C": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "str"
+					},
+					"OErDC3YIoi00lODH": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6 + @spellcasting.mod",
+						"damageType": "bludgeoning"
+					},
+					"dBbA3Q7kDSnXuzYJ": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d6",
+						"damageType": "fire",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"hUkgaE4FQe3MycPW": {
+						"range": "self"
+					}
+				}
+			},
+			"CdDqaqODhJr1KkDF": {
+				"name": "Ongoing Fire Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"VFjqh0YiUmC305zV": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You must be able to move in order to cast this spell. You lash out with a kick so terrible in its decisiveness that it sets the very air ablaze. As part of casting the spell, make a melee spell attack against a creature within reach of your unarmed strike. If you hit, you deal bludgeoning damage equal to 1d6 + your spellcasting modifier plus 3d6 fire damage. If your unarmed strike normally uses a larger die, use that instead of a d6.</p>\n<p dir=\"ltr\"><strong id=\"docs-internal-guid-4df88659-7fff-c4a3-f906-2555f9b29893\">Cast At Higher Levels.&nbsp;</strong>When you cast this spell using a spell slot of 3rd level or higher, the spell does an extra 1d6 fire damage for each spell level above 2nd. If you cast the spell with a spell slot of 5th level or higher, a creature you damage also catches fire and takes 1d6 ongoing fire damage at the start of each of its turns until an action is taken to extinguish the flames.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"warlock",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "A shin guard",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"fire",
+				"unarmed"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "0jkzjd34lx0stwrr"
+}

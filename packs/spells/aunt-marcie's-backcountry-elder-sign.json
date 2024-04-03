@@ -1,0 +1,245 @@
+{
+	"name": "Aunt Marcie’s Backcountry Elder Sign",
+	"type": "spell",
+	"img": "icons/magic/symbols/runes-star-pentagon-magenta.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/symbols/runes-star-pentagon-magenta.webp",
+			"origin": "Item.UhIBJjQEdxxhXRzj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "JNgoYY79rapCrMwG",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Bane of Aberrations",
+			"_id": "Tk4dvU1tLjSTVpS1",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When the inscribed object is used as a weapon, its attacks against Aberrations deal +1d6 force damage.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"actions": {
+			"JNgoYY79rapCrMwG": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "hour",
+					"cost": 1
+				},
+				"consumers": {
+					"8ltWriltIPd9pS3F": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"QEZYY3MDracG7RZe": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Tk4dvU1tLjSTVpS1"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"0hUODqlD7FN2SOlR": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"type": "object",
+					"quantity": 1
+				}
+			},
+			"CAy8NJbCj83dUBqm": {
+				"name": "Planar Stability",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				}
+			},
+			"uYWxOST2Lnspv7BI": {
+				"name": "Turn Aberrations",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"hr1qWsNa5NuiOadd": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			},
+			"gjQnZkjF0vv3BpUZ": {
+				"name": "Ward Against Aberrations",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"itZGGmnbmy22ukwx": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d6",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {
+					"GUKnlGFqKmlrhnuh": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>During the casting time of this spell, you inscribe the surface of a door, weapon, token, or other object with the Elder Sign, a symbol feared by all aberrations (including the Great Old Ones). The target object must be within range for the entire casting of this spell.</p>\n<p>The inscription lasts indefinitely, but it can be activated to bestow a one-time benefit. A creature that isn&rsquo;t an Aberration can touch the inscription to activate one of the following effects of their choice (this is an object interaction, not an action). An Aberration creature that touches the inscription activates the Ward Against Aberrations effect. Once the inscription is used its magic fades and it cannot be used again; however, subsequent castings of Elder Sign on a previous inscription cost half the time and material components. When an inscribed object is destroyed, this spell effect ends, as do any of the following benefits if they are active; the destroyed object cannot be the target of Elder Sign again until the object is repaired.</p>\n<ul>\n<li>\n<p><strong>Bane of Aberrations:</strong> When the inscribed object is used as a weapon, its attacks against Aberrations deal +1d6 force damage. This effect lasts for 1 hour.</p>\n</li>\n<li>\n<p><strong>Planar Stability:</strong> Aberrations within 30 feet of the inscribed object do not benefit from invisibility or etherealness effects. This effect lasts for 1 hour.</p>\n</li>\n<li>\n<p><strong>Turn Aberrations:</strong> The Elder Sign flares, and Abberation creatures within 30 feet must make a Wisdom saving throw. If the creature fails, it is turned for 1 minute or until it takes damage from any source (per the cleric&rsquo;s @UUID[Compendium.a5e.a5e-class-features.Item.zhuf06durl8bnmh3]{Turn Undead}).</p>\n</li>\n<li>\n<p><strong>Ward Against Aberrations:</strong> An Aberration that touches the inscribed object causes it to activate this effect. The Elder Sign flares, and Abberation creatures within 30 feet must make a Dexterity saving throw or take 3d6 radiant damage (save halves).</p>\n</li>\n<li>\n<p><strong>Special:</strong> Any non-Aberration creature trained in Arcana can cast this spell from a spell scroll, counting it as a spell they know.</p>\n</li>\n</ul>\n<p><strong>Rare:</strong><em><strong> Aunt Marcie&rsquo;s Backcountry Elder Sign. </strong></em>Some woods&rsquo;re so dark and some mountains so ancient, ain&rsquo;t easy to tell one wicked haint from another. Each of this spell&rsquo;s effects that apply to Aberrations also apply to Fiends and Undead.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric",
+			"druid",
+			"warlock",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "25 gold worth of molten silver, consumed by the spell",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"chaos",
+				"planar",
+				"protection"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"_id": "scywgzl9fwgzwtue"
+}

@@ -1,0 +1,323 @@
+{
+	"folder": null,
+	"name": "Transmute Earth",
+	"type": "spell",
+	"img": "icons/environment/wilderness/terrain-stone-stalagtite.webp",
+	"system": {
+		"actions": {
+			"T2mBhdAmJj7icqCg": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"kacWnBzQk16GoxTv": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"He6hgwrWaMdaXxMw": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"quantity": 1,
+					"width": 40,
+					"placeTemplate": true
+				}
+			},
+			"gI7Hz2JTxxkTK1ti": {
+				"name": "Mud to Rock",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"jdG9sVuLpH2RtJgK": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"aYnnxfAFaYxSd8sr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Pou55bhmog3kiLvq"
+					},
+					"HaoQk5tLAeVf09GP": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ath",
+						"ability": "str",
+						"label": "Athletics"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"aFsOSIr8DIrIGG1J": {
+				"name": "Rock to Mud",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"UdYnz0DlHQM7DkKK": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"Mpw4NgFA6G825bfE": {
+						"type": "effect",
+						"default": true,
+						"effectId": "bzuMC0f5s1Q5kbyH"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"PPkXoKCxpBLj85Lo": {
+				"name": "Stone Ceiling",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"UJ7JAe9pWBMmD6md": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "4d8",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {
+					"UsoC8WDy93ILs5q1": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage, not restrained"
+					},
+					"uDc4jVXb5F5oRauZ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "GKXXB0wFhWNDQeMZ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>When you cast this spell, choose an area of natural nonmagical rock/earth or mud that fits in the area, and choose one of the following effects:</p>\n<p><strong>Transmute Mud to Rock</strong>: Mud, quicksand, or especially soft soil up to a depth of 10 feet turns to brittle stone until the spell is dispelled. Creatures within the area when it is transformed make Dexterity saving throws, becoming restrained on a failure or moving to the closest space outside of range on a success. A restrained creature can use its action to break free by making an Athletics check against your spell save DC; another creature within reach can attempt this check as an action to pull them out. The stone can also be damaged. The stone has AC 10 and 50 hit points. It is immune to poison and psychic damage and vulnerable to thunder damage.</p>\n<p><strong>Transmute Rock to Mud</strong>: Rock, soil, and packed sand is turned into mud or quicksand up to 10 feet deep until the spell is dispelled. The area becomes difficult terrain, requiring 4 feet of movement for every foot of movement to traverse. Any creature in the area when the spell is cast, or who enters the area or ends their turn in the area, must make a Strength saving throw or become restrained. A restrained creature can free itself as an action.</p>\n<p>If this version is cast upon a stone ceiling, the mud collapses. Any creature in the area the mud falls must make a Dexterity save or take 4d8 bludgeoning damage and become restrained. Creatures that make their save take half damage and are not restrained. Restrained creatures can free themselves as an action. The mud creates a pile up to 10 feet high that must be climbed over, and acts as hindering terrain as above.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"artificer",
+			"druid",
+			"elementalistEarth",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 5,
+		"materials": "a stone wrapped in clay",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"arcane",
+				"earth",
+				"nature",
+				"terrain"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/environment/wilderness/terrain-stone-stalagtite.webp",
+			"origin": "Item.gPYanyaMK4echNG8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "gI7Hz2JTxxkTK1ti"
+				}
+			},
+			"transfer": false,
+			"name": "Restrained",
+			"_id": "Pou55bhmog3kiLvq",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"restrained"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/environment/wilderness/terrain-stone-stalagtite.webp",
+			"origin": "Item.gPYanyaMK4echNG8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "aFsOSIr8DIrIGG1J"
+				}
+			},
+			"transfer": false,
+			"name": "Restrained",
+			"_id": "bzuMC0f5s1Q5kbyH",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"restrained"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/environment/wilderness/terrain-stone-stalagtite.webp",
+			"origin": "Item.gPYanyaMK4echNG8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PPkXoKCxpBLj85Lo"
+				}
+			},
+			"transfer": false,
+			"name": "Restrained",
+			"_id": "GKXXB0wFhWNDQeMZ",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"restrained"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "d2rdgekkqw652l0c"
+}

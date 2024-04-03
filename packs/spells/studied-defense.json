@@ -1,0 +1,135 @@
+{
+	"name": "Studied Defense",
+	"type": "spell",
+	"img": "icons/equipment/shield/heater-embossed-gold.webp",
+	"system": {
+		"actions": {
+			"vhWQH6Ie4WsCmGe6": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"cLfk5mSssIpGeSUf": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"fV6pHEr9IM0xFMoJ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Bl5C8JyCzCmMbFPz"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"ranges": {
+					"xlVyY7maxjWwP6Nd": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:</strong> Ranger class</em></p>\n<p>You draw upon your research of a specific class of enemy and ward yourself against their attacks.</p>\n<p>Until the spell ends, you gain a +2 bonus to AC against attacks made by your @UUID[Compendium.a5e.a5e-class-features.Item.t7ujv9cc4us40fj9]{Studied Adversary}. You also gain an expertise die on saving throws against effects your Studied Adversaries control.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric",
+			"herald",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Studied Adversary class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"divine",
+				"protection",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/equipment/shield/heater-embossed-gold.webp",
+			"origin": "Item.gWtdHV3PJhm3MKaM",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vhWQH6Ie4WsCmGe6",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Studied Defense",
+			"_id": "Bl5C8JyCzCmMbFPz",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain a +2 bonus to AC against attacks made by your Studied Adversaries. </p>\n<p>Gain anexpertise die on saving throws against effects your Studied Adversaries control.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "80os8qp2wb385wf0"
+}

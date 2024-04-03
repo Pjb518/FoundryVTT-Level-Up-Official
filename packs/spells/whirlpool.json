@@ -1,0 +1,144 @@
+{
+	"folder": null,
+	"name": "Whirlpool",
+	"type": "spell",
+	"img": "icons/magic/water/vortex-water-whirlpool.webp",
+	"system": {
+		"actions": {
+			"rmppn3cQEYP1JtHQ": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"OS9ImchBTIo6PlB7": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"bQJjtL1ldoocD7TM": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 30,
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": {
+							"radius": "10"
+						}
+					},
+					"placeTemplate": true
+				}
+			},
+			"15evfmeJTe82DDYG": {
+				"name": "Enter/Start Turn",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"qWfxcj1yUlzw2jOA": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "5d6",
+						"damageType": "bludgeoning",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"fQ00RWSShKxVj8Xv": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage, not pulled towards center"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You conjure a swirling flood of water. The water must be on the ground or in a body of water; if it is on the ground, it is collected in a 5-foot-deep pool. The area is difficult terrain, and any target that enters the area or starts its turn there must make a Strength saving throw, taking 5d6 bludgeoning damage and getting pulled 10 feet toward the center, taking half damage and not being pulled on a success.</p>\n<p>Boats can be pulled along by the current, and use the pilot&rsquo;s vehicle tool checks to resist the movement; boats do not take the damage.</p>\n<p><strong>Cast at Higher Levels.</strong> The area increases by 10 feet and the damage increases by 1d6 for every slot level above 5th.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid",
+			"elementalistWater"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 5,
+		"materials": "a folded paper boat",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"nature",
+				"terrain",
+				"water"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "fup5cgqyf5s9d5kb"
+}

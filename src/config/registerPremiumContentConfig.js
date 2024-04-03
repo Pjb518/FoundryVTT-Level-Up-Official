@@ -467,6 +467,12 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Paradigms of Skill',
       url: 'https://bit.ly/3TvtZRl'
     },
+    ridingParsnip: {
+      abbreviation: 'RP',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      url: 'https://bit.ly/3xh28Nk'
+    },
     secretsOfTheSelkies: {
       abbreviation: 'SotS',
       affiliate: true,

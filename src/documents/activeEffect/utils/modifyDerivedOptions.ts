@@ -13,10 +13,16 @@ export default function modifyDerivedOptions(options: Object) {
   Object.keys(CONFIG.A5E.movement)
     .forEach((m) => {
       options[`system.attributes.movement.${m}.unit`] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.distanceUnits), 'RADIO'];
+      options['flags.a5e.effects.movement.allDistances'] = [0, MODES.DEFAULT_MODES];
+      options['flags.a5e.effects.movement.allUnits'] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.distanceUnits), 'RADIO'];
     });
 
   Object.keys(CONFIG.A5E.senses)
     .forEach((s) => {
       options[`system.attributes.senses.${s}.unit`] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.visionUnits), 'RADIO'];
+      options['flags.a5e.effects.senses.allDistances'] = [0, MODES.DEFAULT_MODES];
+      options['flags.a5e.effects.senses.allUnits'] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.visionUnits), 'RADIO'];
     });
+
+  options['flags.a5e.deathSaveThreshold'] = [0, MODES.DEFAULT_MODES];
 }

@@ -111,9 +111,17 @@
             />
         {/if}
 
-        {#if document?.system?.details?.isSwarm}
+        {#if document?.system?.details?.isSquad}
             <i
                 class="a5e-item__icon fa-solid fa-people-group"
+                data-tooltip="Squad"
+                data-tooltip-direction="UP"
+            />
+        {/if}
+
+        {#if document?.system?.details?.isSwarm}
+            <i
+                class="a5e-item__icon fa-solid fa-locust"
                 data-tooltip="Swarm"
                 data-tooltip-direction="UP"
             />

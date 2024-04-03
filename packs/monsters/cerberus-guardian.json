@@ -38,7 +38,8 @@
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -84,7 +85,7 @@
 				"version": {
 					"schema": 0.013,
 					"foundry": "11.315",
-					"system": "0.17.17"
+					"system": "0.17.20"
 				}
 			}
 		},
@@ -483,7 +484,9 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"ruin"
+			]
 		},
 		"proficiencies": {
 			"armor": [],
@@ -556,8 +559,8 @@
 		},
 		"grants": {},
 		"spellBooks": {
-			"pLxJe8LqfUXaexc2": {
-				"_id": "pLxJe8LqfUXaexc2",
+			"f1c03eU8UQE6Es7P": {
+				"_id": "f1c03eU8UQE6Es7P",
 				"name": "New Spell Book",
 				"img": "icons/svg/book.svg",
 				"ability": "default",
@@ -717,7 +720,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -812,7 +815,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -907,7 +910,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1002,7 +1005,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1097,7 +1100,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1192,7 +1195,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1242,17 +1245,17 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1296,17 +1299,17 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1377,17 +1380,17 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1431,17 +1434,17 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1449,7 +1452,7 @@
 		},
 		{
 			"_id": "iOgMErwqZIlVlOPB",
-			"name": "Legendary Resistance (3/Day)",
+			"name": "Legendary Resistance",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -1467,15 +1470,40 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"qJFEgcqycZy5VDWD": {
+						"name": "Legendary Resistance",
+						"activation": {},
+						"consumers": {
+							"d4I59BRMSx9t25x7": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>When the guardian fails a&nbsp;<span class=\"freelinking-link\">saving throw</span>&nbsp;while it has at least two heads active, it can choose to succeed instead. When it does so, one of its heads becomes inactive until the end of its next turn.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
+					"value": 3,
+					"max": "3",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": 0
@@ -1485,17 +1513,17 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1523,7 +1551,7 @@
 				},
 				"actions": {},
 				"description": "<p>The dragon can take 3 legendary actions, choosing from the options below. Only one legendary action can be used at a time and only at the end of another creature's turn. It regains spent legendary actions at the start of its turn.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1539,17 +1567,17 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1631,17 +1659,17 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"_id": "xe1DdTHR7XAzxj1j",
 			"img": "icons/svg/item-bag.svg",
@@ -1722,17 +1750,17 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"_id": "vUX7IZsWAO4O10hk",
 			"img": "icons/svg/item-bag.svg",
@@ -1745,7 +1773,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Bronze Clangor (1/Round)",
+			"name": "Bronze Clangor",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1765,7 +1793,13 @@
 							"type": "legendaryAction",
 							"cost": 1
 						},
-						"consumers": {},
+						"consumers": {
+							"0SlemVQ4Lq7ZlEp7": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
 						"rolls": {
 							"aB0B1pqL8bqRgwbP": {
 								"type": "damage",
@@ -1786,9 +1820,9 @@
 							}
 						},
 						"uses": {
-							"value": 1,
-							"max": "1",
-							"per": "round",
+							"value": 0,
+							"max": "",
+							"per": "",
 							"recharge": {
 								"formula": "1d6",
 								"threshold": 6
@@ -1816,9 +1850,9 @@
 				"secretDescription": "",
 				"source": "[object Object]",
 				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
+					"value": 1,
+					"max": "1",
+					"per": "round",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
@@ -1828,17 +1862,17 @@
 				"featureType": "legendaryAction",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"_id": "Si1sZJD9hZd9fv7m",
 			"img": "icons/svg/item-bag.svg",
@@ -1851,7 +1885,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Iron Breath (1/Round)",
+			"name": "Iron Breath",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1871,7 +1905,13 @@
 							"type": "legendaryAction",
 							"cost": 1
 						},
-						"consumers": {},
+						"consumers": {
+							"yX0EwhotVEZDOUIN": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
 						"rolls": {
 							"aB0B1pqL8bqRgwbP": {
 								"type": "damage",
@@ -1892,9 +1932,9 @@
 							}
 						},
 						"uses": {
-							"value": 1,
-							"max": "1",
-							"per": "round",
+							"value": 0,
+							"max": "",
+							"per": "",
 							"recharge": {
 								"formula": "1d6",
 								"threshold": 6
@@ -1913,9 +1953,9 @@
 				"secretDescription": "",
 				"source": "[object Object]",
 				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
+					"value": 1,
+					"max": "1",
+					"per": "round",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
@@ -1925,17 +1965,17 @@
 				"featureType": "legendaryAction",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"_id": "XLczQwPlQQdf9N6l",
 			"img": "icons/svg/item-bag.svg",
@@ -1948,7 +1988,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Stone Howl (1/Round)",
+			"name": "Stone Howl",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1968,7 +2008,13 @@
 							"type": "legendaryAction",
 							"cost": 1
 						},
-						"consumers": {},
+						"consumers": {
+							"VzzMoL9lRFNO1lf5": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
 						"rolls": {},
 						"prompts": {
 							"ghiFeQO3mQvixu1E": {
@@ -2015,17 +2061,17 @@
 				"featureType": "legendaryAction",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"_id": "83JPZrwUQLrrYtc7",
 			"img": "icons/svg/item-bag.svg",
@@ -2069,17 +2115,17 @@
 				"featureType": "legendaryAction",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"_id": "93wQshoChBWWmIa2",
 			"img": "icons/svg/item-bag.svg",
@@ -2095,7 +2141,7 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": false,
+			"sheetIsLocked": true,
 			"sortMode": {},
 			"filters": {}
 		}

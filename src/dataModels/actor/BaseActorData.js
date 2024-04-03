@@ -43,7 +43,8 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
               expertiseDice: new fields.NumberField({
                 required: true, initial: 0, integer: true
               }),
-              bonus: new fields.StringField({ required: true, initial: '' })
+              bonus: new fields.StringField({ required: true, initial: '' }),
+              ...(abl === 'con' ? { concentrationBonus: new fields.StringField({ required: true, initial: '' }) } : {})
               // notes: new RecordField(
               //   new fields.DocumentIdField({
               //     required: true, initial: () => foundry.utils.randomID()

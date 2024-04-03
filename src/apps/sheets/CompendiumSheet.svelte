@@ -111,7 +111,13 @@
         filterSelections = store;
     });
 
-    $: constructReducerFilters(reducer, filterSelections, compendiumType);
+    $: filterCount = constructReducerFilters(
+        reducer,
+        filterSelections,
+        compendiumType,
+    );
+
+    $: console.log(filterCount);
 
     // On Destroy
     onDestroy(() => {
@@ -190,7 +196,9 @@
 
             <button
                 class="a5efc-filter-button"
-                class:a5efc-filter-button--active={tab === "filters"}
+                class:a5efc-filter-button--active={tab === "filters" ||
+                    filterCount.and ||
+                    filterCount.or}
                 data-tooltip={tab === "items"
                     ? "Open Filter Page"
                     : "Close Filter Page"}

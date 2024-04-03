@@ -368,24 +368,28 @@
                     />
                 {/if}
 
-                <button
-                    class="action-button fas"
-                    class:fa-heart={item.system.damagedState ===
-                        DAMAGED_STATES.INTACT}
-                    class:fa-heart-crack={item.system.damagedState ===
-                        DAMAGED_STATES.DAMAGED}
-                    class:fa-heart-pulse={item.system.damagedState ===
-                        DAMAGED_STATES.BROKEN}
-                    class:active={[
-                        DAMAGED_STATES.DAMAGED,
-                        DAMAGED_STATES.BROKEN,
-                    ].includes(item.system.damagedState)}
-                    data-tooltip={A5E.damagedStates[
-                        item.system.damagedState ?? 0
-                    ]}
-                    data-tooltip-direction="UP"
-                    on:click|stopPropagation={() => item.toggleDamagedState()}
-                />
+                <!-- svelte-ignore missing-declaration -->
+                {#if !game.settings.get("a5e", "hideBrokenAndDamaged")}
+                    <button
+                        class="action-button fas"
+                        class:fa-heart={item.system.damagedState ===
+                            DAMAGED_STATES.INTACT}
+                        class:fa-heart-crack={item.system.damagedState ===
+                            DAMAGED_STATES.DAMAGED}
+                        class:fa-heart-pulse={item.system.damagedState ===
+                            DAMAGED_STATES.BROKEN}
+                        class:active={[
+                            DAMAGED_STATES.DAMAGED,
+                            DAMAGED_STATES.BROKEN,
+                        ].includes(item.system.damagedState)}
+                        data-tooltip={A5E.damagedStates[
+                            item.system.damagedState ?? 0
+                        ]}
+                        data-tooltip-direction="UP"
+                        on:click|stopPropagation={() =>
+                            item.toggleDamagedState()}
+                    />
+                {/if}
             {/if}
 
             {#if item.type === "spell"}

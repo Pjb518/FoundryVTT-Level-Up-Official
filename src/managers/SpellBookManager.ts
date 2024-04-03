@@ -16,6 +16,10 @@ export default class SpellBookManager extends Map<string, SpellBook> {
         const spellBook = new SpellBook(data, { parent: this.actor });
         spellBook._id = id;
         this.set(id, spellBook);
+
+        // Make a reference to the spell book on the actor.
+        // TODO: Note: This might be unstable, needs further testing.
+        this.actor.system.spellBooks[id] = spellBook;
       });
   }
 

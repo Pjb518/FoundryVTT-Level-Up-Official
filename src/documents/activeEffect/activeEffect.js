@@ -475,6 +475,71 @@ export default class ActiveEffectA5e extends ActiveEffect {
   // -------------------------------------------------------
   //  Static Methods
   // -------------------------------------------------------
+  static generateExpandedEffects(applyObjects) {
+    const expandedApplyObjects = [];
+    const removalKeys = [];
+
+    applyObjects.forEach(({ change, effect }) => {
+      if (!CONFIG.A5E.EXPANDED_EFFECTS.has(change.key)) return;
+
+      if (change.key === 'flags.a5e.effects.movement.allDistances') {
+        const movementTypes = Object.keys(CONFIG.A5E.movement);
+        movementTypes.forEach((movementType) => {
+          const expandedChange = foundry.utils.deepClone(change);
+          expandedChange.key = `system.attributes.movement.${movementType}.distance`;
+          expandedApplyObjects.push({ effect, change: expandedChange });
+          removalKeys.push(change.key);
+        });
+      }
+
+      if (change.key === 'flags.a5e.effects.movements.allUnits') {
+        const movementTypes = Object.keys(CONFIG.A5E.movement);
+        movementTypes.forEach((movementType) => {
+          const expandedChange = foundry.utils.deepClone(change);
+          expandedChange.key = `system.attributes.movement.${movementType}.unit`;
+          expandedApplyObjects.push({ effect, change: expandedChange });
+          removalKeys.push(change.key);
+        });
+      }
+
+      if (change.key === 'flags.a5e.effects.senses.allSenses') {
+        const senses = Object.keys(CONFIG.A5E.senses);
+        senses.forEach((sense) => {
+          const expandedChange = foundry.utils.deepClone(change);
+          expandedChange.key = `system.attributes.senses.${sense}.value`;
+          expandedApplyObjects.push({ effect, change: expandedChange });
+          removalKeys.push(change.key);
+        });
+      }
+
+      if (change.key === 'flags.a5e.effects.senses.allUnits') {
+        const senses = Object.keys(CONFIG.A5E.senses);
+        senses.forEach((sense) => {
+          const expandedChange = foundry.utils.deepClone(change);
+          expandedChange.key = `system.attributes.senses.${sense}.unit`;
+          expandedApplyObjects.push({ effect, change: expandedChange });
+          removalKeys.push(change.key);
+        });
+      }
+
+      if (change.key === 'system.attributes.spellDC') {
+        const spellBookIds = Object.keys(effect.parent?.system?.spellBooks ?? {});
+        spellBookIds.forEach((spellBookId) => {
+          const expandedChange = foundry.utils.deepClone(change);
+          expandedChange.key = `system.spellBooks.${spellBookId}.stats.dc`;
+          expandedApplyObjects.push({ effect, change: expandedChange });
+        });
+      }
+    });
+
+    removalKeys.forEach((key) => {
+      const idx = applyObjects.findIndex((e) => e.change.key === key);
+      if (idx !== -1) applyObjects.splice(idx, 1);
+    });
+
+    applyObjects.push(...expandedApplyObjects);
+  }
+
   /**
    *
    * @param {} document
@@ -484,7 +549,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
   static applyEffects(document, effects, currentPhase, nextPhase, predicate = () => true) {
     const overrides = {};
 
-    // Get token data
+    // Get apply data
     const applyObjects = effects.flatMap((effect) => {
       if (effect.disabled || effect.isSuppressed) return [];
 
@@ -493,12 +558,15 @@ export default class ActiveEffectA5e extends ActiveEffect {
         effect.statuses.forEach((statusId) => document.statuses.add(statusId));
       }
 
-      return effect.changes.filter(predicate).map((change) => {
+      return effect._source.changes.filter(predicate).map((change) => {
         const originalPriority = (change.priority ?? 0) * change.mode;
         change.priority = originalPriority ?? change.mode * 10;
         return { effect, change };
       });
     });
+
+    // Add support for expanded effects
+    this.generateExpandedEffects(applyObjects);
 
     if (currentPhase === 'afterDerived') applyObjects.push(...document.effectPhases?.[currentPhase] ?? []);
     applyObjects.sort((a, b) => (a.change.priority ?? 0) - (b.change.priority ?? 0));

@@ -1,0 +1,141 @@
+{
+	"name": "Trailblaze",
+	"type": "spell",
+	"img": "icons/environment/wilderness/terrain-forest-gray.webp",
+	"system": {
+		"actions": {
+			"YPuGT8vnY7FEV1S0": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"WzWkKtunuqpFzV50": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"Du3jngHn2DZRV2DN": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ascvCcvSkY45ECJK"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 24
+				},
+				"ranges": {
+					"hddwjtIYRfvbvthz": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:</strong> Ranger class</em></p>\n<p>You cut a path for others to follow, easing the journey for those who come after you.</p>\n<p>Until the spell ends, you leave a magically-cleared trail behind you. While creating the trail neither you nor your companions can use the Cover Tracks activity. The trail must follow a single route; if you backtrack or cross over the path cleared by this spell before the spell ends, its effect is suppressed until you resume travel from its farthest tip.&nbsp;&nbsp;</p>\n<p>The magically cleared trail is 10 feet wide and made from packed soil, and it lasts indefinitely. Non-magical vegetation and hazards are cleared from the path. Subtle warding magic automatically disarms and dispels natural hazards with a save DC less than your spell save DC.&nbsp;</p>\n<p>Those who follow the trail cannot become lost except due to spell effects of 2nd-level and stronger. They also gain an expertise die on Survival checks made while journeying along the trail.&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"bard",
+			"druid",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Familiar Terrain class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "divination",
+			"secondary": [
+				"nature",
+				"movement",
+				"protection",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/environment/wilderness/terrain-forest-gray.webp",
+			"origin": "Item.BATmxwrluNb3s601",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "YPuGT8vnY7FEV1S0",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Trailblaze",
+			"_id": "ascvCcvSkY45ECJK",
+			"changes": [
+				{
+					"key": "system.skills.sur.expertiseDice",
+					"mode": 2,
+					"value": "1",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 1440,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "g6a2e7a15mkh6ua6"
+}

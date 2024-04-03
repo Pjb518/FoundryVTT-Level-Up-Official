@@ -37,7 +37,8 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -83,7 +84,7 @@
 				"version": {
 					"schema": 0.013,
 					"foundry": "11.315",
-					"system": "0.17.17"
+					"system": "0.17.20"
 				}
 			}
 		},
@@ -482,7 +483,10 @@
 			"elite": true,
 			"privateNotes": "",
 			"notes": "<p><strong>Source </strong>Dungeon Delver's Guide</p>\n<p><strong>Terrain</strong>&nbsp;Temple, Tomb</p>\n<hr>\n<p>The bonespawn follows its orders without imagination or deviation. When ordered to fight, it moves towards the closest enemy by the shortest available route, making no effort to avoid hazards.</p>\n<h3>DESCRIPTION</h3>\n<p>While most skeletons are the undead remains of a single corpse, mismatched and jumbled bones can be raised as bonespawn. Bonespawn lack the half-remembered battle instincts and the durability of true skeletons, but they are deadly in large numbers.</p>\n<p>With the ability to rearrange limbs as they like, it&rsquo;s no surprise that necromancers hit upon a simple way to increase their skeletons&rsquo; deadliness: add more arms. Four-armed skeletons weave their weapons in glittering offensive and defensive displays that can overwhelm lone opponents.</p>\n<h3>MONSTER TYPE DESCRIPTION</h3>\n<p>Undead are supernatural creatures or spirits that are no longer alive but are still animate. Some have been reanimated by magic spells, such as skeletons . Others, like vampires , are the products of an evil ritual or curse.</p>",
-			"terrain": []
+			"terrain": [
+				"temple",
+				"tomb"
+			]
 		},
 		"proficiencies": {
 			"armor": [],
@@ -554,8 +558,8 @@
 		},
 		"grants": {},
 		"spellBooks": {
-			"QDp5K5wbGveHMWfb": {
-				"_id": "QDp5K5wbGveHMWfb",
+			"J0QdYOusTIni7ujl": {
+				"_id": "J0QdYOusTIni7ujl",
 				"name": "New Spell Book",
 				"img": "icons/svg/book.svg",
 				"ability": "default",
@@ -715,7 +719,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -810,7 +814,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -905,7 +909,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1000,7 +1004,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1095,7 +1099,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1190,7 +1194,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1323,7 +1327,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1444,7 +1448,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1488,17 +1492,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"_id": "9g6Lgi4Zm6uNy2pG",
 			"img": "icons/commodities/bones/bones-stack-tan.webp",
@@ -1542,17 +1546,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"_id": "OrzkPdYeXl1S2AfF",
 			"img": "icons/commodities/bones/bone-joint-tan.webp",
@@ -1596,17 +1600,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"_id": "n84Mh9GrOZGuVmYb",
 			"img": "icons/magic/symbols/cog-shield-white-blue.webp",
@@ -1656,17 +1660,17 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1734,7 +1738,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}

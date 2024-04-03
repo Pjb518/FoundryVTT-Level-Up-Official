@@ -1,0 +1,141 @@
+{
+	"name": "Dimensional Rend",
+	"type": "spell",
+	"img": "icons/magic/movement/abstract-ribbons-red-orange.webp",
+	"system": {
+		"actions": {
+			"1yM9C79kluXTpZXM": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"mHREbSURdpbD3jgW": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"area": {
+					"shape": "cube",
+					"quantity": 1,
+					"width": 40,
+					"placeTemplate": true
+				},
+				"ranges": {
+					"jKuDUTwxx9PpUkp9": {
+						"range": "self"
+					}
+				}
+			},
+			"X5bHx9WOqz1lRmWN": {
+				"name": "Melee Weapon Attack",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"OYjy17tfFqxiUilC": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"2nIwo3On4Ib2e5sj": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d8",
+						"damageType": "force",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>A single stroke of your weapon splits time, space, and the foes before you. Make a melee weapon attack against each creature in the area (even if they are outside your weapons normal range). Instead of dealing the normal damage, creatures you hit take 3d8 force damage, and creatures you miss take half that much damage.</p>\n<p>You then teleport to an unoccupied space you can see within or adjacent to the cube.</p>\n<p><strong><em>Cast At Higher Levels</em>:</strong> the damage increases by 1d8 for each slot level above 3rd.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"warlock",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 3,
+		"materials": "A droplet of sweat",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"force",
+				"planar",
+				"teleportation",
+				"weaponry"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {
+		"a5e": {
+			"placeTemplate": true
+		}
+	},
+	"folder": null,
+	"_id": "oloy0v2fh20s8y8g"
+}

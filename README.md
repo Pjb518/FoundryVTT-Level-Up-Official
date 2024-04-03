@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/Software_License-MIT-blue.svg)](https://mit-license.org/)
 [![License: CC BY 4.0](https://img.shields.io/badge/Content_License-CC_BY_4.0-blue.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![License: OGL 1.0a](https://img.shields.io/badge/Content_License-OGL_1.0a-blue.svg)](https://opengamingfoundation.org/ogl.html)
+[![License: OGL 1.0a](https://img.shields.io/badge/Content_License-ORC-blue.svg)](https://paizo.com/orclicense)
 
 ![Supported Foundry Versions](https://img.shields.io/endpoint?url=https://foundryshields.com/version?url=https://github.com/Pjb518/FoundryVTT-Level-Up-Official/releases/latest/download/system.json&color=blue)
 ![Latest Release Download Count](https://img.shields.io/github/downloads/Pjb518/FoundryVTT-Level-Up-Official/latest/a5e.zip)
@@ -91,7 +92,7 @@ If you've developed a module for the Level Up system and would like it listed he
 This system is offered and may be used under the terms of the Open Game License v1.0a and the accompanying
 Level Up: Advanced 5th Edition [Systems Reference Document](https://www.levelup5e.com/system-reference-document).
 
-The content of the `public/packs/dnd5e-*` directories is sourced from the [Dungeons and Dragons SRD 5.1](https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf), licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0). Documents that have a source property of `strangerSights` are used with special permission from the author: Sarah Breyfogle (DM Sarah). The remaining content contained in the `public/packs/` directories is used under the terms of the [Open Game License v1.0a](https://opengamingfoundation.org/ogl.html). A copy of the license can be found in the `LICENSE-OGL.md` document.
+The content of the `public/packs/dnd5e-*` directories is sourced from the [Dungeons and Dragons SRD 5.1](https://media.wizards.com/2023/downloads/dnd/SRD_CC_v5.1.pdf), licensed under [CC-BY-4.0](https://creativecommons.org/licenses/by/4.0). Documents that have a source property of `strangerSights` are used with special permission from the author: Sarah Breyfogle (DM Sarah). Documents that have a source property of `ridingParsnip` are license under [ORC](https://paizo.com/orclicense). The remaining content contained in the `public/packs/` directories is used under the terms of the [Open Game License v1.0a](https://opengamingfoundation.org/ogl.html). A copy of the license can be found in the `LICENSE-OGL.md` document.
 
 Various icons are in the `public/assets/icons` directory are sourced from [game-icons.net](https://www.game-icons.net) and are licensed under [CC-BY-3.0](https://creativecommons.org/licenses/by/3.0). Attributions and license details are provided in the `LICENSE.md` file in that directory.
 

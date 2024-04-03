@@ -73,4 +73,12 @@ export default function registerActiveEffectConfig(A5E) {
     minutes: 'A5E.effects.durationUnits.plural.minutes',
     hours: 'A5E.effects.durationUnits.plural.hours'
   };
+
+  A5E.EXPANDED_EFFECTS = new Set([
+    'system.attributes.spellDC',
+    'flags.a5e.effects.movement.allDistances',
+    'flags.a5e.effects.movement.allUnits',
+    'flags.a5e.effects.senses.allSenses',
+    'flags.a5e.effects.senses.allUnits'
+  ]);
 }

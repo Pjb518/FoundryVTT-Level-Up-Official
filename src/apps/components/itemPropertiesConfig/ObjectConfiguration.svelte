@@ -205,17 +205,20 @@
             />
         </FieldWrapper>
 
-        <RadioGroup
-            heading="A5E.ItemCondition"
-            options={Object.entries(A5E.damagedStates)}
-            selected={$item.system.damagedState}
-            on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.damagedState",
-                    parseInt(detail, 10),
-                )}
-        />
+        <!-- svelte-ignore missing-declaration -->
+        {#if !game.settings.get("a5e", "hideBrokenAndDamaged")}
+            <RadioGroup
+                heading="A5E.ItemCondition"
+                options={Object.entries(A5E.damagedStates)}
+                selected={$item.system.damagedState}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.damagedState",
+                        parseInt(detail, 10),
+                    )}
+            />
+        {/if}
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">

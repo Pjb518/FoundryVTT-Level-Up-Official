@@ -1,0 +1,143 @@
+{
+	"name": "Protective Command",
+	"type": "spell",
+	"img": "icons/skills/melee/shield-block-gray-yellow.webp",
+	"system": {
+		"actions": {
+			"ukVfg7xUjgYuhSm8": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"XGfdVmMjugXBq3dJ": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"fIMT8OYkp61OPMg4": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Zq0ICP57QuAuWkNZ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"BE9nhCqABiqC0Bm5": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:&nbsp;</strong>Marshal class</em></p>\n<p>You can keep your allies&rsquo; guard up, even as you direct their attacks.&nbsp;While this spell is active, whenever you use your&nbsp;@UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} feature, when the affected creature attacks, it gains a bonus to its armor class equal to half your proficiency bonus until the beginning of its next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric",
+			"herald",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Commanding Presence class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"attack",
+				"arcane",
+				"protection",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/skills/melee/shield-block-gray-yellow.webp",
+			"origin": "Item.OK6iJESDWVR2o5lH",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ukVfg7xUjgYuhSm8",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Increased AC",
+			"_id": "Zq0ICP57QuAuWkNZ",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "@prof/2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "q1q8ty6qjtg5gsqm"
+}

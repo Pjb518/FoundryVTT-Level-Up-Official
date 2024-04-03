@@ -1,0 +1,105 @@
+{
+	"name": "Elemental Rebound",
+	"type": "spell",
+	"img": "icons/magic/fire/explosion-flame-blue.webp",
+	"system": {
+		"actions": {
+			"K5NFQHyU9chD0FmS": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Subject to acid, cold, fire, lightning, or thunder damage."
+				},
+				"consumers": {
+					"6QYpvlysHVGlTqoZ": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"zaQcyKSM2CwOyZmo": {
+						"type": "generic",
+						"default": true,
+						"label": "Elemental Damage",
+						"formula": "1d6"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"ranges": {
+					"ZHQREZVPcBo0xoQR": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p>You redirect and reflect a portion of incoming elemental energy. You gain resistance to the damage type that triggered this spell, which applies against the incoming damage. The next time you deal damage before this spell ends, one of your targets takes 1d6 damage of the triggering type. Dealing this extra damage ends the spell early.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"artificer",
+			"druid",
+			"sorcerer",
+			"warlock",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"arcane",
+				"attack",
+				"nature",
+				"protection"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "rr50rollubl7627a"
+}

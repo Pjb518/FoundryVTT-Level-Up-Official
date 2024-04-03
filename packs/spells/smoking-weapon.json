@@ -1,0 +1,136 @@
+{
+	"name": "Smoking Weapon",
+	"type": "spell",
+	"img": "icons/skills/melee/strike-weapons-orange.webp",
+	"system": {
+		"actions": {
+			"tcYNxDN78uzh191Q": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"ehUeAQnjDp2OzFEw": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "fire",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"pyKbn7B4ACCp1hwG": {
+						"type": "effect",
+						"default": true,
+						"effectId": "4Y60cAw4Ywa0e6Zc"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"zUSrNL8eY1ruKKTb": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p>You imbue your weapon with smoldering fury, searing your foes and hiding behind a veil of soot.</p>\n<p>As part of the action to cast this spell, make an attack with your melee weapon. If you hit with the weapon attack it deals normal weapon damage, plus additional 1d6 fire damage and you are lightly obscured by smoke until the beginning of your next turn.</p>\n<p>At 5th level, the target takes an additional 2d6 fire damage on a hit. This increases to 3d6 at level 11 and 4d6 at level 17.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 0,
+		"materials": "a melee weapon",
+		"materialsConsumed": false,
+		"prepared": 1,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"fire",
+				"weaponry"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/skills/melee/strike-weapons-orange.webp",
+			"origin": "Item.gNisvEjxvRzQzOJg",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "tcYNxDN78uzh191Q",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lightly Obscured",
+			"_id": "4Y60cAw4Ywa0e6Zc",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "yp1ihjdlz89lr56w"
+}

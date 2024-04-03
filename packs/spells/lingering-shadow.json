@@ -1,0 +1,183 @@
+{
+	"name": "Lingering Shadow",
+	"type": "spell",
+	"img": "icons/magic/control/silhouette-hold-change-blue.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/control/silhouette-hold-change-blue.webp",
+			"origin": "Item.rc88Ukb09Libs5Wv",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "m4G5oiA0mRYvbJoB",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Invisible",
+			"_id": "C8FIILRoSRLjPnkD",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"invisible"
+			],
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"actions": {
+			"m4G5oiA0mRYvbJoB": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"yPSidaFLSbFSFOyC": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"C2qgvEXjPr6eFSkx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "C8FIILRoSRLjPnkD"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"ranges": {
+					"3ruIg5UwVuW2qiW3": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"MBvBGm282uHdIoPP": {
+				"name": "Mimic Movements",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Affected creature’s turn"
+				},
+				"consumers": {},
+				"rolls": {
+					"hAELWZdOFxqUdMYc": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "ste",
+						"ability": "dex",
+						"label": "Stealth"
+					},
+					"NTe5PHuIi3ByGrkm": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "dec",
+						"ability": "dex",
+						"label": "Deception"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You transform into the target's shadow. You enter the creature's space, and become invisible until the spell ends. Casting this spell and entering the creature's space does not cause it to notice you, but you must make a Dexterity (Stealth) or Dexterity (Deception) check as a reaction on the affected creature’s turn to mimic their movements and remain unnoticed. The creature and any creatures friendly to it within 5 feet of its location oppose your Stealth check with their passive Perception scores, but can take the Search action to look for you if they have reason to suspect your presence. You make your checks to remain unnoticed with advantage in dim light and automatically succeed in darkness or magical darkness.&nbsp;&nbsp;</p><p>Anything you wear or carry is invisible as long as it is on your person. As long as the spell lasts, you may automatically move with the creature to remain in its space, and effects that teleport the creature teleport you along with it.</p><p>The spell ends if the creature moves in a way you cannot follow (such as flying or swimming a considerable distance) or if you attack, cast a spell, leave the creature's space, or become noticed by any non-friendly creature.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"bard",
+			"warlock"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 3,
+		"materials": "scrap of silk",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "illusion",
+			"secondary": [
+				"arcane",
+				"obscurement",
+				"shadow"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"_id": "6k58rlk6eke4rj7n"
+}

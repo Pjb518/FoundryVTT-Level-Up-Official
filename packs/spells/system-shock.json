@@ -1,0 +1,211 @@
+{
+	"folder": null,
+	"name": "System Shock",
+	"type": "spell",
+	"img": "icons/magic/lightning/bolt-strike-creature-pink.webp",
+	"system": {
+		"actions": {
+			"K8MhU5us14h78Uzf": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"QhClygpwmA2pYCJY": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6
+					}
+				},
+				"rolls": {
+					"Fo2oGtZmDRe8eoDp": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d8",
+						"damageType": "lightning",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"8se1DM0z6Z74opG0": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "half damage, rattled instead of paralyzed"
+					},
+					"hc0bBYs1wejq7tr7": {
+						"type": "effect",
+						"default": true,
+						"effectId": "DwUz53I4OuPKjXUm"
+					},
+					"0EndLzidX20tat6T": {
+						"type": "effect",
+						"default": true,
+						"effectId": "q60AeGOFSMyjXhLB"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"ranges": {
+					"fd2CSczD236hn3fK": {
+						"range": "long"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>You strike a target you can see within range with an arc of lightning that disrupts its nervous system. The target takes 4d8 lightning damage and is paralyzed for 1 round. On a successful Constitution save it takes half damage and is rattled rather than paralyzed.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"artificer",
+			"druid",
+			"elementalistAir",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 4,
+		"materials": "a piece of lodestone",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"affliction",
+				"arcane",
+				"lightning",
+				"nature"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/lightning/bolt-strike-creature-pink.webp",
+			"origin": "Item.8zv3snmSm8Y95eeX",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "K8MhU5us14h78Uzf",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Paralyzed",
+			"_id": "DwUz53I4OuPKjXUm",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"paralyzed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"paralyzed"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/lightning/bolt-strike-creature-pink.webp",
+			"origin": "Item.8zv3snmSm8Y95eeX",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "K8MhU5us14h78Uzf",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"_id": "q60AeGOFSMyjXhLB",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "khlohmxjpspq59ug"
+}

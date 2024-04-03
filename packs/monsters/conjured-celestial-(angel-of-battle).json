@@ -38,7 +38,8 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -84,7 +85,7 @@
 				"version": {
 					"schema": 0.013,
 					"foundry": "11.315",
-					"system": "0.17.17"
+					"system": "0.17.20"
 				}
 			}
 		},
@@ -483,7 +484,10 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"astralPlane",
+				"etherealPlane"
+			]
 		},
 		"proficiencies": {
 			"armor": [],
@@ -557,8 +561,8 @@
 		},
 		"grants": {},
 		"spellBooks": {
-			"oV20P0puekBt6zYB": {
-				"_id": "oV20P0puekBt6zYB",
+			"kWESqvfwJwFCln6x": {
+				"_id": "kWESqvfwJwFCln6x",
 				"name": "New Spell Book",
 				"img": "icons/svg/book.svg",
 				"ability": "default",
@@ -591,7 +595,7 @@
 		"disposition": 0,
 		"displayBars": 30,
 		"bar1": {
-			"attribute": "attributes.hp.value"
+			"attribute": "attributes.hp"
 		},
 		"bar2": {
 			"attribute": null
@@ -719,7 +723,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -809,7 +813,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -908,7 +912,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -998,7 +1002,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1088,7 +1092,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1187,7 +1191,7 @@
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
 				}
@@ -1237,17 +1241,17 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1362,17 +1366,17 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"ownership": {
 				"default": 0
@@ -1452,17 +1456,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"_id": "iZELtIKElMX4ryWj",
 			"img": "icons/svg/item-bag.svg",
@@ -1506,17 +1510,17 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
 						"version": {
 							"schema": 0.013,
 							"foundry": "11.315",
-							"system": "0.17.17"
+							"system": "0.17.20"
 						}
 					}
-				},
-				"requiresBlooded": false
+				}
 			},
 			"_id": "XYCULkeh1wIqFRq1",
 			"img": "icons/svg/item-bag.svg",
@@ -1544,7 +1548,7 @@
 					"key": "system.details.cr",
 					"value": "2",
 					"mode": 6,
-					"priority": 50
+					"priority": 3918208204800
 				}
 			],
 			"disabled": false,
@@ -1714,7 +1718,7 @@
 					"key": "flags.a5e.effects.bonuses.attacks",
 					"value": "{\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"]},\"formula\":\"0\",\"label\":\"Melee Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
 					"mode": 0,
-					"priority": 50
+					"priority": 0
 				}
 			],
 			"disabled": false,

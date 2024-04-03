@@ -1,0 +1,156 @@
+{
+	"name": "Celestial Armory",
+	"type": "spell",
+	"img": "icons/weapons/swords/sword-gold-holy.webp",
+	"system": {
+		"actions": {
+			"ncnppERA0CMT0Eu7": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"VDH1t2sV96sL9Vb5": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7
+					}
+				},
+				"rolls": {
+					"km26hycLSSsQFdul": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"eamOXoRWZYcgAvNL": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d12 + @spellcasting.mod",
+						"damageType": "force",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d12"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"0N3EvtF03q1BVrly": {
+						"range": "short"
+					}
+				}
+			},
+			"dR5sggZCPi0kbkTy": {
+				"name": "Attack",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"1sbSBQNrqPeNpFUn": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"YjM9Jkq5HXbyBLBo": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d12 + @spellcasting.mod",
+						"damageType": "force",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d12"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"udT6GM24OlaKwEJS": {
+						"range": "short"
+					}
+				}
+			}
+		},
+		"description": "<p>You reach through a portal to a demiplane of infinite weaponry, and the armaments you pull arc forth like shooting stars. When you cast this spell, make a ranged spell attack against a creature within 30 feet. This attack produces a melee weapon of your choice made of magical energy from that dimension which hurtles at the target. On a hit, the target takes force damage equal to 1d12 + your spellcasting ability modifier.</p>\n<p>Until this spell ends, you can repeat this attack as a bonus action. Each weapon produced is considered an artifact for the purpose of bypassing various magical defenses. Weapons produced by this spell disappear after hitting or missing their target.</p>\n<p><strong>Cast At Higher Levels.</strong>&nbsp;If you cast this spell using a spell slot of 6th-level or higher, the damage increases by 1d12 for each slot level above 5th.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric",
+			"herald"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 5,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"divine",
+				"force",
+				"weaponry"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "mfh48gs70231lqdd"
+}

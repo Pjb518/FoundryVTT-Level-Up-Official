@@ -1,0 +1,207 @@
+{
+	"folder": null,
+	"name": "Blistering Burn",
+	"type": "spell",
+	"img": "icons/magic/fire/flame-burning-creature-skeleton.webp",
+	"system": {
+		"actions": {
+			"tQe8eOmTYD7Mqkt3": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"acljpkZNFVzQesFH": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {
+					"q8dZ8H0RjK740JkB": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d8",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {
+					"6EyfXmOhn00gwU2w": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "",
+						"onSave": "half damage & not burned"
+					},
+					"iYAtusuBeEfhOeK0": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Tv2Zwxf6TyVhyqll"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"28Qlu5yBgvXxENVv": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"EY2jbnIZzBkEejzc": {
+				"name": "On Taking an Action or Damage",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"JigFkZXjG3rTjgR7": {
+						"type": "damage",
+						"default": true,
+						"label": "",
+						"formula": "1d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"28Qlu5yBgvXxENVv": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>You sear a creature with heat, dealing 2d8 fire damage inflicting it with painful burns (half damage and no burns on a successful saving throw). A burned creature suffers disadvantage on any Strength or Dexterity checks it makes. Whenever it takes an action, or takes damage, it takes an additional 1d6 fire damage. A burned creature makes an additional saving throw at the end of each of its turns, ending the spell on a success.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid",
+			"elementalistFire",
+			"sorcerer",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 2,
+		"materials": "dried leaves",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"fire",
+				"nature"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/fire/flame-burning-creature-skeleton.webp",
+			"origin": "Item.WpFnHorbyyzjsrGd",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "tQe8eOmTYD7Mqkt3",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Burned",
+			"_id": "Tv2Zwxf6TyVhyqll",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "tze4jskf09j9botc"
+}

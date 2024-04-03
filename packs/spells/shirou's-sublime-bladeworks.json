@@ -1,0 +1,129 @@
+{
+	"name": "Shirou's Sublime Bladeworks",
+	"type": "spell",
+	"img": "icons/magic/light/swords-light-glowing-white.webp",
+	"system": {
+		"actions": {
+			"zMiMrQtKzOVJdyGd": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"oW6evZY1XuMbCnlo": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7
+					}
+				},
+				"rolls": {
+					"I4iZSxJaE00reNtA": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeSpellAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"zqnMGiYJSBKCdAUs": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d12 + @spellcasting.mod",
+						"damageType": "force"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"NyhlxpodOUZJsdSw": {
+						"range": "fiveFeet"
+					}
+				}
+			},
+			"0JOvSx10PsE6dzmA": {
+				"name": "Retrieve Weapon",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You reach through a portal to a demiplane of infinite weaponry, and the armaments you pull arc forth like shooting stars. When you cast this spell, make a ranged spell attack against a creature within 30 feet. This attack produces a melee weapon of your choice made of magical energy from that dimension which hurtles at the target. On a hit, the target takes force damage equal to 1d12 + your spellcasting ability modifier.</p><p>Until this spell ends, you can repeat this attack as a bonus action. Each weapon produced is considered an artifact for the purpose of bypassing various magical defenses. Weapons produced by this spell disappear after hitting or missing their target.</p><p><strong>Cast At Higher Levels</strong>: If you cast this spell using a spell slot of 6th-level or higher, the damage increases by 1d12 for each slot level above 5th.</p><hr class=\"a5e-rule u-my-md\"><p><strong><em>Shirou's Sublime Bladeworks.</em></strong> Instead of flinging a weapon at a target, you may instead wield it as a melee weapon. Attacking with this weapon is a melee spell attack that deals 1d12 force damage + your Spellcasting ability modifier. It has a range of 5 feet and cannot be disarmed. You can make one attack with the weapon in the same bonus action you pull it forth. You may wield two such weapons at once, but retrieving each requires a separate bonus action. A weapon wielded by you in this way exists until you let go of it, or until the spell ends.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric",
+			"herald"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 5,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"divine",
+				"force",
+				"weaponry"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "dz029i0wrn8tnnvu"
+}

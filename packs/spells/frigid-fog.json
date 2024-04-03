@@ -1,0 +1,146 @@
+{
+	"folder": null,
+	"name": "Frigid Fog",
+	"type": "spell",
+	"img": "icons/magic/nature/tree-spirit-black.webp",
+	"system": {
+		"actions": {
+			"CB3qZCkU9pna30Ip": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"Nyn7PfG7N5OWRmrq": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"ranges": {
+					"5RNljiSVrv6JfbBe": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 20,
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": {
+							"radius": "5"
+						}
+					},
+					"placeTemplate": true
+				}
+			},
+			"CkzONhDpt7ZQv5q7": {
+				"name": "Enter/End Turn",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"7lnCKX3G83Vbxyu9": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d6",
+						"canCrit": false,
+						"damageType": "cold",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"ZWmezJm4QaOQWCxt": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You create a heavily obscured area of freezing fog. The fog spreads around corners and can be dispersed by a moderate wind (at least 10 miles per hour). Creatures that enter the area or end their turns within it take 3d6 cold damage unless they succeed on a successful Constitution saving throw.</p>\n<p><strong>Cast at Higher Levels.</strong> The spell&rsquo;s area increases by 5 feet and the cold damage increases by 1d6 for every slot level above 3rd.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid",
+			"elementalistWater",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 3,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"arcane",
+				"cold",
+				"obscurement",
+				"weather"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "ksw12na4z18vcl17"
+}

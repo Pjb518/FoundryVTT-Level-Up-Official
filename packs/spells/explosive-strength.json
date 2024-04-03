@@ -1,0 +1,164 @@
+{
+	"name": "Explosive Strength",
+	"type": "spell",
+	"img": "icons/magic/fire/barrier-shield-explosion-yellow.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/fire/barrier-shield-explosion-yellow.webp",
+			"origin": "Item.l7jSLNCT6ylXUCtn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "KjZn7zdPzoU4bGEr"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"_id": "1UMxQAEJ2CW4R8PH",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"actions": {
+			"KjZn7zdPzoU4bGEr": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"wEXFKq00bivAQjRj": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5
+					}
+				},
+				"rolls": {
+					"IlQT8XdtSQpw85vQ": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "5d6",
+						"damageType": "force",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"N43Ds3GYfeoIRMEq": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage, pushedonly 10 feet, not prone"
+					},
+					"ZptvTha3OkUIRij4": {
+						"type": "effect",
+						"default": true,
+						"effectId": "1UMxQAEJ2CW4R8PH"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"ninmbqut1yH4g6sm": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 20,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>With a roar, your display of sheer strength blows away nearby creatures. Creatures in the area other than you must make a Strength saving throw. On a failed saving throw, a creature takes 8d6 force damage, and is pushed 20 feet and knocked prone. On a success, a creature takes half as much damage, is pushed only 10 feet, and is not knocked prone.</p><p><strong>Cast At Higher Levels.</strong> If you cast this spell using a spell slot of 4th-level or higher, the damage increases by 1d6 for each slot level above 3rd.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"herald",
+			"wielder"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 3,
+		"materials": "A droplet of sweat",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"unarmed",
+				"transformation",
+				"enhancement"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"_id": "pkcsy9v878nxchuu"
+}

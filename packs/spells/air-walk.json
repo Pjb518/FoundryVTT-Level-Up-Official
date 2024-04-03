@@ -1,0 +1,103 @@
+{
+	"folder": null,
+	"name": "Air Walk",
+	"type": "spell",
+	"img": "icons/magic/control/debuff-energy-snare-blue.webp",
+	"system": {
+		"actions": {
+			"LmBbwCgVWRkJLYDn": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"z0E9uJwXJo9Smk5p": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"ranges": {
+					"0JRR4dfXc1qeluq0": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
+				}
+			}
+		},
+		"description": "<p>Until the spell ends, the target can walk on air as if it were solid ground. The target can move upward or downward at a maximum angle of 45 degrees, at half its speed upwards (like walking up a steep hill) or twice its speed downward.</p>\n<p>A strong wind can push the target. At the end of each of the target&rsquo;s turn, the target is pushed 5 feet for each 5 miles per hour of wind speed. Especially violent or turbulent winds are considered difficult terrain. When the duration ends, the target falls as if affected by a @UUID[Compendium.a5e.a5e-spells.Item.ak4r2o5c5mrme5vk]{Feather Fall} spell.</p>\n<p>You can train a mount to be ridden through the air with castings of this spell. It requires daily casting and training, with one week of work and a DC 20 Animal Handling check. Retries are allowed, but require additional time and work.</p>\n<p><strong>Cast at Higher Levels.</strong> Target one additional creature for each slot level above 5th.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric",
+			"druid",
+			"elementalistAir",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 5,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"air",
+				"divine",
+				"movement",
+				"nature"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "e7845xnpghtmxcpy"
+}

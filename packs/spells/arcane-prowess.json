@@ -1,0 +1,135 @@
+{
+	"name": "Arcane Prowess",
+	"type": "spell",
+	"img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+	"system": {
+		"actions": {
+			"DuUEC17jOL9R6WMg": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"rfCXglp2L0FtJ5JZ": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"h79Jf7d02wEJTrVd": {
+						"type": "effect",
+						"default": true,
+						"effectId": "DoSa5lJ7K4wIKsGm"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"56NMj5b45frdupXC": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:</strong> Fighter class<br></em></p>\n<p>You can use magic to enhance the skill of your combat techniques.</p>\n<p>Until the spell ends, the DC of maneuvers you spend exertion on increases by an amount equal to half your proficiency bonus.&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Fighting Style class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"attack",
+				"arcane",
+				"weaponry",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+			"origin": "Item.9qlB5AsvbO8GKOkt",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "DuUEC17jOL9R6WMg",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Arcane Prowess",
+			"_id": "DoSa5lJ7K4wIKsGm",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The DC of maneuvers you spend exertion on increases by an amount equal to half your proficiency bonus.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "rs53z2h2pn1ruwwe"
+}

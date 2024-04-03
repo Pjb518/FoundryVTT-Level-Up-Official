@@ -87,6 +87,20 @@
 
     {#if type === "creatureTypes"}
         <FieldWrapper>
+            {#if $actor.type === "npc"}
+                <Checkbox
+                    label="Squad"
+                    checked={$actor.system.details.isSquad}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $actor,
+                            "system.details.isSquad",
+                            detail,
+                        );
+                    }}
+                />
+            {/if}
+
             <Checkbox
                 label="A5E.CreatureSwarm"
                 checked={$actor.system.details.isSwarm}

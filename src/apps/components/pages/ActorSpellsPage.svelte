@@ -29,6 +29,8 @@
         } else {
             currentSpellBook = currentSpellBook; // This is stupid, but it works
         }
+
+        configureSpellbook(newSpellBookId);
     }
 
     async function configureSpellbook(spellBookId) {
@@ -261,6 +263,8 @@
         display: flex;
         flex-wrap: wrap;
         gap: 0.375rem;
+        font-size: var(--a5e-text-size-sm);
+        font-family: var(--a5e-font-serif);
         margin: 0;
         padding: 0;
         list-style: none;
@@ -272,7 +276,9 @@
             gap: 0.75rem;
             width: fit-content;
             margin: 0;
-            padding: 0.375rem 0.75rem;
+            padding: 0.25rem 0.5rem;
+            font-size: inherit;
+            font-family: inherit;
             line-height: 1;
             background: rgba(0 0 0 / 0.05);
             border: 1px solid #ccc;
@@ -291,6 +297,8 @@
 
             &--add {
                 min-width: 2rem;
+                font-size: var(--a5e-text-size-md);
+                font-family: "Font Awesome Pro 6";
             }
         }
     }

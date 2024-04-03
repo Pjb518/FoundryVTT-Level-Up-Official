@@ -1,0 +1,469 @@
+{
+	"name": "Bestow Lesser Curse",
+	"type": "spell",
+	"img": "icons/magic/unholy/hand-marked-pink.webp",
+	"system": {
+		"actions": {
+			"Vus1OnEgGL04OuML": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"ivzyd2cnBOFn39kB": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"CnMOWyCPBLYKKddk": {
+						"type": "effect",
+						"default": true,
+						"effectId": "WGgZwBOR9seuMS3b"
+					},
+					"xrzX2XiXnYOIxSFo": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ACVEgWrYYZ5vOLQ9"
+					},
+					"xsxsOra5ULeRGnzL": {
+						"type": "generic",
+						"default": false,
+						"label": "Additonal Necrotic Damage",
+						"formula": "1d4"
+					},
+					"mZZ3FsbtzJEJ4rcR": {
+						"type": "generic",
+						"default": false,
+						"label": "Break A Nail",
+						"formula": "1"
+					},
+					"lm80VT6m4YKZyDXK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "p02ubz96j5uKxlmh"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"HmJz04cBCIw6dNov": {
+						"range": "medium"
+					}
+				}
+			},
+			"h3mpXJfMTEPDm1vr": {
+				"name": "Cast Spell (Ritual)",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"CnMOWyCPBLYKKddk": {
+						"type": "effect",
+						"default": true,
+						"effectId": "h7cZ2JHhuWMB3tw7"
+					},
+					"xrzX2XiXnYOIxSFo": {
+						"type": "effect",
+						"default": true,
+						"effectId": "jT7IlydKFfOGWqZy"
+					},
+					"xsxsOra5ULeRGnzL": {
+						"type": "generic",
+						"default": false,
+						"label": "Additonal Necrotic Damage",
+						"formula": "1d4"
+					},
+					"mZZ3FsbtzJEJ4rcR": {
+						"type": "generic",
+						"default": false,
+						"label": "Break A Nail",
+						"formula": "1"
+					},
+					"lm80VT6m4YKZyDXK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "qRU1aSG5zHYfSPkR"
+					},
+					"ma8ZhDKviUJzOs1I": {
+						"type": "effect",
+						"default": true,
+						"effectId": "BEfT7JXoHVN9igqv"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {}
+			}
+		},
+		"description": "<p>You place a lesser curse on a creature you can see within range <strong>(no save).</strong> You choose one effect from the following:</p><ul><li><p>The target is rattled.</p></li><li><p>The target’s speed is reduced by 5 feet.</p></li><li><p>When you deal damage against the target, it takes an additional 1d4 necrotic damage.</p></li><li><p>Each time the target fails a saving throw it falls prone and breaks a nail, taking 1 necrotic damage.</p></li></ul><p>At the Narrator’s discretion you may create a different curse effect with this spell so long as it is weaker than the options above.</p><p>A creature already under a curse, such as your or another creature’s Diabolist Curse or another instance of this spell, cannot be targeted by this spell.</p><p><strong>Special:</strong> Warlocks who know this spell can cast it as a ritual even if they are otherwise unable to cast rituals. When you cast this spell as a ritual, you can instead target a creature you’ve seen within the past 24 hours, as long as they are on the same plane as you. To target this creature, you must also provide a material component strongly associated with that creature—such as a fingernail clipping, lock of hair, or article of clothing—which this spell consumes. When cast as a ritual, this spell instead has a duration of 1 hour (no concentration), and the effects can be as severe as the poisoned condition or indigestion. At the Narrator’s discretion, you can create even more powerful curse effects or longer durations with the use of rare or expensive components, as long as their effects are less than the power of <em>bestow curse</em>.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"warlock",
+			"cleric",
+			"druid",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "puppy-dog tail",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": true,
+		"schools": {
+			"primary": "necromancy",
+			"secondary": [
+				"affliction",
+				"arcane",
+				"divine",
+				"necrotic"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/hand-marked-pink.webp",
+			"origin": "Item.XfHv5uHxARWa9cSs",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Vus1OnEgGL04OuML",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"_id": "WGgZwBOR9seuMS3b",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/unholy/hand-marked-pink.webp",
+			"origin": "Item.XfHv5uHxARWa9cSs",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Vus1OnEgGL04OuML",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Reduce Speed",
+			"_id": "ACVEgWrYYZ5vOLQ9",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "5",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/unholy/hand-marked-pink.webp",
+			"origin": "Item.XfHv5uHxARWa9cSs",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Vus1OnEgGL04OuML",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"_id": "p02ubz96j5uKxlmh",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 0,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/unholy/hand-marked-pink.webp",
+			"origin": "Item.XfHv5uHxARWa9cSs",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "h3mpXJfMTEPDm1vr",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"_id": "h7cZ2JHhuWMB3tw7",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/unholy/hand-marked-pink.webp",
+			"origin": "Item.XfHv5uHxARWa9cSs",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "h3mpXJfMTEPDm1vr",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Reduce Speed",
+			"_id": "jT7IlydKFfOGWqZy",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "5",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/unholy/hand-marked-pink.webp",
+			"origin": "Item.XfHv5uHxARWa9cSs",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "h3mpXJfMTEPDm1vr",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"_id": "qRU1aSG5zHYfSPkR",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 0,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/unholy/hand-marked-pink.webp",
+			"origin": "Item.XfHv5uHxARWa9cSs",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "h3mpXJfMTEPDm1vr",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"_id": "BEfT7JXoHVN9igqv",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "l0qor2e8kesgf97d"
+}
