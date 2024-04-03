@@ -53,7 +53,7 @@
 					}
 				},
 				"description": "<p>Until the end of the soldier's turn, their Speed is halved and their movement doesn't provoke opportunity attacks.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -819,13 +819,14 @@
 							"glHpftrkCMz5Csdd": {
 								"itemid": "",
 								"quantity": 1,
-								"type": "ammunition"
+								"type": "ammunition",
+								"itemId": "p3TVsY4wCcQC5fxH"
 							}
 						}
 					}
 				},
 				"description": "<p><em>Heavy, Loading, Range (100/400), Simple, Two-Handed</em></p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -944,7 +945,7 @@
 					}
 				},
 				"description": "<p><em>Breaker (Stone)</em></p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1336,7 +1337,7 @@
 					}
 				},
 				"description": "<p>You cause the target to grow or shrink. An unwilling target may attempt a saving throw to resist the spell.</p>\n<p>If the target is a creature, all items worn or carried by it also change size with it, but an item dropped by the target immediately returns to normal size.</p>\n<ul class=\"indentedSelection\">\n<li><strong>Enlarge:</strong> Until the spell ends, the target's size increases by one size category. Its size doubles in all dimensions and its weight increases eightfold. The target also has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 1d4 damage.</li>\n<li><strong>Reduce:</strong> Until the spell ends, the target's size decreases one size category. Its size is halved in all dimensions and its weight decreases to one-eighth of its normal value. The target has disadvantage on Strength checks and Strength saving throws and its weapons shrink, dealing 1d4 less damage (its attacks deal a minimum of 1 damage).</li>\n</ul>\n<p><strong><em>Cast at Higher Levels.</em></strong> When using a spell slot of 4th-level, you can cause the target and its gear to increase by two size categories&mdash;from Medium to Huge, for example. Until the spell ends, the target's size is quadrupled in all dimensions, multiplying its weight twentyfold. The target has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 2d4 damage.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1492,7 +1493,7 @@
 					}
 				},
 				"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1551,6 +1552,84 @@
 			"ownership": {
 				"default": 0
 			}
+		},
+		{
+			"name": "Crossbow Bolts",
+			"type": "object",
+			"img": "icons/weapons/ammunition/arrows-war-red.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.p4oflhbn4o9i2x2k"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>A bundle of 20 bolts.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "ammunition",
+				"plotItem": false,
+				"price": "1 gp",
+				"proficient": true,
+				"quantity": 20,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0.075,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "p3TVsY4wCcQC5fxH",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
@@ -1599,7 +1678,8 @@
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -2044,7 +2124,11 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"caverns",
+				"mountains"
+			],
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],

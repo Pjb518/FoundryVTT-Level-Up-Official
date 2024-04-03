@@ -38,7 +38,8 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -483,7 +484,10 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "<h3>Description</h3>\n<p>Lance crabs are a particularly dangerous denizen of the western shore, moving in groups as large as ten individuals. In addition to a natural aggressiveness that drives them attack anything they can eat, these crustaceans have a series of spines growing forward from the rear of their shells that can be launched at their prey.</p>",
-			"terrain": []
+			"terrain": [
+				"water"
+			],
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],
@@ -582,7 +586,7 @@
 		"disposition": 0,
 		"displayBars": 20,
 		"bar1": {
-			"attribute": "attributes.hp.value"
+			"attribute": "attributes.hp"
 		},
 		"bar2": {
 			"attribute": null
@@ -1393,7 +1397,13 @@
 							"type": "action",
 							"cost": 1
 						},
-						"consumers": {},
+						"consumers": {
+							"uKCQJMuriceOZBjk": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
 						"rolls": {
 							"lbbZNG8CexP8k1DU": {
 								"type": "attack",
@@ -1411,9 +1421,9 @@
 						},
 						"prompts": {},
 						"uses": {
-							"value": 1,
-							"max": "1",
-							"per": "recharge",
+							"value": 0,
+							"max": "",
+							"per": "",
 							"recharge": {
 								"formula": "1d6",
 								"threshold": 5
@@ -1424,8 +1434,11 @@
 						],
 						"ranges": {
 							"aksBS46SA7qm6HRE": {
-								"range": null,
+								"range": 15,
 								"unit": "feet"
+							},
+							"omS5Evrp6kg3PWG7": {
+								"range": "short"
 							}
 						},
 						"target": {
@@ -1439,12 +1452,12 @@
 				"secretDescription": "",
 				"source": "[object Object]",
 				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": 6
+						"threshold": 5
 					}
 				},
 				"concentration": false,

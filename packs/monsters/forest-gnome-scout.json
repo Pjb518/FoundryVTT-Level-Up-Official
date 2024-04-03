@@ -1,21 +1,15 @@
 {
-	"name": "Conjured Woodland Beings (Sprite)",
+	"name": "Forest Gnome Scout",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"system": {
 		"schemaVersion": {
 			"version": 0.014,
-			"lastMigration": {
-				"version": {
-					"schema": 0.013,
-					"foundry": "11.315",
-					"system": "0.17.20"
-				}
-			}
+			"lastMigration": null
 		},
 		"abilities": {
 			"str": {
-				"value": 12,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -27,19 +21,19 @@
 				}
 			},
 			"dex": {
-				"value": 15,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
 				},
 				"save": {
-					"proficient": false,
+					"proficient": true,
 					"expertiseDice": 0,
 					"bonus": ""
 				}
 			},
 			"con": {
-				"value": 12,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -64,7 +58,7 @@
 				}
 			},
 			"wis": {
-				"value": 10,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -76,7 +70,7 @@
 				}
 			},
 			"cha": {
-				"value": 15,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -98,8 +92,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 40,
-				"baseMax": 40,
+				"value": 19,
+				"baseMax": 19,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -113,8 +107,8 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 0,
-					"total": 0
+					"current": 3,
+					"total": 3
 				},
 				"d10": {
 					"current": 0,
@@ -144,7 +138,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 40,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"swim": {
@@ -152,7 +146,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 10,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -166,7 +160,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 60,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -210,25 +204,25 @@
 		"details": {
 			"bio": "",
 			"creatureTypes": [
-				"fey"
+				"humanoid"
 			],
 			"isSwarm": false,
-			"cr": 0,
+			"cr": 0.5,
 			"elite": false,
+			"isSquad": false,
 			"notes": "",
 			"privateNotes": "",
 			"terrain": [
 				"forest",
+				"jungle",
 				"theDreaming"
-			],
-			"isSquad": false
+			]
 		},
 		"grants": {},
 		"proficiencies": {
 			"armor": [],
 			"languages": [
-				"common",
-				"sylvan"
+				"any one"
 			],
 			"tools": [],
 			"weapons": []
@@ -414,7 +408,7 @@
 			},
 			"nat": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -425,9 +419,9 @@
 			},
 			"prc": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
-				"expertiseDice": 0,
+				"expertiseDice": 1,
 				"minRoll": 1,
 				"bonuses": {
 					"check": "",
@@ -480,7 +474,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -491,7 +485,7 @@
 			},
 			"sur": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -501,7 +495,13 @@
 				}
 			}
 		},
-		"source": "adventurersGuide",
+		"source": "",
+		"spellBooks": {
+			"U6ppLyIkfTeIvrwK": {
+				"showSpellSlots": false,
+				"ability": "int"
+			}
+		},
 		"traits": {
 			"size": "med",
 			"alignment": [],
@@ -553,21 +553,10 @@
 				"current": 0,
 				"max": 0
 			}
-		},
-		"spellBooks": {
-			"bssyhLTiBLIj2TDj": {
-				"_id": "bssyhLTiBLIj2TDj",
-				"name": "New Spell Book",
-				"img": "icons/svg/book.svg",
-				"ability": "default",
-				"disableSpellConsumers": false,
-				"showSpellPoints": false,
-				"showSpellSlots": true
-			}
 		}
 	},
 	"prototypeToken": {
-		"name": "Sprite",
+		"name": "Deep Gnome Scout",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
@@ -708,18 +697,18 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.013,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.011,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.16.49"
 						}
 					}
 				}
 			},
 			"folder": null,
-			"_id": "fAqJSv3yRy8voDUc",
+			"_id": "7cxS5t5fhrEwOlbD",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -803,18 +792,18 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.013,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.011,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.16.49"
 						}
 					}
 				}
 			},
 			"folder": null,
-			"_id": "o3SFAWlfH5yMZCo2",
+			"_id": "JdyvkbV8eaLevdjU",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -898,18 +887,18 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.013,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.011,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.16.49"
 						}
 					}
 				}
 			},
 			"folder": null,
-			"_id": "EJXZzRKBX0hj9qBV",
+			"_id": "EvOwBgrzkPBopzad",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -993,18 +982,18 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.013,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.011,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.16.49"
 						}
 					}
 				}
 			},
 			"folder": null,
-			"_id": "3mDIcQR4TGKMa7Qu",
+			"_id": "3OWtaUFGua8ngbAw",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1088,18 +1077,18 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.013,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.011,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.16.49"
 						}
 					}
 				}
 			},
 			"folder": null,
-			"_id": "0eO9sSXnZRaFYLm2",
+			"_id": "UcSMeF847PzODOqm",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1183,25 +1172,106 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.013,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.011,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.16.49"
 						}
 					}
 				}
 			},
 			"folder": null,
-			"_id": "kIxZee5Q7DCZm3Xe",
+			"_id": "QGHi7K61LBTT2aEX",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Shortbow",
+			"name": "Leather, Padded",
+			"type": "object",
+			"img": "icons/equipment/chest/vest-leather-brown.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.3drq3cy8nbnll0oc"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "12 + @dex.mod",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "light",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [
+					"comfortable",
+					"flaw"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "15 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 8,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "xl6z2UgFKvkQmTfp",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Keen Hearing and Sight",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1214,117 +1284,18 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {
-					"H4JWWysYk25gt3w9": {
-						"name": "Shortbow",
-						"activation": {
-							"type": "action",
-							"cost": 1
-						},
-						"consumers": {},
-						"rolls": {
-							"aWfyLpkwxlnAmkaU": {
-								"type": "attack",
-								"default": true,
-								"attackType": "meleeSpellAttack",
-								"proficient": false,
-								"ability": "none"
-							},
-							"Hnz07wm0QVfHs1fB": {
-								"type": "damage",
-								"default": true,
-								"label": "4th-level Spell Slot",
-								"formula": "3",
-								"damageType": "piercing"
-							},
-							"JpofBlQIPZLu80cw": {
-								"type": "damage",
-								"default": false,
-								"label": "5th-level Spell Slot",
-								"formula": "3 + 5",
-								"damageType": "piercing"
-							},
-							"2uGGHfgCyDHe6Hkk": {
-								"type": "damage",
-								"default": false,
-								"label": "6th-level Spell Slot",
-								"formula": "3 + 6",
-								"damageType": "piercing"
-							},
-							"5ATkTIxjODvoJtF0": {
-								"type": "damage",
-								"default": false,
-								"label": "7th-level Spell Slot",
-								"formula": "3 + 7",
-								"damageType": "piercing"
-							},
-							"I6NGOlSSuJJCmIyz": {
-								"type": "damage",
-								"default": false,
-								"label": "8th-level Spell Slot",
-								"formula": "3 + 8",
-								"damageType": "piercing"
-							},
-							"8M3gZIJbB9NvDUmf": {
-								"type": "damage",
-								"default": false,
-								"label": "9th-level Spell Slot",
-								"formula": "3 + 9",
-								"damageType": "piercing"
-							}
-						},
-						"prompts": {
-							"X0iv0ehzBygZGI1Y": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "con",
-								"saveDC": {
-									"type": "spellcasting"
-								}
-							}
-						},
-						"uses": {
-							"value": 0,
-							"max": "",
-							"per": "",
-							"recharge": {
-								"formula": "1d6",
-								"threshold": 6
-							}
-						},
-						"descriptionOutputs": [
-							"action"
-						],
-						"duration": {
-							"unit": "instantaneous"
-						},
-						"ranges": {
-							"6ehYBd9c9uc2VZtx": {
-								"range": 40,
-								"unit": "feet"
-							},
-							"ZjauHdqFZ3KdZ2q8": {
-								"range": 160,
-								"unit": "feet"
-							}
-						},
-						"target": {
-							"type": "creature",
-							"quantity": 1
-						}
-					}
-				},
-				"description": "<p>If the target is a creature it&nbsp;must succeed on a Constitution saving throw against&nbsp;your spell save DC or become poisoned for 1 minute.&nbsp;On a failure by 5 or more, the poisoned target falls&nbsp;unconscious for the same duration, or until another&nbsp;creature uses an action to shake it awake.</p>",
-				"favorite": true,
+				"actions": {},
+				"description": "<p>The scout has advantage on Perception checks that rely on hearing or sight.</p>",
+				"favorite": false,
 				"secretDescription": "",
-				"source": "[object Object]",
+				"source": "",
 				"uses": {
 					"value": 0,
 					"max": "",
 					"per": "",
 					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
+						"formula": "",
+						"threshold": 0
 					}
 				},
 				"concentration": false,
@@ -1334,16 +1305,10 @@
 				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.20"
-						}
-					}
+					"lastMigration": null
 				}
 			},
-			"_id": "AzkPPhcIN935hXOu",
+			"_id": "GkPVfKE86lGhMAxe",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
@@ -1352,485 +1317,842 @@
 				"default": 0
 			},
 			"flags": {}
+		},
+		{
+			"name": "Forest Ways",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The scout can communicate with Small and Tiny beasts, and can innately cast @UUID[Compendium.a5e.a5e-spells.Item.250c4t64865s83si]{Blur}, @UUID[Compendium.a5e.a5e-spells.Item.vemj08hawvmf44ya]{Disguise Self}, and @UUID[Compendium.a5e.a5e-spells.Item.eceeym81z9dq6r58]{Major Image} once each per long rest with no material components.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": null
+				}
+			},
+			"_id": "iMn6FcrhsKa4vixJ",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Blur",
+			"type": "spell",
+			"img": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+			"effects": [
+				{
+					"icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+					"origin": "Actor.db74rZBu7I7UZvYU.Item.V8ehnuWCdtPV3jRR",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"duration": {
+								"unit": "minutes"
+							},
+							"actionId": "tGuKAxs5LfW4JsEB"
+						}
+					},
+					"transfer": false,
+					"name": "Blur",
+					"_id": "WRbkreWcyxoYrIGy",
+					"changes": [],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.250c4t64865s83si"
+				}
+			},
+			"system": {
+				"actions": {
+					"tGuKAxs5LfW4JsEB": {
+						"name": "Cast Spell",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"tdvoxrqSPnY525hl": {
+								"range": "self"
+							},
+							"i9QET8w4LdmdxJyT": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature",
+							"scaling": {
+								"mode": "spellLevel",
+								"formula": "1"
+							}
+						},
+						"consumers": {
+							"5nQT96EXWdIHpV7A": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"prompts": {
+							"buIBuFeuQRwHM5mK": {
+								"type": "effect",
+								"default": true,
+								"effectId": "WRbkreWcyxoYrIGy",
+								"label": "Blur"
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, you are shrouded in distortion and your image is blurred. Creatures make attack rolls against you with disadvantage unless they have senses that allow them to perceive without sight or to see through illusions (like blindsight or truesight).</p><p><strong><em>Cast at Higher Levels.</em></strong> You may target an additional willing creature you can see within range for each slot level above 2nd. Whenever an affected creature other than you is hit by an attack, the spell ends for that creature. When using a higher level spell slot, increase the spell's range to 30 feet.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"classes": [
+					"artificer",
+					"elementalistFire",
+					"sorcerer",
+					"wielder",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": 0,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"protection",
+						"senses"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				},
+				"spellBook": "U6ppLyIkfTeIvrwK"
+			},
+			"folder": null,
+			"_id": "V8ehnuWCdtPV3jRR",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Disguise Self",
+			"type": "spell",
+			"img": "icons/equipment/head/mask-carved-wood-brown.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.vemj08hawvmf44ya"
+				}
+			},
+			"system": {
+				"actions": {
+					"0qEkbCJOCXxfm5km": {
+						"name": "Disguise Self",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "hour",
+							"value": "1"
+						},
+						"ranges": {
+							"iJ3osELZvlki2bnh": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "self"
+						},
+						"rolls": {
+							"s94L7q2SUWlijC86": {
+								"ability": "str",
+								"type": "abilityCheck"
+							}
+						},
+						"consumers": {
+							"4UwfjbyvCh5FOgnO": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends or you use an action to dismiss it, you and your gear are cloaked by an illusory disguise that makes you appear like another creature of your general size and body type, including but not limited to: your heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot disguise yourself as a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to appear as a quadruped.</p><p>The disguise does not hold up to physical inspection. A creature that tries to grab an illusory hat, for example, finds its hand passes straight through the figment. To see through your disguise without such an inspection, a creature must use its action to make an Investigation check against your spell save DC.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 3rd-level spell slot or higher, this spell functions identically to the seeming spell, except the spell's duration is 10 minutes.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"classes": [
+					"artificer",
+					"bard",
+					"sorcerer",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": 0,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"obscurement"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				},
+				"spellBook": "U6ppLyIkfTeIvrwK"
+			},
+			"folder": null,
+			"_id": "cw4MnZaAzRudpXXA",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Major Image",
+			"type": "spell",
+			"img": "icons/magic/symbols/runes-star-magenta.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.eceeym81z9dq6r58"
+				}
+			},
+			"system": {
+				"actions": {
+					"sFbY1tEuMywZVRdY": {
+						"name": "Major Image",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"jwOTYlK7EkmsLoJN": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": "20",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"DpQJ4eJTxDlY4vpD": {
+								"ability": "str",
+								"type": "abilityCheck"
+							}
+						},
+						"consumers": {
+							"zY1p1og3RbrpfxFr": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.</p><p>While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).</p><p>Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your spell save DC also reveals the image is an illusion.</p><p>When a creature realizes the image is an illusion, the effects become fainter for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When cast using a 6th-level spell slot the illusion lasts until dispelled without requiring concentration.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"classes": [
+					"elementalistAir",
+					"sorcerer",
+					"warlock",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": true,
+				"level": 3,
+				"materials": "tinderbox and small mirror",
+				"materialsConsumed": false,
+				"prepared": 0,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "illusion",
+					"secondary": [
+						"arcane",
+						"chaos"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				},
+				"spellBook": "U6ppLyIkfTeIvrwK"
+			},
+			"folder": null,
+			"_id": "GhHFm2h2w5yS1dnj",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Shortsword",
+			"type": "object",
+			"img": "icons/weapons/swords/shortsword-guard-brass.webp",
+			"effects": [
+				{
+					"icon": "icons/weapons/swords/shortsword-guard-brass.webp",
+					"origin": "Actor.db74rZBu7I7UZvYU.Item.lzL1EEedNCbW1v13",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "LfiU8RBp5laBi6jt",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "AC +1",
+					"_id": "o3RplnB3d2bgc5Cs",
+					"changes": [
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sheetClass": "a5e.ItemSheet5e",
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.36k2tx29firrtrgl"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"s8ufuOSoG0jsuNjg": {
+						"name": "Shortsword",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"P7UeMDVPmv9D9fqE": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"HUbaIlANmQsN4fYO": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "1d6 + @finesse.mod",
+								"name": "Shortsword",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					},
+					"vQTQD7tzjEVIJLR0": {
+						"name": "Parry",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"tmuyLFz7KQutuiOG": {
+								"type": "generic",
+								"default": true,
+								"label": "Armor Class",
+								"formula": "1d4"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"img": "icons/weapons/swords/shortsword-guard-brass.webp"
+					}
+				},
+				"description": "<p><em>Defensive (Medium), Finesse, Parrying</em></p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "10 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"defensive",
+					"parrying",
+					"finesse"
+				],
+				"weight": 2,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "lzL1EEedNCbW1v13",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Longbow",
+			"type": "object",
+			"img": "icons/weapons/bows/longbow-leather-green.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.ob0dtgs0w8ub9ria"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"Fh6gRJTKSHM2phvi": {
+						"name": "Longbow",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"7vk9kI9PGVA1Yeqv": {
+								"range": 150,
+								"unit": "feet"
+							},
+							"NUoE7YtByjoi7Suz": {
+								"range": 600,
+								"unit": "feet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"k5MAUQp9WXGwY6NF": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "default"
+							},
+							"KgeLplrDrWd0pu8f": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d8 + @dex.mod",
+								"name": "Longbow",
+								"type": "damage"
+							}
+						},
+						"consumers": {
+							"wT6UA6U2zx6mK6Mk": {
+								"itemid": "",
+								"quantity": 1,
+								"type": "ammunition",
+								"itemId": "wIBd4nckFNfTUGc4"
+							}
+						}
+					}
+				},
+				"description": "<p><em>Heavy, Range (150/600), Two-Handed</em></p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "50 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"heavy",
+					"range",
+					"twoHanded"
+				],
+				"weight": 2,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "VU3xptezqFqWFh5N",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Arrows",
+			"type": "object",
+			"img": "icons/weapons/ammunition/arrows-war-white.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.4li8cxq2p7xsh1jx"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>A bundle of 20 arrows.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "ammunition",
+				"plotItem": false,
+				"price": "1 gp",
+				"proficient": true,
+				"quantity": 20,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0.05,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "wIBd4nckFNfTUGc4",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
-	"effects": [
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.R45DNyxthwQEw2Nd",
-			"flags": {
-				"a5e": {
-					"sort": 0
-				}
-			},
-			"_id": "qqZrUpQSHzmZa7id",
-			"changes": [
-				{
-					"key": "system.details.cr",
-					"value": "2",
-					"mode": 5,
-					"priority": 31250
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"tint": null,
-			"transfer": false,
-			"name": "Conjurer's Proficiency (2)",
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.R45DNyxthwQEw2Nd",
-			"flags": {
-				"a5e": {
-					"sort": 0
-				}
-			},
-			"_id": "snPBDpZ6Jx6vgo5S",
-			"changes": [
-				{
-					"key": "system.bonuses.meleeSpellAttack",
-					"value": "0",
-					"mode": 2,
-					"priority": 50
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"tint": null,
-			"transfer": false,
-			"name": "Conjurer's Spell Attack Bonus (Change As Needed)",
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.R45DNyxthwQEw2Nd",
-			"flags": {
-				"a5e": {
-					"sort": 0
-				}
-			},
-			"_id": "4rDwVLp1AD2OwpDS",
-			"changes": [
-				{
-					"key": "system.bonuses.spellDC",
-					"value": "0",
-					"mode": 5,
-					"priority": 31250
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"tint": null,
-			"transfer": false,
-			"name": "Conjurer's Spell Save DC (Change As Needed)",
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.R45DNyxthwQEw2Nd",
-			"flags": {
-				"a5e": {
-					"sort": 0
-				}
-			},
-			"_id": "qZdW8E6WZ2V5Youj",
-			"changes": [
-				{
-					"key": "system.details.cr",
-					"value": "3",
-					"mode": 5,
-					"priority": 50
-				}
-			],
-			"disabled": true,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"tint": null,
-			"transfer": false,
-			"name": "Conjurer's Proficiency (3)",
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.R45DNyxthwQEw2Nd",
-			"flags": {
-				"a5e": {
-					"sort": 0
-				}
-			},
-			"_id": "nOuBgRVe7b5IMCog",
-			"changes": [
-				{
-					"key": "system.details.cr",
-					"value": "4",
-					"mode": 5,
-					"priority": 50
-				}
-			],
-			"disabled": true,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"tint": null,
-			"transfer": false,
-			"name": "Conjurer's Proficiency (4)",
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.R45DNyxthwQEw2Nd",
-			"flags": {
-				"a5e": {
-					"sort": 0
-				}
-			},
-			"_id": "BByb2n942Fl9Vu0q",
-			"changes": [
-				{
-					"key": "system.details.cr",
-					"value": "25",
-					"mode": 5,
-					"priority": 50
-				}
-			],
-			"disabled": true,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"tint": null,
-			"transfer": false,
-			"name": "Conjurer's Proficiency (5)",
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.R45DNyxthwQEw2Nd",
-			"flags": {
-				"a5e": {
-					"sort": 0
-				}
-			},
-			"_id": "iir6ZRT8Y8BRSSFn",
-			"changes": [
-				{
-					"key": "system.details.cr",
-					"value": "6",
-					"mode": 5,
-					"priority": 50
-				}
-			],
-			"disabled": true,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"tint": null,
-			"transfer": false,
-			"name": "Conjurer's Proficiency (6)",
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.R45DNyxthwQEw2Nd",
-			"flags": {
-				"a5e": {
-					"sort": 0
-				}
-			},
-			"_id": "Mlfh8QPhLDL7EZrO",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "1",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.hp.baseMax",
-					"value": "10",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "10",
-					"mode": 2,
-					"priority": 20
-				}
-			],
-			"disabled": true,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"tint": null,
-			"transfer": false,
-			"name": "5th-level Spell Slot",
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.R45DNyxthwQEw2Nd",
-			"flags": {
-				"a5e": {
-					"sort": 0
-				}
-			},
-			"_id": "mbYEnGZ2M23WkMW2",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "2",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.hp.baseMax",
-					"value": "20",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "20",
-					"mode": 2,
-					"priority": 20
-				}
-			],
-			"disabled": true,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"tint": null,
-			"transfer": false,
-			"name": "6th-level Spell Slot",
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.R45DNyxthwQEw2Nd",
-			"flags": {
-				"a5e": {
-					"sort": 0
-				}
-			},
-			"_id": "8jrEnVjVnZccW30f",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "3",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.hp.baseMax",
-					"value": "30",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "30",
-					"mode": 2,
-					"priority": 20
-				}
-			],
-			"disabled": true,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"tint": null,
-			"transfer": false,
-			"name": "7th-level Spell Slot",
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.R45DNyxthwQEw2Nd",
-			"flags": {
-				"a5e": {
-					"sort": 0
-				}
-			},
-			"_id": "FHb63x3dOU4YnqMk",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "4",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.hp.baseMax",
-					"value": "40",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "40",
-					"mode": 2,
-					"priority": 20
-				}
-			],
-			"disabled": true,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"tint": null,
-			"transfer": false,
-			"name": "8th-level Spell Slot",
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Actor.R45DNyxthwQEw2Nd",
-			"flags": {
-				"a5e": {
-					"sort": 0
-				}
-			},
-			"_id": "xxfbNgUsa4NIlmy6",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "5",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.hp.baseMax",
-					"value": "50",
-					"mode": 2,
-					"priority": 20
-				},
-				{
-					"key": "system.attributes.hp.value",
-					"value": "50",
-					"mode": 2,
-					"priority": 20
-				}
-			],
-			"disabled": true,
-			"duration": {
-				"startTime": 0,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"tint": null,
-			"transfer": false,
-			"name": "9th-level Spell Slot",
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
+	"effects": [],
 	"folder": null,
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true,
-			"sortMode": {},
-			"filters": {}
+			"sheetIsLocked": true
 		}
 	},
-	"_id": "bb2b3gjimehh5qj5"
+	"_id": "zlsp0natx69eck32"
 }

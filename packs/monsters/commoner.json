@@ -1,21 +1,17 @@
 {
-	"name": "Drop Bear",
+	"name": "Commoner",
 	"type": "npc",
 	"img": "icons/svg/mystery-man.svg",
 	"items": [
 		{
-			"_id": "XEmmmcKv6yJn1KJ2",
-			"name": "Keen Smell",
+			"_id": "g54UmFOtEJKe4mAc",
+			"name": "Skills",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
 			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.forge-vtt-shared-compendiums-a5e-creature-features.item-1-monster-features.fWtu5nydK7GTRz8A"
-				}
-			},
+			"flags": {},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -28,7 +24,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The bear has advantage on Perception checks that rely on smell.</p>",
+				"description": "<p>Commoners have any one skill proficiency (+2) and gains a (1d4) expertise die with that skill.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -62,16 +58,16 @@
 			}
 		},
 		{
-			"_id": "edLlheKc18hX1FHS",
-			"name": "Multiattack",
-			"type": "feature",
-			"img": "icons/skills/melee/blade-tips-triple-steel.webp",
+			"_id": "Bcyp8oRpcx5XVcpv",
+			"name": "Stone",
+			"type": "object",
+			"img": "icons/svg/thrust.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 2100000,
 			"flags": {
 				"core": {
-					"sourceId": "Item.O4rfmFbmQha1aafV"
+					"sourceId": "Item.J4DEuvBYORQ3Hrfm"
 				}
 			},
 			"system": {
@@ -86,16 +82,21 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"cgC9V839SguQyhPv": {
-						"name": "Multiattack",
+					"NK1tFvK9ImD7Qifr": {
+						"name": "Stone",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "",
+							"unit": "instantaneous",
 							"value": ""
+						},
+						"ranges": {
+							"TrrIgQCALoWSIhhU": {
+								"range": "10/30 ft"
+							}
 						},
 						"area": {
 							"shape": "",
@@ -103,14 +104,38 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 1,
+							"type": "creatureObject",
+							"shape": "",
+							"size": ""
 						},
-						"consumers": {}
+						"rolls": {
+							"mnG997lvFFN5mgeE": {
+								"bonus": "",
+								"critThreshold": 20,
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "dex"
+							},
+							"kflTcz6psBnzRW2x": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "1d4 + @dex.mod",
+								"name": "Base",
+								"type": "damage"
+							}
+						},
+						"consumers": {
+							"1xaciWKHxeQOF9HC": {
+								"itemid": "",
+								"quantity": 1,
+								"type": "ammunition"
+							}
+						}
 					}
 				},
-				"description": "<p>The bear makes two melee attacks.</p>",
-				"favorite": false,
+				"description": "<p><em>Ranged Weapon Attack:</em> +2 to hit, range 10/30 ft., one target. <em>Hit:</em> 2 (1d4) bludgeoning damage.</p>",
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -122,11 +147,34 @@
 						"threshold": 0
 					}
 				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "0 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"thrown",
+					"simple"
+				],
+				"weight": 0,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
@@ -143,16 +191,16 @@
 			}
 		},
 		{
-			"_id": "CtyErVDkF6qF5o5s",
-			"name": "Bite",
-			"type": "feature",
-			"img": "icons/creatures/abilities/mouth-teeth-long-red.webp",
+			"_id": "apXxKW7ccprmpTqN",
+			"name": "Club",
+			"type": "object",
+			"img": "icons/svg/sword.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 400000,
 			"flags": {
 				"core": {
-					"sourceId": "Item.6y5L0wnBLYVcFKCn"
+					"sourceId": "Item.HNW5E0dbSnj6Vhc1"
 				}
 			},
 			"system": {
@@ -167,19 +215,19 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"z1dwxR5I8DTkf67f": {
-						"name": "Bite",
+					"PK1uqUGC7LPQ5g6Z": {
+						"name": "Club",
 						"activation": {
 							"cost": 1,
 							"type": "action",
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "",
+							"unit": "instantaneous",
 							"value": ""
 						},
 						"ranges": {
-							"dPRlTZydjzBKFBbk": {
+							"GnPmzmsoDPwbCkqR": {
 								"range": "fiveFeet"
 							}
 						},
@@ -190,35 +238,30 @@
 						},
 						"target": {
 							"quantity": 1,
-							"type": "creature"
+							"type": "creatureObject",
+							"shape": "",
+							"size": ""
 						},
 						"rolls": {
-							"zdk37r9CDYvnDNa3": {
+							"OuOEbyrGk5gIQV1n": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
 								"ability": "str"
 							},
-							"laKkhKhaiybD82A5": {
-								"canCrit": true,
-								"damageType": "piercing",
-								"formula": "1d8 + @str.mod",
-								"name": "Normal",
-								"type": "damage"
-							},
-							"UX3Lb09AXMtdlf0O": {
+							"pQ6Wa6WQ5qLSb3wt": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
-								"formula": "2d6",
-								"name": "Falling from at least 20 ft.",
+								"formula": "1d4+ @str.mod",
+								"name": "Base",
 								"type": "damage"
 							}
 						},
 						"consumers": {}
 					}
 				},
-				"description": "<p><em>Melee Weapon Attack:</em> +7 to hit, reach 5 ft., one target. Hit: 9 (1d8 + 5) piercing damage.</p>",
+				"description": "<p><em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft., one target. <em>Hit:</em> 2 (1d4) bludgeoning damage.</p><p><em>Simple</em></p><p><strong>Simple.</strong> This weapon can be used with very little skill or training, and all creatures gain proficiency with it.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -231,120 +274,33 @@
 						"threshold": 0
 					}
 				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.014,
-					"lastMigration": {
-						"version": {
-							"schema": 0.013,
-							"foundry": "11.315",
-							"system": "0.17.20"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "lfiKclhvEhENWNbK",
-			"name": "Claws",
-			"type": "feature",
-			"img": "icons/skills/melee/blood-slash-foam-red.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {
-				"core": {
-					"sourceId": "Item.O4rfmFbmQha1aafV"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"qJ9VI3T7lX8ATECa": {
-						"name": "Claws",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "",
-							"value": ""
-						},
-						"ranges": {
-							"fUrZp39rHvHwW8r4": {
-								"range": "fiveFeet"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creature"
-						},
-						"rolls": {
-							"yCcNbJJu1s82afo3": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"DO0AKbqExcR8RILf": {
-								"canCrit": true,
-								"damageType": "slashing",
-								"formula": "1d4 + @str.mod",
-								"name": "Normal",
-								"type": "damage"
-							},
-							"GnsfqLgTjINviZLE": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "2d6",
-								"name": "Falling from at least 20 ft.",
-								"type": "damage"
-							}
-						},
-						"consumers": {}
-					}
-				},
-				"description": "<p><em>Melee Weapon Attack</em>: : +7 to hit, reach 5 ft., one target. Hit: 7 (1d4 + 5) slashing damage. If the target is a Medium or smaller creature, it is grappled (escape DC 15). Until this grapple ends, the bear can’t attack a different target with its claws.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "",
-						"threshold": 0
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "1 sp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"simple"
+				],
+				"weight": 2,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
@@ -372,7 +328,7 @@
 			},
 			"system": {
 				"actions": {
-					"MF7bXIgrSuMtRqqN": {
+					"tHjeNA47HzQ8PlII": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -384,7 +340,7 @@
 							"value": null
 						},
 						"ranges": {
-							"3cOLjU76xnvelZUp": {
+							"4HROaed5KYyUtRPY": {
 								"range": "fiveFeet"
 							}
 						},
@@ -400,7 +356,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"72goIB1dz9hi0RS5": {
+							"HePDdPoCL9xZsbvb": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -409,7 +365,7 @@
 							}
 						},
 						"prompts": {
-							"VpZaOP0KZAYzPYzX": {
+							"ftPwjaPJt4LYqZQp": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -457,7 +413,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "6UaDYBpxfINMtehD"
+			"_id": "5fok68q4EkhiRATQ"
 		},
 		{
 			"name": "Disarm",
@@ -471,7 +427,7 @@
 			},
 			"system": {
 				"actions": {
-					"0xslXKxdiAMYsZvT": {
+					"tPvnQLOgd8fNNjZ2": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -483,7 +439,7 @@
 							"value": null
 						},
 						"ranges": {
-							"HUERJxPxQLDFMO3M": {
+							"aadgyggIlSac2lMW": {
 								"range": "touch"
 							}
 						},
@@ -499,7 +455,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"0OE1bQcrFxQO5IAY": {
+							"WRFn19u1WviWINK3": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -508,7 +464,7 @@
 							}
 						},
 						"prompts": {
-							"fHlRvHfEiMcFFgaY": {
+							"v7vaj2yEkETfZ5Su": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -556,7 +512,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "cIXSgVDPrzPPilU3"
+			"_id": "SAHiReLzpQw97Vz8"
 		},
 		{
 			"name": "Grab On",
@@ -570,7 +526,7 @@
 			},
 			"system": {
 				"actions": {
-					"AKZUv2vO3DXgRKag": {
+					"CiOqBz2ujZYNxbrO": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -582,7 +538,7 @@
 							"value": null
 						},
 						"ranges": {
-							"mhtQRrvjlyhfJWGu": {
+							"JKEmUyyxQBPxcN9X": {
 								"range": "touch"
 							}
 						},
@@ -598,7 +554,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"o2NUOxM2LNB7UmT1": {
+							"ulvZcaYwSOauf6gu": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -646,7 +602,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "iWfco846FELHSrqt"
+			"_id": "Ax29YkbW0BttXtuk"
 		},
 		{
 			"name": "Knockdown",
@@ -660,7 +616,7 @@
 			},
 			"system": {
 				"actions": {
-					"xc9s2SZoy1V2ihn4": {
+					"IHMXHwoC3aOIqKeS": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -672,7 +628,7 @@
 							"value": null
 						},
 						"ranges": {
-							"mBkMQVRcixg2jc05": {
+							"fmVf5RPLAtPwriqc": {
 								"range": "touch"
 							}
 						},
@@ -688,7 +644,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"HgtljSmxkUuamcIc": {
+							"SLHqr7AmNk2GdcBs": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -736,7 +692,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "EsBfuYHKNtV3RApW"
+			"_id": "06ruf78dvfoHcoGI"
 		},
 		{
 			"name": "Grapple",
@@ -750,7 +706,7 @@
 			},
 			"system": {
 				"actions": {
-					"hwF7TyvRxkSXZana": {
+					"dXH4xLq6fph5B9pE": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -762,7 +718,7 @@
 							"value": null
 						},
 						"ranges": {
-							"awv5gwDLGB6tlTxy": {
+							"6AOSIXLzb9FHQx1y": {
 								"range": "touch"
 							}
 						},
@@ -778,7 +734,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"epfLAhq1xDV5UUNr": {
+							"KAwl0FuYP6RKwXmA": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -826,7 +782,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "KiP8MGDJKOeYsxW6"
+			"_id": "gHVT2kut5vspiTT2"
 		},
 		{
 			"name": "Overrun",
@@ -840,7 +796,7 @@
 			},
 			"system": {
 				"actions": {
-					"vd4lqPah59m8G47e": {
+					"h43UtlOZ3PIoXd7e": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -852,7 +808,7 @@
 							"value": null
 						},
 						"ranges": {
-							"RdzwEhhYn8xWG58P": {
+							"pjk8nVOcquSTP6kd": {
 								"range": "touch"
 							}
 						},
@@ -868,7 +824,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"httkkHrQyh6p16ko": {
+							"V3nzhTbongxlsIKQ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -916,7 +872,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "1ENqV09NCUF1b8rC"
+			"_id": "F3EDESqqvJ8u9CEb"
 		}
 	],
 	"effects": [],
@@ -931,7 +887,7 @@
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 20,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -955,7 +911,7 @@
 				}
 			},
 			"con": {
-				"value": 16,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -968,7 +924,7 @@
 				}
 			},
 			"int": {
-				"value": 2,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -980,7 +936,7 @@
 				}
 			},
 			"wis": {
-				"value": 12,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -992,7 +948,7 @@
 				}
 			},
 			"cha": {
-				"value": 4,
+				"value": 10,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1160,7 +1116,7 @@
 			},
 			"prc": {
 				"ability": "wis",
-				"proficient": true,
+				"proficient": false,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1282,7 +1238,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "12",
+				"baseFormula": "10",
 				"value": 0
 			},
 			"death": {
@@ -1290,8 +1246,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 42,
-				"baseMax": 42,
+				"value": 4,
+				"baseMax": 4,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -1301,12 +1257,12 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 0,
-					"total": 0
+					"current": 1,
+					"total": 1
 				},
 				"d10": {
-					"current": 5,
-					"total": 5
+					"current": 0,
+					"total": 0
 				},
 				"d12": {
 					"current": 0,
@@ -1332,7 +1288,7 @@
 					"unit": "feet"
 				},
 				"climb": {
-					"distance": 40,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"fly": {
@@ -1344,7 +1300,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 40,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -1400,23 +1356,25 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "",
+			"bio": "<p><strong>DESCRIPTION</strong></p><p>Commoners are humanoids who are not trained in combat. Typical commoners include farmers, herders, artisans, servants, and scholars.</p>",
 			"creatureTypes": [
-				"beast"
+				"humanoid"
 			],
 			"isSwarm": false,
-			"cr": 3,
+			"cr": 0,
 			"elite": false,
-			"privateNotes": "",
+			"privateNotes": "<p><strong>ENCOUNTERS</strong></p><p><strong>CR 0–2</strong> 1d10 commoners; 1 or 2 commoners with 1 or 2 camels, draft horses, mastiffs, or mules</p><p><strong>Treasure</strong> 50 sp, 50 cp; commoner mob</p><p><strong>CR 3–4</strong> 2d20 commoners or commoner mob with acolyte, minstrel, or noble</p><p><strong>Treasure</strong> 500 sp, 500 cp</p>",
 			"notes": "",
 			"terrain": [
-				"tundra"
+				"settlement"
 			],
 			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],
-			"languages": [],
+			"languages": [
+				"any one"
+			],
 			"tools": [],
 			"weapons": []
 		},
@@ -1468,7 +1426,7 @@
 		},
 		"source": "monstrousMenagerie",
 		"traits": {
-			"size": "lg",
+			"size": "med",
 			"conditionImmunities": [],
 			"damageImmunities": [],
 			"damageResistances": [],
@@ -1477,8 +1435,8 @@
 		},
 		"grants": {},
 		"spellBooks": {
-			"kftUTOATsoFjn80P": {
-				"_id": "kftUTOATsoFjn80P",
+			"Gp1oBwzvHCM91afD": {
+				"_id": "Gp1oBwzvHCM91afD",
 				"name": "New Spell Book",
 				"img": "icons/svg/book.svg",
 				"ability": "default",
@@ -1489,11 +1447,11 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Drop Bear",
+		"name": "Commoners",
 		"displayName": 0,
 		"actorLink": false,
-		"width": 2,
-		"height": 2,
+		"width": 1,
+		"height": 1,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -1517,11 +1475,11 @@
 				"min": 0,
 				"max": 1
 			},
-			"color": null,
-			"attenuation": 0.5
+			"attenuation": 0.5,
+			"color": null
 		},
 		"disposition": 0,
-		"displayBars": 50,
+		"displayBars": 0,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -1532,12 +1490,12 @@
 		"randomImg": false,
 		"texture": {
 			"src": "icons/svg/mystery-man.svg",
-			"tint": "#ffffff",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0
+			"rotation": 0,
+			"tint": "#ffffff"
 		},
 		"sight": {
 			"angle": 360,
@@ -1555,5 +1513,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "a7my4pj17fe6pktl"
+	"_id": "hfi04q8v7th262mh"
 }
