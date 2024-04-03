@@ -307,55 +307,34 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         )
       }),
       spellResources: new fields.SchemaField({
-        slots: new fields.SchemaField({
-          1: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          2: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          3: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          4: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          5: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          6: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          7: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          8: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          9: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
+        artifactCharges: new fields.SchemaField({
+          current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
+          max: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
+          override: new fields.NumberField({ nullable: false, initial: 0, integer: true })
         }),
-        // pactSlots: new fields.SchemaField({
-        //   current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-        //   max: new fields.NumberField({ required: true, initial: 0, integer: true }),
-        //   level: new fields.NumberField({
-        //     required: true, initial: 1, max: 5, integer: true
-        //   })
-        // }),
+        inventions: new fields.SchemaField({
+          current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
+          max: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
+          override: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+        }),
         points: new fields.SchemaField({
-          current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          max: new fields.NumberField({ required: true, initial: 0, integer: true })
-        })
+          current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
+          max: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
+          override: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+        }),
+        slots: new fields.SchemaField(
+          Array.from({ length: 9 }, (_, i) => i + 1)
+            .reduce((acc, level) => {
+              acc[level] = new fields.SchemaField({
+                current: new fields.NumberField({ nullable: false, initial: 0, min: 0 }),
+                // TODO: Remove this when actor is configured
+                max: new fields.NumberField({ nullable: false, initial: 0, min: 0 }),
+                override: new fields.NumberField({ nullable: false, initial: 0, min: 0 })
+              });
+              return acc;
+            }, {})
+
+        )
       })
     });
   }
