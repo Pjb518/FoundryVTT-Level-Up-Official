@@ -1,5 +1,7 @@
 import BaseActorA5e from './base';
 
+import HitDiceManager from '../../managers/HitDiceManager';
+
 export default class NPCActorA5E extends BaseActorA5e {
   // -------------------------------------------------------------
   // Data Preparation Methods
@@ -42,6 +44,7 @@ export default class NPCActorA5E extends BaseActorA5e {
    * @override
    */
   prepareDerivedData() {
+    this.HitDiceManager = new HitDiceManager(this, false);
     super.prepareDerivedData();
   }
 

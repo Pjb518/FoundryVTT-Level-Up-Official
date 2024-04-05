@@ -1,5 +1,7 @@
 import BaseActorA5e from './base';
 
+import HitDiceManager from '../../managers/HitDiceManager';
+
 export default class CharacterActorA5E extends BaseActorA5e {
   /**
    * @type {Record<string, ClassItemA5e>}
@@ -47,6 +49,8 @@ export default class CharacterActorA5E extends BaseActorA5e {
    * @override
    */
   prepareDerivedData() {
+    this.HitDiceManager = new HitDiceManager(this, this.getFlag('a5e', 'automateClasses') ?? true);
+
     super.prepareDerivedData();
     const actorData = this.system;
 

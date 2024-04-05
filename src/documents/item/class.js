@@ -31,7 +31,7 @@ export default class ClassItemA5e extends OriginItemA5e {
   }
 
   get totalHitDice() {
-    return this.system.hp.hitDiceSize * this.classLevels;
+    return this.classLevels;
   }
 
   prepareBaseData() {
@@ -45,7 +45,8 @@ export default class ClassItemA5e extends OriginItemA5e {
     this.maxHp = this.prepareMaxHitPoints();
     this.hitDice = {
       current: this.totalHitDice - this.system.hp.hitDiceUsed,
-      total: this.totalHitDice
+      total: this.totalHitDice,
+      size: this.system.hp.hitDiceSize
     };
 
     this.casting = this.prepareCasterData();

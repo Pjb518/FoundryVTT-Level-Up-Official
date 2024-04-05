@@ -142,6 +142,13 @@ export default class BaseActorA5e extends Actor {
    * @override
    */
   prepareData() {
+    // Set Managers
+    this.BonusesManager = null;
+    this.HitDiceManager = null;
+    this.grants = null;
+    this.spellBooks = null;
+    this.RollOverrideManager = null;
+
     this.prepareBaseData();
     super.prepareEmbeddedDocuments();
 

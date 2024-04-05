@@ -54,6 +54,7 @@ import createMacro from '../macros/createMacro';
 // Managers
 import ActionsManager from '../managers/ActionsManager';
 import ForeignDocumentManager from '../managers/ForeignDocumentManager';
+import HitDiceManager from '../managers/HitDiceManager';
 import ItemGrantsManager from '../managers/ItemGrantsManager';
 import ModifierManager from '../managers/ModifierManager';
 import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
@@ -151,6 +152,7 @@ export default function init() {
     managers: {
       ActionsManager,
       ForeignDocumentManager,
+      HitDiceManager,
       ItemGrantsManager,
       ModifierManager,
       ResourceConsumptionManager,
