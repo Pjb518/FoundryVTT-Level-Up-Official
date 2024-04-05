@@ -59,6 +59,12 @@ export default class CharacterActorA5E extends BaseActorA5e {
       return (requiresAttunement && attuned) ? acc + 1 : acc;
     }, 0);
 
+    // Update Hit Dice based on manager
+    this.system.attributes.hitDice = foundry.utils.mergeObject(
+      this.system.attributes.hitDice,
+      this.HitDiceManager.bySize
+    );
+
     this.prepareSpellResources();
   }
 

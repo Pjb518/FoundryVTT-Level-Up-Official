@@ -54,7 +54,9 @@ export default class HitDiceManager {
         .reduce((acc: Record<string, { current: number, total: number }>, cls: any) => {
           // eslint-disable-next-line max-len
           const { current, total, size }: { current: number, total: number, size: number } = cls.hitDice;
-          acc[`d${size}`] = { current, total };
+          acc[`d${size}`] ??= { current: 0, total: 0 };
+          acc[`d${size}`].current += current;
+          acc[`d${size}`].total += total;
           return acc;
         }, {});
     }
