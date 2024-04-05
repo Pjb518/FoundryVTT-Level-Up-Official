@@ -1,6 +1,6 @@
 <script lang="ts">
     import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
-    import type { Grant } from "../../../../types/grants";
+    import type { Grant } from "../../../../types/itemGrants";
 
     import { getContext } from "svelte";
 
@@ -48,7 +48,7 @@
     </div>
 
     <div class="indicator-wrapper">
-        <!-- TODO: Optional and level indicators go here -->
+        <!-- TODO: Class Documents - Optional and level indicators go here -->
     </div>
 
     {#if $item.isOwner}

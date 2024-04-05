@@ -11,7 +11,7 @@ class ActorBaseGrant extends A5EDataModel {
     const { fields } = foundry.data;
 
     return {
-      // TODO: Update to UUIDField in v12
+      // TODO: v12 - Update to UUIDField in v12
       itemUuid: new fields.StringField({ required: true, initial: '' }),
       // itemUuid: new fields.DocumentUUIDField({ required: true, initial: '' }),
       grantId: new fields.DocumentIdField({ required: true, initial: '' }),

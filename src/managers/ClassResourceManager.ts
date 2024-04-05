@@ -19,7 +19,7 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
       const classResource = data;
       const slug = classResource.name.slugify();
       // const isValid = this.validateResource(classResource);
-      // TODO: Clean up the resource data if it's invalid and try again
+      // TODO: Class Documents - Clean up the resource data if it's invalid and try again
 
       this.set(slug, classResource);
     });

@@ -143,7 +143,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
       });
     }
 
-    // TODO: Handle multi classed spellcasting for points
+    // TODO: Class Documents - Handle multi classed spellcasting for points
     if (grantedResources.points.length > 1) {
       // DO SOMETHING
     }
@@ -186,7 +186,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
   // -------------------------------------------------------------
   // Resources Reset Handlers
   // -------------------------------------------------------------
-  // TODO: Move to resource manager
+  // TODO: Resource Manager - Move to resource manager
   async recoverExertionUsingHitDice() {
     const { current, max } = this.system.attributes.exertion;
 
@@ -201,7 +201,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
 
     const roll = await new Roll('1d4');
 
-    // TODO: Make the message prettier
+    // TODO: Chat Cards - Make the message prettier
     await roll.toMessage();
     const newExertion = Math.min((current ?? 0) + roll.total, max);
     const newHitDieCount = this.system.attributes.hitDice[lowestAvailableHitDie].current - 1;

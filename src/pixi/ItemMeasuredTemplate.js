@@ -10,7 +10,7 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
 
     // Draw template and switch to template layer
     this.draw();
-    // TODO: Remove when upstream bug is fixed
+    // TODO: Rework - Remove when upstream bug is fixed
     try {
       this.layer.activate();
     } catch (err) {

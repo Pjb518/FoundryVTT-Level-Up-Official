@@ -826,7 +826,7 @@ export default class BaseActorA5e extends Actor {
     // Recharge Roll
     const rechargeRoll = await new Roll(formula, this.getRollData()).evaluate({ async: true });
 
-    // TODO: Make the message prettier
+    // TODO: Chat cards - Make the message prettier
     rechargeRoll.toMessage();
 
     if (rechargeRoll.total < threshold) return;

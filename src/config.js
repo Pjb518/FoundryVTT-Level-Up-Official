@@ -729,7 +729,7 @@ A5E.rollModes = {
   disadvantage: 'A5E.RollModeDisadvantage'
 };
 
-// TODO: Add localizations for these roll types.
+// TODO: Localization - Add localizations for these roll types.
 A5E.rollTypes = {
   abilityCheck: 'Ability Check',
   attack: 'Attack',

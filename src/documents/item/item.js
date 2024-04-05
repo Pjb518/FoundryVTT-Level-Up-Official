@@ -488,7 +488,7 @@ export default class ItemA5e extends BaseItemA5e {
     const rechargeRoll = await new Roll(formula, this.actor.getRollData(this))
       .evaluate({ async: true });
 
-    // TODO: Make the message prettier
+    // TODO: Chat Cards - Make the message prettier
     rechargeRoll.toMessage();
 
     if (rechargeRoll.total < threshold) return;

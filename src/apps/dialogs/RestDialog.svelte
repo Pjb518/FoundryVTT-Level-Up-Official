@@ -25,7 +25,7 @@
         try {
             await $actor.rollHitDice(dieSize);
         } catch (e) {
-            // TODO: Display a useful error to the user when hit die updates fail
+            // TODO: Error System - Display a useful error to the user when hit die updates fail
             console.log(e);
             return;
         }

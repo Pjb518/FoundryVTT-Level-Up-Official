@@ -81,7 +81,7 @@
             />
         {/each}
 
-        <!-- TODO: Add a proper summary for the various grants -->
+        <!-- TODO: Character Builder - Add a proper summary for the various grants -->
         <!-- <Section heading="Summary">
             <ul>
                 {#each applyData.entries() as [id, { summary }]}

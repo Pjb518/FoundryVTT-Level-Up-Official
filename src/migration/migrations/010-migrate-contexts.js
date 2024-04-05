@@ -130,7 +130,7 @@ export default class Migration010MigrateContexts extends MigrationBase {
   }
 
   #updateSkillBonuses(actorData) {
-    // TODO: Group Bonuses where possible
+    // Group Bonuses where possible
     const { skills } = actorData.system;
     const bonuses = {};
 

@@ -37,7 +37,7 @@ export default class ClassItemA5e extends OriginItemA5e {
   prepareBaseData() {
     super.prepareBaseData();
 
-    // TODO: If no parent class reset classLevels, hitDice, hp
+    // TODO: Class Documents - If no parent class reset classLevels, hitDice, hp
 
     // Set up class resource manager
     this.resources = new ClassResourceManager(this);
@@ -116,7 +116,7 @@ export default class ClassItemA5e extends OriginItemA5e {
 
   getRollData() {
     const data = { ...super.getRollData() };
-    // TODO: Add class specific data here
+    // TODO: Class Documents - Add class specific data here
     return data;
   }
 

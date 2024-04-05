@@ -145,7 +145,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     }
 
     if (mode === MODES.OVERRIDE) {
-      // TODO: Add support for objects
+      // TODO: AE Rework - Add support for objects
       return delta;
     }
 
@@ -191,7 +191,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
     let newKey = '';
     delta = delta || '';
 
-    // TODO: Move to own utility function
+    // TODO: Refactor - Move to own utility function
     switch (change.key) {
       case 'flags.a5e.effects.damageResistances.all':
       case 'flags.a5e.effects.damageVulnerabilities.all':
@@ -266,7 +266,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
         ) ?? change.value;
       }
     } catch (e) {
-      // TODO: Handle invalid roll formula ui side to make sure it's always correct.
+      // TODO: UX Upgrades - Handle invalid roll formula ui side to make sure it's always correct.
       // Invalid roll formula is handled in UI.
       return change.value;
     }

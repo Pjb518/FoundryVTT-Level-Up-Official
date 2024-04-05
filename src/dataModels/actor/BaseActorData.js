@@ -88,7 +88,7 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         }),
         initiative: new fields.SchemaField({
           ability: new fields.StringField({ required: true, initial: 'dex' }),
-          // TODO: Remove this at a later date when migration is guaranteed
+          // TODO: Migration Upgrade - Remove this at a later date when migration is guaranteed
           bonus: new fields.StringField({ required: true, initial: '' }),
           expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true })
         }),
@@ -193,7 +193,7 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           new fields.SchemaField(getSkillBonusData())
         ),
         maneuverDC: new fields.StringField({ initial: '' }),
-        // TODO: Remove these at a later date when migration is guaranteed
+        // TODO: Migration Upgrade - Remove these at a later date when migration is guaranteed
         meleeSpellAttack: new fields.StringField({ initial: '' }),
         meleeWeaponAttack: new fields.StringField({ initial: '' }),
         rangedSpellAttack: new fields.StringField({ initial: '' }),

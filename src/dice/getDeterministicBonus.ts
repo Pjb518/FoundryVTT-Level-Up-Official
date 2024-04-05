@@ -20,7 +20,7 @@ export default function getDeterministicBonus(
   const roll = new Roll(zeroedFormula, rollData);
   if (!Roll.validate(roll.formula)) throw Error('Invalid roll formula');
 
-  // TODO: Can possibly remove this version
+  // TODO: v12 - Can possibly remove this version
   // Make a dummy roll and calculate what portion of that came from dice.
   const result = roll.roll({ async: false });
   const diceTotal = roll.dice.reduce((acc, curr) => acc + curr.total, 0);

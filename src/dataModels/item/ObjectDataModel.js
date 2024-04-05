@@ -25,7 +25,7 @@ export default class ObjectDataModel extends BaseItemData.mixin(Armor) {
       equippedState: new fields.NumberField({
         required: true, initial: 0, integer: true, min: 0, max: 2
       }),
-      // TODO: Remove this in favor of a greedy approach
+      // TODO: Container Rework - Remove this in favor of a greedy approach
       items: new fields.ObjectField({ required: true, initial: {} }),
       materialProperties: new fields.ArrayField(
         new fields.StringField({ required: true, initial: '' }),

@@ -71,7 +71,7 @@ declare interface Utils {
   isNewerVersion(v1: number | string, v0: number | string): boolean,
 
   /** @deprecated */
-  isObjectEmpty: any, // TODO:
+  isObjectEmpty: any, // TODO: v12
 
   isSubclass(cls: any, parent: any): boolean,
 

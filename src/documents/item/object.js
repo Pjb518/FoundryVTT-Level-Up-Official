@@ -6,11 +6,11 @@ import SubObjectField from '../../dataModels/fields/SubObjectField';
 
 export default class ObjectItemA5e extends ItemA5e {
   get weight() {
-    // TODO: Implement weight for containers
+    // TODO: Container Rework - Implement weight for containers
     return this.system.weight;
   }
 
-  // TODO: Add a solid fix at some point
+  // TODO: Container Rework - Add a solid fix at some point
   get containerItemNames() {
     if (!this.containerItems) return '';
 
@@ -159,8 +159,6 @@ export default class ObjectItemA5e extends ItemA5e {
   /** @inheritdoc */
   async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
-
-    // TODO: Move from Base to Item & Origin
   }
 
   async _preUpdate(data, options, user) {
