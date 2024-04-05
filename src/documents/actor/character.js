@@ -61,40 +61,63 @@ export default class CharacterActorA5E extends BaseActorA5e {
   prepareSpellResources() {
     const actorData = this.system;
     const { classes } = this;
-    const spellSlotClasses = [];
+
+    const grantedResources = {
+      slots: [],
+      additionalSlots: [],
+      points: [],
+      inventions: [],
+      artifactCharges: []
+    };
 
     Object.values(classes).forEach((cls) => {
-      const { casting } = cls;
-      if (!casting) return;
+      const { progressionType, resource } = cls?.casting ?? {};
+      if (!progressionType) return;
 
-      if (casting.progressionType === 'multiplier') {
-        spellSlotClasses.push(cls);
-        return;
-      }
-
-      // TODO: Point multi-classing
-
-      if (casting.resource === 'inventions') {
-        actorData.spellResources.inventions.max += (casting.inventions || 0);
-      } else if (casting.resource === 'artifactCharges') {
-        actorData.spellResources.artifactCharges.max += (casting.charges || 0);
-      } else if (casting.resource === 'slots') {
-        Object.entries(casting.slots).forEach(([level, slotCount]) => {
-          actorData.spellResources.slots[level].max += slotCount;
-        });
-      }
+      if (progressionType === 'multiplier') grantedResources.slots.push(cls);
+      else if (resource === 'artifactCharges') grantedResources.artifactCharges.push(cls);
+      else if (resource === 'inventions') grantedResources.inventions.push(cls);
+      else if (resource === 'points') grantedResources.points.push(cls);
+      else if (resource === 'slots') grantedResources.additionalSlots.push(cls);
     });
 
-    // Add spell slot data
-    if (spellSlotClasses.length === 1) {
-      const cls = spellSlotClasses[0];
+    // Handle single typed classes
+    if (grantedResources.slots.length === 1) {
+      const cls = grantedResources.slots[0];
       const { slots: classSlots } = cls.casting;
 
       Object.entries(classSlots).forEach(([level, slotCount]) => {
-        actorData.spellResources.slots[level].max += slotCount;
+        const { max, override } = actorData.spellResources.slots[level];
+        actorData.spellResources.slots[level].max = override || max + (slotCount || 0);
       });
-    } else if (spellSlotClasses.length > 1) {
-      const total = spellSlotClasses.reduce((acc, cls) => {
+    }
+
+    if (grantedResources.points.length === 1) {
+      const cls = grantedResources.points[0];
+      const { points } = cls.casting;
+      const { max, override } = actorData.spellResources.points;
+
+      actorData.spellResources.points.max = override || max + (points || 0);
+    }
+
+    if (grantedResources.inventions.length === 1) {
+      const cls = grantedResources.inventions[0];
+      const { inventions } = cls.casting;
+      const { max, override } = actorData.spellResources.inventions;
+
+      actorData.spellResources.inventions.max = override || max + (inventions || 0);
+    }
+
+    if (grantedResources.artifactCharges.length === 1) {
+      const cls = grantedResources.artifactCharges[0];
+      const { charges } = cls.casting;
+      const { max, override } = actorData.spellResources.artifactCharges;
+      actorData.spellResources.artifactCharges.max = override || max + (charges || 0);
+    }
+
+    // Handle multi classed spellcasting for slots
+    if (grantedResources.slots.length > 1) {
+      const total = grantedResources.slots.reduce((acc, cls) => {
         const { classLevels } = cls;
 
         const progressionConfig = CONFIG.A5E.casterProgression[cls.casting.casterType];
@@ -105,9 +128,25 @@ export default class CharacterActorA5E extends BaseActorA5e {
       }, 0);
 
       CONFIG.A5E.SPELL_SLOT_TABLE[total].forEach((slotCount, idx) => {
-        actorData.spellResources.slots[idx + 1].max += slotCount;
+        const { max, override } = actorData.spellResources.slots[idx + 1];
+        actorData.spellResources.slots[idx + 1].max = override || max + (slotCount || 0);
       });
     }
+
+    // TODO: Handle multi classed spellcasting for points
+    if (grantedResources.points.length > 1) {
+      // DO SOMETHING
+    }
+
+    // Add additional spell slots
+    grantedResources.additionalSlots.forEach((cls) => {
+      const { slots } = cls.casting;
+
+      Object.entries(slots).forEach(([level, slotCount]) => {
+        const { max, override } = actorData.spellResources.slots[level];
+        actorData.spellResources.slots[level].max = override || max + (slotCount || 0);
+      });
+    });
 
     // TODO: Implement Known Spells
     // TODO: Implement Known Cantrips
