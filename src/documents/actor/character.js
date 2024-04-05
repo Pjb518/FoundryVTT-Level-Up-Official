@@ -148,9 +148,29 @@ export default class CharacterActorA5E extends BaseActorA5e {
       });
     });
 
-    // TODO: Implement Known Spells
-    // TODO: Implement Known Cantrips
-    // TODO: Implement max level
+    actorData.spellResources.knownSpells = Object.values(classes).reduce((acc, cls) => {
+      const { knownSpells } = cls?.casting ?? {};
+      if (!knownSpells) return acc;
+
+      acc[cls.slug] = knownSpells;
+      return acc;
+    }, {});
+
+    actorData.spellResources.knownCantrips = Object.values(classes).reduce((acc, cls) => {
+      const { knownCantrips } = cls?.casting ?? {};
+      if (!knownCantrips) return acc;
+
+      acc[cls.slug] = knownCantrips;
+      return acc;
+    }, {});
+
+    actorData.spellResources.maxSpellLevel = Object.values(classes).reduce((acc, cls) => {
+      const { maxLevel } = cls?.casting ?? {};
+      if (!maxLevel) return acc;
+
+      acc[cls.slug] = maxLevel;
+      return acc;
+    }, {});
   }
 
   // -------------------------------------------------------------
