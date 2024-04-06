@@ -5,7 +5,8 @@ export default function getBreakerProperties(item) {
 
   const properties = item.system.breakerProperties
     ?.map((p) => breakerProperties[p] ?? null)
-    ?.filter(Boolean);
+    ?.filter(Boolean)
+    ?.sort((a, b) => a.localeCompare(b));
 
   if (properties.length) {
     return localize(
