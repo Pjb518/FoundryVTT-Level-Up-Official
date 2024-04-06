@@ -17,14 +17,23 @@ export default class ObjectDataModel extends BaseItemData.mixin(Armor) {
       ),
       attuned: new fields.BooleanField({ required: true, initial: false }),
       bulky: new fields.BooleanField({ required: true, initial: false }),
+      breakerProperties: new fields.ArrayField(
+        new fields.StringField({ required: true, initial: '' }),
+        { required: true, initial: [] }
+      ),
       craftingComponents: new fields.StringField({ required: true, initial: '' }),
       containerId: new fields.StringField({ required: true, initial: '' }),
       damagedState: new fields.NumberField({
         required: true, initial: 0, integer: true, min: 0, max: 2
       }),
+      defensiveProperties: new fields.StringField({ required: true, initial: '' }),
       equippedState: new fields.NumberField({
         required: true, initial: 0, integer: true, min: 0, max: 2
       }),
+      flaws: new fields.ArrayField(
+        new fields.StringField({ required: true, initial: '' }),
+        { required: true, initial: [] }
+      ),
       // TODO: Remove this in favor of a greedy approach
       items: new fields.ObjectField({ required: true, initial: {} }),
       materialProperties: new fields.ArrayField(
@@ -48,6 +57,7 @@ export default class ObjectDataModel extends BaseItemData.mixin(Armor) {
       unidentified: new fields.BooleanField({ required: true, initial: false }),
       unidentifiedDescription: new fields.HTMLField({ required: true, initial: '' }),
       unidentifiedName: new fields.StringField({ required: true, initial: '' }),
+      versatile: new fields.StringField({ required: true, initial: '' }),
       weaponProperties: new fields.ArrayField(
         new fields.StringField({ required: true, initial: '' }),
         { required: true, initial: [] }

@@ -599,6 +599,12 @@ A5E.materialProperties = {
   wild: 'A5E.MaterialPropertyWild'
 };
 
+A5E.flaws = {
+  bludgeoning: 'A5E.damageTypes.bludgeoning',
+  piercing: 'A5E.damageTypes.piercing',
+  slashing: 'A5E.damageTypes.slashing'
+};
+
 /**
  * The set of core movement types in the system.
  * @enum {string}
@@ -1637,13 +1643,8 @@ A5E.weaponsPlural = {
 A5E.weaponProperties = {
   burn: 'A5E.weaponProperties.burn',
   breaker: 'A5E.weaponProperties.breaker',
-  breakerStone: 'A5E.weaponProperties.breakerStone',
-  breakerWood: 'A5E.weaponProperties.breakerWood',
   compounding: 'A5E.weaponProperties.compounding',
   defensive: 'A5E.weaponProperties.defensive',
-  defensiveLight: 'A5E.weaponProperties.defensiveLight',
-  defensiveMedium: 'A5E.weaponProperties.defensiveMedium',
-  defensiveHeavy: 'A5E.weaponProperties.defensiveHeavy',
   dualWielding: 'A5E.weaponProperties.dualWielding',
   finesse: 'A5E.weaponProperties.finesse',
   flamboyant: 'A5E.weaponProperties.flamboyant',
@@ -1671,6 +1672,24 @@ A5E.weaponProperties = {
   twoHanded: 'A5E.weaponProperties.twoHanded',
   versatile: 'A5E.weaponProperties.versatile',
   vicious: 'A5E.weaponProperties.vicious'
+};
+
+A5E.breakerProperties = {
+  stone: 'Stone',
+  wood: 'Wood'
+};
+
+A5E.defensiveProperties = {
+  light: 'Light',
+  medium: 'Medium',
+  heavy: 'Heavy'
+};
+
+A5E.versatileOptions = {
+  d6: 'd6',
+  d8: 'd8',
+  d10: 'd10',
+  d12: 'd12'
 };
 
 // Build Complex Config Parts
