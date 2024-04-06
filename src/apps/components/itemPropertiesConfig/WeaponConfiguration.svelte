@@ -7,7 +7,6 @@
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import Section from "../Section.svelte";
-    import { NodePackageImporter } from "sass";
 
     function prepareWeaponProperties(item) {
         const properties = item.system.weaponProperties
