@@ -296,7 +296,7 @@
 		},
 		{
 			"_id": "eiE6BB5E6JS7zLhW",
-			"name": "Euphoria Breath (Recharge 5-6)",
+			"name": "Euphoria Breath",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -316,7 +316,7 @@
 				},
 				"actions": {
 					"MXICLy5T9l9RAaAI": {
-						"name": "Euphoria Breath (Recharge 5-6)",
+						"name": "Euphoria Breath",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -351,7 +351,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"uZyhnv0lSrFOXsKx": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>The dragon breathes an intoxicating gas at a creature within 5 feet. The target makes a DC 11 Wisdom saving throw. On a failure, the target is confused for 1 minute. The target repeats the saving throw at the end of each of its turns, ending the effect on a success.</p>",
@@ -359,12 +365,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 5
 					}
 				},
 				"concentration": false,
@@ -1821,7 +1827,7 @@
 				"3",
 				"4"
 			],
-			"sheetIsLocked": false,
+			"sheetIsLocked": true,
 			"sortMode": {},
 			"filters": {}
 		}
@@ -1861,7 +1867,8 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -2307,7 +2314,12 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"forest",
+				"jungle",
+				"theDreaming"
+			],
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],

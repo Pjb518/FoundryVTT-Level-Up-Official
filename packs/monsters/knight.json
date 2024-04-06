@@ -433,7 +433,8 @@
 							"2W6QELzDhOQ58RtM": {
 								"itemid": "",
 								"quantity": 1,
-								"type": "ammunition"
+								"type": "ammunition",
+								"itemId": "Y6n1CeCOGwASX7vb"
 							}
 						}
 					}
@@ -1216,13 +1217,92 @@
 			"folder": null,
 			"sort": 0,
 			"_id": "5yqU3BWjxsEvwhyi"
+		},
+		{
+			"name": "Crossbow Bolts",
+			"type": "object",
+			"img": "icons/weapons/ammunition/arrows-war-red.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.p4oflhbn4o9i2x2k"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>A bundle of 20 bolts.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "ammunition",
+				"plotItem": false,
+				"price": "1 gp",
+				"proficient": true,
+				"quantity": 20,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0.075,
+				"schemaVersion": {
+					"version": 0.013,
+					"lastMigration": {
+						"version": {
+							"schema": 0.011,
+							"foundry": "11.315",
+							"system": "0.16.49"
+						}
+					}
+				}
+			},
+			"folder": null,
+			"_id": "Y6n1CeCOGwASX7vb",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": true
 		}
 	},
 	"system": {
@@ -1260,7 +1340,8 @@
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -1705,7 +1786,14 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"grassland",
+				"hills",
+				"mountains",
+				"settlement",
+				"temple"
+			],
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],

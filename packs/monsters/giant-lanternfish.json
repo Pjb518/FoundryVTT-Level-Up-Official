@@ -1,16 +1,16 @@
 {
-	"name": "Nightmare",
+	"name": "Giant Lanternfish",
 	"type": "npc",
-	"img": "systems/a5e/assets/nightmare.webp",
+	"img": "icons/svg/mystery-man.svg",
 	"items": [
 		{
-			"_id": "AISWpGeRW1JqZTEB",
-			"name": "Evil",
+			"_id": "GjdbnW69geUgW1Lh",
+			"name": "Chaotic Evil",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 100000,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -24,7 +24,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The nightmare radiates an Evil aura.&nbsp;</p>",
+				"description": "<p>The giant lanternfish radiates a Chaotic and Evil aura.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -58,13 +58,13 @@
 			}
 		},
 		{
-			"_id": "N06RbplYIz4BTj2q",
-			"name": "Fiery Hooves",
+			"_id": "O1UHBRUeHLAnBxu4",
+			"name": "Innate Spellcasting",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
+			"sort": 200000,
 			"flags": {},
 			"system": {
 				"ac": {
@@ -78,7 +78,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The nightmare sheds bright light in a 10-foot radius and dim light for an additional 10 feet. The nightmare leaves charred hoofprints.</p>",
+				"description": "<p>The&nbsp;giant lanternfish&rsquo;s innate spellcasting ability is Charisma (spell save DC 14). It can innately cast the following spells, requiring no material components.</p>\n<p>At will: <em>charm person</em>,<em> disguise self </em>(humanoid form),<em> major image</em>,<em> misty step</em></p>\n<p>1/day each: <em>geas</em>,<em> hallucinatory terrain</em>,<em> hypnotic pattern</em>,<em> scrying</em></p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -112,67 +112,13 @@
 			}
 		},
 		{
-			"_id": "QEArXFJzDVdPLmdx",
-			"name": "Fire Resistance",
+			"_id": "xYbmxaw8Hg1nz6J7",
+			"name": "Dizzying Touch",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The nightmare can grant fire resistance to a rider.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "",
-						"threshold": 0
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.014,
-					"lastMigration": {
-						"version": {
-							"schema": 0.013,
-							"foundry": "11.315",
-							"system": "0.17.20"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "x3Fa6WwOTiZ2sBjP",
-			"name": "Hooves",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 50000,
+			"sort": 300000,
 			"flags": {
 				"core": {
 					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
@@ -190,8 +136,8 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"g29QmaM9zaajIjIj": {
-						"name": "Hooves",
+					"3c0cwzx0rJPoMyxy": {
+						"name": "Dizzying Touch",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -200,6 +146,11 @@
 						"duration": {
 							"unit": "",
 							"value": ""
+						},
+						"ranges": {
+							"UwXRTMWS8hrvKydJ": {
+								"range": "fiveFeet"
+							}
 						},
 						"area": {
 							"shape": "",
@@ -211,43 +162,18 @@
 							"type": ""
 						},
 						"rolls": {
-							"gJtZ4V3OWqhfz5jg": {
+							"I21B5jQFd6tVjoyd": {
 								"bonus": "",
 								"critThreshold": "20",
 								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"41QfmnIJrpPEE06N": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "2d6+@str.mod",
-								"name": "Hooves",
-								"type": "damage"
-							},
-							"n2qkhLckj6HFnBwd": {
-								"canCrit": true,
-								"damageType": "fire",
-								"formula": "2d6",
-								"name": "Fire",
-								"type": "damage"
-							}
-						},
-						"prompts": {
-							"io2I94r6JU1yX0cu": {
-								"ability": "str",
-								"onSave": "",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "14"
-								},
-								"type": "savingThrow"
+								"attackType": "meleeSpellAttack",
+								"ability": "cha"
 							}
 						},
 						"consumers": {}
 					}
 				},
-				"description": "<p>If the horse moves at least 20 feet straight towards the target before the attack, the target makes a DC 14 Strength saving throw, falling prone on a failure. The nightmare can move through the space of a prone creature as long as it does not end its turn there.</p>",
+				"description": "<p>The target is magically charmed for 1 hour or until it takes damage. While charmed in this way, it has disadvantage on Wisdom saving throws and ability checks.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -281,13 +207,13 @@
 			}
 		},
 		{
-			"_id": "Weq5ttrjA4shVp2E",
-			"name": "Ethereal Shift",
+			"_id": "TmYeCoPasd7FJd7d",
+			"name": "Claws",
 			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
+			"img": "icons/skills/melee/blood-slash-foam-red.webp",
 			"effects": [],
 			"folder": null,
-			"sort": 100000,
+			"sort": 312500,
 			"flags": {
 				"core": {
 					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
@@ -305,8 +231,253 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"ahChdeukWbeirKXh": {
-						"name": "Ethereal Shift",
+					"BHBIOtS0gUiwvE2L": {
+						"name": "Claws",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"JX4qOVzIfbm0wZIP": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"GGsw20uS4eiu3q8y": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"Hianw1utPaj8k1Fe": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "4d6+@str.mod",
+								"name": "Claws",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.013,
+							"foundry": "11.315",
+							"system": "0.17.20"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "4NBIIKMZzifE1inx",
+			"name": "Dagger",
+			"type": "object",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Item.HXir1BTRCetP7jBW"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"hBNSOUEPu0GglQTb": {
+						"name": "Dagger",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"DGQxcx1Au4mfFtbq": {
+								"range": "fiveFeet"
+							},
+							"vuKmDZxTXCTJAID1": {
+								"range": "thrown 20/60 "
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {
+							"YHG7E1ulQWkFOp0E": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"tUkjNRco8Y9Nw4HI": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d4+@str.mod",
+								"name": "Dagger",
+								"type": "damage"
+							},
+							"v7zsnBFGTp7c00uw": {
+								"canCrit": true,
+								"damageType": "poison",
+								"formula": "3d6",
+								"name": "Poison Damage",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"0iy71ynIu3DjdGZL": {
+								"ability": "con",
+								"onSave": "No Poison Damage & Poisoned condition.",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "13"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>The target makes a DC 13 Constitution saving throw. On a failure, the target takes 10 (3d6) poison damage and is poisoned for 1 hour.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "0",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "common",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0,
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.013,
+							"foundry": "11.315",
+							"system": "0.17.20"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "c4yz9HD4h0YXD4Hh",
+			"name": "Hypnotic Pattern (3rd-Level; S, Concentration)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 325000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"pE5jtZHVM3feUniK": {
+						"name": "Hypnotic Pattern (3rd-Level; S, Concentration)",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -325,26 +496,112 @@
 							"quantity": "",
 							"type": ""
 						},
-						"consumers": {
-							"wMzRe8hYWhx4ypP3": {
-								"type": "itemUses",
-								"default": true,
-								"quantity": 1
+						"prompts": {
+							"FEwIgBoThk2jBFx8": {
+								"ability": "wis",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "14"
+								},
+								"type": "savingThrow"
 							}
-						}
+						},
+						"consumers": {}
 					}
 				},
-				"description": "<p>The nightmare and a rider magically pass from the Ethereal Plane to the Material Plane or vice versa.</p>",
+				"description": "<p>A swirling pattern of light appears at a point within 120 feet. Each creature within 10 feet of the pattern that can see it makes a DC 14 Wisdom saving throw. On a failure, the creature is charmed for 1 minute. While charmed, the creature is incapacitated and its Speed is 0. The effect ends on a creature if it takes damage or if another creature uses an action to shake it out of its daze.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.013,
+							"foundry": "11.315",
+							"system": "0.17.20"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "IgXAguazZVJdbaz3",
+			"name": "Misty Step (2nd-Level; V)",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 425000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.i2cfGU9ofnKwr9OF"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"xklHiVe66I52gmPJ": {
+						"name": "Misty Step (2nd-Level; V)",
+						"activation": {
+							"cost": 1,
+							"type": "bonusAction",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>The lamia teleports to an unoccupied space it can see within 30 feet. The lamia can’t cast this spell and a 1st-level or higher spell on the same turn.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "recharge",
+					"value": 0,
+					"max": "",
+					"per": "",
 					"recharge": {
 						"formula": "",
-						"threshold": 5
+						"threshold": 0
 					}
 				},
 				"concentration": false,
@@ -379,7 +636,7 @@
 			},
 			"system": {
 				"actions": {
-					"H3ez1sqdWRpeNBHn": {
+					"YxdXOjkp5t3ECyIF": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -391,7 +648,7 @@
 							"value": null
 						},
 						"ranges": {
-							"5UooGE4X7UKDA17W": {
+							"RMUD42d8GX92YS2k": {
 								"range": "fiveFeet"
 							}
 						},
@@ -407,7 +664,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"OstMff75osJr7T2k": {
+							"5bUBCeFoz6jHyhij": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -416,7 +673,7 @@
 							}
 						},
 						"prompts": {
-							"ZV4A3wUxb3LhFrqL": {
+							"8k1bK6PqG5BCDcLo": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -464,7 +721,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "2WMJRkLQ2fG27nyR"
+			"_id": "9KIUboNY0oGibZwG"
 		},
 		{
 			"name": "Disarm",
@@ -478,7 +735,7 @@
 			},
 			"system": {
 				"actions": {
-					"bH9DdLkQPLfm4duB": {
+					"vYgPtAwZbMu5RLUa": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -490,7 +747,7 @@
 							"value": null
 						},
 						"ranges": {
-							"J7djzutTXgCHaL5v": {
+							"tOKsoehuCPGnnfXb": {
 								"range": "touch"
 							}
 						},
@@ -506,7 +763,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"PGZ1q5kyPoJlceRk": {
+							"GdMI1V5rCUNPWKYE": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -515,7 +772,7 @@
 							}
 						},
 						"prompts": {
-							"7uQlYH8alx3RODgn": {
+							"hBSgoy64HMD32AA2": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -563,7 +820,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "4VmiXlI8NCGaVGY2"
+			"_id": "JdXtQSeikbOD70MZ"
 		},
 		{
 			"name": "Grab On",
@@ -577,7 +834,7 @@
 			},
 			"system": {
 				"actions": {
-					"vtv1gMVU5sfJ6WQD": {
+					"jWH7fP3cGW6W6CtY": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -589,7 +846,7 @@
 							"value": null
 						},
 						"ranges": {
-							"ReLh0qYVhfdQhCla": {
+							"7AAnoaFqIthU1WQR": {
 								"range": "touch"
 							}
 						},
@@ -605,7 +862,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"TgZ9ridwDtad33yC": {
+							"KhX2kmf0J73puXKm": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -653,7 +910,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "9ZGjreHQCG4m8QO3"
+			"_id": "m10aIJJGtrEkIFg8"
 		},
 		{
 			"name": "Knockdown",
@@ -667,7 +924,7 @@
 			},
 			"system": {
 				"actions": {
-					"m3S068xulWsbffi2": {
+					"VigyGd3AH4oir0Wk": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -679,7 +936,7 @@
 							"value": null
 						},
 						"ranges": {
-							"wMMeGUTBfDBxEolo": {
+							"FaMwsWpc5jFSMNCs": {
 								"range": "touch"
 							}
 						},
@@ -695,7 +952,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"hTuSbmYy5bpsoXkR": {
+							"D4bC703EMvBkyM1l": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -743,7 +1000,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "PnGCRnFIVahup1Zk"
+			"_id": "Uy3HVBgQPunL3FvW"
 		},
 		{
 			"name": "Grapple",
@@ -757,7 +1014,7 @@
 			},
 			"system": {
 				"actions": {
-					"8VKIq1kV8tEDa3mz": {
+					"S9Vc1rJs3KdcvHA4": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -769,7 +1026,7 @@
 							"value": null
 						},
 						"ranges": {
-							"rvPTUArXloreXWwd": {
+							"x63Gmo2zthFfj2SL": {
 								"range": "touch"
 							}
 						},
@@ -785,7 +1042,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"f8R1bSxxseyfB6wD": {
+							"iyIn8V3SOarRtzvJ": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -833,7 +1090,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "HneaabXpUmTeJ0qI"
+			"_id": "PAH7NhjwI7uxwq9A"
 		},
 		{
 			"name": "Overrun",
@@ -847,7 +1104,7 @@
 			},
 			"system": {
 				"actions": {
-					"YDl5gKywwgYAcsQ6": {
+					"Kw309ABwgQhsCWXX": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -859,7 +1116,7 @@
 							"value": null
 						},
 						"ranges": {
-							"27bBfuAlrdGaawPo": {
+							"p41GYLBPdGpixZ5t": {
 								"range": "touch"
 							}
 						},
@@ -875,7 +1132,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"8M67Aao1ZS8nAsbq": {
+							"OnU4gdl8oFYAdQNw": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -923,22 +1180,21 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "4RstqnDlaNdTR9BG"
+			"_id": "uMpkUM3yha3Lv33L"
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true,
-			"showSpellTab": false,
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": true
 		}
 	},
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 18,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -950,7 +1206,7 @@
 				}
 			},
 			"dex": {
-				"value": 14,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -975,7 +1231,7 @@
 				}
 			},
 			"int": {
-				"value": 10,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -987,7 +1243,7 @@
 				}
 			},
 			"wis": {
-				"value": 12,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -999,7 +1255,7 @@
 				}
 			},
 			"cha": {
-				"value": 14,
+				"value": 18,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1079,7 +1335,7 @@
 			},
 			"dec": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1167,7 +1423,7 @@
 			},
 			"prc": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1222,7 +1478,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1297,8 +1553,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 68,
-				"baseMax": 68,
+				"value": 85,
+				"baseMax": 85,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -1312,8 +1568,8 @@
 					"total": 0
 				},
 				"d10": {
-					"current": 8,
-					"total": 8
+					"current": 10,
+					"total": 10
 				},
 				"d12": {
 					"current": 0,
@@ -1329,9 +1585,9 @@
 				}
 			},
 			"initiative": {
-				"ability": "dex",
 				"bonus": "",
-				"expertiseDice": 0
+				"expertiseDice": 0,
+				"ability": "dex"
 			},
 			"movement": {
 				"burrow": {
@@ -1343,15 +1599,15 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 90,
-					"unit": "feet"
-				},
-				"swim": {
 					"distance": 0,
 					"unit": "feet"
 				},
+				"swim": {
+					"distance": 30,
+					"unit": "feet"
+				},
 				"walk": {
-					"distance": 60,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -1360,20 +1616,20 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"tremorsense": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet"
 				}
 			},
@@ -1384,15 +1640,15 @@
 			"casterLevel": 0
 		},
 		"bonuses": {
+			"abilities": {},
+			"damage": {},
+			"healing": {},
 			"maneuverDC": "",
 			"meleeSpellAttack": "",
 			"meleeWeaponAttack": "",
 			"rangedSpellAttack": "",
 			"rangedWeaponAttack": "",
 			"spellDC": "",
-			"abilities": {},
-			"damage": {},
-			"healing": {},
 			"skills": {},
 			"attacks": {},
 			"initiative": {},
@@ -1407,26 +1663,26 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<h2><strong>COMBAT</strong></h2><p>The nightmare charges foes, battering them with its hooves and galloping over them.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Religion check, characters can learn the following:</p><p><strong>DC 10</strong> Though superficially similar to horses, nightmares are actually fiends. They serve as mounts to evil creatures such as demons, devils, and intelligent undead.</p><p><strong>DC 15</strong> Nightmares are impervious to fire and confer a measure of this protection to their riders.</p><p><strong>DC 20</strong> Nightmares gallop through the air as easily as they cross the ground. They can even travel back and forth between the Material and Ethereal Plane.</p><p><strong>DESCRIPTION</strong></p><p>A monstrous horse of shadow and flame rears back on its hind legs. It makes a sound like a chorus of a thousand shrieking souls, then disappears in a swirl of smoke and brimstone.</p><p><strong><em>Hellish Origins.</em></strong> For eons, the nightmare has served as a mount for the vilest of creatures. Demons, devils, vampires, and other dread beings favor the nightmare for its intelligence and viciousness. Never fully tamed, nightmares require frequent feedings, a demand their evil riders meet by providing them a steady supply of living victims.</p><p><strong><em>Vile Transformation.</em></strong> A nightmare is not born: it is made when a pegasus’s wings are removed in a painful, twisted ritual. What remains is a shadow of the former creature, distorted and corrupted by evil.</p><p><strong>BEHAVIOR</strong></p><p>1 Attacks on sight</p><p>2 Gallops off to summon allies</p><p>3 Chasing down a panicked humanoid</p><p>4 Seeks a new rider</p><p>5 Waiting for its master to return</p><p>6 Fighting a unicorn or pegasus</p><p><strong>SIGNS</strong></p><p>1–2 Charred hoofprints</p><p>3 Uncontrolled wildfire</p><p>4 The charred remains of a humanoid</p><p>5 The sound of galloping in the distance</p><p>6 A streak of fire across the sky</p><p><strong>ENCOUNTERS</strong></p><p>Nightmares are rarely encountered without a rider, except in Hell, the Abyss, or on the Ethereal Plane.</p><p><strong>CR 3–4</strong> nightmare</p><p><strong>CR 5–10</strong> fell nightmare; 2 or 3 nightmares; nightmare leading 1d8 + 4 skeletal warhorses</p>",
+			"bio": "<h2><strong>COMBAT</strong></h2><p>Lamias avoid melee combat, sending their servants to fight for them while they use <em>hypnotic pattern</em> and throw daggers at their enemies from a distance. When cornered, they claw their foe and escape with <em>misty step</em>.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With a History or Religion check, characters can learn the following:</p><p><strong>DC 10</strong> Ages ago, lamias ruled a mighty empire, wielding power granted them by a demon lord. Though their empire now lies in ruins, lamais have not forgotten their former glory.</p><p><strong>DC 15</strong> Lamias use magic to cloak their true intentions. They surround themselves with retinues of charmed servants and loyal jackalweres.</p><p><strong>DC 20</strong> Lamias were once mortal, but when their demonic master granted them immortality, they became something more akin to fiends.</p><p><strong>DESCRIPTION</strong></p><p>A lamia has the upper body of a humanoid and the lower half of a lion. Relics of an earthly demonic empire, lamias live among the ruins of their former palaces, surrounded by illusory finery mimicking the pomp they once commanded.</p><p><strong><em>Forgotten Rulers</em>.</strong> In ancient days, lamias were granted immortality and dominion as a reward for their service to a demon lord. Now that their empire has collapsed into dust, lamias find themselves unable to venture far from the ruins of their domains. Many strive to recreate the former opulence of their palaces, surrounding themselves with stolen treasure, charmed servants, and illusory recreations of throne rooms and sleeping bowers.&nbsp;</p><p><strong><em>Servants and Prisoners</em>.</strong> Most lamias welcome guests, both willing and unwilling. They treat visitors who flatter them as favored subjects to be pampered and entertained with feasts. Those who insult them are more likely to be feasted upon. Favored or not, no visitor is allowed to leave a lamia’s court alive.</p><p>Many lamias are served by jackalweres, the loyal remnants of their erstwhile armies. Lamias direct these jackalweres to raid passing caravans for treasure and new captives to flatter and torment.<br>&nbsp;</p><p><strong>BEHAVIOR</strong></p><p>1 in humanoid form, lounging on a throne or sofa, eager to speak with travelers</p><p>2 in humanoid form: chooses a member of the party to entice with gifts and praise</p><p>3 in true form, surrounded by <em>geased</em> commoner slaves&nbsp;&nbsp;</p><p>4 in humanoid form, pretending to be the prisoner of an evil tyrant (who is actually a charmed noble)</p><p>5 with a defiant holy knight in a cage: the lamia hasn't been able to corrupt the knight so far</p><p>6 about to pit two <em>geased</em> prisoners against one another, unless you provide some other amusement</p><p><strong>SIGNS</strong></p><p>1 ancient roofless temple or deserted city</p><p>2 a once-great palace, ruined except for its throne</p><p>3 monolithic tomb, its massive stone doors broken open</p><p>4 a charmed commoner or disguised jackalwere, desperate to lead you to supposedly empty ruins</p><p>5 an abandoned caravan, with jackalwere footprints leading to a lamia lair</p><p>6 a magnificent (but illusory) palace</p><p><strong>ENCOUNTERS</strong></p><p>Lamias are bound to the deserts and wastelands they once ruled.</p><p><strong>CR 5–10</strong> Lamia with 1 or 2 lions and 1d8 + 2 commoners, or lamia with 1 or 2 giant constrictor snakes and 1d6 + 2 guards, or lamia with 1d8 + 3 jackalweres and 1d6 nobles, or lamia with doppelganger and 6 jackalweres, or lamia with manticore</p><p><strong>Treasure</strong> 1,200 gp, 500 ep, 2,500 sp, silver throne (750 gp), golden demon idol (750 gp), <em>potion of clairvoyance</em>, <em>staff of the python</em></p>",
 			"creatureTypes": [
-				"fiend"
+				"monstrosity"
 			],
 			"isSwarm": false,
-			"cr": 3,
+			"cr": 4,
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
 			"terrain": [
-				"abyss",
-				"hell",
-				"theBleakGate"
+				"planeOfWater",
+				"water"
 			],
 			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],
 			"languages": [
-				"understands Abyssal, Common, and Infernal but can’t speak"
+				"abyssal",
+				"common"
 			],
 			"tools": [],
 			"weapons": []
@@ -1481,17 +1737,18 @@
 		"traits": {
 			"size": "lg",
 			"conditionImmunities": [],
-			"damageImmunities": [
-				"fire"
-			],
+			"damageImmunities": [],
 			"damageResistances": [],
 			"damageVulnerabilities": [],
-			"alignment": []
+			"alignment": [
+				"chaotic",
+				"evil"
+			]
 		},
 		"grants": {},
 		"spellBooks": {
-			"j7e3IroF4DA9dU0c": {
-				"_id": "j7e3IroF4DA9dU0c",
+			"OmJ7Bi0pNQ3vzIrb": {
+				"_id": "OmJ7Bi0pNQ3vzIrb",
 				"name": "New Spell Book",
 				"img": "icons/svg/book.svg",
 				"ability": "default",
@@ -1502,8 +1759,8 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Nightmare",
-		"displayName": 30,
+		"name": "Lamia",
+		"displayName": 0,
 		"actorLink": false,
 		"width": 2,
 		"height": 2,
@@ -1534,7 +1791,7 @@
 			"color": null
 		},
 		"disposition": -1,
-		"displayBars": 30,
+		"displayBars": 0,
 		"bar1": {
 			"attribute": "attributes.hp"
 		},
@@ -1544,7 +1801,7 @@
 		"flags": {},
 		"randomImg": false,
 		"texture": {
-			"src": "systems/a5e/assets/nightmare.webp",
+			"src": "icons/svg/mystery-man.svg",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
@@ -1554,7 +1811,7 @@
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": true,
+			"enabled": false,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -1568,5 +1825,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "gubvo3qa0viz6e6p"
+	"_id": "mu9xdwts950rjzvh"
 }

@@ -1,12 +1,15 @@
 {
-	"folder": null,
-	"name": "Kobold Drakerider",
+	"name": "Giant Jackal",
 	"type": "npc",
-	"img": "systems/a5e/assets/kobold.webp",
+	"img": "icons/svg/mystery-man.svg",
 	"system": {
+		"schemaVersion": {
+			"version": 0.014,
+			"lastMigration": null
+		},
 		"abilities": {
 			"str": {
-				"value": 12,
+				"value": 14,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -30,7 +33,7 @@
 				}
 			},
 			"con": {
-				"value": 10,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -43,7 +46,7 @@
 				}
 			},
 			"int": {
-				"value": 10,
+				"value": 2,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -67,7 +70,7 @@
 				}
 			},
 			"cha": {
-				"value": 8,
+				"value": 6,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -79,13 +82,193 @@
 				}
 			}
 		},
-		"schemaVersion": {
-			"version": 0.014,
-			"lastMigration": {
-				"version": {
-					"schema": 0.013,
-					"foundry": "11.315",
-					"system": "0.17.20"
+		"attributes": {
+			"ac": {
+				"baseFormula": "10 + @dex.mod",
+				"value": 0
+			},
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 34,
+				"baseMax": 34,
+				"temp": 0,
+				"bonus": 0
+			},
+			"hitDice": {
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 0,
+					"total": 0
+				},
+				"d10": {
+					"current": 4,
+					"total": 4
+				},
+				"d12": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"ability": "dex",
+				"bonus": "",
+				"expertiseDice": 0
+			},
+			"movement": {
+				"burrow": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"climb": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"fly": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"swim": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"walk": {
+					"distance": 50,
+					"unit": "feet"
+				},
+				"traits": {
+					"hover": false
+				}
+			},
+			"senses": {
+				"blindsight": {
+					"distance": 0,
+					"unit": "feet",
+					"otherwiseBlind": false
+				},
+				"darkvision": {
+					"distance": 30,
+					"unit": "feet"
+				},
+				"tremorsense": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"truesight": {
+					"distance": 0,
+					"unit": "feet"
+				}
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "int",
+			"casterLevel": 0
+		},
+		"bonuses": {
+			"abilities": {},
+			"attacks": {},
+			"damage": {},
+			"healing": {},
+			"initiative": {},
+			"movement": {},
+			"senses": {},
+			"skills": {},
+			"maneuverDC": "",
+			"meleeSpellAttack": "",
+			"meleeWeaponAttack": "",
+			"rangedSpellAttack": "",
+			"rangedWeaponAttack": "",
+			"spellDC": ""
+		},
+		"currency": {
+			"cp": 0,
+			"sp": 0,
+			"ep": 0,
+			"gp": 0,
+			"pp": 0
+		},
+		"details": {
+			"bio": "",
+			"creatureTypes": [
+				"beast"
+			],
+			"isSwarm": false,
+			"cr": 1,
+			"elite": false,
+			"isSquad": false,
+			"notes": "",
+			"privateNotes": "",
+			"terrain": [
+				"desert",
+				"grassland",
+				"ruin",
+				"theBleakGate"
+			]
+		},
+		"grants": {},
+		"proficiencies": {
+			"armor": [],
+			"languages": [],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": "",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "1d6",
+					"threshold": 6
+				}
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": "",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "1d6",
+					"threshold": 6
+				}
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": "",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "1d6",
+					"threshold": 6
+				}
+			},
+			"quaternary": {
+				"label": "",
+				"value": 0,
+				"max": "",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "1d6",
+					"threshold": 6
 				}
 			}
 		},
@@ -235,7 +418,7 @@
 			},
 			"prc": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": true,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -311,6 +494,18 @@
 				}
 			}
 		},
+		"source": "monstrousMenagerie",
+		"spellBooks": {
+			"IJflYPCmMu0ZvhCg": {}
+		},
+		"traits": {
+			"size": "lg",
+			"alignment": [],
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [],
+			"damageVulnerabilities": []
+		},
 		"spellResources": {
 			"slots": {
 				"1": {
@@ -354,235 +549,24 @@
 				"current": 0,
 				"max": 0
 			}
-		},
-		"attributes": {
-			"ac": {
-				"baseFormula": "",
-				"value": 0
-			},
-			"death": {
-				"success": 0,
-				"failure": 0
-			},
-			"hp": {
-				"value": 14,
-				"baseMax": 14,
-				"temp": 0,
-				"bonus": 0
-			},
-			"hitDice": {
-				"d6": {
-					"current": 4,
-					"total": 4
-				},
-				"d8": {
-					"current": 0,
-					"total": 0
-				},
-				"d10": {
-					"current": 0,
-					"total": 0
-				},
-				"d12": {
-					"current": 0,
-					"total": 0
-				},
-				"d4": {
-					"current": 0,
-					"total": 0
-				},
-				"d20": {
-					"current": 0,
-					"total": 0
-				}
-			},
-			"initiative": {
-				"bonus": "",
-				"expertiseDice": 0,
-				"ability": "dex"
-			},
-			"movement": {
-				"burrow": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"climb": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"fly": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"swim": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"walk": {
-					"distance": 30,
-					"unit": "feet"
-				},
-				"traits": {
-					"hover": false
-				}
-			},
-			"senses": {
-				"blindsight": {
-					"distance": 0,
-					"unit": "feet",
-					"otherwiseBlind": false
-				},
-				"darkvision": {
-					"distance": 60,
-					"unit": "feet"
-				},
-				"tremorsense": {
-					"distance": 0,
-					"unit": "feet"
-				},
-				"truesight": {
-					"distance": 0,
-					"unit": "feet"
-				}
-			},
-			"inspiration": false,
-			"fatigue": 0,
-			"strife": 0,
-			"spellcasting": "int",
-			"casterLevel": 0
-		},
-		"bonuses": {
-			"abilities": {},
-			"damage": {},
-			"healing": {},
-			"maneuverDC": "",
-			"meleeSpellAttack": "",
-			"meleeWeaponAttack": "",
-			"rangedSpellAttack": "",
-			"rangedWeaponAttack": "",
-			"spellDC": "",
-			"skills": {},
-			"attacks": {},
-			"initiative": {},
-			"movement": {},
-			"senses": {}
-		},
-		"currency": {
-			"pp": 0,
-			"gp": 0,
-			"ep": 0,
-			"sp": 0,
-			"cp": 0
-		},
-		"details": {
-			"bio": "<h2>DESCRIPTION</h2>\n<p>Kobold artillerists are snipers and bombardiers who prefer to attack from above, from behind cover, or while screened by their own allies (who occasionally bear the brunt of friendly fire).</p>\n<h2>BEHAVIOR COMBAT</h2>\n<p>The kobold artillerist throws its poison breath bottle and then uses its blowgun. When possible, it hides, uses cover, or lies prone. In melee, it hits with its sword and then disengages.</p>\n<h2>ENCOUNTERS</h2>\n<p>Kobolds thrive underground and in any area inhabited by dragons.</p>\n<p><strong>CR 0-2 </strong>kobold artillerist with 1d4 kobolds</p>\n<p><strong>Treasure </strong>3 jasper gemstones (50 gp each), rusty but gold-filigreed helmet (25 gp)</p>\n<p><strong>CR 3-4</strong> 3 or 4 kobold drakeriders mounted on green kobold drakes; kobold bully with kobold artillerist and 1d4 + 4 kobolds</p>\n<p><strong>Treasure </strong>220 gp, Small set of half plate (worn by the kobold leader), gong of alarm (chapter 3)</p>\n<h2>MONSTER TYPE DESCRIPTION</h2>\n<p>Humanoids include a number of different intelligent, language-using bipeds of Small or Medium size. Humans and elves are humanoids, and so are orcs and goblins. Humanoids may employ magic but are not fundamentally magical&mdash;a characteristic that distinguishes them from bipedal, language-using fey, fiends, and other monsters. Humanoids have no inherent alignment, meaning that no humanoid ancestry is naturally good or evil, lawful or chaotic.</p>",
-			"creatureTypes": [
-				"humanoid"
-			],
-			"isSwarm": false,
-			"cr": 0.25,
-			"elite": false,
-			"privateNotes": "",
-			"notes": "<div>\n<p><strong>Terrain </strong>Caverns, Forest, Grassland, Hills, Jungle, Mountains, Ruin, Settlement, Swamp, Tundra</p>\n</div>",
-			"terrain": [
-				"caverns"
-			],
-			"isSquad": false
-		},
-		"proficiencies": {
-			"armor": [],
-			"languages": [
-				"common",
-				"draconic"
-			],
-			"tools": [],
-			"weapons": []
-		},
-		"resources": {
-			"primary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			},
-			"secondary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			},
-			"tertiary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			},
-			"quaternary": {
-				"label": "",
-				"value": 0,
-				"max": "",
-				"per": "",
-				"hideMax": false,
-				"recharge": {
-					"formula": "",
-					"threshold": 6
-				}
-			}
-		},
-		"source": "dungeonDelversGuide",
-		"traits": {
-			"size": "sm",
-			"conditionImmunities": [],
-			"damageImmunities": [],
-			"damageResistances": [],
-			"damageVulnerabilities": [],
-			"alignment": []
-		},
-		"grants": {},
-		"spellBooks": {
-			"TGpkAvxJnzy4m5xD": {
-				"_id": "TGpkAvxJnzy4m5xD",
-				"name": "New Spell Book",
-				"img": "icons/svg/book.svg",
-				"ability": "default",
-				"disableSpellConsumers": false,
-				"showSpellPoints": false,
-				"showSpellSlots": true
-			}
 		}
 	},
 	"prototypeToken": {
-		"name": "Kobold Artillerist",
+		"name": "Giant Jackal",
 		"displayName": 0,
 		"actorLink": false,
 		"appendNumber": false,
 		"prependAdjective": false,
 		"texture": {
-			"src": "systems/a5e/assets/kobold.webp",
+			"src": "icons/svg/mystery-man.svg",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
 			"offsetY": 0,
-			"rotation": 0,
-			"tint": "#ffffff"
+			"rotation": 0
 		},
-		"width": 1,
-		"height": 1,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -614,8 +598,7 @@
 			"darkness": {
 				"min": 0,
 				"max": 1
-			},
-			"color": null
+			}
 		},
 		"sight": {
 			"enabled": false,
@@ -625,8 +608,7 @@
 			"attenuation": 0.1,
 			"brightness": 0,
 			"saturation": 0,
-			"contrast": 0,
-			"color": null
+			"contrast": 0
 		},
 		"detectionModes": [],
 		"flags": {},
@@ -694,7 +676,7 @@
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -711,18 +693,18 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.013,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.011,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.16.49"
 						}
 					}
 				}
 			},
 			"folder": null,
-			"_id": "nEHr7JnMrt44EawV",
+			"_id": "1Lrzn8mkzz7mQPla",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -789,7 +771,7 @@
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -806,18 +788,18 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.013,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.011,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.16.49"
 						}
 					}
 				}
 			},
 			"folder": null,
-			"_id": "O9b67tYxiKAB9NN4",
+			"_id": "vL37YiUiYHP148I9",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -884,7 +866,7 @@
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -901,18 +883,18 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.013,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.011,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.16.49"
 						}
 					}
 				}
 			},
 			"folder": null,
-			"_id": "C01ll0LpjRsVl2HF",
+			"_id": "xhS5LK0ZSZ1x6PGC",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -979,7 +961,7 @@
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -996,18 +978,18 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.013,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.011,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.16.49"
 						}
 					}
 				}
 			},
 			"folder": null,
-			"_id": "wi58dQQ7t9XQEzv0",
+			"_id": "mlfr44etu1GXkSXX",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1074,7 +1056,7 @@
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1091,18 +1073,18 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.013,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.011,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.16.49"
 						}
 					}
 				}
 			},
 			"folder": null,
-			"_id": "lMEeG3QQJVAQCQ7h",
+			"_id": "cLwU9kNCpoyQU5Gk",
 			"sort": 0,
 			"ownership": {
 				"default": 0
@@ -1169,7 +1151,7 @@
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "adventurersGuide",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1186,26 +1168,26 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.013,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.011,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.16.49"
 						}
 					}
 				}
 			},
 			"folder": null,
-			"_id": "KxQ1VzhUINaFHj0A",
+			"_id": "4oaKhr6UfzoiM8Kr",
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			}
 		},
 		{
-			"name": "Bill Hook",
-			"type": "object",
+			"name": "Bite",
+			"type": "feature",
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -1213,469 +1195,58 @@
 					"grantsDisadvantage": false,
 					"maxDex": 0,
 					"minStr": 0,
-					"mode": 1,
+					"mode": 2,
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"auaDEszwsKEokUmG": {
-						"name": "Melee Weapon Attack",
+					"whQi1QOKG40x5Unn": {
+						"name": "Bite",
 						"activation": {
 							"type": "action",
 							"cost": 1
 						},
 						"consumers": {},
 						"rolls": {
-							"8nZMcry27UuXZ8Kz": {
+							"G29YQ1p37J16PJBO": {
 								"type": "attack",
 								"default": true,
 								"attackType": "meleeWeaponAttack",
 								"proficient": true,
-								"ability": "str"
+								"ability": "default"
 							},
-							"mSaTk02Qdob1pHVd": {
+							"xqfVHqNMjtYzbtcx": {
 								"type": "damage",
 								"default": true,
-								"formula": "1d4 + @str.mod",
-								"damageType": "slashing"
+								"formula": "2d6 + @str.mod",
+								"damageType": "piercing"
 							}
 						},
-						"prompts": {
-							"CBxlu6cAkXLKGUWO": {
-								"type": "savingThrow",
-								"default": true,
-								"ability": "str",
-								"saveDC": {
-									"type": "custom",
-									"bonus": "11"
-								},
-								"onSave": "Do not fall prone",
-								"label": "Medium or Smaller creature"
-							}
-						},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
 							"per": "",
 							"recharge": {
 								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
 								"threshold": 6
 							}
 						},
-						"duration": {
-							"unit": "instantaneous"
-						},
 						"ranges": {
-							"wt82BVcXvm1fxvkG": {
-								"range": 10,
-								"unit": "feet"
+							"E3ntQmd6iq6Wgdaw": {
+								"range": "fiveFeet"
 							}
 						},
 						"target": {
-							"type": "creature",
+							"type": "creatureObject",
 							"quantity": 1
 						}
 					}
 				},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "[object Object]",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 2,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "0",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0,
-				"schemaVersion": {
-					"version": 0.014,
-					"lastMigration": {
-						"version": {
-							"schema": 0.013,
-							"foundry": "11.315",
-							"system": "0.17.20"
-						}
-					}
-				}
-			},
-			"_id": "v1C09RvrFQ64e11X",
-			"img": "icons/weapons/polearms/spear-hooked-spike.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Sling",
-			"type": "object",
-			"img": "icons/commodities/cloth/ribbon-worn-yellow.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {
-					"H0JHvZ0Z3eFzKnZa": {
-						"name": "Ranged Weapon Attack",
-						"activation": {
-							"cost": 1,
-							"type": "action",
-							"reactionTrigger": ""
-						},
-						"duration": {
-							"unit": "instantaneous",
-							"value": ""
-						},
-						"ranges": {
-							"mPGaFLcdTyW77t9m": {
-								"range": "short"
-							},
-							"lG4GqH7d8ubYfjJY": {
-								"range": "long"
-							}
-						},
-						"area": {
-							"shape": "",
-							"size": "",
-							"placeTemplate": false
-						},
-						"target": {
-							"quantity": 1,
-							"type": "creatureObject"
-						},
-						"rolls": {
-							"UyDl6IOvRDvCNDz4": {
-								"bonus": "",
-								"critThreshold": "20",
-								"type": "attack",
-								"attackType": "rangedWeaponAttack",
-								"ability": "default"
-							},
-							"fekJy8k9ck3TCDqg": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d4 + @dex.mod",
-								"name": "Sling Bullet",
-								"type": "damage"
-							}
-						},
-						"consumers": {
-							"GLKHGKOE3LEORmdg": {
-								"itemid": "",
-								"quantity": 1,
-								"type": "ammunition",
-								"itemId": "LO972FmKF33w3Mxo"
-							}
-						}
-					}
-				},
-				"description": "<p><em>Range (30/120), Simple</em></p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 2,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "2 sp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"range",
-					"simple"
-				],
-				"weight": 0,
-				"schemaVersion": {
-					"version": 0.014,
-					"lastMigration": {
-						"version": {
-							"schema": 0.013,
-							"foundry": "11.315",
-							"system": "0.17.20"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "WSEFZVCLItEKJXGm",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Mounted Combattant",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p><strong>Activation Cost:</strong> 1 Bonus Action</p>\n<p>While mounted, the kobold can use a bonus action to command its mount. The mount can use its reaction to move up to its Speed or make a melee attack.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "[object Object]",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.014,
-					"lastMigration": {
-						"version": {
-							"schema": 0.013,
-							"foundry": "11.315",
-							"system": "0.17.20"
-						}
-					}
-				}
-			},
-			"_id": "HU8vHJfm1KquozHV",
-			"img": "icons/environment/people/charge.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Defensive Reins",
-			"type": "feature",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p><strong>Activation Cost:</strong> 1 Reaction</p>\n<p>The kobold adds 2 to the mount's AC against one attack that would hit the mount. To do so, the kobold must be mounted and able to see the attacker.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "[object Object]",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.014,
-					"lastMigration": {
-						"version": {
-							"schema": 0.013,
-							"foundry": "11.315",
-							"system": "0.17.20"
-						}
-					}
-				}
-			},
-			"_id": "ly5cKkqaDdJ9M0jt",
-			"img": "icons/sundries/survival/leather-strap-brown.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Sling Bullets",
-			"type": "object",
-			"img": "icons/weapons/ammunition/shot-round-lead.webp",
-			"effects": [],
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>rounded, or almond-shaped leaden pellets used in a <em>Sling</em> as ammunition.</p>",
+				"description": "<p>If this damage reduces the target to 0 hit points, the hyena can use its bonus action to move half its Speed and make a second bite attack.</p>",
 				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "ammunition",
-				"plotItem": false,
-				"price": "4 cp",
-				"proficient": true,
-				"quantity": 20,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 1,
-				"schemaVersion": {
-					"version": 0.014,
-					"lastMigration": {
-						"version": {
-							"schema": 0.013,
-							"foundry": "11.315",
-							"system": "0.17.20"
-						}
-					}
-				}
-			},
-			"folder": null,
-			"_id": "LO972FmKF33w3Mxo",
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "8rltwRnVXY0hHiiZ",
-			"name": "Sunlight Sensitivity",
-			"type": "feature",
-			"img": "icons/magic/nature/symbol-sun-yellow.webp",
-			"effects": [],
-			"folder": null,
-			"sort": 100000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.sI8MsKFvXA4wXmBZ"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>While in sunlight, the kobold has disadvantage on attack rolls, as well as on Perception checks that rely on sight.</p>",
-				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1688,34 +1259,32 @@
 					}
 				},
 				"concentration": false,
-				"featureType": "",
+				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
 				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
-					"lastMigration": {
-						"version": {
-							"schema": 0.013,
-							"foundry": "11.315",
-							"system": "0.17.20"
-						}
-					}
+					"lastMigration": null
 				}
 			},
+			"_id": "A7e1vEFzOyrycesM",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
 			"ownership": {
 				"default": 0
-			}
+			},
+			"flags": {}
 		}
 	],
 	"effects": [],
+	"folder": null,
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true,
-			"showSpellTab": false,
-			"sortMode": {},
-			"filters": {}
+			"sheetIsLocked": true
 		}
 	},
-	"_id": "zxwuh47gzhm8wl8t"
+	"_id": "e5io4pfv0jpqmcie"
 }

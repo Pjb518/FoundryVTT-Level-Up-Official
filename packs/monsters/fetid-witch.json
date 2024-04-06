@@ -38,7 +38,8 @@
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -483,7 +484,13 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"forest",
+				"ruin",
+				"settlement",
+				"underland"
+			],
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],
@@ -2166,7 +2173,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Poison Cloud (Recharge 4–6)",
+			"name": "Poison Cloud",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -2186,7 +2193,13 @@
 							"type": "bonusAction",
 							"cost": 1
 						},
-						"consumers": {},
+						"consumers": {
+							"CfqPu1m9kXAHl4Uy": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
 						"rolls": {
 							"Ymk5mFulxDLw96Sg": {
 								"type": "damage",
@@ -2232,8 +2245,8 @@
 				"secretDescription": "",
 				"source": "[object Object]",
 				"uses": {
-					"value": 0,
-					"max": "",
+					"value": 1,
+					"max": "1",
 					"per": "recharge",
 					"recharge": {
 						"formula": "1d6",

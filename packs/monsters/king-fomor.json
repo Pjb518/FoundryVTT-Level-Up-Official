@@ -788,7 +788,7 @@
 		},
 		{
 			"_id": "3OSPvkbu1BF0BoUA",
-			"name": "Shout (Recharge 5-6)",
+			"name": "Shout",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -812,7 +812,7 @@
 				},
 				"actions": {
 					"yBTn7F37h8zauqqk": {
-						"name": "Shout (Recharge 5-6)",
+						"name": "Shout",
 						"activation": {
 							"cost": 1,
 							"type": "legendaryAction",
@@ -854,7 +854,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"yKJWpPxGYtpJGUBd": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>(Recharge 5-6, Legendary Action)</p><p>Each creature within 120 feet that can hear the empyrean makes a DC 25 Constitution saving throw. On a failure, a creature takes 24 (7d6) thunder damage and is stunned until the end of the empyrean’s next turn. On a success, a creature takes half damage.</p>",
@@ -862,12 +868,12 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "",
-						"threshold": 0
+						"threshold": 5
 					}
 				},
 				"concentration": false,
@@ -3090,7 +3096,7 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": false,
+			"sheetIsLocked": true,
 			"sortMode": {},
 			"filters": {}
 		}
@@ -3130,7 +3136,8 @@
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -3575,7 +3582,10 @@
 			"elite": true,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"theDreaming"
+			],
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],
