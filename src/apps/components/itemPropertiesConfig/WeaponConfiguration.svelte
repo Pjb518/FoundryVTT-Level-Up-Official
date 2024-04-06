@@ -2,67 +2,15 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
+    import getWeaponProperties from "../../../utils/summaries/getWeaponProperties";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import Section from "../Section.svelte";
 
-    function prepareWeaponProperties(item) {
-        const properties = item.system.weaponProperties
-            .map((property) => {
-                switch (property) {
-                    case "defensive":
-                        if (item.system.defensiveProperties) {
-                            const dp =
-                                defensiveProperties[
-                                    item.system.defensiveProperties
-                                ];
-
-                            return localize(
-                                "A5E.weaponProperties.defensiveSpecific",
-                                { type: dp },
-                            );
-                        }
-
-                        return weaponProperties["defensive"];
-                    case "breaker":
-                        const bp = item.system.breakerProperties
-                            ?.map((p) => breakerProperties[p] ?? null)
-                            ?.filter(Boolean);
-
-                        if (bp.length) {
-                            return localize(
-                                "A5E.weaponProperties.breakerSpecific",
-                                { type: bp.join(", ") },
-                            );
-                        }
-
-                        return weaponProperties["breaker"];
-                    case "versatile":
-                        if (item.system.versatile) {
-                            const versatile =
-                                versatileOptions[item.system.versatile];
-
-                            return localize(
-                                "A5E.weaponProperties.versatileSpecific",
-                                { die: versatile },
-                            );
-                        }
-
-                        return weaponProperties["versatile"];
-                    default:
-                        return weaponProperties[property] ?? null;
-                }
-            })
-            .filter(Boolean);
-
-        properties.sort((a, b) => a.localeCompare(b));
-
-        return properties.join(", ");
-    }
-
     const item = getContext("item");
+
     const {
         breakerProperties,
         defensiveProperties,
@@ -72,7 +20,9 @@
 
     let editMode = false;
 
-    $: selectedWeaponProperties = prepareWeaponProperties($item);
+    $: selectedWeaponProperties = getWeaponProperties($item)
+        .filter(Boolean)
+        .join(", ");
 </script>
 
 <Section

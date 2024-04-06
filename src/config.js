@@ -1675,8 +1675,8 @@ A5E.weaponProperties = {
 };
 
 A5E.breakerProperties = {
-  stone: 'Stone',
-  wood: 'Wood'
+  wood: 'Wood',
+  stone: 'Stone'
 };
 
 A5E.defensiveProperties = {
