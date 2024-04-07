@@ -1,49 +1,8 @@
 {
-	"name": "Vicious Morningstar",
+	"name": "Schooled Weapon (Longsword) \"Blade of the Sanguine Knot\"",
 	"type": "object",
-	"img": "icons/weapons/maces/mace-round-studded.webp",
-	"effects": [
-		{
-			"icon": "icons/weapons/maces/mace-round-studded.webp",
-			"origin": "Item.yg5u6VqTPHg9mM1V",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LkFlWA6jzeVN2yT6",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "AC +1",
-			"_id": "uyPf3aBTu6Dbjl7v",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null
-		}
-	],
+	"img": "icons/weapons/swords/sword-guard-engraved.webp",
+	"effects": [],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -57,8 +16,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"VaDH760X73dmk4AD": {
-				"name": "Morningstar",
+			"rV421xZycdgr9bo2": {
+				"name": "Schooled Weapon (Longsword) \"Blade of the Sanguine Knot\"",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -71,34 +30,39 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
+					"placeTemplate": false
 				},
 				"target": {
 					"quantity": 1,
 					"type": "creatureObject"
 				},
 				"rolls": {
-					"qRfjtRFIcBDXWMCT": {
-						"bonus": "",
+					"Ka5SIqSXyJ8feQJj": {
+						"bonus": "1",
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "meleeWeaponAttack",
 						"ability": "default"
 					},
-					"EaFSn4LUc5VWUyMv": {
+					"34pFnSZLXNf3XR1F": {
 						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "1d8 + @str.mod",
-						"name": "Morningstar",
-						"type": "damage",
-						"critBonus": "2d6"
+						"damageType": "slashing",
+						"formula": "1d8 + 1 + @str.mod",
+						"name": "Schooled Longsword",
+						"type": "damage"
+					},
+					"T7PSMraiBOa0F3uf": {
+						"canCrit": true,
+						"damageType": "slashing",
+						"formula": "1d8 + 2 + @str.mod",
+						"name": "Schooled Maneuver",
+						"type": "damage"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",
+		"description": "<p><em>Weapon</em></p><hr class=\"a5e-rule u-my-md\"><hr class=\"a5e-rule u-my-md\"><p>You are proficient with this magic weapon as long as you are attuned to it, and you gain a +1 bonus on attack and damage rolls with it.</p><p>You cannot attune to this weapon if you do not know at least one combat maneuver from the tradition it is associated with. When you attune to this weapon, choose a combat maneuver from it's associated tradition that you meet the prerequisites for. While you remain attuned to this weapon, you have access to that combat maneuver.</p><p>In addition, any attacks you make with this weapon as part of a combat maneuver from the associated tradition gains an additional +1 bonus to attack and damage.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -116,7 +80,7 @@
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "Fiend's heart",
+		"craftingComponents": "",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -124,21 +88,20 @@
 		"materialProperties": [],
 		"objectType": "weapon",
 		"plotItem": false,
-		"price": "400 gp",
+		"price": "2,500 gp",
 		"proficient": true,
 		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
+		"rarity": "rare",
+		"requiresAttunement": true,
 		"shieldCategory": "",
 		"shieldProperties": [],
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [
-			"defensive",
-			"vicious"
+			"defensive"
 		],
-		"weight": 4,
+		"weight": 3,
 		"schemaVersion": {
 			"version": 0.015,
 			"lastMigration": {
@@ -156,5 +119,5 @@
 		"mounted": []
 	},
 	"folder": null,
-	"_id": "iynt0zgdmzgl3fna"
+	"_id": "04h39c39vvnbh79g"
 }
