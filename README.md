@@ -30,7 +30,7 @@ If you're used to using DAE, our Effects system does everything DAE does and mor
 ### Automation
 The system's character sheets provide a number of pieces of handy automation, including bonus and armor class calculations, weight tracking, and resource consumption / restoration. The system also automatically grants features and benefits linked to various parts of character creation, such as your heritage, culture, and background.
 
-Rolls in the system are also highly automated and can be modified post-hoc directly in the chat cards.
+Rolls in the system are also highly automated and can be modified _post-hoc_ directly in the chat cards.
 
 ### Bonuses
 The A5e system includes a fairly elaborate bonus system, with each bonus being configured with a specific context. This context dictates when a bonus should be applied. For example, an attack roll might apply specifically to melee and ranged spell attack rolls, but not weapon attack rolls. A skill bonus may apply only to skills using Strength or only the Acrobatics and Stealth skills.
@@ -72,6 +72,9 @@ The system includes a detailed party viewer that allows you to view summary stat
 ![Party Viewer Demo](https://github.com/Pjb518/FoundryVTT-Level-Up-Official/blob/main/public/assets/github/party-viewer.png)
 
 Support for multiple parties coming soon!
+
+### Spell Books
+We've recently added the ability to set up multiple, independent spell tabs for a single character. This is really handy for multiclassed casters, where you may have different casting stats, different preparation modes, and so on. It's also really handy for characters who have access to a large number of rituals, such as warlocks with a Tome of Secrets, wizards, and high level witches. Spell Books allows you to keep these rituals in their own tab, reducing clutter, and making them easier to find.
 
 ## Funding
 
