@@ -40,6 +40,7 @@ export default class ObjectDataModel extends BaseItemData.mixin(Armor) {
         new fields.StringField({ required: true, initial: '' }),
         { required: true, initial: [] }
       ),
+      mounted: new fields.StringField({ required: true, initial: '' }),
       objectType: new fields.StringField({ required: true, initial: '' }),
       plotItem: new fields.BooleanField({ required: true, initial: false }),
       price: new fields.StringField({ required: true, initial: '' }),
