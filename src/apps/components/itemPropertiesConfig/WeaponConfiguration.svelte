@@ -79,7 +79,7 @@
         {/if}
 
         {#if $item.system.weaponProperties.includes("mounted")}
-            <RadioGroup
+            <CheckboxGroup
                 heading="Mounted Property"
                 options={Object.entries(versatileOptions)}
                 selected={$item.system.mounted}
