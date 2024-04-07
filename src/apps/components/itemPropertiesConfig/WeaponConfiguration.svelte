@@ -78,9 +78,23 @@
             />
         {/if}
 
+        {#if $item.system.weaponProperties.includes("mounted")}
+            <RadioGroup
+                heading="Mounted Property"
+                options={Object.entries(versatileOptions)}
+                selected={$item.system.mounted}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.mounted",
+                        event.detail,
+                    )}
+            />
+        {/if}
+
         {#if $item.system.weaponProperties.includes("versatile")}
             <RadioGroup
-                heading="Defensive Property"
+                heading="Versatile Property"
                 options={Object.entries(versatileOptions)}
                 selected={$item.system.versatile}
                 on:updateSelection={(event) =>
