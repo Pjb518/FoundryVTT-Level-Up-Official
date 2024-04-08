@@ -111,7 +111,7 @@
     </h3>
 
     <div class="skill__mod-wrapper">
-        <span>
+        <span class="skill__mod">
             {replaceHyphenWithMinusSign(
                 showDeterministicBonus ? skillBonus + abilityBonus : skillBonus,
             )}
@@ -222,6 +222,16 @@
             }
         }
 
+        &__mod {
+            min-width: 2ch;
+        }
+
+        &__mod,
+        &__passive {
+            display: flex;
+            justify-content: center;
+        }
+
         &__mod-wrapper {
             display: flex;
             align-items: center;
@@ -236,6 +246,7 @@
 
         &__passive {
             color: #999;
+            min-width: 3ch;
         }
 
         &__proficiency-icon {
