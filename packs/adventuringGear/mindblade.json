@@ -1,253 +1,253 @@
 {
-	"name": "Mindblade",
-	"type": "object",
-	"img": "icons/skills/melee/sword-engraved-glow-purple.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 1,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"CYURkv9sK45wkGZn": {
-				"name": "Mindblade",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": 1,
-					"type": "object"
-				},
-				"rolls": {
-					"gdR2mGnYfGBsk2ZY": {
-						"bonus": "2",
-						"critThreshold": "20",
-						"type": "attack",
-						"attackType": "meleeWeaponAttack",
-						"ability": "default"
-					},
-					"ut4E7BIwVCXdj5oE": {
-						"canCrit": true,
-						"damageType": "psychic",
-						"formula": "1d4 + @finesse.mod +2",
-						"name": "Dagger",
-						"type": "damage"
-					}
-				},
-				"consumers": {}
-			},
-			"911iDf2vrTJjuO4V": {
-				"name": "Mindblade (Off-Hand)",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": 1,
-					"type": "object"
-				},
-				"rolls": {
-					"gdR2mGnYfGBsk2ZY": {
-						"bonus": "2",
-						"critThreshold": "20",
-						"type": "attack",
-						"attackType": "meleeWeaponAttack",
-						"ability": "default"
-					},
-					"ut4E7BIwVCXdj5oE": {
-						"canCrit": true,
-						"damageType": "psychic",
-						"formula": "1d4 + min(@finesse.mod,0) +22",
-						"name": "Dagger",
-						"type": "damage"
-					}
-				},
-				"consumers": {}
-			},
-			"8w6OFjcbiW9BeEKD": {
-				"name": "Create/Disappear",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"dcg4pB3iwzAGkkkW": {
-				"name": "Animate Dead",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"consumers": {
-					"b54W9tv97IvpmBLB": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"oFHtUnUP1j8z3lfU": {
-						"range": "touch"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "object"
-				},
-				"img": "icons/magic/death/undead-skeleton-energy-green.webp",
-				"description": "<p>You animate a mortal's remains to become your undead servant.</p><p>If the spell is cast upon bones you create a skeleton, and if cast upon a corpse you choose to create a skeleton or a zombie. The Narrator has the undead's statistics.</p><p>While it is within 60 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.</p><p>The undead is under your control for 24 hours, after which it stops obeying any commands. You must cast this spell on the undead before the spell ends to maintain control of it for another 24 hours.</p><p>Casting the spell in this way reasserts control over up to 4 of your previously-animated undead instead of animating a new one.</p><p><strong><em>Cast at Higher Levels.</em></strong> You create or reassert control over 2 additional undead for each slot level above 3rd. When commanding more than 3 undead they make group attack rolls (see page 454 in Chapter 8: Combat).</p>",
-				"descriptionOutputs": [
-					"action"
-				]
-			},
-			"l8IfSBoilURjd8Lt": {
-				"name": "Regain Charges",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"PXYvL3QJiPbymK9X": {
-						"type": "generic",
-						"default": true,
-						"formula": "1d4"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p><em>Dual-Wielding, Finesse, Simple</em></p>\n<p>This item appears to be a dagger hilt. While grasping the hilt, you can use a bonus action to cause a blade of purple flames to spring into existence, or make the blade disappear.</p>\n<p>You gain a +2 bonus to attack and damage rolls made with this weapon, which deals psychic damage instead of piercing damage. When a fey, giant, or humanoid creature is slain using this weapon, for the next [[/r 1d4+2]] days the resulting corpse can be possessed (such as by magic jar or a ghost) as though it were still alive.</p>\n<p>Alternatively, during that time you may expend a charge to use the dagger to animate the corpse as @UUID[Compendium.a5e.a5e-spells.Item.xs292gklnxyaeuyx]{Animate Dead} with a casting time of 1 action. You must reassert your control over the undead creature within 24 hours using 1 charge, or it ceases obeying any commands. Casting the animate dead spell on such a creature has no effect. Regardless, it reverts to a corpse when the allotted time is up and cannot be reanimated in this way again. The dagger has 4 charges and regains 1d4 expended charges each dawn.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "gpg1",
-		"uses": {
-			"value": 4,
-			"max": "4",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "An intellect devourer’s tongue",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "6,000 gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": true,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [
-			"dualWielding",
-			"finesse",
-			"simple"
-		],
-		"weight": 1,
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"folder": null,
-	"_id": "hcihfcu47rkren8g"
+  "name": "Mindblade",
+  "type": "object",
+  "img": "icons/skills/melee/sword-engraved-glow-purple.webp",
+  "effects": [],
+  "flags": {},
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 1,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "CYURkv9sK45wkGZn": {
+        "name": "Mindblade",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": 1,
+          "type": "object"
+        },
+        "rolls": {
+          "gdR2mGnYfGBsk2ZY": {
+            "bonus": "2",
+            "critThreshold": "20",
+            "type": "attack",
+            "attackType": "meleeWeaponAttack",
+            "ability": "default"
+          },
+          "ut4E7BIwVCXdj5oE": {
+            "canCrit": true,
+            "damageType": "psychic",
+            "formula": "1d4 + @finesse.mod +2",
+            "name": "Dagger",
+            "type": "damage"
+          }
+        },
+        "consumers": {}
+      },
+      "911iDf2vrTJjuO4V": {
+        "name": "Mindblade (Off-Hand)",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": 1,
+          "type": "object"
+        },
+        "rolls": {
+          "gdR2mGnYfGBsk2ZY": {
+            "bonus": "2",
+            "critThreshold": "20",
+            "type": "attack",
+            "attackType": "meleeWeaponAttack",
+            "ability": "default"
+          },
+          "ut4E7BIwVCXdj5oE": {
+            "canCrit": true,
+            "damageType": "psychic",
+            "formula": "1d4 + min(@finesse.mod,0) +22",
+            "name": "Dagger",
+            "type": "damage"
+          }
+        },
+        "consumers": {}
+      },
+      "8w6OFjcbiW9BeEKD": {
+        "name": "Create/Disappear",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "dcg4pB3iwzAGkkkW": {
+        "name": "Animate Dead",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "consumers": {
+          "b54W9tv97IvpmBLB": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "oFHtUnUP1j8z3lfU": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "object"
+        },
+        "img": "icons/magic/death/undead-skeleton-energy-green.webp",
+        "description": "<p>You animate a mortal's remains to become your undead servant.</p><p>If the spell is cast upon bones you create a skeleton, and if cast upon a corpse you choose to create a skeleton or a zombie. The Narrator has the undead's statistics.</p><p>While it is within 60 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.</p><p>The undead is under your control for 24 hours, after which it stops obeying any commands. You must cast this spell on the undead before the spell ends to maintain control of it for another 24 hours.</p><p>Casting the spell in this way reasserts control over up to 4 of your previously-animated undead instead of animating a new one.</p><p><strong><em>Cast at Higher Levels.</em></strong> You create or reassert control over 2 additional undead for each slot level above 3rd. When commanding more than 3 undead they make group attack rolls (see page 454 in Chapter 8: Combat).</p>",
+        "descriptionOutputs": [
+          "action"
+        ]
+      },
+      "l8IfSBoilURjd8Lt": {
+        "name": "Regain Charges",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "PXYvL3QJiPbymK9X": {
+            "type": "generic",
+            "default": true,
+            "formula": "1d4"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>This item appears to be a dagger hilt. While grasping the hilt, you can use a bonus action to cause a blade of purple flames to spring into existence, or make the blade disappear.</p>\n<p>You gain a +2 bonus to attack and damage rolls made with this weapon, which deals psychic damage instead of piercing damage. When a fey, giant, or humanoid creature is slain using this weapon, for the next [[/r 1d4+2]] days the resulting corpse can be possessed (such as by magic jar or a ghost) as though it were still alive.</p>\n<p>Alternatively, during that time you may expend a charge to use the dagger to animate the corpse as @UUID[Compendium.a5e.a5e-spells.Item.xs292gklnxyaeuyx]{Animate Dead} with a casting time of 1 action. You must reassert your control over the undead creature within 24 hours using 1 charge, or it ceases obeying any commands. Casting the animate dead spell on such a creature has no effect. Regardless, it reverts to a corpse when the allotted time is up and cannot be reanimated in this way again. The dagger has 4 charges and regains 1d4 expended charges each dawn.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "gpg1",
+    "uses": {
+      "value": 4,
+      "max": "4",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "An intellect devourer’s tongue",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "6,000 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": true,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "dualWielding",
+      "finesse",
+      "simple"
+    ],
+    "weight": 1,
+    "schemaVersion": {
+      "version": 0.015,
+      "lastMigration": {
+        "version": {
+          "schema": 0.013,
+          "foundry": "11.315",
+          "system": "0.17.24"
+        }
+      }
+    },
+    "breakerProperties": [],
+    "defensiveProperties": "",
+    "flaws": [],
+    "versatile": ""
+  },
+  "folder": null,
+  "_id": "hcihfcu47rkren8g"
 }

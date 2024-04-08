@@ -38,7 +38,8 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -483,7 +484,10 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"ruin"
+			],
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],
@@ -1470,7 +1474,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Dream Spores (Recharge 6)",
+			"name": "Dream Spores",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1487,7 +1491,13 @@
 					"m9sgw3inK2BKoQlx": {
 						"name": "Dream Spores",
 						"activation": {},
-						"consumers": {},
+						"consumers": {
+							"igVqZ6Ba1KeHVDo1": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
 						"rolls": {
 							"wFjEk6RHtJY6005i": {
 								"type": "damage",
@@ -1534,8 +1544,8 @@
 				"secretDescription": "",
 				"source": "[object Object]",
 				"uses": {
-					"value": 0,
-					"max": "",
+					"value": 1,
+					"max": "1",
 					"per": "recharge",
 					"recharge": {
 						"formula": "1d6",
@@ -1572,7 +1582,7 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": false,
+			"sheetIsLocked": true,
 			"sortMode": {},
 			"filters": {}
 		}

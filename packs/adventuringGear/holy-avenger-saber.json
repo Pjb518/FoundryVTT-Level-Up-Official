@@ -8,6 +8,7 @@
 		"ac": {
 			"baseFormula": "",
 			"formula": "",
+			"grantsDisadvantage": false,
 			"maxDex": 0,
 			"minStr": 0,
 			"mode": 1,
@@ -68,29 +69,25 @@
 				"consumers": {}
 			}
 		},
-		"description": "<p><em>Defensive (Light), Finesse, Mounted (1d10)</em></p>\n<p>You gain a +3 bonus to attack and damage rolls made with this magic sword. While you are attuned to the sword and use it to attack a fiend or undead, on a hit it deals an extra 2d10 radiant damage. In addition, while drawn the sword creates an aura in a 10-foot radius around you. You and friendly creatures in the aura gain&nbsp;<span class=\"freelinking-link\">advantage</span>&nbsp;on&nbsp;<span class=\"freelinking-link\">saving throws</span>&nbsp;against spells and other magical effects. If you have 17 or more levels in the herald class, the aura increases to a 30-foot radius.</p>",
+		"description": "<p>You gain a +3 bonus to attack and damage rolls made with this magic sword. While you are attuned to the sword and use it to attack a fiend or undead, on a hit it deals an extra 2d10 radiant damage. In addition, while drawn the sword creates an aura in a 10-foot radius around you. You and friendly creatures in the aura gain&nbsp;<span class=\"freelinking-link\">advantage</span>&nbsp;on&nbsp;<span class=\"freelinking-link\">saving throws</span>&nbsp;against spells and other magical effects. If you have 17 or more levels in the herald class, the aura increases to a 30-foot radius.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
 		},
 		"ammunitionProperties": [],
 		"armorCategory": "",
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": " Holy symbol that has traveled to an Upper Plane",
+		"craftingComponents": "Holy symbol that has traveled to an Upper Plane",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -111,7 +108,8 @@
 		"weaponProperties": [
 			"finesse",
 			"mounted",
-			"defensiveLight"
+			"defensiveLight",
+			"defensive"
 		],
 		"weight": 3,
 		"schemaVersion": {
@@ -123,7 +121,14 @@
 					"system": "0.16.49"
 				}
 			}
-		}
+		},
+		"breakerProperties": [],
+		"defensiveProperties": "light",
+		"flaws": [],
+		"versatile": "d10",
+		"mounted": [
+			"d10"
+		]
 	},
 	"folder": null,
 	"_id": "5h8gqqspcfcttclz"

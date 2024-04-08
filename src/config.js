@@ -519,32 +519,34 @@ A5E.inventoryFilters = {
  * @enum {string}
  */
 A5E.languages = {
-  abyssal: 'A5E.LanguagesAbyssal',
-  aquan: 'A5E.LanguagesAquan',
-  auran: 'A5E.LanguagesAuran',
-  celestial: 'A5E.LanguagesCelestial',
-  common: 'A5E.LanguagesCommon',
-  deep: 'A5E.LanguagesDeepSpeech',
-  draconic: 'A5E.LanguagesDraconic',
-  druidic: 'A5E.LanguagesDruidic',
-  dwarvish: 'A5E.LanguagesDwarvish',
-  elvish: 'A5E.LanguagesElvish',
-  giant: 'A5E.LanguagesGiant',
-  gnoll: 'A5E.LanguagesGnoll',
-  gnomish: 'A5E.LanguagesGnomish',
-  goblin: 'A5E.LanguagesGoblin',
-  grimlock: 'A5E.LanguagesGrimlock',
-  halfling: 'A5E.LanguagesHalfling',
-  ignan: 'A5E.LanguagesIgnan',
-  infernal: 'A5E.LanguagesInfernal',
-  minotaur: 'A5E.LanguagesMinotaur',
-  mycelial: 'A5E.LanguagesMycelial',
-  orc: 'A5E.LanguagesOrc',
-  primordial: 'A5E.LanguagesPrimordial',
-  sylvan: 'A5E.LanguagesSylvan',
-  terran: 'A5E.LanguagesTerran',
-  cant: 'A5E.LanguagesThievesCant',
-  undercommon: 'A5E.LanguagesUndercommon'
+  abyssal: 'A5E.languages.abyssal',
+  aquan: 'A5E.languages.aquan',
+  auran: 'A5E.languages.auran',
+  boggard: 'A5E.languages.boggard',
+  celestial: 'A5E.languages.celestial',
+  common: 'A5E.languages.common',
+  deep: 'A5E.languages.deepSpeech',
+  draconic: 'A5E.languages.draconic',
+  druidic: 'A5E.languages.druidic',
+  dwarvish: 'A5E.languages.dwarvish',
+  elvish: 'A5E.languages.elvish',
+  giant: 'A5E.languages.giant',
+  gnoll: 'A5E.languages.gnoll',
+  gnomish: 'A5E.languages.gnomish',
+  goblin: 'A5E.languages.goblin',
+  grimlock: 'A5E.languages.grimlock',
+  grippli: 'A5E.languages.grippli',
+  halfling: 'A5E.languages.halfling',
+  ignan: 'A5E.languages.ignan',
+  infernal: 'A5E.languages.infernal',
+  minotaur: 'A5E.languages.minotaur',
+  mycelial: 'A5E.languages.mycelial',
+  orc: 'A5E.languages.orc',
+  primordial: 'A5E.languages.primordial',
+  sylvan: 'A5E.languages.sylvan',
+  terran: 'A5E.languages.terran',
+  cant: 'A5E.languages.thievesCant',
+  undercommon: 'A5E.languages.undercommon'
 };
 
 A5E.maneuverDegrees = {
@@ -596,6 +598,12 @@ A5E.materialProperties = {
   underarmor: 'A5E.MaterialPropertyUnderarmor',
   weighty: 'A5E.MaterialPropertyWeighty',
   wild: 'A5E.MaterialPropertyWild'
+};
+
+A5E.flaws = {
+  bludgeoning: 'A5E.damageTypes.bludgeoning',
+  piercing: 'A5E.damageTypes.piercing',
+  slashing: 'A5E.damageTypes.slashing'
 };
 
 /**
@@ -1624,13 +1632,8 @@ A5E.weaponsPlural = {
 A5E.weaponProperties = {
   burn: 'A5E.weaponProperties.burn',
   breaker: 'A5E.weaponProperties.breaker',
-  breakerStone: 'A5E.weaponProperties.breakerStone',
-  breakerWood: 'A5E.weaponProperties.breakerWood',
   compounding: 'A5E.weaponProperties.compounding',
   defensive: 'A5E.weaponProperties.defensive',
-  defensiveLight: 'A5E.weaponProperties.defensiveLight',
-  defensiveMedium: 'A5E.weaponProperties.defensiveMedium',
-  defensiveHeavy: 'A5E.weaponProperties.defensiveHeavy',
   dualWielding: 'A5E.weaponProperties.dualWielding',
   finesse: 'A5E.weaponProperties.finesse',
   flamboyant: 'A5E.weaponProperties.flamboyant',
@@ -1658,6 +1661,24 @@ A5E.weaponProperties = {
   twoHanded: 'A5E.weaponProperties.twoHanded',
   versatile: 'A5E.weaponProperties.versatile',
   vicious: 'A5E.weaponProperties.vicious'
+};
+
+A5E.breakerProperties = {
+  wood: 'Wood',
+  stone: 'Stone'
+};
+
+A5E.defensiveProperties = {
+  light: 'Light',
+  medium: 'Medium',
+  heavy: 'Heavy'
+};
+
+A5E.versatileOptions = {
+  d6: 'd6',
+  d8: 'd8',
+  d10: 'd10',
+  d12: 'd12'
 };
 
 // Build Complex Config Parts

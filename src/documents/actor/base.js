@@ -451,7 +451,8 @@ export default class BaseActorA5e extends Actor {
     const jackOfAllTrades = this.flags.a5e?.jackOfAllTrades;
 
     Object.values(actorData.skills).forEach((skill) => {
-      if (skill.proficient) skill.mod = proficiencyBonus;
+      if (skill.proficient === 2) skill.mod = proficiencyBonus * 2;
+      else if (skill.proficient) skill.mod = proficiencyBonus;
       else if (jackOfAllTrades) skill.mod = Math.floor(proficiencyBonus / 2);
       else skill.mod = 0;
 

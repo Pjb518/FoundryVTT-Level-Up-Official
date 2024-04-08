@@ -1,261 +1,266 @@
 {
-	"name": "Trident",
-	"type": "object",
-	"img": "icons/weapons/polearms/trident-ornate-red.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 1,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"jmhv8DatShUbKS2b": {
-				"name": "Trident",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"ranges": {
-					"kqB84gFUFuX4c5VX": {
-						"range": 20,
-						"unit": "feet"
-					},
-					"kwnjxkDQXbGIe6M9": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"rolls": {
-					"DIWavj0St2cyMBAy": {
-						"bonus": "",
-						"critThreshold": "20",
-						"type": "attack",
-						"attackType": "meleeWeaponAttack",
-						"ability": "default"
-					},
-					"5ZU8ZjzJ6cAdaCWi": {
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d6 + @str.mod",
-						"name": "Trident - 1H",
-						"type": "damage",
-						"label": "One-Handed",
-						"default": false
-					},
-					"QaYeFljDmoLPxuEC": {
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d8 + @str.mod",
-						"name": "Trident - 2H",
-						"type": "damage",
-						"label": "Two-Handed",
-						"default": false
-					}
-				},
-				"consumers": {}
-			},
-			"MeeBvXQWljl0flxq": {
-				"name": "Trident (Mounted)",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"ranges": {
-					"kqB84gFUFuX4c5VX": {
-						"range": 20,
-						"unit": "feet"
-					},
-					"kwnjxkDQXbGIe6M9": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"rolls": {
-					"DIWavj0St2cyMBAy": {
-						"bonus": "",
-						"critThreshold": "20",
-						"type": "attack",
-						"attackType": "meleeWeaponAttack",
-						"ability": "default"
-					},
-					"5ZU8ZjzJ6cAdaCWi": {
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d8 + @str.mod",
-						"name": "Trident - 1H",
-						"type": "damage",
-						"label": "One-Handed",
-						"default": false
-					},
-					"QaYeFljDmoLPxuEC": {
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d10 + @str.mod",
-						"name": "Trident - 2H",
-						"type": "damage",
-						"label": "Two-Handed",
-						"default": false
-					}
-				},
-				"consumers": {}
-			},
-			"77jqe1SdsKOkHt0L": {
-				"name": "Trident (Throw)",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"ranges": {
-					"kqB84gFUFuX4c5VX": {
-						"range": 20,
-						"unit": "feet"
-					},
-					"kwnjxkDQXbGIe6M9": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"rolls": {
-					"DIWavj0St2cyMBAy": {
-						"bonus": "",
-						"critThreshold": "20",
-						"type": "attack",
-						"attackType": "rangedWeaponAttack",
-						"ability": "default"
-					},
-					"5ZU8ZjzJ6cAdaCWi": {
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d6 + @finesse.mod",
-						"name": "Trident - 1H",
-						"type": "damage",
-						"label": "Unmounted",
-						"default": false
-					},
-					"t9g5bCInZSbI0jFI": {
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "1d8 + @finesse.mod",
-						"name": "Trident - 1H",
-						"type": "damage",
-						"label": "Mounted",
-						"default": false
-					}
-				},
-				"consumers": {
-					"mWt7duYvBxZIUG8F": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				}
-			}
-		},
-		"description": "<p><em>Mounted (1d8/1d10), Thrown (20/60), Versatile (1d8)</em></p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "",
-		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": null,
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "10 gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "mundane",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [
-			"versatile",
-			"thrown",
-			"mounted"
-		],
-		"weight": 3,
-		"schemaVersion": {
-			"version": 0.013,
-			"lastMigration": {
-				"version": {
-					"schema": 0.011,
-					"foundry": "11.315",
-					"system": "0.16.49"
-				}
-			}
-		}
-	},
-	"folder": null,
-	"_id": "tpkjt4vrhlhhskdi"
+  "name": "Trident",
+  "type": "object",
+  "img": "icons/weapons/polearms/trident-ornate-red.webp",
+  "effects": [],
+  "flags": {},
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 1,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "jmhv8DatShUbKS2b": {
+        "name": "Trident",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "kqB84gFUFuX4c5VX": {
+            "range": 20,
+            "unit": "feet"
+          },
+          "kwnjxkDQXbGIe6M9": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "DIWavj0St2cyMBAy": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack",
+            "attackType": "meleeWeaponAttack",
+            "ability": "default"
+          },
+          "5ZU8ZjzJ6cAdaCWi": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d6 + @str.mod",
+            "name": "Trident - 1H",
+            "type": "damage",
+            "label": "One-Handed",
+            "default": false
+          },
+          "QaYeFljDmoLPxuEC": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d8 + @str.mod",
+            "name": "Trident - 2H",
+            "type": "damage",
+            "label": "Two-Handed",
+            "default": false
+          }
+        },
+        "consumers": {}
+      },
+      "MeeBvXQWljl0flxq": {
+        "name": "Trident (Mounted)",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "kqB84gFUFuX4c5VX": {
+            "range": 20,
+            "unit": "feet"
+          },
+          "kwnjxkDQXbGIe6M9": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "DIWavj0St2cyMBAy": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack",
+            "attackType": "meleeWeaponAttack",
+            "ability": "default"
+          },
+          "5ZU8ZjzJ6cAdaCWi": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d8 + @str.mod",
+            "name": "Trident - 1H",
+            "type": "damage",
+            "label": "One-Handed",
+            "default": false
+          },
+          "QaYeFljDmoLPxuEC": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d10 + @str.mod",
+            "name": "Trident - 2H",
+            "type": "damage",
+            "label": "Two-Handed",
+            "default": false
+          }
+        },
+        "consumers": {}
+      },
+      "77jqe1SdsKOkHt0L": {
+        "name": "Trident (Throw)",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "ranges": {
+          "kqB84gFUFuX4c5VX": {
+            "range": 20,
+            "unit": "feet"
+          },
+          "kwnjxkDQXbGIe6M9": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "DIWavj0St2cyMBAy": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack",
+            "attackType": "rangedWeaponAttack",
+            "ability": "default"
+          },
+          "5ZU8ZjzJ6cAdaCWi": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d6 + @finesse.mod",
+            "name": "Trident - 1H",
+            "type": "damage",
+            "label": "Unmounted",
+            "default": false
+          },
+          "t9g5bCInZSbI0jFI": {
+            "canCrit": true,
+            "damageType": "piercing",
+            "formula": "1d8 + @finesse.mod",
+            "name": "Trident - 1H",
+            "type": "damage",
+            "label": "Mounted",
+            "default": false
+          }
+        },
+        "consumers": {
+          "mWt7duYvBxZIUG8F": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        }
+      }
+    },
+    "description": "",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 1,
+      "max": "1",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "10 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "mundane",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "versatile",
+      "thrown",
+      "mounted"
+    ],
+    "weight": 3,
+    "schemaVersion": {
+      "version": 0.013,
+      "lastMigration": {
+        "version": {
+          "schema": 0.011,
+          "foundry": "11.315",
+          "system": "0.16.49"
+        }
+      }
+    },
+    "breakerProperties": [],
+    "defensiveProperties": "",
+    "flaws": [],
+    "versatile": "d8",
+    "mounted": [
+      "d8",
+      "d10"
+    ]
+  },
+  "folder": null,
+  "_id": "tpkjt4vrhlhhskdi"
 }

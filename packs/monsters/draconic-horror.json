@@ -38,7 +38,8 @@
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -484,7 +485,11 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"ruin",
+				"tomb"
+			],
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],
@@ -1908,7 +1913,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Horrifying Breath (Recharge 5–6)",
+			"name": "Horrifying Breath",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1928,7 +1933,13 @@
 							"type": "action",
 							"cost": 1
 						},
-						"consumers": {},
+						"consumers": {
+							"y8nKRGBKYOHQqnb3": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
 						"rolls": {
 							"fAL5ML5GqMT5N2l5": {
 								"type": "damage",
@@ -1973,8 +1984,8 @@
 				"secretDescription": "",
 				"source": "[object Object]",
 				"uses": {
-					"value": 0,
-					"max": "",
+					"value": 1,
+					"max": "1",
 					"per": "recharge",
 					"recharge": {
 						"formula": "1d6",

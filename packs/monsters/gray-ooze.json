@@ -1,17 +1,21 @@
 {
-	"name": "Commoners",
+	"name": "Gray Ooze",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/black-pudding.webp",
 	"items": [
 		{
-			"_id": "g54UmFOtEJKe4mAc",
-			"name": "Skills",
+			"_id": "EajXtt7gtOKcHqqn",
+			"name": "Amorphous",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 0,
-			"flags": {},
+			"sort": -100000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.8sly2HIVUXge17ST"
+				}
+			},
 			"system": {
 				"ac": {
 					"baseFormula": "",
@@ -23,8 +27,31 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
-				"description": "<p>Commoners have any one skill proficiency (+2) and gains a (1d4) expertise die with that skill.</p>",
+				"actions": {
+					"okWTWGwjfWAkxUpe": {
+						"name": "Amorphous",
+						"activation": {
+							"cost": "",
+							"type": "none",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "permanent",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>The jelly can pass through an opening as narrow as 1 inch wide without squeezing.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -58,16 +85,16 @@
 			}
 		},
 		{
-			"_id": "Bcyp8oRpcx5XVcpv",
-			"name": "Stone",
-			"type": "object",
-			"img": "icons/svg/thrust.svg",
+			"_id": "1Cgq1IRY8orfOXSW",
+			"name": "Sunlight Sensitivity",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 2100000,
+			"sort": -75000,
 			"flags": {
 				"core": {
-					"sourceId": "Item.J4DEuvBYORQ3Hrfm"
+					"sourceId": "Item.gxnCe4DFSL5p3DuX"
 				}
 			},
 			"system": {
@@ -82,21 +109,16 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"NK1tFvK9ImD7Qifr": {
-						"name": "Stone",
+					"0beO4lKfGFm3M8u7": {
+						"name": "Sunlight Sensitivity",
 						"activation": {
-							"cost": 1,
-							"type": "action",
+							"cost": "",
+							"type": "none",
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "instantaneous",
+							"unit": "permanent",
 							"value": ""
-						},
-						"ranges": {
-							"TrrIgQCALoWSIhhU": {
-								"range": "10/30 ft"
-							}
 						},
 						"area": {
 							"shape": "",
@@ -104,38 +126,14 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": 1,
-							"type": "creatureObject",
-							"shape": "",
-							"size": ""
+							"quantity": "",
+							"type": ""
 						},
-						"rolls": {
-							"mnG997lvFFN5mgeE": {
-								"bonus": "",
-								"critThreshold": 20,
-								"type": "attack",
-								"attackType": "rangedWeaponAttack",
-								"ability": "dex"
-							},
-							"kflTcz6psBnzRW2x": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d4 + @dex.mod",
-								"name": "Base",
-								"type": "damage"
-							}
-						},
-						"consumers": {
-							"1xaciWKHxeQOF9HC": {
-								"itemid": "",
-								"quantity": 1,
-								"type": "ammunition"
-							}
-						}
+						"consumers": {}
 					}
 				},
-				"description": "<p><em>Ranged Weapon Attack:</em> +2 to hit, range 10/30 ft., one target. <em>Hit:</em> 2 (1d4) bludgeoning damage.</p>",
-				"favorite": true,
+				"description": "<p>While in sunlight, the jelly has disadvantage on attack rolls.</p>",
+				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -147,34 +145,11 @@
 						"threshold": 0
 					}
 				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "0 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"thrown",
-					"simple"
-				],
-				"weight": 0,
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
@@ -191,16 +166,16 @@
 			}
 		},
 		{
-			"_id": "apXxKW7ccprmpTqN",
-			"name": "Club",
-			"type": "object",
-			"img": "icons/svg/sword.svg",
+			"_id": "KvrjaorWtxji5jjx",
+			"name": "Ooze Nature",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
 			"effects": [],
 			"folder": null,
-			"sort": 400000,
+			"sort": -50000,
 			"flags": {
 				"core": {
-					"sourceId": "Item.HNW5E0dbSnj6Vhc1"
+					"sourceId": "Item.TGISdkZEUaYg3NrU"
 				}
 			},
 			"system": {
@@ -215,21 +190,16 @@
 					"requiresUnarmored": false
 				},
 				"actions": {
-					"PK1uqUGC7LPQ5g6Z": {
-						"name": "Club",
+					"i7ciXwuJ4vMqyEmS": {
+						"name": "Ooze Nature",
 						"activation": {
-							"cost": 1,
-							"type": "action",
+							"cost": "",
+							"type": "none",
 							"reactionTrigger": ""
 						},
 						"duration": {
-							"unit": "instantaneous",
+							"unit": "permanent",
 							"value": ""
-						},
-						"ranges": {
-							"GnPmzmsoDPwbCkqR": {
-								"range": "fiveFeet"
-							}
 						},
 						"area": {
 							"shape": "",
@@ -237,31 +207,99 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": 1,
-							"type": "creatureObject",
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>An ooze doesn’t require air or sleep.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.013,
+							"foundry": "11.315",
+							"system": "0.17.20"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "5LhnHT1jU1zYtOB3",
+			"name": "Corrosive Body",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"WIjQnbo0NLmEZzMH": {
+						"name": "Corrosive Body",
+						"activation": {
+							"cost": "",
+							"type": "none",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "permanent",
+							"value": ""
+						},
+						"area": {
 							"shape": "",
-							"size": ""
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
 						},
 						"rolls": {
-							"OuOEbyrGk5gIQV1n": {
-								"bonus": "",
-								"critThreshold": 20,
-								"type": "attack",
-								"attackType": "meleeWeaponAttack",
-								"ability": "str"
-							},
-							"pQ6Wa6WQ5qLSb3wt": {
-								"canCrit": true,
-								"damageType": "bludgeoning",
-								"formula": "1d4+ @str.mod",
-								"name": "Base",
+							"gyINH55Oxw1Fkcxh": {
+								"canCrit": false,
+								"damageType": "acid",
+								"formula": "2d4",
+								"name": "acid",
 								"type": "damage"
 							}
 						},
 						"consumers": {}
 					}
 				},
-				"description": "<p><em>Melee Weapon Attack:</em> +2 to hit, reach 5 ft., one target. <em>Hit:</em> 2 (1d4) bludgeoning damage.</p><p><em>Simple</em></p><p><strong>Simple.</strong> This weapon can be used with very little skill or training, and all creatures gain proficiency with it.</p>",
+				"description": "<p>A creature or a metal object that touches the ooze takes 5 (2d4) acid damage. A nonmagical weapon made of metal that hits the black pudding corrodes after dealing damage, taking a permanent -1 penalty to damage rolls per hit. If this penalty reaches -5, the weapon is destroyed. Metal nonmagical ammunition is destroyed after dealing damage.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -274,33 +312,188 @@
 						"threshold": 0
 					}
 				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "1 sp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"simple"
-				],
-				"weight": 2,
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.013,
+							"foundry": "11.315",
+							"system": "0.17.20"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "C8v9j38JGEANkbwo",
+			"name": "False Appearance",
+			"type": "feature",
+			"img": "icons/magic/nature/stealth-hide-eyes-green.webp",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"GSL3oxSw66CPWvmy": {
+						"name": "False Appearance",
+						"activation": {
+							"cost": "",
+							"type": "none",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "permanent",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>While motionless, the ooze is indistinguishable from wet stone.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.014,
+					"lastMigration": {
+						"version": {
+							"schema": 0.013,
+							"foundry": "11.315",
+							"system": "0.17.20"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "MpozON79SZRD4esn",
+			"name": "Pseudopod",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"35LQSxEFqu7Vl7iB": {
+						"name": "Pseudopod",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creature"
+						},
+						"rolls": {
+							"su8FP7kxUpDhkMeH": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "str"
+							},
+							"AIAxuzXY26h1L02W": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "1d4 + @str.mod",
+								"name": "bludgeoning",
+								"type": "damage"
+							},
+							"eyF4Zr7hkrLzXbIv": {
+								"canCrit": true,
+								"damageType": "acid",
+								"formula": "2d4",
+								"name": "acid",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p><em>Melee Weapon Attack:</em><br><em>On Hit: </em>Nonmagical metal armor worn by the target corrodes, taking a permanent -1 penalty to its AC protection per hit. If the penalty reduces the armor’s AC protection to 10, the armor is destroyed.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
@@ -328,7 +521,7 @@
 			},
 			"system": {
 				"actions": {
-					"tHjeNA47HzQ8PlII": {
+					"y1FSsLjZpJig469f": {
 						"name": "Shove",
 						"activation": {
 							"cost": 1,
@@ -340,7 +533,7 @@
 							"value": null
 						},
 						"ranges": {
-							"4HROaed5KYyUtRPY": {
+							"69cLqFIBLPHSU38C": {
 								"range": "fiveFeet"
 							}
 						},
@@ -356,7 +549,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"HePDdPoCL9xZsbvb": {
+							"bemrPb77c0HXdZAQ": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
@@ -365,7 +558,7 @@
 							}
 						},
 						"prompts": {
-							"ftPwjaPJt4LYqZQp": {
+							"atGZRLJR08XhdwEg": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -413,7 +606,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "5fok68q4EkhiRATQ"
+			"_id": "2wQpZMS8lOA3M420"
 		},
 		{
 			"name": "Disarm",
@@ -427,7 +620,7 @@
 			},
 			"system": {
 				"actions": {
-					"tPvnQLOgd8fNNjZ2": {
+					"m9BjmRTW6yKbjlEi": {
 						"name": "Disarm",
 						"activation": {
 							"cost": 1,
@@ -439,7 +632,7 @@
 							"value": null
 						},
 						"ranges": {
-							"aadgyggIlSac2lMW": {
+							"TO5ZJsoLznLk0YWj": {
 								"range": "touch"
 							}
 						},
@@ -455,7 +648,7 @@
 							"size": ""
 						},
 						"rolls": {
-							"WRFn19u1WviWINK3": {
+							"DwU7yrzZO7vNJLtD": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
@@ -464,7 +657,7 @@
 							}
 						},
 						"prompts": {
-							"v7vaj2yEkETfZ5Su": {
+							"1TAy2begKRsKYBH2": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -512,7 +705,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "SAHiReLzpQw97Vz8"
+			"_id": "fuWWZ60MzAHzwmD9"
 		},
 		{
 			"name": "Grab On",
@@ -526,7 +719,7 @@
 			},
 			"system": {
 				"actions": {
-					"CiOqBz2ujZYNxbrO": {
+					"ZnO7uc6mWBJZD89u": {
 						"name": "Grab On",
 						"activation": {
 							"cost": 1,
@@ -538,7 +731,7 @@
 							"value": null
 						},
 						"ranges": {
-							"JKEmUyyxQBPxcN9X": {
+							"yb65fVWtxcaHGEBK": {
 								"range": "touch"
 							}
 						},
@@ -554,7 +747,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"ulvZcaYwSOauf6gu": {
+							"PdpcsvLnk3Q1YbYN": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -602,7 +795,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "Ax29YkbW0BttXtuk"
+			"_id": "tmdHo43lUDesBjKm"
 		},
 		{
 			"name": "Knockdown",
@@ -616,7 +809,7 @@
 			},
 			"system": {
 				"actions": {
-					"IHMXHwoC3aOIqKeS": {
+					"0NkxmC6MfUytxo8X": {
 						"name": "Knockdown",
 						"activation": {
 							"cost": 1,
@@ -628,7 +821,7 @@
 							"value": null
 						},
 						"ranges": {
-							"fmVf5RPLAtPwriqc": {
+							"Ob3rIRIuPRb8p7d4": {
 								"range": "touch"
 							}
 						},
@@ -644,7 +837,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"SLHqr7AmNk2GdcBs": {
+							"8hwf80ifosDboHYc": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -692,7 +885,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "06ruf78dvfoHcoGI"
+			"_id": "9qGweyc84C5UZg8y"
 		},
 		{
 			"name": "Grapple",
@@ -706,7 +899,7 @@
 			},
 			"system": {
 				"actions": {
-					"dXH4xLq6fph5B9pE": {
+					"CS6pDF8jsuCsrnME": {
 						"name": "Grapple",
 						"activation": {
 							"cost": 1,
@@ -718,7 +911,7 @@
 							"value": null
 						},
 						"ranges": {
-							"6AOSIXLzb9FHQx1y": {
+							"CmWQgokkOv5LUvyv": {
 								"range": "touch"
 							}
 						},
@@ -734,7 +927,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"KAwl0FuYP6RKwXmA": {
+							"5NEKSFLLV04hjuJ4": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -782,7 +975,7 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "gHVT2kut5vspiTT2"
+			"_id": "qMKpnqzA7fBtYAXl"
 		},
 		{
 			"name": "Overrun",
@@ -796,7 +989,7 @@
 			},
 			"system": {
 				"actions": {
-					"h43UtlOZ3PIoXd7e": {
+					"Ejh6hAk2TIUj37J2": {
 						"name": "Overrun",
 						"activation": {
 							"cost": 1,
@@ -808,7 +1001,7 @@
 							"value": null
 						},
 						"ranges": {
-							"pjk8nVOcquSTP6kd": {
+							"u7zeC3mSfqMp3aOl": {
 								"range": "touch"
 							}
 						},
@@ -824,7 +1017,7 @@
 							"size": ""
 						},
 						"prompts": {
-							"V3nzhTbongxlsIKQ": {
+							"THZbHW64CCINchDH": {
 								"ability": "str",
 								"onSave": "",
 								"saveDC": {
@@ -872,13 +1065,12 @@
 			},
 			"folder": null,
 			"sort": 0,
-			"_id": "F3EDESqqvJ8u9CEb"
+			"_id": "TagxbatIo9GsdqqX"
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"availableSpellLevels": [],
 			"sheetIsLocked": true,
 			"sortMode": {},
 			"filters": {}
@@ -887,7 +1079,7 @@
 	"system": {
 		"abilities": {
 			"str": {
-				"value": 10,
+				"value": 12,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -899,7 +1091,7 @@
 				}
 			},
 			"dex": {
-				"value": 10,
+				"value": 6,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -911,7 +1103,7 @@
 				}
 			},
 			"con": {
-				"value": 10,
+				"value": 16,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -919,11 +1111,12 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
-				"value": 10,
+				"value": 1,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -935,7 +1128,7 @@
 				}
 			},
 			"wis": {
-				"value": 10,
+				"value": 6,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -947,7 +1140,7 @@
 				}
 			},
 			"cha": {
-				"value": 10,
+				"value": 1,
 				"check": {
 					"expertiseDice": 0,
 					"bonus": ""
@@ -1237,7 +1430,7 @@
 		},
 		"attributes": {
 			"ac": {
-				"baseFormula": "10",
+				"baseFormula": "8",
 				"value": 0
 			},
 			"death": {
@@ -1245,8 +1438,8 @@
 				"failure": 0
 			},
 			"hp": {
-				"value": 4,
-				"baseMax": 4,
+				"value": 22,
+				"baseMax": 22,
 				"temp": 0,
 				"bonus": 0
 			},
@@ -1256,8 +1449,8 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 1,
-					"total": 1
+					"current": 3,
+					"total": 3
 				},
 				"d10": {
 					"current": 0,
@@ -1287,7 +1480,7 @@
 					"unit": "feet"
 				},
 				"climb": {
-					"distance": 0,
+					"distance": 15,
 					"unit": "feet"
 				},
 				"fly": {
@@ -1295,11 +1488,11 @@
 					"unit": "feet"
 				},
 				"swim": {
-					"distance": 0,
+					"distance": 15,
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 30,
+					"distance": 15,
 					"unit": "feet"
 				},
 				"traits": {
@@ -1308,20 +1501,20 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet",
-					"otherwiseBlind": false
+					"otherwiseBlind": true
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet"
 				},
 				"tremorsense": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": 0,
+					"distance": null,
 					"unit": "feet"
 				}
 			},
@@ -1355,22 +1548,28 @@
 			"cp": 0
 		},
 		"details": {
-			"bio": "<p><strong>DESCRIPTION</strong></p><p>Commoners are humanoids who are not trained in combat. Typical commoners include farmers, herders, artisans, servants, and scholars.</p>",
+			"bio": "<h2><strong>COMBAT</strong></h2><p>The ooze slides along damp stone walls or floors. It pauses when it senses prey approaching. It chases the closest creature it can reach, but flees from sunlight.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Nature check, characters can learn the following:</p><p><strong>DC 10</strong> Mindless and able to squeeze through the narrowest of cracks, oozes inhabit dank, dark places all over the world.</p><p><strong>DC 15</strong> There are many different types of oozes. Perhaps the strangest is the gelatinous cube: a nearly transparent ooze that engulfs dungeon explorers who stumble into it.</p><p><strong>DC 20</strong> Oozes dissolve any organic matter they come into contact with. Some oozes, such as black puddings, corrode metal as well.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DESCRIPTION</strong></h2><p>Apart from its wet sheen, a gray ooze is indistinguishable from limestone or granite . When it spreads itself flat against a stone surface, it can be hard to spot—until it extends a pseudopod to dissolve flesh, metal, and bone.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>SIGNS</strong></h2><p>1–2 DC 13 Perception check: pristine floors or walls</p><p>2 A door missing its metal hinges (gray ooze), a door missing its lower half (black pudding), or a skeleton (gelatinous cube or ochre jelly)</p><p>3 A bit of writhing ooze stuck in a crack</p><p>4 Wet and dripping walls and floors. DC 14 Investigation or Survival: The area is completely free of lichen, fungus, and other life that might thrive in this environment</p><hr class=\"a5e-rule u-my-md\"><h2><strong>ENCOUNTERS</strong></h2><p><strong>Ooze Encounters </strong>Oozes lurk in sunless areas such as caverns, dungeons, and the ocean depths, as well as in areas of the Abyss and the Bleak Gate.</p><p><strong>CR 0–2</strong> gelatinous cube; ochre jelly; 1 to 3 gray oozes; gray ooze in pit trap</p><p><strong>Treasure</strong> flat carnelian gem carved with a lion, possibly once part of a signet ring (75 gp)</p><p><strong>CR 3–4</strong> black pudding; gelatinous cube in pit trap; 2 gelatinous cubes or ochre jellies; ochre jelly with 1d4 flying swords&nbsp;</p><p><strong>Treasure</strong> flint, chalk, marble chess pieces (125 gp), malachite gem (10 gp), <em>+1 dagger</em> enchanted with <em>continual flame</em></p><p><strong>CR 5–10</strong> elder black pudding; gelatinous wall; black pudding with walking statue or mimic</p><p><strong>Treasure</strong> 3 sealed wine bottles containing fine wine (100 gp each), 4 amethyst gemstones (100 gp each), 2 <em>elemental gems</em> (fire)</p><hr class=\"a5e-rule u-my-md\"><h2><strong>MONSTER TYPE DESCRIPTION</strong></h2><p>Oozes are ambulatory, predatory amoeboid creatures that infest caverns and other dark places. A gelatinous cube is an ooze.</p>",
 			"creatureTypes": [
-				"humanoid"
+				"ooze"
 			],
 			"isSwarm": false,
-			"cr": 0,
+			"cr": 0.5,
 			"elite": false,
-			"privateNotes": "<p><strong>ENCOUNTERS</strong></p><p><strong>CR 0–2</strong> 1d10 commoners; 1 or 2 commoners with 1 or 2 camels, draft horses, mastiffs, or mules</p><p><strong>Treasure</strong> 50 sp, 50 cp; commoner mob</p><p><strong>CR 3–4</strong> 2d20 commoners or commoner mob with acolyte, minstrel, or noble</p><p><strong>Treasure</strong> 500 sp, 500 cp</p>",
+			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"caverns",
+				"mountains",
+				"planeOfEarth",
+				"ruin",
+				"sewer",
+				"water"
+			],
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],
-			"languages": [
-				"any one"
-			],
+			"languages": [],
 			"tools": [],
 			"weapons": []
 		},
@@ -1423,16 +1622,27 @@
 		"source": "monstrousMenagerie",
 		"traits": {
 			"size": "med",
-			"conditionImmunities": [],
+			"conditionImmunities": [
+				"blinded",
+				"charmed",
+				"deafened",
+				"fatigue",
+				"frightened",
+				"prone"
+			],
 			"damageImmunities": [],
-			"damageResistances": [],
+			"damageResistances": [
+				"acid",
+				"cold",
+				"fire"
+			],
 			"damageVulnerabilities": [],
 			"alignment": []
 		},
 		"grants": {},
 		"spellBooks": {
-			"Gp1oBwzvHCM91afD": {
-				"_id": "Gp1oBwzvHCM91afD",
+			"f51hhDeSfyOPVwiO": {
+				"_id": "f51hhDeSfyOPVwiO",
 				"name": "New Spell Book",
 				"img": "icons/svg/book.svg",
 				"ability": "default",
@@ -1443,7 +1653,7 @@
 		}
 	},
 	"prototypeToken": {
-		"name": "Commoners",
+		"name": "Grey Ooze",
 		"displayName": 0,
 		"actorLink": false,
 		"width": 1,
@@ -1474,10 +1684,10 @@
 			"attenuation": 0.5,
 			"color": null
 		},
-		"disposition": 0,
+		"disposition": -1,
 		"displayBars": 0,
 		"bar1": {
-			"attribute": null
+			"attribute": "attributes.hp"
 		},
 		"bar2": {
 			"attribute": null
@@ -1485,7 +1695,7 @@
 		"flags": {},
 		"randomImg": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/black-pudding.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
@@ -1509,5 +1719,5 @@
 		"prependAdjective": false
 	},
 	"folder": null,
-	"_id": "1ts31sxakfvogyab"
+	"_id": "sbllaxo7dnd5cto4"
 }
