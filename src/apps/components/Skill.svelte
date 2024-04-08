@@ -43,7 +43,15 @@
             updateDocumentDataFromField($actor, target.name, target.checked)}
     />
 
-    {#if skill.proficient}
+    {#if skill.proficient === 2}
+        <label
+            for="{$actor.id}-{key}-proficient"
+            class="fa-solid fa-award skill__proficiency-icon skill__proficiency-icon--proficient"
+            class:skill__proficiency-icon--locked={sheetIsLocked}
+            data-tooltip="A5E.ProficiencyExpertise"
+            data-tooltip-direction="UP"
+        />
+    {:else if skill.proficient}
         <label
             for="{$actor.id}-{key}-proficient"
             class="fa-solid fa-star skill__proficiency-icon skill__proficiency-icon--proficient"
