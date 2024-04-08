@@ -41,6 +41,7 @@
             checked={updates.get("5eStyleExpertise") ?? $expertise ?? false}
             on:updateSelection={({ detail }) => {
                 updates.set("5eStyleExpertise", detail);
+                reload = true;
             }}
         />
     </FieldWrapper>

@@ -13,10 +13,9 @@
     export let skill;
 
     function getProficiencyLevel(actor, skill) {
-        const o5eExpertise = game.settings.get("a5e", "5eStyleExpertise");
         const jackOfAllTrades = actor.flags.a5e?.jackOfAllTrades;
 
-        if (o5eExpertise && skill.proficient === 2) return "expertise";
+        if (skill.proficient === 2) return "expertise";
         else if (skill.proficient) return "proficient";
         else if (jackOfAllTrades) return "jack";
     }
