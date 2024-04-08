@@ -489,6 +489,18 @@ class A5eGameSettings extends TJSGameSettings {
           type: Boolean
         }
       },
+      {
+        namespace,
+        key: '5eStyleExpertise',
+        options: {
+          name: 'A5E.settings.5eStyleExpertise',
+          hint: 'A5E.settings.hints.5eStyleExpertise',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
       // Party Viewer Settings
       {
         namespace,
