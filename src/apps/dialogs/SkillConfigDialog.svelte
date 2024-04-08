@@ -30,17 +30,37 @@
 <article>
     <Section --a5e-section-body-gap="0.75rem">
         <FieldWrapper>
-            <Checkbox
-                label="A5E.ProficiencyProficient"
-                checked={skill.proficient}
-                on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $actor,
-                        `system.skills.${skillKey}.proficient`,
-                        detail,
-                    );
-                }}
-            />
+            {#if game.settings.get("a5e", "5eStyleExpertise")}
+                <RadioGroup
+                    heading="Proficiency Level"
+                    options={[
+                        [0, "None"],
+                        [1, "Proficient"],
+                        [2, "Expertise"],
+                    ]}
+                    selected={skill.proficient}
+                    allowDeselect={false}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $actor,
+                            `system.skills.${skillKey}.proficient`,
+                            detail,
+                        );
+                    }}
+                ></RadioGroup>
+            {:else}
+                <Checkbox
+                    label="A5E.ProficiencyProficient"
+                    checked={skill.proficient}
+                    on:updateSelection={({ detail }) => {
+                        updateDocumentDataFromField(
+                            $actor,
+                            `system.skills.${skillKey}.proficient`,
+                            detail,
+                        );
+                    }}
+                />
+            {/if}
         </FieldWrapper>
 
         {#if !hideSkillSpecialties}
