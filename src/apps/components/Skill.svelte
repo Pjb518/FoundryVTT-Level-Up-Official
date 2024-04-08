@@ -6,12 +6,34 @@
 
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
     import replaceHyphenWithMinusSign from "../../utils/replaceHyphenWithMinusSign";
 
     export let columnFlow;
     export let key;
     export let skill;
+
+    function getProficiencyLevel(actor, skill) {
+        const jackOfAllTrades = actor.flags.a5e?.jackOfAllTrades;
+
+        if (skill.proficient === 2) return "expertise";
+        else if (skill.proficient) return "proficient";
+        else if (jackOfAllTrades) return "jack";
+    }
+
+    function getProficiencyTooltip(proficiencyLevel) {
+        switch (proficiencyLevel) {
+            case "expertise":
+                return "A5E.ProficiencyExpertise";
+            case "jack":
+                return "A5E.ProficiencyJack";
+            case "proficient":
+                return "A5E.ProficiencyProficient";
+            default:
+                return null;
+        }
+    }
+
+    function updateSkillProficiency() {}
 
     const actor = getContext("actor");
     const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
@@ -23,8 +45,9 @@
     $: abilityBonus =
         $actor.system.abilities[skill.ability].check.deterministicBonus;
 
-    $: jackOfAllTrades = $actor.flags.a5e?.jackOfAllTrades;
     $: skillBonus = skill.deterministicBonus;
+    $: proficiencyLevel = getProficiencyLevel($actor, skill);
+    $: proficiencyTooltip = getProficiencyTooltip(proficiencyLevel);
 
     $: sheetIsLocked = !$actor.isOwner
         ? true
@@ -32,50 +55,23 @@
 </script>
 
 <li class="skill" class:skill--column-flow={columnFlow}>
-    <input
-        style="display: none;"
-        type="checkbox"
-        id="{$actor.id}-{key}-proficient"
-        name="system.skills.{key}.proficient"
-        checked={skill.proficient}
-        disabled={sheetIsLocked}
-        on:change={({ target }) =>
-            updateDocumentDataFromField($actor, target.name, target.checked)}
+    <button
+        class="fa-solid skill__proficiency-icon"
+        class:skill__proficiency-icon--expertise={proficiencyLevel ===
+            "expertise"}
+        class:skill__proficiency-icon--jack={proficiencyLevel === "jack"}
+        class:skill__proficiency-icon--proficient={proficiencyLevel ===
+            "proficient"}
+        class:skill__proficiency-icon--locked={sheetIsLocked}
+        class:fa-award={proficiencyLevel === "expertise"}
+        class:fa-star-half-stroke={proficiencyLevel === "jack"}
+        class:fa-star={!proficiencyLevel || proficiencyLevel === "proficient"}
+        data-tooltip={proficiencyTooltip}
+        data-tooltip-direction="UP"
+        on:click={updateSkillProficiency}
     />
 
-    {#if skill.proficient === 2}
-        <label
-            for="{$actor.id}-{key}-proficient"
-            class="fa-solid fa-award skill__proficiency-icon skill__proficiency-icon--proficient"
-            class:skill__proficiency-icon--locked={sheetIsLocked}
-            data-tooltip="A5E.ProficiencyExpertise"
-            data-tooltip-direction="UP"
-        />
-    {:else if skill.proficient}
-        <label
-            for="{$actor.id}-{key}-proficient"
-            class="fa-solid fa-star skill__proficiency-icon skill__proficiency-icon--proficient"
-            class:skill__proficiency-icon--locked={sheetIsLocked}
-            data-tooltip="A5E.ProficiencyProficient"
-            data-tooltip-direction="UP"
-        />
-    {:else if jackOfAllTrades}
-        <label
-            for="{$actor.id}-{key}-proficient"
-            class="fa-solid fa-star-half-stroke skill__proficiency-icon skill__proficiency-icon--jack"
-            class:skill__proficiency-icon--locked={sheetIsLocked}
-            data-tooltip="Jack of All Trades"
-            data-tooltip-direction="UP"
-        />
-    {:else}
-        <label
-            for="{$actor.id}-{key}-proficient"
-            class="fa-regular fa-star skill__proficiency-icon"
-            class:skill__proficiency-icon--locked={sheetIsLocked}
-        />
-    {/if}
-
-    <label
+    <button
         for="{$actor.id}-{key}-proficient"
         class="fa-solid fa-dice-d20 skill__roll-icon"
         class:skill__roll-icon--shift={$pressedKeysStore.Shift}
@@ -233,12 +229,14 @@
             color: rgba(0, 0, 0, 0.25);
             cursor: pointer;
 
+            &--expertise,
             &--proficient {
                 color: $color-primary;
             }
 
             &--locked {
                 cursor: unset;
+                pointer-events: none;
             }
 
             &:has(~ .skill__name:hover) {
@@ -251,6 +249,11 @@
             align-items: center;
             justify-content: center;
             width: 1rem;
+            background: transparent;
+
+            &:hover {
+                box-shadow: none;
+            }
         }
 
         &__roll-icon {
