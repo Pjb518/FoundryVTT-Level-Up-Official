@@ -214,13 +214,21 @@ export default class ModifierManager {
   }
 
   #getSkillCheckModifier() {
-    const { skill } = this.rollData;
+    const { skill: skillKey } = this.rollData;
 
-    if (!skill) return null;
+    if (!skillKey) return null;
+
+    let labelKey;
+    const jackOfAllTrades = this.actor.flags.a5e?.jackOfAllTrades;
+    const skill = this.actor.system.skills[skillKey];
+
+    if (skill.proficient === 2) labelKey = 'A5E.ProficiencyBonusExpertise';
+    else if (skill.proficient) labelKey = 'A5E.ProficiencyBonus';
+    else if (jackOfAllTrades) labelKey = 'A5E.ProficiencyBonusJack';
 
     return {
-      label: localize('A5E.SkillCheckMod', { skill: CONFIG.A5E.skills[skill] }),
-      value: this.actor.system.skills[skill]?.mod ?? null
+      label: localize(labelKey, { skill: CONFIG.A5E.skills[skillKey] }),
+      value: skill?.mod ?? null
     };
   }
 
