@@ -70,7 +70,9 @@
 
 <li class="skill" class:skill--column-flow={columnFlow}>
     <button
-        class="fa-solid skill__proficiency-icon"
+        class="skill__proficiency-icon"
+        class:fa-solid={proficiencyLevel}
+        class:fa-regular={!proficiencyLevel}
         class:skill__proficiency-icon--expertise={proficiencyLevel ===
             "expertise"}
         class:skill__proficiency-icon--jack={proficiencyLevel === "jack"}
