@@ -33,7 +33,21 @@
         }
     }
 
-    function updateSkillProficiency() {}
+    function updateSkillProficiency() {
+        const currentState = skill.proficient;
+        let newState;
+
+        if (!game.settings.get("a5e", "5eStyleExpertise")) {
+            if (currentState) newState = 0;
+            else newState = 1;
+        } else {
+            if (currentState === 2) newState = 0;
+            else if (currentState) newState = 2;
+            else newState = 1;
+        }
+
+        $actor.update({ [`system.skills.${key}.proficient`]: newState });
+    }
 
     const actor = getContext("actor");
     const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
@@ -251,6 +265,7 @@
             width: 1rem;
             background: transparent;
 
+            &:focus,
             &:hover {
                 box-shadow: none;
             }
