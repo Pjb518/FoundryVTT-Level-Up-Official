@@ -12,6 +12,7 @@
 
     let deathSaves = settings.getStore("5eStyleDeathSaves");
     let exhaustion = settings.getStore("replaceFatigueAndStrife");
+    let expertise = settings.getStore("5eStyleExpertise");
     let hideA5eSkills = settings.getStore("hideA5eSkills");
     let hideBrokenAndDamaged = settings.getStore("hideBrokenAndDamaged");
     let hideExpertiseDice = settings.getStore("hideExpertiseDice");
@@ -30,6 +31,16 @@
             checked={updates.get("5eStyleDeathSaves") ?? $deathSaves ?? false}
             on:updateSelection={({ detail }) => {
                 updates.set("5eStyleDeathSaves", detail);
+            }}
+        />
+    </FieldWrapper>
+
+    <FieldWrapper hint="A5E.settings.hints.5eStyleExpertise">
+        <Checkbox
+            label="A5E.settings.5eStyleExpertise"
+            checked={updates.get("5eStyleExpertise") ?? $expertise ?? false}
+            on:updateSelection={({ detail }) => {
+                updates.set("5eStyleExpertise", detail);
             }}
         />
     </FieldWrapper>
