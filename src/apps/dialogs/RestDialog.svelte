@@ -52,8 +52,11 @@
         on:updateSelection={({ detail }) => (restType = detail)}
     />
 
-    <Section --a5e-section-body-padding="0" --a5e-section-body-gap="0.75rem">
-        {#if restType === "long"}
+    {#if restType === "long" && !game.settings.get("a5e", "simpleRests")}
+        <Section
+            --a5e-section-body-padding="0"
+            --a5e-section-body-gap="0.75rem"
+        >
             <FieldWrapper>
                 <Checkbox
                     label="A5E.HavenPrompt"
@@ -85,9 +88,11 @@
                     />
                 </FieldWrapper>
             {/if}
-        {/if}
+        </Section>
+    {/if}
 
-        {#if restType === "short"}
+    {#if restType === "short"}
+        <Section --a5e-section-body-padding="0">
             <FieldWrapper heading="A5E.HitDiceLabel">
                 <div class="u-flex u-gap-md u-text-md">
                     {#each ["d6", "d8", "d10", "d12"] as die}
@@ -109,8 +114,8 @@
                     {/each}
                 </div>
             </FieldWrapper>
-        {/if}
-    </Section>
+        </Section>
+    {/if}
 
     <button class="a5e-button" on:click|preventDefault={onSubmit}>
         <i class="fas fa-campground" />
