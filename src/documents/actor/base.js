@@ -977,6 +977,7 @@ export default class BaseActorA5e extends Actor {
     this.rollSavingThrow(null, options);
   }
 
+  // TODO: - CLass documents Update to use HitDiceManager
   async rollHitDice(dieSize, quantity = 1) {
     const actorData = this.system;
     const { attributes } = actorData;
