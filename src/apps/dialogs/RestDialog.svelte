@@ -33,11 +33,15 @@
     }
 
     function onSubmit() {
+        const simpleRests = game.settings.get("a5e", "simpleRests");
+
         application.submit({
-            consumeSupply,
-            haven,
+            consumeSupply: simpleRests ? false : consumeSupply,
+            haven: simpleRests ? true : haven,
             restType,
-            recoverStrifeAndFatigue,
+            recoverStrifeAndFatigue: simpleRests
+                ? true
+                : recoverStrifeAndFatigue,
         });
     }
 

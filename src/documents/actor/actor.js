@@ -1657,6 +1657,7 @@ export default class ActorA5e extends Actor {
    */
   async triggerRest(restOptions = {}) {
     let restData;
+
     if (foundry.utils.isEmpty(restOptions)) {
       const title = localize('A5E.RestConfigurationPrompt', { name: this.name });
       const dialog = new GenericConfigDialog(this, title, RestDialog);
