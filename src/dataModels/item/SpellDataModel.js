@@ -1,6 +1,7 @@
+import A5EDataModel from '../A5EDataModel';
 import BaseItemData from './BaseItemData';
 
-export default class SpellDataModel extends BaseItemData {
+export default class SpellDataModel extends A5EDataModel.mixin(BaseItemData) {
   static defineSchema() {
     const { fields } = foundry.data;
 

@@ -1,7 +1,9 @@
+import A5EDataModel from '../A5EDataModel';
+
 import BaseItemData from './BaseItemData';
 import Armor from './template/Armor';
 
-export default class ObjectDataModel extends BaseItemData.mixin(Armor) {
+export default class ObjectDataModel extends A5EDataModel.mixin(BaseItemData, Armor) {
   static defineSchema() {
     const { fields } = foundry.data;
 
