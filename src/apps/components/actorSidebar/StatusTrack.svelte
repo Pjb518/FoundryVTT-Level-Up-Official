@@ -13,7 +13,7 @@
         updateDocumentDataFromField(
             $actor,
             `system.attributes.${trackProperty}`,
-            value
+            value,
         );
     }
 
@@ -21,7 +21,8 @@
 </script>
 
 <div
-    class="track track-{trackProperty}"
+    class="track track--{trackProperty}"
+    class:track--5e={game.settings.get("a5e", "replaceFatigueAndStrife")}
     data-tooltip={tooltipText}
     data-tooltip-direction="DOWN"
 >
@@ -78,12 +79,6 @@
         border-radius: 50%;
 
         transition: width 0.3s ease;
-
-        &-fatigue {
-            z-index: 3;
-            top: 1rem;
-            right: 0.625rem;
-        }
 
         &-icon {
             z-index: 1;
@@ -151,9 +146,19 @@
             transition: $standard-transition;
         }
 
-        &-strife {
+        &--fatigue {
+            z-index: 3;
+            top: 1rem;
+            right: 0.625rem;
+        }
+
+        &--strife {
             top: 39%;
             right: -0.125rem;
+        }
+
+        &--5e {
+            top: 2rem;
         }
 
         &:hover {
