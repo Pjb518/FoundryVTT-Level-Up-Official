@@ -225,9 +225,10 @@ export default class ModifierManager {
     if (skill.proficient === 2) labelKey = 'A5E.ProficiencyBonusExpertise';
     else if (skill.proficient) labelKey = 'A5E.ProficiencyBonus';
     else if (jackOfAllTrades) labelKey = 'A5E.ProficiencyBonusJack';
+    else labelKey = 'A5E.SkillCheckMod';
 
     return {
-      label: localize(labelKey, { skill: CONFIG.A5E.skills[skillKey] }),
+      label: labelKey ? localize(labelKey, { skill: CONFIG.A5E.skills[skillKey] }) : '',
       value: skill?.mod ?? null
     };
   }
