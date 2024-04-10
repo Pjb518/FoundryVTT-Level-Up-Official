@@ -2,7 +2,7 @@
 
 #tooltip {
   &.a5e-effect-summary-tooltip {
-    max-width: 60ch;
+    max-width: 65ch;
     margin-right: 0.5rem;
     padding: 0.5rem;
     padding-bottom: 0.125rem;
@@ -16,10 +16,17 @@
 
   .a5e-effect-summary-tooltip {
     &__heading {
-      margin-bottom: 0.125rem;
+      margin-bottom: 0.5rem;
       border-bottom: 0;
       font-size: 1rem;
       font-family: var(--a5e-font-serif);
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      padding-left: 1rem;
     }
 
     &__removal-note {
