@@ -465,7 +465,12 @@
 							"system": "0.17.20"
 						}
 					}
-				}
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"mounted": [],
+				"versatile": ""
 			},
 			"ownership": {
 				"default": 0
@@ -577,7 +582,7 @@
 		},
 		{
 			"_id": "HMwXU1NFITeCws8T",
-			"name": "Circle of Fire (1/day)",
+			"name": "Circle of Fire",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -597,7 +602,7 @@
 				},
 				"actions": {
 					"tnsu3TmID9J1kipd": {
-						"name": "Circle of Fire (1/day)",
+						"name": "Circle of Fire",
 						"activation": {
 							"cost": 1,
 							"type": "action",
@@ -639,7 +644,13 @@
 								"type": "savingThrow"
 							}
 						},
-						"consumers": {}
+						"consumers": {
+							"mBMkINfIe4xn1D6J": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
 					}
 				},
 				"description": "<p>A 15-foot-tall, 1-foot-thick, 20-foot-diameter ring of fire appears around the pit fiend, with the pit fiend at the center. The fire is opaque to every creature except the pit fiend. When the ring of fire appears, each creature it intersects makes a DC 18 Dexterity saving throw, taking 22 (5d8) fire damage on a failed save or half damage on a successful one. A creature takes 22 (5d8) damage the first time each turn it enters the area or when it ends its turn there. The fire lasts 1 minute or until the pit fiend dismisses it, becomes incapacitated, or leaves its area.</p>",
@@ -647,9 +658,9 @@
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 0,
+					"value": 1,
 					"max": "",
-					"per": "",
+					"per": "day",
 					"recharge": {
 						"formula": "",
 						"threshold": 0
@@ -677,7 +688,7 @@
 		},
 		{
 			"_id": "xRn7NCa39T5HVu86",
-			"name": "Claw (Bonus, Reach 10 ft)",
+			"name": "Claw (Reach 10 ft)",
 			"type": "feature",
 			"img": "icons/skills/melee/blood-slash-foam-red.webp",
 			"effects": [],
@@ -697,7 +708,7 @@
 				},
 				"actions": {
 					"nM7hXfDKl7Rnac7S": {
-						"name": "Claw (Bonus, Reach 10 ft)",
+						"name": "Claw (Reach 10 ft)",
 						"activation": {
 							"cost": 1,
 							"type": "bonusAction",
@@ -781,7 +792,7 @@
 		},
 		{
 			"_id": "WyaguRoENrVdK1mD",
-			"name": "Tail (Bonus, Reach 10 ft)",
+			"name": "Tail (Reach 10 ft)",
 			"type": "feature",
 			"img": "icons/skills/wounds/injury-pain-impaled-hand-blood.webp",
 			"effects": [],
@@ -801,7 +812,7 @@
 				},
 				"actions": {
 					"tYZ6ukEq2KqzCSNI": {
-						"name": "Tail (Bonus, Reach 10 ft)",
+						"name": "Tail (Reach 10 ft)",
 						"activation": {
 							"cost": 1,
 							"type": "bonusAction",
@@ -1434,7 +1445,7 @@
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": false,
+			"sheetIsLocked": true,
 			"sortMode": {},
 			"filters": {}
 		}
@@ -1474,7 +1485,8 @@
 				"save": {
 					"proficient": true,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -1527,7 +1539,7 @@
 		"skills": {
 			"acr": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1538,7 +1550,7 @@
 			},
 			"ani": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1549,7 +1561,7 @@
 			},
 			"arc": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1560,7 +1572,7 @@
 			},
 			"ath": {
 				"ability": "str",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1571,7 +1583,7 @@
 			},
 			"cul": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1582,7 +1594,7 @@
 			},
 			"dec": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1593,7 +1605,7 @@
 			},
 			"eng": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1604,7 +1616,7 @@
 			},
 			"his": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1615,7 +1627,7 @@
 			},
 			"ins": {
 				"ability": "wis",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1626,7 +1638,7 @@
 			},
 			"itm": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1637,7 +1649,7 @@
 			},
 			"inv": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1648,7 +1660,7 @@
 			},
 			"med": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1659,7 +1671,7 @@
 			},
 			"nat": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1670,7 +1682,7 @@
 			},
 			"prc": {
 				"ability": "wis",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1681,7 +1693,7 @@
 			},
 			"prf": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1692,7 +1704,7 @@
 			},
 			"per": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1703,7 +1715,7 @@
 			},
 			"rel": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1714,7 +1726,7 @@
 			},
 			"slt": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1725,7 +1737,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1736,7 +1748,7 @@
 			},
 			"sur": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1947,7 +1959,10 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"hell"
+			],
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],

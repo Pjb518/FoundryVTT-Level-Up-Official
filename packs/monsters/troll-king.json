@@ -867,7 +867,7 @@
 			"_id": "6r2P3mImF3AwNEx8"
 		},
 		{
-			"name": "Lunging Claw (Legendary Action)",
+			"name": "Lunging Claw",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -880,7 +880,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"coPFuLCF1SXRZQUz": {
+						"name": "Lunging Claw",
+						"activation": {
+							"type": "legendaryAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The troll moves up to half its speed straight towards a target without provoking&nbsp;<span class=\"freelinking-link\">opportunity attacks</span>&nbsp;and makes a claw attack against that target.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -921,7 +943,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Backhand Swipe (Legendary Action)",
+			"name": "Backhand Swipe",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -934,7 +956,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"3mCbU2k7uy8uXeRr": {
+						"name": "Backhand Swipe",
+						"activation": {
+							"type": "legendaryAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The troll makes a claw attack against one or two targets.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -975,7 +1019,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Rock (Legendary Action)",
+			"name": "Rock",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -988,7 +1032,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"BaBaDIIPxOlyPKny": {
+						"name": "Rock",
+						"activation": {
+							"type": "legendaryAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The troll makes a rock attack.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -1029,7 +1095,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Elite Recovery (While Bloodied)",
+			"name": "Elite Recovery",
 			"type": "feature",
 			"system": {
 				"ac": {
@@ -1085,7 +1151,7 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.014,
 					"lastMigration": {
@@ -1440,7 +1506,8 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -1493,7 +1560,7 @@
 		"skills": {
 			"acr": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1504,7 +1571,7 @@
 			},
 			"ani": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1515,7 +1582,7 @@
 			},
 			"arc": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1526,7 +1593,7 @@
 			},
 			"ath": {
 				"ability": "str",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1537,7 +1604,7 @@
 			},
 			"cul": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1548,7 +1615,7 @@
 			},
 			"dec": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1559,7 +1626,7 @@
 			},
 			"eng": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1570,7 +1637,7 @@
 			},
 			"his": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1581,7 +1648,7 @@
 			},
 			"ins": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1592,7 +1659,7 @@
 			},
 			"itm": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1603,7 +1670,7 @@
 			},
 			"inv": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1614,7 +1681,7 @@
 			},
 			"med": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1625,7 +1692,7 @@
 			},
 			"nat": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1636,7 +1703,7 @@
 			},
 			"prc": {
 				"ability": "wis",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1647,7 +1714,7 @@
 			},
 			"prf": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1658,7 +1725,7 @@
 			},
 			"per": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1669,7 +1736,7 @@
 			},
 			"rel": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1680,7 +1747,7 @@
 			},
 			"slt": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1691,7 +1758,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1702,7 +1769,7 @@
 			},
 			"sur": {
 				"ability": "wis",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -1885,7 +1952,12 @@
 			"elite": true,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": []
+			"terrain": [
+				"ruin",
+				"tomb",
+				"underland"
+			],
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],
