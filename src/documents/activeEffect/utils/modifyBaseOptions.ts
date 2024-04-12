@@ -84,6 +84,17 @@ export default function modifyBaseOptions(options: Object) {
   delete options['system.spellBooks'];
   delete options['system.grants'];
 
+  // Delete deprecated options
+  Object.keys(CONFIG.A5E.abilities).forEach((a) => {
+    delete options[`system.abilities.${a}.check.bonus`];
+    delete options[`system.abilities.${a}.save.bonus`];
+  });
+
+  Object.keys(CONFIG.A5E.skills).forEach((s) => {
+    delete options[`system.skills.${s}.bonuses.check`];
+    delete options[`system.skills.${s}.bonuses.passive`];
+  });
+
   // Delete text details like bio, class, etc.
   delete options['system.details.age'];
   delete options['system.details.appearance'];
