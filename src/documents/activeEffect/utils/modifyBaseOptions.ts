@@ -18,7 +18,7 @@ export default function modifyBaseOptions(options: Object) {
 
   Object.keys(CONFIG.A5E.skills)
     .forEach((s) => {
-      options[`system.skills.${s}.proficient`] = [false, MODES.OVERRIDE_ONLY, [[true, 'Proficient'], [false, 'Not Proficient']], 'RADIO'];
+      options[`system.skills.${s}.proficient`] = [0, MODES.OVERRIDE_ONLY, [[0, 'Not Proficient'], [1, 'Proficient'], [2, 'Expertise']], 'RADIO'];
       options[`system.skills.${s}.ability`] = ['', MODES.OVERRIDE_ONLY, [...Object.entries(CONFIG.A5E.abilities), ['@attributes.spellcasting', 'Spellcasting']], 'RADIO'];
     });
 
