@@ -38,7 +38,8 @@
 				"save": {
 					"proficient": false,
 					"expertiseDice": 0,
-					"bonus": ""
+					"bonus": "",
+					"concentrationBonus": ""
 				}
 			},
 			"int": {
@@ -79,19 +80,19 @@
 			}
 		},
 		"schemaVersion": {
-			"version": 0.014,
+			"version": 0.016,
 			"lastMigration": {
 				"version": {
-					"schema": 0.013,
+					"schema": 0.014,
 					"foundry": "11.315",
-					"system": "0.17.20"
+					"system": "0.17.31"
 				}
 			}
 		},
 		"skills": {
 			"acr": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -102,7 +103,7 @@
 			},
 			"ani": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -113,7 +114,7 @@
 			},
 			"arc": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -124,7 +125,7 @@
 			},
 			"ath": {
 				"ability": "str",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 3,
 				"minRoll": 1,
@@ -135,7 +136,7 @@
 			},
 			"cul": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -146,7 +147,7 @@
 			},
 			"dec": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -157,7 +158,7 @@
 			},
 			"eng": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -168,7 +169,7 @@
 			},
 			"his": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -179,7 +180,7 @@
 			},
 			"ins": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -190,7 +191,7 @@
 			},
 			"itm": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -201,7 +202,7 @@
 			},
 			"inv": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -212,7 +213,7 @@
 			},
 			"med": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -223,7 +224,7 @@
 			},
 			"nat": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -234,7 +235,7 @@
 			},
 			"prc": {
 				"ability": "wis",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 3,
 				"minRoll": 1,
@@ -245,7 +246,7 @@
 			},
 			"prf": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -256,7 +257,7 @@
 			},
 			"per": {
 				"ability": "cha",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -267,7 +268,7 @@
 			},
 			"rel": {
 				"ability": "int",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -278,7 +279,7 @@
 			},
 			"slt": {
 				"ability": "dex",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -289,7 +290,7 @@
 			},
 			"ste": {
 				"ability": "dex",
-				"proficient": true,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 3,
 				"minRoll": 1,
@@ -300,7 +301,7 @@
 			},
 			"sur": {
 				"ability": "wis",
-				"proficient": false,
+				"proficient": 0,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -497,7 +498,8 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "<div class=\"field field--name-field-monster-other-notes field--type-text-long field--label-hidden field--item\">\n<p>A spyskull forced into a fight drags the conflict out with its superlative sneaking skills. It shoots its eye laser from the maximum range possible and harries foes while waiting for reinforcements.</p>\n<h2>Dead-On Service</h2>\n<p>Mechanoskulls are created with behaviors fitting to their function, and can usually be controlled or accessed remotely by their owners. All mechanoskulls have the following action.</p>\n<p><em><strong>Transmit. </strong></em>The mechanoskull sends data to an object or creature designated by its creator. As a bonus action, the designated creature can see through the mechanoskull&rsquo;s senses as if they were their own. A creature can only be the receiver for a number of mechanoskulls equal to its proficiency modifier and can only see through the senses of one mechano skull at a time. During this time it is blind and deaf to its body&rsquo;s surroundings. If the receiver is a computer or similar device, such as a crystal ball, the data can also be recorded for later viewing.</p>\n<h2>Legends and Lore</h2>\n<p>The following is revealed with an Engineering or History check.</p>\n<p><strong>DC 10 </strong>Mechanoskulls were the first rudimentary attempts of necroscientists to weave together magic and technology.</p>\n<p><strong>DC 15</strong> The very presence of mechanoskulls has a lasting psychological impact (whether they are being used offensively or not).</p>\n<p><strong>DC 20 </strong>Many militaries and secret societies make use of mechanoskulls, regardless of laws forbidding their use.</p>\n</div>\n<div class=\"field field--name-field-monster-description field--type-text-long field--label-above\">\n<h2 class=\"field--label\">Description</h2>\n<div class=\"field--item\">\n<p>Made from the tiniest corpses available, these mechanoskulls are incredibly difficult to detect or notice when in stealth mode. Even should they be found, the experience of seeing one is hard to bear.</p>\n</div>\n</div>",
-			"terrain": []
+			"terrain": [],
+			"isSquad": false
 		},
 		"proficiencies": {
 			"armor": [],
@@ -734,12 +736,12 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.016,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.17.31"
 						}
 					}
 				}
@@ -824,12 +826,12 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.016,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.17.31"
 						}
 					}
 				}
@@ -923,12 +925,12 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.016,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.17.31"
 						}
 					}
 				}
@@ -1013,12 +1015,12 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.016,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.17.31"
 						}
 					}
 				}
@@ -1103,12 +1105,12 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.016,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.17.31"
 						}
 					}
 				}
@@ -1202,12 +1204,12 @@
 				"prerequisite": "",
 				"tradition": "",
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.016,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.17.31"
 						}
 					}
 				}
@@ -1293,12 +1295,12 @@
 				"prerequisite": "",
 				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.016,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.17.31"
 						}
 					}
 				}
@@ -1393,12 +1395,12 @@
 				"prerequisite": "",
 				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.016,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.17.31"
 						}
 					}
 				}
@@ -1497,12 +1499,12 @@
 				"prerequisite": "",
 				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.016,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.17.31"
 						}
 					}
 				}
@@ -1574,12 +1576,12 @@
 				"prerequisite": "",
 				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.016,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.17.31"
 						}
 					}
 				}
@@ -1651,12 +1653,12 @@
 				"prerequisite": "",
 				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.016,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.17.31"
 						}
 					}
 				}
@@ -1744,12 +1746,12 @@
 				"prerequisite": "",
 				"requiresBloodied": false,
 				"schemaVersion": {
-					"version": 0.014,
+					"version": 0.016,
 					"lastMigration": {
 						"version": {
-							"schema": 0.013,
+							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.20"
+							"system": "0.17.31"
 						}
 					}
 				}
