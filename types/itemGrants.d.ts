@@ -5,6 +5,7 @@ export interface BaseGrant {
   grantType: string;
   label: string;
   level: number;
+  levelType: 'character' | 'class';
   optional: boolean;
 
   getApplyData(actor: Actor, data?: any): Record<string, any>;

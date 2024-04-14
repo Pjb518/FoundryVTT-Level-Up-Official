@@ -1,8 +1,7 @@
 import A5EDataModel from '../A5EDataModel';
 import SchemaDataModel from '../template/SchemaDataModel';
-import Level from './template/Level';
 
-export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel, Level) {
+export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) {
   static defineSchema() {
     const { fields } = foundry.data;
 

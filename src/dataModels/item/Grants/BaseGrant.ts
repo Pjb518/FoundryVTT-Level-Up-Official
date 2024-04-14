@@ -20,7 +20,8 @@ export default class BaseGrant extends A5EDataModel {
       img: new fields.StringField({ required: true, initial: '' }),
       grantType: new fields.StringField({ required: true, initial: '' }),
       label: new fields.StringField({ required: true, initial: '' }),
-      level: new fields.NumberField({ required: true, initial: 1 }),
+      level: new fields.NumberField({ nullable: false, initial: 1, min: 1 }),
+      levelType: new fields.StringField({ required: true, initial: 'character' }),
       optional: new fields.BooleanField({ required: true, initial: false })
     };
   }

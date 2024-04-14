@@ -1,4 +1,9 @@
 export default function registerClassesConfig(A5E) {
+  A5E.classLevelContexts = {
+    character: 'A5E.classes.levelTypes.character',
+    class: 'A5E.classes.levelTypes.class'
+  };
+
   A5E.casterTypes = {
     none: 'A5E.None',
     fullCaster: 'A5E.classes.casterTypes.fullCaster',
