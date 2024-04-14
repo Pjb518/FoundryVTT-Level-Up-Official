@@ -6,19 +6,19 @@ export default class CharacterActorA5E extends BaseActorA5e {
   /**
    * @type {Record<string, ClassItemA5e>}
    */
-  #classes;
+  _classes;
 
   get classes() {
-    if (this.#classes !== undefined) return this.#classes;
+    if (this._classes !== undefined) return this._classes;
 
-    this.#classes = this.items.reduce((acc, item) => {
+    this._classes = this.items.reduce((acc, item) => {
       if (item.type !== 'class') return acc;
 
       acc[item.slug] = item;
       return acc;
     }, {});
 
-    return this.#classes;
+    return this._classes;
   }
 
   // -------------------------------------------------------------
@@ -29,7 +29,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
    * @override
    */
   prepareData() {
-    this.#classes = undefined;
+    this._classes = undefined;
     super.prepareData();
   }
 

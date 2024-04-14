@@ -4,6 +4,7 @@ export interface BaseGrant {
   img: string;
   grantType: string;
   label: string;
+  level: number;
   optional: boolean;
 
   getApplyData(actor: Actor, data?: any): Record<string, any>;
