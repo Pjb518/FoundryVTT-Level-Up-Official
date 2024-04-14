@@ -1,5 +1,5 @@
 export default function registerClassesConfig(A5E) {
-  A5E.classLevelContexts = {
+  A5E.classLevelTypes = {
     character: 'A5E.classes.levelTypes.character',
     class: 'A5E.classes.levelTypes.class'
   };

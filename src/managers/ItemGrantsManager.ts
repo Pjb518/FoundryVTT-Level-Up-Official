@@ -35,6 +35,19 @@ export default class ItemGrantsManager extends Map<string, Grant> {
     return [...this.values()].filter((grant) => grant.grantType === type);
   }
 
+  byLevel(level: number): Array<Grant> {
+    return [...this.values()].filter((grant) => grant.level === level);
+  }
+
+  byLevelType(levelType: string): Array<Grant> {
+    return [...this.values()].filter((grant) => grant.levelType === levelType);
+  }
+
+  byLevelAndType(level: number, grantType: string): Array<Grant> {
+    return [...this.values()]
+      .filter((grant) => grant.level === level && grant.grantType === grantType);
+  }
+
   /** ************************************************
   *               External methods
   * ************************************************ */
