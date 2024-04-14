@@ -107,7 +107,8 @@ export default class ItemGrantsManager extends Map<string, Grant> {
     // @ts-ignore
     const newGrant = foundry.utils.mergeObject({
       grantType: 'skill',
-      level: 0
+      level: 1,
+      levelType: ['class', 'archetype'].includes(item.type) ? 'class' : 'character'
     }, data);
 
     const updateData = {
