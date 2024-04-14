@@ -47,9 +47,11 @@ export default class AbilityGrant extends BaseGrant {
       },
       formula: this.bonus,
       label: this.label || this.parent?.name || 'Ability Grant',
-      default: this.default ?? true,
+      default: this.context.default ?? true,
       img: this.img || this?.parent?.img
     };
+
+    delete bonus.context.default;
 
     const grantData = {
       itemUuid: this.parent.uuid,

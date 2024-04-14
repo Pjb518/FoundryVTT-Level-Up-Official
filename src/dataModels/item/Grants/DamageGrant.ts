@@ -16,8 +16,7 @@ export default class DamageGrant extends BaseGrant {
       grantType: new fields.StringField({ required: true, initial: 'damage' }),
       bonus: new fields.StringField({ required: true, initial: '' }),
       damageType: new fields.StringField({ required: true, initial: '' }),
-      context: new fields.SchemaField(getDamageBonusContext()),
-      default: new fields.BooleanField({ required: true, initial: true }),
+      context: new fields.SchemaField(getDamageBonusContext('grant')),
       label: new fields.StringField({ required: true, initial: 'New Damage Grant' })
     });
   }
@@ -30,9 +29,11 @@ export default class DamageGrant extends BaseGrant {
       context: this.context,
       formula: this.bonus,
       label: this.label || this.parent?.name || 'Damage Grant',
-      default: this.default ?? true,
+      default: this.context.default ?? true,
       img: this.img || this?.parent?.img
     };
+
+    delete bonus.context.default;
 
     const grantData = {
       itemUuid: this.parent.uuid,

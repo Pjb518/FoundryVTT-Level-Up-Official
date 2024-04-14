@@ -16,7 +16,6 @@ export default class BaseGrant extends A5EDataModel {
 
     return {
       _id: new fields.DocumentIdField({ initial: () => foundry.utils.randomID() }),
-      default: new fields.BooleanField({ required: true, initial: true }),
       img: new fields.StringField({ required: true, initial: '' }),
       grantType: new fields.StringField({ required: true, initial: '' }),
       label: new fields.StringField({ required: true, initial: '' }),

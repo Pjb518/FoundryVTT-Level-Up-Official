@@ -30,7 +30,6 @@ export default class SkillGrant extends BaseGrant {
       }),
       bonus: new fields.StringField({ required: true, initial: '' }),
       context: new fields.SchemaField(getSkillBonusContext('grant')),
-      default: new fields.BooleanField({ required: true, initial: true }),
       label: new fields.StringField({ required: true, initial: 'New Skill Grant' })
     });
   }
@@ -48,9 +47,11 @@ export default class SkillGrant extends BaseGrant {
       },
       formula: this.bonus,
       label: this.label || this.parent?.name || 'Skill Grant',
-      default: this.default ?? true,
+      default: this.context.default ?? true,
       img: this.img || this?.parent?.img
     };
+
+    delete bonus.context.default;
 
     const grantData = {
       itemUuid: this.parent.uuid,

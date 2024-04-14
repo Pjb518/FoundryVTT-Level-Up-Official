@@ -31,6 +31,11 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
           options: Object.entries(CONFIG.A5E.abilities),
           selectedProperty: 'abilities.options',
           component: 'TagGroup'
+        },
+        {
+          heading: 'Select Ability Bonus Automatically in Roll Prompt',
+          selectedProperty: 'context.default',
+          component: 'Checkbox'
         }
       );
     }
@@ -78,6 +83,11 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
           options: Object.entries(CONFIG.A5E.attackTypes),
           selectedProperty: 'attackTypes.options',
           component: 'TagGroup'
+        },
+        {
+          heading: 'Select Attack Bonus Automatically in Roll Prompt',
+          selectedProperty: 'context.default',
+          component: 'Checkbox'
         }
       );
     }
@@ -128,6 +138,16 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
         component: 'Checkbox'
       }
     );
+
+    if (type === 'grant') {
+      map.push(
+        {
+          heading: 'Select Damage Bonus Automatically in Roll Prompt',
+          selectedProperty: 'context.default',
+          component: 'Checkbox'
+        }
+      );
+    }
   }
 
   if (contextType === 'healing') {
@@ -145,6 +165,16 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
         component: 'TagGroup'
       }
     );
+
+    if (type === 'grant') {
+      map.push(
+        {
+          heading: 'Select Healing Bonus Automatically in Roll Prompt',
+          selectedProperty: 'context.default',
+          component: 'Checkbox'
+        }
+      );
+    }
   }
 
   if (contextType === 'initiative') {
@@ -162,6 +192,16 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
         component: 'TagGroup'
       }
     );
+
+    if (type === 'grant') {
+      map.push(
+        {
+          heading: 'Select Initiative Bonus Automatically in Roll Prompt',
+          selectedProperty: 'context.default',
+          component: 'Checkbox'
+        }
+      );
+    }
   }
 
   if (contextType === 'movement') {
@@ -279,6 +319,11 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
           options: Object.entries(CONFIG.A5E.skills),
           selectedProperty: 'skills.options',
           component: 'TagGroup'
+        },
+        {
+          heading: 'Select Skill Bonus Automatically in Roll Prompt',
+          selectedProperty: 'context.default',
+          component: 'Checkbox'
         }
       );
     }

@@ -15,6 +15,10 @@ export function getAbilitiesBonusContext(type: 'grant' | 'bonus') {
     );
   }
 
+  if (type === 'grant') {
+    schema.default = new fields.BooleanField({ required: true, initial: true });
+  }
+
   return schema;
 }
 
@@ -36,12 +40,17 @@ export function getAttackBonusContext(type: 'grant' | 'bonus') {
     );
   }
 
+  if (type === 'grant') {
+    schema.default = new fields.BooleanField({ required: true, initial: true });
+  }
+
   return schema;
 }
 
-export function getDamageBonusContext() {
+export function getDamageBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
-  return {
+
+  const schema: Record<string, any> = {
     attackTypes: new fields.ArrayField(
       new fields.StringField({ required: true, initial: '' }),
       { initial: [] }
@@ -56,11 +65,17 @@ export function getDamageBonusContext() {
       { initial: [] }
     )
   };
+
+  if (type === 'grant') {
+    schema.default = new fields.BooleanField({ required: true, initial: true });
+  }
+
+  return schema;
 }
 
-export function getHealingBonusContext() {
+export function getHealingBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
-  return {
+  const schema: Record<string, any> = {
     healingTypes: new fields.ArrayField(
       new fields.StringField({ required: true, initial: '' }),
       { initial: ['healing'] }
@@ -70,11 +85,18 @@ export function getHealingBonusContext() {
       { initial: [] }
     )
   };
+
+  if (type === 'grant') {
+    schema.default = new fields.BooleanField({ required: true, initial: true });
+  }
+
+  return schema;
 }
 
-export function getInitiativeBonusContext() {
+export function getInitiativeBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
-  return {
+
+  const schema: Record<string, any> = {
     abilities: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
       initial: Object.keys(CONFIG.A5E.abilities)
     }),
@@ -82,6 +104,12 @@ export function getInitiativeBonusContext() {
       initial: Object.keys(CONFIG.A5E.skills)
     })
   };
+
+  if (type === 'grant') {
+    schema.default = new fields.BooleanField({ required: true, initial: true });
+  }
+
+  return schema;
 }
 
 export function getMovementBonusContext(type: 'grant' | 'bonus') {
@@ -133,6 +161,10 @@ export function getSkillBonusContext(type: 'grant' | 'bonus') {
       new fields.StringField({ required: true, initial: '' }),
       { initial: [] }
     );
+  }
+
+  if (type === 'grant') {
+    schema.default = new fields.BooleanField({ required: true, initial: true });
   }
 
   return schema;
