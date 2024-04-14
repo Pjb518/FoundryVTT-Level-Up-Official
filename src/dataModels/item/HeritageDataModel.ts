@@ -1,5 +1,7 @@
 import A5EDataModel from '../A5EDataModel';
 import SchemaDataModel from '../template/SchemaDataModel';
+import Level from './template/Level';
+
 import type { SchemaSchema } from '../template/SchemaDataModel';
 
 type HeritageSchema = {
@@ -8,7 +10,7 @@ type HeritageSchema = {
   schemaVersion: SchemaSchema;
 };
 
-export default class HeritageDataModel extends A5EDataModel.mixin(SchemaDataModel) {
+export default class HeritageDataModel extends A5EDataModel.mixin(SchemaDataModel, Level) {
   static defineSchema(): HeritageSchema {
     return this.mergeSchema(super.defineSchema(), {
       description: new foundry.data.fields.StringField({ nullable: false, initial: '' }),

@@ -1,6 +1,8 @@
+import type { SchemaSchema } from '../template/SchemaDataModel';
+
 import A5EDataModel from '../A5EDataModel';
 import SchemaDataModel from '../template/SchemaDataModel';
-import type { SchemaSchema } from '../template/SchemaDataModel';
+import Level from './template/Level';
 
 type CultureSchema = {
   description: string;
@@ -8,7 +10,7 @@ type CultureSchema = {
   schemaVersion: SchemaSchema;
 };
 
-export default class CultureDataModel extends A5EDataModel.mixin(SchemaDataModel) {
+export default class CultureDataModel extends A5EDataModel.mixin(SchemaDataModel, Level) {
   static defineSchema(): CultureSchema {
     return this.mergeSchema(super.defineSchema(), {
       description: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
