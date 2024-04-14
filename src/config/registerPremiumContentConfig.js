@@ -478,6 +478,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'RP',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      title: 'Riding Parsnip',
       url: 'https://bit.ly/3xh28Nk'
     },
     secretsOfTheSelkies: {

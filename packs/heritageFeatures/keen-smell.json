@@ -7,6 +7,7 @@
 		"ac": {
 			"baseFormula": "",
 			"formula": "",
+			"grantsDisadvantage": false,
 			"maxDex": 0,
 			"minStr": 0,
 			"mode": 2,
@@ -19,60 +20,46 @@
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": null,
+			"value": 0,
 			"max": "",
-			"per": null,
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
-				"threshold": "6"
+				"threshold": 6
 			}
-		},
-		"schema": {
-			"version": null,
-			"lastMigration": null
 		},
 		"concentration": false,
 		"featureType": "heritage",
-		"grants": {},
+		"grants": {
+			"1gDWO8k2vK7jsxhF": {
+				"grantType": "proficiency",
+				"level": 0,
+				"optional": false,
+				"keys": {
+					"base": [
+						"prc"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill",
+				"label": "Perception Proficiency"
+			}
+		},
 		"prerequisite": "",
-		"requiresBloodied": false
-	},
-	"effects": [
-		{
-			"icon": "icons/creatures/mammals/rodent-rat-green.webp",
-			"origin": "Item.630ceizn003wyepn",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.31"
 				}
-			},
-			"transfer": false,
-			"name": "Keen Smell",
-			"_id": "bjtWeSdwvBKYUdUp",
-			"changes": [
-				{
-					"key": "system.skills.prc.proficient",
-					"value": "true",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
+			}
 		}
-	],
+	},
+	"effects": [],
 	"flags": {},
 	"_id": "630ceizn003wyepn"
 }

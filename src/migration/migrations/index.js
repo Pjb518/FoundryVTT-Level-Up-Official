@@ -14,3 +14,4 @@ export { default as Migration012MigrateInitiativeBonus } from './012-migrate-ini
 export { default as Migration013MigrateAbilityBonusEffects } from './013-migrate-ability-bonus-effects';
 export { default as Migration014MigrateSpellBooks } from './014-migrate-spellbooks';
 export { default as Migration015MigrateProperties } from './015-migrate-properties';
+export { default as Migration016MigrateSkillProficiency } from './016-migrate-skill-proficiency';

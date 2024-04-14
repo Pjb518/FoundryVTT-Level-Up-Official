@@ -19,6 +19,7 @@
     let hideSkillCriticalPrompt = settings.getStore("hideSkillCriticalPrompt");
     let hideSkillSpecialties = settings.getStore("hideSkillSpecialties");
     let simpleInitiative = settings.getStore("simpleInitiative");
+    let simpleRests = settings.getStore("simpleRests");
 </script>
 
 <Section
@@ -117,6 +118,17 @@
                 false}
             on:updateSelection={({ detail }) => {
                 updates.set("simpleInitiative", detail);
+                reload = true;
+            }}
+        />
+    </FieldWrapper>
+
+    <FieldWrapper hint="A5E.settings.hints.simpleRests">
+        <Checkbox
+            label="A5E.settings.simpleRests"
+            checked={updates.get("simpleRests") ?? $simpleRests ?? false}
+            on:updateSelection={({ detail }) => {
+                updates.set("simpleRests", detail);
                 reload = true;
             }}
         />

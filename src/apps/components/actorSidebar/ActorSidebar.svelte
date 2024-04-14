@@ -9,7 +9,7 @@
     import HitPointValues from "./HitPointValues.svelte";
     import Initiative from "./Initiative.svelte";
     import Passives from "./Passives.svelte";
-    import RestTrack from "./RestTrack.svelte";
+    import RestButton from "./RestButton.svelte";
     import StatusTrack from "./StatusTrack.svelte";
     import Details from "./Details.svelte";
     import DeathSaveOverlay from "./DeathSaveOverlay.svelte";
@@ -101,7 +101,7 @@
             />
         {/if}
 
-        <RestTrack />
+        <RestButton />
     </section>
 
     <section class="actor-sidebar-lower">

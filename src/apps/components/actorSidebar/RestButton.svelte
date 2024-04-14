@@ -6,6 +6,7 @@
 
 <div
     class="rest"
+    class:rest--5e={game.settings.get("a5e", "replaceFatigueAndStrife")}
     class:disable-pointer-events={!$actor.isOwner}
     data-tooltip="A5E.Rest"
     data-tooltip-direction="DOWN"
@@ -36,6 +37,10 @@
 
         bottom: 1rem;
         right: 0.625rem;
+
+        &--5e {
+            bottom: 2rem;
+        }
 
         &__icon {
             z-index: 1;

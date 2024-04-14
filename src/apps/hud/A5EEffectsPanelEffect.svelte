@@ -45,7 +45,7 @@
         notes += `${seconds ? "Remaining: " : ""} ${getFormattedTimeFromSeconds(
             remainingDuration,
             rounds,
-            turns
+            turns,
         )}`;
         notes += "</p>";
 
@@ -110,17 +110,19 @@
     function getEffectRemovalNote() {
         if (linked) return "";
 
-        if (conditionId === "fatigue") {
-            return `<small class="a5e-effect-item__removal-note">Right click to remove a level of fatigue.</small>`;
+        if (conditionId === "fatigue" || conditionId === "strife") {
+            return `
+                <small class="a5e-effect-summary-tooltip__removal-note">
+                    Right click to remove a level of ${conditionId}.
+                </small>
+            `;
         }
 
-        if (conditionId === "strife") {
-            return `<small class="a5e-effect-item__removal-note">Right click to remove a level of strife.</small>`;
-        }
-
-        return `<small class="a5e-effect-item__removal-note">Right click the icon to remove this ${
-            conditionId ? "condition" : "effect"
-        }.</small>`;
+        return `
+            <small class="a5e-effect-summary-tooltip__removal-note">
+                Right click the icon to remove this ${conditionId ? "condition" : "effect"}.
+            </small>
+        `;
     }
 
     const dispatch = createEventDispatcher();
@@ -141,7 +143,7 @@
 
     const durationHook = Hooks.on(
         "updateWorldTime",
-        () => (duration = getEffectDuration(actor))
+        () => (duration = getEffectDuration(actor)),
     );
 
     onDestroy(() => Hooks.off("updateWorldTime", durationHook));
@@ -150,12 +152,10 @@
     $: strife = actor?.system.attributes.strife ?? 0;
 
     $: tooltip = `
-        <div class="a5e-effect-item__details">
-            <h3 class="a5e-effect-item__heading">${getEffectName(actor)}</h3>
-            ${getEffectDescription(actor)}
-            ${getEffectRemovalNote()}
-            ${getEffectNotes(actor, duration)}
-        </div>
+        <h3 class="a5e-effect-summary-tooltip__heading">${getEffectName(actor)}</h3>
+        ${getEffectDescription(actor)}
+        ${getEffectRemovalNote()}
+        ${getEffectNotes(actor, duration)}
     `;
 </script>
 
@@ -173,6 +173,7 @@
         class="a5e-effect-item"
         data-tooltip={tooltip}
         data-tooltip-direction="LEFT"
+        data-tooltip-class="a5e-effect-summary-tooltip"
         on:click={() => dispatch("increaseCounter", _id)}
         on:auxclick={() => linked ?? dispatch("deleteEffect", _id)}
     >
@@ -186,22 +187,6 @@
 </div>
 
 <style lang="scss">
-    :global(.a5e-effect-item__details) {
-        font-size: 0.833rem;
-    }
-
-    :global(.a5e-effect-item__heading) {
-        margin-bottom: 0;
-        border-bottom: 0;
-        font-size: 1rem;
-    }
-
-    :global(.a5e-effect-item__removal-note) {
-        display: block;
-        margin-block: 0.25rem 0.125rem;
-        opacity: 0.75;
-    }
-
     .a5e-effect-item {
         display: flex;
         align-items: center;
@@ -212,7 +197,9 @@
         background-color: rgba(20, 20, 20, 0.6);
         backdrop-filter: blur(3px);
         filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
-        box-shadow: 0 0 0 1px #e9d7a1, 0 0 0 2px #956d58;
+        box-shadow:
+            0 0 0 1px #e9d7a1,
+            0 0 0 2px #956d58;
         cursor: pointer;
         overflow: hidden;
 
@@ -250,7 +237,9 @@
             font-weight: 400;
             color: white;
             background-color: rgba(20, 20, 20, 0.6);
-            box-shadow: 0 0 0 1px #e9d7a1, 0 0 0 2px #956d58;
+            box-shadow:
+                0 0 0 1px #e9d7a1,
+                0 0 0 2px #956d58;
             backdrop-filter: blur(1px);
             border-radius: 50%;
             aspect-ratio: 1/1;

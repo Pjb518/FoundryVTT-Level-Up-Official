@@ -171,7 +171,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         });
       } else if (proficiencyType === 'skill') {
         keys.forEach((key: string) => {
-          updates[`system.skills.${key}.proficient`] = false;
+          updates[`system.skills.${key}.proficient`] = 0;
         });
       }
     }

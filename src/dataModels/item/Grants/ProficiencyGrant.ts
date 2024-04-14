@@ -62,7 +62,7 @@ export default class ProficiencyGrant extends BaseGrant {
       });
     } else if (this.proficiencyType === 'skill') {
       selected.forEach((key: string) => {
-        updates[`system.skills.${key}.proficient`] = true;
+        updates[`system.skills.${key}.proficient`] = 1;
       });
     } else {
       return {};

@@ -1106,6 +1106,7 @@
       "showDescriptionOnLimitedPerms": "Show description on items when items have limited permissions. This will respected the identified state of the item.",
       "showEffectsPanel": "The effects panel shows a summary of the conditions and temporary effects for the selected token. You can find these icons on the right side of the screen, left of the chat window.",
       "simpleInitiative": "When enabled, initiative rolls will take the form of a simple ability check.",
+      "simpleRests": "When enabled, long rests will automatically recover a level of Fatigue, Strife, and Exhaustion as applicable, and users will not be prompted as to whether they rested in a haven or consumed supply.",
       "terseRollFormulae": "The system provides detailed roll annotations in chat card roll formulae. Enabling this setting removes all roll annotations in this formula display, providing a cleaner aesthetic at the expense of clarity.",
       "trackCurrencyWeight": "Each coin will add 0.02lbs to the weight being carried."
     },
@@ -1188,6 +1189,7 @@
     "showPassiveScores": "Show passive skill scores",
     "showXP": "Show XP",
     "simpleInitiative": "Simple Initiative",
+    "simpleRests": "Simple Rests",
     "terseRollFormulae": "Hide system roll annotations",
     "trackCurrencyWeight": "Track currency weight",
     "trackInventoryWeight": "Track inventory weight"
@@ -1369,34 +1371,34 @@
   "A5E.tracks": {
     "fatigue": {
       "hints": {
-        "1": "<ul class='tooltip-list'><li>Cannot Sprint or Dash</li></ul>",
-        "2": "<ul class='tooltip-list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li></ul>",
-        "3": "<ul class='tooltip-list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li><li>Speed halved and unable to maintain a fast travel pace</li></ul>",
-        "4": "<ul class='tooltip-list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li><li>Speed halved and unable to maintain a fast travel pace</li><li>Disadvantage on attack rolls and saving throws using Strength, Dexterity, or Constitution, and unable to maintain a normal travel pace</li></ul>",
-        "5": "<ul class='tooltip-list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li><li>Speed halved and unable to maintain a fast travel pace</li><li>Disadvantage on attack rolls and saving throws using Strength, Dexterity, or Constitution, and unable to maintain a normal travel pace</li><li>Hit Dice halved</li></ul>",
-        "6": "<ul class='tooltip-list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li><li>Speed halved and unable to maintain a fast travel pace</li><li>Disadvantage on attack rolls and saving throws using Strength, Dexterity, or Constitution, and unable to maintain a normal travel pace</li><li>Hit Dice halved</li><li>Speed reduced to 5 ft. and unable to maintain a slow travel pace</li></ul>",
-        "7": "<ul class='tooltip-list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li><li>Speed halved and unable to maintain a fast travel pace</li><li>Disadvantage on attack rolls and saving throws using Strength, Dexterity, or Constitution, and unable to maintain a normal travel pace</li><li>Hit Dice halved</li><li>Speed reduced to 5 ft. and unable to maintain a slow travel pace</li><li>Doomed</li></ul>"
+        "1": "<ul class='a5e-effect-summary-tooltip__list'><li>Cannot Sprint or Dash</li></ul>",
+        "2": "<ul class='a5e-effect-summary-tooltip__list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li></ul>",
+        "3": "<ul class='a5e-effect-summary-tooltip__list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li><li>Speed halved and unable to maintain a fast travel pace</li></ul>",
+        "4": "<ul class='a5e-effect-summary-tooltip__list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li><li>Speed halved and unable to maintain a fast travel pace</li><li>Disadvantage on attack rolls and saving throws using Strength, Dexterity, or Constitution, and unable to maintain a normal travel pace</li></ul>",
+        "5": "<ul class='a5e-effect-summary-tooltip__list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li><li>Speed halved and unable to maintain a fast travel pace</li><li>Disadvantage on attack rolls and saving throws using Strength, Dexterity, or Constitution, and unable to maintain a normal travel pace</li><li>Hit Dice halved</li></ul>",
+        "6": "<ul class='a5e-effect-summary-tooltip__list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li><li>Speed halved and unable to maintain a fast travel pace</li><li>Disadvantage on attack rolls and saving throws using Strength, Dexterity, or Constitution, and unable to maintain a normal travel pace</li><li>Hit Dice halved</li><li>Speed reduced to 5 ft. and unable to maintain a slow travel pace</li></ul>",
+        "7": "<ul class='a5e-effect-summary-tooltip__list'><li>Cannot Sprint or Dash</li><li>Disadvantage on Strength, Dexterity, and Constitution checks</li><li>Speed halved and unable to maintain a fast travel pace</li><li>Disadvantage on attack rolls and saving throws using Strength, Dexterity, or Constitution, and unable to maintain a normal travel pace</li><li>Hit Dice halved</li><li>Speed reduced to 5 ft. and unable to maintain a slow travel pace</li><li>Doomed</li></ul>"
       }
     },
     "exhaustion": {
       "hints": {
-        "1": "<ul class='tooltip-list'><li>Disadvantage on ability checks</li></ul>",
-        "2": "<ul class='tooltip-list'><li>Disadvantage on ability checks</li><li>Speed halved</li></ul>",
-        "3": "<ul class='tooltip-list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li></ul>",
-        "4": "<ul class='tooltip-list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li><li>Hit point maximum halved</li></ul>",
-        "5": "<ul class='tooltip-list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li><li>Hit point maximum halved</li><li>Speed reduced to 0</li></ul>",
-        "6": "<ul class='tooltip-list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li><li>Hit point maximum halved</li><li>Speed reduced to 0</li><li>Death</li></ul>"
+        "1": "<ul class='a5e-effect-summary-tooltip__list'><li>Disadvantage on ability checks</li></ul>",
+        "2": "<ul class='a5e-effect-summary-tooltip__list'><li>Disadvantage on ability checks</li><li>Speed halved</li></ul>",
+        "3": "<ul class='a5e-effect-summary-tooltip__list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li></ul>",
+        "4": "<ul class='a5e-effect-summary-tooltip__list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li><li>Hit point maximum halved</li></ul>",
+        "5": "<ul class='a5e-effect-summary-tooltip__list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li><li>Hit point maximum halved</li><li>Speed reduced to 0</li></ul>",
+        "6": "<ul class='a5e-effect-summary-tooltip__list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li><li>Hit point maximum halved</li><li>Speed reduced to 0</li><li>Death</li></ul>"
       }
     },
     "strife": {
       "hints": {
-        "1": "<ul class='tooltip-list'><li>Disadvantage on Intelligence, Wisdom, and Charisma checks</li></ul>",
-        "2": "<ul class='tooltip-list'><li>Disadvantage on Intelligence, Wisdom, and Charisma checks</li><li>Disadvantage on concentration checks</li></ul>",
-        "3": "<ul class='tooltip-list'><li>Disadvantage on Intelligence, Wisdom, and Charisma checks</li><li>Disadvantage on concentration checks</li><li>Can only take a bonus action or action each turn (not both)</li></ul>",
-        "4": "<ul class='tooltip-list'><li>Disadvantage on Intelligence, Wisdom, and Charisma checks</li><li>Disadvantage on concentration checks</li><li>Can only take a bonus action or action each turn (not both)</li><li>Disadvantage on attack rolls and saving throws using Intelligence, Wisdom, and Charisma</li></ul>",
-        "5": "<ul class='tooltip-list'><li>Disadvantage on Intelligence, Wisdom, and Charisma checks</li><li>Disadvantage on concentration checks</li><li>Can only take a bonus action or action each turn (not both)</li><li>Disadvantage on attack rolls and saving throws using Intelligence, Wisdom, and Charisma</li><li>Suffer the effects of a randomly determined short-term mental stress effect.</li></ul>",
-        "6": "<ul class='tooltip-list'><li>Disadvantage on Intelligence, Wisdom, and Charisma checks</li><li>Disadvantage on concentration checks</li><li>Can only take a bonus action or action each turn (not both)</li><li>Disadvantage on attack rolls and saving throws using Intelligence, Wisdom, and Charisma</li><li>Suffer the effects of a randomly determined short-term mental stress effect.</li><li>Cannot cast spells (but can cast cantrips)</li></ul>",
-        "7": "<ul class='tooltip-list'><li>Disadvantage on Intelligence, Wisdom, and Charisma checks</li><li>Disadvantage on concentration checks</li><li>Can only take a bonus action or action each turn (not both)</li><li>Disadvantage on attack rolls and saving throws using Intelligence, Wisdom, and Charisma</li><li>Suffer the effects of a randomly determined short-term mental stress effect.</li><li>Cannot cast spells (but can cast cantrips)</li><li>Suffer the effects of a randomly determined long-term mental stress effect.</li></ul>"
+        "1": "<ul class='a5e-effect-summary-tooltip__list'><li>Disadvantage on Intelligence, Wisdom, and Charisma checks</li></ul>",
+        "2": "<ul class='a5e-effect-summary-tooltip__list'><li>Disadvantage on Intelligence, Wisdom, and Charisma checks</li><li>Disadvantage on concentration checks</li></ul>",
+        "3": "<ul class='a5e-effect-summary-tooltip__list'><li>Disadvantage on Intelligence, Wisdom, and Charisma checks</li><li>Disadvantage on concentration checks</li><li>Can only take a bonus action or action each turn (not both)</li></ul>",
+        "4": "<ul class='a5e-effect-summary-tooltip__list'><li>Disadvantage on Intelligence, Wisdom, and Charisma checks</li><li>Disadvantage on concentration checks</li><li>Can only take a bonus action or action each turn (not both)</li><li>Disadvantage on attack rolls and saving throws using Intelligence, Wisdom, and Charisma</li></ul>",
+        "5": "<ul class='a5e-effect-summary-tooltip__list'><li>Disadvantage on Intelligence, Wisdom, and Charisma checks</li><li>Disadvantage on concentration checks</li><li>Can only take a bonus action or action each turn (not both)</li><li>Disadvantage on attack rolls and saving throws using Intelligence, Wisdom, and Charisma</li><li>Suffer the effects of a randomly determined short-term mental stress effect.</li></ul>",
+        "6": "<ul class='a5e-effect-summary-tooltip__list'><li>Disadvantage on Intelligence, Wisdom, and Charisma checks</li><li>Disadvantage on concentration checks</li><li>Can only take a bonus action or action each turn (not both)</li><li>Disadvantage on attack rolls and saving throws using Intelligence, Wisdom, and Charisma</li><li>Suffer the effects of a randomly determined short-term mental stress effect.</li><li>Cannot cast spells (but can cast cantrips)</li></ul>",
+        "7": "<ul class='a5e-effect-summary-tooltip__list'><li>Disadvantage on Intelligence, Wisdom, and Charisma checks</li><li>Disadvantage on concentration checks</li><li>Can only take a bonus action or action each turn (not both)</li><li>Disadvantage on attack rolls and saving throws using Intelligence, Wisdom, and Charisma</li><li>Suffer the effects of a randomly determined short-term mental stress effect.</li><li>Cannot cast spells (but can cast cantrips)</li><li>Suffer the effects of a randomly determined long-term mental stress effect.</li></ul>"
       }
     }
   },

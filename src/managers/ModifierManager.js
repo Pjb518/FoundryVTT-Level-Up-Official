@@ -55,6 +55,7 @@ export default class ModifierManager {
   #getSavingThrowModifiers() {
     return [
       this.#getAbilitySaveModifier(),
+      this.#getAbilityModifier(),
       this.#getAbilitySaveBonus(),
       this.#getConcentrationBonus(),
       this.#getExpertiseDice(),
@@ -129,11 +130,12 @@ export default class ModifierManager {
 
     if (!ability) return null;
 
+    const proficient = this.actor.system.abilities[ability]?.save?.proficient;
+    const proficiencyBonus = this.actor.system.attributes.prof;
+
     return {
-      label: localize('A5E.AbilitySaveMod', {
-        ability: CONFIG.A5E.abilities[ability] ?? ability
-      }),
-      value: this.actor.system.abilities[ability]?.save.mod ?? null
+      label: localize('A5E.ProficiencyBonus'),
+      value: proficient ? proficiencyBonus : 0
     };
   }
 
@@ -208,7 +210,7 @@ export default class ModifierManager {
     if (!this.rollData.proficient) return null;
 
     return {
-      label: localize('A5E.ProficiencyBonusAbbr'),
+      label: localize('A5E.ProficiencyBonus'),
       value: this.actor.system.attributes.prof
     };
   }
@@ -218,16 +220,16 @@ export default class ModifierManager {
 
     if (!skillKey) return null;
 
-    let labelKey;
+    let labelKey = 'A5E.SkillCheckMod';
     const jackOfAllTrades = this.actor.flags.a5e?.jackOfAllTrades;
     const skill = this.actor.system.skills[skillKey];
 
-    if (skill.proficient === 2) labelKey = 'A5E.ProficiencyBonusExpertise';
-    else if (skill.proficient) labelKey = 'A5E.ProficiencyBonus';
+    if (skill?.proficient === 2) labelKey = 'A5E.ProficiencyBonusExpertise';
+    else if (skill?.proficient) labelKey = 'A5E.ProficiencyBonus';
     else if (jackOfAllTrades) labelKey = 'A5E.ProficiencyBonusJack';
 
     return {
-      label: localize(labelKey, { skill: CONFIG.A5E.skills[skillKey] }),
+      label: labelKey ? localize(labelKey, { skill: CONFIG.A5E.skills[skillKey] }) : '',
       value: skill?.mod ?? null
     };
   }
