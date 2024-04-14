@@ -9,6 +9,7 @@
     import Section from "../Section.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import GrantConfig from "./GrantConfig.svelte";
+    import Checkbox from "../Checkbox.svelte";
 
     export let { document, grantId, grantType } =
         getContext("#external").application;
@@ -138,6 +139,15 @@
                     onUpdateValue("keys.total", Number(target.value))}
             />
         </FieldWrapper>
+
+        {#if proficiencyType === "skill"}
+            <Checkbox
+                label="Grant expertise in these instead of proficiency"
+                checked={grant.isExpertise ?? false}
+                on:updateSelection={({ detail }) =>
+                    onUpdateValue("isExpertise", detail)}
+            />
+        {/if}
     </GrantConfig>
 </form>
 
