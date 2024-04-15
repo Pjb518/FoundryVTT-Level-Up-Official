@@ -81,11 +81,46 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       applicableGrants.push(grant);
     });
 
-    this.#applyGrant(applicableGrants, optionalGrants, item);
+    this.#applyGrants(applicableGrants, optionalGrants, item);
   }
 
-  async #applyGrant(allGrants: Grant[], optionalGrants: Grant[], item: typeof Item) {
-    if (!allGrants.length) return;
+  async createLeveledGrants(): Promise<void> {
+    const characterLevel: number = this.actor.levels.character;
+
+    const applicableGrants: Grant[] = [];
+    const optionalGrants: Grant[] = [];
+    const items = this.actor.items
+      .filter((item: typeof Item) => this.allowedTypes.includes(item.type));
+
+    for (const item of items) {
+      const classLevel: number = this.actor.levels.classes?.[item.slug] ?? Infinity;
+
+      const grantsManager: ItemGrantsManager = item.grants;
+      [...grantsManager.values()].forEach((grant) => {
+        const id = `${item.uuid}.${grant._id}`;
+        if (this.has(id)) return;
+
+        const { levelType } = grant;
+        if (levelType === 'character' && grant.level !== characterLevel) return;
+        if (levelType === 'class' && grant.level !== classLevel) return;
+
+        if (grant.optional) optionalGrants.push(grant);
+        applicableGrants.push(grant);
+      });
+    }
+
+    const result = await this.#applyGrants(applicableGrants, optionalGrants);
+    console.log(result);
+
+    // TODO: Class Documents - Warn user if it failed. Maybe reduce level and try again.
+  }
+
+  async #applyGrants(
+    allGrants: Grant[],
+    optionalGrants: Grant[],
+    item: typeof Item | null = null
+  ): Promise<boolean> {
+    if (!allGrants.length) return false;
 
     const requiresDialog = [...allGrants].some((grant) => grant.requiresConfig())
       || !!optionalGrants.length;
@@ -110,15 +145,15 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       dialogData = await dialog.promise;
 
       if (!dialogData?.success) {
-        item.delete();
-        return;
+        if (item) item.delete();
+        return false;
       }
     }
 
     if (dialogData.updateData) await this.actor.update(dialogData.updateData);
 
     // Create sub items
-    if (!dialogData.documentData.size) return;
+    if (!dialogData.documentData.size) return true;
 
     const updateData: Record<string, any> = {};
 
@@ -138,6 +173,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     }
 
     await this.actor.update(updateData);
+    return true;
   }
 
   removeGrantsByItem(itemUuid: string): void {
