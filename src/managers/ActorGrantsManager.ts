@@ -58,31 +58,41 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   // *************************************************************
   // Update Methods
   // *************************************************************
-  async applyGrant(itemId: string): Promise<void> {
+  createInitialGrants(itemId: string): void {
     if (!itemId) return;
     const item = this.actor.items.get(itemId);
     if (!this.allowedTypes.includes(item.type)) return;
 
     const applicableGrants: Grant[] = [];
     const optionalGrants: Grant[] = [];
+    const characterLevel: number = this.actor.levels.character;
+    const classLevel: number = this.actor.levels.classes?.[item?.slug] ?? Infinity;
 
     const grantsManager: ItemGrantsManager = item.grants;
     [...grantsManager.values()].forEach((grant) => {
       const id = `${item.uuid}.${grant._id}`;
       if (this.has(id)) return;
 
+      const { levelType } = grant;
+      if (levelType === 'character' && grant.level > characterLevel) return;
+      if (levelType === 'class' && grant.level > classLevel) return;
+
       if (grant.optional) optionalGrants.push(grant);
       applicableGrants.push(grant);
     });
 
-    if (!applicableGrants.length) return;
+    this.#applyGrant(applicableGrants, optionalGrants, item);
+  }
 
-    const requiresDialog = [...applicableGrants].some((grant) => grant.requiresConfig())
+  async #applyGrant(allGrants: Grant[], optionalGrants: Grant[], item: typeof Item) {
+    if (!allGrants.length) return;
+
+    const requiresDialog = [...allGrants].some((grant) => grant.requiresConfig())
       || !!optionalGrants.length;
 
     let dialogData: { updateData: any, success: boolean, documentData: Map<string, any[]> };
     if (!requiresDialog) {
-      const grants = applicableGrants.map((grant) => ({ id: grant._id, grant }));
+      const grants = allGrants.map((grant) => ({ id: grant._id, grant }));
       const { updateData, documentData } = prepareGrantsApplyData(this.actor, grants, new Map());
       dialogData = { success: true, updateData, documentData };
     } else {
@@ -91,7 +101,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         GrantApplicationDialog,
         {
           actor: this.actor,
-          allGrants: applicableGrants,
+          allGrants,
           optionalGrants
         }
       );
