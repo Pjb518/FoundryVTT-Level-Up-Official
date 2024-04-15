@@ -8,6 +8,11 @@ export default class CharacterActorA5E extends BaseActorA5e {
    */
   _classes;
 
+  /**
+   * @type {Record<string, any>}
+   */
+  classAutomationFlags;
+
   get classes() {
     if (this._classes !== undefined) return this._classes;
 
@@ -30,6 +35,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
    */
   prepareData() {
     this._classes = undefined;
+    this.classAutomationFlags = {};
     super.prepareData();
   }
 
@@ -40,6 +46,14 @@ export default class CharacterActorA5E extends BaseActorA5e {
   prepareBaseData() {
     super.prepareBaseData();
 
+    // Setup automation flags
+    this.classAutomationFlags = {
+      classes: this.getFlag('a5e', 'automateClasses') ?? true,
+      hitDice: this.getFlag('a5e', 'automateHitDice') ?? true,
+      hitPoints: this.getFlag('a5e', 'automateHitPoints') ?? true,
+      spellResources: this.getFlag('a5e', 'automateSpellResources') ?? true
+    };
+
     // Calculate the proficiency bonus for the character with a minimum value of 2.
     this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.level + 7) / 4));
   }
@@ -49,7 +63,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
    * @override
    */
   prepareDerivedData() {
-    this.HitDiceManager = new HitDiceManager(this, this.getFlag('a5e', 'automateClasses') ?? true);
+    this.HitDiceManager = new HitDiceManager(this, this.classAutomationFlags.hitDice);
 
     super.prepareDerivedData();
     const actorData = this.system;
@@ -65,12 +79,42 @@ export default class CharacterActorA5E extends BaseActorA5e {
       this.HitDiceManager.bySize
     );
 
+    this.prepareLevelData();
     this.prepareSpellResources();
+  }
+
+  /**
+   * Prepares detailed level data for the actor.
+   */
+  prepareLevelData() {
+    const { classes } = this;
+
+    if (!this.classAutomationFlags.classes) {
+      this.levels = {
+        character: this.system.details.level,
+        classes: {}
+      };
+
+      return;
+    }
+
+    const levelData = Object.values(classes ?? {}).reduce((acc, cls) => {
+      const level = cls.classLevels;
+      if (!level) return acc;
+
+      acc.classes[cls.slug] = level;
+      acc.character += level;
+      return acc;
+    }, { character: 0, classes: {} });
+
+    this.levels = levelData;
   }
 
   prepareSpellResources() {
     const actorData = this.system;
     const { classes } = this;
+
+    // TODO: Class Documents - Handle no automation option
 
     const grantedResources = {
       slots: [],

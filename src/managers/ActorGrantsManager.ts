@@ -13,7 +13,7 @@ import prepareGrantsApplyData from '../utils/prepareGrantsApplyData';
 export default class ActorGrantsManger extends Map<string, ActorGrant> {
   private actor: typeof Actor;
 
-  private allowedTypes = ['feature', 'background', 'culture', 'heritage'];
+  private allowedTypes = ['feature', 'background', 'class', 'culture', 'heritage'];
 
   constructor(actor: typeof Actor) {
     super();
