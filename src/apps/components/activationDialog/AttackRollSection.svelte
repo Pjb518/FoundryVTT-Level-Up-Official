@@ -4,7 +4,6 @@
 
     import getAttackAbility from "../../../utils/getAttackAbility";
     import getRollFormula from "../../../utils/getRollFormula";
-    import overrideExpertiseDie from "../../../utils/overrideExpertiseDie";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../ExpertiseDiePicker.svelte";

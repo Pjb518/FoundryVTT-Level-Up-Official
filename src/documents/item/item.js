@@ -292,7 +292,6 @@ export default class ItemA5e extends BaseItemA5e {
     const { actor } = this;
     const attackRoll = attack[0][1];
     const attackAbility = getAttackAbility(actor, this, attackRoll);
-    // const expertiseDie = overrideExpertiseDie(actor, 0);
 
     const expertiseDie = actor.RollOverrideManager?.getExpertiseDice(
       `attackTypes.${attackRoll.attackType}`,

@@ -341,6 +341,12 @@ export default class RollOverrideManager {
             source: 'Flanking',
             value: CONFIG.A5E.ROLL_MODE.ADVANTAGE
           });
+        } else if (!flankSetting && isFlanking) {
+          overrides.push({
+            overrideType: 'expertiseDice',
+            source: 'Flanking',
+            value: 1
+          });
         }
       } catch {
         // Do nothing
