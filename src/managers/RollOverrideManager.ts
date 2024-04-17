@@ -1,3 +1,5 @@
+import type { ExpertiseDiceGrant } from '../../types/actorGrants';
+
 type OverrideType = 'rollMode' | 'expertiseDice';
 
 type Change = {
@@ -83,9 +85,55 @@ export default class RollOverrideManager {
       }
     });
 
-    // Register expertise dice from items
-    this.actor.items.forEach((item: typeof Item) => {
+    // Register expertise dice from grants
+    this.actor.grants.byType('expertiseDice').forEach((grant: ExpertiseDiceGrant) => {
+      const { expertiseType: type, expertiseCount, keys } = grant.expertiseDiceData ?? {};
 
+      if (type === 'abilityCheck') {
+        keys.forEach((key: string) => {
+          this.overrides.get(`system.abilities.${key}.check`)?.push(
+            {
+              value: expertiseCount,
+              overrideType: 'expertiseDice',
+              source: 'Expertise',
+              mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.ADD
+            }
+          );
+        });
+      } else if (type === 'abilitySave') {
+        keys.forEach((key: string) => {
+          this.overrides.get(`system.abilities.${key}.save`)?.push(
+            {
+              value: expertiseCount,
+              overrideType: 'expertiseDice',
+              source: 'Expertise',
+              mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.ADD
+            }
+          );
+        });
+      } else if (type === 'skillCheck') {
+        keys.forEach((key: string) => {
+          this.overrides.get(`system.skills.${key}`)?.push(
+            {
+              value: expertiseCount,
+              overrideType: 'expertiseDice',
+              source: 'Expertise',
+              mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.ADD
+            }
+          );
+        });
+      } else if (type === 'attack') {
+        keys.forEach((key: string) => {
+          this.overrides.get(`attackTypes.${key}`)?.push(
+            {
+              value: expertiseCount,
+              overrideType: 'expertiseDice',
+              source: 'Expertise',
+              mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.ADD
+            }
+          );
+        });
+      }
     });
 
     // Register all overrides from items
@@ -383,6 +431,33 @@ export default class RollOverrideManager {
     // Sort the overrides by mode
     overrides.sort((a, b) => (b.mode ?? 2) - (a.mode ?? 2));
 
-    return 0;
+    let total = baseDie;
+    overrides.forEach((o) => {
+      if (o.mode === CONFIG.A5E.ACTIVE_EFFECT_MODES.OVERRIDE) total = o.value;
+      else total += o.value;
+    });
+
+    return Math.clamped(total, 0, 5);
+  }
+
+  getExpertiseDiceSource(
+    key: string,
+    baseDie: number = 0,
+    options: { ability?: string, skill?: string } = {}
+  ): string {
+    const overrides = this.#prepareOverrides(key, 'expertiseDice', options);
+    if (!overrides) return '';
+
+    overrides.sort((a, b) => (b.mode ?? 2) - (a.mode ?? 2));
+
+    const base = baseDie.toString();
+    const sources = overrides.map((o) => `${o.source} (${o.value})`);
+
+    const result = this.getExpertiseDice(key, baseDie).toString();
+    return `<div class='u-text-xs u-text-left'>
+      <p> <strong>Base Die:</strong> ${base}</p>
+      <p> <strong>Overrides:</strong> ${sources.join(', ')}</p>
+      <p> <strong>Result:</strong> ${result}</p>
+      </div>`;
   }
 }

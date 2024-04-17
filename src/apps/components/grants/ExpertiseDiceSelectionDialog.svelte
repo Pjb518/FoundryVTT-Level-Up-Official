@@ -41,13 +41,21 @@
 
     const dispatch = createEventDispatcher();
     const configObject = {
-        ability: {
-            label: "A5E.Ability",
+        abilityCheck: {
+            label: "A5E.AbilityCheck",
+            options: Object.entries(CONFIG.A5E.abilities),
+        },
+        abilitySave: {
+            label: "A5E.SavingThrow",
             options: Object.entries(CONFIG.A5E.abilities),
         },
         attack: {
             label: "A5E.AttackType",
             options: Object.entries(CONFIG.A5E.attackTypes),
+        },
+        initiative: {
+            label: "A5E.Initiative",
+            options: [],
         },
         skill: {
             label: "A5E.Skill",

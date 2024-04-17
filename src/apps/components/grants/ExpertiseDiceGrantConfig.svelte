@@ -47,13 +47,21 @@
 
     const item = new TJSDocument(document);
     const configObject = {
-        ability: {
-            label: "A5E.Ability",
+        abilityCheck: {
+            label: "A5E.AbilityCheck",
+            options: Object.entries(CONFIG.A5E.abilities),
+        },
+        abilitySave: {
+            label: "A5E.SavingThrow",
             options: Object.entries(CONFIG.A5E.abilities),
         },
         attack: {
             label: "A5E.AttackType",
             options: Object.entries(CONFIG.A5E.attackTypes),
+        },
+        initiative: {
+            label: "A5E.Initiative",
+            options: [],
         },
         skill: {
             label: "A5E.Skill",
@@ -105,36 +113,38 @@
             }}
         />
 
-        <CheckboxGroup
-            heading="Base Options"
-            options={configObject[expertiseType]?.options}
-            selected={grant?.keys?.base}
-            showToggleAllButton={true}
-            disabledOptions={grant?.keys?.options}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("keys.base", detail);
-            }}
-        />
-
-        <CheckboxGroup
-            heading="Optional Choices"
-            options={configObject[expertiseType]?.options}
-            selected={grant?.keys?.options}
-            disabledOptions={grant?.keys?.base}
-            showToggleAllButton={true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("keys.options", detail);
-            }}
-        />
-
-        <FieldWrapper heading="Selectable Options Count">
-            <input
-                type="number"
-                value={grant?.keys?.total ?? 0}
-                on:change={({ target }) =>
-                    onUpdateValue("keys.total", Number(target.value))}
+        {#if configObject[expertiseType]?.options?.length}
+            <CheckboxGroup
+                heading="Base Options"
+                options={configObject[expertiseType]?.options}
+                selected={grant?.keys?.base}
+                showToggleAllButton={true}
+                disabledOptions={grant?.keys?.options}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("keys.base", detail);
+                }}
             />
-        </FieldWrapper>
+
+            <CheckboxGroup
+                heading="Optional Choices"
+                options={configObject[expertiseType]?.options}
+                selected={grant?.keys?.options}
+                disabledOptions={grant?.keys?.base}
+                showToggleAllButton={true}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("keys.options", detail);
+                }}
+            />
+
+            <FieldWrapper heading="Selectable Options Count">
+                <input
+                    type="number"
+                    value={grant?.keys?.total ?? 0}
+                    on:change={({ target }) =>
+                        onUpdateValue("keys.total", Number(target.value))}
+                />
+            </FieldWrapper>
+        {/if}
 
         <FieldWrapper heading="Expertise Dice Count">
             <input

@@ -27,7 +27,7 @@ export default class ExpertiseDiceGrant extends BaseGrant {
         total: new fields.NumberField({ nullable: false, initial: 0, integer: true })
       }),
       expertiseCount: new fields.NumberField({ nullable: false, initial: 1, integer: true }),
-      expertiseType: new fields.StringField({ required: false, initial: 'ability' }),
+      expertiseType: new fields.StringField({ required: false, initial: 'abilityCheck' }),
       label: new fields.StringField({ required: true, initial: 'New Expertise Dice Grant' })
     });
   }
