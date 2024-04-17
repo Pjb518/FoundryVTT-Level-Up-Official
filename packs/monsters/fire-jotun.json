@@ -1,14 +1,55 @@
 {
 	"name": "Fire Jotun",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/fire-giant.webp",
 	"items": [
 		{
 			"_id": "umZLP2ZnFHtax9xj",
 			"name": "Cold Weakness",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.lTtW1Tdbtqv6TleA.Item.umZLP2ZnFHtax9xj",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "Qmut0JyBVXjWvkEu",
+							"applyToSelf": true,
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Cold Weakness",
+					"_id": "MKFh0kRC1e91w9GU",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.movement.allDistances",
+							"value": "10",
+							"mode": 3,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>Speed is reduced by 10 feet until the end of its next turn.</p>",
+					"statuses": [],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 100000,
 			"flags": {},
@@ -23,7 +64,32 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"Qmut0JyBVXjWvkEu": {
+						"name": "Cold Weakness",
+						"activation": {},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"1u6pc8G8Jor296T3": {
+								"type": "effect",
+								"default": true,
+								"effectId": "MKFh0kRC1e91w9GU"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>When the fire jotun takes cold damage, its speed is reduced by 10 feet until the end of its next turn.</p>",
 				"favorite": false,
 				"secretDescription": "",
@@ -81,7 +147,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"maBaKxxkbSLWFlog": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The jotun makes two greatsword attacks.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -116,92 +204,49 @@
 			}
 		},
 		{
-			"_id": "iJ1CslkBu938WM8J",
-			"name": "Greatsword",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>If the target is a Large or smaller creature, it makes a DC 19 Strength saving throw. On a failure, it is pushed up to 10 feet away from the jotun and knocked prone.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "0",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"reach"
-				],
-				"weight": 0,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				},
-				"breakerProperties": [],
-				"defensiveProperties": "",
-				"flaws": [],
-				"mounted": [],
-				"versatile": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "RFaUhzXmpOj1Yu0Z",
 			"name": "Kick",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.lTtW1Tdbtqv6TleA.Item.RFaUhzXmpOj1Yu0Z",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "PokIqO9OLx3PBImU"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "CKLfzE4q7LjGDZ0V",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 500000,
 			"flags": {
@@ -220,14 +265,71 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"PokIqO9OLx3PBImU": {
+						"name": "Kick",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "When hit by a melee attack by a Medium or smallercreature the jotun can see within 10 feet"
+						},
+						"consumers": {
+							"xzZIXXyFI6pk3wPS": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {
+							"FzIPBFlG6xLobKT3": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "3d4 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"mIP0RoyQ4MfLFdVg": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "maneuver"
+								}
+							},
+							"df6n0ItzzT3dQX0T": {
+								"type": "effect",
+								"default": true,
+								"effectId": "CKLfzE4q7LjGDZ0V"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"ZEIsms2fXb2dyLaz": {
+								"range": 10,
+								"unit": "feet"
+							}
+						}
+					}
+				},
 				"description": "<p>When hit by a melee attack by a Medium or smaller creature the giant can see within 10 feet, the jotun kicks its attacker. the attacker makes a DC 19 Dexterity saving throw. On a failure, it takes 14 (3d4+7) bludgeoning damage, is pushed up to 20 feet from the jotun, and falls prone.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
 					"value": 0,
-					"max": "0",
+					"max": "",
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
@@ -256,7 +358,7 @@
 		},
 		{
 			"_id": "sh3zw06bBr6jkDQ7",
-			"name": "Sword Sweep (While Bloodied)",
+			"name": "Sword Sweep",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
 			"effects": [],
@@ -278,7 +380,35 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"ofmLgs89SBojVdt2": {
+						"name": "Sword Sweep",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {
+							"sCaENEgnS3kMfDmT": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The jotun makes a greatsword attack against each creature within 10 feet.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -313,123 +443,7 @@
 			}
 		},
 		{
-			"_id": "tsglTU7Gygy4pL02",
-			"name": "Rock",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 300000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>If the target is a Large or smaller creature, it makes a DC 19 Strength saving throw, falling prone on a failure.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Elite Recovery (While Bloodied)",
-			"type": "feature",
-			"_id": "Lq1O1yZfSInmbmol",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The fire jotun ends one negative effect currently affecting it. It can do so as long as it has at least 1 hit point, even while unconscious or incapacitated.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Actor.czFp55UBGczAUZWk.Item.eAjzeFlgrh6lAnZ2"
-				}
-			}
-		},
-		{
-			"name": "Assault (while bloodied)",
+			"name": "Assault",
 			"type": "feature",
 			"_id": "LNOUJGPnN5grz0j2",
 			"img": "icons/svg/item-bag.svg",
@@ -444,7 +458,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"iddJd9At0Y84vziB": {
+						"name": "Assault",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The jotun makes a greatsword attack.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -462,7 +498,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.016,
 					"lastMigration": {
@@ -498,15 +534,40 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"pzGIloicYOPdgttt": {
+						"name": "Bloodied Sweep",
+						"activation": {},
+						"consumers": {
+							"r7tshuI8JIwU8pTr": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>When the fire jotun is first bloodied, it regains up to one use of its Sword Sweep.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
@@ -516,7 +577,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.016,
 					"lastMigration": {
@@ -1093,12 +1154,546 @@
 			"ownership": {
 				"default": 0
 			}
+		},
+		{
+			"name": "Full Plate (Steel)",
+			"type": "object",
+			"img": "icons/equipment/chest/breastplate-collared-steel.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.ni3vxk4pvbnosop7"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "18",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 15,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "heavy",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": true,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [
+					"lowMaintenance"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "1,500 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 55,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.015,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "",
+				"mounted": []
+			},
+			"folder": null,
+			"_id": "i4FulmLXQQprQcgM",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Greatsword",
+			"type": "object",
+			"img": "icons/weapons/swords/greatsword-guard-gem-blue.webp",
+			"effects": [
+				{
+					"icon": "icons/weapons/swords/greatsword-guard-gem-blue.webp",
+					"origin": "Actor.lTtW1Tdbtqv6TleA.Item.sRXlo1TDwPCYpn7N",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "gN1VnpQWmko9P0l8"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "DowhQcbDpRRaRUn3",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.gq6lfesjrd75se7u"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"gN1VnpQWmko9P0l8": {
+						"name": "Greatsword",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"dSqwxwRNQwjvOq43": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"vlUtyqLFnTkfBE3F": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "6d6 + @str.mod",
+								"name": "Greatsword",
+								"type": "damage"
+							}
+						},
+						"consumers": {},
+						"ranges": {
+							"zYMvP5eYJq92ZWQY": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"prompts": {
+							"BVTsr30ZiqaxM8bH": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "maneuver"
+								}
+							},
+							"235bjU4ey44cXytE": {
+								"type": "effect",
+								"default": true,
+								"effectId": "DowhQcbDpRRaRUn3"
+							}
+						}
+					},
+					"tWq3CWyPcjDp7rNd": {
+						"name": "Parry",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"Wr28F3fXpV7iLaWM": {
+								"type": "generic",
+								"default": true,
+								"label": "Armor Class",
+								"formula": "1d4"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"img": "icons/weapons/swords/greatsword-guard-gem-blue.webp"
+					}
+				},
+				"description": "<p>If the target is a Large or smaller cerature, it makes a DC 19 Strength saving throw. On a failure, it is pushed up to 10 feet away from the jotun and knocked prone.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "50 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"parrying",
+					"heavy",
+					"twoHanded"
+				],
+				"weight": 7,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.015,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "",
+				"mounted": []
+			},
+			"folder": null,
+			"_id": "sRXlo1TDwPCYpn7N",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "EIbajrEq5Qh7Mvu8",
+			"name": "Rock",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.lTtW1Tdbtqv6TleA.Item.EIbajrEq5Qh7Mvu8",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "z30C9URE1zFgZSvj"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "mWMlfADoaSi6lUyM",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 250000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"z30C9URE1zFgZSvj": {
+						"name": "Rock",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"vPRbm2Un6BrtKESg": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"l5t9yTCeU7Ep4LJJ": {
+								"type": "damage",
+								"default": true,
+								"formula": "10d6 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"UQLpuuISs3Iv9epZ": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "maneuver"
+								}
+							},
+							"ix7Hvop83iLVIE0E": {
+								"type": "effect",
+								"default": true,
+								"effectId": "mWMlfADoaSi6lUyM"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"xmY83u1QYSe8ircE": {
+								"range": "medium"
+							},
+							"BoaAgIr7uHeHsmi0": {
+								"range": 240,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>If the target is a Large or smaller creature, it makes a DC 19 Strength saving throw, falling prone on a failure.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Elite Recovery",
+			"type": "feature",
+			"_id": "CiS2Q5iULahauakE",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"n7UbZpAsVnhdfFGG": {
+						"name": "Elite Recovery",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The jotun ends one negative effect currently affecting it. It can do so as long as it has at least 1 hit point, even while unconscious or incapacitated.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": true,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"core": {
+					"sourceId": "Actor.SDwavzrLR8ao9AQf.Item.eAjzeFlgrh6lAnZ2"
+				}
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": false,
+			"sheetIsLocked": true,
 			"sortMode": {},
 			"filters": {}
 		}
@@ -1509,7 +2104,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -1570,11 +2165,16 @@
 				"giant"
 			],
 			"isSwarm": false,
-			"cr": 9,
-			"elite": false,
+			"cr": 11,
+			"elite": true,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": [],
+			"terrain": [
+				"desert",
+				"mountains",
+				"planeOfFire",
+				"settlement"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -1708,7 +2308,7 @@
 		"flags": {},
 		"randomImg": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/fire-giant.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,

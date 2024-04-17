@@ -347,7 +347,7 @@
 		"attributes": {
 			"ac": {
 				"value": 0,
-				"baseFormula": "10 + @dex.mod"
+				"baseFormula": "22"
 			},
 			"death": {
 				"success": 0,
@@ -400,7 +400,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"swim": {
@@ -408,7 +408,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -430,7 +430,7 @@
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				}
 			},
@@ -473,7 +473,17 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "<p>The hekatonkhieres, sometimes also known as the Centimanes or Hundred-Handers, are massive titans with fifty heads and a hundred arms. Some legends claim that they were the first-born children of the gods, and they share the gods' immortal nature. While vanishingly rare, not all hekatonkhieres are evil, or even hostile. Indeed, some are capable of a great deal of nobility. If one is angered, however, they are a powerful threat. Their hundred arms mean that they are nearly impossible to defend against. For this reason, hekatonkhieres sometimes guard dangerous artifacts or serve as wardens for the most powerful of prisoners.</p>",
-			"terrain": [],
+			"terrain": [
+				"abyss",
+				"caverns",
+				"forest",
+				"grassland",
+				"hills",
+				"jungle",
+				"mountains",
+				"ruin",
+				"swamp"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -482,24 +492,28 @@
 				"abyssal",
 				"aquan",
 				"auran",
+				"boggard",
 				"celestial",
 				"common",
 				"deep",
 				"draconic",
-				"druidic",
 				"dwarvish",
 				"elvish",
 				"giant",
+				"gnoll",
 				"gnomish",
 				"goblin",
+				"grimlock",
+				"grippli",
 				"halfling",
 				"ignan",
 				"infernal",
+				"minotaur",
+				"mycelial",
 				"orc",
 				"primordial",
 				"sylvan",
 				"terran",
-				"cant",
 				"undercommon",
 				"Telepathy 120ft"
 			],
@@ -591,10 +605,10 @@
 				"_id": "GCijDK5s1mcvolQM",
 				"name": "New Spell Book",
 				"img": "icons/svg/book.svg",
-				"ability": "default",
-				"disableSpellConsumers": false,
+				"ability": "cha",
+				"disableSpellConsumers": true,
 				"showSpellPoints": false,
-				"showSpellSlots": true
+				"showSpellSlots": false
 			}
 		}
 	},
@@ -735,7 +749,32 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"iMZTAtsehhHQ6gXL": {
+						"name": "Legendary Resistance",
+						"activation": {},
+						"consumers": {
+							"CSdcmHh1SBAJMkTl": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>When the hekatonkheires fails a saving throw, it may choose to succeed instead. When it does so, it loses its Reactive trait until the start of its next turn.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -844,7 +883,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The hekatonkheires' spellcasting modifier is Charisma (spell save DC 19). It can cast the following spells without requiring material components:</p><p><strong>1/day</strong>: <em>storm of vengeance, earthquake, tsunami, firestorm</em></p>",
+				"description": "<p>The hekatonkheires' spellcasting modifier is Charisma (spell save DC 19). It can cast the following spells without requiring material components:</p>\n<p><strong>1/day</strong>: <em>@UUID[Compendium.a5e.a5e-spells.Item.7gps80dnk2ak9zw5]{Storm of Vengeance}, @UUID[Compendium.a5e.a5e-spells.Item.lekm98iu8ilkj7wl]{Earthquake}, @UUID[Compendium.a5e.a5e-spells.Item.1ueqga5yu55bntti]{Fire Storm}<br></em></p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -899,7 +938,7 @@
 				},
 				"actions": {},
 				"description": "<p>The hekatonkheires may take one reaction per turn.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1152,7 +1191,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"dlSAXiSWTzZ795BQ": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The hekatonkhieres may make two slam attacks.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -1206,7 +1267,53 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"efSvO5V80POo9ehx": {
+						"name": "Slam",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"GYwz50W38D3sGxkx": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"sTB8K1JVMLq1JrQ9": {
+								"type": "damage",
+								"default": true,
+								"formula": "3d12 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"oEwfyzOj9bNFSWiy": {
+								"range": 20,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
 				"description": "",
 				"favorite": true,
 				"secretDescription": "",
@@ -1245,7 +1352,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Flurry of Fists (Recharge 5-6)",
+			"name": "Flurry of Fists",
 			"type": "feature",
 			"_id": "kZozo0AG6A6G96Il",
 			"img": "icons/svg/item-bag.svg",
@@ -1260,18 +1367,80 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"nKQRJ0VvNKeZcdB7": {
+						"name": "Flurry of Fists",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {
+							"38eMmXlkicokQG4u": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {
+							"6PAD53zyRmnbgksn": {
+								"type": "damage",
+								"default": true,
+								"formula": "12d12",
+								"damageType": "bludgeoning",
+								"canCrit": false
+							}
+						},
+						"prompts": {
+							"gEC4NBJF8DJpEIfJ": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "maneuver"
+								},
+								"onSave": "Half damage, not prone"
+							},
+							"31ue7pYlOtfjSt2b": {
+								"type": "effect",
+								"default": true,
+								"effectId": "CxXr9U9BGrBODyvy"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"YURq1laBLrD6tDZ7": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "emanation",
+							"quantity": 1,
+							"radius": 20,
+							"placeTemplate": true
+						}
+					}
+				},
 				"description": "<p>All creatures within 20ft of the hekatonkheires must make a DC 25 Dexterity saving throw or take 12d12 bludgeoning damage and be knocked prone. On a success, they take half damage and are not knocked prone.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": 6
+						"threshold": 5
 					}
 				},
 				"concentration": false,
@@ -1290,7 +1459,45 @@
 					}
 				}
 			},
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.vD53tbo7N4iBfQZp.Item.kZozo0AG6A6G96Il",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "nKQRJ0VvNKeZcdB7"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "CxXr9U9BGrBODyvy",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1353,7 +1560,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Slam (1 Action)",
+			"name": "Attack",
 			"type": "feature",
 			"_id": "kjXxI6tFhJi2MF5H",
 			"img": "icons/svg/item-bag.svg",
@@ -1368,8 +1575,30 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
-				"description": "",
+				"actions": {
+					"xbVVUe0LuYLc9TPV": {
+						"name": "Attack",
+						"activation": {
+							"type": "legendaryAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The hekatonkhieres makes a slam attack.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -1967,6 +2196,77 @@
 			"ownership": {
 				"default": 0
 			}
+		},
+		{
+			"name": "Reactive Slam",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"GeBr5QvS1vH5rqUX": {
+						"name": "Reactive Slam",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "Creature within 20ft hits the hekatonkheires with an attack"
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>If a creature within 20ft hits the hekatonkheires with an attack, the hekatonkheires may makea slam attack against them.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": null
+				}
+			},
+			"_id": "tSIrtZAGLByYgund",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
 		}
 	],
 	"effects": [],
@@ -1985,7 +2285,8 @@
 			"showManeuverTab": false,
 			"showSpellTab": true,
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": true
 		}
 	},
 	"folder": null,

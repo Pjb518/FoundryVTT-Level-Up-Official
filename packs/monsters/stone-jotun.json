@@ -1,7 +1,7 @@
 {
 	"name": "Stone Jotun",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/stone-giant.webp",
 	"items": [
 		{
 			"_id": "umZLP2ZnFHtax9xj",
@@ -81,147 +81,30 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"8atNsw0FVX3QqT5x": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The jotun attacks twice with its greatclub or twice with rocks.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "iJ1CslkBu938WM8J",
-			"name": "Greatclub",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>If the target is a Large or smaller creature, it makes a DC 19 Strength saving throw, falling prone on a failure</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "0",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"reach"
-				],
-				"weight": 0,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				},
-				"breakerProperties": [],
-				"defensiveProperties": "",
-				"flaws": [],
-				"mounted": [],
-				"versatile": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "7nO4ctMRUlUgbIlP",
-			"name": "Rock",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 250000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>If the target is a Large or smaller creature, it makes a DC 19 Strength saving throw. On a failure, it is pushed 10 feet away from the jotun and knocked prone. In lieu of a rock, the jotun can throw a grappled Medium or smaller creature up to 30 feet. On a hit, the target and the thrown creature both take 15 (3d6 + 5) bludgeoning damage. On a miss, only the thrown creature takes the damage. The thrown creature falls prone in an unoccupied space 5 feet from the target.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -313,64 +196,6 @@
 			}
 		},
 		{
-			"_id": "cOT2A2leXxCKyUxo",
-			"name": "Grab",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 287500,
-			"flags": {
-				"core": {
-					"sourceId": "Item.i2cfGU9ofnKwr9OF"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>One creature within 5 feet makes a DC 13 Dexterity saving throw. On a failure, it is grappled (escape DC 17). Until this grapple ends, the jotun can’t grab another target, and it makes greatclub attacks with advantage against the grappled target.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"_id": "j5JLSVcPhcb7c0GL",
 			"name": "Rock Catching",
 			"type": "feature",
@@ -394,7 +219,36 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"e75zVoe4zTQ3TVC2": {
+						"name": "Rock Catching",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "If a rock or other Small or larger projectile is hurled or fired at the jotun"
+						},
+						"consumers": {},
+						"rolls": {
+							"pmkHGUDG9yCBNarL": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>If a rock or other Small or larger projectile is hurled or fired at the jotun, the jotun makes a DC 10 Dexterity saving throw. On a success, the jotun catches the projectile, takes no bludgeoning or piercing damage from it, and is not pushed or knocked prone by it.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -429,65 +283,7 @@
 			}
 		},
 		{
-			"name": "Elite Recovery (While Bloodied)",
-			"type": "feature",
-			"_id": "EiNKG58FDJ4KLNQV",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The jotun ends one negative effect currently affecting it. It can do so as long as it has at least 1 hit point, even while unconscious or incapacitated.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Actor.czFp55UBGczAUZWk.Item.eAjzeFlgrh6lAnZ2"
-				}
-			}
-		},
-		{
-			"name": "Reflexive Grasp (While bloodied)",
+			"name": "Reflexive Grasp",
 			"type": "feature",
 			"_id": "H68ab8v04M0J9km3",
 			"img": "icons/svg/item-bag.svg",
@@ -502,7 +298,38 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"yWFrI6G7kQolW0hH": {
+						"name": "Reflexive Grasp",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "When a creature the stone jotun can see within 5 feet that it is not grappling hits it with a melee attack"
+						},
+						"consumers": {},
+						"rolls": {
+							"Tg9izmifHaynGR85": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "3d4 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>When a creature the stone jotun can see within 5 feet that it is not grappling hits it with a melee attack, the stone jotun can use Grab on them. If the target fails their save, it takes 12 (3d4+6) bludgeoning damage.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -520,7 +347,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.016,
 					"lastMigration": {
@@ -541,7 +368,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Furious Smash (While Bloodied)",
+			"name": "Furious Smash",
 			"type": "feature",
 			"_id": "pZaloNUEHUaMvO7m",
 			"img": "icons/svg/item-bag.svg",
@@ -556,7 +383,65 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"d2ll0wWEoIP3Xsh7": {
+						"name": "Furious Smash",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "When the jotun takes damage or is targeted by a spell"
+						},
+						"consumers": {
+							"DRU3QXvuUnFHb8Wm": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {
+							"tUyj1ihc4JuoJmEr": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "3d6",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"jAK9CMoDom9DMSYU": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "maneuver"
+								},
+								"onSave": "Half damage"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"T67zpghJ6314LRrz": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "emanation",
+							"quantity": 1,
+							"radius": 40,
+							"placeTemplate": true
+						}
+					}
+				},
 				"description": "<p>When the jotun takes damage or is targeted by a spell, it roars and smashes the ground, a tree, or another object, sending debris flying in a 40-foot radius around the jotun. Each creature in the area makes a DC 17 Dexterity saving throw, taking 10 (3d6) bludgeoning damage on a failed save or half damage on a success. Until the debris is cleared, the area becomes difficult terrain, which the all stone giants or jotuns ignore.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -574,7 +459,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.016,
 					"lastMigration": {
@@ -599,7 +484,7 @@
 			}
 		},
 		{
-			"name": "Reflexive Throw (While Bloodied)",
+			"name": "Reflexive Throw",
 			"type": "feature",
 			"_id": "1Yhbi4YlPG1tekoY",
 			"img": "icons/svg/item-bag.svg",
@@ -614,7 +499,30 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"eqMLOD3jq7RmHq2K": {
+						"name": "Reflexive Throw",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "When a creature the stone jotun can see within 5 feet that it is grappling hits it with a melee attack"
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>When a creature the stone jotun can see within 5 feet that it is grappling hits it with a melee attack, the stone jotun may throw them, making a Rock attack.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -632,7 +540,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.016,
 					"lastMigration": {
@@ -1209,12 +1117,719 @@
 			"ownership": {
 				"default": 0
 			}
+		},
+		{
+			"name": "Greatclub",
+			"type": "object",
+			"img": "icons/weapons/clubs/club-banded-barbed-black.webp",
+			"effects": [
+				{
+					"icon": "icons/weapons/clubs/club-banded-barbed-black.webp",
+					"origin": "Actor.FiQzxwTUXgiDw2Lr.Item.k8AO8fLqD7cTKaF7",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "TZ68p8QOlBxq5nAp"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "TelcmHfd0JnvXcFH",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.rj44twjfhjkahbk1"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"TZ68p8QOlBxq5nAp": {
+						"name": "Greatclub",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"iCfqnFJbiMWsO2fo": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"hlVu0grEO6zrkk7w": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "3d8 + @str.mod",
+								"name": "Greatclub 1H",
+								"type": "damage",
+								"label": "",
+								"default": true
+							}
+						},
+						"consumers": {},
+						"ranges": {
+							"TyMjhAyEYFN8ixak": {
+								"range": 15,
+								"unit": "feet"
+							}
+						},
+						"prompts": {
+							"1VXaG8bnHlRq56Co": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "19"
+								}
+							},
+							"CnNLLeJhM1frI6pb": {
+								"type": "effect",
+								"default": true,
+								"effectId": "TelcmHfd0JnvXcFH"
+							}
+						}
+					}
+				},
+				"description": "<p>If the target is a Large or smaller creature, it makes a DC 19 Strength saving throw, falling prone on a failure.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "5 sp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"versatile",
+					"simple"
+				],
+				"weight": 10,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.013,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "d10",
+				"mounted": []
+			},
+			"folder": null,
+			"_id": "k8AO8fLqD7cTKaF7",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "85ux3RzhkY6LS8kz",
+			"name": "Rock",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.FiQzxwTUXgiDw2Lr.Item.85ux3RzhkY6LS8kz",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "z30C9URE1zFgZSvj"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "mWMlfADoaSi6lUyM",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 250000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"z30C9URE1zFgZSvj": {
+						"name": "Rock",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"vPRbm2Un6BrtKESg": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"l5t9yTCeU7Ep4LJJ": {
+								"type": "damage",
+								"default": true,
+								"formula": "3d6 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"UQLpuuISs3Iv9epZ": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "19"
+								}
+							},
+							"ix7Hvop83iLVIE0E": {
+								"type": "effect",
+								"default": true,
+								"effectId": "mWMlfADoaSi6lUyM"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"xmY83u1QYSe8ircE": {
+								"range": "medium"
+							},
+							"BoaAgIr7uHeHsmi0": {
+								"range": 240,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>If the target is a Large or smaller creature, it makes a DC 19 Strength saving throw. On a failure, it is pushed 10 feet away from the jotun and knocked prone.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "fFKMTRCdYcNXVMNE",
+			"name": "Throw Creature",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.FiQzxwTUXgiDw2Lr.Item.fFKMTRCdYcNXVMNE",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "z30C9URE1zFgZSvj"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "mWMlfADoaSi6lUyM",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 250000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"z30C9URE1zFgZSvj": {
+						"name": "Throw Creature",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"vPRbm2Un6BrtKESg": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"l5t9yTCeU7Ep4LJJ": {
+								"type": "damage",
+								"default": true,
+								"formula": "3d6 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"ix7Hvop83iLVIE0E": {
+								"type": "effect",
+								"default": true,
+								"effectId": "mWMlfADoaSi6lUyM"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"xmY83u1QYSe8ircE": {
+								"range": 40,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>In lieu of a rock, the jotun can throw a grappled Medium or smaller creature up to 40 feet. On a hit, the target and the thrown creature both take 15 (3d6+6) bludgeoning damage. On a miss, only the thrown creature takes the damage. The thrown creature falls prone in an unoccupied space 5 feet from the target.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "X7gapsS6efegRlZm",
+			"name": "Grab",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.FiQzxwTUXgiDw2Lr.Item.X7gapsS6efegRlZm",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "eFg4hKR2hBV6fZ9S"
+						}
+					},
+					"transfer": false,
+					"name": "Grappled",
+					"_id": "0x5gPZMx6AZPp9d8",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"grappled\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"grappled"
+					],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 287500,
+			"flags": {
+				"core": {
+					"sourceId": "Item.i2cfGU9ofnKwr9OF"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"eFg4hKR2hBV6fZ9S": {
+						"name": "Grab",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"eLky4zTfiqRBFouj": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "dex"
+								}
+							},
+							"CerGhyyvRxxzsLiK": {
+								"type": "effect",
+								"default": true,
+								"effectId": "0x5gPZMx6AZPp9d8"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>One creature within 5 feet makes a DC 13 Dexterity saving throw. On a failure, it is grappled (escape DC 17). Until this grapple ends, the jotun can't grab another target, and it makes greatclub attacks with advantage against the grappled target.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Elite Recovery",
+			"type": "feature",
+			"_id": "fqD054hl2idW5zB7",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"n7UbZpAsVnhdfFGG": {
+						"name": "Elite Recovery",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The jotun ends one negative effect currently affecting it. It can do so as long as it has at least 1 hit point, even while unconscious or incapacitated.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": true,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"core": {
+					"sourceId": "Actor.SDwavzrLR8ao9AQf.Item.eAjzeFlgrh6lAnZ2"
+				}
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": false,
+			"sheetIsLocked": true,
 			"TrackInventoryWeight": true,
 			"carryCapacityMultiplier": 1,
 			"trackCurrencyWeight": true,
@@ -1571,7 +2186,7 @@
 		"attributes": {
 			"ac": {
 				"value": 0,
-				"baseFormula": "10 + @dex.mod"
+				"baseFormula": "17"
 			},
 			"death": {
 				"success": 0,
@@ -1632,7 +2247,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"traits": {
@@ -1694,10 +2309,14 @@
 			],
 			"isSwarm": false,
 			"cr": 8,
-			"elite": false,
+			"elite": true,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": [],
+			"terrain": [
+				"hills",
+				"mountains",
+				"planeOfEarth"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -1833,7 +2452,7 @@
 		"flags": {},
 		"randomImg": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/stone-giant.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,

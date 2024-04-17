@@ -1,7 +1,7 @@
 {
 	"name": "Draugr",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/skeleton.webp",
 	"system": {
 		"abilities": {
 			"str": {
@@ -408,7 +408,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -422,7 +422,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -473,7 +473,12 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": [],
+			"terrain": [
+				"ruin",
+				"temple",
+				"theBleakGate",
+				"tomb"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -575,7 +580,7 @@
 		"displayName": 0,
 		"actorLink": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/skeleton.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
@@ -655,7 +660,7 @@
 				},
 				"actions": {},
 				"description": "<p>While the draugr is bloodied it makes all attacks at advantage and all attacks against it are made at advantage.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -671,7 +676,7 @@
 				"featureType": "other",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.016,
 					"lastMigration": {
@@ -761,9 +766,36 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"c9j2fB2dK3XTxJM8": {
+						"name": "Cold Aura",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"AMQmWxhMXBPKVksL": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "1d6",
+								"damageType": "cold"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>A creature that touches the draugr or hits it with a melee attack while within 5 feet takes 3 (1d6) cold damage. A creature can take this damage only once per turn. If the draugr has been subjected to fire damage since its last turn,this trait doesn’t function.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -815,7 +847,34 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"NO7xt0H0LsbBl50W": {
+						"name": "Semi-Corporeal",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"cAv4azXVnIYPaNcq": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "1d10",
+								"damageType": "force"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The draugr possesses a mostly solid body, though it may temporarily disrupt this, bleeding into the ethereal plane. It may move through solid objects and creatures (including escaping grapples or restraints). If it does so, it deals half damage with all attacks until the end of its turn. If it ends its turn inside a solid object or creature it takes 1d10 force damage and is shunted to the nearest unoccupied space. The draugr can see into the ethereal plane and affect creatures there at all times.</p>",
 				"favorite": false,
 				"secretDescription": "",
@@ -923,7 +982,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"BpXOVxSRnSLrQl7B": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The draugr makes two greataxe attacks.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -962,93 +1043,6 @@
 			"flags": {}
 		},
 		{
-			"name": "Greataxe",
-			"type": "object",
-			"img": "icons/weapons/axes/axe-double-engraved-black.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-adventuring-gear.98xicbemxwkxwr99"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "30 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"breaker",
-					"heavy",
-					"twoHanded"
-				],
-				"weight": 0,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				},
-				"breakerProperties": [],
-				"defensiveProperties": "",
-				"flaws": [],
-				"mounted": [],
-				"versatile": ""
-			},
-			"_id": "fVuj0oXGRk4I6d1c",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"name": "Incorporeal Defense",
 			"type": "feature",
 			"_id": "RGRf3Kq2cblkoWcS",
@@ -1064,9 +1058,32 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"ZUqCPersMWNfuCqW": {
+						"name": "Incorporeal Defense",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "Takes damage"
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>When the draugr takes damage, it may use its reaction to take half damage instead, or no damage if normally resistant to the damage type, temporarily phasing the portion of its body being struck out of the Material plane.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1659,6 +1676,213 @@
 			"ownership": {
 				"default": 0
 			}
+		},
+		{
+			"name": "Patchwork",
+			"type": "object",
+			"system": {
+				"ac": {
+					"baseFormula": "16",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "",
+				"proficient": false,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": null
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"mounted": [],
+				"versatile": ""
+			},
+			"_id": "2tDrHnfNcCSl2jEG",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Greataxe",
+			"type": "object",
+			"img": "icons/weapons/axes/axe-double-engraved-black.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.98xicbemxwkxwr99"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"UgJVEbx18NZcnhvL": {
+						"name": "Greataxe",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"rJJQV0B7jn3C0ysu": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"omOVacy2WpbafXMO": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "1d12 + @str.mod",
+								"name": "Greataxe",
+								"type": "damage"
+							},
+							"yShgyBKAr1L2QIvL": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d6",
+								"damageType": "cold"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "30 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"breaker",
+					"heavy",
+					"twoHanded"
+				],
+				"weight": 9,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.015,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"breakerProperties": [
+					"wood"
+				],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "",
+				"mounted": []
+			},
+			"folder": null,
+			"_id": "u8HHS9gDBPxEY0DE",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
@@ -1672,7 +1896,8 @@
 			"showManeuverTab": true,
 			"showSpellTab": false,
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": true
 		}
 	},
 	"folder": null,

@@ -1,7 +1,7 @@
 {
 	"name": "Hamadryad",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/dryad.webp",
 	"system": {
 		"abilities": {
 			"str": {
@@ -347,7 +347,7 @@
 		"attributes": {
 			"ac": {
 				"value": 0,
-				"baseFormula": "10 + @dex.mod"
+				"baseFormula": "18"
 			},
 			"death": {
 				"success": 0,
@@ -408,7 +408,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -422,7 +422,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -438,7 +438,7 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "wis",
-			"casterLevel": 0
+			"casterLevel": 16
 		},
 		"bonuses": {
 			"abilities": {},
@@ -473,7 +473,11 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": [],
+			"terrain": [
+				"forest",
+				"jungle",
+				"theDreaming"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -574,7 +578,7 @@
 		"displayName": 0,
 		"actorLink": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/dryad.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
@@ -814,7 +818,37 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"IDxI5ln2UwglitE2": {
+						"name": "Tree Stride",
+						"activation": {},
+						"consumers": {
+							"RU23sIfbhvwKRBGd": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"iqmvIOHbACXVwSzK": {
+								"range": "long"
+							}
+						}
+					}
+				},
 				"description": "<p>Once per turn, the hamadryad can use 5 feet of movement to enter a living tree and emerge from another living tree within 120 feet. Both trees must be at least Large. </p>",
 				"favorite": false,
 				"secretDescription": "",
@@ -873,7 +907,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The hamadryad is a 16th-level spellcaster with the following druid spells prepared. Its spellcasting ability is Wisdom (spell save DC 18, +10 to hit with spell attacks).</p><p><strong> Cantrips (at will)</strong>: <em>shillelagh, guidance, druidcraft, grapevine </em></p><p><strong>1st level</strong>: <em>cure wounds, animal friendship, faerie fire, goodberry </em></p><p><strong>2nd leve</strong>l: <em>force of will, seed bomb, spike growth </em></p><p><strong>3rd level</strong>: <em>plant growth, dispel magic, call lightning </em></p><p><strong>4th level</strong>: <em>blight, conjure woodland beings, freedom of movement </em></p><p><strong>5th level</strong>: <em>awaken, mass cure wounds, insect plague </em></p><p><strong>6th level</strong>: <em>wall of thorns, sunbeam </em></p><p><strong>7th level</strong>: <em>fire storm </em></p><p><strong>8th level</strong>: <em>sunburst</em></p>",
+				"description": "<p>The hamadryad is a 16th-level spellcaster with the following druid spells prepared. Its spellcasting ability is Wisdom (spell save DC 18, +10 to hit with spell attacks).</p>\n<p><strong> Cantrips (at will)</strong>: <em>@UUID[Compendium.a5e.a5e-spells.Item.zaeerhaj7ici4dtd]{Shillelagh}, @UUID[Compendium.a5e.a5e-spells.Item.ljixftygfhi0sfsf]{Guidance}, @UUID[Compendium.a5e.a5e-spells.Item.5o1rvwzxmsh5ji9i]{Druidcraft}, @UUID[Compendium.a5e.a5e-spells.Item.6gfn7uj6tcbatjd5]{Grapevine}<br></em></p>\n<p><strong>1st level</strong>: <em>@UUID[Compendium.a5e.a5e-spells.Item.1vo427vjnzgzb5z2]{Cure Wounds}, @UUID[Compendium.a5e.a5e-spells.Item.1laktjzxk5nh1x1r]{Animal Friendship}, @UUID[Compendium.a5e.a5e-spells.Item.z7r6plq6vyesck07]{Faerie Fire}, @UUID[Compendium.a5e.a5e-spells.Item.r9za0lmnarmx99nm]{Goodberry}<br></em></p>\n<p><strong>2nd leve</strong>l: <em>@UUID[Compendium.a5e.a5e-spells.Item.t4s0j5c67vswwq04]{Force of Will}, @UUID[Compendium.a5e.a5e-spells.Item.vk6a5fupk5x4dz39]{Seed Bomb}, @UUID[Compendium.a5e.a5e-spells.Item.bt04eqvuxnv602cp]{Spike Growth}<br></em></p>\n<p><strong>3rd level</strong>: <em>@UUID[Compendium.a5e.a5e-spells.Item.fnuefdnb228qwwu8]{Plant Growth}, @UUID[Compendium.a5e.a5e-spells.Item.hms9kdl2qoqjjrs4]{Dispel Magic}, @UUID[Compendium.a5e.a5e-spells.Item.t9s6kq3pvokx53dk]{Call Lightning}&nbsp;<br></em></p>\n<p><strong>4th level</strong>: <em>@UUID[Compendium.a5e.a5e-spells.Item.2q65v0xklhfx73to]{Blight}, @UUID[Compendium.a5e.a5e-spells.Item.f70ggbrjfojmf2hk]{Conjure Woodland Beings}, @UUID[Compendium.a5e.a5e-spells.Item.adbxdvi3uj851e70]{Freedom of Movement}<br></em></p>\n<p><strong>5th level</strong>: <em>@UUID[Compendium.a5e.a5e-spells.Item.k213xxhuazt5uocn]{Awaken}, @UUID[Compendium.a5e.a5e-spells.Item.bx0gen0hyug93fwr]{Mass Cure Wounds}, @UUID[Compendium.a5e.a5e-spells.Item.spngrj7xkq5ih8yo]{Insect Plague}&nbsp;<br></em></p>\n<p><strong>6th level</strong>: <em>@UUID[Compendium.a5e.a5e-spells.Item.m68wvspmjjd2aaat]{Wall of Thorns}, @UUID[Compendium.a5e.a5e-spells.Item.ppnrlrscd3djkydd]{Sunbeam}<br></em></p>\n<p><strong>7th level</strong>: @UUID[Compendium.a5e.a5e-spells.Item.1ueqga5yu55bntti]{Fire Storm}</p>\n<p><strong>8th level</strong>: @UUID[Compendium.a5e.a5e-spells.Item.46wyf7rw3rm5kstu]{Sunburst}</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -923,7 +957,7 @@
 			"system": {
 				"actions": {},
 				"description": "<p>You imbue the target with nature's magical energy. Until the spell ends, the target becomes a magical weapon (if it wasn't already), its damage becomes 1d8, and you can use your spellcasting ability instead of Strength for melee attack and damage rolls made using it. The spell ends if you cast it again or let go of the target.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2425,176 +2459,6 @@
 			}
 		},
 		{
-			"name": "Club",
-			"type": "object",
-			"img": "icons/weapons/clubs/club-simple-black.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-adventuring-gear.8u3v0q3jr3ov8u6l"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "1 sp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"simple"
-				],
-				"weight": 0,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				},
-				"breakerProperties": [],
-				"defensiveProperties": "",
-				"flaws": [],
-				"mounted": [],
-				"versatile": ""
-			},
-			"_id": "la0Kkdvujm8oNlmj",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Club (with shillelagh)",
-			"type": "object",
-			"img": "icons/weapons/clubs/club-simple-black.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-adventuring-gear.8u3v0q3jr3ov8u6l"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "1 sp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"simple"
-				],
-				"weight": 0,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				},
-				"breakerProperties": [],
-				"defensiveProperties": "",
-				"flaws": [],
-				"mounted": [],
-				"versatile": ""
-			},
-			"_id": "fviGNW9iPBEjAhj9",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"name": "Entangling Plants",
 			"type": "feature",
 			"_id": "F6sRWSbGMHviIPoQ",
@@ -2610,7 +2474,58 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"ZLE5LfbtlX5D2Yfk": {
+						"name": "Entangling Plants",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"Mu3adTiOp2TmZQOB": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "spellcasting"
+								}
+							},
+							"TsKFU1xqSLMQeL6k": {
+								"type": "effect",
+								"default": true,
+								"effectId": "iETBcq02bALKtG9L"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"2NUufaXB85HlMUAr": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 20,
+							"placeTemplate": true
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 1
+						}
+					}
+				},
 				"description": "<p>Plants magically erupt from the ground in a 20-foot radius around a point up to 120 feet from the hamadryad. The area is difficult terrain for 1 minute, and each creature of the hamadryad’s choice in the area makes a DC 18 Strength saving throw. On a failure, a creature is restrained for 1 minute. A creature can use its action to make a DC 18 Strength check, freeing itself or a creature within 5 feet on a success.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -2640,7 +2555,48 @@
 					}
 				}
 			},
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.At7RDDmpJ4XckJTR.Item.F6sRWSbGMHviIPoQ",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "ZLE5LfbtlX5D2Yfk",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Restrained",
+					"_id": "iETBcq02bALKtG9L",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"restrained\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"restrained"
+					],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -2668,9 +2624,61 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"9f8abJ7ggR5wDm2A": {
+						"name": "Fey Charm",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {
+							"Q1B3qb5WRnGEcxyt": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {
+							"a4PVffhtXrRwZVgn": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "cha"
+								},
+								"onSave": "Immune for 24 hours"
+							},
+							"P6AiqhA42kRTrsEw": {
+								"type": "effect",
+								"default": true,
+								"effectId": "7VsyuVS4JuI4WjJj"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						},
+						"ranges": {
+							"Ejw69XqRbw3EpmBc": {
+								"range": "short"
+							}
+						}
+					}
+				},
 				"description": "<p>A humanoid or beast within 30 feet makes a DC 19 Wisdom saving throw . On a failure, it is magically charmed. While charmed in this way, the target regards the hamadryad as a trusted ally and is disposed to interpret the hamadryad’s requests and actions favorably. The creature can repeat this saving throw if the hamadryad or the hamadryad’s allies harm it, ending the effect on a success. Otherwise, the effect lasts 24 hours. If the creature succeeds on a saving throw against Fey Charm or the effect ends for it, it is immune to Fey Charm for 24 hours.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -2698,7 +2706,48 @@
 					}
 				}
 			},
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.At7RDDmpJ4XckJTR.Item.YwSRwMv2T4OwGEpd",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "9f8abJ7ggR5wDm2A",
+							"duration": {
+								"unit": "hours"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Charmed",
+					"_id": "7VsyuVS4JuI4WjJj",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"charmed\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 86400,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"charmed"
+					],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -3263,6 +3312,130 @@
 			"ownership": {
 				"default": 0
 			}
+		},
+		{
+			"name": "Club",
+			"type": "object",
+			"img": "icons/weapons/clubs/club-simple-black.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.8u3v0q3jr3ov8u6l"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"ZdX1rqHn29jj57xS": {
+						"name": "Club",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"4loQUAEZaCc8RC8h": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"3DTZ2lWFlQONwpTn": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "1d4 + @str.mod",
+								"name": "Club",
+								"type": "damage"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "1 sp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"simple"
+				],
+				"weight": 2,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.015,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "",
+				"mounted": []
+			},
+			"folder": null,
+			"_id": "5kQykBchhhWqPAH3",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
@@ -3287,7 +3460,8 @@
 			"showManeuverTab": false,
 			"showSpellTab": true,
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": true
 		}
 	},
 	"folder": null,
