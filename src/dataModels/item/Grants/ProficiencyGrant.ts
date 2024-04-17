@@ -48,7 +48,8 @@ export default class ProficiencyGrant extends BaseGrant {
       },
       itemUuid: this.parent.uuid,
       grantId: this._id,
-      grantType: this.#type
+      grantType: this.#type,
+      level: this.level
     };
 
     updates['system.grants'] = {

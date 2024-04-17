@@ -37,7 +37,8 @@ export default class FeatureGrant extends BaseGrant {
     const grantData = {
       itemUuid: this.parent.uuid,
       grantId: this._id,
-      grantType: 'feature'
+      grantType: 'feature',
+      level: this.level
     };
 
     return {

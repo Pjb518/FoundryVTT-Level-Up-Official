@@ -2,6 +2,7 @@ export interface ActorBaseGrant {
   itemUuid: string;
   grantId: string;
   grantType: string;
+  level: number;
 }
 
 export interface BonusGrant extends ActorBaseGrant {

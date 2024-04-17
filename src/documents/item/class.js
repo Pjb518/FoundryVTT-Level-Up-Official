@@ -120,8 +120,25 @@ export default class ClassItemA5e extends OriginItemA5e {
     return data;
   }
 
+  async _preUpdate(data, options, user) {
+    super._preUpdate(data, options, user);
+  }
+
   async _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
+  }
+
+  async _onUpdate(data, options, userId) {
+    super._onUpdate(data, options, userId);
+
+    // Trigger recalculation of grants
+    if (!this.parent && this.parent?.documentName !== 'Actor') return;
+
+    const keys = Object.keys(foundry.utils.flattenObject(data ?? {}));
+    if (!keys.includes('system.classLevels')) return;
+
+    const actor = this.parent;
+    actor.grants.createLeveledGrants();
   }
 
   async _onDelete(data, options, user) {

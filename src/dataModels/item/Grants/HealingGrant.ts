@@ -40,7 +40,8 @@ export default class HealingGrant extends BaseGrant {
       grantId: this._id,
       bonusId,
       type: 'healing',
-      grantType: 'bonus'
+      grantType: 'bonus',
+      level: this.level
     };
 
     return {

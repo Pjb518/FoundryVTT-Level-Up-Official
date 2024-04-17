@@ -59,7 +59,8 @@ export default class AttackGrant extends BaseGrant {
       grantId: this._id,
       bonusId,
       type: 'attacks',
-      grantType: 'bonus'
+      grantType: 'bonus',
+      level: this.level
     };
 
     return {

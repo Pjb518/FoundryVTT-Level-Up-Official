@@ -15,7 +15,10 @@ class ActorBaseGrant extends A5EDataModel {
       itemUuid: new fields.StringField({ required: true, initial: '' }),
       // itemUuid: new fields.DocumentUUIDField({ required: true, initial: '' }),
       grantId: new fields.DocumentIdField({ required: true, initial: '' }),
-      grantType: new fields.StringField({ required: true, initial: '' })
+      grantType: new fields.StringField({ required: true, initial: '' }),
+      level: new fields.NumberField({
+        nullable: false, initial: 1, integer: true, min: 1
+      })
     };
   }
 }

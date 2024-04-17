@@ -58,7 +58,8 @@ export default class AbilityGrant extends BaseGrant {
       grantId: this._id,
       bonusId,
       type: 'abilities',
-      grantType: 'bonus'
+      grantType: 'bonus',
+      level: this.level
     };
 
     return {

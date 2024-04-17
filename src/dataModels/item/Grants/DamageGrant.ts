@@ -40,7 +40,8 @@ export default class DamageGrant extends BaseGrant {
       grantId: this._id,
       bonusId,
       type: 'damage',
-      grantType: 'bonus'
+      grantType: 'bonus',
+      level: this.level
     };
 
     return {

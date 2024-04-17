@@ -22,6 +22,16 @@
     <Section heading="Metadata">
         Slug goes here. <br />
         Class levels go here. <br />
+        <input
+            type="number"
+            value={$item.system.classLevels}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    "system.classLevels",
+                    Number(target.value),
+                )}
+        />
         Used hit dice go here. <br />
     </Section>
 

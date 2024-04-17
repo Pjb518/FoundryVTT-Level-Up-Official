@@ -47,7 +47,8 @@ export default class TraitGrant extends BaseGrant {
       },
       itemUuid: this.parent.uuid,
       grantId: this._id,
-      grantType: this.#type
+      grantType: this.#type,
+      level: this.level
     };
 
     // Construct trait update

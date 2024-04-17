@@ -70,8 +70,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     const grantsManager: ItemGrantsManager = item.grants;
     [...grantsManager.values()].forEach((grant) => {
-      const id = `${item.uuid}.${grant._id}`;
-      if (this.has(id)) return;
+      if (this.has(grant._id)) return;
 
       const { levelType } = grant;
       if (levelType === 'character' && grant.level > characterLevel) return;
@@ -97,8 +96,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
       const grantsManager: ItemGrantsManager = item.grants;
       [...grantsManager.values()].forEach((grant) => {
-        const id = `${item.uuid}.${grant._id}`;
-        if (this.has(id)) return;
+        if (this.has(grant._id)) return;
 
         const { levelType } = grant;
         if (levelType === 'character' && grant.level !== characterLevel) return;
@@ -109,8 +107,10 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       });
     }
 
-    const result = await this.#applyGrants(applicableGrants, optionalGrants);
-    console.log(result);
+    await this.#applyGrants(applicableGrants, optionalGrants);
+
+    // Remove any grants that are no longer applicable
+    this.removeGrantsByLevel(characterLevel);
 
     // TODO: Class Documents - Warn user if it failed. Maybe reduce level and try again.
   }
@@ -184,6 +184,19 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
       updates[`system.grants.-=${grantId}`] = null;
       foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
+    }
+
+    this.actor.update(updates);
+  }
+
+  removeGrantsByLevel(level: number): void {
+    const updates: Record<string, any> = {};
+
+    for (const [grantId, grant] of this) {
+      if (grant.level > level) {
+        updates[`system.grants.-=${grantId}`] = null;
+        foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
+      }
     }
 
     this.actor.update(updates);

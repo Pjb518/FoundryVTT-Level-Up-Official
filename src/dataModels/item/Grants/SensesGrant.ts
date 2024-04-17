@@ -55,7 +55,8 @@ export default class SensesGrant extends BaseGrant {
       grantId: this._id,
       bonusId,
       type: this.#type,
-      grantType: 'bonus'
+      grantType: 'bonus',
+      level: this.level
     };
 
     return {
