@@ -59,6 +59,17 @@ export interface DamageGrant extends BaseGrant {
   }
 }
 
+export interface ExpertiseDiceGrant extends BaseGrant {
+  grantType: 'expertiseDice';
+  keys: {
+    base: string[],
+    options: string[],
+    total: number,
+  };
+  expertiseCount: number;
+  expertiseType: string;
+}
+
 export interface FeatureGrant extends BaseGrant {
   grantType: 'feature';
   features: {
@@ -165,6 +176,7 @@ export type Grant = AbilityGrant
   | AttackGrant
   | DamageGrant
   | HealingGrant
+  | ExpertiseDiceGrant
   | FeatureGrant
   | InitiativeGrant
   | ItemGrant

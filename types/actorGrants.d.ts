@@ -11,6 +11,16 @@ export interface BonusGrant extends ActorBaseGrant {
   grantType: 'bonus';
 }
 
+export interface ExpertiseDiceGrant extends ActorBaseGrant {
+  expertiseDiceData: {
+    keys: string[],
+    total: number,
+    expertiseCount: number,
+    expertiseType: string,
+  };
+  grantType: 'expertiseDice';
+}
+
 export interface FeatureGrant extends ActorBaseGrant {
   documentIds: string[];
   grantType: 'feature';

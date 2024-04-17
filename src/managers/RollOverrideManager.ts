@@ -52,7 +52,7 @@ export default class RollOverrideManager {
   }
 
   initialize() {
-    // Register expertise die from actor data
+    // Register expertise dice from actor data
     Object.entries(this.actor.system.abilities).forEach(([ablKey, ability]: [string, any]) => {
       ['check', 'save'].forEach((type) => {
         if (ability[type]?.expertiseDice) {
@@ -81,6 +81,11 @@ export default class RollOverrideManager {
           }
         );
       }
+    });
+
+    // Register expertise dice from items
+    this.actor.items.forEach((item: typeof Item) => {
+
     });
 
     // Register all overrides from items
