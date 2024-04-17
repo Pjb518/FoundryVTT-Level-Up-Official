@@ -23,9 +23,9 @@
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
 
-        return (
-            options.expertiseDice ??
-            $actor.system.abilities[abilityKey]?.save.expertiseDice
+        return $actor.RollOverrideManager.getExpertiseDice(
+            rollModeKey,
+            options.expertiseDie ?? 0,
         );
     }
 
@@ -80,7 +80,6 @@
     let visibilityMode =
         options.visibilityMode ?? game.settings.get("core", "rollMode");
 
-    let expertiseDie = getInitialExpertiseDieSelection();
     let saveType = options.saveType ?? "standard";
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
@@ -92,6 +91,13 @@
     );
 
     $: rollModeKey = getRollModeKey(saveType, abilityKey);
+    $: expertiseDie = getInitialExpertiseDieSelection();
+
+    $: expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
+        rollModeKey,
+        options.expertiseDie ?? 0,
+    );
+
     $: rollMode = $actor.RollOverrideManager.getRollOverride(
         rollModeKey,
         selectedRollMode,
@@ -134,6 +140,7 @@
     {/key}
 
     <ExpertiseDiePicker
+        source={expertiseDieSource}
         selected={expertiseDie}
         type={$actor.type}
         on:updateSelection={({ detail }) => (expertiseDie = detail)}

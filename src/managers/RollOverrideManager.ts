@@ -376,7 +376,7 @@ export default class RollOverrideManager {
     options: { ability?: string, skill?: string } = {}
   ): string {
     const overrides = this.#prepareOverrides(key, 'rollMode', options);
-    if (!overrides) return '';
+    if (!overrides?.length) return '';
 
     let base: string;
     if (baseRollMode === CONFIG.A5E.ROLL_MODE.ADVANTAGE) base = 'Advantage';
@@ -446,18 +446,19 @@ export default class RollOverrideManager {
     options: { ability?: string, skill?: string } = {}
   ): string {
     const overrides = this.#prepareOverrides(key, 'expertiseDice', options);
-    if (!overrides) return '';
+    if (!overrides?.length) return '';
 
     overrides.sort((a, b) => (b.mode ?? 2) - (a.mode ?? 2));
 
-    const base = baseDie.toString();
-    const sources = overrides.map((o) => `${o.source} (${o.value})`);
+    const base = baseDie ? `d${CONFIG.A5E.expertiseDiceSidesMap[baseDie]}` : 'None';
+    const sources = overrides.map((o) => `${o.source} (d${CONFIG.A5E.expertiseDiceSidesMap[o.value]})`);
 
-    const result = this.getExpertiseDice(key, baseDie).toString();
+    const result = this.getExpertiseDice(key, baseDie);
+
     return `<div class='u-text-xs u-text-left'>
       <p> <strong>Base Die:</strong> ${base}</p>
       <p> <strong>Overrides:</strong> ${sources.join(', ')}</p>
-      <p> <strong>Result:</strong> ${result}</p>
+      <p> <strong>Total Bonus:</strong> d${CONFIG.A5E.expertiseDiceSidesMap[result]}</p>
       </div>`;
   }
 }

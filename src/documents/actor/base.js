@@ -921,9 +921,13 @@ export default class BaseActorA5e extends Actor {
   }
 
   getDefaultAbilityCheckData(abilityKey, options = {}) {
-    const ability = this.system.abilities[abilityKey];
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const expertiseDie = options.expertiseDice ?? ability.check.expertiseDice;
+    const defaultExpertiseDie = options.expertiseDice ?? 0;
+
+    const expertiseDie = this.RollOverrideManager.getExpertiseDice(
+      `system.abilities.${abilityKey}.check`,
+      defaultExpertiseDie
+    );
 
     const rollMode = this.RollOverrideManager.getRollOverride(
       `system.abilities.${abilityKey}.check`,
@@ -1098,12 +1102,13 @@ export default class BaseActorA5e extends Actor {
   }
 
   getDefaultSavingThrowData(abilityKey, options = {}) {
-    const ability = this.system.abilities[abilityKey];
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const expertiseDie = options.expertiseDice ?? ability?.save.expertiseDice ?? 0;
+    const defaultExpertiseDice = options.expertiseDice ?? 0;
 
     const rollOverrideKey = abilityKey ? `system.abilities.${abilityKey}.save` : 'deathSave';
     const rollMode = this.RollOverrideManager.getRollOverride(rollOverrideKey, defaultRollMode);
+    const expertiseDie = this.RollOverrideManager
+      .getExpertiseDice(rollOverrideKey, defaultExpertiseDice);
 
     const rollFormula = getRollFormula(this, {
       ability: abilityKey,
@@ -1223,8 +1228,10 @@ export default class BaseActorA5e extends Actor {
     const skill = this.system.skills[skillKey];
     const abilityKey = options?.abilityKey ?? skill.ability;
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const expertiseDie = options.expertiseDice ?? skill.expertiseDice;
+    const defaultExpertiseDie = options.expertiseDice ?? 0;
 
+    const expertiseDie = this.RollOverrideManager
+      .getExpertiseDice(`system.skills.${skillKey}`, defaultExpertiseDie, { ability: abilityKey });
     const rollMode = this.RollOverrideManager
       .getRollOverride(`system.skills.${skillKey}`, defaultRollMode, { ability: abilityKey });
 

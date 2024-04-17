@@ -41,8 +41,17 @@
         ],
     );
 
-    let expertiseDie = overrideExpertiseDie($actor, 0);
     let situationalMods = "";
+
+    let expertiseDie = $actor.RollOverrideManager.getExpertiseDice(
+        `attackTypes.${attackRoll?.attackType}`,
+        options.expertiseDie ?? 0,
+    );
+
+    let expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
+        `attackTypes.${attackRoll?.attackType}`,
+        options.expertiseDie ?? 0,
+    );
 
     let rollMode = $actor.RollOverrideManager.getRollOverride(
         `attackTypes.${attackRoll?.attackType}`,
@@ -93,6 +102,7 @@
 <ExpertiseDiePicker
     --background="transparent"
     --padding="0"
+    source={expertiseDieSource}
     selected={expertiseDie}
     type={$actor.type}
     on:updateSelection={({ detail }) => (expertiseDie = detail)}
