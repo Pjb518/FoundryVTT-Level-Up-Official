@@ -73,7 +73,7 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           bonus: new fields.NumberField({ required: true, initial: 0, integer: true })
         }),
         hitDice: new fields.SchemaField({
-          ...['d4', 'd6', 'd8', 'd10', 'd12'].reduce((acc, die) => {
+          ...['d6', 'd8', 'd10', 'd12'].reduce((acc, die) => {
             acc[die] = new fields.SchemaField({
               current: new fields.NumberField({
                 required: true, initial: 0, integer: true, min: 0

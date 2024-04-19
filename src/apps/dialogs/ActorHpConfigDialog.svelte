@@ -24,6 +24,7 @@
             : "u-grid u-grid-3 u-gap-lg";
 
     $: hp = $actor.system.attributes.hp;
+    $: disableHitDice = Object.keys($actor.classes ?? {}).length;
 </script>
 
 <article>
@@ -83,6 +84,7 @@
                             type="number"
                             min="0"
                             name="system.attributes.hitDice.{dieSize}.total"
+                            disabled={disableHitDice}
                             value={total}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
