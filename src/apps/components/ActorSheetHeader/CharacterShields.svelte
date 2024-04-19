@@ -7,9 +7,36 @@
 
     const actor = getContext("actor");
 
+    function isLevelLocked() {
+        if (sheetIsLocked) return true;
+        if (Object.keys($actor.classes ?? {}).length) return true;
+
+        return false;
+    }
+
+    function getCharacterLevel() {
+        if (!Object.keys($actor.classes ?? {}).length)
+            return $actor.system.details.level;
+
+        return $actor.levels.character;
+    }
+
+    function getLevelSource() {
+        if (!Object.keys($actor.classes ?? {}).length) return "";
+
+        const data = Object.values($actor.classes ?? {}).map((cls) => {
+            return `${cls.name} (${cls.classLevels})`;
+        }, []);
+
+        return data.join(" / ");
+    }
+
+    $: characterLevel = getCharacterLevel($actor);
+    $: levelSource = getLevelSource($actor);
     $: hasInspiration = $actor.system.attributes.inspiration;
     $: requiredXP = getRequiredExperiencePoints($actor);
     $: sheetIsLocked = $actor.flags.a5e?.sheetIsLocked ?? true;
+    $: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
 </script>
 
 <div class="character-shields__container">
@@ -35,17 +62,19 @@
             id="{$actor.id}-level"
             class="xp-input"
             class:disable-pointer-events={!$actor.isOwner}
+            data-tooltip={levelSource}
+            data-tooltip-direction="DOWN"
             type="number"
             name="system.details.level"
-            value={$actor.system.details.level}
+            value={characterLevel}
             placeholder="0"
             min="0"
-            disabled={sheetIsLocked}
+            disabled={levelIsLocked}
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $actor,
                     target.name,
-                    Number(target.value)
+                    Number(target.value),
                 )}
             on:click={({ target }) => target.select()}
         />
@@ -84,7 +113,7 @@
                     updateDocumentDataFromField(
                         $actor,
                         target.name,
-                        Number(target.value)
+                        Number(target.value),
                     )}
                 on:click={({ target }) => target.select()}
             />

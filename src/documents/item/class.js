@@ -121,7 +121,9 @@ export default class ClassItemA5e extends OriginItemA5e {
   _preCreate(data, options, user) {
     foundry.utils.setProperty(data, 'system.classLevels', 1);
     foundry.utils.setProperty(data, 'system.hp.hitDiceUsed', 0);
+
     // TODO: Class Documents - If no parent class reset  hp
+    // TODO: Class Documents - Add data for default spell books.
 
     if (this.parent?.documentName === 'Actor') {
       const actor = this.parent;
