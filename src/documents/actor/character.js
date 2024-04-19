@@ -227,6 +227,21 @@ export default class CharacterActorA5E extends BaseActorA5e {
     }, {});
   }
 
+  /**
+   * @inheritdoc
+   */
+  getRollData(item = null) {
+    const data = { ...super.getRollData(item) };
+
+    data.level = this.levels?.character ?? data.level ?? this.system.details.level;
+    data.classes = Object.entries(this.classes ?? {}).reduce((acc, [slug, cls]) => {
+      acc[slug] = (cls.getRollData(item) ?? {})?.actorTransfer;
+      return acc;
+    }, {});
+
+    return data;
+  }
+
   // -------------------------------------------------------------
   // Resources Reset Handlers
   // -------------------------------------------------------------
