@@ -150,7 +150,7 @@
         {/if}
 
         <RadioGroup
-            heading="Expertise Dice Size"
+            heading="Expertise Die Size"
             options={expertiseDiceOptions}
             selected={grant?.expertiseCount ?? 1}
             on:updateSelection={({ detail }) => {

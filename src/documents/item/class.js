@@ -37,8 +37,6 @@ export default class ClassItemA5e extends OriginItemA5e {
   prepareBaseData() {
     super.prepareBaseData();
 
-    // TODO: Class Documents - If no parent class reset classLevels, hitDice, hp
-
     // Set up class resource manager
     this.resources = new ClassResourceManager(this);
 
@@ -118,6 +116,27 @@ export default class ClassItemA5e extends OriginItemA5e {
     const data = { ...super.getRollData() };
     // TODO: Class Documents - Add class specific data here
     return data;
+  }
+
+  _preCreate(data, options, user) {
+    foundry.utils.setProperty(data, 'system.classLevels', 1);
+    foundry.utils.setProperty(data, 'system.hp.hitDiceUsed', 0);
+    // TODO: Class Documents - If no parent class reset  hp
+
+    if (this.parent?.documentName === 'Actor') {
+      const actor = this.parent;
+      const { classes } = actor;
+      const existing = classes[this.slug];
+      if (existing) {
+        existing.update({ 'system.classLevels': Math.min(existing.system.classLevels + 1, 20) });
+        return false;
+      }
+    }
+
+    this.updateSource(data);
+
+    super._preCreate(data, options, user);
+    return true;
   }
 
   async _preUpdate(data, options, user) {

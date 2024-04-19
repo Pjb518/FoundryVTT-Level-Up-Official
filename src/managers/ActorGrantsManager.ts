@@ -111,8 +111,6 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     // Remove any grants that are no longer applicable
     this.removeGrantsByLevel(characterLevel);
-
-    // TODO: Class Documents - Warn user if it failed. Maybe reduce level and try again.
   }
 
   async #applyGrants(

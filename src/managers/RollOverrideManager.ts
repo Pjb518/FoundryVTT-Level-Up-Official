@@ -88,7 +88,7 @@ export default class RollOverrideManager {
     // Register expertise dice from grants
     this.actor.grants.byType('expertiseDice').forEach((grant: ExpertiseDiceGrant) => {
       const { expertiseType: type, expertiseCount, keys } = grant.expertiseDiceData ?? {};
-      const { name } = fromUuidSync(grant.itemUuid) as typeof Item;
+      const { name } = fromUuidSync(grant.itemUuid) as typeof Item ?? {};
 
       if (type === 'abilityCheck') {
         keys.forEach((key: string) => {

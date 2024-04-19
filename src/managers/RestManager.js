@@ -98,48 +98,6 @@ export default class RestManager {
     const { updates, type } = this.#actor.HitDiceManager.getUpdateData();
     if (type === 'actor') this.#updates.actor = foundry.utils.mergeObject(this.#updates.actor, updates);
     if (type === 'embedded') this.#updates.items = this.#updates.items.concat(updates);
-
-    // TODO: Class Documents - Remove this block
-    // const { hitDice } = this.#actor.system.attributes;
-
-    // const expendedHitDice = Object.entries(hitDice).reduce((acc, [die, { current, total }]) => {
-    //   acc[die] = Math.max(total - current, 0);
-    //   return acc;
-    // }, {});
-
-    // const expendedHitDiceQuantity = Object.values(expendedHitDice)
-    //   .reduce((count, curr) => count + curr, 0);
-
-    // const totalHitDiceQuantity = Object.values(hitDice)
-    //   .reduce((count, { total: curr }) => count + curr, 0);
-
-    // const quantityToRecover = Math.floor(totalHitDiceQuantity / 2) || 1;
-
-    // if (quantityToRecover >= expendedHitDiceQuantity) {
-    //   this.#updates.actor['system.attributes.hitDice'] = {
-    //     'd6.current': hitDice.d6.total,
-    //     'd8.current': hitDice.d8.total,
-    //     'd10.current': hitDice.d10.total,
-    //     'd12.current': hitDice.d12.total
-    //   };
-    // } else {
-    //   for (let i = 0; i < quantityToRecover; i += 1) {
-    //     // eslint-disable-next-line no-restricted-syntax
-    //     for (const dieSize of Object.keys(hitDice).reverse()) {
-    //       if (expendedHitDice[dieSize] > 0) {
-    //         if (!this.#updates.actor[`system.attributes.hitDice.${dieSize}.current`]) {
-    //           this.#updates.actor[`system.attributes.hitDice.${dieSize}.current`] =
-    //              hitDice[dieSize].current + 1;
-    //         } else {
-    //           this.#updates.actor[`system.attributes.hitDice.${dieSize}.current`] += 1;
-    //         }
-
-    //         expendedHitDice[dieSize] -= 1;
-    //         break;
-    //       }
-    //     }
-    //   }
-    // }
   }
 
   #restoreHitPoints() {

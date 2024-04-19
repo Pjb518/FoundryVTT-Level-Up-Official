@@ -16,7 +16,6 @@
         getContext("#external").application;
 
     function getRollModeKey(saveType, abilityKey) {
-        console.log(saveType, abilityKey);
         if (!abilityKey) return "deathSave";
         if (saveType === "concentration") return "concentration";
         return `system.abilities.${abilityKey}.save`;
