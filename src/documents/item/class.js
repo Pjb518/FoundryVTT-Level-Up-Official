@@ -70,7 +70,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     if (!progressionConfig) return null;
 
     const {
-      type, config, resource, multiplier, roundUp
+      type, config, resource, multiplier, roundUp, multiclassMode
     } = progressionConfig;
 
     const data = { casterType, resource, progressionType: type };
@@ -88,6 +88,7 @@ export default class ClassItemA5e extends OriginItemA5e {
 
     if (type === 'reference') {
       const ref = config[this.classLevels];
+      data.multiclassMode = multiclassMode;
       if (resource === 'slots') {
         data.slots = { [ref.level]: ref.slots };
       } else if (resource === 'points') {
@@ -114,7 +115,6 @@ export default class ClassItemA5e extends OriginItemA5e {
 
   getRollData() {
     const data = { ...super.getRollData() };
-    // TODO: Class Documents - Add class specific data here
 
     data.actorTransfer = {
       level: this.classLevels,

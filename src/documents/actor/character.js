@@ -187,9 +187,19 @@ export default class CharacterActorA5E extends BaseActorA5e {
       });
     }
 
-    // TODO: Class Documents - Handle multi classed spellcasting for points
+    // Handle multi classed spellcasting for points
     if (grantedResources.points.length > 1) {
-      // DO SOMETHING
+      // TODO: Class Documents - Based on Base reference table
+
+      // Add mode handling
+      grantedResources.points.forEach((cls) => {
+        // TODO: Class Documents - Update to remove warlockA5E in the future
+        const { points, multiClassMode } = cls.casting;
+        if (multiClassMode !== 'ADD') return;
+
+        const { max, override } = actorData.spellResources.points;
+        actorData.spellResources.points.max = override || (max || 0) + (points || 0);
+      });
     }
 
     // Add additional spell slots

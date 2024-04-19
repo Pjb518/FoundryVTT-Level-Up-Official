@@ -200,12 +200,14 @@ export default function registerClassesConfig(A5E) {
     elementalist: {
       type: 'reference',
       config: A5E.SPELL_POINTS_TABLE_ELEMENTALIST,
-      resource: 'points'
+      resource: 'points',
+      multiclassMode: 'ADD'
     },
     warlockA5e: {
       type: 'reference',
       config: A5E.SPELL_POINTS_TABLE_WARLOCK,
-      resource: 'points'
+      resource: 'points',
+      multiclassMode: 'ADD'
     },
     warlock5e: {
       type: 'reference',
