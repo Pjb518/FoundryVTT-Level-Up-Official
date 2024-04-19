@@ -7,9 +7,9 @@
     import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
 
     import getRollFormula from "../../utils/getRollFormula";
+    import RollModePicker from "../components/RollModePicker.svelte";
 
     export let { document, abilityKey, dialog, options } =
         getContext("#external").application;
@@ -26,13 +26,6 @@
     function onSubmit() {
         dialog.submit({ expertiseDie, rollFormula, rollMode, visibilityMode });
     }
-
-    const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
-        ([key, value]) => [
-            CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-            localize(value),
-        ],
-    );
 
     const actor = new TJSDocument(document);
     const appId = dialog.id;
@@ -89,16 +82,9 @@
 <form>
     <OutputVisibilitySection bind:visibilityMode />
 
-    <RadioGroup
-        heading="A5E.RollModeHeading"
-        buttons={[
-            {
-                classes: "fas fa-question-circle",
-                tooltip: rollModeString,
-            },
-        ]}
-        options={rollModeOptions}
+    <RollModePicker
         selected={rollMode}
+        source={rollModeString}
         on:updateSelection={({ detail }) => (rollMode = detail)}
     />
 

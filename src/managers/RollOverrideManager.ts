@@ -88,6 +88,7 @@ export default class RollOverrideManager {
     // Register expertise dice from grants
     this.actor.grants.byType('expertiseDice').forEach((grant: ExpertiseDiceGrant) => {
       const { expertiseType: type, expertiseCount, keys } = grant.expertiseDiceData ?? {};
+      const { name } = fromUuidSync(grant.itemUuid) as typeof Item;
 
       if (type === 'abilityCheck') {
         keys.forEach((key: string) => {
@@ -95,7 +96,7 @@ export default class RollOverrideManager {
             {
               value: expertiseCount,
               overrideType: 'expertiseDice',
-              source: 'Expertise',
+              source: name,
               mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.ADD
             }
           );
@@ -106,7 +107,7 @@ export default class RollOverrideManager {
             {
               value: expertiseCount,
               overrideType: 'expertiseDice',
-              source: 'Expertise',
+              source: name,
               mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.ADD
             }
           );
@@ -117,7 +118,7 @@ export default class RollOverrideManager {
             {
               value: expertiseCount,
               overrideType: 'expertiseDice',
-              source: 'Expertise',
+              source: name,
               mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.ADD
             }
           );
@@ -128,7 +129,7 @@ export default class RollOverrideManager {
             {
               value: expertiseCount,
               overrideType: 'expertiseDice',
-              source: 'Expertise',
+              source: name,
               mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.ADD
             }
           );

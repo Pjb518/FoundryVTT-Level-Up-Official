@@ -50,7 +50,7 @@
             options: Object.entries(CONFIG.A5E.abilities),
         },
         attack: {
-            label: "A5E.AttackType",
+            label: "A5E.ActionOptionAttack",
             options: Object.entries(CONFIG.A5E.attackTypes),
         },
         initiative: {

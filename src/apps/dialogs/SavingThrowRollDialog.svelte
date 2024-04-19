@@ -8,6 +8,7 @@
     import FieldWrapper from "../components/FieldWrapper.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+    import RollModePicker from "../components/RollModePicker.svelte";
 
     import getRollFormula from "../../utils/getRollFormula";
 
@@ -15,6 +16,7 @@
         getContext("#external").application;
 
     function getRollModeKey(saveType, abilityKey) {
+        console.log(saveType, abilityKey);
         if (!abilityKey) return "deathSave";
         if (saveType === "concentration") return "concentration";
         return `system.abilities.${abilityKey}.save`;
@@ -24,7 +26,7 @@
         if (hideExpertiseDice) return 0;
 
         return $actor.RollOverrideManager.getExpertiseDice(
-            rollModeKey,
+            rollModeKey ?? "",
             options.expertiseDie ?? 0,
         );
     }
@@ -45,13 +47,6 @@
                 });
         }
     }
-
-    const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
-        ([key, value]) => [
-            CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-            localize(value),
-        ],
-    );
 
     const saveTypes = [
         ["standard", "A5E.SavingThrowNormal"],
@@ -125,16 +120,9 @@
     <OutputVisibilitySection bind:visibilityMode />
 
     {#key saveType}
-        <RadioGroup
-            heading="A5E.RollModeHeading"
-            buttons={[
-                {
-                    classes: "fas fa-question-circle",
-                    tooltip: rollModeString,
-                },
-            ]}
-            options={rollModeOptions}
+        <RollModePicker
             selected={rollMode}
+            source={rollModeString}
             on:updateSelection={({ detail }) => (rollMode = detail)}
         />
     {/key}

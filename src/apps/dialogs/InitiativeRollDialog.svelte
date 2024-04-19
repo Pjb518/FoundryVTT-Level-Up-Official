@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
@@ -9,6 +8,7 @@
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import getRollFormula from "../../utils/getRollFormula";
+    import RollModePicker from "../components/RollModePicker.svelte";
 
     export let { document, dialog, options } =
         getContext("#external").application;
@@ -22,13 +22,6 @@
             { ability: abilityKey, skill: skillKey },
         );
     }
-
-    const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
-        ([key, value]) => [
-            CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-            localize(value),
-        ],
-    );
 
     const actor = new TJSDocument(document.actor);
     const appId = dialog.id;
@@ -119,17 +112,9 @@
 </script>
 
 <form>
-    <RadioGroup
-        heading="A5E.RollModeHeading"
-        ,
-        buttons={[
-            {
-                classes: "fas fa-question-circle",
-                tooltip: rollModeString,
-            },
-        ]}
-        options={rollModeOptions}
+    <RollModePicker
         selected={rollMode}
+        source={rollModeString}
         on:updateSelection={({ detail }) => (rollMode = detail)}
     />
 

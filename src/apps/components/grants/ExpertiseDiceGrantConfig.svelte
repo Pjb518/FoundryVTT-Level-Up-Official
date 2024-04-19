@@ -10,6 +10,7 @@
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import GrantConfig from "./GrantConfig.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import prepareExpertiseDiceOptions from "../../dataPreparationHelpers/prepareExpertiseDiceOptions";
 
     export let { document, grantId, grantType } =
         getContext("#external").application;
@@ -56,7 +57,7 @@
             options: Object.entries(CONFIG.A5E.abilities),
         },
         attack: {
-            label: "A5E.AttackType",
+            label: "A5E.ActionOptionAttack",
             options: Object.entries(CONFIG.A5E.attackTypes),
         },
         initiative: {
@@ -68,6 +69,8 @@
             options: Object.entries(CONFIG.A5E.skills),
         },
     };
+
+    const expertiseDiceOptions = prepareExpertiseDiceOptions();
 
     $: grant = $item.system.grants[grantId];
     $: expertiseType = grant?.expertiseType || "ability";
@@ -100,7 +103,7 @@
         </div>
     </header>
 
-    <Section heading="Expertise Type" --a5e-section-body-gap="0.75rem">
+    <Section heading="Expertise Configuration" --a5e-section-body-gap="0.75rem">
         <RadioGroup
             heading="Expertise Type"
             options={Object.entries(configObject).map(([key, { label }]) => [
@@ -146,14 +149,14 @@
             </FieldWrapper>
         {/if}
 
-        <FieldWrapper heading="Expertise Dice Count">
-            <input
-                type="number"
-                value={grant?.expertiseCount ?? 1}
-                on:change={({ target }) =>
-                    onUpdateValue("expertiseCount", Number(target.value))}
-            />
-        </FieldWrapper>
+        <RadioGroup
+            heading="Expertise Dice Size"
+            options={expertiseDiceOptions}
+            selected={grant?.expertiseCount ?? 1}
+            on:updateSelection={({ detail }) => {
+                onUpdateValue("expertiseCount", detail);
+            }}
+        />
     </Section>
 
     <GrantConfig></GrantConfig>
