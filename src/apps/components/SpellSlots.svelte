@@ -3,14 +3,34 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
+    export let level = 0;
+
     const actor = getContext("actor");
 
-    export let level = 0;
+    function getMaxSpellSlots() {
+        if ($actor.type !== "character") {
+            return spellResources.slots[level.toString()]?.max;
+        }
+
+        if (sheetIsLocked) return spellResources.slots[level.toString()]?.max;
+        return spellResources.slots[level.toString()]?.override;
+    }
+
+    function updateSpellSlotMax(value) {
+        const key =
+            $actor.type === "character"
+                ? `system.spellResources.slots.${level}.override`
+                : `system.spellResources.slots.${level}.max`;
+
+        updateDocumentDataFromField($actor, key, value);
+    }
 
     $: spellResources = $actor.system.spellResources;
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
+
+    $: maxSpellSlots = getMaxSpellSlots(spellResources, sheetIsLocked);
 </script>
 
 {#if level && level !== "0"}
@@ -34,17 +54,11 @@
         <input
             class="number-input"
             type="number"
-            name="system.spellResources.slots.{level}.max"
-            value={spellResources.slots[level.toString()].max}
+            value={maxSpellSlots}
             placeholder="0"
             min="0"
             disabled={sheetIsLocked}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    target.name,
-                    Number(target.value),
-                )}
+            on:change={({ target }) => updateSpellSlotMax(Number(target.value))}
         />
     </div>
 {/if}

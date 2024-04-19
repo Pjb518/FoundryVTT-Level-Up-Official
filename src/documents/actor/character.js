@@ -142,7 +142,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
 
       Object.entries(classSlots).forEach(([level, slotCount]) => {
         const { max, override } = actorData.spellResources.slots[level];
-        actorData.spellResources.slots[level].max = override || max + (slotCount || 0);
+        actorData.spellResources.slots[level].max = override || (max || 0) + (slotCount || 0);
       });
     }
 
@@ -151,7 +151,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
       const { points } = cls.casting;
       const { max, override } = actorData.spellResources.points;
 
-      actorData.spellResources.points.max = override || max + (points || 0);
+      actorData.spellResources.points.max = override || (max || 0) + (points || 0);
     }
 
     if (grantedResources.inventions.length === 1) {
@@ -159,14 +159,14 @@ export default class CharacterActorA5E extends BaseActorA5e {
       const { inventions } = cls.casting;
       const { max, override } = actorData.spellResources.inventions;
 
-      actorData.spellResources.inventions.max = override || max + (inventions || 0);
+      actorData.spellResources.inventions.max = override || (max || 0) + (inventions || 0);
     }
 
     if (grantedResources.artifactCharges.length === 1) {
       const cls = grantedResources.artifactCharges[0];
       const { charges } = cls.casting;
       const { max, override } = actorData.spellResources.artifactCharges;
-      actorData.spellResources.artifactCharges.max = override || max + (charges || 0);
+      actorData.spellResources.artifactCharges.max = override || (max || 0) + (charges || 0);
     }
 
     // Handle multi classed spellcasting for slots
@@ -183,7 +183,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
 
       CONFIG.A5E.SPELL_SLOT_TABLE[total].forEach((slotCount, idx) => {
         const { max, override } = actorData.spellResources.slots[idx + 1];
-        actorData.spellResources.slots[idx + 1].max = override || max + (slotCount || 0);
+        actorData.spellResources.slots[idx + 1].max = override || (max || 0) + (slotCount || 0);
       });
     }
 
@@ -198,7 +198,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
 
       Object.entries(slots).forEach(([level, slotCount]) => {
         const { max, override } = actorData.spellResources.slots[level];
-        actorData.spellResources.slots[level].max = override || max + (slotCount || 0);
+        actorData.spellResources.slots[level].max = override || (max || 0) + (slotCount || 0);
       });
     });
 
