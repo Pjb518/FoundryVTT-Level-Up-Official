@@ -48,6 +48,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
 
     // Setup automation flags
     const automationAvailable = Object.keys(this.classes ?? {}).length > 0;
+    this.automationAvailable = automationAvailable;
 
     this.classAutomationFlags = {
       classes: this.getFlag('a5e', 'automateClasses') ?? automationAvailable ?? true,
