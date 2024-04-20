@@ -47,11 +47,13 @@ export default class CharacterActorA5E extends BaseActorA5e {
     super.prepareBaseData();
 
     // Setup automation flags
+    const automationAvailable = Object.keys(this.classes ?? {}).length > 0;
+
     this.classAutomationFlags = {
-      classes: this.getFlag('a5e', 'automateClasses') ?? true,
-      hitDice: this.getFlag('a5e', 'automateHitDice') ?? true,
-      hitPoints: this.getFlag('a5e', 'automateHitPoints') ?? true,
-      spellResources: this.getFlag('a5e', 'automateSpellResources') ?? true
+      classes: this.getFlag('a5e', 'automateClasses') ?? automationAvailable ?? true,
+      hitDice: this.getFlag('a5e', 'automateHitDice') ?? automationAvailable ?? true,
+      hitPoints: this.getFlag('a5e', 'automateHitPoints') ?? automationAvailable ?? true,
+      spellResources: this.getFlag('a5e', 'automateSpellResources') ?? automationAvailable ?? true
     };
 
     // Calculate the proficiency bonus for the character with a minimum value of 2.
@@ -115,7 +117,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
     const { classes } = this;
 
     // Handle no automation option
-    if (!this.classAutomationFlags.spellResources || !Object.keys(classes).length) {
+    if (!this.classAutomationFlags.spellResources) {
       const { spellResources } = actorData;
 
       Object.entries(spellResources.slots).forEach(([level, { override }]) => {
