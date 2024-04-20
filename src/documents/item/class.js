@@ -135,6 +135,11 @@ export default class ClassItemA5e extends OriginItemA5e {
     if (this.parent?.documentName === 'Actor') {
       const actor = this.parent;
       const { classes } = actor;
+
+      if (!Object.keys(classes).length) {
+        actor.update({ 'system.classes.startingClass': this.slug });
+      }
+
       const existing = classes[this.slug];
       if (existing) {
         existing.update({ 'system.classLevels': Math.min(existing.system.classLevels + 1, 20) });
