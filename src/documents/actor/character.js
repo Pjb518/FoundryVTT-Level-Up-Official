@@ -114,7 +114,20 @@ export default class CharacterActorA5E extends BaseActorA5e {
     const actorData = this.system;
     const { classes } = this;
 
-    // TODO: Class Documents - Handle no automation option
+    // Handle no automation option
+    if (!this.classAutomationFlags.spellResources || !Object.keys(classes).length) {
+      const { spellResources } = actorData;
+
+      Object.entries(spellResources.slots).forEach(([level, { override }]) => {
+        actorData.spellResources.slots[level].max = override || 0;
+      });
+
+      actorData.spellResources.points.max = spellResources.points.override || 0;
+      actorData.spellResources.inventions.max = spellResources.inventions.override || 0;
+      actorData.spellResources.artifactCharges.max = spellResources.artifactCharges.override || 0;
+
+      return;
+    }
 
     const grantedResources = {
       slots: [],
