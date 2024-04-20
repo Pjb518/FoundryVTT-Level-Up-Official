@@ -1,7 +1,7 @@
 {
 	"name": "Valkyrie",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/angel.webp",
 	"system": {
 		"abilities": {
 			"str": {
@@ -169,7 +169,7 @@
 			},
 			"ins": {
 				"ability": "wis",
-				"proficient": 0,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -400,7 +400,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"swim": {
@@ -408,7 +408,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -430,7 +430,7 @@
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				}
 			},
@@ -473,7 +473,10 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": [],
+			"terrain": [
+				"astralPlane",
+				"tomb"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -482,24 +485,28 @@
 				"abyssal",
 				"aquan",
 				"auran",
+				"boggard",
 				"celestial",
 				"common",
 				"deep",
 				"draconic",
-				"druidic",
 				"dwarvish",
 				"elvish",
 				"giant",
+				"gnoll",
 				"gnomish",
 				"goblin",
+				"grimlock",
+				"grippli",
 				"halfling",
 				"ignan",
 				"infernal",
+				"minotaur",
+				"mycelial",
 				"orc",
 				"primordial",
 				"sylvan",
 				"terran",
-				"cant",
 				"undercommon",
 				"Telepathy 120ft"
 			],
@@ -567,7 +574,9 @@
 				"Bludgeoning, piercing, and slashing damage from non-magical weapons"
 			],
 			"damageVulnerabilities": [],
-			"alignment": []
+			"alignment": [
+				"lawful"
+			]
 		},
 		"schemaVersion": {
 			"version": 0.016,
@@ -586,7 +595,7 @@
 				"name": "New Spell Book",
 				"img": "icons/svg/book.svg",
 				"ability": "default",
-				"disableSpellConsumers": false,
+				"disableSpellConsumers": true,
 				"showSpellPoints": false,
 				"showSpellSlots": false
 			}
@@ -597,7 +606,7 @@
 		"displayName": 0,
 		"actorLink": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/angel.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
@@ -842,7 +851,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>The valkyrie's spellcasting modifier is Charisma (spell save DC 16). They can cast the following spells without requiring material components:</p><p><strong>At will</strong>: <em>spare the dying</em></p><p><strong>1/day</strong>: <em>bane, bless, divine favor, shield of faith, plane shift (self only)</em></p>",
+				"description": "<p>The valkyrie's spellcasting modifier is Charisma (spell save DC 16). They can cast the following spells without requiring material components:</p>\n<p><strong>At will</strong>: @UUID[Compendium.a5e.a5e-spells.Item.omvngnmoo75is54f]{Spare the Dying}</p>\n<p><strong>1/day</strong>: <em>@UUID[Compendium.a5e.a5e-spells.Item.o94b50tj959v55mm]{Bane}, @UUID[Compendium.a5e.a5e-spells.Item.xnm2hvlfzqp792tz]{Bless}, @UUID[Compendium.a5e.a5e-spells.Item.k6hp55xktapsrjqo]{Divine Favor}, @UUID[Compendium.a5e.a5e-spells.Item.jjitkg5fs2i5gbgc]{Shield of Faith}, @UUID[Compendium.a5e.a5e-spells.Item.l3lr6rwvw7csn6on]{Plane Shift} (self only)</em></p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -892,7 +901,7 @@
 			"system": {
 				"actions": {},
 				"description": "<p>A jolt of healing energy flows through the target and it becomes stable.</p>",
-				"favorite": true,
+				"favorite": false,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1290,7 +1299,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"taKFPXrNvycaFkYW": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The valkyrie makes three spear attacks.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -1329,94 +1360,6 @@
 			"flags": {}
 		},
 		{
-			"name": "Spear",
-			"type": "object",
-			"img": "icons/weapons/polearms/spear-flared-wrapped.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-adventuring-gear.ehrht446maas96sf"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "1 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"thrown",
-					"simple",
-					"versatile",
-					"defensive"
-				],
-				"weight": 0,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				},
-				"breakerProperties": [],
-				"defensiveProperties": "",
-				"flaws": [],
-				"mounted": [],
-				"versatile": ""
-			},
-			"_id": "ujUjYSmh9U8j9GtW",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"name": "Invisibility",
 			"type": "feature",
 			"_id": "owW0FP0uYdLlYKJZ",
@@ -1432,7 +1375,35 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"5cqgRx8YXxo6xlTv": {
+						"name": "Invisibility",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"S2iyDMMMhJoWjOoH": {
+								"type": "effect",
+								"default": true,
+								"effectId": "A3IYly6GQv10lnyz"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The valkyrie becomes invisible along with everything it is carrying. This invisibility lasts until it attacks or casts a spell.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -1462,7 +1433,46 @@
 					}
 				}
 			},
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.0DSKh8BR3uCbgfJ0.Item.owW0FP0uYdLlYKJZ",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "5cqgRx8YXxo6xlTv",
+							"applyToSelf": true
+						}
+					},
+					"transfer": false,
+					"name": "Invisibility",
+					"_id": "A3IYly6GQv10lnyz",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"invisible\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"invisible"
+					],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1486,9 +1496,47 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"ALAI8LwjubUX3mr6": {
+						"name": "Chooser of the Slain",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {
+							"CjExG0B5A3JaHHMt": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {
+							"NaLJcmtJ7upMfpQh": {
+								"type": "effect",
+								"default": true,
+								"effectId": "FwQnQCDSbOtqSSGU"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
 				"description": "<p>The valkyrie selects one creature that is currently in combat in a fight the valkyrie is not involved in. That creature becomes doomed. A valkyrie may not directly attack a creature they have doomed unless that creature attacks them first.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1516,7 +1564,45 @@
 					}
 				}
 			},
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.0DSKh8BR3uCbgfJ0.Item.Cep2I8LvpHCDbmjF",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "ALAI8LwjubUX3mr6"
+						}
+					},
+					"transfer": false,
+					"name": "Doomed",
+					"_id": "FwQnQCDSbOtqSSGU",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"doomed\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"doomed"
+					],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -2081,6 +2167,589 @@
 			"ownership": {
 				"default": 0
 			}
+		},
+		{
+			"name": "Shield, Medium",
+			"type": "object",
+			"img": "icons/equipment/shield/heater-steel-worn.webp",
+			"effects": [
+				{
+					"icon": "icons/equipment/shield/heater-steel-worn.webp",
+					"origin": "Actor.0DSKh8BR3uCbgfJ0.Item.XwP5JHtdAGAeabmo",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "PwrEe2BhzH8Ia3ZA",
+							"applyToSelf": true,
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Defensive AC",
+					"_id": "R4H9hwQqrcReSUg6",
+					"changes": [
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.19oc64en7c6kmk1w"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "2",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"cUpj4DbP1HGzD1wN": {
+						"name": "Attack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"tFenoUYFUlCECoM8": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": false,
+								"ability": "str",
+								"label": "Improvised Weapon"
+							},
+							"wxWij6knaFs6y2gk": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d4 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						},
+						"img": "icons/equipment/shield/heater-steel-worn.webp"
+					},
+					"JEahSlMI4KFp4o3L": {
+						"name": "Attack (Defensive)",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"tFenoUYFUlCECoM8": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": false,
+								"ability": "str",
+								"label": "Improvised Weapon"
+							},
+							"wxWij6knaFs6y2gk": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d4 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						},
+						"img": "icons/equipment/shield/heater-steel-worn.webp",
+						"ranges": {
+							"EfMMyZTD32hz3WC7": {
+								"range": "fiveFeet"
+							}
+						}
+					},
+					"PwrEe2BhzH8Ia3ZA": {
+						"name": "Increase Armor Class (Defensive)",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"1RmCVO4QKQ9DZpDM": {
+								"type": "effect",
+								"default": true,
+								"effectId": ""
+							},
+							"hhUcyCDWAO7SCqQg": {
+								"type": "effect",
+								"default": true,
+								"effectId": ""
+							},
+							"uoPg8EUOGKhSBNjo": {
+								"type": "effect",
+								"default": true,
+								"effectId": "ee5CTKqflPMaNhE9"
+							},
+							"rBVLiQalkwbq3POK": {
+								"type": "effect",
+								"default": true,
+								"effectId": "R4H9hwQqrcReSUg6"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"bZ9qqcaxSNoGUVmk": {
+								"range": "self"
+							}
+						},
+						"img": "icons/equipment/shield/heater-steel-worn.webp"
+					}
+				},
+				"description": "<p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "shield",
+				"plotItem": false,
+				"price": "20 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "medium",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 8,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.015,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "",
+				"mounted": []
+			},
+			"folder": null,
+			"_id": "XwP5JHtdAGAeabmo",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Hauberk (Steel)",
+			"type": "object",
+			"img": "icons/commodities/metal/mail-chain-steel.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.7vkaqeoxanmza77e"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "16",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 13,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "heavy",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [
+					"lowMaintenance"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "150 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 20,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.015,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "",
+				"mounted": []
+			},
+			"folder": null,
+			"_id": "B7yNxaLUqaaZprug",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Spear",
+			"type": "object",
+			"img": "icons/weapons/polearms/spear-flared-wrapped.webp",
+			"effects": [
+				{
+					"icon": "icons/weapons/polearms/spear-flared-wrapped.webp",
+					"origin": "Actor.0DSKh8BR3uCbgfJ0.Item.c3z6EJQhJkCUM64n",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "JtplYF8JKilBpP4f",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "AC +1",
+					"_id": "CzoRKz1aFF2zbPZy",
+					"changes": [
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.ehrht446maas96sf"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"kWsss8bI70rtpUV6": {
+						"name": "Spear",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"GLFs1wAhfJxSfSPp": {
+								"range": "fiveFeet",
+								"unit": "feet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"bgXGyMGdFJjCkrXA": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"EH41F8oxdy5FXyOT": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6 + @str.mod",
+								"name": "Spear - 1H",
+								"type": "damage",
+								"label": "",
+								"default": true
+							},
+							"pONPMngoe4xpc25q": {
+								"type": "damage",
+								"default": true,
+								"formula": "3d10",
+								"damageType": "necrotic"
+							}
+						},
+						"consumers": {}
+					},
+					"MrV3YZriaZmI1ygT": {
+						"name": "Spear (Throw)",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"ranges": {
+							"GLFs1wAhfJxSfSPp": {
+								"range": 20,
+								"unit": "feet"
+							},
+							"Cmac44PO3vBMH47C": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"bgXGyMGdFJjCkrXA": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "rangedWeaponAttack",
+								"ability": "default"
+							},
+							"EH41F8oxdy5FXyOT": {
+								"canCrit": true,
+								"damageType": "piercing",
+								"formula": "1d6 + @finesse.mod",
+								"name": "Spear - 1H",
+								"type": "damage"
+							},
+							"aLxYwCBr22ygMuAy": {
+								"type": "damage",
+								"default": true,
+								"formula": "3d10",
+								"damageType": "necrotic"
+							}
+						},
+						"consumers": {
+							"HxaaV7J2JDjit1gC": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>If the target is doomed, this attack is made with advantage.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "1 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"thrown",
+					"simple",
+					"versatile",
+					"defensive"
+				],
+				"weight": 3,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.013,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "heavy",
+				"flaws": [],
+				"versatile": "d8",
+				"mounted": []
+			},
+			"folder": null,
+			"_id": "c3z6EJQhJkCUM64n",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
@@ -2099,7 +2768,8 @@
 			"showManeuverTab": false,
 			"showSpellTab": true,
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": true
 		}
 	},
 	"folder": null,

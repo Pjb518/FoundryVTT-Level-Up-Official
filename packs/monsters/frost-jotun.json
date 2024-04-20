@@ -1,14 +1,57 @@
 {
 	"name": "Frost Jotun",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/frost-giant.webp",
 	"items": [
 		{
 			"_id": "umZLP2ZnFHtax9xj",
 			"name": "Fire Fear",
 			"type": "feature",
 			"img": "icons/svg/item-bag.svg",
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.6EwSom31sNVFbQ8Y.Item.umZLP2ZnFHtax9xj",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "8Mh3YKts0PyE8xDK",
+							"applyToSelf": true,
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Rattled",
+					"_id": "eLVJv1cGl95M9jxi",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"rattled\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"rattled"
+					],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 100000,
 			"flags": {},
@@ -23,7 +66,32 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"8Mh3YKts0PyE8xDK": {
+						"name": "Fire Fear",
+						"activation": {},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"CYeXG1gduDMF4Ahf": {
+								"type": "effect",
+								"default": true,
+								"effectId": "eLVJv1cGl95M9jxi"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>When the frost jotun takes fire damage, it is rattled until the end of its next turn.</p>",
 				"favorite": false,
 				"secretDescription": "",
@@ -81,205 +149,30 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
-				"description": "<p>The jotun makes two melee weapon attacks.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "iJ1CslkBu938WM8J",
-			"name": "Battleaxe",
-			"type": "object",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"flags": {},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>If the target is a Large or smaller creature, it makes a DC 18 Strength saving throw, falling prone on a failure.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "0",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"reach"
-				],
-				"weight": 0,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
+				"actions": {
+					"MTVD2DS2uRJGRUtr": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
 						}
 					}
 				},
-				"breakerProperties": [],
-				"defensiveProperties": "",
-				"flaws": [],
-				"mounted": [],
-				"versatile": ""
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "7nO4ctMRUlUgbIlP",
-			"name": "Rock",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 300000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>If the target is a Large or smaller creature, it makes a DC 18 Strength saving throw, falling prone on a failure. In lieu of a rock, the giant can throw a grappled Medium or smaller creature up to 40 feet. On a hit, the target and the thrown creature both take 19 (4d6 + 5) bludgeoning damage. On a miss, only the thrown creature takes the damage. The thrown creature falls prone in an unoccupied space 5 feet from the target.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"_id": "cOT2A2leXxCKyUxo",
-			"name": "Grab",
-			"type": "feature",
-			"img": "icons/svg/item-bag.svg",
-			"effects": [],
-			"folder": null,
-			"sort": 375000,
-			"flags": {
-				"core": {
-					"sourceId": "Item.i2cfGU9ofnKwr9OF"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>One creature within 5 feet makes a DC 11 Dexterity saving throw. On a failure, it is grappled (escape DC 18). Until this grapple ends, the jotun can’t grab another target, and it makes battleaxe attacks with advantage against the grappled target.</p>",
+				"description": "<p>The frost jotun makes two battleaxe attacks.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -336,8 +229,60 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
-				"description": "<p>One prone target.</p>",
+				"actions": {
+					"d39l9irjoli5LWze": {
+						"name": "Stomp",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {
+							"k3d5jU1rSTYT1ECY": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {
+							"l3XhT0VSWebI7fS6": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"keeEm5uJGaMnrCRU": {
+								"type": "damage",
+								"default": true,
+								"formula": "3d4 +  @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"Xzhn5EdTDImzwep7": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "other",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p><em><strong>Target:&nbsp;</strong>One prone target.</em></p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -371,64 +316,6 @@
 			}
 		},
 		{
-			"name": "Elite Recovery (While Bloodied)",
-			"type": "feature",
-			"_id": "7B5NtfHjWFZNzOjI",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The frost jotun ends one negative effect currently affecting it. It can do so as long as it has at least 1 hit point, even while unconscious or incapacitated.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Actor.czFp55UBGczAUZWk.Item.eAjzeFlgrh6lAnZ2"
-				}
-			}
-		},
-		{
 			"name": "Bloodied Stomp",
 			"type": "feature",
 			"_id": "yVTLQKh9J5Mf40E0",
@@ -444,15 +331,40 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"FxY7tjzF1PKt5mZq": {
+						"name": "Bloodied Stomp",
+						"activation": {},
+						"consumers": {
+							"IqKAqfO14EmVg2FY": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>When the frost jotun is bloodied, it regains its Stomp ability at the beginning of its turn.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
@@ -462,7 +374,7 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false,
+				"requiresBloodied": true,
 				"schemaVersion": {
 					"version": 0.016,
 					"lastMigration": {
@@ -1039,12 +951,792 @@
 			"ownership": {
 				"default": 0
 			}
+		},
+		{
+			"name": "Patchwork",
+			"type": "object",
+			"system": {
+				"ac": {
+					"baseFormula": "15",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "",
+				"proficient": false,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 0,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": null
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"mounted": [],
+				"versatile": ""
+			},
+			"_id": "IQ0PU6xeEWB3vV8D",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Battleaxe",
+			"type": "object",
+			"img": "icons/weapons/axes/axe-broad-worn-yellow.webp",
+			"effects": [
+				{
+					"icon": "icons/weapons/axes/axe-broad-worn-yellow.webp",
+					"origin": "Actor.6EwSom31sNVFbQ8Y.Item.3y6TWmRqtbR4m7rJ",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "WxrKkACX1wxInfxI"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "Ky5DxFaEwXNSQpon",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.2tix2mu9d3gorip7"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"WxrKkACX1wxInfxI": {
+						"name": "Battleaxe",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"EQCnW3zLtpx2T6bW": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"bCtx9xg6CapuceBX": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "3d10 + @str.mod",
+								"name": "Battleaxe 2H",
+								"type": "damage",
+								"label": "",
+								"default": true
+							}
+						},
+						"consumers": {},
+						"ranges": {
+							"vlDvStzpD9txBxWv": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"prompts": {
+							"yIyHc7DBtUlKNA7O": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "maneuver"
+								}
+							},
+							"cXLfknE96DI9RCEQ": {
+								"type": "effect",
+								"default": true,
+								"effectId": "Ky5DxFaEwXNSQpon"
+							}
+						}
+					}
+				},
+				"description": "<p>If the target is a Large or smaller creature, it makes a DC 18 Strength saving throw, falling prone on a failure.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "10 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"breaker",
+					"versatile"
+				],
+				"weight": 6,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.013,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"breakerProperties": [
+					"wood"
+				],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "d10",
+				"mounted": []
+			},
+			"folder": null,
+			"_id": "3y6TWmRqtbR4m7rJ",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "0LEFRPMnCcq8VXYw",
+			"name": "Rock",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.6EwSom31sNVFbQ8Y.Item.0LEFRPMnCcq8VXYw",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "z30C9URE1zFgZSvj"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "mWMlfADoaSi6lUyM",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 250000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"z30C9URE1zFgZSvj": {
+						"name": "Rock",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"vPRbm2Un6BrtKESg": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"l5t9yTCeU7Ep4LJJ": {
+								"type": "damage",
+								"default": true,
+								"formula": "9d6 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"UQLpuuISs3Iv9epZ": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "maneuver"
+								}
+							},
+							"ix7Hvop83iLVIE0E": {
+								"type": "effect",
+								"default": true,
+								"effectId": "mWMlfADoaSi6lUyM"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"xmY83u1QYSe8ircE": {
+								"range": "medium"
+							},
+							"BoaAgIr7uHeHsmi0": {
+								"range": 240,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>If the target is a Large or smaller creature, it makes a DC 18 Strength saving throw, falling prone on a failure.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "gEXMgtfQq2FseXlM",
+			"name": "Throw Creature",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.6EwSom31sNVFbQ8Y.Item.gEXMgtfQq2FseXlM",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "z30C9URE1zFgZSvj"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "mWMlfADoaSi6lUyM",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 250000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"z30C9URE1zFgZSvj": {
+						"name": "Throw Creature",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"vPRbm2Un6BrtKESg": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"l5t9yTCeU7Ep4LJJ": {
+								"type": "damage",
+								"default": true,
+								"formula": "4d6 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"ix7Hvop83iLVIE0E": {
+								"type": "effect",
+								"default": true,
+								"effectId": "mWMlfADoaSi6lUyM"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"xmY83u1QYSe8ircE": {
+								"range": 40,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>In lieu of a rock, the jotun can throw a grappled Medium or smaller creature up to 40 feet. On a hit, the target and the thrown creature both take 19 (4d6+5) bludgeoning damage. On a miss, only the thrown creature takes the damage. The thrown creature falls prone in an unoccupied space 5 feet from the target.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"_id": "czRM8eNEqI70MRbB",
+			"name": "Grab",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.6EwSom31sNVFbQ8Y.Item.czRM8eNEqI70MRbB",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "eFg4hKR2hBV6fZ9S"
+						}
+					},
+					"transfer": false,
+					"name": "Grappled",
+					"_id": "0x5gPZMx6AZPp9d8",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"grappled\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"grappled"
+					],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 287500,
+			"flags": {
+				"core": {
+					"sourceId": "Item.i2cfGU9ofnKwr9OF"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"eFg4hKR2hBV6fZ9S": {
+						"name": "Grab",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"eLky4zTfiqRBFouj": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "dex"
+								}
+							},
+							"CerGhyyvRxxzsLiK": {
+								"type": "effect",
+								"default": true,
+								"effectId": "0x5gPZMx6AZPp9d8"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>One creature within 5 feet makes a DC 11 Dexterity saving throw. On a failure, it is grappled (escape DC 18). Until this grapple ends, the jotun can't grab another target, and it makes battleaxe attacks with advantage against the grappled target.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Elite Recovery",
+			"type": "feature",
+			"_id": "oLRdsvvmkEmS7D5Y",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"n7UbZpAsVnhdfFGG": {
+						"name": "Elite Recovery",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The jotun ends one negative effect currently affecting it. It can do so as long as it has at least 1 hit point, even while unconscious or incapacitated.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": true,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"core": {
+					"sourceId": "Actor.SDwavzrLR8ao9AQf.Item.eAjzeFlgrh6lAnZ2"
+				}
+			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": false,
+			"sheetIsLocked": true,
 			"sortMode": {},
 			"filters": {}
 		}
@@ -1455,7 +2147,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"traits": {
@@ -1517,10 +2209,14 @@
 			],
 			"isSwarm": false,
 			"cr": 9,
-			"elite": false,
+			"elite": true,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": [],
+			"terrain": [
+				"mountains",
+				"theBleakGate",
+				"tundra"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -1655,7 +2351,7 @@
 		"flags": {},
 		"randomImg": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/frost-giant.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,

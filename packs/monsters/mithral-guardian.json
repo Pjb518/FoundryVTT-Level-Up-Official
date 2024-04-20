@@ -1,7 +1,7 @@
 {
 	"name": "Mithral Guardian",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/shield-guardian.webp",
 	"system": {
 		"abilities": {
 			"str": {
@@ -347,7 +347,7 @@
 		"attributes": {
 			"ac": {
 				"value": 0,
-				"baseFormula": "10 + @dex.mod"
+				"baseFormula": "21"
 			},
 			"death": {
 				"success": 0,
@@ -408,7 +408,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"traits": {
@@ -422,7 +422,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -473,7 +473,12 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": [],
+			"terrain": [
+				"laboratory",
+				"ruin",
+				"temple",
+				"tomb"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -545,8 +550,7 @@
 				"fire",
 				"poison",
 				"psychic",
-				"Bludgeoning, piercing, and slashing damage from non-magical weapons",
-				"Non-adamantine weapons"
+				"Bludgeoning, piercing, and slashing damage from non-magical, non-adamantine weapons"
 			],
 			"damageResistances": [],
 			"damageVulnerabilities": [],
@@ -580,7 +584,7 @@
 		"displayName": 0,
 		"actorLink": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/shield-guardian.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
@@ -820,7 +824,38 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"q9DOlD5YeMIoj1nS": {
+						"name": "Parrying Blades",
+						"activation": {},
+						"consumers": {
+							"ouALyu2Xc0p3NME8": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {
+							"HhhDmEjUbutYKhSF": {
+								"type": "generic",
+								"default": true,
+								"formula": "1d4"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>Once per round, the mithral guardian can add an expertise die to its AC against a single attack made by a creature it can see. It cannot use this property while incapacitated, rattled, restrained, or stunned.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -874,7 +909,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"IlYPDHsi8PkRvsn2": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The guardian makes four scimitar attacks.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -913,93 +970,6 @@
 			"flags": {}
 		},
 		{
-			"name": "Scimitar",
-			"type": "object",
-			"img": "icons/weapons/swords/scimitar-worn-blue.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-adventuring-gear.4wvjchmo31jngkyk"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [],
-				"objectType": "weapon",
-				"plotItem": false,
-				"price": "20 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [
-					"finesse",
-					"defensive",
-					"dualWielding"
-				],
-				"weight": 0,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				},
-				"breakerProperties": [],
-				"defensiveProperties": "",
-				"flaws": [],
-				"mounted": [],
-				"versatile": ""
-			},
-			"_id": "xwWEyL28n9H6XHWb",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
 			"name": "Light as a Feather",
 			"type": "feature",
 			"_id": "FB69VwueZopdvUZd",
@@ -1015,7 +985,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"hiOUX8ZN3kRtqDqq": {
+						"name": "Light as a Feather",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The mithral guardian may take the Dash or Disengage action.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -1069,7 +1061,44 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"x7aqSi98MXSkKLwT": {
+						"name": "Polished Sheen",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "Ccreature makes an attack rollagainst the mithral guardian, and if the guardian is in an area ofbright light"
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"Z5hjaSWCZu2rJ9Op": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "con"
+								}
+							},
+							"qElSzhN8sUJAj7at": {
+								"type": "effect",
+								"default": true,
+								"effectId": "fk0dJtkVBRtweNIe"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>Whenever a creature makes an attack roll against the mithral guardian, if the guardian is in an area of bright light, it may use its reaction to force the attacker to make a DC 19 Constitution saving throw or be blinded until the end of the mithral guardian’s next turn.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -1099,7 +1128,49 @@
 					}
 				}
 			},
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.Fjoc0UbmiB27CCNN.Item.bJ7FG0MReIbjhW5K",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "x7aqSi98MXSkKLwT",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Blinded",
+					"_id": "fk0dJtkVBRtweNIe",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"blinded\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"blinded"
+					],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1664,6 +1735,180 @@
 			"ownership": {
 				"default": 0
 			}
+		},
+		{
+			"name": "Scimitar",
+			"type": "object",
+			"img": "icons/weapons/swords/scimitar-worn-blue.webp",
+			"effects": [
+				{
+					"icon": "icons/weapons/swords/scimitar-worn-blue.webp",
+					"origin": "Actor.Fjoc0UbmiB27CCNN.Item.8NQuJnTtYrOrVeNm",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "1w6mZi0L5dJhv4TU",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "AC +1",
+					"_id": "PiHWvQKjPGNpP7A7",
+					"changes": [
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.4wvjchmo31jngkyk"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"6obCuJYfNHC8IPSR": {
+						"name": "Scimitar",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"Z80yvTABrbK7jTpF": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"KJiGUS59j662UbJm": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "2d6 + @finesse.mod",
+								"name": "Scimitar",
+								"type": "damage"
+							}
+						},
+						"consumers": {},
+						"ranges": {
+							"YUGq3pPdMRNh3sjv": {
+								"range": 10,
+								"unit": "feet"
+							}
+						}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "20 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"finesse",
+					"defensive",
+					"dualWielding"
+				],
+				"weight": 3,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.015,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "light",
+				"flaws": [],
+				"versatile": "",
+				"mounted": []
+			},
+			"folder": null,
+			"_id": "8NQuJnTtYrOrVeNm",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
 		}
 	],
 	"effects": [],
@@ -1677,7 +1922,8 @@
 			"showManeuverTab": false,
 			"showSpellTab": false,
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": true
 		}
 	},
 	"folder": null,

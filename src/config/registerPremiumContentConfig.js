@@ -516,6 +516,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Stranger Sights: Challenges for 5e and Advanced 5e',
       url: 'https://bit.ly/3SmPaEv'
     },
+    theHauntingOfCalrowRuins: {
+      abbreviation: 'THoCR',
+      affiliate: false,
+      publisher: 'enPublishing',
+      title: 'The Haunting of Calrow Ruins',
+      url: 'https://enpublishingrpg.com/products/the-haunting-of-calrow-ruins'
+    },
     thematicToolkitArcaneAvenger: {
       abbreviation: 'TT:AA',
       affiliate: true,

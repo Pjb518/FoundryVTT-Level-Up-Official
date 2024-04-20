@@ -1,7 +1,7 @@
 {
 	"name": "Grendelkin",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/troll.webp",
 	"system": {
 		"abilities": {
 			"str": {
@@ -347,7 +347,7 @@
 		"attributes": {
 			"ac": {
 				"value": 0,
-				"baseFormula": "10 + @dex.mod"
+				"baseFormula": "14"
 			},
 			"death": {
 				"success": 0,
@@ -404,11 +404,11 @@
 					"unit": "feet"
 				},
 				"swim": {
-					"distance": 0,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"traits": {
@@ -422,7 +422,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -473,7 +473,11 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": [],
+			"terrain": [
+				"forest",
+				"hills",
+				"tundra"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -571,7 +575,7 @@
 		"displayName": 0,
 		"actorLink": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/troll.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
@@ -703,9 +707,40 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"aBKm1qe1WtxBfyNG": {
+						"name": "Brawling Vulnerability",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"RpRwRIVhzuiywq2Z": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis"
+							}
+						},
+						"prompts": {
+							"CZD6N2vGjeHkWaNH": {
+								"type": "effect",
+								"default": true,
+								"effectId": "tS7Bx7D6qMT0I1mF"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>Damage from unarmed strikes, natural attacks, and maneuvers that are not performed using a weapon bypass a grendelkin's damage resistances and immunities, and if it takes damage from such a source it must make a DC 15 Wisdom saving throw or be frightened until the end of its next turn. It takes an additional 1d4 damage from such attacks while grappled.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -733,7 +768,49 @@
 					}
 				}
 			},
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.mQUmCA9ymQf4DqcL.Item.pDK0v4ABgUeY83da",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "aBKm1qe1WtxBfyNG",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Frightned",
+					"_id": "tS7Bx7D6qMT0I1mF",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"frightened\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"frightened"
+					],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -811,7 +888,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"Bdiab6wOaCxmLWxp": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The grendelkin makes three attacks, one with its bite and two with its slam.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -865,7 +964,52 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"i5jw3lo8blrKCiia": {
+						"name": "Bite",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"VCpqwKG0UH3q08RY": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"7hIojKo8Md7tEpV2": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d8 + @str.mod",
+								"damageType": "piercing"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"4ZJ6QvZmvjNYxI74": {
+								"range": "self"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
 				"description": "",
 				"favorite": true,
 				"secretDescription": "",
@@ -919,7 +1063,59 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"3ovOehGX8LTgB3XZ": {
+						"name": "Slam",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"XhTdNojmWm6aaI6t": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"onklK9sEb3tydqYE": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d10 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"Rt5RfL4InyTmT6I0": {
+								"type": "effect",
+								"default": true,
+								"effectId": "A5SVZ0IwBDujEFvT"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"3PqVVdS2lqQQu6U2": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
 				"description": "<p>If the grendelkin hits the same Medium or smaller target with two slam attacks in the same round, the creature is grappled (escape DC 18).</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -949,7 +1145,45 @@
 					}
 				}
 			},
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.mQUmCA9ymQf4DqcL.Item.aWMJ1Qpp1XvteKiX",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "3ovOehGX8LTgB3XZ"
+						}
+					},
+					"transfer": false,
+					"name": "Grappled",
+					"_id": "A5SVZ0IwBDujEFvT",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"grappled\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"grappled"
+					],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -973,7 +1207,56 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"bi3a3Hac4KDnISUm": {
+						"name": "Rend Flesh",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"hEk5ZhwQKHw0PJgk": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "8d10",
+								"damageType": "slashing"
+							}
+						},
+						"prompts": {
+							"kX4zNLnxLV3qM5k8": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con",
+								"saveDC": {
+									"type": "maneuver"
+								},
+								"onSave": "Half damage"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"AWOVNTQDfIARET41": {
+								"range": "touch"
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
 				"description": "<p>The grendelkin attempts to rip a creature it is grappling apart. The creature must make a DC 18 Constitution saving throw, taking 8d10 slashing damage on a failure or half damage on a success. If this damage reduces the target to 0 hit points they are torn into pieces and die.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -1582,7 +1865,8 @@
 			"showManeuverTab": false,
 			"showSpellTab": false,
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": true
 		}
 	},
 	"folder": null,
