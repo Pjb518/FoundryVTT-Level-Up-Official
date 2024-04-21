@@ -19,7 +19,7 @@
     const actor = getContext("actor");
     const sheet = getContext("sheet");
 
-    const A5E = CONFIG.A5E;
+    const { A5E } = CONFIG;
 
     async function onDropObject(event, items) {
         const draggedItemUUID = JSON.parse(
@@ -110,7 +110,6 @@
 </script>
 
 <section class="category-container">
-    <!-- svelte-ignore missing-declaration -->
     {#if !(type === "featureTypes" && $actor.type === "npc")}
         <header
             class="a5e-section-header a5e-section-header--item-list"
@@ -131,7 +130,7 @@
                     {#if type === "favorites"}
                         {localize(label)}
                     {:else}
-                        {localize((CONFIG.A5E[type] ?? {})[label] ?? label)}
+                        {localize((A5E[type] ?? {})[label] ?? label)}
                     {/if}
                 </div>
 

@@ -5,12 +5,13 @@
     import LockButton from "./LockButton.svelte";
     import NavigationItem from "./NavigationItem.svelte";
 
-    const actor = getContext("actor");
-
     export let currentTab;
     export let tabs;
     export let showLock = false;
     export let showAdd = false;
+
+    const actor = getContext("actor");
+    const observerPermissionsLevel = CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER;
 </script>
 
 <nav class="nav-wrapper">
@@ -21,12 +22,10 @@
             {/if}
         {/each}
 
-        <!-- svelte-ignore missing-declaration -->
-        {#if showLock && $actor.permission !== CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER}
+        {#if showLock && $actor.permission !== observerPermissionsLevel}
             <LockButton />
         {/if}
 
-        <!-- svelte-ignore missing-declaration -->
         {#if showAdd}
             <AddButton on:add-button-clicked />
         {/if}

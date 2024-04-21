@@ -14,9 +14,10 @@
     import TargetRangeIncrement from "../itemActionsConfig/TargetRangeIncrement.svelte";
     import TargetScalingDialog from "../../dialogs/TargetScalingDialog.svelte";
 
-    const item = getContext("item");
     const actionId = getContext("actionId");
+    const item = getContext("item");
     const { A5E } = CONFIG;
+    const { isEmpty } = foundry.utils;
 
     function onClickTargetScalingButton() {
         let dialog = $item.dialogs.targetScaling[actionId];
@@ -112,11 +113,7 @@
                 {/if}
 
                 <select class="u-w-fit" on:change={selectTarget}>
-                    <!-- svelte-ignore missing-declaration (foundry) -->
-                    <option
-                        value={null}
-                        selected={foundry.utils.isEmpty(action?.target)}
-                    >
+                    <option value={null} selected={isEmpty(action?.target)}>
                         {localize("A5E.None")}
                     </option>
 

@@ -18,9 +18,6 @@
     export let actionId;
     export let item;
 
-    const A5E = CONFIG.A5E;
-    const getShapeProperties = TemplatePreparationManager.getShapeProperties;
-
     function onClickScalingButton() {
         let dialog = $item.dialogs.areaScaling[actionId];
 
@@ -69,6 +66,10 @@
         });
     }
 
+    const { A5E } = CONFIG;
+    const getShapeProperties = TemplatePreparationManager.getShapeProperties;
+    const { isEmpty } = foundry.utils;
+
     $: properties = [...getShapeProperties(action.area?.shape)];
 </script>
 
@@ -78,14 +79,13 @@
     --a5e-section-gap="0.5rem"
 >
     <div class="area-shape-list">
-        <!-- svelte-ignore missing-declaration (foundry)-->
         <input
             class="area-shape-input"
             id="area-{actionId}-none"
             name="{actionId}-area-shape"
             value={null}
             type="radio"
-            checked={foundry.utils.isEmpty(action.area)}
+            checked={isEmpty(action.area)}
             on:change={removeArea}
         />
 

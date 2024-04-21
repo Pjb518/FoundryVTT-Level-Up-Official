@@ -11,23 +11,6 @@
     export let consumers;
     export let spellData;
 
-    const actionId = getContext("actionId");
-    const actor = getContext("actor");
-    const item = getContext("item");
-
-    const { A5E } = CONFIG;
-    const action = $item.actions[actionId];
-    const spellLevels = Object.entries(A5E.spellLevels).slice(1);
-    const spellBook = $actor.spellBooks.get($item.system.spellBook);
-
-    const consumeOptions = {
-        spellSlot: "A5E.ConsumeSpellSlot",
-        spellPoint: "A5E.SpellPoints",
-        noConsume: "A5E.ConsumeNothing",
-    };
-
-    let disabled = [];
-
     function updateLevelAndPoints(level) {
         spellData.level = level;
         spellData.points = A5E.spellLevelCost[spellData.level];
@@ -88,6 +71,24 @@
         return selection;
     }
 
+    const actionId = getContext("actionId");
+    const actor = getContext("actor");
+    const item = getContext("item");
+
+    const { A5E } = CONFIG;
+    const action = $item.actions[actionId];
+    const { isEmpty } = foundry.utils;
+    const spellLevels = Object.entries(A5E.spellLevels).slice(1);
+    const spellBook = $actor.spellBooks.get($item.system.spellBook);
+
+    const consumeOptions = {
+        spellSlot: "A5E.ConsumeSpellSlot",
+        spellPoint: "A5E.SpellPoints",
+        noConsume: "A5E.ConsumeNothing",
+    };
+
+    let disabled = [];
+
     // =======================================================
     // Actor data
     let spellResources = $actor.system.spellResources;
@@ -109,7 +110,7 @@
     spellData.basePoints = consumer.points ?? 1;
     spellData.baseLevel = consumer.spellLevel ?? $item.system.level ?? 1;
 
-    if (foundry.utils.isEmpty(consumer)) {
+    if (isEmpty(consumer)) {
         spellData.consume = "noConsume";
 
         // Set up mode based on scaling type if consumer is empty
@@ -161,8 +162,7 @@
             updateLevelAndPoints(Number(detail))}
     />
 
-    <!-- svelte-ignore missing-declaration -->
-    {#if !foundry.utils.isEmpty(consumer)}
+    {#if !isEmpty(consumer)}
         <RadioGroup
             heading="A5E.ConsumeOptions"
             options={Object.entries(consumeOptions)}
@@ -198,8 +198,7 @@
     </FieldWrapper>
 
     <FieldWrapper>
-        <!-- svelte-ignore missing-declaration -->
-        {#if !foundry.utils.isEmpty(consumer)}
+        {#if !isEmpty(consumer)}
             <Checkbox
                 label="A5E.ConsumeSpellPoints"
                 checked={spellData.consume === "spellPoint" ? true : false}

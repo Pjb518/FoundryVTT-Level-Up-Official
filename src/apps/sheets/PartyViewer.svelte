@@ -427,6 +427,8 @@
         );
     });
 
+    const { isGM } = game.user;
+
     onDestroy(() => {
         unsubscribe();
     });
@@ -472,8 +474,7 @@
                 on:updateSelection={(event) => (currentViewMode = event.detail)}
             />
 
-            <!-- svelte-ignore missing-declaration -->
-            {#if game.user.isGM}
+            {#if isGM}
                 <button
                     class="sheet-lock fas {partyIsLocked
                         ? 'sheet-lock--locked fa-lock'

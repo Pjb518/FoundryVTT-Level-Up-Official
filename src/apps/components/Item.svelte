@@ -173,7 +173,6 @@
                 {/if}
             {/if}
 
-            <!-- svelte-ignore missing-declaration -->
             {@html description}
         {/if}
     </div>

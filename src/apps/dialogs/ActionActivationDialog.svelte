@@ -150,6 +150,12 @@
         consumers,
     );
 
+    const { isEmpty } = foundry.utils;
+    const preventActionRollOnWarning = game.settings.get(
+        "a5e",
+        "preventActionRollOnWarning",
+    );
+
     setContext("actionId", actionId);
     setContext("actor", actor);
     setContext("dialog", dialog);
@@ -178,8 +184,7 @@
 
     <OutputVisibilitySection bind:visibilityMode />
 
-    <!-- svelte-ignore missing-declaration -->
-    {#if !foundry.utils.isEmpty(attackRoll)}
+    {#if !isEmpty(attackRoll)}
         <AttackRollSection {attackRoll} {options} bind:attackRollData />
     {/if}
 
@@ -246,10 +251,8 @@
     {/if}
 
     <section>
-        <!-- svelte-ignore missing-declaration -->
         <button
-            disabled={game.settings.get("a5e", "preventActionRollOnWarning") &&
-                warnings.length}
+            disabled={preventActionRollOnWarning && warnings.length}
             on:click|preventDefault={onSubmit}
         >
             {#if warnings.length}

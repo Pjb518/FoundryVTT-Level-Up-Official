@@ -36,6 +36,7 @@
 
     const actorId = $actor.uuid;
     const dispatch = createEventDispatcher();
+    const { isGM } = game.user;
 
     const unsubscribe = actor.subscribe((_) =>
         dispatch("actor-updated", actorId),
@@ -70,8 +71,7 @@
         }}
     />
 
-    <!-- svelte-ignore missing-declaration -->
-    {#if game.user.isGM && !partyIsLocked}
+    {#if isGM && !partyIsLocked}
         <span class="delete-wrapper">
             <button
                 class="a5e-button a5e-button--delete delete-button fas fa-trash"

@@ -8,10 +8,10 @@
     const { actorId, img, name } = $message?.flags?.a5e;
     const actor = fromUuidSync(actorId);
     const dispatch = createEventDispatcher();
+    const { user } = game;
 </script>
 
-<!-- svelte-ignore missing-declaration -->
-{#if game.user.isGM || actor?.testUserPermission(game.user, 1)}
+{#if user.isGM || actor?.testUserPermission(user, 1)}
     <BaseHeader
         {img}
         altText={name}
