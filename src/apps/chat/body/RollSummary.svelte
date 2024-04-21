@@ -116,6 +116,11 @@
         }
     }
 
+    let hideSkillCriticalPrompt = game.settings.get(
+        "a5e",
+        "hideSkillCriticalPrompt",
+    );
+
     let tooltipIsVisible = false;
     let showRollConfig = false;
 
@@ -178,7 +183,7 @@
     {/if}
 </button>
 
-{#if !game.settings.get("a5e", "hideSkillCriticalPrompt") && rollData.type === "skillCheck" && rollData.skillKey}
+{#if !hideSkillCriticalPrompt && rollData.type === "skillCheck" && rollData.skillKey}
     {#if isCriticalSuccess}
         <button
             on:click={() => rollOnSkillTable(rollData.skillKey, "critical")}
