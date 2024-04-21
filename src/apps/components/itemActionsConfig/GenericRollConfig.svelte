@@ -1,10 +1,31 @@
 <script>
     import { getContext } from "svelte";
 
+    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
+
     import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
+    import GenericRollScalingDialog from "../../dialogs/GenericRollScalingDialog.svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+
+    function onClickScalingButton() {
+        let dialog = $item.dialogs.rollScaling[rollId];
+
+        if (!dialog) {
+            $item.dialogs.rollScaling[rollId] = new GenericConfigDialog(
+                $item,
+                `${$item.name} Roll Scaling Configuration`,
+                GenericRollScalingDialog,
+                { actionId, rollId },
+                { width: 432 },
+            );
+
+            dialog = $item.dialogs.rollScaling[rollId];
+        }
+
+        dialog.render(true);
+    }
 
     const item = getContext("item");
     const actionId = getContext("actionId");
@@ -44,17 +65,30 @@
     />
 </FieldWrapper>
 
-<FieldWrapper heading="A5E.RollFormula">
-    <input
-        type="text"
-        value={roll.formula ?? ""}
-        on:change={({ target }) =>
-            updateDocumentDataFromField(
-                $item,
-                `system.actions.${actionId}.rolls.${rollId}.formula`,
-                target.value,
-            )}
-    />
+<FieldWrapper heading="A5E.RollFormula" --a5e-field-wrapper-grow="1">
+    <div class="u-flex u-gap-sm u-w-full">
+        <input
+            type="text"
+            value={roll.formula ?? ""}
+            on:change={({ target }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    `system.actions.${actionId}.rolls.${rollId}.formula`,
+                    target.value,
+                )}
+        />
+
+        <button
+            class="scaling-button"
+            on:click|preventDefault={onClickScalingButton}
+        >
+            <i
+                class="fa-solid fa-arrow-up-right-dots"
+                data-tooltip="A5E.ConfigureDamageScaling"
+                data-tooltip-direction="UP"
+            />
+        </button>
+    </div>
 </FieldWrapper>
 
 <Checkbox
@@ -68,3 +102,32 @@
         );
     }}
 />
+
+<style lang="scss">
+    .scaling-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1.625rem;
+        width: 1.625rem;
+        padding: 0;
+        margin: 0;
+        font-size: $font-size-md;
+        background: transparent;
+        color: #999;
+        border: 1px solid #7a7971;
+        border-radius: $border-radius-standard;
+        cursor: pointer;
+
+        transition: $standard-transition;
+
+        i {
+            margin: 0;
+        }
+
+        &:focus,
+        &:hover {
+            color: #555;
+        }
+    }
+</style>
