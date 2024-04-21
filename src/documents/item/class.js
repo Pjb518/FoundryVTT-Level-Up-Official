@@ -15,7 +15,7 @@ export default class ClassItemA5e extends OriginItemA5e {
   get isStartingClass() {
     if (!this.isEmbedded) return false;
 
-    return this.parent.system.classes.startingClass === this.id;
+    return this.parent.system.classes.startingClass === this.slug;
   }
 
   get classLevels() {
@@ -153,8 +153,19 @@ export default class ClassItemA5e extends OriginItemA5e {
     return true;
   }
 
-  async _preUpdate(data, options, user) {
-    super._preUpdate(data, options, user);
+  async _preUpdate(changed, options, user) {
+    super._preUpdate(changed, options, user);
+
+    const keys = Object.keys(foundry.utils.flattenObject(changed));
+    if (keys.includes('system.hp.hitDiceSize') && this.isStartingClass) {
+      const size = foundry.utils.getProperty(changed, 'system.hp.hitDiceSize');
+      await this.updateSource({ 'system.hp.levels.1': size });
+    }
+
+    if (keys.includes('system.slug') && this.isStartingClass && this.parent?.documentName === 'Actor') {
+      const slug = foundry.utils.getProperty(changed, 'system.slug');
+      this.parent.update({ 'system.classes.startingClass': slug });
+    }
   }
 
   async _onCreate(data, options, userId) {
@@ -163,15 +174,16 @@ export default class ClassItemA5e extends OriginItemA5e {
 
   async _onUpdate(data, options, userId) {
     super._onUpdate(data, options, userId);
+    if (userId !== game.user.id) return;
 
     // Trigger recalculation of grants
     if (!this.parent && this.parent?.documentName !== 'Actor') return;
 
     const keys = Object.keys(foundry.utils.flattenObject(data ?? {}));
-    if (!keys.includes('system.classLevels')) return;
-
-    const actor = this.parent;
-    actor.grants.createLeveledGrants();
+    if (!keys.includes('system.classLevels')) {
+      const actor = this.parent;
+      actor.grants.createLeveledGrants();
+    }
   }
 
   async _onDelete(data, options, user) {
