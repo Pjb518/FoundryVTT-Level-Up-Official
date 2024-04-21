@@ -129,8 +129,15 @@ export default class ClassItemA5e extends OriginItemA5e {
     foundry.utils.setProperty(data, 'system.classLevels', 1);
     foundry.utils.setProperty(data, 'system.hp.hitDiceUsed', 0);
 
-    // TODO: Class Documents - If no parent class reset  hp
-    // TODO: Class Documents - Add data for default spell books.
+    // Update starting hp
+    if (!foundry.utils.getProperty(data, 'system.hp.levels.1')) {
+      foundry.utils.setProperty(data, 'system.hp.levels.1', 4);
+    }
+
+    // Reset hp rolls
+    Array.from({ length: 19 }, (_, i) => i + 2).forEach((level) => {
+      foundry.utils.setProperty(data, `system.hp.levels.${level}`);
+    });
 
     if (this.parent?.documentName === 'Actor') {
       const actor = this.parent;
