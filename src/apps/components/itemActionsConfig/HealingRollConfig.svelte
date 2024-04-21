@@ -4,7 +4,7 @@
 
     import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
-    import HealingScalingDialog from "../../dialogs/HealingScalingDialog.svelte";
+    import RollScalingDialog from "../../dialogs/RollScalingDialog.svelte";
     import Section from "../Section.svelte";
 
     import getOrdinalNumber from "../../../utils/getOrdinalNumber";
@@ -84,7 +84,7 @@
             $item.dialogs.rollScaling[rollId] = new GenericConfigDialog(
                 $item,
                 `${$item.name} Healing Scaling Configuration`,
-                HealingScalingDialog,
+                RollScalingDialog,
                 { actionId, rollId },
                 { width: 432 },
             );

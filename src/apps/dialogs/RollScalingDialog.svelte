@@ -12,7 +12,7 @@
     function getScalingOptions() {
         return [
             [null, "A5E.None"],
-            ...Object.entries(CONFIG.A5E.genericScalingModes),
+            ...Object.entries(CONFIG.A5E.baseScalingModes),
         ];
     }
 

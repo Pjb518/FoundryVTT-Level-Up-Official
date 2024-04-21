@@ -5,7 +5,7 @@
     import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 
     import Checkbox from "../Checkbox.svelte";
-    import DamageScalingDialog from "../../dialogs/DamageScalingDialog.svelte";
+    import RollScalingDialog from "../../dialogs/RollScalingDialog.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
 
@@ -79,7 +79,7 @@
             $item.dialogs.rollScaling[rollId] = new GenericConfigDialog(
                 $item,
                 `${$item.name} Damage Scaling Configuration`,
-                DamageScalingDialog,
+                RollScalingDialog,
                 { actionId, rollId },
                 { width: 432 },
             );

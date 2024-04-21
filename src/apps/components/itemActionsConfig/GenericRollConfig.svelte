@@ -5,7 +5,7 @@
 
     import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
-    import GenericRollScalingDialog from "../../dialogs/GenericRollScalingDialog.svelte";
+    import RollScalingDialog from "../../dialogs/RollScalingDialog.svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -16,7 +16,7 @@
             $item.dialogs.rollScaling[rollId] = new GenericConfigDialog(
                 $item,
                 `${$item.name} Roll Scaling Configuration`,
-                GenericRollScalingDialog,
+                RollScalingDialog,
                 { actionId, rollId },
                 { width: 432 },
             );
