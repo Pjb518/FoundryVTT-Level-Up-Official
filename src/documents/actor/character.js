@@ -82,8 +82,25 @@ export default class CharacterActorA5E extends BaseActorA5e {
       this.HitDiceManager.bySize
     );
 
+    this.prepareHitPoints();
     this.prepareLevelData();
     this.prepareSpellResources();
+  }
+
+  prepareHitPoints() {
+    if (!this.classAutomationFlags.hitPoints) {
+      const { baseMax: baseHP, bonus: bonusHP } = this.system.attributes.hp;
+      this.system.attributes.hp.max = baseHP + bonusHP;
+      this.prepareHitPointBonuses();
+      return;
+    }
+
+    const { classes } = this;
+    const bonusHP = this.system.attributes.hp.bonus ?? 0;
+    const maxHP = Object.values(classes ?? {}).reduce((acc, cls) => acc + cls.maxHP, 0);
+
+    this.system.attributes.hp.max = maxHP + bonusHP;
+    this.prepareHitPointBonuses();
   }
 
   /**

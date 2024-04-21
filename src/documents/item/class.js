@@ -40,7 +40,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     // Set up class resource manager
     this.resources = new ClassResourceManager(this);
 
-    this.maxHp = this.prepareMaxHitPoints();
+    this.maxHP = this.prepareMaxHitPoints();
     this.hitDice = {
       current: this.totalHitDice - this.system.hp.hitDiceUsed,
       total: this.totalHitDice,
@@ -58,7 +58,7 @@ export default class ClassItemA5e extends OriginItemA5e {
 
     return Object.entries(levels ?? {}).reduce((acc, [level, value]) => {
       if (level > this.classLevels) return acc;
-      return acc + value.hp;
+      return acc + value;
     }, 0);
   }
 

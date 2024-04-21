@@ -281,9 +281,6 @@ export default class BaseActorA5e extends Actor {
       });
     });
 
-    const { baseMax: baseHP, bonus: bonusHP } = actorData.attributes.hp;
-    actorData.attributes.hp.max = baseHP + bonusHP;
-
     try {
       actorData.attributes.maneuverDC = getDeterministicBonus([
         8,
@@ -310,6 +307,7 @@ export default class BaseActorA5e extends Actor {
       actorData.attributes.spellDC = null;
     }
 
+    this.prepareHitPointBonuses();
     this.prepareSkills();
     this.prepareMovement();
     this.prepareSenses();
@@ -440,6 +438,13 @@ export default class BaseActorA5e extends Actor {
     changes.bonuses = { components: changes.bonuses, value: bonuses };
 
     return changes;
+  }
+
+  /**
+  * Prepare hit point bonuses for the actor.
+  */
+  prepareHitPointBonuses() {
+
   }
 
   /**

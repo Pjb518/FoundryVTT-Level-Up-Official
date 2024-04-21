@@ -46,6 +46,11 @@ export default class NPCActorA5E extends BaseActorA5e {
   prepareDerivedData() {
     this.HitDiceManager = new HitDiceManager(this, false);
     super.prepareDerivedData();
+
+    const { baseMax: baseHP, bonus: bonusHP } = this.system.attributes.hp;
+    this.system.attributes.hp.max = baseHP + bonusHP;
+
+    this.prepareHitPointBonuses();
   }
 
   // -------------------------------------------------------------
