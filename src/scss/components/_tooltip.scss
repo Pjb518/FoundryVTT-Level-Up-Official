@@ -8,6 +8,19 @@
     font-size: 0.833rem;
     font-family: var(--a5e-font-sans-serif);
 
+    &--document-source {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.25rem;
+      margin-right: 0;
+      margin-top: 0.25rem;
+      background-color: rgba(20, 20, 20, 0.6);
+      backdrop-filter: blur(3px);
+      filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
+      box-shadow: 0 0 0 1px #e9d7a1, 0 0 0 2px #956d58;
+    }
+
     &--effect-summary {
       min-width: 40ch;
       max-width: 65ch;
@@ -36,6 +49,10 @@
     border-bottom: 0;
     font-size: 1rem;
     font-family: var(--a5e-font-serif);
+
+    &--source {
+      margin-bottom: 0;
+    }
   }
 
   &__list {
@@ -45,7 +62,7 @@
     padding-left: 1rem;
   }
 
-  &__removal-note {
+  &__note {
     display: block;
     margin-block: 0.25rem 0.125rem;
     opacity: 0.75;
