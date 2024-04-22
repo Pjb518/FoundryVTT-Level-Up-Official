@@ -1,7 +1,7 @@
 {
 	"name": "Forlorn Spirit",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/specter.webp",
 	"system": {
 		"abilities": {
 			"str": {
@@ -400,7 +400,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"swim": {
@@ -412,7 +412,7 @@
 					"unit": "feet"
 				},
 				"traits": {
-					"hover": false
+					"hover": true
 				}
 			},
 			"senses": {
@@ -422,7 +422,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -473,7 +473,23 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": [],
+			"terrain": [
+				"desert",
+				"etherealPlane",
+				"forest",
+				"grassland",
+				"hills",
+				"jungle",
+				"mountains",
+				"ruin",
+				"settlement",
+				"swamp",
+				"temple",
+				"theBleakGate",
+				"tomb",
+				"tundra",
+				"water"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -587,7 +603,7 @@
 		"displayName": 0,
 		"actorLink": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/specter.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
@@ -665,7 +681,34 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"llQDwDPgiABO7XZQ": {
+						"name": "Incorporeal",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"d0t6awHnsGlbxP29": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "1d10",
+								"damageType": "force"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The forlorn spirit can move through creatures and objects. It takes 1d10 force damage if it ends its turn inside an object.</p>",
 				"favorite": false,
 				"secretDescription": "",
@@ -720,7 +763,7 @@
 					"requiresUnarmored": false
 				},
 				"actions": {},
-				"description": "<p>A draugr doesn't require air, sustenance, or sleep.</p>",
+				"description": "<p>A forlorn spirit doesn&rsquo;t require air, sustenance, or sleep.</p>",
 				"favorite": false,
 				"secretDescription": "",
 				"source": "",
@@ -777,7 +820,52 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"KrICiuN62GLiHEm5": {
+						"name": "Touch of Sorrow",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"u9DfWH4iPwGWDStk": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "cha"
+							},
+							"1oOL35gfnhRdLSCS": {
+								"type": "damage",
+								"default": true,
+								"formula": "3d10 + @cha.mod",
+								"damageType": "psychic"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"IJ4OCg9nxuYzGFqA": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
 				"description": "",
 				"favorite": true,
 				"secretDescription": "",
@@ -831,8 +919,59 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
-				"description": "<p>The forlorn spirit targets a creature within 60ft. This creature must make a DC 13 Charisma saving throw or be overwhelmed with grief, anguish, and hopelessness. It has disadvantage on attack rolls and ability checks and gains vulnerability to psychic damage. If it fails by 5 or more it also gains a level of strife. A calm emotions  spell may end this effect. A creature may repeat this saving throw at the end of each of its turns. If a creature saves or the effect ends for it, it is immune to the crushing despair of any forlorn spirit for 24 hours.</p>",
+				"actions": {
+					"Gw3BkGKBfFtyAylL": {
+						"name": "Crushing Despair",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"LDpuVMtfa82lPLr1": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "cha",
+								"saveDC": {
+									"type": "maneuver"
+								},
+								"onSave": "Immune for 24 hours"
+							},
+							"CDH9t5a5tsxRbNg8": {
+								"type": "effect",
+								"default": true,
+								"effectId": "MXmyAVShXYPijkDf"
+							},
+							"wrWKbs5QNBdq1M9x": {
+								"type": "effect",
+								"default": true,
+								"effectId": "5vI7omP6eW23CjUs"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"WfR1prkeqmM9RbRA": {
+								"range": "medium"
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>The forlorn spirit targets a creature within 60ft. This creature must make a DC 13 Charisma saving throw or be overwhelmed with grief, anguish, and hopelessness. It has disadvantage on attack rolls and ability checks and gains vulnerability to psychic damage. If it fails by 5 or more it also gains a level of strife. A @UUID[Compendium.a5e.a5e-spells.Item.hnvt4tnuww6o4vvi]{Calm Emotions} spell may end this effect. A creature may repeat this saving throw at the end of each of its turns. If a creature saves or the effect ends for it, it is immune to the crushing despair of any forlorn spirit for 24 hours.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -861,7 +1000,90 @@
 					}
 				}
 			},
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.w35J3H9Pd0JJS8BW.Item.atu5d7oV3rRdfaiu",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "Gw3BkGKBfFtyAylL"
+						}
+					},
+					"transfer": false,
+					"name": "Grief, Anguish, and Hopelessness",
+					"_id": "MXmyAVShXYPijkDf",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.rollMode.attack.all",
+							"value": "-1",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+							"value": "-1",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "system.traits.damageVulnerabilities",
+							"value": "[\"psychic\"]",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				},
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.w35J3H9Pd0JJS8BW.Item.atu5d7oV3rRdfaiu",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "Gw3BkGKBfFtyAylL"
+						}
+					},
+					"transfer": false,
+					"name": "Strife",
+					"_id": "5vI7omP6eW23CjUs",
+					"changes": [
+						{
+							"key": "system.attributes.strife",
+							"value": "1",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1439,7 +1661,7 @@
 			"IncludeAbilityModifiersForSkills": true,
 			"showManeuverTab": false,
 			"showSpellTab": false,
-			"sheetIsLocked": false,
+			"sheetIsLocked": true,
 			"sortMode": {},
 			"filters": {}
 		}

@@ -1,7 +1,7 @@
 {
 	"name": "Archfey Warlord",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/faerie-noble.webp",
 	"system": {
 		"abilities": {
 			"str": {
@@ -213,7 +213,7 @@
 			},
 			"nat": {
 				"ability": "int",
-				"proficient": 0,
+				"proficient": 1,
 				"specialties": [],
 				"expertiseDice": 0,
 				"minRoll": 1,
@@ -365,8 +365,8 @@
 					"total": 0
 				},
 				"d8": {
-					"current": 18,
-					"total": 18
+					"current": 36,
+					"total": 36
 				},
 				"d10": {
 					"current": 0,
@@ -400,7 +400,7 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"swim": {
@@ -408,7 +408,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 35,
 					"unit": "feet"
 				},
 				"traits": {
@@ -422,7 +422,7 @@
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -437,7 +437,7 @@
 			"inspiration": false,
 			"fatigue": 0,
 			"strife": 0,
-			"spellcasting": "cha",
+			"spellcasting": "int",
 			"casterLevel": 0
 		},
 		"bonuses": {
@@ -473,7 +473,11 @@
 			"elite": true,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": [],
+			"terrain": [
+				"forest",
+				"swamp",
+				"theDreaming"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -559,23 +563,23 @@
 		},
 		"grants": {},
 		"spellBooks": {
-			"2C29jRmnU1MyQb1y": {
-				"_id": "2C29jRmnU1MyQb1y",
+			"qeMzpiWb7XSeCr3U": {
+				"_id": "qeMzpiWb7XSeCr3U",
 				"name": "New Spell Book",
 				"img": "icons/svg/book.svg",
-				"ability": "default",
-				"disableSpellConsumers": false,
+				"ability": "cha",
+				"disableSpellConsumers": true,
 				"showSpellPoints": false,
 				"showSpellSlots": false
 			}
 		}
 	},
 	"prototypeToken": {
-		"name": "Archfey Warlord",
+		"name": "Fey Enchanter",
 		"displayName": 0,
 		"actorLink": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/faerie-noble.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
@@ -692,280 +696,6 @@
 			"flags": {}
 		},
 		{
-			"name": "Faerie Form",
-			"type": "feature",
-			"_id": "edNuInshXD4y3cms",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>As an action, the fey warlord can magically change its size between Large, Medium, and Tiny. While Tiny, the bludgeoning, piercing, and slashing damage dealt by the fey warlord’s attacks is halved. Additionally, it has disadvantage on Strength checks and advantage on Dexterity checks. While Large, the fey warlord has advantage on Strength checks. Its statistics are otherwise unchanged.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Glittering Longsword",
-			"type": "feature",
-			"_id": "yzPtCTbrZw6OBBpf",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>On hit, deals additional damage 14 (4d6) of the enchanter's choice of cold, fire, lightning, or psychic damage.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Fey Light",
-			"type": "feature",
-			"_id": "FIxU9HxIQYlzaT1A",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The fey warlord casts dim light for 30 feet. This effect lasts until the fey warlord spends another bonus action to extinguish it.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {
-				"a5e": {
-					"placeTemplate": false
-				}
-			}
-		},
-		{
-			"name": "Fey Step (Recharge 5-6)",
-			"type": "feature",
-			"_id": "I06OPPXm1NbZyuZK",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The fey warlord magically teleports up to 60ft to a point it can see.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Glittering Shield",
-			"type": "feature",
-			"_id": "3lTYICKfjfhKiEyc",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The fey warlord adds 3 to its AC against one melee attack that would hit it made by a creature it can see. If the attack misses, the attacker takes 14 (4d6) of the enchanter's choice of cold, fire, lightning, or psychic damage.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
 			"name": "Superior Heavy Armor Master",
 			"type": "feature",
 			"_id": "9ykmhipCLtwPVyIg",
@@ -1035,7 +765,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"Uba6ej1g5eGeJTW1": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The fey warlord makes four melee attacks.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -1089,7 +841,40 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"cQdT8pUPI8WzEBIa": {
+						"name": "Command the Attack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {
+							"sPO9QTqdfdQ5lAhW": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"GZea4Bn5l7uRDRfn": {
+								"range": "short"
+							}
+						}
+					}
+				},
 				"description": "<p>The fey warlord issues a command to all nonhostile creatures within 30 feet. Creatures who can see or hear the fey warlord can use their reaction to make a single weapon attack with advantage.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -1143,7 +928,40 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"ozAR5OmwqWAlTN5r": {
+						"name": "Commanding Inspiration",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"oOAd4765CIbGF8QX": {
+								"type": "effect",
+								"default": true,
+								"effectId": "k8GcspgFAxXOYM6v"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"FOS9zvzfpGi1krZz": {
+								"range": "short"
+							}
+						}
+					}
+				},
 				"description": "<p>The fey warlord inspires creatures of their choice within 30 feet that can hear and understand them. For the next minute, inspired creatures gain an expertise die on attack rolls and saving throws. A creature can benefit from only one Commanding Inspiration at a time, and the fey warlord cannot target themselves.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -1173,7 +991,39 @@
 					}
 				}
 			},
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.q2KwR8BGHHAp2GYB.Item.TpVWV9lYfFiJVMwt",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "ozAR5OmwqWAlTN5r",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Commanding Inspiration",
+					"_id": "k8GcspgFAxXOYM6v",
+					"changes": [],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>Gain an expertise die on attack rolls and saving throws.</p>",
+					"statuses": [],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1197,7 +1047,40 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"V6JvHHKZxmssTYXw": {
+						"name": "Vile Curse",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"egrRM2UZ2ycjv82y": {
+								"type": "effect",
+								"default": true,
+								"effectId": "dFq9nsEPpJEAHuXx"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"X0F49WUurTNsE92n": {
+								"range": "short"
+							}
+						}
+					}
+				},
 				"description": "<p>The fey warlord utters baleful words that scald the soul. Living creatures of the warlord’s choice within 30 feet that can hear and understand them are magically cursed for 1 minute. For the duration, the cursed creature subtracts 1d4 from all attack rolls and saving throws. A creature immune to the frightened condition is immune to this curse.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -1227,7 +1110,43 @@
 					}
 				}
 			},
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.q2KwR8BGHHAp2GYB.Item.WF4MSxZeOfXxhCxF",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "V6JvHHKZxmssTYXw"
+						}
+					},
+					"transfer": false,
+					"name": "Cursed",
+					"_id": "dFq9nsEPpJEAHuXx",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.bonuses.attacks",
+							"value": "{\"label\":\"Cursed\",\"formula\":\"-1d4\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"meleeSpellAttack\",\"rangedSpellAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/downgrade.svg\"}",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>Subtract 1d4 from all attack rolls and saving throws.</p>",
+					"statuses": [],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1251,7 +1170,49 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"XD6qgmbqrIWi9Mh2": {
+						"name": "Fey Glamour",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"AvkpnXGvVKWqqWyH": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "maneuver"
+								},
+								"onSave": "Immune for a year and a day"
+							},
+							"01nbyX2UGERS1pxk": {
+								"type": "effect",
+								"default": true,
+								"effectId": "i2hYfcO9N9ES1Lum"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"ogmwnv0X6uqv0upY": {
+								"range": "short"
+							}
+						}
+					}
+				},
 				"description": "<p>The fey warlord targets one humanoid within 30 feet. The target makes a DC 18 Wisdom saving throw. On a failure, it is magically charmed by the warlord for 1 day. If the fey warlord or one of its allies harms the target, the target repeats the saving throw, ending the effect on itself on a success. If a target’s saving throw is successful, or if the effect ends for it, the creature is immune to this warlord’s Fey Glamour for a year and a day.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -1281,380 +1242,55 @@
 					}
 				}
 			},
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.q2KwR8BGHHAp2GYB.Item.YT7jvPtyODARvu4j",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "XD6qgmbqrIWi9Mh2",
+							"duration": {
+								"type": "seconds",
+								"unit": "hours"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Charmed",
+					"_id": "i2hYfcO9N9ES1Lum",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"charmed\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 86400,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"charmed"
+					],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
 				"default": 0
 			},
 			"flags": {}
-		},
-		{
-			"name": "Spellcasting",
-			"type": "feature",
-			"_id": "POie16zwEOyfSUJd",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The archfey warlord may cast <em>wish</em>, requiring no material components, 3/year. They may also cast <em>speak with plants</em> at will and <em>entangle</em> 3/day. Their spellcasting ability is Charisma (DC 18).</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Wish",
-			"type": "spell",
-			"img": "icons/magic/symbols/star-yellow.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.pe52jryde7ljobzq"
-				}
-			},
-			"system": {
-				"actions": {},
-				"description": "<p>This is the mightiest of mortal magics and alters reality itself.</p><p>The safest use of this spell is the duplication of any other spell of 8th-level or lower without needing to meet its requirements (including components).</p><p>You may instead choose one of the following:</p><ul><li>One nonmagical object of your choice that is worth up to 25, 000 gold and no more than 300 feet in any dimension appears in an unoccupied space you can see on the ground.</li><li>Up to 20 creatures that you can see to regain all their hit points, and each is further healed as per the greater restoration spell.</li><li>Up to 10 creatures that you can see gain resistance to a damage type you choose.</li><li>Up to 10 creatures you can see gain immunity to a single spell or other magical effect for 8 hours.</li><li>You force a reroll of any roll made within the last round (including your last turn). You can force the reroll to be made with advantage or disadvantage, and you can choose whether to use the reroll or the original roll.</li></ul><p>You might be able to achieve something beyond the scope of the above examples. State your wish to the Narrator as precisely as possible, being very careful in your wording. Be aware that the greater the wish, the greater the chance for an unexpected result. This spell might simply fizzle, your desired outcome might only be partly achieved, or you might suffer some unforeseen consequence as a result of how you worded the wish. The Narrator has the final authority in ruling what occurs&mdash;and reality is not tampered with lightly.</p><p><strong><em>Multiple Wishes:</em></strong> The stress of casting this spell to produce any effect other than duplicating another spell weakens you. Until finishing a long rest, each time you cast a spell you take 1d10 necrotic damage per level of that spell. This damage can't be reduced or prevented. In addition, your Strength drops to 3 for 2d4 days (if it isn't 3 or lower already). For each of those days that you spend resting and doing nothing more than light activity, your remaining recovery time decreases by 2 days. Finally, there is a 33% chance that you are unable to cast wish ever again.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": "3",
-					"per": "year",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": false
-				},
-				"concentration": false,
-				"level": 9,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": 0,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"arcane"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				},
-				"spellBook": "2C29jRmnU1MyQb1y"
-			},
-			"_id": "ijUwu4lN77LQ4R0y",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Speak with Plants (At-Will)",
-			"type": "spell",
-			"img": "icons/magic/nature/leaf-glow-maple-orange-purple.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.rek0fg987gg30wp9"
-				}
-			},
-			"system": {
-				"actions": {},
-				"description": "<p>Your voice takes on a magical timbre, awakening the targets to limited sentience. Until the spell ends, the targets can communicate with you and follow simple commands, telling you about recent events including creatures that have passed, weather, and nearby locations.</p><p>The targets have a limited mobility: they can move their branches, tendrils, and stalks freely. This allows them to turn ordinary terrain into difficult terrain, or make difficult terrain caused by vegetation into ordinary terrain for the duration as vines and branches move at your request. This spell can also release a creature restrained by an entangle spell.</p><p>At the Narrator's discretion the targets may be able to perform other tasks, though each must remain rooted in place. If a plant creature is in the area, you can communicate with it but it is not compelled to follow your requests.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": false,
-				"level": 3,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": 0,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"communication",
-						"nature",
-						"plants",
-						"utility"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				},
-				"spellBook": "2C29jRmnU1MyQb1y"
-			},
-			"_id": "beOJs3j49h8WGfxC",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Entangle",
-			"type": "spell",
-			"img": "icons/magic/nature/vines-thorned-entwined-teal.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.cvrja4dkrr0zoerp"
-				}
-			},
-			"system": {
-				"actions": {},
-				"description": "<p>Constraining plants erupt from the ground in the spell's area, wrapping vines and tendrils around creatures. Until the spell ends, the area is difficult terrain.</p><p>A creature in the area when you cast the spell makes a Strength saving throw or it becomes restrained as the plants wrap around it. A creature restrained in this way can use its action to make a Strength check against your spell save DC, freeing itself on a success.</p><p>When the spell ends, the plants wither away.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": "3",
-					"per": "day",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": false
-				},
-				"concentration": true,
-				"level": 1,
-				"materials": "",
-				"materialsConsumed": false,
-				"prepared": 0,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "conjuration",
-					"secondary": [
-						"nature",
-						"plants",
-						"terrain"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				},
-				"spellBook": "2C29jRmnU1MyQb1y"
-			},
-			"_id": "4csWJzA8PstEZlif",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Elite Recovery (Usable while Bloodied)",
-			"type": "feature",
-			"_id": "wnSloziA9ErU5JNd",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The archfey warlord ends one negative effect currently affecting it. They can do so as long as they have at least 1 hit point, even while unconscious or incapacitated.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Actor.Zal77W73Z1g3Dkqd.Item.NRIEF6o0pb1iWjbJ"
-				}
-			}
-		},
-		{
-			"name": "Fey  Madness (Usable while Bloodied)",
-			"type": "feature",
-			"_id": "7atkTr9rEqH55Cse",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>While bloodied, Frysta can take a reaction on each creature’s turn and recharges Fey Step on each of her own turns.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {
-				"core": {
-					"sourceId": "Actor.Zal77W73Z1g3Dkqd.Item.P7l2qFVXW2bib4rD"
-				}
-			}
 		},
 		{
 			"name": "Grapple",
@@ -1739,7 +1375,7 @@
 					}
 				}
 			},
-			"_id": "sEmMhISxp9Z1pA3B",
+			"_id": "linzaZgy8DVBFkth",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1829,7 +1465,7 @@
 					}
 				}
 			},
-			"_id": "c0ihCBENCxuXojqu",
+			"_id": "q5lAgomUQWJJv6Lx",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1928,7 +1564,7 @@
 					}
 				}
 			},
-			"_id": "EgiuBojo5gDruBtf",
+			"_id": "dDGbDRy83iFUw1TK",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -2018,7 +1654,7 @@
 					}
 				}
 			},
-			"_id": "oLEnDdoDeP653v2R",
+			"_id": "jWxkGPqjcmgEofnp",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -2108,7 +1744,7 @@
 					}
 				}
 			},
-			"_id": "r84AwJXntaP439wV",
+			"_id": "5kU8dceDzA4Dt9Lm",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -2207,32 +1843,1774 @@
 					}
 				}
 			},
-			"_id": "vQuU75vMxM4WhS1V",
+			"_id": "3oF1js6yqPsbizDH",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
 				"default": 0
+			}
+		},
+		{
+			"name": "Elven Plate (Mithral)",
+			"type": "object",
+			"img": "icons/equipment/chest/breastplate-gorget-steel.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.ikr3ynnqp8mhf00p"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "18",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "heavy",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [
+					"lowMaintenance",
+					"highQuality",
+					"lightweight"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "4,500 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 28,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.015,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "",
+				"mounted": []
+			},
+			"folder": null,
+			"_id": "OlvEtgmJOHZoeLj7",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Faerie Form",
+			"type": "feature",
+			"_id": "wSP685kMIccxvCkW",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"AlDAmjjH9c4UHP0i": {
+						"name": "Tiny",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"QZExxIUCqL76bQLB": {
+								"type": "effect",
+								"default": true,
+								"effectId": "fXz1fBgI0c83x0Nj"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					},
+					"MAe97YThhe8E4m8Y": {
+						"name": "Medium",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					},
+					"zRTwhFCmbRoSU2L9": {
+						"name": "Large",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"aED1Sx1SQ5dgGFxy": {
+								"type": "effect",
+								"default": true,
+								"effectId": "8MJohUK1IuZouBra"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>As an action, the fey warlord can magically change its size between Large, Medium, and Tiny. While Tiny, the bludgeoning, piercing, and slashing damage dealt by the fey enchanter&rsquo;s attacks is halved. Additionally, it has disadvantage on Strength checks and advantage on Dexterity checks. While Large, the fey warlord has advantage on Strength checks. Its statistics are otherwise unchanged.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.33"
+						}
+					}
+				}
+			},
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.q2KwR8BGHHAp2GYB.Item.wSP685kMIccxvCkW",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "AlDAmjjH9c4UHP0i",
+							"applyToSelf": true
+						}
+					},
+					"transfer": false,
+					"name": "Tiny",
+					"_id": "fXz1fBgI0c83x0Nj",
+					"changes": [
+						{
+							"key": "system.traits.size",
+							"value": "tiny",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "@token.width",
+							"value": "0.5",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "@token.height",
+							"value": "0.5",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+							"value": "-1",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+							"value": "1",
+							"mode": 6,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>Bludgeoning, piercing, and slashing damage dealt by the fey enchanter’s attacks is halved.</p>",
+					"statuses": [],
+					"folder": null
+				},
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.q2KwR8BGHHAp2GYB.Item.wSP685kMIccxvCkW",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "zRTwhFCmbRoSU2L9",
+							"applyToSelf": true
+						}
+					},
+					"transfer": false,
+					"name": "Large",
+					"_id": "8MJohUK1IuZouBra",
+					"changes": [
+						{
+							"key": "system.traits.size",
+							"value": "lg",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "@token.width",
+							"value": "2",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "@token.width",
+							"value": "2",
+							"mode": 6,
+							"priority": null
+						},
+						{
+							"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+							"value": "1",
+							"mode": 6,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"core": {
+					"sourceId": "Actor.rhQ9porfFarjSqs2.Item.edNuInshXD4y3cms"
+				}
+			}
+		},
+		{
+			"name": "Glittering Longsword",
+			"type": "object",
+			"img": "icons/weapons/swords/greatsword-blue.webp",
+			"effects": [
+				{
+					"icon": "icons/weapons/swords/greatsword-blue.webp",
+					"origin": "Actor.q2KwR8BGHHAp2GYB.Item.1RFit6148gOO3z1l",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "v3bptQ9yjfEMnfwo",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "AC +1",
+					"_id": "Llj5xb79gCEj7iz8",
+					"changes": [
+						{
+							"key": "system.attributes.ac.changes.bonuses.value",
+							"value": "1",
+							"mode": 2,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"tint": "#ffffff",
+					"folder": null
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.pxazla3i4qaj6c29"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"rPaMSExLpHCaYkH9": {
+						"name": "Longsword",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"UEwQqL1vKVE291PA": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"x4uy5CMwLzIKdqmH": {
+								"canCrit": true,
+								"damageType": "slashing",
+								"formula": "1d8 + @str.mod + 2",
+								"name": "Longsword",
+								"type": "damage"
+							},
+							"BEzPmCbzTmE1iP3T": {
+								"type": "damage",
+								"default": false,
+								"formula": "2d6",
+								"damageType": "cold"
+							},
+							"2Iva29JSZwOx8pLp": {
+								"type": "damage",
+								"default": false,
+								"formula": "2d6",
+								"damageType": "fire"
+							},
+							"S0VRWka3XXtp1fMn": {
+								"type": "damage",
+								"default": false,
+								"formula": "2d6",
+								"damageType": "lightning"
+							},
+							"wbTrGRXgF3c2EIx4": {
+								"type": "damage",
+								"default": false,
+								"formula": "2d6",
+								"damageType": "psychic"
+							}
+						},
+						"consumers": {},
+						"ranges": {
+							"tPvxB0eistVpsyKE": {
+								"range": "fiveFeet"
+							}
+						}
+					}
+				},
+				"description": "<p>On hit, deals an additional 7 (2d6) of the warlord's choice of cold, fire, lightning, or psychic damage.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "20 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"defensive"
+				],
+				"weight": 3,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.015,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "medium",
+				"flaws": [],
+				"versatile": "",
+				"mounted": []
+			},
+			"folder": null,
+			"_id": "1RFit6148gOO3z1l",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Fey Light",
+			"type": "feature",
+			"_id": "Vb90xcToiNZIXHAx",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"iGqwa954SPtxND7c": {
+						"name": "Fey Light",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"ahDF5uAFSkzkjuoW": {
+								"type": "effect",
+								"default": true,
+								"effectId": "G7I2vgPTguCi7k4y"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The fey warlord casts dim light for 30 feet. This effect lasts until the fey warlord spends another bonus action to extinguish it.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.33"
+						}
+					}
+				}
+			},
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.q2KwR8BGHHAp2GYB.Item.Vb90xcToiNZIXHAx",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "iGqwa954SPtxND7c",
+							"applyToSelf": true
+						}
+					},
+					"transfer": false,
+					"name": "Fey Light",
+					"_id": "G7I2vgPTguCi7k4y",
+					"changes": [
+						{
+							"key": "@token.light.dim",
+							"value": "30",
+							"mode": 6,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"a5e": {
+					"placeTemplate": false
+				},
+				"core": {
+					"sourceId": "Actor.rhQ9porfFarjSqs2.Item.FIxU9HxIQYlzaT1A"
+				}
+			}
+		},
+		{
+			"name": "Fey Step",
+			"type": "feature",
+			"_id": "NOh65ipNFkPM2T1t",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"19dabEzF0vpLMUe4": {
+						"name": "Fey Step",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {
+							"Ul9oaQvil1CrN9BR": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"ToMWYJ9WQPtFxUVx": {
+								"range": "medium"
+							}
+						}
+					}
+				},
+				"description": "<p>The fey warlord magically teleports up to 60ft to a point it can see.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 5
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.33"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"core": {
+					"sourceId": "Actor.rhQ9porfFarjSqs2.Item.I06OPPXm1NbZyuZK"
+				}
+			}
+		},
+		{
+			"name": "Glittering Shield",
+			"type": "feature",
+			"_id": "KX0AGHy5bEvQYYyP",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"6ieWMzwGh67HC0GC": {
+						"name": "Glittering Shield",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "Hit made by a creature it can see"
+						},
+						"consumers": {},
+						"rolls": {
+							"iyy083ZQlO9qkXl3": {
+								"type": "damage",
+								"default": false,
+								"canCrit": false,
+								"formula": "4d6",
+								"damageType": "cold"
+							},
+							"Y0VUZjuxUxhsiKZ8": {
+								"type": "damage",
+								"default": false,
+								"canCrit": false,
+								"formula": "4d6",
+								"damageType": "fire"
+							},
+							"7rn0ljGlT4KwogUa": {
+								"type": "damage",
+								"default": false,
+								"canCrit": false,
+								"formula": "4d6",
+								"damageType": "lightning"
+							},
+							"IS8Q334gHxSJ3dLA": {
+								"type": "damage",
+								"default": false,
+								"canCrit": false,
+								"formula": "4d6",
+								"damageType": "psychic"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The fey warlord adds 3 to its AC against one melee attack that would hit it made by a creature it can see. If the attack misses, the attacker takes 14 (4d6) of the warlord's choice of cold, fire, lightning, or psychic damage.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.33"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"core": {
+					"sourceId": "Actor.rhQ9porfFarjSqs2.Item.3lTYICKfjfhKiEyc"
+				}
+			}
+		},
+		{
+			"name": "Spellcasting",
+			"type": "feature",
+			"_id": "xmo3saz7QSDQIBzs",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The archfey warlord may cast @UUID[Compendium.a5e.a5e-spells.Item.pe52jryde7ljobzq]{Wish}, requiring no material components, 3/year. He may also cast @UUID[Compendium.a5e.a5e-spells.Item.rek0fg987gg30wp9]{Speak with Plants} at will and @UUID[Compendium.a5e.a5e-spells.Item.cvrja4dkrr0zoerp]{Entangle} 3/day. Their spellcasting ability is Charisma (DC 18).</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-monsters.Actor.peiequpfq2lth0cp.Item.POie16zwEOyfSUJd"
+				}
+			}
+		},
+		{
+			"name": "Wish",
+			"type": "spell",
+			"img": "icons/magic/symbols/star-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.pe52jryde7ljobzq"
+				}
+			},
+			"system": {
+				"actions": {
+					"8TxpWj8UiRMbdwJj": {
+						"name": "Wish",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"sO9fsDSJhUy5CK8H": {
+								"range": ""
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "other"
+						},
+						"consumers": {
+							"qkWfBX7WyYmMkRvw": {
+								"mode": "variable",
+								"spellLevel": 9,
+								"points": 13,
+								"type": "spell"
+							},
+							"tsC0ZSVNPQj7bo99": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>This is the mightiest of mortal magics and alters reality itself.</p><p>The safest use of this spell is the duplication of any other spell of 8th-level or lower without needing to meet its requirements (including components).</p><p>You may instead choose one of the following:</p><ul><li>One nonmagical object of your choice that is worth up to 25, 000 gold and no more than 300 feet in any dimension appears in an unoccupied space you can see on the ground.</li><li>Up to 20 creatures that you can see to regain all their hit points, and each is further healed as per the greater restoration spell.</li><li>Up to 10 creatures that you can see gain resistance to a damage type you choose.</li><li>Up to 10 creatures you can see gain immunity to a single spell or other magical effect for 8 hours.</li><li>You force a reroll of any roll made within the last round (including your last turn). You can force the reroll to be made with advantage or disadvantage, and you can choose whether to use the reroll or the original roll.</li></ul><p>You might be able to achieve something beyond the scope of the above examples. State your wish to the Narrator as precisely as possible, being very careful in your wording. Be aware that the greater the wish, the greater the chance for an unexpected result. This spell might simply fizzle, your desired outcome might only be partly achieved, or you might suffer some unforeseen consequence as a result of how you worded the wish. The Narrator has the final authority in ruling what occurs&mdash;and reality is not tampered with lightly.</p><p><strong><em>Multiple Wishes:</em></strong> The stress of casting this spell to produce any effect other than duplicating another spell weakens you. Until finishing a long rest, each time you cast a spell you take 1d10 necrotic damage per level of that spell. This damage can't be reduced or prevented. In addition, your Strength drops to 3 for 2d4 days (if it isn't 3 or lower already). For each of those days that you spend resting and doing nothing more than light activity, your remaining recovery time decreases by 2 days. Finally, there is a 33% chance that you are unable to cast wish ever again.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "year",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"classes": [
+					"sorcerer",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": false
+				},
+				"concentration": false,
+				"level": 9,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": 0,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"arcane"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.013,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"spellBook": "qeMzpiWb7XSeCr3U"
+			},
+			"folder": null,
+			"_id": "6XQZSSTMtbVk0WD9",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Speak with Plants",
+			"type": "spell",
+			"img": "icons/magic/nature/leaf-glow-maple-orange-purple.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.rek0fg987gg30wp9"
+				}
+			},
+			"system": {
+				"actions": {
+					"zXvSIk0Jta539iTs": {
+						"name": "Speak with Plants",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"Xf7GixuD33R4Nkvu": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "30",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"4gdfHlCvrW1qRva2": {
+								"mode": "variable",
+								"spellLevel": 3,
+								"points": 5,
+								"type": "spell"
+							}
+						}
+					}
+				},
+				"description": "<p>Your voice takes on a magical timbre, awakening the targets to limited sentience. Until the spell ends, the targets can communicate with you and follow simple commands, telling you about recent events including creatures that have passed, weather, and nearby locations.</p><p>The targets have a limited mobility: they can move their branches, tendrils, and stalks freely. This allows them to turn ordinary terrain into difficult terrain, or make difficult terrain caused by vegetation into ordinary terrain for the duration as vines and branches move at your request. This spell can also release a creature restrained by an entangle spell.</p><p>At the Narrator's discretion the targets may be able to perform other tasks, though each must remain rooted in place. If a plant creature is in the area, you can communicate with it but it is not compelled to follow your requests.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"classes": [
+					"bard",
+					"druid",
+					"elementalistEarth"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": false,
+				"level": 3,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": 0,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"communication",
+						"nature",
+						"plants",
+						"utility"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.013,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"spellBook": "qeMzpiWb7XSeCr3U"
+			},
+			"folder": null,
+			"_id": "cFTpqDB1LEPOoBfh",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Entangle",
+			"type": "spell",
+			"img": "icons/magic/nature/vines-thorned-entwined-teal.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.cvrja4dkrr0zoerp"
+				}
+			},
+			"system": {
+				"actions": {
+					"ZfEnsbcwOloyqNZ9": {
+						"name": "Entangle",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "1"
+						},
+						"ranges": {
+							"d3UiEW3SSRoAJkj3": {
+								"range": "long"
+							}
+						},
+						"area": {
+							"shape": "square",
+							"width": "20",
+							"placeTemplate": true,
+							"quantity": 1
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"rolls": {},
+						"prompts": {
+							"IMiggoS1dG4L0K0O": {
+								"ability": "str",
+								"onSave": "Negates effect",
+								"saveDC": {
+									"type": "spellcasting",
+									"bonus": ""
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {
+							"2j5I2qcx5kemFuVs": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							},
+							"x4aP959UbcRVDxG2": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Constraining plants erupt from the ground in the spell's area, wrapping vines and tendrils around creatures. Until the spell ends, the area is difficult terrain.</p><p>A creature in the area when you cast the spell makes a Strength saving throw or it becomes restrained as the plants wrap around it. A creature restrained in this way can use its action to make a Strength check against your spell save DC, freeing itself on a success.</p><p>When the spell ends, the plants wither away.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"classes": [
+					"druid",
+					"elementalistEarth"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": false
+				},
+				"concentration": true,
+				"level": 1,
+				"materials": "",
+				"materialsConsumed": false,
+				"prepared": 0,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "conjuration",
+					"secondary": [
+						"nature",
+						"plants",
+						"terrain"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.013,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"spellBook": "qeMzpiWb7XSeCr3U"
+			},
+			"folder": null,
+			"_id": "ccxPyFo35iBMdLsP",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Elite Recovery",
+			"type": "feature",
+			"_id": "anvgefgDm0lfN2nI",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"MkvOAMHyLmnKg35v": {
+						"name": "Elite Recovery",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The archfey warlord ends one negative effect currently affecting it. They can do so as long as they have at least 1 hit point, even while unconscious or incapacitated.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": true,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"core": {
+					"sourceId": "Actor.Zal77W73Z1g3Dkqd.Item.NRIEF6o0pb1iWjbJ"
+				}
+			}
+		},
+		{
+			"name": "Animate Plant",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"WAWrZxXgJmjJBPhp": {
+						"name": "Animate Plant",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"mwtlKaSLetB4UTv5": {
+								"range": "medium"
+							}
+						},
+						"target": {
+							"type": "object",
+							"quantity": 1
+						},
+						"duration": {
+							"unit": "hour",
+							"value": 1
+						},
+						"area": {
+							"shape": "emanation",
+							"quantity": 1,
+							"radius": 15,
+							"placeTemplate": true
+						}
+					}
+				},
+				"description": "<p><em>Usable as part of the archfey warlord's multiattack</em></p>\n<p>The archfey warlord magically animates a Large or larger plant within 60 feet. The plant is immobile, but it acts on the archfey warlord's initiative and can make one Slam attack or one Rock attack if there are rocks to throw within 10 feet of it. Non-plant creatures other than the archfey warlord treat the ground within 15 feet of the plan tas difficult terrain as surrounding roots conspire to trip and grasp moving creatures. The plant remains animated for 1 hour. If the archfey warlord uses this action while he has three plants animated in this way, the plant that has been animated the longest returns to normal.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": true,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": null
+				}
+			},
+			"_id": "lAPsyG1yfUzLoc1j",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Slam (Animated Plant)",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"0YVj7EOZoUNy2mY8": {
+						"name": "Slam (Animated Plant)",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"lLPyl2kNUORGG1Yo": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"QvTRgwnJ2Y7GC2VX": {
+								"type": "damage",
+								"default": true,
+								"formula": "4d6 + 6",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"M0H9mbVXQaA0kmQq": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": null
+				}
+			},
+			"_id": "PbwUlvMEThGfLNPd",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Rock (Animated Plant)",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"FnOpwZTifJLbYD9k": {
+						"name": "Rock (Animated Plant)",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"K9hB6O0mNMYOlBDT": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedWeaponAttack",
+								"proficient": true,
+								"ability": "str"
+							},
+							"iNMKju4bAoxAI7Tk": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d8 + 6",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"Vs9Q4THWbF4M5TIM": {
+								"range": "medium"
+							},
+							"Yj60BKZmR8tylaPs": {
+								"range": 180,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": null
+				}
+			},
+			"_id": "Fz50TYkhqXSehX3x",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Fey  Madness",
+			"type": "feature",
+			"_id": "eUuBhgmZhqnFUvyc",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>While bloodied, Frysta can take a reaction on each creature’s turn and recharges Fey Step on each of her own turns.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": true,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"core": {
+					"sourceId": "Actor.Zal77W73Z1g3Dkqd.Item.P7l2qFVXW2bib4rD"
+				}
+			}
+		},
+		{
+			"name": "Powerful Command",
+			"type": "feature",
+			"_id": "m0VWzjYOaNprNjtG",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"SK7fIH8X3DAoIjDs": {
+						"name": "Powerful Command",
+						"activation": {},
+						"consumers": {
+							"MjD3AKT7rGLM9nd2": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The first time the archfey warlord becomes bloodied, he regains up to one use of Command the Attack.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": true,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-monsters.Actor.xaj98n074aw7ehi0.Item.QfMNalCFlQaudJqZ"
+				}
 			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"availableSpellLevels": [
-				"9",
-				"1",
-				"3"
-			],
-			"TrackInventoryWeight": true,
-			"carryCapacityMultiplier": 1,
-			"trackCurrencyWeight": true,
-			"HideEmptyTraits": true,
-			"IncludeAbilityModifiersForSkills": true,
-			"showManeuverTab": false,
-			"showSpellTab": true,
-			"sheetIsLocked": false,
+			"availableSpellLevels": [],
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": true
 		}
 	},
 	"folder": null,

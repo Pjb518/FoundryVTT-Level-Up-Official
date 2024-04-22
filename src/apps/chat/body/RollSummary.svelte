@@ -116,11 +116,17 @@
         }
     }
 
+    let hideSkillCriticalPrompt = game.settings.get(
+        "a5e",
+        "hideSkillCriticalPrompt",
+    );
+
     let tooltipIsVisible = false;
     let showRollConfig = false;
 
     const message = getContext("message");
     const actor = fromUuidSync($message?.flags?.a5e?.actorId);
+    const { user } = game;
 
     $: isCriticalFailure = determineIfCriticalFailure(roll);
     $: isCriticalSuccess = determineIfCriticalSuccess(roll);
@@ -165,10 +171,9 @@
         {/if}
     </header>
 
-    <!-- svelte-ignore missing-declaration -->
     {#if rollData.type === "damage" || rollData.type === "healing"}
         <DamageButtons {roll} {rollData} />
-    {:else if (game.user.isGM || actor?.testUserPermission(game.user, 2)) && ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
+    {:else if (user.isGM || actor?.testUserPermission(user, 2)) && ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
         <button
             class="roll-mode-button fa-dice fa-solid"
             on:click|stopPropagation={toggleRollConfig}
@@ -178,7 +183,7 @@
     {/if}
 </button>
 
-{#if !game.settings.get("a5e", "hideSkillCriticalPrompt") && rollData.type === "skillCheck" && rollData.skillKey}
+{#if !hideSkillCriticalPrompt && rollData.type === "skillCheck" && rollData.skillKey}
     {#if isCriticalSuccess}
         <button
             on:click={() => rollOnSkillTable(rollData.skillKey, "critical")}

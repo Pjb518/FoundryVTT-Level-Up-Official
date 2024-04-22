@@ -374,15 +374,7 @@ A5E.damagedStates = {
   2: 'A5E.damagedState.broken'
 };
 
-A5E.damageScalingModes = {
-  cantrip: 'A5E.scaling.modes.cantrip',
-  spellLevel: 'A5E.scaling.modes.spellLevel',
-  spellPoints: 'A5E.scaling.modes.spellPoints',
-  actionUses: 'A5E.scaling.modes.actionUses',
-  itemUses: 'A5E.scaling.modes.itemUses'
-};
-
-A5E.healingScalingModes = {
+A5E.baseScalingModes = {
   cantrip: 'A5E.scaling.modes.cantrip',
   spellLevel: 'A5E.scaling.modes.spellLevel',
   spellPoints: 'A5E.scaling.modes.spellPoints',

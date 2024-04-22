@@ -21,6 +21,8 @@
         CONFIG.A5E.skillSpecialties[skillKey],
     );
 
+    let dnd5eStyleExpertise = game.settings.get("a5e", "5eStyleExpertise");
+
     let hideSkillSpecialties =
         game.settings.get("a5e", "hideSkillSpecialties") ?? false;
 
@@ -30,7 +32,7 @@
 <article>
     <Section --a5e-section-body-gap="0.75rem">
         <FieldWrapper>
-            {#if game.settings.get("a5e", "5eStyleExpertise")}
+            {#if dnd5eStyleExpertise}
                 <RadioGroup
                     heading="Proficiency Level"
                     options={[

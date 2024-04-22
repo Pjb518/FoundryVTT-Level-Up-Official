@@ -2,11 +2,16 @@
     import { getContext } from "svelte";
 
     const actor = getContext("actor");
+
+    let replaceFatigueAndStrife = game.settings.get(
+        "a5e",
+        "replaceFatigueAndStrife",
+    );
 </script>
 
 <div
     class="rest"
-    class:rest--5e={game.settings.get("a5e", "replaceFatigueAndStrife")}
+    class:rest--5e={replaceFatigueAndStrife}
     class:disable-pointer-events={!$actor.isOwner}
     data-tooltip="A5E.Rest"
     data-tooltip-direction="DOWN"

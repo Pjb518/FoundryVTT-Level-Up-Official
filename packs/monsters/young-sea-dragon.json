@@ -1,7 +1,7 @@
 {
 	"name": "Young Sea Dragon",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/sea-serpent.webp",
 	"system": {
 		"abilities": {
 			"str": {
@@ -347,7 +347,7 @@
 		"attributes": {
 			"ac": {
 				"value": 0,
-				"baseFormula": "10 + @dex.mod"
+				"baseFormula": "18"
 			},
 			"death": {
 				"success": 0,
@@ -365,8 +365,8 @@
 					"total": 0
 				},
 				"d8": {
-					"current": null,
-					"total": null
+					"current": 0,
+					"total": 0
 				},
 				"d10": {
 					"current": 19,
@@ -400,15 +400,15 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"swim": {
-					"distance": 0,
+					"distance": 80,
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 50,
 					"unit": "feet"
 				},
 				"traits": {
@@ -417,12 +417,12 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 240,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -473,7 +473,9 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": [],
+			"terrain": [
+				"water"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -558,12 +560,12 @@
 		},
 		"grants": {},
 		"spellBooks": {
-			"yRGheFII7D4wO75G": {
-				"_id": "yRGheFII7D4wO75G",
+			"FohJH7dstcGiTm5L": {
+				"_id": "FohJH7dstcGiTm5L",
 				"name": "New Spell Book",
 				"img": "icons/svg/book.svg",
 				"ability": "default",
-				"disableSpellConsumers": false,
+				"disableSpellConsumers": true,
 				"showSpellPoints": false,
 				"showSpellSlots": false
 			}
@@ -574,7 +576,7 @@
 		"displayName": 0,
 		"actorLink": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/sea-serpent.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
@@ -814,7 +816,64 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"ZYGAan5FIrIpnOET": {
+						"name": "Bite",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"vdabvbqLlzM1M7TS": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"GRs48M6FT4917ZnH": {
+								"type": "damage",
+								"default": true,
+								"formula": "3d10 + @str.mod",
+								"damageType": "piercing"
+							},
+							"Qj9KjZ5xESqV20YB": {
+								"type": "damage",
+								"default": false,
+								"formula": "1d6",
+								"damageType": "acid"
+							},
+							"Q2tQmZI8DbfrZixm": {
+								"type": "damage",
+								"default": false,
+								"formula": "1d6",
+								"damageType": "cold"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"Y6ZXyY13In7di1Qc": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
 				"description": "",
 				"favorite": true,
 				"secretDescription": "",
@@ -853,7 +912,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Tidal Breath (Recharge 5-6)",
+			"name": "Tidal Breath",
 			"type": "feature",
 			"_id": "ezcpwfPznUcazuLm",
 			"img": "icons/svg/item-bag.svg",
@@ -868,18 +927,90 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"VXguEPEp2Vlly2PF": {
+						"name": "Tidal Breath",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {
+							"YLdixM1g9e658wig": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {
+							"FiNniI5DvD8eAmX5": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "10d6",
+								"damageType": "bludgeoning"
+							},
+							"IORWRKkKpfcmhUjg": {
+								"type": "damage",
+								"default": false,
+								"canCrit": false,
+								"formula": "3d6",
+								"damageType": "acid"
+							},
+							"eO9RYAPdO2TprsBW": {
+								"type": "damage",
+								"default": false,
+								"canCrit": false,
+								"formula": "3d6",
+								"damageType": "cold"
+							}
+						},
+						"prompts": {
+							"MXoh0zsBMVAdeICt": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "Half damage"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"P4mn0tYZ2681o67S": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "line",
+							"quantity": 1,
+							"length": 30,
+							"width": 5,
+							"placeTemplate": true
+						}
+					}
+				},
 				"description": "<p>The sea dragon exhales a spray of sea water in a 30ft long, 5ft wide jet that channels either the corrosive salinity of the sea or the cold darkness of the depths. Each creature in the area must make a DC 15 Strength saving throw, taking 30 (10d6) bludgeoning damage and the dragon's choice of 10 (3d6) acid or cold damage on a failure and half damage on a success.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": 6
+						"threshold": 5
 					}
 				},
 				"concentration": false,
@@ -909,353 +1040,6 @@
 					"placeTemplate": true
 				}
 			}
-		},
-		{
-			"name": "Shimmering Scales",
-			"type": "feature",
-			"_id": "koV9hlZfSIMTNNAa",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>While in water, the sea dragon gains three-quarters cover from attacks made by creatures more than 30ft away.</p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Innate Spellcasting",
-			"type": "feature",
-			"_id": "ykdOpzOBWD2lQh66",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The sea dragon's spellcasting ability modifier is Charisma (spell save DC 15). It can cast the following spells without material components:</p><p><strong>3/day</strong>: <em>create or destroy water, darkness</em></p>",
-				"favorite": false,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Create or Destroy Water",
-			"type": "spell",
-			"img": "icons/magic/water/projectiles-ice-explosion.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.6na38wnae58eief3"
-				}
-			},
-			"system": {
-				"actions": {},
-				"description": "<p>Choose one of the following.</p><ul><li><p><strong>Create Water:</strong> You fill the target with up to 10 gallons of nonpotable water or 1 Supply of clean water. Alternatively, the water falls as rain that extinguishes exposed flames in the area.</p></li><li><p><strong>Destroy Water:</strong> You destroy up to 10 gallons of water in the target. Alternatively, you destroy fog in the area.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you either create or destroy 10 additional gallons of water, or the size of the cube increases by 5 feet.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": "3",
-					"per": "day",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": true,
-					"material": true
-				},
-				"concentration": false,
-				"level": 1,
-				"materials": "drop of water to create water or grains of sand to destroy it",
-				"materialsConsumed": false,
-				"prepared": 0,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "transmutation",
-					"secondary": [
-						"divine",
-						"utility",
-						"water"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				},
-				"spellBook": "yRGheFII7D4wO75G"
-			},
-			"_id": "IrYHTjORXrPNtYGS",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Darkness",
-			"type": "spell",
-			"img": "icons/magic/unholy/orb-glowing-purple.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-spells.0ou0qutr7p2bedg0"
-				}
-			},
-			"system": {
-				"actions": {},
-				"description": "<p>Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.</p><p>When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 3,
-					"max": "3",
-					"per": "day",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"classes": [],
-				"components": {
-					"vocalized": true,
-					"seen": false,
-					"material": true
-				},
-				"concentration": true,
-				"level": 2,
-				"materials": "bat fur and a drop of pitch or piece of coal",
-				"materialsConsumed": false,
-				"prepared": 0,
-				"prerequisite": "",
-				"rare": false,
-				"ritual": false,
-				"schools": {
-					"primary": "evocation",
-					"secondary": [
-						"arcane",
-						"shadow"
-					]
-				},
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				},
-				"spellBook": "yRGheFII7D4wO75G"
-			},
-			"_id": "mtqmlFRGR6Lmgp24",
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			}
-		},
-		{
-			"name": "Multiattack",
-			"type": "feature",
-			"_id": "panBJ3LEkalPgl2A",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p>The dragon makes one bite attack and two claw attacks.</p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "other",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
-		},
-		{
-			"name": "Claw",
-			"type": "feature",
-			"_id": "s3guDhH9zBUxKBsO",
-			"img": "icons/svg/item-bag.svg",
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"concentration": false,
-				"featureType": "naturalWeapon",
-				"grants": {},
-				"prerequisite": "",
-				"requiresBloodied": false,
-				"schemaVersion": {
-					"version": 0.016,
-					"lastMigration": {
-						"version": {
-							"schema": 0.014,
-							"foundry": "11.315",
-							"system": "0.17.31"
-						}
-					}
-				}
-			},
-			"effects": [],
-			"folder": null,
-			"sort": 0,
-			"ownership": {
-				"default": 0
-			},
-			"flags": {}
 		},
 		{
 			"name": "Grapple",
@@ -1340,7 +1124,7 @@
 					}
 				}
 			},
-			"_id": "KamIPD0zVfiFx8D5",
+			"_id": "zGTawpeEKmsc2sGp",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1430,7 +1214,7 @@
 					}
 				}
 			},
-			"_id": "tNNx3zTYuxVnQ09v",
+			"_id": "bFHK12TbOPelPGvW",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1529,7 +1313,7 @@
 					}
 				}
 			},
-			"_id": "LqHbc2cAkZLDiXk4",
+			"_id": "WY4ZNw4SZ5IJNUOc",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1619,7 +1403,7 @@
 					}
 				}
 			},
-			"_id": "1nwjw3n8IcKIBiZ3",
+			"_id": "gsq2v7E0jQQm5bQw",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1709,7 +1493,7 @@
 					}
 				}
 			},
-			"_id": "DSIZQkPjAINMaDD8",
+			"_id": "i7rhL731fVNPjO7Q",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1808,11 +1592,538 @@
 					}
 				}
 			},
-			"_id": "pHalJaJn2DJmS0iw",
+			"_id": "DtICiZidiaZzRaXO",
 			"folder": null,
 			"sort": 0,
 			"ownership": {
 				"default": 0
+			}
+		},
+		{
+			"name": "Shimmering Scales",
+			"type": "feature",
+			"_id": "oTaCLPZtzIByh9Hj",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>While in water, the sea dragon gains three-quarters cover from attacks made by creatures more than 30ft away.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-monsters.Actor.awimtqw3e7ib3tdj.Item.koV9hlZfSIMTNNAa"
+				}
+			}
+		},
+		{
+			"name": "Innate Spellcasting",
+			"type": "feature",
+			"_id": "Hkvq2n2H8qTgPATR",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The sea dragon's spellcasting ability modifier is Charisma (spell save DC 15). It can cast the following spells without material components:</p>\n<p><strong>3/day</strong>:&nbsp;<em>@UUID[Compendium.a5e.a5e-spells.Item.6na38wnae58eief3]{Create or Destroy Water}, @UUID[Compendium.a5e.a5e-spells.Item.0ou0qutr7p2bedg0]{Darkness}<br></em></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-monsters.Actor.awimtqw3e7ib3tdj.Item.ykdOpzOBWD2lQh66"
+				}
+			}
+		},
+		{
+			"name": "Create or Destroy Water",
+			"type": "spell",
+			"img": "icons/magic/water/projectiles-ice-explosion.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.6na38wnae58eief3"
+				}
+			},
+			"system": {
+				"actions": {
+					"I7RJz9TquUvh3WAa": {
+						"name": "Create or Destroy Water",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": ""
+						},
+						"ranges": {
+							"BCPJgwGZeAxhCo5p": {
+								"range": "short"
+							}
+						},
+						"area": {
+							"shape": "cube",
+							"width": "30",
+							"placeTemplate": true,
+							"scaling": {
+								"mode": "spellLevel",
+								"formula": {
+									"quantity": "1",
+									"width": "5"
+								}
+							}
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"E0Lxcg1e87hktzHV": {
+								"mode": "variable",
+								"spellLevel": 1,
+								"points": 2,
+								"type": "spell"
+							},
+							"Yp0jAXLJkNq8lgft": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Choose one of the following.</p><ul><li><p><strong>Create Water:</strong> You fill the target with up to 10 gallons of nonpotable water or 1 Supply of clean water. Alternatively, the water falls as rain that extinguishes exposed flames in the area.</p></li><li><p><strong>Destroy Water:</strong> You destroy up to 10 gallons of water in the target. Alternatively, you destroy fog in the area.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you either create or destroy 10 additional gallons of water, or the size of the cube increases by 5 feet.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"classes": [
+					"cleric",
+					"elementalistWater",
+					"herald"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": true,
+					"material": true
+				},
+				"concentration": false,
+				"level": 1,
+				"materials": "drop of water to create water or grains of sand to destroy it",
+				"materialsConsumed": false,
+				"prepared": 0,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "transmutation",
+					"secondary": [
+						"divine",
+						"hearth",
+						"utility",
+						"water"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.013,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"spellBook": "FohJH7dstcGiTm5L"
+			},
+			"folder": null,
+			"_id": "cCejElcytpq7bUjq",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Darkness",
+			"type": "spell",
+			"img": "icons/magic/unholy/orb-glowing-purple.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-spells.Item.0ou0qutr7p2bedg0"
+				}
+			},
+			"system": {
+				"actions": {
+					"LQlQq3OIRpMOsCHF": {
+						"name": "Darkness",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "minute",
+							"value": "10"
+						},
+						"ranges": {
+							"uEiVvrN8F3RQmpwF": {
+								"range": "medium"
+							}
+						},
+						"area": {
+							"shape": "sphere",
+							"radius": "15",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": ""
+						},
+						"consumers": {
+							"NnAGDUaYi8CFb15M": {
+								"mode": "variable",
+								"spellLevel": 2,
+								"points": 3,
+								"type": "spell"
+							},
+							"osDR5YN2th7arkJ4": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						}
+					}
+				},
+				"description": "<p>Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.</p><p>When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"classes": [
+					"sorcerer",
+					"warlock",
+					"witch",
+					"wizard"
+				],
+				"components": {
+					"vocalized": true,
+					"seen": false,
+					"material": true
+				},
+				"concentration": true,
+				"level": 2,
+				"materials": "bat fur and a drop of pitch or piece of coal",
+				"materialsConsumed": false,
+				"prepared": 0,
+				"prerequisite": "",
+				"rare": false,
+				"ritual": false,
+				"schools": {
+					"primary": "evocation",
+					"secondary": [
+						"arcane",
+						"shadow"
+					]
+				},
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.013,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				},
+				"spellBook": "FohJH7dstcGiTm5L"
+			},
+			"folder": null,
+			"_id": "EHSrVpxRZDeoLymd",
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			}
+		},
+		{
+			"name": "Multiattack",
+			"type": "feature",
+			"_id": "WQjM15coiVMmZGy5",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"QBKlZdpn2d02vCTG": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The dragon makes one bite attack and two claw attacks.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-monsters.Actor.awimtqw3e7ib3tdj.Item.panBJ3LEkalPgl2A"
+				}
+			}
+		},
+		{
+			"name": "Claw",
+			"type": "feature",
+			"_id": "yuWaWaORfBKmfiwq",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"ZnSfFFdsRjykGUvd": {
+						"name": "Claw",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"UqorJC4NUiqH8T6F": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"zH9j9MasAVk2ozcK": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d8 + @str.mod",
+								"damageType": "slashing"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"xqkNPl8YIya4ZWUS": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "naturalWeapon",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.016,
+					"lastMigration": {
+						"version": {
+							"schema": 0.014,
+							"foundry": "11.315",
+							"system": "0.17.31"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-monsters.Actor.awimtqw3e7ib3tdj.Item.s3guDhH9zBUxKBsO"
+				}
 			}
 		}
 	],
@@ -1826,12 +2137,9 @@
 			"IncludeAbilityModifiersForSkills": true,
 			"showManeuverTab": false,
 			"showSpellTab": true,
-			"availableSpellLevels": [
-				"1",
-				"2"
-			],
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": true
 		}
 	},
 	"folder": null,

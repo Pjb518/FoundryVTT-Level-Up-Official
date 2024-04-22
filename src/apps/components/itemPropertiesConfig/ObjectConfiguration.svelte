@@ -15,6 +15,7 @@
     const { isGM } = game.user;
 
     let editMode = false;
+    let hideBrokenAndDamaged = game.settings.get("a5e", "hideBrokenAndDamaged");
 </script>
 
 <Section
@@ -205,8 +206,7 @@
             />
         </FieldWrapper>
 
-        <!-- svelte-ignore missing-declaration -->
-        {#if !game.settings.get("a5e", "hideBrokenAndDamaged")}
+        {#if !hideBrokenAndDamaged}
             <RadioGroup
                 heading="A5E.ItemCondition"
                 options={Object.entries(A5E.damagedStates)}

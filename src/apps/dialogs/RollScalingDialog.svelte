@@ -1,18 +1,18 @@
 <script>
     import { getContext } from "svelte";
-    import { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
 
     import FormSection from "../components/LegacyFormSection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     export let { document, actionId, rollId } =
         getContext("#external").application;
 
-    function getHealingScalingOptions() {
+    function getScalingOptions() {
         return [
             [null, "A5E.None"],
-            ...Object.entries(CONFIG.A5E.healingScalingModes),
+            ...Object.entries(CONFIG.A5E.baseScalingModes),
         ];
     }
 
@@ -25,7 +25,7 @@
 <form>
     <RadioGroup
         heading="Scaling Mode"
-        options={getHealingScalingOptions()}
+        options={getScalingOptions()}
         selected={scalingMode}
         allowDeselect={false}
         on:updateSelection={(event) => {
@@ -39,8 +39,8 @@
 
     {#if scalingMode === "cantrip"}
         <FormSection
-            heading="Healing Increment"
-            hint="This increment will be applied automatically to your healing roll based on your caster level."
+            heading="Roll Increment"
+            hint="This increment will be applied automatically to your roll based on your caster level."
         >
             <input
                 class="a5e-input"
@@ -61,12 +61,12 @@
                 <div
                     class="a5e-field-group a5e-field-group--formula a5e-field-group--spell-level"
                 >
-                    <label for="{actionId}-{rollId}-healing-scaling-formula">
-                        Healing Increment
+                    <label for="{actionId}-{rollId}-roll-scaling-formula">
+                        Roll Increment
                     </label>
 
                     <input
-                        id="{actionId}-{rollId}-healing-scaling-formula"
+                        id="{actionId}-{rollId}-roll-scaling-formula"
                         type="text"
                         name="system.actions.{actionId}.rolls.{rollId}.scaling.formula"
                         value={roll.scaling?.formula ?? 0}
@@ -82,12 +82,12 @@
                 <div
                     class="a5e-field-group u-w-12 a5e-field-group--spell-level"
                 >
-                    <label for="{actionId}-{rollId}-healing-scaling-step">
+                    <label for="{actionId}-{rollId}-roll-scaling-step">
                         Per
                     </label>
 
                     <input
-                        id="{actionId}-{rollId}-healing-scaling-step"
+                        id="{actionId}-{rollId}-roll-scaling-step"
                         type="number"
                         name="system.actions.{actionId}.rolls.{rollId}.scaling.step"
                         value={roll.scaling?.step ?? 1}
@@ -103,18 +103,23 @@
                 <div class="a5e-field-group levels-wrapper">
                     <span class="levels">Levels</span>
                 </div>
+
+                <small>
+                    This increment will be applied automatically to your roll
+                    based the spell slot used during activation.
+                </small>
             </section>
         </FormSection>
     {:else if ["spellPoints", "actionUses", "itemUses"].includes(scalingMode)}
         <FormSection>
             <section class="row u-flex-wrap">
                 <div class="a5e-field-group a5e-field-group--formula">
-                    <label for="{actionId}-{rollId}-healing-scaling-formula">
-                        Healing Increment
+                    <label for="{actionId}-{rollId}-roll-scaling-formula">
+                        Roll Increment
                     </label>
 
                     <input
-                        id="{actionId}-{rollId}-healing-scaling-formula"
+                        id="{actionId}-{rollId}-roll-scaling-formula"
                         type="text"
                         name="system.actions.{actionId}.rolls.{rollId}.scaling.formula"
                         value={roll.scaling?.formula ?? 0}
@@ -128,12 +133,12 @@
                 </div>
 
                 <div class="a5e-field-group u-w-12">
-                    <label for="{actionId}-{rollId}-healing-scaling-step">
+                    <label for="{actionId}-{rollId}-roll-scaling-step">
                         Per
                     </label>
 
                     <input
-                        id="{actionId}-{rollId}-healing-scaling-step"
+                        id="{actionId}-{rollId}-roll-scaling-step"
                         style="text-align: center;"
                         type="number"
                         name="system.actions.{actionId}.rolls.{rollId}.scaling.step"
@@ -175,6 +180,10 @@
     input {
         height: 2rem;
         font-size: $font-size-sm;
+    }
+
+    small {
+        margin-top: 0.125rem;
     }
 
     .a5e-field-group--spell-level {

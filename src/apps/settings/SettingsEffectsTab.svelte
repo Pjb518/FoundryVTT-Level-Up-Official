@@ -177,8 +177,8 @@
 
 <Section heading="Condition Interface Layout" --a5e-section-body-gap="0.5rem">
     <RadioGroup
-        heading="Condition Interface Flow Direction"
-        hint={game.settings.settings.get("a5e.conditionFlowDirection").hint}
+        heading="A5E.settings.conditionFlowDirection"
+        hint="A5E.settings.hints.conditionFlowDirection"
         options={Object.entries(conditionFlowDirectionChoices)}
         selected={selectedConditionFlowDirection}
         on:updateSelection={({ detail }) => {

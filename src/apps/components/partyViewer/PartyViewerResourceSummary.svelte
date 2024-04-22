@@ -15,6 +15,8 @@
         return true;
     }
 
+    const { spellLevels } = CONFIG.A5E;
+
     $: actorData = $actor?.system;
     $: showExertion = hasExertionPool($actor);
     $: showSpellPoints = hasSpellPoints($actor);
@@ -87,11 +89,10 @@
                         {#if max && max > 0}
                             {current}
                         {:else}
-                            <!-- svelte-ignore missing-declaration -->
                             <i
                                 class="cross fa-solid fa-xmark"
                                 data-tooltip="{$actor.name} has no spell slots of {localize(
-                                    CONFIG.A5E.spellLevels[level],
+                                    spellLevels[level],
                                 ).toLowerCase()}."
                                 data-tooltip-direction="UP"
                             />

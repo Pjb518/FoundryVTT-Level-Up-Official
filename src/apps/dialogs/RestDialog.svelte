@@ -20,6 +20,7 @@
     let restType = "short";
     let haven = true;
     let recoverStrifeAndFatigue = true;
+    let simpleRests = game.settings.get("a5e", "simpleRests");
     let consumeSupply = false;
 
     async function rollHitDie(dieSize) {
@@ -56,7 +57,7 @@
         on:updateSelection={({ detail }) => (restType = detail)}
     />
 
-    {#if restType === "long" && !game.settings.get("a5e", "simpleRests")}
+    {#if restType === "long" && simpleRests}
         <Section
             --a5e-section-body-padding="0"
             --a5e-section-body-gap="0.75rem"

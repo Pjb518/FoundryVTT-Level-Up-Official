@@ -1,7 +1,7 @@
 {
 	"name": "Sea Dragon Wyrmling",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/sea-serpent.webp",
 	"system": {
 		"abilities": {
 			"str": {
@@ -347,7 +347,7 @@
 		"attributes": {
 			"ac": {
 				"value": 0,
-				"baseFormula": "10 + @dex.mod"
+				"baseFormula": "17"
 			},
 			"death": {
 				"success": 0,
@@ -400,15 +400,15 @@
 					"unit": "feet"
 				},
 				"fly": {
-					"distance": 0,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"swim": {
-					"distance": 0,
+					"distance": 60,
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 40,
 					"unit": "feet"
 				},
 				"traits": {
@@ -417,12 +417,12 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 0,
+					"distance": 90,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
 				"darkvision": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet"
 				},
 				"tremorsense": {
@@ -473,7 +473,9 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": [],
+			"terrain": [
+				"water"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -574,7 +576,7 @@
 		"displayName": 0,
 		"actorLink": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/sea-serpent.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
@@ -814,7 +816,52 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"ZYGAan5FIrIpnOET": {
+						"name": "Bite",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"vdabvbqLlzM1M7TS": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"GRs48M6FT4917ZnH": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d10 + @str.mod",
+								"damageType": "piercing"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"Y6ZXyY13In7di1Qc": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
 				"description": "",
 				"favorite": true,
 				"secretDescription": "",
@@ -853,7 +900,7 @@
 			"flags": {}
 		},
 		{
-			"name": "Tidal Breath (Recharge 5-6)",
+			"name": "Tidal Breath",
 			"type": "feature",
 			"_id": "ezcpwfPznUcazuLm",
 			"img": "icons/svg/item-bag.svg",
@@ -868,18 +915,90 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"VXguEPEp2Vlly2PF": {
+						"name": "Tidal Breath",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {
+							"YLdixM1g9e658wig": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {
+							"FiNniI5DvD8eAmX5": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "3d6",
+								"damageType": "bludgeoning"
+							},
+							"IORWRKkKpfcmhUjg": {
+								"type": "damage",
+								"default": false,
+								"canCrit": false,
+								"formula": "2d6",
+								"damageType": "acid"
+							},
+							"eO9RYAPdO2TprsBW": {
+								"type": "damage",
+								"default": false,
+								"canCrit": false,
+								"formula": "2d6",
+								"damageType": "cold"
+							}
+						},
+						"prompts": {
+							"MXoh0zsBMVAdeICt": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "maneuver"
+								},
+								"onSave": "Half damage"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"P4mn0tYZ2681o67S": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "line",
+							"quantity": 1,
+							"length": 15,
+							"width": 5,
+							"placeTemplate": true
+						}
+					}
+				},
 				"description": "<p>The sea dragon exhales a spray of sea water in a 15ft long, 5ft wide jet that channels either the corrosive salinity of the sea or the cold darkness of the depths. Each creature in the area must make a DC 12 Strength saving throw, taking 10 (3d6) bludgeoning damage and the dragon's choice of 7 (2d6) acid or cold damage on a failure and half damage on a success.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
+					"value": 1,
+					"max": "1",
+					"per": "recharge",
 					"recharge": {
 						"formula": "1d6",
-						"threshold": 6
+						"threshold": 5
 					}
 				},
 				"concentration": false,
@@ -1480,7 +1599,8 @@
 			"showManeuverTab": false,
 			"showSpellTab": false,
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": true
 		}
 	},
 	"folder": null,

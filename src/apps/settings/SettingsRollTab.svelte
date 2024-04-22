@@ -13,13 +13,14 @@
 
     // Stores
     let critCalculationMode = settings.getStore("critCalculationMode");
+    let preventActivationRoll = settings.getStore("preventActionRollOnWarning");
+
     let selectedCritMode =
         updates.get("critCalculationMode") ?? $critCalculationMode;
+
     const critCalculationModeOptions = game.settings.settings.get(
         "a5e.critCalculationMode",
     ).choices;
-
-    let preventActivationRoll = settings.getStore("preventActionRollOnWarning");
 </script>
 
 <Section heading="Generic Roll Settings" --a5e-section-body-gap="0.5rem">

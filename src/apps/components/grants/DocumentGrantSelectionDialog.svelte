@@ -93,6 +93,3 @@
         {summary}
     </FieldWrapper>
 </Section>
-
-<style lang="scss">
-</style>

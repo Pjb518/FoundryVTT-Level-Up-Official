@@ -417,9 +417,9 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet",
-					"otherwiseBlind": false
+					"otherwiseBlind": true
 				},
 				"darkvision": {
 					"distance": 0,
@@ -473,7 +473,10 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": [],
+			"terrain": [
+				"grassland",
+				"hills"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -646,8 +649,35 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
-				"description": "<p>The giant sundew has 4d4 x 10 tendrils, which it can use to make Tendril attacks. A creature grappled by a tendril takes 1d4 acid damage per tendril grappling it at the start of each of its turns.</p>",
+				"actions": {
+					"2zDtvpJ9Z9nyGth6": {
+						"name": "Tendrils",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"oyz9PKOp6sAbgxky": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "1d4",
+								"damageType": "acid"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The giant sundew has [[/r 10*4d4]] tendrils, which it can use to make Tendril attacks. A creature grappled by a tendril takes 1d4 acid damage per tendril grappling it at the start of each of its turns.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "",
@@ -700,7 +730,29 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"lpwIYrREim3x2bPL": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The giant sundew makes six Tendril attacks.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -754,7 +806,64 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"r2dd78psTBOnefqk": {
+						"name": "Tendril",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"o6Zfw1ULVZokrwKK": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"DUggdvErCBMNlVfz": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d6 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"bgSDkJaxlKGF9j2H": {
+								"type": "effect",
+								"default": true,
+								"effectId": "qmC1hrDRLRZFKYFv"
+							},
+							"6iKTS9ekgj4HAaCv": {
+								"type": "effect",
+								"default": true,
+								"effectId": "uMNtIV1SJQKKKbCv"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"jCDg4wvVimAYFpgG": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
 				"description": "<p>When hit the target is grappled (escape DC 13). The target is also restrained. If grappled by more than 1 tendril, the target must escape from each of them individually. On a roll of natural 20, the target's mouth is covered and they cannot breath or speak.</p>",
 				"favorite": true,
 				"secretDescription": "",
@@ -784,7 +893,74 @@
 					}
 				}
 			},
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.9KCE8aMWz0V91GS9.Item.LH8Ru8FZpgljx68u",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "r2dd78psTBOnefqk"
+						}
+					},
+					"transfer": false,
+					"name": "Grappled",
+					"_id": "qmC1hrDRLRZFKYFv",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"grappled\",\"restrained\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"grappled",
+						"restrained"
+					],
+					"folder": null
+				},
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.9KCE8aMWz0V91GS9.Item.LH8Ru8FZpgljx68u",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "r2dd78psTBOnefqk"
+						}
+					},
+					"transfer": false,
+					"name": "Mouth Covered",
+					"_id": "uMNtIV1SJQKKKbCv",
+					"changes": [],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>Cannot breath or speak.</p>",
+					"statuses": [],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -1362,7 +1538,8 @@
 			"showManeuverTab": false,
 			"showSpellTab": false,
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": true
 		}
 	},
 	"folder": null,

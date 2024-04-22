@@ -1,7 +1,7 @@
 {
 	"name": "Hound of Tindalos",
 	"type": "npc",
-	"img": "icons/svg/mystery-man.svg",
+	"img": "systems/a5e/assets/hellhound.webp",
 	"system": {
 		"abilities": {
 			"str": {
@@ -347,7 +347,7 @@
 		"attributes": {
 			"ac": {
 				"value": 0,
-				"baseFormula": "10 + @dex.mod"
+				"baseFormula": "20"
 			},
 			"death": {
 				"success": 0,
@@ -408,7 +408,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 50,
 					"unit": "feet"
 				},
 				"traits": {
@@ -417,9 +417,9 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": 0,
+					"distance": 120,
 					"unit": "feet",
-					"otherwiseBlind": false
+					"otherwiseBlind": true
 				},
 				"darkvision": {
 					"distance": 0,
@@ -473,7 +473,12 @@
 			"elite": false,
 			"privateNotes": "",
 			"notes": "",
-			"terrain": [],
+			"terrain": [
+				"caverns",
+				"ruin",
+				"theBleakGate",
+				"tomb"
+			],
 			"isSquad": false
 		},
 		"proficiencies": {
@@ -547,7 +552,7 @@
 				"version": {
 					"schema": 0.014,
 					"foundry": "11.315",
-					"system": "0.17.31"
+					"system": "0.17.33"
 				}
 			}
 		},
@@ -569,7 +574,7 @@
 		"displayName": 0,
 		"actorLink": false,
 		"texture": {
-			"src": "icons/svg/mystery-man.svg",
+			"src": "systems/a5e/assets/hellhound.webp",
 			"scaleX": 1,
 			"scaleY": 1,
 			"offsetX": 0,
@@ -672,7 +677,7 @@
 						"version": {
 							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.31"
+							"system": "0.17.33"
 						}
 					}
 				}
@@ -701,9 +706,36 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"nVfMkgtr2dldv5c0": {
+						"name": "Alien Mind",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"NNHzd8bNv914Bbeh": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "4d6",
+								"damageType": "psychic"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>Any creature that attempts to read a hound of tindalos' mind, communicate with it telepathically, or deal psychic damage to it takes 4d6 psychic damage.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -726,7 +758,7 @@
 						"version": {
 							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.31"
+							"system": "0.17.33"
 						}
 					}
 				}
@@ -755,7 +787,62 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"qLgJF7sZ7FW0dVzH": {
+						"name": "Deafened",
+						"activation": {},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"rJG7hQvPg3NAeuPG": {
+								"type": "effect",
+								"default": true,
+								"effectId": "aDhGgywUJhIwTrt8"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					},
+					"9TOJauPzyLZ7IzrK": {
+						"name": "Thunder Damage",
+						"activation": {},
+						"consumers": {},
+						"rolls": {
+							"SGdoafHm0jMITDq3": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "con"
+							}
+						},
+						"prompts": {
+							"9adKQW8ZZ8BerADD": {
+								"type": "effect",
+								"default": true,
+								"effectId": "i7V3gJzZIKktIv0S"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
 				"description": "<p>The hound of tindalos relies on sound to navigate.  If it is deafened, it loses its blindsight, and if it takes thunder damage it must make a Constitution saving throw as if concentrating on a spell or become deafened until the end of its next turn.</p>",
 				"favorite": false,
 				"secretDescription": "",
@@ -780,12 +867,97 @@
 						"version": {
 							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.31"
+							"system": "0.17.33"
 						}
 					}
 				}
 			},
-			"effects": [],
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.hODA5J6854qpuo9T.Item.8jH7xcQ1lg8mwivt",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "qLgJF7sZ7FW0dVzH",
+							"applyToSelf": true
+						}
+					},
+					"transfer": false,
+					"name": "Defeaned",
+					"_id": "aDhGgywUJhIwTrt8",
+					"changes": [
+						{
+							"key": "system.attributes.senses.blindsight.distance",
+							"value": "0",
+							"mode": 6,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [],
+					"folder": null
+				},
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.hODA5J6854qpuo9T.Item.8jH7xcQ1lg8mwivt",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "9TOJauPzyLZ7IzrK",
+							"applyToSelf": true,
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Deafened",
+					"_id": "i7V3gJzZIKktIv0S",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"deafened\"]",
+							"mode": 0,
+							"priority": null
+						},
+						{
+							"key": "system.attributes.senses.blindsight.distance",
+							"value": "0",
+							"mode": 6,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"deafened"
+					],
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"ownership": {
@@ -809,9 +981,31 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
-				"description": "",
-				"favorite": false,
+				"actions": {
+					"pPo9Brz8RgHf5mPT": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The hound of tindalos makes a bite attack and two claw attacks.</p>",
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -834,7 +1028,7 @@
 						"version": {
 							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.31"
+							"system": "0.17.33"
 						}
 					}
 				}
@@ -863,9 +1057,60 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"p6BNeWeOPMmKUBEE": {
+						"name": "Bite",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"y0MB0R8g1EnxCWNP": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"gLeSiHwpggxEhbRP": {
+								"type": "damage",
+								"default": true,
+								"formula": "2d10 + @str.mod",
+								"damageType": "piercing"
+							},
+							"yiIj2ssqDX4NjwMi": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d12",
+								"damageType": "psychic"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"7KRjWBP5Ls2c1sm6": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
 				"description": "<p></p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -888,7 +1133,7 @@
 						"version": {
 							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.31"
+							"system": "0.17.33"
 						}
 					}
 				}
@@ -917,9 +1162,54 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"LtyheOu08kVev9AC": {
+						"name": "Claw",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"F0OeJr6XxV4c2Ehe": {
+								"type": "attack",
+								"default": true,
+								"attackType": "meleeWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"jSt74oMarDlkRyTf": {
+								"type": "damage",
+								"default": true,
+								"formula": "1d12 + @str.mod",
+								"damageType": "slashing"
+							}
+						},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"tMaSCDxulhmbnRWR": {
+								"range": "fiveFeet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
 				"description": "",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -942,7 +1232,7 @@
 						"version": {
 							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.31"
+							"system": "0.17.33"
 						}
 					}
 				}
@@ -971,9 +1261,41 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"mJfvEdbKjE76NITZ": {
+						"name": "Corner Transport",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"JVzjxUqgzAbMcGmn": {
+								"range": 1,
+								"unit": "miles"
+							}
+						},
+						"target": {
+							"type": "self",
+							"quantity": 1
+						}
+					}
+				},
 				"description": "<p>A hound of tindalos may teleport anywhere within 1 mile, so long as the location they teleport from and to are both structures with angles of 120 degrees or less.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -996,7 +1318,7 @@
 						"version": {
 							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.31"
+							"system": "0.17.33"
 						}
 					}
 				}
@@ -1025,9 +1347,65 @@
 					"requiresNoShield": false,
 					"requiresUnarmored": false
 				},
-				"actions": {},
+				"actions": {
+					"mGgymUFKapHPlP1h": {
+						"name": "Rendering Gaze",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"Archra65D5uqzbMt": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "2d10",
+								"damageType": "slashing"
+							},
+							"j6TmOLYz77pNIu8g": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "2d12",
+								"damageType": "psychic"
+							}
+						},
+						"prompts": {
+							"w4d6FM1Rq6mkeMhw": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "cha",
+								"saveDC": {
+									"type": "cha"
+								},
+								"onSave": "Half damage"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"oodAQVfGXAnDtesq": {
+								"range": "short"
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
 				"description": "<p>A creature within 30ft of the hound of tindalos must make a DC 16 Charisma saving throw or take 11 (2d10) slashing damage and 13 (2d12) psychic damage, taking half damage on a success, as the gaze of the creature tears at their body and soul.</p>",
-				"favorite": false,
+				"favorite": true,
 				"secretDescription": "",
 				"source": "",
 				"uses": {
@@ -1050,7 +1428,7 @@
 						"version": {
 							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.31"
+							"system": "0.17.33"
 						}
 					}
 				}
@@ -1141,7 +1519,7 @@
 						"version": {
 							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.31"
+							"system": "0.17.33"
 						}
 					}
 				}
@@ -1231,7 +1609,7 @@
 						"version": {
 							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.31"
+							"system": "0.17.33"
 						}
 					}
 				}
@@ -1330,7 +1708,7 @@
 						"version": {
 							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.31"
+							"system": "0.17.33"
 						}
 					}
 				}
@@ -1420,7 +1798,7 @@
 						"version": {
 							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.31"
+							"system": "0.17.33"
 						}
 					}
 				}
@@ -1510,7 +1888,7 @@
 						"version": {
 							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.31"
+							"system": "0.17.33"
 						}
 					}
 				}
@@ -1609,7 +1987,7 @@
 						"version": {
 							"schema": 0.014,
 							"foundry": "11.315",
-							"system": "0.17.31"
+							"system": "0.17.33"
 						}
 					}
 				}
@@ -1626,7 +2004,8 @@
 	"flags": {
 		"a5e": {
 			"sortMode": {},
-			"filters": {}
+			"filters": {},
+			"sheetIsLocked": true
 		}
 	},
 	"folder": null,

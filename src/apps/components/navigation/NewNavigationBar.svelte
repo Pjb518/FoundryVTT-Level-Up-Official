@@ -11,6 +11,7 @@
     export let showLock = false;
 
     const actor = getContext("actor");
+    const observerPermissionsLevel = CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER;
 
     $: sheetIsLocked = !$actor.isOwner
         ? true
@@ -41,8 +42,7 @@
             {/if}
         {/each}
 
-        <!-- svelte-ignore missing-declaration -->
-        {#if showLock && $actor.permission !== CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER}
+        {#if showLock && $actor.permission !== observerPermissionsLevel}
             <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
             <li
                 class="a5e-nav-item a5e-nav-item--lock fa-solid {sheetIsLocked
@@ -57,10 +57,5 @@
                 data-tooltip-direction="UP"
             />
         {/if}
-
-        <!-- svelte-ignore missing-declaration -->
-        <!-- {#if showAdd}
-            <AddButton on:add-button-clicked />
-        {/if} -->
     </ul>
 </nav>
