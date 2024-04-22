@@ -47,16 +47,22 @@
 
     export let { activeIncompatibleModules } =
         getContext("#external").application;
+
+    $: modules = activeIncompatibleModules.map(
+        ([module, { reason, priority }]) => [
+            game.modules.get(module)?.title,
+            reason,
+            priority,
+        ],
+    );
 </script>
 
 <article class="main-announcement-container">
     <ul class="module-list">
-        {#each activeIncompatibleModules as [module, { reason, priority }]}
+        {#each modules as [moduleTitle, reason, priority]}
             <li>
                 <header class="module__header">
-                    <h3 class="module__title">
-                        {game.modules.get(module)?.title}
-                    </h3>
+                    <h3 class="module__title">{moduleTitle}</h3>
 
                     <i
                         class="module__priority-icon fa-solid fa-circle"

@@ -17,13 +17,12 @@
     For content that isn't integrated into the system, we provide modules that
     are either sold by the publisher as standalone products or included for free
     when you purchase the original content. We've provided a handy list of these
-    products in the <span
+    products in the <button
         class="false-link"
-        role="button"
         on:click={() => dispatch("change-tab", 1)}
     >
-        Premium Content</span
-    >
+        Premium Content
+    </button>
     tab. You can also find a list of all the modules available for A5e, both free
     and premium, on
     <a
@@ -34,23 +33,30 @@
 
 <p>
     We've also started producing exclusive modules for our Patreon supporters.
-    You can find more information about this in the <span
+    You can find more information about this in the <button
         class="false-link"
-        role="button"
         on:click={() => dispatch("change-tab", 2)}
     >
-        Patreon Exclusive</span
-    > tab.
+        Patreon Exclusive
+    </button> tab.
 </p>
 
 <style lang="scss">
     .false-link {
+        display: inline;
+        height: unset;
+        width: fit-content;
+        line-height: unset;
+        padding: 0;
         color: var(--color-text-hyperlink);
         text-decoration: underline;
+        border: 0;
+        background: transparent;
         cursor: pointer;
 
         &:hover {
             text-shadow: 0 0 8px var(--color-shadow-primary);
+            box-shadow: none;
         }
     }
 </style>

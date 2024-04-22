@@ -1,5 +1,7 @@
 <script>
     import Section from "../components/Section.svelte";
+
+    const { premiumContent } = CONFIG.A5E;
 </script>
 
 <p>
@@ -15,7 +17,7 @@
     system and its modules.
 </p>
 
-{#each Object.values(CONFIG.A5E.premiumContent) as { name, releases }}
+{#each Object.values(premiumContent) as { name, releases }}
     <Section heading={name}>
         <ul class="content-list">
             {#each releases as { title, url }}

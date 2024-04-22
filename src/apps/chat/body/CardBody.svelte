@@ -330,6 +330,7 @@
     const { actionDescription, itemDescription, unidentifiedDescription } =
         $message.flags?.a5e;
 
+    const { isGM } = game.user;
     const prompts = preparePrompts($message);
     const hasPrompts = Object.values(prompts).flat().length;
     const rolls = prepareRolls($message);
@@ -358,8 +359,7 @@
                 <hr class="a5e-rule a5e-rule--card" />
 
                 <div>
-                    <!-- svelte-ignore missing-declaration -->
-                    {#if !game.user.isGM && item?.type === "object" && item?.system?.unidentified}
+                    {#if !isGM && item?.type === "object" && item?.system?.unidentified}
                         {@html unidentifiedDescription}
                     {:else}
                         {@html itemDescription}

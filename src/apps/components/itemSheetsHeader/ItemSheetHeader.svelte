@@ -5,20 +5,6 @@
     import editDocumentImage from "../../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    // function getPublisherTooltip(item) {
-    //     const publisher = item.system.source?.publisher;
-    //     const productName = item.system.source?.name;
-    //     const publisherName = CONFIG.A5E.publishers[publisher]?.name;
-
-    //     if (!publisher || !productName || !publisherName) return null;
-
-    //     if (productName) {
-    //         return `${publisherName} - ${productName}`;
-    //     }
-
-    //     return `${publisherName}`;
-    // }
-
     async function fulfilDestiny() {
         const fulfillmentFeature = await fromUuid(
             $item.system.fulfillmentFeature,
@@ -43,16 +29,12 @@
 
     // $: name = getItemName($item);
 
-    const item = getContext("item");
-    const { A5E } = CONFIG;
-    const { DAMAGED_STATES } = A5E;
-    const prerequisiteTypes = ["maneuver", "feature", "spell"];
-    const headerButtonTypes = ["object"];
     const appId = getContext("appId");
-    // const publisher = $item.system.source?.publisher;
-    // const publisherLogo = CONFIG.A5E.publishers[publisher]?.logo;
-    // const publisherTooltip = getPublisherTooltip($item);
-    // const productLink = $item.system.source?.link ?? null;
+    const { DAMAGED_STATES, damagedStates } = CONFIG.A5E;
+    const { isGM } = game.user;
+    const item = getContext("item");
+    const headerButtonTypes = ["object"];
+    const prerequisiteTypes = ["maneuver", "feature", "spell"];
 
     let disableFulfil = $item.actor?.getFlag("a5e", "destinyFulfilled") ?? true;
 </script>
@@ -105,12 +87,11 @@
 
     {#if headerButtonTypes.includes($item.type)}
         <div class="button-container">
-            <!-- svelte-ignore missing-declaration -->
             <button
                 class="header-button fa-solid fa-circle-question"
                 class:active={$item.system.unidentified}
-                class:locked={!game.user.isGM}
-                disabled={!game.user.isGM}
+                class:locked={!isGM}
+                disabled={!isGM}
                 data-tooltip={$item.system.unidentified
                     ? "A5E.ButtonToolTipUnidentified"
                     : "A5E.ButtonToolTipIdentified"}
@@ -146,7 +127,7 @@
                     DAMAGED_STATES.DAMAGED,
                     DAMAGED_STATES.BROKEN,
                 ].includes($item.system.damagedState)}
-                data-tooltip={A5E.damagedStates[$item.system.damagedState ?? 0]}
+                data-tooltip={damagedStates[$item.system.damagedState ?? 0]}
                 data-tooltip-direction="UP"
                 on:click|stopPropagation={() => $item.toggleDamagedState()}
             />

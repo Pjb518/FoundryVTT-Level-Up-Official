@@ -140,8 +140,17 @@
     }
 
     const actor = getContext("actor");
-    const { A5E } = CONFIG;
-    const { DAMAGED_STATES, EQUIPPED_STATES, PREPARED_STATES } = A5E;
+
+    const {
+        damagedStates,
+        DAMAGED_STATES,
+        equippedStates,
+        EQUIPPED_STATES,
+        preparedStates,
+        PREPARED_STATES,
+    } = CONFIG.A5E;
+
+    let hideBrokenAndDamaged = game.settings.get("a5e", "hideBrokenAndDamaged");
     let usesType = actionId ? "action" : "item";
 
     let rightClickConfigure =
@@ -359,7 +368,7 @@
                             EQUIPPED_STATES.EQUIPPED,
                             EQUIPPED_STATES.CARRIED,
                         ].includes(item.system.equippedState)}
-                        data-tooltip={A5E.equippedStates[
+                        data-tooltip={equippedStates[
                             item.system.equippedState ?? 0
                         ]}
                         data-tooltip-direction="UP"
@@ -368,8 +377,7 @@
                     />
                 {/if}
 
-                <!-- svelte-ignore missing-declaration -->
-                {#if !game.settings.get("a5e", "hideBrokenAndDamaged")}
+                {#if !hideBrokenAndDamaged}
                     <button
                         class="action-button fas"
                         class:fa-heart={item.system.damagedState ===
@@ -382,7 +390,7 @@
                             DAMAGED_STATES.DAMAGED,
                             DAMAGED_STATES.BROKEN,
                         ].includes(item.system.damagedState)}
-                        data-tooltip={A5E.damagedStates[
+                        data-tooltip={damagedStates[
                             item.system.damagedState ?? 0
                         ]}
                         data-tooltip-direction="UP"
@@ -406,7 +414,7 @@
                         PREPARED_STATES.PREPARED,
                         PREPARED_STATES.ALWAYS_PREPARED,
                     ].includes(Number(item.system.prepared ?? 0))}
-                    data-tooltip={A5E.preparedStates[
+                    data-tooltip={preparedStates[
                         Number(item.system.prepared ?? 0)
                     ]}
                     data-tooltip-direction="UP"

@@ -112,14 +112,14 @@
 
         if (conditionId === "fatigue" || conditionId === "strife") {
             return `
-                <small class="a5e-effect-summary-tooltip__removal-note">
+                <small class="a5e-tooltip__note">
                     Right click to remove a level of ${conditionId}.
                 </small>
             `;
         }
 
         return `
-            <small class="a5e-effect-summary-tooltip__removal-note">
+            <small class="a5e-tooltip__note">
                 Right click the icon to remove this ${conditionId ? "condition" : "effect"}.
             </small>
         `;
@@ -152,7 +152,7 @@
     $: strife = actor?.system.attributes.strife ?? 0;
 
     $: tooltip = `
-        <h3 class="a5e-effect-summary-tooltip__heading">${getEffectName(actor)}</h3>
+        <h3 class="a5e-tooltip__heading">${getEffectName(actor)}</h3>
         ${getEffectDescription(actor)}
         ${getEffectRemovalNote()}
         ${getEffectNotes(actor, duration)}
@@ -173,7 +173,7 @@
         class="a5e-effect-item"
         data-tooltip={tooltip}
         data-tooltip-direction="LEFT"
-        data-tooltip-class="a5e-effect-summary-tooltip"
+        data-tooltip-class="a5e-tooltip a5e-tooltip--dark a5e-tooltip--effect-summary"
         on:click={() => dispatch("increaseCounter", _id)}
         on:auxclick={() => linked ?? dispatch("deleteEffect", _id)}
     >

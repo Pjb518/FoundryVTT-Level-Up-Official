@@ -5,6 +5,7 @@
     import FieldWrapper from "../components/FieldWrapper.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
     import Section from "../components/Section.svelte";
+    import A5E from "../../config";
 
     export let reload;
 
@@ -152,10 +153,9 @@
         />
     </FieldWrapper>
 
-    <!-- svelte-ignore missing-declaration -->
     <RadioGroup
-        heading="Skill List Flow Direction"
-        hint={game.settings.settings.get("a5e.skillListFlowDirection").hint}
+        heading="A5E.settings.skillListFlowDirection"
+        hint="A5E.settings.hints.skillListFlowDirection"
         options={Object.entries(skillListFlowDirectionChoices)}
         selected={selectedSkillListFlowDirection}
         on:updateSelection={({ detail }) => {

@@ -18,11 +18,16 @@
     }
 
     const actor = getContext("actor");
+
+    let replaceFatigueAndStrife = game.settings.get(
+        "a5e",
+        "replaceFatigueAndStrife",
+    );
 </script>
 
 <div
     class="track track--{trackProperty}"
-    class:track--5e={game.settings.get("a5e", "replaceFatigueAndStrife")}
+    class:track--5e={replaceFatigueAndStrife}
     data-tooltip={tooltipText}
     data-tooltip-direction="DOWN"
 >
