@@ -2,7 +2,6 @@
     import { localize } from "#runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import RollTooltip from "../tooltips/RollTooltip.svelte";
     import DamageButtons from "./DamageButtons.svelte";
 
     import getExpertiseDieSize from "../../../utils/getExpertiseDieSize";
@@ -81,7 +80,6 @@
             content: "<article></article>",
         };
 
-        // critTable.toMessage(rollOutcome.results, { roll: rollOutcome.roll });
         ChatMessage.applyRollMode(
             chatData,
             game.settings.get("core", "rollMode"),
@@ -103,41 +101,107 @@
         }
     }
 
-    async function toggleRollTooltip() {
-        tooltipIsVisible = !tooltipIsVisible;
-
-        if (tooltipIsVisible) {
-            const messages = [...(game.messages ?? [])];
-            const lastMessage = messages[messages.length - 1];
-
-            if ($message.id === lastMessage?.id) {
-                setTimeout(() => ui.chat.scrollBottom(), 0);
-            }
-        }
-    }
-
     let hideSkillCriticalPrompt = game.settings.get(
         "a5e",
         "hideSkillCriticalPrompt",
     );
+
+    function getTooltipPermissions(message) {
+        if (!game.settings.get("a5e", "protectRolls") ?? true) return true;
+
+        const actorId = message?.flags?.a5e?.actorId;
+        const actor = fromUuidSync(actorId);
+
+        if (!actor) return true;
+        if (actor.type === "character") return true;
+
+        // If actor permissions are at least "Observer", show the tooltip
+        return actor.permission >= 2;
+    }
+
+    function getRollTooltip() {
+        if (!getTooltipPermissions(message)) return null;
+
+        return [getRollTooltipRollParts(), getRollTooltipFormula()].join("");
+    }
+
+    function getRollTooltipFormula() {
+        const terms = roll.terms.reduce((acc, term) => {
+            acc += `<span class="a5e-roll-formula__term">${term.expression}`;
+
+            if (term.flavor && !terseRollFormulae) acc += ` [${term.flavor}]`;
+
+            acc += "</span>";
+
+            return acc;
+        }, "");
+
+        return `<div class="a5e-roll-formula">${terms}</div>`;
+    }
+
+    function getRollTooltipRollParts() {
+        return roll.dice.reduce((acc, part) => {
+            acc += `<section class="u-mb-md">
+                <header class="u-align-center u-flex u-justify-space-between u-text-bold">
+                    <div class="a5e-dice-tooltip__formula">
+                        ${part.expression}
+                        <span class="a5e-dice-tooltip__flavor">`;
+
+            if (part.flavor) acc += ` [${part.flavor}]`;
+
+            acc += `</span></div>
+                    <span class="a5e-dice-tooltip__total">${part.total}</span>
+                </header>
+
+            <ol class="u-align-center u-flex u-flex-wrap u-gap-xs u-list-style-none u-my-xs u-p-0">`;
+
+            acc += getRollTooltipDiceResults(part);
+            acc += `</ol></section>`;
+
+            return acc;
+        }, "");
+    }
+
+    function getRollTooltipDiceResults({ faces, results }) {
+        return results.reduce((acc, { rerolled, discarded, result }) => {
+            const isCritical =
+                (faces === 20 && result >= rollData.critThreshold) ||
+                result === faces;
+
+            const isDiscarded = discarded || rerolled;
+            const isFumble = result === 1;
+
+            let classes = `a5e-die a5e-die--${faces}`;
+
+            if (isDiscarded) classes += " discarded-die";
+            else if (isFumble) classes += " fumbled-die";
+            else if (isCritical) classes += " critical-die";
+
+            return acc + `<li class="${classes}">${result}</li>`;
+        }, "");
+    }
 
     let tooltipIsVisible = false;
     let showRollConfig = false;
 
     const message = getContext("message");
     const actor = fromUuidSync($message?.flags?.a5e?.actorId);
+    const terseRollFormulae = game.settings.get("a5e", "terseRollFormulae");
     const { user } = game;
 
     $: isCriticalFailure = determineIfCriticalFailure(roll);
     $: isCriticalSuccess = determineIfCriticalSuccess(roll);
 </script>
 
-<button class="roll-container" on:click={toggleRollTooltip}>
+<div class="roll-container">
     <div
         class="roll"
         class:roll--max={isCriticalSuccess}
         class:roll--min={isCriticalFailure}
         class:roll--wide={!isAction}
+        data-tooltip={getRollTooltip()}
+        data-tooltip-class="a5e-roll-tooltip"
+        data-tooltip-direction="LEFT"
     >
         {roll.total}
     </div>
@@ -181,7 +245,7 @@
             data-tooltip-direction="LEFT"
         />
     {/if}
-</button>
+</div>
 
 {#if !hideSkillCriticalPrompt && rollData.type === "skillCheck" && rollData.skillKey}
     {#if isCriticalSuccess}
@@ -209,15 +273,6 @@
     />
 {/if}
 
-{#if tooltipIsVisible}
-    <RollTooltip
-        critThreshold={rollData.critThreshold}
-        {roll}
-        on:toggleTooltipVisibility={() =>
-            (tooltipIsVisible = !tooltipIsVisible)}
-    />
-{/if}
-
 <style lang="scss">
     .roll {
         position: relative;
@@ -231,6 +286,7 @@
         font-weight: 700;
         border: 0.5px solid var(--a5e-roll-color, #ccc);
         border-radius: $border-radius-standard;
+        cursor: pointer;
 
         &::after {
             content: "";
@@ -263,15 +319,6 @@
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        margin: 0;
-        padding: 0;
-        background: transparent;
-        border: 0;
-        box-shadow: none;
-
-        &:hover {
-            box-shadow: none;
-        }
     }
 
     .roll-header {
