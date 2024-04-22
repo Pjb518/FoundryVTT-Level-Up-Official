@@ -1,54 +1,52 @@
 /* stylelint-disable selector-max-id */
 
 #tooltip {
-  &.a5e-effect-summary-tooltip {
-    max-width: 65ch;
+  &.a5e-tooltip {
     margin-right: 0.5rem;
     padding: 0.5rem;
     padding-bottom: 0.125rem;
     font-size: 0.833rem;
     font-family: var(--a5e-font-sans-serif);
-    background-color: rgba(20, 20, 20, 0.6);
-    backdrop-filter: blur(3px);
-    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
-    box-shadow: 0 0 0 1px #e9d7a1, 0 0 0 2px #956d58;
-  }
 
-  .a5e-effect-summary-tooltip {
-    &__heading {
-      margin-bottom: 0.5rem;
-      border-bottom: 0;
-      font-size: 1rem;
-      font-family: var(--a5e-font-serif);
+    &--effect-summary {
+      min-width: 40ch;
+      max-width: 65ch;
+      background-color: rgba(20, 20, 20, 0.6);
+      backdrop-filter: blur(3px);
+      filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
+      box-shadow: 0 0 0 1px #e9d7a1, 0 0 0 2px #956d58;
     }
 
-    &__list {
-      display: flex;
-      flex-direction: column;
-      gap: 0.25rem;
-      padding-left: 1rem;
-    }
-
-    &__removal-note {
-      display: block;
-      margin-block: 0.25rem 0.125rem;
-      opacity: 0.75;
+    &--roll {
+      max-width: 18.75rem;
+      color: #191813;
+      background-color: #ede9e0;
+      border-radius: 5px;
+      filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
+      box-shadow: 0 0 0 1px #6f6c66;
     }
   }
+
 }
 
-#tooltip {
-  &.a5e-roll-tooltip {
-    width: 18.75rem;
-    margin-right: 0.5rem;
-    padding: 0.5rem;
-    padding-bottom: 0.125rem;
-    font-size: 0.833rem;
-    font-family: var(--a5e-font-sans-serif);
-    color: #191813;
-    background-color: #ede9e0;
-    border-radius: 5px;
-    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
-    box-shadow: 0 0 0 1px #6f6c66;
+.a5e-tooltip {
+  &__heading {
+    margin-bottom: 0.5rem;
+    border-bottom: 0;
+    font-size: 1rem;
+    font-family: var(--a5e-font-serif);
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding-left: 1rem;
+  }
+
+  &__removal-note {
+    display: block;
+    margin-block: 0.25rem 0.125rem;
+    opacity: 0.75;
   }
 }
