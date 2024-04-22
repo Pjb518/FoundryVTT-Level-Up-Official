@@ -89,7 +89,7 @@
                 href={spellSource?.url}
                 target="_blank"
                 data-tooltip={getDocumentSourceTooltip(spellSource)}
-                data-tooltip-class="a5e-tooltip a5e-tooltip--document-source"
+                data-tooltip-class="a5e-tooltip a5e-tooltip--dark a5e-tooltip--document-source"
                 on:click|stopPropagation
             >
                 {spellSource?.abbreviation}

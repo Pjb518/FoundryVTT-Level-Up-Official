@@ -173,7 +173,7 @@
         class="a5e-effect-item"
         data-tooltip={tooltip}
         data-tooltip-direction="LEFT"
-        data-tooltip-class="a5e-tooltip a5e-tooltip--effect-summary"
+        data-tooltip-class="a5e-tooltip a5e-tooltip--dark a5e-tooltip--effect-summary"
         on:click={() => dispatch("increaseCounter", _id)}
         on:auxclick={() => linked ?? dispatch("deleteEffect", _id)}
     >
