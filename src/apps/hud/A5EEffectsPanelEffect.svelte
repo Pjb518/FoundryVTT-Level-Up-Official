@@ -112,14 +112,14 @@
 
         if (conditionId === "fatigue" || conditionId === "strife") {
             return `
-                <small class="a5e-tooltip__removal-note">
+                <small class="a5e-tooltip__note">
                     Right click to remove a level of ${conditionId}.
                 </small>
             `;
         }
 
         return `
-            <small class="a5e-tooltip__removal-note">
+            <small class="a5e-tooltip__note">
                 Right click the icon to remove this ${conditionId ? "condition" : "effect"}.
             </small>
         `;
