@@ -93,6 +93,14 @@ export function getHealingBonusContext(type: 'grant' | 'bonus') {
   return schema;
 }
 
+export function getHitPointsBonusContext() {
+  const { fields } = foundry.data;
+
+  return {
+    perLevel: new fields.BooleanField({ required: true, initial: false })
+  };
+}
+
 export function getInitiativeBonusContext(type: 'grant' | 'bonus') {
   const { fields } = foundry.data;
 

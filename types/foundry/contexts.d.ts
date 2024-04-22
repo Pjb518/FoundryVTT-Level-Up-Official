@@ -23,6 +23,10 @@ export interface HealingBonusContext {
   spellLevels: string[];
 }
 
+export interface HitPointsBonusContext {
+  perLevel: boolean;
+}
+
 export interface InitiativeBonusContext {
   abilities: string[];
   skills: string[];
