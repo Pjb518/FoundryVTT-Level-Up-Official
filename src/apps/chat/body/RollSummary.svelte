@@ -164,7 +164,7 @@
     {:else if (user.isGM || actor?.testUserPermission(user, 2)) && ["abilityCheck", "attack", "savingThrow", "skillCheck", "toolCheck"].includes(rollData.type)}
         <button
             class="roll-mode-button fa-dice fa-solid"
-            on:click|stopPropagation={toggleRollConfig}
+            on:click={toggleRollConfig}
             data-tooltip={"Modify Roll"}
             data-tooltip-direction="LEFT"
         />
