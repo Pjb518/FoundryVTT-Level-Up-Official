@@ -8,9 +8,9 @@ export default function prepareRollTooltipDiceResults({ faces, results }, rollDa
 
     let classes = `a5e-die a5e-die--${faces}`;
 
-    if (isDiscarded) classes += ' discarded-die';
-    else if (isFumble) classes += ' fumbled-die';
-    else if (isCritical) classes += ' critical-die';
+    if (isDiscarded) classes += ' a5e-die--discarded';
+    else if (isFumble) classes += ' a5e-die--min';
+    else if (isCritical) classes += ' a5e-die--max';
 
     return `${acc}<li class="${classes}">${result}</li>`;
   }, '');
