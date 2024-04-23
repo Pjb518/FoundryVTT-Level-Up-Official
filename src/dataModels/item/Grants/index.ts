@@ -12,6 +12,7 @@ import ProficiencyGrant from './ProficiencyGrant';
 import SkillGrant from './SkillGrant';
 import SensesGrant from './SensesGrant';
 import TraitGrant from './TraitGrant';
+import HitPointGrant from './HitPointGrant';
 
 export default {
   base: BaseGrant,
@@ -21,6 +22,7 @@ export default {
   expertiseDice: ExpertiseDiceGrant,
   feature: FeatureGrant,
   healing: HealingGrant,
+  hitPoint: HitPointGrant,
   initiative: InitiativeGrant,
   item: ItemGrant,
   movement: MovementGrant,

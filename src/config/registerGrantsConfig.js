@@ -6,6 +6,7 @@ export default function registerGrantsConfig(A5E) {
     expertiseDice: 'A5E.grants.headings.expertiseDice',
     feature: 'A5E.grants.headings.feature',
     healing: 'A5E.grants.headings.healing',
+    hitPoint: 'A5E.grants.headings.hitPoint',
     item: 'A5E.grants.headings.item',
     initiative: 'A5E.grants.headings.initiative',
     movement: 'A5E.grants.headings.movement',

@@ -177,6 +177,16 @@ export default function getContextsMap(type: 'bonus' | 'grant', contextType: str
     }
   }
 
+  if (contextType === 'hitPoint') {
+    map.push(
+      {
+        heading: 'A5E.contexts.perLevel',
+        selectedProperty: 'context.perLevel',
+        component: 'Checkbox'
+      }
+    );
+  }
+
   if (contextType === 'initiative') {
     map.push(
       {

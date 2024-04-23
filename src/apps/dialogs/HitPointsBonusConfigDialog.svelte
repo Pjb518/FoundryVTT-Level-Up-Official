@@ -96,7 +96,7 @@
     </header>
 
     <Section --a5e-section-margin="0.25rem 0">
-        <FieldWrapper heading="A5E.HealingFormula" --a5e-field-wrapper-grow="1">
+        <FieldWrapper heading="Hit Points Formula" --a5e-field-wrapper-grow="1">
             <input
                 type="text"
                 value={hitPointsBonus.formula ?? ""}
