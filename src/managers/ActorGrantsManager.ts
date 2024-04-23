@@ -240,6 +240,21 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       this.actor.deleteEmbeddedDocuments('Item', ids);
     }
 
+    if (grant instanceof GrantCls.skillSpecialty) {
+      const { skill } = grant.specialtyData;
+
+      const existing: Set<string> = new Set(
+        foundry.utils.getProperty(
+          this.actor,
+          `system.skills.${skill}.specialties`
+        ) as string[] ?? []
+      );
+
+      const removals: Set<string> = new Set(grant.specialtyData.specialties);
+
+      updates[`system.skills.${skill}.specialties`] = [...existing.difference(removals)];
+    }
+
     if (grant instanceof GrantCls.trait) {
       const configObject = prepareTraitGrantConfigObject();
       const { propertyKey } = configObject[grant.traitData.traitType] ?? {};

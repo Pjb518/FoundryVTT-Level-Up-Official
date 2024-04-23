@@ -46,7 +46,6 @@
                 : "Free Selection Mode",
         },
     ]}
-    --a5e-section-margin="0.75rem"
 >
     <FieldWrapper
         warning={remainingSelections === 1

@@ -40,6 +40,15 @@ export interface ProficiencyGrant extends ActorBaseGrant {
   grantType: 'proficiency';
 }
 
+export interface SkillSpecialtyGrant extends ActorBaseGrant {
+  specialtyData: {
+    specialties: string[],
+    skill: string,
+    total: number,
+  };
+  grantType: 'skillSpecialty';
+}
+
 export interface TraitGrant extends ActorBaseGrant {
   traitData: {
     traits: string[],
@@ -49,4 +58,9 @@ export interface TraitGrant extends ActorBaseGrant {
   grantType: 'trait';
 }
 
-export type ActorGrant = BonusGrant | FeatureGrant | ItemGrant | ProficiencyGrant | TraitGrant;
+export type ActorGrant = BonusGrant
+  | FeatureGrant
+  | ItemGrant
+  | ProficiencyGrant
+  | SkillSpecialtyGrant
+  | TraitGrant;
