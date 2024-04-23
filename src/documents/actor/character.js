@@ -100,7 +100,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
     const maxHP = Object.values(classes ?? {}).reduce((acc, cls) => acc + cls.maxHP, 0);
 
     this.system.attributes.hp.max = maxHP + bonusHP;
-    this.prepareHitPointBonuses();
+    super.prepareHitPointBonuses();
   }
 
   /**

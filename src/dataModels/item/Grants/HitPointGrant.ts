@@ -32,8 +32,6 @@ export default class HitPointGrant extends BaseGrant {
       img: this.img || this?.parent?.img
     };
 
-    console.log('bonus', bonus);
-
     const grantData = {
       itemUuid: this.parent.uuid,
       grantId: this._id,

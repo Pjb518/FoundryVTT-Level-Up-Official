@@ -446,7 +446,18 @@ export default class BaseActorA5e extends Actor {
   * Prepare hit point bonuses for the actor.
   */
   prepareHitPointBonuses() {
+    const { max } = this.system.attributes.hp;
 
+    const bonus = getDeterministicBonus(
+      this.BonusesManager.getHitPointsBonusFormula(),
+      this.getRollData()
+    );
+
+    foundry.utils.setProperty(
+      this,
+      'system.attributes.hp.max',
+      (max || 0) + bonus
+    );
   }
 
   /**

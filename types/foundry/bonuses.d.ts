@@ -98,6 +98,7 @@ export interface Bonuses {
   attacks: { [id: string]: AttackBonus };
   damage: { [id: string]: DamageBonus };
   healing: { [id: string]: HealingBonus };
+  hitPoints: { [id: string]: HitPointsBonus };
   initiative: { [id: string]: InitiativeBonus };
   movement: { [id: string]: MovementBonus };
   senses: { [id: string]: SensesBonus };

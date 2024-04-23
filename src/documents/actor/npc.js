@@ -50,7 +50,7 @@ export default class NPCActorA5E extends BaseActorA5e {
     const { baseMax: baseHP, bonus: bonusHP } = this.system.attributes.hp;
     this.system.attributes.hp.max = baseHP + bonusHP;
 
-    this.prepareHitPointBonuses();
+    super.prepareHitPointBonuses();
   }
 
   // -------------------------------------------------------------
