@@ -56,7 +56,7 @@ export function getHealingBonusData() {
   };
 }
 
-export function getHitPointsBonusData() {
+export function getHitPointBonusData() {
   const { fields } = foundry.data;
   return {
     context: new fields.SchemaField(getHitPointsBonusContext('bonus')),

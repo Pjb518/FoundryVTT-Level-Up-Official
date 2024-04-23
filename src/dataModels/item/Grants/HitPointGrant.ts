@@ -27,8 +27,8 @@ export default class HitPointGrant extends BaseGrant {
     const bonusId = foundry.utils.randomID();
     const bonus = {
       context: { ...this.context },
-      formula: this.bonus, // TODO: This isn't working
-      label: this.label || this.parent?.name || 'HitPoints Grant',
+      formula: this.bonus,
+      label: this.label || this.parent?.name || 'HitPoint Grant',
       img: this.img || this?.parent?.img
     };
 
@@ -42,7 +42,7 @@ export default class HitPointGrant extends BaseGrant {
     };
 
     return {
-      [`system.bonuses.hitPoints.${bonusId}`]: bonus,
+      [`system.bonuses.hitPoint.${bonusId}`]: bonus,
       'system.grants': {
         ...actor.system.grants,
         [this._id]: grantData

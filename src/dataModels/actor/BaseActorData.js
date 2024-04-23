@@ -11,7 +11,7 @@ import {
   getAttackBonusData,
   getDamageBonusData,
   getHealingBonusData,
-  getHitPointsBonusData,
+  getHitPointBonusData,
   getInitiativeBonusData,
   getMovementBonusData,
   getSensesBonusData,
@@ -177,9 +177,9 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new fields.SchemaField(getHealingBonusData())
         ),
-        hitPoints: new RecordField(
+        hitPoint: new RecordField(
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
-          new fields.SchemaField(getHitPointsBonusData())
+          new fields.SchemaField(getHitPointBonusData())
         ),
         initiative: new RecordField(
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),

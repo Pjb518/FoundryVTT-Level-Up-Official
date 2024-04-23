@@ -4,7 +4,7 @@ export default function registerBonusesConfig(A5E) {
     attacks: 'A5E.Attack',
     damage: 'A5E.Damage',
     healing: 'A5E.Healing',
-    hitPoints: 'A5E.HitPoints',
+    hitPoint: 'A5E.HitPoints',
     initiative: 'A5E.Initiative',
     movement: 'A5E.Movement',
     senses: 'A5E.Senses',
@@ -16,7 +16,7 @@ export default function registerBonusesConfig(A5E) {
     attacks: 'attackBonus',
     damage: 'damageBonus',
     healing: 'healingBonus',
-    hitPoints: 'hitPointsBonus',
+    hitPoint: 'hitPointsBonus',
     initiative: 'initiativeBonus',
     movement: 'movementBonus',
     senses: 'sensesBonus',
@@ -48,11 +48,11 @@ export default function registerBonusesConfig(A5E) {
       defaultName: 'A5E.bonuses.labels.healing.defaultName',
       dialogName: 'A5E.bonuses.labels.healing.dialogName'
     },
-    hitPoints: {
-      addButton: 'A5E.bonuses.labels.hitPoints.addButton',
-      sectionHeader: 'A5E.bonuses.labels.hitPoints.sectionHeader',
-      defaultName: 'A5E.bonuses.labels.hitPoints.defaultName',
-      dialogName: 'A5E.bonuses.labels.hitPoints.dialogName'
+    hitPoint: {
+      addButton: 'A5E.bonuses.labels.hitPoint.addButton',
+      sectionHeader: 'A5E.bonuses.labels.hitPoint.sectionHeader',
+      defaultName: 'A5E.bonuses.labels.hitPoint.defaultName',
+      dialogName: 'A5E.bonuses.labels.hitPoint.dialogName'
     },
     initiative: {
       addButton: 'A5E.bonuses.labels.initiative.addButton',
