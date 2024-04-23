@@ -162,6 +162,16 @@ export interface SkillGrant extends BaseGrant {
   bonus: string;
 }
 
+export interface SkillSpecialtyGrant extends BaseGrant {
+  grantType: 'skillSpecialty';
+  skill: string;
+  specialties: {
+    base: string[],
+    options: string[],
+    total: number,
+  };
+}
+
 export interface TraitGrant extends BaseGrant {
   grantType: 'trait';
   traits: {
@@ -184,4 +194,5 @@ export type Grant = AbilityGrant
   | ProficiencyGrant
   | SensesGrant
   | SkillGrant
+  | SkillSpecialtyGrant
   | TraitGrant;

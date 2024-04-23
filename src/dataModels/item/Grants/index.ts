@@ -9,8 +9,9 @@ import InitiativeGrant from './InitiativeGrant';
 import ItemGrant from './ItemGrant';
 import MovementGrant from './MovementGrant';
 import ProficiencyGrant from './ProficiencyGrant';
-import SkillGrant from './SkillGrant';
 import SensesGrant from './SensesGrant';
+import SkillGrant from './SkillGrant';
+import SkillSpecialtyGrant from './SkillSpecialtyGrant';
 import TraitGrant from './TraitGrant';
 import HitPointGrant from './HitPointGrant';
 
@@ -29,5 +30,6 @@ export default {
   proficiency: ProficiencyGrant,
   senses: SensesGrant,
   skill: SkillGrant,
+  skillSpecialty: SkillSpecialtyGrant,
   trait: TraitGrant
 };

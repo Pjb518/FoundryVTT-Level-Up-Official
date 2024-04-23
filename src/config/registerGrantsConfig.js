@@ -13,6 +13,7 @@ export default function registerGrantsConfig(A5E) {
     proficiency: 'A5E.grants.headings.proficiency',
     senses: 'A5E.grants.headings.senses',
     skill: 'A5E.grants.headings.skill',
+    skillSpecialty: 'A5E.grants.headings.skillSpecialty',
     trait: 'A5E.grants.headings.trait'
   };
 }
