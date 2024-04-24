@@ -122,20 +122,22 @@
                 )}
         />
 
-        <RadioGroup
-            heading="Caster Type"
-            options={Object.entries(casterTypes)}
-            selected={$item.system.spellcasting.casterType}
-            on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.spellcasting.casterType",
-                    detail,
-                )}
-        />
+        {#if $item.system.spellcasting.ability !== "none"}
+            <RadioGroup
+                heading="Caster Type"
+                options={Object.entries(casterTypes)}
+                selected={$item.system.spellcasting.casterType}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.spellcasting.casterType",
+                        detail,
+                    )}
+            />
 
-        Known cantrips go here. <br />
-        Known spells go here. <br />
+            Known cantrips go here. <br />
+            Known spells go here. <br />
+        {/if}
     </Section>
 
     <Section heading="Wealth" --a5e-section-body-gap="0.75rem">
