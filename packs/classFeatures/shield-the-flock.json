@@ -1,0 +1,93 @@
+{
+	"name": "Shield the Flock",
+	"type": "feature",
+	"img": "icons/magic/defensive/shield-barrier-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"fRGGfUAxKBhZnrnV": {
+				"name": "Reaction",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "When you or a friendly creature within 30 feet of you are targeted with an attack or harmful spell or effect"
+				},
+				"consumers": {
+					"ZTtQQFtIHlwHVZle": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"zMoVT3mYnsfXidci": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "No effect"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"m8VSWICcNj9XX5Il": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">At 8th level, you can protect your allies with the sheer power of your faith and care. When you or a friendly creature within 30 feet of you are targeted with an attack or harmful spell or effect, you can use your reaction to force the creature that is the source of the attack or harmful spell or effect to make a Wisdom saving throw against your spell save DC. On a failed save, the attacking creature must choose a different target or its attack, effect, or spell is canceled with no effect and the action is wasted. This feature cannot be used against area effects such as an explosion or a dragon&rsquo;s breath weapon. Once you have used this feature a number of times equal to your proficiency bonus, you can&rsquo;t do so again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitItinerant",
+		"uses": {
+			"value": 1,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "Archetype Shepherd, Cleric 8",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		}
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_id": "mmddlpt6uiz7q6d5"
+}
