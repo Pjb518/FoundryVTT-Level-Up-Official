@@ -1,0 +1,97 @@
+{
+	"folder": null,
+	"name": "Light Armor (Combat Engineer’s Loadout)",
+	"type": "feature",
+	"img": "icons/equipment/chest/vest-leather-brown.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p><span id=\"docs-internal-guid-8ee91379-7fff-536e-8b0c-376d62885ad5\">Your armor provides you an AC of 12 + your Dexterity modifier. It is designed for stealth and mobility, giving you an expertise die on Acrobatics, Athletics, and Stealth checks.</span></p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/svg/aura.svg",
+			"origin": "Item.fJPvngTDLxwo1YWY",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Light Armor (Combat Engineer’s Loadout)",
+			"_id": "QMzEA8fh8Jpdq3pO",
+			"changes": [
+				{
+					"key": "system.attributes.ac",
+					"value": "12+@dex.mod",
+					"mode": 5,
+					"priority": null
+				},
+				{
+					"key": "system.skills.acr.expertiseDice",
+					"mode": 2,
+					"value": "1",
+					"priority": null
+				},
+				{
+					"key": "system.skills.ath.expertiseDice",
+					"mode": 2,
+					"value": "1",
+					"priority": null
+				},
+				{
+					"key": "system.skills.ste.expertiseDice",
+					"mode": 2,
+					"value": "1",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "zl2novk9rho7mk99"
+}
