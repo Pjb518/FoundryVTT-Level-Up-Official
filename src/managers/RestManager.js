@@ -101,10 +101,10 @@ export default class RestManager {
   }
 
   #restoreHitPoints() {
-    const { baseMax } = this.#actor.system.attributes.hp;
+    const { max, bonus } = this.#actor.system.attributes.hp;
 
     this.#updates.actor['system.attributes.hp'] = {
-      bonus: 0, value: baseMax, temp: 0
+      bonus: 0, value: max - bonus, temp: 0
     };
   }
 
