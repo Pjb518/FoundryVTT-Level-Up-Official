@@ -1,0 +1,159 @@
+{
+	"folder": null,
+	"name": "Rotten Tomatoes",
+	"type": "spell",
+	"img": "icons/consumables/fruit/tomato-ripe-red.webp",
+	"system": {
+		"actions": {
+			"F37gkWI34vaMY3jl": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"xbUjx4AIKk7bMzEj": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {
+					"7fmiQaSJifliGmjV": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"aw7eRZIiapuW5Lw1": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "bludgeoning",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"hOYbjy0Mk2sfUuba": {
+						"type": "effect",
+						"default": true,
+						"effectId": "K7Y5rtDTZHKQsdRe"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"6dYspmT5gRdk0Yzi": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p id=\"docs-internal-guid-e753099c-7fff-6f59-7666-bcb28e5c191a\" dir=\"ltr\">The tomato in your hand immediately rots and turns soft, making it the perfect explosive projectile. Make a ranged spell attack. On a hit, you fling the tomato at the target, dealing [[/r 2d6]] bludgeoning damage. Additionally, the tomato explodes on impact and its juices flood into the target&rsquo;s eyes, temporarily clouding their vision. The creature is blinded until the end of its next turn.</p>\n<p dir=\"ltr\">If this spell is cast in response to a particularly poor performance, the target creature has disadvantage on Performance checks for the next hour.</p>\n<p dir=\"ltr\"><strong>Cast at Higher Levels:</strong></p>\n<p dir=\"ltr\">Increase the damage by [[/r 1d6]] for every level above 2nd.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "toilAndTrouble",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"bard",
+			"druid",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "a tomato",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "necromancy",
+			"secondary": [
+				"hearth"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/consumables/fruit/tomato-ripe-red.webp",
+			"origin": "Item.o7ltnAylSJcbpPWz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "F37gkWI34vaMY3jl",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poor Performance",
+			"_id": "K7Y5rtDTZHKQsdRe",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.prf",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p><span id=\"docs-internal-guid-cc5dcad9-7fff-5708-7776-3fc0a7c38004\">If this spell is cast in response to a particularly poor performance, the target creature has disadvantage on Performance checks for the next hour.</span></p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "rnqiyxy1axcecgsw"
+}

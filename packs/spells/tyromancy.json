@@ -1,0 +1,98 @@
+{
+	"folder": null,
+	"name": "Tyromancy",
+	"type": "spell",
+	"img": "icons/creatures/mammals/livestock-cow-green.webp",
+	"system": {
+		"actions": {
+			"Xr8NME8go9eHnwMM": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "minute",
+					"cost": 10
+				},
+				"consumers": {
+					"jQezmugtxrjcam3Z": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6
+					}
+				},
+				"rolls": {
+					"aw4OkRPyl8FSlUOn": {
+						"type": "generic",
+						"default": true,
+						"formula": "(@wis.mod)d6"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 8
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p id=\"docs-internal-guid-9ce02c1f-7fff-c52b-fce1-4a3433f26669\" dir=\"ltr\">You know that the portents of the gods are sometimes given in strange places. You spend 10 minutes adding vinegar to milk from a blessed cow, causing it to curdle and produce patterns from which you can divine the future. Roll a number of d6s equal to your Wisdom modifier. Each result is stored into one curd of the cheese created by this spell. These curds do not spoil for the duration, and if left unused, simply disappear. Whenever you or a creature carrying one of these curds fails a saving throw, ability check, or attack roll, they may immediately consume the curd and add the result of the d6 to the roll.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "toilAndTrouble",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric",
+			"druid",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 4,
+		"materials": "milk from a sacred cow and vinegar",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "divination",
+			"secondary": [
+				"hearth"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "ayvkdtoablds4jn1"
+}

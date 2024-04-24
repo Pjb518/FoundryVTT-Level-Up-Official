@@ -1,0 +1,314 @@
+{
+	"folder": null,
+	"name": "Athame of the Hearth",
+	"type": "object",
+	"img": "icons/weapons/daggers/dagger-double-engraved-black.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"T6EPNxqSQet1y5dj": {
+				"name": "Cast Spell (First Ray)",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"bbCFtxUJQ7Ekwyqf": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"Vtu6SuU1enUIpsuU": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedSpellAttack",
+						"ability": "spellcasting"
+					},
+					"6RcM8oFT6nUnGdXU": {
+						"canCrit": true,
+						"damageType": "fire",
+						"formula": "2d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": null,
+							"formula": "2d6"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"ozG4m8VgsZx6WtwB": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject",
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
+				},
+				"img": "icons/magic/fire/projectile-fireball-sparks-orange.webp",
+				"description": "<p>Three rays of blazing orange fire shoot from your fingertips. Make a ranged spell attack for each ray.&nbsp;On a hit, the target takes 2d6 fire damage.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> Create an additional ray for each slot level above 2nd.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"z0hRKSV53cbKAUJz": {
+				"name": "Additional Rays",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"Vtu6SuU1enUIpsuU": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedSpellAttack",
+						"ability": "spellcasting"
+					},
+					"6RcM8oFT6nUnGdXU": {
+						"canCrit": true,
+						"damageType": "fire",
+						"formula": "2d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": null,
+							"formula": "2d6"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"ozG4m8VgsZx6WtwB": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"img": "icons/magic/fire/projectile-fireball-sparks-orange.webp",
+				"description": "<p>Three rays of blazing orange fire shoot from your fingertips. Make a ranged spell attack for each ray.&nbsp;On a hit, the target takes 2d6 fire damage.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> Create an additional ray for each slot level above 2nd.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"ZXAzeYXPB5seKW0u": {
+				"name": "Dagger",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"gdR2mGnYfGBsk2ZY": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"ut4E7BIwVCXdj5oE": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + @finesse.mod",
+						"name": "Dagger",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "object"
+				},
+				"img": "icons/weapons/daggers/dagger-double-engraved-black.webp"
+			},
+			"xBtQICMKa5gp6e46": {
+				"name": "Dagger (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"gdR2mGnYfGBsk2ZY": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"ut4E7BIwVCXdj5oE": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(@finesse.mod,0)",
+						"name": "Dagger",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "object"
+				},
+				"img": "icons/weapons/daggers/dagger-double-engraved-black.webp"
+			}
+		},
+		"description": "<p id=\"docs-internal-guid-39cb81cd-7fff-d098-3126-f48aad287e0c\" dir=\"ltr\">The black handle of this ritual dagger is carved with intricate images of the hearth: healing herbs and flowers, as well as berries and wheat. The handle has three bands of carnelian at set intervals.</p>\n<p dir=\"ltr\">Each of the three bands represents a charge. As an action, you may choose to expend a charge to cast the @UUID[Compendium.a5e.a5e-spells.Item.c9itysok7lr2ai51]{Scorching Ray} spell. If you choose to expend more than one charge at a time, treat it as if the spell was cast at a higher level (maximum two levels higher than 2nd). Charges that are used do not replenish, and a carnelian band disappears for each one expended. Once all three charges have been used, the athame reverts to a mundane weapon with the statistics of a dagger.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "toilAndTrouble",
+		"uses": {
+			"value": 3,
+			"max": "3",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "A dagger whose hilt was blackened in a cooking fire",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "200 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "uncommon",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		},
+		"breakerProperties": [],
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "nbgq5491r2mtmuf4"
+}

@@ -1,0 +1,149 @@
+{
+	"folder": null,
+	"name": "Brutal Maceration",
+	"type": "spell",
+	"img": "icons/skills/wounds/blood-cells-disease-green.webp",
+	"system": {
+		"actions": {
+			"teOiKwuhyjQ56dVy": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"KZkrNzNFImEB1Ard": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 8,
+						"points": 11
+					}
+				},
+				"rolls": {
+					"qt7T17J5OU9xhUPo": {
+						"type": "damage",
+						"default": true,
+						"formula": "10d8+30",
+						"damageType": "acid",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"8SDiJJtKH7OuefZJ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "No damage and the spell ends"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "special"
+				},
+				"ranges": {
+					"mVZ3P2wD4QgJIhwJ": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"oDZel1v2VhAQIv6s": {
+				"name": "Start of Turn",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"cLJVmfYIykKwtimQ": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d8",
+						"damageType": "acid",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"qWtGr102Eis68tyI": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "No damage and the spell ends"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p><span id=\"docs-internal-guid-62db1b0a-7fff-3b8e-771e-9d546ee07f61\">You magically target the internal fluids of a creature, causing them to turn caustic and begin to melt the flesh from their bones. The target creature must make a Constitution saving throw versus your spell save DC. On a failure, the target takes [[/r 10d8+30]] acid damage. The target may repeat the saving throw at the start of each of its turns. On a success, the spell ends. On each successive failure, the creature takes an additional [[/r 4d8]] acid damage. If the creature fails its saving throw three times in a row, or if it is reduced to 0 hit points as a result of this spell, its flesh is completely dissolved and it collapses into a heap of bones.</span></p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "toilAndTrouble",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 8,
+		"materials": "a vial of ur-otyugh stomach acid",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "necromancy",
+			"secondary": [
+				"acid",
+				"hearth"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "iqr42dqv7y8yz7d0"
+}
