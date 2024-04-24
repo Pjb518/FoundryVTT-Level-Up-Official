@@ -158,6 +158,8 @@
             <input
                 class="class-level-input"
                 type="number"
+                min="1"
+                max="20"
                 value={$item.system.classLevels}
                 on:change={({ target }) => updateClassLevel(target.value)}
             />

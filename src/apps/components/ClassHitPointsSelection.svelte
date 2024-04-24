@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { getContext } from "svelte";
-
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
     import FieldWrapper from "./FieldWrapper.svelte";
