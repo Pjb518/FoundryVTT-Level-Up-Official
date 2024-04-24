@@ -153,7 +153,7 @@
     {/if}
 
     <!-- Add Class Level -->
-    {#if $item.type === "class"}
+    {#if $item.type === "class" && $item.actor}
         <div class="button-container">
             <input
                 class="class-level-input"
