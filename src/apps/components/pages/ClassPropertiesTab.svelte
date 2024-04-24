@@ -73,11 +73,20 @@
 
     {#if $item.actor}
         <Section heading="Hit Points" --a5e-section-body-gap="0.75rem">
-            <div class="class-hit-point-container">
+            <div class="a5e-class-hp-table">
+                <header class="a5e-class-hp-table__header">
+                    <h3 class="a5e-class-hp-table__heading">Base HP</h3>
+                    <h3 class="a5e-class-hp-table__heading">Con Mod</h3>
+                    <h3 class="a5e-class-hp-table__heading">Bonus HP</h3>
+                    <h3 class="a5e-class-hp-table__heading">Total HP</h3>
+                </header>
+
+                <hr class="a5e-class-hp-table__rule" />
+
                 {#each Object.entries($item.system.hp.levels) as [level, hp]}
                     {#if level <= classLevel}
                         <input
-                            class="a5e-input a5e-input--small a5e-input--slim"
+                            class="a5e-class-hp-table__field"
                             type="number"
                             value={hp ?? 0}
                             min="0"
@@ -88,13 +97,46 @@
                                     Number(target.value),
                                 )}
                         />
+
+                        <!-- TODO: Make this reactive -->
+                        <span class="a5e-class-hp-table__field">
+                            {$item.actor.system.abilities.con.check.mod}
+                        </span>
+
+                        <span class="a5e-class-hp-table__field"> 0 </span>
+
+                        <span class="a5e-class-hp-table__field">
+                            {hp +
+                                $item.actor.system.abilities.con.check.mod +
+                                0}
+                        </span>
                     {/if}
                 {/each}
+
+                <hr class="a5e-class-hp-table__rule" />
+
+                <footer class="a5e-class-hp-table__footer">
+                    <h3
+                        class="a5e-class-hp-table__heading a5e-class-hp-table__heading--footer"
+                    >
+                        Other Bonuses
+                    </h3>
+
+                    <span class="a5e-class-hp-table__field"> 0 </span>
+
+                    <h3
+                        class="a5e-class-hp-table__heading a5e-class-hp-table__heading--footer"
+                    >
+                        Total HP
+                    </h3>
+
+                    <span
+                        class="a5e-class-hp-table__field a5e-class-hp-table__field--total"
+                    >
+                        {totalHp}
+                    </span>
+                </footer>
             </div>
-
-            <hr class="a5e-rule" />
-
-            <span>{totalHp}</span>
         </Section>
     {/if}
 
@@ -161,9 +203,55 @@
 </article>
 
 <style lang="scss">
-    .class-hit-point-container {
+    .a5e-class-hp-table {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 0.5rem;
+        grid-template-columns: repeat(4, 1fr);
+        align-items: center;
+        gap: 0rem;
+        margin-bottom: -0.375rem;
+        font-family: var(--a5e-font-serif);
+
+        &__field,
+        &__field[type] {
+            background: transparent;
+            border: 0;
+            text-align: center;
+            width: 100%;
+
+            &:focus {
+                box-shadow: none;
+            }
+        }
+
+        &__field--total {
+            font-weight: 700;
+        }
+
+        &__footer,
+        &__header {
+            display: contents;
+            font-size: var(--a5e-font-size-sm);
+        }
+
+        &__header {
+            text-align: center;
+        }
+
+        &__heading {
+            font-size: inherit;
+
+            &--footer {
+                padding-block: 0.25rem;
+                grid-column: span 3;
+                text-align: right;
+            }
+        }
+
+        &__rule {
+            width: 100%;
+            grid-column: span 4;
+            margin-block: 0.25rem;
+            border: 0.5px solid #ccc;
+        }
     }
 </style>

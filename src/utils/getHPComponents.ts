@@ -36,5 +36,5 @@ export default function getTotalHp(actor: typeof Actor) {
   if (conMod) hpString += ` + ${conMod}[Con Mod]`;
   if (tempBonus + hpBonuses) hpString += ` + ${tempBonus + hpBonuses}[Bonuses]`;
 
-  return `HP Breakdown: ${hpString} = ${totalHp}`;
+  return totalHp;
 }
