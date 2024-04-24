@@ -20,7 +20,21 @@
 
     async function updateClassLevel(value) {
         value = parseInt(value, 10);
-        await $item.update({ "system.classLevels": value });
+        const currentValue = $item.system.classLevels;
+        const diff = Math.abs(currentValue - value);
+        const sign = Math.sign(value - currentValue);
+
+        for (let i = 0; i < diff; i++) {
+            if (sign === 1) {
+                await $item.update({
+                    "system.classLevels": $item.system.classLevels + 1,
+                });
+            } else {
+                await $item.update({
+                    "system.classLevels": $item.system.classLevels - 1,
+                });
+            }
+        }
     }
 
     // TODO: Mystification - Re-add this in 0.9.1 or later, as there is more work required to make
