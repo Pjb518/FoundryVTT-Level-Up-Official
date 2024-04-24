@@ -24,7 +24,7 @@
 
 <article class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <Section heading="Metadata" --a5e-section-body-gap="0.75rem">
-        <FieldWrapper heading="Slug (Class Identifier)">
+        <FieldWrapper heading="Class Identifier">
             <input
                 class="a5e-input a5e-input--slim"
                 value={$item.system.slug || $item.slug || ""}
@@ -111,7 +111,7 @@
 
     <Section heading="Spell Casting" --a5e-section-body-gap="0.75rem">
         <RadioGroup
-            heading="Key Ability"
+            heading="Spellcasting Ability"
             options={Object.entries(abilities)}
             selected={$item.system.spellcasting.ability}
             on:updateSelection={({ detail }) =>

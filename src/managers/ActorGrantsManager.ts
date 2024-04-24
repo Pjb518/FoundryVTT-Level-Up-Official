@@ -10,6 +10,17 @@ import GrantApplicationDialog from '../apps/dialogs/GrantApplicationDialog.svelt
 import prepareTraitGrantConfigObject from '../utils/prepareTraitGrantConfigObject';
 import prepareGrantsApplyData from '../utils/prepareGrantsApplyData';
 
+interface DefaultApplyOptions {
+  item?: typeof Item | null;
+  cls?: typeof Item | null;
+  clsLevel?: number;
+}
+
+const DEFAULT_APPLY_OPTIONS: DefaultApplyOptions = {
+  item: null,
+  cls: null
+};
+
 export default class ActorGrantsManger extends Map<string, ActorGrant> {
   private actor: typeof Actor;
 
@@ -80,13 +91,19 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       applicableGrants.push(grant);
     });
 
-    await this.#applyGrants(applicableGrants, optionalGrants, item);
+    await this.#applyGrants(applicableGrants, optionalGrants, { item });
   }
 
-  async createLeveledGrants(currentLevel: number = 0, newLevel: number = 0, slug: string = ''): Promise<void> {
+  async createLeveledGrants(
+    currentLevel: number = 0,
+    newLevel: number = 0,
+    cls: typeof Item | null = null
+  ): Promise<void> {
     const difference = newLevel - currentLevel;
     const sign = Math.sign(difference);
     const characterLevel: number = this.actor.levels.character + difference;
+
+    if (sign === 0) return;
 
     if (sign === -1) {
       // Remove any grants that are no longer applicable
@@ -101,7 +118,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     for (const item of items) {
       let classLevel: number = this.actor.levels.classes?.[item.slug] ?? Infinity;
-      if (item.slug === slug) classLevel += difference;
+      if (item.slug === cls?.slug) classLevel += difference;
 
       const grantsManager: ItemGrantsManager = item.grants;
       [...grantsManager.values()].forEach((grant) => {
@@ -116,18 +133,18 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       });
     }
 
-    await this.#applyGrants(applicableGrants, optionalGrants);
+    await this.#applyGrants(applicableGrants, optionalGrants, { cls, clsLevel: newLevel });
   }
 
   async #applyGrants(
     allGrants: Grant[],
     optionalGrants: Grant[],
-    item: typeof Item | null = null
+    options = DEFAULT_APPLY_OPTIONS
   ): Promise<boolean> {
-    if (!allGrants.length) return false;
+    if (!allGrants.length && !options.cls) return false;
 
     const requiresDialog = [...allGrants].some((grant) => grant.requiresConfig())
-      || !!optionalGrants.length;
+      || !!optionalGrants.length || options.cls;
 
     let dialogData: { updateData: any, success: boolean, documentData: Map<string, any[]> };
     if (!requiresDialog) {
@@ -141,7 +158,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         {
           actor: this.actor,
           allGrants,
-          optionalGrants
+          optionalGrants,
+          ...options
         }
       );
 
@@ -149,7 +167,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       dialogData = await dialog.promise;
 
       if (!dialogData?.success) {
-        if (item) item.delete();
+        if (options?.item) options.item.delete();
         return false;
       }
     }

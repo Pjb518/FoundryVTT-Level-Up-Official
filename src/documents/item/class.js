@@ -51,6 +51,7 @@ export default class ClassItemA5e extends OriginItemA5e {
   }
 
   prepareDerivedData() {
+    this.averageHP = Math.floor(this.hitDice.size / 2) + 1;
   }
 
   prepareMaxHitPoints() {
@@ -178,7 +179,7 @@ export default class ClassItemA5e extends OriginItemA5e {
       const actor = this.parent;
       const currentLevel = this.system.classLevels;
       const newLevel = foundry.utils.getProperty(changed, 'system.classLevels');
-      await actor.grants.createLeveledGrants(currentLevel, newLevel, this.slug);
+      await actor.grants.createLeveledGrants(currentLevel, newLevel, this);
     }
   }
 

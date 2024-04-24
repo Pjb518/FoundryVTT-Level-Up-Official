@@ -4,6 +4,12 @@ export default function registerClassesConfig(A5E) {
     class: 'A5E.classes.levelTypes.class'
   };
 
+  A5E.classHPTypes = {
+    average: 'A5E.classes.hpTypes.average',
+    roll: 'A5E.classes.hpTypes.roll',
+    custom: 'A5E.classes.hpTypes.custom'
+  };
+
   A5E.casterTypes = {
     none: 'A5E.None',
     fullCaster: 'A5E.classes.casterTypes.fullCaster',
