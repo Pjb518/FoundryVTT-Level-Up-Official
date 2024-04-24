@@ -4,6 +4,7 @@
 
     import editDocumentImage from "../../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+    import FieldWrapper from "../FieldWrapper.svelte";
 
     async function fulfilDestiny() {
         const fulfillmentFeature = await fromUuid(
@@ -15,6 +16,11 @@
         await $item.actor.createEmbeddedDocuments("Item", [fulfillmentFeature]);
         await $item.actor.setFlag("a5e", "destinyFulfilled", true);
         disableFulfil = true;
+    }
+
+    async function updateClassLevel(value) {
+        value = parseInt(value, 10);
+        await $item.update({ "system.classLevels": value });
     }
 
     // TODO: Mystification - Re-add this in 0.9.1 or later, as there is more work required to make
@@ -33,7 +39,6 @@
     const { DAMAGED_STATES, damagedStates } = CONFIG.A5E;
     const { isGM } = game.user;
     const item = getContext("item");
-    const headerButtonTypes = ["object"];
     const prerequisiteTypes = ["maneuver", "feature", "spell"];
 
     let disableFulfil = $item.actor?.getFlag("a5e", "destinyFulfilled") ?? true;
@@ -85,7 +90,7 @@
         {/if}
     </div>
 
-    {#if headerButtonTypes.includes($item.type)}
+    {#if $item.type === "object"}
         <div class="button-container">
             <button
                 class="header-button fa-solid fa-circle-question"
@@ -130,6 +135,18 @@
                 data-tooltip={damagedStates[$item.system.damagedState ?? 0]}
                 data-tooltip-direction="UP"
                 on:click|stopPropagation={() => $item.toggleDamagedState()}
+            />
+        </div>
+    {/if}
+
+    <!-- Add Class Level -->
+    {#if $item.type === "class"}
+        <div class="button-container">
+            <input
+                class="class-level-input"
+                type="number"
+                value={$item.system.classLevels}
+                on:change={({ target }) => updateClassLevel(target.value)}
             />
         </div>
     {/if}
@@ -253,6 +270,14 @@
 
     .name-wrapper {
         width: 100%;
+    }
+
+    .class-level-input {
+        font-size: var(--a5e-text-size-xxl);
+        width: 3ch;
+        text-align: center;
+        background: transparent;
+        border: none;
     }
 
     .fulfil-button {

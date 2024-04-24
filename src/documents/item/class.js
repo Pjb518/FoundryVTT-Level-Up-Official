@@ -187,7 +187,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     if (!this.parent && this.parent?.documentName !== 'Actor') return;
 
     const keys = Object.keys(foundry.utils.flattenObject(data ?? {}));
-    if (!keys.includes('system.classLevels')) {
+    if (keys.includes('system.classLevels')) {
       const actor = this.parent;
       actor.grants.createLeveledGrants();
     }
