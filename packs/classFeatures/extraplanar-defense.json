@@ -1,0 +1,116 @@
+{
+	"folder": null,
+	"name": "Extraplanar Defense",
+	"type": "feature",
+	"img": "icons/magic/defensive/shield-barrier-glowing-triangle-magenta.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"BZ7vRhN00w5YoPRv": {
+				"name": "Extraplanar Exclusion Zone",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"cxH3KoBpJqV1Wx0K": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"ranges": {},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 15,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>Your time fighting against otherworldly threats has made you especially adept at defending against their attempts to harm you.&nbsp;When you are attacked by an aberration, celestial, fey, fiend, or undead, you may use your reaction to increase your AC by 3, potentially canceling the attack.</p>\n<p>You may also, as an action, create an extraplanar exclusion zone that extends out to 15 feet around yourself. While the zone is active, aberrations, celestials, fey, fiends, and undead must make a Wisdom save (DC equal to 8 + your Intelligence modifier + your proficiency bonus) to enter the zone. If a creature is already within the zone, it must make the same save to stay in it, but need not move further away once it has exited. The zone lasts for 10 minutes. Once you have used this feature, you can&rsquo;t do so again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitHazardousKnowledge",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
+			"origin": "Item.y7zrZZp2WG6Haxil",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse"
+				}
+			},
+			"transfer": false,
+			"name": "Extraplanar Defense",
+			"_id": "Xc6Rood7LeA2ptt1",
+			"changes": [
+				{
+					"key": "system.attributes.ac",
+					"mode": 2,
+					"value": "3",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "dgx6o34a3l7oomi0"
+}
