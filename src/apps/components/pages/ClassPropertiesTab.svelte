@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
-    import getDeterministicBonus from "../../../dice/getDeterministicBonus";
+    import getHPComponents from "../../../utils/getHPComponents";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Section from "../Section.svelte";
@@ -18,35 +18,8 @@
         [12, "d12"],
     ];
 
-    function getTotalHp() {
-        const actor = $item.parent;
-        if (!actor) return 0;
-
-        const maxHp = $item.maxHP ?? 0;
-        const conMod = actor.system?.abilities?.con?.check?.mod ?? 0;
-        const tempBonus = actor.system?.attributes?.hp?.bonus ?? 0;
-        const hpBonuses =
-            getDeterministicBonus(
-                actor.BonusesManager.getHitPointsBonusFormula(),
-                actor.getRollData(),
-            ) ?? 0;
-
-        const totalHp = getDeterministicBonus(
-            `${maxHp} + ${conMod} + ${tempBonus} + ${hpBonuses}`,
-            actor.getRollData(),
-        );
-
-        let hpString = "";
-        if (maxHp) hpString += `${maxHp}[Class Hp]`;
-        if (conMod) hpString += ` + ${conMod}[Con Mod]`;
-        if (tempBonus + hpBonuses)
-            hpString += ` + ${tempBonus + hpBonuses}[Bonuses]`;
-
-        return `HP Breakdown: ${hpString} = ${totalHp}`;
-    }
-
     $: classLevel = $item.system.classLevels;
-    $: totalHp = getTotalHp($item);
+    $: totalHp = getHPComponents($item.parent);
 </script>
 
 <article class="a5e-page-wrapper a5e-page-wrapper--scrollable">
