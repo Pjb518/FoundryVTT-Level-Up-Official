@@ -1,6 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
+    import getDeterministicBonus from "../../../dice/getDeterministicBonus";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import Section from "../Section.svelte";
@@ -16,49 +17,110 @@
         [10, "d10"],
         [12, "d12"],
     ];
+
+    function getTotalHp() {
+        const actor = $item.parent;
+        if (!actor) return 0;
+
+        const maxHp = $item.maxHP ?? 0;
+        const conMod = actor.system?.abilities?.con?.check?.mod ?? 0;
+        const tempBonus = actor.system?.attributes?.hp?.bonus ?? 0;
+        const hpBonuses =
+            getDeterministicBonus(
+                actor.BonusesManager.getHitPointsBonusFormula(),
+                actor.getRollData(),
+            ) ?? 0;
+
+        const totalHp = getDeterministicBonus(
+            `${maxHp} + ${conMod} + ${tempBonus} + ${hpBonuses}`,
+            actor.getRollData(),
+        );
+
+        let hpString = "";
+        if (maxHp) hpString += `${maxHp}[Class Hp]`;
+        if (conMod) hpString += ` + ${conMod}[Con Mod]`;
+        if (tempBonus + hpBonuses)
+            hpString += ` + ${tempBonus + hpBonuses}[Bonuses]`;
+
+        return `HP Breakdown: ${hpString} = ${totalHp}`;
+    }
+
+    $: classLevel = $item.system.classLevels;
+    $: totalHp = getTotalHp($item);
 </script>
 
 <article class="a5e-page-wrapper a5e-page-wrapper--scrollable">
-    <Section heading="Metadata">
-        Slug goes here. <br />
-        Class levels go here. <br />
-        <input
-            type="number"
-            value={$item.system.classLevels}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.classLevels",
-                    Number(target.value),
-                )}
-        />
-        Used hit dice go here. <br />
-    </Section>
-
-    <Section heading="Hit Dice">
-        <FieldWrapper
-            heading="Hit Dice Size"
-            --a5e-field-wrapper-direction="row"
-        >
-            <select
-                value={$item.system.hp.hitDiceSize}
-                on:change={({ target }) =>
+    <Section heading="Metadata" --a5e-section-body-gap="0.75rem">
+        <FieldWrapper heading="Slug (Class Identifier)">
+            <input
+                class="a5e-input a5e-input--slim"
+                value={$item.system.slug || $item.slug || ""}
+                type="text"
+                on:change={({ target }) => {
                     updateDocumentDataFromField(
                         $item,
-                        "system.hp.hitDiceSize",
-                        target.value,
-                    )}
-            >
-                {#each hitDiceSize as [size, label]}
-                    <option value={size}>{label}</option>
-                {/each}
-            </select>
+                        "system.slug",
+                        target.value.slugify(),
+                    );
+                }}
+            />
         </FieldWrapper>
     </Section>
 
-    <Section heading="Hit Points">HP level display set up goes here.</Section>
+    <Section heading="Hit Dice" --a5e-section-body-gap="0.75rem">
+        <RadioGroup
+            heading="Hit Dice Size"
+            options={hitDiceSize}
+            selected={$item.system.hp.hitDiceSize}
+            on:updateSelection={({ detail }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    "system.hp.hitDiceSize",
+                    detail,
+                )}
+        />
 
-    <Section heading="Combat Maneuvers">
+        <FieldWrapper heading="Hit Dice Used">
+            <input
+                class="a5e-input a5e-input--small a5e-input--slim"
+                type="number"
+                value={$item.system.hp.hitDiceUsed}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.hp.hitDiceUsed",
+                        Number(target.value),
+                    )}
+            />
+        </FieldWrapper>
+    </Section>
+
+    <Section heading="Hit Points" --a5e-section-body-gap="0.75rem">
+        <div class="class-hit-point-container">
+            {#each Object.entries($item.system.hp.levels) as [level, hp]}
+                {#if level <= classLevel}
+                    <!-- {#if true} -->
+                    <input
+                        class="a5e-input a5e-input--small a5e-input--slim"
+                        type="number"
+                        value={hp ?? 0}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                `system.hp.levels.${level}`,
+                                Number(target.value),
+                            )}
+                    />
+                {/if}
+            {/each}
+        </div>
+
+        <hr class="a5e-rule" />
+
+        <span> {totalHp}</span>
+    </Section>
+
+    <Section heading="Combat Maneuvers" --a5e-section-body-gap="0.75rem">
         <FieldWrapper heading="Starting Manuevers Count">
             <input
                 class="a5e-input a5e-input--small a5e-input--slim"
@@ -74,7 +136,7 @@
         </FieldWrapper>
     </Section>
 
-    <Section heading="Spell Casting">
+    <Section heading="Spell Casting" --a5e-section-body-gap="0.75rem">
         <RadioGroup
             heading="Key Ability"
             options={Object.entries(abilities)}
@@ -103,7 +165,7 @@
         Known spells go here. <br />
     </Section>
 
-    <Section heading="Wealth">
+    <Section heading="Wealth" --a5e-section-body-gap="0.75rem">
         <input
             type="text"
             value={$item.system.wealth}
@@ -116,3 +178,11 @@
         />
     </Section>
 </article>
+
+<style lang="scss">
+    .class-hit-point-container {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 0.5rem;
+    }
+</style>

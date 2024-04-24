@@ -58,7 +58,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   // *************************************************************
   // Update Methods
   // *************************************************************
-  createInitialGrants(itemId: string): void {
+  async createInitialGrants(itemId: string): Promise<void> {
     if (!itemId) return;
     const item = this.actor.items.get(itemId);
     if (!this.allowedTypes.includes(item.type)) return;
@@ -80,11 +80,19 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       applicableGrants.push(grant);
     });
 
-    this.#applyGrants(applicableGrants, optionalGrants, item);
+    await this.#applyGrants(applicableGrants, optionalGrants, item);
   }
 
-  async createLeveledGrants(): Promise<void> {
-    const characterLevel: number = this.actor.levels.character;
+  async createLeveledGrants(currentLevel: number = 0, newLevel: number = 0, slug: string = ''): Promise<void> {
+    const difference = newLevel - currentLevel;
+    const sign = Math.sign(difference);
+    const characterLevel: number = this.actor.levels.character + difference;
+
+    if (sign === -1) {
+      // Remove any grants that are no longer applicable
+      await this.removeGrantsByLevel(characterLevel);
+      return;
+    }
 
     const applicableGrants: Grant[] = [];
     const optionalGrants: Grant[] = [];
@@ -92,7 +100,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       .filter((item: typeof Item) => this.allowedTypes.includes(item.type));
 
     for (const item of items) {
-      const classLevel: number = this.actor.levels.classes?.[item.slug] ?? Infinity;
+      let classLevel: number = this.actor.levels.classes?.[item.slug] ?? Infinity;
+      if (item.slug === slug) classLevel += difference;
 
       const grantsManager: ItemGrantsManager = item.grants;
       [...grantsManager.values()].forEach((grant) => {
@@ -108,9 +117,6 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     }
 
     await this.#applyGrants(applicableGrants, optionalGrants);
-
-    // Remove any grants that are no longer applicable
-    this.removeGrantsByLevel(characterLevel);
   }
 
   async #applyGrants(
@@ -174,7 +180,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     return true;
   }
 
-  removeGrantsByItem(itemUuid: string): void {
+  async removeGrantsByItem(itemUuid: string): Promise<void> {
     const updates: Record<string, any> = {};
 
     for (const [grantId, grant] of this) {
@@ -184,10 +190,10 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
     }
 
-    this.actor.update(updates);
+    await this.actor.update(updates);
   }
 
-  removeGrantsByLevel(level: number): void {
+  async removeGrantsByLevel(level: number): Promise<void> {
     const updates: Record<string, any> = {};
 
     for (const [grantId, grant] of this) {
@@ -197,10 +203,10 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       }
     }
 
-    this.actor.update(updates);
+    await this.actor.update(updates);
   }
 
-  removeGrant(grantId: string): void {
+  async removeGrant(grantId: string): Promise<void> {
     const grant = this.get(grantId);
     if (!grant) return;
 
@@ -209,7 +215,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       ...this.#getRemoveUpdates(grant)
     };
 
-    this.actor.update(updates);
+    await this.actor.update(updates);
   }
 
   #getRemoveUpdates(grant: ActorGrant): Record<string, any> {

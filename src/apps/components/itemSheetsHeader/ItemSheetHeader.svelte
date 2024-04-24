@@ -4,7 +4,6 @@
 
     import editDocumentImage from "../../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
-    import FieldWrapper from "../FieldWrapper.svelte";
 
     async function fulfilDestiny() {
         const fulfillmentFeature = await fromUuid(

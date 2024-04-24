@@ -173,6 +173,13 @@ export default class ClassItemA5e extends OriginItemA5e {
       const slug = foundry.utils.getProperty(changed, 'system.slug');
       this.parent.update({ 'system.classes.startingClass': slug });
     }
+
+    if (this.parent?.documentName === 'Actor' && keys.includes('system.classLevels')) {
+      const actor = this.parent;
+      const currentLevel = this.system.classLevels;
+      const newLevel = foundry.utils.getProperty(changed, 'system.classLevels');
+      await actor.grants.createLeveledGrants(currentLevel, newLevel, this.slug);
+    }
   }
 
   async _onCreate(data, options, userId) {
@@ -181,16 +188,6 @@ export default class ClassItemA5e extends OriginItemA5e {
 
   async _onUpdate(data, options, userId) {
     super._onUpdate(data, options, userId);
-    if (userId !== game.user.id) return;
-
-    // Trigger recalculation of grants
-    if (!this.parent && this.parent?.documentName !== 'Actor') return;
-
-    const keys = Object.keys(foundry.utils.flattenObject(data ?? {}));
-    if (keys.includes('system.classLevels')) {
-      const actor = this.parent;
-      actor.grants.createLeveledGrants();
-    }
   }
 
   async _onDelete(data, options, user) {
