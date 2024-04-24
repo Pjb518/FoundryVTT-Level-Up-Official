@@ -46,6 +46,7 @@
             <input
                 class="a5e-input a5e-input--small a5e-input--slim"
                 type="number"
+                min="0"
                 value={hp ?? 0}
                 on:change={({ target }) => {
                     // @ts-ignore
