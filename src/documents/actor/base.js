@@ -1000,60 +1000,8 @@ export default class BaseActorA5e extends Actor {
     this.rollSavingThrow(null, options);
   }
 
-  // TODO: - CLass documents Update to use HitDiceManager
   async rollHitDice(dieSize, quantity = 1) {
-    const actorData = this.system;
-    const { attributes } = actorData;
-
-    if (attributes.hitDice[dieSize].current - quantity < 0) return null;
-
-    const title = localize('A5E.HitDiceChatHeader', { dieSize: dieSize.toUpperCase() });
-
-    const conMod = parseInt(actorData.abilities.con.check.mod, 10);
-    const formula = `${quantity}${dieSize} + ${quantity * conMod}`;
-
-    const roll = await new Roll(formula).roll({ async: true });
-
-    const chatData = {
-      user: game.user?.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      sound: CONFIG.sounds.dice,
-      rolls: [roll],
-      flags: {
-        a5e: {
-          actorId: this.uuid,
-          // cardType: 'hitDice',
-          img: this.token?.img ?? this.img,
-          name: this.name,
-          title
-        }
-      }
-      // content: '<article></article>'
-    };
-
-    const hpDelta = Math.max(roll.total, 0);
-    const maxHp = attributes.hp.baseMax + attributes.hp.bonus;
-
-    this.update({
-      'data.attributes': {
-        [`hitDice.${dieSize}.current`]: attributes.hitDice[dieSize].current - quantity
-      }
-    });
-
-    // Apply healing
-    this.applyHealing(hpDelta);
-    const chatCard = await ChatMessage.create(chatData);
-
-    Hooks.callAll('a5e.rollHitDice', this, {
-      dieSize,
-      dieCount: (attributes.hitDice[dieSize].current - quantity),
-      formula,
-      newHp: Math.min(attributes.hp.value + hpDelta, maxHp),
-      roll,
-      quantity
-    });
-
+    const chatCard = await this.HitDiceManager.rollHitDice(dieSize, quantity);
     return chatCard;
   }
 

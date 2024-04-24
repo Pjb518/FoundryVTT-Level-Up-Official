@@ -1,3 +1,5 @@
+import { localize } from '#runtime/svelte/helper';
+
 export default class HitDiceManager {
   #actor: typeof Actor;
 
@@ -66,6 +68,110 @@ export default class HitDiceManager {
     > ?? {};
 
     return hitDiceData;
+  }
+
+  async rollHitDice(dieSize: string | null = null, quantity: number = 1): Promise<any> {
+    const actorData = this.#actor.system;
+    const conMod = parseInt(actorData.abilities.con.check.mod, 10) || 0;
+
+    if (this.#actor.type === 'npc' || !this.#automate) {
+      const { attributes } = actorData;
+
+      if (!dieSize) return null;
+      if (attributes.hitDice[dieSize].current - quantity < 0) return null;
+
+      const formula = `${quantity}${dieSize} + ${quantity * conMod}`;
+
+      const { hookData, chatData } = await this
+        .#rollHitDice(dieSize, attributes.hitDice[dieSize].current, quantity, formula);
+
+      this.#actor.update({
+        'data.attributes': {
+          [`hitDice.${dieSize}.current`]: attributes.hitDice[dieSize].current - quantity
+        }
+      });
+
+      const chatCard = await ChatMessage.create(chatData);
+
+      Hooks.callAll('a5e.rollHitDice', this.#actor, hookData);
+      return chatCard;
+    }
+
+    const classes = this.#actor.classes ?? {} as any;
+    let cls: any;
+
+    if (!dieSize) {
+      const die = this.largest;
+      if (!die) return null;
+
+      cls = Object.values(classes).find((c: any) => (
+        c.hitDice.size === die && c.hitDice.current - quantity >= 0));
+
+      if (!cls) return null;
+    } else {
+      cls = Object.values(classes)
+        .find((c: any) => (
+          c.hitDice.size === parseInt(dieSize.slice(1), 10) && c.hitDice.current - quantity >= 0));
+
+      if (!cls) return null;
+    }
+
+    const { size }: { size: number } = cls.hitDice;
+    const formula = `${quantity}d${size} + ${quantity * conMod}`;
+    const { hookData, chatData } = await this.#rollHitDice(`d${size}`, cls.hitDice.current, quantity, formula);
+
+    cls.update({
+      'system.hp.hitDiceUsed': Math.min(cls.system.hp.hitDiceUsed + quantity, cls.classLevels)
+    });
+
+    const chatCard = await ChatMessage.create(chatData);
+    Hooks.callAll('a5e.rollHitDice', this.#actor, hookData);
+
+    return chatCard;
+  }
+
+  async #rollHitDice(
+    dieSize: string,
+    currentCount: number,
+    quantity: number,
+    formula: string
+  ): Promise<{ hookData: any, chatData: any }> {
+    const { attributes } = this.#actor.system;
+
+    const roll = await new Roll(formula).roll({ async: true });
+
+    const title = localize('A5E.HitDiceChatHeader', { dieSize: dieSize.toUpperCase() });
+    const chatData = {
+      user: game.user?.id,
+      speaker: ChatMessage.getSpeaker({ actor: this.#actor }),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      sound: CONFIG.sounds.dice,
+      rolls: [roll],
+      flags: {
+        a5e: {
+          actorId: this.#actor.uuid,
+          img: this.#actor.token?.img ?? this.#actor.img,
+          name: this.#actor.name,
+          title
+        }
+      }
+    };
+
+    const hpDelta = Math.max(roll.total, 0);
+    const maxHP = attributes.hp.max;
+
+    this.#actor.applyHealing(hpDelta);
+
+    const hookData = {
+      dieSize,
+      dieCount: currentCount - quantity,
+      formula,
+      newHp: Math.min(attributes.hp.value + hpDelta, maxHP),
+      roll,
+      quantity
+    };
+
+    return { hookData, chatData };
   }
 
   getUpdateData(

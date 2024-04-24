@@ -133,11 +133,10 @@ export default class CharacterActorA5E extends BaseActorA5e {
   prepareSpellResources() {
     const actorData = this.system;
     const { classes } = this;
+    const { spellResources } = actorData;
 
     // Handle no automation option
     if (!this.classAutomationFlags.spellResources) {
-      const { spellResources } = actorData;
-
       Object.entries(spellResources.slots).forEach(([level, { override }]) => {
         actorData.spellResources.slots[level].max = override || 0;
       });
@@ -244,6 +243,15 @@ export default class CharacterActorA5E extends BaseActorA5e {
         actorData.spellResources.slots[level].max = override || (max || 0) + (slotCount || 0);
       });
     });
+
+    // Set max to 0 if not defined
+    Object.values(actorData.spellResources.slots).forEach((slot) => {
+      if (slot.max === undefined) slot.max = 0;
+    });
+
+    actorData.spellResources.points.max = spellResources.points.max ?? 0;
+    actorData.spellResources.inventions.max = spellResources.inventions.max ?? 0;
+    actorData.spellResources.artifactCharges.max = spellResources.artifactCharges.max ?? 0;
 
     actorData.spellResources.knownSpells = Object.values(classes).reduce((acc, cls) => {
       const { knownSpells } = cls?.casting ?? {};
