@@ -1,0 +1,118 @@
+{
+	"folder": null,
+	"name": "Impose Affliction",
+	"type": "feature",
+	"img": "icons/magic/control/energy-stream-link-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"MgkU04dulul3OcpM": {
+				"name": "Impose Affliction",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"6auhmK8ISFBwySQH": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"sSb11dkY5iXW1iPi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "EAFUJlvQlHNuUYtw"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"H4ul89NzMRUnJwo6": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p><span id=\"docs-internal-guid-f298e4bd-7fff-f968-7a76-ea62d575fe59\">You can spend an artifact charge as a bonus action to attempt to offload the effects of your Accursed Affliction to another creature within 30 feet. The target makes a Charisma saving throw against your spell save DC. On a failed save, the target is affected as if by a </span><em>bestow lesser curse</em> spell, suffering the effect from that spell of your choosing and the effect of your curse is neutralized for as long as you maintain concentration on the <em>bestow lesser curse</em> effect, but you cannot use or benefit from Twisted Affliction, Greater Twisted Affliction, Mastered Affliction, or Critical Twisted Affliction until the effects of your curse return.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitCarryTheDarkness",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": true,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "Burdened archetype",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/control/energy-stream-link-blue.webp",
+			"origin": "Item.jn1EPczhTHpsHLJ5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "MgkU04dulul3OcpM"
+				}
+			},
+			"transfer": false,
+			"name": "Afflicted",
+			"_id": "EAFUJlvQlHNuUYtw",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "7dnqar68gw3nszg5"
+}

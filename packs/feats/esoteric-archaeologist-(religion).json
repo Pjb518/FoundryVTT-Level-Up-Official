@@ -1,0 +1,105 @@
+{
+	"folder": null,
+	"name": "Esoteric Archaeologist (Religion)",
+	"type": "feature",
+	"img": "icons/skills/trades/mining-pickaxe-stone-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p id=\"docs-internal-guid-2e7fff1e-7fff-7fa6-0d86-ef2047620a4b\" dir=\"ltr\">Most wielders take the time to learn about their bonded artifact, but you have taken it to a higher level, studying the lore of magic and artifacts in general in an effort to truly learn all you can about the artifact in your care. You gain the following benefits:</p>\n<ul>\n<li dir=\"ltr\">Your Intelligence or wielder spellcasting ability increases by 1, to a maximum of 20.</li>\n<li dir=\"ltr\" role=\"presentation\">Half your scholar levels count as wielder levels for the purpose of gaining the Extra Attack feature.</li>\n<li dir=\"ltr\" role=\"presentation\">Half your wielder levels count as scholar levels for the purpose of gaining the @UUID[Compendium.a5e.a5e-class-features.Item.luapp6zqydhkeemn]{Defensive Studies} feature.</li>\n<li dir=\"ltr\" role=\"presentation\">You gain the @UUID[Compendium.a5e.a5e-class-features.Item.er19pgvauc7g682l]{Artifact Knowledge} scholarly discovery if you do not already have it or another scholarly discovery of your choice if you do.</li>\n<li dir=\"ltr\" role=\"presentation\">Choose one:\n<ul>\n<li dir=\"ltr\" role=\"presentation\">You gain proficiency with the Arcana skill if you do not already have it and an expertise die if you do. You also gain the skill specialty artifacts for the Arcana skill.</li>\n<li dir=\"ltr\" role=\"presentation\">You gain proficiency with the Religion skill if you do not already have it and an expertise die if you do. You also gain the skill specialty relics for the Religion skill.</li>\n</ul>\n</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitCarryTheDarkness",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"mxoby931UWJ7ElX5": {
+				"grantType": "ability",
+				"level": 0,
+				"optional": false,
+				"label": "Esoteric Archaeologist",
+				"bonus": "1",
+				"abilities": {
+					"options": [
+						"int",
+						"wis",
+						"cha"
+					]
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				}
+			}
+		},
+		"prerequisite": "3 Levels in Scholar, 3 Levels in Wielder",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/skills/trades/mining-pickaxe-stone-blue.webp",
+			"origin": "Item.BGZ7sXBnMgnnn1yd",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Esoteric Archaeologist",
+			"_id": "tUucssVFeeVLhFpG",
+			"changes": [
+				{
+					"key": "system.skills.rel.proficient",
+					"value": "true",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.skills.rel.specialties",
+					"value": "Relics",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "1uz9dw89zye5d1r9"
+}

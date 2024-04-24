@@ -1,0 +1,210 @@
+{
+	"folder": null,
+	"name": "Scourging Aura",
+	"type": "feature",
+	"img": "icons/magic/unholy/barrier-fire-pink.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"8aelZ702NZWR86Bd": {
+				"name": "Scourging Aura",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"K7KVPU2gJTxTwk1U": {
+						"type": "damage",
+						"default": true,
+						"label": "Self Inflicted",
+						"formula": "1d8",
+						"damageType": "psychic",
+						"canCrit": false
+					},
+					"lhmT6JCm5Q8YEHyh": {
+						"type": "damage",
+						"default": true,
+						"label": "Within 20 feet",
+						"formula": "3d8",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {
+					"hW3kq0Uksav0cXtz": {
+						"type": "effect",
+						"default": true,
+						"effectId": "N87ALvz4ZrvBZgK3"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"B3SxRhsMmdSHVuBE": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 20,
+					"placeTemplate": true
+				}
+			},
+			"XyCaewW554tRmurH": {
+				"name": "Scourging Aura (Artifact Charge)",
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"K7KVPU2gJTxTwk1U": {
+						"type": "damage",
+						"default": true,
+						"label": "Self Inflicted",
+						"formula": "1d8",
+						"damageType": "psychic",
+						"canCrit": false
+					},
+					"lhmT6JCm5Q8YEHyh": {
+						"type": "damage",
+						"default": true,
+						"label": "Within 20 feet",
+						"formula": "3d8",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {
+					"hW3kq0Uksav0cXtz": {
+						"type": "effect",
+						"default": true,
+						"effectId": "57E3LFk9G1sCV4jG"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"XtUBZ0Hd5Lgyq3X9": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 20,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p id=\"docs-internal-guid-5abefa0c-7fff-5125-6fd9-0c79a61ee44d\" dir=\"ltr\">At 10th level, you can force your artifact to radiate its dangerous power outward, but you don&rsquo;t escape unscathed. As an action, you can activate your artifact&rsquo;s scourging aura by spending an artifact charge. You suffer 1d8 points of psychic damage and every other conscious creature within 20 feet of you suffers 3d8 points of psychic damage. You can keep this aura active at the beginning of subsequent turns by spending an artifact charge (no action required), in which case it does the same damage as when you activated it. Creatures (including you) in the area of Scourging Aura cannot benefit from any effect that would allow you to recover hit points or gain temporary hit points while Scourging Aura is active, and it ends immediately if you fall unconscious or die.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitCarryTheDarkness",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/barrier-fire-pink.webp",
+			"origin": "Item.QO7idWTA87LBpYTF",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "8aelZ702NZWR86Bd"
+				}
+			},
+			"transfer": false,
+			"name": "Scourging Aura",
+			"_id": "N87ALvz4ZrvBZgK3",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p><span id=\"docs-internal-guid-14c74b2e-7fff-50f7-57bc-daeb8173f9d6\">Cannot benefit from any effect that would allow you to recover hit points or gain temporary hit points while Scourging Aura is active, and it ends immediately if you fall unconscious or die.</span></p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/unholy/barrier-fire-pink.webp",
+			"origin": "Item.QO7idWTA87LBpYTF",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "XyCaewW554tRmurH"
+				}
+			},
+			"transfer": false,
+			"name": "Scourging Aura",
+			"_id": "57E3LFk9G1sCV4jG",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p><span id=\"docs-internal-guid-14c74b2e-7fff-50f7-57bc-daeb8173f9d6\">Cannot benefit from any effect that would allow you to recover hit points or gain temporary hit points while Scourging Aura is active, and it ends immediately if you fall unconscious or die.</span></p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "vfp6m5cp95s3j0bg"
+}

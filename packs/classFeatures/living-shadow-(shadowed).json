@@ -1,0 +1,114 @@
+{
+	"folder": null,
+	"name": "Living Shadow (Shadowed)",
+	"type": "feature",
+	"img": "icons/magic/unholy/hand-light-pink.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"7MWlPsnVeyAhYCvg": {
+				"name": "Living Shadow",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"CVwr31JiMqdVTCsp": {
+						"type": "effect",
+						"default": true,
+						"effectId": "bpSF3HK7eNZadpFD"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p id=\"docs-internal-guid-7e574256-7fff-ed4f-4c81-066193443f1c\" dir=\"ltr\">At 18th level, while you are in darkness or magical darkness, you are invisible, you are immune to necrotic damage, and the DC of your Affliction school spells increases by 1.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitCarryTheDarkness",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/hand-light-pink.webp",
+			"origin": "Item.WGO8v61tFKDkptDa",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "7MWlPsnVeyAhYCvg",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Living Shadow",
+			"_id": "bpSF3HK7eNZadpFD",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"necrotic\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"invisible"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "pknebms7a0hm4ojn"
+}

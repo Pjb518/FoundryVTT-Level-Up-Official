@@ -1,0 +1,160 @@
+{
+	"folder": null,
+	"name": "Arcane Curator",
+	"type": "feature",
+	"img": "icons/skills/trades/mining-pickaxe-stone-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"IqtSUTiikMTyk98r": {
+				"name": "End Attunement",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"Bg3go2WLlkW34pUC": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"7tIjccX8HggRCi3j": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				}
+			},
+			"50AIRllHqbLzZwV9": {
+				"name": "Restore Charges",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p id=\"docs-internal-guid-7a817f9c-7fff-d5b2-02dd-bd1e896ff41a\" dir=\"ltr\">You have become a true expert on enchanted items and your familiarity allows you to do things that most cannot with the magic items you wield. You gain the following benefits:</p>\n<ul>\n<li dir=\"ltr\">Your Intelligence or wielder spellcasting ability increases by 1, to a maximum of 20.</li>\n<li dir=\"ltr\" role=\"presentation\">You can attune a 4th magic item.</li>\n<li dir=\"ltr\" role=\"presentation\">Your attunement ending benefit from Antiquity Expert can now be used a number of times equal to half your proficiency bonus between long rests. In addition, when you use it, you can emit a pulse of magical energy that interferes with the magic of others. Hostile creatures within 30 feet of you that are concentrating must make a Wisdom save against your wielder spell save DC or lose concentration.</li>\n<li dir=\"ltr\" role=\"presentation\">As an action, you can spend artifact charges to restore charges to a magic item that has them.&nbsp;\n<ul>\n<li dir=\"ltr\" role=\"presentation\">You can restore a charge to a common item by spending 1 artifact charge.</li>\n<li dir=\"ltr\" role=\"presentation\">You can restore a charge to an uncommon item by spending 2 artifact charges.</li>\n<li dir=\"ltr\" role=\"presentation\">You can restore a charge to a rare item by spending 4 artifact charges.</li>\n<li dir=\"ltr\" role=\"presentation\">You can restore a charge to a very rare item by spending 6 artifact charges.</li>\n<li dir=\"ltr\" role=\"presentation\">You cannot restore charges to legendary items or artifacts this way, and if an item normally has a finite number of charges that do not replenish in any other way (such as in the case of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.js4qafwc3t10mb4k]{Nine Lives Stealer}), you also cannot restore those charges with this benefit.</li>\n</ul>\n</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitCarryTheDarkness",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"0Nz1EEdvTtK9BfXa": {
+				"grantType": "ability",
+				"level": 0,
+				"optional": false,
+				"label": "Arcane Curator",
+				"bonus": "1",
+				"abilities": {
+					"options": [
+						"int",
+						"wis",
+						"cha"
+					],
+					"total": 1
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				}
+			}
+		},
+		"prerequisite": "Antiquity Expert feat",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/skills/trades/mining-pickaxe-stone-blue.webp",
+			"origin": "Item.Pc4WeeMaBcnItsnr",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Arcane Curator",
+			"_id": "vy0Mhg4nyW1ZfCj8",
+			"changes": [
+				{
+					"key": "system.attributes.attunement.max",
+					"value": "4",
+					"mode": 5,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "h4cu57g1ervzr4ve"
+}
