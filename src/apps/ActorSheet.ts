@@ -445,6 +445,7 @@ export default class ActorSheet extends SvelteApplication {
       sourceLink.classList.add('a5e-document-source-link');
       sourceLink.setAttribute('alt', documentSource?.title);
       sourceLink.dataset.tooltip = getDocumentSourceTooltip(documentSource);
+      sourceLink.dataset.tooltipClass = 'a5e-tooltip a5e-tooltip--dark a5e-tooltip--document-source';
       sourceLink.dataset.tooltipDirection = 'DOWN';
       sourceLink.innerHTML = `<i class="fa-solid fa-book-open"></i> ${documentSource?.abbreviation}`;
       sourceLink.href = documentSource?.url;

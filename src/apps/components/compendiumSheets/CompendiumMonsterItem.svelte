@@ -135,6 +135,7 @@
                 href={monsterSource?.url}
                 target="_blank"
                 data-tooltip={getDocumentSourceTooltip(monsterSource)}
+                data-tooltip-class="a5e-tooltip a5e-tooltip--dark a5e-tooltip--document-source"
                 on:click|stopPropagation
             >
                 {monsterSource?.abbreviation}

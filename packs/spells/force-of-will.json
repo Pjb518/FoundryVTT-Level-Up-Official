@@ -7,7 +7,7 @@
 	"system": {
 		"actions": {
 			"H65V8AvTBYACpJBG": {
-				"name": "Force of Will",
+				"name": "Cast Spell",
 				"activation": {
 					"cost": 1,
 					"type": "reaction",
@@ -37,6 +37,18 @@
 						"spellLevel": 2,
 						"points": 3,
 						"type": "spell"
+					}
+				},
+				"rolls": {
+					"q0rZWtocnG514pf4": {
+						"type": "generic",
+						"default": true,
+						"label": "Damage Reduction",
+						"formula": "2d10 + @spell.mod",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d10"
+						}
 					}
 				}
 			}
