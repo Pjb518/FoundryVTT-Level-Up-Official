@@ -558,6 +558,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Thematic Toolkit: Folk of the Court',
       url: 'https://bit.ly/48SVn1R'
     },
+    thematicToolkitHazardousKnowledge: {
+      abbreviation: 'TT:HK',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: 'Thematic Toolkit: Hazardous Knowledge',
+      url: 'https://bit.ly/4d7WzRz'
+    },
     thematicToolkitItinerant: {
       abbreviation: 'TT:Itin',
       affiliate: true,
