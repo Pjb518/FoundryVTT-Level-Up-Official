@@ -57,7 +57,7 @@
         on:updateSelection={({ detail }) => (restType = detail)}
     />
 
-    {#if restType === "long" && simpleRests}
+    {#if restType === "long" && !simpleRests}
         <Section
             --a5e-section-body-padding="0"
             --a5e-section-body-gap="0.75rem"
