@@ -71,6 +71,15 @@
         }
     }
 
+    function getMaxSpellPoints() {
+        if ($actor.type !== "character") {
+            return spellResources.points.max;
+        }
+
+        if (sheetIsLocked) return spellResources.points.max;
+        return spellResources.points.override;
+    }
+
     function updateCurrentSpellBook(spellBookId) {
         const { uuid } = $actor;
         currentSpellBook = spellBookId;
@@ -82,6 +91,15 @@
                 currentSpellBook: spellBookId,
             },
         }));
+    }
+
+    function updateSpellPointMax(value) {
+        const key =
+            $actor.type === "character"
+                ? `system.spellResources.points.override`
+                : `system.spellResources.points.max`;
+
+        updateDocumentDataFromField($actor, key, value);
     }
 
     let tempSettings = {};
@@ -108,6 +126,7 @@
         : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
     $: spellBooks = $actor.spellBooks;
+    $: spellPointMax = getMaxSpellPoints(spellResources, sheetIsLocked);
 
     let currentSpellBook =
         tempSettings[$actor?.uuid]?.currentSpellBook ??
@@ -215,15 +234,12 @@
                 class="a5e-footer-group__input"
                 type="number"
                 name="system.spellResources.points.max"
-                value={spellResources.points.max}
+                value={spellPointMax ?? 0}
+                disabled={sheetIsLocked}
                 placeholder="0"
                 min="0"
                 on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        Number(target.value),
-                    )}
+                    updateSpellPointMax(Number(target.value))}
             />
         </div>
     {/if}
