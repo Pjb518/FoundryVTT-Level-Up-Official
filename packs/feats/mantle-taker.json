@@ -1,0 +1,243 @@
+{
+	"name": "Mantle Taker",
+	"type": "feature",
+	"img": "icons/sundries/misc/key-steel-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"kllnJNXsIXqctvCX": {
+				"name": "Armor of Power",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Attack being made against an allied creature"
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"x5g5UbxUIfRxdYd0": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XNAh5y2DSu8f6ckK"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"6q8ZqPapmNO0Rsnk": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>You have accepted the responsibility placed upon you and can draw power from it.&nbsp;You gain the following benefits:</p>\n<ul>\n<li>When you stabilize a dying creature, you recover an artifact charge. When you return a dead creature to life, you recover 5 artifact charges.</li>\n<li>You can spend 2 artifact charges as an action to neutralize one poison or disease affecting a creature within 30 feet of you.</li>\n<li>You gain an additional benefit based on your Bonded Artifact type:\n<ul>\n<li>If your Bonded Artifact is a weapon of power, it counts as being silvered and so does any other weapon you wield while it is in your possession.</li>\n<li>If your Bonded Artifact is an armor of power, you can send parts of it to aid your allies. In response to an attack being made against an allied creature within 30 feet of you, you may use your reaction to reduce your AC by up to 2. If you do your ally&rsquo;s AC rises by the same amount until the beginning of your next turn, potentially canceling the attack.</li>\n<li>If your Bonded Artifact is a font of power, choose two spells from the druid or herald list that are of a level you can cast as a wielder and are not on the cleric list. You learn both of these spells as bonus wielder spells that do not count against your wielder spells known.</li>\n</ul>\n</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {},
+		"prerequisite": "Anointed Bearer feat",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/sundries/misc/key-steel-purple.webp",
+			"origin": "Item.VxrIVm9qfhgiw0By",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kllnJNXsIXqctvCX",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC -1",
+			"_id": "XNAh5y2DSu8f6ckK",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/sundries/misc/key-steel-purple.webp",
+			"origin": "Item.VxrIVm9qfhgiw0By",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kllnJNXsIXqctvCX",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC -2",
+			"_id": "x96GKhXF98FV77bc",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/sundries/misc/key-steel-purple.webp",
+			"origin": "Item.VxrIVm9qfhgiw0By",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kllnJNXsIXqctvCX",
+					"applyToSelf": false,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +1",
+			"_id": "2ka7RPad9bDUW0zp",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/sundries/misc/key-steel-purple.webp",
+			"origin": "Item.VxrIVm9qfhgiw0By",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kllnJNXsIXqctvCX",
+					"applyToSelf": false,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "AC +2",
+			"_id": "4iZaMYMpL7iT8ssP",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "5vqsmxj74idgmlq3"
+}
