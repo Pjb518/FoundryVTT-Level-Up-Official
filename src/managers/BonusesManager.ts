@@ -154,6 +154,18 @@ export default class BonusesManager {
     return parts.join(' + ').trim();
   }
 
+  getHitPointsBonusPerLevelFormula(): string {
+    const bonuses = this.prepareHitPointsBonuses();
+
+    const parts = bonuses.reduce((acc, [, bonus]) => {
+      const { formula } = bonus;
+      if (bonus.context.perLevel) acc.push(formula);
+      return acc;
+    }, [] as string[]);
+
+    return parts.join(' + ').trim();
+  }
+
   /**
    * Wrapper for {@link getInitiativeBonuses} that returns a formula string instead of an array.
    * @param ablKey
