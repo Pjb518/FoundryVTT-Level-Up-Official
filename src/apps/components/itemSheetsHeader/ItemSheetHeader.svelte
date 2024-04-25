@@ -17,7 +17,26 @@
         disableFulfil = true;
     }
 
-    // TODO: Re-add this in 0.9.1 or later, as there is more work required to make
+    async function updateClassLevel(value) {
+        value = parseInt(value, 10);
+        const currentValue = $item.system.classLevels;
+        const diff = Math.abs(currentValue - value);
+        const sign = Math.sign(value - currentValue);
+
+        for (let i = 0; i < diff; i++) {
+            if (sign === 1) {
+                await $item.update({
+                    "system.classLevels": $item.system.classLevels + 1,
+                });
+            } else {
+                await $item.update({
+                    "system.classLevels": $item.system.classLevels - 1,
+                });
+            }
+        }
+    }
+
+    // TODO: Mystification - Re-add this in 0.9.1 or later, as there is more work required to make
     // this useful.
     //
     // function getItemName(item) {
@@ -33,7 +52,6 @@
     const { DAMAGED_STATES, damagedStates } = CONFIG.A5E;
     const { isGM } = game.user;
     const item = getContext("item");
-    const headerButtonTypes = ["object"];
     const prerequisiteTypes = ["maneuver", "feature", "spell"];
 
     let disableFulfil = $item.actor?.getFlag("a5e", "destinyFulfilled") ?? true;
@@ -85,7 +103,7 @@
         {/if}
     </div>
 
-    {#if headerButtonTypes.includes($item.type)}
+    {#if $item.type === "object"}
         <div class="button-container">
             <button
                 class="header-button fa-solid fa-circle-question"
@@ -132,6 +150,18 @@
                 on:click|stopPropagation={() => $item.toggleDamagedState()}
             />
         </div>
+    {/if}
+
+    <!-- Add Class Level -->
+    {#if $item.type === "class" && $item.actor}
+        <input
+            class="class-level-input"
+            type="number"
+            min="1"
+            max="20"
+            value={$item.system.classLevels}
+            on:change={({ target }) => updateClassLevel(target.value)}
+        />
     {/if}
 
     <div class="u-flex u-flex-shrink-0 u-align-center u-gap-xl">
@@ -253,6 +283,28 @@
 
     .name-wrapper {
         width: 100%;
+
+        input[type] {
+            font-size: var(--a5e-text-size-xl);
+            font-family: var(--a5e-font-serif);
+        }
+    }
+
+    .class-level-input[type] {
+        font-size: var(--a5e-text-size-xxl);
+        width: 5rem;
+        height: 2.25rem;
+        color: rgb(25, 24, 19);
+        font-family: var(--a5e-font-serif);
+        text-align: center;
+        background: rgba(0, 0, 0, 0.05);
+        box-shadow: none;
+        border: 1px solid #bbb;
+        border-radius: 5px;
+
+        &:focus {
+            box-shadow: none;
+        }
     }
 
     .fulfil-button {

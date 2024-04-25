@@ -3,6 +3,7 @@ import type {
   AttackBonusContext,
   DamageBonusContext,
   HealingBonusContext,
+  HitPointsBonusContext,
   InitiativeBonusContext,
   MovementBonusContext,
   SensesBonusContext,
@@ -40,6 +41,15 @@ export interface DamageBonus {
 export interface HealingBonus {
   context: HealingBonusContext;
   healingType: string;
+  formula: string;
+  label: string;
+  img: string;
+  default: boolean;
+  defaultLabel?: string;
+}
+
+export interface HitPointsBonus {
+  context: HitPointsBonusContext,
   formula: string;
   label: string;
   img: string;
@@ -88,6 +98,7 @@ export interface Bonuses {
   attacks: { [id: string]: AttackBonus };
   damage: { [id: string]: DamageBonus };
   healing: { [id: string]: HealingBonus };
+  hitPoint: { [id: string]: HitPointsBonus };
   initiative: { [id: string]: InitiativeBonus };
   movement: { [id: string]: MovementBonus };
   senses: { [id: string]: SensesBonus };

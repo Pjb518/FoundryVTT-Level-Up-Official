@@ -12,6 +12,12 @@
             reverseAlt: settings.get("a5e", "reverseInitiativeAltBehavior"),
         });
 
+        options.expertiseDie = $actor.RollOverrideManager.getExpertiseDice(
+            "initiative",
+            options.expertiseDie ?? 0,
+            { ability: abilityKey },
+        );
+
         options.rollMode = $actor.RollOverrideManager.getRollOverride(
             "initiative",
             options.rollMode,

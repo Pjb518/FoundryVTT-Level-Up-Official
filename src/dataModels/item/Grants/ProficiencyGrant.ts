@@ -27,6 +27,7 @@ export default class ProficiencyGrant extends BaseGrant {
         total: new fields.NumberField({ required: true, initial: 0, integer: true })
       }),
       proficiencyType: new fields.StringField({ required: false, initial: 'ability' }),
+      isExpertise: new fields.BooleanField({ required: false, initial: false }),
       label: new fields.StringField({ required: true, initial: 'New Proficiency Grant' })
     });
   }
@@ -47,7 +48,8 @@ export default class ProficiencyGrant extends BaseGrant {
       },
       itemUuid: this.parent.uuid,
       grantId: this._id,
-      grantType: this.#type
+      grantType: this.#type,
+      level: this.level
     };
 
     updates['system.grants'] = {
@@ -62,7 +64,7 @@ export default class ProficiencyGrant extends BaseGrant {
       });
     } else if (this.proficiencyType === 'skill') {
       selected.forEach((key: string) => {
-        updates[`system.skills.${key}.proficient`] = 1;
+        updates[`system.skills.${key}.proficient`] = this.isExpertise ? 2 : 1;
       });
     } else {
       return {};

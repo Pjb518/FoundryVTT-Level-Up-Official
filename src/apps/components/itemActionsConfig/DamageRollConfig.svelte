@@ -17,7 +17,7 @@
         const formula = roll.scaling?.formula ?? 0;
         const damageType = damageTypes[roll.damageType];
 
-        // TODO: Provide some means of getting a base spell level for non-spell items.
+        // TODO: Class Documents - Provide some means of getting a base spell level for non-spell items.
         const level = getOrdinalNumber($item.system.level ?? 1);
         const step = roll.scaling?.step;
 

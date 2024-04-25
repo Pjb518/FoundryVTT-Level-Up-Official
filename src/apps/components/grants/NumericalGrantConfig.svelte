@@ -5,10 +5,10 @@
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
     import NumericalGrantContexts from "./NumericalGrantContexts.svelte";
+    import GrantConfig from "./GrantConfig.svelte";
 
     export let { document, grantId, grantType } =
         getContext("#external").application;
@@ -152,14 +152,7 @@
 
     <NumericalGrantContexts />
 
-    <Section heading="Grant Config">
-        <Checkbox
-            label="Mark grant as optional"
-            checked={grant.optional ?? false}
-            on:updateSelection={({ detail }) =>
-                onUpdateValue("optional", detail)}
-        />
-    </Section>
+    <GrantConfig />
 </form>
 
 <style lang="scss">

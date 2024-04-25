@@ -11,6 +11,7 @@ import {
   getAttackBonusData,
   getDamageBonusData,
   getHealingBonusData,
+  getHitPointBonusData,
   getInitiativeBonusData,
   getMovementBonusData,
   getSensesBonusData,
@@ -73,7 +74,7 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           bonus: new fields.NumberField({ required: true, initial: 0, integer: true })
         }),
         hitDice: new fields.SchemaField({
-          ...['d4', 'd6', 'd8', 'd10', 'd12'].reduce((acc, die) => {
+          ...['d6', 'd8', 'd10', 'd12'].reduce((acc, die) => {
             acc[die] = new fields.SchemaField({
               current: new fields.NumberField({
                 required: true, initial: 0, integer: true, min: 0
@@ -88,7 +89,7 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         }),
         initiative: new fields.SchemaField({
           ability: new fields.StringField({ required: true, initial: 'dex' }),
-          // TODO: Remove this at a later date when migration is guaranteed
+          // TODO: Migration Upgrade - Remove this at a later date when migration is guaranteed
           bonus: new fields.StringField({ required: true, initial: '' }),
           expertiseDice: new fields.NumberField({ required: true, initial: 0, integer: true })
         }),
@@ -176,6 +177,10 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new fields.SchemaField(getHealingBonusData())
         ),
+        hitPoint: new RecordField(
+          new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
+          new fields.SchemaField(getHitPointBonusData())
+        ),
         initiative: new RecordField(
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new fields.SchemaField(getInitiativeBonusData())
@@ -193,7 +198,7 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           new fields.SchemaField(getSkillBonusData())
         ),
         maneuverDC: new fields.StringField({ initial: '' }),
-        // TODO: Remove these at a later date when migration is guaranteed
+        // TODO: Migration Upgrade - Remove these at a later date when migration is guaranteed
         meleeSpellAttack: new fields.StringField({ initial: '' }),
         meleeWeaponAttack: new fields.StringField({ initial: '' }),
         rangedSpellAttack: new fields.StringField({ initial: '' }),
@@ -303,57 +308,6 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           new fields.StringField({ required: true, initial: '' }),
           { required: true, initial: [] }
         )
-      }),
-      spellResources: new fields.SchemaField({
-        slots: new fields.SchemaField({
-          1: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          2: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          3: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          4: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          5: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          6: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          7: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          8: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          }),
-          9: new fields.SchemaField({
-            current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-            max: new fields.NumberField({ required: true, initial: 0, integer: true })
-          })
-        }),
-        // pactSlots: new fields.SchemaField({
-        //   current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-        //   max: new fields.NumberField({ required: true, initial: 0, integer: true }),
-        //   level: new fields.NumberField({
-        //     required: true, initial: 1, max: 5, integer: true
-        //   })
-        // }),
-        points: new fields.SchemaField({
-          current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-          max: new fields.NumberField({ required: true, initial: 0, integer: true })
-        })
       })
     });
   }

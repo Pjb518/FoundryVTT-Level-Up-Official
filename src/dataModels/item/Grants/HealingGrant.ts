@@ -15,7 +15,7 @@ export default class HealingGrant extends BaseGrant {
     return this.mergeSchema(super.defineSchema(), {
       grantType: new fields.StringField({ required: true, initial: 'healing' }),
       bonus: new fields.StringField({ required: true, initial: '' }),
-      context: new fields.SchemaField(getHealingBonusContext()),
+      context: new fields.SchemaField(getHealingBonusContext('grant')),
       healingType: new fields.StringField({ required: true, initial: 'healing' }),
       label: new fields.StringField({ required: true, initial: 'New Healing Grant' })
     });
@@ -29,16 +29,19 @@ export default class HealingGrant extends BaseGrant {
       context: this.context,
       formula: this.bonus,
       label: this.label || this.parent?.name || 'Healing Grant',
-      default: this.default ?? true,
+      default: this.context.default ?? true,
       img: this.img || this?.parent?.img
     };
+
+    delete bonus.context.default;
 
     const grantData = {
       itemUuid: this.parent.uuid,
       grantId: this._id,
       bonusId,
       type: 'healing',
-      grantType: 'bonus'
+      grantType: 'bonus',
+      level: this.level
     };
 
     return {

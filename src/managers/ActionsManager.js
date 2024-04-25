@@ -257,7 +257,7 @@ export default class ActionsManager extends DataProxy {
     };
 
     if (type === 'attack') {
-      // TODO: Throw error on multiple attack rolls
+      // TODO: Error System - Throw error on multiple attack rolls
       defaultData.attackType = 'meleeWeaponAttack';
       defaultData.proficient = true;
     }

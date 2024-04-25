@@ -16,6 +16,9 @@ export default class CharacterData extends BaseActorData {
           recoverOnRest: new fields.BooleanField({ required: true, initial: true })
         })
       }),
+      classes: new fields.SchemaField({
+        startingClass: new fields.StringField({ required: true, initial: '' })
+      }),
       details: new fields.SchemaField({
         age: new fields.StringField({ required: true, initial: '' }),
         appearance: new fields.StringField({ required: true, initial: '' }),
@@ -40,6 +43,33 @@ export default class CharacterData extends BaseActorData {
         traditions: new fields.ArrayField(
           new fields.StringField({ required: true, initial: '' }),
           { required: true, initial: [] }
+        )
+      }),
+      spellResources: new fields.SchemaField({
+        artifactCharges: new fields.SchemaField({
+          current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
+          override: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+        }),
+        inventions: new fields.SchemaField({
+          current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
+          override: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+        }),
+        points: new fields.SchemaField({
+          current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
+          max: new fields.NumberField({ nullable: true, initial: 0, min: 0 }),
+          override: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+        }),
+        slots: new fields.SchemaField(
+          Array.from({ length: 9 }, (_, i) => i + 1)
+            .reduce((acc, level) => {
+              acc[level] = new fields.SchemaField({
+                current: new fields.NumberField({ nullable: false, initial: 0, min: 0 }),
+                max: new fields.NumberField({ nullable: true, initial: 0, min: 0 }),
+                override: new fields.NumberField({ nullable: false, initial: 0, min: 0 })
+              });
+              return acc;
+            }, {})
+
         )
       }),
       supply: new fields.NumberField({ required: true, initial: 0, integer: true })

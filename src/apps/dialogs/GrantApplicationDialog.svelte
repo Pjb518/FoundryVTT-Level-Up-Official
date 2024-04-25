@@ -6,9 +6,19 @@
     import prepareGrantsApplyData from "../../utils/prepareGrantsApplyData";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
     import Section from "../components/Section.svelte";
+    import ClassHitPointsSelection from "../components/ClassHitPointsSelection.svelte";
 
-    export let { allGrants, dialog, optionalGrants, actor } =
+    export let {
+        allGrants,
+        dialog,
+        optionalGrants,
+        actor,
+        item,
+        cls,
+        clsLevel,
+    } =
         // @ts-ignore
         getContext("#external").application;
 
@@ -48,29 +58,41 @@
             success: true,
             updateData,
             documentData,
+            clsReturnData,
         });
     }
 
-    $: applyData = new Map<string, any>();
     let selectedOptionalGrants: string[] = [];
+    let clsReturnData: Record<string, any> = {};
 
+    $: applyData = new Map<string, any>();
     $: grants = getApplicableGrants(selectedOptionalGrants);
     $: configurableGrants = grants.filter((grant) => grant.requiresConfig);
 </script>
 
 <article>
     <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
-        <Section heading="Optional Grants Selection">
-            <CheckboxGroup
-                options={optionalGrants.map((grant) => [
-                    grant._id,
-                    grant.label,
-                ])}
-                selected={selectedOptionalGrants}
-                on:updateSelection={({ detail }) =>
-                    (selectedOptionalGrants = detail)}
+        {#if cls && cls?.type === "class"}
+            <ClassHitPointsSelection
+                {cls}
+                classLevel={clsLevel}
+                bind:clsReturnData
             />
-        </Section>
+        {/if}
+
+        {#if optionalGrants.length}
+            <Section heading="Optional Grants Selection">
+                <CheckboxGroup
+                    options={optionalGrants.map((grant) => [
+                        grant._id,
+                        grant.label,
+                    ])}
+                    selected={selectedOptionalGrants}
+                    on:updateSelection={({ detail }) =>
+                        (selectedOptionalGrants = detail)}
+                />
+            </Section>
+        {/if}
 
         {#each configurableGrants as { grant, id }}
             <svelte:component
@@ -81,7 +103,7 @@
             />
         {/each}
 
-        <!-- TODO: Add a proper summary for the various grants -->
+        <!-- TODO: Character Builder - Add a proper summary for the various grants -->
         <!-- <Section heading="Summary">
             <ul>
                 {#each applyData.entries() as [id, { summary }]}

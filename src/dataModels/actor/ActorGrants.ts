@@ -11,11 +11,14 @@ class ActorBaseGrant extends A5EDataModel {
     const { fields } = foundry.data;
 
     return {
-      // TODO: Update to UUIDField in v12
+      // TODO: v12 - Update to UUIDField in v12
       itemUuid: new fields.StringField({ required: true, initial: '' }),
       // itemUuid: new fields.DocumentUUIDField({ required: true, initial: '' }),
       grantId: new fields.DocumentIdField({ required: true, initial: '' }),
-      grantType: new fields.StringField({ required: true, initial: '' })
+      grantType: new fields.StringField({ required: true, initial: '' }),
+      level: new fields.NumberField({
+        nullable: false, initial: 1, integer: true, min: 1
+      })
     };
   }
 }
@@ -28,6 +31,26 @@ class BonusGrant extends ActorBaseGrant {
       grantType: new fields.StringField({ required: true, initial: 'bonus' }),
       bonusId: new fields.DocumentIdField({ required: true, initial: '' }),
       type: new fields.StringField({ required: true, initial: '' })
+    });
+  }
+}
+
+class ExpertiseDiceGrant extends ActorBaseGrant {
+  static defineSchema() {
+    const { fields } = foundry.data;
+
+    return this.mergeSchema(super.defineSchema(), {
+      grantType: new fields.StringField({ required: true, initial: 'proficiency' }),
+      expertiseDiceData: new fields.SchemaField({
+        keys: new fields.ArrayField(
+          new fields.StringField({ required: true, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        total: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
+        expertiseCount: new fields.NumberField({ nullable: false, initial: 1, integer: true }),
+        expertiseType: new fields.StringField({ required: true, initial: '' })
+
+      })
     });
   }
 }
@@ -78,6 +101,25 @@ class ProficiencyGrant extends ActorBaseGrant {
   }
 }
 
+class SkillSpecialtyGrant extends ActorBaseGrant {
+  static defineSchema() {
+    const { fields } = foundry.data;
+
+    return this.mergeSchema(super.defineSchema(), {
+      grantType: new fields.StringField({ required: true, initial: 'skillSpecialty' }),
+      specialtyData: new fields.SchemaField({
+        specialties: new fields.ArrayField(
+          new fields.StringField({ required: true, initial: '' }),
+          { required: true, initial: [] }
+        ),
+        skill: new fields.StringField({ required: true, initial: '' }),
+        total: new fields.NumberField({ required: true, initial: 0, integer: true })
+      })
+
+    });
+  }
+}
+
 class TraitGrant extends ActorBaseGrant {
   static defineSchema() {
     const { fields } = foundry.data;
@@ -99,8 +141,10 @@ class TraitGrant extends ActorBaseGrant {
 export default {
   base: ActorBaseGrant,
   bonus: BonusGrant,
+  expertiseDice: ExpertiseDiceGrant,
   feature: FeatureGrant,
   item: ItemGrant,
   proficiency: ProficiencyGrant,
+  skillSpecialty: SkillSpecialtyGrant,
   trait: TraitGrant
 };

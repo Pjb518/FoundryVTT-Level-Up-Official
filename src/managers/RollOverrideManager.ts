@@ -1,3 +1,5 @@
+import type { ExpertiseDiceGrant } from '../../types/actorGrants';
+
 type OverrideType = 'rollMode' | 'expertiseDice';
 
 type Change = {
@@ -52,7 +54,7 @@ export default class RollOverrideManager {
   }
 
   initialize() {
-    // Register expertise die from actor data
+    // Register expertise dice from actor data
     Object.entries(this.actor.system.abilities).forEach(([ablKey, ability]: [string, any]) => {
       ['check', 'save'].forEach((type) => {
         if (ability[type]?.expertiseDice) {
@@ -80,6 +82,58 @@ export default class RollOverrideManager {
             mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.OVERRIDE
           }
         );
+      }
+    });
+
+    // Register expertise dice from grants
+    this.actor.grants.byType('expertiseDice').forEach((grant: ExpertiseDiceGrant) => {
+      const { expertiseType: type, expertiseCount, keys } = grant.expertiseDiceData ?? {};
+      const { name } = fromUuidSync(grant.itemUuid) as typeof Item ?? {};
+
+      if (type === 'abilityCheck') {
+        keys.forEach((key: string) => {
+          this.overrides.get(`system.abilities.${key}.check`)?.push(
+            {
+              value: expertiseCount,
+              overrideType: 'expertiseDice',
+              source: name,
+              mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.ADD
+            }
+          );
+        });
+      } else if (type === 'abilitySave') {
+        keys.forEach((key: string) => {
+          this.overrides.get(`system.abilities.${key}.save`)?.push(
+            {
+              value: expertiseCount,
+              overrideType: 'expertiseDice',
+              source: name,
+              mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.ADD
+            }
+          );
+        });
+      } else if (type === 'skillCheck') {
+        keys.forEach((key: string) => {
+          this.overrides.get(`system.skills.${key}`)?.push(
+            {
+              value: expertiseCount,
+              overrideType: 'expertiseDice',
+              source: name,
+              mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.ADD
+            }
+          );
+        });
+      } else if (type === 'attack') {
+        keys.forEach((key: string) => {
+          this.overrides.get(`attackTypes.${key}`)?.push(
+            {
+              value: expertiseCount,
+              overrideType: 'expertiseDice',
+              source: name,
+              mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.ADD
+            }
+          );
+        });
       }
     });
 
@@ -288,6 +342,12 @@ export default class RollOverrideManager {
             source: 'Flanking',
             value: CONFIG.A5E.ROLL_MODE.ADVANTAGE
           });
+        } else if (!flankSetting && isFlanking) {
+          overrides.push({
+            overrideType: 'expertiseDice',
+            source: 'Flanking',
+            value: 1
+          });
         }
       } catch {
         // Do nothing
@@ -323,7 +383,7 @@ export default class RollOverrideManager {
     options: { ability?: string, skill?: string } = {}
   ): string {
     const overrides = this.#prepareOverrides(key, 'rollMode', options);
-    if (!overrides) return '';
+    if (!overrides?.length) return '';
 
     let base: string;
     if (baseRollMode === CONFIG.A5E.ROLL_MODE.ADVANTAGE) base = 'Advantage';
@@ -378,6 +438,34 @@ export default class RollOverrideManager {
     // Sort the overrides by mode
     overrides.sort((a, b) => (b.mode ?? 2) - (a.mode ?? 2));
 
-    return 0;
+    let total = baseDie;
+    overrides.forEach((o) => {
+      if (o.mode === CONFIG.A5E.ACTIVE_EFFECT_MODES.OVERRIDE) total = o.value;
+      else total += o.value;
+    });
+
+    return Math.clamped(total, 0, 5);
+  }
+
+  getExpertiseDiceSource(
+    key: string,
+    baseDie: number = 0,
+    options: { ability?: string, skill?: string } = {}
+  ): string {
+    const overrides = this.#prepareOverrides(key, 'expertiseDice', options);
+    if (!overrides?.length) return '';
+
+    overrides.sort((a, b) => (b.mode ?? 2) - (a.mode ?? 2));
+
+    const base = baseDie ? `d${CONFIG.A5E.expertiseDiceSidesMap[baseDie]}` : 'None';
+    const sources = overrides.map((o) => `${o.source} (d${CONFIG.A5E.expertiseDiceSidesMap[o.value]})`);
+
+    const result = this.getExpertiseDice(key, baseDie);
+
+    return `<div class='u-text-xs u-text-left'>
+      <p> <strong>Base Die:</strong> ${base}</p>
+      <p> <strong>Overrides:</strong> ${sources.join(', ')}</p>
+      <p> <strong>Total Bonus:</strong> d${CONFIG.A5E.expertiseDiceSidesMap[result]}</p>
+      </div>`;
   }
 }

@@ -45,7 +45,7 @@
     }
 
     function onSubmit() {
-        // TODO: Clean this up. A lot of stuff here is prototyping for the chat cards
+        // TODO: Chat cards - Clean this up. A lot of stuff here is prototyping for the chat cards
 
         dialog.submit({
             attack: attackRollData,

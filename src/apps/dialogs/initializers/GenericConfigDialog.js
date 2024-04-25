@@ -8,7 +8,7 @@ import ItemDocument from '../../ItemDocument';
  */
 export default class GenericConfigDialog extends TJSDialog {
   constructor(document, title, component, data = {}, options = {}) {
-    // TODO: Revisit this to see if this is what we wanna do
+    // TODO: Refactor - Revisit this to see if this is what we wanna do
     const doc = options.isItemDocument ? new ItemDocument(document) : new TJSDocument(document);
     delete options.isItemDocument;
 

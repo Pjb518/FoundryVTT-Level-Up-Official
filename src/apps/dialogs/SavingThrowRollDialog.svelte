@@ -8,6 +8,7 @@
     import FieldWrapper from "../components/FieldWrapper.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
+    import RollModePicker from "../components/RollModePicker.svelte";
 
     import getRollFormula from "../../utils/getRollFormula";
 
@@ -23,9 +24,9 @@
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
 
-        return (
-            options.expertiseDice ??
-            $actor.system.abilities[abilityKey]?.save.expertiseDice
+        return $actor.RollOverrideManager.getExpertiseDice(
+            rollModeKey ?? "",
+            options.expertiseDie ?? 0,
         );
     }
 
@@ -45,13 +46,6 @@
                 });
         }
     }
-
-    const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
-        ([key, value]) => [
-            CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-            localize(value),
-        ],
-    );
 
     const saveTypes = [
         ["standard", "A5E.SavingThrowNormal"],
@@ -80,7 +74,6 @@
     let visibilityMode =
         options.visibilityMode ?? game.settings.get("core", "rollMode");
 
-    let expertiseDie = getInitialExpertiseDieSelection();
     let saveType = options.saveType ?? "standard";
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let rollFormula;
@@ -92,6 +85,13 @@
     );
 
     $: rollModeKey = getRollModeKey(saveType, abilityKey);
+    $: expertiseDie = getInitialExpertiseDieSelection();
+
+    $: expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
+        rollModeKey,
+        options.expertiseDie ?? 0,
+    );
+
     $: rollMode = $actor.RollOverrideManager.getRollOverride(
         rollModeKey,
         selectedRollMode,
@@ -119,21 +119,15 @@
     <OutputVisibilitySection bind:visibilityMode />
 
     {#key saveType}
-        <RadioGroup
-            heading="A5E.RollModeHeading"
-            buttons={[
-                {
-                    classes: "fas fa-question-circle",
-                    tooltip: rollModeString,
-                },
-            ]}
-            options={rollModeOptions}
+        <RollModePicker
             selected={rollMode}
+            source={rollModeString}
             on:updateSelection={({ detail }) => (rollMode = detail)}
         />
     {/key}
 
     <ExpertiseDiePicker
+        source={expertiseDieSource}
         selected={expertiseDie}
         type={$actor.type}
         on:updateSelection={({ detail }) => (expertiseDie = detail)}

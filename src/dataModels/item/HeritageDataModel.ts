@@ -1,5 +1,6 @@
 import A5EDataModel from '../A5EDataModel';
 import SchemaDataModel from '../template/SchemaDataModel';
+
 import type { SchemaSchema } from '../template/SchemaDataModel';
 
 type HeritageSchema = {

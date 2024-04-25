@@ -1,6 +1,5 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
@@ -9,6 +8,7 @@
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import getRollFormula from "../../utils/getRollFormula";
+    import RollModePicker from "../components/RollModePicker.svelte";
 
     export let { document, dialog, options } =
         getContext("#external").application;
@@ -16,18 +16,12 @@
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
 
-        return (
-            options.expertiseDice ??
-            $actor.system.attributes.initiative.expertiseDice
+        return $actor.RollOverrideManager.getExpertiseDice(
+            `initiative`,
+            options.expertiseDie ?? 0,
+            { ability: abilityKey, skill: skillKey },
         );
     }
-
-    const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
-        ([key, value]) => [
-            CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-            localize(value),
-        ],
-    );
 
     const actor = new TJSDocument(document.actor);
     const appId = dialog.id;
@@ -49,11 +43,18 @@
         $actor.system.attributes.initiative.ability ??
         "dex";
 
-    let expertiseDie = getInitialExpertiseDieSelection();
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let skillKey = options.skillKey ?? "none";
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
+
+    $: expertiseDie = getInitialExpertiseDieSelection();
+
+    $: expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
+        `initiative`,
+        options.expertiseDie ?? 0,
+        { ability: abilityKey, skill: skillKey },
+    );
 
     $: rollMode = $actor.RollOverrideManager.getRollOverride(
         `initiative`,
@@ -111,17 +112,9 @@
 </script>
 
 <form>
-    <RadioGroup
-        heading="A5E.RollModeHeading"
-        ,
-        buttons={[
-            {
-                classes: "fas fa-question-circle",
-                tooltip: rollModeString,
-            },
-        ]}
-        options={rollModeOptions}
+    <RollModePicker
         selected={rollMode}
+        source={rollModeString}
         on:updateSelection={({ detail }) => (rollMode = detail)}
     />
 
@@ -140,6 +133,7 @@
     />
 
     <ExpertiseDiePicker
+        source={expertiseDieSource}
         selected={expertiseDie}
         type={$actor.type}
         on:updateSelection={(event) => {

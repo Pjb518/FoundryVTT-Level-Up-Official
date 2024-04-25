@@ -41,7 +41,7 @@ export default async function handleMigration() {
     }
 
     await migrationRunner.runMigration();
-    // TODO: Add Migration summary
+    // TODO: Migration Upgrade - Add Migration summary
     // https://github.com/foundryvtt/pf2e/blob/5fd278acdd15f5337e54484bde45b2e1f5bf0b0a/src/module/apps/migration-summary.ts
   }
 }

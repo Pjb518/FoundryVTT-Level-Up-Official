@@ -42,7 +42,8 @@ export default class ItemGrant extends BaseGrant {
     const grantData = {
       itemUuid: this.parent.uuid,
       grantId: this._id,
-      grantType: this.#type
+      grantType: this.#type,
+      level: this.level
     };
 
     return {

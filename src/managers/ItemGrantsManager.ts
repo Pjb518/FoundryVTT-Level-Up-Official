@@ -35,6 +35,19 @@ export default class ItemGrantsManager extends Map<string, Grant> {
     return [...this.values()].filter((grant) => grant.grantType === type);
   }
 
+  byLevel(level: number): Array<Grant> {
+    return [...this.values()].filter((grant) => grant.level === level);
+  }
+
+  byLevelType(levelType: string): Array<Grant> {
+    return [...this.values()].filter((grant) => grant.levelType === levelType);
+  }
+
+  byLevelAndType(level: number, grantType: string): Array<Grant> {
+    return [...this.values()]
+      .filter((grant) => grant.level === level && grant.grantType === grantType);
+  }
+
   /** ************************************************
   *               External methods
   * ************************************************ */
@@ -94,7 +107,8 @@ export default class ItemGrantsManager extends Map<string, Grant> {
     // @ts-ignore
     const newGrant = foundry.utils.mergeObject({
       grantType: 'skill',
-      level: 0
+      level: 1,
+      levelType: ['class', 'archetype'].includes(item.type) ? 'class' : 'character'
     }, data);
 
     const updateData = {

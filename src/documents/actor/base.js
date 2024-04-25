@@ -24,6 +24,7 @@ import DamageBonusConfigDialog from '../../apps/dialogs/DamageBonusConfigDialog.
 import DetailsConfigDialog from '../../apps/dialogs/DetailsConfigDialog.svelte';
 import InitiativeBonusConfigDialog from '../../apps/dialogs/InitiativeBonusConfigDialog.svelte';
 import HealingBonusConfigDialog from '../../apps/dialogs/HealingBonusConfigDialog.svelte';
+import HitPointsBonusConfigDialog from '../../apps/dialogs/HitPointsBonusConfigDialog.svelte';
 import MovementBonusConfigDialog from '../../apps/dialogs/bonuses/MovementBonusConfigDialog.svelte';
 import MovementConfigDialog from '../../apps/dialogs/MovementConfigDialog.svelte';
 import RestDialog from '../../apps/dialogs/RestDialog.svelte';
@@ -43,7 +44,7 @@ import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import getRollFormula from '../../utils/getRollFormula';
 import displayCascadingNumbers from '../../utils/displayCascadingNumbers';
 
-export default class ActorA5e extends Actor {
+export default class BaseActorA5e extends Actor {
   #configDialogMap;
 
   constructor(...args) {
@@ -70,6 +71,7 @@ export default class ActorA5e extends Actor {
       damageResistances: DetailsConfigDialog,
       damageVulnerabilities: DetailsConfigDialog,
       healingBonus: HealingBonusConfigDialog,
+      hitPointsBonus: HitPointsBonusConfigDialog,
       health: ActorHpConfigDialog,
       initiative: ActorInitConfigDialog,
       initiativeBonus: InitiativeBonusConfigDialog,
@@ -99,25 +101,11 @@ export default class ActorA5e extends Actor {
   }
 
   /**
-   * @returns {String} hitPointFormula
+   * @returns {Number}
    */
-  get hitPointFormula() {
-    const { hitDice } = this.system.attributes;
-    const { mod } = this.system.abilities.con;
-
-    let hitDiceCount = 0;
-    const parts = [];
-
-    Object.entries(hitDice).forEach(([dieSize, { total: diceQuantity }]) => {
-      if (!diceQuantity) return;
-
-      parts.push(`${diceQuantity}${dieSize}`);
-      hitDiceCount += diceQuantity;
-    });
-
-    if (hitDiceCount === 0) return null;
-
-    return `${parts.join(' + ')} + ${hitDiceCount * mod}`;
+  get isBloodied() {
+    const { max, value } = this.system.attributes.hp;
+    return (value / max) * 100 <= 50;
   }
 
   /**
@@ -148,11 +136,21 @@ export default class ActorA5e extends Actor {
     };
   }
 
+  // -------------------------------------------------------------
+  // Data Preparation Methods
+  // -------------------------------------------------------------
   /**
    * Sets the order of when to prepare data.
    * @override
    */
   prepareData() {
+    // Set Managers
+    this.BonusesManager = null;
+    this.HitDiceManager = null;
+    this.grants = null;
+    this.spellBooks = null;
+    this.RollOverrideManager = null;
+
     this.prepareBaseData();
     super.prepareEmbeddedDocuments();
 
@@ -187,47 +185,12 @@ export default class ActorA5e extends Actor {
         override: null, bonuses: { components: [], value: 0 }
       };
     }
-
-    // Add base bonuses for abilities
-    // Object.entries(this.system.abilities).forEach(([abilityKey, ability]) => {
-    //   const value = getDeterministicBonus(
-    //     [
-    //       ability.value,
-    //       this.BonusesManager.getAbilityBonusesFormula(abilityKey, 'base').trim()
-    //     ].filter(Boolean).join(' + ')
-    //   );
-
-    //   ability.value = value ?? ability.value;
-    // });
-
-    const actorType = this.type;
-    if (actorType === 'character') {
-      this.prepareCharacterData();
-    } else {
-      this.prepareNPCData();
-    }
   }
 
   /**
-   * Prepare the base data for an actor of type character.
-   */
-  prepareCharacterData() {
-    // Calculate the proficiency bonus for the character with a minimum value of 2.
-    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.level + 7) / 4));
-  }
-
-  /**
-   * Prepare the base data for an actor of type npc.
-   */
-  prepareNPCData() {
-    // Calculate the proficiency bonus for the character with a minimum value of 2.
-    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.cr + 7) / 4));
-  }
-
-  /**
-   * Apply activeEffects to the actor with the phase 'applyAEs'.
-   * @override
-   */
+     * Apply activeEffects to the actor with the phase 'applyAEs'.
+     * @override
+     */
   applyActiveEffects() {
     this.overrides = {};
 
@@ -269,9 +232,9 @@ export default class ActorA5e extends Actor {
   }
 
   /**
-   * Prepares derived data for the actor.
-   * @override
-   */
+     * Prepares derived data for the actor.
+     * @override
+     */
   prepareDerivedData() {
     const actorData = this.system;
 
@@ -320,9 +283,6 @@ export default class ActorA5e extends Actor {
       });
     });
 
-    const { baseMax: baseHP, bonus: bonusHP } = actorData.attributes.hp;
-    actorData.attributes.hp.max = baseHP + bonusHP;
-
     try {
       actorData.attributes.maneuverDC = getDeterministicBonus([
         8,
@@ -349,13 +309,7 @@ export default class ActorA5e extends Actor {
       actorData.attributes.spellDC = null;
     }
 
-    if (this.type === 'character') {
-      actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
-        const { requiresAttunement, attuned } = curr.system;
-        return (requiresAttunement && attuned) ? acc + 1 : acc;
-      }, 0);
-    }
-
+    this.prepareHitPointBonuses();
     this.prepareSkills();
     this.prepareMovement();
     this.prepareSenses();
@@ -488,6 +442,27 @@ export default class ActorA5e extends Actor {
     return changes;
   }
 
+  /**
+  * Prepare hit point bonuses for the actor.
+  */
+  prepareHitPointBonuses() {
+    const { max } = this.system.attributes.hp;
+
+    const bonus = getDeterministicBonus(
+      this.BonusesManager.getHitPointsBonusFormula(),
+      this.getRollData()
+    );
+
+    foundry.utils.setProperty(
+      this,
+      'system.attributes.hp.max',
+      (max || 0) + bonus
+    );
+  }
+
+  /**
+  * Prepare skill data for the actor.
+  */
   prepareSkills() {
     const actorData = this.system;
     const proficiencyBonus = actorData.attributes.prof;
@@ -534,6 +509,11 @@ export default class ActorA5e extends Actor {
     });
   }
 
+  /**
+  * Calculate passive score for this actor.
+  * @param {String} skillKey - The key of the skill to calculate the passive score for.
+  * @param {Object} skill    - The skill object to calculate the passive score for.
+  */
   _calculatePassiveScore(skillKey, skill) {
     const rollData = this.getRollData();
 
@@ -545,6 +525,9 @@ export default class ActorA5e extends Actor {
     ].filter(Boolean).join(' + '), rollData);
   }
 
+  /**
+  * Prepare movement data taking into account any bonuses.
+  */
   prepareMovement() {
     const { movement } = this.system.attributes;
     for (const [type, { distance }] of Object.entries(movement)) {
@@ -557,6 +540,9 @@ export default class ActorA5e extends Actor {
     }
   }
 
+  /**
+  * Prepare senses data taking into account any bonuses.
+  */
   prepareSenses() {
     const { senses } = this.system.attributes;
     for (const [type, { distance }] of Object.entries(senses)) {
@@ -576,8 +562,8 @@ export default class ActorA5e extends Actor {
   }
 
   /**
-   * Prepare active effects for the actor with the phase 'afterDerived'.
-   */
+  * Prepare active effects for the actor with the phase 'afterDerived'.
+  */
   afterDerivedData() {
     ActiveEffectA5e.applyEffects(
       this,
@@ -589,143 +575,18 @@ export default class ActorA5e extends Actor {
     );
   }
 
-  /** @inheritdoc */
-  async _preCreate(data, options, user) {
-    await super._preCreate(data, options, user);
-
-    const items = [...this.items];
-    // Add schema version
-    if (!this.system.schemaVersion?.version && !this.system.schema?.version) {
-      let version = null;
-      if (['number', 'string'].includes(typeof this.system.ac)) version = 0.004;
-      else if (items.some((i) => typeof i.system?.equipped === 'boolean')) version = 0.003;
-      else if (items.some((i) => typeof i.system?.recharge === 'string')) version = 0.002;
-      else if (items.some((i) => typeof i.system?.uses?.max === 'number')) version = 0.001;
-      else if (typeof this.system.attributes.movement?.walk?.unit !== 'string') version = null;
-      else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
-
-      this.updateSource({
-        'system.schemaVersion.version': version
-      });
-    }
-
-    // Player character configuration
-    if (this.type === 'character') {
-      const prototypeToken = { vision: true, actorLink: true, disposition: 1 };
-      this.updateSource({ prototypeToken });
-    }
-  }
-
-  /** @inheritdoc */
-  async _preUpdate(changed, options, user) {
-    const hasRemoveFlag = Object.keys(this.flags?.a5e ?? {}).includes('-=autoApplyFSConditions');
-    const isRemoveFlag = Object.keys(changed?.flags?.a5e ?? {}).includes('-=-=autoApplyFSConditions');
-
-    if (hasRemoveFlag && !isRemoveFlag) {
-      await this.unsetFlag('a5e', '-=autoApplyFSConditions');
-    }
-
-    const autoApplyFSConditions = changed?.flags?.a5e?.autoApplyFSConditions ?? true;
-    if (autoApplyFSConditions) {
-      automateMultiLevelConditions(this, foundry.utils.deepClone(changed), user.id);
-    }
-
-    foundry.utils.setProperty(changed, 'flags.a5e.-=autoApplyFSConditions', null);
-
-    await super._preUpdate(changed, options, user);
-
-    // If hp drops below 0, set the value to 0.
-    if (foundry.utils.getProperty(changed, 'system.attributes.hp.value') < 0) {
-      foundry.utils.setProperty(changed, 'system.attributes.hp.value', 0);
-    }
-
-    // If temp hp drops to or below 0, set the value to 0.
-    if (foundry.utils.getProperty(changed, 'system.attributes.hp.temp') <= 0) {
-      foundry.utils.setProperty(changed, 'system.attributes.hp.temp', 0);
-    }
-
-    // Reset death save counters
-    const isUnconscious = this.system.attributes.hp.value === 0;
-    const willRegainConsciousness = foundry.utils.getProperty(changed, 'system.attributes.hp.value') > 0;
-
-    if (isUnconscious && willRegainConsciousness) {
-      foundry.utils.setProperty(changed, 'system.attributes.death.success', 0);
-      foundry.utils.setProperty(changed, 'system.attributes.death.failure', 0);
-    }
-
-    // Update prototype token sizes to reflect the actor's token size
-    const automateTokenSize = this.flags?.a5e?.automatePrototypeTokenSize
-      ?? game.settings.get('a5e', 'automatePrototypeTokenSize')
-      ?? true;
-
-    if (automateTokenSize) {
-      if (foundry.utils.getProperty(changed, 'system.traits.size')) {
-        const newSize = changed.system.traits.size;
-
-        // If titanic token is already larger than 5, don't change it
-        if (newSize !== 'titan' || this.prototypeToken.width < 5) {
-          foundry.utils.setProperty(changed, 'prototypeToken.height', CONFIG.A5E.tokenDimensions[newSize]);
-          foundry.utils.setProperty(changed, 'prototypeToken.width', CONFIG.A5E.tokenDimensions[newSize]);
-        }
-      }
-    }
-  }
-
-  _onUpdate(changed, options, userId) {
-    super._onUpdate(changed, options, userId);
-
-    const applyBloodied = game.settings.get('a5e', 'automateBloodiedApplication') ?? true;
-    const applyUnconscious = game.settings.get('a5e', 'automateUnconsciousApplication') ?? true;
-
-    if (applyBloodied) automateHpConditions(this, changed, userId, 'bloodied');
-    if (applyUnconscious) automateHpConditions(this, changed, userId, 'unconscious');
-  }
-
-  async applyBulkDamage(damageRolls) {
-    const updates = {};
-    const { value, temp } = this.system.attributes.hp;
-
-    const totalDamage = damageRolls.reduce(
-      (cumulativeDamage, [damage]) => cumulativeDamage + Math.floor(damage),
-      0
-    );
-
-    if (temp) {
-      updates['system.attributes.hp'] = {
-        temp: Math.clamped(temp - totalDamage, 0, temp),
-        value: Math.clamped(value + temp - totalDamage, 0, value)
-      };
-    } else {
-      updates['system.attributes.hp.value'] = Math.clamped(value - totalDamage, 0, value);
-    }
-
-    if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
-      const actor = this;
-      const delayDelta = game.settings.get('a5e', 'cascadingDamageAndHealingDelay');
-      let delay = 0;
-
-      damageRolls.forEach(([damage, damageType]) => {
-        setTimeout(async () => {
-          await displayCascadingNumbers(actor, 'damage', `-${damage}`, damageType);
-        }, delay);
-
-        delay += delayDelta;
-      });
-    }
-
-    Hooks.callAll('a5e.actorDamaged', this, { prevHp: { value, temp }, damageRolls });
-    return this.update(updates);
-  }
-
+  // -------------------------------------------------------------
+  // Data Update Helpers
+  // -------------------------------------------------------------
   /**
-   * Apply a certain amount of damage to the health pool for Actor, prioritizing temporary hp.
-   * Negative damage values will have no effect.
-   *
-   * @param {number} damage  An amount of damage to apply to the actor.
-   * @param {string} damageType A key indicating the type of damage the actor is taking.
-   *
-   * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
-   */
+    * Apply a certain amount of damage to the health pool for Actor, prioritizing temporary hp.
+    * Negative damage values will have no effect.
+    *
+    * @param {number} damage  An amount of damage to apply to the actor.
+    * @param {string} damageType A key indicating the type of damage the actor is taking.
+    *
+    * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
+  */
   async applyDamage(damage, damageType = null) {
     const updates = {};
     const { value, temp } = this.system.attributes.hp;
@@ -807,7 +668,7 @@ export default class ActorA5e extends Actor {
    *                                temporary.
    *
    * @returns {Promise<Actor5e>}  A Promise which resolves once the damage has been applied
-   */
+  */
   async applyHealing(healing, healingType) {
     const updates = {};
     const { value, max, temp } = this.system.attributes.hp;
@@ -895,6 +756,499 @@ export default class ActorA5e extends Actor {
     return abilities[spellcastingAbility].check.mod;
   }
 
+  async modifyTokenAttribute(attribute, value, isDelta, isBar) {
+    if (attribute === 'attributes.hp') {
+      const hp = getProperty(this.system, attribute);
+      const hpPool = hp.value + hp.temp;
+      const delta = hpPool - value;
+
+      if (isDelta) {
+        return value <= 0 ? this.applyDamage(-1 * value) : this.applyHealing(value);
+      }
+
+      return delta <= 0 ? this.applyHealing(-1 * delta) : this.applyDamage(delta);
+    }
+
+    return super.modifyTokenAttribute(attribute, value, isDelta, isBar);
+  }
+
+  // -------------------------------------------------------------
+  // Resources Reset Handlers
+  // -------------------------------------------------------------
+  /**
+   *
+   * @param {Object} restOptions
+   * @param {Boolean} restOptions.consumeSupply
+   * @param {Boolean} restOptions.haven
+   * @param {Boolean} restOptions.recoverStrifeAndFatigue
+   * @param {'long' | 'short'} restOptions.restType
+   * @returns
+   */
+  async triggerRest(restOptions = {}) {
+    let restData;
+
+    if (foundry.utils.isEmpty(restOptions)) {
+      const title = localize('A5E.RestConfigurationPrompt', { name: this.name });
+      const dialog = new GenericConfigDialog(this, title, RestDialog);
+      await dialog.render(true);
+      restData = await dialog?.promise;
+    } else {
+      restData = foundry.utils.mergeObject({
+        consumeSupply: false,
+        haven: true,
+        recoverStrifeAndFatigue: true,
+        restType: 'short'
+      }, restOptions);
+    }
+
+    if (!restData) return;
+    const restManger = new RestManager(this, restData);
+
+    await restManger.restoreResources();
+  }
+
+  async updateDeathSavingThrowFigures(roll) {
+    const { death, fatigue, strife } = this.system.attributes;
+    const { success, failure } = death;
+    const d20Result = roll.dice[0].total;
+
+    const updates = {
+      'system.attributes.death': { success, failure }
+    };
+
+    if (d20Result === 1) {
+      if (game.settings.get('a5e', '5eStyleDeathSaves')) {
+        updates['system.attributes.death'].failure += 2;
+      } else {
+        updates['system.attributes.death'].failure += 1;
+        updates['system.attributes.fatigue'] = fatigue + 1;
+        updates['system.attributes.strife'] = strife + 1;
+      }
+    } else if (d20Result === 20) updates['system.attributes.hp.value'] = 1;
+    else if (d20Result < (this.getFlag('a5e', 'deathSaveThreshold') || 10)) updates['system.attributes.death'].failure += 1;
+    else updates['system.attributes.death'].success += 1;
+
+    await this.update(updates);
+  }
+
+  async rechargeGenericResource(resource) {
+    if (!this.system.resources[resource]) return;
+
+    // eslint-disable-next-line max-len
+    const max = getDeterministicBonus(this.system.resources[resource].max, this.getRollData());
+    const current = this.system.resources[resource].value;
+    const formula = this.system.resources[resource]?.recharge?.formula || '1d6';
+    const threshold = this.system.resources[resource]?.recharge?.threshold || 6;
+    const rechargeType = this.system.resources[resource]?.recharge?.rechargeType || 'custom';
+    const rechargeAmount = this.system.resources[resource]?.recharge?.rechargeAmount || '1';
+    const updatePath = `system.resources.${resource}.value`;
+
+    // Recharge Roll
+    const rechargeRoll = await new Roll(formula, this.getRollData()).evaluate({ async: true });
+
+    // TODO: Chat cards - Make the message prettier
+    rechargeRoll.toMessage();
+
+    if (rechargeRoll.total < threshold) return;
+
+    if (rechargeType === 'min') await this.update({ [updatePath]: 0 });
+    else if (rechargeType === 'max') await this.update({ [updatePath]: max });
+    else {
+      const rechargeAmountRoll = await new Roll(
+        rechargeAmount,
+        this.getRollData()
+      ).evaluate({ async: true });
+
+      // TODO: Add the roll back in when the custom recharge amount config is added.
+      // rechargeAmountRoll.toMessage();
+
+      await this.update({ [updatePath]: Math.min(max, current + rechargeAmountRoll.total) });
+    }
+  }
+
+  // -------------------------------------------------------------
+  // Sheet Toggles
+  // -------------------------------------------------------------
+
+  // -------------------------------------------------------------
+  // Roll Handlers
+  // -------------------------------------------------------------
+  /**
+   * Rolls an ability check for a given skill. A dialog is presented to the user so that they can
+   * perform choose the size of the expertise die to use for the check.
+   *
+   * @async
+   * @method
+   * @param {string} abilityKey A key that can be used to reference a given ability score.
+   * @returns {Object}
+   */
+  async rollAbilityCheck(abilityKey, options = {}) {
+    let dialogData;
+
+    if (options.skipRollDialog) dialogData = this.getDefaultAbilityCheckData(abilityKey, options);
+    else dialogData = await this.#showAbilityCheckPrompt(abilityKey, options);
+
+    if (!dialogData) return null;
+
+    const {
+      expertiseDie, rollFormula, rollMode, visibilityMode
+    } = dialogData;
+
+    const rollPreparationManager = new RollPreparationManager({
+      actor: this,
+      rolls: [
+        {
+          ability: abilityKey,
+          expertiseDie,
+          rollFormula,
+          rollMode,
+          type: 'abilityCheck'
+        }
+      ]
+    });
+
+    const rolls = await rollPreparationManager.prepareRolls();
+
+    const chatData = {
+      user: game.user?.id,
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      sound: CONFIG.sounds.dice,
+      rolls: rolls.map(({ roll }) => roll),
+      rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
+      flags: {
+        a5e: {
+          actorId: this.uuid,
+          cardType: 'abilityCheck',
+          img: this.token?.img ?? this.img,
+          name: this.name,
+          rollData: rolls.map(({ roll, ...rollData }) => rollData)
+        }
+      },
+      content: '<article></article>'
+    };
+
+    const hookData = {
+      abilityKey, expertiseDie, rollFormula, rollMode
+    };
+
+    Hooks.callAll('a5e.rollAbilityCheck', this, hookData, rolls);
+
+    const chatCard = await ChatMessage.create(chatData);
+    return chatCard;
+  }
+
+  getDefaultAbilityCheckData(abilityKey, options = {}) {
+    const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    const defaultExpertiseDie = options.expertiseDice ?? 0;
+
+    const expertiseDie = this.RollOverrideManager.getExpertiseDice(
+      `system.abilities.${abilityKey}.check`,
+      defaultExpertiseDie
+    );
+
+    const rollMode = this.RollOverrideManager.getRollOverride(
+      `system.abilities.${abilityKey}.check`,
+      defaultRollMode
+    );
+
+    const rollFormula = getRollFormula(this, {
+      ability: abilityKey,
+      expertiseDie,
+      rollMode,
+      situationalMods: options.situationalMods,
+      selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
+        'abilities',
+        { abilityKey, abilityType: 'check' }
+      ),
+      type: 'abilityCheck'
+    });
+
+    return { expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null };
+  }
+
+  async #showAbilityCheckPrompt(abilityKey, rollOptions = {}, dialogOptions = {}) {
+    const title = localize(
+      'A5E.AbilityCheckPromptTitle',
+      { name: this.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) }
+    );
+
+    const dialog = new GenericRollDialog(
+      this,
+      title,
+      AbilityCheckRollDialog,
+      { abilityKey },
+      rollOptions,
+      dialogOptions
+    );
+
+    await dialog.render(true);
+    const dialogData = await dialog.promise;
+
+    return dialogData;
+  }
+
+  async rollDeathSavingThrow(options = {}) {
+    options.saveType = 'death';
+    options.expertiseDice ??= 0;
+    options.visibilityMode ??= 'gmroll';
+
+    if (game.settings.get('a5e', 'blindDeathSaves')) {
+      options.visibilityMode = 'blindroll';
+    }
+
+    this.rollSavingThrow(null, options);
+  }
+
+  async rollHitDice(dieSize, quantity = 1) {
+    const chatCard = await this.HitDiceManager.rollHitDice(dieSize, quantity);
+    return chatCard;
+  }
+
+  async rollSavingThrow(abilityKey, options = {}) {
+    let dialogData;
+
+    if (options.skipRollDialog) dialogData = this.getDefaultSavingThrowData(abilityKey, options);
+    else dialogData = await this.#showSavingThrowPrompt(abilityKey, options);
+
+    if (dialogData === null) return null;
+
+    const {
+      expertiseDie, rollFormula, rollMode, saveType, visibilityMode
+    } = dialogData;
+
+    const rollPreparationManager = new RollPreparationManager({
+      actor: this,
+      rolls: [
+        {
+          ability: abilityKey,
+          expertiseDie,
+          rollFormula,
+          rollMode,
+          saveType,
+          type: 'savingThrow'
+        }
+      ]
+    });
+
+    const rolls = await rollPreparationManager.prepareRolls();
+
+    const chatData = {
+      user: game.user?.id,
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      sound: CONFIG.sounds.dice,
+      rolls: rolls.map(({ roll }) => roll),
+      rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
+      flags: {
+        a5e: {
+          actorId: this.uuid,
+          cardType: 'savingThrow',
+          img: this.token?.img ?? this.img,
+          name: this.name,
+          rollData: rolls.map(({ roll, ...rollData }) => rollData)
+        }
+      },
+      content: '<article></article>'
+    };
+
+    const hookData = {
+      abilityKey, expertiseDie, rollFormula, rollMode
+    };
+
+    if (options?.saveType === 'death') {
+      Hooks.callAll('a5e.rollDeathSavingThrow', this, hookData, rolls);
+      this.updateDeathSavingThrowFigures(rolls.map(({ roll }) => roll)[0]);
+    } else {
+      Hooks.callAll('a5e.rollSavingThrow', this, hookData, rolls);
+    }
+
+    const chatCard = await ChatMessage.create(chatData);
+    return chatCard;
+  }
+
+  getDefaultSavingThrowData(abilityKey, options = {}) {
+    const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    const defaultExpertiseDice = options.expertiseDice ?? 0;
+
+    const rollOverrideKey = abilityKey ? `system.abilities.${abilityKey}.save` : 'deathSave';
+    const rollMode = this.RollOverrideManager.getRollOverride(rollOverrideKey, defaultRollMode);
+    const expertiseDie = this.RollOverrideManager
+      .getExpertiseDice(rollOverrideKey, defaultExpertiseDice);
+
+    const rollFormula = getRollFormula(this, {
+      ability: abilityKey,
+      expertiseDie,
+      rollMode,
+      saveType: options.saveType,
+      situationalMods: options.situationalMods,
+      selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
+        'abilities',
+        { abilityKey, abilityType: 'save' }
+      ),
+      type: 'savingThrow'
+    });
+
+    return { expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null };
+  }
+
+  async #showSavingThrowPrompt(abilityKey, rollOptions = {}, dialogOptions = {}) {
+    let title;
+
+    if (rollOptions.saveType === 'death') {
+      title = localize(
+        'A5E.DeathSavingThrowPromptTitle',
+        { name: this.name }
+      );
+    } else {
+      title = localize(
+        'A5E.SavingThrowPromptTitle',
+        { name: this.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) }
+      );
+    }
+
+    const dialog = new GenericRollDialog(
+      this,
+      title,
+      SavingThrowRollDialog,
+      { abilityKey },
+      rollOptions,
+      dialogOptions
+    );
+
+    await dialog.render(true);
+    const dialogData = await dialog.promise;
+
+    return dialogData;
+  }
+
+  /**
+   * Rolls a skill check for a given skill. A dialog is presented to the user so that they can
+   * perform additional configuration, such as choosing an ability score for the check.
+   *
+   * @async
+   * @method
+   * @param {string} skillKey A key that can be used to reference a given skill.
+   * @param {object}
+   *
+   * @returns {Promise<undefined>}
+   */
+  async rollSkillCheck(skillKey, options = {}) {
+    let dialogData;
+
+    if (options.skipRollDialog) dialogData = this.getDefaultSkillCheckData(skillKey, options);
+    else dialogData = await this.#showSkillCheckPrompt(skillKey, options);
+
+    if (!dialogData) return null;
+
+    const {
+      abilityKey, expertiseDie, rollFormula, rollMode, visibilityMode
+    } = dialogData;
+
+    const rollPreparationManager = new RollPreparationManager({
+      actor: this,
+      rolls: [
+        {
+          ability: abilityKey,
+          expertiseDie,
+          rollFormula,
+          rollMode,
+          skill: skillKey,
+          type: 'skillCheck'
+        }
+      ]
+    });
+
+    const rolls = await rollPreparationManager.prepareRolls();
+
+    const chatData = {
+      user: game.user?.id,
+      speaker: ChatMessage.getSpeaker({ actor: this }),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      sound: CONFIG.sounds.dice,
+      rolls: rolls.map(({ roll }) => roll),
+      rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
+      flags: {
+        a5e: {
+          actorId: this.uuid,
+          cardType: 'skillCheck',
+          img: this.token?.img ?? this.img,
+          name: this.name,
+          rollData: rolls.map(({ roll, ...rollData }) => rollData)
+        }
+      },
+      content: '<article></article>'
+    };
+
+    const hookData = {
+      abilityKey, expertiseDie, rollFormula, rollMode, skillKey
+    };
+
+    Hooks.callAll('a5e.rollSkillCheck', this, hookData, rolls);
+
+    const chatCard = await ChatMessage.create(chatData);
+    return chatCard;
+  }
+
+  getDefaultSkillCheckData(skillKey, options = {}) {
+    const skill = this.system.skills[skillKey];
+    const abilityKey = options?.abilityKey ?? skill.ability;
+    const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    const defaultExpertiseDie = options.expertiseDice ?? 0;
+
+    const expertiseDie = this.RollOverrideManager
+      .getExpertiseDice(`system.skills.${skillKey}`, defaultExpertiseDie, { ability: abilityKey });
+    const rollMode = this.RollOverrideManager
+      .getRollOverride(`system.skills.${skillKey}`, defaultRollMode, { ability: abilityKey });
+
+    const rollFormula = getRollFormula(this, {
+      ability: abilityKey,
+      expertiseDie,
+      minRoll: options.minRoll ?? skill.minRoll,
+      proficient: skill.proficient,
+      type: 'skillCheck',
+      rollMode,
+      skill: skillKey,
+      selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
+        'abilities',
+        { abilityKey, abilityType: 'check' }
+      ),
+      selectedSkillBonuses: this.BonusesManager.getDefaultSelections(
+        'skills',
+        { skillKey, abilityKey }
+      ),
+      situationalMods: options.situationalMods
+    });
+
+    return {
+      abilityKey, expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null
+    };
+  }
+
+  async #showSkillCheckPrompt(skillKey, rollOptions = {}, dialogOptions = {}) {
+    const title = localize(
+      'A5E.SkillPromptTitle',
+      { name: this.name, skill: localize(CONFIG.A5E.skills[skillKey]) }
+    );
+
+    const dialog = new GenericRollDialog(
+      this,
+      title,
+      SkillCheckRollDialog,
+      { skillKey },
+      rollOptions,
+      dialogOptions
+    );
+
+    await dialog.render(true);
+    const dialogData = await dialog.promise;
+
+    return dialogData;
+  }
+
+  // -------------------------------------------------------------
+  // Config Handlers
+  // -------------------------------------------------------------
   addBonus(type = 'damage') {
     const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
 
@@ -1165,575 +1519,99 @@ export default class ActorA5e extends Actor {
     });
   }
 
-  get isBloodied() {
-    const { max, value } = this.system.attributes.hp;
-    return (value / max) * 100 <= 50;
-  }
+  // -------------------------------------------------------------
+  // Document Update Hooks
+  // -------------------------------------------------------------
+  /** @inheritdoc */
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user);
 
-  async modifyTokenAttribute(attribute, value, isDelta, isBar) {
-    if (attribute === 'attributes.hp') {
-      const hp = getProperty(this.system, attribute);
-      const hpPool = hp.value + hp.temp;
-      const delta = hpPool - value;
+    const items = [...this.items];
+    // Add schema version
+    if (!this.system.schemaVersion?.version && !this.system.schema?.version) {
+      let version = null;
+      if (['number', 'string'].includes(typeof this.system.ac)) version = 0.004;
+      else if (items.some((i) => typeof i.system?.equipped === 'boolean')) version = 0.003;
+      else if (items.some((i) => typeof i.system?.recharge === 'string')) version = 0.002;
+      else if (items.some((i) => typeof i.system?.uses?.max === 'number')) version = 0.001;
+      else if (typeof this.system.attributes.movement?.walk?.unit !== 'string') version = null;
+      else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
 
-      if (isDelta) {
-        return value <= 0 ? this.applyDamage(-1 * value) : this.applyHealing(value);
-      }
-
-      return delta <= 0 ? this.applyHealing(-1 * delta) : this.applyDamage(delta);
+      this.updateSource({
+        'system.schemaVersion.version': version
+      });
     }
 
-    return super.modifyTokenAttribute(attribute, value, isDelta, isBar);
+    // Player character configuration
+    if (this.type === 'character') {
+      const prototypeToken = { vision: true, actorLink: true, disposition: 1 };
+      this.updateSource({ prototypeToken });
+    }
   }
 
-  async recoverExertionUsingHitDice() {
-    const { current, max } = this.system.attributes.exertion;
+  /** @inheritdoc */
+  async _preUpdate(changed, options, user) {
+    const hasRemoveFlag = Object.keys(this.flags?.a5e ?? {}).includes('-=autoApplyFSConditions');
+    const isRemoveFlag = Object.keys(changed?.flags?.a5e ?? {}).includes('-=-=autoApplyFSConditions');
 
-    const [lowestAvailableHitDie] = Object.entries(this.system.attributes.hitDice).find(
-      // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
-      ([_, { current: c, total: t }]) => c > 0 && t > 0
-    );
-
-    if (!lowestAvailableHitDie) {
-      ui.notifications.warn(`${this.name} has no hit dice remaining.`);
-      return;
+    if (hasRemoveFlag && !isRemoveFlag) {
+      await this.unsetFlag('a5e', '-=autoApplyFSConditions');
     }
 
-    const roll = await new Roll('1d4');
-
-    // TODO: Make the message prettier
-    await roll.toMessage();
-    const newExertion = Math.min((current ?? 0) + roll.total, max);
-    const newHitDieCount = this.system.attributes.hitDice[lowestAvailableHitDie].current - 1;
-
-    await this.update({
-      'system.attributes': {
-        'exertion.current': newExertion,
-        [`hitDice.${lowestAvailableHitDie}.current`]: newHitDieCount
-      }
-    });
-  }
-
-  /**
-   * Rolls an ability check for a given skill. A dialog is presented to the user so that they can
-   * perform choose the size of the expertise die to use for the check.
-   *
-   * @async
-   * @method
-   * @param {string} abilityKey A key that can be used to reference a given ability score.
-   * @returns {Object}
-   */
-  async rollAbilityCheck(abilityKey, options = {}) {
-    let dialogData;
-
-    if (options.skipRollDialog) dialogData = this.getDefaultAbilityCheckData(abilityKey, options);
-    else dialogData = await this.#showAbilityCheckPrompt(abilityKey, options);
-
-    if (!dialogData) return null;
-
-    const {
-      expertiseDie, rollFormula, rollMode, visibilityMode
-    } = dialogData;
-
-    const rollPreparationManager = new RollPreparationManager({
-      actor: this,
-      rolls: [
-        {
-          ability: abilityKey,
-          expertiseDie,
-          rollFormula,
-          rollMode,
-          type: 'abilityCheck'
-        }
-      ]
-    });
-
-    const rolls = await rollPreparationManager.prepareRolls();
-
-    const chatData = {
-      user: game.user?.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      sound: CONFIG.sounds.dice,
-      rolls: rolls.map(({ roll }) => roll),
-      rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
-      flags: {
-        a5e: {
-          actorId: this.uuid,
-          cardType: 'abilityCheck',
-          img: this.token?.img ?? this.img,
-          name: this.name,
-          rollData: rolls.map(({ roll, ...rollData }) => rollData)
-        }
-      },
-      content: '<article></article>'
-    };
-
-    const hookData = {
-      abilityKey, expertiseDie, rollFormula, rollMode
-    };
-
-    Hooks.callAll('a5e.rollAbilityCheck', this, hookData, rolls);
-
-    const chatCard = await ChatMessage.create(chatData);
-    return chatCard;
-  }
-
-  getDefaultAbilityCheckData(abilityKey, options = {}) {
-    const ability = this.system.abilities[abilityKey];
-    const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const expertiseDie = options.expertiseDice ?? ability.check.expertiseDice;
-
-    const rollMode = this.RollOverrideManager.getRollOverride(
-      `system.abilities.${abilityKey}.check`,
-      defaultRollMode
-    );
-
-    const rollFormula = getRollFormula(this, {
-      ability: abilityKey,
-      expertiseDie,
-      rollMode,
-      situationalMods: options.situationalMods,
-      selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
-        'abilities',
-        { abilityKey, abilityType: 'check' }
-      ),
-      type: 'abilityCheck'
-    });
-
-    return { expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null };
-  }
-
-  async #showAbilityCheckPrompt(abilityKey, rollOptions = {}, dialogOptions = {}) {
-    const title = localize(
-      'A5E.AbilityCheckPromptTitle',
-      { name: this.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) }
-    );
-
-    const dialog = new GenericRollDialog(
-      this,
-      title,
-      AbilityCheckRollDialog,
-      { abilityKey },
-      rollOptions,
-      dialogOptions
-    );
-
-    await dialog.render(true);
-    const dialogData = await dialog.promise;
-
-    return dialogData;
-  }
-
-  async rollDeathSavingThrow(options = {}) {
-    options.saveType = 'death';
-    options.expertiseDice ??= 0;
-    options.visibilityMode ??= 'gmroll';
-
-    if (game.settings.get('a5e', 'blindDeathSaves')) {
-      options.visibilityMode = 'blindroll';
+    const autoApplyFSConditions = changed?.flags?.a5e?.autoApplyFSConditions ?? true;
+    if (autoApplyFSConditions) {
+      automateMultiLevelConditions(this, foundry.utils.deepClone(changed), user.id);
     }
 
-    this.rollSavingThrow(null, options);
-  }
+    foundry.utils.setProperty(changed, 'flags.a5e.-=autoApplyFSConditions', null);
 
-  async rollHitDice(dieSize, quantity = 1) {
-    const actorData = this.system;
-    const { attributes } = actorData;
+    await super._preUpdate(changed, options, user);
 
-    if (attributes.hitDice[dieSize].current - quantity < 0) return null;
+    // If hp drops below 0, set the value to 0.
+    if (foundry.utils.getProperty(changed, 'system.attributes.hp.value') < 0) {
+      foundry.utils.setProperty(changed, 'system.attributes.hp.value', 0);
+    }
 
-    const title = localize('A5E.HitDiceChatHeader', { dieSize: dieSize.toUpperCase() });
+    // If temp hp drops to or below 0, set the value to 0.
+    if (foundry.utils.getProperty(changed, 'system.attributes.hp.temp') <= 0) {
+      foundry.utils.setProperty(changed, 'system.attributes.hp.temp', 0);
+    }
 
-    const conMod = parseInt(actorData.abilities.con.check.mod, 10);
-    const formula = `${quantity}${dieSize} + ${quantity * conMod}`;
+    // Reset death save counters
+    const isUnconscious = this.system.attributes.hp.value === 0;
+    const willRegainConsciousness = foundry.utils.getProperty(changed, 'system.attributes.hp.value') > 0;
 
-    const roll = await new Roll(formula).roll({ async: true });
+    if (isUnconscious && willRegainConsciousness) {
+      foundry.utils.setProperty(changed, 'system.attributes.death.success', 0);
+      foundry.utils.setProperty(changed, 'system.attributes.death.failure', 0);
+    }
 
-    const chatData = {
-      user: game.user?.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      sound: CONFIG.sounds.dice,
-      rolls: [roll],
-      flags: {
-        a5e: {
-          actorId: this.uuid,
-          // cardType: 'hitDice',
-          img: this.token?.img ?? this.img,
-          name: this.name,
-          title
+    // Update prototype token sizes to reflect the actor's token size
+    const automateTokenSize = this.flags?.a5e?.automatePrototypeTokenSize
+      ?? game.settings.get('a5e', 'automatePrototypeTokenSize')
+      ?? true;
+
+    if (automateTokenSize) {
+      if (foundry.utils.getProperty(changed, 'system.traits.size')) {
+        const newSize = changed.system.traits.size;
+
+        // If titanic token is already larger than 5, don't change it
+        if (newSize !== 'titan' || this.prototypeToken.width < 5) {
+          foundry.utils.setProperty(changed, 'prototypeToken.height', CONFIG.A5E.tokenDimensions[newSize]);
+          foundry.utils.setProperty(changed, 'prototypeToken.width', CONFIG.A5E.tokenDimensions[newSize]);
         }
       }
-      // content: '<article></article>'
-    };
-
-    const hpDelta = Math.max(roll.total, 0);
-    const maxHp = attributes.hp.baseMax + attributes.hp.bonus;
-
-    this.update({
-      'data.attributes': {
-        [`hitDice.${dieSize}.current`]: attributes.hitDice[dieSize].current - quantity
-      }
-    });
-
-    // Apply healing
-    this.applyHealing(hpDelta);
-    const chatCard = await ChatMessage.create(chatData);
-
-    Hooks.callAll('a5e.rollHitDice', this, {
-      dieSize,
-      dieCount: (attributes.hitDice[dieSize].current - quantity),
-      formula,
-      newHp: Math.min(attributes.hp.value + hpDelta, maxHp),
-      roll,
-      quantity
-    });
-
-    return chatCard;
-  }
-
-  async rollSavingThrow(abilityKey, options = {}) {
-    let dialogData;
-
-    if (options.skipRollDialog) dialogData = this.getDefaultSavingThrowData(abilityKey, options);
-    else dialogData = await this.#showSavingThrowPrompt(abilityKey, options);
-
-    if (dialogData === null) return null;
-
-    const {
-      expertiseDie, rollFormula, rollMode, saveType, visibilityMode
-    } = dialogData;
-
-    const rollPreparationManager = new RollPreparationManager({
-      actor: this,
-      rolls: [
-        {
-          ability: abilityKey,
-          expertiseDie,
-          rollFormula,
-          rollMode,
-          saveType,
-          type: 'savingThrow'
-        }
-      ]
-    });
-
-    const rolls = await rollPreparationManager.prepareRolls();
-
-    const chatData = {
-      user: game.user?.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      sound: CONFIG.sounds.dice,
-      rolls: rolls.map(({ roll }) => roll),
-      rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
-      flags: {
-        a5e: {
-          actorId: this.uuid,
-          cardType: 'savingThrow',
-          img: this.token?.img ?? this.img,
-          name: this.name,
-          rollData: rolls.map(({ roll, ...rollData }) => rollData)
-        }
-      },
-      content: '<article></article>'
-    };
-
-    const hookData = {
-      abilityKey, expertiseDie, rollFormula, rollMode
-    };
-
-    if (options?.saveType === 'death') {
-      Hooks.callAll('a5e.rollDeathSavingThrow', this, hookData, rolls);
-      this.updateDeathSavingThrowFigures(rolls.map(({ roll }) => roll)[0]);
-    } else {
-      Hooks.callAll('a5e.rollSavingThrow', this, hookData, rolls);
-    }
-
-    const chatCard = await ChatMessage.create(chatData);
-    return chatCard;
-  }
-
-  getDefaultSavingThrowData(abilityKey, options = {}) {
-    const ability = this.system.abilities[abilityKey];
-    const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const expertiseDie = options.expertiseDice ?? ability?.save.expertiseDice ?? 0;
-
-    const rollOverrideKey = abilityKey ? `system.abilities.${abilityKey}.save` : 'deathSave';
-    const rollMode = this.RollOverrideManager.getRollOverride(rollOverrideKey, defaultRollMode);
-
-    const rollFormula = getRollFormula(this, {
-      ability: abilityKey,
-      expertiseDie,
-      rollMode,
-      saveType: options.saveType,
-      situationalMods: options.situationalMods,
-      selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
-        'abilities',
-        { abilityKey, abilityType: 'save' }
-      ),
-      type: 'savingThrow'
-    });
-
-    return { expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null };
-  }
-
-  async #showSavingThrowPrompt(abilityKey, rollOptions = {}, dialogOptions = {}) {
-    let title;
-
-    if (rollOptions.saveType === 'death') {
-      title = localize(
-        'A5E.DeathSavingThrowPromptTitle',
-        { name: this.name }
-      );
-    } else {
-      title = localize(
-        'A5E.SavingThrowPromptTitle',
-        { name: this.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) }
-      );
-    }
-
-    const dialog = new GenericRollDialog(
-      this,
-      title,
-      SavingThrowRollDialog,
-      { abilityKey },
-      rollOptions,
-      dialogOptions
-    );
-
-    await dialog.render(true);
-    const dialogData = await dialog.promise;
-
-    return dialogData;
-  }
-
-  /**
-   * Rolls a skill check for a given skill. A dialog is presented to the user so that they can
-   * perform additional configuration, such as choosing an ability score for the check.
-   *
-   * @async
-   * @method
-   * @param {string} skillKey A key that can be used to reference a given skill.
-   * @param {object}
-   *
-   * @returns {Promise<undefined>}
-   */
-  async rollSkillCheck(skillKey, options = {}) {
-    let dialogData;
-
-    if (options.skipRollDialog) dialogData = this.getDefaultSkillCheckData(skillKey, options);
-    else dialogData = await this.#showSkillCheckPrompt(skillKey, options);
-
-    if (!dialogData) return null;
-
-    const {
-      abilityKey, expertiseDie, rollFormula, rollMode, visibilityMode
-    } = dialogData;
-
-    const rollPreparationManager = new RollPreparationManager({
-      actor: this,
-      rolls: [
-        {
-          ability: abilityKey,
-          expertiseDie,
-          rollFormula,
-          rollMode,
-          skill: skillKey,
-          type: 'skillCheck'
-        }
-      ]
-    });
-
-    const rolls = await rollPreparationManager.prepareRolls();
-
-    const chatData = {
-      user: game.user?.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
-      sound: CONFIG.sounds.dice,
-      rolls: rolls.map(({ roll }) => roll),
-      rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
-      flags: {
-        a5e: {
-          actorId: this.uuid,
-          cardType: 'skillCheck',
-          img: this.token?.img ?? this.img,
-          name: this.name,
-          rollData: rolls.map(({ roll, ...rollData }) => rollData)
-        }
-      },
-      content: '<article></article>'
-    };
-
-    const hookData = {
-      abilityKey, expertiseDie, rollFormula, rollMode, skillKey
-    };
-
-    Hooks.callAll('a5e.rollSkillCheck', this, hookData, rolls);
-
-    const chatCard = await ChatMessage.create(chatData);
-    return chatCard;
-  }
-
-  getDefaultSkillCheckData(skillKey, options = {}) {
-    const skill = this.system.skills[skillKey];
-    const abilityKey = options?.abilityKey ?? skill.ability;
-    const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const expertiseDie = options.expertiseDice ?? skill.expertiseDice;
-
-    const rollMode = this.RollOverrideManager
-      .getRollOverride(`system.skills.${skillKey}`, defaultRollMode, { ability: abilityKey });
-
-    const rollFormula = getRollFormula(this, {
-      ability: abilityKey,
-      expertiseDie,
-      minRoll: options.minRoll ?? skill.minRoll,
-      proficient: skill.proficient,
-      type: 'skillCheck',
-      rollMode,
-      skill: skillKey,
-      selectedAbilityBonuses: this.BonusesManager.getDefaultSelections(
-        'abilities',
-        { abilityKey, abilityType: 'check' }
-      ),
-      selectedSkillBonuses: this.BonusesManager.getDefaultSelections(
-        'skills',
-        { skillKey, abilityKey }
-      ),
-      situationalMods: options.situationalMods
-    });
-
-    return {
-      abilityKey, expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null
-    };
-  }
-
-  async #showSkillCheckPrompt(skillKey, rollOptions = {}, dialogOptions = {}) {
-    const title = localize(
-      'A5E.SkillPromptTitle',
-      { name: this.name, skill: localize(CONFIG.A5E.skills[skillKey]) }
-    );
-
-    const dialog = new GenericRollDialog(
-      this,
-      title,
-      SkillCheckRollDialog,
-      { skillKey },
-      rollOptions,
-      dialogOptions
-    );
-
-    await dialog.render(true);
-    const dialogData = await dialog.promise;
-
-    return dialogData;
-  }
-
-  toggleElite() {
-    this.update({ 'system.details.elite': !this.system.details.elite });
-  }
-
-  toggleInspiration() {
-    const currentState = this.system.attributes.inspiration;
-    this.update({ 'system.attributes.inspiration': !currentState });
-
-    if (currentState) {
-      Hooks.callAll('a5e.inspirationUsed', this);
-    } else {
-      Hooks.callAll('a5e.inspirationGained', this);
     }
   }
 
-  /**
-   *
-   * @param {Object} restOptions
-   * @param {Boolean} restOptions.consumeSupply
-   * @param {Boolean} restOptions.haven
-   * @param {Boolean} restOptions.recoverStrifeAndFatigue
-   * @param {'long' | 'short'} restOptions.restType
-   * @returns
-   */
-  async triggerRest(restOptions = {}) {
-    let restData;
+  /** @inheritdoc */
+  _onUpdate(changed, options, userId) {
+    super._onUpdate(changed, options, userId);
 
-    if (foundry.utils.isEmpty(restOptions)) {
-      const title = localize('A5E.RestConfigurationPrompt', { name: this.name });
-      const dialog = new GenericConfigDialog(this, title, RestDialog);
-      await dialog.render(true);
-      restData = await dialog?.promise;
-    } else {
-      restData = foundry.utils.mergeObject({
-        consumeSupply: false,
-        haven: true,
-        recoverStrifeAndFatigue: true,
-        restType: 'short'
-      }, restOptions);
-    }
+    const applyBloodied = game.settings.get('a5e', 'automateBloodiedApplication') ?? true;
+    const applyUnconscious = game.settings.get('a5e', 'automateUnconsciousApplication') ?? true;
 
-    if (!restData) return;
-    const restManger = new RestManager(this, restData);
-
-    await restManger.restoreResources();
-  }
-
-  async updateDeathSavingThrowFigures(roll) {
-    const { death, fatigue, strife } = this.system.attributes;
-    const { success, failure } = death;
-    const d20Result = roll.dice[0].total;
-
-    const updates = {
-      'system.attributes.death': { success, failure }
-    };
-
-    if (d20Result === 1) {
-      if (game.settings.get('a5e', '5eStyleDeathSaves')) {
-        updates['system.attributes.death'].failure += 2;
-      } else {
-        updates['system.attributes.death'].failure += 1;
-        updates['system.attributes.fatigue'] = fatigue + 1;
-        updates['system.attributes.strife'] = strife + 1;
-      }
-    } else if (d20Result === 20) updates['system.attributes.hp.value'] = 1;
-    else if (d20Result < (this.getFlag('a5e', 'deathSaveThreshold') || 10)) updates['system.attributes.death'].failure += 1;
-    else updates['system.attributes.death'].success += 1;
-
-    await this.update(updates);
-  }
-
-  async rechargeGenericResource(resource) {
-    if (!this.system.resources[resource]) return;
-
-    // eslint-disable-next-line max-len
-    const max = getDeterministicBonus(this.system.resources[resource].max, this.getRollData());
-    const current = this.system.resources[resource].value;
-    const formula = this.system.resources[resource]?.recharge?.formula || '1d6';
-    const threshold = this.system.resources[resource]?.recharge?.threshold || 6;
-    const rechargeType = this.system.resources[resource]?.recharge?.rechargeType || 'custom';
-    const rechargeAmount = this.system.resources[resource]?.recharge?.rechargeAmount || '1';
-    const updatePath = `system.resources.${resource}.value`;
-
-    // Recharge Roll
-    const rechargeRoll = await new Roll(formula, this.getRollData()).evaluate({ async: true });
-
-    // TODO: Make the message prettier
-    rechargeRoll.toMessage();
-
-    if (rechargeRoll.total < threshold) return;
-
-    if (rechargeType === 'min') await this.update({ [updatePath]: 0 });
-    else if (rechargeType === 'max') await this.update({ [updatePath]: max });
-    else {
-      const rechargeAmountRoll = await new Roll(
-        rechargeAmount,
-        this.getRollData()
-      ).evaluate({ async: true });
-
-      // TODO: Add the roll back in when the custom recharge amount config is added.
-      // rechargeAmountRoll.toMessage();
-
-      await this.update({ [updatePath]: Math.min(max, current + rechargeAmountRoll.total) });
-    }
+    if (applyBloodied) automateHpConditions(this, changed, userId, 'bloodied');
+    if (applyUnconscious) automateHpConditions(this, changed, userId, 'unconscious');
   }
 }

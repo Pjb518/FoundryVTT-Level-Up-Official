@@ -15,7 +15,7 @@ export default class InitiativeGrant extends BaseGrant {
     return this.mergeSchema(super.defineSchema(), {
       grantType: new fields.StringField({ required: true, initial: 'initiative' }),
       bonus: new fields.StringField({ required: true, initial: '' }),
-      context: new fields.SchemaField(getInitiativeBonusContext()),
+      context: new fields.SchemaField(getInitiativeBonusContext('grant')),
       label: new fields.StringField({ required: true, initial: 'New Initiative Grant' })
     });
   }
@@ -29,16 +29,19 @@ export default class InitiativeGrant extends BaseGrant {
       context: this.context,
       formula: this.bonus,
       label: this.label || this.parent?.name || 'Initiative Grant',
-      default: this.default ?? true,
+      default: this.context.default ?? true,
       img: this.img || this?.parent?.img
     };
+
+    delete bonus.context.default;
 
     const grantData = {
       itemUuid: this.parent.uuid,
       grantId: this._id,
       bonusId,
       type: 'initiative',
-      grantType: 'bonus'
+      grantType: 'bonus',
+      level: this.level
     };
 
     return {

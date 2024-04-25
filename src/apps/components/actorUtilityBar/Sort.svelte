@@ -24,7 +24,7 @@
         2: "fa-arrow-down-z-a",
     };
 
-    // TODO: Change when custom sort is implemented
+    // TODO: Cleanup - Change when custom sort is implemented
     const sortMappings = {
         0: sortAscending,
         1: sortDescending,
@@ -34,7 +34,7 @@
     async function onSortReducer() {
         await sortMappings[sortMode]($document, $reducer, documentName);
 
-        // TODO: Change when custom sort is implemented
+        // TODO: Cleanup - Change when custom sort is implemented
         let newMode = (sortMode + 1) % 3;
         newMode = newMode === 0 ? 1 : newMode;
 

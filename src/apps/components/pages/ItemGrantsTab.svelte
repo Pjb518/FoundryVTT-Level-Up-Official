@@ -86,7 +86,7 @@
 <div class="sticky-add-button">
     <CreateMenu
         {menuList}
-        offset={{ x: -145, y: -160 }}
+        offset={{ x: -165, y: -190 }}
         documentName="Grant"
         on:press={({ detail }) => addGrant(detail)}
     />

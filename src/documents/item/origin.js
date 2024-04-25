@@ -19,7 +19,7 @@ export default class OriginItemA5e extends BaseItemA5e {
     // Apply grants if any
     if (this.parent && this.parent.documentName === 'Actor') {
       const actor = this.parent;
-      actor.grants.applyGrant(this.id);
+      actor.grants.createInitialGrants(this.id);
     }
 
     super._onCreate(data, options, userId);

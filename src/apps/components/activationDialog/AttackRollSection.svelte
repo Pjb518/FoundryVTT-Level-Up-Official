@@ -1,15 +1,13 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import getAttackAbility from "../../../utils/getAttackAbility";
     import getRollFormula from "../../../utils/getRollFormula";
-    import overrideExpertiseDie from "../../../utils/overrideExpertiseDie";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import ExpertiseDiePicker from "../ExpertiseDiePicker.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
+    import RollModePicker from "../RollModePicker.svelte";
 
     export let attackRollData;
     export let options;
@@ -34,15 +32,17 @@
 
     const attackAbility = getAttackAbility($actor, $item, attackRoll);
 
-    const rollModeOptions = Object.entries(CONFIG.A5E.rollModes).map(
-        ([key, value]) => [
-            CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-            localize(value),
-        ],
+    let situationalMods = "";
+
+    let expertiseDie = $actor.RollOverrideManager.getExpertiseDice(
+        `attackTypes.${attackRoll?.attackType}`,
+        options.expertiseDie ?? 0,
     );
 
-    let expertiseDie = overrideExpertiseDie($actor, 0);
-    let situationalMods = "";
+    let expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
+        `attackTypes.${attackRoll?.attackType}`,
+        options.expertiseDie ?? 0,
+    );
 
     let rollMode = $actor.RollOverrideManager.getRollOverride(
         `attackTypes.${attackRoll?.attackType}`,
@@ -77,22 +77,16 @@
     updateData();
 </script>
 
-<RadioGroup
-    heading="A5E.AttackRollModeHeading"
-    buttons={[
-        {
-            classes: "fas fa-question-circle",
-            tooltip: rollModeString,
-        },
-    ]}
-    options={rollModeOptions}
+<RollModePicker
     selected={rollMode}
+    source={rollModeString}
     on:updateSelection={({ detail }) => (rollMode = detail)}
 />
 
 <ExpertiseDiePicker
     --background="transparent"
     --padding="0"
+    source={expertiseDieSource}
     selected={expertiseDie}
     type={$actor.type}
     on:updateSelection={({ detail }) => (expertiseDie = detail)}

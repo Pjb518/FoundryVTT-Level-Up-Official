@@ -1,16 +1,18 @@
 <script>
-    import { getContext, onDestroy } from "svelte";
+    import { getContext, onDestroy, setContext } from "svelte";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
     import { localize } from "#runtime/svelte/helper";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
+    import GrantConfig from "./GrantConfig.svelte";
+    import Checkbox from "../Checkbox.svelte";
 
-    export let { document, grantId } = getContext("#external").application;
+    export let { document, grantId, grantType } =
+        getContext("#external").application;
 
     function updateImage() {
         const current = grant?.img;
@@ -57,6 +59,10 @@
 
     $: grant = $item.system.grants[grantId];
     $: proficiencyType = grant?.proficiencyType || "ability";
+
+    setContext("item", item);
+    setContext("grantId", grantId);
+    setContext("grantType", grantType);
 </script>
 
 <form>
@@ -102,11 +108,7 @@
         </FieldWrapper>
     </Section>
 
-    <Section
-        heading="Grant Config"
-        --a5e-section-margin="0.25rem 0"
-        --a5e-section-body-gap="0.75rem"
-    >
+    <GrantConfig>
         <CheckboxGroup
             heading="Base Options"
             options={configObject[proficiencyType]?.options}
@@ -138,13 +140,15 @@
             />
         </FieldWrapper>
 
-        <Checkbox
-            label="Mark grant as optional"
-            checked={grant.optional ?? false}
-            on:updateSelection={({ detail }) =>
-                onUpdateValue("optional", detail)}
-        />
-    </Section>
+        {#if proficiencyType === "skill"}
+            <Checkbox
+                label="Grant expertise in these instead of proficiency"
+                checked={grant.isExpertise ?? false}
+                on:updateSelection={({ detail }) =>
+                    onUpdateValue("isExpertise", detail)}
+            />
+        {/if}
+    </GrantConfig>
 </form>
 
 <style lang="scss">

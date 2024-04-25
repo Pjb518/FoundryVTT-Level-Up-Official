@@ -133,3 +133,38 @@
         </FieldWrapper>
     {/if}
 </Section>
+
+{#if $actor.type === "character"}
+    <Section
+        heading="Automation Customization"
+        --a5e-section-body-gap="0.75rem"
+    >
+        <FieldWrapper>
+            <Checkbox
+                label="A5E.settings.automateHitDice"
+                checked={flags?.automateHitDice ?? true}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $actor,
+                        "flags.a5e.automateHitDice",
+                        detail,
+                    );
+                }}
+            />
+        </FieldWrapper>
+
+        <FieldWrapper>
+            <Checkbox
+                label="A5E.settings.automateSpellResources"
+                checked={flags?.automateSpellResources ?? true}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $actor,
+                        "flags.a5e.automateSpellResources",
+                        detail,
+                    );
+                }}
+            />
+        </FieldWrapper>
+    </Section>
+{/if}

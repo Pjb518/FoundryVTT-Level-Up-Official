@@ -147,7 +147,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
    * @param {Promise<Object>} options
    */
   async #migrateActor(migrations, actor, options = {}) {
-    // TODO: Return if up to schema version.
+    // TODO: Migration Upgrade - Return if up to schema version.
     const { isAdventure, pack } = options;
     const actorData = actor.toObject();
     const updateData = await (() => {
@@ -467,7 +467,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
 
     console.info(`A5E | Migrating ${game.scenes.size} scenes.`);
 
-    // TODO: Optimize this to be faster
+    // TODO: Migration Upgrade - Optimize this to be faster
     // Migrate tokens and synthetic actors
     for (const scene of game.scenes) {
       console.info(`A5E | Migrating ${scene.tokens.size} tokens in ${scene.id}.`);

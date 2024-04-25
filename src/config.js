@@ -15,6 +15,7 @@ import registerPremiumContentConfig from './config/registerPremiumContentConfig'
 import registerPublisherConfig from './config/registerPublisherConfig';
 import registerReducerConfig from './config/registerReducerConfig';
 import registerSettingsConfig from './config/registerSettingsConfig';
+import registerClassesConfig from './config/registerClassesConfig';
 
 const A5E = {};
 
@@ -728,7 +729,7 @@ A5E.rollModes = {
   disadvantage: 'A5E.RollModeDisadvantage'
 };
 
-// TODO: Add localizations for these roll types.
+// TODO: Localization - Add localizations for these roll types.
 A5E.rollTypes = {
   abilityCheck: 'Ability Check',
   attack: 'Attack',
@@ -854,18 +855,6 @@ A5E.shieldBaseACBonus = {
   heavy: 2,
   tower: 2
 };
-
-// A5E.spellBookModes = {
-//   none: 'A5E.None',
-//   fullCaster: 'A5E.spellBook.modes.fullCaster',
-//   halfCaster: 'A5E.spellBook.modes.halfCaster',
-//   tertiaryCaster: 'A5E.spellBook.modes.tertiaryCaster',
-//   quaternaryCaster: 'A5E.spellBook.modes.quaternaryCaster',
-//   artificer: 'A5E.spellBook.modes.artificer',
-//   warlock5e: 'A5E.spellBook.modes.warlock5e',
-//   warlockA5e: 'A5E.spellBook.modes.warlockA5e',
-//   wielder: 'A5E.spellBook.modes.wielder'
-// };
 
 A5E.spellBookTypes = {
   innate: 'A5E.spellBook.types.innate',
@@ -1687,6 +1676,7 @@ A5E.versatileOptions = {
 // Build Complex Config Parts
 // These are purposefully done first
 registerDocumentConfig(A5E);
+registerClassesConfig(A5E);
 registerContextsConfig(A5E);
 registerGrantsConfig(A5E);
 

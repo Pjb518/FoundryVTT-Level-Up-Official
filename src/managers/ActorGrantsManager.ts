@@ -10,10 +10,21 @@ import GrantApplicationDialog from '../apps/dialogs/GrantApplicationDialog.svelt
 import prepareTraitGrantConfigObject from '../utils/prepareTraitGrantConfigObject';
 import prepareGrantsApplyData from '../utils/prepareGrantsApplyData';
 
+interface DefaultApplyOptions {
+  item?: typeof Item | null;
+  cls?: typeof Item | null;
+  clsLevel?: number;
+}
+
+const DEFAULT_APPLY_OPTIONS: DefaultApplyOptions = {
+  item: null,
+  cls: null
+};
+
 export default class ActorGrantsManger extends Map<string, ActorGrant> {
   private actor: typeof Actor;
 
-  private allowedTypes = ['feature', 'background', 'culture', 'heritage'];
+  private allowedTypes = ['feature', 'background', 'class', 'culture', 'heritage'];
 
   constructor(actor: typeof Actor) {
     super();
@@ -58,41 +69,105 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   // *************************************************************
   // Update Methods
   // *************************************************************
-  async applyGrant(itemId: string): Promise<void> {
+  async createInitialGrants(itemId: string): Promise<void> {
     if (!itemId) return;
     const item = this.actor.items.get(itemId);
     if (!this.allowedTypes.includes(item.type)) return;
 
     const applicableGrants: Grant[] = [];
     const optionalGrants: Grant[] = [];
+    const characterLevel: number = this.actor.levels.character;
+    const classLevel: number = this.actor.levels.classes?.[item?.slug] ?? Infinity;
 
     const grantsManager: ItemGrantsManager = item.grants;
     [...grantsManager.values()].forEach((grant) => {
-      const id = `${item.uuid}.${grant._id}`;
-      if (this.has(id)) return;
+      if (this.has(grant._id)) return;
+
+      const { levelType } = grant;
+      if (levelType === 'character' && grant.level > characterLevel) return;
+      if (levelType === 'class' && grant.level > classLevel) return;
 
       if (grant.optional) optionalGrants.push(grant);
       applicableGrants.push(grant);
     });
 
-    if (!applicableGrants.length) return;
+    await this.#applyGrants(applicableGrants, optionalGrants, { item });
+  }
 
-    const requiresDialog = [...applicableGrants].some((grant) => grant.requiresConfig())
-      || !!optionalGrants.length;
+  async createLeveledGrants(
+    currentLevel: number = 0,
+    newLevel: number = 0,
+    cls: typeof Item | null = null
+  ): Promise<void> {
+    const difference = newLevel - currentLevel;
+    const sign = Math.sign(difference);
+    const characterLevel: number = this.actor.levels.character + difference;
 
-    let dialogData: { updateData: any, success: boolean, documentData: Map<string, any[]> };
+    if (sign === 0) return;
+
+    if (sign === -1) {
+      // Remove any grants that are no longer applicable
+      await this.removeGrantsByLevel(characterLevel);
+      return;
+    }
+
+    const applicableGrants: Grant[] = [];
+    const optionalGrants: Grant[] = [];
+    const items = this.actor.items
+      .filter((item: typeof Item) => this.allowedTypes.includes(item.type));
+
+    for (const item of items) {
+      let classLevel: number = this.actor.levels.classes?.[item.slug] ?? Infinity;
+      if (item.slug === cls?.slug) classLevel += difference;
+
+      const grantsManager: ItemGrantsManager = item.grants;
+      [...grantsManager.values()].forEach((grant) => {
+        if (this.has(grant._id)) return;
+
+        const { levelType } = grant;
+        if (levelType === 'character' && grant.level !== characterLevel) return;
+        if (levelType === 'class' && grant.level !== classLevel) return;
+
+        if (grant.optional) optionalGrants.push(grant);
+        applicableGrants.push(grant);
+      });
+    }
+
+    await this.#applyGrants(applicableGrants, optionalGrants, { cls, clsLevel: newLevel });
+  }
+
+  async #applyGrants(
+    allGrants: Grant[],
+    optionalGrants: Grant[],
+    options = DEFAULT_APPLY_OPTIONS
+  ): Promise<boolean> {
+    if (!allGrants.length && !options.cls) return false;
+
+    const requiresDialog = [...allGrants].some((grant) => grant.requiresConfig())
+      || !!optionalGrants.length || options.cls;
+
+    let dialogData: {
+      updateData: any,
+      success: boolean,
+      documentData: Map<string, any[]>,
+      clsReturnData: Record<string, any>
+    };
+
     if (!requiresDialog) {
-      const grants = applicableGrants.map((grant) => ({ id: grant._id, grant }));
+      const grants = allGrants.map((grant) => ({ id: grant._id, grant }));
       const { updateData, documentData } = prepareGrantsApplyData(this.actor, grants, new Map());
-      dialogData = { success: true, updateData, documentData };
+      dialogData = {
+        success: true, updateData, documentData, clsReturnData: {}
+      };
     } else {
       const dialog = new GenericDialog(
         `${this.actor.name} - Apply Grants`,
         GrantApplicationDialog,
         {
           actor: this.actor,
-          allGrants: applicableGrants,
-          optionalGrants
+          allGrants,
+          optionalGrants,
+          ...options
         }
       );
 
@@ -100,37 +175,80 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       dialogData = await dialog.promise;
 
       if (!dialogData?.success) {
-        item.delete();
-        return;
+        if (options?.item) options.item.delete();
+        return false;
       }
     }
 
     if (dialogData.updateData) await this.actor.update(dialogData.updateData);
 
     // Create sub items
-    if (!dialogData.documentData.size) return;
+    if (dialogData.documentData.size) {
+      const updateData: Record<string, any> = {};
 
-    const updateData: Record<string, any> = {};
+      for await (const [grantId, docData] of dialogData.documentData) {
+        const docs = await Promise.all(
+          docData.map(async ([uuid, quantity]: [string, number | null]) => {
+            const doc = (await fromUuid(uuid)).toObject();
+            if (!quantity) return doc;
 
-    for await (const [grantId, docData] of dialogData.documentData) {
-      const docs = await Promise.all(
-        docData.map(async ([uuid, quantity]: [string, number | null]) => {
-          const doc = (await fromUuid(uuid)).toObject();
-          if (!quantity) return doc;
+            doc.system.quantity = quantity;
+            return doc;
+          })
+        );
 
-          doc.system.quantity = quantity;
-          return doc;
-        })
-      );
+        const ids = (await this.actor.createEmbeddedDocuments('Item', docs)).map((i: any) => i.id);
+        updateData[`system.grants.${grantId}.documentIds`] = ids;
+      }
 
-      const ids = (await this.actor.createEmbeddedDocuments('Item', docs)).map((i: any) => i.id);
-      updateData[`system.grants.${grantId}.documentIds`] = ids;
+      await this.actor.update(updateData);
     }
 
-    await this.actor.update(updateData);
+    // Update class data if available
+    if (options.cls) {
+      const { clsReturnData } = dialogData;
+      const { leveledHpType, hpFormula, hpValue } = clsReturnData;
+
+      let hp: number;
+      if (leveledHpType === 'roll' && hpFormula) {
+        const roll = await new Roll(hpFormula).roll({ async: true });
+        hp = roll.total;
+
+        this.#createRolledHpCard(options.cls, roll);
+      } else if (['custom', 'average'].includes(leveledHpType) && hpValue) {
+        hp = hpValue;
+      } else {
+        hp = options.cls.averageHP;
+      }
+
+      await options.cls.update({ [`system.hp.levels.${options.clsLevel}`]: hp });
+    }
+
+    return true;
   }
 
-  removeGrantsByItem(itemUuid: string): void {
+  #createRolledHpCard(cls: typeof Item, roll: any) {
+    const title = `Hit Dice Roll - ${cls.name}`;
+    const chatData = {
+      user: game.user?.id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      sound: CONFIG.sounds.dice,
+      rolls: [roll],
+      flags: {
+        a5e: {
+          actorId: this.actor.uuid,
+          img: this.actor.token?.img ?? this.actor.img,
+          name: this.actor.name,
+          title
+        }
+      }
+    };
+
+    ChatMessage.create(chatData);
+  }
+
+  async removeGrantsByItem(itemUuid: string): Promise<void> {
     const updates: Record<string, any> = {};
 
     for (const [grantId, grant] of this) {
@@ -140,10 +258,23 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
     }
 
-    this.actor.update(updates);
+    await this.actor.update(updates);
   }
 
-  removeGrant(grantId: string): void {
+  async removeGrantsByLevel(level: number): Promise<void> {
+    const updates: Record<string, any> = {};
+
+    for (const [grantId, grant] of this) {
+      if (grant.level > level) {
+        updates[`system.grants.-=${grantId}`] = null;
+        foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
+      }
+    }
+
+    await this.actor.update(updates);
+  }
+
+  async removeGrant(grantId: string): Promise<void> {
     const grant = this.get(grantId);
     if (!grant) return;
 
@@ -152,7 +283,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       ...this.#getRemoveUpdates(grant)
     };
 
-    this.actor.update(updates);
+    await this.actor.update(updates);
   }
 
   #getRemoveUpdates(grant: ActorGrant): Record<string, any> {
@@ -181,6 +312,21 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       if (!ids?.length) return updates;
 
       this.actor.deleteEmbeddedDocuments('Item', ids);
+    }
+
+    if (grant instanceof GrantCls.skillSpecialty) {
+      const { skill } = grant.specialtyData;
+
+      const existing: Set<string> = new Set(
+        foundry.utils.getProperty(
+          this.actor,
+          `system.skills.${skill}.specialties`
+        ) as string[] ?? []
+      );
+
+      const removals: Set<string> = new Set(grant.specialtyData.specialties);
+
+      updates[`system.skills.${skill}.specialties`] = [...existing.difference(removals)];
     }
 
     if (grant instanceof GrantCls.trait) {

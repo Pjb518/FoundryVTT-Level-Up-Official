@@ -3,6 +3,8 @@ declare const CONST: any;
 
 declare const Actor: any;
 declare const ActiveEffect: any;
+declare const ChatMessage: any;
+declare const Hooks: any;
 declare const Item: any;
 declare const Roll: any;
 declare const Token: any;

@@ -6,6 +6,7 @@
     },
     "Item": {
       "background": "Background",
+      "class": "Class",
       "culture": "Culture",
       "destiny": "Destiny",
       "heritage": "Heritage",
@@ -89,6 +90,12 @@
         "defaultName": "Healing Bonus",
         "dialogName": "Healing Bonus Configuration"
       },
+      "hitPoint": {
+        "sectionHeader": "Hit Point Bonuses",
+        "addButton": "+ Add Hit Point Bonus",
+        "defaultName": "Hit Point Bonus",
+        "dialogName": "Hit Point Bonus Configuration"
+      },
       "initiative": {
         "sectionHeader": "Initiative Bonuses",
         "addButton": "+ Add Initiative Bonus",
@@ -150,6 +157,30 @@
     "witch": "Witch",
     "wizard": "Wizard"
   },
+  "A5E.classes": {
+    "casterTypes": {
+      "fullCaster": "Full Caster",
+      "halfCaster": "Half Caster",
+      "tertiaryCaster": "Tertiary Caster",
+      "quaternaryCaster": "Quaternary Caster",
+      "artificerA5e": "Artificer A5e",
+      "artificer5e": "Artificer 5e",
+      "elementalist": "Elementalist",
+      "warlock5e": "Warlock 5e",
+      "warlockA5e": "Warlock A5E",
+      "wielder": "Wielder"
+    },
+    "hpTypes": {
+      "average": "Average",
+      "roll": "Roll",
+      "custom": "Custom"
+    },
+    "levelType": "Level Type",
+    "levelTypes": {
+      "character": "Character Level",
+      "class": "Class Level"
+    }
+  },
   "A5E.contexts": {
     "abilities": "Abilities",
     "bonusType": "Bonus Type",
@@ -166,6 +197,7 @@
     "check": "Check",
     "passive": "Passive",
     "passiveOnly": "Passive Only",
+    "perLevel": "Per Level",
     "save": "Save",
     "valueIfOriginalIsZero": "Value if Original is Zero"
   },
@@ -847,28 +879,34 @@
       "ability": "Ability Grant",
       "attack": "Attack Grant",
       "damage": "Damage Grant",
+      "expertiseDice": "Expertise Dice Grant",
       "feature": "Feature Grant",
       "healing": "Healing Grant",
+      "hitPoint": "HP Grant",
       "initiative": "Initiative Grant",
       "item": "Item Grant",
       "movement": "Movement Grant",
       "proficiency": "Proficiency Grant",
       "senses": "Senses Grant",
       "skill": "Skill Grant",
+      "skillSpecialty": "Skill Specialty Grant",
       "trait": "Trait Grant"
     },
     "headingsPlural": {
       "ability": "Ability Grants",
       "attack": "Attack Grants",
       "damage": "Damage Grants",
+      "expertiseDice": "Expertise Dice Grants",
       "feature": "Feature Grants",
       "healing": "Healing Grants",
+      "hitPoint": "HP Grants",
       "initiative": "Initiative Grants",
       "item": "Item Grants",
       "movement": "Movement Grants",
       "proficiency": "Proficiency Grants",
       "senses": "Senses Grants",
       "skill": "Skill Grants",
+      "skillSpecialty": "Skill Specialty Grants",
       "trait": "Trait Grants"
     }
   },
@@ -1117,6 +1155,8 @@
     "alwaysShowActionDescription": "Always show action description",
     "autoApplyFancySheets": "Automatically Apply Fancy Sheets to Compendia",
     "automateBloodiedApplication": "Automatically apply Bloodied condition",
+    "automateHitDice": "Automatically calculate Hit Dice.",
+    "automateSpellResources": "Automatically calculate Spell Resources.",
     "automatePrototypeTokenSize": "Automate Default Prototype Token Size",
     "automateUnconsciousApplication": "Automatically apply Unconscious condition",
     "automateVisionRules": "Automate Vision Rules for Tokens",

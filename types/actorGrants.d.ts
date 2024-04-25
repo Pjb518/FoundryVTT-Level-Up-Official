@@ -2,12 +2,23 @@ export interface ActorBaseGrant {
   itemUuid: string;
   grantId: string;
   grantType: string;
+  level: number;
 }
 
 export interface BonusGrant extends ActorBaseGrant {
   bonusId: string;
   type: string;
   grantType: 'bonus';
+}
+
+export interface ExpertiseDiceGrant extends ActorBaseGrant {
+  expertiseDiceData: {
+    keys: string[],
+    total: number,
+    expertiseCount: number,
+    expertiseType: string,
+  };
+  grantType: 'expertiseDice';
 }
 
 export interface FeatureGrant extends ActorBaseGrant {
@@ -29,6 +40,15 @@ export interface ProficiencyGrant extends ActorBaseGrant {
   grantType: 'proficiency';
 }
 
+export interface SkillSpecialtyGrant extends ActorBaseGrant {
+  specialtyData: {
+    specialties: string[],
+    skill: string,
+    total: number,
+  };
+  grantType: 'skillSpecialty';
+}
+
 export interface TraitGrant extends ActorBaseGrant {
   traitData: {
     traits: string[],
@@ -38,4 +58,9 @@ export interface TraitGrant extends ActorBaseGrant {
   grantType: 'trait';
 }
 
-export type ActorGrant = BonusGrant | FeatureGrant | ItemGrant | ProficiencyGrant | TraitGrant;
+export type ActorGrant = BonusGrant
+  | FeatureGrant
+  | ItemGrant
+  | ProficiencyGrant
+  | SkillSpecialtyGrant
+  | TraitGrant;

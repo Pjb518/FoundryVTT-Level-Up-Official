@@ -24,6 +24,11 @@
             : "u-grid u-grid-3 u-gap-lg";
 
     $: hp = $actor.system.attributes.hp;
+    $: disableMaxHp =
+        Object.keys($actor.classes ?? {}).length ??
+        !$actor.classAutomationFlags?.hitPoints ??
+        false;
+    $: disableHitDice = Object.keys($actor.classes ?? {}).length ?? false;
 </script>
 
 <article>
@@ -41,6 +46,7 @@
                         data-dtype="Number"
                         name="system.attributes.hp.{updateAttribute}"
                         value={hp[updateAttribute]}
+                        disabled={updateAttribute === "baseMax" && disableMaxHp}
                         on:change={({ target }) =>
                             updateDocumentDataFromField(
                                 $actor,
@@ -83,6 +89,7 @@
                             type="number"
                             min="0"
                             name="system.attributes.hitDice.{dieSize}.total"
+                            disabled={disableHitDice}
                             value={total}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(

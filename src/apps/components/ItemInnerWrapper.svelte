@@ -36,7 +36,7 @@
         }
     }
 
-    // TODO: Fix up this gross mess
+    // TODO: Cleanup - Fix up this gross mess
     function getActivationCostLabel(cost) {
         switch (cost) {
             case "A":

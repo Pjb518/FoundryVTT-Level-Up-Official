@@ -5,7 +5,7 @@
 import MigrationBase from './MigrationBase';
 
 export default class MigrationRunnerBase {
-  static LATEST_SCHEMA_VERSION = 0.016;
+  static LATEST_SCHEMA_VERSION = 0.017;
 
   static MIN_SAFE_VERSION = 0;
 

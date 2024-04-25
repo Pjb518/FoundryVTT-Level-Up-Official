@@ -1,18 +1,19 @@
 <script>
-    import { getContext, onDestroy } from "svelte";
+    import { getContext, onDestroy, setContext } from "svelte";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
     import { localize } from "#runtime/svelte/helper";
 
     import prepareTraitGrantConfigObject from "../../../utils/prepareTraitGrantConfigObject";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import ComplexDetailEmbed from "../ComplexDetailEmbed.svelte";
+    import GrantConfig from "./GrantConfig.svelte";
 
-    export let { document, grantId } = getContext("#external").application;
+    export let { document, grantId, grantType } =
+        getContext("#external").application;
 
     function updateImage() {
         const current = grant?.img;
@@ -51,6 +52,10 @@
 
     $: grant = $item.system.grants[grantId];
     $: traitType = grant?.traits?.traitType || "armorTypes";
+
+    setContext("item", item);
+    setContext("grantId", grantId);
+    setContext("grantType", grantType);
 </script>
 
 <form>
@@ -135,11 +140,7 @@
         {/if}
     {/key}
 
-    <Section
-        heading="Grant Config"
-        --a5e-section-margin="0.25rem 0"
-        --a5e-section-body-gap="0.75rem"
-    >
+    <GrantConfig>
         {#if !["weapons", "tools"].includes(traitType)}
             <CheckboxGroup
                 heading="Base Options"
@@ -172,14 +173,7 @@
                     onUpdateValue("traits.total", Number(target.value))}
             />
         </FieldWrapper>
-
-        <Checkbox
-            label="Mark grant as optional"
-            checked={grant.optional ?? false}
-            on:updateSelection={({ detail }) =>
-                onUpdateValue("optional", detail)}
-        />
-    </Section>
+    </GrantConfig>
 </form>
 
 <style lang="scss">

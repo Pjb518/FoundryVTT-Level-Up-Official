@@ -1,7 +1,9 @@
+import A5EDataModel from '../A5EDataModel';
+
 import BaseItemData from './BaseItemData';
 import Armor from './template/Armor';
 
-export default class ObjectDataModel extends BaseItemData.mixin(Armor) {
+export default class ObjectDataModel extends A5EDataModel.mixin(BaseItemData, Armor) {
   static defineSchema() {
     const { fields } = foundry.data;
 
@@ -30,6 +32,7 @@ export default class ObjectDataModel extends BaseItemData.mixin(Armor) {
       equippedState: new fields.NumberField({
         required: true, initial: 0, integer: true, min: 0, max: 2
       }),
+      // TODO: Container Rework - Remove this in favor of a greedy approach
       flaws: new fields.ArrayField(
         new fields.StringField({ required: true, initial: '' }),
         { required: true, initial: [] }
