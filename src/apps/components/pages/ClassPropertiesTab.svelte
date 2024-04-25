@@ -25,9 +25,12 @@
 
 <article class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <Section heading="Metadata" --a5e-section-body-gap="0.75rem">
-        <FieldWrapper heading="Class Identifier">
+        <FieldWrapper
+            heading="Class Identifier"
+            --a5e-field-wrapper-direction="row"
+        >
             <input
-                class="a5e-input a5e-input--slim"
+                class="a5e-input a5e-input--slim slug-input"
                 value={$item.system.slug || $item.slug || ""}
                 type="text"
                 on:change={({ target }) => {
@@ -38,6 +41,14 @@
                     );
                 }}
             />
+
+            <button
+                class="slug-reset-button"
+                on:click={() =>
+                    updateDocumentDataFromField($item, "system.slug", "")}
+            >
+                <i class="fas fa-solid fa-rotate-left" />
+            </button>
         </FieldWrapper>
     </Section>
 
@@ -255,5 +266,26 @@
             margin-block: 0.25rem;
             border: 0.5px solid #ccc;
         }
+    }
+
+    .slug-reset-button {
+        background: none;
+        border: 0;
+        padding: 0;
+        width: fit-content;
+        height: fit-content;
+        color: rgba(0 0 0 / 0.2);
+        transition: all 0.15s ease-in-out;
+
+        &:hover,
+        &:focus {
+            box-shadow: none;
+            transform: scale(1.2);
+            color: rgba(0 0 0 / 1);
+        }
+    }
+
+    .slug-input {
+        width: 95%;
     }
 </style>
