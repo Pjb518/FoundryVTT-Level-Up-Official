@@ -146,11 +146,19 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const requiresDialog = [...allGrants].some((grant) => grant.requiresConfig())
       || !!optionalGrants.length || options.cls;
 
-    let dialogData: { updateData: any, success: boolean, documentData: Map<string, any[]> };
+    let dialogData: {
+      updateData: any,
+      success: boolean,
+      documentData: Map<string, any[]>,
+      clsReturnData: Record<string, any>
+    };
+
     if (!requiresDialog) {
       const grants = allGrants.map((grant) => ({ id: grant._id, grant }));
       const { updateData, documentData } = prepareGrantsApplyData(this.actor, grants, new Map());
-      dialogData = { success: true, updateData, documentData };
+      dialogData = {
+        success: true, updateData, documentData, clsReturnData: {}
+      };
     } else {
       const dialog = new GenericDialog(
         `${this.actor.name} - Apply Grants`,
@@ -175,27 +183,69 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     if (dialogData.updateData) await this.actor.update(dialogData.updateData);
 
     // Create sub items
-    if (!dialogData.documentData.size) return true;
+    if (dialogData.documentData.size) {
+      const updateData: Record<string, any> = {};
 
-    const updateData: Record<string, any> = {};
+      for await (const [grantId, docData] of dialogData.documentData) {
+        const docs = await Promise.all(
+          docData.map(async ([uuid, quantity]: [string, number | null]) => {
+            const doc = (await fromUuid(uuid)).toObject();
+            if (!quantity) return doc;
 
-    for await (const [grantId, docData] of dialogData.documentData) {
-      const docs = await Promise.all(
-        docData.map(async ([uuid, quantity]: [string, number | null]) => {
-          const doc = (await fromUuid(uuid)).toObject();
-          if (!quantity) return doc;
+            doc.system.quantity = quantity;
+            return doc;
+          })
+        );
 
-          doc.system.quantity = quantity;
-          return doc;
-        })
-      );
+        const ids = (await this.actor.createEmbeddedDocuments('Item', docs)).map((i: any) => i.id);
+        updateData[`system.grants.${grantId}.documentIds`] = ids;
+      }
 
-      const ids = (await this.actor.createEmbeddedDocuments('Item', docs)).map((i: any) => i.id);
-      updateData[`system.grants.${grantId}.documentIds`] = ids;
+      await this.actor.update(updateData);
     }
 
-    await this.actor.update(updateData);
+    // Update class data if available
+    if (options.cls) {
+      const { clsReturnData } = dialogData;
+      const { leveledHpType, hpFormula, hpValue } = clsReturnData;
+
+      let hp: number;
+      if (leveledHpType === 'roll' && hpFormula) {
+        const roll = await new Roll(hpFormula).roll({ async: true });
+        hp = roll.total;
+
+        this.#createRolledHpCard(options.cls, roll);
+      } else if (['custom', 'average'].includes(leveledHpType) && hpValue) {
+        hp = hpValue;
+      } else {
+        hp = options.cls.averageHP;
+      }
+
+      await options.cls.update({ [`system.hp.levels.${options.clsLevel}`]: hp });
+    }
+
     return true;
+  }
+
+  #createRolledHpCard(cls: typeof Item, roll: any) {
+    const title = `Hit Dice Roll - ${cls.name}`;
+    const chatData = {
+      user: game.user?.id,
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      sound: CONFIG.sounds.dice,
+      rolls: [roll],
+      flags: {
+        a5e: {
+          actorId: this.actor.uuid,
+          img: this.actor.token?.img ?? this.actor.img,
+          name: this.actor.name,
+          title
+        }
+      }
+    };
+
+    ChatMessage.create(chatData);
   }
 
   async removeGrantsByItem(itemUuid: string): Promise<void> {

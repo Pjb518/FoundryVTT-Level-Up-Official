@@ -58,12 +58,14 @@
             success: true,
             updateData,
             documentData,
+            clsReturnData,
         });
     }
 
-    $: applyData = new Map<string, any>();
     let selectedOptionalGrants: string[] = [];
+    let clsReturnData: Record<string, any> = {};
 
+    $: applyData = new Map<string, any>();
     $: grants = getApplicableGrants(selectedOptionalGrants);
     $: configurableGrants = grants.filter((grant) => grant.requiresConfig);
 </script>
@@ -71,7 +73,11 @@
 <article>
     <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
         {#if cls && cls?.type === "class"}
-            <ClassHitPointsSelection {cls} classLevel={clsLevel} />
+            <ClassHitPointsSelection
+                {cls}
+                classLevel={clsLevel}
+                bind:clsReturnData
+            />
         {/if}
 
         {#if optionalGrants.length}

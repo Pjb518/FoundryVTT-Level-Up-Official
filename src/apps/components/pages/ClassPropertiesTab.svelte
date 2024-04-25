@@ -154,7 +154,7 @@
     {/if}
 
     <Section heading="Combat Maneuvers" --a5e-section-body-gap="0.75rem">
-        <FieldWrapper heading="Starting Manuevers Count">
+        <FieldWrapper heading="Starting Maneuver Count">
             <input
                 class="a5e-input a5e-input--small a5e-input--slim"
                 type="number"
