@@ -154,16 +154,14 @@
 
     <!-- Add Class Level -->
     {#if $item.type === "class" && $item.actor}
-        <div class="button-container">
-            <input
-                class="class-level-input"
-                type="number"
-                min="1"
-                max="20"
-                value={$item.system.classLevels}
-                on:change={({ target }) => updateClassLevel(target.value)}
-            />
-        </div>
+        <input
+            class="class-level-input"
+            type="number"
+            min="1"
+            max="20"
+            value={$item.system.classLevels}
+            on:change={({ target }) => updateClassLevel(target.value)}
+        />
     {/if}
 
     <div class="u-flex u-flex-shrink-0 u-align-center u-gap-xl">
@@ -285,14 +283,28 @@
 
     .name-wrapper {
         width: 100%;
+
+        input[type] {
+            font-size: var(--a5e-text-size-xl);
+            font-family: var(--a5e-font-serif);
+        }
     }
 
-    .class-level-input {
+    .class-level-input[type] {
         font-size: var(--a5e-text-size-xxl);
-        width: 3ch;
+        width: 5rem;
+        height: 2.25rem;
+        color: rgb(25, 24, 19);
+        font-family: var(--a5e-font-serif);
         text-align: center;
-        background: transparent;
-        border: none;
+        background: rgba(0, 0, 0, 0.05);
+        box-shadow: none;
+        border: 1px solid #bbb;
+        border-radius: 5px;
+
+        &:focus {
+            box-shadow: none;
+        }
     }
 
     .fulfil-button {
