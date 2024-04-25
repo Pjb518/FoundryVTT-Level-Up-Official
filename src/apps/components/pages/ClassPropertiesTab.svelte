@@ -59,6 +59,8 @@
                 <input
                     class="a5e-input a5e-input--small a5e-input--slim"
                     type="number"
+                    max={classLevel}
+                    min="0"
                     value={$item.system.hp.hitDiceUsed}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
