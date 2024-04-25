@@ -195,23 +195,22 @@
                         detail,
                     )}
             />
-
-            Known cantrips go here. <br />
-            Known spells go here. <br />
         {/if}
     </Section>
 
     <Section heading="Wealth" --a5e-section-body-gap="0.75rem">
-        <input
-            type="text"
-            value={$item.system.wealth}
-            on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.wealth",
-                    target.value,
-                )}
-        />
+        <FieldWrapper hint="Enter a number value or a roll formula">
+            <input
+                type="text"
+                value={$item.system.wealth}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.wealth",
+                        target.value,
+                    )}
+            />
+        </FieldWrapper>
     </Section>
 </article>
 
