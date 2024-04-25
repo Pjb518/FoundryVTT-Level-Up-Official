@@ -1,7 +1,7 @@
 export default function getRequiredExperiencePoints(actor: any): number {
-  if (actor.type === 'npc') return null;
+  if (actor.type === 'npc') return 0;
 
-  let { level } = actor.system.details;
+  let level = actor.levels.character;
 
   if (level < 1) level = 1;
   else if (level > 19) level = 19;
