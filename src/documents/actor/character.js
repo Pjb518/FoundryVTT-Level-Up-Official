@@ -69,6 +69,10 @@ export default class CharacterActorA5E extends BaseActorA5e {
     this.HitDiceManager = new HitDiceManager(this, this.classAutomationFlags.hitDice);
 
     super.prepareDerivedData();
+
+    // Done first on purpose
+    this.prepareLevelData();
+
     const actorData = this.system;
 
     actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
@@ -83,7 +87,6 @@ export default class CharacterActorA5E extends BaseActorA5e {
     );
 
     this.prepareHitPoints();
-    this.prepareLevelData();
     this.prepareSpellResources();
   }
 
@@ -98,8 +101,9 @@ export default class CharacterActorA5E extends BaseActorA5e {
     const { classes } = this;
     const bonusHP = this.system.attributes.hp.bonus ?? 0;
     const maxHP = Object.values(classes ?? {}).reduce((acc, cls) => acc + cls.maxHP, 0);
+    const conMod = (this.system.abilities.con.check.mod ?? 0) * this.levels.character;
 
-    this.system.attributes.hp.max = maxHP + bonusHP;
+    this.system.attributes.hp.max = maxHP + conMod + bonusHP;
     super.prepareHitPointBonuses();
   }
 

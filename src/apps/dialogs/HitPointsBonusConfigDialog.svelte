@@ -30,20 +30,20 @@
 
     function onUpdateValue(key, value) {
         if (jsonValue === null) {
-            key = `system.bonuses.hitPoints.${bonusID}.${key}`;
+            key = `system.bonuses.hitPoint.${bonusID}.${key}`;
             updateDocumentDataFromField($actor, key, value);
             return;
         }
 
         const newObj = foundry.utils.expandObject({
-            ...hitPoints,
+            ...hitPointsBonus,
             [key]: value,
         });
         dispatch("change", JSON.stringify(newObj));
     }
 
     function getHealingBonus() {
-        if (jsonValue === null) return $actor.system.bonuses.hitPoints[bonusID];
+        if (jsonValue === null) return $actor.system.bonuses.hitPoint[bonusID];
 
         try {
             const obj = JSON.parse(jsonValue || '""') ?? {};

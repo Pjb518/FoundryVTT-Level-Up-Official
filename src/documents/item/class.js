@@ -12,6 +12,10 @@ export default class ClassItemA5e extends OriginItemA5e {
     }, []);
   }
 
+  get averageHP() {
+    return Math.floor(this.hitDice.size / 2) + 1;
+  }
+
   get isStartingClass() {
     if (!this.isEmbedded) return false;
 
@@ -48,10 +52,6 @@ export default class ClassItemA5e extends OriginItemA5e {
     };
 
     this.casting = this.prepareCasterData();
-  }
-
-  prepareDerivedData() {
-    this.averageHP = Math.floor(this.hitDice.size / 2) + 1;
   }
 
   prepareMaxHitPoints() {

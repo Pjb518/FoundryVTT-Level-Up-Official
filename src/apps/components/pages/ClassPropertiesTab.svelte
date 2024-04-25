@@ -7,10 +7,42 @@
     import Section from "../Section.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import getDeterministicBonus from "../../../dice/getDeterministicBonus";
 
     const item = getContext("item");
     const abilities = { none: "None", ...CONFIG.A5E.abilities };
     const casterTypes = CONFIG.A5E.casterTypes;
+
+    function getHpData() {
+        const actor = $item.actor;
+        if (!actor) {
+            return { totalHp: 0, hpBonusPerLevel: 0, otherHpBonuses: 0 };
+        }
+
+        const totalHp = getHPComponents($item.parent);
+        const hpBonusPerLevel =
+            getDeterministicBonus(
+                actor.BonusesManager.getHitPointsBonusPerLevelFormula() ?? 0,
+                actor?.getRollData(),
+            ) ?? 0;
+
+        const allHpBonuses =
+            getDeterministicBonus(
+                actor.BonusesManager.getHitPointsBonusFormula() ?? 0,
+                actor.getRollData(),
+            ) ?? 0;
+
+        const otherHpBonuses =
+            allHpBonuses - hpBonusPerLevel * actor.levels.character;
+
+        const tempBonuses = actor.system.attributes.hp.bonus;
+
+        return {
+            totalHp,
+            hpBonusPerLevel,
+            otherHpBonuses: otherHpBonuses + tempBonuses,
+        };
+    }
 
     const hitDiceSize = [
         [6, "d6"],
@@ -20,7 +52,7 @@
     ];
 
     $: classLevel = $item.system.classLevels;
-    $: totalHp = getHPComponents($item.parent);
+    $: hpData = getHpData($item.actor);
 </script>
 
 <article class="a5e-page-wrapper a5e-page-wrapper--scrollable">
@@ -116,12 +148,14 @@
                             {$item.actor.system.abilities.con.check.mod}
                         </span>
 
-                        <span class="a5e-class-hp-table__field"> 0 </span>
+                        <span class="a5e-class-hp-table__field">
+                            {hpData.hpBonusPerLevel}
+                        </span>
 
                         <span class="a5e-class-hp-table__field">
                             {hp +
                                 $item.actor.system.abilities.con.check.mod +
-                                0}
+                                hpData.hpBonusPerLevel}
                         </span>
                     {/if}
                 {/each}
@@ -135,7 +169,9 @@
                         Other Bonuses
                     </h3>
 
-                    <span class="a5e-class-hp-table__field"> 0 </span>
+                    <span class="a5e-class-hp-table__field">
+                        {hpData.otherHpBonuses}
+                    </span>
 
                     <h3
                         class="a5e-class-hp-table__heading a5e-class-hp-table__heading--footer"
@@ -146,7 +182,7 @@
                     <span
                         class="a5e-class-hp-table__field a5e-class-hp-table__field--total"
                     >
-                        {totalHp}
+                        {hpData.totalHp}
                     </span>
                 </footer>
             </div>

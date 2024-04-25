@@ -379,7 +379,7 @@ export default class BonusesManager {
   }
 
   prepareHitPointsBonuses(): [string, HitPointsBonus][] {
-    const bonuses = this.#bonuses.hitPoints ?? {};
+    const bonuses = this.#bonuses.hitPoint ?? {};
 
     return Object.entries(bonuses)
       .reduce((acc: [string, HitPointsBonus][], [key, bonus]) => {
