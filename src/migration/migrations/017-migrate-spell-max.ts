@@ -15,12 +15,24 @@ export default class Migration017MigrateSpellMax extends MigrationBase {
           `system.spellResources.slots.${level}.override`,
           slots.max ?? 0
         );
+
+        foundry.utils.setProperty(
+          actor,
+          `system.spellResources.slots.${level}.max`,
+          0
+        );
       });
 
     foundry.utils.setProperty(
       actor,
       'system.spellResources.points.override',
       spellResources.points?.max ?? 0
+    );
+
+    foundry.utils.setProperty(
+      actor,
+      'system.spellResources.points.max',
+      0
     );
   }
 }

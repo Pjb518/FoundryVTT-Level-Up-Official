@@ -56,6 +56,7 @@ export default class CharacterData extends BaseActorData {
         }),
         points: new fields.SchemaField({
           current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
+          max: new fields.NumberField({ nullable: true, initial: 0, min: 0 }),
           override: new fields.NumberField({ nullable: false, initial: 0, integer: true })
         }),
         slots: new fields.SchemaField(
@@ -63,6 +64,7 @@ export default class CharacterData extends BaseActorData {
             .reduce((acc, level) => {
               acc[level] = new fields.SchemaField({
                 current: new fields.NumberField({ nullable: false, initial: 0, min: 0 }),
+                max: new fields.NumberField({ nullable: true, initial: 0, min: 0 }),
                 override: new fields.NumberField({ nullable: false, initial: 0, min: 0 })
               });
               return acc;
