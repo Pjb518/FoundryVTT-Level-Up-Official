@@ -70,10 +70,10 @@
 
     <div class="name-wrapper">
         <input
+            class="item-name"
             type="text"
             name="name"
             value={$item.name}
-            class="item-name"
             placeholder={"A5E.Name"}
             on:change={({ target }) =>
                 updateDocumentDataFromField($item, target.name, target.value)}
@@ -241,8 +241,8 @@
 
     .item-name,
     .item-name[type="text"] {
-        font-family: $font-primary;
-        font-size: $font-size-xxl;
+        font-family: inherit;
+        font-size: var(--a5e-text-size-xl);
         border: 0;
         background: transparent;
         text-overflow: ellipsis;
@@ -257,6 +257,8 @@
     .prerequisite-input[type="text"] {
         border: 0;
         background: transparent;
+        font-family: inherit;
+        font-size: var(--a5e-text-size-sm);
 
         &:active,
         &:focus {
@@ -266,6 +268,8 @@
 
     .prerequisite-label {
         padding-inline: 0.5rem 0rem;
+        font-family: var(--a5e-font-serif);
+        font-size: var(--a5e-text-size-sm);
 
         &:active,
         &:focus {
@@ -276,18 +280,11 @@
     .prerequisites {
         display: flex;
         align-items: center;
-        font-family: $font-primary;
-        font-size: $font-size-md;
-        align-items: center;
     }
 
     .name-wrapper {
         width: 100%;
-
-        input[type] {
-            font-size: var(--a5e-text-size-xl);
-            font-family: var(--a5e-font-serif);
-        }
+        font-family: var(--a5e-font-serif);
     }
 
     .class-level-input[type] {
