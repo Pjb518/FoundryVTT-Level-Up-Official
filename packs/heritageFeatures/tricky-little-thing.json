@@ -1,0 +1,107 @@
+{
+	"name": "Tricky Little Thing",
+	"type": "feature",
+	"img": "icons/magic/nature/stealth-hide-eyes-green.webp",
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"vVMcWRbWAWEiyIiU": {
+				"name": "Dodge",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"AJ2EvX7hKhu2OPZq": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"description": "<p>When you take the Dodge action, instead of attacking you focus on avoiding attacks. Until the start of your next turn, attacks against you are made with disadvantage if you can see the attacker, and you make Dexterity saving throws with advantage. You cannot take the Dodge action when your Speed is reduced to 0.</p>"
+			},
+			"AP9DK9h0hqsogExg": {
+				"name": "Hide",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"F8XUErPP2wdAHkuh": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"description": "<p>When you take the Hide action, you make a Dexterity (Stealth) check opposed by the passive Perception scores of creatures able to observe you. If you succeed, you gain the benefits described in the Unseen Attackers and Targets section later in this chapter.</p>"
+			}
+		},
+		"description": "<p>You may use the Dodge or Hide action as a bonus action. Once you have used this trait a number of times equal to your proficiency modifier, you can&rsquo;t do so again until you complete a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 2,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": {
+				"version": {
+					"schema": 0.015,
+					"foundry": "11.315",
+					"system": "0.17.33"
+				}
+			}
+		}
+	},
+	"_id": "6rurnoozxjj3o8s4"
+}

@@ -1,0 +1,87 @@
+{
+	"name": "Fiery Temper",
+	"type": "feature",
+	"img": "icons/magic/earth/lava-stone-fire-yellow.webp",
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"MEiu2lq2x8pBKsLb": {
+				"name": "Use Feature",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>As a bonus action, you can boost your damage this turn with the power of fire. Creatures you deal damage to this turn take additional fire damage equal to your proficiency bonus. However, the sting of your temper lessens after the first blow, so after you deal this extra damage to a creature, this trait cannot deal extra damage to it during the same combat.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {
+			"QybkM0RdA3s6vqzd": {
+				"grantType": "damage",
+				"level": 0,
+				"optional": false,
+				"label": "Fiery Temper",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"rangedWeaponAttack",
+						"meleeSpellAttack",
+						"rangedSpellAttack"
+					]
+				},
+				"bonus": "@prof[Fiery Temper",
+				"damageType": "fire"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": {
+				"version": {
+					"schema": 0.015,
+					"foundry": "11.315",
+					"system": "0.17.33"
+				}
+			}
+		}
+	},
+	"_id": "ulg8c5r5ryaadbl9"
+}

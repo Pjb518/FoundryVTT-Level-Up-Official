@@ -1,0 +1,98 @@
+{
+	"folder": null,
+	"name": "Elemental Blast (Fire)",
+	"type": "feature",
+	"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"B73jnX2U8TStoqOh": {
+				"name": "Use Feature",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"BAZaODehHL9ETwAD": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"66l2zOw1G3Gi4CIt": {
+						"type": "damage",
+						"default": true,
+						"formula": "ceil(@level/2)d6[Blast Damage] + @spellcasting.mod[Spellcasting Modifier]",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"xg5xAOTgIvazFuga": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>The most basic use of your elemental power is showcased&nbsp;by your ability to lash out with attacks of raw elemental&nbsp;energy. To use your elemental blast, as an action, make a&nbsp;ranged spell attack with a range of 60 feet. Your elemental&nbsp;blast deals damage equal to 1d6 + your spellcasting&nbsp;modifier, and the damage dealt is determined by the blast&nbsp;you used.</p>\n<p>The elemental energy fades after the attack, but its effects&nbsp;are left behind (for instance, a fire blast could ignite&nbsp;flammable materials, and an earth blast or a water blast&nbsp;could smother or quench a fire, but an earth blast or water&nbsp;blast will not leave earth or water behind). Each elemental&nbsp;blast power has its own damage type, as seen below in table&nbsp;&ldquo;Basic Elemental Blasts&rdquo; and properties.&nbsp;</p>\n<p>As you gain levels, the number of damage dice your Elemental Blast deals increases, as shown in the Blast Dice column on the Elementalist table. If you later gain a new Elemental Affinity, you gain access to that element&rsquo;s blast as well.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.33"
+				}
+			},
+			"version": 0.016
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "yj0lfbc3epf6la97"
+}

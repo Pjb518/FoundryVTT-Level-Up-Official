@@ -1,0 +1,73 @@
+{
+	"name": "Ambush",
+	"type": "feature",
+	"img": "icons/skills/melee/strike-axe-blood-red.webp",
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p>Once per combat, if you hit a surprised creature with an attack, the attack’s damage increases by 2d6.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {
+			"lZNx6sCtTWcnNUfL": {
+				"grantType": "damage",
+				"level": 0,
+				"optional": false,
+				"label": "Ambush",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"rangedWeaponAttack",
+						"meleeSpellAttack",
+						"rangedSpellAttack"
+					],
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"bonus": "+2d6[Ambush]",
+				"_id": "lZNx6sCtTWcnNUfL",
+				"default": true,
+				"img": "",
+				"damageType": ""
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": {
+				"version": {
+					"schema": 0.015,
+					"foundry": "11.315",
+					"system": "0.17.33"
+				}
+			}
+		}
+	},
+	"_id": "gu1ko5q2xeeqrl6k"
+}
