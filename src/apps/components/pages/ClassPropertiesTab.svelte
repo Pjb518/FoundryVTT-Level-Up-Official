@@ -59,28 +59,31 @@
     <Section heading="Metadata" --a5e-section-body-gap="0.75rem">
         <FieldWrapper
             heading="Class Identifier"
-            --a5e-field-wrapper-direction="row"
+            --a5e-field-wrapper-header-item-justification="flex-start"
+            --a5e-field-wrapper-header-gap="0.5rem"
         >
-            <input
-                class="a5e-input a5e-input--slim slug-input"
-                value={$item.system.slug || $item.slug || ""}
-                type="text"
-                on:change={({ target }) => {
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.slug",
-                        target.value.slugify(),
-                    );
-                }}
-            />
+            <div style="display: flex; gap: 0.5rem">
+                <input
+                    class="a5e-input a5e-input--slim slug-input"
+                    value={$item.system.slug || $item.slug || ""}
+                    type="text"
+                    on:change={({ target }) => {
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.slug",
+                            target.value.slugify(),
+                        );
+                    }}
+                />
 
-            <button
-                class="slug-reset-button"
-                on:click={() =>
-                    updateDocumentDataFromField($item, "system.slug", "")}
-            >
-                <i class="fas fa-solid fa-rotate-left" />
-            </button>
+                <button
+                    class="slug-reset-button"
+                    on:click={() =>
+                        updateDocumentDataFromField($item, "system.slug", "")}
+                >
+                    <i class="fas fa-solid fa-rotate-left" />
+                </button>
+            </div>
         </FieldWrapper>
     </Section>
 
