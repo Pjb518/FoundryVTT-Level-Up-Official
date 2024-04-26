@@ -293,17 +293,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       if (grant.bonusId) updates[`system.bonuses.${grant.type}.-=${grant.bonusId}`] = null;
     }
 
-    if (grant instanceof GrantCls.proficiency) {
-      const { keys, proficiencyType } = grant.proficiencyData;
-
-      if (proficiencyType === 'ability') {
-        keys.forEach((key: string) => {
-          updates[`system.abilities.${key}.save.proficient`] = false;
-        });
-      } else if (proficiencyType === 'skill') {
-        keys.forEach((key: string) => {
-          updates[`system.skills.${key}.proficient`] = 0;
-        });
+    if (grant instanceof GrantCls.exertion) {
+      if (grant.exertionData.exertionType === 'bonus') {
+        updates[`system.bonuses.exertion.-=${grant.exertionData.bonusId}`] = null;
       }
     }
 
@@ -318,6 +310,20 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       }, []);
 
       this.actor.deleteEmbeddedDocuments('Item', deleteIds);
+    }
+
+    if (grant instanceof GrantCls.proficiency) {
+      const { keys, proficiencyType } = grant.proficiencyData;
+
+      if (proficiencyType === 'ability') {
+        keys.forEach((key: string) => {
+          updates[`system.abilities.${key}.save.proficient`] = false;
+        });
+      } else if (proficiencyType === 'skill') {
+        keys.forEach((key: string) => {
+          updates[`system.skills.${key}.proficient`] = 0;
+        });
+      }
     }
 
     if (grant instanceof GrantCls.skillSpecialty) {

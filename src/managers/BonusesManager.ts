@@ -141,6 +141,19 @@ export default class BonusesManager {
     return parts.join(' + ').trim();
   }
 
+  getExertionBonusFormula(): string {
+    const bonuses = this.#bonuses.exertion ?? {};
+    const parts = Object.values(bonuses).reduce((acc: string[], bonus) => {
+      const formula = bonus.formula.trim();
+      if (!formula) return acc;
+
+      acc.push(formula);
+      return acc;
+    }, []);
+
+    return parts.join(' + ').trim();
+  }
+
   getHitPointsBonusFormula(): string {
     const bonuses = this.prepareHitPointsBonuses();
 

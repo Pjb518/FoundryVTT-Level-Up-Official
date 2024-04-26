@@ -43,7 +43,7 @@ class ExertionGrant extends ActorBaseGrant {
       grantType: new fields.StringField({ required: true, initial: 'exertion' }),
       exertionData: new fields.SchemaField({
         exertionType: new fields.StringField({ required: true, initial: '' }),
-        bonusId: new fields.DocumentIdField({ required: false, initial: '' }),
+        bonusId: new fields.StringField({ required: false, initial: '' }),
         poolType: new fields.StringField({ required: true, initial: '' })
       })
     });

@@ -2,6 +2,8 @@ import BaseActorA5e from './base';
 
 import HitDiceManager from '../../managers/HitDiceManager';
 
+import getDeterministicBonus from '../../dice/getDeterministicBonus';
+
 export default class CharacterActorA5E extends BaseActorA5e {
   /**
    * @type {Record<string, ClassItemA5e>}
@@ -86,8 +88,37 @@ export default class CharacterActorA5E extends BaseActorA5e {
       this.HitDiceManager.bySize
     );
 
+    foundry.utils.setProperty(actorData, 'attributes.exertion.max', this.prepareMaxExertion());
+
     this.prepareHitPoints();
     this.prepareSpellResources();
+  }
+
+  prepareMaxExertion() {
+    const { max: baseMax } = this.system.attributes.exertion;
+    if (!this.automationAvailable) return baseMax;
+
+    let max = 0;
+
+    // Get best pool type from actor grants
+    const pools = this.grants.byType('exertion').reduce((acc, { exertionData }) => {
+      if (!exertionData) return acc;
+      if (exertionData.exertionType === 'pool') acc.push(exertionData.poolType);
+      return acc;
+    }, []);
+
+    if (pools.length === 0) max = baseMax;
+    else if (pools.includes('doubleProf')) max = this.system.attributes.prof * 2;
+    else if (pools.includes('prof')) max = this.system.attributes.prof;
+    else max = baseMax;
+
+    // Add bonuses
+    const bonuses = getDeterministicBonus(
+      this.BonusesManager.getExertionBonusFormula(),
+      this.getRollData()
+    ) ?? 0;
+
+    return max + bonuses;
   }
 
   prepareHitPoints() {
