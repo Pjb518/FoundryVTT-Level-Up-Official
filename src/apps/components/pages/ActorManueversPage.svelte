@@ -111,6 +111,7 @@
                 type="number"
                 name="system.attributes.exertion.max"
                 value={exertion.max}
+                disabled={$actor.automationAvailable}
                 placeholder="0"
                 min="0"
                 on:change={({ target }) =>

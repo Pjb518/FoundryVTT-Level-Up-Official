@@ -141,7 +141,6 @@ export default class CharacterActorA5E extends BaseActorA5e {
    * Prepares detailed level data for the actor.
    */
   prepareLevelData() {
-    // const { classes } = this;
     const classes = this.items.filter((item) => item.type === 'class');
 
     if (!this.classAutomationFlags.classes) {
