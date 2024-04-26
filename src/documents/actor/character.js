@@ -59,8 +59,10 @@ export default class CharacterActorA5E extends BaseActorA5e {
       spellResources: this.getFlag('a5e', 'automateSpellResources') ?? automationAvailable ?? true
     };
 
+    this.prepareLevelData();
+
     // Calculate the proficiency bonus for the character with a minimum value of 2.
-    this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.level + 7) / 4));
+    this.system.attributes.prof = Math.max(2, Math.floor((this.levels.character + 7) / 4));
   }
 
   /**
@@ -71,9 +73,6 @@ export default class CharacterActorA5E extends BaseActorA5e {
     this.HitDiceManager = new HitDiceManager(this, this.classAutomationFlags.hitDice);
 
     super.prepareDerivedData();
-
-    // Done first on purpose
-    this.prepareLevelData();
 
     const actorData = this.system;
 
@@ -142,7 +141,8 @@ export default class CharacterActorA5E extends BaseActorA5e {
    * Prepares detailed level data for the actor.
    */
   prepareLevelData() {
-    const { classes } = this;
+    // const { classes } = this;
+    const classes = this.items.filter((item) => item.type === 'class');
 
     if (!this.classAutomationFlags.classes) {
       this.levels = {
@@ -154,10 +154,10 @@ export default class CharacterActorA5E extends BaseActorA5e {
     }
 
     const levelData = Object.values(classes ?? {}).reduce((acc, cls) => {
-      const level = cls.classLevels;
+      const level = cls.system.classLevels;
       if (!level) return acc;
 
-      acc.classes[cls.slug] = level;
+      acc.classes[cls.system.slug || cls.name.slugify()] = level;
       acc.character += level;
       return acc;
     }, { character: 0, classes: {} });
