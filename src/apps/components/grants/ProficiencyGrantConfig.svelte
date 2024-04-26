@@ -48,7 +48,7 @@
     const item = new TJSDocument(document);
     const configObject = {
         ability: {
-            label: "A5E.Ability",
+            label: "Saving Throw",
             options: Object.entries(CONFIG.A5E.abilities),
         },
         skill: {

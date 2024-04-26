@@ -39,15 +39,17 @@
         return options;
     }
 
+    const { abilities, skills } = CONFIG.A5E;
     const dispatch = createEventDispatcher();
+
     const configObject = {
         ability: {
-            label: "A5E.Ability",
-            options: Object.entries(CONFIG.A5E.abilities),
+            label: "Saving Throw",
+            options: Object.entries(abilities),
         },
         skill: {
             label: "A5E.Skill",
-            options: Object.entries(CONFIG.A5E.skills),
+            options: Object.entries(skills),
         },
     };
 
