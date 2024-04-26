@@ -59,6 +59,13 @@ export interface DamageGrant extends BaseGrant {
   }
 }
 
+export interface ExertionGrant extends BaseGrant {
+  grantType: 'exertion';
+  exertionType: 'bonus' | 'pool';
+  bonus: string;
+  poolType: 'none' | 'prof' | 'doubleProf';
+}
+
 export interface ExpertiseDiceGrant extends BaseGrant {
   grantType: 'expertiseDice';
   keys: {
@@ -186,6 +193,7 @@ export type Grant = AbilityGrant
   | AttackGrant
   | DamageGrant
   | HealingGrant
+  | ExertionGrant
   | ExpertiseDiceGrant
   | FeatureGrant
   | InitiativeGrant

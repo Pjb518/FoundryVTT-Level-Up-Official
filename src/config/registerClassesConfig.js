@@ -24,6 +24,12 @@ export default function registerClassesConfig(A5E) {
     wielder: 'A5E.classes.casterTypes.wielder'
   };
 
+  A5E.exertionPoolTypes = {
+    none: 'A5E.classes.exertionPoolTypes.none',
+    prof: 'A5E.classes.exertionPoolTypes.prof',
+    doubleProf: 'A5E.classes.exertionPoolTypes.double'
+  };
+
   // ------------------------------------------------------------
   // Spell Casting Progression
   // ------------------------------------------------------------

@@ -2,6 +2,7 @@ import AbilityGrant from './AbilityGrant';
 import AttackGrant from './AttackGrant';
 import BaseGrant from './BaseGrant';
 import DamageGrant from './DamageGrant';
+import ExertionGrant from './ExertionGrant';
 import ExpertiseDiceGrant from './ExpertiseDiceGrant';
 import FeatureGrant from './FeatureGrant';
 import HealingGrant from './HealingGrant';
@@ -20,6 +21,7 @@ export default {
   ability: AbilityGrant,
   attack: AttackGrant,
   damage: DamageGrant,
+  exertion: ExertionGrant,
   expertiseDice: ExpertiseDiceGrant,
   feature: FeatureGrant,
   healing: HealingGrant,

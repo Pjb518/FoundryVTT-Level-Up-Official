@@ -6,6 +6,21 @@ export default class BaseGrant extends A5EDataModel {
 
   #configComponent = null;
 
+  // Schema values
+  declare _id: string;
+
+  declare img: string;
+
+  declare grantType: string;
+
+  declare label: string;
+
+  declare level: number;
+
+  declare levelType: string;
+
+  declare optional: boolean;
+
   constructor(data: any, options: any = {}) {
     // @ts-ignore
     super(data, options);
