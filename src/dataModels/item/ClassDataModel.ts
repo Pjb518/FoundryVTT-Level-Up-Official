@@ -11,9 +11,6 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
       classLevels: new fields.NumberField({
         nullable: false, initial: 0, min: 0, max: 20
       }),
-      combatManeuvers: new fields.SchemaField({
-        startingManeuvers: new fields.NumberField({ nullable: false, initial: 0, min: 0 })
-      }),
       hp: new fields.SchemaField({
         hitDiceSize: new fields.NumberField({
           nullable: false, initial: 6, min: 4, max: 20

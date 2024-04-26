@@ -192,23 +192,6 @@
         </Section>
     {/if}
 
-    <Section heading="Combat Maneuvers" --a5e-section-body-gap="0.75rem">
-        <FieldWrapper heading="Starting Maneuver Count">
-            <input
-                class="a5e-input a5e-input--small a5e-input--slim"
-                type="number"
-                min="0"
-                value={$item.system.combatManeuvers.startingManeuvers}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.combatManeuvers.startingManeuvers",
-                        Number(target.value),
-                    )}
-            />
-        </FieldWrapper>
-    </Section>
-
     <Section heading="Spell Casting" --a5e-section-body-gap="0.75rem">
         <RadioGroup
             heading="Spellcasting Ability"
