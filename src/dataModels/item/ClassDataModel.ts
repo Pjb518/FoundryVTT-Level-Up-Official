@@ -28,8 +28,61 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
         )
       }),
       grants: new fields.ObjectField({
-        nullable: false
-        // initial: () => { }
+        nullable: false,
+        initial: () => ({
+          [foundry.utils.randomID()]: {
+            grantType: 'trait',
+            traits: {
+              base: [],
+              options: [],
+              total: 0,
+              traitType: 'armorTypes'
+            },
+            label: 'Armor Proficiencies'
+          },
+          [foundry.utils.randomID()]: {
+            grantType: 'trait',
+            traits: {
+              base: [],
+              options: [],
+              total: 0,
+              traitType: 'weapons'
+            },
+            label: 'Weapon Proficiencies'
+          },
+          [foundry.utils.randomID()]: {
+            grantType: 'trait',
+            traits: {
+              base: [],
+              options: [],
+              total: 0,
+              traitType: 'tools'
+            },
+            label: 'Tool Proficiencies'
+          },
+          [foundry.utils.randomID()]: {
+            grantType: 'proficiency',
+            keys: {
+              base: [],
+              options: [],
+              total: 0
+            },
+            proficiencyType: 'ability',
+            isExpertise: false,
+            label: 'Saving Throw Proficiencies'
+          },
+          [foundry.utils.randomID()]: {
+            grantType: 'proficiency',
+            keys: {
+              base: [],
+              options: [],
+              total: 0
+            },
+            proficiencyType: 'skill',
+            isExpertise: false,
+            label: 'Skill Proficiencies'
+          }
+        })
       }),
       resources: new fields.ArrayField(
         new fields.SchemaField({
