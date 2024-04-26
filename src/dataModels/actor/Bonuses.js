@@ -44,6 +44,15 @@ export function getDamageBonusData() {
   };
 }
 
+export function getExertionBonusData() {
+  const { fields } = foundry.data;
+  return {
+    formula: new fields.StringField({ required: true, initial: '' }),
+    label: new fields.StringField({ required: true, initial: '' }),
+    img: new fields.StringField({ required: true, initial: 'icons/svg/upgrade.svg' })
+  };
+}
+
 export function getHealingBonusData() {
   const { fields } = foundry.data;
   return {

@@ -11,6 +11,15 @@ export interface BonusGrant extends ActorBaseGrant {
   grantType: 'bonus';
 }
 
+export interface ExertionGrant extends ActorBaseGrant {
+  exertionData: {
+    exertionType: 'bonus' | 'pool',
+    bonusId: string | undefined,
+    poolType: 'none' | 'prof' | 'doubleProf',
+  };
+  grantType: 'exertion';
+}
+
 export interface ExpertiseDiceGrant extends ActorBaseGrant {
   expertiseDiceData: {
     keys: string[],
@@ -60,6 +69,8 @@ export interface TraitGrant extends ActorBaseGrant {
 
 export type ActorGrant = BonusGrant
   | FeatureGrant
+  | ExertionGrant
+  | ExpertiseDiceGrant
   | ItemGrant
   | ProficiencyGrant
   | SkillSpecialtyGrant

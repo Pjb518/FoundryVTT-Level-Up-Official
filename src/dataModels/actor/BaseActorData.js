@@ -10,6 +10,7 @@ import {
   getAbilitiesBonusData,
   getAttackBonusData,
   getDamageBonusData,
+  getExertionBonusData,
   getHealingBonusData,
   getHitPointBonusData,
   getInitiativeBonusData,
@@ -173,6 +174,10 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new fields.SchemaField(getDamageBonusData())
         ),
+        exertion: new RecordField(
+          new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
+          new fields.SchemaField(getExertionBonusData())
+        ),
         healing: new RecordField(
           new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
           new fields.SchemaField(getHealingBonusData())
@@ -198,12 +203,12 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           new fields.SchemaField(getSkillBonusData())
         ),
         maneuverDC: new fields.StringField({ initial: '' }),
+        spellDC: new fields.StringField({ initial: '' }),
         // TODO: Migration Upgrade - Remove these at a later date when migration is guaranteed
         meleeSpellAttack: new fields.StringField({ initial: '' }),
         meleeWeaponAttack: new fields.StringField({ initial: '' }),
         rangedSpellAttack: new fields.StringField({ initial: '' }),
-        rangedWeaponAttack: new fields.StringField({ initial: '' }),
-        spellDC: new fields.StringField({ initial: '' })
+        rangedWeaponAttack: new fields.StringField({ initial: '' })
       }),
       currency: new fields.SchemaField({
         cp: new fields.NumberField({ required: true, initial: 0, integer: true }),

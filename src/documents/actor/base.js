@@ -22,6 +22,7 @@ import ArmorClassConfigDialog from '../../apps/dialogs/ArmorClassConfigDialog.sv
 import AttackBonusConfigDialog from '../../apps/dialogs/AttackBonusConfigDialog.svelte';
 import DamageBonusConfigDialog from '../../apps/dialogs/DamageBonusConfigDialog.svelte';
 import DetailsConfigDialog from '../../apps/dialogs/DetailsConfigDialog.svelte';
+import ExertionBonusConfigDialog from '../../apps/dialogs/ExertionBonusConfigDialog.svelte';
 import InitiativeBonusConfigDialog from '../../apps/dialogs/InitiativeBonusConfigDialog.svelte';
 import HealingBonusConfigDialog from '../../apps/dialogs/HealingBonusConfigDialog.svelte';
 import HitPointsBonusConfigDialog from '../../apps/dialogs/HitPointsBonusConfigDialog.svelte';
@@ -70,6 +71,7 @@ export default class BaseActorA5e extends Actor {
       damageImmunities: DetailsConfigDialog,
       damageResistances: DetailsConfigDialog,
       damageVulnerabilities: DetailsConfigDialog,
+      exertionBonus: ExertionBonusConfigDialog,
       healingBonus: HealingBonusConfigDialog,
       hitPointsBonus: HitPointsBonusConfigDialog,
       health: ActorHpConfigDialog,

@@ -35,6 +35,21 @@ class BonusGrant extends ActorBaseGrant {
   }
 }
 
+class ExertionGrant extends ActorBaseGrant {
+  static defineSchema() {
+    const { fields } = foundry.data;
+
+    return this.mergeSchema(super.defineSchema(), {
+      grantType: new fields.StringField({ required: true, initial: 'exertion' }),
+      exertionData: new fields.SchemaField({
+        exertionType: new fields.StringField({ required: true, initial: '' }),
+        bonusId: new fields.DocumentIdField({ required: false, initial: '' }),
+        poolType: new fields.StringField({ required: true, initial: '' })
+      })
+    });
+  }
+}
+
 class ExpertiseDiceGrant extends ActorBaseGrant {
   static defineSchema() {
     const { fields } = foundry.data;
@@ -141,6 +156,7 @@ class TraitGrant extends ActorBaseGrant {
 export default {
   base: ActorBaseGrant,
   bonus: BonusGrant,
+  exertion: ExertionGrant,
   expertiseDice: ExpertiseDiceGrant,
   feature: FeatureGrant,
   item: ItemGrant,

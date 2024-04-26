@@ -38,6 +38,12 @@ export interface DamageBonus {
   defaultLabel?: string;
 }
 
+export interface ExertionBonus {
+  formula: string;
+  label: string;
+  img: string;
+}
+
 export interface HealingBonus {
   context: HealingBonusContext;
   healingType: string;
@@ -97,6 +103,7 @@ export interface Bonuses {
   abilities: { [id: string]: AbilityBonus };
   attacks: { [id: string]: AttackBonus };
   damage: { [id: string]: DamageBonus };
+  exertion: { [id: string]: ExertionBonus };
   healing: { [id: string]: HealingBonus };
   hitPoint: { [id: string]: HitPointsBonus };
   initiative: { [id: string]: InitiativeBonus };
