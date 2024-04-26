@@ -311,7 +311,13 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       const ids = grant.documentIds;
       if (!ids?.length) return updates;
 
-      this.actor.deleteEmbeddedDocuments('Item', ids);
+      // Validate ids to ensure they are not already deleted
+      const deleteIds = this.actor.items.reduce((acc: string[], i: typeof Item) => {
+        if (ids.includes(i.id)) acc.push(i.id);
+        return acc;
+      }, []);
+
+      this.actor.deleteEmbeddedDocuments('Item', deleteIds);
     }
 
     if (grant instanceof GrantCls.skillSpecialty) {
