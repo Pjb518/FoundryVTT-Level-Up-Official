@@ -1,10 +1,5 @@
 export default function prepareTraitGrantConfigObject() {
   return {
-    armorTypes: {
-      label: 'A5E.ArmorType',
-      config: Object.entries(CONFIG.A5E.armor),
-      propertyKey: 'system.proficiencies.armor'
-    },
     conditionImmunities: {
       label: 'A5E.ConditionImmunities',
       config: Object.entries(CONFIG.A5E.conditions),
@@ -35,25 +30,10 @@ export default function prepareTraitGrantConfigObject() {
       config: Object.entries(CONFIG.A5E.languages),
       propertyKey: 'system.proficiencies.languages'
     },
-    maneuverTraditions: {
-      label: 'A5E.ManeuverTraditionPlural',
-      config: Object.entries(CONFIG.A5E.maneuverTraditions),
-      propertyKey: 'system.proficiencies.traditions'
-    },
     size: {
       label: 'A5E.Size',
       config: Object.entries(CONFIG.A5E.actorSizes),
       propertyKey: 'system.traits.size'
-    },
-    tools: {
-      label: 'A5E.ToolPlural',
-      config: CONFIG.A5E.tools,
-      propertyKey: 'system.proficiencies.tools'
-    },
-    weapons: {
-      label: 'A5E.Weapons',
-      config: CONFIG.A5E.weapons,
-      propertyKey: 'system.proficiencies.weapons'
     }
   };
 }

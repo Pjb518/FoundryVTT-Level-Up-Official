@@ -5,8 +5,7 @@ export default class ActorProficiencyGrant extends ActorBaseGrant {
   declare proficiencyData: {
     keys: string[];
     total: number;
-    // proficiencyType: 'armor' | 'savingThrow' | 'skill' | 'tool' | 'weapon';
-    proficiencyType: string;
+    proficiencyType: 'armor' | 'savingThrow' | 'skill' | 'tradition' | 'tool' | 'weapon';
   };
 
   static defineSchema() {

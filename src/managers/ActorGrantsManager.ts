@@ -2,13 +2,14 @@ import type { ActorGrant, TraitGrant } from 'types/actorGrants';
 import type { Grant } from 'types/itemGrants';
 import type ItemGrantsManager from './ItemGrantsManager';
 
-import actorGrants from '../dataModels/actor/grants/index';
+import actorGrants from '../dataModels/actor/grants';
 
 import GenericDialog from '../apps/dialogs/initializers/GenericDialog';
 import GrantApplicationDialog from '../apps/dialogs/GrantApplicationDialog.svelte';
 
-import prepareTraitGrantConfigObject from '../utils/prepareTraitGrantConfigObject';
 import prepareGrantsApplyData from '../utils/prepareGrantsApplyData';
+import prepareProficiencyConfigObject from '../utils/prepareProficiencyConfigObject';
+import prepareTraitGrantConfigObject from '../utils/prepareTraitGrantConfigObject';
 
 interface DefaultApplyOptions {
   item?: typeof Item | null;
@@ -323,6 +324,17 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         keys.forEach((key: string) => {
           updates[`system.skills.${key}.proficient`] = 0;
         });
+      } else {
+        const configObject = prepareProficiencyConfigObject();
+        const { propertyKey } = configObject[proficiencyType] ?? {};
+        if (!propertyKey) return {};
+
+        const removals: Set<string> = new Set(keys);
+        const proficiencies = new Set(
+          foundry.utils.getProperty(this.actor, propertyKey) as string[] ?? []
+        );
+
+        updates[propertyKey] = [...proficiencies.difference(removals)];
       }
     }
 

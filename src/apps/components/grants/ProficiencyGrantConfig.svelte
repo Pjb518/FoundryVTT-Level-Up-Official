@@ -3,6 +3,7 @@
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
     import { localize } from "#runtime/svelte/helper";
 
+    import prepareProficiencyConfigObject from "../../../utils/prepareProficiencyConfigObject";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import FieldWrapper from "../FieldWrapper.svelte";
@@ -11,6 +12,7 @@
     import GrantConfig from "./GrantConfig.svelte";
     import Checkbox from "../Checkbox.svelte";
     import RadioGroup from "../RadioGroup.svelte";
+    import ComplexDetailEmbed from "../ComplexDetailEmbed.svelte";
 
     export let { document, grantId, grantType } =
         getContext("#external").application;
@@ -47,19 +49,11 @@
     });
 
     const item = new TJSDocument(document);
-    const configObject = {
-        ability: {
-            label: "A5E.SavingThrow",
-            options: Object.entries(CONFIG.A5E.abilities),
-        },
-        skill: {
-            label: "A5E.Skill",
-            options: Object.entries(CONFIG.A5E.skills),
-        },
-    };
+    const configObject = prepareProficiencyConfigObject();
+    const { weaponCategories, toolCategories } = CONFIG.A5E;
 
     $: grant = $item.system.grants[grantId];
-    $: proficiencyType = grant?.proficiencyType || "ability";
+    $: proficiencyType = grant?.proficiencyType || "armor";
 
     setContext("item", item);
     setContext("grantId", grantId);
@@ -104,27 +98,59 @@
                 onUpdateValue("proficiencyType", detail)}
         />
 
-        <CheckboxGroup
-            heading="Base Options"
-            options={configObject[proficiencyType]?.options}
-            selected={grant?.keys?.base}
-            showToggleAllButton={true}
-            disabledOptions={grant?.keys?.options}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("keys.base", detail);
-            }}
-        />
+        <!-- Keep this else it breaks when switching from tools to weapons -->
+        {#key proficiencyType}
+            {#if ["tool", "weapon"].includes(proficiencyType)}
+                <Section heading="Base Options">
+                    <ComplexDetailEmbed
+                        heading="Base Options"
+                        configObject={configObject[proficiencyType]?.config}
+                        existingProperties={grant?.keys?.base}
+                        headings={proficiencyType === "tool"
+                            ? toolCategories
+                            : weaponCategories}
+                        on:updateSelection={({ detail }) => {
+                            onUpdateValue("keys.base", detail);
+                        }}
+                    />
+                </Section>
 
-        <CheckboxGroup
-            heading="Optional Choices"
-            options={configObject[proficiencyType]?.options}
-            selected={grant?.keys?.options}
-            disabledOptions={grant?.keys?.base}
-            showToggleAllButton={true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("keys.options", detail);
-            }}
-        />
+                <Section heading="Optional Choices">
+                    <ComplexDetailEmbed
+                        configObject={configObject[proficiencyType]?.config}
+                        existingProperties={grant?.keys?.base}
+                        headings={proficiencyType === "tool"
+                            ? toolCategories
+                            : weaponCategories}
+                        on:updateSelection={({ detail }) => {
+                            onUpdateValue("keys.base", detail);
+                        }}
+                    />
+                </Section>
+            {:else}
+                <CheckboxGroup
+                    heading="Base Options"
+                    options={configObject[proficiencyType]?.config}
+                    selected={grant?.keys?.base}
+                    showToggleAllButton={true}
+                    disabledOptions={grant?.keys?.options}
+                    on:updateSelection={({ detail }) => {
+                        onUpdateValue("keys.base", detail);
+                    }}
+                />
+
+                <CheckboxGroup
+                    heading="Optional Choices"
+                    options={configObject[proficiencyType]?.config}
+                    selected={grant?.keys?.options}
+                    disabledOptions={grant?.keys?.base}
+                    showToggleAllButton={true}
+                    on:updateSelection={({ detail }) => {
+                        onUpdateValue("keys.options", detail);
+                    }}
+                />
+            {/if}
+        {/key}
 
         <FieldWrapper heading="Selectable Options Count">
             <input
@@ -156,6 +182,8 @@
         padding: var(--padding, 0.75rem);
         gap: 0.75rem;
         background: var(--background, $color-sheet-background);
+        max-height: 75vh;
+        overflow-y: auto;
     }
 
     .grant-name,

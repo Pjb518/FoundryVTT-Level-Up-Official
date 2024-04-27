@@ -16,3 +16,4 @@ export { default as Migration014MigrateSpellBooks } from './014-migrate-spellboo
 export { default as Migration015MigrateProperties } from './015-migrate-properties';
 export { default as Migration016MigrateSkillProficiency } from './016-migrate-skill-proficiency';
 export { default as Migration017MigrateSpellMax } from './017-migrate-spell-max';
+export { default as Migration018MigrateTraitProficiencyGrant } from './018-migrate-trait-proficiency-grant';

@@ -48,7 +48,6 @@
 
     const item = new TJSDocument(document);
     const configObject = prepareTraitGrantConfigObject();
-    const { weaponCategories, toolCategories } = CONFIG.A5E;
 
     $: grant = $item.system.grants[grantId];
     $: traitType = grant?.traits?.traitType || "armorTypes";
@@ -101,69 +100,28 @@
         </FieldWrapper>
     </Section>
 
-    <!-- Keep this else it breaks when switching from tools to weapons -->
-    {#key traitType}
-        {#if ["tools", "weapons"].includes(traitType)}
-            <Section
-                heading="Base Options"
-                --a5e-section-margin="0.25rem 0"
-                --a5e-section-body-gap="0.75rem"
-            >
-                <ComplexDetailEmbed
-                    configObject={configObject[traitType]?.config}
-                    existingProperties={grant?.traits?.base}
-                    headings={traitType === "tools"
-                        ? toolCategories
-                        : weaponCategories}
-                    on:updateSelection={({ detail }) => {
-                        onUpdateValue("traits.base", detail);
-                    }}
-                />
-            </Section>
-
-            <Section
-                heading="Optional Choices"
-                --a5e-section-margin="0.25rem 0"
-                --a5e-section-body-gap="0.75rem"
-            >
-                <ComplexDetailEmbed
-                    configObject={configObject[traitType]?.config}
-                    existingProperties={grant?.traits?.options}
-                    headings={traitType === "tools"
-                        ? toolCategories
-                        : weaponCategories}
-                    on:updateSelection={({ detail }) => {
-                        onUpdateValue("traits.options", detail);
-                    }}
-                />
-            </Section>
-        {/if}
-    {/key}
-
     <GrantConfig>
-        {#if !["weapons", "tools"].includes(traitType)}
-            <CheckboxGroup
-                heading="Base Options"
-                options={configObject[traitType]?.config}
-                selected={grant?.traits?.base}
-                disabledOptions={grant?.traits?.options}
-                showToggleAllButton={true}
-                on:updateSelection={({ detail }) => {
-                    onUpdateValue("traits.base", detail);
-                }}
-            />
+        <CheckboxGroup
+            heading="Base Options"
+            options={configObject[traitType]?.config}
+            selected={grant?.traits?.base}
+            disabledOptions={grant?.traits?.options}
+            showToggleAllButton={true}
+            on:updateSelection={({ detail }) => {
+                onUpdateValue("traits.base", detail);
+            }}
+        />
 
-            <CheckboxGroup
-                heading="Optional Choices"
-                options={configObject[traitType]?.config}
-                selected={grant?.traits?.options}
-                disabledOptions={grant?.traits?.base}
-                showToggleAllButton={true}
-                on:updateSelection={({ detail }) => {
-                    onUpdateValue("traits.options", detail);
-                }}
-            />
-        {/if}
+        <CheckboxGroup
+            heading="Optional Choices"
+            options={configObject[traitType]?.config}
+            selected={grant?.traits?.options}
+            disabledOptions={grant?.traits?.base}
+            showToggleAllButton={true}
+            on:updateSelection={({ detail }) => {
+                onUpdateValue("traits.options", detail);
+            }}
+        />
 
         <FieldWrapper heading="Selectable Options Count">
             <input
