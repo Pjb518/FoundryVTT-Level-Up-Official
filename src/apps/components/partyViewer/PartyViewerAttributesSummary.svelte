@@ -18,7 +18,11 @@
             data-tooltip="{abilityLabel} Check Modifier"
             data-tooltip-direction="UP"
         >
-            <span>{replaceHyphenWithMinusSign(attribute?.check?.mod)}</span>
+            <span>
+                {replaceHyphenWithMinusSign(
+                    attribute?.check?.deterministicBonus,
+                )}
+            </span>
         </div>
 
         <div
@@ -29,7 +33,11 @@
                 : `${abilityLabel} Saving Throw Modifier`}
             data-tooltip-direction="UP"
         >
-            <span>{replaceHyphenWithMinusSign(attribute?.save?.mod)}</span>
+            <span>
+                {replaceHyphenWithMinusSign(
+                    attribute?.save?.deterministicBonus,
+                )}
+            </span>
         </div>
     </div>
 {/each}
