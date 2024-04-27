@@ -10,6 +10,14 @@ export default class FeatureGrant extends BaseGrant {
 
   #type = 'feature';
 
+  // Variables for the schema
+
+  declare features: {
+    base: string[];
+    options: string[];
+    total: number;
+  };
+
   static defineSchema() {
     const { fields } = foundry.data;
 
@@ -62,8 +70,8 @@ export default class FeatureGrant extends BaseGrant {
     };
   }
 
-  requiresConfig() {
-    return this.features.options.length;
+  requiresConfig(): boolean {
+    return !!this.features.options.length;
   }
 
   override async configureGrant() {

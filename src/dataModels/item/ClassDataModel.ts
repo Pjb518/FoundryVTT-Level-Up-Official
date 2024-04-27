@@ -35,7 +35,8 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
               total: 0,
               traitType: 'armorTypes'
             },
-            label: 'Armor Proficiencies'
+            label: 'Armor Proficiencies',
+            levelType: 'character'
           },
           [foundry.utils.randomID()]: {
             grantType: 'trait',
@@ -45,7 +46,8 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
               total: 0,
               traitType: 'weapons'
             },
-            label: 'Weapon Proficiencies'
+            label: 'Weapon Proficiencies',
+            levelType: 'class'
           },
           [foundry.utils.randomID()]: {
             grantType: 'trait',
@@ -55,7 +57,8 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
               total: 0,
               traitType: 'tools'
             },
-            label: 'Tool Proficiencies'
+            label: 'Tool Proficiencies',
+            levelType: 'character'
           },
           [foundry.utils.randomID()]: {
             grantType: 'proficiency',
@@ -66,7 +69,8 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
             },
             proficiencyType: 'ability',
             isExpertise: false,
-            label: 'Saving Throw Proficiencies'
+            label: 'Saving Throw Proficiencies',
+            levelType: 'character'
           },
           [foundry.utils.randomID()]: {
             grantType: 'proficiency',
@@ -77,9 +81,31 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
             },
             proficiencyType: 'skill',
             isExpertise: false,
-            label: 'Skill Proficiencies'
+            label: 'Skill Proficiencies',
+            levelType: 'character'
+          },
+          [foundry.utils.randomID()]: {
+            grantType: 'feature',
+            features: {
+              base: [],
+              options: [],
+              total: 0
+            },
+            label: '1st Level Class Features',
+            levelType: 'class'
           }
-        })
+        }),
+        [foundry.utils.randomID()]: {
+          grantType: 'items',
+          items: {
+            base: [],
+            options: [],
+            total: 0
+          },
+          label: 'Starting Equipment',
+          levelType: 'character',
+          optional: true
+        }
       }),
       resources: new fields.ArrayField(
         new fields.SchemaField({
