@@ -8,12 +8,12 @@
     import RadioGroup from "../RadioGroup.svelte";
     import Section from "../Section.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
+    import CheckboxGroup from "../CheckboxGroup.svelte";
 
     const item = getContext("item");
+    const { classes, classes5e, featureTypes } = CONFIG.A5E;
 
     let editMode = false;
-
-    const featureTypes = CONFIG.A5E.featureTypes;
 </script>
 
 <Section
@@ -40,6 +40,34 @@
                     event.detail,
                 )}
         />
+
+        {#if ["class", "knack"].includes($item.system.featureType)}
+            <CheckboxGroup
+                heading="A5E Classes"
+                options={Object.entries(classes)}
+                selected={$item.system.classes}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.classes",
+                        detail,
+                    );
+                }}
+            />
+
+            <CheckboxGroup
+                heading="5E Classes"
+                options={Object.entries(classes5e)}
+                selected={$item.system.classes}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.classes",
+                        detail,
+                    );
+                }}
+            />
+        {/if}
 
         <FieldWrapper>
             <Checkbox

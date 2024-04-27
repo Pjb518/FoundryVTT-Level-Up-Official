@@ -8,6 +8,10 @@ export default class FeatureDataModel extends A5EDataModel.mixin(BaseItemData, A
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
+      classes: new fields.ArrayField(
+        new fields.StringField({ required: true, initial: '' }),
+        { required: true, initial: [] }
+      ),
       concentration: new fields.BooleanField({ required: true, initial: false }),
       featureType: new fields.StringField({ required: true, initial: '' }),
       grants: new fields.ObjectField({ required: true, initial: {} }),
