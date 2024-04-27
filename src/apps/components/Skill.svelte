@@ -6,6 +6,7 @@
 
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
     import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
+    import getDeterministicBonus from "../../dice/getDeterministicBonus";
     import replaceHyphenWithMinusSign from "../../utils/replaceHyphenWithMinusSign";
 
     export let columnFlow;
@@ -49,6 +50,23 @@
         $actor.update({ [`system.skills.${key}.proficient`]: newState });
     }
 
+    function getSkillBonus() {
+        const skillBonus = skill.deterministicBonus;
+
+        if (showDeterministicBonus) {
+            return skillBonus;
+        } else {
+            const checkBonus = getDeterministicBonus(
+                $actor.BonusesManager.getAbilityBonusesFormula(
+                    skill.ability,
+                    "check",
+                ),
+                $actor.getRollData(),
+            );
+            return skillBonus - checkBonus;
+        }
+    }
+
     const actor = getContext("actor");
     const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
     const { skills } = CONFIG.A5E;
@@ -59,7 +77,7 @@
     $: abilityBonus =
         $actor.system.abilities[skill.ability].check.deterministicBonus;
 
-    $: skillBonus = skill.deterministicBonus;
+    $: skillBonus = getSkillBonus($actor, showDeterministicBonus);
     $: proficiencyLevel = getProficiencyLevel($actor, skill);
     $: proficiencyTooltip = getProficiencyTooltip(proficiencyLevel);
 
