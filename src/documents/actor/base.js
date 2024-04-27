@@ -523,7 +523,7 @@ export default class BaseActorA5e extends Actor {
       10,
       skill.mod,
       rollData.abilities[skill.ability]?.check?.deterministicBonus ?? 0,
-      this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive', true)
+      this.BonusesManager.getSkillBonusesFormula(skillKey, skill.ability, 'passive', false)
     ].filter(Boolean).join(' + '), rollData);
   }
 
