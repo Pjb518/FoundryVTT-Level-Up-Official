@@ -10,6 +10,7 @@
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import GrantConfig from "./GrantConfig.svelte";
     import Checkbox from "../Checkbox.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
 
     export let { document, grantId, grantType } =
         getContext("#external").application;
@@ -48,7 +49,7 @@
     const item = new TJSDocument(document);
     const configObject = {
         ability: {
-            label: "Saving Throw",
+            label: "A5E.SavingThrow",
             options: Object.entries(CONFIG.A5E.abilities),
         },
         skill: {
@@ -89,26 +90,20 @@
     </header>
 
     <Section
-        heading="Proficiency Type"
+        heading="Proficiency Config"
         --a5e-section-margin="0.25rem 0"
-        --a5e-section-body-direction="row"
+        --a5e-section-body-gap="0.75rem"
     >
-        <FieldWrapper>
-            <select
-                class="u-w-fit damage-type-select"
-                on:change={({ target }) =>
-                    onUpdateValue("proficiencyType", target.value)}
-            >
-                {#each Object.entries(configObject) as [key, { label }]}
-                    <option value={key} selected={proficiencyType === key}>
-                        {localize(label)}
-                    </option>
-                {/each}
-            </select>
-        </FieldWrapper>
-    </Section>
+        <RadioGroup
+            options={Object.entries(configObject).map(([key, { label }]) => [
+                key,
+                localize(label),
+            ])}
+            selected={proficiencyType}
+            on:updateSelection={({ detail }) =>
+                onUpdateValue("proficiencyType", detail)}
+        />
 
-    <GrantConfig>
         <CheckboxGroup
             heading="Base Options"
             options={configObject[proficiencyType]?.options}
@@ -142,13 +137,15 @@
 
         {#if proficiencyType === "skill"}
             <Checkbox
-                label="Grant expertise in these instead of proficiency"
+                label="Grant 5e expertise in these instead of proficiency"
                 checked={grant.isExpertise ?? false}
                 on:updateSelection={({ detail }) =>
                     onUpdateValue("isExpertise", detail)}
             />
         {/if}
-    </GrantConfig>
+    </Section>
+
+    <GrantConfig />
 </form>
 
 <style lang="scss">

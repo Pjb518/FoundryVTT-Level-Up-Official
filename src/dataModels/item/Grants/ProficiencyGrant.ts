@@ -10,6 +10,17 @@ export default class ProficiencyGrant extends BaseGrant {
 
   #type = 'proficiency';
 
+  // Define schema variables
+  declare keys: {
+    base: string[];
+    options: string[];
+    total: number;
+  };
+
+  declare proficiencyType: string;
+
+  declare isExpertise: boolean;
+
   static defineSchema() {
     const { fields } = foundry.data;
 
@@ -87,7 +98,7 @@ export default class ProficiencyGrant extends BaseGrant {
   }
 
   requiresConfig(): boolean {
-    return this.keys.options.length;
+    return !!this.keys.options.length;
   }
 
   override async configureGrant() {
