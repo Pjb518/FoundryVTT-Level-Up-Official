@@ -142,6 +142,18 @@ class A5eGameSettings extends TJSGameSettings {
           type: Boolean
         }
       },
+      {
+        namespace,
+        key: 'useNPCExpertisePassiveRulesForCharacters',
+        options: {
+          name: 'A5E.settings.useNPCExpertisePassiveRulesForCharacters',
+          hint: 'A5E.settings.hints.useNPCExpertisePassiveRulesForCharacters',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
       // Canvas Settings
       {
         namespace,

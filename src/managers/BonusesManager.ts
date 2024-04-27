@@ -260,7 +260,11 @@ export default class BonusesManager {
     // Expertise bonus addition for passive skills
     const skill = this.#actor.system.skills[skillKey];
     if (type === 'passive' && skill?.expertiseDice) {
-      if (this.#actor.type === 'character') {
+      const useNPCExpertise = game.settings.storage
+        .get('world')
+        .getItem('a5e.useNPCExpertisePassiveRulesForCharacters') ?? false;
+
+      if (this.#actor.type === 'character' && !useNPCExpertise) {
         parts.push('3');
       } else {
         const diceFace = CONFIG.A5E.expertiseDiceSidesMap[skill.expertiseDice ?? 0];

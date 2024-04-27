@@ -503,7 +503,7 @@ export default class BaseActorA5e extends Actor {
 
       try {
         skill.passive = this._calculatePassiveScore(key, skill);
-      } catch {
+      } catch (e) {
         // eslint-disable-next-line no-console
         console.error(`Couldn't calculate a ${skillName} passive score for ${this.name}`);
         skill.passive = null;

@@ -30,6 +30,9 @@
     let reverseAlt = settings.getStore("reverseAltBehavior");
     let reverseInitAlt = settings.getStore("reverseInitiativeAltBehavior");
     let skillListFlowDirection = settings.getStore("skillListFlowDirection");
+    let useNPCPassive = settings.getStore(
+        "useNPCExpertisePassiveRulesForCharacters",
+    );
 
     let selectedSkillListFlowDirection =
         updates.get("skillListFlowDirection") ?? $skillListFlowDirection;
@@ -89,6 +92,28 @@
                         false}
                     on:updateSelection={({ detail }) => {
                         updates.set("randomizeNPCHitPoints", detail);
+                    }}
+                />
+            </FieldWrapper>
+        {/if}
+
+        {#if isGM}
+            <FieldWrapper
+                hint="A5E.settings.hints.useNPCExpertisePassiveRulesForCharacters"
+            >
+                <Checkbox
+                    label="A5E.settings.useNPCExpertisePassiveRulesForCharacters"
+                    checked={updates.get(
+                        "useNPCExpertisePassiveRulesForCharacters",
+                    ) ??
+                        $useNPCPassive ??
+                        false}
+                    on:updateSelection={({ detail }) => {
+                        updates.set(
+                            "useNPCExpertisePassiveRulesForCharacters",
+                            detail,
+                        );
+                        reload = true;
                     }}
                 />
             </FieldWrapper>
