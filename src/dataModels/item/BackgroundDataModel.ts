@@ -44,8 +44,8 @@ export default class BackgroundDataModel extends A5EDataModel.mixin(SchemaDataMo
           },
           // Trait Proficiency
           [foundry.utils.randomID()]: {
-            grantType: 'trait',
-            traits: { traitType: 'tools' },
+            grantType: 'proficiency',
+            proficiencyType: 'tool',
             label: 'Tool Proficiencies'
           }
         })
