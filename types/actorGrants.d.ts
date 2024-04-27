@@ -67,7 +67,8 @@ export interface TraitGrant extends ActorBaseGrant {
   grantType: 'trait';
 }
 
-export type ActorGrant = BonusGrant
+export type ActorGrant = ActorBaseGrant
+  | BonusGrant
   | FeatureGrant
   | ExertionGrant
   | ExpertiseDiceGrant

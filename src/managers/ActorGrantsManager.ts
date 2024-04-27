@@ -2,7 +2,7 @@ import type { ActorGrant, TraitGrant } from 'types/actorGrants';
 import type { Grant } from 'types/itemGrants';
 import type ItemGrantsManager from './ItemGrantsManager';
 
-import GrantCls from '../dataModels/actor/ActorGrants';
+import actorGrants from '../dataModels/actor/grants/index';
 
 import GenericDialog from '../apps/dialogs/initializers/GenericDialog';
 import GrantApplicationDialog from '../apps/dialogs/GrantApplicationDialog.svelte';
@@ -33,11 +33,11 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     const grantsData: Record<string, ActorGrant> = this.actor.system.grants ?? {};
     Object.entries(grantsData).forEach(([id, data]) => {
-      let Cls = GrantCls[data.grantType];
+      let Cls = actorGrants[data.grantType];
 
       // eslint-disable-next-line no-console
       if (!Cls) console.warn(`Grant ${id} has no class mapping.`);
-      Cls ??= GrantCls.base;
+      Cls ??= actorGrants.base;
       const grant: any = new Cls(data, { parent: actor });
 
       this.set(id, grant);
@@ -289,17 +289,17 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   #getRemoveUpdates(grant: ActorGrant): Record<string, any> {
     const updates: Record<string, any> = {};
 
-    if (grant instanceof GrantCls.bonus) {
+    if (grant instanceof actorGrants.bonus) {
       if (grant.bonusId) updates[`system.bonuses.${grant.type}.-=${grant.bonusId}`] = null;
     }
 
-    if (grant instanceof GrantCls.exertion) {
+    if (grant instanceof actorGrants.exertion) {
       if (grant.exertionData.exertionType === 'bonus') {
         updates[`system.bonuses.exertion.-=${grant.exertionData.bonusId}`] = null;
       }
     }
 
-    if (grant instanceof GrantCls.feature || grant instanceof GrantCls.item) {
+    if (grant instanceof actorGrants.feature || grant instanceof actorGrants.item) {
       const ids = grant.documentIds;
       if (!ids?.length) return updates;
 
@@ -312,7 +312,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       this.actor.deleteEmbeddedDocuments('Item', deleteIds);
     }
 
-    if (grant instanceof GrantCls.proficiency) {
+    if (grant instanceof actorGrants.proficiency) {
       const { keys, proficiencyType } = grant.proficiencyData;
 
       if (proficiencyType === 'ability') {
@@ -326,7 +326,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       }
     }
 
-    if (grant instanceof GrantCls.skillSpecialty) {
+    if (grant instanceof actorGrants.skillSpecialty) {
       const { skill } = grant.specialtyData;
 
       const existing: Set<string> = new Set(
@@ -341,7 +341,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       updates[`system.skills.${skill}.specialties`] = [...existing.difference(removals)];
     }
 
-    if (grant instanceof GrantCls.trait) {
+    if (grant instanceof actorGrants.trait) {
       const configObject = prepareTraitGrantConfigObject();
       const { propertyKey } = configObject[grant.traitData.traitType] ?? {};
       if (!propertyKey) return {};
