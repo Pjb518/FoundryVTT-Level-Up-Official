@@ -1,0 +1,202 @@
+{
+	"name": "Mummy Lord",
+	"type": "feature",
+	"img": "icons/commodities/cloth/ribbon-worn-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"YmiDnFmETw7NB2GL": {
+				"name": "Extinguish Flames",
+				"activation": {
+					"type": "reaction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"F8DRHCbHLMb9pGYA": {
+						"range": "fiveFeet"
+					}
+				}
+			},
+			"FCCLoJpFzZtik9aG": {
+				"name": "Additional Necrotic Damage",
+				"activation": {},
+				"consumers": {
+					"M164CzJcc554eWvn": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"bAhLNB8RRRqIG5mj": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {
+					"OnkLVgPWyDKRolXb": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8 + @con.mod + @prof"
+						},
+						"label": "Consitution Modifier"
+					},
+					"oxMUZLW9Sdrfpx0O": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8 + @wis.mod + @prof"
+						},
+						"label": "Wisdom Modifier"
+					},
+					"bSD5PZFi0tlJIdaU": {
+						"type": "effect",
+						"default": true,
+						"effectId": "nBMfmpxi8eQJqejB"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You have tapped into the full potential of your new undead form, and you are powerful indeed.&nbsp;You gain the following benefits:</p>\n<ul>\n<li>You can extinguish ongoing fire damage on yourself or a creature within 5 feet of you as a reaction.</li>\n<li>You are immune to necrotic damage.</li>\n<li>You are immune to the charmed and frightened conditions</li>\n<li>When you hit with a melee attack, you may spend a point of exertion to deal an additional 1d6 points of necrotic damage to the target. If you do, the target must make a constitution saving throw with a DC of 8 + your Constitution or Wisdom modifier (choose when you take this feat) + your proficiency bonus.&nbsp;If it fails, it cannot regain hit points for an hour or until @UUID[Compendium.a5e.a5e-spells.Item.l16wg9h1z9s16exb]{Remove Curse} is cast on it.&nbsp;You may combine this with the similar benefit from Embalmed to spend 2 points of exertion and deal 2d6 points of damage in total.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"42uwgm0dZ3ZXJaNP": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Necrotic Immunity",
+				"traits": {
+					"base": [
+						"necrotic"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageImmunities"
+				},
+				"_id": "42uwgm0dZ3ZXJaNP",
+				"img": ""
+			},
+			"qrH2KOB8NBP8Pet0": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Condition Immunities",
+				"traits": {
+					"base": [
+						"charmed",
+						"frightened"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "conditionImmunities"
+				}
+			}
+		},
+		"prerequisite": "Mummified feat",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.017,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/commodities/cloth/ribbon-worn-yellow.webp",
+			"origin": "Item.a5TSe1CaDUDj7eqd",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FCCLoJpFzZtik9aG",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Cursed",
+			"_id": "nBMfmpxi8eQJqejB",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Cannot regain hit points.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "syhsytt9kgrzp3bl"
+}
