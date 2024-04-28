@@ -21,19 +21,19 @@ export default function registerClassesConfig(A5E) {
   };
 
   A5E.classes5e = {
-    artificer: 'A5E.characterClasses.artificer',
-    barbarian: 'A5E.characterClasses.barbarian',
-    bard: 'A5E.characterClasses.bard',
-    cleric: 'A5E.characterClasses.cleric',
-    druid: 'A5E.characterClasses.druid',
-    fighter: 'A5E.characterClasses.fighter',
-    monk: 'A5E.characterClasses.monk',
-    paladin: 'A5E.characterClasses.paladin',
-    ranger: 'A5E.characterClasses.ranger',
-    rogue: 'A5E.characterClasses.rogue',
-    sorcerer: 'A5E.characterClasses.sorcerer',
-    warlock: 'A5E.characterClasses.warlock',
-    wizard: 'A5E.characterClasses.wizard'
+    dnd5eArtificer: 'A5E.characterClasses.artificer',
+    dnd5eBarbarian: 'A5E.characterClasses.barbarian',
+    dnd5eBard: 'A5E.characterClasses.bard',
+    dnd5eCleric: 'A5E.characterClasses.cleric',
+    dnd5eDruid: 'A5E.characterClasses.druid',
+    dnd5eFighter: 'A5E.characterClasses.fighter',
+    dnd5eMonk: 'A5E.characterClasses.monk',
+    dnd5ePaladin: 'A5E.characterClasses.paladin',
+    dnd5eRanger: 'A5E.characterClasses.ranger',
+    dnd5eRogue: 'A5E.characterClasses.rogue',
+    dnd5eSorcerer: 'A5E.characterClasses.sorcerer',
+    dnd5eWarlock: 'A5E.characterClasses.warlock',
+    dnd5eWizard: 'A5E.characterClasses.wizard'
   };
 
   A5E.classLevelTypes = {
