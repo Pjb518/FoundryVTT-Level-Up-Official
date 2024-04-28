@@ -316,7 +316,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     if (grant instanceof actorGrants.proficiency) {
       const { keys, proficiencyType } = grant.proficiencyData;
 
-      if (proficiencyType === 'ability') {
+      if (proficiencyType === 'savingThrow') {
         keys.forEach((key: string) => {
           updates[`system.abilities.${key}.save.proficient`] = false;
         });
