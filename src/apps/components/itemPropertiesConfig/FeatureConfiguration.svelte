@@ -38,6 +38,7 @@
             heading="A5E.FeatureTypePrompt"
             options={Object.entries(featureTypes)}
             selected={$item.system.featureType}
+            allowDeselect={true}
             on:updateSelection={(event) =>
                 updateDocumentDataFromField(
                     $item,
@@ -51,6 +52,7 @@
                 heading="A5E Classes"
                 options={Object.entries(classes)}
                 selected={$item.system.classes}
+                allowDeselect={true}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
                         $item,
