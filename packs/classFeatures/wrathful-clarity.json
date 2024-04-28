@@ -1,0 +1,119 @@
+{
+	"folder": null,
+	"name": "Wrathful Clarity",
+	"type": "feature",
+	"img": "icons/magic/fire/flame-burning-eye.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"awepcs5BISIWDgOK": {
+				"name": "Wrathful Clarity",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"p1KYcfgEZMPu49jg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "K4WbHzOgMPbDTfuv"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Beginning at level 6, when you enter a rage, you achieve an almost meditative clarity. Your thoughts become clearer, and time seems to flow more slowly. While you rage, you are proficient with Wisdom saving throws and you have advantage on Perception checks.&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"classes": "berserker"
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/fire/flame-burning-eye.webp",
+			"origin": "Item.9w2VH31Ngd9tojJa",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "awepcs5BISIWDgOK",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Wrathful Clarity",
+			"_id": "K4WbHzOgMPbDTfuv",
+			"changes": [
+				{
+					"key": "system.abilities.wis.save.proficient",
+					"value": "true",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While you rage, you are proficient with Wisdom saving throws and you have advantage on Perception checks. </p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "bak2bgltw8bs70xl"
+}

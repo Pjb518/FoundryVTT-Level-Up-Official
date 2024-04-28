@@ -12,11 +12,13 @@ export default function prepareProficiencyConfigObject() {
     },
     skill: {
       label: 'A5E.SkillPlural',
-      config: Object.entries(CONFIG.A5E.skills)
+      config: Object.entries(CONFIG.A5E.skills),
+      propertyKey: ''
     },
     savingThrow: {
       label: 'A5E.SavingThrowPlural',
-      config: Object.entries(CONFIG.A5E.abilities)
+      config: Object.entries(CONFIG.A5E.abilities),
+      propertyKey: ''
     },
     tool: {
       label: 'A5E.ToolPlural',
