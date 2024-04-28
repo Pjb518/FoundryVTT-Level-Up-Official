@@ -204,9 +204,9 @@ export default class TokenA5e extends Token {
     const { value, max, temp } = this.document.actor.system.attributes.hp;
 
     // Allocate percentages of the total
-    const tempPct = Math.clamped(temp, 0, max) / max;
-    const valuePct = Math.clamped(value, 0, max) / max;
-    const colorPct = Math.clamped(value, 0, max) / max;
+    const tempPct = Math.clamp(temp, 0, max) / max;
+    const valuePct = Math.clamp(value, 0, max) / max;
+    const colorPct = Math.clamp(value, 0, max) / max;
 
     // Determine colors to use
     const blk = 0x000000;
@@ -217,7 +217,7 @@ export default class TokenA5e extends Token {
     const { w } = this;
     let h = Math.max((canvas.dimensions.size / 12), 8);
     if (this.document.height >= 2) h *= 1.6;
-    const bs = Math.clamped(h / 8, 1, 2);
+    const bs = Math.clamp(h / 8, 1, 2);
     const bs1 = bs + 1;
 
     // Overall bar container

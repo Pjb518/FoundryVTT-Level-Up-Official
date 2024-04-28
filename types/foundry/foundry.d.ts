@@ -11,7 +11,7 @@ interface Array<T> {
 }
 
 interface Math {
-  clamped(num: number, min: number, max: number): number
+  clamp(num: number, min: number, max: number): number;
   normalizeDegrees(degrees: number): number;
   normalizeRadians(radians: number): number;
   toDegrees(angle: number): number;

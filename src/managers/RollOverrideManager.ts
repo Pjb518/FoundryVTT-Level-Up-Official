@@ -444,7 +444,7 @@ export default class RollOverrideManager {
       else total += o.value;
     });
 
-    return Math.clamped(total, 0, 5);
+    return Math.clamp(total, 0, 5);
   }
 
   getExpertiseDiceSource(

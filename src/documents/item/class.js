@@ -179,7 +179,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     if (keys.includes('system.hp.hitDiceUsed')) {
       const used = foundry.utils.getProperty(changed, 'system.hp.hitDiceUsed');
       const max = this.totalHitDice;
-      await this.updateSource({ 'system.hp.hitDiceUsed': Math.clamped(used, 0, max) });
+      await this.updateSource({ 'system.hp.hitDiceUsed': Math.clamp(used, 0, max) });
     }
 
     if (this.parent?.documentName === 'Actor' && keys.includes('system.classLevels')) {

@@ -61,7 +61,7 @@ export default class ResourceConsumptionManager {
       actionUses?.max ?? actionUses.value,
       this.#actor.getRollData(this.#item)
     );
-    const newValue = Math.clamped(actionUses.value - quantity, 0, max);
+    const newValue = Math.clamp(actionUses.value - quantity, 0, max);
 
     this.#updates.item[`system.actions.${this.#actionId}.uses.value`] = newValue;
   }
@@ -87,7 +87,7 @@ export default class ResourceConsumptionManager {
       this.#item.system.uses.max ?? value,
       this.#actor.getRollData(this.#item)
     );
-    this.#updates.item['system.uses.value'] = Math.clamped(value - quantity, 0, max);
+    this.#updates.item['system.uses.value'] = Math.clamp(value - quantity, 0, max);
   }
 
   async #consumeQuantity({ itemId, quantity } = {}) {

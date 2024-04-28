@@ -597,11 +597,11 @@ export default class BaseActorA5e extends Actor {
 
     if (temp) {
       updates['system.attributes.hp'] = {
-        temp: Math.clamped(temp - damage, 0, temp),
-        value: Math.clamped(value + temp - damage, 0, value)
+        temp: Math.clamp(temp - damage, 0, temp),
+        value: Math.clamp(value + temp - damage, 0, value)
       };
     } else {
-      updates['system.attributes.hp.value'] = Math.clamped(value - damage, 0, value);
+      updates['system.attributes.hp.value'] = Math.clamp(value - damage, 0, value);
     }
 
     if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
@@ -634,7 +634,7 @@ export default class BaseActorA5e extends Actor {
       updates['system.attributes.hp.temp'] = tempTotal;
     }
 
-    updates['system.attributes.hp.value'] = Math.clamped(value + healingTotal, value, max);
+    updates['system.attributes.hp.value'] = Math.clamp(value + healingTotal, value, max);
 
     if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
       const actor = this;
@@ -685,7 +685,7 @@ export default class BaseActorA5e extends Actor {
 
       updates['system.attributes.hp.temp'] = healing;
     } else {
-      updates['system.attributes.hp.value'] = Math.clamped(value + healing, value, max);
+      updates['system.attributes.hp.value'] = Math.clamp(value + healing, value, max);
     }
 
     if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
