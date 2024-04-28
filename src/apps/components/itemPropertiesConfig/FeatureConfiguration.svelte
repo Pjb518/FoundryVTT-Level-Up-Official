@@ -9,6 +9,12 @@
     import Section from "../Section.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
 
+    function getClassSummary() {
+        const parentClass = $item.system.classes;
+
+        return localize(classes[parentClass] ?? classes5e[parentClass]);
+    }
+
     const item = getContext("item");
     const { classes, classes5e, featureTypes } = CONFIG.A5E;
 
@@ -101,11 +107,19 @@
                 <dt class="u-text-bold">
                     {localize("A5E.FeatureTypePrompt")}:
                 </dt>
+
                 <dd class="u-m-0 u-p-0">
                     {featureTypes[$item.system.featureType] ??
                         localize("A5E.None")}
                 </dd>
             </div>
+
+            {#if ["class", "knack"].includes($item.system.featureType) && $item.system.classes}
+                <div class="u-flex u-gap-md">
+                    <dt class="u-text-bold">Classes:</dt>
+                    <dd class="u-m-0 u-p-0">{getClassSummary()}</dd>
+                </div>
+            {/if}
         </dl>
     {/if}
 </Section>
