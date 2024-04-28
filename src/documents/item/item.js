@@ -489,7 +489,7 @@ export default class ItemA5e extends BaseItemA5e {
 
     // Recharge Roll
     const rechargeRoll = await new Roll(formula, this.actor.getRollData(this))
-      .evaluate({ async: true });
+      .evaluate();
 
     // TODO: Chat Cards - Make the message prettier
     rechargeRoll.toMessage();
@@ -502,7 +502,7 @@ export default class ItemA5e extends BaseItemA5e {
       const rechargeAmountRoll = await new Roll(
         rechargeAmount,
         this.actor.getRollData(this)
-      ).evaluate({ async: true });
+      ).evaluate();
 
       // TODO: Add the roll back in when the custom recharge amount config is added.
       // rechargeAmountRoll.toMessage();

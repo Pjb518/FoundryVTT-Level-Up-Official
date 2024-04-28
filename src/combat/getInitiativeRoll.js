@@ -7,5 +7,5 @@ export default async function getInitiativeRoll(options) {
   const formula = await this._getInitiativeFormula(options);
   const roll = Roll.create(formula);
 
-  return roll.evaluate({ async: false });
+  return roll.evaluateSync();
 }

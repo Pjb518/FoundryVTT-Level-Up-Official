@@ -5,11 +5,11 @@ export default async function doubleDiceDamage(baseRoll) {
 
   const terms = [
     ...baseRoll.terms,
-    await new OperatorTerm({ operator: '+' }).evaluate({ async: true }),
+    await new OperatorTerm({ operator: '+' }).evaluate(),
     await new NumericTerm({
       number: diceDamage,
       options: { flavor: localize('A5E.CritDamage') }
-    }).evaluate({ async: true })
+    }).evaluate()
   ];
 
   return terms;

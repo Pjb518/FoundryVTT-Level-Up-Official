@@ -57,7 +57,7 @@ export default function getACComponents(actor) {
   // Add override component
   if (baseChanges.override.formula) {
     const formulaTerms = new Roll(baseChanges.override.formula, actor.getRollData())
-      .evaluate({ async: false }).terms;
+      .evaluateSync().terms;
 
     const formula = simplifyOperatorTerms(formulaTerms ?? []).reduce((acc, term) => {
       if (term instanceof OperatorTerm) return `${acc} ${term.operator} `;
@@ -72,7 +72,7 @@ export default function getACComponents(actor) {
   // Finalize the formula string
   const acFormula = simplifyOperatorTerms(
     new Roll(components.join(' '), actor.getRollData())
-      .evaluate({ async: false })
+      .evaluateSync()
       .terms ?? []
   );
 

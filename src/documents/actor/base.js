@@ -846,7 +846,7 @@ export default class BaseActorA5e extends Actor {
     const updatePath = `system.resources.${resource}.value`;
 
     // Recharge Roll
-    const rechargeRoll = await new Roll(formula, this.getRollData()).evaluate({ async: true });
+    const rechargeRoll = await new Roll(formula, this.getRollData()).evaluate();
 
     // TODO: Chat cards - Make the message prettier
     rechargeRoll.toMessage();
@@ -859,7 +859,7 @@ export default class BaseActorA5e extends Actor {
       const rechargeAmountRoll = await new Roll(
         rechargeAmount,
         this.getRollData()
-      ).evaluate({ async: true });
+      ).evaluate();
 
       // TODO: Add the roll back in when the custom recharge amount config is added.
       // rechargeAmountRoll.toMessage();

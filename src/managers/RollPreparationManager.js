@@ -102,7 +102,7 @@ export default class RollPreparationManager {
     if (!rollFormula) return null;
 
     const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
-    const roll = await new Roll(rollFormula).evaluate({ async: true });
+    const roll = await new Roll(rollFormula).evaluate();
     const label = localize('A5E.AbilityCheckSpecific', { ability });
 
     return {
@@ -123,7 +123,7 @@ export default class RollPreparationManager {
     if (!rollFormula) return null;
 
     const critThreshold = _roll.critThreshold ?? 20;
-    const roll = await new Roll(rollFormula).evaluate({ async: true });
+    const roll = await new Roll(rollFormula).evaluate();
     const label = localize(CONFIG.A5E.attackTypes[_roll?.attackType ?? 'meleeWeaponAttack']);
 
     const isCrit = roll.dice[0].total >= critThreshold;
@@ -216,7 +216,7 @@ export default class RollPreparationManager {
 
     if (!rollFormula) return null;
 
-    const r = await new Roll(rollFormula).evaluate({ async: true });
+    const r = await new Roll(rollFormula).evaluate();
     let baseRoll = Roll.fromTerms(simplifyDiceTerms(r.terms));
     let roll = baseRoll;
     let critRoll = baseRoll;
@@ -224,7 +224,7 @@ export default class RollPreparationManager {
     if (canCrit ?? true) {
       if (context && context.isCritBonus) {
         critRoll = roll;
-        baseRoll = await new Roll('0').evaluate({ async: true });
+        baseRoll = await new Roll('0').evaluate();
         roll = baseRoll;
       } else {
         let bonus = critBonus || '';
@@ -272,7 +272,7 @@ export default class RollPreparationManager {
 
     if (!rollFormula) return null;
 
-    const r = await new Roll(rollFormula).evaluate({ async: true });
+    const r = await new Roll(rollFormula).evaluate();
     const roll = Roll.fromTerms(simplifyDiceTerms(r.terms));
     const label = _roll.label || localize('A5E.GenericRoll');
 
@@ -292,7 +292,7 @@ export default class RollPreparationManager {
 
     if (!rollFormula) return null;
 
-    const r = await new Roll(rollFormula).evaluate({ async: true });
+    const r = await new Roll(rollFormula).evaluate();
     const roll = Roll.fromTerms(simplifyDiceTerms(r.terms));
     const healingType = CONFIG.A5E.healingTypes[_roll.healingType ?? 'healing'];
     const label = localize(healingType);
@@ -317,7 +317,7 @@ export default class RollPreparationManager {
     if (!rollFormula) return null;
 
     const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
-    const roll = await new Roll(rollFormula).evaluate({ async: true });
+    const roll = await new Roll(rollFormula).evaluate();
     let label;
 
     if (_roll.saveType === 'concentration') label = localize('A5E.ConcentrationCheck');
@@ -349,7 +349,7 @@ export default class RollPreparationManager {
 
     if (!rollFormula) return null;
 
-    const roll = await new Roll(rollFormula).evaluate({ async: true });
+    const roll = await new Roll(rollFormula).evaluate();
 
     const label = ability && ability !== 'none'
       ? localize('A5E.SkillCheckAbility', { skill, ability: CONFIG.A5E.abilityAbbreviations[ability] })
@@ -414,7 +414,7 @@ export default class RollPreparationManager {
 
     if (!rollFormula) return null;
 
-    const roll = await new Roll(rollFormula).evaluate({ async: true });
+    const roll = await new Roll(rollFormula).evaluate();
 
     return {
       label,

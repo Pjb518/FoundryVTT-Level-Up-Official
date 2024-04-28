@@ -212,7 +212,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
       let hp: number;
       if (leveledHpType === 'roll' && hpFormula) {
-        const roll = await new Roll(hpFormula).roll({ async: true });
+        const roll = await new Roll(hpFormula).roll();
         hp = roll.total;
 
         this.#createRolledHpCard(options.cls, roll);

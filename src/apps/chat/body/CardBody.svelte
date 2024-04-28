@@ -110,7 +110,7 @@
 
                 newExpertiseDieRoll._evaluated = true;
             } else {
-                await newExpertiseDieRoll.evaluate({ async: true });
+                await newExpertiseDieRoll.evaluate();
             }
 
             if (!originalExpertiseDice) {

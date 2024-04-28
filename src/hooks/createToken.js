@@ -24,7 +24,7 @@ async function rollTokenHitDie(token, userID) {
       { flavor: `Rolling hit points for ${token.name}.` },
       { rollMode: 'gmroll' }
     );
-  } else await hpRoll.evaluate({ async: true });
+  } else await hpRoll.evaluate();
 
   // Update token with new information
   actor.update({

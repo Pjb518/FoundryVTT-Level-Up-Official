@@ -4,7 +4,7 @@ export default async function maxDamage(baseRoll) {
 
   return [
     ...maxRoll.terms,
-    await new OperatorTerm({ operator: '+' }).evaluate({ async: true }),
+    await new OperatorTerm({ operator: '+' }).evaluate(),
     ...baseRoll.terms
   ];
 }

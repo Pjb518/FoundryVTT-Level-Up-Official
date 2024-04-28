@@ -22,7 +22,7 @@ export default function getDeterministicBonus(
 
   // TODO: v12 - Can possibly remove this version
   // Make a dummy roll and calculate what portion of that came from dice.
-  const result = roll.roll({ async: false });
+  const result = roll.evaluateSync();
   const diceTotal = roll.dice.reduce((acc, curr) => acc + curr.total, 0);
 
   // Return the roll total minus the dice component.
