@@ -95,7 +95,7 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
             levelType: 'class'
           },
           [foundry.utils.randomID()]: {
-            grantType: 'items',
+            grantType: 'item',
             items: {
               base: [],
               options: [],
