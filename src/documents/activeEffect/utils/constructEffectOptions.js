@@ -34,7 +34,7 @@ export default function constructEffectOptions() {
     modifyBaseOptions(baseOptions);
 
     // Base Options are all those fields defined in template.json,
-    // game.system.model and are things the user can directly change
+    // game.model and are things the user can directly change
     Object.keys(baseOptions).forEach((key) => {
       const [sampleValue, modes, effectOpts, componentType, phase] = baseOptions[key];
       options[type].baseOptions[key] = new EffectOption(
@@ -98,7 +98,7 @@ export default function constructEffectOptions() {
 
   // Construct final options list
   const allOptions = {};
-  Object.keys(game.system.model.Actor).forEach((type) => {
+  Object.keys(game.model.Actor).forEach((type) => {
     if (type === 'base') return;
     Object.entries(options[type]?.allOptions ?? {})
       .forEach(([key, value]) => { allOptions[key] = value; });
