@@ -23,14 +23,6 @@ export default class ActiveEffectA5e extends ActiveEffect {
   //  Getters
   // -------------------------------------------------------
   /**
-   * Convenience access to the ActiveEffect's icon field
-   * @returns {String}
-   */
-  get img() {
-    return this.icon || ActiveEffectA5e.FALLBACK_ICON;
-  }
-
-  /**
    * @returns {Boolean}
    */
   get isSuppressed() {
