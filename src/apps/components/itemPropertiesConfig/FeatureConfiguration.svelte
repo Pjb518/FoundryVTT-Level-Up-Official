@@ -116,7 +116,7 @@
 
             {#if ["class", "knack"].includes($item.system.featureType) && $item.system.classes}
                 <div class="u-flex u-gap-md">
-                    <dt class="u-text-bold">Classes:</dt>
+                    <dt class="u-text-bold">Class:</dt>
                     <dd class="u-m-0 u-p-0">{getClassSummary()}</dd>
                 </div>
             {/if}
