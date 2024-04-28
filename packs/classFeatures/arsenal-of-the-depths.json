@@ -1,0 +1,136 @@
+{
+	"name": "Arsenal of the Depths",
+	"type": "feature",
+	"img": "icons/magic/water/projectile-arrow-water-ice-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"0QYfVdaKKvU9FpNX": {
+				"name": "Eel Skin",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "When you are hit by a melee weapon attack"
+				},
+				"consumers": {},
+				"rolls": {
+					"cTfv2y2bTSBvrd55": {
+						"type": "damage",
+						"default": true,
+						"damageType": "lightning",
+						"formula": "(@prof)d8"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>Your body stores a potent electrical current. When you are hit by a melee weapon attack, you may use your reaction to deal a number of d8s of lightning damage equal to your proficiency bonus to the attacking creature.&nbsp;</p>",
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"img": "icons/magic/lightning/fist-unarmed-strike-blue-green.webp"
+			},
+			"lH59mj7CclGIVe9N": {
+				"name": "Aquatic Predator",
+				"activation": {
+					"type": "",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"cTfv2y2bTSBvrd55": {
+						"type": "damage",
+						"default": true,
+						"damageType": "piercing",
+						"formula": "floor (@prof /2)d6"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p dir=\"ltr\">In addition, once per turn, you can deal extra damage when you hit a creature with a bite attack. The amount of extra damage is a number of d6s equal to half your proficiency bonus.</p>\n<p dir=\"ltr\">In order to apply this damage, you must not have disadvantage on the attack and your target must be within 5 feet of another enemy of the target who is not incapacitated. Alternatively, you can apply this damage if you have advantage on the attack.</p>\n<p>&nbsp;</p>",
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"img": "icons/creatures/fish/squid-kraken-teal.webp"
+			}
+		},
+		"description": "<p dir=\"ltr\">Beginning at 6th level, you can treat water as solid ground when it suits you. You are continuously under the effects of the @UUID[Compendium.a5e.a5e-spells.Item.qmz47cw7wmy78gyc]{Water Walk} spell, and your swim speed increases by 20 feet.&nbsp;</p>\n<p dir=\"ltr\">You also gain one of the following features:</p>\n<h4 dir=\"ltr\"><strong>Eel Skin</strong></h4>\n<p dir=\"ltr\">Your body stores a potent electrical current. When you are hit by a melee weapon attack, you may use your reaction to deal a number of d8s of lightning damage equal to your proficiency bonus to the attacking creature.&nbsp;</p>\n<h4 dir=\"ltr\"><strong>Aquatic Predator</strong></h4>\n<p dir=\"ltr\">When you use your Wild Shape to transform into a creature with both a bite attack and a swim speed, you gain an expertise die on Stealth and Athletics checks while in the water. <br>In addition, once per turn, you can deal extra damage when you hit a creature with a bite attack. The amount of extra damage is a number of d6s equal to half your proficiency bonus.</p>\n<p dir=\"ltr\">In order to apply this damage, you must not have disadvantage on the attack and your target must be within 5 feet of another enemy of the target who is not incapacitated. Alternatively, you can apply this damage if you have advantage on the attack.</p>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"ncvfQsLIIQSiF1Ze": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"bonus": "20",
+				"movementTypes": {
+					"base": [
+						"swim"
+					]
+				},
+				"label": "Arsenal of the Depths"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"classes": "druid"
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "s3kdcdvtxt8xickb"
+}

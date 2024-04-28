@@ -1,0 +1,81 @@
+{
+	"folder": null,
+	"name": "Grave Mist",
+	"type": "feature",
+	"img": "icons/magic/air/fog-gas-smoke-dense-gray.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"T1vfClc3ssh0SSRr": {
+				"name": "Grave Mist",
+				"activation": {},
+				"consumers": {
+					"0w7A505yqIA6vLv8": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 20
+				}
+			}
+		},
+		"description": "<p>Also at 10th level, you gain the ability to conjure up a sinister fog that moves with you. The fog extends 20 feet from you and spreads around corners. You can see through the fog as if it was not there, but other creatures treat everything in the fog as lightly obscured. In addition, creatures in the fog other than you that are immune to necrotic damage are treated as resistant to it instead, creatures resistant to necrotic damage are treated as if they were not resistant, and creatures that are not resistant to necrotic damage are treated as vulnerable. Once you have used this feature a number of times equal to your Wisdom modifier (minimum once), you can&rsquo;t do so again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "@wis.mod",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"classes": "druid"
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "um3g5luf03l59oxo"
+}

@@ -1,0 +1,80 @@
+{
+	"folder": null,
+	"name": "Eel Skin",
+	"type": "feature",
+	"img": "icons/magic/water/projectile-arrow-water-ice-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"akrcBpIP4OvKFdNR": {
+				"name": "Eel Skin",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "When you are hit by a melee weapon attack"
+				},
+				"consumers": {},
+				"rolls": {
+					"Ig6JciPPe0t36IoC": {
+						"type": "damage",
+						"default": true,
+						"formula": "(@prof)d8",
+						"damageType": "lightning",
+						"canCrit": false
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>Your body stores a potent electrical current. When you are hit by a melee weapon attack, you may use your reaction to deal a number of d8s of lightning damage equal to your proficiency bonus to the attacking creature.&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "druid"
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "jc9yp7gn6de173yq"
+}
