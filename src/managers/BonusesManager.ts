@@ -10,7 +10,7 @@ import type {
   SkillBonus,
   MovementBonus,
   SensesBonus
-} from 'types/foundry/bonuses';
+} from 'types/bonuses';
 
 import arraysAreEqual from '../utils/arraysAreEqual';
 

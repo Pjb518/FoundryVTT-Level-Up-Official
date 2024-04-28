@@ -8,7 +8,7 @@ import type {
   MovementBonusContext,
   SensesBonusContext,
   SkillBonusContext
-} from './contexts';
+} from './foundry/contexts';
 
 export interface AbilityBonus {
   context: AbilityBonusContext;
