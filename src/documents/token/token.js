@@ -69,7 +69,7 @@ export default class TokenA5e extends Token {
 
     const activeConditions = this._getActiveConditions();
     if (activeConditions.includes(id)) return this._removeStatusEffect({ id, src }, { overlay });
-    return this.toggleEffect(effect, { active: true, overlay });
+    return this.actor.toggleStatusEffect(effect, { active: true, overlay });
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -141,7 +141,7 @@ export default class TokenA5e extends Token {
     if (!existingEffect) {
       const newEffect = foundry.utils.deepClone(effect);
       newEffect.changes = changes;
-      this.toggleEffect(newEffect, { active: true, overlay: false });
+      this.actor.toggleStatusEffect(newEffect, { active: true, overlay: false });
     } else existingEffect.update({ changes });
 
     // Update actor to reflect new level
@@ -175,7 +175,7 @@ export default class TokenA5e extends Token {
 
     if (existingEffect && currentLevel > 1) {
       existingEffect.update({ changes });
-    } else this.toggleEffect(effect, { active: false, overlay: false });
+    } else this.actor.toggleStatusEffect(effect, { active: false, overlay: false });
 
     // Update actor to reflect new level
     await this.actor.update({

@@ -27,10 +27,10 @@ export default async function automateMultiLevelConditions(actor, data, userId) 
       const newEffect = foundry.utils.deepClone(effect);
       newEffect.changes = changes;
 
-      await token.toggleEffect(effect, { active: false });
+      await token.actor.toggleStatusEffect(effect, { active: false });
 
       if (value === 0) return;
-      await token.toggleEffect(newEffect, { active: true });
+      await token.actor.toggleStatusEffect(newEffect, { active: true });
     });
   });
 }
