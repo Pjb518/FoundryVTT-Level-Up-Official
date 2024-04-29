@@ -506,6 +506,27 @@ A5E.inventoryFilters = {
   bulk: 'Bulk'
 };
 
+A5E.knackTypes = {
+  adept: 'Practiced Technique',
+  artificer: 'Field Discovery',
+  bard: 'Adventuring Trick',
+  berserker: 'Developed Talent',
+  cleric: 'Sign of Faith',
+  druid: 'Secret of Nature',
+  elementalist: 'Elemental Adaptation',
+  fighter: 'Soldiering Knack',
+  herald: 'Divine Lesson',
+  marshal: 'Lesson of War',
+  ranger: 'Exploration Knack',
+  rogue: 'Skill Trick',
+  savant: 'Clever Scheme',
+  sorcerer: 'Arcane Innovation',
+  warlock: 'Secret of Arcana',
+  wielder: 'Artifact Whisper',
+  witch: 'Magical Mystery',
+  wizard: 'Elective Study'
+};
+
 /**
  * Languages a character can learn.
  * @enum {string}

@@ -4,6 +4,7 @@
 
     import getCategoryName from "../../handlers/getCategoryName";
 
+    import CompendiumClassFeatureItem from "./CompendiumClassFeatureItem.svelte";
     import CompendiumManeuverItem from "./CompendiumManeuverItem.svelte";
     import CompendiumMonsterItem from "./CompendiumMonsterItem.svelte";
     import CompendiumObjectItem from "./CompendiumObjectItem.svelte";
@@ -18,6 +19,7 @@
 
     const compendiumItemComponents = {
         "5eSpell": CompendiumSpellItem,
+        classFeature: CompendiumClassFeatureItem,
         magicItem: CompendiumObjectItem,
         maneuver: CompendiumManeuverItem,
         monster: CompendiumMonsterItem,
