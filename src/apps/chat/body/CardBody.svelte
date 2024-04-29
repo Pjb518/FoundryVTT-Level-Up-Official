@@ -89,7 +89,7 @@
         // roll terms alone with a + operator; Otherwise, replace the current expertise
         // die roll with a new one, using previously stored results if available.
         else {
-            const newExpertiseDieRoll = new Die({
+            const newExpertiseDieRoll = new foundry.dice.terms.Die({
                 number: 1,
                 faces: parseInt(
                     getExpertiseDieSize(expertiseDice).slice(2),
@@ -222,7 +222,9 @@
             game.modules.get("dice-so-nice")?.active &&
             d20Term.results.length > originalResultsLength
         ) {
-            const fakeD20Roll = Roll.fromTerms([new Die({ ...d20Term })]);
+            const fakeD20Roll = Roll.fromTerms([
+                new foundry.dice.terms.Die({ ...d20Term }),
+            ]);
 
             fakeD20Roll.terms[0].number = fakeD20Roll.terms[0].results.length;
             fakeD20Roll.terms[0].results = fakeD20Roll.terms[0].results.filter(
