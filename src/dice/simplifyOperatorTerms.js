@@ -8,6 +8,8 @@
  * @returns {Array<RollTerm>} A new array of RollTerm objects.
  */
 export default function simplifyOperatorTerms(terms) {
+  const Terms = foundry.dice.terms;
+
   return terms.reduce((acc, term, i) => {
     const prior = acc[acc.length - 1];
     const ops = new Set([prior?.operator, term.operator]);
@@ -19,10 +21,10 @@ export default function simplifyOperatorTerms(terms) {
     if (ops.has(undefined)) acc.push(term);
 
     // Replace consecutive "+ -" operators with a "-" operator.
-    else if ((ops.has('+')) && (ops.has('-'))) acc.splice(-1, 1, new OperatorTerm({ operator: '-' }));
+    else if ((ops.has('+')) && (ops.has('-'))) acc.splice(-1, 1, new Terms.OperatorTerm({ operator: '-' }));
 
     // Replace double "-" operators with a "+" operator.
-    else if ((ops.has('-')) && (ops.size === 1)) acc.splice(-1, 1, new OperatorTerm({ operator: '+' }));
+    else if ((ops.has('-')) && (ops.size === 1)) acc.splice(-1, 1, new Terms.OperatorTerm({ operator: '+' }));
 
     // Don't include "+" operators that directly follow "+", "*", or "/".
     // Otherwise, add the term as is.

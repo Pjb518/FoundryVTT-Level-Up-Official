@@ -115,7 +115,7 @@
 
             if (!originalExpertiseDice) {
                 newRoll.terms.push(
-                    new OperatorTerm({ operator: "+" }),
+                    new foundry.dice.terms.OperatorTerm({ operator: "+" }),
                     newExpertiseDieRoll,
                 );
             } else {
