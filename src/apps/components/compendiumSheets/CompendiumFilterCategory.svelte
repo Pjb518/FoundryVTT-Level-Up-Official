@@ -1,7 +1,7 @@
 <script>
     import { createEventDispatcher } from "svelte";
 
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import MultiStateCheckBoxGroup from "../MultiStateCheckBoxGroup.svelte";
 
     export let filterKey;
@@ -12,7 +12,7 @@
     const dispatch = createEventDispatcher();
 </script>
 
-<FormSection --direction="column">
+<FieldWrapper>
     <header class="a5efc-filter-header">
         <h3 class="a5efc-filter-heading">{heading}</h3>
 
@@ -54,7 +54,7 @@
         ]}
         on:updateSelection
     />
-</FormSection>
+</FieldWrapper>
 
 <style lang="scss">
     .a5efc-filter-heading {

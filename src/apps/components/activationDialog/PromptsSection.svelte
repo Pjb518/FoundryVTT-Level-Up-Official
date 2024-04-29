@@ -1,7 +1,6 @@
 <script>
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
 
     export let selectedPrompts;
     export let prompts;
@@ -32,7 +31,7 @@
     let disabledPrompts = getInvalidSelections(prompts);
 </script>
 
-<FormSection hint="A5E.PromptsHint" --background="transparent" --padding="0">
+<FieldWrapper hint="A5E.PromptsHint">
     <div class="prompt-wrapper">
         {#each Object.entries(prompts) as [promptType, _prompts]}
             {#if _prompts.length}
@@ -50,7 +49,7 @@
             {/if}
         {/each}
     </div>
-</FormSection>
+</FieldWrapper>
 
 <style lang="scss">
     .prompt-wrapper {

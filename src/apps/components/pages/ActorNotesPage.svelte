@@ -1,9 +1,8 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
 
     import Editor from "../Editor.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import SecondaryNavigationBar from "../navigation/SecondaryNavigationBar.svelte";
 
     import ActorSheetTempSettingsStore from "../../../stores/ActorSheetTempSettingsStore";
@@ -82,13 +81,7 @@
     {#if currentTab === "appearance"}
         <section class="a5e-box u-p-md a5e-form__section--bio-wrapper">
             {#each Object.entries(charChoicesLabel) as [key, label]}
-                <FormSection
-                    heading={label}
-                    --background="none"
-                    --direction="column"
-                    --gap="0.25rem"
-                    --padding="0"
-                >
+                <FieldWrapper heading={label} --a5e-field-wrapper-gap="0.25rem">
                     <input
                         class="a5e-input a5e-input--slim u-w-full"
                         class:disable-pointer-events={!$actor.isOwner}
@@ -106,19 +99,13 @@
                             );
                         }}
                     />
-                </FormSection>
+                </FieldWrapper>
             {/each}
         </section>
 
         <section class="a5e-box u-p-md a5e-form__section--bio-wrapper">
             {#each Object.entries(traitsLabel) as [key, label]}
-                <FormSection
-                    heading={label}
-                    --background="none"
-                    --direction="column"
-                    --gap="0.25rem"
-                    --padding="0"
-                >
+                <FieldWrapper heading={label} --a5e-field-wrapper-gap="0.25rem">
                     <input
                         class="a5e-input a5e-input--slim"
                         class:disable-pointer-events={!$actor.isOwner}
@@ -134,7 +121,7 @@
                             );
                         }}
                     />
-                </FormSection>
+                </FieldWrapper>
             {/each}
         </section>
 

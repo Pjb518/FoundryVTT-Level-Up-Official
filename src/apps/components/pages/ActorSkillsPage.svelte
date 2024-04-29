@@ -3,7 +3,6 @@
     import { localize } from "#runtime/svelte/helper";
 
     import FieldWrapper from "../FieldWrapper.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
     import Skill from "../Skill.svelte";
 
     function determineWhetherToShowSkillSpecialties(skills) {

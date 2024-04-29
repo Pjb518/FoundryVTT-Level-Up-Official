@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
-    import FormSection from "../components/LegacyFormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
 
     import prepareHitDice from "../dataPreparationHelpers/prepareHitDice";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -34,10 +34,13 @@
 <article>
     <div class="u-flex u-flex-col u-gap-md">
         {#each hpFields as { label, updateAttribute }}
-            <FormSection
+            <FieldWrapper
                 heading={label}
-                --item-alignment="center"
-                --label-width="7.5rem"
+                --a5e-field-wrapper-direction="row"
+                --a5e-field-wrapper-background="rgba(0, 0, 0, 0.05)"
+                --a5e-field-wrapper-padding="0.5rem"
+                --a5e-field-wrapper-item-alignment="center"
+                --a5e-field-wrapper-label-width="8rem"
             >
                 <div class="u-w-20">
                     <input
@@ -55,7 +58,7 @@
                             )}
                     />
                 </div>
-            </FormSection>
+            </FieldWrapper>
         {/each}
 
         <hr class="a5e-rule a5e-rule--from u-my-sm" />

@@ -42,7 +42,7 @@ export default async function rollInitiative(
     // Produce an initiative roll for the Combatant
     try {
       roll = await combatant.getInitiativeRoll(rollOptions);
-    } catch () {
+    } catch {
       continue;
     }
 

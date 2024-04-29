@@ -1,7 +1,7 @@
 <script>
     import { getContext } from "svelte";
 
-    import FormSection from "../components/LegacyFormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -38,7 +38,7 @@
     />
 
     {#if scalingMode === "cantrip"}
-        <FormSection
+        <FieldWrapper
             heading="Targets Increment"
             hint="This increment will be applied automatically based on your caster level."
         >
@@ -54,9 +54,9 @@
                         target.value,
                     )}
             />
-        </FormSection>
+        </FieldWrapper>
     {:else if scalingMode === "spellLevel"}
-        <FormSection>
+        <FieldWrapper>
             <section class="row u-flex-wrap">
                 <div
                     class="a5e-field-group a5e-field-group--formula a5e-field-group--spell-level"
@@ -102,9 +102,9 @@
                     <span class="levels">Levels</span>
                 </div>
             </section>
-        </FormSection>
+        </FieldWrapper>
     {:else if ["spellPoints", "actionUses", "itemUses"].includes(scalingMode)}
-        <FormSection>
+        <FieldWrapper>
             <section class="row u-flex-wrap">
                 <div class="a5e-field-group a5e-field-group--formula">
                     <label for="{actionId}-targets-healing-scaling-formula">
@@ -151,7 +151,7 @@
                     </span>
                 </div>
             </section>
-        </FormSection>
+        </FieldWrapper>
     {/if}
 </form>
 

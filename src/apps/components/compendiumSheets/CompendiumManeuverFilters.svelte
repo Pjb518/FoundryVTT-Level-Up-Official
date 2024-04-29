@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
 
     import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RangeSlider from "svelte-range-slider-pips";
 
     const filterStore = getContext("filterStore");
@@ -53,9 +53,9 @@
     $: exertionCostLabel = getExertionCostLabel(filterSelections);
 </script>
 
-<FormSection
+<FieldWrapper
     heading="Exertion Cost Range ({exertionCostLabel})"
-    --label-width="100%"
+    --a5e-field-wrapper-header-width="100%"
 >
     <RangeSlider
         --range-handle="#425f65"
@@ -75,7 +75,7 @@
         values={[filterSelections.exertion.min, filterSelections.exertion.max]}
         on:change={({ detail }) => updateExertionRange(detail.values)}
     />
-</FormSection>
+</FieldWrapper>
 
 {#each formSectionMap as { display, heading, filterKey, options }}
     {#if display ?? true}

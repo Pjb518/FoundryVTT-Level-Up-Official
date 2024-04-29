@@ -1,7 +1,6 @@
 <script>
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
 
     export let selectedRolls;
     export let rolls;
@@ -44,7 +43,7 @@
     let disabledRolls = getInvalidSelections(rolls);
 </script>
 
-<FormSection hint="A5E.RollsHint" --background="transparent" --padding="0">
+<FieldWrapper hint="A5E.RollsHint">
     <div class="roll-wrapper">
         {#each Object.entries(otherRolls) as [rollType, _rolls]}
             {#if _rolls.length}
@@ -62,7 +61,7 @@
             {/if}
         {/each}
     </div>
-</FormSection>
+</FieldWrapper>
 
 <style lang="scss">
     .roll-wrapper {

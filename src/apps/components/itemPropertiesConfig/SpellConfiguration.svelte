@@ -7,7 +7,6 @@
 
     import Checkbox from "../Checkbox.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import Section from "../Section.svelte";
     import Tag from "../Tag.svelte";
@@ -234,7 +233,7 @@
             </FieldWrapper>
         </Section>
     {:else}
-        <FormSection>
+        <FieldWrapper>
             <dl class="summary-list">
                 <div class="summary-list__item">
                     <dt class="summary-list__label">
@@ -290,7 +289,7 @@
                     </div>
                 {/if}
             </dl>
-        </FormSection>
+        </FieldWrapper>
     {/if}
 </Section>
 

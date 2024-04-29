@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
 
     import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RangeSlider from "svelte-range-slider-pips";
 
     export const compendiumType = "monster";
@@ -60,7 +60,10 @@
     $: crRangeLabel = getChallengeRatingRangeLabel(filterSelections);
 </script>
 
-<FormSection heading={`CR Range (${crRangeLabel})`} --label-width="100%">
+<FieldWrapper
+    heading={`CR Range (${crRangeLabel})`}
+    --a5e-field-wrapper-header-width="100%"
+>
     <RangeSlider
         --range-handle="#425f65"
         --range-handle-focus="#425f65"
@@ -79,7 +82,7 @@
         values={[filterSelections.cr.min, filterSelections.cr.max]}
         on:change={({ detail }) => updateChallengeRatingRange(detail.values)}
     />
-</FormSection>
+</FieldWrapper>
 
 {#each formSectionMap as { heading, filterKey, options }}
     <CompendiumFilterCategory

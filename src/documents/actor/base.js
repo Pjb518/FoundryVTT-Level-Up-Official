@@ -16,8 +16,6 @@ import AbilityCheckConfigDialog from '../../apps/dialogs/ActorAbilityConfigDialo
 import AbilityCheckRollDialog from '../../apps/dialogs/AbilityCheckRollDialog.svelte';
 import ActorHpConfigDialog from '../../apps/dialogs/ActorHpConfigDialog.svelte';
 import ActorInitConfigDialog from '../../apps/dialogs/ActorInitConfigDialog.svelte';
-import ActorManueverConfigDialog from '../../apps/dialogs/ActorManueverConfigDialog.svelte';
-import ActorSpellConfigDialog from '../../apps/dialogs/ActorSpellConfigDialog.svelte';
 import ArmorClassConfigDialog from '../../apps/dialogs/ArmorClassConfigDialog.svelte';
 import AttackBonusConfigDialog from '../../apps/dialogs/AttackBonusConfigDialog.svelte';
 import DamageBonusConfigDialog from '../../apps/dialogs/DamageBonusConfigDialog.svelte';
@@ -78,7 +76,6 @@ export default class BaseActorA5e extends Actor {
       initiative: ActorInitConfigDialog,
       initiativeBonus: InitiativeBonusConfigDialog,
       languages: DetailsConfigDialog,
-      maneuvers: ActorManueverConfigDialog,
       maneuverTraditions: DetailsConfigDialog,
       movement: MovementConfigDialog,
       movementBonus: MovementBonusConfigDialog,
@@ -87,7 +84,6 @@ export default class BaseActorA5e extends Actor {
       size: DetailsConfigDialog,
       skill: SkillConfigDialog,
       skillBonus: SkillBonusConfigDialog,
-      spells: ActorSpellConfigDialog,
       terrain: DetailsConfigDialog,
       tools: DetailsConfigDialog,
       types: DetailsConfigDialog,

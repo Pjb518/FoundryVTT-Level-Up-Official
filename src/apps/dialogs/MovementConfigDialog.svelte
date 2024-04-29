@@ -3,7 +3,7 @@
     import { localize } from "#runtime/svelte/helper";
 
     import Checkbox from "../components/Checkbox.svelte";
-    import FormSection from "../components/LegacyFormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -24,10 +24,13 @@
 <article>
     {#each Object.entries($actor._source.system.attributes.movement) as [mode, movementData]}
         {#if mode != "traits"}
-            <FormSection
+            <FieldWrapper
                 heading={headings[mode]}
-                --item-alignment="center"
-                --label-width="7.5rem"
+                --a5e-field-wrapper-direction="row"
+                --a5e-field-wrapper-background="rgba(0, 0, 0, 0.05)"
+                --a5e-field-wrapper-padding="0.5rem"
+                --a5e-field-wrapper-item-alignment="center"
+                --a5e-field-wrapper-label-width="7.5rem"
             >
                 <div class="u-w-20">
                     <input
@@ -80,7 +83,7 @@
                         }}
                     />
                 {/if}
-            </FormSection>
+            </FieldWrapper>
         {/if}
     {/each}
 </article>

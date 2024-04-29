@@ -3,7 +3,7 @@
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import Editor from "../components/Editor.svelte";
-    import FormSection from "../components/LegacyFormSection.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -11,14 +11,11 @@
         getContext("#external").application;
 
     const actor = new TJSDocument(actorDocument);
+    const getProperty = foundry.utils.getProperty;
 </script>
 
 <article>
-    <FormSection
-        --background="transparent"
-        --padding="0"
-        --margin="0 0 0.25rem 0"
-    >
+    <FieldWrapper --a5e-field-wrapper-margin="0 0 0.25rem 0">
         <input
             type="text"
             value={getProperty($actor, `${updatePath}.title`)}
@@ -30,7 +27,7 @@
                     target.value,
                 )}
         />
-    </FormSection>
+    </FieldWrapper>
 
     <section class="editor-wrapper">
         <Editor

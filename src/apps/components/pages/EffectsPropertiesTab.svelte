@@ -2,7 +2,7 @@
     import { localize } from "#runtime/svelte/helper";
     import { getContext } from "svelte";
 
-    import FormSection from "../LegacyFormSection.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import Checkbox from "../Checkbox.svelte";
 
@@ -52,19 +52,18 @@
 
 <article>
     {#if $effect.flags?.a5e?.transferType === "onUse"}
-        <FormSection>
+        <FieldWrapper>
             <Checkbox
                 label="A5E.effects.applyToSelf"
                 checked={$effect.flags?.a5e?.applyToSelf ?? false}
                 on:updateSelection={({ detail }) =>
                     $effect.update({ "flags.a5e.applyToSelf": detail })}
             />
-        </FormSection>
+        </FieldWrapper>
 
-        <FormSection
+        <FieldWrapper
             heading="Effect Duration"
-            --gap="0.75rem"
-            --direction="column"
+            --a5e-field-wrapper-gap="0.75rem"
         >
             <RadioGroup
                 options={Object.entries(A5E.effectDurationTypes)}
@@ -155,7 +154,7 @@
                     </div>
                 </div>
             {/if}
-        </FormSection>
+        </FieldWrapper>
     {/if}
 </article>
 
