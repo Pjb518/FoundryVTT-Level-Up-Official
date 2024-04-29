@@ -40,6 +40,7 @@
         heading="A5E.classes.levelType"
         options={Object.entries(levelTypes)}
         selected={grant.levelType}
+        allowDeselect={false}
         on:updateSelection={({ detail }) => onUpdateValue("levelType", detail)}
     />
 
