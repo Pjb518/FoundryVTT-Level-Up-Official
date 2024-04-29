@@ -37,6 +37,10 @@
         return source || null;
     }
 
+    function getPrerequisiteTooltipContent(prerequisite) {
+        return `<b>Prerequisites:</b> ${prerequisite}`;
+    }
+
     const collection = getContext("collection");
     const { classes, classes5e, knackTypes, products } = CONFIG.A5E;
 
@@ -68,8 +72,11 @@
         {#if document.system.prerequisite}
             <i
                 class="a5e-item__icon fa-solid fa-key"
-                data-tooltip={document.system.prerequisite}
-                data-tooltip-direction="UP"
+                data-tooltip={getPrerequisiteTooltipContent(
+                    document.system.prerequisite,
+                )}
+                data-tooltip-class="a5e-tooltip a5e-tooltip--dark a5e-tooltip--basic"
+                data-tooltip-direction="DOWN"
             />
         {/if}
     </h3>
