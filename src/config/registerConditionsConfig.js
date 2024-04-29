@@ -461,6 +461,7 @@ export default function registerConditionsConfig() {
     // Fatigue
     {
       id: 'fatigue',
+      _id: 'fatigue000000000',
       name: 'A5E.ConditionFatigue',
       img: 'systems/a5e/assets/icons/fatigue.svg',
       changes: changes.fatigue,
@@ -505,6 +506,7 @@ export default function registerConditionsConfig() {
     // Paralyzed
     {
       id: 'paralyzed',
+      _id: 'paralyzed0000000',
       description: '<ul class="a5e-tooltip__list"><li>A paralyzed creature is incapacitated and can\'t move or speak.</li><li>A paralyzed creature automatically fails Strength and Dexterity saving throws.</li><li>Attack rolls against a paralyzed creature have advantage.</li><li>Any attack that hits a paralyzed creature is a critical hit if the attacker is within 5 feet.</li></ul>',
       name: 'A5E.ConditionParalyzed',
       img: 'icons/svg/paralysis.svg',
@@ -515,6 +517,7 @@ export default function registerConditionsConfig() {
     // Petrified
     {
       id: 'petrified',
+      _id: 'petrified0000000',
       description: '<ul class="a5e-tooltip__list"><li>A petrified creature (and all of its mundane possessions) is transformed into a solid inanimate substance (usually stone).</li><li>A petrified creature\'s weight is increased by a factor of ten and it ceases aging.</li><li>A petrified creature is incapacitated, can\'t move or speak, and is unaware of its surroundings.</li><li>A petrified creature automatically fails Strength and Dexterity saving throws.</li><li>A petrified creature has resistance to all damage.</li><li>A petrified creature is immune to poison and disease (time spent petrified does not affect the duration of a poison or disease already in its system).</li></ul>',
       name: 'A5E.ConditionPetrified',
       img: 'systems/a5e/assets/icons/petrified.svg',
@@ -571,6 +574,7 @@ export default function registerConditionsConfig() {
     // Strife
     {
       id: 'strife',
+      _id: 'strife0000000000',
       name: 'A5E.ConditionStrife',
       img: 'systems/a5e/assets/icons/strife.svg',
       changes: changes.strife,
@@ -579,6 +583,7 @@ export default function registerConditionsConfig() {
     // Stunned
     {
       id: 'stunned',
+      _id: 'stunned000000000',
       description: '<ul class="a5e-tooltip__list"><li>A stunned creature is incapacitated (see the condition), can\'t move, and can speak only falteringly.</li><li>The creature automatically fails Strength and Dexterity saving throws.</li><li>Attack rolls against the creature have advantage.</li><li>A creature that is immune to being stunned is immune to being rattled.</li></ul>',
       name: 'A5E.ConditionStunned',
       img: 'icons/svg/daze.svg',
@@ -589,6 +594,7 @@ export default function registerConditionsConfig() {
     // Unconscious
     {
       id: 'unconscious',
+      _id: 'unconscious00000',
       description: '<ul class="a5e-tooltip__list"><li>An unconscious creature is incapacitated, can\'t move or speak, and is unaware of its surroundings.</li><li>An unconscious creature drops whatever it\'s holding and falls prone.</li><li>An unconscious creature automatically fails Strength and Dexterity saving throws.</li><li>Attack rolls against an unconscious creature are made with advantage.</li><li>Any attack that hits an unconscious creature is a critical hit if the attacker is within 5 feet.</li></ul>',
       name: 'A5E.ConditionUnconscious',
       img: 'icons/svg/unconscious.svg',

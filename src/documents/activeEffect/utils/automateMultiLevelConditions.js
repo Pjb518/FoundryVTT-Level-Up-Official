@@ -6,16 +6,16 @@ export default async function automateMultiLevelConditions(actor, data, userId) 
   const applicableConditions = conditionKeys.intersection(keys);
   if (!applicableConditions?.size) return;
 
-  applicableConditions.forEach((property) => {
+  applicableConditions.forEach(async (property) => {
     const value = data.system.attributes[property];
-    const tokens = actor.getActiveTokens();
     const effect = CONFIG.statusEffects.find((e) => e.id === property);
 
-    if (!tokens?.length || !effect) return;
+    if (!effect) return;
 
     const changeKey = property === 'fatigue' && game.settings.get('a5e', 'replaceFatigueAndStrife')
       ? 'exhaustion'
       : property;
+
     const changes = Object.entries(CONFIG.A5E.multiLevelConditions[changeKey] ?? {})
       .reduce((arr, [level, c]) => {
         if (level > value) return arr;
@@ -23,14 +23,13 @@ export default async function automateMultiLevelConditions(actor, data, userId) 
         return arr;
       }, []);
 
-    tokens.map(async (token) => {
-      const newEffect = foundry.utils.deepClone(effect);
-      newEffect.changes = changes;
+    const existing = actor.effects.get(effect._id);
+    if (existing) await existing.delete();
 
-      await token.actor.toggleStatusEffect(effect, { active: false });
+    if (value === 0) return;
 
-      if (value === 0) return;
-      await token.actor.toggleStatusEffect(newEffect, { active: true });
-    });
+    const newEffect = await ActiveEffect.implementation.fromStatusEffect(effect.id);
+    newEffect.updateSource({ changes });
+    await ActiveEffect.implementation.create(newEffect, { parent: actor, keepId: true });
   });
 }

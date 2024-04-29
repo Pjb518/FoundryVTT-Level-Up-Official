@@ -1611,4 +1611,98 @@ export default class BaseActorA5e extends Actor {
     if (applyBloodied) automateHpConditions(this, changed, userId, 'bloodied');
     if (applyUnconscious) automateHpConditions(this, changed, userId, 'unconscious');
   }
+
+  // -------------------------------------------------------------
+  // Functionality Patches
+  // -------------------------------------------------------------
+  async toggleStatusEffect(statusId, options = {}) {
+    const { active } = options;
+    const overlay = options.overlay ?? false;
+
+    const status = CONFIG.statusEffects.find((e) => e.id === statusId);
+    if (!status) throw new Error(`Invalid status ID "${statusId}" provided to Actor#toggleStatusEffect`);
+    const existing = [];
+    const existingEffects = [];
+
+    // Find the effect with the static _id of the status effect
+    if (status._id) {
+      const effect = this.effects.get(status._id);
+      if (effect) {
+        existing.push(effect.id);
+        existingEffects.push(effect);
+      }
+    }
+
+    // If no static _id, find all single-status effects that have this status
+    else {
+      for (const effect of this.effects) {
+        const { statuses } = effect;
+        if ((statuses.size === 1) && statuses.has(status.id)) {
+          existingEffects.push(effect);
+          existing.push(effect.id);
+        }
+      }
+    }
+
+    // Handle multi-leveled effects
+    if (['fatigue', 'exhaustion', 'strife'].includes(statusId)) {
+      const delta = active ? 1 : -1;
+      const currLevel = this.system.attributes[statusId];
+      const maxLevel = CONFIG.A5E.multiLevelConditionsMaxLevel[statusId] ?? 7;
+      if (delta === 1 && currLevel >= maxLevel) return undefined;
+      if (delta === -1 && currLevel <= 0) return undefined;
+
+      const changeKey = statusId === 'fatigue' && game.settings.get('a5e', 'replaceFatigueAndStrife')
+        ? 'exhaustion'
+        : statusId;
+
+      const changes = Object.entries(CONFIG.A5E.multiLevelConditions[changeKey] ?? {})
+        .reduce((acc, [level, change]) => {
+          if (level > currLevel + delta) return acc;
+          acc.push(...change);
+          return acc;
+        }, []);
+
+      // Update actor values
+      const actorValue = active ? Math.min(currLevel + 1, maxLevel) : Math.max(currLevel - 1, 0);
+
+      this.update({
+        [`system.attributes.${statusId}`]: actorValue,
+        'flags.a5e.autoApplyFSConditions': false
+      });
+
+      // Delete Existing effect
+      if (existing.length && currLevel === 1 && !active) {
+        await this.deleteEmbeddedDocuments('ActiveEffect', existing);
+        return false;
+      }
+
+      // Update the existing effect
+      if (existing.length && currLevel > 0) {
+        const effect = existingEffects[0];
+        const doc = await effect.update({ changes });
+        return doc;
+      }
+
+      // Create a new effect
+      if (active) {
+        const effect = await ActiveEffect.implementation.fromStatusEffect(statusId);
+        await effect.updateSource({ changes });
+        return ActiveEffect.implementation.create(effect, { parent: this, keepId: true });
+      }
+    }
+
+    // Remove the existing effects unless the status effect is forced active
+    if (existing.length) {
+      if (active) return true;
+      await this.deleteEmbeddedDocuments('ActiveEffect', existing);
+      return false;
+    }
+
+    // Create a new effect unless the status effect is forced inactive
+    if (!active && (active !== undefined)) return undefined;
+    const effect = await ActiveEffect.implementation.fromStatusEffect(statusId);
+    if (overlay) effect.updateSource({ 'flags.core.overlay': true });
+    return ActiveEffect.implementation.create(effect, { parent: this, keepId: true });
+  }
 }
