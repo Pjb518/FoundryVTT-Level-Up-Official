@@ -29,37 +29,12 @@ export default async function automateHpConditions(actor, changes, userId, condi
   const hasCondition = actor.statuses.has(conditionId);
 
   // TODO: Call hook to recharge uses on bloodied
-  // Handle Application of Condition
-  if (actor.prototypeToken.actorLink && actor.parent === null) {
-    if (isApplicable && !hasCondition) {
-      const createData = foundry.utils.deepClone(condition);
-      createData.label = game.i18n.localize(condition.label);
-      createData.statuses = [condition.id];
 
-      delete createData.id;
-      const cls = getDocumentClass('ActiveEffect');
-
-      cls.migrateDataSafe(createData);
-      cls.cleanData(createData);
-      createData.name = game.i18n.localize(createData.name);
-
-      await cls.create(createData, { parent: actor });
-
-      Hooks.callAll(`a5e.${conditionId}`, actor, true);
-    } else if (!isApplicable && hasCondition) {
-      const existing = actor.effects.reduce((arr, e) => {
-        if ((e.statuses.size === 1) && e.statuses.has(conditionId)) arr.push(e.id);
-        return arr;
-      }, []);
-
-      if (existing.length) await actor.deleteEmbeddedDocuments('ActiveEffect', existing);
-    }
-  } else if (actor.type === 'npc' && actor.token !== null) {
-    if (isApplicable && !hasCondition) {
-      actor.token.toggleActiveEffect(condition, { overlay });
-      Hooks.callAll(`a5e.${conditionId}`, actor, true);
-    } else if (!isApplicable && hasCondition) {
-      actor.token.toggleActiveEffect(condition, { overlay });
-    }
+  if (isApplicable && !hasCondition) {
+    actor.toggleStatusEffect(conditionId, { active: true, overlay });
+    Hooks.callAll(`a5e.${conditionId}`, actor, true);
+  } else if (!isApplicable && hasCondition) {
+    actor.toggleStatusEffect(conditionId, { active: false, overlay });
+    Hooks.callAll(`a5e.${conditionId}`, actor, false);
   }
 }
