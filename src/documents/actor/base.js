@@ -114,11 +114,13 @@ export default class BaseActorA5e extends Actor {
    */
   get temporaryEffects() {
     const effects = [];
+
     for (const effect of this.allApplicableEffects()) {
       if (effect.active && (effect.isTemporary || effect?.flags?.a5e?.transferType === 'onUse')) {
         effects.push(effect);
       }
     }
+
     return effects.sort((a, b) => a.name.localeCompare(b.name));
   }
 

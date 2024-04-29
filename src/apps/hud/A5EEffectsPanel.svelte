@@ -108,10 +108,7 @@
     }, {});
 
     // Get Panel Data
-    $: effects = [
-        ...($actor?.temporaryEffects || []),
-        ...(token?.effects || []),
-    ]
+    $: effects = [...($actor?.temporaryEffects || [])]
         .filter((e) => !e.statuses.first()?.startsWith("generic"))
         .sort((a, b) => a.name.localeCompare(b.name));
 </script>
