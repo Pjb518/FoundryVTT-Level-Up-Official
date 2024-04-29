@@ -35,7 +35,7 @@ export default function simplifyDiceTerms(terms) {
         const combinedCount = newTerms[i].number + term.number;
         const combinedResults = [...newTerms[i].results, ...term.results];
 
-        const newTerm = new Die({
+        const newTerm = new Terms.Die({
           faces: term.faces,
           number: combinedCount,
           results: combinedResults,
@@ -60,7 +60,7 @@ export default function simplifyDiceTerms(terms) {
       const combinedCount = newTerms[similarDieIndex].number + term.number;
       const combinedResults = [...newTerms[similarDieIndex].results, ...term.results];
 
-      const newTerm = new Die({
+      const newTerm = new Terms.Die({
         faces: term.faces,
         number: combinedCount,
         results: combinedResults
