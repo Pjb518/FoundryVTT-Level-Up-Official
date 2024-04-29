@@ -1,8 +1,8 @@
-export * as Array from "./array.mjs";
-export * as Date from "./date.mjs";
-export * as Math from "./math.mjs";
-export * as Number from "./number.mjs";
-export * as Set from "./set.mjs";
-export * as String from "./string.mjs";
-export * as RegExp from "./regexp.mjs";
-export * as URL from "./url.mjs";
+export * as Array from './array.d.mts';
+export * as Date from './date.d.mts';
+export * as Math from './math.d.mts';
+export * as Number from './number.d.mts';
+export * as Set from './set.d.mts';
+export * as String from './string.d.mts';
+export * as RegExp from './regexp.d.mts';
+export * as URL from './url.d.mts';

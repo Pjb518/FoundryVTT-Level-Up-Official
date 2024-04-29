@@ -1,4 +1,4 @@
-export * as validators from "./validators.mjs";
-export * as validation from "./validation-failure.mjs";
-export * as fields from "./fields.mjs";
-export * from "./data.mjs";
+export * as validators from './validators.d.mts';
+export * as validation from './validation-failure.d.mts';
+export * as fields from './fields.d.mts';
+export * from './data.d.mts';

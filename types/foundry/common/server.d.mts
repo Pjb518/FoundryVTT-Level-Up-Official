@@ -1,8 +1,8 @@
-export * as CONST from "./constants.mjs";
-export * as abstract from "./abstract/module.mjs";
-export * as config from "./config.mjs";
-export * as data from "./data/module.mjs";
-export * as documents from "./documents/_module.mjs";
-export * as packages from "./packages/module.mjs";
-export * as utils from "./utils/module.mjs";
-export * as grid from "./grid/_module.mjs";
+export * as CONST from './constants.d.mts';
+export * as abstract from './abstract/module.d.mts';
+export * as config from './config.d.mts';
+export * as data from './data/module.d.mts';
+export * as documents from './documents/_module.d.mts';
+export * as packages from './packages/module.d.mts';
+export * as utils from './utils/module.d.mts';
+export * as grid from './grid/_module.d.mts';

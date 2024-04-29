@@ -1,26 +1,30 @@
-export type DataFieldOptions = import("./fields.mjs").DataFieldOptions;
-export type FilePathFieldOptions = import("./fields.mjs").FilePathFieldOptions;
+import { DataModel } from '../abstract/module.d.mts';
+import * as fields from './fields.d.mts';
+import * as documents from '../documents/_module.d.mts';
+
+export type DataFieldOptions = import('./fields.d.mts').DataFieldOptions;
+export type FilePathFieldOptions = import('./fields.d.mts').FilePathFieldOptions;
 export type LightAnimationData = {
-    /**
-     * The animation type which is applied
-     */
-    type: string;
-    /**
-     * The speed of the animation, a number between 0 and 10
-     */
-    speed: number;
-    /**
-     * The intensity of the animation, a number between 1 and 10
-     */
-    intensity: number;
-    /**
-     * Reverse the direction of animation.
-     */
-    reverse: boolean;
+  /**
+   * The animation type which is applied
+   */
+  type: string;
+  /**
+   * The speed of the animation, a number between 0 and 10
+   */
+  speed: number;
+  /**
+   * The intensity of the animation, a number between 1 and 10
+   */
+  intensity: number;
+  /**
+   * Reverse the direction of animation.
+   */
+  reverse: boolean;
 };
 /**
- * @typedef {import("./fields.mjs").DataFieldOptions} DataFieldOptions
- * @typedef {import("./fields.mjs").FilePathFieldOptions} FilePathFieldOptions
+ * @typedef {import("./fields.d.mts").DataFieldOptions} DataFieldOptions
+ * @typedef {import("./fields.d.mts").FilePathFieldOptions} FilePathFieldOptions
  */
 /**
  * @typedef {Object} LightAnimationData
@@ -51,25 +55,25 @@ export type LightAnimationData = {
  * @property {{min: number, max: number}} darkness  A darkness range (min and max) for which the source should be active
  */
 export class LightData extends DataModel {
-    static defineSchema(): {
-        negative: fields.BooleanField;
-        priority: fields.NumberField;
-        alpha: fields.AlphaField;
-        angle: fields.AngleField;
-        bright: fields.NumberField;
-        color: fields.ColorField;
-        coloration: fields.NumberField;
-        dim: fields.NumberField;
-        attenuation: fields.AlphaField;
-        luminosity: fields.NumberField;
-        saturation: fields.NumberField;
-        contrast: fields.NumberField;
-        shadows: fields.NumberField;
-        animation: fields.SchemaField;
-        darkness: fields.SchemaField;
-    };
-    /** @inheritDoc */
-    static migrateData(data: any): any;
+  static defineSchema(): {
+    negative: fields.BooleanField;
+    priority: fields.NumberField;
+    alpha: fields.AlphaField;
+    angle: fields.AngleField;
+    bright: fields.NumberField;
+    color: fields.ColorField;
+    coloration: fields.NumberField;
+    dim: fields.NumberField;
+    attenuation: fields.AlphaField;
+    luminosity: fields.NumberField;
+    saturation: fields.NumberField;
+    contrast: fields.NumberField;
+    shadows: fields.NumberField;
+    animation: fields.SchemaField;
+    darkness: fields.SchemaField;
+  };
+  /** @inheritDoc */
+  static migrateData(data: any): any;
 }
 /**
  * Extend the base TokenData to define a PrototypeToken which exists within a parent Actor.
@@ -78,85 +82,85 @@ export class LightData extends DataModel {
  * @property {boolean} randomImg      Does the prototype token use a random wildcard image?
  */
 export class PrototypeToken {
-    static defineSchema(): {
-        _id: fields.DocumentIdField;
-        name: fields.StringField;
-        displayName: fields.NumberField;
-        actorId: fields.ForeignDocumentField;
-        actorLink: fields.BooleanField;
-        delta: import("../documents/token.mjs").ActorDeltaField;
-        appendNumber: fields.BooleanField;
-        prependAdjective: fields.BooleanField;
-        width: fields.NumberField;
-        height: fields.NumberField;
-        texture: TextureData;
-        hexagonalShape: fields.NumberField;
-        x: fields.NumberField;
-        y: fields.NumberField;
-        elevation: fields.NumberField;
-        sort: fields.NumberField;
-        locked: fields.BooleanField;
-        lockRotation: fields.BooleanField;
-        rotation: fields.AngleField;
-        alpha: fields.AlphaField;
-        hidden: fields.BooleanField;
-        disposition: fields.NumberField;
-        displayBars: fields.NumberField;
-        bar1: fields.SchemaField;
-        bar2: fields.SchemaField;
-        light: fields.EmbeddedDataField;
-        sight: fields.SchemaField;
-        detectionModes: fields.ArrayField;
-        occludable: fields.SchemaField;
-        ring: fields.SchemaField;
-        _regions: fields.ArrayField;
-        flags: fields.ObjectField;
-    };
-    /**
-     * @see ClientDocument.database
-     * @ignore
-     */
-    static get database(): any;
-    constructor(data?: {}, options?: {});
-    /**
-     * The Actor which owns this Prototype Token
-     * @type {documents.BaseActor}
-     */
-    get actor(): documents.BaseActor;
-    /** @inheritdoc */
-    toObject(source?: boolean): any;
-    /**
-     * @see abstract.Document#update
-     * @ignore
-     */
-    update(data: any, options: any): Promise<import("../abstract/document.mjs").default>;
-    /**
-     * @see abstract.Document#getFlag
-     * @ignore
-     */
-    getFlag(...args: any[]): any;
-    /**
-     * @see abstract.Document#getFlag
-     * @ignore
-     */
-    setFlag(...args: any[]): any;
-    /**
-     * @see abstract.Document#unsetFlag
-     * @ignore
-     */
-    unsetFlag(...args: any[]): Promise<any>;
-    /**
-     * @see abstract.Document#testUserPermission
-     * @ignore
-     */
-    testUserPermission(user: any, permission: any, { exact }?: {
-        exact?: boolean;
-    }): boolean;
-    /**
-     * @see documents.BaseActor#isOwner
-     * @ignore
-     */
-    get isOwner(): any;
+  static defineSchema(): {
+    _id: fields.DocumentIdField;
+    name: fields.StringField;
+    displayName: fields.NumberField;
+    actorId: fields.ForeignDocumentField;
+    actorLink: fields.BooleanField;
+    delta: import('../documents/token.d.mts').ActorDeltaField;
+    appendNumber: fields.BooleanField;
+    prependAdjective: fields.BooleanField;
+    width: fields.NumberField;
+    height: fields.NumberField;
+    texture: TextureData;
+    hexagonalShape: fields.NumberField;
+    x: fields.NumberField;
+    y: fields.NumberField;
+    elevation: fields.NumberField;
+    sort: fields.NumberField;
+    locked: fields.BooleanField;
+    lockRotation: fields.BooleanField;
+    rotation: fields.AngleField;
+    alpha: fields.AlphaField;
+    hidden: fields.BooleanField;
+    disposition: fields.NumberField;
+    displayBars: fields.NumberField;
+    bar1: fields.SchemaField;
+    bar2: fields.SchemaField;
+    light: fields.EmbeddedDataField;
+    sight: fields.SchemaField;
+    detectionModes: fields.ArrayField;
+    occludable: fields.SchemaField;
+    ring: fields.SchemaField;
+    _regions: fields.ArrayField;
+    flags: fields.ObjectField;
+  };
+  /**
+   * @see ClientDocument.database
+   * @ignore
+   */
+  static get database(): any;
+  constructor(data?: {}, options?: {});
+  /**
+   * The Actor which owns this Prototype Token
+   * @type {documents.BaseActor}
+   */
+  get actor(): documents.BaseActor;
+  /** @inheritdoc */
+  toObject(source?: boolean): any;
+  /**
+   * @see abstract.Document#update
+   * @ignore
+   */
+  update(data: any, options: any): Promise<import('../abstract/document.d.mts').default>;
+  /**
+   * @see abstract.Document#getFlag
+   * @ignore
+   */
+  getFlag(...args: any[]): any;
+  /**
+   * @see abstract.Document#getFlag
+   * @ignore
+   */
+  setFlag(...args: any[]): any;
+  /**
+   * @see abstract.Document#unsetFlag
+   * @ignore
+   */
+  unsetFlag(...args: any[]): Promise<any>;
+  /**
+   * @see abstract.Document#testUserPermission
+   * @ignore
+   */
+  testUserPermission(user: any, permission: any, { exact }?: {
+    exact?: boolean;
+  }): boolean;
+  /**
+   * @see documents.BaseActor#isOwner
+   * @ignore
+   */
+  get isOwner(): any;
 }
 /**
  * A data model intended to be used as an inner EmbeddedDataField which defines a geometric shape.
@@ -173,23 +177,23 @@ export class PrototypeToken {
  * @property {number[]} [points]          For polygons, the array of polygon coordinates which comprise the shape.
  */
 export class ShapeData extends DataModel {
-    static defineSchema(): {
-        type: fields.StringField;
-        width: fields.NumberField;
-        height: fields.NumberField;
-        radius: fields.NumberField;
-        points: fields.ArrayField;
-    };
-    /**
-     * The primitive shape types which are supported
-     * @enum {string}
-     */
-    static TYPES: {
-        RECTANGLE: string;
-        CIRCLE: string;
-        ELLIPSE: string;
-        POLYGON: string;
-    };
+  static defineSchema(): {
+    type: fields.StringField;
+    width: fields.NumberField;
+    height: fields.NumberField;
+    radius: fields.NumberField;
+    points: fields.ArrayField;
+  };
+  /**
+   * The primitive shape types which are supported
+   * @enum {string}
+   */
+  static TYPES: {
+    RECTANGLE: string;
+    CIRCLE: string;
+    ELLIPSE: string;
+    POLYGON: string;
+  };
 }
 /**
  * A data model intended to be used as an inner EmbeddedDataField which defines a geometric shape.
@@ -203,32 +207,33 @@ export class ShapeData extends DataModel {
  * @property {boolean} [hole=false]                                 Is this shape a hole?
  */
 export class BaseShapeData extends DataModel {
-    /**
-     * The possible shape types.
-     * @type {Readonly<{
-     *   rectangle: RectangleShapeData,
-     *   circle: CircleShapeData,
-     *   ellipse: EllipseShapeData,
-     *   polygon: PolygonShapeData
-     * }>}
-     */
-    static get TYPES(): Readonly<{
-        rectangle: RectangleShapeData;
-        circle: CircleShapeData;
-        ellipse: EllipseShapeData;
-        polygon: PolygonShapeData;
-    }>;
-    static "__#27@#TYPES": any;
-    /**
-     * The type of this shape.
-     * @type {string}
-     */
-    static TYPE: string;
-    /** @override */
-    static override defineSchema(): {
-        type: fields.StringField;
-        hole: fields.BooleanField;
-    };
+  /**
+   * The possible shape types.
+   * @type {Readonly<{
+   *   rectangle: RectangleShapeData,
+   *   circle: CircleShapeData,
+   *   ellipse: EllipseShapeData,
+   *   polygon: PolygonShapeData
+   * }>}
+   */
+  static get TYPES(): Readonly<{
+    rectangle: RectangleShapeData;
+    circle: CircleShapeData;
+    ellipse: EllipseShapeData;
+    polygon: PolygonShapeData;
+  }>;
+  static '__#27@#TYPES': any;
+
+  /**
+   * The type of this shape.
+   * @type {string}
+   */
+  static TYPE: string;
+  /** @override */
+  static override defineSchema(): {
+    type: fields.StringField;
+    hole: fields.BooleanField;
+  };
 }
 /**
  * The data model for a rectangular shape.
@@ -292,11 +297,13 @@ export class PolygonShapeData extends DataModel {
  *                                          w.r.t. to occlusion testing and light/weather blocking.
  */
 export class TextureData extends fields.SchemaField {
-    /**
-     * @param {DataFieldOptions} options        Options which are forwarded to the SchemaField constructor
-     * @param {FilePathFieldOptions} srcOptions Additional options for the src field
-     */
-    constructor(options?: DataFieldOptions, { categories, initial, wildcard, label }?: FilePathFieldOptions);
+  /**
+   * @param {DataFieldOptions} options        Options which are forwarded to the SchemaField constructor
+   * @param {FilePathFieldOptions} srcOptions Additional options for the src field
+   */
+  constructor(options?: DataFieldOptions, {
+    categories, initial, wildcard, label }
+    ?: FilePathFieldOptions);
 }
 /**
  * A minimal data model used to represent a tombstone entry inside an EmbeddedCollectionDelta.
@@ -308,12 +315,9 @@ export class TextureData extends fields.SchemaField {
  * @property {boolean} _tombstone      A property that identifies this entry as a tombstone.
  */
 export class TombstoneData extends DataModel {
-    /** @override */
-    static override defineSchema(): {
-        _id: fields.DocumentIdField;
-        _tombstone: fields.BooleanField;
-    };
+  /** @override */
+  static override defineSchema(): {
+    _id: fields.DocumentIdField;
+    _tombstone: fields.BooleanField;
+  };
 }
-import { DataModel } from "../abstract/module.mjs";
-import * as fields from "./fields.mjs";
-import * as documents from "../documents/_module.mjs";
