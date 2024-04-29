@@ -43,7 +43,7 @@
 
     $: conditionsFlowDirection = game.settings.get(
         "a5e",
-        "conditionFlowDirection"
+        "conditionFlowDirection",
     );
 
     $: fatigue = HUD?.object?.actor?.system?.attributes?.fatigue ?? 0;
@@ -56,24 +56,27 @@
         "column"}
 >
     {#each statusEffects as effect}
+        {@const linked = subConditions[effect.id]?.some((c) =>
+            activeConditions.includes(c),
+        )}
+
         <button
             class="condition-container {effect.cssClass}"
-            class:linked={subConditions[effect.id]?.some((c) =>
-                activeConditions.includes(c)
-            )}
+            class:linked
             class:locked={conditionImmunities.includes(effect.id)}
             class:fatigue-counter={effect.id === "fatigue" && fatigue > 0}
             class:strife-counter={effect.id === "strife" && strife > 0}
             title={effect.title ?? ""}
             data-status-id={effect.id}
-            disabled={conditionImmunities.includes(effect.id) ||
-                subConditions[effect.id]?.some((c) =>
-                    activeConditions.includes(c)
-                )}
-            on:click|preventDefault|stopPropagation={() =>
-                handleStatusEffectAdd(effect)}
-            on:auxclick|preventDefault|stopPropagation={() =>
-                handleStatusEffectRemove(effect)}
+            disabled={conditionImmunities.includes(effect.id) || linked}
+            on:click|preventDefault|stopPropagation={() => {
+                if (linked) return;
+                handleStatusEffectAdd(effect);
+            }}
+            on:auxclick|preventDefault|stopPropagation={() => {
+                if (linked) return;
+                handleStatusEffectRemove(effect);
+            }}
         >
             <img
                 class={effect.cssClass}

@@ -72,45 +72,11 @@ export default class TokenA5e extends Token {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _removeStatusEffect({ id, src }, { overlay = false } = {}) {
-    const effect = id && this.actor ? CONFIG.statusEffects.find((e) => e.id === id) : src;
-    if (typeof effect !== 'object') return null;
-
     if (['fatigue', 'exhaustion', 'strife'].includes(id)) {
       return this.actor.toggleStatusEffect(id, { active: false, overlay });
     }
 
-    const subConditions = CONFIG.statusEffects.reduce((acc, c) => {
-      if (!c?.statuses?.length) return acc;
-
-      c.statuses.forEach((s) => {
-        acc[s] ??= [];
-        acc[s].push(c.id);
-      });
-      return acc;
-    }, {});
-
-    const activeConditions = this._getActiveConditions();
-    const { existing, associated } = this.actor.effects.reduce((arr, e) => {
-      if (e.statuses.size === 1 && e.statuses.has(id)) { arr.existing.push(e.id); }
-
-      effect?.statuses?.forEach((s) => {
-        if (e.statuses.size === 1 && e.statuses.has(s)) {
-          const difference = subConditions[s]?.filter((c) => activeConditions.includes(c));
-
-          if (difference?.length > 1) return;
-          arr.associated.push(e.id);
-        }
-      });
-
-      return arr;
-    }, { existing: [], associated: [] });
-
-    if (!existing.length && !associated.length) return null;
-
-    return this.actor.deleteEmbeddedDocuments(
-      'ActiveEffect',
-      [...existing, ...associated]
-    );
+    return this.actor.toggleStatusEffect(id, { active: false, overlay });
   }
 
   /** @inheritdoc */

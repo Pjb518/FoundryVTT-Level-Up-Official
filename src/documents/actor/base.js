@@ -1687,7 +1687,7 @@ export default class BaseActorA5e extends Actor {
       // Create a new effect
       if (active) {
         const effect = await ActiveEffect.implementation.fromStatusEffect(statusId);
-        await effect.updateSource({ changes });
+        effect.updateSource({ changes });
         return ActiveEffect.implementation.create(effect, { parent: this, keepId: true });
       }
     }
