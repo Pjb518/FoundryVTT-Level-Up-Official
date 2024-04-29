@@ -2,6 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
+    import FieldWrapper from "../FieldWrapper.svelte";
     import FormSection from "../LegacyFormSection.svelte";
     import Skill from "../Skill.svelte";
 
@@ -59,7 +60,11 @@
 
 <div class="skill-page-wrapper">
     {#if showSpecialties}
-        <FormSection --border="1px solid #ccc">
+        <FieldWrapper
+            --a5e-field-wrapper-background="rgba(0, 0, 0, 0.05)"
+            --a5e-field-wrapper-border="1px solid #ccc"
+            --a5e-field-wrapper-padding="0.5rem"
+        >
             <h3 class="a5e-skill-specialties-heading">Skill Specialties</h3>
 
             <dl class="a5e-skill-specialties">
@@ -88,7 +93,7 @@
                     {/if}
                 {/each}
             </dl>
-        </FormSection>
+        </FieldWrapper>
     {/if}
 
     <ul
