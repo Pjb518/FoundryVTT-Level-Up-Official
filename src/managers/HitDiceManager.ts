@@ -142,7 +142,7 @@ export default class HitDiceManager {
 
     const title = localize('A5E.HitDiceChatHeader', { dieSize: dieSize.toUpperCase() });
     const chatData = {
-      user: game.user?.id,
+      author: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this.#actor }),
       type: CONST.CHAT_MESSAGE_STYLES.ROLL,
       sound: CONFIG.sounds.dice,

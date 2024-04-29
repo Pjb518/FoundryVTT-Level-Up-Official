@@ -52,7 +52,7 @@ export default class BaseItemA5e extends Item {
 
   async shareItemDescription(action) {
     const chatData = {
-      user: game.user?.id,
+      author: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
       flags: {
         a5e: {

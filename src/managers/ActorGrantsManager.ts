@@ -231,7 +231,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   #createRolledHpCard(cls: typeof Item, roll: any) {
     const title = `Hit Dice Roll - ${cls.name}`;
     const chatData = {
-      user: game.user?.id,
+      author: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       type: CONST.CHAT_MESSAGE_STYLES.ROLL,
       sound: CONFIG.sounds.dice,

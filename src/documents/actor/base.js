@@ -912,7 +912,7 @@ export default class BaseActorA5e extends Actor {
     const rolls = await rollPreparationManager.prepareRolls();
 
     const chatData = {
-      user: game.user?.id,
+      author: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
       type: CONST.CHAT_MESSAGE_STYLES.ROLL,
       sound: CONFIG.sounds.dice,
@@ -1036,7 +1036,7 @@ export default class BaseActorA5e extends Actor {
     const rolls = await rollPreparationManager.prepareRolls();
 
     const chatData = {
-      user: game.user?.id,
+      author: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
       type: CONST.CHAT_MESSAGE_STYLES.ROLL,
       sound: CONFIG.sounds.dice,
@@ -1164,7 +1164,7 @@ export default class BaseActorA5e extends Actor {
     const rolls = await rollPreparationManager.prepareRolls();
 
     const chatData = {
-      user: game.user?.id,
+      author: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this }),
       type: CONST.CHAT_MESSAGE_STYLES.ROLL,
       sound: CONFIG.sounds.dice,

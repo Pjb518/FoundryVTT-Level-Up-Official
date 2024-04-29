@@ -66,7 +66,7 @@
         const result = rollOutcome?.results?.[0];
 
         const chatData = {
-            user: game.user?.id,
+            author: game.user?.id,
             speaker: ChatMessage.getSpeaker({ actor }),
             flags: {
                 a5e: {
