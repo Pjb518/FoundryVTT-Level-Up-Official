@@ -750,7 +750,7 @@ export namespace REGION_EVENTS {
   let TOKEN_ROUND_START: string;
   let TOKEN_ROUND_END: string;
 }
-export namespace CHAT_MESSAGE_TYPES { }
+export namespace CHAT_MESSAGE_STYLES { }
 /**
  * @deprecated since v12
  * @ignore

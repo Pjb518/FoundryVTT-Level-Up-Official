@@ -233,7 +233,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const chatData = {
       user: game.user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      type: CONST.CHAT_MESSAGE_TYPES.ROLL,
+      type: CONST.CHAT_MESSAGE_STYLES.ROLL,
       sound: CONFIG.sounds.dice,
       rolls: [roll],
       flags: {

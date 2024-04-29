@@ -170,7 +170,7 @@ export default class ItemA5e extends BaseItemA5e {
       user: game.user?.id,
       flavor: action.name ? `${this.name}: ${action.name}` : this.name,
       speaker: ChatMessage.getSpeaker({ actor: this }),
-      type: rolls.length ? CONST.CHAT_MESSAGE_TYPES.ROLL : CONST.CHAT_MESSAGE_TYPES.OTHER,
+      type: rolls.length ? CONST.CHAT_MESSAGE_STYLES.ROLL : CONST.CHAT_MESSAGE_STYLES.OTHER,
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
       rollMode: activationData.visibilityMode ?? game.settings.get('core', 'rollMode'),
