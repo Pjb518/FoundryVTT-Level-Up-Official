@@ -14,43 +14,43 @@ export default class TokenA5e extends Token {
    * @private
    */
   _getStatusEffectChoices() {
-    const token = this;
-    const doc = token.document;
-
-    // Get statuses which are active for the token actor
-    const actor = token.actor || null;
-    const statuses = actor ? actor.effects.reduce((obj, effect) => {
-      // eslint-disable-next-line no-restricted-syntax
-      for (const id of effect.statuses) {
-        obj[id] = { id, overlay: !!effect.getFlag('core', 'overlay') };
-      }
-      return obj;
-    }, {}) : {};
-
-    // Prepare the list of effects from the configured defaults and any additional
-    // effects present on the Token
-    const tokenEffects = foundry.utils.deepClone(doc.effects) || [];
-    if (doc.overlayEffect) tokenEffects.push(doc.overlayEffect);
-    return CONFIG.statusEffects.concat(tokenEffects).reduce((obj, e) => {
-      const src = e.icon ?? e;
-      if (src in obj) return obj;
-      const status = statuses[e.id] || {};
-      const isActive = !!status.id || doc.effects.includes(src);
-      const isOverlay = !!status.overlay || doc.overlayEffect === src;
-      const label = e.name ?? e.label;
-      obj[src] = {
-        id: e.id ?? '',
-        title: label ? game.i18n.localize(label) : null,
-        src,
-        isActive,
-        isOverlay,
-        cssClass: [
-          isActive ? 'active' : null,
-          isOverlay ? 'overlay' : null
-        ].filterJoin(' ')
+    // Include all HUD-enabled status effects
+    const choices = {};
+    for (const status of CONFIG.statusEffects) {
+      if (status.hud === false) continue;
+      choices[status.id] = {
+        _id: status._id,
+        id: status.id,
+        title: game.i18n.localize(status.name ?? /** @deprecated since v12 */ status.label),
+        src: status.img ?? /** @deprecated since v12 */ status.icon,
+        isActive: false,
+        isOverlay: false
       };
-      return obj;
-    }, {});
+    }
+
+    // Update the status of effects which are active for the token actor
+    const activeEffects = this.actor?.effects || [];
+    for (const effect of activeEffects) {
+      for (const statusId of effect.statuses) {
+        const status = choices[statusId];
+        if (!status) continue;
+        if (status._id) {
+          if (status._id !== effect.id) continue;
+        } else if (effect.statuses.size !== 1) continue;
+        status.isActive = true;
+        if (effect.getFlag('core', 'overlay')) status.isOverlay = true;
+        break;
+      }
+    }
+
+    // Flag status CSS class
+    for (const status of Object.values(choices)) {
+      status.cssClass = [
+        status.isActive ? 'active' : null,
+        status.isOverlay ? 'overlay' : null
+      ].filterJoin(' ');
+    }
+    return choices;
   }
 
   _getActiveConditions() {
