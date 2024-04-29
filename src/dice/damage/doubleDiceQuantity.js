@@ -1,14 +1,15 @@
 export default async function doubleDiceQuantity(baseRoll) {
-  return [
-    ...baseRoll.terms,
-    ...baseRoll.dice.flatMap((die) => {
-      const operator = new foundry.dice.terms.OperatorTerm({ operator: '+' }).evaluate();
+  const terms = [...baseRoll.terms];
 
-      const newDie = new Die({
-        faces: die.faces, number: die.number, modifiers: die.modifiers, options: die.options
-      }).evaluate();
+  for await (const die of baseRoll.dice) {
+    const operator = await new foundry.dice.terms.OperatorTerm({ operator: '+' }).evaluate();
 
-      return [operator, newDie];
-    })
-  ];
+    const newDie = await new foundry.dice.terms.Die({
+      faces: die.faces, number: die.number, modifiers: die.modifiers, options: die.options
+    }).evaluate();
+
+    terms.push(operator, newDie);
+  }
+
+  return terms;
 }
