@@ -1,5 +1,12 @@
-declare const CONFIG: any;
-declare const CONST: any;
+import * as abstract from './common/abstract/module.d.mts';
+import * as constants from './common/constants.d.mts';
+import * as config from './common/config.d.mts';
+import * as data from './common/data/data.d.mts';
+import * as documents from './common/documents/_module.d.mts';
+import * as utils from './common/utils/module.d.mts';
+
+declare const CONFIG: config;
+declare const CONST: constants;
 
 declare const Actor: any;
 declare const ActiveEffect: any;
@@ -13,13 +20,13 @@ declare const DocumentSheetConfig: any;
 declare const TokenDocument: any;
 
 declare const foundry: {
-  CONST: any;
-  abstract: any;
-  config: any;
-  data: any;
-  documents: any;
+  CONST: constants;
+  abstract: abstract;
+  config: config;
+  data: data;
+  documents: documents;
   packages: any;
-  utils: Utils;
+  utils: utils;
 };
 
 declare const canvas: any;
