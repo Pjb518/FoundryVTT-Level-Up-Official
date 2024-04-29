@@ -33,6 +33,8 @@ export default async function automateHpConditions(actor, changes, userId, condi
   if (isApplicable && !hasCondition) {
     actor.toggleStatusEffect(conditionId, { active: true, overlay });
     Hooks.callAll(`a5e.${conditionId}`, actor, true);
+
+    if (conditionId === 'unconscious') actor.toggleStatusEffect('prone', { active: true });
   } else if (!isApplicable && hasCondition) {
     actor.toggleStatusEffect(conditionId, { active: false, overlay });
     Hooks.callAll(`a5e.${conditionId}`, actor, false);
