@@ -13,12 +13,12 @@
         if (statuses.size === 1) {
             if (
                 subConditions[statuses.first()]?.some((c) =>
-                    activeConditions.includes(c)
+                    activeConditions.includes(c),
                 )
             )
                 return;
             const id = statuses.first();
-            const src = effect.icon;
+            const src = effect.img;
             return token?.object?._removeStatusEffect({ id, src });
         }
 
@@ -34,7 +34,7 @@
             ["fatigue", "strife"].includes(statuses.first())
         ) {
             const id = statuses.first();
-            const src = effect.icon;
+            const src = effect.img;
             return token?.object?._addStatusEffect({ id, src });
         }
     }
@@ -43,7 +43,7 @@
     // icon size.
     function getMaxEffectIconsPerColumn() {
         const fontSize = parseFloat(
-            document.getElementsByTagName("html").style?.fontSize ?? 16
+            document.getElementsByTagName("html").style?.fontSize ?? 16,
         );
 
         const { clientHeight } = document.documentElement;
@@ -123,11 +123,11 @@
         style="--top: {panelTop}px; --left: {panelLeft}px; --bottom: {panelBottom}px;"
     >
         <ul class="a5e-effect-list">
-            {#each effects as { description, flags, icon, _id, name, statuses } (_id)}
+            {#each effects as { description, flags, img, _id, name, statuses } (_id)}
                 <A5EEffectsPanelEffect
                     actor={$actor}
                     {description}
-                    {icon}
+                    {img}
                     {_id}
                     {name}
                     conditionId={statuses.first()}

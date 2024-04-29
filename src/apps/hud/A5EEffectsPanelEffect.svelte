@@ -8,7 +8,7 @@
     export let description;
     export let conditionId;
     export let linked = null;
-    export let icon;
+    export let img;
     export let _id;
     export let name;
 
@@ -179,8 +179,8 @@
     >
         <img
             class="a5e-effect-item__icon"
-            class:a5e-effect-item__icon--svg={icon?.endsWith(".svg")}
-            src={icon}
+            class:a5e-effect-item__icon--svg={img?.endsWith(".svg")}
+            src={img}
             alt={name}
         />
     </li>
