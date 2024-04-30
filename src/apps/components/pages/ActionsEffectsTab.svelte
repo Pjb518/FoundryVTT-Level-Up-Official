@@ -16,9 +16,15 @@
     let actionIds = new Set($item.actions.keys());
     activeEffects?.filters.add({
         id: "onUse-filter",
-        filter: (effect) =>
-            effect.flags?.a5e?.actionId === actionId ||
-            !actionIds.has(effect.flags?.a5e?.actionId),
+        filter: (effect) => {
+            console.log("flagId", effect.flags?.a5e?.actionId);
+            console.log("actionId", actionId);
+
+            return (
+                effect.flags?.a5e?.actionId === actionId ||
+                !actionIds.has(effect.flags?.a5e?.actionId)
+            );
+        },
     });
 
     onDestroy(() => {
