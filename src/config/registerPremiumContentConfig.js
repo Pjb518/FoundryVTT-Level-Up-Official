@@ -527,6 +527,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TT:AA',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      series: 'thematicToolkit',
       title: 'Thematic Toolkit: Arcane Avenger',
       url: 'https://preview.drivethrurpg.com/en/product/392599/thematic-toolkit-arcane-avenger-a5e?affiliate_id=1388381'
     },
@@ -534,6 +535,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TT:BG',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      series: 'thematicToolkit',
       title: 'Thematic Toolkit: Burning Gloom',
       url: 'https://bit.ly/48XRLfm'
     },
@@ -541,6 +543,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TT:CtD',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      series: 'thematicToolkit',
       title: 'Thematic Toolkit: Carry the Darkness',
       url: 'https://bit.ly/480m03Y'
     },
@@ -548,6 +551,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TT:Cult',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      series: 'thematicToolkit',
       title: 'Thematic Toolkit: Cultist',
       url: 'https://preview.drivethrurpg.com/en/product/392588/thematic-toolkit-cultist-a5e?affiliate_id=1388381'
     },
@@ -555,6 +559,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TT:FotC',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      series: 'thematicToolkit',
       title: 'Thematic Toolkit: Folk of the Court',
       url: 'https://bit.ly/48SVn1R'
     },
@@ -562,6 +567,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TT:HK',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      series: 'thematicToolkit',
       title: 'Thematic Toolkit: Hazardous Knowledge',
       url: 'https://bit.ly/4d7WzRz'
     },
@@ -569,6 +575,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TT:Itin',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      series: 'thematicToolkit',
       title: 'Thematic Toolkit: Itinerant',
       url: 'https://bit.ly/3Sidh7p'
     },
@@ -576,6 +583,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TT:JJE',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      series: 'thematicToolkit',
       title: 'Thematic Toolkit: Judge, Jury, and Executioner',
       url: 'https://bit.ly/42OmyZC'
     },
@@ -583,6 +591,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TT:MoC',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      series: 'thematicToolkit',
       title: 'Thematic Toolkit: Master of Ceremonies',
       url: 'https://preview.drivethrurpg.com/en/product/422460/thematic-toolkit-master-of-ceremonies-a5e?affiliate_id=1388381'
     },
@@ -590,6 +599,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TT:Scrap',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      series: 'thematicToolkit',
       title: 'Thematic Toolkit: Scrapper',
       url: 'https://preview.drivethrurpg.com/en/product/412017/thematic-toolkit-scrapper-a5e?affiliate_id=1388381'
     },
@@ -597,6 +607,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TT:Story',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      series: 'thematicToolkit',
       title: 'Thematic Toolkit: Storyteller',
       url: 'https://preview.drivethrurpg.com/en/product/407903/thematic-toolkit-storyteller-a5e?affiliate_id=1388381'
     },
@@ -604,6 +615,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TT:ToW',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      series: 'thematicToolkit',
       title: 'Thematic Toolkit: Thunder of War',
       url: 'https://preview.drivethrurpg.com/en/product/404207/thematic-toolkit-thunder-of-war-a5e?affiliate_id=1388381'
     },
@@ -611,6 +623,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TT:VS',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      series: 'thematicToolkit',
       title: 'Thematic Toolkit: Venomous Shadow',
       url: 'https://preview.drivethrurpg.com/en/product/400541/thematic-toolkit-venomous-shadow-a5e?affiliate_id=1388381'
     },
