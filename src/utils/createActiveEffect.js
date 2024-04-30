@@ -3,9 +3,11 @@ import { localize } from '#runtime/svelte/helper';
 import ActionsManager from '../managers/ActionsManager';
 
 export default async function createEffect(document, { effectType, actionId }) {
+  const action = document.actions[actionId];
+
   const updateData = {
     label: localize('A5E.effects.new'),
-    icon: document.documentName === 'Item' ? document.img : 'icons/svg/aura.svg',
+    icon: document.documentName === 'Item' ? (action?.img ?? document.img) : 'icons/svg/aura.svg',
     origin: document.uuid
   };
 
@@ -34,7 +36,6 @@ export default async function createEffect(document, { effectType, actionId }) {
 
   // Create prompt on action for effect
   if (effectType === 'onUse') {
-    const action = document.actions[actionId];
     if (!action) return;
 
     ActionsManager.addPrompt(
