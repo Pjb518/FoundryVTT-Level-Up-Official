@@ -28,7 +28,9 @@
 
     function getOptions(choicesLocked: boolean): string[][] {
         const options: string[][] = [];
-        if (["weapons", "tools"].includes(proficiencyType)) {
+        console.log(options);
+
+        if (["weapon", "tool"].includes(proficiencyType)) {
             const config: Record<string, string>[] = Object.values(
                 configObject[proficiencyType]?.config ?? {},
             );
