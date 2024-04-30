@@ -3,7 +3,7 @@ import { localize } from '#runtime/svelte/helper';
 import ActionsManager from '../managers/ActionsManager';
 
 export default async function createEffect(document, { effectType, actionId }) {
-  const action = document.actions[actionId];
+  const action = document?.actions?.[actionId] ?? {};
 
   const updateData = {
     label: localize('A5E.effects.new'),
