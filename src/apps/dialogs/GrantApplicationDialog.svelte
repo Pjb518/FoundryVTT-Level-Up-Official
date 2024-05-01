@@ -81,7 +81,7 @@
 <article>
     <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
         {#if cls && cls?.type === "class"}
-            {#if cls.system.classLevels > 1}
+            {#if clsLevel > 1}
                 <ClassHitPointsSelection
                     {cls}
                     classLevel={clsLevel}
