@@ -78,13 +78,15 @@ export default class ClassItemA5e extends OriginItemA5e {
 
     // Add spellcasting resource data
     if (type === 'multiplier' && resource === 'slots') {
-      const roundFunc = roundUp ? Math.ceil : Math.floor;
-      const slots = config[roundFunc(this.classLevels * multiplier)];
+      const roundFunc = Math.ceil;
+      const slots = config[roundFunc(this.classLevels * (multiplier ?? 1))] ?? [];
 
-      data.slots = Object.fromEntries(slots.map((slot, idx) => ([
-        idx + 1,
-        slot
-      ])));
+      data.slots = Object.fromEntries(slots.map((slot, idx) => {
+        const skip = Math.round(1 / multiplier) > this.classLevels;
+        if (multiplier < 1 && skip && !roundUp) return [idx + 1, 0];
+
+        return [idx + 1, slot];
+      }));
     }
 
     if (type === 'reference') {
