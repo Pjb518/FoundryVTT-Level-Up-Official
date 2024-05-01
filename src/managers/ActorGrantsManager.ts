@@ -92,7 +92,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       applicableGrants.push(grant);
     });
 
-    await this.#applyGrants(applicableGrants, optionalGrants, { item });
+    const cls = item.type === 'class' ? item : null;
+    await this.#applyGrants(applicableGrants, optionalGrants, { item, cls, clsLevel: classLevel });
   }
 
   async createLeveledGrants(
@@ -222,7 +223,14 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         hp = options.cls.averageHP;
       }
 
-      await options.cls.update({ [`system.hp.levels.${options.clsLevel}`]: hp });
+      const spellCastingAbility = clsReturnData.spellcastingAbility
+        || options.cls.system.spellcasting.ability.options[0]
+        || options.cls.system.spellcasting.ability.base;
+
+      await options.cls.update({
+        [`system.hp.levels.${options.clsLevel}`]: hp,
+        'system.spellcasting.ability.value': spellCastingAbility
+      });
     }
 
     return true;

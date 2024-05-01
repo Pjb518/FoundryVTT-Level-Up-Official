@@ -54,6 +54,8 @@
         const { updateData, documentData } =
             prepareGrantsApplyData(actor, grants, applyData) ?? {};
 
+        clsReturnData.spellcastingAbility = spellcastingAbility || "";
+
         dialog.submit({
             success: true,
             updateData,
@@ -64,20 +66,40 @@
 
     let selectedOptionalGrants: string[] = [];
     let clsReturnData: Record<string, any> = {};
+    let spellcastingAbility: string =
+        cls?.system?.spellcasting?.ability?.options[0] ?? "";
 
     $: applyData = new Map<string, any>();
     $: grants = getApplicableGrants(selectedOptionalGrants);
     $: configurableGrants = grants.filter((grant) => grant.requiresConfig);
+
+    $: spellCastingOptions = cls?.system?.spellcasting?.ability?.options?.map(
+        (option: string) => [option, CONFIG.A5E.abilities[option]],
+    );
 </script>
 
 <article>
     <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
         {#if cls && cls?.type === "class"}
-            <ClassHitPointsSelection
-                {cls}
-                classLevel={clsLevel}
-                bind:clsReturnData
-            />
+            {#if cls.system.classLevels > 1}
+                <ClassHitPointsSelection
+                    {cls}
+                    classLevel={clsLevel}
+                    bind:clsReturnData
+                />
+            {/if}
+
+            {#if cls.system.classLevels === 1 && cls.system.spellcasting.ability.options.length}
+                <Section heading="Spellcasting Config">
+                    <RadioGroup
+                        options={spellCastingOptions}
+                        allowDeselect={false}
+                        selected={spellcastingAbility || ""}
+                        on:updateSelection={({ detail }) =>
+                            (spellcastingAbility = detail)}
+                    />
+                </Section>
+            {/if}
         {/if}
 
         {#if optionalGrants.length}
