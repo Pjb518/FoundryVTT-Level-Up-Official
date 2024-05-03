@@ -1,0 +1,92 @@
+{
+	"name": "Spell Intensity",
+	"type": "feature",
+	"img": "icons/magic/symbols/runes-star-pentagon-orange.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"nZgAFMjsXxIqooim": {
+				"name": "Second Use Before Long Rest",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"yxO4o9EzM7gQOd8u": {
+						"type": "generic",
+						"default": true,
+						"label": "Current and Max HP Reduction",
+						"formula": "1d12",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d12"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 18th level, you gain new ways to intensify the power of your spells, sometimes at cost to yourself. Choose one of the following features, which can be used to augment your wizard spells of 5th-level or lower. You must choose whether or not to augment the spell when you declare you&rsquo;re casting it, before any rolls are made.</p>\n<p>The first time you use this feature to augment a spell, you suffer no adverse effect. If you use this feature again before finishing a long rest, your current and maximum hit points are both reduced by 1d12 per level of the spell augmented (cantrips count as 1st-level spells for this purpose). This reduction lasts until you finish a long rest.</p>\n<h3><strong>Binding</strong></h3>\n<p>After you have affected a creature with a spell that has a duration and it is able to end the spell&rsquo;s effect on itself with a successful saving throw, it must succeed on that saving throw twice to end the effect.</p>\n<h3><strong>Burn</strong></h3>\n<p>Any creature that takes damage from the spell takes that damage again at the start of your next turn, unless a @UUID[Compendium.a5e.a5e-spells.Item.hms9kdl2qoqjjrs4]{Dispel Magic} spell of any level is cast on it before then or it&rsquo;s in an @UUID[Compendium.a5e.a5e-spells.Item.27zr3jqwkeu5fsq7]{Antimagic Field} at the time.</p>\n<h3><strong>Chain</strong></h3>\n<p>When you cast a spell that can normally only target a single creature, it can also target up to 2 more creatures within 15 feet of the initial target.</p>\n<h3><strong>Duality</strong></h3>\n<p>When you cast a spell that requires concentration while already concentrating on another spell, you can maintain concentration on both spells simultaneously. If you&rsquo;re forced to make a Constitution saving throw to maintain concentration, the minimum DC is 10 + the combined levels of the two spells. On a failure, both spells end.</p>\n<h3><strong>Overchannel</strong></h3>\n<p>When you would roll damage for a spell, you instead deal maximum damage with that spell.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"kKnHI2KX4kjsPjbv": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Spell Intensity",
+				"features": {
+					"total": 1
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"classes": "wizard"
+	},
+	"folder": null,
+	"_id": "qbv1libonkv9g5aq"
+}
