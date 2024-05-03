@@ -145,7 +145,9 @@
 
 <style lang="scss">
     article {
+        display: flex;
         padding: 0.75rem;
         max-height: 70vh;
+        overflow-y: auto;
     }
 </style>
