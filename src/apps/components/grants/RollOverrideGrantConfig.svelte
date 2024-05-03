@@ -64,16 +64,29 @@
             label: "A5E.Initiative",
             options: [],
         },
+        concentration: {
+            label: "A5E.ConditionConcentration",
+            options: [],
+        },
+        deathSave: {
+            label: "Death Save",
+            options: [],
+        },
         skill: {
             label: "A5E.Skill",
             options: Object.entries(CONFIG.A5E.skills),
         },
     };
 
-    const expertiseDiceOptions = prepareExpertiseDiceOptions();
+    const rollModes = Object.entries(CONFIG.A5E.rollModes ?? {}).map(
+        ([key, value]) => [
+            CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
+            localize(value),
+        ],
+    );
 
     $: grant = $item.system.grants[grantId];
-    $: expertiseType = grant?.expertiseType || "abilityCheck";
+    $: rollOverrideType = grant?.rollOverrideType || "ability";
 
     setContext("item", item);
     setContext("grantId", grantId);
@@ -103,23 +116,26 @@
         </div>
     </header>
 
-    <Section heading="Expertise Configuration" --a5e-section-body-gap="0.75rem">
+    <Section
+        heading="Roll Override Configuration"
+        --a5e-section-body-gap="0.75rem"
+    >
         <RadioGroup
-            heading="Expertise Type"
+            heading="Override Type"
             options={Object.entries(configObject).map(([key, { label }]) => [
                 key,
                 label,
             ])}
-            selected={expertiseType}
+            selected={rollOverrideType}
             on:updateSelection={({ detail }) => {
-                onUpdateValue("expertiseType", detail);
+                onUpdateValue("rollOverrideType", detail);
             }}
         />
 
-        {#if configObject[expertiseType]?.options?.length}
+        {#if configObject[rollOverrideType]?.options?.length}
             <CheckboxGroup
                 heading="Base Options"
-                options={configObject[expertiseType]?.options}
+                options={configObject[rollOverrideType]?.options}
                 selected={grant?.keys?.base}
                 showToggleAllButton={true}
                 disabledOptions={grant?.keys?.options}
@@ -130,7 +146,7 @@
 
             <CheckboxGroup
                 heading="Optional Choices"
-                options={configObject[expertiseType]?.options}
+                options={configObject[rollOverrideType]?.options}
                 selected={grant?.keys?.options}
                 disabledOptions={grant?.keys?.base}
                 showToggleAllButton={true}
@@ -150,11 +166,11 @@
         {/if}
 
         <RadioGroup
-            heading="Expertise Die Size"
-            options={expertiseDiceOptions}
-            selected={grant?.expertiseCount ?? 1}
+            heading="Roll Mode"
+            options={rollModes}
+            selected={grant?.rollMode ?? 0}
             on:updateSelection={({ detail }) => {
-                onUpdateValue("expertiseCount", detail);
+                onUpdateValue("rollMode", detail);
             }}
         />
     </Section>

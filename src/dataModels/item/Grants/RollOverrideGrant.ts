@@ -1,20 +1,31 @@
 import BaseGrant from './BaseGrant';
 
-import ExpertiseDiceGrantConfig from '../../../apps/components/grants/ExpertiseDiceGrantConfig.svelte';
-import ExpertiseDiceSelectionDialog from '../../../apps/components/grants/ExpertiseDiceSelectionDialog.svelte';
+import RollOverrideGrantConfig from '../../../apps/components/grants/RollOverrideGrantConfig.svelte';
+import RollOverrideGrantSelectionDialog from '../../../apps/components/grants/RollOverrideGrantSelectionDialog.svelte';
 
-export default class ExpertiseDiceGrant extends BaseGrant {
-  #component = ExpertiseDiceSelectionDialog;
+export default class RollOverrideGrant extends BaseGrant {
+  #component = RollOverrideGrantSelectionDialog;
 
-  #configComponent = ExpertiseDiceGrantConfig;
+  #configComponent = RollOverrideGrantConfig;
 
-  #type = 'expertiseDice';
+  #type = 'rollOverride';
+
+  // Schema variables
+  declare keys: {
+    base: string[];
+    options: string[];
+    total: number;
+  };
+
+  declare rollMode: number;
+
+  declare rollOverrideType: string;
 
   static defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
-      grantType: new fields.StringField({ required: true, initial: 'expertiseDice' }),
+      grantType: new fields.StringField({ required: true, initial: 'rollOverride' }),
       keys: new fields.SchemaField({
         base: new fields.ArrayField(
           new fields.StringField({ nullable: false, initial: '' }),
@@ -26,9 +37,9 @@ export default class ExpertiseDiceGrant extends BaseGrant {
         ),
         total: new fields.NumberField({ nullable: false, initial: 0, integer: true })
       }),
-      expertiseCount: new fields.NumberField({ nullable: false, initial: 1, integer: true }),
-      expertiseType: new fields.StringField({ required: false, initial: 'abilityCheck' }),
-      label: new fields.StringField({ required: true, initial: 'New Expertise Dice Grant' })
+      rollMode: new fields.NumberField({ nullable: false, initial: 0 }),
+      rollOverrideType: new fields.StringField({ required: false, initial: 'abilityCheck' }),
+      label: new fields.StringField({ required: true, initial: 'New Roll Override Grant' })
     });
   }
 
@@ -41,11 +52,11 @@ export default class ExpertiseDiceGrant extends BaseGrant {
 
     // Construct grant
     const grantData = {
-      expertiseDiceData: {
+      rollOverrideData: {
         keys: selected,
         total: count,
-        expertiseType: this.expertiseType,
-        expertiseCount: this.expertiseCount
+        rollOverrideType: this.rollOverrideType,
+        rollMode: this.rollMode
       },
       itemUuid: this.parent.uuid,
       grantId: this._id,
@@ -67,14 +78,14 @@ export default class ExpertiseDiceGrant extends BaseGrant {
 
   getSelectionComponentProps(data: any) {
     return {
-      base: data?.selected ?? this.keys.base ?? [],
-      choices: this.keys.options,
+      base: data.selected ?? this.keys.base ?? [],
+      choices: this.keys.options ?? [],
       count: this.keys.total,
-      expertiseType: this.expertiseType
+      rollOverrideType: this.rollOverrideType
     };
   }
 
-  requiresConfig() {
+  requiresConfig(): boolean {
     return !!this.keys.options.length;
   }
 
@@ -82,11 +93,11 @@ export default class ExpertiseDiceGrant extends BaseGrant {
     const dialogData = {
       document: this?.parent,
       grantId: this._id,
-      grantType: 'expertiseDice'
+      grantType: this.#type
     };
 
     super.configureGrant(
-      'Configure Expertise Grant',
+      'Configure Roll Override Grant',
       dialogData,
       this.#configComponent,
       { width: 400 }

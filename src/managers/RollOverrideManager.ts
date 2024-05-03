@@ -1,4 +1,4 @@
-import type { ExpertiseDiceGrant } from '../../types/actorGrants';
+import type { ExpertiseDiceGrant, RollOverrideGrant } from '../../types/actorGrants';
 
 type OverrideType = 'rollMode' | 'expertiseDice';
 
@@ -112,7 +112,7 @@ export default class RollOverrideManager {
             }
           );
         });
-      } else if (type === 'skillCheck') {
+      } else if (type === 'skill') {
         keys.forEach((key: string) => {
           this.overrides.get(`system.skills.${key}`)?.push(
             {
@@ -135,6 +135,36 @@ export default class RollOverrideManager {
           );
         });
       }
+    });
+
+    // Register all overrides from grants
+    this.actor.grants.byType('rollOverride').forEach((grant: RollOverrideGrant) => {
+      const { rollOverrideType: type, rollMode, keys } = grant.rollOverrideData ?? {};
+      const { name } = fromUuidSync(grant.itemUuid) as typeof Item ?? {};
+
+      const mapKey: string[] = [];
+
+      if (type === 'abilityCheck') {
+        keys.forEach((key: string) => mapKey.push(`system.abilities.${key}.check`));
+      } else if (type === 'abilitySave') {
+        keys.forEach((key: string) => mapKey.push(`system.abilities.${key}.save`));
+      } else if (type === 'skill') {
+        keys.forEach((key: string) => mapKey.push(`system.skills.${key}`));
+      } else if (type === 'attack') {
+        keys.forEach((key: string) => mapKey.push(`attackTypes.${key}`));
+      } else if (type === 'concentration') {
+        mapKey.push('concentration');
+      } else if (type === 'deathSave') {
+        mapKey.push('deathSave');
+      } else if (type === 'initiative') {
+        mapKey.push('initiative');
+      }
+
+      mapKey.forEach((key) => {
+        this.overrides
+          .get(key)
+          ?.push({ value: rollMode, overrideType: 'rollMode', source: name });
+      });
     });
 
     // Register all overrides from items

@@ -6,15 +6,16 @@ import ExertionGrant from './ExertionGrant';
 import ExpertiseDiceGrant from './ExpertiseDiceGrant';
 import FeatureGrant from './FeatureGrant';
 import HealingGrant from './HealingGrant';
+import HitPointGrant from './HitPointGrant';
 import InitiativeGrant from './InitiativeGrant';
 import ItemGrant from './ItemGrant';
 import MovementGrant from './MovementGrant';
 import ProficiencyGrant from './ProficiencyGrant';
+import RollOverrideGrant from './RollOverrideGrant';
 import SensesGrant from './SensesGrant';
 import SkillGrant from './SkillGrant';
 import SkillSpecialtyGrant from './SkillSpecialtyGrant';
 import TraitGrant from './TraitGrant';
-import HitPointGrant from './HitPointGrant';
 
 export default {
   base: BaseGrant,
@@ -30,6 +31,7 @@ export default {
   item: ItemGrant,
   movement: MovementGrant,
   proficiency: ProficiencyGrant,
+  rollOverride: RollOverrideGrant,
   senses: SensesGrant,
   skill: SkillGrant,
   skillSpecialty: SkillSpecialtyGrant,
