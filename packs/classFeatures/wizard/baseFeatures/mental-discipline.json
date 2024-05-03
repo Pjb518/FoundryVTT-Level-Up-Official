@@ -1,5 +1,5 @@
 {
-	"name": "Arcane Defense (Mental Discipline)",
+	"name": "Mental Discipline",
 	"type": "feature",
 	"img": "icons/equipment/head/hat-pointed-buckle-leather-purple.webp",
 	"effects": [],
@@ -15,8 +15,33 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 15th level, your training has granted you certain protections against magic. Choose one of the following:</p><h3><strong>Mental Discipline</strong></h3><p>Your mind is sheltered from intrusion. When you fail an Intelligence, Wisdom, or Charisma saving throw, you can choose to succeed instead. You can’t do so again until you finish a short or long rest.</p><h3></h3>",
+		"actions": {
+			"dXtH7pQTVIjNIxWi": {
+				"name": "Mental Discipline",
+				"activation": {},
+				"consumers": {
+					"fuUSQ9bRS4kZXp38": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Your mind is sheltered from intrusion. When you fail an Intelligence, Wisdom, or Charisma saving throw, you can choose to succeed instead. You can&rsquo;t do so again until you finish a short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -43,7 +68,8 @@
 					"system": "0.17.41"
 				}
 			}
-		}
+		},
+		"classes": "wizard"
 	},
 	"folder": null,
 	"_id": "igabvtqdllbapbz1"
