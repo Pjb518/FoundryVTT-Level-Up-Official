@@ -1,7 +1,7 @@
 {
-	"name": "Blast: Eldritch Scythe",
+	"name": "Eldritch Disturbance",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/control/fear-fright-shadow-monster-purple.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -16,8 +16,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"wvQVb4bWGfLW386y": {
-				"name": "Blast: Eldritch Scythe",
+			"XJ9YlWVWZWkxszOk": {
+				"name": "Blast: Eldritch Disturbance",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -28,8 +28,8 @@
 					"value": ""
 				},
 				"ranges": {
-					"W2LyMNoU3H8JNvBA": {
-						"range": "fiveFeet"
+					"ctDOHsLrsZBq76I4": {
+						"range": "medium"
 					}
 				},
 				"area": {
@@ -39,27 +39,32 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": "creature"
 				},
 				"rolls": {
-					"SNYwqoFJCrghGcPF": {
-						"bonus": "",
-						"critThreshold": "20",
-						"type": "attack",
-						"ability": "spellcasting"
-					},
-					"8VRtXr9Fs6lL7PQZ": {
-						"canCrit": true,
+					"xQCCFRVvkWeCWy6b": {
+						"canCrit": false,
 						"damageType": "force",
-						"formula": "1d8",
+						"formula": "1d10",
 						"name": "Force",
 						"type": "damage"
+					}
+				},
+				"prompts": {
+					"OlQpb2C7LVU0lA8n": {
+						"ability": "wis",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "custom",
+							"bonus": null
+						},
+						"type": "savingThrow"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p>Once per turn when you would make a melee weapon attack as part of the Attack action or an opportunity attack, you can instead make a melee spell attack, lashing out with an ephemeral and unearthly blade. On hit, the target takes [[/r 1d8 #force]] force damage. In addition, you can choose a creature that you can see and that is within your reach. It takes half as much damage.</p>",
+		"description": "<p>You can use an action to strike a creature you can see within 60 feet with a reality-distorting curse, blending pain both mental and physical. The target makes a Wisdom saving throw, taking [[/r 1d10 #force]] force damage on a failure, or half damage on a success.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -86,8 +91,9 @@
 					"system": "0.17.41"
 				}
 			}
-		}
+		},
+		"classes": ""
 	},
 	"folder": null,
-	"_id": "5miit65bic46eynl"
+	"_id": "gd79c49oej8xagdv"
 }

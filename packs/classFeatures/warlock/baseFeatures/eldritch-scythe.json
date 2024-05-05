@@ -1,7 +1,7 @@
 {
-	"name": "Blast: Eldritch Disturbance",
+	"name": "Eldritch Scythe",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/death/weapon-scythe-rune-green.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -16,8 +16,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"XJ9YlWVWZWkxszOk": {
-				"name": "Blast: Eldritch Disturbance",
+			"wvQVb4bWGfLW386y": {
+				"name": "Blast: Eldritch Scythe",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -28,8 +28,8 @@
 					"value": ""
 				},
 				"ranges": {
-					"ctDOHsLrsZBq76I4": {
-						"range": "medium"
+					"W2LyMNoU3H8JNvBA": {
+						"range": "fiveFeet"
 					}
 				},
 				"area": {
@@ -39,32 +39,27 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creature"
+					"type": "creatureObject"
 				},
 				"rolls": {
-					"xQCCFRVvkWeCWy6b": {
-						"canCrit": false,
+					"SNYwqoFJCrghGcPF": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"ability": "spellcasting"
+					},
+					"8VRtXr9Fs6lL7PQZ": {
+						"canCrit": true,
 						"damageType": "force",
-						"formula": "1d10",
+						"formula": "1d8",
 						"name": "Force",
 						"type": "damage"
-					}
-				},
-				"prompts": {
-					"OlQpb2C7LVU0lA8n": {
-						"ability": "wis",
-						"onSave": "Half damage",
-						"saveDC": {
-							"type": "custom",
-							"bonus": null
-						},
-						"type": "savingThrow"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p>You can use an action to strike a creature you can see within 60 feet with a reality-distorting curse, blending pain both mental and physical. The target makes a Wisdom saving throw, taking [[/r 1d10 #force]] force damage on a failure, or half damage on a success.</p>",
+		"description": "<p>Once per turn when you would make a melee weapon attack as part of the Attack action or an opportunity attack, you can instead make a melee spell attack, lashing out with an ephemeral and unearthly blade. On hit, the target takes [[/r 1d8 #force]] force damage. In addition, you can choose a creature that you can see and that is within your reach. It takes half as much damage.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -91,8 +86,9 @@
 					"system": "0.17.41"
 				}
 			}
-		}
+		},
+		"classes": ""
 	},
 	"folder": null,
-	"_id": "gd79c49oej8xagdv"
+	"_id": "5miit65bic46eynl"
 }
