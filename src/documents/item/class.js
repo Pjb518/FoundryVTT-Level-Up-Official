@@ -134,12 +134,13 @@ export default class ClassItemA5e extends OriginItemA5e {
 
     // Update starting hp
     if (!foundry.utils.getProperty(data, 'system.hp.levels.1')) {
-      foundry.utils.setProperty(data, 'system.hp.levels.1', 4);
+      const startingHp = foundry.utils.getProperty(data, 'system.hp.hitDiceSize') ?? 6;
+      foundry.utils.setProperty(data, 'system.hp.levels.1', startingHp);
     }
 
     // Reset hp rolls
     Array.from({ length: 19 }, (_, i) => i + 2).forEach((level) => {
-      foundry.utils.setProperty(data, `system.hp.levels.${level}`);
+      foundry.utils.setProperty(data, `system.hp.levels.${level}`, 0);
     });
 
     if (this.parent?.documentName === 'Actor') {
@@ -167,7 +168,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     super._preUpdate(changed, options, user);
 
     const keys = Object.keys(foundry.utils.flattenObject(changed));
-    if (keys.includes('system.hp.hitDiceSize') && this.isStartingClass) {
+    if (keys.includes('system.hp.hitDiceSize') && (this.isStartingClass || !this.parent)) {
       const size = foundry.utils.getProperty(changed, 'system.hp.hitDiceSize');
       await this.updateSource({ 'system.hp.levels.1': size });
     }
