@@ -1,7 +1,7 @@
 {
 	"name": "Hunter's Intent",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/targeting/crosshair-pointed-orange.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -31,7 +31,22 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"wPYPXXNooY6AkPQH": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Hunter's Intent",
+				"bonus": "@wis.mod[Hunter's Intent]",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"rangedWeaponAttack"
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -43,7 +58,8 @@
 					"system": "0.17.41"
 				}
 			}
-		}
+		},
+		"classes": "ranger"
 	},
 	"folder": null,
 	"_id": "siwwufvr4sf8lg5a"

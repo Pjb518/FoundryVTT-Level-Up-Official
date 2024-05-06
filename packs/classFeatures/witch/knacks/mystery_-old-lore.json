@@ -1,51 +1,69 @@
 {
-  "name": "Mystery: Old Lore",
-  "type": "feature",
-  "img": "icons/sundries/books/book-open-purple.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p>Choose Arcana, Nature, or Religion.</p>\n<p>You gain an expertise die on checks made with the given skill and you may also always choose to apply your spellcasting ability modifier to checks with the chose skill.</p>\n<p>You may choose this mystery more than once, but must choose a different skill each time.&nbsp;</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "mysteriousAndMarvelousMiscellanea",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "knack",
-    "classes": "witch",
-    "grants": {},
-    "prerequisite": "Witch Class",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "folder": null,
-  "_id": "j2ef696s18nuh8d9"
+	"name": "Mystery: Old Lore",
+	"type": "feature",
+	"img": "icons/sundries/books/book-open-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p>Choose Arcana, Nature, or Religion.</p>\n<p>You gain an expertise die on checks made with the given skill and you may also always choose to apply your spellcasting ability modifier to checks with the chose skill.</p>\n<p>You may choose this mystery more than once, but must choose a different skill each time.&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "mysteriousAndMarvelousMiscellanea",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {
+			"i4sxl7nw65mAOYG7": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Mystery: Old Lore",
+				"keys": {
+					"base": [],
+					"options": [
+						"arc",
+						"rel",
+						"nat"
+					],
+					"total": 0
+				},
+				"expertiseType": "skill"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"classes": "witch",
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "j2ef696s18nuh8d9"
 }

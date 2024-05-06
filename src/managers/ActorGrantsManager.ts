@@ -220,7 +220,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       } else if (['custom', 'average'].includes(leveledHpType) && hpValue) {
         hp = hpValue;
       } else {
-        hp = options.cls.averageHP;
+        hp = options.cls.system.classLevels === 1
+          ? options.cls.system.hp.levels['1']
+          : options.cls.averageHP;
       }
 
       const spellCastingAbility = clsReturnData.spellcastingAbility
