@@ -86,17 +86,14 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const grants: Grant[] = [...item.grants.values()];
 
     // Get all applicable grants
-    const subGrants: Grant[] = (await Promise.allSettled(
+    const subGrants: Grant[] = (await Promise.all(
       grants.map((grant) => this.#getSubGrants(grant, characterLevel))
-    )).reduce((acc: Grant[], res: any) => {
-      if (res.status === 'fulfilled') acc.push(...res.value);
-      return acc;
-    }, []);
+    )).flat().filter((g) => !!g);
 
     console.log(grants);
     console.log(subGrants);
 
-    [...grants.values()].forEach((grant) => {
+    grants.concat(subGrants).forEach((grant) => {
       if (this.has(grant._id)) return;
 
       const { levelType } = grant;
@@ -171,12 +168,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const docs = (await Promise.all(docIds.map((id) => fromUuid(id))));
 
     const grants: Grant[] = docs.flatMap((doc) => [...doc.grants.values()]);
-    const subGrants: Grant[] = (await Promise.allSettled(
+    const subGrants: Grant[] = (await Promise.all(
       grants.map((g) => this.#getSubGrants(g, characterLevel))
-    )).reduce((acc: Grant[], res: any) => {
-      if (res.status === 'fulfilled' && res.value) acc.push(...res.value);
-      return acc;
-    }, []);
+    )).flat().filter((g) => !!g);
 
     return grants.concat(subGrants);
   }
