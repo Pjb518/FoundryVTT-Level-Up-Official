@@ -1,8 +1,49 @@
 {
-	"name": "Ordination",
+	"name": "Devotional Integrity",
 	"type": "feature",
-	"img": "icons/equipment/chest/robe-layered-teal.webp",
-	"effects": [],
+	"img": "icons/skills/social/trading-justice-scale-gold.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/social/trading-justice-scale-gold.webp",
+			"origin": "Item.fU9L3jnf9GjKNWTA",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "98MMz5OOsgpoxkkG",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Devotional Integrity",
+			"_id": "XmQmUj2HRqA1Mpk6",
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"rattled\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When an action you take is honest and non-violent, until the end of your turn you are immune to the rattled condition and you do not suffer disadvantage or penalties on Intelligence, Wisdom, or Charisma checks made as part of that action.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +56,33 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Your mission in the world is supported by the spiritual community or religious hierarchy who called you to religious service. As a formal leader within your religious order, you are expected to perform the ceremonies of your faith, including weddings and funerals. In exchange, members of your faith provide you and your companions with food, lodging, and a modest lifestyle.</p><p>Additionally, if your congregation or order is able, they send you letters with regular updates about their well-being. They are willing to help connect you with other chapters of your faith through letters of introduction.</p>",
+		"actions": {
+			"98MMz5OOsgpoxkkG": {
+				"name": "Devotional Integrity",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"j311b7JBHjLDtQ2B": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XmQmUj2HRqA1Mpk6"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You adhere to a strict code of morality and ethics. When an action you take is honest and non-violent, until the end of your turn you are immune to the rattled condition and you do not suffer disadvantage or penalties on Intelligence, Wisdom, or Charisma checks made as part of that action.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",

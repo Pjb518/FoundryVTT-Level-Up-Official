@@ -1,8 +1,9 @@
 {
-	"folder": null,
-	"name": "Channel Divinity",
+	"name": "Auspicious Collaborator",
 	"type": "feature",
-	"img": "icons/magic/holy/projectiles-blades-salvo-yellow.webp",
+	"img": "icons/skills/social/diplomacy-handshake.webp",
+	"effects": [],
+	"flags": {},
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -15,44 +16,84 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>At 2nd level, you are able to channel the energy of your greater entity directly, and use it for a variety of magical effects. You start with two of these effects: @UUID[Compendium.a5e.a5e-class-features.Item.zhuf06durl8bnmh3]{Turn Undead} and an additional effect dependent on your chosen Cleric Archetype. Some archetypes provide additional uses of Channel Divinity as your cleric level increases, detailed under the heading of your chosen archetypes.</p>\n<p>You may choose which Channel Divinity effect to create each time you use this feature. You must then finish a short or long rest before you&rsquo;re able to Channel Divinity again.</p>\n<p>Some Channel Divinity effects require saving throws. The DC for this is the same as your cleric spell save DC.</p>\n<p>From 6th level you can use your Channel Divinity twice between rests, and beginning at 18th level you can use it three times between rests. Finishing a short or long rest regains your expended uses.</p>",
+		"description": "<p>The higher powers you are attuned to have witnessed your deeds and bestowed upon you a quality of worthiness. Your requests for aid are perceived as opportunities for partnership rather than impositions.</p><p>People of all backgrounds are more drawn to help you than they would ordinarily be. You gain one specialty chosen from Culture or Persuasion, and you gain an expertise die on Persuasion checks related to seeking aid.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "",
+		"source": "adventurersGuide",
 		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": "shortRest",
+			"value": 0,
+			"max": "",
+			"per": "",
 			"recharge": {
-				"formula": "",
-				"threshold": 0
+				"formula": "1d6",
+				"threshold": 6
 			}
 		},
 		"concentration": false,
 		"featureType": "class",
 		"grants": {
-			"tfID7ys5zIDqatCF": {
-				"grantType": "feature",
+			"VqsytEdd2iIDYEBs": {
+				"grantType": "skillSpecialty",
 				"level": 1,
 				"levelType": "character",
-				"optional": false,
-				"label": "Channel Divinity",
-				"features": {
-					"base": [
-						"Compendium.a5e.a5e-class-features.Item.zhuf06durl8bnmh3"
-					]
-				}
+				"optional": true,
+				"label": "Culture Specialty",
+				"specialties": {
+					"base": [],
+					"options": [
+						"courtlyManners",
+						"cuisine",
+						"etiquette",
+						"fencingProtocol",
+						"laws",
+						"linguistics",
+						"regionalGoods",
+						"streetwise",
+						"trade"
+					],
+					"total": 1
+				},
+				"skill": "cul",
+				"_id": "VqsytEdd2iIDYEBs",
+				"img": ""
+			},
+			"EDWUL7ZqjvY454Yf": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"label": "Persuasion Specialty",
+				"specialties": {
+					"base": [],
+					"options": [
+						"bribery",
+						"flattery",
+						"leadership",
+						"negotiation",
+						"peacemaking"
+					],
+					"total": 1
+				},
+				"skill": "per",
+				"_id": "VqsytEdd2iIDYEBs",
+				"img": "",
+				"name": "undefined (Copy)"
 			}
 		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.018,
-			"lastMigration": null
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
 		},
 		"classes": "cleric"
 	},
-	"effects": [],
-	"flags": {},
+	"folder": null,
 	"_id": "xvxtx7u0k1sm1hia"
 }
