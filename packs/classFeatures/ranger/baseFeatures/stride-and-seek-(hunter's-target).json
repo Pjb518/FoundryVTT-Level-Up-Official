@@ -1,195 +1,182 @@
 {
-  "name": "Stride and Seek (Hunter's Target)",
-  "type": "feature",
-  "img": "icons/skills/targeting/crosshair-pointed-orange.webp",
-  "effects": [
-    {
-      "icon": "icons/skills/targeting/crosshair-pointed-orange.webp",
-      "origin": "Item.Ak2dBXbziuSwLDIY",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "6nIMkEWZElls5fgZ",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Quarry",
-      "_id": "eJp8RSGhP05Gj5DC",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    },
-    {
-      "icon": "icons/skills/targeting/crosshair-pointed-orange.webp",
-      "origin": "Item.Ak2dBXbziuSwLDIY",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "6nIMkEWZElls5fgZ",
-          "applyToSelf": true,
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Hunter’s Target",
-      "_id": "yorFJmwZWCnRPMdX",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Gain a +1 bonus to weapon attack rolls against the creature, and your weapon attacks against it deal an extra 1d6 damage. In addition, you have advantage on Perception and Survival checks you make to find it.</p>",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "rpi-clean",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.8"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "6nIMkEWZElls5fgZ": {
-        "name": "Hunter's Target",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "consumers": {
-          "AeA202uWqs1nK6us": {
-            "type": "itemUses"
-          }
-        },
-        "ranges": {
-          "uV7Lw5uu4siRvkiD": {
-            "range": 90,
-            "unit": "feet"
-          }
-        },
-        "prompts": {
-          "9IfLSlHdM5Ml1vw6": {
-            "type": "effect",
-            "default": true,
-            "effectId": "eJp8RSGhP05Gj5DC"
-          },
-          "95ePv7joEIv4rybX": {
-            "type": "effect",
-            "default": true,
-            "effectId": "yorFJmwZWCnRPMdX"
-          }
-        }
-      },
-      "G9PrVxJbJXvzMbah": {
-        "name": "Mark New Quarry",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>You can use your bonus action to focus your attention on a specific enemy. Choose a creature you can see within 90 feet to mark as your quarry. For 1 hour, you are focused on this creature. You gain a +1 bonus to weapon attack rolls against the creature, and your weapon attacks against it deal an extra 1d6 damage. In addition, you have advantage on Perception and Survival checks you make to find it. If the creature drops to 0 hit points before the hour ends, you can use a bonus action to mark a new quarry.&nbsp;</p>\n<p>Once you use this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "shortRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "classes": "ranger"
-  },
-  "folder": "BolGIKwxJdBAkAge",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.6",
-    "coreVersion": "11.315",
-    "createdTime": 1714920581044,
-    "modifiedTime": 1714920789062,
-    "lastModifiedBy": "Glw114cHAVexdKTu"
-  }
+	"name": "Stride and Seek (Hunter's Target)",
+	"type": "feature",
+	"img": "icons/skills/targeting/crosshair-pointed-orange.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/targeting/crosshair-pointed-orange.webp",
+			"origin": "Item.Ak2dBXbziuSwLDIY",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "6nIMkEWZElls5fgZ",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Quarry",
+			"_id": "eJp8RSGhP05Gj5DC",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/targeting/crosshair-pointed-orange.webp",
+			"origin": "Item.Ak2dBXbziuSwLDIY",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "6nIMkEWZElls5fgZ",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Hunter’s Target",
+			"_id": "yorFJmwZWCnRPMdX",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain a +1 bonus to weapon attack rolls against the creature, and your weapon attacks against it deal an extra 1d6 damage. In addition, you have advantage on Perception and Survival checks you make to find it.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"6nIMkEWZElls5fgZ": {
+				"name": "Hunter's Target",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"consumers": {
+					"AeA202uWqs1nK6us": {
+						"type": "itemUses"
+					}
+				},
+				"ranges": {
+					"uV7Lw5uu4siRvkiD": {
+						"range": 90,
+						"unit": "feet"
+					}
+				},
+				"prompts": {
+					"9IfLSlHdM5Ml1vw6": {
+						"type": "effect",
+						"default": true,
+						"effectId": "eJp8RSGhP05Gj5DC"
+					},
+					"95ePv7joEIv4rybX": {
+						"type": "effect",
+						"default": true,
+						"effectId": "yorFJmwZWCnRPMdX"
+					}
+				}
+			},
+			"G9PrVxJbJXvzMbah": {
+				"name": "Mark New Quarry",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You can use your bonus action to focus your attention on a specific enemy. Choose a creature you can see within 90 feet to mark as your quarry. For 1 hour, you are focused on this creature. You gain a +1 bonus to weapon attack rolls against the creature, and your weapon attacks against it deal an extra 1d6 damage. In addition, you have advantage on Perception and Survival checks you make to find it. If the creature drops to 0 hit points before the hour ends, you can use a bonus action to mark a new quarry.&nbsp;</p>\n<p>Once you use this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"classes": "ranger"
+	},
+	"folder": null,
+	"_id": "yuncbhlz6js1w4t4"
 }
