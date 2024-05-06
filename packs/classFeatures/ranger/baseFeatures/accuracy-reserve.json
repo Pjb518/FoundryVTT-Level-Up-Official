@@ -1,0 +1,124 @@
+{
+  "folder": "BolGIKwxJdBAkAge",
+  "name": "Accuracy Reserve",
+  "type": "feature",
+  "img": "icons/skills/targeting/crosshair-bars-yellow.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "umrEevTSTycYx3N4": {
+        "name": "Accuracy Reserve",
+        "activation": {},
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "BR8zPOVJj3PraSwG": {
+            "type": "effect",
+            "default": true,
+            "effectId": "nP7E14lwHxNIOIVW"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>If you have not moved since the beginning of your last turn, you gain a +1 bonus to weapon attack rolls until the end of your turn. You lose this bonus if you move.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "",
+        "threshold": 0
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": null
+    },
+    "classes": "ranger"
+  },
+  "effects": [
+    {
+      "icon": "icons/skills/targeting/crosshair-bars-yellow.webp",
+      "origin": "Item.N3euuCOfWuVdOf2j",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "umrEevTSTycYx3N4",
+          "applyToSelf": true,
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Accuracy Reserve",
+      "_id": "nP7E14lwHxNIOIVW",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.bonuses.attacks",
+          "value": "{\"label\":\"Accuracy Reserve\",\"formula\":\"1\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/skills/targeting/crosshair-bars-yellow.webp\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": 1,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>If you have not moved since the beginning of your last turn, you gain a +1 bonus to weapon attack rolls until the end of your turn. You lose this bonus if you move.</p>",
+      "statuses": []
+    }
+  ],
+  "flags": {
+    "exportSource": {
+      "world": "rpi-clean",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.8"
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.6",
+    "coreVersion": "11.315",
+    "createdTime": 1714921443822,
+    "modifiedTime": 1714921597689,
+    "lastModifiedBy": "Glw114cHAVexdKTu"
+  }
+}

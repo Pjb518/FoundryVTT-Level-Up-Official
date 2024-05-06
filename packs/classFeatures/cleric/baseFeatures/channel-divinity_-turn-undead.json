@@ -1,120 +1,143 @@
 {
-	"name": "Chaste",
-	"type": "feature",
-	"img": "icons/magic/life/heart-broken-red.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {},
-		"description": "<p>In exchange for forgoing pleasures of the heart and flesh, you are hardened to the persuasions of others. Add your Wisdom modifier to any saving throws made to resist being charmed. You also gain one skill specialty chosen from Insight, Persuasion, or Religion.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {
-			"6faX2WV1UojG6Vex": {
-				"grantType": "skillSpecialty",
-				"level": 1,
-				"levelType": "character",
-				"optional": true,
-				"label": "Insight Specialty",
-				"specialties": {
-					"base": [],
-					"options": [
-						"detectingLies",
-						"readingEmotions",
-						"sensingMotives"
-					],
-					"total": 1
-				},
-				"skill": "ins",
-				"_id": "6faX2WV1UojG6Vex",
-				"img": ""
-			},
-			"JaiEjMM7afVqteyL": {
-				"grantType": "skillSpecialty",
-				"level": 1,
-				"levelType": "character",
-				"optional": true,
-				"label": "Persuasion Specialty",
-				"specialties": {
-					"base": [],
-					"options": [
-						"bribery",
-						"flattery",
-						"leadership",
-						"negotiation",
-						"peacemaking"
-					],
-					"total": 1
-				},
-				"skill": "per",
-				"_id": "JaiEjMM7afVqteyL",
-				"img": "",
-				"name": "undefined (Copy)"
-			},
-			"fPsMCTXna8ROcwBJ": {
-				"grantType": "skillSpecialty",
-				"level": 1,
-				"levelType": "character",
-				"optional": true,
-				"label": "Religion Specialty",
-				"specialties": {
-					"base": [],
-					"options": [
-						"alignment",
-						"celestials",
-						"cults",
-						"fiends",
-						"gods",
-						"holySymbols",
-						"morality",
-						"prophecy",
-						"relics",
-						"undead"
-					],
-					"total": 1
-				},
-				"skill": "rel",
-				"_id": "JaiEjMM7afVqteyL",
-				"img": "",
-				"name": "undefined (Copy)"
-			}
-		},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"classes": "cleric"
-	},
-	"folder": null,
-	"_id": "zhuf06durl8bnmh3"
+  "name": "Channel Divinity: Turn Undead",
+  "type": "feature",
+  "img": "icons/creatures/magical/spirit-undead-ghost-purple.webp",
+  "effects": [
+    {
+      "icon": "icons/creatures/magical/spirit-undead-ghost-purple.webp",
+      "origin": "Item.SxEmi99ff8zf7TOJ",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "NqNdWUsmmFa88F9f",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Turned",
+      "_id": "9qeFbtvS8RlsMNVj",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>Must use its turns trying to move as far away from you as possible. It cannot willingly move to a space within 30 feet of you. It also cannot take reactions. On its action, it can use only the Dash action or try to escape any effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.</p>",
+      "statuses": []
+    }
+  ],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "rpi-clean",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.8"
+    }
+  },
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "NqNdWUsmmFa88F9f": {
+        "name": "Channel Divinity: Turn Undead",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "emanation",
+          "size": "",
+          "placeTemplate": true,
+          "quantity": 1,
+          "radius": 30
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "prompts": {
+          "CoNb7jN9dnj2MgvS": {
+            "ability": "wis",
+            "onSave": "",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          },
+          "iO316pwRyPaxXpwe": {
+            "type": "effect",
+            "default": true,
+            "effectId": "9qeFbtvS8RlsMNVj"
+          }
+        },
+        "consumers": {},
+        "ranges": {
+          "5uMxRlmbezL4JL0F": {
+            "range": "self"
+          }
+        }
+      }
+    },
+    "description": "<h4>As an action, you present the holy symbol of your greater entity and speak a divine word, rebuking the undead. Each undead creature within 30 feet that can see or hear you must make a Wisdom saving throw. If the creature fails it is turned for 1 minute or until it takes damage from any source.</h4><h4>A turned creature must use its turns trying to move as far away from you as possible. It cannot willingly move to a space within 30 feet of you. It also cannot take reactions. On its action, it can use only the Dash action or try to escape any effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.</h4>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "adventurersGuide",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "classes": "cleric"
+  },
+  "folder": "OjwrnV0ZDZUv9CRf",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.6",
+    "coreVersion": "11.315",
+    "createdTime": 1714847229628,
+    "modifiedTime": 1714854045977,
+    "lastModifiedBy": "Glw114cHAVexdKTu"
+  }
 }
