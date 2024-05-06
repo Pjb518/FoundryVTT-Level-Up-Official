@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/return-await */
 /* eslint-disable no-param-reassign */
 import type { ActorGrant, TraitGrant } from 'types/actorGrants';
 import type { Grant } from 'types/itemGrants';
@@ -82,8 +83,20 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const characterLevel: number = this.actor.levels.character;
     const classLevel: number = this.actor.levels.classes?.[item?.slug] ?? 1;
 
-    const grantsManager: ItemGrantsManager = item.grants;
-    [...grantsManager.values()].forEach((grant) => {
+    const grants: Grant[] = [...item.grants.values()];
+
+    // Get all applicable grants
+    const subGrants: Grant[] = (await Promise.allSettled(
+      grants.map((grant) => this.#getSubGrants(grant, characterLevel))
+    )).reduce((acc: Grant[], res: any) => {
+      if (res.status === 'fulfilled') acc.push(...res.value);
+      return acc;
+    }, []);
+
+    console.log(grants);
+    console.log(subGrants);
+
+    [...grants.values()].forEach((grant) => {
       if (this.has(grant._id)) return;
 
       const { levelType } = grant;
@@ -150,6 +163,24 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     );
   }
 
+  async #getSubGrants(grant: Grant, characterLevel: number): Promise<Grant[]> {
+    if (grant.grantType !== 'feature') return [];
+    if (grant.level > characterLevel) return [];
+
+    const docIds: string[] = [...grant.features.base, ...grant.features.options];
+    const docs = (await Promise.all(docIds.map((id) => fromUuid(id))));
+
+    const grants: Grant[] = docs.flatMap((doc) => [...doc.grants.values()]);
+    const subGrants: Grant[] = (await Promise.allSettled(
+      grants.map((g) => this.#getSubGrants(g, characterLevel))
+    )).reduce((acc: Grant[], res: any) => {
+      if (res.status === 'fulfilled' && res.value) acc.push(...res.value);
+      return acc;
+    }, []);
+
+    return grants.concat(subGrants);
+  }
+
   async #applyGrants(
     allGrants: Grant[],
     optionalGrants: Grant[],
@@ -212,7 +243,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
           })
         );
 
-        const ids = (await this.actor.createEmbeddedDocuments('Item', docs)).map((i: any) => i.id);
+        const ids = (await this.actor.createEmbeddedDocuments('Item', docs, { noHook: true }))
+          .map((i: any) => i.id);
+
         updateData[`system.grants.${grantId}.documentIds`] = ids;
       }
 
