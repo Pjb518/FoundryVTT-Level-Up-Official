@@ -12,6 +12,7 @@ import GrantApplicationDialog from '../apps/dialogs/GrantApplicationDialog.svelt
 import prepareGrantsApplyData from '../utils/prepareGrantsApplyData';
 import prepareProficiencyConfigObject from '../utils/prepareProficiencyConfigObject';
 import prepareTraitGrantConfigObject from '../utils/prepareTraitGrantConfigObject';
+import fromUuidMulti from '../utils/fromUuidMulti';
 
 interface DefaultApplyOptions {
   item?: typeof Item | null;
@@ -165,7 +166,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     if (grant.level > characterLevel) return [];
 
     const docIds: string[] = [...grant.features.base, ...grant.features.options];
-    const docs = (await Promise.all(docIds.map((id) => fromUuid(id))));
+    const docs = await fromUuidMulti(docIds, { parent: this.actor });
 
     const grants: Grant[] = docs.flatMap((doc) => [...doc.grants.values()]);
     const subGrants: Grant[] = (await Promise.all(
@@ -367,6 +368,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     if (grant instanceof actorGrants.feature || grant instanceof actorGrants.item) {
       const ids = grant.documentIds;
+      console.log(grant.grantId, ids);
       if (!ids?.length) return updates;
 
       // Validate ids to ensure they are not already deleted
