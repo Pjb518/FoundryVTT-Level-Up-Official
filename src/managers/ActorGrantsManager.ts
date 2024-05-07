@@ -2,7 +2,6 @@
 /* eslint-disable no-param-reassign */
 import type { ActorGrant, TraitGrant } from 'types/actorGrants';
 import type { Grant } from 'types/itemGrants';
-import type ItemGrantsManager from './ItemGrantsManager';
 
 import actorGrants from '../dataModels/actor/grants';
 
@@ -39,6 +38,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     const grantsData: Record<string, ActorGrant> = this.actor.system.grants ?? {};
     Object.entries(grantsData).forEach(([id, data]) => {
+      data.grantId ??= id;
       let Cls = actorGrants[data.grantType];
 
       // eslint-disable-next-line no-console
@@ -91,9 +91,6 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       grants.map((grant) => this.#getSubGrants(grant, characterLevel))
     )).flat().filter((g) => !!g);
 
-    console.log(grants);
-    console.log(subGrants);
-
     grants.concat(subGrants).forEach((grant) => {
       if (this.has(grant._id)) return;
 
@@ -119,17 +116,17 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     currentLevel: number = 0,
     newLevel: number = 0,
     cls: typeof Item | null = null
-  ): Promise<void> {
+  ): Promise<boolean> {
     const difference = newLevel - currentLevel;
     const sign = Math.sign(difference);
     const characterLevel: number = this.actor.levels.character + difference;
 
-    if (sign === 0) return;
+    if (sign === 0) return false;
 
     if (sign === -1) {
       // Remove any grants that are no longer applicable
       await this.removeGrantsByLevel(characterLevel);
-      return;
+      return true;
     }
 
     const applicableGrants: Grant[] = [];
@@ -137,12 +134,16 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const items = this.actor.items
       .filter((item: typeof Item) => this.allowedTypes.includes(item.type));
 
-    for (const item of items) {
+    for await (const item of items) {
       let classLevel: number = this.actor.levels.classes?.[item.slug] ?? 1;
       if (item.slug === cls?.slug) classLevel += difference;
 
-      const grantsManager: ItemGrantsManager = item.grants;
-      [...grantsManager.values()].forEach((grant) => {
+      const grants = [...item.grants.values()];
+      const subGrants: Grant[] = (await Promise.all(
+        grants.map((grant) => this.#getSubGrants(grant, characterLevel))
+      )).flat().filter((g) => !!g);
+
+      grants.concat(subGrants).forEach((grant) => {
         if (this.has(grant._id)) return;
 
         const { levelType } = grant;
@@ -154,11 +155,13 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       });
     }
 
-    await this.#applyGrants(
+    const result = await this.#applyGrants(
       applicableGrants,
       optionalGrants,
       { cls, clsLevel: newLevel, useUpdateSource: false }
     );
+
+    return result;
   }
 
   async #getSubGrants(grant: Grant, characterLevel: number): Promise<Grant[]> {
@@ -221,8 +224,6 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       }
     }
 
-    if (dialogData.updateData) await this.actor.update(dialogData.updateData);
-
     // Create sub items
     if (dialogData.documentData.size) {
       const updateData: Record<string, any> = {};
@@ -238,14 +239,22 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
           })
         );
 
-        const ids = (await this.actor.createEmbeddedDocuments('Item', docs, { noHook: true }))
-          .map((i: any) => i.id);
-
-        updateData[`system.grants.${grantId}.documentIds`] = ids;
+        try {
+          const ids = (await this.actor.createEmbeddedDocuments('Item', docs, { noHook: true }))
+            .map((i: any) => i.id);
+          updateData[`system.grants.${grantId}.documentIds`] = ids;
+        } catch (err) {
+          // eslint-disable-next-line no-console
+          console.error(err);
+          return false;
+        }
       }
 
       await this.actor.update(updateData);
     }
+
+    // Update actor with grants data
+    if (dialogData.updateData) await this.actor.update(dialogData.updateData);
 
     // Update class data if available
     if (options.cls) {
