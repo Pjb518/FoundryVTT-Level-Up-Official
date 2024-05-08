@@ -36,7 +36,7 @@
 
     let expertiseDie = $actor.RollOverrideManager.getExpertiseDice(
         `attackTypes.${attackRoll?.attackType}`,
-        options.expertiseDie ?? 0,
+        options.expertiseDice ?? 0,
     );
 
     let expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
