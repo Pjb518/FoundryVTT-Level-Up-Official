@@ -4,6 +4,7 @@
     import { getContext } from "svelte";
 
     import RadioGroup from "../components/RadioGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
 
     export let { dialog, tab, defaultSelection } =
         // @ts-ignore
@@ -59,11 +60,13 @@
 </script>
 
 <article>
-    <RadioGroup
-        options={selections}
-        {selected}
-        on:updateSelection={({ detail }) => (selected = detail)}
-    />
+    <FieldWrapper hint="Select which compendium to access">
+        <RadioGroup
+            options={selections}
+            {selected}
+            on:updateSelection={({ detail }) => (selected = detail)}
+        />
+    </FieldWrapper>
 
     <button on:click|preventDefault={onSubmit}> Submit </button>
 </article>
