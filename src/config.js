@@ -426,6 +426,12 @@ A5E.damageColors = {
   thunder: '#e2c269'
 };
 
+A5E.defaultActorImportCompendia = {
+  inventory: 'a5e.a5e-adventuring-gear',
+  maneuvers: 'a5e.a5e-maneuvers',
+  spells: 'a5e.a5e-spells'
+};
+
 A5E.equippedStates = {
   0: 'A5E.equippedState.notCarried',
   1: 'A5E.equippedState.carried',

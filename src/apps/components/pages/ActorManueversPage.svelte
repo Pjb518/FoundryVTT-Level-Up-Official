@@ -5,8 +5,6 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import usesRequired from "../../../utils/usesRequired";
 
-    import ManeuverCompendiumSheet from "../../ManeuverCompendiumSheet";
-
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import Filter from "../actorUtilityBar/Filter.svelte";
     import ItemCategory from "../ItemCategory.svelte";
@@ -16,24 +14,11 @@
     import TabFooter from "../TabFooter.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
-    function openCompendium() {
-        const pack = new ManeuverCompendiumSheet(
-            { collection: game.packs.get("a5e.a5e-maneuvers") },
-            {
-                importer: (docs) => {
-                    $actor.createEmbeddedDocuments("Item", docs);
-                },
-            },
-        );
-
-        pack.render(true);
-    }
-
     const actor = getContext("actor");
     const { maneuvers } = actor;
-
     const subTypes = CONFIG.A5E.maneuverDegrees;
     const reducerType = "maneuvers";
+    const openCompendium = game.a5e.utils.openCompendium;
 
     let showDescription = false;
     let showUses = usesRequired(maneuvers);
@@ -62,7 +47,7 @@
 
         <button
             class="a5e-import-from-compendium-button fa-solid fa-download"
-            on:click={openCompendium}
+            on:click={() => openCompendium($actor, "maneuvers")}
             data-tooltip="Import Maneuvers from Compendium"
             data-tooltip-direction="UP"
         ></button>
