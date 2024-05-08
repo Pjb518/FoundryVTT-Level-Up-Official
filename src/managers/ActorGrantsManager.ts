@@ -225,7 +225,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       dialogData = await dialog.promise;
 
       if (!dialogData?.success) {
-        if (options?.item) options.item.delete();
+        if (options?.item && options.useUpdateSource && !options.cls) options.item.delete();
         return false;
       }
     }
