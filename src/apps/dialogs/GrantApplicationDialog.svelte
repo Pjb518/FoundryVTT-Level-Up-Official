@@ -1,7 +1,7 @@
 <svelte:options accessors={true} />
 
 <script lang="ts">
-    import { getContext } from "svelte";
+    import { getContext, setContext } from "svelte";
 
     import prepareGrantsApplyData from "../../utils/prepareGrantsApplyData";
 
@@ -21,6 +21,10 @@
     } =
         // @ts-ignore
         getContext("#external").application;
+
+    // Set contexts
+    setContext("actor", actor);
+    setContext("item", item);
 
     // Create a list of grants to show based on selected optional
     // grants and those grants that have configurable properties
