@@ -147,8 +147,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         if (this.has(grant._id)) return;
 
         const { levelType } = grant;
-        if (levelType === 'character' && grant.level !== characterLevel) return;
-        if (levelType === 'class' && grant.level !== classLevel) return;
+        if (levelType === 'character' && grant.level > characterLevel) return;
+        if (levelType === 'class' && grant.level > classLevel) return;
 
         if (grant.optional) optionalGrants.push(grant);
         applicableGrants.push(grant);
@@ -250,7 +250,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         }
       }
 
-      await this.actor.update(updateData);
+      foundry.utils.mergeObject(dialogData.updateData, updateData);
     }
 
     // Update actor with grants data
@@ -377,7 +377,6 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     if (grant instanceof actorGrants.feature || grant instanceof actorGrants.item) {
       const ids = grant.documentIds;
-      console.log(grant.grantId, ids);
       if (!ids?.length) return updates;
 
       // Validate ids to ensure they are not already deleted
