@@ -147,6 +147,7 @@
     </div>
 
     <ImportButton {document} />
+
     {#if !collection.locked}
         <CompendiumDeleteButton {document} />
     {/if}
