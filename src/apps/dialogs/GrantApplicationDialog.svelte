@@ -54,12 +54,22 @@
         const { updateData, documentData } =
             prepareGrantsApplyData(actor, grants, applyData) ?? {};
 
+        // Get ids of non-selected optional grants
+        const grantExclusions = optionalGrants.reduce((acc, grant) => {
+            if (!selectedOptionalGrants.includes(grant._id)) {
+                acc.push(grant._id);
+            }
+
+            return acc;
+        }, []);
+
         clsReturnData.spellcastingAbility = spellcastingAbility || "";
 
         dialog.submit({
             success: true,
             updateData,
             documentData,
+            grantExclusions,
             clsReturnData,
         });
     }

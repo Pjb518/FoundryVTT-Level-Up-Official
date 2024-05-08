@@ -31,6 +31,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
   private allowedTypes = ['feature', 'background', 'class', 'culture', 'heritage'];
 
+  private excludedGrants: Set<string>;
+
   constructor(actor: typeof Actor) {
     super();
 
@@ -48,6 +50,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
       this.set(id, grant);
     });
+
+    this.excludedGrants = new Set(this.actor.system.grantExclusions ?? []);
   }
 
   byType(type: string): ActorGrant[] {
@@ -147,6 +151,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         if (this.has(grant._id)) return;
 
         const { levelType } = grant;
+        if (this.excludedGrants.has(grant._id)) return;
         if (levelType === 'character' && grant.level > characterLevel) return;
         if (levelType === 'class' && grant.level > classLevel) return;
 
@@ -194,6 +199,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       updateData: any,
       success: boolean,
       documentData: Map<string, any[]>,
+      grantExclusions: string[],
       clsReturnData: Record<string, any>
     };
 
@@ -201,7 +207,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       const grants = allGrants.map((grant) => ({ id: grant._id, grant }));
       const { updateData, documentData } = prepareGrantsApplyData(this.actor, grants, new Map());
       dialogData = {
-        success: true, updateData, documentData, clsReturnData: {}
+        success: true, updateData, documentData, grantExclusions: [], clsReturnData: {}
       };
     } else {
       const dialog = new GenericDialog(
@@ -251,6 +257,11 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       }
 
       foundry.utils.mergeObject(dialogData.updateData, updateData);
+    }
+
+    // Update actor with excluded grants
+    if (dialogData.grantExclusions.length) {
+      dialogData.updateData['system.grantExclusions'] = dialogData.grantExclusions ?? [];
     }
 
     // Update actor with grants data
