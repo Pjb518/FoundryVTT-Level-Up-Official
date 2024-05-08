@@ -182,6 +182,14 @@ export default class CharacterActorA5E extends BaseActorA5e {
       return;
     }
 
+    // Reset max values
+    Object.entries(spellResources.slots).forEach(([level]) => {
+      actorData.spellResources.slots[level].max = 0;
+    });
+    actorData.spellResources.points.max = 0;
+    actorData.spellResources.inventions.max = 0;
+    actorData.spellResources.artifactCharges.max = 0;
+
     const grantedResources = {
       slots: [],
       additionalSlots: [],
