@@ -1,210 +1,210 @@
 {
-	"folder": null,
-	"name": "Musician of the Spheres",
-	"type": "feature",
-	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"A9qaCDVpLxzPGyVY": {
-				"name": "Teleport",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"consumers": {
-					"xBNKJ3IczGF3gq7j": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"cFaokRRY6oPKWpPh": {
-						"range": "Same plane"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				},
-				"img": "icons/skills/movement/arrow-upward-yellow.webp",
-				"descriptionOutputs": [
-					"action"
-				],
-				"description": "<p>You teleport the targets instantly across vast distances. When you cast this spell, choose a destination. You must know the location you're teleporting to, and it must be on the same plane of existence.</p>\n<p>Teleportation is difficult magic and you may arrive off-target or somewhere else entirely depending on how familiar you are with the location you're teleporting to. When you teleport, the Narrator rolls 1d100 and consults Table: Teleport Familiarity.</p>\n<p>Familiarity is determined as follows:</p>\n<p><strong>Permanent Circle:</strong> A permanent teleportation circle whose sigil sequence you know (see teleportation circle).</p>\n<p><strong>Associated Object:</strong> You have an object taken from the target location within the last 6 months, such as a piece of wood from the pew in a grand temple or a pinch of grave dust from a vampire's hidden redoubt.</p>\n<p><strong>Very Familiar:</strong> A place you have frequented, carefully studied, or can see at the time you cast the spell.</p>\n<p><strong>Seen Casually:</strong> A place you have seen more than once but don't know well. This could be a castle you've passed by but never visited, or the farms you look down on from your tower of ivory.</p>\n<p><strong>Viewed Once: </strong>A place you have seen once, either in person or via magic.</p>\n<p><strong>Description:</strong> A place you only know from someone else's description (whether spoken, written, or even marked on a map).</p>\n<p><strong>False Destination:</strong> A place that doesn't actually exist. This typically happens when someone deceives you, either intentionally (like a wizard creating an illusion to hide their actual tower) or unintentionally (such as when the location you attempt to teleport to no longer exists).</p>\n<p>Your arrival is determined as follows:</p>\n<p><strong>On Target: </strong>You and your targets arrive exactly where you mean to.</p>\n<p><strong>Off Target: </strong>You and your targets arrive some distance away from the target in a random direction. The further you travel, the further away you are likely to arrive. You arrive off target by a number of miles equal to 1d10 &times; 1d10 percent of the total distance of your trip.</p>\n<p>If you tried to travel 1, 000 miles and roll a 2 and 4 on the d10s, you land 6 percent off target and arrive 60 miles away from your intended destination in a random direction. Roll [[/r 1d8]] to randomly determine the direction: 1&mdash;north, 2 &mdash;northeast, 3 &mdash;east, 4 &mdash;southeast, 5&mdash;south, 6 &mdash;southwest, 7&mdash;west, 8&mdash;northwest.</p>\n<p><strong>Similar Location: </strong>You and your targets arrive in a different location that somehow resembles the target area. If you tried to teleport to your favorite inn, you might end up at a different inn, or in a room with much of the same decor.</p>\n<p>Typically you appear at the closest similar location, but that is not always the case.</p>\n<p><strong>Mishap:</strong> The spell's magic goes awry, and each teleporting creature or object takes 3d10 force damage. The Narrator rerolls on the table to determine where you arrive. When multiple mishaps occur targets take damage each time.</p>\n<h4><strong>Table: Teleport Familiarity</strong></h4>\n<table style=\"width: 100%; height: 134.375px;\" border=\"1\"><colgroup><col style=\"width: 29.5938%;\"><col style=\"width: 11.9923%;\"><col style=\"width: 26.499%;\"><col style=\"width: 16.0542%;\"><col style=\"width: 15.6673%;\"></colgroup>\n<thead>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Familiarity</td>\n<td style=\"text-align: center; height: 16.7969px;\">Mishap</td>\n<td style=\"text-align: center; height: 16.7969px;\">Similar Location</td>\n<td style=\"text-align: center; height: 16.7969px;\">Off Target</td>\n<td style=\"text-align: center; height: 16.7969px;\">On Target</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Permanent circle</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Associated Object</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-5</td>\n<td style=\"text-align: center; height: 16.7969px;\">6-15</td>\n<td style=\"text-align: center; height: 16.7969px;\">16-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Very Familiar</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-5</td>\n<td style=\"text-align: center; height: 16.7969px;\">6-13</td>\n<td style=\"text-align: center; height: 16.7969px;\">14-24</td>\n<td style=\"text-align: center; height: 16.7969px;\">25-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Seen Casually</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-33</td>\n<td style=\"text-align: center; height: 16.7969px;\">34-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Viewed Once</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-73</td>\n<td style=\"text-align: center; height: 16.7969px;\">74-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Description</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-73</td>\n<td style=\"text-align: center; height: 16.7969px;\">74-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">False Destination</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-50</td>\n<td style=\"text-align: center; height: 16.7969px;\">51-100</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n</tr>\n</tbody>\n</table>"
-			},
-			"PlSq11SEVOfhTreQ": {
-				"name": "Plane Shift",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"consumers": {
-					"ti7I2IQQi9y6zHfz": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"zHtZtnnMhsdLQ6HP": {
-						"bonus": "",
-						"critThreshold": 20,
-						"type": "attack",
-						"attackType": "meleeSpellAttack",
-						"ability": "spellcasting"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "special",
-					"value": ""
-				},
-				"ranges": {
-					"FNfP1Jb7zNwQBhJz": {
-						"range": "touch"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				},
-				"img": "icons/skills/movement/ball-spinning-blue.webp",
-				"descriptionOutputs": [
-					"action"
-				],
-				"description": "<p>Willing targets are transported to a plane of existence that you choose. If the destination is generally described, targets arrive near that destination in a location chosen by the Narrator. If you know the correct sequence of an existing teleportation circle (see teleportation circle), you can choose it as the destination (when the designated circle is too small for all targets to fit, any additional targets are shunted to the closest unoccupied spaces).</p>\n<p>Alternatively this spell can be used offensively to banish an unwilling target. You make a melee spell attack and on a hit the target makes a Charisma saving throw or is transported to a random location on a plane of existence that you choose. Once transported, you must spend 1 minute concentrating on this spell or the target returns to the last space it occupied (otherwise it must find its own way back).</p>"
-			},
-			"71fMbqymrxWrHKqb": {
-				"name": "Planar Ally",
-				"activation": {
-					"cost": 10,
-					"type": "minute",
-					"reactionTrigger": ""
-				},
-				"consumers": {
-					"aOQIss01EIoOVe7i": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"ufXj1poaS5D8lJgT": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": "",
-					"type": "none"
-				},
-				"img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
-				"descriptionOutputs": [
-					"action"
-				],
-				"description": "<p>An entity from beyond the realm material answers your call for assistance. You must know this entity whether it is holy, unholy, or beyond the bounds of mortal comprehension. The entity sends forth a servant loyal to it to aid you in your endeavors. If you have a specific servant in mind you may speak its name during the casting, but ultimately who is sent to answer your call is the entity's decision.</p>\n<p>The creature that appears (a celestial, elemental, fey, or fiend), is under no compulsion to behave in any particular way other than how its nature and personality direct it. Any request made of the creature, simple or complex, requires an equal amount of payment which you must bargain with the creature to ascertain. The creature can request either items, sacrifices, or services in exchange for its assistance. A creature that you cannot communicate with cannot be bargained with.</p>\n<p>A task that can be completed in minutes is worth 100 gold per minute, a task that requires hours is worth 1, 000 gold per hour, and a task requiring days is worth 10, 000 gold per day (the creature can only accept tasks contained within a 10 day timeframe). A creature can often be persuaded to lower or raise prices depending on how a task aligns with its personality and the goals of its master &mdash;some require no payment at all if the task is deemed worthy. Additionally, a task that poses little or no risk only requires half the usual amount of payment, and an extremely dangerous task might call for double the usual payment. Still, only extreme circumstances will cause a creature summoned this way to accept tasks with a near certain result of death.</p>\n<p>A creature returns to its place of origin when a task is completed or if you fail to negotiate an agreeable task and payment. Should a creature join your party, it counts as a member of the group and receives a full portion of any experience gained.</p>"
-			}
-		},
-		"description": "<p>Your practice and studies have attuned you to the music of the spheres, the cosmic song that echoes throughout creation and beyond, painting all the riotous colors within in a never ending mystical dance. You gain the following benefits:</p>\n<ul>\n<li>When you use a battle hymn by expending a spell slot, it lasts a number of rounds equal to your charisma modifier rather than one round. &nbsp;You may choose new targets for an ongoing battle hymn at the start of your turn or anytime before the start of your next turn, but once chosen for a round they cannot be changed.</li>\n<li>You may cast one of the following spells once per long rest without expending a spell slot:@UUID[Compendium.a5e.a5e-spells.Item.5ijl5b1goq9774l3]{Teleport},@UUID[Compendium.a5e.a5e-spells.Item.l3lr6rwvw7csn6on]{Plane Shift}, or @UUID[Compendium.a5e.a5e-spells.Item.j6guc3gcg18fn8rz]{Planar Ally}. &nbsp;In the case of plane shift you do not require the listed material component when casting it in this way but must instead research a tune or note attuned to the plane you wish to shift to using the research downtime activity and the Arcana skill, which counts as secret knowledge. &nbsp;In the case of planar ally you may make either a performance or musical instrument check with a DC of 5+the creature's CR for tasks measured in minutes, 10+the creature's CR for tasks measured in hours, or 15+the creature's CR for tasks measured in days. &nbsp;If the check is successful, you may use it in place of the payment of the spell. &nbsp;The chosen check must be one connected to an Art Specialty you are currently benefiting from, and you may only replace payment in this way one time each for the three spans of time, and when doing so the service lasts for exactly 1 minute, 1 hour, or 1 day respectively.</li>\n</ul>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "[object Object]",
-		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": "longRest",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "feat",
-		"grants": {},
-		"prerequisite": "Maestro of the Mystic Arts feat",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": null
-		},
-		"classes": ""
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "sae1pdl28dkg2z5a"
+  "folder": null,
+  "name": "Musician of the Spheres",
+  "type": "feature",
+  "img": "icons/skills/trades/music-notes-sound-blue.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "A9qaCDVpLxzPGyVY": {
+        "name": "Teleport",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "consumers": {
+          "xBNKJ3IczGF3gq7j": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "cFaokRRY6oPKWpPh": {
+            "range": "Same plane"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "img": "icons/skills/movement/arrow-upward-yellow.webp",
+        "descriptionOutputs": [
+          "action"
+        ],
+        "description": "<p>You teleport the targets instantly across vast distances. When you cast this spell, choose a destination. You must know the location you're teleporting to, and it must be on the same plane of existence.</p>\n<p>Teleportation is difficult magic and you may arrive off-target or somewhere else entirely depending on how familiar you are with the location you're teleporting to. When you teleport, the Narrator rolls 1d100 and consults Table: Teleport Familiarity.</p>\n<p>Familiarity is determined as follows:</p>\n<p><strong>Permanent Circle:</strong> A permanent teleportation circle whose sigil sequence you know (see teleportation circle).</p>\n<p><strong>Associated Object:</strong> You have an object taken from the target location within the last 6 months, such as a piece of wood from the pew in a grand temple or a pinch of grave dust from a vampire's hidden redoubt.</p>\n<p><strong>Very Familiar:</strong> A place you have frequented, carefully studied, or can see at the time you cast the spell.</p>\n<p><strong>Seen Casually:</strong> A place you have seen more than once but don't know well. This could be a castle you've passed by but never visited, or the farms you look down on from your tower of ivory.</p>\n<p><strong>Viewed Once: </strong>A place you have seen once, either in person or via magic.</p>\n<p><strong>Description:</strong> A place you only know from someone else's description (whether spoken, written, or even marked on a map).</p>\n<p><strong>False Destination:</strong> A place that doesn't actually exist. This typically happens when someone deceives you, either intentionally (like a wizard creating an illusion to hide their actual tower) or unintentionally (such as when the location you attempt to teleport to no longer exists).</p>\n<p>Your arrival is determined as follows:</p>\n<p><strong>On Target: </strong>You and your targets arrive exactly where you mean to.</p>\n<p><strong>Off Target: </strong>You and your targets arrive some distance away from the target in a random direction. The further you travel, the further away you are likely to arrive. You arrive off target by a number of miles equal to 1d10 &times; 1d10 percent of the total distance of your trip.</p>\n<p>If you tried to travel 1, 000 miles and roll a 2 and 4 on the d10s, you land 6 percent off target and arrive 60 miles away from your intended destination in a random direction. Roll [[/r 1d8]] to randomly determine the direction: 1&mdash;north, 2 &mdash;northeast, 3 &mdash;east, 4 &mdash;southeast, 5&mdash;south, 6 &mdash;southwest, 7&mdash;west, 8&mdash;northwest.</p>\n<p><strong>Similar Location: </strong>You and your targets arrive in a different location that somehow resembles the target area. If you tried to teleport to your favorite inn, you might end up at a different inn, or in a room with much of the same decor.</p>\n<p>Typically you appear at the closest similar location, but that is not always the case.</p>\n<p><strong>Mishap:</strong> The spell's magic goes awry, and each teleporting creature or object takes 3d10 force damage. The Narrator rerolls on the table to determine where you arrive. When multiple mishaps occur targets take damage each time.</p>\n<h4><strong>Table: Teleport Familiarity</strong></h4>\n<table style=\"width: 100%; height: 134.375px;\" border=\"1\"><colgroup><col style=\"width: 29.5938%;\"><col style=\"width: 11.9923%;\"><col style=\"width: 26.499%;\"><col style=\"width: 16.0542%;\"><col style=\"width: 15.6673%;\"></colgroup>\n<thead>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Familiarity</td>\n<td style=\"text-align: center; height: 16.7969px;\">Mishap</td>\n<td style=\"text-align: center; height: 16.7969px;\">Similar Location</td>\n<td style=\"text-align: center; height: 16.7969px;\">Off Target</td>\n<td style=\"text-align: center; height: 16.7969px;\">On Target</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Permanent circle</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Associated Object</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-5</td>\n<td style=\"text-align: center; height: 16.7969px;\">6-15</td>\n<td style=\"text-align: center; height: 16.7969px;\">16-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Very Familiar</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-5</td>\n<td style=\"text-align: center; height: 16.7969px;\">6-13</td>\n<td style=\"text-align: center; height: 16.7969px;\">14-24</td>\n<td style=\"text-align: center; height: 16.7969px;\">25-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Seen Casually</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-33</td>\n<td style=\"text-align: center; height: 16.7969px;\">34-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Viewed Once</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-73</td>\n<td style=\"text-align: center; height: 16.7969px;\">74-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Description</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-43</td>\n<td style=\"text-align: center; height: 16.7969px;\">44-53</td>\n<td style=\"text-align: center; height: 16.7969px;\">54-73</td>\n<td style=\"text-align: center; height: 16.7969px;\">74-100</td>\n</tr>\n<tr style=\"height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">False Destination</td>\n<td style=\"text-align: center; height: 16.7969px;\">1-50</td>\n<td style=\"text-align: center; height: 16.7969px;\">51-100</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n<td style=\"text-align: center; height: 16.7969px;\">-</td>\n</tr>\n</tbody>\n</table>"
+      },
+      "PlSq11SEVOfhTreQ": {
+        "name": "Plane Shift",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "consumers": {
+          "ti7I2IQQi9y6zHfz": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "zHtZtnnMhsdLQ6HP": {
+            "bonus": "",
+            "critThreshold": 20,
+            "type": "attack",
+            "attackType": "meleeSpellAttack",
+            "ability": "spellcasting"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "special",
+          "value": ""
+        },
+        "ranges": {
+          "FNfP1Jb7zNwQBhJz": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "img": "icons/skills/movement/ball-spinning-blue.webp",
+        "descriptionOutputs": [
+          "action"
+        ],
+        "description": "<p>Willing targets are transported to a plane of existence that you choose. If the destination is generally described, targets arrive near that destination in a location chosen by the Narrator. If you know the correct sequence of an existing teleportation circle (see teleportation circle), you can choose it as the destination (when the designated circle is too small for all targets to fit, any additional targets are shunted to the closest unoccupied spaces).</p>\n<p>Alternatively this spell can be used offensively to banish an unwilling target. You make a melee spell attack and on a hit the target makes a Charisma saving throw or is transported to a random location on a plane of existence that you choose. Once transported, you must spend 1 minute concentrating on this spell or the target returns to the last space it occupied (otherwise it must find its own way back).</p>"
+      },
+      "71fMbqymrxWrHKqb": {
+        "name": "Planar Ally",
+        "activation": {
+          "cost": 10,
+          "type": "minute",
+          "reactionTrigger": ""
+        },
+        "consumers": {
+          "aOQIss01EIoOVe7i": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "ufXj1poaS5D8lJgT": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": "",
+          "type": "none"
+        },
+        "img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
+        "descriptionOutputs": [
+          "action"
+        ],
+        "description": "<p>An entity from beyond the realm material answers your call for assistance. You must know this entity whether it is holy, unholy, or beyond the bounds of mortal comprehension. The entity sends forth a servant loyal to it to aid you in your endeavors. If you have a specific servant in mind you may speak its name during the casting, but ultimately who is sent to answer your call is the entity's decision.</p>\n<p>The creature that appears (a celestial, elemental, fey, or fiend), is under no compulsion to behave in any particular way other than how its nature and personality direct it. Any request made of the creature, simple or complex, requires an equal amount of payment which you must bargain with the creature to ascertain. The creature can request either items, sacrifices, or services in exchange for its assistance. A creature that you cannot communicate with cannot be bargained with.</p>\n<p>A task that can be completed in minutes is worth 100 gold per minute, a task that requires hours is worth 1, 000 gold per hour, and a task requiring days is worth 10, 000 gold per day (the creature can only accept tasks contained within a 10 day timeframe). A creature can often be persuaded to lower or raise prices depending on how a task aligns with its personality and the goals of its master &mdash;some require no payment at all if the task is deemed worthy. Additionally, a task that poses little or no risk only requires half the usual amount of payment, and an extremely dangerous task might call for double the usual payment. Still, only extreme circumstances will cause a creature summoned this way to accept tasks with a near certain result of death.</p>\n<p>A creature returns to its place of origin when a task is completed or if you fail to negotiate an agreeable task and payment. Should a creature join your party, it counts as a member of the group and receives a full portion of any experience gained.</p>"
+      }
+    },
+    "description": "<p>Your practice and studies have attuned you to the music of the spheres, the cosmic song that echoes throughout creation and beyond, painting all the riotous colors within in a never ending mystical dance. You gain the following benefits:</p>\n<ul>\n<li>When you use a battle hymn by expending a spell slot, it lasts a number of rounds equal to your charisma modifier rather than one round. &nbsp;You may choose new targets for an ongoing battle hymn at the start of your turn or anytime before the start of your next turn, but once chosen for a round they cannot be changed.</li>\n<li>You may cast one of the following spells once per long rest without expending a spell slot:@UUID[Compendium.a5e.a5e-spells.Item.5ijl5b1goq9774l3]{Teleport},@UUID[Compendium.a5e.a5e-spells.Item.l3lr6rwvw7csn6on]{Plane Shift}, or @UUID[Compendium.a5e.a5e-spells.Item.j6guc3gcg18fn8rz]{Planar Ally}. &nbsp;In the case of plane shift you do not require the listed material component when casting it in this way but must instead research a tune or note attuned to the plane you wish to shift to using the research downtime activity and the Arcana skill, which counts as secret knowledge. &nbsp;In the case of planar ally you may make either a performance or musical instrument check with a DC of 5+the creature's CR for tasks measured in minutes, 10+the creature's CR for tasks measured in hours, or 15+the creature's CR for tasks measured in days. &nbsp;If the check is successful, you may use it in place of the payment of the spell. &nbsp;The chosen check must be one connected to an Art Specialty you are currently benefiting from, and you may only replace payment in this way one time each for the three spans of time, and when doing so the service lasts for exactly 1 minute, 1 hour, or 1 day respectively.</li>\n</ul>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "extraCreditAndDeeperMysteries",
+    "uses": {
+      "value": 1,
+      "max": "1",
+      "per": "longRest",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "feat",
+    "grants": {},
+    "prerequisite": "Maestro of the Mystic Arts feat",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": null
+    },
+    "classes": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "sae1pdl28dkg2z5a"
 }

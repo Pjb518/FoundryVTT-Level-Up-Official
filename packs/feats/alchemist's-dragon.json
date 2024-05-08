@@ -1,222 +1,222 @@
 {
-	"folder": null,
-	"name": "Alchemist's Dragon",
-	"type": "object",
-	"img": "icons/magic/fire/flame-burning-embers-yellow.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"4gRsW5nPg8Nf08NH": {
-				"name": "Set Up",
-				"activation": {
-					"type": "minute",
-					"cost": 10
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"95qjtnalWx9tfAr1": {
-				"name": "Stow",
-				"activation": {
-					"type": "minute",
-					"cost": 10
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"xghXTl5JqlsaV80g": {
-				"name": "Attack",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"r2iaMXBh5jCOwmTM": {
-						"type": "ammunition",
-						"default": true,
-						"itemId": "",
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"iiBlSae4YcsjzUvf": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "4d6",
-						"damageType": "fire"
-					}
-				},
-				"prompts": {
-					"fgj2jt37Hld41tiO": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "8 + @prof +  @int.mod"
-						},
-						"onSave": "Half damage, no ongoing fire"
-					},
-					"y9XCiOt8ycAHTc1c": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "14"
-						},
-						"label": "Ongoing Fire"
-					},
-					"xvWiAQ6dtScqlvNg": {
-						"type": "generic",
-						"default": true,
-						"label": "Ongoing Fire Damage",
-						"formula": "1d6"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"area": {
-					"shape": "cone",
-					"quantity": 1,
-					"length": 60,
-					"placeTemplate": true
-				}
-			}
-		},
-		"description": "<p>This weapon can use an action to spray @UUID[Compendium.a5e.a5e-adventuring-gear.Item.4t0m2ttaca5hg2vi]{Alchemist's Fire} in a 60 ft cone. &nbsp;Creatures in the area must make a dexterity save with a DC of 8 + your proficiency bonus + your Intelligence modifier. &nbsp;On a failed save, they take 4d6 fire damage and begin taking ongoing fire damage as if they were hit by alchemist's fire, using the normal DC for the item. &nbsp;On a success, they take half damage and do not catch on fire. &nbsp;It also ignites unattended flammable objects in the area. &nbsp;Each shot uses 5 flasks worth of alchemist's fire as ammunition.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "[object Object]",
-		"uses": {
-			"value": 0,
-			"max": "15",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": true,
-		"craftingComponents": "",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "0",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "mundane",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [
-			"loading",
-			"range",
-			"twoHanded"
-		],
-		"weight": 100,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": null
-		},
-		"breakerProperties": [],
-		"defensiveProperties": "",
-		"flaws": [],
-		"mounted": [],
-		"versatile": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/fire/flame-burning-embers-yellow.webp",
-			"origin": "Item.9GgsSYdkJS0yKPdc",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Yg5CVu88frZe7m8I",
-					"applyToSelf": true
-				}
-			},
-			"transfer": false,
-			"name": "Deployed",
-			"_id": "AEDsV0Pqdhg0IzkV",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "@original/2",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "cukwfypqpml5or8y"
+  "folder": null,
+  "name": "Alchemist's Dragon",
+  "type": "object",
+  "img": "icons/magic/fire/flame-burning-embers-yellow.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "4gRsW5nPg8Nf08NH": {
+        "name": "Set Up",
+        "activation": {
+          "type": "minute",
+          "cost": 10
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "95qjtnalWx9tfAr1": {
+        "name": "Stow",
+        "activation": {
+          "type": "minute",
+          "cost": 10
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "xghXTl5JqlsaV80g": {
+        "name": "Attack",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "r2iaMXBh5jCOwmTM": {
+            "type": "ammunition",
+            "default": true,
+            "itemId": "",
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "iiBlSae4YcsjzUvf": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "4d6",
+            "damageType": "fire"
+          }
+        },
+        "prompts": {
+          "fgj2jt37Hld41tiO": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8 + @prof +  @int.mod"
+            },
+            "onSave": "Half damage, no ongoing fire"
+          },
+          "y9XCiOt8ycAHTc1c": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "14"
+            },
+            "label": "Ongoing Fire"
+          },
+          "xvWiAQ6dtScqlvNg": {
+            "type": "generic",
+            "default": true,
+            "label": "Ongoing Fire Damage",
+            "formula": "1d6"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "area": {
+          "shape": "cone",
+          "quantity": 1,
+          "length": 60,
+          "placeTemplate": true
+        }
+      }
+    },
+    "description": "<p>This weapon can use an action to spray @UUID[Compendium.a5e.a5e-adventuring-gear.Item.4t0m2ttaca5hg2vi]{Alchemist's Fire} in a 60 ft cone. &nbsp;Creatures in the area must make a dexterity save with a DC of 8 + your proficiency bonus + your Intelligence modifier. &nbsp;On a failed save, they take 4d6 fire damage and begin taking ongoing fire damage as if they were hit by alchemist's fire, using the normal DC for the item. &nbsp;On a success, they take half damage and do not catch on fire. &nbsp;It also ignites unattended flammable objects in the area. &nbsp;Each shot uses 5 flasks worth of alchemist's fire as ammunition.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "extraCreditAndDeeperMysteries",
+    "uses": {
+      "value": 0,
+      "max": "15",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": true,
+    "craftingComponents": "",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "0",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "mundane",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "loading",
+      "range",
+      "twoHanded"
+    ],
+    "weight": 100,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": null
+    },
+    "breakerProperties": [],
+    "defensiveProperties": "",
+    "flaws": [],
+    "mounted": [],
+    "versatile": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/fire/flame-burning-embers-yellow.webp",
+      "origin": "Item.9GgsSYdkJS0yKPdc",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "Yg5CVu88frZe7m8I",
+          "applyToSelf": true
+        }
+      },
+      "transfer": false,
+      "name": "Deployed",
+      "_id": "AEDsV0Pqdhg0IzkV",
+      "changes": [
+        {
+          "key": "system.attributes.movement.walk.distance",
+          "value": "@original/2",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "cukwfypqpml5or8y"
 }
