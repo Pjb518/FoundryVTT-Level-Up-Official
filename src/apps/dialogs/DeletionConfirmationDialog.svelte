@@ -4,7 +4,8 @@
     import Checkbox from "../components/Checkbox.svelte";
     import FormSection from "../components/LegacyFormSection.svelte";
 
-    export let { dialog, itemDocument } = getContext("#external").application;
+    export let { dialog, itemDocument, hideDeleteSection } =
+        getContext("#external").application;
 
     function onSubmit() {
         dialog.submit({ confirmDeletion: true, hideDeleteConfirmation });
@@ -21,17 +22,19 @@
 </script>
 
 <form>
-    <FormSection
-        hint="You can reenable this dialog at any time by turning off the 'Hide Deletion Confirmation Dialog' system setting."
-    >
-        <Checkbox
-            label="Don't show this dialog again"
-            checked={hideDeleteConfirmation}
-            on:updateSelection={({ detail }) => {
-                hideDeleteConfirmation = detail;
-            }}
-        />
-    </FormSection>
+    {#if !hideDeleteSection}
+        <FormSection
+            hint="You can reenable this dialog at any time by turning off the 'Hide Deletion Confirmation Dialog' system setting."
+        >
+            <Checkbox
+                label="Don't show this dialog again"
+                checked={hideDeleteConfirmation}
+                on:updateSelection={({ detail }) => {
+                    hideDeleteConfirmation = detail;
+                }}
+            />
+        </FormSection>
+    {/if}
 
     <div class="button-container">
         <button on:click|preventDefault={() => onSubmit()}>

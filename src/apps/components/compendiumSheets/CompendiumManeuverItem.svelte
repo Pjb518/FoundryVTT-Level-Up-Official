@@ -5,6 +5,7 @@
     import ImportButton from "../ImportButton.svelte";
 
     import getDocumentSourceTooltip from "../../../utils/getDocumentSourceTooltip";
+    import CompendiumDeleteButton from "../CompendiumDeleteButton.svelte";
 
     export let document;
 
@@ -106,4 +107,7 @@
     </span>
 
     <ImportButton {document} />
+    {#if !collection.locked}
+        <CompendiumDeleteButton {document} />
+    {/if}
 </li>
