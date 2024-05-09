@@ -221,6 +221,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: "Level Up: Dungeon Delver's Guide",
       url: 'https://bit.ly/4bLImsK'
     },
+    extraCreditAndDeeperMysteries: {
+      abbreviation: 'ECaDM',
+      affiliate: true,
+      publisher: 'rollThemBones',
+      title: 'Extra Credit and Deeper Mysteries',
+      url: 'https://bit.ly/47UnJaV'
+    },
     fieldEngineer: {
       abbreviation: 'FE',
       affiliate: true,

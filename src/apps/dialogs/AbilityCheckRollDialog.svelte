@@ -19,7 +19,7 @@
 
         return $actor.RollOverrideManager.getExpertiseDice(
             `system.abilities.${abilityKey}.check`,
-            options.expertiseDie ?? 0,
+            options.expertiseDice ?? 0,
         );
     }
 

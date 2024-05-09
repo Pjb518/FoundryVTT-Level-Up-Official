@@ -1,0 +1,304 @@
+{
+  "folder": null,
+  "name": "Ratcheting Heavy Arbalest",
+  "type": "object",
+  "img": "icons/weapons/artillery/ballista-wood-green.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "4gRsW5nPg8Nf08NH": {
+        "name": "Set Up",
+        "activation": {
+          "type": "minute",
+          "cost": 10
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "95qjtnalWx9tfAr1": {
+        "name": "Stow",
+        "activation": {
+          "type": "minute",
+          "cost": 10
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "gQFdpyBfB2nnSs2z": {
+        "name": "Load",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "RQxbwXT3e3Kqkxtr": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": -15
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "7n1jJGEQtqgJ5Qzu": {
+        "name": "Single Attack",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "lTm0AOxgtdWmYNS7": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          },
+          "b2flzfxGoX0K6ME9": {
+            "type": "ammunition",
+            "default": true,
+            "itemId": "",
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "eMv6GSsPl5D4jAT0": {
+            "type": "attack",
+            "default": true,
+            "attackType": "rangedWeaponAttack",
+            "proficient": true,
+            "ability": "default"
+          },
+          "aZPiyhCGcailgWU5": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d10 + @dex.mod",
+            "damageType": "piercing"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "Sk3c15Lq41zwf6BH": {
+            "range": 140,
+            "unit": "feet"
+          },
+          "AMEYl08iVfBQfMyq": {
+            "range": 480,
+            "unit": "feet"
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        },
+        "img": "icons/weapons/artillery/ballista-wood-green.webp"
+      },
+      "gUHaC8pYYx5fTjar": {
+        "name": "Spread Attack",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "CvSjrqMHfmLZbrBx": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 15
+          },
+          "iXJF8sMZDypfRjTO": {
+            "type": "ammunition",
+            "default": true,
+            "itemId": "",
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "fiDRLl2X777LtwXS": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d10",
+            "damageType": "piercing",
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "BMVzy4H8FjwoZ7cB": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8 + @prof + @int.mod"
+            },
+            "onSave": "Half damage"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "turn",
+          "value": 1
+        },
+        "area": {
+          "shape": "cone",
+          "quantity": 1,
+          "length": 90,
+          "placeTemplate": true
+        }
+      }
+    },
+    "description": "<p>&nbsp;This functions as a heavy arbalest, except it may preload up to 15 shots at a time. &nbsp;Loading it takes an action, and while so loaded it may fire as if it did not have the loading property. &nbsp;Alternatively, you may expend all preloaded bolts in one round as an action. &nbsp;If you do so, you create a 90 ft cone. &nbsp;Creatures that enter that cone or start their turn in it must make a dexterity saving throw, taking 2d10 on a failed save or half on a success, and the area of the cone is difficult terrain until the start of your next turn.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "extraCreditAndDeeperMysteries",
+    "uses": {
+      "value": 0,
+      "max": "15",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": true,
+    "craftingComponents": "",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "0",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "mundane",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "loading",
+      "range",
+      "twoHanded"
+    ],
+    "weight": 100,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": null
+    },
+    "breakerProperties": [],
+    "defensiveProperties": "",
+    "flaws": [],
+    "mounted": [],
+    "versatile": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/weapons/artillery/ballista-wood-green.webp",
+      "origin": "Item.FEvpdME5EdmPPEkk",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "Yg5CVu88frZe7m8I",
+          "applyToSelf": true
+        }
+      },
+      "transfer": false,
+      "name": "Deployed",
+      "_id": "AEDsV0Pqdhg0IzkV",
+      "changes": [
+        {
+          "key": "system.attributes.movement.walk.distance",
+          "value": "@original/2",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "2umpzox9jojp6wvd"
+}

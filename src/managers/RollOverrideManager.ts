@@ -366,13 +366,14 @@ export default class RollOverrideManager {
       try {
         const flankSetting = game.settings.get('a5e-flanking', 'flankingDND5EMode') ?? false;
         const isFlanking = !!this.actor.getFlag('a5e', 'flanking');
-        if (flankSetting && isFlanking) {
+
+        if (flankSetting && isFlanking && overrideType === 'rollMode') {
           overrides.push({
             overrideType: 'rollMode',
             source: 'Flanking',
             value: CONFIG.A5E.ROLL_MODE.ADVANTAGE
           });
-        } else if (!flankSetting && isFlanking) {
+        } else if (!flankSetting && isFlanking && overrideType === 'expertiseDice') {
           overrides.push({
             overrideType: 'expertiseDice',
             source: 'Flanking',

@@ -100,6 +100,7 @@
     setContext("customImporter", customImporter);
     setContext("filterStore", filterStore);
     setContext("reducer", reducer);
+    setContext("sheet", sheet);
 
     const reducerUnsubscribe = reducer.subscribe(
         () => (visibleDocumentCount = 100),

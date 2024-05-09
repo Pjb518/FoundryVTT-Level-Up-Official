@@ -20,7 +20,7 @@
 
         return $actor.RollOverrideManager.getExpertiseDice(
             `system.skills.${skillKey}` ?? "",
-            options.expertiseDie ?? 0,
+            options.expertiseDice ?? 0,
             { ability: abilityKey },
         );
     }
@@ -81,7 +81,7 @@
 
     $: expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
         `system.skills.${skillKey}`,
-        options.expertiseDie ?? 0,
+        options.expertiseDice ?? 0,
         { ability: abilityKey },
     );
 

@@ -227,6 +227,7 @@ export default class ActorSheet extends SvelteApplication {
     if (!transferData) return;
 
     const dragData = JSON.parse(transferData);
+    Hooks.callAll('dropActorSheetData', this.actor, this, dragData);
 
     const currentTab = this.tempSettings[this.actor.uuid]?.currentTab;
     const currentSpellBook = this.tempSettings[this.actor.uuid]?.currentSpellBook

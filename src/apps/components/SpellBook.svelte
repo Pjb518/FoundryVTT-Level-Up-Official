@@ -1,8 +1,6 @@
 <script>
     import { getContext, onDestroy } from "svelte";
 
-    import SpellCompendiumSheet from "../SpellCompendiumSheet";
-
     import CreateMenu from "./actorUtilityBar/CreateMenu.svelte";
     import Filter from "./actorUtilityBar/Filter.svelte";
     import ItemCategory from "./ItemCategory.svelte";
@@ -16,26 +14,18 @@
     export let spellBookId;
     export let reducer;
 
-    function openSpellCompendium() {
-        const pack = new SpellCompendiumSheet(
-            { collection: game.packs.get("a5e.a5e-spells") },
-            {
-                importer: (docs) => {
-                    docs.forEach((doc) => {
-                        doc.system.spellBook = spellBookId;
-                    });
+    function importer(docs) {
+        docs.forEach((doc) => {
+            doc.system.spellBook = spellBookId;
+        });
 
-                    $actor.createEmbeddedDocuments("Item", docs);
-                },
-            },
-        );
-
-        pack.render(true);
+        $actor.createEmbeddedDocuments("Item", docs);
     }
 
     const actor = getContext("actor");
     const { spellLevels } = CONFIG.A5E;
     const reducerType = "spells";
+    const openCompendium = game.a5e.utils.openCompendium;
 
     let showUses = false;
 
@@ -94,7 +84,11 @@
 
             <button
                 class="a5e-import-from-compendium-button fa-solid fa-download"
-                on:click={openSpellCompendium}
+                on:click={() =>
+                    openCompendium($actor, "spells", {
+                        importFunction: importer,
+                        spellBookId,
+                    })}
                 data-tooltip="Import Spells from Compendium"
                 data-tooltip-direction="UP"
             />

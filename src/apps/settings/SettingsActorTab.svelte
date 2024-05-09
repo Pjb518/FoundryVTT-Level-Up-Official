@@ -26,6 +26,9 @@
     let blindDeathSaves = settings.getStore("blindDeathSaves");
     let hideActionList = settings.getStore("collapseActionList");
     let hideDeleteDialog = settings.getStore("hideDeleteConfirmation");
+    let hideCompendiumSelection = settings.getStore(
+        "hideActorCompendiumSelectionDialog",
+    );
     let rightClickConfig = settings.getStore("itemRightClickConfigure");
     let reverseAlt = settings.getStore("reverseAltBehavior");
     let reverseInitAlt = settings.getStore("reverseInitiativeAltBehavior");
@@ -144,6 +147,17 @@
                 false}
             on:updateSelection={({ detail }) =>
                 updates.set("hideDeleteConfirmation", detail)}
+        />
+    </FieldWrapper>
+
+    <FieldWrapper hint="A5E.settings.hints.hideActorCompendiumSelectionDialog">
+        <Checkbox
+            label="A5E.settings.hideActorCompendiumSelectionDialog"
+            checked={updates.get("hideActorCompendiumSelectionDialog") ??
+                $hideCompendiumSelection ??
+                false}
+            on:updateSelection={({ detail }) =>
+                updates.set("hideActorCompendiumSelectionDialog", detail)}
         />
     </FieldWrapper>
 

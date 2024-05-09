@@ -6,12 +6,12 @@ import DeletionConfirmationDialogComponent from '../DeletionConfirmationDialog.s
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
 export default class DeletionConfirmationDialog extends TJSDialog {
-  constructor(itemDocument) {
+  constructor(itemDocument, hideDeleteSection = false) {
     super({
       title: `${itemDocument?.name}: Confirm Deletion`,
       content: {
         class: DeletionConfirmationDialogComponent,
-        props: { itemDocument }
+        props: { itemDocument, hideDeleteSection }
       }
     }, {
       classes: ['a5e-sheet'],

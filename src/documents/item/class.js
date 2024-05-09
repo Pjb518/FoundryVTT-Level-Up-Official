@@ -164,6 +164,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     return true;
   }
 
+  // eslint-disable-next-line consistent-return
   async _preUpdate(changed, options, user) {
     super._preUpdate(changed, options, user);
 
@@ -189,7 +190,8 @@ export default class ClassItemA5e extends OriginItemA5e {
       const actor = this.parent;
       const currentLevel = this.system.classLevels;
       const newLevel = foundry.utils.getProperty(changed, 'system.classLevels');
-      await actor.grants.createLeveledGrants(currentLevel, newLevel, this);
+      const result = await actor.grants.createLeveledGrants(currentLevel, newLevel, this);
+      if (!result) return false;
     }
   }
 
