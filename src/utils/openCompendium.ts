@@ -11,6 +11,12 @@ const SHEETS = {
   spells: SpellCompendiumSheet
 };
 
+const TYPES = {
+  inventory: 'object',
+  maneuvers: 'maneuver',
+  spells: 'spell'
+};
+
 export default async function openCompendium(
   actor: typeof Actor,
   tab: 'inventory' | 'maneuvers' | 'spells',
@@ -19,13 +25,25 @@ export default async function openCompendium(
   const { importFunction } = data;
   let { pack } = data;
 
-  const hideDialog = game.settings.get('a5e', 'hideActorCompendiumSelectionDialog') ?? false;
+  const compendiumType = TYPES[tab];
+  const packOptions = game.packs.reduce((acc: string[][], p: any) => {
+    const id = p.metadata.id || p.collection;
+    if (!id) return acc;
 
-  if (!hideDialog) {
+    if (p.metadata.type !== 'Item') return acc;
+
+    const indexTypes: string[] = [...p.index].map((i: any) => i.type).filter(Boolean);
+    if (!indexTypes.every((t: string) => t === compendiumType)) return acc;
+
+    acc.push([id, p.metadata.label]);
+    return acc;
+  }, []);
+
+  if (packOptions.length > 1) {
     const dialog = new GenericDialog(
       'Select Compendium',
       ImportCompendiumSelectionDialog,
-      { tab, defaultSelection: CONFIG.A5E.defaultActorImportCompendia[tab] }
+      { packOptions, defaultSelection: CONFIG.A5E.defaultActorImportCompendia[tab] }
     );
 
     await dialog.render(true);

@@ -6,57 +6,16 @@
     import RadioGroup from "../components/RadioGroup.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
 
-    export let { dialog, tab, defaultSelection } =
+    export let { dialog, packOptions, defaultSelection } =
         // @ts-ignore
         getContext("#external").application;
 
-    const TYPES = {
-        inventory: "object",
-        maneuvers: "maneuver",
-        spells: "spell",
-    };
-
-    const compendiumType = TYPES[tab];
-
-    function getCompendiums() {
-        const packs: string[][] = [];
-        // @ts-ignore
-        game.packs.forEach((pack) => {
-            const id = pack.metadata.id || pack.collection;
-            if (!id) return;
-
-            if (pack.metadata.type !== "Item") return;
-
-            const indexTypes: string[] = [...pack.index]
-                .map((index) => index.type)
-                .filter(Boolean);
-            if (!indexTypes.every((type: string) => compendiumType === type))
-                return;
-
-            packs.push([id, pack.metadata.label]);
-        });
-
-        return packs;
-    }
-
     function onSubmit() {
-        // @ts-ignore
-        game.settings.set(
-            "a5e",
-            "hideActorCompendiumSelectionDialog",
-            hideSelectionDialog,
-        );
-
         dialog.submit({ pack: selected });
     }
 
-    const selections = getCompendiums();
+    const selections: string[][] = packOptions;
     let selected = defaultSelection;
-    // @ts-ignore
-    let hideSelectionDialog = game.settings.get(
-        "a5e",
-        "hideActorCompendiumSelectionDialog",
-    );
 </script>
 
 <article>
