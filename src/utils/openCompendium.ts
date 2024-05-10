@@ -32,6 +32,9 @@ export default async function openCompendium(
 
     if (p.metadata.type !== 'Item') return acc;
 
+    const canView = p.testUserPermission(game.user, CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER);
+    if (!canView) return acc;
+
     const indexTypes: string[] = [...p.index].map((i: any) => i.type).filter(Boolean);
     if (!indexTypes.every((t: string) => t === compendiumType)) return acc;
 
@@ -39,7 +42,9 @@ export default async function openCompendium(
     return acc;
   }, []);
 
-  if (packOptions.length > 1) {
+  const hideDialog = game.settings.get('a5e', 'hideActorCompendiumSelectionDialog') ?? false;
+
+  if (!hideDialog && packOptions.length > 1) {
     const dialog = new GenericDialog(
       'Select Compendium',
       ImportCompendiumSelectionDialog,
