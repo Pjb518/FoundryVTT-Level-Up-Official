@@ -1,7 +1,7 @@
 {
-	"name": "Boon: Pact of the Tome",
+	"name": "Thaumaturge: Highest Arcanum (contemplation)",
 	"type": "feature",
-	"img": "icons/sundries/books/book-embossed-jewel-silver-green.webp",
+	"img": "icons/magic/holy/meditation-chi-focus-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -16,13 +16,19 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"XYxLxURwjwM5WeRu": {
-				"name": "Ceremony",
+			"8A9voIma95byIt0P": {
+				"name": "Contemplation",
 				"activation": {
-					"type": "hour",
+					"type": "minute",
 					"cost": 1
 				},
-				"consumers": {},
+				"consumers": {
+					"xtfa4SVCVIy9CIQi": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {},
 				"prompts": {},
 				"uses": {
@@ -38,14 +44,14 @@
 				}
 			}
 		},
-		"description": "<p>Aware of your drive for knowledge, you awaken to find a grimoire left in your pack by your patron: a Book of Shadows. Choose three cantrips. While the book is in your possession, you know these cantrips and they are treated as warlock spells. They don&rsquo;t count against your number of cantrips known. If you lose your Book of Shadows, you can perform a 1 hour ceremony to receive a replacement from your patron. This ceremony destroys the previous book. The book is collected by your patron when you die.</p>",
+		"description": "<p>You can spend 1 minute in arcane contemplation to regain all expended spell points. Once you have used this feature, you must finish a long rest before you can do so again.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -69,5 +75,5 @@
 		"classes": "warlock"
 	},
 	"folder": null,
-	"_id": "2dp9b4a11fuxjwbc"
+	"_id": "chshm3m7je487do0"
 }

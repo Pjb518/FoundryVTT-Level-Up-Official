@@ -17,21 +17,17 @@
 		},
 		"actions": {
 			"wvQVb4bWGfLW386y": {
-				"name": "Blast: Eldritch Scythe",
+				"name": "Eldritch Scythe",
 				"activation": {
 					"cost": 1,
-					"type": "action",
+					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "instantaneous",
-					"value": ""
+					"unit": "",
+					"value": 1
 				},
-				"ranges": {
-					"W2LyMNoU3H8JNvBA": {
-						"range": "fiveFeet"
-					}
-				},
+				"ranges": {},
 				"area": {
 					"shape": "",
 					"size": "",
@@ -39,14 +35,15 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": ""
 				},
 				"rolls": {
 					"SNYwqoFJCrghGcPF": {
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
-						"ability": "spellcasting"
+						"ability": "spellcasting",
+						"attackType": "meleeSpellAttack"
 					},
 					"8VRtXr9Fs6lL7PQZ": {
 						"canCrit": true,
@@ -56,17 +53,23 @@
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {
+					"un92wAGCC27UVTjy": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
 			}
 		},
-		"description": "<p>Once per turn when you would make a melee weapon attack as part of the Attack action or an opportunity attack, you can instead make a melee spell attack, lashing out with an ephemeral and unearthly blade. On hit, the target takes [[/r 1d8 #force]] force damage. In addition, you can choose a creature that you can see and that is within your reach. It takes half as much damage.</p>",
+		"description": "<p>Once per turn when you would make a melee weapon attack as part of the Attack action or an opportunity attack, you can instead make a melee spell attack, lashing out with an ephemeral and unearthly blade. On hit, the target takes 1d8 force damage. In addition, you can choose a creature that you can see and that is within your reach. It takes half as much damage.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "turn",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -87,7 +90,7 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "warlock"
 	},
 	"folder": null,
 	"_id": "5miit65bic46eynl"
