@@ -1,397 +1,397 @@
 {
-	"folder": null,
-	"name": "Cipher Sword",
-	"type": "object",
-	"img": "icons/weapons/swords/sword-hilt-steel-green.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"CbLy056NWK58nfFG": {
-				"name": "Attack (No Mastery)",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"16LbvMUVNN9tYqav": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": false,
-						"ability": "str"
-					},
-					"Fe64NXrm84xYu2Ig": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d8 + @str.mod",
-						"damageType": "slashing"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"4vGyvNX9zLesCooM": {
-				"name": "Meditate",
-				"activation": {},
-				"consumers": {
-					"psY2WoxgOaP8sYfV": {
-						"type": "actionUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"8JcpQdosBERFTkAk": {
-						"type": "abilityCheck",
-						"default": true,
-						"ability": "int"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"4FSFxt7Jd1a0oGk2": {
-				"name": "End Attunement",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"USIhyrH3S9wRgDDa": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "4d4",
-						"damageType": "psychic"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"RDxeu4G88a4TZp0g": {
-				"name": "Attack (Novice)",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"16LbvMUVNN9tYqav": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "default"
-					},
-					"Fe64NXrm84xYu2Ig": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d8 + @finesse.mod",
-						"damageType": "slashing"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"8g5ZcIYpqV74NOGW": {
-				"name": "Attack (Apprentice)",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"16LbvMUVNN9tYqav": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "default",
-						"bonus": "1"
-					},
-					"Fe64NXrm84xYu2Ig": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d8 + @finesse.mod + 1",
-						"damageType": "slashing"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"alw8uGaqfW10zB6c": {
-				"name": "Attack (Expert)",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"16LbvMUVNN9tYqav": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "default",
-						"bonus": "2",
-						"critThreshold": 19
-					},
-					"Fe64NXrm84xYu2Ig": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d8 + @finesse.mod + 2",
-						"damageType": "slashing"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"NPlSAPBNhvj79V4g": {
-				"name": "Expert Psychic Damage",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"UZnjABobEDsPqBGE": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "2d4",
-						"damageType": "psychic"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"314hdUjlX1hWrPA6": {
-				"name": "Attack (Master)",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"16LbvMUVNN9tYqav": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "default",
-						"bonus": "3",
-						"critThreshold": 19
-					},
-					"Fe64NXrm84xYu2Ig": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d8 + @finesse.mod + 3",
-						"damageType": "slashing"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"bybUk2eIOEUwm2zC": {
-				"name": "Summon Sword",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"sPuBE9Rt1plgExHP": {
-				"name": "Learn Weakness",
-				"activation": {},
-				"consumers": {
-					"vdwRZqZoK0zSlrOZ": {
-						"type": "actionUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "shortRest",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"P7jauJLeRyh8gwr8": {
-				"name": "Master Psychic Damage",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"UZnjABobEDsPqBGE": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "4d4",
-						"damageType": "psychic"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>This sword&rsquo;s blade is plated with alchemical silver, its hilt stylized to resemble an open book from which the blade emerges. Despite its masterfully-crafted appearance, however, a cipher sword is uncomfortable to hold and strangely unwieldy. It has the two-handed and heavy properties and deals 2d8 slashing damage on a hit, but you feel this is only a fraction of its potential.</p>\n<p><strong>Curse.</strong> There are other cipher swords owned by a variety of creatures across the planes. Most wielders consider themselves part of an exclusive group and expect the loyalty and cooperation of those with less mastery, regardless of other alliances. Attaining even a novice level of mastery attracts the attention of other wielders, who may have expectations of you.</p>\n<p>The cipher sword also has the following properties:</p>\n<ul>\n<li>You are not considered proficient with this weapon.</li>\n<li>While wielding this weapon, you don&rsquo;t benefit from any feature that would grant you additional attacks.</li>\n</ul>\n<p><em><strong>Escalation.</strong></em> This weapon is immensely powerful for those willing to solve the riddle of its use. Once per week, if you&rsquo;ve successfully reduced a dangerous enemy (as determined by the Narrator) to 0 hit points with it since the last time you finished a long rest, make a DC 14 Intelligence check to meditate on the sword&rsquo;s secrets. On a failure, you gain +1 to future attempts at this check. On a success, your level of mastery increases, you lose any bonus gained from failed attempts, the DC to advance again increases by 4, and the time between attempts increases by 1 week. If you ever willingly end your attunement to this weapon, you take 8 (4d4) psychic damage that cannot be negated or reduced and lose all mastery you&rsquo;ve gained.</p>\n<p>The levels of mastery are as follows:</p>\n<p><em>Novice:</em> You now are proficient with this weapon, and it gains the finesse property. However, wielding anything else begins to feel wrong to you, and you suffer disadvantage on all melee weapon attacks made with a different weapon.</p>\n<p><em>Apprentice:</em> You gain +1 to attack and damage rolls with this weapon. You can also now attack twice, instead of once, when you take the Attack action with this weapon on your turn. Additionally, you now suffer disadvantage on all weapon attacks with other weapons.</p>\n<p><em>Expert:</em> Your bonus to attack and damage rolls with this weapon increases to +2 and it gains the Vicious property. When you make a weapon attack with a different weapon, you now also take 4 (2d4) psychic damage. This damage cannot be negated or reduced by any means.</p>\n<p><em>Master:</em> Your bonus to attack and damage rolls with this weapon increases to +3, and you can summon it to your hand as a bonus action so long as you are on the same plane as it. Additionally, once per short rest, when you successfully attack a creature with it, you immediately learn about any special defenses or weaknesses that creature possesses as the blade imparts the wisdom of previous wielders. Additionally, the psychic damage you take from making a weapon attack with a different weapon increases to 8 (4d4).</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "gpg3",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "A quill from a phoenix, pressed in the pages of a spellbook with no fewer than three spells of 7th level or higher, which it consumes in fire over the course of a month",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "18,750 gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "veryRare",
-		"requiresAttunement": true,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [
-			"twoHanded",
-			"heavy"
-		],
-		"weight": 0,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"breakerProperties": [],
-		"defensiveProperties": "",
-		"flaws": [],
-		"versatile": "",
-		"mounted": []
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "ccym50gk0jrodxco"
+  "folder": null,
+  "name": "Cipher Sword",
+  "type": "object",
+  "img": "icons/weapons/swords/sword-hilt-steel-green.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "CbLy056NWK58nfFG": {
+        "name": "Attack (No Mastery)",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "16LbvMUVNN9tYqav": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": false,
+            "ability": "str"
+          },
+          "Fe64NXrm84xYu2Ig": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d8 + @str.mod",
+            "damageType": "slashing"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "4vGyvNX9zLesCooM": {
+        "name": "Meditate",
+        "activation": {},
+        "consumers": {
+          "psY2WoxgOaP8sYfV": {
+            "type": "actionUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "8JcpQdosBERFTkAk": {
+            "type": "abilityCheck",
+            "default": true,
+            "ability": "int"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "4FSFxt7Jd1a0oGk2": {
+        "name": "End Attunement",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "USIhyrH3S9wRgDDa": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "4d4",
+            "damageType": "psychic"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "RDxeu4G88a4TZp0g": {
+        "name": "Attack (Novice)",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "16LbvMUVNN9tYqav": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "default"
+          },
+          "Fe64NXrm84xYu2Ig": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d8 + @finesse.mod",
+            "damageType": "slashing"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "8g5ZcIYpqV74NOGW": {
+        "name": "Attack (Apprentice)",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "16LbvMUVNN9tYqav": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "default",
+            "bonus": "1"
+          },
+          "Fe64NXrm84xYu2Ig": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d8 + @finesse.mod + 1",
+            "damageType": "slashing"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "alw8uGaqfW10zB6c": {
+        "name": "Attack (Expert)",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "16LbvMUVNN9tYqav": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "default",
+            "bonus": "2",
+            "critThreshold": 19
+          },
+          "Fe64NXrm84xYu2Ig": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d8 + @finesse.mod + 2",
+            "damageType": "slashing"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "NPlSAPBNhvj79V4g": {
+        "name": "Expert Psychic Damage",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "UZnjABobEDsPqBGE": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "2d4",
+            "damageType": "psychic"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "314hdUjlX1hWrPA6": {
+        "name": "Attack (Master)",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "16LbvMUVNN9tYqav": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "default",
+            "bonus": "3",
+            "critThreshold": 19
+          },
+          "Fe64NXrm84xYu2Ig": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d8 + @finesse.mod + 3",
+            "damageType": "slashing"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "bybUk2eIOEUwm2zC": {
+        "name": "Summon Sword",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "sPuBE9Rt1plgExHP": {
+        "name": "Learn Weakness",
+        "activation": {},
+        "consumers": {
+          "vdwRZqZoK0zSlrOZ": {
+            "type": "actionUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "shortRest",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "P7jauJLeRyh8gwr8": {
+        "name": "Master Psychic Damage",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "UZnjABobEDsPqBGE": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "4d4",
+            "damageType": "psychic"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>This sword&rsquo;s blade is plated with alchemical silver, its hilt stylized to resemble an open book from which the blade emerges. Despite its masterfully-crafted appearance, however, a cipher sword is uncomfortable to hold and strangely unwieldy. It has the two-handed and heavy properties and deals 2d8 slashing damage on a hit, but you feel this is only a fraction of its potential.</p><p><strong>Curse.</strong> There are other cipher swords owned by a variety of creatures across the planes. Most wielders consider themselves part of an exclusive group and expect the loyalty and cooperation of those with less mastery, regardless of other alliances. Attaining even a novice level of mastery attracts the attention of other wielders, who may have expectations of you.</p><p>The cipher sword also has the following properties:</p><ul><li>You are not considered proficient with this weapon.</li><li>While wielding this weapon, you don&rsquo;t benefit from any feature that would grant you additional attacks.</li></ul><p><em><strong>Escalation.</strong></em> This weapon is immensely powerful for those willing to solve the riddle of its use. Once per week, if you&rsquo;ve successfully reduced a dangerous enemy (as determined by the Narrator) to 0 hit points with it since the last time you finished a long rest, make a DC 14 Intelligence check to meditate on the sword&rsquo;s secrets. On a failure, you gain +1 to future attempts at this check. On a success, your level of mastery increases, you lose any bonus gained from failed attempts, the DC to advance again increases by 4, and the time between attempts increases by 1 week. If you ever willingly end your attunement to this weapon, you take 8 (4d4) psychic damage that cannot be negated or reduced and lose all mastery you&rsquo;ve gained.</p><p>The levels of mastery are as follows:</p><p><em>Novice:</em> You now are proficient with this weapon, and it gains the finesse property. However, wielding anything else begins to feel wrong to you, and you suffer disadvantage on all melee weapon attacks made with a different weapon.</p><p><em>Apprentice:</em> You gain +1 to attack and damage rolls with this weapon. You can also now attack twice, instead of once, when you take the Attack action with this weapon on your turn. Additionally, you now suffer disadvantage on all weapon attacks with other weapons.</p><p><em>Expert:</em> Your bonus to attack and damage rolls with this weapon increases to +2 and it gains the Vicious property. When you make a weapon attack with a different weapon, you now also take 4 (2d4) psychic damage. This damage cannot be negated or reduced by any means.</p><p><em>Master:</em> Your bonus to attack and damage rolls with this weapon increases to +3, and you can summon it to your hand as a bonus action so long as you are on the same plane as it. Additionally, once per short rest, when you successfully attack a creature with it, you immediately learn about any special defenses or weaknesses that creature possesses as the blade imparts the wisdom of previous wielders. Additionally, the psychic damage you take from making a weapon attack with a different weapon increases to 8 (4d4).</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "gpg3",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "A quill from a phoenix, pressed in the pages of a spellbook with no fewer than three spells of 7th level or higher, which it consumes in fire over the course of a month",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "18,750 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "veryRare",
+    "requiresAttunement": true,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "twoHanded",
+      "heavy"
+    ],
+    "weight": 0,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "breakerProperties": [],
+    "defensiveProperties": "",
+    "flaws": [],
+    "versatile": "",
+    "mounted": []
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "ccym50gk0jrodxco"
 }

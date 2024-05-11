@@ -1,143 +1,143 @@
 {
-	"folder": null,
-	"name": "Captivating Song",
-	"type": "feature",
-	"img": "icons/skills/trades/music-singing-voice-blue.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"urtm4UOh53sMrQJa": {
-				"name": "Use Feature",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"4s3O3sxGrkNRWAEZ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "FYhvibDFgFmbdNFT",
-						"label": "Captivate Target"
-					},
-					"dFHQfXjOchSECH0y": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "wis",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "8 + @prof[Proficiency Modifier] + max(@int.mod, @wis.mod, @cha.mod)"
-						},
-						"onSave": "Targets who save are unaffected and are immune to your song for 24 hours"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"1qmMDDM1Qc22HKWp": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "emanation",
-					"quantity": 1,
-					"radius": 30,
-					"placeTemplate": true
-				}
-			}
-		},
-		"description": "<div class=\"page\" title=\"Page 21\">\n<div class=\"section\">\n<div class=\"layoutArea\">\n<div class=\"column\">\n<p>You can use an action to emit a captivating song. Enemy creatures who can hear you within 30 feet must make a Wisdom saving throw (DC 8 + your proficiency bonus + either your Intelligence, Wisdom, or Charisma modifier) or become charmed by you for 1 minute, or until you or an ally deal damage to it. Creatures charmed in this way spend their movement to draw closer to you. Creatures that succeed at this save cannot be affected again by it for 24 hours. Once you use this trait, you can&rsquo;t use it again until you finish a long rest.</p>\n<p><strong>Foundry Note: Will automatically use the highest ability score modifier possible for the Save DC, change if desired.</strong></p>\n</div>\n</div>\n</div>\n</div>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": "longRest",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "heritage",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
-	},
-	"effects": [
-		{
-			"icon": "icons/skills/trades/music-singing-voice-blue.webp",
-			"origin": "Item.bzspw30up84yinhv",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "urtm4UOh53sMrQJa",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Charmed (Captivating Song)",
-			"_id": "FYhvibDFgFmbdNFT",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"charmed\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<div class=\"page\" title=\"Page 21\">\n<div class=\"section\">\n<div class=\"layoutArea\">\n<div class=\"column\">\n<ul>\n<li aria-level=\"1\">A charmed creature can't take any hostile action against the charmer.</li>\n<li aria-level=\"1\">Ability checks the charmer makes to socially interact with the charmed creature have advantage.</li>\n<li aria-level=\"1\">Must move closer to the cause of this condition.</li>\n</ul>\n</div>\n</div>\n</div>\n</div>",
-			"statuses": [
-				"charmed"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "bzspw30up84yinhv"
+  "folder": null,
+  "name": "Captivating Song",
+  "type": "feature",
+  "img": "icons/skills/trades/music-singing-voice-blue.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "urtm4UOh53sMrQJa": {
+        "name": "Use Feature",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "4s3O3sxGrkNRWAEZ": {
+            "type": "effect",
+            "default": true,
+            "effectId": "FYhvibDFgFmbdNFT",
+            "label": "Captivate Target"
+          },
+          "dFHQfXjOchSECH0y": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "wis",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8 + @prof[Proficiency Modifier] + max(@int.mod, @wis.mod, @cha.mod)"
+            },
+            "onSave": "Targets who save are unaffected and are immune to your song for 24 hours"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "1qmMDDM1Qc22HKWp": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "emanation",
+          "quantity": 1,
+          "radius": 30,
+          "placeTemplate": true
+        }
+      }
+    },
+    "description": "<div>\n<div>\n<div>\n<div>\n<p>You can use an action to emit a captivating song. Enemy creatures who can hear you within 30 feet must make a Wisdom saving throw (DC 8 + your proficiency bonus + either your Intelligence, Wisdom, or Charisma modifier) or become charmed by you for 1 minute, or until you or an ally deal damage to it. Creatures charmed in this way spend their movement to draw closer to you. Creatures that succeed at this save cannot be affected again by it for 24 hours. Once you use this trait, you can&rsquo;t use it again until you finish a long rest.</p>\n<p><strong>Foundry Note: Will automatically use the highest ability score modifier possible for the Save DC, change if desired.</strong></p>\n</div>\n</div>\n</div>\n</div>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 1,
+      "max": "1",
+      "per": "longRest",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "heritage",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    }
+  },
+  "effects": [
+    {
+      "icon": "icons/skills/trades/music-singing-voice-blue.webp",
+      "origin": "Item.bzspw30up84yinhv",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "urtm4UOh53sMrQJa",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Charmed (Captivating Song)",
+      "_id": "FYhvibDFgFmbdNFT",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"charmed\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<div>\n<div>\n<div>\n<div>\n<ul>\n<li aria-level=\"1\">A charmed creature can't take any hostile action against the charmer.</li>\n<li aria-level=\"1\">Ability checks the charmer makes to socially interact with the charmed creature have advantage.</li>\n<li aria-level=\"1\">Must move closer to the cause of this condition.</li>\n</ul>\n</div>\n</div>\n</div>\n</div>",
+      "statuses": [
+        "charmed"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "bzspw30up84yinhv"
 }

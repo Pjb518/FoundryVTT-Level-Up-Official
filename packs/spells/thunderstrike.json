@@ -1,148 +1,148 @@
 {
-	"name": "Thunderstrike",
-	"type": "spell",
-	"img": "icons/skills/melee/strike-hammer-destructive-orange.webp",
-	"system": {
-		"actions": {
-			"nZUEicL2hNPM8t5B": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"A7btDPI6loSwfELY": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d8",
-						"damageType": "thunder",
-						"scaling": {
-							"mode": "cantrip",
-							"formula": "1d8"
-						}
-					}
-				},
-				"prompts": {
-					"CayNuqWcJeBjtSe4": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ZFC0wIwzCkslp1Lh"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"DNeCkhiW3xQd4t9T": {
-						"range": "self"
-					}
-				}
-			}
-		},
-		"description": "<p>Your weapon vibrates with thunderous energy, ready to shatter the composure and flesh of your foes.</p>\n<p>As part of the action to cast this spell, make an attack with your melee weapon. On a hit, in addition to normal weapon damage, the attack emits a thunderous boom, dealing an additional 1d8 thunder damage. If the target is concentrating, it has disadvantage on its next concentration check this turn.</p>\n<p>At 5th level, the target takes an additional 2d8 points of thunder damage on a hit. This increases to 3d8 at level 11 and 4d8 at level 17.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"druid",
-			"sorcerer",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 0,
-		"materials": "a melee weapon",
-		"materialsConsumed": false,
-		"prepared": 1,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"weaponry",
-				"thunder"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/skills/melee/strike-hammer-destructive-orange.webp",
-			"origin": "Item.yejddmd8hnr5maa0",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nZUEicL2hNPM8t5B",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Shatter Composure",
-			"_id": "ZFC0wIwzCkslp1Lh",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.concentration",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p>Disadvantage on its next concentration check this turn.</p>",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"folder": null,
-	"_id": "yejddmd8hnr5maa0"
+  "name": "Thunderstrike",
+  "type": "spell",
+  "img": "icons/skills/melee/strike-hammer-destructive-orange.webp",
+  "system": {
+    "actions": {
+      "nZUEicL2hNPM8t5B": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "A7btDPI6loSwfELY": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d8",
+            "damageType": "thunder",
+            "scaling": {
+              "mode": "cantrip",
+              "formula": "1d8"
+            }
+          }
+        },
+        "prompts": {
+          "CayNuqWcJeBjtSe4": {
+            "type": "effect",
+            "default": true,
+            "effectId": "ZFC0wIwzCkslp1Lh"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "DNeCkhiW3xQd4t9T": {
+            "range": "self"
+          }
+        }
+      }
+    },
+    "description": "<p>Your weapon vibrates with thunderous energy, ready to shatter the composure and flesh of your foes.</p><p>As part of the action to cast this spell, make an attack with your melee weapon. On a hit, in addition to normal weapon damage, the attack emits a thunderous boom, dealing an additional 1d8 thunder damage. If the target is concentrating, it has disadvantage on its next concentration check this turn.</p><p>At 5th level, the target takes an additional 2d8 points of thunder damage on a hit. This increases to 3d8 at level 11 and 4d8 at level 17.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "druid",
+      "sorcerer",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 0,
+    "materials": "a melee weapon",
+    "materialsConsumed": false,
+    "prepared": 1,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "weaponry",
+        "thunder"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/skills/melee/strike-hammer-destructive-orange.webp",
+      "origin": "Item.yejddmd8hnr5maa0",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "nZUEicL2hNPM8t5B",
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Shatter Composure",
+      "_id": "ZFC0wIwzCkslp1Lh",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.rollMode.concentration",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": 1,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>Disadvantage on its next concentration check this turn.</p>",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "folder": null,
+  "_id": "yejddmd8hnr5maa0"
 }

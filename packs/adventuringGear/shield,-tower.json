@@ -1,410 +1,410 @@
 {
-	"name": "Shield, Tower",
-	"type": "object",
-	"img": "icons/equipment/shield/heater-wooden-sword-green.webp",
-	"effects": [
-		{
-			"icon": "icons/equipment/shield/heater-wooden-sword-green.webp",
-			"origin": "Item.udvqt7222qrr3ibu",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
-			},
-			"transfer": false,
-			"name": "Shield, Tower",
-			"_id": "lErp8auiYKrtHWMA",
-			"changes": [
-				{
-					"key": "system.abilities.dex.save.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.acr",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "10",
-					"mode": 3,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null
-		},
-		{
-			"icon": "icons/equipment/shield/heater-wooden-sword-green.webp",
-			"origin": "Item.udvqt7222qrr3ibu",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "KD9Hql5rKrXpXAfd"
-				}
-			},
-			"transfer": false,
-			"name": "Plant In Ground",
-			"_id": "WAJJPmYmySY3jVhd",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "2",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.abilities",
-					"value": "{\"context\":{\"abilities\":[\"dex\"],\"types\":[],\"requiresProficiency\":false},\"formula\":\"2\",\"label\":\"Ability Bonus\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.skills",
-					"value": "{\"context\":{\"skills\":[\"ste\"],\"passiveOnly\":false,\"requiresProficiency\":false},\"formula\":\"2\",\"label\":\"Skill Bonus\",\"default\":true}",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null
-		},
-		{
-			"icon": "icons/equipment/shield/heater-wooden-sword-green.webp",
-			"origin": "Item.udvqt7222qrr3ibu",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "3uhy6ONQQnTzwmYM",
-					"applyToSelf": true,
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Defensive AC",
-			"_id": "NWAnbLxHgxeEiMS3",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null
-		}
-	],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "2",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 1,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"eVdnASSupLPFYwdW": {
-				"name": "Attack",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"tFenoUYFUlCECoM8": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": false,
-						"ability": "str",
-						"label": "Improvised Weapon"
-					},
-					"wxWij6knaFs6y2gk": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d4 + @str.mod",
-						"damageType": "bludgeoning"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				},
-				"img": "icons/equipment/shield/heater-wooden-sword-green.webp",
-				"ranges": {
-					"TDxq9KZYHsgJBcBh": {
-						"range": "fiveFeet"
-					}
-				}
-			},
-			"nZgXF2r8tain41RZ": {
-				"name": "Dodge",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"qyOO8soiE0lDzpcz": {
-						"type": "generic",
-						"default": true,
-						"label": "Armor Class",
-						"formula": "1d4"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"img": "icons/equipment/shield/heater-wooden-sword-green.webp"
-			},
-			"KD9Hql5rKrXpXAfd": {
-				"name": "Plant In Ground",
-				"activation": {},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"0fQXJrgJ3M7rRpBA": {
-						"type": "effect",
-						"default": true,
-						"effectId": "WAJJPmYmySY3jVhd"
-					}
-				},
-				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "turn",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			},
-			"7zQojnMywKG9iu4P": {
-				"name": "Unplant",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			},
-			"lcfdAChNN8Klbw0D": {
-				"name": "Attack (Defensive)",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"tFenoUYFUlCECoM8": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": false,
-						"ability": "str",
-						"label": "Improvised Weapon"
-					},
-					"wxWij6knaFs6y2gk": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d4 + @str.mod",
-						"damageType": "bludgeoning"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				},
-				"img": "icons/equipment/shield/heater-wooden-sword-green.webp",
-				"ranges": {
-					"EfMMyZTD32hz3WC7": {
-						"range": "fiveFeet"
-					}
-				}
-			},
-			"3uhy6ONQQnTzwmYM": {
-				"name": "Increase Armor Class (Defensive)",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"1RmCVO4QKQ9DZpDM": {
-						"type": "effect",
-						"default": true,
-						"effectId": "o481jOizHTJLpIFf"
-					},
-					"RvVjyIUUJe9pPIQ1": {
-						"type": "effect",
-						"default": true,
-						"effectId": "NWAnbLxHgxeEiMS3"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"bZ9qqcaxSNoGUVmk": {
-						"range": "self"
-					}
-				}
-			}
-		},
-		"description": "<p><span style=\"font-size: 10.5pt;\">You gain an expertise die on Dexterity saving throws. When you take the Dodge action while wielding a heavy shield, you may instead take cover behind your shield, gaining an expertise die to your Armor Class until the start of your turn.</span></p>\n<p>You cannot squeeze through spaces smaller than your size category.</p>\n<p>These shields cover the entire body and reduce your Speed by 10 feet.</p>\n<p>On your turn, you may use an object interaction to plant it in the ground, gaining half cover (+2 bonus to AC, Dexterity saving throws, and ability checks made to hide) and advantage on saving throws made to resist being shoved or knocked prone and while you remain behind it. Unplanting a tower shield requires a bonus action.</p>\n<p>Tower shields are bulky items, and count as such even when donned.</p>\n<p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": true,
-		"craftingComponents": "",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "shield",
-		"plotItem": false,
-		"price": "75 gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "mundane",
-		"requiresAttunement": false,
-		"shieldCategory": "tower",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [],
-		"weight": 25,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"breakerProperties": [],
-		"defensiveProperties": "",
-		"flaws": [],
-		"versatile": "",
-		"mounted": []
-	},
-	"folder": null,
-	"_id": "udvqt7222qrr3ibu"
+  "name": "Shield, Tower",
+  "type": "object",
+  "img": "icons/equipment/shield/heater-wooden-sword-green.webp",
+  "effects": [
+    {
+      "icon": "icons/equipment/shield/heater-wooden-sword-green.webp",
+      "origin": "Item.udvqt7222qrr3ibu",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "passive"
+        }
+      },
+      "transfer": false,
+      "name": "Shield, Tower",
+      "_id": "lErp8auiYKrtHWMA",
+      "changes": [
+        {
+          "key": "system.abilities.dex.save.expertiseDice",
+          "value": "1",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.skillCheck.acr",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.skillCheck.ste",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.walk.distance",
+          "value": "10",
+          "mode": 3,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "tint": "#ffffff",
+      "folder": null
+    },
+    {
+      "icon": "icons/equipment/shield/heater-wooden-sword-green.webp",
+      "origin": "Item.udvqt7222qrr3ibu",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "KD9Hql5rKrXpXAfd"
+        }
+      },
+      "transfer": false,
+      "name": "Plant In Ground",
+      "_id": "WAJJPmYmySY3jVhd",
+      "changes": [
+        {
+          "key": "system.attributes.ac.changes.bonuses.value",
+          "value": "2",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.bonuses.abilities",
+          "value": "{\"context\":{\"abilities\":[\"dex\"],\"types\":[],\"requiresProficiency\":false},\"formula\":\"2\",\"label\":\"Ability Bonus\",\"default\":true}",
+          "mode": 0,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.bonuses.skills",
+          "value": "{\"context\":{\"skills\":[\"ste\"],\"passiveOnly\":false,\"requiresProficiency\":false},\"formula\":\"2\",\"label\":\"Skill Bonus\",\"default\":true}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "tint": "#ffffff",
+      "folder": null
+    },
+    {
+      "icon": "icons/equipment/shield/heater-wooden-sword-green.webp",
+      "origin": "Item.udvqt7222qrr3ibu",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "3uhy6ONQQnTzwmYM",
+          "applyToSelf": true,
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Defensive AC",
+      "_id": "NWAnbLxHgxeEiMS3",
+      "changes": [
+        {
+          "key": "system.attributes.ac.changes.bonuses.value",
+          "value": "1",
+          "mode": 2,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": 1,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "tint": "#ffffff",
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "system": {
+    "ac": {
+      "baseFormula": "2",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 1,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "eVdnASSupLPFYwdW": {
+        "name": "Attack",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "tFenoUYFUlCECoM8": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": false,
+            "ability": "str",
+            "label": "Improvised Weapon"
+          },
+          "wxWij6knaFs6y2gk": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d4 + @str.mod",
+            "damageType": "bludgeoning"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        },
+        "img": "icons/equipment/shield/heater-wooden-sword-green.webp",
+        "ranges": {
+          "TDxq9KZYHsgJBcBh": {
+            "range": "fiveFeet"
+          }
+        }
+      },
+      "nZgXF2r8tain41RZ": {
+        "name": "Dodge",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "qyOO8soiE0lDzpcz": {
+            "type": "generic",
+            "default": true,
+            "label": "Armor Class",
+            "formula": "1d4"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "img": "icons/equipment/shield/heater-wooden-sword-green.webp"
+      },
+      "KD9Hql5rKrXpXAfd": {
+        "name": "Plant In Ground",
+        "activation": {},
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "0fQXJrgJ3M7rRpBA": {
+            "type": "effect",
+            "default": true,
+            "effectId": "WAJJPmYmySY3jVhd"
+          }
+        },
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "turn",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      },
+      "7zQojnMywKG9iu4P": {
+        "name": "Unplant",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      },
+      "lcfdAChNN8Klbw0D": {
+        "name": "Attack (Defensive)",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "tFenoUYFUlCECoM8": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": false,
+            "ability": "str",
+            "label": "Improvised Weapon"
+          },
+          "wxWij6knaFs6y2gk": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d4 + @str.mod",
+            "damageType": "bludgeoning"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        },
+        "img": "icons/equipment/shield/heater-wooden-sword-green.webp",
+        "ranges": {
+          "EfMMyZTD32hz3WC7": {
+            "range": "fiveFeet"
+          }
+        }
+      },
+      "3uhy6ONQQnTzwmYM": {
+        "name": "Increase Armor Class (Defensive)",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "1RmCVO4QKQ9DZpDM": {
+            "type": "effect",
+            "default": true,
+            "effectId": "o481jOizHTJLpIFf"
+          },
+          "RvVjyIUUJe9pPIQ1": {
+            "type": "effect",
+            "default": true,
+            "effectId": "NWAnbLxHgxeEiMS3"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "bZ9qqcaxSNoGUVmk": {
+            "range": "self"
+          }
+        }
+      }
+    },
+    "description": "<p><span>You gain an expertise die on Dexterity saving throws. When you take the Dodge action while wielding a heavy shield, you may instead take cover behind your shield, gaining an expertise die to your Armor Class until the start of your turn.</span></p><p>You cannot squeeze through spaces smaller than your size category.</p><p>These shields cover the entire body and reduce your Speed by 10 feet.</p><p>On your turn, you may use an object interaction to plant it in the ground, gaining half cover (+2 bonus to AC, Dexterity saving throws, and ability checks made to hide) and advantage on saving throws made to resist being shoved or knocked prone and while you remain behind it. Unplanting a tower shield requires a bonus action.</p><p>Tower shields are bulky items, and count as such even when donned.</p><p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "adventurersGuide",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": true,
+    "craftingComponents": "",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "shield",
+    "plotItem": false,
+    "price": "75 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "mundane",
+    "requiresAttunement": false,
+    "shieldCategory": "tower",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 25,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "breakerProperties": [],
+    "defensiveProperties": "",
+    "flaws": [],
+    "versatile": "",
+    "mounted": []
+  },
+  "folder": null,
+  "_id": "udvqt7222qrr3ibu"
 }

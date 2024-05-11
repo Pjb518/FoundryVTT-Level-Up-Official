@@ -1,154 +1,154 @@
 {
-	"folder": null,
-	"name": "Manifest Destiny",
-	"type": "feature",
-	"img": "icons/skills/movement/arrows-up-trio-red.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"BssdBLGmJoiTpS6V": {
-				"name": "Holy Light",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"QDuAWp7xecTXYQOB": {
-						"type": "effect",
-						"default": true,
-						"effectId": "yJiuokPAg1QsZwnJ"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				}
-			},
-			"aEDFAqxyTnbjVJy4": {
-				"name": "Miss Weapon Attack",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"GGmcQeqqYM9U9xQj": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "@cha.mod",
-						"damageType": "radiant"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>Starting at 15th level, you can use an action and expend one use of Channel Divinity to bathe yourself in holy light for 1 minute. For the duration, you gain the following benefits:</p>\n<ul>\n<li>You gain an expertise die on Insight, Intimidation and Perception checks.</li>\n<li>When you miss a weapon attack, you deal radiant damage equal to your Charisma bonus.</li>\n<li>When you spend spell slots with Unbound Heroism, you gain twice as many temporary hit points and your additional radiant damage becomes 1d12.</li>\n<li>You score critical hits on a roll of 19&ndash;20.</li>\n</ul>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "gpg1",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
-	},
-	"effects": [
-		{
-			"icon": "icons/skills/movement/arrows-up-trio-red.webp",
-			"origin": "Item.bs8wg2phuwwbe79s",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "BssdBLGmJoiTpS6V",
-					"applyToSelf": true,
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Manifest Destiny",
-			"_id": "yJiuokPAg1QsZwnJ",
-			"changes": [
-				{
-					"key": "system.skills.itm.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.skills.prc.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "bs8wg2phuwwbe79s"
+  "folder": null,
+  "name": "Manifest Destiny",
+  "type": "feature",
+  "img": "icons/skills/movement/arrows-up-trio-red.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "BssdBLGmJoiTpS6V": {
+        "name": "Holy Light",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "QDuAWp7xecTXYQOB": {
+            "type": "effect",
+            "default": true,
+            "effectId": "yJiuokPAg1QsZwnJ"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        }
+      },
+      "aEDFAqxyTnbjVJy4": {
+        "name": "Miss Weapon Attack",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "GGmcQeqqYM9U9xQj": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "@cha.mod",
+            "damageType": "radiant"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>Starting at 15th level, you can use an action and expend one use of Channel Divinity to bathe yourself in holy light for 1 minute. For the duration, you gain the following benefits:</p><ul><li>You gain an expertise die on Insight, Intimidation and Perception checks.</li><li>When you miss a weapon attack, you deal radiant damage equal to your Charisma bonus.</li><li>When you spend spell slots with Unbound Heroism, you gain twice as many temporary hit points and your additional radiant damage becomes 1d12.</li><li>You score critical hits on a roll of 19&ndash;20.</li></ul>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "gpg1",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    }
+  },
+  "effects": [
+    {
+      "icon": "icons/skills/movement/arrows-up-trio-red.webp",
+      "origin": "Item.bs8wg2phuwwbe79s",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "BssdBLGmJoiTpS6V",
+          "applyToSelf": true,
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Manifest Destiny",
+      "_id": "yJiuokPAg1QsZwnJ",
+      "changes": [
+        {
+          "key": "system.skills.itm.expertiseDice",
+          "value": "1",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.skills.prc.expertiseDice",
+          "value": "1",
+          "mode": 2,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "bs8wg2phuwwbe79s"
 }

@@ -1,131 +1,131 @@
 {
-	"folder": null,
-	"name": "Burst of Brimstone",
-	"type": "spell",
-	"img": "icons/magic/fire/orb-vortex.webp",
-	"system": {
-		"actions": {
-			"7zyNbMuPBuo2T8u5": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"KqI7mhiDvxqQoDix": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 4,
-						"points": 6
-					}
-				},
-				"rolls": {
-					"NFAhPMzCdHGfMKb0": {
-						"type": "damage",
-						"default": true,
-						"formula": "3d6",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d6"
-						},
-						"damageType": "fire"
-					}
-				},
-				"prompts": {
-					"EoCmW5DrLCPE6dFH": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "half damage"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"29qhaKyqiM42doJy": {
-						"range": "medium"
-					}
-				},
-				"target": {
-					"type": "self",
-					"quantity": 1
-				},
-				"area": {
-					"shape": "cube",
-					"quantity": 2,
-					"width": 15,
-					"placeTemplate": true
-				}
-			}
-		},
-		"description": "<p>You disappear in a burst of burning brimstone and teleport to an unoccupied space that you can see within range. An explosion of fire and smoke, and the scent of burning brimstone, accompanies your exit and entrance, targeting all creatures adjacent to you at the point you left and the point you appear. Target creatures in those areas must make Dexterity saving throws, taking 3d6 damage on a failure or half on a success. The areas are also filled with obscuring smoke for 1 round, which dissipates at the end of your next turn.</p>\n<p><strong>Cast at Higher Levels</strong>. The fire damage increases by 1d6 for every slot level above 4th.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"elementalistFire",
-			"sorcerer",
-			"warlock",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": false,
-			"material": true
-		},
-		"concentration": false,
-		"level": 4,
-		"materials": "a piece of brimstone",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"arcane",
-				"fire",
-				"obscurement",
-				"teleportation"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "2o2ko6fs0op9be6h"
+  "folder": null,
+  "name": "Burst of Brimstone",
+  "type": "spell",
+  "img": "icons/magic/fire/orb-vortex.webp",
+  "system": {
+    "actions": {
+      "7zyNbMuPBuo2T8u5": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "KqI7mhiDvxqQoDix": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 4,
+            "points": 6
+          }
+        },
+        "rolls": {
+          "NFAhPMzCdHGfMKb0": {
+            "type": "damage",
+            "default": true,
+            "formula": "3d6",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            },
+            "damageType": "fire"
+          }
+        },
+        "prompts": {
+          "EoCmW5DrLCPE6dFH": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "half damage"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "29qhaKyqiM42doJy": {
+            "range": "medium"
+          }
+        },
+        "target": {
+          "type": "self",
+          "quantity": 1
+        },
+        "area": {
+          "shape": "cube",
+          "quantity": 2,
+          "width": 15,
+          "placeTemplate": true
+        }
+      }
+    },
+    "description": "<p>You disappear in a burst of burning brimstone and teleport to an unoccupied space that you can see within range. An explosion of fire and smoke, and the scent of burning brimstone, accompanies your exit and entrance, targeting all creatures adjacent to you at the point you left and the point you appear. Target creatures in those areas must make Dexterity saving throws, taking 3d6 damage on a failure or half on a success. The areas are also filled with obscuring smoke for 1 round, which dissipates at the end of your next turn.</p><p><strong>Cast at Higher Levels</strong>. The fire damage increases by 1d6 for every slot level above 4th.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "elementalistFire",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": false,
+      "material": true
+    },
+    "concentration": false,
+    "level": 4,
+    "materials": "a piece of brimstone",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "arcane",
+        "fire",
+        "obscurement",
+        "teleportation"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "2o2ko6fs0op9be6h"
 }

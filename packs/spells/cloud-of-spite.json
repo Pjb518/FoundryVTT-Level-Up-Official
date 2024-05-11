@@ -1,181 +1,181 @@
 {
-	"name": "Cloud of Spite",
-	"type": "spell",
-	"img": "icons/magic/lightning/bolt-strike-cloud-gray.webp",
-	"system": {
-		"actions": {
-			"2DmDnYQkHeRpcjdN": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"vPmM6Prcb4CPdE7h": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "1d4",
-						"damageType": "lightning"
-					}
-				},
-				"prompts": {
-					"vEabQWk6Hz7yZhto": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"area": {
-					"shape": "square",
-					"quantity": 1,
-					"width": 5,
-					"placeTemplate": true
-				},
-				"ranges": {
-					"igbQUlZmUUOIcX5K": {
-						"range": "short"
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				}
-			},
-			"RaVZOfKOAbUb7ZXG": {
-				"name": "Move Cloud",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"w3bup7TJBvvYDFdU": {
-				"name": "Deal Damage",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"MynFMOt5cKIMWi0p": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "1d4",
-						"damageType": "lightning",
-						"scaling": {
-							"mode": "cantrip",
-							"formula": "1d4"
-						}
-					}
-				},
-				"prompts": {
-					"lfdeh61PgufdGhqU": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Dexterity negates"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<div class=\"page\" title=\"Page 217\">\n<div class=\"section\">\n<div class=\"layoutArea\">\n<div class=\"column\">\n<p>Mist condenses at your will, forming into a dark, infant thundercloud that rumbles and flashes with the miniature forces of nature within. You conjure a Medium-sized stormcloud in an unoccupied space you can see within range, which lasts until the spell ends.</p>\n<p>The stormcloud is opaque, blocking line of sight. The stormcloud does not block movement, although creatures who pass through its space are moistened by its water density.</p>\n<p>You can move the stormcloud on your turn as a bonus action, up to a distance equal to 5 feet x your proficiency bonus. The stormcloud is dispelled by strong forces of wind, as well as from an attack from a magical weapon, and from any amount of fire, thunder, or force damage. When you cast this spell, each creature within 5 feet must make a Dexterity saving throw or take 1d4 lightning damage. For the duration, you can repeat this effect as an action.</p>\n<p>This damage increases by 1d4 when you reach 5th level (2d4), 11th level (3d4), and 17th level (4d4).</p>\n</div>\n</div>\n</div>\n</div>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"druid",
-			"sorcerer",
-			"witch"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 0,
-		"materials": "Chunk of lightning-struck wood or metal",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"lightning",
-				"nature",
-				"storm",
-				"weather"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [],
-	"folder": null,
-	"flags": {},
-	"_id": "7rd9h0vhgq87oh64"
+  "name": "Cloud of Spite",
+  "type": "spell",
+  "img": "icons/magic/lightning/bolt-strike-cloud-gray.webp",
+  "system": {
+    "actions": {
+      "2DmDnYQkHeRpcjdN": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "vPmM6Prcb4CPdE7h": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "1d4",
+            "damageType": "lightning"
+          }
+        },
+        "prompts": {
+          "vEabQWk6Hz7yZhto": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "area": {
+          "shape": "square",
+          "quantity": 1,
+          "width": 5,
+          "placeTemplate": true
+        },
+        "ranges": {
+          "igbQUlZmUUOIcX5K": {
+            "range": "short"
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        }
+      },
+      "RaVZOfKOAbUb7ZXG": {
+        "name": "Move Cloud",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "w3bup7TJBvvYDFdU": {
+        "name": "Deal Damage",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "MynFMOt5cKIMWi0p": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "1d4",
+            "damageType": "lightning",
+            "scaling": {
+              "mode": "cantrip",
+              "formula": "1d4"
+            }
+          }
+        },
+        "prompts": {
+          "lfdeh61PgufdGhqU": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Dexterity negates"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<div><div><div><div><p>Mist condenses at your will, forming into a dark, infant thundercloud that rumbles and flashes with the miniature forces of nature within. You conjure a Medium-sized stormcloud in an unoccupied space you can see within range, which lasts until the spell ends.</p><p>The stormcloud is opaque, blocking line of sight. The stormcloud does not block movement, although creatures who pass through its space are moistened by its water density.</p><p>You can move the stormcloud on your turn as a bonus action, up to a distance equal to 5 feet x your proficiency bonus. The stormcloud is dispelled by strong forces of wind, as well as from an attack from a magical weapon, and from any amount of fire, thunder, or force damage. When you cast this spell, each creature within 5 feet must make a Dexterity saving throw or take 1d4 lightning damage. For the duration, you can repeat this effect as an action.</p><p>This damage increases by 1d4 when you reach 5th level (2d4), 11th level (3d4), and 17th level (4d4).</p></div></div></div></div>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "druid",
+      "sorcerer",
+      "witch"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 0,
+    "materials": "Chunk of lightning-struck wood or metal",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "lightning",
+        "nature",
+        "storm",
+        "weather"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [],
+  "folder": null,
+  "flags": {},
+  "_id": "7rd9h0vhgq87oh64"
 }

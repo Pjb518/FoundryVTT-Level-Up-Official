@@ -1,154 +1,154 @@
 {
-	"name": "Celestial Burst",
-	"type": "spell",
-	"img": "icons/magic/air/air-pressure-shield-blue.webp",
-	"system": {
-		"actions": {
-			"jy3XiimhPp5Kbj9L": {
-				"name": "Cast Spell",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"243mZAbBYgiE13vt": {
-						"type": "attack",
-						"default": true,
-						"attackType": "rangedSpellAttack",
-						"proficient": true,
-						"ability": "spellcasting"
-					},
-					"zX8fp69f69Bze9E9": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d8",
-						"damageType": "radiant",
-						"scaling": {
-							"mode": "cantrip",
-							"formula": "1d8"
-						}
-					}
-				},
-				"prompts": {
-					"IsjFi8qlS1gS4afL": {
-						"type": "effect",
-						"default": true,
-						"effectId": "wmr7Gf8AiO0FhPZ7"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"target": {
-					"type": "",
-					"quantity": 1,
-					"scaling": {
-						"mode": null,
-						"formula": "1"
-					}
-				}
-			}
-		},
-		"description": "<p>You shoot a comet of cosmic light at a creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 radiant damage. If the target was an object, it takes no damage and instead emits bright light out to 30 ft. until the end of your next turn.</p>\n<p>This spell&rsquo;s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>\n<p>&nbsp;</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"cleric",
-			"warlock",
-			"sorcerer",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 0,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"arcane",
-				"divine",
-				"radiant"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/air/air-pressure-shield-blue.webp",
-			"origin": "Item.gwhpqtmwnza3rh4p",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jy3XiimhPp5Kbj9L",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Light",
-			"_id": "wmr7Gf8AiO0FhPZ7",
-			"changes": [
-				{
-					"key": "@token.light.bright",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": 1,
-				"turns": 0,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"folder": null,
-	"_id": "gwhpqtmwnza3rh4p"
+  "name": "Celestial Burst",
+  "type": "spell",
+  "img": "icons/magic/air/air-pressure-shield-blue.webp",
+  "system": {
+    "actions": {
+      "jy3XiimhPp5Kbj9L": {
+        "name": "Cast Spell",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "243mZAbBYgiE13vt": {
+            "type": "attack",
+            "default": true,
+            "attackType": "rangedSpellAttack",
+            "proficient": true,
+            "ability": "spellcasting"
+          },
+          "zX8fp69f69Bze9E9": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d8",
+            "damageType": "radiant",
+            "scaling": {
+              "mode": "cantrip",
+              "formula": "1d8"
+            }
+          }
+        },
+        "prompts": {
+          "IsjFi8qlS1gS4afL": {
+            "type": "effect",
+            "default": true,
+            "effectId": "wmr7Gf8AiO0FhPZ7"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "target": {
+          "type": "",
+          "quantity": 1,
+          "scaling": {
+            "mode": null,
+            "formula": "1"
+          }
+        }
+      }
+    },
+    "description": "<p>You shoot a comet of cosmic light at a creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d8 radiant damage. If the target was an object, it takes no damage and instead emits bright light out to 30 ft. until the end of your next turn.</p><p>This spell&rsquo;s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p><p>&nbsp;</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "cleric",
+      "warlock",
+      "sorcerer",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 0,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "arcane",
+        "divine",
+        "radiant"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/air/air-pressure-shield-blue.webp",
+      "origin": "Item.gwhpqtmwnza3rh4p",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "jy3XiimhPp5Kbj9L",
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Light",
+      "_id": "wmr7Gf8AiO0FhPZ7",
+      "changes": [
+        {
+          "key": "@token.light.bright",
+          "value": "30",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": 1,
+        "turns": 0,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "folder": null,
+  "_id": "gwhpqtmwnza3rh4p"
 }

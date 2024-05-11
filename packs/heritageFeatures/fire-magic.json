@@ -1,228 +1,228 @@
 {
-	"folder": null,
-	"name": "Fire Magic",
-	"type": "feature",
-	"img": "icons/magic/fire/flame-burning-yellow-orange.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"EA3eKF4uIFAc2AVa": {
-				"name": "Produce Flame",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"JWDP4S4Yjv2wE7xD": {
-						"type": "effect",
-						"default": true,
-						"effectId": "fX7ykJezw2Vd0NZv"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "10"
-				},
-				"ranges": {},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"img": "icons/magic/fire/flame-burning-hand-white.webp",
-				"description": "<p>You create a flame in your hand which lasts until the spell ends and does no harm to you or your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p>The spell ends when you dismiss it, cast it again, or attack with the flame. As part of casting the spell or as an action on a following turn, you can fling the flame at a creature within 30 feet, making a ranged spell attack that deals 1d8 fire damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
-				"descriptionOutputs": [
-					"action"
-				]
-			},
-			"LJAfsy9DTml2OQuq": {
-				"name": "Fling Flame",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"H6iXhtlh9PZo5jh9": {
-						"type": "attack",
-						"default": true,
-						"attackType": "rangedSpellAttack",
-						"proficient": true,
-						"ability": "spellcasting"
-					},
-					"qP8PUzpn1gRnH5z7": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d8",
-						"scaling": {
-							"mode": "cantrip",
-							"formula": "1d8"
-						},
-						"damageType": "fire"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"JAqtnUo1wZwXFmHk": {
-						"range": "short"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				},
-				"img": "icons/magic/fire/flame-burning-hand-white.webp",
-				"description": "<p>You create a flame in your hand which lasts until the spell ends and does no harm to you or your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p>The spell ends when you dismiss it, cast it again, or attack with the flame. As part of casting the spell or as an action on a following turn, you can fling the flame at a creature within 30 feet, making a ranged spell attack that deals 1d8 fire damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
-				"descriptionOutputs": [
-					"action"
-				]
-			},
-			"WtiM3iCdWlcyIR69": {
-				"name": "Burning Hands",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"consumers": {
-					"pqrSptiydsog9jFm": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"unsR1rjY4mpqI7TB": {
-						"canCrit": false,
-						"damageType": "fire",
-						"formula": "3d6",
-						"name": "",
-						"type": "damage",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d6"
-						}
-					}
-				},
-				"prompts": {
-					"rdGYF9zI83Xqelou": {
-						"ability": "dex",
-						"onSave": "Half damage",
-						"saveDC": {
-							"type": "spellcasting",
-							"bonus": ""
-						},
-						"type": "savingThrow"
-					}
-				},
-				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "longRest",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"Z7f8aeFVZFoYaQM4": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "cone",
-					"length": "15",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"img": "icons/magic/fire/blast-jet-stream-embers-red.webp",
-				"description": "<p>A thin sheet of flames shoots forth from your outstretched hands. Each creature in the area takes 3d6 fire damage. The fire ignites any flammable unattended objects in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 1st.</p>",
-				"descriptionOutputs": [
-					"action"
-				]
-			}
-		},
-		"description": "<div class=\"page\" title=\"Page 13\">\n<div class=\"section\">\n<div class=\"layoutArea\">\n<div class=\"column\">\n<p>You know the produce flame cantrip. You can cast burning hands once per long rest. Your spellcasting ability for these spells is your choice of Constitution, Intelligence, Wisdom, or Charisma.</p>\n</div>\n</div>\n</div>\n</div>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "heritage",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "6o9pgyj209hyt09q"
+  "folder": null,
+  "name": "Fire Magic",
+  "type": "feature",
+  "img": "icons/magic/fire/flame-burning-yellow-orange.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "EA3eKF4uIFAc2AVa": {
+        "name": "Produce Flame",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "JWDP4S4Yjv2wE7xD": {
+            "type": "effect",
+            "default": true,
+            "effectId": "fX7ykJezw2Vd0NZv"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "10"
+        },
+        "ranges": {},
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": "",
+          "type": "self"
+        },
+        "img": "icons/magic/fire/flame-burning-hand-white.webp",
+        "description": "<p>You create a flame in your hand which lasts until the spell ends and does no harm to you or your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p>The spell ends when you dismiss it, cast it again, or attack with the flame. As part of casting the spell or as an action on a following turn, you can fling the flame at a creature within 30 feet, making a ranged spell attack that deals 1d8 fire damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+        "descriptionOutputs": [
+          "action"
+        ]
+      },
+      "LJAfsy9DTml2OQuq": {
+        "name": "Fling Flame",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "H6iXhtlh9PZo5jh9": {
+            "type": "attack",
+            "default": true,
+            "attackType": "rangedSpellAttack",
+            "proficient": true,
+            "ability": "spellcasting"
+          },
+          "qP8PUzpn1gRnH5z7": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d8",
+            "scaling": {
+              "mode": "cantrip",
+              "formula": "1d8"
+            },
+            "damageType": "fire"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "JAqtnUo1wZwXFmHk": {
+            "range": "short"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        },
+        "img": "icons/magic/fire/flame-burning-hand-white.webp",
+        "description": "<p>You create a flame in your hand which lasts until the spell ends and does no harm to you or your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p>The spell ends when you dismiss it, cast it again, or attack with the flame. As part of casting the spell or as an action on a following turn, you can fling the flame at a creature within 30 feet, making a ranged spell attack that deals 1d8 fire damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+        "descriptionOutputs": [
+          "action"
+        ]
+      },
+      "WtiM3iCdWlcyIR69": {
+        "name": "Burning Hands",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "consumers": {
+          "pqrSptiydsog9jFm": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "unsR1rjY4mpqI7TB": {
+            "canCrit": false,
+            "damageType": "fire",
+            "formula": "3d6",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            }
+          }
+        },
+        "prompts": {
+          "rdGYF9zI83Xqelou": {
+            "ability": "dex",
+            "onSave": "Half damage",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        },
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "longRest",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "Z7f8aeFVZFoYaQM4": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "cone",
+          "length": "15",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "img": "icons/magic/fire/blast-jet-stream-embers-red.webp",
+        "description": "<p>A thin sheet of flames shoots forth from your outstretched hands. Each creature in the area takes 3d6 fire damage. The fire ignites any flammable unattended objects in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 1st.</p>",
+        "descriptionOutputs": [
+          "action"
+        ]
+      }
+    },
+    "description": "<div><div><div><div><p>You know the produce flame cantrip. You can cast burning hands once per long rest. Your spellcasting ability for these spells is your choice of Constitution, Intelligence, Wisdom, or Charisma.</p></div></div></div></div>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "heritage",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    }
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "6o9pgyj209hyt09q"
 }

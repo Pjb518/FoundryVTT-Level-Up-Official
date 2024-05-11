@@ -1,170 +1,170 @@
 {
-	"name": "Withering Attack",
-	"type": "spell",
-	"img": "icons/magic/unholy/strike-body-life-soul-green.webp",
-	"system": {
-		"actions": {
-			"KcRKtysx3zaMDOVR": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"ZX4AUJDN0qbpzofx": {
-						"type": "damage",
-						"default": true,
-						"canCrit": true,
-						"formula": "1d8",
-						"damageType": "necrotic",
-						"scaling": {
-							"mode": "cantrip",
-							"formula": "1d8"
-						},
-						"label": "Moving Damage"
-					},
-					"1FveLyJUumklmgSP": {
-						"type": "damage",
-						"default": true,
-						"canCrit": true,
-						"formula": "0",
-						"damageType": "necrotic",
-						"scaling": {
-							"mode": "cantrip",
-							"formula": "1d8"
-						},
-						"label": "On Hit"
-					}
-				},
-				"prompts": {
-					"Qs7YHrK1eDss12dd": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "wis",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					},
-					"OL0AAqaRWJBXk7aG": {
-						"type": "effect",
-						"default": true,
-						"effectId": "AL5qKtC8p3po6aBF"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"aHxbXsYZ8EsrYA3k": {
-						"range": "self"
-					}
-				}
-			}
-		},
-		"description": "<p><span style=\"font-size: 10.5pt;\">You weapon pulses with fell energy, ready to curse a foe who dares to move from their current position.</span></p>\n<p>As part of the action to cast this spell, make an attack with your melee weapon.&nbsp;On a hit, tendrils of accursed energy surround the target, threatening it to remain in place.&nbsp;If the creature moves voluntarily before the end of its next turn, it must make a Wisdom saving throw against your spell save DC.&nbsp;A creature that fails its save takes 1d8 points of <em>necrotic</em> damage and is <em>rattled</em>.&nbsp;Involuntary movement does not trigger this additional damage.</p>\n<p><strong><em>Cast at Higher Levels: </em></strong>At 5th level, the target takes an additional 1d8 points of <em>necrotic</em> damage on a hit and the curse damage for moving increases to 2d8.&nbsp;At 11th level, the target takes an additional 2d8 points of&nbsp;<em>necrotic</em> damage on a hit and the curse damage for moving increases to 3d8.&nbsp;At 17th level, the target takes an additional 3d8 points of&nbsp;<em>necrotic</em> damage on a hit and the curse damage for moving increases to 4d8.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"cleric",
-			"sorcerer",
-			"warlock",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 0,
-		"materials": "a melee weapon",
-		"materialsConsumed": false,
-		"prepared": 1,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "necromancy",
-			"secondary": [
-				"weaponry",
-				"necrotic",
-				"affliction"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/unholy/strike-body-life-soul-green.webp",
-			"origin": "Item.fbuq2es86tqdi79g",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "KcRKtysx3zaMDOVR"
-				}
-			},
-			"transfer": false,
-			"name": "Rattled",
-			"_id": "AL5qKtC8p3po6aBF",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"rattled\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"rattled"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"folder": null,
-	"_id": "fbuq2es86tqdi79g"
+  "name": "Withering Attack",
+  "type": "spell",
+  "img": "icons/magic/unholy/strike-body-life-soul-green.webp",
+  "system": {
+    "actions": {
+      "KcRKtysx3zaMDOVR": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "ZX4AUJDN0qbpzofx": {
+            "type": "damage",
+            "default": true,
+            "canCrit": true,
+            "formula": "1d8",
+            "damageType": "necrotic",
+            "scaling": {
+              "mode": "cantrip",
+              "formula": "1d8"
+            },
+            "label": "Moving Damage"
+          },
+          "1FveLyJUumklmgSP": {
+            "type": "damage",
+            "default": true,
+            "canCrit": true,
+            "formula": "0",
+            "damageType": "necrotic",
+            "scaling": {
+              "mode": "cantrip",
+              "formula": "1d8"
+            },
+            "label": "On Hit"
+          }
+        },
+        "prompts": {
+          "Qs7YHrK1eDss12dd": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "wis",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          },
+          "OL0AAqaRWJBXk7aG": {
+            "type": "effect",
+            "default": true,
+            "effectId": "AL5qKtC8p3po6aBF"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "aHxbXsYZ8EsrYA3k": {
+            "range": "self"
+          }
+        }
+      }
+    },
+    "description": "<p><span>You weapon pulses with fell energy, ready to curse a foe who dares to move from their current position.</span></p><p>As part of the action to cast this spell, make an attack with your melee weapon.&nbsp;On a hit, tendrils of accursed energy surround the target, threatening it to remain in place.&nbsp;If the creature moves voluntarily before the end of its next turn, it must make a Wisdom saving throw against your spell save DC.&nbsp;A creature that fails its save takes 1d8 points of <em>necrotic</em> damage and is <em>rattled</em>.&nbsp;Involuntary movement does not trigger this additional damage.</p><p><strong><em>Cast at Higher Levels: </em></strong>At 5th level, the target takes an additional 1d8 points of <em>necrotic</em> damage on a hit and the curse damage for moving increases to 2d8.&nbsp;At 11th level, the target takes an additional 2d8 points of&nbsp;<em>necrotic</em> damage on a hit and the curse damage for moving increases to 3d8.&nbsp;At 17th level, the target takes an additional 3d8 points of&nbsp;<em>necrotic</em> damage on a hit and the curse damage for moving increases to 4d8.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "cleric",
+      "sorcerer",
+      "warlock",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 0,
+    "materials": "a melee weapon",
+    "materialsConsumed": false,
+    "prepared": 1,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "necromancy",
+      "secondary": [
+        "weaponry",
+        "necrotic",
+        "affliction"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/unholy/strike-body-life-soul-green.webp",
+      "origin": "Item.fbuq2es86tqdi79g",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "KcRKtysx3zaMDOVR"
+        }
+      },
+      "transfer": false,
+      "name": "Rattled",
+      "_id": "AL5qKtC8p3po6aBF",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"rattled\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "rattled"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "folder": null,
+  "_id": "fbuq2es86tqdi79g"
 }

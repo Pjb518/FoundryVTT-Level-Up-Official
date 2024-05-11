@@ -1,155 +1,155 @@
 {
-	"name": "Dirge of Terror",
-	"type": "feature",
-	"img": "icons/magic/control/debuff-energy-hold-pink.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"Gl0M2lwfIcGJbdrn": {
-				"name": "Dirge of Terror",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"VHtRIMj8rElW7SLw": {
-						"type": "damage",
-						"default": true,
-						"formula": "4d6",
-						"damageType": "psychic"
-					}
-				},
-				"prompts": {
-					"paIXVIQumPPmx3wp": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "wis",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Not frightened and no strife"
-					},
-					"0UviGhlA1NmhlMRK": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting",
-							"bonus": "Not stunned and no extra fatigue"
-						},
-						"label": "If save failed by 5 or more"
-					},
-					"HF2uRzr9v3FkCRT2": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Ga5Su9qho0ehUMyX"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"area": {
-					"shape": "cone",
-					"quantity": 1,
-					"length": 15
-				}
-			}
-		},
-		"description": "<p>At 14th level, you learn to emit a terrifying clamor that causes your opponents terrible distress. As an action, you may spend a use of your Bardic Inspiration to play a Dirge of Terror. Enemy creatures in a 15-foot cone must make a <strong>Wisdom save against your spell save DC or take 4d6 psychic damage, gain a level of strife and become frightened for one minute.</strong> Creatures that succeed on their Wisdom save take damage as normal, but are not frightened and do not gain levels of strife.</p>\n<p>Creatures that fail by 5 or more suffer a mild heart attack. Such a creature must make a Constitution save against your spell save DC or acquire two levels of fatigue and are stunned until the end of their next turn.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"classes": []
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/control/debuff-energy-hold-pink.webp",
-			"origin": "Item.iW1ovzXrNKo5a830",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Gl0M2lwfIcGJbdrn",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Frightened",
-			"_id": "Ga5Su9qho0ehUMyX",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"frightened\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"frightened"
-			],
-			"folder": null
-		}
-	],
-	"flags": {
-		"a5e": {
-			"placeTemplate": true
-		}
-	},
-	"folder": null,
-	"_id": "35808ufj111xsvbs"
+  "name": "Dirge of Terror",
+  "type": "feature",
+  "img": "icons/magic/control/debuff-energy-hold-pink.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "Gl0M2lwfIcGJbdrn": {
+        "name": "Dirge of Terror",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "VHtRIMj8rElW7SLw": {
+            "type": "damage",
+            "default": true,
+            "formula": "4d6",
+            "damageType": "psychic"
+          }
+        },
+        "prompts": {
+          "paIXVIQumPPmx3wp": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "wis",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Not frightened and no strife"
+          },
+          "0UviGhlA1NmhlMRK": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": "Not stunned and no extra fatigue"
+            },
+            "label": "If save failed by 5 or more"
+          },
+          "HF2uRzr9v3FkCRT2": {
+            "type": "effect",
+            "default": true,
+            "effectId": "Ga5Su9qho0ehUMyX"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "area": {
+          "shape": "cone",
+          "quantity": 1,
+          "length": 15
+        }
+      }
+    },
+    "description": "<p>At 14th level, you learn to emit a terrifying clamor that causes your opponents terrible distress. As an action, you may spend a use of your Bardic Inspiration to play a Dirge of Terror. Enemy creatures in a 15-foot cone must make a <strong>Wisdom save against your spell save DC or take 4d6 psychic damage, gain a level of strife and become frightened for one minute.</strong> Creatures that succeed on their Wisdom save take damage as normal, but are not frightened and do not gain levels of strife.</p><p>Creatures that fail by 5 or more suffer a mild heart attack. Such a creature must make a Constitution save against your spell save DC or acquire two levels of fatigue and are stunned until the end of their next turn.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "classes": []
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/control/debuff-energy-hold-pink.webp",
+      "origin": "Item.iW1ovzXrNKo5a830",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "Gl0M2lwfIcGJbdrn",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Frightened",
+      "_id": "Ga5Su9qho0ehUMyX",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"frightened\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "frightened"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {
+    "a5e": {
+      "placeTemplate": true
+    }
+  },
+  "folder": null,
+  "_id": "35808ufj111xsvbs"
 }

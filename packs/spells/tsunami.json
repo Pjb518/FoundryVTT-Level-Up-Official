@@ -1,181 +1,181 @@
 {
-	"folder": null,
-	"name": "Tsunami",
-	"type": "spell",
-	"img": "icons/magic/water/wave-water-blue.webp",
-	"system": {
-		"actions": {
-			"kZ1ry07K6WDi1g3w": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"xUUS6ee4MoBceQe7": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 8,
-						"points": 11
-					},
-					"jkSf6NpmhYFLpq4y": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": -6
-					}
-				},
-				"rolls": {
-					"vwMyDeIlvfA4RR0g": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "8d6",
-						"damageType": "cold"
-					}
-				},
-				"prompts": {
-					"SrsiitxDb1f97J1J": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "str",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Half damage"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "round",
-					"value": 6
-				},
-				"ranges": {
-					"9gyr1DObLUwlNq2X": {
-						"range": 1000,
-						"unit": "feet"
-					}
-				},
-				"area": {
-					"shape": "wall",
-					"quantity": 1,
-					"width": 300,
-					"height": 300,
-					"placeTemplate": true,
-					"length": 50
-				}
-			},
-			"oow0VmeMTQondNWr": {
-				"name": "Sustain Wall",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"dhoKhj9rMFR0fvoi": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"YrUnwjVujw1uyPTz": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "(@item.uses.value+1)d6",
-						"damageType": "bludgeoning"
-					}
-				},
-				"prompts": {
-					"q0wj9QBQricqAoHM": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "str",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Half damage"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"Y63nbazQLX0amlG7": {
-						"range": 50,
-						"unit": "feet"
-					}
-				}
-			}
-		},
-		"description": "<p>You create a giant wave of water, up to 300 feet wide, 300 feet high, and 50 feet thick at a point within range that you can see. When you cast the spell, each creature within the area must make a Strength saving throw, taking 8d6 bludgeoning damage on a failed save, or half on a successful save. The wall can appear in any orientation you choose within range.</p>\n<p>At the start of your turn the round after you cast it, choose a direction; the wave begins to move 50 feet in that direction at the start of each of your turns, carrying any creatures inside the wall with it. You must spend an action sustaining the spell each round. After moving, each creature within the wall, and any new creatures whose space the wave enters, must make a Strength saving throw against the spell&rsquo;s damage. Each round, the wave&rsquo;s height is reduced by 50 feet and its damage is reduced by 1d6. The spell ends when the wave&rsquo;s height is reduced to 0.</p>\n<p>Creatures in the wall&rsquo;s space can move by swimming, requiring Athletics checks against your spell DC to move. Colossal or larger creatures get advantage on their saves and checks to resist damage and to swim in the wave.</p>\n<p>Structures in the path take double damage from the wave.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 6,
-			"max": "6",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"druid"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 8,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"nature",
-				"water"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "e1ji2gdqb5ddzb7e"
+  "folder": null,
+  "name": "Tsunami",
+  "type": "spell",
+  "img": "icons/magic/water/wave-water-blue.webp",
+  "system": {
+    "actions": {
+      "kZ1ry07K6WDi1g3w": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "xUUS6ee4MoBceQe7": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 8,
+            "points": 11
+          },
+          "jkSf6NpmhYFLpq4y": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": -6
+          }
+        },
+        "rolls": {
+          "vwMyDeIlvfA4RR0g": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "8d6",
+            "damageType": "cold"
+          }
+        },
+        "prompts": {
+          "SrsiitxDb1f97J1J": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "str",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Half damage"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "round",
+          "value": 6
+        },
+        "ranges": {
+          "9gyr1DObLUwlNq2X": {
+            "range": 1000,
+            "unit": "feet"
+          }
+        },
+        "area": {
+          "shape": "wall",
+          "quantity": 1,
+          "width": 300,
+          "height": 300,
+          "placeTemplate": true,
+          "length": 50
+        }
+      },
+      "oow0VmeMTQondNWr": {
+        "name": "Sustain Wall",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "dhoKhj9rMFR0fvoi": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "YrUnwjVujw1uyPTz": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "(@item.uses.value+1)d6",
+            "damageType": "bludgeoning"
+          }
+        },
+        "prompts": {
+          "q0wj9QBQricqAoHM": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "str",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Half damage"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "Y63nbazQLX0amlG7": {
+            "range": 50,
+            "unit": "feet"
+          }
+        }
+      }
+    },
+    "description": "<p>You create a giant wave of water, up to 300 feet wide, 300 feet high, and 50 feet thick at a point within range that you can see. When you cast the spell, each creature within the area must make a Strength saving throw, taking 8d6 bludgeoning damage on a failed save, or half on a successful save. The wall can appear in any orientation you choose within range.</p><p>At the start of your turn the round after you cast it, choose a direction; the wave begins to move 50 feet in that direction at the start of each of your turns, carrying any creatures inside the wall with it. You must spend an action sustaining the spell each round. After moving, each creature within the wall, and any new creatures whose space the wave enters, must make a Strength saving throw against the spell&rsquo;s damage. Each round, the wave&rsquo;s height is reduced by 50 feet and its damage is reduced by 1d6. The spell ends when the wave&rsquo;s height is reduced to 0.</p><p>Creatures in the wall&rsquo;s space can move by swimming, requiring Athletics checks against your spell DC to move. Colossal or larger creatures get advantage on their saves and checks to resist damage and to swim in the wave.</p><p>Structures in the path take double damage from the wave.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 6,
+      "max": "6",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "druid"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 8,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "nature",
+        "water"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "e1ji2gdqb5ddzb7e"
 }

@@ -1,589 +1,589 @@
 {
-	"name": "Accursed Smite",
-	"type": "spell",
-	"img": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
-	"system": {
-		"actions": {
-			"Z9z2cLmHCyVpN3DP": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {
-					"8kvFzo3KVI7WQFBj": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 4,
-						"points": 6
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"ROt4kGh8tEL1qk8Y": {
-						"type": "effect",
-						"default": true,
-						"effectId": "o84bBRxjc9X0YzDp"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"jvu6RpiREZLNZKNp": {
-						"range": "self"
-					}
-				}
-			},
-			"ciwJ4kU5h1T48t4o": {
-				"name": "Weapon Attack",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"QCvQnhdyetwzTgtn": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d6",
-						"damageType": "fire",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d6",
-							"step": 2
-						}
-					},
-					"CXo98tpgoMxNnuCT": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d6",
-						"damageType": "necrotic",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d6",
-							"step": 2
-						}
-					}
-				},
-				"prompts": {
-					"iClOhT8AffR09pVu": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "wis",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					},
-					"rIP1MsU4wckA71C0": {
-						"type": "effect",
-						"default": true,
-						"effectId": "N046oVYGqNr4hqGO"
-					},
-					"SybCHVeReFO3rq54": {
-						"type": "effect",
-						"default": true,
-						"effectId": "vwJHysuR5gPppFnH"
-					},
-					"1WzQL6ZtGvXTCbkx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "eyf02gBMAYuAwwWx"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"z9xj9Qwocg3KiRYa": {
-				"name": "Additional Damage",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"fdsme4zFlgdOzf7X": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d8",
-						"damageType": "necrotic"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>The next time you hit a creature with a weapon attack before this spell ends, your weapon erupts with hellfire, and the attack deals an extra 2d6 fire damage and 2d6 necrotic damage to the target. Additionally, that creature must succeed on a Wisdom saving throw or become cursed for the duration of the spell. When you cast this spell, choose the nature of the curse from the following options:</p>\n<ul>\n<li>\n<p>Choose one ability score. While cursed, the target has disadvantage on ability checks and saving throws made with that ability score.</p>\n</li>\n<li>\n<p>While cursed, the target has disadvantage on attack rolls against you.</p>\n</li>\n<li>\n<p>While cursed, the target must make a Wisdom saving throw at the start of each of its turns. If it fails, it wastes its action that turn and does nothing.</p>\n</li>\n<li>\n<p>When you deal damage to the cursed target, it takes an additional 1d8 necrotic damage.</p>\n</li>\n</ul>\n<p>A @UUID[Compendium.a5e.a5e-spells.Item.l16wg9h1z9s16exb]{Remove Curse} spell ends this effect. At the Narrator&rsquo;s option, you may choose an alternative curse effect, but it should be&nbsp; no more powerful than those described above. The Narrator has final say on such a curse&rsquo;s effect.</p>\n<p><br><strong>Cast At Higher Levels</strong>: If you cast this spell using a spell slot of 6th-level or higher, the duration is concentration (10 minutes), and the damage of each type is increased by 1d6 per two spell-levels.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"herald",
-			"warlock"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": false,
-			"material": false
-		},
-		"concentration": false,
-		"level": 4,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "necromancy",
-			"secondary": [
-				"arcane",
-				"divine",
-				"fire",
-				"necrotic",
-				"weaponry"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
-			"origin": "Item.56795iz9vhwsme30",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Z9z2cLmHCyVpN3DP",
-					"applyToSelf": true,
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Accursed Smite",
-			"_id": "o84bBRxjc9X0YzDp",
-			"changes": [],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
-			"origin": "Item.56795iz9vhwsme30",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ciwJ4kU5h1T48t4o",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Disadvantage on Strength",
-			"_id": "N046oVYGqNr4hqGO",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.str",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
-			"origin": "Item.56795iz9vhwsme30",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ciwJ4kU5h1T48t4o",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Disadvantage on Dexterity",
-			"_id": "eKQrIETQM3Typ9iX",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.dex",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
-			"origin": "Item.56795iz9vhwsme30",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ciwJ4kU5h1T48t4o",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Disadvantage on Constitution",
-			"_id": "ylpQqUbwR1nq4lL7",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.con",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.con",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
-			"origin": "Item.56795iz9vhwsme30",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ciwJ4kU5h1T48t4o",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Disadvantage on Intelligence",
-			"_id": "T7Hvg1ZtcZCybj9X",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.int",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.int",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
-			"origin": "Item.56795iz9vhwsme30",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ciwJ4kU5h1T48t4o",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Disadvantage on Wisdom",
-			"_id": "YOxUubULJxXIb7L7",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.wis",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.wis",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
-			"origin": "Item.56795iz9vhwsme30",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ciwJ4kU5h1T48t4o",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Disadvantage on Charisma",
-			"_id": "Gi2OcF5KVSCx509S",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.cha",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilitySave.cha",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
-			"origin": "Item.56795iz9vhwsme30",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ciwJ4kU5h1T48t4o",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Disadvantage on Attack Rolls",
-			"_id": "vwJHysuR5gPppFnH",
-			"changes": [],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p>The target has disadvantage on attack rolls against the caster.</p>",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
-			"origin": "Item.56795iz9vhwsme30",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ciwJ4kU5h1T48t4o",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Waste Turn",
-			"_id": "GNDSH26kVtH0H2P1",
-			"changes": [],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p>Must make a Wisdom saving throw at the start of each of its turns. If it fails, it wastes its action that turn and does nothing.</p>",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
-			"origin": "Item.56795iz9vhwsme30",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ciwJ4kU5h1T48t4o",
-					"applyToSelf": true,
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Additional Damage",
-			"_id": "eyf02gBMAYuAwwWx",
-			"changes": [],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p>You deal damage to the cursed target, it takes an additional 1d8 necrotic damage.</p>",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"folder": null,
-	"_id": "56795iz9vhwsme30"
+  "name": "Accursed Smite",
+  "type": "spell",
+  "img": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
+  "system": {
+    "actions": {
+      "Z9z2cLmHCyVpN3DP": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {
+          "8kvFzo3KVI7WQFBj": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 4,
+            "points": 6
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "ROt4kGh8tEL1qk8Y": {
+            "type": "effect",
+            "default": true,
+            "effectId": "o84bBRxjc9X0YzDp"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "jvu6RpiREZLNZKNp": {
+            "range": "self"
+          }
+        }
+      },
+      "ciwJ4kU5h1T48t4o": {
+        "name": "Weapon Attack",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "QCvQnhdyetwzTgtn": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d6",
+            "damageType": "fire",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6",
+              "step": 2
+            }
+          },
+          "CXo98tpgoMxNnuCT": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d6",
+            "damageType": "necrotic",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6",
+              "step": 2
+            }
+          }
+        },
+        "prompts": {
+          "iClOhT8AffR09pVu": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "wis",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          },
+          "rIP1MsU4wckA71C0": {
+            "type": "effect",
+            "default": true,
+            "effectId": "N046oVYGqNr4hqGO"
+          },
+          "SybCHVeReFO3rq54": {
+            "type": "effect",
+            "default": true,
+            "effectId": "vwJHysuR5gPppFnH"
+          },
+          "1WzQL6ZtGvXTCbkx": {
+            "type": "effect",
+            "default": true,
+            "effectId": "eyf02gBMAYuAwwWx"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "z9xj9Qwocg3KiRYa": {
+        "name": "Additional Damage",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "fdsme4zFlgdOzf7X": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d8",
+            "damageType": "necrotic"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>The next time you hit a creature with a weapon attack before this spell ends, your weapon erupts with hellfire, and the attack deals an extra 2d6 fire damage and 2d6 necrotic damage to the target. Additionally, that creature must succeed on a Wisdom saving throw or become cursed for the duration of the spell. When you cast this spell, choose the nature of the curse from the following options:</p><ul><li><p>Choose one ability score. While cursed, the target has disadvantage on ability checks and saving throws made with that ability score.</p></li><li><p>While cursed, the target has disadvantage on attack rolls against you.</p></li><li><p>While cursed, the target must make a Wisdom saving throw at the start of each of its turns. If it fails, it wastes its action that turn and does nothing.</p></li><li><p>When you deal damage to the cursed target, it takes an additional 1d8 necrotic damage.</p></li></ul><p>A @UUID[Compendium.a5e.a5e-spells.Item.l16wg9h1z9s16exb]{Remove Curse} spell ends this effect. At the Narrator&rsquo;s option, you may choose an alternative curse effect, but it should be&nbsp; no more powerful than those described above. The Narrator has final say on such a curse&rsquo;s effect.</p><p><br><strong>Cast At Higher Levels</strong>: If you cast this spell using a spell slot of 6th-level or higher, the duration is concentration (10 minutes), and the damage of each type is increased by 1d6 per two spell-levels.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "herald",
+      "warlock"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": false,
+      "material": false
+    },
+    "concentration": false,
+    "level": 4,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "necromancy",
+      "secondary": [
+        "arcane",
+        "divine",
+        "fire",
+        "necrotic",
+        "weaponry"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
+      "origin": "Item.56795iz9vhwsme30",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "Z9z2cLmHCyVpN3DP",
+          "applyToSelf": true,
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Accursed Smite",
+      "_id": "o84bBRxjc9X0YzDp",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
+      "origin": "Item.56795iz9vhwsme30",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ciwJ4kU5h1T48t4o",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Disadvantage on Strength",
+      "_id": "N046oVYGqNr4hqGO",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.rollMode.abilityCheck.str",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.abilitySave.str",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
+      "origin": "Item.56795iz9vhwsme30",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ciwJ4kU5h1T48t4o",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Disadvantage on Dexterity",
+      "_id": "eKQrIETQM3Typ9iX",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.abilitySave.dex",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
+      "origin": "Item.56795iz9vhwsme30",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ciwJ4kU5h1T48t4o",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Disadvantage on Constitution",
+      "_id": "ylpQqUbwR1nq4lL7",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.rollMode.abilityCheck.con",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.abilitySave.con",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
+      "origin": "Item.56795iz9vhwsme30",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ciwJ4kU5h1T48t4o",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Disadvantage on Intelligence",
+      "_id": "T7Hvg1ZtcZCybj9X",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.rollMode.abilityCheck.int",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.abilitySave.int",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
+      "origin": "Item.56795iz9vhwsme30",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ciwJ4kU5h1T48t4o",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Disadvantage on Wisdom",
+      "_id": "YOxUubULJxXIb7L7",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.rollMode.abilityCheck.wis",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.abilitySave.wis",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
+      "origin": "Item.56795iz9vhwsme30",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ciwJ4kU5h1T48t4o",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Disadvantage on Charisma",
+      "_id": "Gi2OcF5KVSCx509S",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.rollMode.abilityCheck.cha",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.abilitySave.cha",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
+      "origin": "Item.56795iz9vhwsme30",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ciwJ4kU5h1T48t4o",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Disadvantage on Attack Rolls",
+      "_id": "vwJHysuR5gPppFnH",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>The target has disadvantage on attack rolls against the caster.</p>",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
+      "origin": "Item.56795iz9vhwsme30",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ciwJ4kU5h1T48t4o",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Waste Turn",
+      "_id": "GNDSH26kVtH0H2P1",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>Must make a Wisdom saving throw at the start of each of its turns. If it fails, it wastes its action that turn and does nothing.</p>",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/fire/dagger-rune-enchant-flame-strong-teal.webp",
+      "origin": "Item.56795iz9vhwsme30",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ciwJ4kU5h1T48t4o",
+          "applyToSelf": true,
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Additional Damage",
+      "_id": "eyf02gBMAYuAwwWx",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>You deal damage to the cursed target, it takes an additional 1d8 necrotic damage.</p>",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "folder": null,
+  "_id": "56795iz9vhwsme30"
 }
