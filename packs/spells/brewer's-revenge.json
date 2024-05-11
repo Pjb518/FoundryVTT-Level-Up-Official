@@ -1,262 +1,262 @@
 {
-	"folder": null,
-	"name": "Brewer’s Revenge",
-	"type": "spell",
-	"img": "icons/consumables/drinks/tea-jug-gourd-brown.webp",
-	"system": {
-		"actions": {
-			"osiFyd7aKL42vAMb": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"VZpfmsPUJknvjHR5": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"1ggIfDPbcjt22JT0": {
-						"type": "effect",
-						"default": true,
-						"effectId": "t1feBKT3W7JD6fo4"
-					},
-					"SNW6JGd1gm1MoqeR": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3lCtDLtw7VQM76ZT"
-					},
-					"AJvXWa1gPpYxEZyu": {
-						"type": "effect",
-						"default": true,
-						"effectId": "MvWmRJzOj3U6jzib"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "special"
-				},
-				"ranges": {
-					"JMtWbSQfGJ55mkPJ": {
-						"range": "touch"
-					}
-				},
-				"target": {
-					"type": "other",
-					"quantity": 1
-				}
-			}
-		},
-		"description": "<p id=\"docs-internal-guid-ecd1bea4-7fff-1e07-8f59-0d6b4ed91d2d\" dir=\"ltr\">You reach out and touch a beverage that isn&rsquo;t plain water such as tea, ale, or wine, imbuing it with magical properties for the next hour. Choose one of the following effects. A creature who consumes the beverage must succeed on a Constitution saving throw versus your spell save DC or gain that effect. The effect lasts for 1 minute, after which the creature returns to normal:</p>\n<p dir=\"ltr\"><strong>Hiccups.</strong> The target creature is overcome with hiccups for the next minute. All spells that require a verbal component are cast at disadvantage. If the spell requires the target to make a saving throw against it, that save is made with advantage.</p>\n<p dir=\"ltr\"><strong>Unsteady.</strong> The creature&rsquo;s speed is halved as they are unable to walk in a straight line, no matter how hard they try. They also have disadvantage on initiative rolls.</p>\n<p dir=\"ltr\"><strong>Cross-Eyed.</strong> The creature&rsquo;s vision goes blurry, making it harder for them to see straight. Melee attack rolls are made at disadvantage.</p>\n<p dir=\"ltr\">If a creature can see you touch their beverage as a part of casting this spell, they make their save at advantage.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "toilAndTrouble",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"bard",
-			"cleric",
-			"witch"
-		],
-		"components": {
-			"vocalized": false,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 2,
-		"materials": "a beverage",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "transmutation",
-			"secondary": [
-				"hearth"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/consumables/drinks/tea-jug-gourd-brown.webp",
-			"origin": "Item.tksrs8omfz8isxcf",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "osiFyd7aKL42vAMb",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Hiccups",
-			"_id": "t1feBKT3W7JD6fo4",
-			"changes": [],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p><span id=\"docs-internal-guid-7aa97139-7fff-061c-5838-74788add7be9\">The target creature is overcome with hiccups for the next minute. All spells that require a verbal component are cast at disadvantage. If the spell requires the target to make a saving throw against it, that save is made with advantage.</span></p>",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/consumables/drinks/tea-jug-gourd-brown.webp",
-			"origin": "Item.tksrs8omfz8isxcf",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "osiFyd7aKL42vAMb",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Unsteady",
-			"_id": "3lCtDLtw7VQM76ZT",
-			"changes": [
-				{
-					"key": "system.attributes.movement.burrow.distance",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.climb.distance",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.swim.distance",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.initiative",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p><span id=\"docs-internal-guid-ef05a98b-7fff-8d79-86d3-e44ee296cb6a\">The creature’s speed is halved as they are unable to walk in a straight line, no matter how hard they try. They also have disadvantage on initiative rolls.</span></p>",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/consumables/drinks/tea-jug-gourd-brown.webp",
-			"origin": "Item.tksrs8omfz8isxcf",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "osiFyd7aKL42vAMb",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Cross-Eyed",
-			"_id": "MvWmRJzOj3U6jzib",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.attack.meleeWeaponAttack",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.attack.meleeSpellAttack",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p><span id=\"docs-internal-guid-c9039a7b-7fff-7d21-0d39-02c098fea908\">The creature’s vision goes blurry, making it harder for them to see straight. Melee attack rolls are made at disadvantage.</span></p>",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "tksrs8omfz8isxcf"
+  "folder": null,
+  "name": "Brewer’s Revenge",
+  "type": "spell",
+  "img": "icons/consumables/drinks/tea-jug-gourd-brown.webp",
+  "system": {
+    "actions": {
+      "osiFyd7aKL42vAMb": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "VZpfmsPUJknvjHR5": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "1ggIfDPbcjt22JT0": {
+            "type": "effect",
+            "default": true,
+            "effectId": "t1feBKT3W7JD6fo4"
+          },
+          "SNW6JGd1gm1MoqeR": {
+            "type": "effect",
+            "default": true,
+            "effectId": "3lCtDLtw7VQM76ZT"
+          },
+          "AJvXWa1gPpYxEZyu": {
+            "type": "effect",
+            "default": true,
+            "effectId": "MvWmRJzOj3U6jzib"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "special"
+        },
+        "ranges": {
+          "JMtWbSQfGJ55mkPJ": {
+            "range": "touch"
+          }
+        },
+        "target": {
+          "type": "other",
+          "quantity": 1
+        }
+      }
+    },
+    "description": "<p id=\"docs-internal-guid-ecd1bea4-7fff-1e07-8f59-0d6b4ed91d2d\" dir=\"ltr\">You reach out and touch a beverage that isn&rsquo;t plain water such as tea, ale, or wine, imbuing it with magical properties for the next hour. Choose one of the following effects. A creature who consumes the beverage must succeed on a Constitution saving throw versus your spell save DC or gain that effect. The effect lasts for 1 minute, after which the creature returns to normal:</p><p dir=\"ltr\"><strong>Hiccups.</strong> The target creature is overcome with hiccups for the next minute. All spells that require a verbal component are cast at disadvantage. If the spell requires the target to make a saving throw against it, that save is made with advantage.</p><p dir=\"ltr\"><strong>Unsteady.</strong> The creature&rsquo;s speed is halved as they are unable to walk in a straight line, no matter how hard they try. They also have disadvantage on initiative rolls.</p><p dir=\"ltr\"><strong>Cross-Eyed.</strong> The creature&rsquo;s vision goes blurry, making it harder for them to see straight. Melee attack rolls are made at disadvantage.</p><p dir=\"ltr\">If a creature can see you touch their beverage as a part of casting this spell, they make their save at advantage.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "toilAndTrouble",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "bard",
+      "cleric",
+      "witch"
+    ],
+    "components": {
+      "vocalized": false,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 2,
+    "materials": "a beverage",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "transmutation",
+      "secondary": [
+        "hearth"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/consumables/drinks/tea-jug-gourd-brown.webp",
+      "origin": "Item.tksrs8omfz8isxcf",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "osiFyd7aKL42vAMb",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Hiccups",
+      "_id": "t1feBKT3W7JD6fo4",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p><span id=\"docs-internal-guid-7aa97139-7fff-061c-5838-74788add7be9\">The target creature is overcome with hiccups for the next minute. All spells that require a verbal component are cast at disadvantage. If the spell requires the target to make a saving throw against it, that save is made with advantage.</span></p>",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/consumables/drinks/tea-jug-gourd-brown.webp",
+      "origin": "Item.tksrs8omfz8isxcf",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "osiFyd7aKL42vAMb",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Unsteady",
+      "_id": "3lCtDLtw7VQM76ZT",
+      "changes": [
+        {
+          "key": "system.attributes.movement.burrow.distance",
+          "value": "0.5",
+          "mode": 1,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.climb.distance",
+          "value": "0.5",
+          "mode": 1,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.fly.distance",
+          "value": "0.5",
+          "mode": 1,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.swim.distance",
+          "value": "0.5",
+          "mode": 1,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.walk.distance",
+          "value": "0.5",
+          "mode": 1,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.initiative",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p><span id=\"docs-internal-guid-ef05a98b-7fff-8d79-86d3-e44ee296cb6a\">The creature’s speed is halved as they are unable to walk in a straight line, no matter how hard they try. They also have disadvantage on initiative rolls.</span></p>",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/consumables/drinks/tea-jug-gourd-brown.webp",
+      "origin": "Item.tksrs8omfz8isxcf",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "osiFyd7aKL42vAMb",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Cross-Eyed",
+      "_id": "MvWmRJzOj3U6jzib",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.rollMode.attack.meleeWeaponAttack",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.attack.meleeSpellAttack",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p><span id=\"docs-internal-guid-c9039a7b-7fff-7d21-0d39-02c098fea908\">The creature’s vision goes blurry, making it harder for them to see straight. Melee attack rolls are made at disadvantage.</span></p>",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "tksrs8omfz8isxcf"
 }

@@ -1,185 +1,185 @@
 {
-	"folder": null,
-	"name": "Dawnlight",
-	"type": "spell",
-	"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
-	"system": {
-		"actions": {
-			"gfJkJC7zwL1HXSQK": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"ztd01xymGPXTotox": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 5,
-						"points": 7
-					}
-				},
-				"rolls": {
-					"SEPZYi4SjTY9bgfm": {
-						"type": "damage",
-						"default": true,
-						"formula": "5d8",
-						"damageType": "radiant",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d8"
-						},
-						"canCrit": false
-					}
-				},
-				"prompts": {
-					"Bte8cRlrJLq6aneN": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "half damage"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"98QPd09quTgJZYjU": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "cylinder",
-					"quantity": 1,
-					"radius": 30,
-					"height": 40,
-					"placeTemplate": true
-				}
-			},
-			"6kyrXbO524q137yo": {
-				"name": "Enters/Starts Turn",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"I6QMNOLQlJBTwy05": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "5d8",
-						"damageType": "radiant",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d8"
-						}
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"kYKHMpLrGfj1obSy": {
-				"name": "Move Cylinder",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"PNgEDGdPAltjX743": {
-						"range": "medium"
-					}
-				}
-			}
-		},
-		"description": "<p>Piercing golden dawnlight radiates down on a spot you can see within range, filling the area with bright light that counts as sunlight.</p>\n<p>When a creature starts its turn in the area or enters the area for the first time on its turn it takes 5d8 radiant damage.</p>\n<p>As a bonus action, you can move the cylinder up to 60 feet to another point within range if you are within 60 feet of it.</p>\n<p><strong>Cast at Higher Levels.</strong> Increase the damage by 1d8 for every slot level above 5th.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"cleric",
-			"elementalistFire",
-			"wielder",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 5,
-		"materials": "a sunstone inlaid in gold worth 100 gp",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"arcane",
-				"divine",
-				"radiant"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "hxeure8g9hpghkk7"
+  "folder": null,
+  "name": "Dawnlight",
+  "type": "spell",
+  "img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+  "system": {
+    "actions": {
+      "gfJkJC7zwL1HXSQK": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "ztd01xymGPXTotox": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 5,
+            "points": 7
+          }
+        },
+        "rolls": {
+          "SEPZYi4SjTY9bgfm": {
+            "type": "damage",
+            "default": true,
+            "formula": "5d8",
+            "damageType": "radiant",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d8"
+            },
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "Bte8cRlrJLq6aneN": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "half damage"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "98QPd09quTgJZYjU": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "cylinder",
+          "quantity": 1,
+          "radius": 30,
+          "height": 40,
+          "placeTemplate": true
+        }
+      },
+      "6kyrXbO524q137yo": {
+        "name": "Enters/Starts Turn",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "I6QMNOLQlJBTwy05": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "5d8",
+            "damageType": "radiant",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d8"
+            }
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "kYKHMpLrGfj1obSy": {
+        "name": "Move Cylinder",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "PNgEDGdPAltjX743": {
+            "range": "medium"
+          }
+        }
+      }
+    },
+    "description": "<p>Piercing golden dawnlight radiates down on a spot you can see within range, filling the area with bright light that counts as sunlight.</p><p>When a creature starts its turn in the area or enters the area for the first time on its turn it takes 5d8 radiant damage.</p><p>As a bonus action, you can move the cylinder up to 60 feet to another point within range if you are within 60 feet of it.</p><p><strong>Cast at Higher Levels.</strong> Increase the damage by 1d8 for every slot level above 5th.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "cleric",
+      "elementalistFire",
+      "wielder",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 5,
+    "materials": "a sunstone inlaid in gold worth 100 gp",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "arcane",
+        "divine",
+        "radiant"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "hxeure8g9hpghkk7"
 }

@@ -1,197 +1,197 @@
 {
-	"folder": null,
-	"name": "Phoenix Rebirth",
-	"type": "spell",
-	"img": "icons/magic/fire/projectile-feathers-embers-gold.webp",
-	"system": {
-		"actions": {
-			"oAu9bobozwjoiHQ3": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"L8rDJlX5xoSOmSk5": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 8,
-						"points": 11
-					}
-				},
-				"rolls": {
-					"n2yVZUkkJopCDAGR": {
-						"type": "damage",
-						"default": true,
-						"label": "Fiery Explosion",
-						"formula": "11d6",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "2d6"
-						},
-						"damageType": "fire",
-						"canCrit": false
-					}
-				},
-				"prompts": {
-					"k7vzQavDsUwF5oU9": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Half damage"
-					},
-					"fPc6fRxPcGtryDmU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2lxNntsDTsQRl39k"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"U1bAT0257OqxZIBd": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "sphere",
-					"quantity": 1,
-					"radius": 30
-				}
-			},
-			"ihimJG9rrbqFaUfS": {
-				"name": "Rebirth",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"L6p6bAwpKW8m5eFv": {
-						"type": "healing",
-						"default": true,
-						"formula": "11d6",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "2d6"
-						}
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>Fire is the element of destruction, but that destruction brings about rebirth. The mighty phoenix embodies this the best, and this spell harnesses its power. When you cast this spell, your body explodes in an awe inspiring blast of flames. Targets in the area take 11d6 fire damage from the explosion, and then you are reduced to ash.</p>\n<p>At the start of your next turn, you are restored to life from your ashes with 11d6 hit points. You are also cured of any blindness, deafness, and diseases afflicting you, and you can choose to regenerate any missing body parts. This also frees you from the Doomed condition.</p>\n<p><strong>Cast at Higher Levels.</strong> If you cast this spell with a 9th-level spell slot, increase the damage dealt and amount of hit points regained by 2d6.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"cleric",
-			"druid",
-			"witch"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 8,
-		"materials": "a tuft of phoenix down feathers",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "transmutation",
-			"secondary": [
-				"fire",
-				"divine",
-				"healing",
-				"nature"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/fire/projectile-feathers-embers-gold.webp",
-			"origin": "Item.8fve58oe1aaaldmx",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "oAu9bobozwjoiHQ3",
-					"applyToSelf": true
-				}
-			},
-			"transfer": false,
-			"name": "Ash",
-			"_id": "2lxNntsDTsQRl39k",
-			"changes": [
-				{
-					"key": "system.attributes.hp.value",
-					"value": "9999",
-					"mode": 3,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "8fve58oe1aaaldmx"
+  "folder": null,
+  "name": "Phoenix Rebirth",
+  "type": "spell",
+  "img": "icons/magic/fire/projectile-feathers-embers-gold.webp",
+  "system": {
+    "actions": {
+      "oAu9bobozwjoiHQ3": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "L8rDJlX5xoSOmSk5": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 8,
+            "points": 11
+          }
+        },
+        "rolls": {
+          "n2yVZUkkJopCDAGR": {
+            "type": "damage",
+            "default": true,
+            "label": "Fiery Explosion",
+            "formula": "11d6",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "2d6"
+            },
+            "damageType": "fire",
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "k7vzQavDsUwF5oU9": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Half damage"
+          },
+          "fPc6fRxPcGtryDmU": {
+            "type": "effect",
+            "default": true,
+            "effectId": "2lxNntsDTsQRl39k"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "U1bAT0257OqxZIBd": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "quantity": 1,
+          "radius": 30
+        }
+      },
+      "ihimJG9rrbqFaUfS": {
+        "name": "Rebirth",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "L6p6bAwpKW8m5eFv": {
+            "type": "healing",
+            "default": true,
+            "formula": "11d6",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "2d6"
+            }
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>Fire is the element of destruction, but that destruction brings about rebirth. The mighty phoenix embodies this the best, and this spell harnesses its power. When you cast this spell, your body explodes in an awe inspiring blast of flames. Targets in the area take 11d6 fire damage from the explosion, and then you are reduced to ash.</p><p>At the start of your next turn, you are restored to life from your ashes with 11d6 hit points. You are also cured of any blindness, deafness, and diseases afflicting you, and you can choose to regenerate any missing body parts. This also frees you from the Doomed condition.</p><p><strong>Cast at Higher Levels.</strong> If you cast this spell with a 9th-level spell slot, increase the damage dealt and amount of hit points regained by 2d6.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "cleric",
+      "druid",
+      "witch"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 8,
+    "materials": "a tuft of phoenix down feathers",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "transmutation",
+      "secondary": [
+        "fire",
+        "divine",
+        "healing",
+        "nature"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/fire/projectile-feathers-embers-gold.webp",
+      "origin": "Item.8fve58oe1aaaldmx",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "oAu9bobozwjoiHQ3",
+          "applyToSelf": true
+        }
+      },
+      "transfer": false,
+      "name": "Ash",
+      "_id": "2lxNntsDTsQRl39k",
+      "changes": [
+        {
+          "key": "system.attributes.hp.value",
+          "value": "9999",
+          "mode": 3,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "8fve58oe1aaaldmx"
 }

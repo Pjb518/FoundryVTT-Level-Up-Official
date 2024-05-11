@@ -1,215 +1,215 @@
 {
-	"folder": null,
-	"name": "Eruption",
-	"type": "spell",
-	"img": "icons/magic/earth/lava-explosion-orange.webp",
-	"system": {
-		"actions": {
-			"jDqLux3l2plPHagb": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"tUc7qUPzkiSIRBrT": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 8,
-						"points": 11
-					}
-				},
-				"rolls": {
-					"eFD028LPXfZuTPk7": {
-						"type": "damage",
-						"default": true,
-						"formula": "6d6",
-						"damageType": "fire",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "2d6"
-						},
-						"canCrit": false
-					},
-					"DcEUpLYc6aQJaWia": {
-						"type": "damage",
-						"default": true,
-						"formula": "6d6",
-						"damageType": "bludgeoning",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "2d6"
-						},
-						"canCrit": false
-					}
-				},
-				"prompts": {
-					"TlSmfWnRsZyJMwet": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "half damage, not knocked prone"
-					},
-					"7GlevOnBkyS2EDqC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "l6W83c3f69Mtw4G1"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"PBptEadQ10pKrqdn": {
-						"range": "long"
-					}
-				},
-				"area": {
-					"shape": "cylinder",
-					"quantity": 1,
-					"radius": 40,
-					"height": 40,
-					"placeTemplate": true
-				}
-			},
-			"ieoAw8Zfjy6OckVr": {
-				"name": "Ground Burn",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"I0zFqTWi5Bdb7u77": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d6",
-						"damageType": "fire",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "2d6"
-						},
-						"canCrit": false
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				}
-			}
-		},
-		"description": "<p>A volcanic eruption takes place at a point on the ground within range of your choosing.&nbsp;Creatures in the area take 6d6 fire damage and 6d6 bludgeoning damage, and fall prone (they take half damage and do not fall prone on a successful save). Structures in the area take double damage, and the ground becomes difficult terrain. For the next minute, the ground continues to burn with hot rocks, dealing 2d6 fire damage to any creature in contact with the ground who enters or ends their turn in the difficult terrain.</p>\n<p><strong>Cast at Higher Levels.</strong> The damage increases by 2d6 for all types for every slot level above 8th.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"druid",
-			"sorcerer",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 8,
-		"materials": "a piece of lava rock or obsidian",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"arcane",
-				"earth",
-				"fire",
-				"nature",
-				"terrain"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/earth/lava-explosion-orange.webp",
-			"origin": "Item.8y0hx71xr0aj0lmp",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jDqLux3l2plPHagb"
-				}
-			},
-			"transfer": false,
-			"name": "Prone",
-			"_id": "l6W83c3f69Mtw4G1",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"prone"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "8y0hx71xr0aj0lmp"
+  "folder": null,
+  "name": "Eruption",
+  "type": "spell",
+  "img": "icons/magic/earth/lava-explosion-orange.webp",
+  "system": {
+    "actions": {
+      "jDqLux3l2plPHagb": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "tUc7qUPzkiSIRBrT": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 8,
+            "points": 11
+          }
+        },
+        "rolls": {
+          "eFD028LPXfZuTPk7": {
+            "type": "damage",
+            "default": true,
+            "formula": "6d6",
+            "damageType": "fire",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "2d6"
+            },
+            "canCrit": false
+          },
+          "DcEUpLYc6aQJaWia": {
+            "type": "damage",
+            "default": true,
+            "formula": "6d6",
+            "damageType": "bludgeoning",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "2d6"
+            },
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "TlSmfWnRsZyJMwet": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "half damage, not knocked prone"
+          },
+          "7GlevOnBkyS2EDqC": {
+            "type": "effect",
+            "default": true,
+            "effectId": "l6W83c3f69Mtw4G1"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "PBptEadQ10pKrqdn": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "cylinder",
+          "quantity": 1,
+          "radius": 40,
+          "height": 40,
+          "placeTemplate": true
+        }
+      },
+      "ieoAw8Zfjy6OckVr": {
+        "name": "Ground Burn",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "I0zFqTWi5Bdb7u77": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d6",
+            "damageType": "fire",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "2d6"
+            },
+            "canCrit": false
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        }
+      }
+    },
+    "description": "<p>A volcanic eruption takes place at a point on the ground within range of your choosing.&nbsp;Creatures in the area take 6d6 fire damage and 6d6 bludgeoning damage, and fall prone (they take half damage and do not fall prone on a successful save). Structures in the area take double damage, and the ground becomes difficult terrain. For the next minute, the ground continues to burn with hot rocks, dealing 2d6 fire damage to any creature in contact with the ground who enters or ends their turn in the difficult terrain.</p><p><strong>Cast at Higher Levels.</strong> The damage increases by 2d6 for all types for every slot level above 8th.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "druid",
+      "sorcerer",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 8,
+    "materials": "a piece of lava rock or obsidian",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "arcane",
+        "earth",
+        "fire",
+        "nature",
+        "terrain"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/earth/lava-explosion-orange.webp",
+      "origin": "Item.8y0hx71xr0aj0lmp",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "jDqLux3l2plPHagb"
+        }
+      },
+      "transfer": false,
+      "name": "Prone",
+      "_id": "l6W83c3f69Mtw4G1",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"prone\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "prone"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "8y0hx71xr0aj0lmp"
 }

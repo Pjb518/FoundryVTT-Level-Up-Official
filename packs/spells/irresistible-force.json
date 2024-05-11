@@ -1,231 +1,231 @@
 {
-	"folder": null,
-	"name": "Irresistible Force",
-	"type": "spell",
-	"img": "icons/skills/wounds/anatomy-organ-heart-red.webp",
-	"system": {
-		"actions": {
-			"HGFhQNeqsYnnjHCg": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"neXdFELIAQAscMIi": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 1,
-						"points": 2
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"XU2syMR93mOmTqV6": {
-						"type": "effect",
-						"default": true,
-						"effectId": "m9AEuxWtZiEYYKFb"
-					},
-					"4sBi0ZrahqeBIGff": {
-						"type": "effect",
-						"default": true,
-						"effectId": "v9BuNsC3D6vapPio"
-					},
-					"oGXoSqM6F4xElZr2": {
-						"type": "effect",
-						"default": true,
-						"effectId": "L8n5R9KEgG7ZaTel"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 10
-				},
-				"ranges": {
-					"YPyxgWHZIXEPnunf": {
-						"range": "self"
-					}
-				}
-			}
-		},
-		"description": "<p><em><strong>Association:</strong> Berserker class</em></p>\n<p>You draw upon magical energy to give yourself the capacity to smash through anything in your path.</p>\n<p>The next time you Rage, you become even more dangerous and difficult to stop than normal. For the duration of that Rage, your weapon attacks' damage type changes to force damage, your movement speed can&rsquo;t be reduced below 15 feet, and you ignore nonmagical difficult terrain. Also, if you would become stunned, you are instead rattled.</p>\n<p>When you stop raging, you gain a level of fatigue and the spell ends.</p>\n<p><strong>Cast at Higher Levels:</strong> If the spell level used to cast this is at least 2nd-level, if you would become frightened, you are instead rattled. If it is at least 3rd-level, if you would become paralyzed, you are instead slowed. If it is at least 4th-level, if you would become petrified, you are instead slowed.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"bard",
-			"cleric",
-			"herald",
-			"warlock",
-			"witch"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 1,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "Rage class feature",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "enchantment",
-			"secondary": [
-				"divine",
-				"enhancement",
-				"weaponry",
-				"multiclass"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/skills/wounds/anatomy-organ-heart-red.webp",
-			"origin": "Item.qwdv1zag0dd1laie",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "HGFhQNeqsYnnjHCg",
-					"applyToSelf": false
-				}
-			},
-			"transfer": false,
-			"name": "Fatigue",
-			"_id": "m9AEuxWtZiEYYKFb",
-			"changes": [
-				{
-					"key": "system.attributes.fatigue",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/skills/wounds/anatomy-organ-heart-red.webp",
-			"origin": "Item.qwdv1zag0dd1laie",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "HGFhQNeqsYnnjHCg"
-				}
-			},
-			"transfer": false,
-			"name": "Rattled",
-			"_id": "v9BuNsC3D6vapPio",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"rattled\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"rattled"
-			],
-			"folder": null
-		},
-		{
-			"icon": "icons/skills/wounds/anatomy-organ-heart-red.webp",
-			"origin": "Item.qwdv1zag0dd1laie",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "HGFhQNeqsYnnjHCg"
-				}
-			},
-			"transfer": false,
-			"name": "Slowed",
-			"_id": "L8n5R9KEgG7ZaTel",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"slowed\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"slowed"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "qwdv1zag0dd1laie"
+  "folder": null,
+  "name": "Irresistible Force",
+  "type": "spell",
+  "img": "icons/skills/wounds/anatomy-organ-heart-red.webp",
+  "system": {
+    "actions": {
+      "HGFhQNeqsYnnjHCg": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "neXdFELIAQAscMIi": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 1,
+            "points": 2
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "XU2syMR93mOmTqV6": {
+            "type": "effect",
+            "default": true,
+            "effectId": "m9AEuxWtZiEYYKFb"
+          },
+          "4sBi0ZrahqeBIGff": {
+            "type": "effect",
+            "default": true,
+            "effectId": "v9BuNsC3D6vapPio"
+          },
+          "oGXoSqM6F4xElZr2": {
+            "type": "effect",
+            "default": true,
+            "effectId": "L8n5R9KEgG7ZaTel"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 10
+        },
+        "ranges": {
+          "YPyxgWHZIXEPnunf": {
+            "range": "self"
+          }
+        }
+      }
+    },
+    "description": "<p><em><strong>Association:</strong> Berserker class</em></p><p>You draw upon magical energy to give yourself the capacity to smash through anything in your path.</p><p>The next time you Rage, you become even more dangerous and difficult to stop than normal. For the duration of that Rage, your weapon attacks' damage type changes to force damage, your movement speed can&rsquo;t be reduced below 15 feet, and you ignore nonmagical difficult terrain. Also, if you would become stunned, you are instead rattled.</p><p>When you stop raging, you gain a level of fatigue and the spell ends.</p><p><strong>Cast at Higher Levels:</strong> If the spell level used to cast this is at least 2nd-level, if you would become frightened, you are instead rattled. If it is at least 3rd-level, if you would become paralyzed, you are instead slowed. If it is at least 4th-level, if you would become petrified, you are instead slowed.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "bard",
+      "cleric",
+      "herald",
+      "warlock",
+      "witch"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 1,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "Rage class feature",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "divine",
+        "enhancement",
+        "weaponry",
+        "multiclass"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/skills/wounds/anatomy-organ-heart-red.webp",
+      "origin": "Item.qwdv1zag0dd1laie",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "HGFhQNeqsYnnjHCg",
+          "applyToSelf": false
+        }
+      },
+      "transfer": false,
+      "name": "Fatigue",
+      "_id": "m9AEuxWtZiEYYKFb",
+      "changes": [
+        {
+          "key": "system.attributes.fatigue",
+          "value": "1",
+          "mode": 2,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/skills/wounds/anatomy-organ-heart-red.webp",
+      "origin": "Item.qwdv1zag0dd1laie",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "HGFhQNeqsYnnjHCg"
+        }
+      },
+      "transfer": false,
+      "name": "Rattled",
+      "_id": "v9BuNsC3D6vapPio",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"rattled\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "rattled"
+      ],
+      "folder": null
+    },
+    {
+      "icon": "icons/skills/wounds/anatomy-organ-heart-red.webp",
+      "origin": "Item.qwdv1zag0dd1laie",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "HGFhQNeqsYnnjHCg"
+        }
+      },
+      "transfer": false,
+      "name": "Slowed",
+      "_id": "L8n5R9KEgG7ZaTel",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"slowed\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "slowed"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "qwdv1zag0dd1laie"
 }

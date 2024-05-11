@@ -1,133 +1,133 @@
 {
-	"name": "Spore Cloud",
-	"type": "feature",
-	"img": "icons/magic/air/fog-gas-smoke-dense-brown.webp",
-	"effects": [
-		{
-			"icon": "icons/magic/air/fog-gas-smoke-dense-brown.webp",
-			"origin": "Item.qWn5wLWeHl305GoG",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "tYtleDVnvAdLqrkp",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Poisoned",
-			"_id": "ma66zQVK2772nx59",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"poisoned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p>Creatures other than you that begin their turn in the cloud must make a Constitution saving throw against your spell save DC or be poisoned for one minute. While poisoned this way, a creature experiences bizarre and sometimes frightening hallucinations. It treats all targets as lightly obscured, and it has disadvantage on checks to maintain concentration.</p>\n<p>Once a creature exits the cloud, they may repeat their save at the end of each of their turns, ending all effects on a success.</p>",
-			"statuses": [
-				"poisoned"
-			],
-			"folder": null
-		}
-	],
-	"folder": null,
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"tYtleDVnvAdLqrkp": {
-				"name": "Spore Cloud",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"QwUpMyJm22qNfjGh": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					},
-					"b8QExU8pQaSjAKBZ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ma66zQVK2772nx59"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"area": {
-					"shape": "emanation",
-					"quantity": 1,
-					"radius": 10
-				}
-			}
-		},
-		"description": "<p>Also at 6th level, you can release spores to impair your enemies. As an action, you may spend a use of your Wild Shape feature to release a cloud of spores that lasts for one hour. The spore cloud fills a 10-foot radius sphere emanating from you, and moves along with you. Creatures other than you that begin their turn in the cloud must make a Constitution saving throw against your spell save DC or be poisoned for one minute. While poisoned this way, a creature experiences bizarre and sometimes frightening hallucinations. It treats all targets as lightly obscured, and it has disadvantage on checks to maintain concentration. If the creature fails its save by 5 or more, it is also frightened until the end of its next turn. Creatures that succeed on their save are unaffected, but must repeat the saving throw each turn as long as they remain in the cloud. Once a creature exits the cloud, they may repeat their save at the end of each of their turns, ending all effects on a success.</p>\n<p>Undead, Constructs, and creatures immune to poison damage are unaffected by the spores.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"classes": "druid"
-	},
-	"_id": "5rc2abg8pu3zly8i"
+  "name": "Spore Cloud",
+  "type": "feature",
+  "img": "icons/magic/air/fog-gas-smoke-dense-brown.webp",
+  "effects": [
+    {
+      "icon": "icons/magic/air/fog-gas-smoke-dense-brown.webp",
+      "origin": "Item.qWn5wLWeHl305GoG",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "tYtleDVnvAdLqrkp",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Poisoned",
+      "_id": "ma66zQVK2772nx59",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"poisoned\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>Creatures other than you that begin their turn in the cloud must make a Constitution saving throw against your spell save DC or be poisoned for one minute. While poisoned this way, a creature experiences bizarre and sometimes frightening hallucinations. It treats all targets as lightly obscured, and it has disadvantage on checks to maintain concentration.</p><p>Once a creature exits the cloud, they may repeat their save at the end of each of their turns, ending all effects on a success.</p>",
+      "statuses": [
+        "poisoned"
+      ],
+      "folder": null
+    }
+  ],
+  "folder": null,
+  "flags": {},
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "tYtleDVnvAdLqrkp": {
+        "name": "Spore Cloud",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "QwUpMyJm22qNfjGh": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          },
+          "b8QExU8pQaSjAKBZ": {
+            "type": "effect",
+            "default": true,
+            "effectId": "ma66zQVK2772nx59"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "area": {
+          "shape": "emanation",
+          "quantity": 1,
+          "radius": 10
+        }
+      }
+    },
+    "description": "<p>Also at 6th level, you can release spores to impair your enemies. As an action, you may spend a use of your Wild Shape feature to release a cloud of spores that lasts for one hour. The spore cloud fills a 10-foot radius sphere emanating from you, and moves along with you. Creatures other than you that begin their turn in the cloud must make a Constitution saving throw against your spell save DC or be poisoned for one minute. While poisoned this way, a creature experiences bizarre and sometimes frightening hallucinations. It treats all targets as lightly obscured, and it has disadvantage on checks to maintain concentration. If the creature fails its save by 5 or more, it is also frightened until the end of its next turn. Creatures that succeed on their save are unaffected, but must repeat the saving throw each turn as long as they remain in the cloud. Once a creature exits the cloud, they may repeat their save at the end of each of their turns, ending all effects on a success.</p><p>Undead, Constructs, and creatures immune to poison damage are unaffected by the spores.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "classes": "druid"
+  },
+  "_id": "5rc2abg8pu3zly8i"
 }

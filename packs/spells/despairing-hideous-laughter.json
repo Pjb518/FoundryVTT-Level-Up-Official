@@ -1,151 +1,151 @@
 {
-	"name": "Despairing Hideous Laughter",
-	"type": "spell",
-	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
-	"effects": [
-		{
-			"icon": "icons/skills/wounds/injury-face-impact-orange.webp",
-			"origin": "Item.4tn3jxhf3pqv5o1l",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "gyuVRNWMEwQ66QfP",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Despairing Hideous Laughter",
-			"_id": "udhKD8kjWEN7AULj",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\",\"incapacitated\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p>\n<p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p>\n<p>When the mirth fades the target is affected with crushing grief, sadness, and despair, causing it to sob uncontrollably. The emotional toll of the spell causes the target to have disadvantage on the first ability check, attack roll, or saving throw it makes after the spell ends.</p>",
-			"statuses": [
-				"prone",
-				"incapacitated"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"system": {
-		"actions": {
-			"gyuVRNWMEwQ66QfP": {
-				"name": "Despairing Hideous Laughter",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "1"
-				},
-				"ranges": {
-					"PfhVtxT6SHexB7J3": {
-						"range": "short"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				},
-				"prompts": {
-					"V5qcZyifiWtOz3a4": {
-						"ability": "wis",
-						"onSave": "Negates effect",
-						"saveDC": {
-							"type": "spellcasting",
-							"bonus": ""
-						},
-						"type": "savingThrow"
-					},
-					"QJXxvLJSB6HzHfpO": {
-						"type": "effect",
-						"default": true,
-						"effectId": "udhKD8kjWEN7AULj"
-					}
-				},
-				"consumers": {
-					"GBjfWUx0fr6LYOmN": {
-						"mode": "variable",
-						"spellLevel": 1,
-						"points": 2,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p><p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the original for each slot level above 1st.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Despairing Hideous Laughter.</strong> When the mirth fades the target is affected with crushing grief, sadness, and despair, causing it to sob uncontrollably. The emotional toll of the spell causes the target to have disadvantage on the first ability check, attack roll, or saving throw it makes after the spell ends.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "",
-				"threshold": 0
-			}
-		},
-		"classes": [],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 1,
-		"materials": "poppy seed",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": true,
-		"ritual": false,
-		"schools": {
-			"primary": "enchantment",
-			"secondary": [
-				"affliction",
-				"arcane",
-				"compulsion"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"folder": null,
-	"_id": "4tn3jxhf3pqv5o1l"
+  "name": "Despairing Hideous Laughter",
+  "type": "spell",
+  "img": "icons/skills/wounds/injury-face-impact-orange.webp",
+  "effects": [
+    {
+      "icon": "icons/skills/wounds/injury-face-impact-orange.webp",
+      "origin": "Item.4tn3jxhf3pqv5o1l",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "gyuVRNWMEwQ66QfP",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Despairing Hideous Laughter",
+      "_id": "udhKD8kjWEN7AULj",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"prone\",\"incapacitated\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p><p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p><p>When the mirth fades the target is affected with crushing grief, sadness, and despair, causing it to sob uncontrollably. The emotional toll of the spell causes the target to have disadvantage on the first ability check, attack roll, or saving throw it makes after the spell ends.</p>",
+      "statuses": [
+        "prone",
+        "incapacitated"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "system": {
+    "actions": {
+      "gyuVRNWMEwQ66QfP": {
+        "name": "Despairing Hideous Laughter",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "PfhVtxT6SHexB7J3": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "prompts": {
+          "V5qcZyifiWtOz3a4": {
+            "ability": "wis",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          },
+          "QJXxvLJSB6HzHfpO": {
+            "type": "effect",
+            "default": true,
+            "effectId": "udhKD8kjWEN7AULj"
+          }
+        },
+        "consumers": {
+          "GBjfWUx0fr6LYOmN": {
+            "mode": "variable",
+            "spellLevel": 1,
+            "points": 2,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>The target is overwhelmed by the absurdity of the world and is crippled by paroxysms of laughter. The target falls prone, becomes incapacitated, and cannot stand.</p><p>Until the spell ends, at the end of each of the target's turns and when it suffers damage, the target may attempt another saving throw (with advantage if triggered by damage). On a successful save, the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the original for each slot level above 1st.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Despairing Hideous Laughter.</strong> When the mirth fades the target is affected with crushing grief, sadness, and despair, causing it to sob uncontrollably. The emotional toll of the spell causes the target to have disadvantage on the first ability check, attack roll, or saving throw it makes after the spell ends.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "adventurersGuide",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "",
+        "threshold": 0
+      }
+    },
+    "classes": [],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 1,
+    "materials": "poppy seed",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": true,
+    "ritual": false,
+    "schools": {
+      "primary": "enchantment",
+      "secondary": [
+        "affliction",
+        "arcane",
+        "compulsion"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "folder": null,
+  "_id": "4tn3jxhf3pqv5o1l"
 }

@@ -1,185 +1,185 @@
 {
-	"name": "Charged Produce Flame",
-	"type": "spell",
-	"img": "icons/magic/fire/flame-burning-hand-white.webp",
-	"effects": [
-		{
-			"icon": "icons/magic/fire/flame-burning-hand-white.webp",
-			"origin": "Item.fl79g60h7bc9phx3",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "cEbNoro1kCHgN2YB",
-					"applyToSelf": true,
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Ball Lightning",
-			"_id": "LbY3RsNhtYbguuXE",
-			"changes": [
-				{
-					"key": "@token.light.bright",
-					"value": "20",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.light.dim",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 600,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"system": {
-		"actions": {
-			"cEbNoro1kCHgN2YB": {
-				"name": "Cast Spell",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "10"
-				},
-				"ranges": {
-					"cJxo6miEblMucgwt": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"rolls": {},
-				"consumers": {},
-				"prompts": {
-					"9mOlZiXqqEdXtKWH": {
-						"type": "effect",
-						"default": true,
-						"effectId": "LbY3RsNhtYbguuXE"
-					}
-				}
-			},
-			"Y1hfvOpZHGQJ8Mn9": {
-				"name": "Fling Lightning",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"JAqtnUo1wZwXFmHk": {
-						"range": "short"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				},
-				"rolls": {
-					"H6iXhtlh9PZo5jh9": {
-						"type": "attack",
-						"default": true,
-						"attackType": "rangedSpellAttack",
-						"proficient": true,
-						"ability": "spellcasting"
-					},
-					"qP8PUzpn1gRnH5z7": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d8",
-						"scaling": {
-							"mode": "cantrip",
-							"formula": "1d8"
-						},
-						"damageType": "lightning"
-					}
-				},
-				"consumers": {},
-				"prompts": {}
-			}
-		},
-		"description": "<p>You create a flame in your hand which lasts until the spell ends and does no harm to you or your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p>\n<p>The spell ends when you dismiss it, cast it again, or attack with the flame. As part of casting the spell or as an action on a following turn, you can fling the flame at a creature within 30 feet, making a ranged spell attack that deals 1d8 fire damage.</p>\n<p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>\n<p><strong><em>Rare:&nbsp;</em>Charged Produce Flame.&nbsp;</strong>You conjure&nbsp;a ball of lightning in your&nbsp;hand instead of flame. The&nbsp;ball of lightning produces&nbsp;bright light in a 20-foot&nbsp;radius and dim light for an&nbsp;additional 10 feet, and when&nbsp;flung deals lightning damage&nbsp;instead of fire damage.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "",
-				"threshold": 0
-			}
-		},
-		"classes": [
-			"artificer",
-			"druid",
-			"witch"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 0,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": true,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"attack",
-				"fire",
-				"nature",
-				"utility"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"folder": null,
-	"_id": "fl79g60h7bc9phx3"
+  "name": "Charged Produce Flame",
+  "type": "spell",
+  "img": "icons/magic/fire/flame-burning-hand-white.webp",
+  "effects": [
+    {
+      "icon": "icons/magic/fire/flame-burning-hand-white.webp",
+      "origin": "Item.fl79g60h7bc9phx3",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "cEbNoro1kCHgN2YB",
+          "applyToSelf": true,
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Ball Lightning",
+      "_id": "LbY3RsNhtYbguuXE",
+      "changes": [
+        {
+          "key": "@token.light.bright",
+          "value": "20",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "@token.light.dim",
+          "value": "30",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 600,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "system": {
+    "actions": {
+      "cEbNoro1kCHgN2YB": {
+        "name": "Cast Spell",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "10"
+        },
+        "ranges": {
+          "cJxo6miEblMucgwt": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "self"
+        },
+        "rolls": {},
+        "consumers": {},
+        "prompts": {
+          "9mOlZiXqqEdXtKWH": {
+            "type": "effect",
+            "default": true,
+            "effectId": "LbY3RsNhtYbguuXE"
+          }
+        }
+      },
+      "Y1hfvOpZHGQJ8Mn9": {
+        "name": "Fling Lightning",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "JAqtnUo1wZwXFmHk": {
+            "range": "short"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        },
+        "rolls": {
+          "H6iXhtlh9PZo5jh9": {
+            "type": "attack",
+            "default": true,
+            "attackType": "rangedSpellAttack",
+            "proficient": true,
+            "ability": "spellcasting"
+          },
+          "qP8PUzpn1gRnH5z7": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d8",
+            "scaling": {
+              "mode": "cantrip",
+              "formula": "1d8"
+            },
+            "damageType": "lightning"
+          }
+        },
+        "consumers": {},
+        "prompts": {}
+      }
+    },
+    "description": "<p>You create a flame in your hand which lasts until the spell ends and does no harm to you or your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p>The spell ends when you dismiss it, cast it again, or attack with the flame. As part of casting the spell or as an action on a following turn, you can fling the flame at a creature within 30 feet, making a ranged spell attack that deals 1d8 fire damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p><p><strong><em>Rare:&nbsp;</em>Charged Produce Flame.&nbsp;</strong>You conjure&nbsp;a ball of lightning in your&nbsp;hand instead of flame. The&nbsp;ball of lightning produces&nbsp;bright light in a 20-foot&nbsp;radius and dim light for an&nbsp;additional 10 feet, and when&nbsp;flung deals lightning damage&nbsp;instead of fire damage.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "adventurersGuide",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "",
+        "threshold": 0
+      }
+    },
+    "classes": [
+      "artificer",
+      "druid",
+      "witch"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 0,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": true,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "attack",
+        "fire",
+        "nature",
+        "utility"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "folder": null,
+  "_id": "fl79g60h7bc9phx3"
 }

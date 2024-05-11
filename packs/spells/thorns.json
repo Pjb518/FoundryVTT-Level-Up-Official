@@ -1,178 +1,178 @@
 {
-	"folder": null,
-	"name": "Thorns",
-	"type": "spell",
-	"img": "icons/magic/nature/thorns-hand-glow-green.webp",
-	"system": {
-		"actions": {
-			"ElH5vjqWqWEdw3Xj": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"Fz7rdwHJy2dWgMdj": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 10
-				},
-				"ranges": {
-					"xVk0t4AHIBrAEKES": {
-						"range": "touch"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"7TS1XNztSvfVhdj7": {
-				"name": "Defensive Damage",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"EbrT7PMcczvwOpbD": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d8",
-						"canCrit": false,
-						"damageType": "piercing",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d8",
-							"step": 4
-						}
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"YGJlMd5jffhCtcwd": {
-				"name": "Unarmed Thorn Attack",
-				"activation": {},
-				"consumers": {
-					"WBt6eOxjmcDOBdG3": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3
-					}
-				},
-				"rolls": {
-					"2PmgBFi5ODcczMNH": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "str"
-					},
-					"cGpwdjPnGCQlLHfs": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d8 + @str.mod",
-						"damageType": "piercing",
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d8",
-							"step": 4
-						}
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>Until the spell ends, sharp thorns sprout from the target&rsquo;s body. A creature within 5 feet of the target that hits the target with a melee attack takes 1d8 piercing damage.</p>\n<p>The thorns can be used as an unarmed melee weapon, dealing 1d8+Str damage on a hit.</p>\n<p><strong>Cast at Higher Levels.</strong> The duration increases to 1 hour when using a 4th level slot. The damage increases to 2d8 when using a 6th level slot. The duration increases to 8 hours when using an 8th-level slot.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"druid",
-			"elementalistEarth"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 2,
-		"materials": "a thorn",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "transmutation",
-			"secondary": [
-				"nature",
-				"plants",
-				"transformation"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "cxsglo883mqcl91h"
+  "folder": null,
+  "name": "Thorns",
+  "type": "spell",
+  "img": "icons/magic/nature/thorns-hand-glow-green.webp",
+  "system": {
+    "actions": {
+      "ElH5vjqWqWEdw3Xj": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "Fz7rdwHJy2dWgMdj": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 10
+        },
+        "ranges": {
+          "xVk0t4AHIBrAEKES": {
+            "range": "touch"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      },
+      "7TS1XNztSvfVhdj7": {
+        "name": "Defensive Damage",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "EbrT7PMcczvwOpbD": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d8",
+            "canCrit": false,
+            "damageType": "piercing",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d8",
+              "step": 4
+            }
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "YGJlMd5jffhCtcwd": {
+        "name": "Unarmed Thorn Attack",
+        "activation": {},
+        "consumers": {
+          "WBt6eOxjmcDOBdG3": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3
+          }
+        },
+        "rolls": {
+          "2PmgBFi5ODcczMNH": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "str"
+          },
+          "cGpwdjPnGCQlLHfs": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d8 + @str.mod",
+            "damageType": "piercing",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d8",
+              "step": 4
+            }
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>Until the spell ends, sharp thorns sprout from the target&rsquo;s body. A creature within 5 feet of the target that hits the target with a melee attack takes 1d8 piercing damage.</p><p>The thorns can be used as an unarmed melee weapon, dealing 1d8+Str damage on a hit.</p><p><strong>Cast at Higher Levels.</strong> The duration increases to 1 hour when using a 4th level slot. The damage increases to 2d8 when using a 6th level slot. The duration increases to 8 hours when using an 8th-level slot.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "druid",
+      "elementalistEarth"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 2,
+    "materials": "a thorn",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "transmutation",
+      "secondary": [
+        "nature",
+        "plants",
+        "transformation"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "cxsglo883mqcl91h"
 }
