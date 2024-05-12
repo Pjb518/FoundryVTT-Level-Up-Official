@@ -460,6 +460,13 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'System Architecture: Motif Classes',
       url: 'https://bit.ly/4bgzU4N'
     },
+    multiclassersManual: {
+      abbreviation: 'MulMan Vol. 1',
+      affiliate: true,
+      publisher: 'purpleMartinGames',
+      title: "Multiclasser's Manual, Volume 1",
+      url: 'https://bit.ly/3JZTA08'
+    },
     mysteriousAndMarvelousMiscellanea: {
       abbreviation: 'MMM',
       affiliate: true,
