@@ -1,153 +1,153 @@
 {
-	"name": "Poison Skin",
-	"type": "spell",
-	"img": "icons/magic/acid/dissolve-pool-bubbles.webp",
-	"effects": [
-		{
-			"icon": "icons/magic/acid/dissolve-pool-bubbles.webp",
-			"origin": "Item.d46rmbivvfc5ick8",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ySdg0UeALBx4vL5T",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Poison Skin",
-			"_id": "UV6ZEWo0eMfVrAlk",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 600,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p>Until the spell ends, whenever a creature within 5 feet of the target damages the target with a melee weapon attack, the creature makes a Constitution saving throw. On a failed save, the creature becomes poisoned and takes 1d6 ongoing poison damage.</p>\n<p>A poisoned creature can make a Constitution saving throw at the end of each of its turns, ending the effect on itself on a success.</p>\n<p>The target of the spell also becomes bright and multicolored like a poisonous dart frog, giving it disadvantage on Dexterity (Stealth) checks.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> The target's skin is also covered in mucus, giving it advantage on saving throws and checks made to resist being grappled or restrained. In addition, the damage increases by 1d6 for each slot level above 3rd.</p>",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"system": {
-		"actions": {
-			"ySdg0UeALBx4vL5T": {
-				"name": "Poison Skin",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "10"
-				},
-				"ranges": {
-					"kuZiL06Ro6ZU1rhP": {
-						"range": "touch"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				},
-				"prompts": {
-					"iRwMSAniGaJNZm9Q": {
-						"ability": "con",
-						"onSave": "Constitution negates",
-						"saveDC": {
-							"type": "spellcasting",
-							"bonus": ""
-						},
-						"type": "savingThrow"
-					},
-					"ukrbYYtqL8x8u6Qb": {
-						"type": "effect",
-						"default": true,
-						"effectId": "UV6ZEWo0eMfVrAlk"
-					}
-				},
-				"consumers": {
-					"DRY1k4ajO43giqVg": {
-						"mode": "variable",
-						"spellLevel": 3,
-						"points": 5,
-						"type": "spell"
-					}
-				}
-			}
-		},
-		"description": "<p>The target becomes poisonous to the touch. Until the spell ends, whenever a creature within 5 feet of the target damages the target with a melee weapon attack, the creature makes a Constitution saving throw. On a failed save, the creature becomes poisoned and takes 1d6 ongoing poison damage.</p><p>A poisoned creature can make a Constitution saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p>The target of the spell also becomes bright and multicolored like a poisonous dart frog, giving it disadvantage on Dexterity (Stealth) checks.</p><p><strong><em>Cast at Higher Levels.</em></strong> The target's skin is also covered in mucus, giving it advantage on saving throws and checks made to resist being grappled or restrained. In addition, the damage increases by 1d6 for each slot level above 3rd.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "",
-				"threshold": 0
-			}
-		},
-		"classes": [
-			"druid",
-			"warlock",
-			"witch",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 3,
-		"materials": "handful of frog spawn",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "abjuration",
-			"secondary": [
-				"nature",
-				"poison",
-				"protection"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"folder": null,
-	"_id": "d46rmbivvfc5ick8"
+  "name": "Poison Skin",
+  "type": "spell",
+  "img": "icons/magic/acid/dissolve-pool-bubbles.webp",
+  "effects": [
+    {
+      "icon": "icons/magic/acid/dissolve-pool-bubbles.webp",
+      "origin": "Item.d46rmbivvfc5ick8",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ySdg0UeALBx4vL5T",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Poison Skin",
+      "_id": "UV6ZEWo0eMfVrAlk",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.rollMode.skillCheck.ste",
+          "value": "-1",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 600,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>Until the spell ends, whenever a creature within 5 feet of the target damages the target with a melee weapon attack, the creature makes a Constitution saving throw. On a failed save, the creature becomes poisoned and takes 1d6 ongoing poison damage.</p><p>A poisoned creature can make a Constitution saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p>The target of the spell also becomes bright and multicolored like a poisonous dart frog, giving it disadvantage on Dexterity (Stealth) checks.</p><p><strong><em>Cast at Higher Levels.</em></strong> The target's skin is also covered in mucus, giving it advantage on saving throws and checks made to resist being grappled or restrained. In addition, the damage increases by 1d6 for each slot level above 3rd.</p>",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "system": {
+    "actions": {
+      "ySdg0UeALBx4vL5T": {
+        "name": "Poison Skin",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "10"
+        },
+        "ranges": {
+          "kuZiL06Ro6ZU1rhP": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "prompts": {
+          "iRwMSAniGaJNZm9Q": {
+            "ability": "con",
+            "onSave": "Constitution negates",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          },
+          "ukrbYYtqL8x8u6Qb": {
+            "type": "effect",
+            "default": true,
+            "effectId": "UV6ZEWo0eMfVrAlk"
+          }
+        },
+        "consumers": {
+          "DRY1k4ajO43giqVg": {
+            "mode": "variable",
+            "spellLevel": 3,
+            "points": 5,
+            "type": "spell"
+          }
+        }
+      }
+    },
+    "description": "<p>The target becomes poisonous to the touch. Until the spell ends, whenever a creature within 5 feet of the target damages the target with a melee weapon attack, the creature makes a Constitution saving throw. On a failed save, the creature becomes poisoned and takes 1d6 ongoing poison damage.</p><p>A poisoned creature can make a Constitution saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p>The target of the spell also becomes bright and multicolored like a poisonous dart frog, giving it disadvantage on Dexterity (Stealth) checks.</p><p><strong><em>Cast at Higher Levels.</em></strong> The target's skin is also covered in mucus, giving it advantage on saving throws and checks made to resist being grappled or restrained. In addition, the damage increases by 1d6 for each slot level above 3rd.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "adventurersGuide",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "",
+        "threshold": 0
+      }
+    },
+    "classes": [
+      "druid",
+      "warlock",
+      "witch",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 3,
+    "materials": "handful of frog spawn",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "abjuration",
+      "secondary": [
+        "nature",
+        "poison",
+        "protection"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "folder": null,
+  "_id": "d46rmbivvfc5ick8"
 }
