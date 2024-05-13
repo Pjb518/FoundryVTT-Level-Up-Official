@@ -1,7 +1,7 @@
 <svelte:options accessors={true} />
 
 <script lang="ts">
-    import { getContext } from "svelte";
+    import { getContext, setContext } from "svelte";
 
     import prepareGrantsApplyData from "../../utils/prepareGrantsApplyData";
 
@@ -21,6 +21,10 @@
     } =
         // @ts-ignore
         getContext("#external").application;
+
+    // Set contexts
+    setContext("actor", actor);
+    setContext("item", item);
 
     // Create a list of grants to show based on selected optional
     // grants and those grants that have configurable properties
@@ -54,30 +58,62 @@
         const { updateData, documentData } =
             prepareGrantsApplyData(actor, grants, applyData) ?? {};
 
+        // Get ids of non-selected optional grants
+        const grantExclusions = optionalGrants.reduce((acc, grant) => {
+            if (!selectedOptionalGrants.includes(grant._id)) {
+                acc.push(grant._id);
+            }
+
+            return acc;
+        }, []);
+
+        clsReturnData.spellcastingAbility = spellcastingAbility || "";
+
         dialog.submit({
             success: true,
             updateData,
             documentData,
+            grantExclusions,
             clsReturnData,
         });
     }
 
     let selectedOptionalGrants: string[] = [];
     let clsReturnData: Record<string, any> = {};
+    let spellcastingAbility: string =
+        cls?.system?.spellcasting?.ability?.options[0] ?? "";
 
     $: applyData = new Map<string, any>();
     $: grants = getApplicableGrants(selectedOptionalGrants);
     $: configurableGrants = grants.filter((grant) => grant.requiresConfig);
+
+    $: spellCastingOptions = cls?.system?.spellcasting?.ability?.options?.map(
+        (option: string) => [option, CONFIG.A5E.abilities[option]],
+    );
 </script>
 
 <article>
     <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
         {#if cls && cls?.type === "class"}
-            <ClassHitPointsSelection
-                {cls}
-                classLevel={clsLevel}
-                bind:clsReturnData
-            />
+            {#if clsLevel > 1}
+                <ClassHitPointsSelection
+                    {cls}
+                    classLevel={clsLevel}
+                    bind:clsReturnData
+                />
+            {/if}
+
+            {#if cls.system.classLevels === 1 && cls.system.spellcasting.ability.options.length}
+                <Section heading="Spellcasting Config">
+                    <RadioGroup
+                        options={spellCastingOptions}
+                        allowDeselect={false}
+                        selected={spellcastingAbility || ""}
+                        on:updateSelection={({ detail }) =>
+                            (spellcastingAbility = detail)}
+                    />
+                </Section>
+            {/if}
         {/if}
 
         {#if optionalGrants.length}
@@ -123,7 +159,9 @@
 
 <style lang="scss">
     article {
+        display: flex;
         padding: 0.75rem;
         max-height: 70vh;
+        overflow-y: auto;
     }
 </style>

@@ -1,211 +1,211 @@
 {
-	"name": "Frigid Ray of Frost",
-	"type": "spell",
-	"img": "icons/magic/water/projectile-icecicle-glowing.webp",
-	"effects": [
-		{
-			"icon": "icons/magic/water/projectile-icecicle-glowing.webp",
-			"origin": "Item.2w71asjan334iteo",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "rjaz6n2uCMQHcsGc",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Frost",
-			"_id": "i4bWmHzg2OE6Ddvk",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "-10",
-					"mode": 3,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/water/projectile-icecicle-glowing.webp",
-			"origin": "Item.2w71asjan334iteo",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "rjaz6n2uCMQHcsGc",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Frigid Frost",
-			"_id": "AL14b1NHwiT31LRk",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "0",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"rattled\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"rattled"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"system": {
-		"actions": {
-			"rjaz6n2uCMQHcsGc": {
-				"name": "Cast Spell",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"MiX7YFyH7f21pqZL": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"rolls": {
-					"9Edhi5INnPDZEEz3": {
-						"bonus": "",
-						"critThreshold": 20,
-						"type": "attack",
-						"attackType": "rangedSpellAttack",
-						"ability": "spellcasting"
-					},
-					"8PiujKc60ugoEB2e": {
-						"canCrit": true,
-						"damageType": "cold",
-						"formula": "1d8",
-						"name": "",
-						"type": "damage",
-						"scaling": {
-							"mode": "cantrip",
-							"formula": "1d8"
-						}
-					}
-				},
-				"consumers": {},
-				"prompts": {
-					"HGuOKcydeWzumGYE": {
-						"type": "effect",
-						"default": true,
-						"effectId": "i4bWmHzg2OE6Ddvk"
-					},
-					"LyetZDoNkRzDZFgI": {
-						"type": "effect",
-						"default": true,
-						"effectId": "AL14b1NHwiT31LRk",
-						"label": "20 or More Damage"
-					}
-				}
-			}
-		},
-		"description": "<p>An icy beam shoots from your outstretched fingers.</p>\n<p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p>\n<p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>\n<p><strong><em>Rare:&nbsp;</em>Frigid Ray of Frost.&nbsp;</strong>A target that takes&nbsp;20 or more damage from this spell reduces its&nbsp;Speed to 0 and becomes rattled until the beginning&nbsp;of your next turn as the cold penetrates to&nbsp;its very core.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "",
-				"threshold": 0
-			}
-		},
-		"classes": [
-			"artificer",
-			"sorcerer",
-			"witch",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 0,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": true,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"arcane",
-				"cold",
-				"movement"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"folder": null,
-	"_id": "2w71asjan334iteo"
+  "name": "Frigid Ray of Frost",
+  "type": "spell",
+  "img": "icons/magic/water/projectile-icecicle-glowing.webp",
+  "effects": [
+    {
+      "icon": "icons/magic/water/projectile-icecicle-glowing.webp",
+      "origin": "Item.2w71asjan334iteo",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "rjaz6n2uCMQHcsGc",
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Frost",
+      "_id": "i4bWmHzg2OE6Ddvk",
+      "changes": [
+        {
+          "key": "system.attributes.movement.walk.distance",
+          "value": "-10",
+          "mode": 3,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": 1,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/water/projectile-icecicle-glowing.webp",
+      "origin": "Item.2w71asjan334iteo",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "rjaz6n2uCMQHcsGc",
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Frigid Frost",
+      "_id": "AL14b1NHwiT31LRk",
+      "changes": [
+        {
+          "key": "system.attributes.movement.walk.distance",
+          "value": "0",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"rattled\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": 1,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "rattled"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "system": {
+    "actions": {
+      "rjaz6n2uCMQHcsGc": {
+        "name": "Cast Spell",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "MiX7YFyH7f21pqZL": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "rolls": {
+          "9Edhi5INnPDZEEz3": {
+            "bonus": "",
+            "critThreshold": 20,
+            "type": "attack",
+            "attackType": "rangedSpellAttack",
+            "ability": "spellcasting"
+          },
+          "8PiujKc60ugoEB2e": {
+            "canCrit": true,
+            "damageType": "cold",
+            "formula": "1d8",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": "cantrip",
+              "formula": "1d8"
+            }
+          }
+        },
+        "consumers": {},
+        "prompts": {
+          "HGuOKcydeWzumGYE": {
+            "type": "effect",
+            "default": true,
+            "effectId": "i4bWmHzg2OE6Ddvk"
+          },
+          "LyetZDoNkRzDZFgI": {
+            "type": "effect",
+            "default": true,
+            "effectId": "AL14b1NHwiT31LRk",
+            "label": "20 or More Damage"
+          }
+        }
+      }
+    },
+    "description": "<p>An icy beam shoots from your outstretched fingers.</p><p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p><p><strong><em>Rare:&nbsp;</em>Frigid Ray of Frost.&nbsp;</strong>A target that takes&nbsp;20 or more damage from this spell reduces its&nbsp;Speed to 0 and becomes rattled until the beginning&nbsp;of your next turn as the cold penetrates to&nbsp;its very core.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "adventurersGuide",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "",
+        "threshold": 0
+      }
+    },
+    "classes": [
+      "artificer",
+      "sorcerer",
+      "witch",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 0,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": true,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "arcane",
+        "cold",
+        "movement"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "folder": null,
+  "_id": "2w71asjan334iteo"
 }

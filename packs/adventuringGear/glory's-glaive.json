@@ -1,281 +1,281 @@
 {
-	"name": "Glory’s Glaive",
-	"type": "object",
-	"img": "icons/weapons/polearms/glaive-simple.webp",
-	"effects": [
-		{
-			"icon": "icons/weapons/polearms/glaive-simple.webp",
-			"origin": "Item.70mkt9u1nfj2woll",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qYKyaXJljmDTQiIH",
-					"applyToSelf": true,
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Flamboyant",
-			"_id": "JNsWoCMEomtxDlHC",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.itm",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.skillCheck.prf",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 600,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 1,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"dMDfEaSOsrVg7jy5": {
-				"name": "Glaive (Dull)",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": 1,
-					"type": ""
-				},
-				"rolls": {
-					"P3jntVNjbputhVuk": {
-						"bonus": "",
-						"critThreshold": "20",
-						"type": "attack",
-						"attackType": "meleeWeaponAttack",
-						"ability": "default"
-					},
-					"3zm9SvlggrHcwbQL": {
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "1d6 + @str.mod",
-						"name": "Glaive",
-						"type": "damage"
-					}
-				},
-				"consumers": {}
-			},
-			"WTHt8EsKOi9YYG1c": {
-				"name": "Flatter Weapon",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"oVei1elgje6REywv": {
-						"type": "skillCheck",
-						"default": true,
-						"skill": "per",
-						"ability": "cha"
-					},
-					"zyLi2ECLjIssci1w": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "1d4",
-						"damageType": "psychic"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"qYKyaXJljmDTQiIH": {
-				"name": "Glaive (Sharp)",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 10
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": 1,
-					"type": ""
-				},
-				"rolls": {
-					"P3jntVNjbputhVuk": {
-						"bonus": "1",
-						"critThreshold": "20",
-						"type": "attack",
-						"attackType": "meleeWeaponAttack",
-						"ability": "default"
-					},
-					"3zm9SvlggrHcwbQL": {
-						"canCrit": true,
-						"damageType": "slashing",
-						"formula": "1d12 + @str.mod + 1",
-						"name": "Glaive",
-						"type": "damage"
-					}
-				},
-				"consumers": {},
-				"prompts": {
-					"ehqBbltlmaqQ7kzi": {
-						"type": "effect",
-						"default": true,
-						"effectId": "JNsWoCMEomtxDlHC"
-					}
-				}
-			},
-			"pVnSCDqhonpAZ5kL": {
-				"name": "Flatter Weapon (Polished)",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"oVei1elgje6REywv": {
-						"type": "skillCheck",
-						"default": true,
-						"skill": "per",
-						"ability": "cha",
-						"bonus": "@prof"
-					},
-					"zyLi2ECLjIssci1w": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "1d4",
-						"damageType": "psychic"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>A red sash with gold trim adorns the haft of this glaive, the steel head of which is always polished to a mirror shine. The counterweight is made of brass and resembles a snarling lion, giving the weapon a regal appearance that belies its prideful, capricious nature.</p>\n<p>This glaive&rsquo;s blade is dull, and cannot be sharpened by any whetstone, causing it to deal only 1d6 bludgeoning damage on a hit. As a bonus action, you can attempt to flatter the weapon with a DC 13 Persuasion check. On a failure, you take 1d4 psychic damage that cannot be reduced or negated. On a success, the blade becomes sharp for 10 minutes. While sharp, it deals 1d12 slashing damage, grants +1 to attack and damage rolls made with it, and gains the flamboyant property. If it&rsquo;s used in inglorious ways, such as for the execution of an unarmed foe or being used to cut down brush, it will immediately turn dull and refuse to become sharp until properly placated, as determined by the Narrator.</p>\n<p>You can forgo your journey activity to spend time polishing, admiring, or training with glory&rsquo;s glaive to gain a bonus equal to your Proficiency bonus on Persuasion checks to flatter it for the next 24 hours.</p>\n<p><strong>Escalation.</strong> If you strike the killing blow in battle with a mighty or storied foe (as determined by the Narrator) with glory&rsquo;s glaive, its ego can grow a maximum of twice. When its ego grows, its bonus to attack and damage rolls increases by +1, the DC to flatter it increases by 3, and the psychic damage taken on a failure increases by 1d4.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "gpg3",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "Hair from the mane of a lion, taken while it’s feeding on a fresh kill",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "weapon",
-		"plotItem": false,
-		"price": "400 gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "uncommon",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [
-			"reach",
-			"twoHanded"
-		],
-		"weight": 5,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"breakerProperties": [],
-		"defensiveProperties": "",
-		"flaws": [],
-		"versatile": "",
-		"mounted": []
-	},
-	"folder": null,
-	"_id": "70mkt9u1nfj2woll"
+  "name": "Glory’s Glaive",
+  "type": "object",
+  "img": "icons/weapons/polearms/glaive-simple.webp",
+  "effects": [
+    {
+      "icon": "icons/weapons/polearms/glaive-simple.webp",
+      "origin": "Item.70mkt9u1nfj2woll",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "qYKyaXJljmDTQiIH",
+          "applyToSelf": true,
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Flamboyant",
+      "_id": "JNsWoCMEomtxDlHC",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.rollMode.skillCheck.itm",
+          "value": "1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.skillCheck.prf",
+          "value": "1",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 600,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 1,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "dMDfEaSOsrVg7jy5": {
+        "name": "Glaive (Dull)",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": 1,
+          "type": ""
+        },
+        "rolls": {
+          "P3jntVNjbputhVuk": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack",
+            "attackType": "meleeWeaponAttack",
+            "ability": "default"
+          },
+          "3zm9SvlggrHcwbQL": {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "1d6 + @str.mod",
+            "name": "Glaive",
+            "type": "damage"
+          }
+        },
+        "consumers": {}
+      },
+      "WTHt8EsKOi9YYG1c": {
+        "name": "Flatter Weapon",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "oVei1elgje6REywv": {
+            "type": "skillCheck",
+            "default": true,
+            "skill": "per",
+            "ability": "cha"
+          },
+          "zyLi2ECLjIssci1w": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "1d4",
+            "damageType": "psychic"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "qYKyaXJljmDTQiIH": {
+        "name": "Glaive (Sharp)",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 10
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": 1,
+          "type": ""
+        },
+        "rolls": {
+          "P3jntVNjbputhVuk": {
+            "bonus": "1",
+            "critThreshold": "20",
+            "type": "attack",
+            "attackType": "meleeWeaponAttack",
+            "ability": "default"
+          },
+          "3zm9SvlggrHcwbQL": {
+            "canCrit": true,
+            "damageType": "slashing",
+            "formula": "1d12 + @str.mod + 1",
+            "name": "Glaive",
+            "type": "damage"
+          }
+        },
+        "consumers": {},
+        "prompts": {
+          "ehqBbltlmaqQ7kzi": {
+            "type": "effect",
+            "default": true,
+            "effectId": "JNsWoCMEomtxDlHC"
+          }
+        }
+      },
+      "pVnSCDqhonpAZ5kL": {
+        "name": "Flatter Weapon (Polished)",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "oVei1elgje6REywv": {
+            "type": "skillCheck",
+            "default": true,
+            "skill": "per",
+            "ability": "cha",
+            "bonus": "@prof"
+          },
+          "zyLi2ECLjIssci1w": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "1d4",
+            "damageType": "psychic"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>A red sash with gold trim adorns the haft of this glaive, the steel head of which is always polished to a mirror shine. The counterweight is made of brass and resembles a snarling lion, giving the weapon a regal appearance that belies its prideful, capricious nature.</p><p>This glaive&rsquo;s blade is dull, and cannot be sharpened by any whetstone, causing it to deal only 1d6 bludgeoning damage on a hit. As a bonus action, you can attempt to flatter the weapon with a DC 13 Persuasion check. On a failure, you take 1d4 psychic damage that cannot be reduced or negated. On a success, the blade becomes sharp for 10 minutes. While sharp, it deals 1d12 slashing damage, grants +1 to attack and damage rolls made with it, and gains the flamboyant property. If it&rsquo;s used in inglorious ways, such as for the execution of an unarmed foe or being used to cut down brush, it will immediately turn dull and refuse to become sharp until properly placated, as determined by the Narrator.</p><p>You can forgo your journey activity to spend time polishing, admiring, or training with glory&rsquo;s glaive to gain a bonus equal to your Proficiency bonus on Persuasion checks to flatter it for the next 24 hours.</p><p><strong>Escalation.</strong> If you strike the killing blow in battle with a mighty or storied foe (as determined by the Narrator) with glory&rsquo;s glaive, its ego can grow a maximum of twice. When its ego grows, its bonus to attack and damage rolls increases by +1, the DC to flatter it increases by 3, and the psychic damage taken on a failure increases by 1d4.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "gpg3",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "Hair from the mane of a lion, taken while it’s feeding on a fresh kill",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "weapon",
+    "plotItem": false,
+    "price": "400 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "uncommon",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [
+      "reach",
+      "twoHanded"
+    ],
+    "weight": 5,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "breakerProperties": [],
+    "defensiveProperties": "",
+    "flaws": [],
+    "versatile": "",
+    "mounted": []
+  },
+  "folder": null,
+  "_id": "70mkt9u1nfj2woll"
 }

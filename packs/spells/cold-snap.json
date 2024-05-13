@@ -1,198 +1,198 @@
 {
-	"folder": null,
-	"name": "Cold Snap",
-	"type": "spell",
-	"img": "icons/magic/death/skull-humanoid-worn-teal.webp",
-	"system": {
-		"actions": {
-			"fAlJcbwaueNftzuQ": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"Ci9hqKccHtwvGe4C": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 5,
-						"points": 7
-					}
-				},
-				"rolls": {
-					"EMtSOkUbOngAcRdQ": {
-						"type": "damage",
-						"default": true,
-						"formula": "3d6",
-						"damageType": "cold",
-						"canCrit": false
-					}
-				},
-				"prompts": {
-					"ssg4oS12wvufC7RU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "SHBSBjdikHidgss6",
-						"label": "Fatigue (max of 2)"
-					},
-					"RaWEGBuDDHFJEsCC": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "half damage and no fatigue"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "day",
-					"value": 1
-				},
-				"ranges": {
-					"OemTNixTCjVC9DDG": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "sphere",
-					"quantity": 1,
-					"radius": 30,
-					"placeTemplate": true,
-					"scaling": {
-						"mode": "spellLevel",
-						"formula": {
-							"radius": "5"
-						}
-					}
-				},
-				"target": {
-					"type": "",
-					"quantity": 1
-				}
-			},
-			"Rdz2eEIQaF6medpx": {
-				"name": "Rasie/Lower Temperature",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>You decrease the temperature of the air around you, down from hot temperatures to comfortable temperatures, or to extreme cold. If you create extreme cold, all creatures other than you who start their turn in the area or who enter it for the first time in their turn must make a Constitution saving throw, taking 3d6 <em>cold</em> damage and 1 level of <em>fatigue</em> on a failure, or half damage and no <em>fatigue</em> on a success. A creature can only suffer 2 ranks of <em>fatigue</em> from this spell. If a creature reaches the <em>doomed</em> condition due to this fatigue, it will die of hypothermia unless treated or dealt <em>fire</em> damage.<br>As an action, you can raise or lower the temperature from comfortable to extreme cold.</p>\n<p><strong>Cast at Higher Levels.</strong> The spell&rsquo;s area increases by 10 feet for every slot level above 5th.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"druid",
-			"elementalistWater",
-			"sorcerer",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 5,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"arcane",
-				"cold",
-				"nature",
-				"protection",
-				"weather"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/death/skull-humanoid-worn-teal.webp",
-			"origin": "Item.adqj2q2p02fxyf3x",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse"
-				}
-			},
-			"transfer": false,
-			"name": "Fatigue",
-			"_id": "SHBSBjdikHidgss6",
-			"changes": [
-				{
-					"key": "system.attributes.fatigue",
-					"mode": 2,
-					"value": "1",
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "adqj2q2p02fxyf3x"
+  "folder": null,
+  "name": "Cold Snap",
+  "type": "spell",
+  "img": "icons/magic/death/skull-humanoid-worn-teal.webp",
+  "system": {
+    "actions": {
+      "fAlJcbwaueNftzuQ": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "Ci9hqKccHtwvGe4C": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 5,
+            "points": 7
+          }
+        },
+        "rolls": {
+          "EMtSOkUbOngAcRdQ": {
+            "type": "damage",
+            "default": true,
+            "formula": "3d6",
+            "damageType": "cold",
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "ssg4oS12wvufC7RU": {
+            "type": "effect",
+            "default": true,
+            "effectId": "SHBSBjdikHidgss6",
+            "label": "Fatigue (max of 2)"
+          },
+          "RaWEGBuDDHFJEsCC": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "half damage and no fatigue"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "day",
+          "value": 1
+        },
+        "ranges": {
+          "OemTNixTCjVC9DDG": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "quantity": 1,
+          "radius": 30,
+          "placeTemplate": true,
+          "scaling": {
+            "mode": "spellLevel",
+            "formula": {
+              "radius": "5"
+            }
+          }
+        },
+        "target": {
+          "type": "",
+          "quantity": 1
+        }
+      },
+      "Rdz2eEIQaF6medpx": {
+        "name": "Rasie/Lower Temperature",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>You decrease the temperature of the air around you, down from hot temperatures to comfortable temperatures, or to extreme cold. If you create extreme cold, all creatures other than you who start their turn in the area or who enter it for the first time in their turn must make a Constitution saving throw, taking 3d6 <em>cold</em> damage and 1 level of <em>fatigue</em> on a failure, or half damage and no <em>fatigue</em> on a success. A creature can only suffer 2 ranks of <em>fatigue</em> from this spell. If a creature reaches the <em>doomed</em> condition due to this fatigue, it will die of hypothermia unless treated or dealt <em>fire</em> damage.<br>As an action, you can raise or lower the temperature from comfortable to extreme cold.</p><p><strong>Cast at Higher Levels.</strong> The spell&rsquo;s area increases by 10 feet for every slot level above 5th.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "druid",
+      "elementalistWater",
+      "sorcerer",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 5,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "arcane",
+        "cold",
+        "nature",
+        "protection",
+        "weather"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/death/skull-humanoid-worn-teal.webp",
+      "origin": "Item.adqj2q2p02fxyf3x",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse"
+        }
+      },
+      "transfer": false,
+      "name": "Fatigue",
+      "_id": "SHBSBjdikHidgss6",
+      "changes": [
+        {
+          "key": "system.attributes.fatigue",
+          "mode": 2,
+          "value": "1",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "adqj2q2p02fxyf3x"
 }

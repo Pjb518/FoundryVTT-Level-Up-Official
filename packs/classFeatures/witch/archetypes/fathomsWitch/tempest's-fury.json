@@ -1,0 +1,368 @@
+{
+  "folder": null,
+  "name": "Tempest's Fury",
+  "type": "feature",
+  "img": "icons/magic/lightning/bolt-strike-explosion-blue.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "JcmX0i3rgXPkY6YH": {
+        "name": "Geyserblast",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "duHgfhSHR9I50HSx": {
+            "type": "actionUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "BjoxUr2YAEwxFICR": {
+            "type": "damage",
+            "default": true,
+            "formula": "6d6",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            },
+            "damageType": "bludgeoning",
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "zW6c7V1smCC0Cbtn": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "str",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Strength halves"
+          }
+        },
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "longRest",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "DmWmGAhrgz8RIuRm": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "line",
+          "quantity": 1,
+          "length": 60,
+          "width": 5,
+          "placeTemplate": true
+        },
+        "img": "icons/magic/water/projectile-water-rings.webp",
+        "description": "<p dir=\"ltr\">A high-pressure stream of water blasts forth from your outstretched hand. Creatures must make a Strength saving throw or take 6d6 points of bludgeoning damage, be pushed 20 feet away from you and knocked prone. A creature that succeeds takes half damage and is not pushed or knocked prone.</p><p dir=\"ltr\">In addition, the water douses any unattended flames and scours any clinging substances such as slime, oil, or contact poisons from the surface of every creature in the stream.</p><p dir=\"ltr\"><strong>Cast at Higher Levels.</strong> The damage increases by 1d6 for every spell slot level above 3rd. The push distance increases by an additional 5 feet for every two spell slot levels above 3rd.</p>",
+        "descriptionOutputs": [
+          "action"
+        ]
+      },
+      "gOlY3jl7EV7f8P6u": {
+        "name": "Scalding Steam",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "KLsrvEUOOZZgWSZE": {
+            "type": "actionUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "longRest",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 10
+        },
+        "ranges": {
+          "sFTAK9YV5mpYSlfn": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "quantity": 1,
+          "radius": 15,
+          "placeTemplate": true
+        },
+        "img": "icons/magic/air/fog-gas-smoke-dense-white.webp",
+        "description": "<p>You conjure up a cloud of searing-hot, heavily-mineralized steam. The spell&rsquo;s area is lightly obscured, and a creature that enters the area for the first time on its turn or begins its turn there takes 3d6 points of fire damage. A creature that saves takes half damage.</p><p>The steam is also highly-conductive, rendering creatures inside the spell&rsquo;s area vulnerable to lightning damage.</p>",
+        "descriptionOutputs": [
+          "action"
+        ]
+      },
+      "AE8puCIO4rm2kA2K": {
+        "name": "Scalding Steam (Ongoing Damage)",
+        "activation": {
+          "type": "none",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "FQSYMiZvqiO7P4x1": {
+            "type": "damage",
+            "default": true,
+            "formula": "3d6",
+            "canCrit": false,
+            "damageType": "fire"
+          }
+        },
+        "prompts": {
+          "U6SwX3BAkdE4MU8d": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Constitution halves"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "img": "icons/magic/air/fog-gas-smoke-dense-white.webp",
+        "descriptionOutputs": []
+      },
+      "MLVnAtwWVwcNp4Ws": {
+        "name": "Lightning Bolt",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "consumers": {
+          "uy14ryNRRaot4enA": {
+            "type": "actionUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "Vn6eTogxDEkXvFRH": {
+            "canCrit": false,
+            "damageType": "lightning",
+            "formula": "8d6",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d6"
+            }
+          }
+        },
+        "prompts": {
+          "Rq0Jb4mcSMhyNnr4": {
+            "ability": "dex",
+            "onSave": "Half damage",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        },
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "longRest",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "IdUNQZwAIgKOZG9r": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "line",
+          "length": "100",
+          "width": "5",
+          "placeTemplate": true,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "img": "icons/magic/lightning/bolt-strike-sparks-teal.webp",
+        "description": "<p>A bolt of lightning arcs out from you in a direction you choose. Each creature in the area takes 8d6 lightning damage. The lightning ignites flammable objects in its path that aren't worn or carried by another creature.</p><p>If the spell is stopped by an object at least as large as its width, it ends there unless it deals enough damage to break through. When it does, it continues to the end of its area.</p><p><strong><em>Cast at Higher Levels.</em></strong> Damage increases by 1d6 for every slot level above 3rd.</p>",
+        "descriptionOutputs": [
+          "action"
+        ]
+      },
+      "cCpFPFKtoO9c3phK": {
+        "name": "Steal Breath",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "MuHEQcOMHk1Yiz38": {
+            "type": "actionUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "BhrB8I4Nj9pWvjmY": {
+            "type": "effect",
+            "default": true,
+            "effectId": "R5DMBkBwlunrUM2H"
+          }
+        },
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "longRest",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "hour",
+          "value": 1
+        },
+        "ranges": {
+          "PTDAgbTgByeDp3Lh": {
+            "range": "medium"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1,
+          "scaling": {
+            "mode": "spellLevel",
+            "formula": "1"
+          }
+        },
+        "img": "icons/magic/air/wind-stream-blue-gray.webp",
+        "description": "<p dir=\"ltr\">As you crush the lung in the palm of your hand, your target feels as if they are drowning on dry land. The target must hold their breath or begin drowning. If they take damage they must make a concentration check to hold their breath. Creatures that do not breathe are immune to this spell.</p><p dir=\"ltr\">Creatures that die from the effects of this spell have water filling their lungs and throat.</p><p dir=\"ltr\"><strong>Cast at Higher Levels.</strong> For every level above 4th, you may choose an additional target.</p>",
+        "descriptionOutputs": [
+          "action"
+        ]
+      }
+    },
+    "description": "<p>At 14th level, you add the @UUID[Compendium.a5e.a5e-spells.Item.idachh0qpbbyne7c]{Lightning Bolt} spell to your witch spell list. You always have the @UUID[Compendium.a5e.a5e-spells.Item.3nmwxsj7cjtdaroy]{Geyserblast}, @UUID[Compendium.a5e.a5e-spells.Item.4d34soddujdw26u3]{Scalding Steam}, @UUID[Compendium.a5e.a5e-spells.Item.idachh0qpbbyne7c]{Lightning Bolt}, and @UUID[Compendium.a5e.a5e-spells.Item.n8hfh0nriroypyz0]{Steal Breath} spells prepared, they do not count against your number of witch spells prepared, and you may cast each of these once per long rest at the lowest spell level without expending a spell slot.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "extraCreditAndDeeperMysteries",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": null
+    },
+    "classes": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/air/wind-stream-blue-gray.webp",
+      "origin": "Item.Y1V3BK7Qpe6uQvzz",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "GukD18uBi6tsnnKs",
+          "duration": {
+            "unit": "hours"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Stolen Breath",
+      "_id": "R5DMBkBwlunrUM2H",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 3600,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p dir=\"ltr\">The target must hold their breath or begin drowning. If they take damage they must make a concentration check to hold their breath. Creatures that do not breathe are immune to this spell.</p><p dir=\"ltr\">Creatures that die from the effects of this spell have water filling their lungs and throat.</p>",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "pyglodn153hux2wf"
+}

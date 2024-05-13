@@ -144,6 +144,17 @@ export interface ProficiencyGrant extends BaseGrant {
   proficiencyType: string;
 }
 
+export interface RollOverrideGrant extends BaseGrant {
+  grantType: 'rollOverride';
+  keys: {
+    base: string[],
+    options: string[],
+    total: number,
+  };
+  rollMode: number;
+  rollOverrideType: string;
+}
+
 export interface SensesGrant extends BaseGrant {
   grantType: 'senses';
   senses: {

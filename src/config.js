@@ -426,6 +426,12 @@ A5E.damageColors = {
   thunder: '#e2c269'
 };
 
+A5E.defaultActorImportCompendia = {
+  inventory: 'a5e.a5e-adventuring-gear',
+  maneuvers: 'a5e.a5e-maneuvers',
+  spells: 'a5e.a5e-spells'
+};
+
 A5E.equippedStates = {
   0: 'A5E.equippedState.notCarried',
   1: 'A5E.equippedState.carried',
@@ -504,6 +510,27 @@ A5E.itemTypes = {
  */
 A5E.inventoryFilters = {
   bulk: 'Bulk'
+};
+
+A5E.knackTypes = {
+  adept: 'Practiced Technique',
+  artificer: 'Field Discovery',
+  bard: 'Adventuring Trick',
+  berserker: 'Developed Talent',
+  cleric: 'Sign of Faith',
+  druid: 'Secret of Nature',
+  elementalist: 'Elemental Adaptation',
+  fighter: 'Soldiering Knack',
+  herald: 'Divine Lesson',
+  marshal: 'Lesson of War',
+  ranger: 'Exploration Knack',
+  rogue: 'Skill Trick',
+  savant: 'Clever Scheme',
+  sorcerer: 'Arcane Innovation',
+  warlock: 'Secret of Arcana',
+  wielder: 'Artifact Whisper',
+  witch: 'Magical Mystery',
+  wizard: 'Elective Study'
 };
 
 /**

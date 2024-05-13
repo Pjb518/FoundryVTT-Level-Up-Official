@@ -1,8 +1,26 @@
+import ClassFeatureCompendiumSheet from '../apps/ClassFeatureCompendiumSheet';
 import DND5ESpellCompendiumSheet from '../apps/DND5ESpellCompendiumSheet';
 import ItemCompendiumSheet from '../apps/ItemCompendiumSheet';
 import ManeuverCompendiumSheet from '../apps/ManeuverCompendiumSheet';
 import MonsterCompendiumSheet from '../apps/MonsterCompendiumSheet';
 import SpellCompendiumSheet from '../apps/SpellCompendiumSheet';
+
+export async function createClassFeatureLikeIndex(packId: string) {
+  const pack = game.packs.get(packId);
+
+  pack.getIndex({
+    fields: [
+      'system.description',
+      'system.classes',
+      'system.concentration',
+      'system.featureType',
+      'system.prerequisite',
+      'system.source'
+    ]
+  });
+
+  pack.applicationClass = ClassFeatureCompendiumSheet;
+}
 
 export async function createManeuverLikeIndex(packId: string) {
   const pack = game.packs.get(packId);

@@ -5,6 +5,7 @@
     import FieldWrapper from "../components/FieldWrapper.svelte";
 
     export let configObject: Record<string, any> = {};
+    export let disabledProperties: string[] = [];
     export let existingProperties: string[] = [];
     export let headings: Record<string, string> = {};
     export let hint: string = "";
@@ -59,6 +60,7 @@
                 options={Object.entries(configObject[key])}
                 selected={proficiencies[key]}
                 disabled={!!max && existingProperties.length >= max}
+                disabledOptions={disabledProperties}
                 showToggleAllButton={true}
                 on:updateSelection={({ detail }) => {
                     proficiencies[key] = detail;

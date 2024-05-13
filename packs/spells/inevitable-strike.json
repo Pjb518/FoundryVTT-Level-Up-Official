@@ -1,256 +1,256 @@
 {
-	"name": "Inevitable Strike",
-	"type": "spell",
-	"img": "icons/magic/fire/dagger-rune-enchant-flame-blue.webp",
-	"system": {
-		"actions": {
-			"ENZVvfwC0wKXdFZf": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"QDuxYSsx9VMAklve": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 1,
-						"points": 2
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"dYSKCYpffSKr4jc2": {
-						"range": "self"
-					}
-				}
-			},
-			"4yX0wADCMqRNIIJF": {
-				"name": "1st-level Spell Slot",
-				"activation": {},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"TGKnd7yiDcMs2znJ": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "str",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					},
-					"ZkhBpiySgTiOPcQo": {
-						"type": "effect",
-						"default": true,
-						"effectId": "sgjkcwuQ9Q4MZsIZ"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"iPsKrMUzXwXnznrg": {
-				"name": "2nd-level or Higher Spell Slot",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"TUpAgBrZfpwKFgVB": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d4 + 1",
-						"damageType": "force",
-						"canCrit": false
-					}
-				},
-				"prompts": {
-					"TGKnd7yiDcMs2znJ": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "str",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					},
-					"ZkhBpiySgTiOPcQo": {
-						"type": "effect",
-						"default": true,
-						"effectId": "p3I0BlG8JiFBsHbI"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1,
-					"scaling": {
-						"mode": "spellLevel",
-						"formula": "1"
-					}
-				}
-			}
-		},
-		"description": "<p><em><strong>Association:</strong> Rogue class</em></p>\n<p>You pour raw magical energy into your attack, which hammers the target and spills over into the surrounding area.</p>\n<p>When you deal @UUID[Compendium.a5e.a5e-class-features.Item.4727pnvz5nwn3h23]{Sneak Attack} damage with a melee attack, you may cast this spell as part of the Sneak Attack, transforming the bonus damage from your Sneak Attack into force damage. In addition, depending on the spell slot level used to cast this spell, one of the following additional effects occur:</p>\n<p><strong>1st-level: </strong>The target must make a strength save against your spell save DC or fall prone.</p>\n<p><strong>2nd-level:</strong> The target must make a strength save against your spell save DC or fall prone, and a target within 10 feet (which may be the same target as the initial strike) takes 1d4+1 force damage.</p>\n<p><strong>3rd-level: </strong>the target must make a strength save against your spell save DC or fall prone, and two targets within 10 feet (either or both of which may be the same target as the initial strike) take 1d4+1 force damage.</p>\n<p><strong>4th-level or higher: </strong>The target must make a strength save against your spell save DC or fall prone, and three targets within 10 feet (any of which may be the same target as the initial strike) take 1d4+1 force damage.</p>\n<p>For the purposes of determining spells cast in a round, this spell counts as having a casting time of one action.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"sorcerer",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": false,
-		"level": 1,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "Sneak Attack class feature",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"arcane",
-				"attack",
-				"weaponry",
-				"force",
-				"multiclass"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/fire/dagger-rune-enchant-flame-blue.webp",
-			"origin": "Item.rk3jicckjwkwqgrw",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "4yX0wADCMqRNIIJF"
-				}
-			},
-			"transfer": false,
-			"name": "Prone",
-			"_id": "sgjkcwuQ9Q4MZsIZ",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"prone"
-			],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/fire/dagger-rune-enchant-flame-blue.webp",
-			"origin": "Item.rk3jicckjwkwqgrw",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "iPsKrMUzXwXnznrg"
-				}
-			},
-			"transfer": false,
-			"name": "Prone",
-			"_id": "p3I0BlG8JiFBsHbI",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"prone"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"folder": null,
-	"_id": "rk3jicckjwkwqgrw"
+  "name": "Inevitable Strike",
+  "type": "spell",
+  "img": "icons/magic/fire/dagger-rune-enchant-flame-blue.webp",
+  "system": {
+    "actions": {
+      "ENZVvfwC0wKXdFZf": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "QDuxYSsx9VMAklve": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 1,
+            "points": 2
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "dYSKCYpffSKr4jc2": {
+            "range": "self"
+          }
+        }
+      },
+      "4yX0wADCMqRNIIJF": {
+        "name": "1st-level Spell Slot",
+        "activation": {},
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "TGKnd7yiDcMs2znJ": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "str",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          },
+          "ZkhBpiySgTiOPcQo": {
+            "type": "effect",
+            "default": true,
+            "effectId": "sgjkcwuQ9Q4MZsIZ"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "iPsKrMUzXwXnznrg": {
+        "name": "2nd-level or Higher Spell Slot",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "TUpAgBrZfpwKFgVB": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d4 + 1",
+            "damageType": "force",
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "TGKnd7yiDcMs2znJ": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "str",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          },
+          "ZkhBpiySgTiOPcQo": {
+            "type": "effect",
+            "default": true,
+            "effectId": "p3I0BlG8JiFBsHbI"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1,
+          "scaling": {
+            "mode": "spellLevel",
+            "formula": "1"
+          }
+        }
+      }
+    },
+    "description": "<p><em><strong>Association:</strong> Rogue class</em></p><p>You pour raw magical energy into your attack, which hammers the target and spills over into the surrounding area.</p><p>When you deal @UUID[Compendium.a5e.a5e-class-features.Item.4727pnvz5nwn3h23]{Sneak Attack} damage with a melee attack, you may cast this spell as part of the Sneak Attack, transforming the bonus damage from your Sneak Attack into force damage. In addition, depending on the spell slot level used to cast this spell, one of the following additional effects occur:</p><p><strong>1st-level: </strong>The target must make a strength save against your spell save DC or fall prone.</p><p><strong>2nd-level:</strong> The target must make a strength save against your spell save DC or fall prone, and a target within 10 feet (which may be the same target as the initial strike) takes 1d4+1 force damage.</p><p><strong>3rd-level: </strong>the target must make a strength save against your spell save DC or fall prone, and two targets within 10 feet (either or both of which may be the same target as the initial strike) take 1d4+1 force damage.</p><p><strong>4th-level or higher: </strong>The target must make a strength save against your spell save DC or fall prone, and three targets within 10 feet (any of which may be the same target as the initial strike) take 1d4+1 force damage.</p><p>For the purposes of determining spells cast in a round, this spell counts as having a casting time of one action.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "sorcerer",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": false,
+    "level": 1,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "Sneak Attack class feature",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "arcane",
+        "attack",
+        "weaponry",
+        "force",
+        "multiclass"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/fire/dagger-rune-enchant-flame-blue.webp",
+      "origin": "Item.rk3jicckjwkwqgrw",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "4yX0wADCMqRNIIJF"
+        }
+      },
+      "transfer": false,
+      "name": "Prone",
+      "_id": "sgjkcwuQ9Q4MZsIZ",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"prone\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "prone"
+      ],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/fire/dagger-rune-enchant-flame-blue.webp",
+      "origin": "Item.rk3jicckjwkwqgrw",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "iPsKrMUzXwXnznrg"
+        }
+      },
+      "transfer": false,
+      "name": "Prone",
+      "_id": "p3I0BlG8JiFBsHbI",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"prone\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "prone"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "folder": null,
+  "_id": "rk3jicckjwkwqgrw"
 }

@@ -1,208 +1,208 @@
 {
-	"name": "Scourge of Lies",
-	"type": "feature",
-	"img": "icons/magic/light/light-lantern-lit-white.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"prg8Cy49Rh2OSmgr": {
-				"name": "Purifying Smite",
-				"activation": {},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"1aR4z4j6wuTVKoU4": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "cha",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					},
-					"kuaRcbFSEXY5w4T3": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Pb2XFEguN1hFXOzc"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"img": "icons/weapons/swords/sword-runed-glowing.webp"
-			},
-			"n6e7EwyxyFSUQq21": {
-				"name": "Lunar Smite",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"C9VCDCE8shQ0cqRH": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "(@prof)d6"
-					}
-				},
-				"prompts": {
-					"FLY3Rj1CV5vihtbF": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					},
-					"CO196MA46U865ko9": {
-						"type": "effect",
-						"default": true,
-						"effectId": "bMJXMohOq0G0om3O"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"img": "icons/magic/time/day-night-sun-moon.webp"
-			}
-		},
-		"description": "<p><span style=\"font-size: 10.5pt;\">It is nearly impossible to conceal something you are looking for from you, and your prowess at finding the true nature of supernatural threats is a potent reassurance to those you protect.&nbsp;</span>You gain the following benefits:</p>\n<ul>\n<li>\n<p>You no longer choose which enemy types your @UUID[Compendium.a5e.a5e-class-features.Item.01szspr1nunp0lql]{Divine Sense} detects; it automatically detects all three sets by default. If you have some other benefit that grants you more than three choices, pick three times.</p>\n</li>\n<li>\n<p>You gain the following additional @UUID[Compendium.a5e.a5e-class-features.Item.c6aiq8cd90fo3ry1]{Divine Smite} options:</p>\n</li>\n</ul>\n<ul>\n<li style=\"list-style-type: none;\">\n<ul>\n<li><strong>Purifying Smite.&nbsp;</strong>If a creature you strike with your smite is possessed by another creature or controlled by a parasite, the damage (including the weapon damage from this attack and your sneak attack, if applicable) is done directly to the controlling or possessing creature instead of to the host, which must make a Charisma save against a DC of your spell save DC or half the damage done by the attack (whichever is highest) to remain in the host. A creature that fails is immediately forced out of the host body and stunned until the end of its next turn. If the damage is enough to kill the possessing or controlling creature, it is first ejected and then dies.</li>\n<li><strong>Lunar Smite. </strong>If the creature you strike with your smite is a shapeshifter, it must make a Constitution save against a DC of your spell save DC or half the damage done by the attack (whichever is highest) or revert to its true form. If the space it currently occupies is not large enough to hold its true form, the creature takes a number of d6s of force damage equal to your proficiency bonus and is stunned until the end of its next round.</li>\n</ul>\n</li>\n</ul>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "feat",
-		"grants": {},
-		"prerequisite": "Breaker of Secrets feat",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.017,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"classes": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/weapons/swords/sword-runed-glowing.webp",
-			"origin": "Item.6cWKVzOtNFHoQcO7",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eF6db6KEp3jsEbso",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Stunned",
-			"_id": "Pb2XFEguN1hFXOzc",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"stunned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"stunned"
-			],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/time/day-night-sun-moon.webp",
-			"origin": "Item.6cWKVzOtNFHoQcO7",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "8Ba0ZaxHJdJlZzPi",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Stunned",
-			"_id": "bMJXMohOq0G0om3O",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"stunned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": 1,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"stunned"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"folder": null,
-	"_id": "xoqav6j8gyqi7km0"
+  "name": "Scourge of Lies",
+  "type": "feature",
+  "img": "icons/magic/light/light-lantern-lit-white.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "prg8Cy49Rh2OSmgr": {
+        "name": "Purifying Smite",
+        "activation": {},
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "1aR4z4j6wuTVKoU4": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "cha",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          },
+          "kuaRcbFSEXY5w4T3": {
+            "type": "effect",
+            "default": true,
+            "effectId": "Pb2XFEguN1hFXOzc"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "img": "icons/weapons/swords/sword-runed-glowing.webp"
+      },
+      "n6e7EwyxyFSUQq21": {
+        "name": "Lunar Smite",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "C9VCDCE8shQ0cqRH": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "(@prof)d6"
+          }
+        },
+        "prompts": {
+          "FLY3Rj1CV5vihtbF": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          },
+          "CO196MA46U865ko9": {
+            "type": "effect",
+            "default": true,
+            "effectId": "bMJXMohOq0G0om3O"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "img": "icons/magic/time/day-night-sun-moon.webp"
+      }
+    },
+    "description": "<p>It is nearly impossible to conceal something you are looking for from you, and your prowess at finding the true nature of supernatural threats is a potent reassurance to those you protect.&nbsp;You gain the following benefits:</p><ul><li><p>You no longer choose which enemy types your @UUID[Compendium.a5e.a5e-class-features.Item.01szspr1nunp0lql]{Divine Sense} detects; it automatically detects all three sets by default. If you have some other benefit that grants you more than three choices, pick three times.</p></li><li><p>You gain the following additional @UUID[Compendium.a5e.a5e-class-features.Item.c6aiq8cd90fo3ry1]{Divine Smite} options:</p></li></ul><ul><li style=\"list-style-type: none;\"><ul><li><strong>Purifying Smite.&nbsp;</strong>If a creature you strike with your smite is possessed by another creature or controlled by a parasite, the damage (including the weapon damage from this attack and your sneak attack, if applicable) is done directly to the controlling or possessing creature instead of to the host, which must make a Charisma save against a DC of your spell save DC or half the damage done by the attack (whichever is highest) to remain in the host. A creature that fails is immediately forced out of the host body and stunned until the end of its next turn. If the damage is enough to kill the possessing or controlling creature, it is first ejected and then dies.</li><li><strong>Lunar Smite. </strong>If the creature you strike with your smite is a shapeshifter, it must make a Constitution save against a DC of your spell save DC or half the damage done by the attack (whichever is highest) or revert to its true form. If the space it currently occupies is not large enough to hold its true form, the creature takes a number of d6s of force damage equal to your proficiency bonus and is stunned until the end of its next round.</li></ul></li></ul>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "feat",
+    "grants": {},
+    "prerequisite": "Breaker of Secrets feat",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.017,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "classes": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/weapons/swords/sword-runed-glowing.webp",
+      "origin": "Item.6cWKVzOtNFHoQcO7",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "eF6db6KEp3jsEbso",
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Stunned",
+      "_id": "Pb2XFEguN1hFXOzc",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"stunned\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": 1,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "stunned"
+      ],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/time/day-night-sun-moon.webp",
+      "origin": "Item.6cWKVzOtNFHoQcO7",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "8Ba0ZaxHJdJlZzPi",
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Stunned",
+      "_id": "bMJXMohOq0G0om3O",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"stunned\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": 1,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "stunned"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "folder": null,
+  "_id": "xoqav6j8gyqi7km0"
 }

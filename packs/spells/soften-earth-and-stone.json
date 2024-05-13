@@ -1,307 +1,307 @@
 {
-	"folder": null,
-	"name": "Soften Earth and Stone",
-	"type": "spell",
-	"img": "icons/environment/wilderness/terrain-rocky-ground.webp",
-	"system": {
-		"actions": {
-			"1oH37bqlGFRSKBRG": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"mSofWWHGvi7CYkhq": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 2,
-						"points": 3
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"ranges": {
-					"SoHurAXJsuY8TOEb": {
-						"range": "short"
-					}
-				},
-				"area": {
-					"shape": "square",
-					"quantity": 1,
-					"width": 10,
-					"placeTemplate": true,
-					"scaling": {
-						"mode": "spellLevel",
-						"formula": {
-							"width": "0",
-							"quantity": "1"
-						}
-					}
-				}
-			},
-			"89t7oSjVPfOQxLj3": {
-				"name": "Soil into Mud",
-				"activation": {},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"AWRfl2LV48exaL7Q": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "str",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					},
-					"YqlYYWzlB5LsWHJ8": {
-						"type": "effect",
-						"default": true,
-						"effectId": "E0ITLiA8nGySp1lz"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"edJBm7n0j1jZZPt3": {
-				"name": "Cave-In",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"vByxbnZFwMyFnWMb": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "2d8",
-						"damageType": "bludgeoning"
-					}
-				},
-				"prompts": {
-					"71xZagNBJItypL1y": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Half damage, not restrained"
-					},
-					"7hZnBLnchCI5sPrx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "KryCLWO8ZICLlrxu"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"KaLKJcx1J6kafowN": {
-				"name": "Structural Damage",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"IpRI9Rxn9q2t9KzT": {
-						"type": "damage",
-						"default": false,
-						"label": "10-foot Section",
-						"formula": "4d6",
-						"damageType": "bludgeoning",
-						"canCrit": false
-					},
-					"OVsHLDpfENF6RiVM": {
-						"type": "damage",
-						"default": false,
-						"label": "20-foot Section",
-						"formula": "8d6",
-						"damageType": "bludgeoning",
-						"canCrit": false
-					},
-					"GMTU4qpPJu8sPnOx": {
-						"type": "damage",
-						"default": false,
-						"label": "30-foot Section",
-						"formula": "12d6",
-						"damageType": "bludgeoning",
-						"canCrit": false
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>Upon casting the spell, all natural, unworked earth or stone in the area is softened. Soil becomes mud, dry earth becomes loose sand, and stone becomes soft clay. A 10-ft<sup>2</sup> area is softened to a depth of 1 to 4 feet of your choosing. Each material has the following effects:</p>\n<p><strong>Mud</strong>: Creatures in the space when you cast the spell, or creatures who enter the space, must make a Strength saving throw or be restrained for 1 round. The mud is considered difficult terrain.</p>\n<p><strong>Sand</strong>: Sand is considered difficult terrain.</p>\n<p><strong>Clay</strong>: Clay is not difficult terrain, but it can be cut and worked more easily than stone, and is a useful material in its own right.</p>\n<p>Casting this spell as mud or sand upon cave ceilings or walls can cause cave ins. Any creature in the area the material falls must make a Dexterity save or take 2d8 bludgeoning damage and become restrained. Creatures that make their save take half damage and are not restrained. Restrained creatures can free themselves as an action. The material leaves behind hindering terrain, as above.</p>\n<p>Casting this spell under structures can cause the structure to settle, damaging the structure but not destroying it unless the entire structure is damaged in such a way. A structure takes 4d6 bludgeoning damage for each 10 foot section affected.</p>\n<p><strong>Cast at Higher Levels.</strong> Add an additional 10 foot square for every slot level above 2nd. Each square must be contiguous, touching at least one other square.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"druid",
-			"elementalistEarth"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 2,
-		"materials": "a piece of clay",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "transmutation",
-			"secondary": [
-				"earth",
-				"nature",
-				"terrain"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/environment/wilderness/terrain-rocky-ground.webp",
-			"origin": "Item.ywon9rejcclo6t4c",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "89t7oSjVPfOQxLj3",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Restrained",
-			"_id": "E0ITLiA8nGySp1lz",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"restrained\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": 1,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"restrained"
-			],
-			"folder": null
-		},
-		{
-			"icon": "icons/environment/wilderness/terrain-rocky-ground.webp",
-			"origin": "Item.ywon9rejcclo6t4c",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "edJBm7n0j1jZZPt3"
-				}
-			},
-			"transfer": false,
-			"name": "Restrained",
-			"_id": "KryCLWO8ZICLlrxu",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"restrained\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"restrained"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "ywon9rejcclo6t4c"
+  "folder": null,
+  "name": "Soften Earth and Stone",
+  "type": "spell",
+  "img": "icons/environment/wilderness/terrain-rocky-ground.webp",
+  "system": {
+    "actions": {
+      "1oH37bqlGFRSKBRG": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "mSofWWHGvi7CYkhq": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 2,
+            "points": 3
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "SoHurAXJsuY8TOEb": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "square",
+          "quantity": 1,
+          "width": 10,
+          "placeTemplate": true,
+          "scaling": {
+            "mode": "spellLevel",
+            "formula": {
+              "width": "0",
+              "quantity": "1"
+            }
+          }
+        }
+      },
+      "89t7oSjVPfOQxLj3": {
+        "name": "Soil into Mud",
+        "activation": {},
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "AWRfl2LV48exaL7Q": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "str",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          },
+          "YqlYYWzlB5LsWHJ8": {
+            "type": "effect",
+            "default": true,
+            "effectId": "E0ITLiA8nGySp1lz"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "edJBm7n0j1jZZPt3": {
+        "name": "Cave-In",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "vByxbnZFwMyFnWMb": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "2d8",
+            "damageType": "bludgeoning"
+          }
+        },
+        "prompts": {
+          "71xZagNBJItypL1y": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Half damage, not restrained"
+          },
+          "7hZnBLnchCI5sPrx": {
+            "type": "effect",
+            "default": true,
+            "effectId": "KryCLWO8ZICLlrxu"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "KaLKJcx1J6kafowN": {
+        "name": "Structural Damage",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "IpRI9Rxn9q2t9KzT": {
+            "type": "damage",
+            "default": false,
+            "label": "10-foot Section",
+            "formula": "4d6",
+            "damageType": "bludgeoning",
+            "canCrit": false
+          },
+          "OVsHLDpfENF6RiVM": {
+            "type": "damage",
+            "default": false,
+            "label": "20-foot Section",
+            "formula": "8d6",
+            "damageType": "bludgeoning",
+            "canCrit": false
+          },
+          "GMTU4qpPJu8sPnOx": {
+            "type": "damage",
+            "default": false,
+            "label": "30-foot Section",
+            "formula": "12d6",
+            "damageType": "bludgeoning",
+            "canCrit": false
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>Upon casting the spell, all natural, unworked earth or stone in the area is softened. Soil becomes mud, dry earth becomes loose sand, and stone becomes soft clay. A 10-ft<sup>2</sup> area is softened to a depth of 1 to 4 feet of your choosing. Each material has the following effects:</p><p><strong>Mud</strong>: Creatures in the space when you cast the spell, or creatures who enter the space, must make a Strength saving throw or be restrained for 1 round. The mud is considered difficult terrain.</p><p><strong>Sand</strong>: Sand is considered difficult terrain.</p><p><strong>Clay</strong>: Clay is not difficult terrain, but it can be cut and worked more easily than stone, and is a useful material in its own right.</p><p>Casting this spell as mud or sand upon cave ceilings or walls can cause cave ins. Any creature in the area the material falls must make a Dexterity save or take 2d8 bludgeoning damage and become restrained. Creatures that make their save take half damage and are not restrained. Restrained creatures can free themselves as an action. The material leaves behind hindering terrain, as above.</p><p>Casting this spell under structures can cause the structure to settle, damaging the structure but not destroying it unless the entire structure is damaged in such a way. A structure takes 4d6 bludgeoning damage for each 10 foot section affected.</p><p><strong>Cast at Higher Levels.</strong> Add an additional 10 foot square for every slot level above 2nd. Each square must be contiguous, touching at least one other square.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "druid",
+      "elementalistEarth"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 2,
+    "materials": "a piece of clay",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "transmutation",
+      "secondary": [
+        "earth",
+        "nature",
+        "terrain"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/environment/wilderness/terrain-rocky-ground.webp",
+      "origin": "Item.ywon9rejcclo6t4c",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "89t7oSjVPfOQxLj3",
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Restrained",
+      "_id": "E0ITLiA8nGySp1lz",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"restrained\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": 1,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "restrained"
+      ],
+      "folder": null
+    },
+    {
+      "icon": "icons/environment/wilderness/terrain-rocky-ground.webp",
+      "origin": "Item.ywon9rejcclo6t4c",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "edJBm7n0j1jZZPt3"
+        }
+      },
+      "transfer": false,
+      "name": "Restrained",
+      "_id": "KryCLWO8ZICLlrxu",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"restrained\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "restrained"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "ywon9rejcclo6t4c"
 }

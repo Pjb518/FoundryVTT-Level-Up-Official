@@ -37,7 +37,7 @@
 
     // TODO: Get default from world settings
     let leveledHpType = "average";
-    let rollFormula = "1d8";
+    let rollFormula = getHpRollFormula();
     let customHp = cls.system?.hp?.levels?.[classLevel] ?? 0;
 
     if (leveledHpType === "average") {

@@ -49,6 +49,16 @@ export interface ProficiencyGrant extends ActorBaseGrant {
   grantType: 'proficiency';
 }
 
+export interface RollOverrideGrant extends ActorBaseGrant {
+  rollOverrideData: {
+    keys: string[],
+    total: number,
+    rollOverrideType: string,
+    rollMode: number,
+  };
+  grantType: 'rollOverride';
+}
+
 export interface SkillSpecialtyGrant extends ActorBaseGrant {
   specialtyData: {
     specialties: string[],
@@ -74,5 +84,6 @@ export type ActorGrant = ActorBaseGrant
   | ExpertiseDiceGrant
   | ItemGrant
   | ProficiencyGrant
+  | RollOverrideGrant
   | SkillSpecialtyGrant
   | TraitGrant;

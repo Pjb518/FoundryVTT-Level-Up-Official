@@ -1,8 +1,6 @@
 <script>
     import { getContext, onDestroy } from "svelte";
 
-    import ItemCompendiumSheet from "../../ItemCompendiumSheet";
-
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import Filter from "../actorUtilityBar/Filter.svelte";
     import ActorInventoryShields from "../ActorInventoryShields.svelte";
@@ -17,19 +15,6 @@
     import usesRequired from "../../../utils/usesRequired";
     import quantityRequired from "../../../utils/quantityRequired";
 
-    function openCompendium() {
-        const pack = new ItemCompendiumSheet(
-            { collection: game.packs.get("a5e.a5e-adventuring-gear") },
-            {
-                importer: (docs) => {
-                    $actor.createEmbeddedDocuments("Item", docs);
-                },
-            },
-        );
-
-        pack.render(true);
-    }
-
     const actor = getContext("actor");
     const { objects } = actor;
     const { A5E } = CONFIG;
@@ -37,6 +22,8 @@
     const sortMap = A5E.reducerSortMap.objects;
     const subTypes = A5E.objectTypes;
     const reducerType = "objects";
+
+    const openCompendium = game.a5e.utils.openCompendium;
 
     let showDescription = false;
     let showUses = usesRequired(objects);
@@ -69,7 +56,7 @@
 
         <button
             class="a5e-import-from-compendium-button fa-solid fa-download"
-            on:click={openCompendium}
+            on:click={() => openCompendium($actor, "inventory")}
             data-tooltip="Import Items from Compendium"
             data-tooltip-direction="UP"
         ></button>

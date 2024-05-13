@@ -154,8 +154,9 @@ export default class ItemSheet extends SvelteApplication {
     if (!effects.length) return;
 
     let newEffects = effects.map((e: any) => {
-      e.flags.a5e.actionId = newActionId;
-      return e;
+      const newEffect = e.toObject();
+      newEffect.flags.a5e.actionId = newActionId;
+      return newEffect;
     });
 
     newEffects = await this.item.createEmbeddedDocuments('ActiveEffect', newEffects);

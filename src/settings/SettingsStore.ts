@@ -96,6 +96,18 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: 'hideActorCompendiumSelectionDialog',
+        options: {
+          name: 'A5E.settings.hideActorCompendiumSelectionDialog',
+          hint: 'A5E.settings.hints.hideActorCompendiumSelectionDialog',
+          scope: scope.client,
+          config: true,
+          type: Boolean,
+          default: false
+        }
+      },
+      {
+        namespace,
         key: 'itemRightClickConfigure',
         options: {
           name: 'A5E.settings.itemRightClickConfigure',

@@ -1,7 +1,7 @@
 <script lang="ts">
     import type FeatureGrant from "../../../dataModels/item/Grants/FeatureGrant";
 
-    import { createEventDispatcher } from "svelte";
+    import { getContext, createEventDispatcher } from "svelte";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
@@ -35,12 +35,36 @@
         dispatch("updateSelection", { uuids: selected, summary });
     }
 
+    function getExistingSelections() {
+        const selections: string[] = [];
+        actor.grants.byType("feature").forEach((grant) => {
+            selections.push(...grant.documentIds);
+        });
+
+        return new Set(selections);
+    }
+
+    function getDisabledOptions() {
+        const disabled: string[] = [];
+        for (const [value] of allOptions) {
+            const strippedId = value.split(".").pop();
+            const alreadyTaken = existingSelections.has(strippedId);
+            if (alreadyTaken) {
+                disabled.push(value);
+            }
+        }
+
+        return disabled;
+    }
+
     function getOptions(choicesLocked: boolean): string[][] {
         if (!choicesLocked) return allOptions;
 
         const options: string[][] = [];
         for (const [value, label] of allOptions) {
-            if (choices.includes(value)) {
+            const strippedId = value.split(".").pop();
+            const alreadyTaken = existingSelections.has(strippedId);
+            if (choices.includes(value) && !alreadyTaken) {
                 options.push([value, label]);
             }
         }
@@ -49,7 +73,10 @@
     }
 
     const dispatch = createEventDispatcher();
+    const actor: typeof Actor = getContext("actor");
     let choicesLocked = true;
+    let existingSelections = getExistingSelections();
+    let disabledOptions = getDisabledOptions();
 
     $: selected = [...base];
     $: totalCount = base.length + count;
@@ -84,6 +111,7 @@
             options={getOptions(choicesLocked)}
             {selected}
             orange={choices}
+            {disabledOptions}
             disabled={selected.length >= totalCount}
             on:updateSelection={onUpdateSelection}
         />

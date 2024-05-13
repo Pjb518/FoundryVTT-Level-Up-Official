@@ -12,6 +12,7 @@ export default function registerGrantsConfig(A5E) {
     initiative: 'A5E.grants.headings.initiative',
     movement: 'A5E.grants.headings.movement',
     proficiency: 'A5E.grants.headings.proficiency',
+    rollOverride: 'A5E.grants.headings.rollOverride',
     senses: 'A5E.grants.headings.senses',
     skill: 'A5E.grants.headings.skill',
     skillSpecialty: 'A5E.grants.headings.skillSpecialty',

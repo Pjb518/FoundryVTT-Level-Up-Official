@@ -106,6 +106,7 @@
                         heading="Base Options"
                         configObject={configObject[proficiencyType]?.config}
                         existingProperties={grant?.keys?.base}
+                        disabledProperties={grant?.keys?.options}
                         headings={proficiencyType === "tool"
                             ? toolCategories
                             : weaponCategories}
@@ -118,12 +119,13 @@
                 <Section heading="Optional Choices">
                     <ComplexDetailEmbed
                         configObject={configObject[proficiencyType]?.config}
-                        existingProperties={grant?.keys?.base}
+                        existingProperties={grant?.keys?.options}
+                        disabledProperties={grant?.keys?.base}
                         headings={proficiencyType === "tool"
                             ? toolCategories
                             : weaponCategories}
                         on:updateSelection={({ detail }) => {
-                            onUpdateValue("keys.base", detail);
+                            onUpdateValue("keys.options", detail);
                         }}
                     />
                 </Section>

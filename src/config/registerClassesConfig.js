@@ -51,10 +51,10 @@ export default function registerClassesConfig(A5E) {
     none: 'A5E.None',
     fullCaster: 'A5E.classes.casterTypes.fullCaster',
     halfCaster: 'A5E.classes.casterTypes.halfCaster',
+    halfCasterWithFirstLevel: 'A5E.classes.casterTypes.halfCasterWithFirstLevel',
     tertiaryCaster: 'A5E.classes.casterTypes.tertiaryCaster',
     quaternaryCaster: 'A5E.classes.casterTypes.quaternaryCaster',
     artificerA5e: 'A5E.classes.casterTypes.artificerA5e',
-    artificer5e: 'A5E.classes.casterTypes.artificer5e',
     elementalist: 'A5E.classes.casterTypes.elementalist',
     warlockA5e: 'A5E.classes.casterTypes.warlockA5e',
     warlock5e: 'A5E.classes.casterTypes.warlock5e',
@@ -234,7 +234,7 @@ export default function registerClassesConfig(A5E) {
       resource: 'slots',
       multiplier: 0.25
     },
-    artificer5e: {
+    halfCasterWithFirstLevel: {
       type: 'multiplier',
       config: A5E.SPELL_SLOT_TABLE,
       resource: 'slots',

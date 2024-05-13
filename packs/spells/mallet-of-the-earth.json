@@ -1,253 +1,253 @@
 {
-	"name": "Mallet of the Earth",
-	"type": "spell",
-	"img": "icons/magic/earth/projectile-boulder-dust.webp",
-	"system": {
-		"actions": {
-			"VMTJp3UbSe4QNqFw": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"JeLW4nAIPZuRVrOh": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 4,
-						"points": 6
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"img": "icons/magic/earth/projectile-boulder-dust.webp",
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"uFsvJCc4YanWn4Pq": {
-						"range": "self"
-					}
-				}
-			},
-			"Wv5Njzo6FJYhGSd3": {
-				"name": "Strike",
-				"activation": {
-					"type": "",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"HijaEiBbJoUQBQao": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "str"
-					},
-					"Bw5UYeqBaDvfSmCC": {
-						"type": "damage",
-						"default": false,
-						"formula": "4d6 + @str.mod",
-						"label": "Standard Attack",
-						"damageType": "bludgeoning"
-					},
-					"Dbtg8JxKa1bASTPQ": {
-						"type": "damage",
-						"default": false,
-						"label": "Knockdown Attack",
-						"formula": "3d6 + @str.mod",
-						"damageType": "bludgeoning"
-					}
-				},
-				"prompts": {
-					"XVmcMwz3qlmztodv": {
-						"type": "savingThrow",
-						"default": false,
-						"ability": "str",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"label": "Knockdown Save",
-						"onSave": "Strength Negates"
-					},
-					"FwiHU54KM8sFWtpd": {
-						"type": "effect",
-						"default": true,
-						"effectId": "GZNlVLvo547ehZH2"
-					},
-					"P4QN61eBJ3yF6tyT": {
-						"type": "effect",
-						"default": true,
-						"effectId": "JxC1noW9oTAYRuS5"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "",
-					"value": 1
-				},
-				"ranges": {
-					"JJj2nKfVGWQr5cRa": {
-						"range": "fiveFeet"
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				},
-				"img": "icons/magic/earth/barrier-stone-explosion-debris.webp"
-			}
-		},
-		"description": "<p dir=\"ltr\">You summon up a massive maul made of packed earth and stone. You are proficient with this weapon. It deals 4d6 magical bludgeoning damage and has the heavy and two-handed properties.</p>\n<p dir=\"ltr\">When attacking with the weapon, you may choose to have it deal 3d6 damage instead of 4d6. If you do so, when you hit a creature that is your size or smaller, it makes a Strength saving throw or is knocked prone.</p>\n<p dir=\"ltr\">Finally, when you make an attack against a prone creature that is your size or smaller, you may choose to end concentration on the spell as part of the attack. After dealing its damage, the maul discorporates into a heavy pile of loose earth that buries the creature alive. A creature so buried is blinded, grappled, and restrained until it uses an action to make a Strength saving throw to free itself. On a failure, it begins suffocating, but may continue to attempt to escape, freeing itself on a success.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"druid",
-			"sorcerer",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 4,
-		"materials": "A handful of dirt and stones",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"earth",
-				"nature",
-				"weaponry"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/earth/projectile-boulder-dust.webp",
-			"origin": "Item.ex61y8p8rm6ntine",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Wv5Njzo6FJYhGSd3"
-				}
-			},
-			"transfer": false,
-			"name": "Prone",
-			"_id": "GZNlVLvo547ehZH2",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"prone"
-			],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/earth/projectile-boulder-dust.webp",
-			"origin": "Item.ex61y8p8rm6ntine",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Wv5Njzo6FJYhGSd3"
-				}
-			},
-			"transfer": false,
-			"name": "Buried",
-			"_id": "JxC1noW9oTAYRuS5",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"blinded\",\"grappled\",\"restrained\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"blinded",
-				"grappled",
-				"restrained"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"folder": null,
-	"_id": "ex61y8p8rm6ntine"
+  "name": "Mallet of the Earth",
+  "type": "spell",
+  "img": "icons/magic/earth/projectile-boulder-dust.webp",
+  "system": {
+    "actions": {
+      "VMTJp3UbSe4QNqFw": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "JeLW4nAIPZuRVrOh": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 4,
+            "points": 6
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "img": "icons/magic/earth/projectile-boulder-dust.webp",
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "uFsvJCc4YanWn4Pq": {
+            "range": "self"
+          }
+        }
+      },
+      "Wv5Njzo6FJYhGSd3": {
+        "name": "Strike",
+        "activation": {
+          "type": "",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "HijaEiBbJoUQBQao": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "str"
+          },
+          "Bw5UYeqBaDvfSmCC": {
+            "type": "damage",
+            "default": false,
+            "formula": "4d6 + @str.mod",
+            "label": "Standard Attack",
+            "damageType": "bludgeoning"
+          },
+          "Dbtg8JxKa1bASTPQ": {
+            "type": "damage",
+            "default": false,
+            "label": "Knockdown Attack",
+            "formula": "3d6 + @str.mod",
+            "damageType": "bludgeoning"
+          }
+        },
+        "prompts": {
+          "XVmcMwz3qlmztodv": {
+            "type": "savingThrow",
+            "default": false,
+            "ability": "str",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "label": "Knockdown Save",
+            "onSave": "Strength Negates"
+          },
+          "FwiHU54KM8sFWtpd": {
+            "type": "effect",
+            "default": true,
+            "effectId": "GZNlVLvo547ehZH2"
+          },
+          "P4QN61eBJ3yF6tyT": {
+            "type": "effect",
+            "default": true,
+            "effectId": "JxC1noW9oTAYRuS5"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "",
+          "value": 1
+        },
+        "ranges": {
+          "JJj2nKfVGWQr5cRa": {
+            "range": "fiveFeet"
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        },
+        "img": "icons/magic/earth/barrier-stone-explosion-debris.webp"
+      }
+    },
+    "description": "<p dir=\"ltr\">You summon up a massive maul made of packed earth and stone. You are proficient with this weapon. It deals 4d6 magical bludgeoning damage and has the heavy and two-handed properties.</p><p dir=\"ltr\">When attacking with the weapon, you may choose to have it deal 3d6 damage instead of 4d6. If you do so, when you hit a creature that is your size or smaller, it makes a Strength saving throw or is knocked prone.</p><p dir=\"ltr\">Finally, when you make an attack against a prone creature that is your size or smaller, you may choose to end concentration on the spell as part of the attack. After dealing its damage, the maul discorporates into a heavy pile of loose earth that buries the creature alive. A creature so buried is blinded, grappled, and restrained until it uses an action to make a Strength saving throw to free itself. On a failure, it begins suffocating, but may continue to attempt to escape, freeing itself on a success.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "druid",
+      "sorcerer",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 4,
+    "materials": "A handful of dirt and stones",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "earth",
+        "nature",
+        "weaponry"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/earth/projectile-boulder-dust.webp",
+      "origin": "Item.ex61y8p8rm6ntine",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "Wv5Njzo6FJYhGSd3"
+        }
+      },
+      "transfer": false,
+      "name": "Prone",
+      "_id": "GZNlVLvo547ehZH2",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"prone\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "prone"
+      ],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/earth/projectile-boulder-dust.webp",
+      "origin": "Item.ex61y8p8rm6ntine",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "Wv5Njzo6FJYhGSd3"
+        }
+      },
+      "transfer": false,
+      "name": "Buried",
+      "_id": "JxC1noW9oTAYRuS5",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"blinded\",\"grappled\",\"restrained\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "blinded",
+        "grappled",
+        "restrained"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "folder": null,
+  "_id": "ex61y8p8rm6ntine"
 }

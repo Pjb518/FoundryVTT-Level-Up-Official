@@ -1,7 +1,7 @@
 {
 	"name": "Wilderness Lore (Waste Not)",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/commodities/biological/shell-tan.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,30 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 12th level, your knowledge of wilderness lore deepens. Choose one of the following options:</p><h3><strong>WASTE NOT</strong></h3><p>With 10 minutes work you can scavenge valuable cuts from the corpse of a beast, dragon, monstrosity, or plant that has a CR of 1 or higher and has died within the last hour. If sold to a collector, druid, or other naturalist, this notable component is worth an amount of gold equal to 5 × the creature’s CR.</p>",
+		"actions": {
+			"vteAaMdvxlxZi8Ss": {
+				"name": "Use Feature",
+				"activation": {
+					"type": "minute",
+					"cost": 10
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>With 10 minutes work you can scavenge valuable cuts from the corpse of a beast, dragon, monstrosity, or plant that has a CR of 1 or higher and has died within the last hour. If sold to a collector, druid, or other naturalist, this notable component is worth an amount of gold equal to 5 &times; the creature&rsquo;s CR.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -43,7 +65,8 @@
 					"system": "0.17.41"
 				}
 			}
-		}
+		},
+		"classes": "ranger"
 	},
 	"folder": null,
 	"_id": "mupfm0gkfditf5fc"

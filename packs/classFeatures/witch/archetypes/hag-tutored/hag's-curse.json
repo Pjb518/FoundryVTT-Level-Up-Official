@@ -1,0 +1,240 @@
+{
+  "folder": null,
+  "name": "Hag's Curse",
+  "type": "feature",
+  "img": "icons/magic/unholy/strike-body-life-soul-green.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "WIz1dXMERPsfNf4c": {
+        "name": "Bestow Curse",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "consumers": {
+          "dkIMLTOZ1cU7KjeF": {
+            "type": "actionUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "TMF7oR2EHe2nnSU0": {
+            "ability": "wis",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        },
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "longRest",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "7kCGpenqBfTBkHf5": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "img": "icons/magic/unholy/hand-claw-fire-blue.webp",
+        "descriptionOutputs": [
+          "action"
+        ],
+        "description": "<p>Choose one of the following:</p><ul><li>Select one ability score; the target has disadvantage on ability checks and saving throws using that ability score.</li><li>The target makes attack rolls against you with disadvantage.</li><li>Each turn, the target loses its action unless it succeeds a Wisdom saving throw at the start of its turn.</li><li>Your attacks and spells deal an additional 1d8 necrotic damage against the target.</li></ul><p>A curse lasts until the spell ends. At the Narrator's discretion you may create a different curse effect with this spell so long as it is weaker than the options above.</p><p>A <em>remove curse</em> spell ends the effect if the spell slot used to cast it is equal to or greater than the spell slot used to cast <em>bestow curse</em>.</p>"
+      },
+      "hujuERnWYJStJCnP": {
+        "name": "Bane",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "consumers": {
+          "we8a6hRUNedFHZuz": {
+            "type": "actionUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "mxfWYaTGE4nutxoN": {
+            "ability": "cha",
+            "onSave": "Negates effect",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          },
+          "ECjFqWzEWvzmljfy": {
+            "type": "effect",
+            "default": true,
+            "effectId": "eHTLQNHUlM6OICID"
+          }
+        },
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "longRest",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "34d8aJcqBpRTYFSo": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": 3,
+          "type": "creature",
+          "scaling": {
+            "mode": "spellLevel",
+            "formula": "1"
+          }
+        },
+        "img": "icons/magic/unholy/hand-light-green.webp",
+        "descriptionOutputs": [
+          "action"
+        ],
+        "description": "<p>The senses of the targets are filled with phantom energies that make them more vulnerable and less capable. Until the spell ends, a d4 is subtracted from attack rolls and saving throws made by a target.</p>"
+      }
+    },
+    "description": "<p>You learn the @UUID[Compendium.a5e.a5e-spells.Item.dyd1hicnmkrj6vf8]{Enduring Bestow Curse} rare spell if you do not already know it. &nbsp;You always have @UUID[Compendium.a5e.a5e-spells.Item.339zx6f5jk81fobw]{Bestow Curse} and @UUID[Compendium.a5e.a5e-spells.Item.o94b50tj959v55mm]{Bane} prepared, they do not count against your number of witch spells prepared, and you may cast each of them at their lowest spell level once per long rest without expending a spell slot.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "extraCreditAndDeeperMysteries",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": null
+    },
+    "classes": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/unholy/hand-light-green.webp",
+      "origin": "Item.JFjbEfDLKodBOFV8",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "eYoBeDy7qYbkXOil"
+        }
+      },
+      "transfer": false,
+      "name": "Bane",
+      "_id": "eHTLQNHUlM6OICID",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.bonuses.abilities",
+          "mode": 0,
+          "value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"-1d4\",\"label\":\"Ability Bonus\",\"default\":true}",
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.meleeSpellAttack",
+          "mode": 2,
+          "value": "-1d4",
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.meleeWeaponAttack",
+          "mode": 2,
+          "value": "-1d4",
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.rangedSpellAttack",
+          "mode": 2,
+          "value": "-1d4",
+          "priority": null
+        },
+        {
+          "key": "system.bonuses.rangedWeaponAttack",
+          "mode": 2,
+          "value": "-1d4",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "tint": "#ffffff",
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "dbb8qguj58zu4nc8"
+}

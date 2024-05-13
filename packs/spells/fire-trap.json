@@ -1,133 +1,133 @@
 {
-	"folder": null,
-	"name": "Fire Trap",
-	"type": "spell",
-	"img": "icons/magic/fire/explosion-embers-evade-silhouette.webp",
-	"system": {
-		"actions": {
-			"ff2L6WBGnLxITJoY": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "minute",
-					"cost": 10
-				},
-				"consumers": {
-					"cEZQMDMqOXzV76VV": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 4,
-						"points": 6
-					}
-				},
-				"rolls": {
-					"RXXpsJiCe7hDhxKZ": {
-						"type": "damage",
-						"default": true,
-						"scaling": {
-							"mode": "spellLevel",
-							"formula": "1d10"
-						},
-						"formula": "4d10",
-						"damageType": "fire",
-						"label": "Trap Activation"
-					}
-				},
-				"prompts": {
-					"rCDHMnw33VkUfBGG": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"label": "Trap Activation",
-						"onSave": "half damage"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "permanent"
-				},
-				"ranges": {
-					"mmOUUWMS3I9mnT9L": {
-						"range": "touch"
-					}
-				},
-				"target": {
-					"type": "object",
-					"quantity": 1
-				},
-				"area": {
-					"shape": "sphere",
-					"quantity": 1,
-					"radius": 5,
-					"placeTemplate": true
-				}
-			}
-		},
-		"description": "<p>When the object is opened by someone other than you, a fiery 5-foot-radius explosion fills the area around the object, dealing 4d10 fire damage. When you cast this spell, choose a point on the object for the explosion to originate from. You can choose to set a password to bypass the trap, and you can choose whether or not the object and contents of the object take the damage as well.</p>\n<p>Detecting the trap and disabling the trap rolls checks against your spell DC.</p>\n<p><strong>Cast at Higher Levels.</strong> Increase the fire damage dealt by 1d10 for every slot level above 4th.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"druid",
-			"elementalistFire",
-			"sorcerer",
-			"witch",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": false,
-		"level": 4,
-		"materials": "tinder and oil",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "abjuration",
-			"secondary": [
-				"arcane",
-				"fire",
-				"nature"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "k4sgnfemy8lloi3k"
+  "folder": null,
+  "name": "Fire Trap",
+  "type": "spell",
+  "img": "icons/magic/fire/explosion-embers-evade-silhouette.webp",
+  "system": {
+    "actions": {
+      "ff2L6WBGnLxITJoY": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "minute",
+          "cost": 10
+        },
+        "consumers": {
+          "cEZQMDMqOXzV76VV": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 4,
+            "points": 6
+          }
+        },
+        "rolls": {
+          "RXXpsJiCe7hDhxKZ": {
+            "type": "damage",
+            "default": true,
+            "scaling": {
+              "mode": "spellLevel",
+              "formula": "1d10"
+            },
+            "formula": "4d10",
+            "damageType": "fire",
+            "label": "Trap Activation"
+          }
+        },
+        "prompts": {
+          "rCDHMnw33VkUfBGG": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "dex",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "label": "Trap Activation",
+            "onSave": "half damage"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "permanent"
+        },
+        "ranges": {
+          "mmOUUWMS3I9mnT9L": {
+            "range": "touch"
+          }
+        },
+        "target": {
+          "type": "object",
+          "quantity": 1
+        },
+        "area": {
+          "shape": "sphere",
+          "quantity": 1,
+          "radius": 5,
+          "placeTemplate": true
+        }
+      }
+    },
+    "description": "<p>When the object is opened by someone other than you, a fiery 5-foot-radius explosion fills the area around the object, dealing 4d10 fire damage. When you cast this spell, choose a point on the object for the explosion to originate from. You can choose to set a password to bypass the trap, and you can choose whether or not the object and contents of the object take the damage as well.</p><p>Detecting the trap and disabling the trap rolls checks against your spell DC.</p><p><strong>Cast at Higher Levels.</strong> Increase the fire damage dealt by 1d10 for every slot level above 4th.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "druid",
+      "elementalistFire",
+      "sorcerer",
+      "witch",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": false,
+    "level": 4,
+    "materials": "tinder and oil",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "abjuration",
+      "secondary": [
+        "arcane",
+        "fire",
+        "nature"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "k4sgnfemy8lloi3k"
 }

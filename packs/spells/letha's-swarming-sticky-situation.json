@@ -1,198 +1,198 @@
 {
-	"folder": null,
-	"name": "Letha’s Swarming Sticky Situation",
-	"type": "spell",
-	"img": "icons/creatures/invertebrates/bee-yellow.webp",
-	"system": {
-		"actions": {
-			"zLduCTliOht3MWsu": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"edRKTC6AvVzjvCnm": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 3,
-						"points": 5
-					}
-				},
-				"rolls": {
-					"fxSKsebquK3jr67x": {
-						"type": "damage",
-						"default": true,
-						"formula": "4d4",
-						"damageType": "piercing",
-						"canCrit": false
-					}
-				},
-				"prompts": {
-					"ftVlUhXArQqKd1Zx": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "str",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Not knocked prone and no damage"
-					},
-					"zuZxgXIgn2gafIHN": {
-						"type": "effect",
-						"default": true,
-						"effectId": "CuONxIzO0YzGTk5F"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"MebAO16fcYZhRR7A": {
-						"range": "long"
-					}
-				},
-				"area": {
-					"shape": "sphere",
-					"quantity": 1,
-					"radius": 50
-				}
-			},
-			"OQOlXgNRT9zhKSio": {
-				"name": "Bees?",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"sdWJvlXPrk6lju2E": {
-						"type": "damage",
-						"default": true,
-						"formula": "4d4",
-						"canCrit": false,
-						"damageType": "piercing"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"descriptionOutputs": [
-					"action"
-				],
-				"description": "<p>The honey or other saccharine liquid you used to entrap your foes also attracts stinging insects. All creatures knocked prone in the area take 4d4 piercing damage as bees swarm into the area and attack. This damage persists every round until a creature manages to leave the affected area or the spell ends.</p>"
-			}
-		},
-		"description": "<p id=\"docs-internal-guid-c5eede6d-7fff-4fb5-58d7-c756c32af8d8\" dir=\"ltr\">You magically flood the area with honey, jam, or some other sticky substance. For the duration of the spell, this area counts as difficult terrain and any creature entering the area for the first time must make a Strength saving throw versus your spell save DC or be knocked prone as they slip and fall. While a creature is knocked prone in this way, they are also restrained. Creatures knocked prone may repeat their saving throw at the beginning of their turn and are no longer prone or restrained on a success.</p>\n<p dir=\"ltr\">Creatures that succeed on their Strength saving throw still have whatever limbs that came into contact with the sticky surface covered in the substance. On their turn they may make an Athletics check to adhere themselves to vertical surfaces and climb them, as per the spider climb spell. This effect lasts so long as you are able to maintain concentration. If a creature is adhered to a surface when the spell ends, they immediately fall.</p>\n<p id=\"docs-internal-guid-d8a70f8c-7fff-f61f-ac0e-8b9f9c4904b4\" dir=\"ltr\"><strong>Rare Version:</strong></p>\n<p dir=\"ltr\"><strong>Letha&rsquo;s Swarming Sticky Situation.</strong> The honey or other saccharine liquid you used to entrap your foes also attracts stinging insects. All creatures knocked prone in the area take 4d4 piercing damage as bees swarm into the area and attack. This damage persists every round until a creature manages to leave the affected area or the spell ends.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "toilAndTrouble",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"druid",
-			"witch",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 3,
-		"materials": "a jar of honey or jam that the spell consumes",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": true,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"hearth",
-				"movement",
-				"terrain"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/consumables/food/preserves-jam-jelly-jar-brown-red.webp",
-			"origin": "Item.np3yy82ucehqugq0",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zLduCTliOht3MWsu"
-				}
-			},
-			"transfer": false,
-			"name": "Prone and Restrained",
-			"_id": "CuONxIzO0YzGTk5F",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\",\"restrained\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p id=\"docs-internal-guid-78bec502-7fff-0f7a-4ff2-528ad6d0086c\" dir=\"ltr\">For the duration of the spell, this area counts as difficult terrain and any creature entering the area for the first time must make a Strength saving throw versus your spell save DC or be knocked prone as they slip and fall. While a creature is knocked prone in this way, they are also restrained. Creatures knocked prone may repeat their saving throw at the beginning of their turn and are no longer prone or restrained on a success.</p>",
-			"statuses": [
-				"prone",
-				"restrained"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "np3yy82ucehqugq0"
+  "folder": null,
+  "name": "Letha’s Swarming Sticky Situation",
+  "type": "spell",
+  "img": "icons/creatures/invertebrates/bee-yellow.webp",
+  "system": {
+    "actions": {
+      "zLduCTliOht3MWsu": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "edRKTC6AvVzjvCnm": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 3,
+            "points": 5
+          }
+        },
+        "rolls": {
+          "fxSKsebquK3jr67x": {
+            "type": "damage",
+            "default": true,
+            "formula": "4d4",
+            "damageType": "piercing",
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "ftVlUhXArQqKd1Zx": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "str",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "Not knocked prone and no damage"
+          },
+          "zuZxgXIgn2gafIHN": {
+            "type": "effect",
+            "default": true,
+            "effectId": "CuONxIzO0YzGTk5F"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "MebAO16fcYZhRR7A": {
+            "range": "long"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "quantity": 1,
+          "radius": 50
+        }
+      },
+      "OQOlXgNRT9zhKSio": {
+        "name": "Bees?",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "sdWJvlXPrk6lju2E": {
+            "type": "damage",
+            "default": true,
+            "formula": "4d4",
+            "canCrit": false,
+            "damageType": "piercing"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "descriptionOutputs": [
+          "action"
+        ],
+        "description": "<p>The honey or other saccharine liquid you used to entrap your foes also attracts stinging insects. All creatures knocked prone in the area take 4d4 piercing damage as bees swarm into the area and attack. This damage persists every round until a creature manages to leave the affected area or the spell ends.</p>"
+      }
+    },
+    "description": "<p id=\"docs-internal-guid-c5eede6d-7fff-4fb5-58d7-c756c32af8d8\" dir=\"ltr\">You magically flood the area with honey, jam, or some other sticky substance. For the duration of the spell, this area counts as difficult terrain and any creature entering the area for the first time must make a Strength saving throw versus your spell save DC or be knocked prone as they slip and fall. While a creature is knocked prone in this way, they are also restrained. Creatures knocked prone may repeat their saving throw at the beginning of their turn and are no longer prone or restrained on a success.</p><p dir=\"ltr\">Creatures that succeed on their Strength saving throw still have whatever limbs that came into contact with the sticky surface covered in the substance. On their turn they may make an Athletics check to adhere themselves to vertical surfaces and climb them, as per the spider climb spell. This effect lasts so long as you are able to maintain concentration. If a creature is adhered to a surface when the spell ends, they immediately fall.</p><p id=\"docs-internal-guid-d8a70f8c-7fff-f61f-ac0e-8b9f9c4904b4\" dir=\"ltr\"><strong>Rare Version:</strong></p><p dir=\"ltr\"><strong>Letha&rsquo;s Swarming Sticky Situation.</strong> The honey or other saccharine liquid you used to entrap your foes also attracts stinging insects. All creatures knocked prone in the area take 4d4 piercing damage as bees swarm into the area and attack. This damage persists every round until a creature manages to leave the affected area or the spell ends.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "toilAndTrouble",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "druid",
+      "witch",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 3,
+    "materials": "a jar of honey or jam that the spell consumes",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": true,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "hearth",
+        "movement",
+        "terrain"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/consumables/food/preserves-jam-jelly-jar-brown-red.webp",
+      "origin": "Item.np3yy82ucehqugq0",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "zLduCTliOht3MWsu"
+        }
+      },
+      "transfer": false,
+      "name": "Prone and Restrained",
+      "_id": "CuONxIzO0YzGTk5F",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"prone\",\"restrained\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p id=\"docs-internal-guid-78bec502-7fff-0f7a-4ff2-528ad6d0086c\" dir=\"ltr\">For the duration of the spell, this area counts as difficult terrain and any creature entering the area for the first time must make a Strength saving throw versus your spell save DC or be knocked prone as they slip and fall. While a creature is knocked prone in this way, they are also restrained. Creatures knocked prone may repeat their saving throw at the beginning of their turn and are no longer prone or restrained on a success.</p>",
+      "statuses": [
+        "prone",
+        "restrained"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "np3yy82ucehqugq0"
 }

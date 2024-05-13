@@ -18,7 +18,7 @@
 
         return $actor.RollOverrideManager.getExpertiseDice(
             `initiative`,
-            options.expertiseDie ?? 0,
+            options.expertiseDice ?? 0,
             { ability: abilityKey, skill: skillKey },
         );
     }

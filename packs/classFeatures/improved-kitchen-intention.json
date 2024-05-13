@@ -1,199 +1,199 @@
 {
-	"folder": null,
-	"name": "Improved Kitchen Intention",
-	"type": "feature",
-	"img": "icons/tools/cooking/pot-camping-iron-black.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"L1uS8Ni4vTMkpfge": {
-				"name": "Improved Kitchen Intention",
-				"activation": {},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"o0vGYvhFVYqaQ4sb": {
-						"type": "effect",
-						"default": true,
-						"effectId": "eZ2BSzZcmsV0FaN0"
-					},
-					"oRo555ag73U4DuI8": {
-						"type": "effect",
-						"default": true,
-						"effectId": "94NfIPYfgzDTyKe8"
-					},
-					"1Dip39TgDBeUMjAq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "qtokCv9lvHIuEBo4"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p id=\"docs-internal-guid-2b57a1a5-7fff-d3c0-de90-62e72e2ed170\" dir=\"ltr\">At 10th level, you have gained greater mastery over your kitchen magic. You gain the following enhancements to choose from when you use your Kitchen Intention ability:</p>\n<p dir=\"ltr\"><strong>Fortification.</strong> This hearty meal enriches your muscles, providing you with greater physical prowess. For the duration, you have advantage on Strength ability checks and saving throws and you count yourself as one Size larger in terms of calculating your carrying capacity.</p>\n<p dir=\"ltr\"><strong>Quickness.</strong> Though this meal is more like a collection of delicious morsels, it gives you the energy to stay light on your feet, even in the heat of battle. You gain an expertise die to your initiative and your base walking speed increases by 10 feet.</p>\n<p><strong>Resilience.</strong> This meal bolsters your resolve, granting you heightened resistance to magical effects. You have advantage on saving throws against spells.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "toilAndTrouble",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
-			"origin": "Item.renwa900hbhchko8",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "L1uS8Ni4vTMkpfge",
-					"duration": {
-						"unit": "hours"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Fortification",
-			"_id": "eZ2BSzZcmsV0FaN0",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 28800,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p id=\"docs-internal-guid-4d49f897-7fff-7aa0-d579-db901405c202\" dir=\"ltr\">This hearty meal enriches your muscles, providing you with greater physical prowess. For the duration, you have advantage on Strength ability checks and saving throws and you count yourself as one Size larger in terms of calculating your carrying capacity.</p>",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
-			"origin": "Item.renwa900hbhchko8",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "L1uS8Ni4vTMkpfge",
-					"duration": {
-						"unit": "hours"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Quickness",
-			"_id": "94NfIPYfgzDTyKe8",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "10",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "system.attributes.initiative.expertiseDice",
-					"value": "1",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 28800,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p id=\"docs-internal-guid-8ac5bedf-7fff-b84b-4fd8-361da745c676\" dir=\"ltr\">Though this meal is more like a collection of delicious morsels, it gives you the energy to stay light on your feet, even in the heat of battle. You gain an expertise die to your initiative and your base walking speed increases by 10 feet.</p>",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/defensive/shield-barrier-flaming-pentagon-green.webp",
-			"origin": "Item.renwa900hbhchko8",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "L1uS8Ni4vTMkpfge",
-					"duration": {
-						"unit": "hours"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Resilience",
-			"_id": "qtokCv9lvHIuEBo4",
-			"changes": [],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 28800,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p><span id=\"docs-internal-guid-c81f8f0a-7fff-6a18-a89f-6948ff55f5a4\">This meal bolsters your resolve, granting you heightened resistance to magical effects. You have advantage on saving throws against spells.</span></p>",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "renwa900hbhchko8"
+  "folder": null,
+  "name": "Improved Kitchen Intention",
+  "type": "feature",
+  "img": "icons/tools/cooking/pot-camping-iron-black.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "L1uS8Ni4vTMkpfge": {
+        "name": "Improved Kitchen Intention",
+        "activation": {},
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "o0vGYvhFVYqaQ4sb": {
+            "type": "effect",
+            "default": true,
+            "effectId": "eZ2BSzZcmsV0FaN0"
+          },
+          "oRo555ag73U4DuI8": {
+            "type": "effect",
+            "default": true,
+            "effectId": "94NfIPYfgzDTyKe8"
+          },
+          "1Dip39TgDBeUMjAq": {
+            "type": "effect",
+            "default": true,
+            "effectId": "qtokCv9lvHIuEBo4"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p id=\"docs-internal-guid-2b57a1a5-7fff-d3c0-de90-62e72e2ed170\" dir=\"ltr\">At 10th level, you have gained greater mastery over your kitchen magic. You gain the following enhancements to choose from when you use your Kitchen Intention ability:</p><p dir=\"ltr\"><strong>Fortification.</strong> This hearty meal enriches your muscles, providing you with greater physical prowess. For the duration, you have advantage on Strength ability checks and saving throws and you count yourself as one Size larger in terms of calculating your carrying capacity.</p><p dir=\"ltr\"><strong>Quickness.</strong> Though this meal is more like a collection of delicious morsels, it gives you the energy to stay light on your feet, even in the heat of battle. You gain an expertise die to your initiative and your base walking speed increases by 10 feet.</p><p><strong>Resilience.</strong> This meal bolsters your resolve, granting you heightened resistance to magical effects. You have advantage on saving throws against spells.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "toilAndTrouble",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    }
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
+      "origin": "Item.renwa900hbhchko8",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "L1uS8Ni4vTMkpfge",
+          "duration": {
+            "unit": "hours"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Fortification",
+      "_id": "eZ2BSzZcmsV0FaN0",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.rollMode.abilityCheck.str",
+          "value": "1",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 28800,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p id=\"docs-internal-guid-4d49f897-7fff-7aa0-d579-db901405c202\" dir=\"ltr\">This hearty meal enriches your muscles, providing you with greater physical prowess. For the duration, you have advantage on Strength ability checks and saving throws and you count yourself as one Size larger in terms of calculating your carrying capacity.</p>",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
+      "origin": "Item.renwa900hbhchko8",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "L1uS8Ni4vTMkpfge",
+          "duration": {
+            "unit": "hours"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Quickness",
+      "_id": "94NfIPYfgzDTyKe8",
+      "changes": [
+        {
+          "key": "system.attributes.movement.walk.distance",
+          "value": "10",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.initiative.expertiseDice",
+          "value": "1",
+          "mode": 2,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 28800,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p id=\"docs-internal-guid-8ac5bedf-7fff-b84b-4fd8-361da745c676\" dir=\"ltr\">Though this meal is more like a collection of delicious morsels, it gives you the energy to stay light on your feet, even in the heat of battle. You gain an expertise die to your initiative and your base walking speed increases by 10 feet.</p>",
+      "statuses": [],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/defensive/shield-barrier-flaming-pentagon-green.webp",
+      "origin": "Item.renwa900hbhchko8",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "L1uS8Ni4vTMkpfge",
+          "duration": {
+            "unit": "hours"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Resilience",
+      "_id": "qtokCv9lvHIuEBo4",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 28800,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p></p>",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "renwa900hbhchko8"
 }

@@ -1,342 +1,342 @@
 {
-	"folder": null,
-	"name": "Drowning Sphere",
-	"type": "spell",
-	"img": "icons/magic/water/orb-water-bubbles.webp",
-	"system": {
-		"actions": {
-			"PL1mBeVilFX0lMsT": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"VBj3gpUpBa6JJ1ip": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 5,
-						"points": 7
-					}
-				},
-				"rolls": {
-					"EenzLJKciGzLAa94": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d6",
-						"damageType": "bludgeoning",
-						"canCrit": false
-					},
-					"N9Jr3TuJxwsuoNlI": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d6",
-						"damageType": "psychic",
-						"canCrit": false
-					}
-				},
-				"prompts": {
-					"Dqb5DWKbA1iQ9ftJ": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "str",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "negates effect"
-					},
-					"HPd9CbMXf5Dzji2R": {
-						"type": "effect",
-						"default": true,
-						"effectId": "q3O5advtUKtEG13b"
-					},
-					"dsFyr3XlHpksDyDU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "MSm9Ug32DP7ayJ4e"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 10
-				},
-				"ranges": {
-					"4tHfTW4s5mXSz3Mi": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "sphere",
-					"quantity": 1,
-					"radius": 5,
-					"placeTemplate": true
-				}
-			},
-			"ZpxNnNBF25qUW9ly": {
-				"name": "Move Sphere",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"SlNjvBjqmiNsLKgs": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "str",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					},
-					"YBLVo9AFxM5gmKAU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "R2AGHyf35tBgPJmh"
-					},
-					"OKmE9OlLxoGjUPXx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Lsw7h23pRWZ5cRn0"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"8jq0EFqlBKvzvNi6": {
-						"range": "short"
-					}
-				}
-			}
-		},
-		"description": "<p>You conjure a rolling sphere of water at a point within range up to 10 feet off the ground. Any creature in the sphere&rsquo;s space must make a Strength saving throw; it can move to the nearest occupied space of its choosing if it succeeds. Huge or larger creatures automatically succeed. A creature fully engulfed is restrained and must hold its breath, taking 2d6 bludgeoning and 2d6 psychic damage from the current and pain of holding its breath. At the end of each of its turns, a restrained creature can make another Strength saving throw, swimming free of the sphere on a success.</p>\n<p>The sphere can hold up to four Medium or smaller creatures or one Large creature. If you try to engulf any additional creatures exceeding this amount, choose one or more to be ejected, falling prone beside the sphere.</p>\n<p>As an action, you can direct the sphere to move up to 30 feet. If it moves over an edge, it descends at a rate of 60 feet per round until it is 10 feet above the ground again. Any creature restrained by the sphere moves with it. Any creature whose space the sphere enters must make a Strength saving throw or be engulfed and restrained on a failure.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"druid",
-			"elementalistWater",
-			"sorcerer",
-			"wizard"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": true
-		},
-		"concentration": true,
-		"level": 5,
-		"materials": "a pearl worth 100 gp kept inside an oyster shell",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "conjuration",
-			"secondary": [
-				"affliction",
-				"arcane",
-				"nature",
-				"water"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/water/orb-water-bubbles.webp",
-			"origin": "Item.ctnvjb2f09i45ivt",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PL1mBeVilFX0lMsT",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Restrained",
-			"_id": "q3O5advtUKtEG13b",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"restrained\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 600,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"restrained"
-			],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/water/orb-water-bubbles.webp",
-			"origin": "Item.ctnvjb2f09i45ivt",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PL1mBeVilFX0lMsT"
-				}
-			},
-			"transfer": false,
-			"name": "Prone",
-			"_id": "MSm9Ug32DP7ayJ4e",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"prone"
-			],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/water/orb-water-bubbles.webp",
-			"origin": "Item.ctnvjb2f09i45ivt",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ZpxNnNBF25qUW9ly",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Restrained",
-			"_id": "R2AGHyf35tBgPJmh",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"restrained\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 600,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"restrained"
-			],
-			"folder": null
-		},
-		{
-			"icon": "icons/magic/water/orb-water-bubbles.webp",
-			"origin": "Item.ctnvjb2f09i45ivt",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ZpxNnNBF25qUW9ly"
-				}
-			},
-			"transfer": false,
-			"name": "Prone",
-			"_id": "Lsw7h23pRWZ5cRn0",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"prone"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "ctnvjb2f09i45ivt"
+  "folder": null,
+  "name": "Drowning Sphere",
+  "type": "spell",
+  "img": "icons/magic/water/orb-water-bubbles.webp",
+  "system": {
+    "actions": {
+      "PL1mBeVilFX0lMsT": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "VBj3gpUpBa6JJ1ip": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 5,
+            "points": 7
+          }
+        },
+        "rolls": {
+          "EenzLJKciGzLAa94": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d6",
+            "damageType": "bludgeoning",
+            "canCrit": false
+          },
+          "N9Jr3TuJxwsuoNlI": {
+            "type": "damage",
+            "default": true,
+            "formula": "2d6",
+            "damageType": "psychic",
+            "canCrit": false
+          }
+        },
+        "prompts": {
+          "Dqb5DWKbA1iQ9ftJ": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "str",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "onSave": "negates effect"
+          },
+          "HPd9CbMXf5Dzji2R": {
+            "type": "effect",
+            "default": true,
+            "effectId": "q3O5advtUKtEG13b"
+          },
+          "dsFyr3XlHpksDyDU": {
+            "type": "effect",
+            "default": true,
+            "effectId": "MSm9Ug32DP7ayJ4e"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 10
+        },
+        "ranges": {
+          "4tHfTW4s5mXSz3Mi": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "quantity": 1,
+          "radius": 5,
+          "placeTemplate": true
+        }
+      },
+      "ZpxNnNBF25qUW9ly": {
+        "name": "Move Sphere",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "SlNjvBjqmiNsLKgs": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "str",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          },
+          "YBLVo9AFxM5gmKAU": {
+            "type": "effect",
+            "default": true,
+            "effectId": "R2AGHyf35tBgPJmh"
+          },
+          "OKmE9OlLxoGjUPXx": {
+            "type": "effect",
+            "default": true,
+            "effectId": "Lsw7h23pRWZ5cRn0"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "8jq0EFqlBKvzvNi6": {
+            "range": "short"
+          }
+        }
+      }
+    },
+    "description": "<p>You conjure a rolling sphere of water at a point within range up to 10 feet off the ground. Any creature in the sphere&rsquo;s space must make a Strength saving throw; it can move to the nearest occupied space of its choosing if it succeeds. Huge or larger creatures automatically succeed. A creature fully engulfed is restrained and must hold its breath, taking 2d6 bludgeoning and 2d6 psychic damage from the current and pain of holding its breath. At the end of each of its turns, a restrained creature can make another Strength saving throw, swimming free of the sphere on a success.</p><p>The sphere can hold up to four Medium or smaller creatures or one Large creature. If you try to engulf any additional creatures exceeding this amount, choose one or more to be ejected, falling prone beside the sphere.</p><p>As an action, you can direct the sphere to move up to 30 feet. If it moves over an edge, it descends at a rate of 60 feet per round until it is 10 feet above the ground again. Any creature restrained by the sphere moves with it. Any creature whose space the sphere enters must make a Strength saving throw or be engulfed and restrained on a failure.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "druid",
+      "elementalistWater",
+      "sorcerer",
+      "wizard"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": true
+    },
+    "concentration": true,
+    "level": 5,
+    "materials": "a pearl worth 100 gp kept inside an oyster shell",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "conjuration",
+      "secondary": [
+        "affliction",
+        "arcane",
+        "nature",
+        "water"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/water/orb-water-bubbles.webp",
+      "origin": "Item.ctnvjb2f09i45ivt",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "PL1mBeVilFX0lMsT",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Restrained",
+      "_id": "q3O5advtUKtEG13b",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"restrained\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 600,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "restrained"
+      ],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/water/orb-water-bubbles.webp",
+      "origin": "Item.ctnvjb2f09i45ivt",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "PL1mBeVilFX0lMsT"
+        }
+      },
+      "transfer": false,
+      "name": "Prone",
+      "_id": "MSm9Ug32DP7ayJ4e",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"prone\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "prone"
+      ],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/water/orb-water-bubbles.webp",
+      "origin": "Item.ctnvjb2f09i45ivt",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ZpxNnNBF25qUW9ly",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Restrained",
+      "_id": "R2AGHyf35tBgPJmh",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"restrained\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 600,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "restrained"
+      ],
+      "folder": null
+    },
+    {
+      "icon": "icons/magic/water/orb-water-bubbles.webp",
+      "origin": "Item.ctnvjb2f09i45ivt",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ZpxNnNBF25qUW9ly"
+        }
+      },
+      "transfer": false,
+      "name": "Prone",
+      "_id": "Lsw7h23pRWZ5cRn0",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"prone\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "prone"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "ctnvjb2f09i45ivt"
 }

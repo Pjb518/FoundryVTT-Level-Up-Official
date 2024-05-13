@@ -1,291 +1,291 @@
 {
-	"folder": null,
-	"name": "Control Winds",
-	"type": "spell",
-	"img": "icons/magic/air/wind-swirl-gray-blue.webp",
-	"system": {
-		"actions": {
-			"dAZXJlldxBo7aE1m": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"mzgg1gmX5MyrWb6B": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 5,
-						"points": 7
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"JZ1ThgIAesyGptZ7": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "cylinder",
-					"quantity": 1,
-					"radius": 100,
-					"height": 40,
-					"placeTemplate": true,
-					"scaling": {
-						"mode": "spellLevel",
-						"formula": {
-							"radius": "100"
-						}
-					}
-				},
-				"duration": {
-					"unit": "hour",
-					"value": 1
-				}
-			},
-			"ZYBFO286b1YTU36z": {
-				"name": "Downdraft",
-				"activation": {},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"epqBFps4wbDVPE8V": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "str",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					},
-					"PASN3XaN3bnJeQiV": {
-						"type": "effect",
-						"default": true,
-						"effectId": "QoSOcXMR1yjHEoqg"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"EynKBhGwGauc1Aa7": {
-				"name": "Gusts",
-				"activation": {},
-				"consumers": {
-					"5trEKIZoY7uWB1uT": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 5,
-						"points": 7
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"kFXcMv3G0utfJD3O": {
-				"name": "Updraft",
-				"activation": {},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"iF8aVzA30oGaBcpc": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "str",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"htalFFR8zTLcl83s": {
-				"name": "Calm",
-				"activation": {},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"VrBPoo4B1aTvBK2Z": {
-				"name": "Eye of Calm Air",
-				"activation": {},
-				"consumers": {
-					"4CAYklyGg0zEC6jy": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 5,
-						"points": 7
-					}
-				},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"FCySyQcnR18W3TPX": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "emanation",
-					"quantity": 1,
-					"radius": 40,
-					"placeTemplate": true
-				}
-			}
-		},
-		"description": "<p>You take control of the wind in the area around you. As an action on your turn, including the action to cast it, you can choose one of the following effects, as well as a wind intensity. The effect remains until you change it or until you lose concentration. You can create an eye of calm air up to a radius of up to 40 feet in the center, and you can limit the area of the cylinder if you desire. You can use your action to pause, restart, or resize the effect during the duration as well.</p>\n<ul>\n<li><em><strong>Downdraft</strong></em>: A strong downdraft causes ranged weapon attacks passing through the area to be made at disadvantage. If a flying creature begins its turn in the area, enters the area, or attempts to fly within the area, it must succeed on a Strength saving throw or fall prone.</li>\n<li><em><strong>Gusts</strong></em>: Moderate or strong gusts cause ranged weapons made against the direction of the wind to be made at disadvantage. Strong winds require creatures moving against the wind to have their movement speed halved. Gusts can be in a single horizontal direction, or in a clockwise or counterclockwise rotation around you.</li>\n<li><em><strong>Updraft</strong></em>: A strong updraft reduces falling damage within the area by half, and increases the height of vertical jumps by 10 feet. On your turn, any flying creature must succeed on a Strength saving throw or be pushed upwards a number of feet equal to the miles per hour of the wind.</li>\n<li><em><strong>Calm</strong></em>: 5 mph;&nbsp;<em><strong>Moderate</strong></em>: 10 mph;&nbsp;<em><strong>Strong</strong></em>: 20 mph</li>\n</ul>\n<p><strong>Cast at Higher Levels.</strong>&nbsp;Increase the radius of the cylinder by 100 ft for every slot level above 5th.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"druid",
-			"elementalistAir",
-			"witch"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": true,
-			"material": false
-		},
-		"concentration": true,
-		"level": 5,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "transmutation",
-			"secondary": [
-				"air",
-				"nature"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/air/wind-swirl-gray-blue.webp",
-			"origin": "Item.3v9sex1gt12pkg34",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ZYBFO286b1YTU36z"
-				}
-			},
-			"transfer": false,
-			"name": "Prone",
-			"_id": "QoSOcXMR1yjHEoqg",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"prone"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "3v9sex1gt12pkg34"
+  "folder": null,
+  "name": "Control Winds",
+  "type": "spell",
+  "img": "icons/magic/air/wind-swirl-gray-blue.webp",
+  "system": {
+    "actions": {
+      "dAZXJlldxBo7aE1m": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "mzgg1gmX5MyrWb6B": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 5,
+            "points": 7
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "JZ1ThgIAesyGptZ7": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "cylinder",
+          "quantity": 1,
+          "radius": 100,
+          "height": 40,
+          "placeTemplate": true,
+          "scaling": {
+            "mode": "spellLevel",
+            "formula": {
+              "radius": "100"
+            }
+          }
+        },
+        "duration": {
+          "unit": "hour",
+          "value": 1
+        }
+      },
+      "ZYBFO286b1YTU36z": {
+        "name": "Downdraft",
+        "activation": {},
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "epqBFps4wbDVPE8V": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "str",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          },
+          "PASN3XaN3bnJeQiV": {
+            "type": "effect",
+            "default": true,
+            "effectId": "QoSOcXMR1yjHEoqg"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "EynKBhGwGauc1Aa7": {
+        "name": "Gusts",
+        "activation": {},
+        "consumers": {
+          "5trEKIZoY7uWB1uT": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 5,
+            "points": 7
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "kFXcMv3G0utfJD3O": {
+        "name": "Updraft",
+        "activation": {},
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "iF8aVzA30oGaBcpc": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "str",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "htalFFR8zTLcl83s": {
+        "name": "Calm",
+        "activation": {},
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "VrBPoo4B1aTvBK2Z": {
+        "name": "Eye of Calm Air",
+        "activation": {},
+        "consumers": {
+          "4CAYklyGg0zEC6jy": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 5,
+            "points": 7
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "FCySyQcnR18W3TPX": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "emanation",
+          "quantity": 1,
+          "radius": 40,
+          "placeTemplate": true
+        }
+      }
+    },
+    "description": "<p>You take control of the wind in the area around you. As an action on your turn, including the action to cast it, you can choose one of the following effects, as well as a wind intensity. The effect remains until you change it or until you lose concentration. You can create an eye of calm air up to a radius of up to 40 feet in the center, and you can limit the area of the cylinder if you desire. You can use your action to pause, restart, or resize the effect during the duration as well.</p><ul><li><em><strong>Downdraft</strong></em>: A strong downdraft causes ranged weapon attacks passing through the area to be made at disadvantage. If a flying creature begins its turn in the area, enters the area, or attempts to fly within the area, it must succeed on a Strength saving throw or fall prone.</li><li><em><strong>Gusts</strong></em>: Moderate or strong gusts cause ranged weapons made against the direction of the wind to be made at disadvantage. Strong winds require creatures moving against the wind to have their movement speed halved. Gusts can be in a single horizontal direction, or in a clockwise or counterclockwise rotation around you.</li><li><em><strong>Updraft</strong></em>: A strong updraft reduces falling damage within the area by half, and increases the height of vertical jumps by 10 feet. On your turn, any flying creature must succeed on a Strength saving throw or be pushed upwards a number of feet equal to the miles per hour of the wind.</li><li><em><strong>Calm</strong></em>: 5 mph;&nbsp;<em><strong>Moderate</strong></em>: 10 mph;&nbsp;<em><strong>Strong</strong></em>: 20 mph</li></ul><p><strong>Cast at Higher Levels.</strong>&nbsp;Increase the radius of the cylinder by 100 ft for every slot level above 5th.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "druid",
+      "elementalistAir",
+      "witch"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": true,
+      "material": false
+    },
+    "concentration": true,
+    "level": 5,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "transmutation",
+      "secondary": [
+        "air",
+        "nature"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/air/wind-swirl-gray-blue.webp",
+      "origin": "Item.3v9sex1gt12pkg34",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ZYBFO286b1YTU36z"
+        }
+      },
+      "transfer": false,
+      "name": "Prone",
+      "_id": "QoSOcXMR1yjHEoqg",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"prone\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "prone"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "3v9sex1gt12pkg34"
 }

@@ -1,172 +1,172 @@
 {
-	"name": "Embalmed",
-	"type": "feature",
-	"img": "icons/commodities/cloth/cloth-roll-worn-tan.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"D2tlV86mlX6hlSnE": {
-				"name": "Ongoing Fire Damage",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"kjcO4lwu5MjolkRD": {
-						"type": "damage",
-						"default": true,
-						"canCrit": false,
-						"formula": "1d10",
-						"damageType": "fire"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"TU4MhPbCzTLG88Ik": {
-				"name": "Extinguish Flames",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			},
-			"ae3vZ0o61eQEkRoA": {
-				"name": "Additional Necrotic Damage",
-				"activation": {},
-				"consumers": {
-					"M0fzLU5DDQRKSywH": {
-						"type": "actionUses",
-						"default": true,
-						"quantity": 1
-					},
-					"7eVoeIQ9LBx8qY9E": {
-						"type": "resource",
-						"default": true,
-						"resource": "exertion",
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"9Is8gJgKq6r1Nycx": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d6",
-						"damageType": "necrotic"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "turn",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"01pPjyzD7lZdVf3Q": {
-						"range": "fiveFeet"
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				}
-			}
-		},
-		"description": "<p><span style=\"font-size: 10.5pt;\">You have been through the process of living embalming, which is a painful and traumatic process that leaves you in a half-living state regardless of whether you agreed to it. However, the process is not without its advantages.&nbsp;</span>You gain the following benefits and drawbacks:</p>\n<ul>\n<li>\n<p>Whenever you take fire damage, your flammable, solvent-soaked wrappings and papery flesh catch fire dealing 1d10 ongoing fire damage to you until you or another creature spends an action to extinguish the flames. <span style=\"font-size: 10.5pt;\">This damage continues indefinitely unless halted as an action.</span></p>\n</li>\n<li>\n<p>You can hold your breath for a number of minutes equal to your Constitution score, you only need 1 supply per week to survive, and you do not suffer from exposure to environmental extreme heat and extreme cold.</p>\n</li>\n<li>\n<p>You have resistance to necrotic and poison damage.</p>\n</li>\n<li>\n<p>You gain an exertion pool with 3 points of exertion in it if you do not have one or your existing exertion pool increases by 3 points.</p>\n</li>\n<li>\n<p>When you hit with a melee attack, you may spend a point of exertion to deal an additional 1d6 necrotic damage to the target. <span style=\"font-size: 10.5pt;\">You may only use this benefit once per attack.</span></p>\n</li>\n</ul>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "feat",
-		"grants": {
-			"NxOnbbiVCSWsTjJw": {
-				"grantType": "trait",
-				"level": 1,
-				"levelType": "character",
-				"optional": false,
-				"label": "Embalmed",
-				"traits": {
-					"base": [
-						"necrotic",
-						"poison"
-					],
-					"options": [],
-					"total": 0,
-					"traitType": "damageResistances"
-				},
-				"_id": "NxOnbbiVCSWsTjJw",
-				"img": ""
-			},
-			"wztBcEbY6L6CmoMP": {
-				"grantType": "exertion",
-				"level": 1,
-				"levelType": "character",
-				"optional": false,
-				"label": "Embalmed",
-				"bonus": "3"
-			}
-		},
-		"prerequisite": "Undergo a ritual living embalming—willingly or not",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.017,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"classes": ""
-	},
-	"effects": [],
-	"flags": {},
-	"folder": null,
-	"_id": "yzucj1tkkfertl0b"
+  "name": "Embalmed",
+  "type": "feature",
+  "img": "icons/commodities/cloth/cloth-roll-worn-tan.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "D2tlV86mlX6hlSnE": {
+        "name": "Ongoing Fire Damage",
+        "activation": {},
+        "consumers": {},
+        "rolls": {
+          "kjcO4lwu5MjolkRD": {
+            "type": "damage",
+            "default": true,
+            "canCrit": false,
+            "formula": "1d10",
+            "damageType": "fire"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "TU4MhPbCzTLG88Ik": {
+        "name": "Extinguish Flames",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "ae3vZ0o61eQEkRoA": {
+        "name": "Additional Necrotic Damage",
+        "activation": {},
+        "consumers": {
+          "M0fzLU5DDQRKSywH": {
+            "type": "actionUses",
+            "default": true,
+            "quantity": 1
+          },
+          "7eVoeIQ9LBx8qY9E": {
+            "type": "resource",
+            "default": true,
+            "resource": "exertion",
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "9Is8gJgKq6r1Nycx": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d6",
+            "damageType": "necrotic"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 1,
+          "max": "1",
+          "per": "turn",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "01pPjyzD7lZdVf3Q": {
+            "range": "fiveFeet"
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        }
+      }
+    },
+    "description": "<p>You have been through the process of living embalming, which is a painful and traumatic process that leaves you in a half-living state regardless of whether you agreed to it. However, the process is not without its advantages.&nbsp;You gain the following benefits and drawbacks:</p><ul><li><p>Whenever you take fire damage, your flammable, solvent-soaked wrappings and papery flesh catch fire dealing 1d10 ongoing fire damage to you until you or another creature spends an action to extinguish the flames. This damage continues indefinitely unless halted as an action.</p></li><li><p>You can hold your breath for a number of minutes equal to your Constitution score, you only need 1 supply per week to survive, and you do not suffer from exposure to environmental extreme heat and extreme cold.</p></li><li><p>You have resistance to necrotic and poison damage.</p></li><li><p>You gain an exertion pool with 3 points of exertion in it if you do not have one or your existing exertion pool increases by 3 points.</p></li><li><p>When you hit with a melee attack, you may spend a point of exertion to deal an additional 1d6 necrotic damage to the target. You may only use this benefit once per attack.</p></li></ul>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "feat",
+    "grants": {
+      "NxOnbbiVCSWsTjJw": {
+        "grantType": "trait",
+        "level": 1,
+        "levelType": "character",
+        "optional": false,
+        "label": "Embalmed",
+        "traits": {
+          "base": [
+            "necrotic",
+            "poison"
+          ],
+          "options": [],
+          "total": 0,
+          "traitType": "damageResistances"
+        },
+        "_id": "NxOnbbiVCSWsTjJw",
+        "img": ""
+      },
+      "wztBcEbY6L6CmoMP": {
+        "grantType": "exertion",
+        "level": 1,
+        "levelType": "character",
+        "optional": false,
+        "label": "Embalmed",
+        "bonus": "3"
+      }
+    },
+    "prerequisite": "Undergo a ritual living embalming—willingly or not",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.017,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "classes": ""
+  },
+  "effects": [],
+  "flags": {},
+  "folder": null,
+  "_id": "yzucj1tkkfertl0b"
 }

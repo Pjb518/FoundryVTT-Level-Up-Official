@@ -1,157 +1,157 @@
 {
-	"folder": null,
-	"name": "Planar Impact",
-	"type": "spell",
-	"img": "icons/magic/symbols/runes-star-blue.webp",
-	"system": {
-		"actions": {
-			"M5fquJDpRDpxIWFE": {
-				"name": "Cast Spell",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {
-					"fSy5Y3zheKbImdhA": {
-						"type": "spell",
-						"default": true,
-						"mode": "variable",
-						"spellLevel": 1,
-						"points": 2
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"tInDURBUmUfrn0OY": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						}
-					},
-					"cgdyWTduBfs4MerL": {
-						"type": "effect",
-						"default": true,
-						"effectId": "jMiKlN1fxodyQSCf"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": 1
-				},
-				"ranges": {
-					"BLkQEwhRCaPPdfp1": {
-						"range": "self"
-					}
-				}
-			}
-		},
-		"description": "<p><em><strong>Association:</strong> Adept class</em></p>\n<p>You infuse your next strike with potent planar energies to punish your enemies and steal their sight. The next time you hit with a melee weapon attack while the spell is active, it deals additional radiant or necrotic damage (your choice) equal to your Martial Arts die. The target must also make a Constitution save against your spell save DC or be blinded until the end of your next turn. The spell then ends.</p>\n<p><strong>Cast at Higher Levels:</strong> The spell deals an additional Martial Arts die of damage for each slot level above 1st.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"classes": [
-			"cleric",
-			"herald",
-			"warlock",
-			"witch"
-		],
-		"components": {
-			"vocalized": true,
-			"seen": false,
-			"material": false
-		},
-		"concentration": true,
-		"level": 1,
-		"materials": "",
-		"materialsConsumed": false,
-		"prepared": 0,
-		"prerequisite": "Martial Arts class feature",
-		"rare": false,
-		"ritual": false,
-		"schools": {
-			"primary": "evocation",
-			"secondary": [
-				"attack",
-				"divine",
-				"radiant",
-				"multiclass"
-			]
-		},
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"spellBook": ""
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/symbols/runes-star-blue.webp",
-			"origin": "Item.mq7suxst0efamjpj",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "M5fquJDpRDpxIWFE",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Blinded",
-			"_id": "jMiKlN1fxodyQSCf",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"blinded\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"blinded"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "mq7suxst0efamjpj"
+  "folder": null,
+  "name": "Planar Impact",
+  "type": "spell",
+  "img": "icons/magic/symbols/runes-star-blue.webp",
+  "system": {
+    "actions": {
+      "M5fquJDpRDpxIWFE": {
+        "name": "Cast Spell",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {
+          "fSy5Y3zheKbImdhA": {
+            "type": "spell",
+            "default": true,
+            "mode": "variable",
+            "spellLevel": 1,
+            "points": 2
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "tInDURBUmUfrn0OY": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          },
+          "cgdyWTduBfs4MerL": {
+            "type": "effect",
+            "default": true,
+            "effectId": "jMiKlN1fxodyQSCf"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": 1
+        },
+        "ranges": {
+          "BLkQEwhRCaPPdfp1": {
+            "range": "self"
+          }
+        }
+      }
+    },
+    "description": "<p><em><strong>Association:</strong> Adept class</em></p><p>You infuse your next strike with potent planar energies to punish your enemies and steal their sight. The next time you hit with a melee weapon attack while the spell is active, it deals additional radiant or necrotic damage (your choice) equal to your Martial Arts die. The target must also make a Constitution save against your spell save DC or be blinded until the end of your next turn. The spell then ends.</p><p><strong>Cast at Higher Levels:</strong> The spell deals an additional Martial Arts die of damage for each slot level above 1st.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "classes": [
+      "cleric",
+      "herald",
+      "warlock",
+      "witch"
+    ],
+    "components": {
+      "vocalized": true,
+      "seen": false,
+      "material": false
+    },
+    "concentration": true,
+    "level": 1,
+    "materials": "",
+    "materialsConsumed": false,
+    "prepared": 0,
+    "prerequisite": "Martial Arts class feature",
+    "rare": false,
+    "ritual": false,
+    "schools": {
+      "primary": "evocation",
+      "secondary": [
+        "attack",
+        "divine",
+        "radiant",
+        "multiclass"
+      ]
+    },
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "spellBook": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/symbols/runes-star-blue.webp",
+      "origin": "Item.mq7suxst0efamjpj",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "M5fquJDpRDpxIWFE",
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Blinded",
+      "_id": "jMiKlN1fxodyQSCf",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"blinded\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": 1,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "blinded"
+      ],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "mq7suxst0efamjpj"
 }

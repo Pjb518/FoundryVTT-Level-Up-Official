@@ -1,225 +1,225 @@
 {
-	"name": "Into Mist",
-	"type": "feature",
-	"img": "icons/skills/movement/ball-spinning-blue.webp",
-	"effects": [
-		{
-			"icon": "icons/skills/movement/ball-spinning-blue.webp",
-			"origin": "Item.78z2weqc4dx3b308",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ZoAfDzsVupXR81nj",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					},
-					"applyToSelf": true
-				}
-			},
-			"transfer": false,
-			"name": "Invisibile",
-			"_id": "PoLlrPFniXyHGWDk",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"invisible\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": 1,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<ul>\n<li aria-level=\"1\">An invisible creature is impossible to see without the aid of magic or a special sense (it gains no benefits from this condition against creatures still able to see it).</li>\n<li aria-level=\"1\">An invisible creature is <span class=\"freelinking-link\">heavily obscured</span> for the purpose of hiding. </li>\n<li aria-level=\"1\">An invisible creature's location can be detected by noises it makes or tracks it leaves.</li>\n<li aria-level=\"1\">Attack rolls against an invisible creature are made with <span class=\"freelinking-link\">disadvantage</span> .</li>\n<li aria-level=\"1\">An invisible creature makes attack rolls with <span class=\"freelinking-link\">advantage</span> .</li>\n</ul>",
-			"statuses": [
-				"invisible"
-			],
-			"folder": null
-		},
-		{
-			"icon": "icons/skills/movement/ball-spinning-blue.webp",
-			"origin": "Item.78z2weqc4dx3b308",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "i07uYntVmh9OhAzg",
-					"applyToSelf": true,
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Invisible",
-			"_id": "qwyA0diawDsvmTkk",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"invisible\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": 1,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<ul>\n<li aria-level=\"1\">An invisible creature is impossible to see without the aid of magic or a special sense (it gains no benefits from this condition against creatures still able to see it).</li>\n<li aria-level=\"1\">An invisible creature is <span class=\"freelinking-link\">heavily obscured</span> for the purpose of hiding. </li>\n<li aria-level=\"1\">An invisible creature's location can be detected by noises it makes or tracks it leaves.</li>\n<li aria-level=\"1\">Attack rolls against an invisible creature are made with <span class=\"freelinking-link\">disadvantage</span> .</li>\n<li aria-level=\"1\">An invisible creature makes attack rolls with <span class=\"freelinking-link\">advantage</span> .</li>\n</ul>",
-			"statuses": [
-				"invisible"
-			],
-			"folder": null
-		}
-	],
-	"folder": null,
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"ZoAfDzsVupXR81nj": {
-				"name": "Activate",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {
-					"cbeBhFXD0Y5s7TRI": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"HL2dp0kD8s8rqROk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PoLlrPFniXyHGWDk"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"ranges": {
-					"1gnz3s5IfaR0KK06": {
-						"range": "self"
-					}
-				},
-				"target": {
-					"type": "self",
-					"quantity": 1
-				}
-			},
-			"i07uYntVmh9OhAzg": {
-				"name": "Activate vs Damage",
-				"activation": {
-					"type": "reaction",
-					"cost": 1,
-					"reactionTrigger": "Immediately after taking damage"
-				},
-				"consumers": {
-					"cbeBhFXD0Y5s7TRI": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"HbrmhHje515qr2bF": {
-						"type": "effect",
-						"default": true,
-						"effectId": "qwyA0diawDsvmTkk"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"ranges": {
-					"1gnz3s5IfaR0KK06": {
-						"range": "self"
-					}
-				},
-				"target": {
-					"type": "self",
-					"quantity": 1
-				}
-			}
-		},
-		"description": "<p>As a bonus action, or as a reaction immediately after taking damage, you can turn invisible. The invisibility lasts until the end of your next turn, and it ends early if you attack, deal damage, cast a spell, or force a creature to make a saving throw. Once you use this trait, you must finish a short or long rest before doing so again.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": "shortRest",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "heritage",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
-	},
-	"_id": "78z2weqc4dx3b308"
+  "name": "Into Mist",
+  "type": "feature",
+  "img": "icons/skills/movement/ball-spinning-blue.webp",
+  "effects": [
+    {
+      "icon": "icons/skills/movement/ball-spinning-blue.webp",
+      "origin": "Item.78z2weqc4dx3b308",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ZoAfDzsVupXR81nj",
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          },
+          "applyToSelf": true
+        }
+      },
+      "transfer": false,
+      "name": "Invisibile",
+      "_id": "PoLlrPFniXyHGWDk",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"invisible\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": 1,
+        "turns": 1,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<ul><li aria-level=\"1\">An invisible creature is impossible to see without the aid of magic or a special sense (it gains no benefits from this condition against creatures still able to see it).</li><li aria-level=\"1\">An invisible creature is heavily obscured</span> for the purpose of hiding. </li><li aria-level=\"1\">An invisible creature's location can be detected by noises it makes or tracks it leaves.</li><li aria-level=\"1\">Attack rolls against an invisible creature are made with disadvantage .</li><li aria-level=\"1\">An invisible creature makes attack rolls with <span>advantage .</li></ul>",
+      "statuses": [
+        "invisible"
+      ],
+      "folder": null
+    },
+    {
+      "icon": "icons/skills/movement/ball-spinning-blue.webp",
+      "origin": "Item.78z2weqc4dx3b308",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "i07uYntVmh9OhAzg",
+          "applyToSelf": true,
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Invisible",
+      "_id": "qwyA0diawDsvmTkk",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"invisible\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": 1,
+        "turns": 1,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<ul><li aria-level=\"1\">An invisible creature is impossible to see without the aid of magic or a special sense (it gains no benefits from this condition against creatures still able to see it).</li><li aria-level=\"1\">An invisible creature is heavily obscured</span> for the purpose of hiding. </li><li aria-level=\"1\">An invisible creature's location can be detected by noises it makes or tracks it leaves.</li><li aria-level=\"1\">Attack rolls against an invisible creature are made with disadvantage .</li><li aria-level=\"1\">An invisible creature makes attack rolls with <span>advantage .</li></ul>",
+      "statuses": [
+        "invisible"
+      ],
+      "folder": null
+    }
+  ],
+  "folder": null,
+  "flags": {},
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "ZoAfDzsVupXR81nj": {
+        "name": "Activate",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {
+          "cbeBhFXD0Y5s7TRI": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "HL2dp0kD8s8rqROk": {
+            "type": "effect",
+            "default": true,
+            "effectId": "PoLlrPFniXyHGWDk"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "ranges": {
+          "1gnz3s5IfaR0KK06": {
+            "range": "self"
+          }
+        },
+        "target": {
+          "type": "self",
+          "quantity": 1
+        }
+      },
+      "i07uYntVmh9OhAzg": {
+        "name": "Activate vs Damage",
+        "activation": {
+          "type": "reaction",
+          "cost": 1,
+          "reactionTrigger": "Immediately after taking damage"
+        },
+        "consumers": {
+          "cbeBhFXD0Y5s7TRI": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "HbrmhHje515qr2bF": {
+            "type": "effect",
+            "default": true,
+            "effectId": "qwyA0diawDsvmTkk"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "ranges": {
+          "1gnz3s5IfaR0KK06": {
+            "range": "self"
+          }
+        },
+        "target": {
+          "type": "self",
+          "quantity": 1
+        }
+      }
+    },
+    "description": "<p>As a bonus action, or as a reaction immediately after taking damage, you can turn invisible. The invisibility lasts until the end of your next turn, and it ends early if you attack, deal damage, cast a spell, or force a creature to make a saving throw. Once you use this trait, you must finish a short or long rest before doing so again.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 1,
+      "max": "1",
+      "per": "shortRest",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "heritage",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    }
+  },
+  "_id": "78z2weqc4dx3b308"
 }

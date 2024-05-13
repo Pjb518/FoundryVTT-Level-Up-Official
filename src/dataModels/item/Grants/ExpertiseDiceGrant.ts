@@ -75,18 +75,18 @@ export default class ExpertiseDiceGrant extends BaseGrant {
   }
 
   requiresConfig() {
-    return this.keys.options.length;
+    return !!this.keys.options.length;
   }
 
   override async configureGrant() {
     const dialogData = {
       document: this?.parent,
       grantId: this._id,
-      grantType: 'abilities'
+      grantType: 'expertiseDice'
     };
 
     super.configureGrant(
-      'Configure Ability Grant',
+      'Configure Expertise Grant',
       dialogData,
       this.#configComponent,
       { width: 400 }

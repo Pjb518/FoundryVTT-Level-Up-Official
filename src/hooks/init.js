@@ -72,6 +72,7 @@ import handlePackMigration from '../migration/handlePackMigration';
 // Utility functions
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import * as compendiaIndexFunctions from '../utils/createIndexes';
+import openCompendium from '../utils/openCompendium';
 
 // Stores
 import { gameSettings } from '../settings/SettingsStore';
@@ -172,7 +173,8 @@ export default function init() {
     },
     utils: {
       getDeterministicBonus,
-      compendiaIndexFunctions
+      compendiaIndexFunctions,
+      openCompendium
     }
   };
 

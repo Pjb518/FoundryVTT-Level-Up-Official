@@ -1,6 +1,10 @@
 import * as indexFunctions from '../utils/createIndexes';
 
 const fancyPackData = {
+  classFeatures: {
+    packs: ['a5e.a5e-class-features'],
+    func: indexFunctions.createClassFeatureLikeIndex
+  },
   manuevers: {
     packs: ['a5e.a5e-maneuvers'],
     func: indexFunctions.createManeuverLikeIndex

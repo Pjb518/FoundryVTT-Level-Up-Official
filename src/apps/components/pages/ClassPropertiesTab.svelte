@@ -8,9 +8,11 @@
     import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import getDeterministicBonus from "../../../dice/getDeterministicBonus";
+    import CheckboxGroup from "../CheckboxGroup.svelte";
 
     const item = getContext("item");
     const abilities = { none: "None", ...CONFIG.A5E.abilities };
+    const abilitiesWithoutNone = CONFIG.A5E.abilities;
     const casterTypes = CONFIG.A5E.casterTypes;
 
     function getHpData() {
@@ -193,31 +195,71 @@
     {/if}
 
     <Section heading="Spell Casting" --a5e-section-body-gap="0.75rem">
-        <RadioGroup
-            heading="Spellcasting Ability"
-            options={Object.entries(abilities)}
-            selected={$item.system.spellcasting.ability}
-            on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.spellcasting.ability",
-                    detail,
-                )}
-        />
-
-        {#if $item.system.spellcasting.ability !== "none"}
+        {#if !$item.parent}
             <RadioGroup
-                heading="Caster Type"
-                options={Object.entries(casterTypes)}
-                selected={$item.system.spellcasting.casterType}
+                heading="Default Spellcasting Ability"
+                options={Object.entries(abilities)}
+                selected={$item.system.spellcasting.ability.base}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.spellcasting.ability.options",
+                        [],
+                    );
+
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.spellcasting.ability.base",
+                        detail,
+                    );
+                }}
+            />
+
+            <CheckboxGroup
+                heading="Optional Spellcasting Abilities"
+                options={Object.entries(abilitiesWithoutNone)}
+                selected={$item.system.spellcasting.ability.options}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.spellcasting.ability.base",
+                        "none",
+                    );
+
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.spellcasting.ability.options",
+                        detail,
+                    );
+                }}
+            />
+        {/if}
+
+        {#if $item.parent}
+            <RadioGroup
+                heading="Spellcasting Ability"
+                options={Object.entries(abilities)}
+                selected={$item.system.spellcasting.ability.value}
                 on:updateSelection={({ detail }) =>
                     updateDocumentDataFromField(
                         $item,
-                        "system.spellcasting.casterType",
+                        "system.spellcasting.ability.value",
                         detail,
                     )}
             />
         {/if}
+
+        <RadioGroup
+            heading="Caster Type"
+            options={Object.entries(casterTypes)}
+            selected={$item.system.spellcasting.casterType}
+            on:updateSelection={({ detail }) =>
+                updateDocumentDataFromField(
+                    $item,
+                    "system.spellcasting.casterType",
+                    detail,
+                )}
+        />
     </Section>
 
     <Section heading="Wealth" --a5e-section-body-gap="0.75rem">

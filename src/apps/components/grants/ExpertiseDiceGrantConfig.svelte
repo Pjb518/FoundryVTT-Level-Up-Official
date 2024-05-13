@@ -73,7 +73,7 @@
     const expertiseDiceOptions = prepareExpertiseDiceOptions();
 
     $: grant = $item.system.grants[grantId];
-    $: expertiseType = grant?.expertiseType || "ability";
+    $: expertiseType = grant?.expertiseType || "abilityCheck";
 
     setContext("item", item);
     setContext("grantId", grantId);

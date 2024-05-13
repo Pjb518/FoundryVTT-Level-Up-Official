@@ -100,6 +100,7 @@
     setContext("customImporter", customImporter);
     setContext("filterStore", filterStore);
     setContext("reducer", reducer);
+    setContext("sheet", sheet);
 
     const reducerUnsubscribe = reducer.subscribe(
         () => (visibleDocumentCount = 100),
@@ -139,76 +140,78 @@
                 --tjs-input-text-width="100%"
             />
 
-            {#if tab === "items"}
-                <button
-                    class="a5efc-filter-button"
-                    class:a5efc-filter-button--active={includeDescriptions}
-                    data-tooltip={includeDescriptions
-                        ? "Exclude item descriptions in search"
-                        : "Include item descriptions in search"}
-                    data-tooltip-direction="UP"
-                    on:click={() =>
-                        (includeDescriptions = !includeDescriptions)}
-                >
-                    <i class="a5efc-filter-button__icon fa-solid fa-book" />
-                </button>
-
-                <button
-                    class="a5efc-filter-button"
-                    class:a5efc-filter-button--active={enableGrouping}
-                    data-tooltip={enableGrouping
-                        ? "Disable grouping of documents"
-                        : "Enable grouping of documents"}
-                    data-tooltip-direction="UP"
-                    on:click={() => (enableGrouping = !enableGrouping)}
-                >
-                    <i
-                        class="a5efc-filter-button__icon fa-solid fa-bars-staggered"
-                    />
-                </button>
-
-                {#if !customImporter}
+            {#if compendiumType !== "classFeature"}
+                {#if tab === "items"}
                     <button
                         class="a5efc-filter-button"
-                        data-tooltip="Export {[...$reducer]
-                            .length} Documents to Rolltable"
+                        class:a5efc-filter-button--active={includeDescriptions}
+                        data-tooltip={includeDescriptions
+                            ? "Exclude item descriptions in search"
+                            : "Include item descriptions in search"}
                         data-tooltip-direction="UP"
-                        on:click={() => exportToRollTable()}
+                        on:click={() =>
+                            (includeDescriptions = !includeDescriptions)}
                     >
-                        <i
-                            class="a5efc-filter-button__icon fa-solid fa-table-list"
-                        />
+                        <i class="a5efc-filter-button__icon fa-solid fa-book" />
                     </button>
-                {:else if compendiumType === "spell" || compendiumType === "maneuver"}
+
                     <button
                         class="a5efc-filter-button"
-                        data-tooltip="Export {[...$reducer]
-                            .length} Documents to Actor"
+                        class:a5efc-filter-button--active={enableGrouping}
+                        data-tooltip={enableGrouping
+                            ? "Disable grouping of documents"
+                            : "Enable grouping of documents"}
                         data-tooltip-direction="UP"
-                        on:click={() => exportToActor()}
+                        on:click={() => (enableGrouping = !enableGrouping)}
                     >
                         <i
-                            class="a5efc-filter-button__icon fa-solid fa-download"
+                            class="a5efc-filter-button__icon fa-solid fa-bars-staggered"
                         />
                     </button>
+
+                    {#if !customImporter && compendiumType !== "classFeature"}
+                        <button
+                            class="a5efc-filter-button"
+                            data-tooltip="Export {[...$reducer]
+                                .length} Documents to Rolltable"
+                            data-tooltip-direction="UP"
+                            on:click={() => exportToRollTable()}
+                        >
+                            <i
+                                class="a5efc-filter-button__icon fa-solid fa-table-list"
+                            />
+                        </button>
+                    {:else if compendiumType === "spell" || compendiumType === "maneuver"}
+                        <button
+                            class="a5efc-filter-button"
+                            data-tooltip="Export {[...$reducer]
+                                .length} Documents to Actor"
+                            data-tooltip-direction="UP"
+                            on:click={() => exportToActor()}
+                        >
+                            <i
+                                class="a5efc-filter-button__icon fa-solid fa-download"
+                            />
+                        </button>
+                    {/if}
                 {/if}
-            {/if}
 
-            <button
-                class="a5efc-filter-button"
-                class:a5efc-filter-button--active={tab === "filters" ||
-                    filterCount.and ||
-                    filterCount.or}
-                data-tooltip={tab === "items"
-                    ? "Open Filter Page"
-                    : "Close Filter Page"}
-                data-tooltip-direction="UP"
-                on:click={() => {
-                    tab = tab === "items" ? "filters" : "items";
-                }}
-            >
-                <i class="a5efc-filter-button__icon fa-solid fa-filter" />
-            </button>
+                <button
+                    class="a5efc-filter-button"
+                    class:a5efc-filter-button--active={tab === "filters" ||
+                        filterCount.and ||
+                        filterCount.or}
+                    data-tooltip={tab === "items"
+                        ? "Open Filter Page"
+                        : "Close Filter Page"}
+                    data-tooltip-direction="UP"
+                    on:click={() => {
+                        tab = tab === "items" ? "filters" : "items";
+                    }}
+                >
+                    <i class="a5efc-filter-button__icon fa-solid fa-filter" />
+                </button>
+            {/if}
         </div>
 
         <svelte:component

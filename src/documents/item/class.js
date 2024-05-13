@@ -78,13 +78,15 @@ export default class ClassItemA5e extends OriginItemA5e {
 
     // Add spellcasting resource data
     if (type === 'multiplier' && resource === 'slots') {
-      const roundFunc = roundUp ? Math.ceil : Math.floor;
-      const slots = config[roundFunc(this.classLevels * multiplier)];
+      const roundFunc = Math.ceil;
+      const slots = config[roundFunc(this.classLevels * (multiplier ?? 1))] ?? [];
 
-      data.slots = Object.fromEntries(slots.map((slot, idx) => ([
-        idx + 1,
-        slot
-      ])));
+      data.slots = Object.fromEntries(slots.map((slot, idx) => {
+        const skip = Math.round(1 / multiplier) > this.classLevels;
+        if (multiplier < 1 && skip && !roundUp) return [idx + 1, 0];
+
+        return [idx + 1, slot];
+      }));
     }
 
     if (type === 'reference') {
@@ -132,12 +134,13 @@ export default class ClassItemA5e extends OriginItemA5e {
 
     // Update starting hp
     if (!foundry.utils.getProperty(data, 'system.hp.levels.1')) {
-      foundry.utils.setProperty(data, 'system.hp.levels.1', 4);
+      const startingHp = foundry.utils.getProperty(data, 'system.hp.hitDiceSize') ?? 6;
+      foundry.utils.setProperty(data, 'system.hp.levels.1', startingHp);
     }
 
     // Reset hp rolls
     Array.from({ length: 19 }, (_, i) => i + 2).forEach((level) => {
-      foundry.utils.setProperty(data, `system.hp.levels.${level}`);
+      foundry.utils.setProperty(data, `system.hp.levels.${level}`, 0);
     });
 
     if (this.parent?.documentName === 'Actor') {
@@ -161,11 +164,12 @@ export default class ClassItemA5e extends OriginItemA5e {
     return true;
   }
 
+  // eslint-disable-next-line consistent-return
   async _preUpdate(changed, options, user) {
     super._preUpdate(changed, options, user);
 
     const keys = Object.keys(foundry.utils.flattenObject(changed));
-    if (keys.includes('system.hp.hitDiceSize') && this.isStartingClass) {
+    if (keys.includes('system.hp.hitDiceSize') && (this.isStartingClass || !this.parent)) {
       const size = foundry.utils.getProperty(changed, 'system.hp.hitDiceSize');
       await this.updateSource({ 'system.hp.levels.1': size });
     }
@@ -186,7 +190,8 @@ export default class ClassItemA5e extends OriginItemA5e {
       const actor = this.parent;
       const currentLevel = this.system.classLevels;
       const newLevel = foundry.utils.getProperty(changed, 'system.classLevels');
-      await actor.grants.createLeveledGrants(currentLevel, newLevel, this);
+      const result = await actor.grants.createLeveledGrants(currentLevel, newLevel, this);
+      if (!result) return false;
     }
   }
 

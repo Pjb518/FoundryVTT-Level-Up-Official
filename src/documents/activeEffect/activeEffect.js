@@ -460,6 +460,12 @@ export default class ActiveEffectA5e extends ActiveEffect {
     delete e1.duration;
     delete e2.duration;
 
+    delete e1.flags?.a5e?.sort;
+    delete e2.flags?.a5e?.sort;
+
+    delete e1.flags?.a5e?.actionId;
+    delete e2.flags?.a5e?.actionId;
+
     e1.changes.forEach((c) => delete c.priority);
     e2.changes.forEach((c) => delete c.priority);
 
