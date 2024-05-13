@@ -1,7 +1,7 @@
 {
 	"name": "Defense: Juggernaut",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/equipment/chest/breastplate-cuirass-steel-grey.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -16,7 +16,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>You gain proficiency with heavy armor. In addition, your speed is not reduced by wearing heavy armor, you can still benefit from raging while wearing heavy armor, and you do not count the weight of any worn armor when determining your carrying capacity.</p>",
+		"description": "<p><span style=\"color: #191813;\">You gain proficiency with heavy armor. In addition, your speed is not reduced by wearing heavy armor, you can still benefit from raging while wearing heavy armor, and you do not count the weight of any worn armor when determining your carrying capacity.</span></p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -31,20 +31,33 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
+		"grants": {
+			"b9hxeuUtcSEGQER8": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Battle Defense",
+				"keys": {
+					"base": [
+						"heavy"
+					]
 				}
 			}
 		},
-		"classes": ""
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"classes": "berserker"
 	},
 	"folder": null,
 	"_id": "d1fxv8660imuyf1l"

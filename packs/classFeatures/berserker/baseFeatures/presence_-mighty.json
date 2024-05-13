@@ -1,8 +1,43 @@
 {
 	"name": "Presence: Mighty",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
+			"origin": "Item.xsy5QBHB4x4YEO0g",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Mighty",
+			"_id": "nBlVs1FPscwHg2UF",
+			"changes": [
+				{
+					"key": "system.skills.itm.ability",
+					"value": "con",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You can always choose to use Constitution when making Intimidation checks.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,7 +50,33 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"NZgoDY2URbc3NS3a": {
+				"name": "Mighty",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"735gDMhAqE8KMFVZ": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "itm",
+						"ability": "con"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>You turn your toughness into a tool when imposing upon others. You can always choose to use Constitution when making Intimidation checks.</p><p>In addition, when you enter a tavern or other social gathering, you can make a DC 15 Intimidation check while loudly declaring that you are looking for something or someone. On a success, most of the people there look at and otherwise point out whoever they believe is the person you are looking for or the person most likely to know about what you are seeking.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -35,16 +96,16 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.019,
+			"version": 0.018,
 			"lastMigration": {
 				"version": {
-					"schema": 0.018,
+					"schema": 0.016,
 					"foundry": "11.315",
-					"system": "0.18.11"
+					"system": "0.17.41"
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker"
 	},
 	"folder": null,
 	"_id": "18w3ij6yfmojzz2b"

@@ -1,8 +1,45 @@
 {
 	"name": "Critical: Elemental Wrath (Cold)",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+			"origin": "Item.ZAEXnsqBcGg3A6ws",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ll3YIXp9mezuQ68C",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Elemental Wrath (Cold)",
+			"_id": "LQwoO8iHw2SPyaCg",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Elemental Wrath (Cold)\",\"formula\":\"1d6\",\"damageType\":\"cold\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/symbols/elements-air-earth-fire-water.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -16,8 +53,8 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"q6QEGSddulxXUlwi": {
-				"name": "Critical: Elemental Wrath (Cold)",
+			"ll3YIXp9mezuQ68C": {
+				"name": "Elemental Wrath (Cold)",
 				"activation": {
 					"cost": "",
 					"type": "special",
@@ -28,7 +65,7 @@
 					"value": null
 				},
 				"ranges": {
-					"2fduKXJMOPr33Mrv": {
+					"vpLuXMCe8vylAhV9": {
 						"range": "self"
 					}
 				},
@@ -43,19 +80,18 @@
 					"shape": "",
 					"size": ""
 				},
-				"rolls": {
-					"qxmxJNhPpTF6z3ry": {
-						"canCrit": false,
-						"damageType": "cold",
-						"formula": "1d6",
-						"name": "Cold",
-						"type": "damage"
+				"rolls": {},
+				"consumers": {},
+				"prompts": {
+					"gE01mgjpgqKHxqgO": {
+						"type": "effect",
+						"default": true,
+						"effectId": "LQwoO8iHw2SPyaCg"
 					}
-				},
-				"consumers": {}
+				}
 			}
 		},
-		"description": "<p>Your fury is so great that it incites the very elements to join you. When you score a critical hit, after dealing damage the weapon that dealt the blow is charged with cold.</p><p>The weapon now deals an additional cold damage. This effect lasts for a number of rounds equal to your proficiency bonus and does not stack with successive critical hits.</p><p>&nbsp;</p>",
+		"description": "<p style=\"box-sizing: border-box; user-select: text; visibility: visible; color: #191813;\"><span class=\"fontstyle3\" style=\"box-sizing: border-box; user-select: text;\">Your fury is so great that it incites the very elements to join you. When you score a critical hit, after dealing damage the weapon that dealt the blow is charged with cold</span><span class=\"fontstyle3\" style=\"box-sizing: border-box; user-select: text;\">.</span></p>\n<p style=\"box-sizing: border-box; user-select: text; visibility: visible; color: #191813;\"><span class=\"fontstyle3\" style=\"box-sizing: border-box; user-select: text;\">The weapon now deals an additional acid damage. This effect lasts for a number of rounds equal to your proficiency bonus and does not stack with successive critical hits.</span></p>\n<p style=\"box-sizing: border-box; user-select: text; visibility: visible; color: #191813;\">&nbsp;</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -74,16 +110,16 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.019,
+			"version": 0.018,
 			"lastMigration": {
 				"version": {
-					"schema": 0.018,
+					"schema": 0.016,
 					"foundry": "11.315",
-					"system": "0.18.11"
+					"system": "0.17.41"
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker"
 	},
 	"folder": null,
 	"_id": "tom159200kbaubcm"
