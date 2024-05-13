@@ -5,11 +5,9 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import DropArea from "../dropAreas/DropArea.svelte";
-    import DropTag from "../DropTag.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
     import GrantConfig from "./GrantConfig.svelte";
-    import Checkbox from "../Checkbox.svelte";
 
     export let { document, grantId, grantType } =
         getContext("#external").application;
@@ -26,6 +24,11 @@
         });
 
         return filePicker.browse();
+    }
+
+    async function openDocument(uuid) {
+        const doc = await fromUuid(uuid);
+        doc.sheet.render(true);
     }
 
     function onUpdateValue(key, value) {
@@ -146,7 +149,14 @@
                         alt={feature.name}
                     />
 
-                    <span class="feature-table__name">{feature.name}</span>
+                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                    <!-- svelte-ignore a11y-no-static-element-interactions -->
+                    <span
+                        class="feature-table__name"
+                        on:click={() => openDocument(feature.uuid)}
+                    >
+                        {feature.name}
+                    </span>
 
                     <input
                         class="feature-table__limited-reselection"
@@ -224,7 +234,14 @@
                         alt={feature.name}
                     />
 
-                    <span class="feature-table__name">{feature.name}</span>
+                    <!-- svelte-ignore a11y-click-events-have-key-events -->
+                    <!-- svelte-ignore a11y-no-static-element-interactions -->
+                    <span
+                        class="feature-table__name"
+                        on:click={() => openDocument(feature.uuid)}
+                    >
+                        {feature.name}
+                    </span>
 
                     <input
                         class="feature-table__limited-reselection"
