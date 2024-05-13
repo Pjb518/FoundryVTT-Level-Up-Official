@@ -62,16 +62,23 @@
             return false;
         });
 
-        // Update optional grants
+        // Update active grants
         activeGrants = new Set<string>([
             ...updatedList,
             ...selectedOptionalGrants,
         ]);
+
+        // Update grants
+        grants = getApplicableGrants(activeGrants, selectedOptionalGrants);
+        configurableGrants = grants.filter((grant) => grant.requiresConfig);
     }
 
     // Create a list of grants to show based on selected optional
     // grants and those grants that have configurable properties
-    function getApplicableGrants(selectedOptionalGrants: string[]) {
+    function getApplicableGrants(
+        activeGrants: Set<string>,
+        selectedOptionalGrants: string[],
+    ) {
         const grantsList: {
             grant: Grant;
             requiresConfig: boolean;
@@ -82,6 +89,11 @@
         allGrants.forEach((grant: Grant) => {
             const { grantedBy } = grant;
             if (grantedBy && !activeGrants.has(grantedBy.id)) {
+                return;
+            }
+
+            const uuids: string[] = applyData.get(grantedBy?.id ?? "")?.uuids;
+            if (grantedBy && uuids && !uuids.includes(grantedBy.uuid)) {
                 return;
             }
 
@@ -142,7 +154,7 @@
         cls?.system?.spellcasting?.ability?.options[0] ?? "";
 
     $: applyData = new Map<string, any>();
-    $: grants = getApplicableGrants(selectedOptionalGrants);
+    $: grants = getApplicableGrants(activeGrants, selectedOptionalGrants);
     $: optionalGrants = getStartingOptionalGrants();
     $: configurableGrants = grants.filter((grant) => grant.requiresConfig);
 
