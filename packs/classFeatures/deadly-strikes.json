@@ -1,119 +1,133 @@
 {
-	"name": "Deadly Strikes",
-	"type": "feature",
-	"img": "icons/magic/unholy/projectile-spear-glow-pink.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"OzldlIE2l9gXPneQ": {
-				"name": "Deadly Strikes",
-				"activation": {},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"YqW0gqkU1xuA4b3K": {
-						"type": "effect",
-						"default": true,
-						"effectId": "skk7dZegGcrGwspM"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>Beginning at level 3, your rage infuses you with the power of death. While you are raging, you have resistance to necrotic damage and your weapon attacks deal an additional 1d6 necrotic damage. This increases to 1d8 at level 9 and 1d10 at level 15.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"classes": "berserker"
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/unholy/projectile-spear-glow-pink.webp",
-			"origin": "Item.GHHauI0FZuOMEi4m",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "OzldlIE2l9gXPneQ",
-					"applyToSelf": true
-				}
-			},
-			"transfer": false,
-			"name": "Deadly Strikes",
-			"_id": "skk7dZegGcrGwspM",
-			"changes": [
-				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"necrotic\"]",
-					"mode": 2,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"Deadly Strikes\",\"formula\":\"1d6\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p>Beginning at level 3, your rage infuses you with the power of death. While you are raging, you have resistance to necrotic damage and your weapon attacks deal an additional 1d6 necrotic damage. This increases to 1d8 at level 9 and 1d10 at level 15.</p>",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"folder": null,
-	"_id": "euhgi1z3dp69tlvn"
+  "name": "Deadly Strikes",
+  "type": "feature",
+  "img": "icons/magic/unholy/projectile-spear-glow-pink.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "OzldlIE2l9gXPneQ": {
+        "name": "Deadly Strikes",
+        "activation": {},
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "YqW0gqkU1xuA4b3K": {
+            "type": "effect",
+            "default": true,
+            "effectId": "skk7dZegGcrGwspM"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>Beginning at level 3, your rage infuses you with the power of death. While you are raging, you have resistance to necrotic damage and your weapon attacks deal an additional 1d6 necrotic damage. This increases to 1d8 at level 9 and 1d10 at level 15.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": {
+        "version": {
+          "schema": 0.018,
+          "foundry": "11.315",
+          "system": "0.18.11"
+        }
+      }
+    },
+    "classes": "berserker"
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/unholy/projectile-spear-glow-pink.webp",
+      "origin": "Item.euhgi1z3dp69tlvn",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "OzldlIE2l9gXPneQ",
+          "applyToSelf": true
+        }
+      },
+      "transfer": false,
+      "name": "Deadly Strikes",
+      "_id": "skk7dZegGcrGwspM",
+      "changes": [
+        {
+          "key": "system.traits.damageResistances",
+          "value": "[\"necrotic\"]",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.bonuses.damage",
+          "value": "{\"label\":\"Deadly Strikes\",\"formula\":\"1d6\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>Beginning at level 3, your rage infuses you with the power of death. While you are raging, you have resistance to necrotic damage and your weapon attacks deal an additional 1d6 necrotic damage. This increases to 1d8 at level 9 and 1d10 at level 15.</p>",
+      "statuses": []
+    }
+  ],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "folder": "tqpfd65RawLHAkOf",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1715599690895,
+    "modifiedTime": 1715599750501,
+    "lastModifiedBy": "w2w5xxtHicJQ36ch"
+  }
 }

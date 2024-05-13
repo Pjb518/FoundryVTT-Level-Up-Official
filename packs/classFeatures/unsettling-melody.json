@@ -1,136 +1,151 @@
 {
-	"name": "Unsettling Melody",
-	"type": "feature",
-	"img": "icons/magic/sonic/bell-alarm-red-purple.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"eH78fuus4YLXrlIh": {
-				"name": "Unsettling Melody",
-				"activation": {
-					"type": "special"
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {
-					"ENIHuQ0oMYwKNwPB": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "wis",
-						"saveDC": {
-							"type": "spellcasting",
-							"bonus": "Not rattled"
-						}
-					},
-					"06msMTeWqBOm82P3": {
-						"type": "effect",
-						"default": true,
-						"effectId": "c5TWTQxrruGPLL1A"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"ftHZzyJNvaiYtNtJ": {
-						"range": "short"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			}
-		},
-		"description": "<p>Starting at 6th level, you learn to pepper a feeling of unease into your bolstering abilities. Whenever you use your Bardic Inspiration, you may elect to lower the die size by one step. If you do, you may select a creature within 30 feet of you to unnerve. The creature makes a Wisdom save against your spell save DC, gaining the rattled condition for one minute on a failed save. The creature can repeat the save at the end of each of its rounds, ending the effect on a success. A creature may only be affected by one instance of this effect at a time.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/sonic/bell-alarm-red-purple.webp",
-			"origin": "Item.bwhwmg1v7666r80h",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eH78fuus4YLXrlIh",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Unsettling Melody",
-			"_id": "c5TWTQxrruGPLL1A",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"rattled\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p>The creature makes a Wisdom save against your spell save DC, gaining the rattled condition for one minute on a failed save. The creature can repeat the save at the end of each of its rounds, ending the effect on a success. A creature may only be affected by one instance of this effect at a time.</p>",
-			"statuses": [
-				"rattled"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"folder": null,
-	"_id": "bwhwmg1v7666r80h"
+  "name": "Unsettling Melody",
+  "type": "feature",
+  "img": "icons/magic/sonic/bell-alarm-red-purple.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "eH78fuus4YLXrlIh": {
+        "name": "Unsettling Melody",
+        "activation": {
+          "type": "special"
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "ENIHuQ0oMYwKNwPB": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "wis",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": "Not rattled"
+            }
+          },
+          "06msMTeWqBOm82P3": {
+            "type": "effect",
+            "default": true,
+            "effectId": "c5TWTQxrruGPLL1A"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "ftHZzyJNvaiYtNtJ": {
+            "range": "short"
+          }
+        },
+        "target": {
+          "type": "creature",
+          "quantity": 1
+        }
+      }
+    },
+    "description": "<p>Starting at 6th level, you learn to pepper a feeling of unease into your bolstering abilities. Whenever you use your Bardic Inspiration, you may elect to lower the die size by one step. If you do, you may select a creature within 30 feet of you to unnerve. The creature makes a Wisdom save against your spell save DC, gaining the rattled condition for one minute on a failed save. The creature can repeat the save at the end of each of its rounds, ending the effect on a success. A creature may only be affected by one instance of this effect at a time.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": {
+        "version": {
+          "schema": 0.018,
+          "foundry": "11.315",
+          "system": "0.18.11"
+        }
+      }
+    },
+    "classes": ""
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/sonic/bell-alarm-red-purple.webp",
+      "origin": "Item.bwhwmg1v7666r80h",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "eH78fuus4YLXrlIh",
+          "duration": {
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Unsettling Melody",
+      "_id": "c5TWTQxrruGPLL1A",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"rattled\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 60,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>The creature makes a Wisdom save against your spell save DC, gaining the rattled condition for one minute on a failed save. The creature can repeat the save at the end of each of its rounds, ending the effect on a success. A creature may only be affected by one instance of this effect at a time.</p>",
+      "statuses": [
+        "rattled"
+      ]
+    }
+  ],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "folder": "tqpfd65RawLHAkOf",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1715599690251,
+    "modifiedTime": 1715599754975,
+    "lastModifiedBy": "w2w5xxtHicJQ36ch"
+  }
 }

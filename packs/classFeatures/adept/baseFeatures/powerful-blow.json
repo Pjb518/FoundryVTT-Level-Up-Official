@@ -1,114 +1,130 @@
 {
-	"name": "Powerful Blow",
-	"type": "feature",
-	"img": "icons/skills/melee/unarmed-punch-fist-white.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"tNOLmfTgAJrKrmeu": {
-				"name": "Powerful Blow",
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"rolls": {
-					"59QutE3Qopwbpxz7": {
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"formula": "1d4",
-						"name": "d4",
-						"type": "damage",
-						"default": false
-					},
-					"aCu5y3FPiZRferIt": {
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"formula": "1d6",
-						"name": "d6",
-						"type": "damage",
-						"default": false
-					},
-					"kjZCGhFnJ5BhFEZa": {
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"formula": "1d8",
-						"name": "d8",
-						"type": "damage",
-						"default": false
-					},
-					"emapgYParzFO2b9g": {
-						"canCrit": false,
-						"damageType": "bludgeoning",
-						"formula": "1d10",
-						"name": "d10",
-						"type": "damage",
-						"default": false
-					}
-				},
-				"consumers": {
-					"GadEQxvdnf5Imesj": {
-						"type": "resource",
-						"default": true,
-						"resource": "exertion",
-						"quantity": 1
-					}
-				}
-			}
-		},
-		"description": "<p>As a bonus action, you prepare a crushing blow. If you hit a creature with a melee weapon attack before the end of your next turn, you can spend 1 exertion to deal additional damage equal to your martial arts die.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "5th level",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
-	},
-	"folder": null,
-	"_id": "2u56zuxp8t3ch366"
+  "name": "Powerful Blow",
+  "type": "feature",
+  "img": "icons/skills/melee/unarmed-punch-fist-white.webp",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "tNOLmfTgAJrKrmeu": {
+        "name": "Powerful Blow",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "59QutE3Qopwbpxz7": {
+            "canCrit": false,
+            "damageType": "bludgeoning",
+            "formula": "1d4",
+            "name": "d4",
+            "type": "damage",
+            "default": false
+          },
+          "aCu5y3FPiZRferIt": {
+            "canCrit": false,
+            "damageType": "bludgeoning",
+            "formula": "1d6",
+            "name": "d6",
+            "type": "damage",
+            "default": false
+          },
+          "kjZCGhFnJ5BhFEZa": {
+            "canCrit": false,
+            "damageType": "bludgeoning",
+            "formula": "1d8",
+            "name": "d8",
+            "type": "damage",
+            "default": false
+          },
+          "emapgYParzFO2b9g": {
+            "canCrit": false,
+            "damageType": "bludgeoning",
+            "formula": "1d10",
+            "name": "d10",
+            "type": "damage",
+            "default": false
+          }
+        },
+        "consumers": {
+          "GadEQxvdnf5Imesj": {
+            "type": "resource",
+            "default": true,
+            "resource": "exertion",
+            "quantity": 1
+          }
+        }
+      }
+    },
+    "description": "<p>As a bonus action, you prepare a crushing blow. If you hit a creature with a melee weapon attack before the end of your next turn, you can spend 1 exertion to deal additional damage equal to your martial arts die.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "adventurersGuide",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "5th level",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": {
+        "version": {
+          "schema": 0.018,
+          "foundry": "11.315",
+          "system": "0.18.11"
+        }
+      }
+    },
+    "classes": ""
+  },
+  "folder": "tqpfd65RawLHAkOf",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1715599688406,
+    "modifiedTime": 1715599753266,
+    "lastModifiedBy": "w2w5xxtHicJQ36ch"
+  }
 }

@@ -5,12 +5,12 @@
   "system": {
     "description": "<p>Characters raised in the collegiate culture share a variety of traits in common with one another.&nbsp;</p><p><strong><em>Philosophic Mind.</em></strong>&nbsp;Your rationale shields your psyche occasionally. Once between&nbsp;long rests</span>, at the start of your turn you can suppress the effects of an enchantment spell you are under for 1 round as your logic overrides it.</p><p><strong><em>Practiced Artisan.</em></strong>&nbsp;You are proficient with calligrapher&rsquo;s supplies and two other artisan's tools.</p><p><strong><em>Studied Discipline.</em></strong>&nbsp;You have extensive knowledge in certain fields. For all skill proficiencies gained through this trait, you always choose which ability score to use for these rolls (Intelligence, Wisdom, or Charisma). Choose one of the following:</p><p><em>&nbsp; &nbsp;Architecture</em>: You gain proficiency in Engineering. You can use a bonus action to intuitively identify the weight-bearing wall or pillars of a structure, dealing double damage against it with your next weapon attack. Alternatively, you can double the hit points a structure regains from the next action you or an ally take to repair it.</p><p><em>&nbsp; &nbsp;Engineering</em>:&nbsp;You gain proficiency in Engineering, and you gain an expertise die on checks made to fix or take apart mechanical mechanisms. You also gain an expertise die on checks and saving throws made against environmental damage from structural changes and collapse.</p><p><em>&nbsp; &nbsp;Fine Arts: </em>You gain proficiency in Performance. In addition, choose one artisan's tool you are proficient with. You gain an expertise die on checks made using that tool.</p><p><em>&nbsp; &nbsp;Magic: </em>You gain proficiency in Arcana. In addition, at 3rd level, you can cast @UUID[Compendium.a5e.a5e-spells.kaye34nheyrit487]{detect magic} once per&nbsp;long rest&nbsp;. Your spellcasting ability for this spell is Intelligence, Wisdom, or Charisma (whichever is highest).</p><p><em>&nbsp; &nbsp;Mathematics: </em>You gain proficiency in&nbsp;Engineering. &nbsp;In addition, once between rests, you can spend a full uninterrupted minute observing an environment, at the end of which you can use the Ricochet combat maneuver without spending exertion.&nbsp;</p><p><em>&nbsp; &nbsp;Medicine: </em>You gain proficiency in Medicine. You gain an&nbsp;<span>expertise die&nbsp;when identifying disease and poison, or doing small field surgeries and triage.</p><p><em>&nbsp; &nbsp;Sciences: </em>Pick two skills from Arcana, History, Nature, and Religion. You gain proficiency with the two skills.</p><p><strong><em>Languages.</em></strong> You can speak, read, write, and sign Common and three additional languages.</p>",
     "schemaVersion": {
-      "version": 0.018,
+      "version": 0.019,
       "lastMigration": {
         "version": {
-          "schema": 0.013,
+          "schema": 0.018,
           "foundry": "11.315",
-          "system": "0.17.41"
+          "system": "0.18.11"
         }
       }
     },
@@ -22,17 +22,53 @@
         "label": "Collegiate",
         "features": {
           "base": [
-            "Compendium.a5e.a5e-culture-features.Item.eiae8e7nvm4x8sc7",
-            "Compendium.a5e.a5e-culture-features.Item.62lu225mcdgqoqfd"
+            {
+              "uuid": "Compendium.a5e.a5e-culture-features.Item.eiae8e7nvm4x8sc7",
+              "limitedReselection": true,
+              "selectionLimit": 1
+            },
+            {
+              "uuid": "Compendium.a5e.a5e-culture-features.Item.62lu225mcdgqoqfd",
+              "limitedReselection": true,
+              "selectionLimit": 1
+            }
           ],
           "options": [
-            "Compendium.a5e.a5e-culture-features.Item.4ofkn5t3t366ir18",
-            "Compendium.a5e.a5e-culture-features.Item.ec866tbn35mfuiar",
-            "Compendium.a5e.a5e-culture-features.Item.b2ol3j57gxv670iw",
-            "Compendium.a5e.a5e-culture-features.Item.17dr0z40fqkxjnyz",
-            "Compendium.a5e.a5e-culture-features.Item.h6eijctbzsfdm0f4",
-            "Compendium.a5e.a5e-culture-features.Item.50bozuktb7cclczo",
-            "Compendium.a5e.a5e-culture-features.Item.monrq2envak11418"
+            {
+              "uuid": "Compendium.a5e.a5e-culture-features.Item.4ofkn5t3t366ir18",
+              "limitedReselection": true,
+              "selectionLimit": 1
+            },
+            {
+              "uuid": "Compendium.a5e.a5e-culture-features.Item.ec866tbn35mfuiar",
+              "limitedReselection": true,
+              "selectionLimit": 1
+            },
+            {
+              "uuid": "Compendium.a5e.a5e-culture-features.Item.b2ol3j57gxv670iw",
+              "limitedReselection": true,
+              "selectionLimit": 1
+            },
+            {
+              "uuid": "Compendium.a5e.a5e-culture-features.Item.17dr0z40fqkxjnyz",
+              "limitedReselection": true,
+              "selectionLimit": 1
+            },
+            {
+              "uuid": "Compendium.a5e.a5e-culture-features.Item.h6eijctbzsfdm0f4",
+              "limitedReselection": true,
+              "selectionLimit": 1
+            },
+            {
+              "uuid": "Compendium.a5e.a5e-culture-features.Item.50bozuktb7cclczo",
+              "limitedReselection": true,
+              "selectionLimit": 1
+            },
+            {
+              "uuid": "Compendium.a5e.a5e-culture-features.Item.monrq2envak11418",
+              "limitedReselection": true,
+              "selectionLimit": 1
+            }
           ],
           "total": 1
         },
@@ -83,7 +119,22 @@
     "source": "adventurersGuide"
   },
   "effects": [],
-  "flags": {},
-  "folder": null,
-  "_id": "t96nk3warnp9bvvt"
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "folder": "YfEucl84Rgojc6VZ",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1715599664333,
+    "modifiedTime": 1715599750166,
+    "lastModifiedBy": "w2w5xxtHicJQ36ch"
+  }
 }

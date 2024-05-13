@@ -1,146 +1,162 @@
 {
-	"folder": null,
-	"name": "Rock Training",
-	"type": "feature",
-	"img": "icons/skills/trades/construction-mason-stonecutter-sculpture.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"M7AATeMXEZCsH1zY": {
-				"name": "Rock Bash",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
-				"rolls": {
-					"Rn2t5dXLWtLg2tNp": {
-						"type": "attack",
-						"default": true,
-						"attackType": "meleeWeaponAttack",
-						"proficient": true,
-						"ability": "str"
-					},
-					"vdLnlFFSJPJewms4": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d6 + @str.mod",
-						"damageType": "bludgeoning"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"fCuOm9nvmxLajhFN": {
-						"range": "fiveFeet"
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				}
-			},
-			"K46owZJ359RrlAWS": {
-				"name": "Throw Rock",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"oY1xPkseewA4Yaek": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"b7IuTp1kDBs4Ah1l": {
-						"type": "attack",
-						"default": true,
-						"attackType": "rangedWeaponAttack",
-						"proficient": true,
-						"ability": "default"
-					},
-					"fDwUPMOshlJxKTXC": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d6 + @finesse.mod",
-						"damageType": "bludgeoning"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ranges": {
-					"zBVv53naMltaiTP5": {
-						"range": 40,
-						"unit": "feet"
-					},
-					"Ss7ap4Y29ay7k6rl": {
-						"range": 80,
-						"unit": "feet"
-					}
-				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				}
-			}
-		},
-		"description": "<p>You gain proficiency with rocks as improvised weapons, and in your hands a Tiny rock deals 1d6 + your Strength modifier bludgeoning damage and has the thrown property (40/80 feet).</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "dungeonDelversGuide",
-		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "culture",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"_id": "4msxxsyftzwlxfqj"
+  "folder": "V5ACo6aY27qNyCTm",
+  "name": "Rock Training",
+  "type": "feature",
+  "img": "icons/skills/trades/construction-mason-stonecutter-sculpture.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "M7AATeMXEZCsH1zY": {
+        "name": "Rock Bash",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "Rn2t5dXLWtLg2tNp": {
+            "type": "attack",
+            "default": true,
+            "attackType": "meleeWeaponAttack",
+            "proficient": true,
+            "ability": "str"
+          },
+          "vdLnlFFSJPJewms4": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d6 + @str.mod",
+            "damageType": "bludgeoning"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "fCuOm9nvmxLajhFN": {
+            "range": "fiveFeet"
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        }
+      },
+      "K46owZJ359RrlAWS": {
+        "name": "Throw Rock",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {
+          "oY1xPkseewA4Yaek": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "b7IuTp1kDBs4Ah1l": {
+            "type": "attack",
+            "default": true,
+            "attackType": "rangedWeaponAttack",
+            "proficient": true,
+            "ability": "default"
+          },
+          "fDwUPMOshlJxKTXC": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d6 + @finesse.mod",
+            "damageType": "bludgeoning"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "ranges": {
+          "zBVv53naMltaiTP5": {
+            "range": 40,
+            "unit": "feet"
+          },
+          "Ss7ap4Y29ay7k6rl": {
+            "range": 80,
+            "unit": "feet"
+          }
+        },
+        "target": {
+          "type": "creatureObject",
+          "quantity": 1
+        }
+      }
+    },
+    "description": "<p>You gain proficiency with rocks as improvised weapons, and in your hands a Tiny rock deals 1d6 + your Strength modifier bludgeoning damage and has the thrown property (40/80 feet).</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "dungeonDelversGuide",
+    "uses": {
+      "value": 1,
+      "max": "1",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "culture",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": {
+        "version": {
+          "schema": 0.018,
+          "foundry": "11.315",
+          "system": "0.18.11"
+        }
+      }
+    },
+    "classes": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1715599700650,
+    "modifiedTime": 1715599753588,
+    "lastModifiedBy": "w2w5xxtHicJQ36ch"
+  }
 }

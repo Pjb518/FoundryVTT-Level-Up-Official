@@ -1,97 +1,112 @@
 {
-	"name": "Boon of Fury (Undertaker)",
-	"type": "feature",
-	"img": "icons/magic/fire/flame-burning-skeleton-explosion.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"OYMwVl0eatHCXSn3": {
-				"name": "Boon of Fury",
-				"activation": {},
-				"consumers": {
-					"K2AEv7kMVTtzWVpe": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"YLFLhL0cDd0z8z5L": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d8"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>Beginning at 8th level, your weapon attacks deal extra damage equal to your Wisdom modifier. In addition, you can infuse divine power into a weapon attack to deal an extra 1d8 necrotic or radiant damage (your choice when you gain this feature). Once you have used this feature a number of times equal to your Wisdom modifier, you can’t do so again until you finish a long rest.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 0,
-			"max": "@wis.mod",
-			"per": "longRest",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {
-			"grXJ8lpcmLaGdZap": {
-				"grantType": "damage",
-				"level": 1,
-				"levelType": "character",
-				"optional": false,
-				"label": "Boon of Fury",
-				"bonus": "@wis.mod",
-				"context": {
-					"attackTypes": [
-						"meleeWeaponAttack",
-						"rangedWeaponAttack"
-					]
-				}
-			}
-		},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"classes": "cleric"
-	},
-	"effects": [],
-	"flags": {},
-	"folder": null,
-	"_id": "o5iyybow02a3z3sz"
+  "name": "Boon of Fury (Undertaker)",
+  "type": "feature",
+  "img": "icons/magic/fire/flame-burning-skeleton-explosion.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "OYMwVl0eatHCXSn3": {
+        "name": "Boon of Fury",
+        "activation": {},
+        "consumers": {
+          "K2AEv7kMVTtzWVpe": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "YLFLhL0cDd0z8z5L": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d8"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>Beginning at 8th level, your weapon attacks deal extra damage equal to your Wisdom modifier. In addition, you can infuse divine power into a weapon attack to deal an extra 1d8 necrotic or radiant damage (your choice when you gain this feature). Once you have used this feature a number of times equal to your Wisdom modifier, you can’t do so again until you finish a long rest.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "@wis.mod",
+      "per": "longRest",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {
+      "grXJ8lpcmLaGdZap": {
+        "grantType": "damage",
+        "level": 1,
+        "levelType": "character",
+        "optional": false,
+        "label": "Boon of Fury",
+        "bonus": "@wis.mod",
+        "context": {
+          "attackTypes": [
+            "meleeWeaponAttack",
+            "rangedWeaponAttack"
+          ]
+        }
+      }
+    },
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": {
+        "version": {
+          "schema": 0.018,
+          "foundry": "11.315",
+          "system": "0.18.11"
+        }
+      }
+    },
+    "classes": "cleric"
+  },
+  "effects": [],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "folder": "tqpfd65RawLHAkOf",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1715599692926,
+    "modifiedTime": 1715599749907,
+    "lastModifiedBy": "w2w5xxtHicJQ36ch"
+  }
 }

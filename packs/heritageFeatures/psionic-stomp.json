@@ -1,119 +1,135 @@
 {
-	"name": "Psionic Stomp",
-	"type": "feature",
-	"img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
-	"effects": [],
-	"folder": null,
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"vsE2TRMXVZcAsQuW": {
-				"name": "Cast Thunderwave",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"consumers": {
-					"llxXSWOyWl1lVGva": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"YTGdpIjQaVqA1JqS": {
-						"canCrit": false,
-						"damageType": "force",
-						"formula": "2d8",
-						"name": "",
-						"type": "damage",
-						"scaling": {
-							"mode": null,
-							"formula": "1d8"
-						}
-					}
-				},
-				"prompts": {
-					"pmWVvarbBoH64W7f": {
-						"ability": "con",
-						"onSave": "Half damage and negates push",
-						"saveDC": {
-							"type": "spellcasting",
-							"bonus": ""
-						},
-						"type": "savingThrow"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"071AJ8wHawS0KVfl": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "cube",
-					"width": "15",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"img": "icons/magic/sonic/explosion-shock-wave-teal.webp"
-			}
-		},
-		"description": "<p>You can cast thunderwave once per long rest, dealing force damage instead of thunder damage. Your spellcasting ability for this spell is your choice of Constitution, Intelligence, Wisdom, or Charisma.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": "longRest",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "heritage",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
-	},
-	"_id": "1jdu2dg5irkkqqo1"
+  "name": "Psionic Stomp",
+  "type": "feature",
+  "img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
+  "effects": [],
+  "folder": "Vu7xMoh0MyNfySmF",
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "vsE2TRMXVZcAsQuW": {
+        "name": "Cast Thunderwave",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "consumers": {
+          "llxXSWOyWl1lVGva": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "YTGdpIjQaVqA1JqS": {
+            "canCrit": false,
+            "damageType": "force",
+            "formula": "2d8",
+            "name": "",
+            "type": "damage",
+            "scaling": {
+              "mode": null,
+              "formula": "1d8"
+            }
+          }
+        },
+        "prompts": {
+          "pmWVvarbBoH64W7f": {
+            "ability": "con",
+            "onSave": "Half damage and negates push",
+            "saveDC": {
+              "type": "spellcasting",
+              "bonus": ""
+            },
+            "type": "savingThrow"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "071AJ8wHawS0KVfl": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "cube",
+          "width": "15",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "img": "icons/magic/sonic/explosion-shock-wave-teal.webp"
+      }
+    },
+    "description": "<p>You can cast thunderwave once per long rest, dealing force damage instead of thunder damage. Your spellcasting ability for this spell is your choice of Constitution, Intelligence, Wisdom, or Charisma.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 1,
+      "max": "1",
+      "per": "longRest",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "heritage",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": {
+        "version": {
+          "schema": 0.018,
+          "foundry": "11.315",
+          "system": "0.18.11"
+        }
+      }
+    },
+    "classes": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1715599713748,
+    "modifiedTime": 1715599753421,
+    "lastModifiedBy": "w2w5xxtHicJQ36ch"
+  }
 }

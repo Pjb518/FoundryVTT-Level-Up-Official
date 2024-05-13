@@ -1,269 +1,284 @@
 {
-	"name": "Interdimensional Psionics",
-	"type": "feature",
-	"img": "icons/magic/unholy/strike-hand-glow-pink.webp",
-	"effects": [
-		{
-			"icon": "icons/magic/unholy/strike-hand-glow-pink.webp",
-			"origin": "Item.fc5sng9j3brgpx1m",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "bFel1O8RT2D5CFOc",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					},
-					"applyToSelf": true
-				}
-			},
-			"transfer": false,
-			"name": "Shield",
-			"_id": "aHHw3LCmuzbvEUjG",
-			"changes": [
-				{
-					"key": "system.attributes.ac.changes.bonuses.value",
-					"value": "+5[Shield]",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": 1,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"folder": null,
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"ivmGOSueSNINyBE7": {
-				"name": "Mage Hand",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "1"
-				},
-				"ranges": {
-					"jTIF5jsoF1Um2nVk": {
-						"range": "short"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": "",
-					"type": "none"
-				},
-				"img": "icons/magic/unholy/strike-hand-glow-pink.webp",
-				"description": "<p>A faintly shimmering phantasmal hand appears at a point you choose within range. It remains until you dismiss it as an action, or until you move more than 30 feet from it.</p><p>You can use an action to control the hand and direct it to do any of the following:</p><ul><li>manipulate an object.</li><li>open an unlocked container or door.</li><li>stow or retrieve items from unlocked containers.</li></ul><p>The hand cannot attack, use magic items, or carry more than 10 pounds.</p>",
-				"descriptionOutputs": [
-					"action"
-				]
-			},
-			"g64jBijoVdo3afXb": {
-				"name": "Jump",
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"consumers": {
-					"hpVicSvwzR3DJIh0": {
-						"mode": "variable",
-						"spellLevel": 1,
-						"points": 2,
-						"type": "spell"
-					},
-					"i7vpoljuxgW0wUNB": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"izcFVfRqJDQMFcUC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2W9PQWxEgXjiODIn"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "minute",
-					"value": "1"
-				},
-				"ranges": {
-					"rqpKjJHeJXipDb7C": {
-						"range": "touch"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				},
-				"img": "icons/skills/movement/feet-winged-sandals-tan.webp",
-				"description": "<p>You imbue a target with the ability to make impossible leaps. The target's jump distances increase 15 feet vertically and 30 feet horizontally.</p><p><strong><em>Cast at Higher Levels.</em></strong> Each of the target's jump distances increase by 5 feet for each slot level above 1st.</p>",
-				"descriptionOutputs": [
-					"action"
-				]
-			},
-			"bFel1O8RT2D5CFOc": {
-				"name": "Shield",
-				"activation": {
-					"cost": 1,
-					"type": "reaction",
-					"reactionTrigger": "which you take when you are hit by an attack or targeted by the magic missile spell"
-				},
-				"consumers": {
-					"ouUaA2neyWA5CrrX": {
-						"mode": "variable",
-						"spellLevel": 1,
-						"points": 2,
-						"type": "spell"
-					},
-					"hkgsqtbPjFWgb2me": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"Gpw63XYtGOkkZmXp": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3JSn5GwbNdSgD0oS"
-					},
-					"VWbl31J4qq0CmY6M": {
-						"type": "effect",
-						"default": true,
-						"effectId": "aHHw3LCmuzbvEUjG"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "round",
-					"value": "1"
-				},
-				"ranges": {
-					"cbSCCrMm0w21q3jj": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
-				"description": "<p>You create a shimmering arcane barrier between yourself and an oncoming attack. Until the spell ends, you gain a +5 bonus to your AC (including against the triggering attack) and any magic missile targeting you is harmlessly deflected.</p>",
-				"descriptionOutputs": [
-					"action"
-				]
-			}
-		},
-		"description": "<p>You know the mage hand cantrip, and when you cast it the hand is invisible. Once you reach 3rd level, once per long rest you can cast either jump or shield. At 5th level, once per long rest you can cast either detect thoughts or misty step. Your spellcasting ability for these spells is your choice of Constitution, Intelligence, Wisdom, or Charisma.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "moarComplete",
-		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": "longRest",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "heritage",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
-	},
-	"_id": "fc5sng9j3brgpx1m"
+  "name": "Interdimensional Psionics",
+  "type": "feature",
+  "img": "icons/magic/unholy/strike-hand-glow-pink.webp",
+  "effects": [
+    {
+      "icon": "icons/magic/unholy/strike-hand-glow-pink.webp",
+      "origin": "Item.fc5sng9j3brgpx1m",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "bFel1O8RT2D5CFOc",
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          },
+          "applyToSelf": true
+        }
+      },
+      "transfer": false,
+      "name": "Shield",
+      "_id": "aHHw3LCmuzbvEUjG",
+      "changes": [
+        {
+          "key": "system.attributes.ac.changes.bonuses.value",
+          "value": "+5[Shield]",
+          "mode": 2,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": 1,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": []
+    }
+  ],
+  "folder": "Vu7xMoh0MyNfySmF",
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "ivmGOSueSNINyBE7": {
+        "name": "Mage Hand",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "jTIF5jsoF1Um2nVk": {
+            "range": "short"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": "",
+          "type": "none"
+        },
+        "img": "icons/magic/unholy/strike-hand-glow-pink.webp",
+        "description": "<p>A faintly shimmering phantasmal hand appears at a point you choose within range. It remains until you dismiss it as an action, or until you move more than 30 feet from it.</p><p>You can use an action to control the hand and direct it to do any of the following:</p><ul><li>manipulate an object.</li><li>open an unlocked container or door.</li><li>stow or retrieve items from unlocked containers.</li></ul><p>The hand cannot attack, use magic items, or carry more than 10 pounds.</p>",
+        "descriptionOutputs": [
+          "action"
+        ]
+      },
+      "g64jBijoVdo3afXb": {
+        "name": "Jump",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "consumers": {
+          "hpVicSvwzR3DJIh0": {
+            "mode": "variable",
+            "spellLevel": 1,
+            "points": 2,
+            "type": "spell"
+          },
+          "i7vpoljuxgW0wUNB": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "izcFVfRqJDQMFcUC": {
+            "type": "effect",
+            "default": true,
+            "effectId": "2W9PQWxEgXjiODIn"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "minute",
+          "value": "1"
+        },
+        "ranges": {
+          "rqpKjJHeJXipDb7C": {
+            "range": "touch"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "img": "icons/skills/movement/feet-winged-sandals-tan.webp",
+        "description": "<p>You imbue a target with the ability to make impossible leaps. The target's jump distances increase 15 feet vertically and 30 feet horizontally.</p><p><strong><em>Cast at Higher Levels.</em></strong> Each of the target's jump distances increase by 5 feet for each slot level above 1st.</p>",
+        "descriptionOutputs": [
+          "action"
+        ]
+      },
+      "bFel1O8RT2D5CFOc": {
+        "name": "Shield",
+        "activation": {
+          "cost": 1,
+          "type": "reaction",
+          "reactionTrigger": "which you take when you are hit by an attack or targeted by the magic missile spell"
+        },
+        "consumers": {
+          "ouUaA2neyWA5CrrX": {
+            "mode": "variable",
+            "spellLevel": 1,
+            "points": 2,
+            "type": "spell"
+          },
+          "hkgsqtbPjFWgb2me": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "Gpw63XYtGOkkZmXp": {
+            "type": "effect",
+            "default": true,
+            "effectId": "3JSn5GwbNdSgD0oS"
+          },
+          "VWbl31J4qq0CmY6M": {
+            "type": "effect",
+            "default": true,
+            "effectId": "aHHw3LCmuzbvEUjG"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "round",
+          "value": "1"
+        },
+        "ranges": {
+          "cbSCCrMm0w21q3jj": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "self"
+        },
+        "img": "icons/magic/defensive/shield-barrier-deflect-teal.webp",
+        "description": "<p>You create a shimmering arcane barrier between yourself and an oncoming attack. Until the spell ends, you gain a +5 bonus to your AC (including against the triggering attack) and any magic missile targeting you is harmlessly deflected.</p>",
+        "descriptionOutputs": [
+          "action"
+        ]
+      }
+    },
+    "description": "<p>You know the mage hand cantrip, and when you cast it the hand is invisible. Once you reach 3rd level, once per long rest you can cast either jump or shield. At 5th level, once per long rest you can cast either detect thoughts or misty step. Your spellcasting ability for these spells is your choice of Constitution, Intelligence, Wisdom, or Charisma.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 1,
+      "max": "1",
+      "per": "longRest",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "heritage",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": {
+        "version": {
+          "schema": 0.018,
+          "foundry": "11.315",
+          "system": "0.18.11"
+        }
+      }
+    },
+    "classes": ""
+  },
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1715599714314,
+    "modifiedTime": 1715599752166,
+    "lastModifiedBy": "w2w5xxtHicJQ36ch"
+  }
 }

@@ -1,98 +1,114 @@
 {
-	"name": "Channel Divinity: Radiant Burst (Sun Priest)",
-	"type": "feature",
-	"img": "icons/magic/light/explosion-star-large-blue-yellow.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"hbQl6wJXUNx0X5Bt": {
-				"name": "Channel Divinity: Radiant Burst (Sun Priest)",
-				"activation": {
-					"cost": "1",
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "instantaneous",
-					"value": ""
-				},
-				"ranges": {
-					"wRNU0EHmNFn3Ih8e": {
-						"range": "self"
-					}
-				},
-				"area": {
-					"shape": "sphere",
-					"radius": 30,
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				},
-				"rolls": {
-					"HBVTyLRGw5uxc76h": {
-						"canCrit": false,
-						"damageType": "radiant",
-						"formula": "2d10 + @level",
-						"name": "Radiant Burst",
-						"type": "damage"
-					}
-				},
-				"prompts": {
-					"46vo3JGUK6Iuunxl": {
-						"ability": "con",
-						"onSave": "blinded/ends effect/half damage",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "8 + @prof + @wis.mod"
-						},
-						"type": "savingThrow"
-					}
-				},
-				"consumers": {}
-			}
-		},
-		"description": "<p>Starting at 2nd level, you can use an action to clutch your holy symbol and emit a bright blast. In addition to dispelling any magical darkness within 30 feet, enemy creatures within 30 feet make a Constitution saving throw or are blinded by the light for 1 minute. A blinded creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p>Alternatively, you can choose to make the light more harmful. On a failed saving throw a creature takes radiant damage equal to 2d10 + your cleric level, or half damage on a success.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
-	},
-	"effects": [],
-	"flags": {},
-	"folder": null,
-	"_id": "vxxueocqy91i6tit"
+  "name": "Channel Divinity: Radiant Burst (Sun Priest)",
+  "type": "feature",
+  "img": "icons/magic/light/explosion-star-large-blue-yellow.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "hbQl6wJXUNx0X5Bt": {
+        "name": "Channel Divinity: Radiant Burst (Sun Priest)",
+        "activation": {
+          "cost": "1",
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "instantaneous",
+          "value": ""
+        },
+        "ranges": {
+          "wRNU0EHmNFn3Ih8e": {
+            "range": "self"
+          }
+        },
+        "area": {
+          "shape": "sphere",
+          "radius": 30,
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": "creature"
+        },
+        "rolls": {
+          "HBVTyLRGw5uxc76h": {
+            "canCrit": false,
+            "damageType": "radiant",
+            "formula": "2d10 + @level",
+            "name": "Radiant Burst",
+            "type": "damage"
+          }
+        },
+        "prompts": {
+          "46vo3JGUK6Iuunxl": {
+            "ability": "con",
+            "onSave": "blinded/ends effect/half damage",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8 + @prof + @wis.mod"
+            },
+            "type": "savingThrow"
+          }
+        },
+        "consumers": {}
+      }
+    },
+    "description": "<p>Starting at 2nd level, you can use an action to clutch your holy symbol and emit a bright blast. In addition to dispelling any magical darkness within 30 feet, enemy creatures within 30 feet make a Constitution saving throw or are blinded by the light for 1 minute. A blinded creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p>Alternatively, you can choose to make the light more harmful. On a failed saving throw a creature takes radiant damage equal to 2d10 + your cleric level, or half damage on a success.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "adventurersGuide",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": {
+        "version": {
+          "schema": 0.018,
+          "foundry": "11.315",
+          "system": "0.18.11"
+        }
+      }
+    },
+    "classes": ""
+  },
+  "effects": [],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "a5e-dev",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "folder": "tqpfd65RawLHAkOf",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1715599694718,
+    "modifiedTime": 1715599750078,
+    "lastModifiedBy": "w2w5xxtHicJQ36ch"
+  }
 }
