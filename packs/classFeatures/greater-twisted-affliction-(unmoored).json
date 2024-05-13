@@ -1,222 +1,209 @@
 {
-  "folder": "tqpfd65RawLHAkOf",
-  "name": "Greater Twisted Affliction (Unmoored)",
-  "type": "feature",
-  "img": "icons/magic/unholy/projectile-spear-glow-pink.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "0xQqgI79sFSLxIn4": {
-        "name": "Confusion",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "consumers": {
-          "cLfzqsLJ6TertGS4": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "1Zi60xIIA6CmYRCQ": {
-            "ability": "wis",
-            "onSave": "Negates effect",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          },
-          "ocpTg4Xds9x5O9f3": {
-            "type": "effect",
-            "default": true,
-            "effectId": "APjUmpvHpUXKHE3q"
-          },
-          "BqXUbid7ECMSCHWT": {
-            "type": "effect",
-            "default": true,
-            "effectId": "akprtVe9HKmWcxe3"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "w8MGoR07H5rLDR2t": {
-            "range": "long"
-          }
-        },
-        "area": {
-          "shape": "sphere",
-          "radius": "10",
-          "placeTemplate": true,
-          "scaling": {
-            "mode": "spellLevel",
-            "formula": {
-              "quantity": "1",
-              "radius": "5"
-            }
-          },
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "img": "icons/magic/sonic/projectile-sound-rings-wave.webp"
-      }
-    },
-    "description": "<p id=\"docs-internal-guid-dfb07ad6-7fff-5d5c-d15a-8bf6d1b2a34c\" dir=\"ltr\">Also at 10th level, you have learned to direct more of the power of your curse outward. What form this takes depends on your Artifact Affliction:</p><ul><li dir=\"ltr\"><strong>Unmoored:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.pdvg7c9emjgnib07]{Confusion} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Paranoid:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.4rawhkoa81x8uqs0]{Resilient Sphere} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Troubled:</strong> You can cast@UUID[Compendium.a5e.a5e-spells.Item.6y4rq48okutkormg]{Phantasmal Killer} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Fettered:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.67ex7mn5kkutvnqn]{Black Tentacles} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Gravebound:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.2q65v0xklhfx73to]{Blight} without using a spell slot once per long rest.</li></ul>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "thematicToolkitCarryTheDarkness",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "longRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
-      "origin": "Item.vvzwa9l1woi7jwlq",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "jqb7BKBuOfS5Z1n8",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Confused",
-      "_id": "APjUmpvHpUXKHE3q",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"confused\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p>",
-      "statuses": [
-        "confused"
-      ]
-    },
-    {
-      "icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
-      "origin": "Item.vvzwa9l1woi7jwlq",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "jqb7BKBuOfS5Z1n8",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Rattled",
-      "_id": "akprtVe9HKmWcxe3",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"rattled\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": 1,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "rattled"
-      ]
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599694718,
-    "modifiedTime": 1715599751577,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"folder": null,
+	"name": "Greater Twisted Affliction (Unmoored)",
+	"type": "feature",
+	"img": "icons/magic/unholy/projectile-spear-glow-pink.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"0xQqgI79sFSLxIn4": {
+				"name": "Confusion",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"cLfzqsLJ6TertGS4": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"1Zi60xIIA6CmYRCQ": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"ocpTg4Xds9x5O9f3": {
+						"type": "effect",
+						"default": true,
+						"effectId": "APjUmpvHpUXKHE3q"
+					},
+					"BqXUbid7ECMSCHWT": {
+						"type": "effect",
+						"default": true,
+						"effectId": "akprtVe9HKmWcxe3"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"w8MGoR07H5rLDR2t": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "10",
+					"placeTemplate": true,
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": {
+							"quantity": "1",
+							"radius": "5"
+						}
+					},
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/sonic/projectile-sound-rings-wave.webp"
+			}
+		},
+		"description": "<p id=\"docs-internal-guid-dfb07ad6-7fff-5d5c-d15a-8bf6d1b2a34c\" dir=\"ltr\">Also at 10th level, you have learned to direct more of the power of your curse outward. What form this takes depends on your Artifact Affliction:</p><ul><li dir=\"ltr\"><strong>Unmoored:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.pdvg7c9emjgnib07]{Confusion} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Paranoid:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.4rawhkoa81x8uqs0]{Resilient Sphere} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Troubled:</strong> You can cast@UUID[Compendium.a5e.a5e-spells.Item.6y4rq48okutkormg]{Phantasmal Killer} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Fettered:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.67ex7mn5kkutvnqn]{Black Tentacles} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Gravebound:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.2q65v0xklhfx73to]{Blight} without using a spell slot once per long rest.</li></ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitCarryTheDarkness",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+			"origin": "Item.vvzwa9l1woi7jwlq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jqb7BKBuOfS5Z1n8",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Confused",
+			"_id": "APjUmpvHpUXKHE3q",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p>",
+			"statuses": [
+				"confused"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+			"origin": "Item.vvzwa9l1woi7jwlq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jqb7BKBuOfS5Z1n8",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"_id": "akprtVe9HKmWcxe3",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "vvzwa9l1woi7jwlq"
 }

@@ -1,143 +1,129 @@
 {
-  "name": "Warding Dance",
-  "type": "feature",
-  "img": "icons/skills/melee/shield-block-gray-yellow.webp",
-  "effects": [
-    {
-      "icon": "icons/skills/melee/shield-block-gray-yellow.webp",
-      "origin": "Item.34zkl2wdinep736h",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "oKgQGLSHrmsvk0CB",
-          "applyToSelf": true,
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Warding Dance",
-      "_id": "ZB2FFDOkPAz0lWQi",
-      "changes": [
-        {
-          "key": "system.traits.damageResistances",
-          "value": "[\"bludgeoning\",\"piercing\",\"slashing\"]",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "oKgQGLSHrmsvk0CB": {
-        "name": "Warding Dance",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "round",
-          "value": 1
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "consumers": {
-          "hpiIFXeUXXPxVFSk": {
-            "type": "resource",
-            "default": true,
-            "resource": "exertion",
-            "quantity": 2
-          }
-        },
-        "prompts": {
-          "AT0swtLmkdQkBwMw": {
-            "type": "effect",
-            "default": true,
-            "effectId": "ZB2FFDOkPAz0lWQi"
-          }
-        }
-      }
-    },
-    "description": "<p>When you are unarmed or holding a weapon in one hand and nothing in the other, you can use a bonus action and spend 2 exertion to start a warding dance. Until the end of your next turn, you have resistance to bludgeoning, piercing, and slashing damage.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "5th level",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": ""
-  },
-  "folder": "tqpfd65RawLHAkOf",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599688688,
-    "modifiedTime": 1715599755074,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"name": "Warding Dance",
+	"type": "feature",
+	"img": "icons/skills/melee/shield-block-gray-yellow.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/melee/shield-block-gray-yellow.webp",
+			"origin": "Item.34zkl2wdinep736h",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "oKgQGLSHrmsvk0CB",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Warding Dance",
+			"_id": "ZB2FFDOkPAz0lWQi",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"bludgeoning\",\"piercing\",\"slashing\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"oKgQGLSHrmsvk0CB": {
+				"name": "Warding Dance",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"consumers": {
+					"hpiIFXeUXXPxVFSk": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 2
+					}
+				},
+				"prompts": {
+					"AT0swtLmkdQkBwMw": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ZB2FFDOkPAz0lWQi"
+					}
+				}
+			}
+		},
+		"description": "<p>When you are unarmed or holding a weapon in one hand and nothing in the other, you can use a bonus action and spend 2 exertion to start a warding dance. Until the end of your next turn, you have resistance to bludgeoning, piercing, and slashing damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "5th level",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"folder": null,
+	"_id": "34zkl2wdinep736h"
 }

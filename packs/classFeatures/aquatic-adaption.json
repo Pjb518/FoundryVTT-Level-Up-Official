@@ -1,101 +1,86 @@
 {
-  "name": "Aquatic Adaption",
-  "type": "feature",
-  "img": "icons/creatures/fish/fish-marlin-swordfight-blue.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p dir=\"ltr\">At 2nd level when you select this archetype, you learn to adapt to coastal environs and are equally comfortable in the water and on land.&nbsp;</p><p>If you do not have a swim speed or a walking speed, you gain whichever you are missing now. If you have both, but one is slower, the slower speed increases to match the faster speed.&nbsp;</p><p>You can breathe air and water, and if you normally need to spend a certain amount of time in water every so often, that limitation is removed. Finally if you are roughly humanoid in shape, you can shift your form to adapt to water or land mobility. As an action, you perform a limited form of wild shape that fuses your legs into a swimming tail. If your default form has a swimming tail, you can instead split it into walking legs.</p><p>It is also impossible to disorient you in water through non-magical means. While in the water you always know which way is north and you have an instinctive sense of how far you are from dry land in any given direction.. If you are under water, you know which way the surface is and how far you are from it.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {
-      "MAWApFt1sfXCL7Sc": {
-        "grantType": "movement",
-        "level": 1,
-        "levelType": "character",
-        "optional": false,
-        "label": "Aquatic Adaption (Swim)",
-        "bonus": "max(@attributes.movement.walk.distance - @attributes.movement.swim.distance, 0)",
-        "movementTypes": {
-          "base": [
-            "swim"
-          ],
-          "options": [],
-          "total": 0
-        },
-        "_id": "MAWApFt1sfXCL7Sc",
-        "img": "",
-        "unit": "feet",
-        "context": {
-          "isHover": false
-        }
-      },
-      "mmVxs2bUQWHmO1Od": {
-        "grantType": "movement",
-        "level": 1,
-        "levelType": "character",
-        "optional": false,
-        "bonus": "max(@attributes.movement.swim.distance - @attributes.movement.walk.distance, 0)",
-        "label": "Aquatic Adaption (Walk)",
-        "movementTypes": {
-          "base": [
-            "walk"
-          ]
-        }
-      }
-    },
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": "druid"
-  },
-  "effects": [],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "folder": "tqpfd65RawLHAkOf",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599689938,
-    "modifiedTime": 1715599749301,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"name": "Aquatic Adaption",
+	"type": "feature",
+	"img": "icons/creatures/fish/fish-marlin-swordfight-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p dir=\"ltr\">At 2nd level when you select this archetype, you learn to adapt to coastal environs and are equally comfortable in the water and on land.&nbsp;</p><p>If you do not have a swim speed or a walking speed, you gain whichever you are missing now. If you have both, but one is slower, the slower speed increases to match the faster speed.&nbsp;</p><p>You can breathe air and water, and if you normally need to spend a certain amount of time in water every so often, that limitation is removed. Finally if you are roughly humanoid in shape, you can shift your form to adapt to water or land mobility. As an action, you perform a limited form of wild shape that fuses your legs into a swimming tail. If your default form has a swimming tail, you can instead split it into walking legs.</p><p>It is also impossible to disorient you in water through non-magical means. While in the water you always know which way is north and you have an instinctive sense of how far you are from dry land in any given direction.. If you are under water, you know which way the surface is and how far you are from it.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"MAWApFt1sfXCL7Sc": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Aquatic Adaption (Swim)",
+				"bonus": "max(@attributes.movement.walk.distance - @attributes.movement.swim.distance, 0)",
+				"movementTypes": {
+					"base": [
+						"swim"
+					],
+					"options": [],
+					"total": 0
+				},
+				"_id": "MAWApFt1sfXCL7Sc",
+				"img": "",
+				"unit": "feet",
+				"context": {
+					"isHover": false
+				}
+			},
+			"mmVxs2bUQWHmO1Od": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"bonus": "max(@attributes.movement.swim.distance - @attributes.movement.walk.distance, 0)",
+				"label": "Aquatic Adaption (Walk)",
+				"movementTypes": {
+					"base": [
+						"walk"
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "druid"
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "9q4k2uool9r45t2w"
 }

@@ -1,292 +1,284 @@
 {
-  "folder": "Vu7xMoh0MyNfySmF",
-  "name": "Adaptability",
-  "type": "feature",
-  "img": "icons/consumables/mushrooms/umbontae-bumpy-purple.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "bG9C0kc2ZUrkq4G7": {
-        "name": "Use Feature",
-        "activation": {},
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "vdJ4ryn6WH3LIRAu": {
-            "type": "effect",
-            "default": true,
-            "effectId": "VyKVCm34qo6KTwKK"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>You can change your body to survive various environments. You gain resistance to poison damage. In addition, whenever you finish a&nbsp;long rest</span>, you can choose one of the following forms:</p><ul><li><strong>Amphibious.&nbsp;</strong>You can breathe underwater and gain a swim speed equal to your walking speed.</li><li><strong>Arboreal.&nbsp;</strong>You gain a climb speed equal to your walking speed. When you fall, you can use your reaction to float gently to the ground, taking no damage from the fall.</li><li><strong>Cold Adapted.</strong>&nbsp;You gain&nbsp;resistance&nbsp;to cold damage.</li><li><strong>Heat Adapted.</strong>&nbsp;You gain&nbsp;<span>resistance&nbsp;to fire damage.</li></ul><p>You remain in your new form until you use this ability again. You can benefit from only one form at a time.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "dungeonDelversGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "heritage",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/consumables/mushrooms/conical-bell-green.webp",
-      "origin": "Item.xjszjodeumkeqwqg",
-      "flags": {
-        "a5e": {
-          "sort": 5,
-          "transferType": "passive"
-        }
-      },
-      "transfer": false,
-      "name": "Poison Resistance",
-      "_id": "1EFAQ52a2kghOpzL",
-      "changes": [
-        {
-          "key": "system.traits.damageResistances",
-          "value": "[\"poison\"]",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    },
-    {
-      "icon": "icons/consumables/mushrooms/ovate-blue.webp",
-      "origin": "Item.xjszjodeumkeqwqg",
-      "flags": {
-        "a5e": {
-          "sort": 2,
-          "transferType": "passive"
-        }
-      },
-      "transfer": false,
-      "name": "Cold Adapted",
-      "_id": "rnIk53irzzvQMSC1",
-      "changes": [
-        {
-          "key": "system.traits.damageResistances",
-          "value": "[\"cold\"]",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    },
-    {
-      "icon": "icons/consumables/mushrooms/campanulate-bell-shiny-red.webp",
-      "origin": "Item.xjszjodeumkeqwqg",
-      "flags": {
-        "a5e": {
-          "sort": 3,
-          "transferType": "passive"
-        }
-      },
-      "transfer": false,
-      "name": "Heat Adapted",
-      "_id": "LCBQ4stp8ySZAbpe",
-      "changes": [
-        {
-          "key": "system.traits.damageResistances",
-          "value": "[\"fire\"]",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    },
-    {
-      "icon": "icons/svg/item-bag.svg",
-      "origin": "Item.xjszjodeumkeqwqg",
-      "flags": {
-        "a5e": {
-          "sort": 4,
-          "transferType": "onUse",
-          "actionId": "bG9C0kc2ZUrkq4G7"
-        }
-      },
-      "transfer": false,
-      "name": "New Effect",
-      "_id": "VyKVCm34qo6KTwKK",
-      "changes": [
-        {
-          "key": "",
-          "mode": null,
-          "value": "",
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    },
-    {
-      "icon": "icons/consumables/mushrooms/campanulate-bell-shiny-blue.webp",
-      "origin": "Item.xjszjodeumkeqwqg",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "passive"
-        }
-      },
-      "transfer": false,
-      "name": "Amphibious",
-      "_id": "1P5vdP23zJzmTmaR",
-      "changes": [
-        {
-          "key": "system.attributes.movement.swim.distance",
-          "value": "30",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    },
-    {
-      "icon": "icons/consumables/mushrooms/bell-shiitake-brown.webp",
-      "origin": "Item.xjszjodeumkeqwqg",
-      "flags": {
-        "a5e": {
-          "sort": 1,
-          "transferType": "passive"
-        }
-      },
-      "transfer": false,
-      "name": "Arboreal",
-      "_id": "E2wCeTF70M4nrhIg",
-      "changes": [
-        {
-          "key": "system.attributes.movement.climb.distance",
-          "value": "30",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "a5e": {
-      "sortMode": 1
-    },
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599714805,
-    "modifiedTime": 1715599747880,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"folder": null,
+	"name": "Adaptability",
+	"type": "feature",
+	"img": "icons/consumables/mushrooms/umbontae-bumpy-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"bG9C0kc2ZUrkq4G7": {
+				"name": "Use Feature",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"vdJ4ryn6WH3LIRAu": {
+						"type": "effect",
+						"default": true,
+						"effectId": "VyKVCm34qo6KTwKK"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You can change your body to survive various environments. You gain resistance to poison damage. In addition, whenever you finish a&nbsp;long rest</span>, you can choose one of the following forms:</p><ul><li><strong>Amphibious.&nbsp;</strong>You can breathe underwater and gain a swim speed equal to your walking speed.</li><li><strong>Arboreal.&nbsp;</strong>You gain a climb speed equal to your walking speed. When you fall, you can use your reaction to float gently to the ground, taking no damage from the fall.</li><li><strong>Cold Adapted.</strong>&nbsp;You gain&nbsp;resistance&nbsp;to cold damage.</li><li><strong>Heat Adapted.</strong>&nbsp;You gain&nbsp;<span>resistance&nbsp;to fire damage.</li></ul><p>You remain in your new form until you use this ability again. You can benefit from only one form at a time.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "dungeonDelversGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/consumables/mushrooms/conical-bell-green.webp",
+			"origin": "Item.xjszjodeumkeqwqg",
+			"flags": {
+				"a5e": {
+					"sort": 5,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Poison Resistance",
+			"_id": "1EFAQ52a2kghOpzL",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"poison\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/consumables/mushrooms/ovate-blue.webp",
+			"origin": "Item.xjszjodeumkeqwqg",
+			"flags": {
+				"a5e": {
+					"sort": 2,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Cold Adapted",
+			"_id": "rnIk53irzzvQMSC1",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"cold\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/consumables/mushrooms/campanulate-bell-shiny-red.webp",
+			"origin": "Item.xjszjodeumkeqwqg",
+			"flags": {
+				"a5e": {
+					"sort": 3,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Heat Adapted",
+			"_id": "LCBQ4stp8ySZAbpe",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"fire\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/svg/item-bag.svg",
+			"origin": "Item.xjszjodeumkeqwqg",
+			"flags": {
+				"a5e": {
+					"sort": 4,
+					"transferType": "onUse",
+					"actionId": "bG9C0kc2ZUrkq4G7"
+				}
+			},
+			"transfer": false,
+			"name": "New Effect",
+			"_id": "VyKVCm34qo6KTwKK",
+			"changes": [
+				{
+					"key": "",
+					"mode": null,
+					"value": "",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/consumables/mushrooms/campanulate-bell-shiny-blue.webp",
+			"origin": "Item.xjszjodeumkeqwqg",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Amphibious",
+			"_id": "1P5vdP23zJzmTmaR",
+			"changes": [
+				{
+					"key": "system.attributes.movement.swim.distance",
+					"value": "30",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/consumables/mushrooms/bell-shiitake-brown.webp",
+			"origin": "Item.xjszjodeumkeqwqg",
+			"flags": {
+				"a5e": {
+					"sort": 1,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Arboreal",
+			"_id": "E2wCeTF70M4nrhIg",
+			"changes": [
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "30",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {
+		"a5e": {
+			"sortMode": 1
+		}
+	},
+	"_id": "xjszjodeumkeqwqg"
 }

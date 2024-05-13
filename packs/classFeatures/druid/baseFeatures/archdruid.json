@@ -1,587 +1,572 @@
 {
-  "name": "Archdruid",
-  "type": "feature",
-  "img": "icons/magic/nature/root-vines-face-glow-green.webp",
-  "effects": [],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "pqvjcgsg1NckNKgX": {
-        "name": "Air",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "consumers": {},
-        "rolls": {
-          "gQbCvQ3XySmeZOUx": {
-            "canCrit": false,
-            "damageType": "bludgeoning",
-            "formula": "3d8+@wis.mod",
-            "name": "Air",
-            "type": "damage"
-          },
-          "1DsA6jJpOPd7UjmM": {
-            "canCrit": false,
-            "damageType": "bludgeoning",
-            "formula": "1d8",
-            "name": "Striking an object",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "mcgf1m5fnp9MhVhl": {
-            "ability": "str",
-            "onSave": "",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "8+@wis.mod+@prof"
-            },
-            "type": "savingThrow"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "MmV37xmxBJeMbMd1": {
-            "range": "20"
-          }
-        },
-        "area": {
-          "shape": null,
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "img": "icons/magic/air/wind-tornado-funnel-gray.webp",
-        "description": "<p>Each creature within 20 feet of that point must make a Strength saving throw. On a failure, a target takes bludgeoning damage equal to 3d8 + your Wisdom modifier and is flung up 20 feet away from the target point in a random direction and knocked prone. If a thrown target strikes an object, such as a wall or floor, the target takes 1d8 bludgeoning damage. If the target is thrown at another creature, that creature must succeed on a Dexterity saving throw against your spell save DC or it takes the same damage and is knocked prone. If the saving throw is successful, the target takes half the bludgeoning damage and isn&rsquo;t flung away or knocked prone.</p><p>In addition, all ranged attacks within 30 feet of the target point have disadvantage until the beginning of your next turn.</p>",
-        "descriptionOutputs": [
-          "item",
-          "action"
-        ]
-      },
-      "4Q9Im0us41Z3p9Gj": {
-        "name": "Earth",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "consumers": {},
-        "rolls": {
-          "CuKYexdqxM7PlDny": {
-            "canCrit": false,
-            "damageType": "bludgeoning",
-            "formula": "4d8",
-            "name": "Earth",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "GLfG4Lfv2uDpr6DY": {
-            "ability": "str",
-            "onSave": "Half damage, not prone",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "8+@wis.mod+@prof"
-            },
-            "type": "savingThrow"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "aRGSs3ix5lAy9GAc": {
-            "range": "10"
-          }
-        },
-        "area": {
-          "shape": null,
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "img": "icons/magic/earth/strike-stone-stalactite-blood-red.webp",
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>Clumps of dirt and stone explode outward. Creatures within 10 feet of the target point take 4d8 bludgeoning damage and are knocked prone. A creature that makes a Strength saving throw against your spell save DC takes half damage is not knocked prone.</p>"
-      },
-      "wFeRxuz8ymuuGZyq": {
-        "name": "Fire",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "consumers": {},
-        "rolls": {
-          "MmBwG2dD0pNPjrmf": {
-            "canCrit": false,
-            "damageType": "fire",
-            "formula": "6d6",
-            "name": "Fire",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "tIPq7AKks49NeAdk": {
-            "ability": "dex",
-            "onSave": "Half damage",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "8+@wis.mod+@prof"
-            },
-            "type": "savingThrow"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "9OdCI9wvat6ZION7": {
-            "range": "15"
-          }
-        },
-        "area": {
-          "shape": null,
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "img": "icons/magic/fire/flame-burning-tree-bush.webp",
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>Flames roil outward in a burst of inferno. Creatures within 15 feet of the target point take 6d6 fire damage. A creature that makes a Dexterity saving throw against your spell save DC takes half damage.</p>"
-      },
-      "yLxwzugLaCqfx5Fc": {
-        "name": "Ice",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "consumers": {},
-        "rolls": {
-          "Jr6zNVPfQ2ozR7I0": {
-            "bonus": "",
-            "critThreshold": "20",
-            "type": "attack",
-            "ability": "spellcasting"
-          },
-          "3yA9KuT4lFMWe7JZ": {
-            "canCrit": true,
-            "damageType": "bludgeoning",
-            "formula": "4d6",
-            "name": "Bludgeoning",
-            "type": "damage"
-          },
-          "xrICMqaEnML13cw0": {
-            "canCrit": true,
-            "damageType": "cold",
-            "formula": "4d6",
-            "name": "Cold",
-            "type": "damage"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "Zb7lYYHr5SvliECM": {
-            "range": "at least 30 ft"
-          }
-        },
-        "area": {
-          "shape": null,
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creatureObject"
-        },
-        "img": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>You condense and flash freeze the water from a vast area above you into a massive boulder to drop down with immense force. Make a ranged spell attack against a creature at least 30 feet below the target point. On a hit, the creature takes 4d6 bludgeoning damage and 4d6 cold damage.</p><p>In addition, the area in a 20-foot radius around the creature becomes difficult terrain for 1 minute.</p>"
-      },
-      "8wRmAbOVBKPfWFJD": {
-        "name": "Water",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "consumers": {},
-        "rolls": {
-          "y07E9WiS5OSH38uA": {
-            "canCrit": false,
-            "damageType": "bludgeoning",
-            "formula": "4d8",
-            "name": "Water",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "Qp5hJOd6ue5ysXVJ": {
-            "ability": "str",
-            "onSave": "No damage, no movement",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "8+@wis.mod+@prof"
-            },
-            "type": "savingThrow"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "vxNwUHvYdZbk76lU": {
-            "range": "short"
-          }
-        },
-        "area": {
-          "shape": "cone",
-          "length": 20,
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "img": "icons/magic/water/wave-water-blue.webp",
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>You create a 20-foot tall, 20-foot wide wave that travels 30 feet in one direction and then crashes down. Any Large or smaller creatures and objects in the wave's path make a Strength saving throw against your spell save DC. On a failure, a creature takes 4d8 bludgeoning damage and is carried with the wave. Any creature that succeeds on its saving throw takes no damage and is not moved.</p>"
-      },
-      "V5tZGd19XsxRwDxi": {
-        "name": "Wood",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "consumers": {},
-        "rolls": {
-          "9iLxhkj5E0179ozE": {
-            "canCrit": false,
-            "damageType": "piercing",
-            "formula": "4d6",
-            "name": "Wood",
-            "type": "damage"
-          }
-        },
-        "prompts": {
-          "kLL5ytaRsU13Sm3N": {
-            "ability": "dex",
-            "onSave": "Half damage",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "8+@wis.mod+@prof"
-            },
-            "type": "savingThrow"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "ranges": {
-          "jlXJIaSMmrRqrIbG": {
-            "range": 20,
-            "unit": "feet"
-          }
-        },
-        "area": {
-          "shape": null,
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "img": "icons/magic/nature/tree-twisted-glow-yellow.webp",
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>Splinters appear and fling themselves into flesh and armor alike. Creatures within 20 feet of the target point take 4d6 piercing damage. A creature that makes a Dexterity saving throw against your spell save DC takes half damage.</p>"
-      },
-      "LgWzIEimqYfmqueH": {
-        "name": "Power Word Kill",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "consumers": {
-          "ToRdp8ONPKQLTL82": {
-            "mode": "variable",
-            "spellLevel": 9,
-            "points": 13,
-            "type": "spell"
-          },
-          "noJF5UhTQ9KKgRCw": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "uIQ78wZFmFlG7PhR": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "img": "icons/magic/death/skeleton-skull-soul-blue.webp",
-        "description": "<p>With but a word you snuff out the target's life and it immediately dies. If you cast this on a creature with more than 100 hit points, it takes 50 hit points of damage.</p>",
-        "descriptionOutputs": [
-          "action"
-        ]
-      },
-      "q1DJe0oElIDKqDDe": {
-        "name": "True Polymorph",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "consumers": {
-          "8VoQee5YrbSELC7Q": {
-            "mode": "variable",
-            "spellLevel": 9,
-            "points": 13,
-            "type": "spell"
-          },
-          "QtS0AlZtzvJbP1fR": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "eMzMv3tlGkjRtuou": {
-            "ability": "wis",
-            "onSave": "Negates effect",
-            "saveDC": {
-              "type": "custom",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "hour",
-          "value": "1"
-        },
-        "ranges": {
-          "tdpsf7OtATc74wFF": {
-            "range": "short"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creatureObject"
-        },
-        "img": "icons/magic/control/encase-creature-humanoid-hold.webp",
-        "description": "<p>The target is transformed until it drops to 0 hit points or the spell ends. You can make the transformation permanent by concentrating on the spell for the full duration.</p><p>Creature into Creature: The target's body is transformed into a creature with a Challenge Rating equal to or less than its own. If the target doesn't have a Challenge Rating, use its level.</p><p>The target's game statistics (including its hit points and mental ability scores) are replaced by the statistics of the chosen creature. The target is limited to actions that it is physically capable of doing, and it can't speak or cast spells. The target's gear melds into the new form. Equipment that merges with a target's form has no effect until it leaves the form.</p><p>When the target reverts to its normal form, it returns to the number of hit points it had before it transformed. If the spell's effects on the target end early from dropping to 0 hit points, any excess damage carries over to its normal form and knocks it unconscious if the damage reduces it to 0 hit points.</p><p>Object into Creature: The target is transformed into any kind of creature, as long as the creature's size isn't larger than the object's size and it has a Challenge Rating of 9 or less. The creature is friendly to you and your allies and acts on each of your turns. You decide what action it takes and how it moves. The Narrator has the creature's statistics and resolves all of its actions and movement.</p><p>If the spell becomes permanent, you no longer control the creature. It might remain friendly to you, depending on how you have treated it.</p><p>Creature into Object: You turn the target and whatever it is wearing and carrying into an object. The target's game statistics are replaced by the statistics of the chosen object. The target has no memory of time spent in this form, and when the spell ends it returns to its normal form.</p>",
-        "descriptionOutputs": [
-          "action"
-        ]
-      }
-    },
-    "description": "<p>At 20th level, you become an extension of nature. Your @UUID[Compendium.a5e.a5e-class-features.3jdfihvtbyhbv9ez]{Wild Shape} has no duration. In addition, when you cast a druid spell you do not need seen or vocalized components, or any material components that have no cost or aren&rsquo;t consumed by the casting. You gain this benefit in both your normal shape and while using @UUID[Compendium.a5e.a5e-class-features.3jdfihvtbyhbv9ez]{Wild Shape}.</p><p>You also learn to tap into the intricate ebb and flow of life around you and how to divert it as you see fit. You may cast the spells @UUID[Compendium.a5e.a5e-spells.d4gqwm4bxoklygp6]{True Resurrection} and<em> </em>@UUID[Compendium.a5e.a5e-spells.77amz0lv01jzpzsg]{Power Word Kill}<strong>&nbsp;</strong>without expending a spell slot and without any material components. Once you cast either spell in this way, you cannot do so again until you finish a long rest.&nbsp;</p><p>Finally, you can turn nature in its rawest elements into deadly weapons no matter your form. Once each turn, you can use a bonus action to choose a target point within 30 feet and one of the following element options. If the element you choose is not present at or near the target point, any damage dealt by this feature is halved, you have disadvantage on your spell attack, and creatures have advantage on any saving throws made to resist it.</p><h3 class=\"Indent1\">Air</h3><p>Each creature within 20 feet of that point must make a Strength saving throw. On a failure, a target takes bludgeoning damage equal to 3d8 + your Wisdom modifier and is flung up 20 feet away from the target point in a random direction and knocked prone. If a thrown target strikes an object, such as a wall or floor, the target takes 1d8 bludgeoning damage. If the target is thrown at another creature, that creature must succeed on a Dexterity saving throw against your spell save DC or it takes the same damage and is knocked prone. If the saving throw is successful, the target takes half the bludgeoning damage and isn&rsquo;t flung away or knocked prone.</p><p>In addition, all ranged attacks within 30 feet of the target point have disadvantage until the beginning of your next turn.</p><h3>Earth</h3><p>Clumps of dirt and stone explode outward. Creatures within 10 feet of the target point take 4d8 bludgeoning damage and are knocked prone. A creature that makes a Strength saving throw against your spell save DC takes half damage is not knocked prone.</p><h3>Fire</h3><p>Flames roil outward in a burst of inferno. Creatures within 15 feet of the target point take 6d6 fire damage. A creature that makes a Dexterity saving throw against your spell save DC takes half damage.</p><h3>Ice</h3><p>You condense and flash freeze the water from a vast area above you into a massive boulder to drop down with immense force. Make a ranged spell attack against a creature at least 30 feet below the target point. On a hit, the creature takes 4d6 bludgeoning damage and 4d6 cold damage.</p><p>In addition, the area in a 20-foot radius around the creature becomes difficult terrain for 1 minute.</p><h3>Water</h3><p>You create a 20-foot tall, 20-foot wide wave that travels 30 feet in one direction and then crashes down. Any Large or smaller creatures and objects in the wave's path make a Strength saving throw against your spell save DC. On a failure, a creature takes 4d8 bludgeoning damage and is carried with the wave. Any creature that succeeds on its saving throw takes no damage and is not moved.</p><h3>Wood</h3><p>Splinters appear and fling themselves into flesh and armor alike. Creatures within 20 feet of the target point take 4d6 piercing damage. A creature that makes a Dexterity saving throw against your spell save DC takes half damage.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "longRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": "druid"
-  },
-  "folder": "tqpfd65RawLHAkOf",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599694718,
-    "modifiedTime": 1715599749301,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"name": "Archdruid",
+	"type": "feature",
+	"img": "icons/magic/nature/root-vines-face-glow-green.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"pqvjcgsg1NckNKgX": {
+				"name": "Air",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"gQbCvQ3XySmeZOUx": {
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"formula": "3d8+@wis.mod",
+						"name": "Air",
+						"type": "damage"
+					},
+					"1DsA6jJpOPd7UjmM": {
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"formula": "1d8",
+						"name": "Striking an object",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"mcgf1m5fnp9MhVhl": {
+						"ability": "str",
+						"onSave": "",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8+@wis.mod+@prof"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"MmV37xmxBJeMbMd1": {
+						"range": "20"
+					}
+				},
+				"area": {
+					"shape": null,
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/air/wind-tornado-funnel-gray.webp",
+				"description": "<p>Each creature within 20 feet of that point must make a Strength saving throw. On a failure, a target takes bludgeoning damage equal to 3d8 + your Wisdom modifier and is flung up 20 feet away from the target point in a random direction and knocked prone. If a thrown target strikes an object, such as a wall or floor, the target takes 1d8 bludgeoning damage. If the target is thrown at another creature, that creature must succeed on a Dexterity saving throw against your spell save DC or it takes the same damage and is knocked prone. If the saving throw is successful, the target takes half the bludgeoning damage and isn&rsquo;t flung away or knocked prone.</p><p>In addition, all ranged attacks within 30 feet of the target point have disadvantage until the beginning of your next turn.</p>",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				]
+			},
+			"4Q9Im0us41Z3p9Gj": {
+				"name": "Earth",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"CuKYexdqxM7PlDny": {
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"formula": "4d8",
+						"name": "Earth",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"GLfG4Lfv2uDpr6DY": {
+						"ability": "str",
+						"onSave": "Half damage, not prone",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8+@wis.mod+@prof"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"aRGSs3ix5lAy9GAc": {
+						"range": "10"
+					}
+				},
+				"area": {
+					"shape": null,
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/earth/strike-stone-stalactite-blood-red.webp",
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>Clumps of dirt and stone explode outward. Creatures within 10 feet of the target point take 4d8 bludgeoning damage and are knocked prone. A creature that makes a Strength saving throw against your spell save DC takes half damage is not knocked prone.</p>"
+			},
+			"wFeRxuz8ymuuGZyq": {
+				"name": "Fire",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"MmBwG2dD0pNPjrmf": {
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "6d6",
+						"name": "Fire",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"tIPq7AKks49NeAdk": {
+						"ability": "dex",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8+@wis.mod+@prof"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"9OdCI9wvat6ZION7": {
+						"range": "15"
+					}
+				},
+				"area": {
+					"shape": null,
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/fire/flame-burning-tree-bush.webp",
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>Flames roil outward in a burst of inferno. Creatures within 15 feet of the target point take 6d6 fire damage. A creature that makes a Dexterity saving throw against your spell save DC takes half damage.</p>"
+			},
+			"yLxwzugLaCqfx5Fc": {
+				"name": "Ice",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"Jr6zNVPfQ2ozR7I0": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"ability": "spellcasting"
+					},
+					"3yA9KuT4lFMWe7JZ": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "4d6",
+						"name": "Bludgeoning",
+						"type": "damage"
+					},
+					"xrICMqaEnML13cw0": {
+						"canCrit": true,
+						"damageType": "cold",
+						"formula": "4d6",
+						"name": "Cold",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"Zb7lYYHr5SvliECM": {
+						"range": "at least 30 ft"
+					}
+				},
+				"area": {
+					"shape": null,
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"img": "icons/magic/water/barrier-ice-crystal-wall-jagged-blue.webp",
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>You condense and flash freeze the water from a vast area above you into a massive boulder to drop down with immense force. Make a ranged spell attack against a creature at least 30 feet below the target point. On a hit, the creature takes 4d6 bludgeoning damage and 4d6 cold damage.</p><p>In addition, the area in a 20-foot radius around the creature becomes difficult terrain for 1 minute.</p>"
+			},
+			"8wRmAbOVBKPfWFJD": {
+				"name": "Water",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"y07E9WiS5OSH38uA": {
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"formula": "4d8",
+						"name": "Water",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"Qp5hJOd6ue5ysXVJ": {
+						"ability": "str",
+						"onSave": "No damage, no movement",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8+@wis.mod+@prof"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"vxNwUHvYdZbk76lU": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"length": 20,
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/water/wave-water-blue.webp",
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>You create a 20-foot tall, 20-foot wide wave that travels 30 feet in one direction and then crashes down. Any Large or smaller creatures and objects in the wave's path make a Strength saving throw against your spell save DC. On a failure, a creature takes 4d8 bludgeoning damage and is carried with the wave. Any creature that succeeds on its saving throw takes no damage and is not moved.</p>"
+			},
+			"V5tZGd19XsxRwDxi": {
+				"name": "Wood",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"9iLxhkj5E0179ozE": {
+						"canCrit": false,
+						"damageType": "piercing",
+						"formula": "4d6",
+						"name": "Wood",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"kLL5ytaRsU13Sm3N": {
+						"ability": "dex",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8+@wis.mod+@prof"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"jlXJIaSMmrRqrIbG": {
+						"range": 20,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": null,
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/nature/tree-twisted-glow-yellow.webp",
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>Splinters appear and fling themselves into flesh and armor alike. Creatures within 20 feet of the target point take 4d6 piercing damage. A creature that makes a Dexterity saving throw against your spell save DC takes half damage.</p>"
+			},
+			"LgWzIEimqYfmqueH": {
+				"name": "Power Word Kill",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"ToRdp8ONPKQLTL82": {
+						"mode": "variable",
+						"spellLevel": 9,
+						"points": 13,
+						"type": "spell"
+					},
+					"noJF5UhTQ9KKgRCw": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"uIQ78wZFmFlG7PhR": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/death/skeleton-skull-soul-blue.webp",
+				"description": "<p>With but a word you snuff out the target's life and it immediately dies. If you cast this on a creature with more than 100 hit points, it takes 50 hit points of damage.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"q1DJe0oElIDKqDDe": {
+				"name": "True Polymorph",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"8VoQee5YrbSELC7Q": {
+						"mode": "variable",
+						"spellLevel": 9,
+						"points": 13,
+						"type": "spell"
+					},
+					"QtS0AlZtzvJbP1fR": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"eMzMv3tlGkjRtuou": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "custom",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"tdpsf7OtATc74wFF": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"img": "icons/magic/control/encase-creature-humanoid-hold.webp",
+				"description": "<p>The target is transformed until it drops to 0 hit points or the spell ends. You can make the transformation permanent by concentrating on the spell for the full duration.</p><p>Creature into Creature: The target's body is transformed into a creature with a Challenge Rating equal to or less than its own. If the target doesn't have a Challenge Rating, use its level.</p><p>The target's game statistics (including its hit points and mental ability scores) are replaced by the statistics of the chosen creature. The target is limited to actions that it is physically capable of doing, and it can't speak or cast spells. The target's gear melds into the new form. Equipment that merges with a target's form has no effect until it leaves the form.</p><p>When the target reverts to its normal form, it returns to the number of hit points it had before it transformed. If the spell's effects on the target end early from dropping to 0 hit points, any excess damage carries over to its normal form and knocks it unconscious if the damage reduces it to 0 hit points.</p><p>Object into Creature: The target is transformed into any kind of creature, as long as the creature's size isn't larger than the object's size and it has a Challenge Rating of 9 or less. The creature is friendly to you and your allies and acts on each of your turns. You decide what action it takes and how it moves. The Narrator has the creature's statistics and resolves all of its actions and movement.</p><p>If the spell becomes permanent, you no longer control the creature. It might remain friendly to you, depending on how you have treated it.</p><p>Creature into Object: You turn the target and whatever it is wearing and carrying into an object. The target's game statistics are replaced by the statistics of the chosen object. The target has no memory of time spent in this form, and when the spell ends it returns to its normal form.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>At 20th level, you become an extension of nature. Your @UUID[Compendium.a5e.a5e-class-features.3jdfihvtbyhbv9ez]{Wild Shape} has no duration. In addition, when you cast a druid spell you do not need seen or vocalized components, or any material components that have no cost or aren&rsquo;t consumed by the casting. You gain this benefit in both your normal shape and while using @UUID[Compendium.a5e.a5e-class-features.3jdfihvtbyhbv9ez]{Wild Shape}.</p><p>You also learn to tap into the intricate ebb and flow of life around you and how to divert it as you see fit. You may cast the spells @UUID[Compendium.a5e.a5e-spells.d4gqwm4bxoklygp6]{True Resurrection} and<em> </em>@UUID[Compendium.a5e.a5e-spells.77amz0lv01jzpzsg]{Power Word Kill}<strong>&nbsp;</strong>without expending a spell slot and without any material components. Once you cast either spell in this way, you cannot do so again until you finish a long rest.&nbsp;</p><p>Finally, you can turn nature in its rawest elements into deadly weapons no matter your form. Once each turn, you can use a bonus action to choose a target point within 30 feet and one of the following element options. If the element you choose is not present at or near the target point, any damage dealt by this feature is halved, you have disadvantage on your spell attack, and creatures have advantage on any saving throws made to resist it.</p><h3 class=\"Indent1\">Air</h3><p>Each creature within 20 feet of that point must make a Strength saving throw. On a failure, a target takes bludgeoning damage equal to 3d8 + your Wisdom modifier and is flung up 20 feet away from the target point in a random direction and knocked prone. If a thrown target strikes an object, such as a wall or floor, the target takes 1d8 bludgeoning damage. If the target is thrown at another creature, that creature must succeed on a Dexterity saving throw against your spell save DC or it takes the same damage and is knocked prone. If the saving throw is successful, the target takes half the bludgeoning damage and isn&rsquo;t flung away or knocked prone.</p><p>In addition, all ranged attacks within 30 feet of the target point have disadvantage until the beginning of your next turn.</p><h3>Earth</h3><p>Clumps of dirt and stone explode outward. Creatures within 10 feet of the target point take 4d8 bludgeoning damage and are knocked prone. A creature that makes a Strength saving throw against your spell save DC takes half damage is not knocked prone.</p><h3>Fire</h3><p>Flames roil outward in a burst of inferno. Creatures within 15 feet of the target point take 6d6 fire damage. A creature that makes a Dexterity saving throw against your spell save DC takes half damage.</p><h3>Ice</h3><p>You condense and flash freeze the water from a vast area above you into a massive boulder to drop down with immense force. Make a ranged spell attack against a creature at least 30 feet below the target point. On a hit, the creature takes 4d6 bludgeoning damage and 4d6 cold damage.</p><p>In addition, the area in a 20-foot radius around the creature becomes difficult terrain for 1 minute.</p><h3>Water</h3><p>You create a 20-foot tall, 20-foot wide wave that travels 30 feet in one direction and then crashes down. Any Large or smaller creatures and objects in the wave's path make a Strength saving throw against your spell save DC. On a failure, a creature takes 4d8 bludgeoning damage and is carried with the wave. Any creature that succeeds on its saving throw takes no damage and is not moved.</p><h3>Wood</h3><p>Splinters appear and fling themselves into flesh and armor alike. Creatures within 20 feet of the target point take 4d6 piercing damage. A creature that makes a Dexterity saving throw against your spell save DC takes half damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "druid"
+	},
+	"folder": null,
+	"_id": "wozif3chwfacegc5"
 }

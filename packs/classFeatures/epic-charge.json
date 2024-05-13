@@ -1,154 +1,140 @@
 {
-  "folder": "tqpfd65RawLHAkOf",
-  "name": "Epic Charge",
-  "type": "feature",
-  "img": "icons/creatures/mammals/bull-horned-blue.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "y1BOAEUOryvLECcK": {
-        "name": "Epic Charge",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "MZPHtttFbm7A6jcG": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "CK1Nb6fbeOox91OW": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "8d8",
-            "damageType": "bludgeoning"
-          }
-        },
-        "prompts": {
-          "CLHX14olJAiYldKX": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "maneuver"
-            },
-            "onSave": "Half damage and remain standing"
-          },
-          "iPF3fU5C7Ic9ekRv": {
-            "type": "effect",
-            "default": true,
-            "effectId": "DUOtmtFIoOeS7XEV"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>At 18th level, you can use an action and move at least 20 feet to make an epic charge. While making an epic charge, you can move through the spaces of creatures and objects of up to one size larger than you without provoking opportunity attacks. When you move into a creature&rsquo;s space it makes a Dexterity saving throw against your maneuver DC (with disadvantage if it is your size or smaller), taking 36 (8d8) bludgeoning damage and falling prone on a failed save, or half as much damage and remaining standing on a success.</p><p>Once you have used this feature, you cannot use it again until you finish a short or long rest.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "gpg2",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "shortRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/creatures/mammals/bull-horned-blue.webp",
-      "origin": "Item.lbkrq1vd4qaxh58w",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "y1BOAEUOryvLECcK"
-        }
-      },
-      "transfer": false,
-      "name": "Prone",
-      "_id": "DUOtmtFIoOeS7XEV",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "mode": 0,
-          "value": "[\"prone\"]",
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "prone"
-      ]
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599692202,
-    "modifiedTime": 1715599751036,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"folder": null,
+	"name": "Epic Charge",
+	"type": "feature",
+	"img": "icons/creatures/mammals/bull-horned-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"y1BOAEUOryvLECcK": {
+				"name": "Epic Charge",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"MZPHtttFbm7A6jcG": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"CK1Nb6fbeOox91OW": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "8d8",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {
+					"CLHX14olJAiYldKX": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"onSave": "Half damage and remain standing"
+					},
+					"iPF3fU5C7Ic9ekRv": {
+						"type": "effect",
+						"default": true,
+						"effectId": "DUOtmtFIoOeS7XEV"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 18th level, you can use an action and move at least 20 feet to make an epic charge. While making an epic charge, you can move through the spaces of creatures and objects of up to one size larger than you without provoking opportunity attacks. When you move into a creature&rsquo;s space it makes a Dexterity saving throw against your maneuver DC (with disadvantage if it is your size or smaller), taking 36 (8d8) bludgeoning damage and falling prone on a failed save, or half as much damage and remaining standing on a success.</p><p>Once you have used this feature, you cannot use it again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg2",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/creatures/mammals/bull-horned-blue.webp",
+			"origin": "Item.lbkrq1vd4qaxh58w",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "y1BOAEUOryvLECcK"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"_id": "DUOtmtFIoOeS7XEV",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"mode": 0,
+					"value": "[\"prone\"]",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "lbkrq1vd4qaxh58w"
 }

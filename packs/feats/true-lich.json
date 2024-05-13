@@ -1,170 +1,155 @@
 {
-  "name": "True Lich",
-  "type": "feature",
-  "img": "icons/commodities/treasure/gem-framed-spiral-purple.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "if31wn0CuAabOwxc": {
-        "name": "Sabotage Spell",
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "reactionTrigger": "Creature within 60 feet casts a spell"
-        },
-        "consumers": {
-          "toeuDEcmI6Lm2xbm": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "7mmJf1AeQ2XNc4Ol": {
-            "type": "abilityCheck",
-            "default": false,
-            "ability": "int"
-          },
-          "Ee9YQb3xsV9f2xck": {
-            "type": "abilityCheck",
-            "default": false,
-            "ability": "wis"
-          },
-          "YmjqeReITFiFqXOy": {
-            "type": "abilityCheck",
-            "default": false,
-            "ability": "cha"
-          },
-          "yOhMcfetRi3SFJDf": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "3d6",
-            "damageType": "necrotic"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>You have become a true lich, a virtually unkillable undead spellcaster, learned in the ways of forbidden lore and deathless study.</p><ul><li>You no longer require food, water, sleep, or air to survive.</li><li>You are immune to the charmed, frightened, and paralyzed conditions and necrotic damage. You gain the Undead creature type in addition to your other types.</li><li><strong><em>True Soul Vessel.&nbsp;</em></strong>If you are slain and your soul vessel is intact, you return in [[/r 1d10]] days, forming a new body if necessary. Your Soul vessel itself becomes very durable as well. Its AC rises to 21, it has 90 hit points, it is immune to damage from non-magical weapons and resistant to all other damage except force damage.</li><li><strong><em>Supreme Forbidden Knowledge.&nbsp;</em></strong>You learn a new 6th-level spell, 7th-level spell, and 8th-level spell. The spells must be ones from the <em>necromancy</em>, <em>affliction</em>, <em>knowledge</em>, <em>necrotic</em>, <em>psychic</em>, or <em>scrying </em>schools.&nbsp;These spells do not count against the spells you know or can have prepared, and they always count as being prepared. These spells are added to your class's spell list for you; if you have more than one spellcasting class, you choose which list to add them to.</li><li><strong><em>Sabotage Spell.&nbsp;</em></strong>You also gain lichdom&rsquo;s most feared power: the means to sunder the spells of other spellcasters. When another creature within 60 feet casts a spell, you may use your reaction to attempt to destroy the spell and punish the caster. You must make an Intelligence, Wisdom or Charisma check (chosen when you acquire this feat and may not be changed) with a DC of 10 + the spell&rsquo;s level. If the check succeeds, the spell fails and the caster takes 3d6 necrotic damage.&nbsp;Once you have used this ability a number of times equal to half your proficiency bonus, you can&rsquo;t do so again until you finish a long rest.</li></ul>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "@prof/2",
-      "per": "longRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "feat",
-    "grants": {
-      "Ln2qSq8LakJXq15B": {
-        "grantType": "trait",
-        "level": 1,
-        "levelType": "character",
-        "optional": false,
-        "label": "Condition Immunities",
-        "traits": {
-          "base": [
-            "charmed",
-            "frightened",
-            "paralyzed"
-          ],
-          "options": [],
-          "total": 0,
-          "traitType": "conditionImmunities"
-        },
-        "_id": "Ln2qSq8LakJXq15B",
-        "img": ""
-      },
-      "rXo6Z2SpKzf2WFz9": {
-        "grantType": "trait",
-        "level": 1,
-        "levelType": "character",
-        "optional": false,
-        "label": "Necrotic Immunity",
-        "traits": {
-          "base": [
-            "necrotic"
-          ],
-          "options": [],
-          "total": 0,
-          "traitType": "damageImmunities"
-        },
-        "_id": "rXo6Z2SpKzf2WFz9",
-        "img": ""
-      },
-      "OMu11m1u8BdfyHfh": {
-        "grantType": "trait",
-        "level": 1,
-        "levelType": "character",
-        "optional": false,
-        "label": "Undead",
-        "traits": {
-          "base": [
-            "undead"
-          ],
-          "options": [],
-          "total": 0,
-          "traitType": "creatureTypes"
-        }
-      }
-    },
-    "prerequisite": "Journeyman Lich, ability to cast 8th level spells",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": ""
-  },
-  "effects": [],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "folder": "EwIRkmCsaLdIRDas",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599724214,
-    "modifiedTime": 1715599754784,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"name": "True Lich",
+	"type": "feature",
+	"img": "icons/commodities/treasure/gem-framed-spiral-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"if31wn0CuAabOwxc": {
+				"name": "Sabotage Spell",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Creature within 60 feet casts a spell"
+				},
+				"consumers": {
+					"toeuDEcmI6Lm2xbm": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"7mmJf1AeQ2XNc4Ol": {
+						"type": "abilityCheck",
+						"default": false,
+						"ability": "int"
+					},
+					"Ee9YQb3xsV9f2xck": {
+						"type": "abilityCheck",
+						"default": false,
+						"ability": "wis"
+					},
+					"YmjqeReITFiFqXOy": {
+						"type": "abilityCheck",
+						"default": false,
+						"ability": "cha"
+					},
+					"yOhMcfetRi3SFJDf": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d6",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You have become a true lich, a virtually unkillable undead spellcaster, learned in the ways of forbidden lore and deathless study.</p><ul><li>You no longer require food, water, sleep, or air to survive.</li><li>You are immune to the charmed, frightened, and paralyzed conditions and necrotic damage. You gain the Undead creature type in addition to your other types.</li><li><strong><em>True Soul Vessel.&nbsp;</em></strong>If you are slain and your soul vessel is intact, you return in [[/r 1d10]] days, forming a new body if necessary. Your Soul vessel itself becomes very durable as well. Its AC rises to 21, it has 90 hit points, it is immune to damage from non-magical weapons and resistant to all other damage except force damage.</li><li><strong><em>Supreme Forbidden Knowledge.&nbsp;</em></strong>You learn a new 6th-level spell, 7th-level spell, and 8th-level spell. The spells must be ones from the <em>necromancy</em>, <em>affliction</em>, <em>knowledge</em>, <em>necrotic</em>, <em>psychic</em>, or <em>scrying </em>schools.&nbsp;These spells do not count against the spells you know or can have prepared, and they always count as being prepared. These spells are added to your class's spell list for you; if you have more than one spellcasting class, you choose which list to add them to.</li><li><strong><em>Sabotage Spell.&nbsp;</em></strong>You also gain lichdom&rsquo;s most feared power: the means to sunder the spells of other spellcasters. When another creature within 60 feet casts a spell, you may use your reaction to attempt to destroy the spell and punish the caster. You must make an Intelligence, Wisdom or Charisma check (chosen when you acquire this feat and may not be changed) with a DC of 10 + the spell&rsquo;s level. If the check succeeds, the spell fails and the caster takes 3d6 necrotic damage.&nbsp;Once you have used this ability a number of times equal to half your proficiency bonus, you can&rsquo;t do so again until you finish a long rest.</li></ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "@prof/2",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"Ln2qSq8LakJXq15B": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Condition Immunities",
+				"traits": {
+					"base": [
+						"charmed",
+						"frightened",
+						"paralyzed"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "conditionImmunities"
+				},
+				"_id": "Ln2qSq8LakJXq15B",
+				"img": ""
+			},
+			"rXo6Z2SpKzf2WFz9": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Necrotic Immunity",
+				"traits": {
+					"base": [
+						"necrotic"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageImmunities"
+				},
+				"_id": "rXo6Z2SpKzf2WFz9",
+				"img": ""
+			},
+			"OMu11m1u8BdfyHfh": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Undead",
+				"traits": {
+					"base": [
+						"undead"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "creatureTypes"
+				}
+			}
+		},
+		"prerequisite": "Journeyman Lich, ability to cast 8th level spells",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "9qpzoosqquh92cy8"
 }

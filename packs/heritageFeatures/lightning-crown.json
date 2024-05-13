@@ -1,116 +1,101 @@
 {
-  "name": "Lightning Crown",
-  "type": "feature",
-  "img": "icons/magic/lightning/bolt-strike-blue.webp",
-  "effects": [],
-  "folder": "Vu7xMoh0MyNfySmF",
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "KLEuRRWEUFvevU5W": {
-        "name": "Redirect Lightning",
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "reactionTrigger": "When you take lightning damage"
-        },
-        "consumers": {
-          "u9BcjHhKYc3fifQv": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "YKqjTc1rOTb8hFyr": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "con",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "8+@prof[Proficiency Bonus] + max(@con.mod, @int.mod, @wis.mod, @cha.mod)"
-            },
-            "onSave": "Target takes half damage"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "ranges": {
-          "08hG87iYBwxVYAyt": {
-            "range": "short"
-          }
-        }
-      }
-    },
-    "description": "<p>If you would be dealt lightning damage, you can use your reaction to deflect it to a creature you can see within 30 feet (Dexterity save halves). The DC for this trait is 8 + your proficiency modifier + your choice of Constitution, Intelligence, Wisdom, or Charisma modifier. If the target is the one who dealt you lightning damage, they automatically fail their saving throw. Once you use this trait, you can&rsquo;t use it again until you complete a short or long rest.</p><p><strong>Foundry Note: Will automatically use the highest ability score modifier for the Save DC, change if desired.</strong></p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "shortRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "heritage",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": ""
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599714314,
-    "modifiedTime": 1715599752462,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"name": "Lightning Crown",
+	"type": "feature",
+	"img": "icons/magic/lightning/bolt-strike-blue.webp",
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"KLEuRRWEUFvevU5W": {
+				"name": "Redirect Lightning",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "When you take lightning damage"
+				},
+				"consumers": {
+					"u9BcjHhKYc3fifQv": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"YKqjTc1rOTb8hFyr": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8+@prof[Proficiency Bonus] + max(@con.mod, @int.mod, @wis.mod, @cha.mod)"
+						},
+						"onSave": "Target takes half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"08hG87iYBwxVYAyt": {
+						"range": "short"
+					}
+				}
+			}
+		},
+		"description": "<p>If you would be dealt lightning damage, you can use your reaction to deflect it to a creature you can see within 30 feet (Dexterity save halves). The DC for this trait is 8 + your proficiency modifier + your choice of Constitution, Intelligence, Wisdom, or Charisma modifier. If the target is the one who dealt you lightning damage, they automatically fail their saving throw. Once you use this trait, you can&rsquo;t use it again until you complete a short or long rest.</p><p><strong>Foundry Note: Will automatically use the highest ability score modifier for the Save DC, change if desired.</strong></p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"_id": "qef9ei1qz0gce02g"
 }

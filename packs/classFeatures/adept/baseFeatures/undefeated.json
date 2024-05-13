@@ -1,179 +1,164 @@
 {
-  "name": "Undefeated",
-  "type": "feature",
-  "img": "icons/magic/death/hand-dirt-undead-zombie.webp",
-  "effects": [],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "wxkoT0eycBaUPwUy": {
-        "name": "Unarmed Strike",
-        "activation": {
-          "cost": 1,
-          "type": "reaction",
-          "reactionTrigger": "When a creature would reduce you to 0 hit points"
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "consumers": {
-          "O2lGUmUtwoDei39h": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "8DRVbtb3sEhuaCHj": {
-            "type": "attack",
-            "default": true,
-            "attackType": "meleeWeaponAttack",
-            "proficient": true,
-            "ability": "default"
-          },
-          "Xp3BWcwjkAjrYXhw": {
-            "type": "damage",
-            "default": false,
-            "formula": "1d4 + @dex.mod",
-            "canCrit": true
-          },
-          "uevRF6YsahEDrqNH": {
-            "type": "damage",
-            "default": false,
-            "formula": "1d6 + @dex.mod",
-            "canCrit": true
-          },
-          "actl4pkEponcOQde": {
-            "type": "damage",
-            "default": false,
-            "formula": "1d8 + @dex.mod",
-            "canCrit": true
-          },
-          "xwBeFC3QTQJACXjx": {
-            "type": "damage",
-            "default": false,
-            "formula": "1d10 + @dex.mod",
-            "canCrit": true
-          }
-        }
-      },
-      "OOwRTdOJbWg0Bluu": {
-        "name": "Recover Temporary Hit Points",
-        "activation": {},
-        "consumers": {
-          "3v7d7XGeegxcctDy": {
-            "type": "resource",
-            "default": true,
-            "resource": "exertion",
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "ljP1Ze41qque3I6y": {
-            "type": "healing",
-            "default": false,
-            "healingType": "temporaryHealing",
-            "formula": "1d4"
-          },
-          "RqqLCczRIhGGspJj": {
-            "type": "healing",
-            "default": false,
-            "healingType": "temporaryHealing",
-            "formula": "1d6"
-          },
-          "1UxzrWfJyHmVO19A": {
-            "type": "healing",
-            "default": false,
-            "healingType": "temporaryHealing",
-            "formula": "1d8"
-          },
-          "0xYps1Eiz7Sn11T3": {
-            "type": "healing",
-            "default": false,
-            "healingType": "temporaryHealing",
-            "formula": "1d10"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>When a creature would reduce you to 0 hit points, you can use your reaction to make an unarmed strike against a creature within your reach. On a hit, you can spend 1 exertion to roll your martial arts die and gain that many temporary hit points. You can&rsquo;t use this feature again until you finish a rest.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "shortRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "11th level",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": ""
-  },
-  "folder": "tqpfd65RawLHAkOf",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599693298,
-    "modifiedTime": 1715599754876,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"name": "Undefeated",
+	"type": "feature",
+	"img": "icons/magic/death/hand-dirt-undead-zombie.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"wxkoT0eycBaUPwUy": {
+				"name": "Unarmed Strike",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "When a creature would reduce you to 0 hit points"
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"consumers": {
+					"O2lGUmUtwoDei39h": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"8DRVbtb3sEhuaCHj": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"Xp3BWcwjkAjrYXhw": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d4 + @dex.mod",
+						"canCrit": true
+					},
+					"uevRF6YsahEDrqNH": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d6 + @dex.mod",
+						"canCrit": true
+					},
+					"actl4pkEponcOQde": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d8 + @dex.mod",
+						"canCrit": true
+					},
+					"xwBeFC3QTQJACXjx": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d10 + @dex.mod",
+						"canCrit": true
+					}
+				}
+			},
+			"OOwRTdOJbWg0Bluu": {
+				"name": "Recover Temporary Hit Points",
+				"activation": {},
+				"consumers": {
+					"3v7d7XGeegxcctDy": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"ljP1Ze41qque3I6y": {
+						"type": "healing",
+						"default": false,
+						"healingType": "temporaryHealing",
+						"formula": "1d4"
+					},
+					"RqqLCczRIhGGspJj": {
+						"type": "healing",
+						"default": false,
+						"healingType": "temporaryHealing",
+						"formula": "1d6"
+					},
+					"1UxzrWfJyHmVO19A": {
+						"type": "healing",
+						"default": false,
+						"healingType": "temporaryHealing",
+						"formula": "1d8"
+					},
+					"0xYps1Eiz7Sn11T3": {
+						"type": "healing",
+						"default": false,
+						"healingType": "temporaryHealing",
+						"formula": "1d10"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>When a creature would reduce you to 0 hit points, you can use your reaction to make an unarmed strike against a creature within your reach. On a hit, you can spend 1 exertion to roll your martial arts die and gain that many temporary hit points. You can&rsquo;t use this feature again until you finish a rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "11th level",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"folder": null,
+	"_id": "or5c7dkc3qsw5q06"
 }

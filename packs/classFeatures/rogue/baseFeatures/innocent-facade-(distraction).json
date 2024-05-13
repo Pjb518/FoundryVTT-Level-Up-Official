@@ -1,171 +1,157 @@
 {
-  "name": "Innocent Facade (Distraction)",
-  "type": "feature",
-  "img": "icons/skills/trades/music-singing-voice-blue.webp",
-  "effects": [
-    {
-      "icon": "icons/skills/trades/music-singing-voice-blue.webp",
-      "origin": "Item.i554esxrgkjmqh03",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "v8W5OR96Qcj75oDN",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Distraction",
-      "_id": "5w8F0KCPpcm27e7G",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.skillCheck.prc",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.bonuses.skills",
-          "value": "{\"label\":\"Distraction\",\"formula\":\"-5\",\"damageType\":\"\",\"context\":{\"skills\":[\"prc\"],\"requiresProficiency\":false,\"passiveOnly\":true},\"default\":true,\"img\":\"icons/skills/trades/music-singing-voice-blue.webp\"}",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Disadvantage on Perception checks and a –5 to their passive Perception scores.</p>",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "v8W5OR96Qcj75oDN": {
-        "name": "Distraction",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "consumers": {},
-        "rolls": {
-          "FEGnh76sKVcyXQ4l": {
-            "type": "skillCheck",
-            "default": true,
-            "skill": "prf",
-            "ability": "cha"
-          }
-        },
-        "prompts": {
-          "NPziYQnAy3qXzWSK": {
-            "type": "skillCheck",
-            "default": true,
-            "skill": "ins",
-            "ability": "wis"
-          },
-          "IRzFSH0wZOC2AhQi": {
-            "type": "effect",
-            "default": true,
-            "effectId": "5w8F0KCPpcm27e7G"
-          }
-        }
-      }
-    },
-    "description": "<p>You gain an expertise die on Performance checks. You can use an action to make a Performance check, opposed by the Insight check of creatures of your choice that can see or hear you. On a failure, until the end of your next turn the creatures have disadvantage on Perception checks and a &ndash;5 to their passive Perception scores.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {
-      "S8HpvZcXyM4ka3Dn": {
-        "grantType": "expertiseDice",
-        "level": 1,
-        "levelType": "character",
-        "optional": false,
-        "label": "Distraction",
-        "keys": {
-          "base": [
-            "prf"
-          ],
-          "options": [],
-          "total": 0
-        },
-        "expertiseType": "skill"
-      }
-    },
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": "rogue"
-  },
-  "folder": "tqpfd65RawLHAkOf",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599691498,
-    "modifiedTime": 1715599752098,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"name": "Innocent Facade (Distraction)",
+	"type": "feature",
+	"img": "icons/skills/trades/music-singing-voice-blue.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/trades/music-singing-voice-blue.webp",
+			"origin": "Item.i554esxrgkjmqh03",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "v8W5OR96Qcj75oDN",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Distraction",
+			"_id": "5w8F0KCPpcm27e7G",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.skills",
+					"value": "{\"label\":\"Distraction\",\"formula\":\"-5\",\"damageType\":\"\",\"context\":{\"skills\":[\"prc\"],\"requiresProficiency\":false,\"passiveOnly\":true},\"default\":true,\"img\":\"icons/skills/trades/music-singing-voice-blue.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Disadvantage on Perception checks and a –5 to their passive Perception scores.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"v8W5OR96Qcj75oDN": {
+				"name": "Distraction",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"FEGnh76sKVcyXQ4l": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "prf",
+						"ability": "cha"
+					}
+				},
+				"prompts": {
+					"NPziYQnAy3qXzWSK": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ins",
+						"ability": "wis"
+					},
+					"IRzFSH0wZOC2AhQi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "5w8F0KCPpcm27e7G"
+					}
+				}
+			}
+		},
+		"description": "<p>You gain an expertise die on Performance checks. You can use an action to make a Performance check, opposed by the Insight check of creatures of your choice that can see or hear you. On a failure, until the end of your next turn the creatures have disadvantage on Perception checks and a &ndash;5 to their passive Perception scores.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"S8HpvZcXyM4ka3Dn": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Distraction",
+				"keys": {
+					"base": [
+						"prf"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "rogue"
+	},
+	"folder": null,
+	"_id": "i554esxrgkjmqh03"
 }

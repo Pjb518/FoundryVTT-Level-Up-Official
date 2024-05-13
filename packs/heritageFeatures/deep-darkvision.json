@@ -1,140 +1,126 @@
 {
-  "folder": "Vu7xMoh0MyNfySmF",
-  "name": "Deep Darkvision",
-  "type": "feature",
-  "img": "icons/creatures/fish/deepsea-creature-glowing-blue.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "lsu2Cu1pMnFv1ICM": {
-        "name": "Underwater Darkvision",
-        "activation": {},
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "dCwyvLhe67VTs1xZ": {
-            "type": "effect",
-            "default": true,
-            "effectId": "nRKkfclbAjoYRwKQ"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can&rsquo;t discern color in darkness, only shades of gray. In addition, your eyes are perfectly adapted for spotting movement at depth, and the radius of your darkvision increases to 120 feet while underwater.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "heritage",
-    "grants": {
-      "N6IPa3Q3hrWvAf6Q": {
-        "grantType": "senses",
-        "level": 0,
-        "optional": false,
-        "label": "Deep Darkvision",
-        "senses": {
-          "base": [
-            "darkvision"
-          ]
-        },
-        "bonus": "60"
-      }
-    },
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/creatures/fish/deepsea-creature-glowing-blue.webp",
-      "origin": "Item.203ztkhgzbej9q6l",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "lsu2Cu1pMnFv1ICM",
-          "applyToSelf": true
-        }
-      },
-      "transfer": false,
-      "name": "Underwater Darkvision",
-      "_id": "nRKkfclbAjoYRwKQ",
-      "changes": [
-        {
-          "key": "system.attributes.senses.darkvision.distance",
-          "value": "{\"comparisonOperator\":\"<\",\"comparisonValue\":\"120\",\"positiveValue\":\"120\",\"negativeValue\":\"@original\"}",
-          "mode": 7,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Your eyes are perfectly adapted for spotting movement at depth, and the radius of your darkvision increases to 120 feet while underwater.</p>",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599713748,
-    "modifiedTime": 1715599750501,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"folder": null,
+	"name": "Deep Darkvision",
+	"type": "feature",
+	"img": "icons/creatures/fish/deepsea-creature-glowing-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"lsu2Cu1pMnFv1ICM": {
+				"name": "Underwater Darkvision",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"dCwyvLhe67VTs1xZ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "nRKkfclbAjoYRwKQ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You can see in dim light within 60 feet of you as if it were bright light, and in darkness as if it were dim light. You can&rsquo;t discern color in darkness, only shades of gray. In addition, your eyes are perfectly adapted for spotting movement at depth, and the radius of your darkvision increases to 120 feet while underwater.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {
+			"N6IPa3Q3hrWvAf6Q": {
+				"grantType": "senses",
+				"level": 0,
+				"optional": false,
+				"label": "Deep Darkvision",
+				"senses": {
+					"base": [
+						"darkvision"
+					]
+				},
+				"bonus": "60"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/creatures/fish/deepsea-creature-glowing-blue.webp",
+			"origin": "Item.203ztkhgzbej9q6l",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "lsu2Cu1pMnFv1ICM",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Underwater Darkvision",
+			"_id": "nRKkfclbAjoYRwKQ",
+			"changes": [
+				{
+					"key": "system.attributes.senses.darkvision.distance",
+					"value": "{\"comparisonOperator\":\"<\",\"comparisonValue\":\"120\",\"positiveValue\":\"120\",\"negativeValue\":\"@original\"}",
+					"mode": 7,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Your eyes are perfectly adapted for spotting movement at depth, and the radius of your darkvision increases to 120 feet while underwater.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "203ztkhgzbej9q6l"
 }

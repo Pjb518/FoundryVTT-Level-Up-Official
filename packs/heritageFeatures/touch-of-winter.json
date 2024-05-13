@@ -1,211 +1,196 @@
 {
-  "name": "Touch of Winter",
-  "type": "feature",
-  "img": "icons/magic/water/projectile-icecicle.webp",
-  "effects": [],
-  "folder": "Vu7xMoh0MyNfySmF",
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "zLc1duGibBSoM6Ie": {
-        "name": "Ray of Frost",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "consumers": {},
-        "rolls": {
-          "9Edhi5INnPDZEEz3": {
-            "bonus": "",
-            "critThreshold": 20,
-            "type": "attack",
-            "attackType": "rangedSpellAttack",
-            "ability": "spellcasting"
-          },
-          "8PiujKc60ugoEB2e": {
-            "canCrit": true,
-            "damageType": "cold",
-            "formula": "1d8",
-            "name": "",
-            "type": "damage",
-            "scaling": {
-              "mode": "cantrip",
-              "formula": "1d8"
-            }
-          }
-        },
-        "prompts": {
-          "GKzeiAKIE2qf79e8": {
-            "type": "effect",
-            "default": true,
-            "effectId": "6meIM37yip1QShpH"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "MiX7YFyH7f21pqZL": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "img": "icons/magic/water/projectile-icecicle-glowing.webp",
-        "description": "<p>An icy beam shoots from your outstretched fingers.</p><p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
-        "descriptionOutputs": [
-          "action"
-        ]
-      },
-      "kmKzk3WNxjYLGRP7": {
-        "name": "Burning Hands (Cold)",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "consumers": {
-          "83vW9i5z2RISh0Ya": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "unsR1rjY4mpqI7TB": {
-            "canCrit": false,
-            "damageType": "cold",
-            "formula": "3d6",
-            "name": "",
-            "type": "damage",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          }
-        },
-        "prompts": {
-          "rdGYF9zI83Xqelou": {
-            "ability": "dex",
-            "onSave": "Half damage",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "Z7f8aeFVZFoYaQM4": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "cone",
-          "length": "15",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "img": "icons/magic/fire/blast-jet-stream-embers-red.webp",
-        "description": "<p>A thin sheet of flames shoots forth from your outstretched hands. Each creature in the area takes 3d6 fire damage. The fire ignites any flammable unattended objects in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 1st.</p>",
-        "descriptionOutputs": [
-          "action"
-        ]
-      }
-    },
-    "description": "<p>You know the ray of frost cantrip. You can cast burning hands once per long rest, dealing cold damage instead of fire damage. Your spellcasting ability for these spells is your choice of Constitution, Intelligence, Wisdom, or Charisma.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "longRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "heritage",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": ""
-  },
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599714805,
-    "modifiedTime": 1715599754691,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"name": "Touch of Winter",
+	"type": "feature",
+	"img": "icons/magic/water/projectile-icecicle.webp",
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"zLc1duGibBSoM6Ie": {
+				"name": "Ray of Frost",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"9Edhi5INnPDZEEz3": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedSpellAttack",
+						"ability": "spellcasting"
+					},
+					"8PiujKc60ugoEB2e": {
+						"canCrit": true,
+						"damageType": "cold",
+						"formula": "1d8",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d8"
+						}
+					}
+				},
+				"prompts": {
+					"GKzeiAKIE2qf79e8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6meIM37yip1QShpH"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"MiX7YFyH7f21pqZL": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/water/projectile-icecicle-glowing.webp",
+				"description": "<p>An icy beam shoots from your outstretched fingers.</p><p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"kmKzk3WNxjYLGRP7": {
+				"name": "Burning Hands (Cold)",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"83vW9i5z2RISh0Ya": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"unsR1rjY4mpqI7TB": {
+						"canCrit": false,
+						"damageType": "cold",
+						"formula": "3d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"rdGYF9zI83Xqelou": {
+						"ability": "dex",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"Z7f8aeFVZFoYaQM4": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"length": "15",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/fire/blast-jet-stream-embers-red.webp",
+				"description": "<p>A thin sheet of flames shoots forth from your outstretched hands. Each creature in the area takes 3d6 fire damage. The fire ignites any flammable unattended objects in the area.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 1st.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>You know the ray of frost cantrip. You can cast burning hands once per long rest, dealing cold damage instead of fire damage. Your spellcasting ability for these spells is your choice of Constitution, Intelligence, Wisdom, or Charisma.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"_id": "stvpa35ah7t941ki"
 }

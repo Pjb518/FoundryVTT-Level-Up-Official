@@ -1,179 +1,164 @@
 {
-  "name": "Elemental Overflow",
-  "type": "feature",
-  "img": "icons/magic/unholy/strike-body-life-soul-green.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "MH5uDYJ7763oxsRm": {
-        "name": "Energized Footprint",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "AZKj9934Neinp3jn": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d6",
-            "canCrit": false
-          }
-        },
-        "prompts": {
-          "wvCrC3Ygmxlkj0y8": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "con",
-            "saveDC": {
-              "type": "maneuver"
-            }
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "area": {
-          "shape": "square",
-          "quantity": 6,
-          "width": 5,
-          "placeTemplate": true
-        }
-      },
-      "7prFyz48cWKovNJz": {
-        "name": "Enter Rage",
-        "activation": {},
-        "consumers": {
-          "Hw3boElXpIby7U7S": {
-            "type": "spell",
-            "default": true,
-            "mode": "pointsOnly",
-            "spellLevel": 1,
-            "points": 3
-          }
-        },
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      },
-      "n7f5opgnZJqLhx6T": {
-        "name": "Elemental Energies",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "ZUFNRmVcDKZKPDog": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "2d10"
-          }
-        },
-        "prompts": {
-          "cJwCy6jheMjhwqYQ": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "maneuver"
-            },
-            "onSave": "Half damage, not pushed"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "CJ5gWAhAt9Esc5mC": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "emanation",
-          "quantity": 1,
-          "radius": 10,
-          "placeTemplate": true
-        }
-      }
-    },
-    "description": "<p>Your elemental power increases, seeping from your body and affecting your surrounding when rage takes you.&nbsp;You gain the following benefits:</p><ul><li>While you are raging, you leave a trail of energized footprints behind when you move. Each space you move through gains an elemental charge. Creatures moving through the space must make a Constitution saving throw against your maneuver DC or take 1d6 points of a type of damage your Elemental Blast can do. The effect then ends on the space. A space also loses its charge when your rage ends or if you move more than 30 feet away from it. A space can only hold one charge of this type at a time.</li><li>You can spend 3 spell points to enter a rage.</li><li>While you are raging, you can spend an additional use of your rage to erupt with elemental energies. Creatures within 10 feet of you must make a Dexterity save against your maneuver DC or take 2d10 points of damage of a type your Elemental Blast can do and be pushed 10 feet away from you. Creatures that succeed on their save take half damage and are not pushed.</li></ul>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "feat",
-    "grants": {},
-    "prerequisite": "Energized Fury feat",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": ""
-  },
-  "effects": [],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "folder": "EwIRkmCsaLdIRDas",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599724214,
-    "modifiedTime": 1715599750956,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"name": "Elemental Overflow",
+	"type": "feature",
+	"img": "icons/magic/unholy/strike-body-life-soul-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"MH5uDYJ7763oxsRm": {
+				"name": "Energized Footprint",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"AZKj9934Neinp3jn": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"wvCrC3Ygmxlkj0y8": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "square",
+					"quantity": 6,
+					"width": 5,
+					"placeTemplate": true
+				}
+			},
+			"7prFyz48cWKovNJz": {
+				"name": "Enter Rage",
+				"activation": {},
+				"consumers": {
+					"Hw3boElXpIby7U7S": {
+						"type": "spell",
+						"default": true,
+						"mode": "pointsOnly",
+						"spellLevel": 1,
+						"points": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"n7f5opgnZJqLhx6T": {
+				"name": "Elemental Energies",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"ZUFNRmVcDKZKPDog": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d10"
+					}
+				},
+				"prompts": {
+					"cJwCy6jheMjhwqYQ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"onSave": "Half damage, not pushed"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"CJ5gWAhAt9Esc5mC": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>Your elemental power increases, seeping from your body and affecting your surrounding when rage takes you.&nbsp;You gain the following benefits:</p><ul><li>While you are raging, you leave a trail of energized footprints behind when you move. Each space you move through gains an elemental charge. Creatures moving through the space must make a Constitution saving throw against your maneuver DC or take 1d6 points of a type of damage your Elemental Blast can do. The effect then ends on the space. A space also loses its charge when your rage ends or if you move more than 30 feet away from it. A space can only hold one charge of this type at a time.</li><li>You can spend 3 spell points to enter a rage.</li><li>While you are raging, you can spend an additional use of your rage to erupt with elemental energies. Creatures within 10 feet of you must make a Dexterity save against your maneuver DC or take 2d10 points of damage of a type your Elemental Blast can do and be pushed 10 feet away from you. Creatures that succeed on their save take half damage and are not pushed.</li></ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {},
+		"prerequisite": "Energized Fury feat",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "db1pf8ncft4ahvvy"
 }

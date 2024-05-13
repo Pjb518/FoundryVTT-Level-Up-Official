@@ -1,206 +1,191 @@
 {
-  "name": "Trader",
-  "type": "background",
-  "img": "icons/skills/social/theft-pickpocket-bribery-brown.webp",
-  "system": {
-    "description": "<p><strong>Ability Score Increases:</strong>&nbsp;+1 to Charisma and one other ability score.</p><p><strong>Skill Proficiencies:&nbsp;</strong>Persuasion, and either Culture, Deception, or Insight.</p><p><strong>Tool Proficiencies:</strong>&nbsp;One vehicle.</p><p><strong>Languages:</strong>&nbsp;One of your choice.</p><p><strong>Suggested Equipment (Cost 9 gold):</strong>&nbsp;Traveler&rsquo;s clothes, abacus, merchant&rsquo;s scale.&nbsp;</p><p><strong><em>Feature: Supply and Demand.</em></strong>&nbsp;When you buy a trade good and sell it elsewhere to a community in need of that good, you gain a 10% bonus to its sale price for every 100 miles between the buy and sell location (maximum of 50%).</p><p><strong><em>Adventures and Advancement.</em></strong>&nbsp;Because of your commercial contacts you may be offered money to lead or escort trade caravans. You&rsquo;ll receive a fee from each trader that reaches their destination safely.</p><h3><strong>TRADER CONNECTIONS</strong></h3><ol><li>The parent or relative who wants you to carry on the family business.</li><li>The sibling who inherited the other half of the family business.</li><li>The trading company to which you are indentured until you pay off a debt.</li><li>The powerful merchant who will never forgive the business coup you pulled off.</li><li>The noble whose horse trampled your poor family&rsquo;s vegetable stall, injuring or killing a family member.</li><li>The parent or elder sibling who squandered your family fortune.</li><li>The business partner who cheated you.</li><li>The customs agent who has sworn to catch you red-handed with illicit goods.</li><li>The crime boss to whom you wouldn&rsquo;t pay protection money.</li><li>The smuggler who will pay well for certain commodities.</li></ol><hr><h3><strong>TRADER MEMENTOS</strong></h3><ol><li>The first gold piece you earned.</li><li>Thousands of shares in a failed venture.</li><li>A letter of introduction to a rich merchant in a distant city.</li><li>A sample of an improved version of a common tool.</li><li>Scars from a wound sustained when you tried to collect a debt from a vicious noble.</li><li>A love letter from the heir of a rival trading family.</li><li>A signet ring bearing your family crest, which is famous in the mercantile world.</li><li>A contract binding you to a particular trading company for the next few years.</li><li>A letter from a friend imploring you to invest in an opportunity that can&rsquo;t miss.</li><li>A trusted family member&rsquo;s travel journals that mix useful geographical knowledge with tall tales.</li></ol>",
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "grants": {
-      "qSG0GfTJX2nvs1Tu": {
-        "grantType": "ability",
-        "level": 0,
-        "optional": false,
-        "_id": "qSG0GfTJX2nvs1Tu",
-        "default": true,
-        "img": "",
-        "label": "Ability Score Increase",
-        "abilities": {
-          "base": [
-            "cha"
-          ],
-          "options": [
-            "str",
-            "dex",
-            "con",
-            "int",
-            "wis",
-            "cha"
-          ],
-          "total": 1
-        },
-        "bonus": "1",
-        "context": {
-          "types": [
-            "base"
-          ],
-          "requiresProficiency": false
-        }
-      },
-      "pbdrhX5yPGEBE9ZM": {
-        "grantType": "proficiency",
-        "level": 0,
-        "optional": false,
-        "_id": "pbdrhX5yPGEBE9ZM",
-        "default": true,
-        "img": "",
-        "label": "Skill proficienciess",
-        "keys": {
-          "base": [
-            "per"
-          ],
-          "options": [
-            "cul",
-            "dec",
-            "ins"
-          ],
-          "total": 1
-        },
-        "proficiencyType": "skill"
-      },
-      "Qb9xxwWz8XLXqPbU": {
-        "grantType": "proficiency",
-        "level": 0,
-        "optional": false,
-        "_id": "Qb9xxwWz8XLXqPbU",
-        "default": true,
-        "img": "",
-        "label": "Tool Proficiencies",
-        "traits": {
-          "base": [],
-          "options": [
-            "landVehicles",
-            "waterVehicles",
-            "airVehicles"
-          ],
-          "total": 1,
-          "traitType": "tools"
-        },
-        "keys": {
-          "base": [],
-          "options": [
-            "landVehicles",
-            "waterVehicles",
-            "airVehicles"
-          ],
-          "total": 1
-        },
-        "proficiencyType": "tool"
-      },
-      "Bv15PEN5Ic5H55NK": {
-        "grantType": "trait",
-        "level": 0,
-        "optional": false,
-        "_id": "Bv15PEN5Ic5H55NK",
-        "default": true,
-        "img": "",
-        "label": "Languages",
-        "traits": {
-          "base": [],
-          "options": [
-            "abyssal",
-            "aquan",
-            "auran",
-            "celestial",
-            "common",
-            "deep",
-            "draconic",
-            "druidic",
-            "dwarvish",
-            "elvish",
-            "giant",
-            "gnoll",
-            "gnomish",
-            "goblin",
-            "grimlock",
-            "halfling",
-            "ignan",
-            "infernal",
-            "minotaur",
-            "mycelial",
-            "orc",
-            "primordial",
-            "sylvan",
-            "terran",
-            "cant",
-            "undercommon"
-          ],
-          "total": 1,
-          "traitType": "languages"
-        }
-      },
-      "cESWaodrc9l3pUVH": {
-        "grantType": "item",
-        "level": 0,
-        "optional": true,
-        "_id": "cESWaodrc9l3pUVH",
-        "default": true,
-        "img": "",
-        "label": "Suggested Equipment",
-        "items": {
-          "base": [],
-          "options": [
-            {
-              "uuid": "Compendium.a5e.a5e-adventuring-gear.Item.yd87og78egvpztx3",
-              "quantityOverride": 0
-            },
-            {
-              "uuid": "Compendium.a5e.a5e-adventuring-gear.Item.dgovyvv8ro5lcvok",
-              "quantityOverride": 0
-            },
-            {
-              "uuid": "Compendium.a5e.a5e-adventuring-gear.Item.f6oh2nrenjc27xli",
-              "quantity": 1
-            }
-          ],
-          "total": 1
-        }
-      },
-      "lNoKHySsDrE702pt": {
-        "grantType": "feature",
-        "level": 0,
-        "optional": false,
-        "features": {
-          "base": [
-            {
-              "uuid": "Compendium.a5e.a5e-background-features.Item.p8e5aagbag1trkf7",
-              "limitedReselection": true,
-              "selectionLimit": 1
-            }
-          ],
-          "options": [],
-          "total": 0
-        },
-        "label": "Feature"
-      }
-    },
-    "source": "adventurersGuide"
-  },
-  "effects": [],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "folder": "RlL4UV1VjSa1XnOI",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599657826,
-    "modifiedTime": 1715599754691,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"name": "Trader",
+	"type": "background",
+	"img": "icons/skills/social/theft-pickpocket-bribery-brown.webp",
+	"system": {
+		"description": "<p><strong>Ability Score Increases:</strong>&nbsp;+1 to Charisma and one other ability score.</p><p><strong>Skill Proficiencies:&nbsp;</strong>Persuasion, and either Culture, Deception, or Insight.</p><p><strong>Tool Proficiencies:</strong>&nbsp;One vehicle.</p><p><strong>Languages:</strong>&nbsp;One of your choice.</p><p><strong>Suggested Equipment (Cost 9 gold):</strong>&nbsp;Traveler&rsquo;s clothes, abacus, merchant&rsquo;s scale.&nbsp;</p><p><strong><em>Feature: Supply and Demand.</em></strong>&nbsp;When you buy a trade good and sell it elsewhere to a community in need of that good, you gain a 10% bonus to its sale price for every 100 miles between the buy and sell location (maximum of 50%).</p><p><strong><em>Adventures and Advancement.</em></strong>&nbsp;Because of your commercial contacts you may be offered money to lead or escort trade caravans. You&rsquo;ll receive a fee from each trader that reaches their destination safely.</p><h3><strong>TRADER CONNECTIONS</strong></h3><ol><li>The parent or relative who wants you to carry on the family business.</li><li>The sibling who inherited the other half of the family business.</li><li>The trading company to which you are indentured until you pay off a debt.</li><li>The powerful merchant who will never forgive the business coup you pulled off.</li><li>The noble whose horse trampled your poor family&rsquo;s vegetable stall, injuring or killing a family member.</li><li>The parent or elder sibling who squandered your family fortune.</li><li>The business partner who cheated you.</li><li>The customs agent who has sworn to catch you red-handed with illicit goods.</li><li>The crime boss to whom you wouldn&rsquo;t pay protection money.</li><li>The smuggler who will pay well for certain commodities.</li></ol><hr><h3><strong>TRADER MEMENTOS</strong></h3><ol><li>The first gold piece you earned.</li><li>Thousands of shares in a failed venture.</li><li>A letter of introduction to a rich merchant in a distant city.</li><li>A sample of an improved version of a common tool.</li><li>Scars from a wound sustained when you tried to collect a debt from a vicious noble.</li><li>A love letter from the heir of a rival trading family.</li><li>A signet ring bearing your family crest, which is famous in the mercantile world.</li><li>A contract binding you to a particular trading company for the next few years.</li><li>A letter from a friend imploring you to invest in an opportunity that can&rsquo;t miss.</li><li>A trusted family member&rsquo;s travel journals that mix useful geographical knowledge with tall tales.</li></ol>",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"grants": {
+			"qSG0GfTJX2nvs1Tu": {
+				"grantType": "ability",
+				"level": 0,
+				"optional": false,
+				"_id": "qSG0GfTJX2nvs1Tu",
+				"default": true,
+				"img": "",
+				"label": "Ability Score Increase",
+				"abilities": {
+					"base": [
+						"cha"
+					],
+					"options": [
+						"str",
+						"dex",
+						"con",
+						"int",
+						"wis",
+						"cha"
+					],
+					"total": 1
+				},
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false
+				}
+			},
+			"pbdrhX5yPGEBE9ZM": {
+				"grantType": "proficiency",
+				"level": 0,
+				"optional": false,
+				"_id": "pbdrhX5yPGEBE9ZM",
+				"default": true,
+				"img": "",
+				"label": "Skill proficienciess",
+				"keys": {
+					"base": [
+						"per"
+					],
+					"options": [
+						"cul",
+						"dec",
+						"ins"
+					],
+					"total": 1
+				},
+				"proficiencyType": "skill"
+			},
+			"Qb9xxwWz8XLXqPbU": {
+				"grantType": "proficiency",
+				"level": 0,
+				"optional": false,
+				"_id": "Qb9xxwWz8XLXqPbU",
+				"default": true,
+				"img": "",
+				"label": "Tool Proficiencies",
+				"traits": {
+					"base": [],
+					"options": [
+						"landVehicles",
+						"waterVehicles",
+						"airVehicles"
+					],
+					"total": 1,
+					"traitType": "tools"
+				},
+				"keys": {
+					"base": [],
+					"options": [
+						"landVehicles",
+						"waterVehicles",
+						"airVehicles"
+					],
+					"total": 1
+				},
+				"proficiencyType": "tool"
+			},
+			"Bv15PEN5Ic5H55NK": {
+				"grantType": "trait",
+				"level": 0,
+				"optional": false,
+				"_id": "Bv15PEN5Ic5H55NK",
+				"default": true,
+				"img": "",
+				"label": "Languages",
+				"traits": {
+					"base": [],
+					"options": [
+						"abyssal",
+						"aquan",
+						"auran",
+						"celestial",
+						"common",
+						"deep",
+						"draconic",
+						"druidic",
+						"dwarvish",
+						"elvish",
+						"giant",
+						"gnoll",
+						"gnomish",
+						"goblin",
+						"grimlock",
+						"halfling",
+						"ignan",
+						"infernal",
+						"minotaur",
+						"mycelial",
+						"orc",
+						"primordial",
+						"sylvan",
+						"terran",
+						"cant",
+						"undercommon"
+					],
+					"total": 1,
+					"traitType": "languages"
+				}
+			},
+			"cESWaodrc9l3pUVH": {
+				"grantType": "item",
+				"level": 0,
+				"optional": true,
+				"_id": "cESWaodrc9l3pUVH",
+				"default": true,
+				"img": "",
+				"label": "Suggested Equipment",
+				"items": {
+					"base": [],
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.yd87og78egvpztx3",
+							"quantityOverride": 0
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.dgovyvv8ro5lcvok",
+							"quantityOverride": 0
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.f6oh2nrenjc27xli",
+							"quantity": 1
+						}
+					],
+					"total": 1
+				}
+			},
+			"lNoKHySsDrE702pt": {
+				"grantType": "feature",
+				"level": 0,
+				"optional": false,
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-background-features.Item.p8e5aagbag1trkf7",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					],
+					"options": [],
+					"total": 0
+				},
+				"label": "Feature"
+			}
+		},
+		"source": "adventurersGuide"
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "1fc2to7dgtm28wi3"
 }

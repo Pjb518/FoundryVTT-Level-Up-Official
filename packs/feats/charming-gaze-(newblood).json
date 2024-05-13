@@ -1,108 +1,93 @@
 {
-  "name": "Charming Gaze (Newblood)",
-  "type": "feature",
-  "img": "icons/magic/death/mouth-bite-fangs-vampire.webp",
-  "effects": [],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "I3dQcCAjxw841THH": {
-        "name": "Charming Gaze (Newblood)",
-        "activation": {
-          "cost": "",
-          "type": "none",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "hour",
-          "value": 2
-        },
-        "ranges": {
-          "Nr1QFbuTP56P05dp": {
-            "range": "short"
-          }
-        },
-        "area": {
-          "shape": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "prompts": {
-          "VSC4Drdfzm8ddFu7": {
-            "ability": "wis",
-            "onSave": "Ends  effect and is immune for 24 hours.",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "8 + @prof + @cha.mod"
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {
-          "lMCRQRnpnw3N2QBY": {
-            "type": "itemUses"
-          }
-        }
-      }
-    },
-    "description": "<p>You magically target a creature within 30 feet, forcing it to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). On a failure, the target is charmed by you for a number of hours equal to your proficiency bonus. While charmed it regards you as a trusted friend and is a willing target for your bite. The target repeats the saving throw each time it takes damage, ending the effect on itself on a success. If the target’s saving throw is successful or the effect ends for it, it is immune to your charm for 24 hours. Once you have used this feature, you can’t do so again until you finish a long rest.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "longRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "feat",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": ""
-  },
-  "folder": "EwIRkmCsaLdIRDas",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599724214,
-    "modifiedTime": 1715599750078,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"name": "Charming Gaze (Newblood)",
+	"type": "feature",
+	"img": "icons/magic/death/mouth-bite-fangs-vampire.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"I3dQcCAjxw841THH": {
+				"name": "Charming Gaze (Newblood)",
+				"activation": {
+					"cost": "",
+					"type": "none",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 2
+				},
+				"ranges": {
+					"Nr1QFbuTP56P05dp": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"prompts": {
+					"VSC4Drdfzm8ddFu7": {
+						"ability": "wis",
+						"onSave": "Ends  effect and is immune for 24 hours.",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8 + @prof + @cha.mod"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"consumers": {
+					"lMCRQRnpnw3N2QBY": {
+						"type": "itemUses"
+					}
+				}
+			}
+		},
+		"description": "<p>You magically target a creature within 30 feet, forcing it to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). On a failure, the target is charmed by you for a number of hours equal to your proficiency bonus. While charmed it regards you as a trusted friend and is a willing target for your bite. The target repeats the saving throw each time it takes damage, ending the effect on itself on a success. If the target’s saving throw is successful or the effect ends for it, it is immune to your charm for 24 hours. Once you have used this feature, you can’t do so again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"folder": null,
+	"_id": "e5fw796nboh006zd"
 }

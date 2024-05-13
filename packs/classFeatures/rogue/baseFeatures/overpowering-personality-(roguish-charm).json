@@ -1,167 +1,153 @@
 {
-  "name": "Overpowering Personality (Roguish Charm)",
-  "type": "feature",
-  "img": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
-  "effects": [
-    {
-      "icon": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
-      "origin": "Item.9ljpxzspda39mshb",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "Ee6VgYojbsHqw3U6",
-          "duration": {
-            "type": "seconds",
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Charmed",
-      "_id": "6JtLkOYlPL3o0iQE",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"charmed\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "charmed"
-      ]
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "a5e-dev",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "Ee6VgYojbsHqw3U6": {
-        "name": "Roguish Charm",
-        "activation": {
-          "cost": 1,
-          "type": "minute",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": 1
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "consumers": {},
-        "rolls": {
-          "MMBUmutyo1NqQiAe": {
-            "type": "skillCheck",
-            "default": true,
-            "skill": "per",
-            "ability": "cha"
-          }
-        },
-        "prompts": {
-          "eqKfQu08Hs6p97xH": {
-            "type": "skillCheck",
-            "default": true,
-            "skill": "ins",
-            "ability": "wis"
-          },
-          "G3syR0wAc0XuA7nb": {
-            "type": "effect",
-            "default": true,
-            "effectId": "6JtLkOYlPL3o0iQE"
-          }
-        }
-      }
-    },
-    "description": "<p>You gain an expertise die on Persuasion checks. After you spend a minute in conversation with a creature that is not hostile, you may make a Persuasion check opposed by its Insight. On a success, the creature is nonmagically charmed by you for 1 hour. The charm ends early if you or your allies harm the creature. Once you&rsquo;ve used this feature successfully, you can&rsquo;t use it again until you finish a long rest.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "longRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {
-      "6DhrvDVg1BqN3EZZ": {
-        "grantType": "expertiseDice",
-        "level": 1,
-        "levelType": "character",
-        "optional": false,
-        "label": "Roguish Charm",
-        "keys": {
-          "base": [
-            "per"
-          ],
-          "options": [],
-          "total": 0
-        },
-        "expertiseType": "skill"
-      }
-    },
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": "rogue"
-  },
-  "folder": "tqpfd65RawLHAkOf",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715599689938,
-    "modifiedTime": 1715599753177,
-    "lastModifiedBy": "w2w5xxtHicJQ36ch"
-  }
+	"name": "Overpowering Personality (Roguish Charm)",
+	"type": "feature",
+	"img": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
+			"origin": "Item.9ljpxzspda39mshb",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Ee6VgYojbsHqw3U6",
+					"duration": {
+						"type": "seconds",
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"_id": "6JtLkOYlPL3o0iQE",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"charmed"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Ee6VgYojbsHqw3U6": {
+				"name": "Roguish Charm",
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"MMBUmutyo1NqQiAe": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "per",
+						"ability": "cha"
+					}
+				},
+				"prompts": {
+					"eqKfQu08Hs6p97xH": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ins",
+						"ability": "wis"
+					},
+					"G3syR0wAc0XuA7nb": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6JtLkOYlPL3o0iQE"
+					}
+				}
+			}
+		},
+		"description": "<p>You gain an expertise die on Persuasion checks. After you spend a minute in conversation with a creature that is not hostile, you may make a Persuasion check opposed by its Insight. On a success, the creature is nonmagically charmed by you for 1 hour. The charm ends early if you or your allies harm the creature. Once you&rsquo;ve used this feature successfully, you can&rsquo;t use it again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"6DhrvDVg1BqN3EZZ": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Roguish Charm",
+				"keys": {
+					"base": [
+						"per"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "rogue"
+	},
+	"folder": null,
+	"_id": "9ljpxzspda39mshb"
 }
