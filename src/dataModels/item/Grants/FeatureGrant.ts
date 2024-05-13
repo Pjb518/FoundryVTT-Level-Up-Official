@@ -27,16 +27,16 @@ export default class FeatureGrant extends BaseGrant {
         base: new fields.ArrayField(
           new fields.SchemaField({
             uuid: new fields.StringField({ required: true, initial: '' }),
-            limitedReselection: new fields.BooleanField({ required: true, initial: false }),
-            selectionLimit: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+            limitedReselection: new fields.BooleanField({ required: true, initial: true }),
+            selectionLimit: new fields.NumberField({ nullable: false, initial: 1 })
           }),
           { required: true, default: [] }
         ),
         options: new fields.ArrayField(
           new fields.SchemaField({
             uuid: new fields.StringField({ required: true, initial: '' }),
-            limitedReselection: new fields.BooleanField({ required: true, initial: false }),
-            selectionLimit: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+            limitedReselection: new fields.BooleanField({ required: true, initial: true }),
+            selectionLimit: new fields.NumberField({ nullable: false, initial: 1 })
           }),
           { required: true, default: [] }
         ),

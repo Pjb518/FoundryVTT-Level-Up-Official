@@ -149,7 +149,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
   async #migrateActor(migrations, actor, options = {}) {
     // TODO: Migration Upgrade - Return if up to schema version.
     const { isAdventure, pack } = options;
-    const actorData = actor.toObject();
+    const actorData = actor._source ?? actor.toObject();
     const updateData = await (() => {
       try {
         return this.getUpdatedActor(actorData, migrations);
@@ -224,7 +224,7 @@ export default class MigrationRunner extends MigrationRunnerBase {
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   async #migrateItem(migrations, item, options = {}) {
     const { isAdventure, pack } = options;
-    const baseData = item.toObject();
+    const baseData = item._source ?? item.toObject();
     const updateData = await (() => {
       try {
         return this.getUpdatedItem(baseData, migrations);
