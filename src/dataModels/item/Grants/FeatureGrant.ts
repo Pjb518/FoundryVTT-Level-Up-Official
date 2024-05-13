@@ -71,8 +71,8 @@ export default class FeatureGrant extends BaseGrant {
 
   getSelectionComponentProps(data: any) {
     return {
-      base: data?.selected ?? this.features.base ?? [],
-      choices: this.features.options ?? [],
+      base: data?.selected ?? this.features.base.map((f) => f.uuid) ?? [],
+      choices: this.features.options.map((f) => f.uuid) ?? [],
       count: this.features.total,
       documentType: this.#type
     };
