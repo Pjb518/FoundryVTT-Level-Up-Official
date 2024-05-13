@@ -1,6 +1,8 @@
 <svelte:options accessors={true} />
 
 <script lang="ts">
+    import type { Grant } from "types/itemGrants";
+
     import { getContext, setContext } from "svelte";
 
     import prepareGrantsApplyData from "../../utils/prepareGrantsApplyData";
@@ -29,10 +31,16 @@
     // Create a list of grants to show based on selected optional
     // grants and those grants that have configurable properties
     function getApplicableGrants(selectedOptionalGrants: string[]) {
-        const grantsList: any[] = [];
+        const grantsList: {
+            grant: Grant;
+            requiresConfig: boolean;
+            id: string;
+        }[] = [];
 
         // Add all non-optional grants and set config mode
-        allGrants.forEach((grant) => {
+        allGrants.forEach((grant: Grant) => {
+            // console.log(grant.label, grant.grantedBy);
+
             if (grant.optional) return;
 
             let requiresConfig = false;
@@ -42,7 +50,8 @@
         });
 
         // Add all optional grants that are selected
-        optionalGrants.forEach((grant: any) => {
+        optionalGrants.forEach((grant: Grant) => {
+            // console.log(grant.label, grant.grantedBy);
             if (!selectedOptionalGrants.includes(grant._id)) return;
 
             let requiresConfig = false;
@@ -133,7 +142,7 @@
         {#each configurableGrants as { grant, id }}
             <svelte:component
                 this={grant.getSelectionComponent?.()}
-                {...grant.getSelectionComponentProps?.()}
+                {...grant.getSelectionComponentProps?.(applyData.get(id) ?? {})}
                 {grant}
                 on:updateSelection={({ detail }) => applyData.set(id, detail)}
             />

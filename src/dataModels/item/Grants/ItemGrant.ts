@@ -68,10 +68,11 @@ export default class ItemGrant extends BaseGrant {
 
   getSelectionComponentProps(data: any) {
     return {
-      base: data?.selected ?? this.items.base.map(({ uuid }) => uuid) ?? [],
+      base: this.items.base.map(({ uuid }) => uuid) ?? [],
       choices: this.items.options.map(({ uuid }) => uuid) ?? [],
       count: this.items.total,
-      documentType: this.#type
+      documentType: this.#type,
+      selected: data?.uuids ?? []
     };
   }
 

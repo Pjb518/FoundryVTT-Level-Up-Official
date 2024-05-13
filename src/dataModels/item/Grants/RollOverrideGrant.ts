@@ -78,10 +78,11 @@ export default class RollOverrideGrant extends BaseGrant {
 
   getSelectionComponentProps(data: any) {
     return {
-      base: data.selected ?? this.keys.base ?? [],
+      base: this.keys.base ?? [],
       choices: this.keys.options ?? [],
       count: this.keys.total,
-      rollOverrideType: this.rollOverrideType
+      rollOverrideType: this.rollOverrideType,
+      selected: data?.selected ?? []
     };
   }
 

@@ -12,6 +12,7 @@
     export let choices: string[];
     export let count: number;
     export let skill: string;
+    export let selected: string[];
 
     function getGrantSummary(selected: string[]) {
         return "";
@@ -26,7 +27,7 @@
     const { skillSpecialties } = CONFIG.A5E;
     let choicesLocked = true;
 
-    $: selected = [...base];
+    $: selected = [...base, ...selected];
     $: totalCount = count + base.length;
     $: remainingSelections = totalCount - selected.length;
     $: summary = getGrantSummary(selected);

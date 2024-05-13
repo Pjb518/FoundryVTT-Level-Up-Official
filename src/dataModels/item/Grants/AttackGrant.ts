@@ -78,12 +78,13 @@ export default class AttackGrant extends BaseGrant {
 
   getSelectionComponentProps(data: any) {
     return {
-      base: data?.selected ?? this.attackTypes.base ?? [],
+      base: this.attackTypes.base ?? [],
       bonus: this.bonus,
       choices: this.attackTypes.options,
       configObject: CONFIG.A5E.attackTypes,
       count: this.attackTypes.total,
-      heading: 'Attack Grant Selection'
+      heading: 'Attack Grant Selection',
+      selected: data?.selected ?? []
     };
   }
 

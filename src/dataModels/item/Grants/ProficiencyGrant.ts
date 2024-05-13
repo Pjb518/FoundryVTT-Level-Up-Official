@@ -101,10 +101,11 @@ export default class ProficiencyGrant extends BaseGrant {
 
   getSelectionComponentProps(data: any) {
     return {
-      base: data?.selected ?? this.keys.base ?? [],
+      base: this.keys.base ?? [],
       choices: this.keys.options,
       count: this.keys.total,
-      proficiencyType: this.proficiencyType
+      proficiencyType: this.proficiencyType,
+      selected: data?.selected ?? []
     };
   }
 

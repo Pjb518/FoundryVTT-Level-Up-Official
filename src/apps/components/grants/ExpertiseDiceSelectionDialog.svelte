@@ -12,6 +12,7 @@
     export let choices: string[];
     export let count: number;
     export let expertiseType: string;
+    export let selected: string[];
 
     function getGrantSummary(selected) {
         // return ` This grant provides a bonus of ${bonus} to ${selected
@@ -65,7 +66,7 @@
 
     let choicesLocked = true;
 
-    $: selected = [...base];
+    $: selected = [...base, ...selected];
     $: totalCount = base.length + count;
     $: remainingSelections = totalCount - selected.length;
     $: summary = getGrantSummary(selected);

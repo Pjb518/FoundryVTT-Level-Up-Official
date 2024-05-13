@@ -12,6 +12,7 @@
     export let choices: string[];
     export let count: number;
     export let documentType: string;
+    export let selected: string[];
 
     const allOptions = [...base, ...choices].map((uuid) => {
         const doc = fromUuidSync(uuid);
@@ -82,7 +83,7 @@
     let existingSelections = getExistingSelections();
     let disabledOptions = getDisabledOptions();
 
-    $: selected = [...base];
+    $: selected = [...base, ...selected];
     $: totalCount = base.length + count;
     $: remainingSelections = totalCount - selected.length;
     $: summary = getGrantSummary(selected);

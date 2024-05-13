@@ -77,12 +77,13 @@ export default class SkillGrant extends BaseGrant {
 
   getSelectionComponentProps(data: any) {
     return {
-      base: data?.selected ?? this.skills.base,
+      base: this.skills.base,
       bonus: this.bonus,
       choices: this.skills.options,
       configObject: CONFIG.A5E.skills,
       count: this.skills.total,
-      heading: 'Skill Grant Selection'
+      heading: 'Skill Grant Selection',
+      selected: data?.selected ?? []
     };
   }
 
