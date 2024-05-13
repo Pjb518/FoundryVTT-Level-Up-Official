@@ -173,7 +173,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     if (grant.grantType !== 'feature') return [];
     if (grant.level > characterLevel) return [];
 
-    const docIds: string[] = [...grant.features.base, ...grant.features.options];
+    const docIds: string[] = [...grant.features.base, ...grant.features.options].map((f) => f.uuid);
     const docs = await fromUuidMulti(docIds, { parent: this.actor });
 
     const grants: Grant[] = docs.flatMap((doc) => [...doc.grants.values()]);

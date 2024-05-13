@@ -37,6 +37,8 @@
 
     function getExistingSelections() {
         const selections: string[] = [];
+        if (documentType === "item") return new Set(selections);
+
         actor.grants.byType("feature").forEach((grant) => {
             selections.push(...grant.documentIds);
         });
@@ -45,6 +47,8 @@
     }
 
     function getDisabledOptions() {
+        if (documentType === "item") return [];
+
         const disabled: string[] = [];
         for (const [value] of allOptions) {
             const strippedId = value.split(".").pop();
@@ -58,7 +62,7 @@
     }
 
     function getOptions(choicesLocked: boolean): string[][] {
-        if (!choicesLocked) return allOptions;
+        if (!choicesLocked || documentType === "item") return allOptions;
 
         const options: string[][] = [];
         for (const [value, label] of allOptions) {
