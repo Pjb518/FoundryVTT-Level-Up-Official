@@ -13,8 +13,8 @@ export default class FeatureGrant extends BaseGrant {
   // Variables for the schema
 
   declare features: {
-    base: string[];
-    options: string[];
+    base: { uuid: string, limitedReselection: boolean, selectionLimit: number }[];
+    options: { uuid: string, limitedReselection: boolean, selectionLimit: number }[];
     total: number;
   };
 
@@ -25,11 +25,19 @@ export default class FeatureGrant extends BaseGrant {
       grantType: new fields.StringField({ required: true, initial: 'feature' }),
       features: new fields.SchemaField({
         base: new fields.ArrayField(
-          new fields.StringField({ required: true, initial: '' }),
+          new fields.SchemaField({
+            uuid: new fields.StringField({ required: true, initial: '' }),
+            limitedReselection: new fields.BooleanField({ required: true, initial: false }),
+            selectionLimit: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+          }),
           { required: true, default: [] }
         ),
         options: new fields.ArrayField(
-          new fields.StringField({ required: true, initial: '' }),
+          new fields.SchemaField({
+            uuid: new fields.StringField({ required: true, initial: '' }),
+            limitedReselection: new fields.BooleanField({ required: true, initial: false }),
+            selectionLimit: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+          }),
           { required: true, default: [] }
         ),
         total: new fields.NumberField({ required: true, initial: 0, integer: true })
@@ -85,7 +93,7 @@ export default class FeatureGrant extends BaseGrant {
       'Configure Feature Grant',
       dialogData,
       this.#configComponent,
-      { width: 400 }
+      { width: 550 }
     );
   }
 }

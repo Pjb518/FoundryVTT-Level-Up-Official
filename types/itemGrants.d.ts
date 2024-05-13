@@ -80,8 +80,8 @@ export interface ExpertiseDiceGrant extends BaseGrant {
 export interface FeatureGrant extends BaseGrant {
   grantType: 'feature';
   features: {
-    base: string[],
-    options: string[],
+    base: { uuid: string, limitedReselection: boolean, selectionLimit: number }[],
+    options: { uuid: string, limitedReselection: boolean, selectionLimit: number }[],
     total: number,
   };
 }
