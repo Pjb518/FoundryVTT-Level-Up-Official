@@ -15,7 +15,7 @@
     export let {
         allGrants,
         dialog,
-        optionalGrants,
+        optionalGrantsProp,
         actor,
         item,
         cls,
@@ -28,6 +28,47 @@
     setContext("actor", actor);
     setContext("item", item);
 
+    function getStartingSelectedGrants(): Set<string> {
+        return allGrants.reduce((acc: Set<string>, grant: Grant) => {
+            if (!grant.grantedBy) acc.add(grant._id);
+            return acc;
+        }, new Set<string>());
+    }
+
+    function getStartingOptionalGrants() {
+        return optionalGrantsProp.reduce((acc: Grant[], grant: Grant) => {
+            if (!grant.grantedBy) acc.push(grant);
+            return acc;
+        }, []);
+    }
+
+    function updateActiveGrants() {
+        const updatedList = [...getStartingSelectedGrants()];
+
+        // Get selected feature grants
+        allGrants.forEach((grant: Grant) => {
+            if (grant.grantType !== "feature") return;
+            if (applyData.has(grant._id)) updatedList.push(grant._id);
+        });
+
+        // Update optional grants
+        optionalGrants = optionalGrantsProp.filter((grant: Grant) => {
+            if (!grant.grantedBy) return true;
+            if (!updatedList.includes(grant.grantedBy.id)) return false;
+
+            const uuids = applyData.get(grant.grantedBy.id)?.uuids;
+            if (uuids && uuids.includes(grant.grantedBy.uuid)) return true;
+
+            return false;
+        });
+
+        // Update optional grants
+        activeGrants = new Set<string>([
+            ...updatedList,
+            ...selectedOptionalGrants,
+        ]);
+    }
+
     // Create a list of grants to show based on selected optional
     // grants and those grants that have configurable properties
     function getApplicableGrants(selectedOptionalGrants: string[]) {
@@ -39,7 +80,10 @@
 
         // Add all non-optional grants and set config mode
         allGrants.forEach((grant: Grant) => {
-            // console.log(grant.label, grant.grantedBy);
+            const { grantedBy } = grant;
+            if (grantedBy && !activeGrants.has(grantedBy.id)) {
+                return;
+            }
 
             if (grant.optional) return;
 
@@ -51,7 +95,11 @@
 
         // Add all optional grants that are selected
         optionalGrants.forEach((grant: Grant) => {
-            // console.log(grant.label, grant.grantedBy);
+            const { grantedBy } = grant;
+            if (grantedBy && !activeGrants.has(grantedBy.id)) {
+                return;
+            }
+
             if (!selectedOptionalGrants.includes(grant._id)) return;
 
             let requiresConfig = false;
@@ -87,6 +135,7 @@
         });
     }
 
+    let activeGrants: Set<string> = getStartingSelectedGrants();
     let selectedOptionalGrants: string[] = [];
     let clsReturnData: Record<string, any> = {};
     let spellcastingAbility: string =
@@ -94,11 +143,14 @@
 
     $: applyData = new Map<string, any>();
     $: grants = getApplicableGrants(selectedOptionalGrants);
+    $: optionalGrants = getStartingOptionalGrants();
     $: configurableGrants = grants.filter((grant) => grant.requiresConfig);
 
     $: spellCastingOptions = cls?.system?.spellcasting?.ability?.options?.map(
         (option: string) => [option, CONFIG.A5E.abilities[option]],
     );
+
+    $: selectedOptionalGrants, applyData, updateActiveGrants();
 </script>
 
 <article>
@@ -144,7 +196,10 @@
                 this={grant.getSelectionComponent?.()}
                 {...grant.getSelectionComponentProps?.(applyData.get(id) ?? {})}
                 {grant}
-                on:updateSelection={({ detail }) => applyData.set(id, detail)}
+                on:updateSelection={({ detail }) => {
+                    applyData.set(id, detail);
+                    applyData = applyData;
+                }}
             />
         {/each}
 

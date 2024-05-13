@@ -176,7 +176,12 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const docIds: string[] = [...grant.features.base, ...grant.features.options].map((f) => f.uuid);
     const docs = await fromUuidMulti(docIds, { parent: this.actor });
 
-    const grants: Grant[] = docs.flatMap((doc) => [...doc.grants.values()]);
+    const grants: Grant[] = docs.flatMap((doc) => [...doc.grants.values()]
+      .map((g) => {
+        g.grantedBy = { id: grant._id, uuid: doc.flags.core.sourceId };
+        return g;
+      }));
+
     const subGrants: Grant[] = (await Promise.all(
       grants.map((g) => this.#getSubGrants(g, characterLevel))
     )).flat().filter((g) => !!g);
@@ -216,7 +221,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         {
           actor: this.actor,
           allGrants,
-          optionalGrants,
+          optionalGrantsProp: optionalGrants,
           ...options
         }
       );
@@ -397,6 +402,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       }, []);
 
       this.actor.deleteEmbeddedDocuments('Item', deleteIds);
+
+      // TODO: Class Documents - Remove from exclusion list
     }
 
     if (grant instanceof actorGrants.proficiency) {

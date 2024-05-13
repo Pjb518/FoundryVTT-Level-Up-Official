@@ -7,10 +7,11 @@ export interface BaseGrant {
   level: number;
   levelType: 'character' | 'class';
   optional: boolean;
+  grantedBy?: { id: string, uuid: string };
 
   getApplyData(actor: Actor, data?: any): Record<string, any>;
   getSelectionComponent(): any;
-  getSelectionComponentProps(): Record<string, any>;
+  getSelectionComponentProps(data?: Record<string, any>): Record<string, any>;
   requiresConfig(): boolean;
 
   configureGrant(): void;
