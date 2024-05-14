@@ -1,8 +1,46 @@
 {
 	"name": "Critical: Pinning Strike",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/magic/nature/root-vine-entangled-hands.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/nature/root-vine-entangled-hands.webp",
+			"origin": "Item.2BfYWeTAdxtkRr4d",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "b8c8jPexFxMk338o"
+				}
+			},
+			"transfer": false,
+			"name": "Grappled",
+			"_id": "ZcCyVkc4EXKc1dpl",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"grappled"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -17,7 +55,7 @@
 		},
 		"actions": {
 			"b8c8jPexFxMk338o": {
-				"name": "Critical: Pinning Strike",
+				"name": "Pinning Strike",
 				"activation": {
 					"cost": "",
 					"type": "special",
@@ -36,7 +74,34 @@
 					"quantity": "",
 					"type": ""
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"RH13seY4X7uwodI8": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8 + @prof + @con.mod"
+						},
+						"label": "Strength"
+					},
+					"VSUxbDUN9FLSrtra": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8 + @prof + @con.mod"
+						},
+						"label": "Dexterity"
+					},
+					"w0skth9ZVpzhns01": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ZcCyVkc4EXKc1dpl"
+					}
+				}
 			}
 		},
 		"description": "<p>The profound force of your blow breaks the environment, crumbling the stone beneath your target’s feet or knocking shattered timber over their legs. When you score a critical hit, the target is grappled (escape DC equal to your Furious Critical DC).</p>",
@@ -67,7 +132,7 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker"
 	},
 	"folder": null,
 	"_id": "pabojacuzrnq1b19"

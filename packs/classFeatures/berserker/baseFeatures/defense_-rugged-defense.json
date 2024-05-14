@@ -1,19 +1,54 @@
 {
 	"name": "Defense: Rugged Defense",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
+			"origin": "Item.mlDpwyeDoON6S8k7",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Rugged Defense",
+			"_id": "FxK9JKVxqhn6TCW2",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "5",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Your speed increases by 5 feet while you aren’t wearing heavy armor. At 5th level, your speed increases by an additional 5 feet.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
-			"baseFormula": "",
+			"baseFormula": "10 + @dex.mod + @con.mod",
 			"formula": "",
 			"grantsDisadvantage": false,
 			"maxDex": 0,
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": true
 		},
 		"actions": {},
 		"description": "<p>While you are not wearing any armor, your armor class equals 10 + your Dexterity modifier + your Constitution modifier. You can use a shield and still gain this benefit.</p><p>In addition, your speed increases by 5 feet while you aren’t wearing heavy armor. At 5th level, your speed increases by an additional 5 feet.</p>",
@@ -44,7 +79,7 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker"
 	},
 	"folder": null,
 	"_id": "j2n9an7ozhbs1hlp"

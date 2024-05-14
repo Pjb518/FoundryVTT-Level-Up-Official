@@ -1,7 +1,7 @@
 {
 	"name": "Warrior Born: Agitate",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/social/intimidation-impressing.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -17,7 +17,7 @@
 		},
 		"actions": {
 			"eMnBadE19EdW7kHE": {
-				"name": "Warrior Born: Agitate",
+				"name": "Agitate",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -29,7 +29,8 @@
 				},
 				"ranges": {
 					"6rLB1Py6A9bTUiCy": {
-						"range": "Line of sight and hearing within 20 ft."
+						"range": 20,
+						"unit": "feet"
 					}
 				},
 				"area": {
@@ -42,8 +43,26 @@
 					"type": "creature"
 				},
 				"consumers": {
-					"MLi6n4KqzqXsrq02": {
-						"type": "itemUses"
+					"OsdXe6f67VX27TOU": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"hhM2V26Y9cbNieFJ": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "itm",
+						"ability": "cha"
+					}
+				},
+				"prompts": {
+					"tQZFPxziyTglwHPV": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ins",
+						"ability": "wis"
 					}
 				}
 			}
@@ -76,7 +95,7 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker"
 	},
 	"folder": null,
 	"_id": "15y8rocrkn1ig80h"

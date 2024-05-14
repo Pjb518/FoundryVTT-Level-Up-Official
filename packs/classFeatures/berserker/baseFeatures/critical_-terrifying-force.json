@@ -1,8 +1,46 @@
 {
 	"name": "Critical: Terrifying Force",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/magic/death/skull-horned-worn-fire-blue.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/death/skull-horned-worn-fire-blue.webp",
+			"origin": "Item.id1UwSsEiKjTRJ8K",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "exW8IgWIkqy1O7f5"
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"_id": "Gpf9VsVc7jvsnXPO",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"frightened"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -17,7 +55,7 @@
 		},
 		"actions": {
 			"exW8IgWIkqy1O7f5": {
-				"name": "Critical: Terrifying Force",
+				"name": "Terrifying Force",
 				"activation": {
 					"cost": "",
 					"type": "special",
@@ -29,27 +67,34 @@
 				},
 				"ranges": {
 					"s3WoYijEwYiZWTvH": {
-						"range": "medium"
+						"range": "self"
 					}
 				},
 				"area": {
-					"shape": "",
+					"shape": "emanation",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": true,
+					"quantity": 1,
+					"radius": 60
 				},
 				"target": {
-					"quantity": "",
-					"type": "other"
+					"quantity": 1,
+					"type": ""
 				},
 				"prompts": {
 					"17sOJRTqiPyBayxF": {
 						"ability": "wis",
-						"onSave": "No effect",
+						"onSave": "",
 						"saveDC": {
 							"type": "custom",
 							"bonus": "8 + @prof + @con.mod"
 						},
 						"type": "savingThrow"
+					},
+					"VBC5n14MYuZ0pHNV": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Gpf9VsVc7jvsnXPO"
 					}
 				},
 				"consumers": {}
@@ -83,7 +128,7 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker"
 	},
 	"folder": null,
 	"_id": "3e8xfjdw4e5p8eq4"

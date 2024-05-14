@@ -1,8 +1,72 @@
 {
 	"name": "Paragon of Rage",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/skills/wounds/injury-pain-body-orange.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/wounds/injury-pain-body-orange.webp",
+			"origin": "Item.SMO4Pn6488Sr0RJq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LeXtj7IHeaipk3oT",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Paragon of Rage",
+			"_id": "bGs1bvm5lTlUigxT",
+			"changes": [
+				{
+					"key": "system.traits.size",
+					"value": "lg",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.str.check.expertiseDice",
+					"value": "3",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.str.save.expertiseDice",
+					"value": "3",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.con.check.expertiseDice",
+					"value": "3",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.con.save.expertiseDice",
+					"value": "3",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>Your size increases by one category (from Small to Medium, or Medium to Large), to a maximum size of Large. Your size doubles in all dimensions and your weight increases eightfold.</li>\n<li>You gain twice as many rage hit points as normal.</li>\n<li>Creatures have disadvantage on saving throws made to resist your basic combat maneuvers.</li>\n<li>You deal double damage to objects.</li>\n<li>Your horizontal jump distance increases by 40 feet and your vertical jump distance increases by 20 feet.</li>\n<li>You gain a 1d8 expertise die on Strength and Constitution ability checks and saving throws.</li>\n</ul>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,7 +79,32 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"LeXtj7IHeaipk3oT": {
+				"name": "Paragon of Rage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"S3xgQeOBFwez8tdF": {
+						"type": "effect",
+						"default": true,
+						"effectId": "bGs1bvm5lTlUigxT"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 20th level, you have reached the peak of brawn and stamina. Your Strength and Constitution scores increase by 4. Your maximum for those scores is now 24.</p><p>In addition, while raging you gain the&nbsp;following benefits:</p><ul><li><p>Your size increases by one category (from Small to Medium, or Medium to Large), to a maximum size of Large. Your size doubles in all dimensions and your weight increases eightfold.</p></li><li><p>You gain twice as many rage hit points as normal.</p></li><li><p>Creatures have disadvantage on saving throws made to resist your basic combat maneuvers.</p></li><li><p>You deal double damage to objects.</p></li><li><p>Your horizontal jump distance increases by 40 feet and your vertical jump distance increases by 20 feet.</p></li><li><p>You gain a 1d8 expertise die on Strength and Constitution ability checks and saving throws.</p></li></ul>",
 		"favorite": false,
 		"secretDescription": "",
@@ -31,7 +120,27 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"gyIPb55sjlLiiR1g": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Paragon of Rage",
+				"bonus": "4",
+				"abilities": {
+					"base": [
+						"str",
+						"con"
+					]
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -44,7 +153,7 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker"
 	},
 	"folder": null,
 	"_id": "4udjcfge83gs304g"
