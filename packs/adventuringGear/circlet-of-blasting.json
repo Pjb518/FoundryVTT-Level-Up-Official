@@ -1,7 +1,7 @@
 {
 	"name": "Circlet of Blasting",
 	"type": "object",
-	"img": "icons/equipment/finger/ring-cabochon-silver-gold-red.webp",
+	"img": "https://assets.forge-vtt.com/bazaar/core/icons/equipment/finger/ring-cabochon-silver-gold-red.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -16,37 +16,145 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"hCEtkZwbZIs2iTK3": {
-				"name": "Circlet of Blasting",
+			"XbU4WXqM5bAzrvje": {
+				"name": "Scorching Ray",
 				"activation": {
 					"cost": 1,
-					"type": "action",
+					"type": "special",
 					"reactionTrigger": ""
+				},
+				"consumers": {
+					"JiHDQ2gUoN6GZ8RY": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"Vtu6SuU1enUIpsuU": {
+						"bonus": "5",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedSpellAttack",
+						"ability": "none",
+						"proficient": false
+					},
+					"6RcM8oFT6nUnGdXU": {
+						"canCrit": true,
+						"damageType": "fire",
+						"formula": "2d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": null,
+							"formula": "2d6"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
 				},
 				"duration": {
 					"unit": "instantaneous",
 					"value": ""
 				},
+				"ranges": {
+					"ozG4m8VgsZx6WtwB": {
+						"range": "long"
+					}
+				},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
-					"type": ""
+					"type": "creatureObject"
 				},
-				"consumers": {}
+				"img": "https://assets.forge-vtt.com/bazaar/core/icons/magic/fire/projectile-fireball-sparks-orange.webp"
+			},
+			"4LL8DNsNIhGeoAKq": {
+				"name": "Additional Rays",
+				"activation": {
+					"cost": 1,
+					"type": "special",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"Vtu6SuU1enUIpsuU": {
+						"bonus": "5",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedSpellAttack",
+						"ability": "none",
+						"proficient": false
+					},
+					"6RcM8oFT6nUnGdXU": {
+						"canCrit": true,
+						"damageType": "fire",
+						"formula": "2d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": null,
+							"formula": "2d6"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"ozG4m8VgsZx6WtwB": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"img": "https://assets.forge-vtt.com/bazaar/core/icons/magic/fire/projectile-fireball-sparks-orange.webp"
 			}
 		},
-		"description": "<p>Once per dawn, while wearing this circlet you can use an action to cast scorching ray. The attack bonus for the spell when cast this way is +5.</p>",
+		"description": "<p>Once per dawn, while wearing this circlet you can use an action to cast @UUID[Compendium.a5e.a5e-spells.Item.c9itysok7lr2ai51]{Scorching Ray}. The attack bonus for the spell when cast this way is +5.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "trialsAndTreasures",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "day",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -57,7 +165,7 @@
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "",
+		"craftingComponents": "Ashes from a massive explosion such as a volcanic eruption",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
