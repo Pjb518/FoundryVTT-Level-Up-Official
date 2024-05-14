@@ -2,6 +2,7 @@
 
 <script lang="ts">
     import type { Grant } from "types/itemGrants";
+    import type { ActorGrant } from "types/actorGrants";
 
     import { getContext, setContext } from "svelte";
 
@@ -29,15 +30,30 @@
     setContext("item", item);
 
     function getStartingSelectedGrants(): Set<string> {
-        return allGrants.reduce((acc: Set<string>, grant: Grant) => {
-            if (!grant.grantedBy) acc.add(grant._id);
+        const preAppliedGrants: string[] = actor.grants
+            .byType("feature")
+            .map((grant: ActorGrant) => grant.grantId);
+
+        const newGrants = allGrants.reduce((acc: string[], grant: Grant) => {
+            if (!grant.grantedBy) acc.push(grant._id);
             return acc;
-        }, new Set<string>());
+        }, []);
+
+        return new Set<string>([...preAppliedGrants, ...newGrants]);
     }
 
     function getStartingOptionalGrants() {
+        const preAppliedGrants: string[] = actor.grants
+            .byType("feature")
+            .map((grant: ActorGrant) => grant.grantId);
+
         return optionalGrantsProp.reduce((acc: Grant[], grant: Grant) => {
             if (!grant.grantedBy) acc.push(grant);
+            if (grant.grantedBy?.id) {
+                if (preAppliedGrants.includes(grant.grantedBy.id)) {
+                    acc.push(grant);
+                }
+            }
             return acc;
         }, []);
     }
@@ -58,6 +74,9 @@
 
             const uuids = applyData.get(grant.grantedBy.id)?.uuids;
             if (uuids && uuids.includes(grant.grantedBy.uuid)) return true;
+
+            const allGrantIds = allGrants.map((g) => g._id);
+            if (!uuids && !allGrants.includes(grant.grantedBy.id)) return true;
 
             return false;
         });
