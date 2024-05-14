@@ -2,7 +2,84 @@
 	"name": "Battle Hymn: Bring Low the Foe",
 	"type": "feature",
 	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+			"origin": "Item.8nm9FtYDCSRy5vJR",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "DgOjl1hEqJX8s0vm",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Battle Hymn: Bring Low the Foe",
+			"_id": "d9oFh6tOsbGhOS9B",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.abilities",
+					"value": "{\"label\":\"Battle Hymn: Bring Low the Foe\",\"formula\":\"-1d8\",\"damageType\":\"\",\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target takes a –1d8 penalty to saving throws. In addition, it is rattled for 1d4 rounds after the battle hymn ends.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+			"origin": "Item.8nm9FtYDCSRy5vJR",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "DgOjl1hEqJX8s0vm"
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"_id": "tUSRX5lzZUTfIu9y",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>It is rattled for 1d4 rounds after the battle hymn ends.</p>",
+			"statuses": [
+				"rattled"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -41,13 +118,35 @@
 					"quantity": 1,
 					"type": "creature"
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"x8UQ0ef8JmSoQVdx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "d9oFh6tOsbGhOS9B",
+						"label": "Battle Hymn: Bring Low the Foe"
+					},
+					"RemRCtcflURaf4cB": {
+						"type": "effect",
+						"default": true,
+						"effectId": "tUSRX5lzZUTfIu9y",
+						"label": "Rattled (1d4 rounds after the Hymn Ends)"
+					}
+				},
+				"rolls": {
+					"9UXJoVd1T4UmzsxK": {
+						"type": "generic",
+						"default": true,
+						"label": "Rattled Duration",
+						"formula": "1d4"
+					}
+				}
 			}
 		},
-		"description": "<p>The creature takes a –1d8 penalty on saving throws. In addition, it is rattled for 1d4 rounds after the battle hymn ends.</p>",
+		"description": "<p>The target takes a &ndash;1d8 penalty to saving throws. In addition, it is&nbsp;rattled for 1d4 rounds after the battle hymn ends.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "adventurersGuide",
+		"source": "",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -72,7 +171,7 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "bard"
 	},
 	"folder": null,
 	"_id": "79ivma6eqd6hx1p2"

@@ -2,7 +2,40 @@
 	"name": "Battle Hymn: Heaven's Blessing",
 	"type": "feature",
 	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+			"origin": "Item.5QmrpQBwC02dsitJ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "TOEN3EhSQ8SeLAgy",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Battle Hymn: Heaven's Blessing",
+			"_id": "9dTw1sBWD2V5kBbb",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When the target benefits from your Bardic Inspiration, it rolls the Bardic Inspiration die twice and uses the higher result.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -41,13 +74,21 @@
 					"quantity": 1,
 					"type": "creature"
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"OheOP55VQI1hCMkW": {
+						"type": "effect",
+						"default": true,
+						"effectId": "9dTw1sBWD2V5kBbb",
+						"label": "Battle Hymn: Heaven's Blessing"
+					}
+				}
 			}
 		},
-		"description": "<p>When the creature benefits from your Bardic Inspiration, it rolls the Bardic Inspiration die twice and uses the higher result.</p>",
+		"description": "<p>When the target benefits from your Bardic Inspiration, it rolls the&nbsp;Bardic Inspiration die twice and uses the higher result.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "adventurersGuide",
+		"source": "",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -72,7 +113,7 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "bard"
 	},
 	"folder": null,
 	"_id": "vim6c3olnci1dubs"

@@ -1,0 +1,161 @@
+{
+	"name": "Lay of the Land",
+	"type": "feature",
+	"img": "icons/skills/melee/strike-dagger-white-orange.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/melee/strike-dagger-white-orange.webp",
+			"origin": "Item.1iAx6jzmk2al3H2X",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "u8kC5Nbar90Xfcau",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Engineering Expertise",
+			"_id": "qAcNWZV37snKyAZ5",
+			"changes": [
+				{
+					"key": "system.skills.eng.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/strike-dagger-white-orange.webp",
+			"origin": "Item.1iAx6jzmk2al3H2X",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "u8kC5Nbar90Xfcau",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Survival Expertise",
+			"_id": "FdXnQJAwrvJRcD91",
+			"changes": [
+				{
+					"key": "system.skills.sur.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"u8kC5Nbar90Xfcau": {
+				"name": "Use Feature",
+				"activation": {},
+				"consumers": {
+					"AuGJAq4SNGLfY8hF": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"B1umhZg4BD53HDXH": {
+						"type": "effect",
+						"default": true,
+						"effectId": "qAcNWZV37snKyAZ5"
+					},
+					"wihRymefL9H5XkoB": {
+						"type": "effect",
+						"default": true,
+						"effectId": "FdXnQJAwrvJRcD91"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Knowledge of the terrain can be the difference between victory and defeat. By spending 10 minutes observing the area in a 2-mile radius you can spend 2 exertion points to pick out where there are choke points, large swathes of cover,  watercourses, vegetations that can offer concealment, ridgelines, and so on. You gain an expertise die on Engineering and Survival checks made within the area, and on checks made to prepare an ambush or realize you are being ambushed.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"classes": "marshal",
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "1tu6oun2uo9n9cer"
+}

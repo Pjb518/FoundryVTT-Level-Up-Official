@@ -16,46 +16,47 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"1n9lk8FsZlie2C9U": {
-				"name": "Battle Hymn: Rise and Fight",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
+			"tUiDh8BYXhCnzCqz": {
+				"name": "Battle Hymn: Harmony of Pain",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"fWOqD9AU60d0WDw8": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d(6+(2*floor(@level/5)))"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
 				},
 				"duration": {
-					"unit": "round",
-					"value": 1
+					"unit": "instantaneous"
 				},
 				"ranges": {
-					"0HVfcp1XehkpgKf8": {
-						"range": "medium"
+					"ag36ORKu9RiQTCpe": {
+						"range": "short"
 					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
 				},
 				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"rolls": {
-					"DmlDCXJ9jR1WfpGV": {
-						"formula": "1d10",
-						"healingType": "healing",
-						"name": "Default",
-						"type": "healing"
-					}
-				},
-				"consumers": {}
+					"type": "creature",
+					"quantity": 1
+				}
 			}
 		},
-		"description": "<p>A dying creature regains hit points equal to your Bardic Inspiration die. Once a creature has benefited from this battle hymn, it can’t benefit from it again until it finishes a long rest.</p>",
+		"description": "<p>If the target is dying, it regains hit points equal to your Bardic&nbsp;Inspiration die. Once a creature has benefited from this battle hymn, it can&rsquo;t benefit&nbsp;from it again until it finishes a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "adventurersGuide",
+		"source": "",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -80,7 +81,7 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "bard"
 	},
 	"folder": null,
 	"_id": "lzwwsy22m9xg67ie"

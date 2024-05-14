@@ -2,7 +2,39 @@
 	"name": "Bardic Inspiration",
 	"type": "feature",
 	"img": "icons/skills/trades/music-singing-voice-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/trades/music-singing-voice-blue.webp",
+			"origin": "Item.ZsOEDe1bOPeX0tN4",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "xwOUzSFb4AsBze4b",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Bardic Inspiration",
+			"_id": "WstuQO0039Sg9M9t",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Within the next 10 minutes, before or after rolling an ability check, attack roll, or saving<br />throw (but before the result is determined), the creature can roll the Bardic Inspiration<br />die and add the number rolled to the result. Once the Bardic Inspiration die is rolled, it is<br />expended. A creature can have only one Bardic Inspiration die at a time.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -43,13 +75,20 @@
 					"shape": "",
 					"size": ""
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"x3eExwTNzZCoU4ya": {
+						"type": "effect",
+						"default": true,
+						"effectId": "WstuQO0039Sg9M9t"
+					}
+				}
 			}
 		},
-		"description": "<p>You have a preternatural ability to inspire those around you. You can use a bonus action to choose one creature other than yourself within 60 feet of you who can hear or see you. That creature gains one Bardic Inspiration die, a d6. </p><p>Once within the next 10 minutes, the creature can roll the die and add the number rolled to one ability check, attack roll, or saving throw it makes. The creature can wait until after it rolls the d20 before deciding to use the Bardic Inspiration die, but must decide before the Narrator says whether the roll succeeds or fails. Once the Bardic Inspiration die is rolled, it is lost. A creature can have only one Bardic Inspiration die at a time. </p><p>You can use this feature a number of times equal to your Charisma modifier (minimum once). You regain any expended uses when you finish a long rest. </p><p>At 5th level your Bardic Inspiration die increases to d8, at 10th level it increases to d10, and at 15th level it increases to d12.</p>",
+		"description": "<p>A number of times equal to your Charisma&nbsp;modifier (minimum once) per long rest, you&nbsp;can use a bonus action to choose one&nbsp;creature other than yourself within 60 feet that can hear or see you. That creature&nbsp;gains a d6 Bardic Inspiration die.</p>\n<p>Within the next 10 minutes, before or after rolling an ability check, attack roll, or saving throw (but before the result is determined), the creature can roll the Bardic Inspiration&nbsp;die and add the number rolled to the result.&nbsp;Once the Bardic Inspiration die is rolled, it is&nbsp;expended. A creature can have only one&nbsp;Bardic Inspiration die at a time.&nbsp;</p>\n<p>At 5th level, your Bardic Inspiration die increases to a d8. At 10th level it increases&nbsp;to a d10, and at 15th level it increases to a&nbsp;d12.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "adventurersGuide",
+		"source": "",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -74,7 +113,7 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "bard"
 	},
 	"folder": null,
 	"_id": "m7siz0z3rlng8h20"

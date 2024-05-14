@@ -1,51 +1,77 @@
 {
-  "name": "Song of Rest",
-  "type": "feature",
-  "img": "icons/skills/trades/music-singing-voice-blue.webp",
-  "effects": [],
-  "flags": {},
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p>Any creatures able to perceive you performing your art while taking a short rest and rolling hit dice regain an additional 1d8 hit points.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "knack",
-    "classes": "bard",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "folder": null,
-  "_id": "j9awz4cxjbg9rdxe"
+	"name": "Song of Rest",
+	"type": "feature",
+	"img": "icons/skills/trades/music-singing-voice-blue.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ytoxyyRPBP4G3yL4": {
+				"name": "Use Feature",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"BbYXZ9UNVlloJ7qz": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d8",
+						"label": "Song of Rest Additional Healing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>When you perform during a short rest,&nbsp;creatures who can perceive your&nbsp;performance regain an additional 1d8 hit&nbsp;points when they expend Hit Dice to&nbsp;regain hit points.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "bard"
+	},
+	"folder": null,
+	"_id": "j9awz4cxjbg9rdxe"
 }

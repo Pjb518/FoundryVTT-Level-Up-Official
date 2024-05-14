@@ -2,7 +2,40 @@
 	"name": "Battle Hymn: Ode of Blood",
 	"type": "feature",
 	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+			"origin": "Item.P6vXOE7ZeqoGMaIb",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "VbueG5JU8gaIbAyC",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Battle Hymn: Ode of Blood",
+			"_id": "Oz86SvIns37QdbxU",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 3,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p> If the target is dying, it continues making death saving throws but regains consciousness for up to 3 rounds. The target falls unconscious again if it takes damage, and it dies if it fails its last death saving throw. Once a creature has benefited from this battle hymn, it can’t benefit from it again until it finishes a rest.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -41,13 +74,21 @@
 					"quantity": 1,
 					"type": "creature"
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"YuVoGrX9jPkgQPWH": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Oz86SvIns37QdbxU",
+						"label": "Battle Hymn: Ode of Blood"
+					}
+				}
 			}
 		},
-		"description": "<p>If the creature is dying, it continues making death saving throws but stops being incapacitated for up to 3 rounds. The creature becomes incapacitated if it takes any damage, and it dies if it fails its last death saving throw. Once a creature has benefited from this battle hymn, it can’t benefit from it again until it finishes a short or long rest.</p>",
+		"description": "<p>&nbsp;If the target is dying, it continues making death saving throws but regains consciousness for up to 3 rounds. The target falls unconscious again if it&nbsp;takes damage, and it dies if it fails its last death saving throw. Once a creature has&nbsp;benefited from this battle hymn, it can&rsquo;t benefit from it again until it finishes a rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "adventurersGuide",
+		"source": "",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -72,7 +113,7 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "bard"
 	},
 	"folder": null,
 	"_id": "dcl4v0rzoyyif9pw"

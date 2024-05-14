@@ -2,7 +2,40 @@
 	"name": "Battle Hymn: Doomsayer",
 	"type": "feature",
 	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+			"origin": "Item.5bsdjx8VUh7xp5PX",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "9VdbINF0UXPoXE7a",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Battle Hymn: Doomsayer",
+			"_id": "3tn3sSNkrjrlvRCm",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target takes a –1d8 penalty on attack rolls.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -41,13 +74,21 @@
 					"quantity": 1,
 					"type": "creature"
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"jowdgM0dMmh7BkOS": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3tn3sSNkrjrlvRCm",
+						"label": "Battle Hymn: Doomsayer"
+					}
+				}
 			}
 		},
-		"description": "<p>The creature takes a –1d8 penalty on attack rolls.</p>",
+		"description": "<p>The target takes a &ndash;1d8 penalty on attack rolls</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "adventurersGuide",
+		"source": "",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -72,7 +113,7 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "bard"
 	},
 	"folder": null,
 	"_id": "re62ukwtzxreo6i0"

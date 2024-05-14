@@ -2,7 +2,40 @@
 	"name": "Battle Hymn: Song of Clarity",
 	"type": "feature",
 	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+			"origin": "Item.vk0Jt5Jt6Zr0dzEu",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "e63nPZ8WzIi8yxBZ",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Battle Hymn: Song of Clarity",
+			"_id": "GHdxDKGoTRyYM3qe",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>At the start of the target’s turn, if it is not at 0 hit points it can expend one of its Hit Dice to regain hit points.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -41,13 +74,21 @@
 					"quantity": "",
 					"type": "creature"
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"WBmWi8LsLTsyKEW2": {
+						"type": "effect",
+						"default": true,
+						"effectId": "GHdxDKGoTRyYM3qe",
+						"label": "Battle Hymn: Song of Clarity"
+					}
+				}
 			}
 		},
-		"description": "<p>At the start of the creature’s turn, if it is not at 0 hit points the creature may expend</p><p>and roll one of its hit dice to regain hit points.</p>",
+		"description": "<p>At the start of the target&rsquo;s turn, if it is not at 0 hit points it can expend&nbsp;one of its Hit Dice to regain hit points.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "adventurersGuide",
+		"source": "",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -72,7 +113,7 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "bard"
 	},
 	"folder": null,
 	"_id": "am5r25ebgscf2273"

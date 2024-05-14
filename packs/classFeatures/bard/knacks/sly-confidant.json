@@ -1,51 +1,86 @@
 {
-  "name": "Sly Confidant",
-  "type": "feature",
-  "img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
-  "effects": [],
-  "flags": {},
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p>Choose one skill you are proficient with. You gain an expertise die on checks made using the chosen skill. </p><p>In addition, when you succeed on an opposed Intelligence, Wisdom, or Charisma check, you gain advantage on your next opposed Intelligence, Wisdom, or Charisma check against the same creature.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "knack",
-    "classes": "bard",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "folder": null,
-  "_id": "moiphau8u48qbjs0"
+	"name": "Sly Confidant",
+	"type": "feature",
+	"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p>Choose one skill you are proficient with. You gain an expertise die on checks made using the chosen skill. </p><p>In addition, when you succeed on an opposed Intelligence, Wisdom, or Charisma check, you gain advantage on your next opposed Intelligence, Wisdom, or Charisma check against the same creature.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {
+			"FfNHtAFhbgNBrbEM": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "class",
+				"optional": false,
+				"label": "Sly Confidant",
+				"keys": {
+					"base": [],
+					"options": [
+						"acr",
+						"ani",
+						"arc",
+						"ath",
+						"cul",
+						"dec",
+						"eng",
+						"his",
+						"ins",
+						"itm",
+						"inv",
+						"med",
+						"nat",
+						"prc",
+						"prf",
+						"per",
+						"rel",
+						"slt",
+						"ste",
+						"sur"
+					],
+					"total": 1
+				},
+				"expertiseType": "skill"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "bard"
+	},
+	"folder": null,
+	"_id": "moiphau8u48qbjs0"
 }

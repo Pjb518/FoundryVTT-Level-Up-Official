@@ -2,7 +2,47 @@
 	"name": "Battle Hymn: Carry the Spirit",
 	"type": "feature",
 	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+			"origin": "Item.I4HVtWrxKM41EnVx",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Hqzngm9D97GIFTHg",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Battle Hymn: Carry the Spirit",
+			"_id": "XzgndcGfBgooEZxP",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target gains advantage on saving throws.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -41,13 +81,21 @@
 					"quantity": 1,
 					"type": "creature"
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"Y6qPLQrsuO8JkgCe": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XzgndcGfBgooEZxP",
+						"label": "Battle Hymn: Carry the Spirit"
+					}
+				}
 			}
 		},
-		"description": "<p>The creature gains advantage on saving throws.</p>",
+		"description": "<p>The target gains advantage on saving throws.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "adventurersGuide",
+		"source": "",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -72,7 +120,7 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "bard"
 	},
 	"folder": null,
 	"_id": "30slt39sv4beeyt9"
