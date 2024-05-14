@@ -15,7 +15,7 @@ export default function prepareApplyData(
       const data = grant.getApplyData(actor, inputData);
       const uuids: string[] = inputData?.uuids ?? grant.features.base.map(({ uuid }) => uuid) ?? [];
 
-      const temp = uuids.map((uuid: string) => [uuid, null]);
+      const temp = uuids.map((uuid: string) => ({ uuid, type: 'feature' }));
       documentData.set(id, temp);
 
       foundry.utils.mergeObject(updateData, (data ?? {}));
@@ -31,7 +31,7 @@ export default function prepareApplyData(
       const temp = allOptions.reduce((acc: any[], { uuid, quantityOverride }) => {
         if (!uuids.includes(uuid)) return acc;
 
-        acc.push([uuid, quantityOverride]);
+        acc.push({ uuid, type: 'object', quantity: quantityOverride });
         return acc;
       }, []);
 

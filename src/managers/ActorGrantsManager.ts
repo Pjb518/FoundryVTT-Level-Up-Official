@@ -31,6 +31,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
   private allowedTypes = ['feature', 'background', 'class', 'culture', 'heritage'];
 
+  private grantedFeatureDocuments = new Map<string, string[]>();
+
   constructor(actor: typeof Actor) {
     super();
 
@@ -47,6 +49,20 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       const grant: any = new Cls(data, { parent: actor });
 
       this.set(id, grant);
+    });
+
+    // Aggregate granted documents
+    [...this.values()].forEach((grant) => {
+      if (!(grant instanceof actorGrants.feature)) return;
+
+      const { documentIds } = grant;
+      documentIds.forEach((id) => {
+        if (!this.grantedFeatureDocuments.has(id)) {
+          this.grantedFeatureDocuments.set(id, []);
+        }
+
+        this.grantedFeatureDocuments.get(id)?.push(grant.grantId);
+      });
     });
   }
 
@@ -233,10 +249,14 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     if (dialogData.documentData.size) {
       const updateData: Record<string, any> = {};
 
+      console.log(dialogData.documentData);
       for await (const [grantId, docData] of dialogData.documentData) {
         const docs = await Promise.all(
-          docData.map(async ([uuid, quantity]: [string, number | null]) => {
+          docData.map(async (
+            { uuid, type, quantity }: { uuid: string, type: string, quantity: number | null }
+          ) => {
             const doc = (await fromUuid(uuid)).toObject();
+            if (type === 'feature') return doc;
             if (!quantity) return doc;
 
             doc.system.quantity = quantity;
@@ -245,10 +265,28 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         );
 
         try {
-          const ids = (await this.actor.createEmbeddedDocuments('Item', docs, { noHook: true }))
-            .map((i: any) => i.id);
-          updateData[`system.grants.${grantId}.documentIds`] = ids;
-        } catch (err) {
+          if (docData[0]?.type === 'object') {
+            const ids = (await this.actor.createEmbeddedDocuments('Item', docs, { noHook: true }))
+              .map((i: any) => i.id);
+
+            updateData[`system.grants.${grantId}.documentIds`] = ids;
+          } else if (docData[0]?.type === 'feature') {
+            const preCreateIds = docs.map((d: any) => d._id);
+
+            // Check if the feature is already created
+            const existing = this.actor.items.filter((i: any) => preCreateIds.includes(i.id));
+            const existingIds = existing.map((i: any) => i.id);
+
+            const filtered = docs.filter((d) => !existingIds.includes(d._id));
+
+            const ids = (await this.actor.createEmbeddedDocuments('Item', filtered, { noHook: true, keepId: true }))
+              .map((i: any) => i.id);
+
+            updateData[`system.grants.${grantId}.documentIds`] = [...ids, ...existingIds];
+          }
+        }
+
+        catch (err) {
           // eslint-disable-next-line no-console
           console.error(err);
           return false;
@@ -391,8 +429,6 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       }, []);
 
       this.actor.deleteEmbeddedDocuments('Item', deleteIds);
-
-      // TODO: Class Documents - Remove from exclusion list
     }
 
     if (grant instanceof actorGrants.proficiency) {

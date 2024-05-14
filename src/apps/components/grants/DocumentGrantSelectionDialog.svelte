@@ -116,7 +116,6 @@
             options={getOptions(choicesLocked)}
             {selected}
             orange={choices}
-            {disabledOptions}
             disabled={selected.length >= totalCount}
             on:updateSelection={onUpdateSelection}
         />
