@@ -1,119 +1,104 @@
 {
-  "name": "Forbidden Strike",
-  "type": "feature",
-  "img": "icons/magic/fire/flame-burning-fist-strike.webp",
-  "effects": [],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "data-world",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "HRgiYdojW1OdLoq3": {
-        "name": "Forbidden Strike",
-        "activation": {},
-        "consumers": {
-          "EC1IttQaoJ7wC79s": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          },
-          "ytji7rjRmjVZNimI": {
-            "type": "resource",
-            "default": true,
-            "resource": "exertion",
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "p3Vxwbs6TFmiXAhN": {
-            "type": "damage",
-            "default": false,
-            "formula": "1d4",
-            "canCrit": true
-          },
-          "I5b7nPwUswsy7vBH": {
-            "type": "damage",
-            "default": false,
-            "formula": "1d6"
-          },
-          "Hrda91fJV6rrKCBU": {
-            "type": "damage",
-            "default": false,
-            "formula": "1d8"
-          },
-          "ThLrPEkhTNZqTPm3": {
-            "type": "damage",
-            "default": false,
-            "formula": "1d10"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>Once per turn, when you hit an opponent with at least one attack from @UUID[Compendium.a5e.a5e-class-features.Item.t3idzgaxlrxbo0o2]{Flurry of Blows}, you can spend 1 exertion to deal additional damage equal to your martial arts die.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "turn",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "7th level",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": "adept"
-  },
-  "folder": "nlrc6NuarFVoK71m",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715646993962,
-    "modifiedTime": 1715672226528,
-    "lastModifiedBy": "SkNEzSES7ahAJz45"
-  }
+	"name": "Forbidden Strike",
+	"type": "feature",
+	"img": "icons/magic/fire/flame-burning-fist-strike.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"HRgiYdojW1OdLoq3": {
+				"name": "Forbidden Strike",
+				"activation": {},
+				"consumers": {
+					"EC1IttQaoJ7wC79s": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"ytji7rjRmjVZNimI": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"p3Vxwbs6TFmiXAhN": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d4",
+						"canCrit": true
+					},
+					"I5b7nPwUswsy7vBH": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d6"
+					},
+					"Hrda91fJV6rrKCBU": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d8"
+					},
+					"ThLrPEkhTNZqTPm3": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d10"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Once per turn, when you hit an opponent with at least one attack from @UUID[Compendium.a5e.a5e-class-features.Item.t3idzgaxlrxbo0o2]{Flurry of Blows}, you can spend 1 exertion to deal additional damage equal to your martial arts die.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "turn",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "7th level",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "adept"
+	},
+	"folder": null,
+	"_id": "21xzi3mvza1wopzc"
 }

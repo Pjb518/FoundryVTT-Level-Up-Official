@@ -1,151 +1,137 @@
 {
-  "name": "Instant Step",
-  "type": "feature",
-  "img": "icons/magic/lightning/bolt-forked-magenta.webp",
-  "effects": [
-    {
-      "icon": "icons/magic/lightning/bolt-forked-magenta.webp",
-      "origin": "Item.2OEkDY2d4Q1CiVn4",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "nYuEo7WyxLnPFLxX",
-          "applyToSelf": true,
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Invisible",
-      "_id": "Fejfp8SOWWneAb6B",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"invisible\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": 1,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "invisible"
-      ]
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "data-world",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "nYuEo7WyxLnPFLxX": {
-        "name": "Instant Step",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": ""
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "consumers": {
-          "L65EoGy94wXRKPmL": {
-            "type": "resource",
-            "default": true,
-            "resource": "exertion",
-            "quantity": 4
-          }
-        },
-        "ranges": {
-          "kpLEgzbQ93t1IGfP": {
-            "range": 500,
-            "unit": "feet"
-          }
-        },
-        "prompts": {
-          "2fyvVBcfF4mj8tND": {
-            "type": "effect",
-            "default": true,
-            "effectId": "Fejfp8SOWWneAb6B"
-          }
-        }
-      }
-    },
-    "description": "<p>You can use an action to spend 4 exertion and choose an unoccupied space you can see within 500 feet. You teleport and arrive at exactly the spot desired. You can bring along your gear, carried items smaller than your arm, and a single creature of your size category or smaller. In addition, you become invisible until the start of your next turn.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "knack",
-    "grants": {},
-    "prerequisite": "Adept Speed, 11th level",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": ""
-  },
-  "folder": "gGoR3mjbL4VAI9GT",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715647295418,
-    "modifiedTime": 1715651618206,
-    "lastModifiedBy": "SkNEzSES7ahAJz45"
-  }
+	"name": "Instant Step",
+	"type": "feature",
+	"img": "icons/magic/lightning/bolt-forked-magenta.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/lightning/bolt-forked-magenta.webp",
+			"origin": "Item.2OEkDY2d4Q1CiVn4",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "nYuEo7WyxLnPFLxX",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Invisible",
+			"_id": "Fejfp8SOWWneAb6B",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"invisible"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"nYuEo7WyxLnPFLxX": {
+				"name": "Instant Step",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"consumers": {
+					"L65EoGy94wXRKPmL": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 4
+					}
+				},
+				"ranges": {
+					"kpLEgzbQ93t1IGfP": {
+						"range": 500,
+						"unit": "feet"
+					}
+				},
+				"prompts": {
+					"2fyvVBcfF4mj8tND": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Fejfp8SOWWneAb6B"
+					}
+				}
+			}
+		},
+		"description": "<p>You can use an action to spend 4 exertion and choose an unoccupied space you can see within 500 feet. You teleport and arrive at exactly the spot desired. You can bring along your gear, carried items smaller than your arm, and a single creature of your size category or smaller. In addition, you become invisible until the start of your next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "Adept Speed, 11th level",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"folder": null,
+	"_id": "ynwao8axcql4dq47"
 }
