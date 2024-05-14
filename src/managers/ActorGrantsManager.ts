@@ -249,7 +249,6 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     if (dialogData.documentData.size) {
       const updateData: Record<string, any> = {};
 
-      console.log(dialogData.documentData);
       for await (const [grantId, docData] of dialogData.documentData) {
         const docs = await Promise.all(
           docData.map(async (
@@ -419,7 +418,23 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     }
 
     if (grant instanceof actorGrants.feature || grant instanceof actorGrants.item) {
-      const ids = grant.documentIds;
+      let ids: string[];
+
+      if (grant instanceof actorGrants.feature) {
+        const { grantedFeatureDocuments } = this;
+        const { documentIds } = grant;
+
+        ids = documentIds.reduce((acc: string[], id: string) => {
+          if (grantedFeatureDocuments.has(id)) {
+            if (grantedFeatureDocuments.get(id)?.length === 1) acc.push(id);
+          }
+
+          return acc;
+        }, []);
+      } else {
+        ids = grant.documentIds;
+      }
+
       if (!ids?.length) return updates;
 
       // Validate ids to ensure they are not already deleted
