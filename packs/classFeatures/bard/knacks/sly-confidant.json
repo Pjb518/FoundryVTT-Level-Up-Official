@@ -3,7 +3,15 @@
   "type": "feature",
   "img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
   "effects": [],
-  "flags": {},
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "data-world",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
   "system": {
     "ac": {
       "baseFormula": "",
@@ -19,7 +27,7 @@
     "description": "<p>Choose one skill you are proficient with. You gain an expertise die on checks made using the chosen skill. </p><p>In addition, when you succeed on an opposed Intelligence, Wisdom, or Charisma check, you gain advantage on your next opposed Intelligence, Wisdom, or Charisma check against the same creature.</p>",
     "favorite": false,
     "secretDescription": "",
-    "source": "adventurersGuide",
+    "source": "",
     "uses": {
       "value": 0,
       "max": "",
@@ -31,21 +39,63 @@
     },
     "concentration": false,
     "featureType": "knack",
-    "classes": "bard",
-    "grants": {},
+    "grants": {
+      "FfNHtAFhbgNBrbEM": {
+        "grantType": "expertiseDice",
+        "level": 1,
+        "levelType": "class",
+        "optional": false,
+        "label": "Sly Confidant",
+        "keys": {
+          "base": [],
+          "options": [
+            "acr",
+            "ani",
+            "arc",
+            "ath",
+            "cul",
+            "dec",
+            "eng",
+            "his",
+            "ins",
+            "itm",
+            "inv",
+            "med",
+            "nat",
+            "prc",
+            "prf",
+            "per",
+            "rel",
+            "slt",
+            "ste",
+            "sur"
+          ],
+          "total": 1
+        },
+        "expertiseType": "skill"
+      }
+    },
     "prerequisite": "",
     "requiresBloodied": false,
     "schemaVersion": {
-      "version": 0.018,
+      "version": 0.019,
       "lastMigration": {
         "version": {
-          "schema": 0.016,
+          "schema": 0.018,
           "foundry": "11.315",
-          "system": "0.17.41"
+          "system": "0.18.11"
         }
       }
-    }
+    },
+    "classes": "bard"
   },
-  "folder": null,
-  "_id": "moiphau8u48qbjs0"
+  "folder": "2GxJzMAEmtqfLSlv",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1710716033402,
+    "modifiedTime": 1715651618290,
+    "lastModifiedBy": "SkNEzSES7ahAJz45"
+  }
 }

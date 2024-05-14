@@ -1,149 +1,163 @@
 {
-	"name": "Shockwave",
-	"type": "feature",
-	"img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
-	"effects": [
-		{
-			"icon": "icons/magic/sonic/explosion-shock-sound-wave.webp",
-			"origin": "Item.dl7j692d8olrum5l",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jFrKd7mWIr6jAbeu"
-				}
-			},
-			"transfer": false,
-			"name": "Prone",
-			"_id": "Yir0VoKz3HrhM0y1",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"prone\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"prone"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"jFrKd7mWIr6jAbeu": {
-				"name": "Shockwave",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": 1
-				},
-				"area": {
-					"shape": "line",
-					"length": 40,
-					"width": 5,
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": ""
-				},
-				"prompts": {
-					"0NlurzS49CHqDknB": {
-						"ability": "dex",
-						"onSave": "Half damage and not prone",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "8 + @prof + @wis.mod"
-						},
-						"type": "savingThrow"
-					},
-					"auRE0xdj5MKweeTV": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Yir0VoKz3HrhM0y1"
-					}
-				},
-				"consumers": {
-					"MQlpurgIarRwqdt0": {
-						"type": "resource",
-						"default": true,
-						"resource": "exertion",
-						"quantity": 3
-					}
-				},
-				"ranges": {
-					"qVDnPawdqiOhmips": {
-						"range": "self"
-					}
-				},
-				"rolls": {
-					"AenmzhkyJkecOuH5": {
-						"type": "damage",
-						"default": true,
-						"formula": "3d6",
-						"damageType": "bludgeoning"
-					}
-				}
-			}
-		},
-		"description": "<p>You can use an action and spend 3 exertion to hit the ground so hard it creates a shockwave in a 40-foot line that is 5 feet wide. Each creature in that line makes a Dexterity saving throw. On a failed save, the creature takes 4d6 bludgeoning damage and is knocked prone. On a success, the creature takes half damage and isn&rsquo;t knocked prone.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "5th level",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
-		"classes": ""
-	},
-	"folder": null,
-	"_id": "dl7j692d8olrum5l"
+  "name": "Shockwave",
+  "type": "feature",
+  "img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
+  "effects": [
+    {
+      "icon": "icons/magic/sonic/explosion-shock-sound-wave.webp",
+      "origin": "Item.2AaRUIxDqLXcUwyK",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "jFrKd7mWIr6jAbeu"
+        }
+      },
+      "transfer": false,
+      "name": "Prone",
+      "_id": "Yir0VoKz3HrhM0y1",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"prone\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [
+        "prone"
+      ]
+    }
+  ],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "data-world",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "jFrKd7mWIr6jAbeu": {
+        "name": "Shockwave",
+        "activation": {
+          "cost": 1,
+          "type": "action",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": 1
+        },
+        "area": {
+          "shape": "line",
+          "length": 40,
+          "width": 5,
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": ""
+        },
+        "prompts": {
+          "0NlurzS49CHqDknB": {
+            "ability": "dex",
+            "onSave": "Half damage and not prone",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8 + @prof + @wis.mod"
+            },
+            "type": "savingThrow"
+          },
+          "auRE0xdj5MKweeTV": {
+            "type": "effect",
+            "default": true,
+            "effectId": "Yir0VoKz3HrhM0y1"
+          }
+        },
+        "consumers": {
+          "MQlpurgIarRwqdt0": {
+            "type": "resource",
+            "default": true,
+            "resource": "exertion",
+            "quantity": 3
+          }
+        },
+        "ranges": {
+          "qVDnPawdqiOhmips": {
+            "range": "self"
+          }
+        },
+        "rolls": {
+          "AenmzhkyJkecOuH5": {
+            "type": "damage",
+            "default": true,
+            "formula": "3d6",
+            "damageType": "bludgeoning"
+          }
+        }
+      }
+    },
+    "description": "<p>You can use an action and spend 3 exertion to hit the ground so hard it creates a shockwave in a 40-foot line that is 5 feet wide. Each creature in that line makes a Dexterity saving throw. On a failed save, the creature takes 4d6 bludgeoning damage and is knocked prone. On a success, the creature takes half damage and isn&rsquo;t knocked prone.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "adventurersGuide",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "5th level",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": {
+        "version": {
+          "schema": 0.018,
+          "foundry": "11.315",
+          "system": "0.18.11"
+        }
+      }
+    },
+    "classes": "adept"
+  },
+  "folder": "nlrc6NuarFVoK71m",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1715647064807,
+    "modifiedTime": 1715672547664,
+    "lastModifiedBy": "SkNEzSES7ahAJz45"
+  }
 }

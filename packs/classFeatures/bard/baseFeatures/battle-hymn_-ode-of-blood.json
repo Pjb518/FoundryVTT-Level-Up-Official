@@ -1,79 +1,134 @@
 {
-	"name": "Battle Hymn: Ode of Blood",
-	"type": "feature",
-	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"VbueG5JU8gaIbAyC": {
-				"name": "Battle Hymn: Ode of Blood",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "round",
-					"value": 3
-				},
-				"ranges": {
-					"aJFb2yeSlXLD7fio": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"consumers": {}
-			}
-		},
-		"description": "<p>If the creature is dying, it continues making death saving throws but stops being incapacitated for up to 3 rounds. The creature becomes incapacitated if it takes any damage, and it dies if it fails its last death saving throw. Once a creature has benefited from this battle hymn, it can’t benefit from it again until it finishes a short or long rest.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "longRest",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
-		"classes": ""
-	},
-	"folder": null,
-	"_id": "dcl4v0rzoyyif9pw"
+  "name": "Battle Hymn: Ode of Blood",
+  "type": "feature",
+  "img": "icons/skills/trades/music-notes-sound-blue.webp",
+  "effects": [
+    {
+      "icon": "icons/skills/trades/music-notes-sound-blue.webp",
+      "origin": "Item.P6vXOE7ZeqoGMaIb",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "VbueG5JU8gaIbAyC",
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Battle Hymn: Ode of Blood",
+      "_id": "Oz86SvIns37QdbxU",
+      "changes": [],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": 3,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p> If the target is dying, it continues making death saving throws but regains consciousness for up to 3 rounds. The target falls unconscious again if it takes damage, and it dies if it fails its last death saving throw. Once a creature has benefited from this battle hymn, it can’t benefit from it again until it finishes a rest.</p>",
+      "statuses": []
+    }
+  ],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "data-world",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "VbueG5JU8gaIbAyC": {
+        "name": "Battle Hymn: Ode of Blood",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 3
+        },
+        "ranges": {
+          "aJFb2yeSlXLD7fio": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "consumers": {},
+        "prompts": {
+          "YuVoGrX9jPkgQPWH": {
+            "type": "effect",
+            "default": true,
+            "effectId": "Oz86SvIns37QdbxU",
+            "label": "Battle Hymn: Ode of Blood"
+          }
+        }
+      }
+    },
+    "description": "<p>&nbsp;If the target is dying, it continues making death saving throws but regains consciousness for up to 3 rounds. The target falls unconscious again if it&nbsp;takes damage, and it dies if it fails its last death saving throw. Once a creature has&nbsp;benefited from this battle hymn, it can&rsquo;t benefit from it again until it finishes a rest.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "longRest",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": {
+        "version": {
+          "schema": 0.018,
+          "foundry": "11.315",
+          "system": "0.18.11"
+        }
+      }
+    },
+    "classes": "bard"
+  },
+  "folder": "u0KUzUovslJ75fQp",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1710675767825,
+    "modifiedTime": 1715665903731,
+    "lastModifiedBy": "SkNEzSES7ahAJz45"
+  }
 }

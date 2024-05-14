@@ -3,7 +3,15 @@
   "type": "feature",
   "img": "icons/tools/instruments/flute-simple-wood.webp",
   "effects": [],
-  "flags": {},
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "data-world",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
   "system": {
     "ac": {
       "baseFormula": "",
@@ -16,10 +24,10 @@
       "requiresUnarmored": false
     },
     "actions": {},
-    "description": "<p>You gain proficiency with Performance. If you are already proficient with Performance, you instead gain an expertise die. Whenever you make a Performance check to earn coins, you gain twice as much as normal.</p>",
+    "description": "<p>You gain proficiency in the Performance&nbsp;skill. If you are already proficient with&nbsp;Performance, you instead gain an&nbsp;expertise die.</p>\n<p>Additionally, whenever you make a&nbsp;Performance check to earn coins, you&nbsp;gain twice as much as normal.</p>",
     "favorite": false,
     "secretDescription": "",
-    "source": "adventurersGuide",
+    "source": "",
     "uses": {
       "value": 0,
       "max": "",
@@ -31,21 +39,44 @@
     },
     "concentration": false,
     "featureType": "knack",
-    "classes": "bard",
-    "grants": {},
+    "grants": {
+      "Nzg9xz8d1aQALL5i": {
+        "grantType": "proficiency",
+        "level": 1,
+        "levelType": "character",
+        "optional": false,
+        "label": "Performance Proficiency",
+        "keys": {
+          "base": [
+            "prf"
+          ],
+          "options": [],
+          "total": 0
+        },
+        "proficiencyType": "skill"
+      }
+    },
     "prerequisite": "",
     "requiresBloodied": false,
     "schemaVersion": {
-      "version": 0.018,
+      "version": 0.019,
       "lastMigration": {
         "version": {
-          "schema": 0.016,
+          "schema": 0.018,
           "foundry": "11.315",
-          "system": "0.17.41"
+          "system": "0.18.11"
         }
       }
-    }
+    },
+    "classes": "bard"
   },
-  "folder": null,
-  "_id": "mdbe2vs7zz1132c4"
+  "folder": "2GxJzMAEmtqfLSlv",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1710716021129,
+    "modifiedTime": 1715651618248,
+    "lastModifiedBy": "SkNEzSES7ahAJz45"
+  }
 }

@@ -1,139 +1,153 @@
 {
-	"name": "Stunning Strike",
-	"type": "feature",
-	"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
-	"effects": [
-		{
-			"icon": "icons/magic/control/hypnosis-mesmerism-eye.webp",
-			"origin": "Item.5wrw48ctsb9sm48o",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "WQuR13VpluROfze8",
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Stunned",
-			"_id": "P0bGvxhq3fa2UoYO",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"stunned\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [
-				"stunned"
-			],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"WQuR13VpluROfze8": {
-				"name": "Stunning Strike",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": ""
-				},
-				"prompts": {
-					"obLLoICovhfVC8tz": {
-						"ability": "con",
-						"onSave": "",
-						"saveDC": {
-							"type": "custom",
-							"bonus": "8 + @prof + @wis.mod"
-						},
-						"type": "savingThrow"
-					},
-					"oQGhzg8BkT7lB4uT": {
-						"type": "effect",
-						"default": true,
-						"effectId": "P0bGvxhq3fa2UoYO"
-					}
-				},
-				"consumers": {
-					"aRn70Y036rNQU5Ac": {
-						"type": "resource",
-						"default": true,
-						"resource": "exertion",
-						"quantity": 1
-					}
-				}
-			}
-		},
-		"description": "<p>When you hit a creature with a melee weapon attack, you can spend 1 exertion to force the target to make a Constitution saving throw. On a failed save, the target is stunned until the end of your next turn.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "5th level",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
-		"classes": ""
-	},
-	"folder": null,
-	"_id": "5wrw48ctsb9sm48o"
+  "name": "Stunning Strike",
+  "type": "feature",
+  "img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+  "effects": [
+    {
+      "icon": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+      "origin": "Item.Ks8wesP5RTbij3Rl",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "WQuR13VpluROfze8",
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Stunned",
+      "_id": "P0bGvxhq3fa2UoYO",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.statusConditions",
+          "value": "[\"stunned\"]",
+          "mode": 0,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": 1,
+        "turns": 1,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
+      "statuses": [
+        "stunned"
+      ]
+    }
+  ],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "data-world",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "WQuR13VpluROfze8": {
+        "name": "Stunning Strike",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": ""
+        },
+        "prompts": {
+          "obLLoICovhfVC8tz": {
+            "ability": "con",
+            "onSave": "",
+            "saveDC": {
+              "type": "custom",
+              "bonus": "8 + @prof + @wis.mod"
+            },
+            "type": "savingThrow"
+          },
+          "oQGhzg8BkT7lB4uT": {
+            "type": "effect",
+            "default": true,
+            "effectId": "P0bGvxhq3fa2UoYO"
+          }
+        },
+        "consumers": {
+          "aRn70Y036rNQU5Ac": {
+            "type": "resource",
+            "default": true,
+            "resource": "exertion",
+            "quantity": 1
+          }
+        }
+      }
+    },
+    "description": "<p>When you hit a creature with a melee weapon attack, you can spend 1 exertion to force the target to make a Constitution saving throw. On a failed save, the target is stunned until the end of your next turn.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "adventurersGuide",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "5th level",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": {
+        "version": {
+          "schema": 0.018,
+          "foundry": "11.315",
+          "system": "0.18.11"
+        }
+      }
+    },
+    "classes": "adept"
+  },
+  "folder": "nlrc6NuarFVoK71m",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1715647076363,
+    "modifiedTime": 1715672569001,
+    "lastModifiedBy": "SkNEzSES7ahAJz45"
+  }
 }

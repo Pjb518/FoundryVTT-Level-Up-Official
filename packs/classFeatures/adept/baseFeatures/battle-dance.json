@@ -1,160 +1,174 @@
 {
-	"name": "Battle Dance",
-	"type": "feature",
-	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"effects": [
-		{
-			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
-			"origin": "Item.a70cebx1jovzxufw",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "9GX1tZEbmHCZIMpq",
-					"applyToSelf": true,
-					"duration": {
-						"type": "rounds",
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Battle Dance",
-			"_id": "AGvkVrGZnrMhV85w",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "20",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": 1,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"9GX1tZEbmHCZIMpq": {
-				"name": "Battle Dance",
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "special",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": "",
-					"type": "self"
-				},
-				"consumers": {},
-				"prompts": {
-					"AMoqTgyPON4G9O6z": {
-						"type": "effect",
-						"default": true,
-						"effectId": "AGvkVrGZnrMhV85w"
-					}
-				}
-			},
-			"gvT3uB6HpoRZ2Vwa": {
-				"name": "Unarmed Strike",
-				"activation": {
-					"type": "reaction",
-					"cost": 1,
-					"reactionTrigger": "Creature makes an opportunity attack against you and misses"
-				},
-				"consumers": {},
-				"rolls": {},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
-						"threshold": 6
-					}
-				}
-			}
-		},
-		"description": "<p>You gain proficiency in the Performance skill. As a bonus action, you can spend 2 exertion to bob and sway, starting a battle dance. Until the end of your turn, your Speed increases by 20 feet and opportunity attacks against you are made with disadvantage. When a creature makes an opportunity attack against you and misses, you can use your reaction to make an unarmed strike against that creature.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {
-			"tZKyZvBpJiPgJDTI": {
-				"grantType": "proficiency",
-				"level": 0,
-				"optional": false,
-				"label": "Battle Dance",
-				"keys": {
-					"base": [
-						"prf"
-					],
-					"options": [],
-					"total": 0
-				},
-				"proficiencyType": "skill"
-			}
-		},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
-		"classes": ""
-	},
-	"folder": null,
-	"_id": "a70cebx1jovzxufw"
+  "name": "Battle Dance",
+  "type": "feature",
+  "img": "icons/skills/trades/music-notes-sound-blue.webp",
+  "effects": [
+    {
+      "icon": "icons/skills/trades/music-notes-sound-blue.webp",
+      "origin": "Item.0gbop1jkRu5rs5GD",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "9GX1tZEbmHCZIMpq",
+          "applyToSelf": true,
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Battle Dance",
+      "_id": "AGvkVrGZnrMhV85w",
+      "changes": [
+        {
+          "key": "system.attributes.movement.walk.distance",
+          "value": "20",
+          "mode": 2,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": 1,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": []
+    }
+  ],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "data-world",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "9GX1tZEbmHCZIMpq": {
+        "name": "Battle Dance",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "special",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": "",
+          "type": "self"
+        },
+        "consumers": {},
+        "prompts": {
+          "AMoqTgyPON4G9O6z": {
+            "type": "effect",
+            "default": true,
+            "effectId": "AGvkVrGZnrMhV85w"
+          }
+        }
+      },
+      "gvT3uB6HpoRZ2Vwa": {
+        "name": "Unarmed Strike",
+        "activation": {
+          "type": "reaction",
+          "cost": 1,
+          "reactionTrigger": "Creature makes an opportunity attack against you and misses"
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>You gain proficiency in the Performance skill. As a bonus action, you can spend 2 exertion to bob and sway, starting a battle dance. Until the end of your turn, your Speed increases by 20 feet and opportunity attacks against you are made with disadvantage. When a creature makes an opportunity attack against you and misses, you can use your reaction to make an unarmed strike against that creature.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "adventurersGuide",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {
+      "tZKyZvBpJiPgJDTI": {
+        "grantType": "proficiency",
+        "level": 0,
+        "optional": false,
+        "label": "Battle Dance",
+        "keys": {
+          "base": [
+            "prf"
+          ],
+          "options": [],
+          "total": 0
+        },
+        "proficiencyType": "skill"
+      }
+    },
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": {
+        "version": {
+          "schema": 0.018,
+          "foundry": "11.315",
+          "system": "0.18.11"
+        }
+      }
+    },
+    "classes": "adept"
+  },
+  "folder": "nlrc6NuarFVoK71m",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1715646929233,
+    "modifiedTime": 1715672066470,
+    "lastModifiedBy": "SkNEzSES7ahAJz45"
+  }
 }

@@ -1,90 +1,120 @@
 {
-	"name": "Hooked Swords Dance",
-	"type": "feature",
-	"img": "icons/weapons/swords/swords-short.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"4FNgvPqrAIYscxqV": {
-				"name": "Hooked Swords Dance",
-				"activation": {
-					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"rolls": {
-					"qn4ajzDNdUo1q740": {
-						"canCrit": false,
-						"damageType": "slashing",
-						"formula": "1d10",
-						"name": "Extra slashing",
-						"type": "damage"
-					}
-				},
-				"consumers": {
-					"cP6tq20UsJrv0q86": {
-						"type": "resource",
-						"default": true,
-						"resource": "exertion",
-						"quantity": 2
-					}
-				}
-			}
-		},
-		"description": "<p>When you are fighting with a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.36k2tx29firrtrgl]{Shortsword} in each hand, you can use a bonus action and spend 2 exertion to hook them together to start a hooked swords dance. Until the end of your next turn, your shortswords gain the reach property. If you hit a target with both swords in the same turn, the target takes an extra 1d10 slashing damage.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
-		"classes": ""
-	},
-	"folder": null,
-	"_id": "fn4zw50l4whc5863"
+  "name": "Hooked Swords Dance",
+  "type": "feature",
+  "img": "icons/weapons/swords/swords-short.webp",
+  "effects": [],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "data-world",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "4FNgvPqrAIYscxqV": {
+        "name": "Hooked Swords Dance",
+        "activation": {
+          "cost": 1,
+          "type": "bonusAction",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": "",
+          "type": ""
+        },
+        "rolls": {
+          "qn4ajzDNdUo1q740": {
+            "canCrit": false,
+            "damageType": "slashing",
+            "formula": "1d10",
+            "name": "Extra slashing",
+            "type": "damage"
+          }
+        },
+        "consumers": {
+          "cP6tq20UsJrv0q86": {
+            "type": "resource",
+            "default": true,
+            "resource": "exertion",
+            "quantity": 2
+          }
+        }
+      }
+    },
+    "description": "<p>When you are fighting with a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.36k2tx29firrtrgl]{Shortsword} in each hand, you can use a bonus action and spend 2 exertion to hook them together to start a hooked swords dance. Until the end of your next turn, your shortswords gain the reach property. If you hit a target with both swords in the same turn, the target takes an extra 1d10 slashing damage.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "adventurersGuide",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {
+      "rJ9d8NKX0no42NXS": {
+        "grantType": "damage",
+        "level": 1,
+        "levelType": "class",
+        "optional": false,
+        "label": "Hooked Swords Dance",
+        "bonus": "1d10[Hooked Swords Dance]",
+        "damageType": "slashing",
+        "context": {
+          "attackTypes": [
+            "meleeWeaponAttack"
+          ]
+        }
+      }
+    },
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": {
+        "version": {
+          "schema": 0.018,
+          "foundry": "11.315",
+          "system": "0.18.11"
+        }
+      }
+    },
+    "classes": "adept"
+  },
+  "folder": "nlrc6NuarFVoK71m",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1715646999753,
+    "modifiedTime": 1715672279826,
+    "lastModifiedBy": "SkNEzSES7ahAJz45"
+  }
 }

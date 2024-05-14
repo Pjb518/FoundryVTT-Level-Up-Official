@@ -1,79 +1,165 @@
 {
-	"name": "Battle Hymn: Onward to Battle",
-	"type": "feature",
-	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"ZjImfGKB4ebTi8Ga": {
-				"name": "Battle Hymn: Onward to Battle",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"ranges": {
-					"ZetWavrEC0HEzI1a": {
-						"range": "medium"
-					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creature"
-				},
-				"consumers": {}
-			}
-		},
-		"description": "<p>The creature gains a 40 foot increase to Speed.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "longRest",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
-				}
-			}
-		},
-		"classes": ""
-	},
-	"folder": null,
-	"_id": "zfb00h3gr85gramz"
+  "name": "Battle Hymn: Onward to Battle",
+  "type": "feature",
+  "img": "icons/skills/trades/music-notes-sound-blue.webp",
+  "effects": [
+    {
+      "icon": "icons/skills/trades/music-notes-sound-blue.webp",
+      "origin": "Item.HS8AavVMelOxFLKK",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "ZjImfGKB4ebTi8Ga",
+          "duration": {
+            "type": "rounds",
+            "unit": "minutes"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Battle Hymn: Onward to Battle",
+      "_id": "FvshcvojJNSh34sy",
+      "changes": [
+        {
+          "key": "system.attributes.movement.walk.distance",
+          "value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"0\",\"positiveValue\":\"@original+40\",\"negativeValue\":\"0\"}",
+          "mode": 7,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.climb.distance",
+          "value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"0\",\"positiveValue\":\"@original+40\",\"negativeValue\":\"0\"}",
+          "mode": 7,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.burrow.distance",
+          "value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"0\",\"positiveValue\":\"@original+40\",\"negativeValue\":\"0\"}",
+          "mode": 7,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.fly.distance",
+          "value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"0\",\"positiveValue\":\"@original+40\",\"negativeValue\":\"0\"}",
+          "mode": 7,
+          "priority": null
+        },
+        {
+          "key": "system.attributes.movement.swim.distance",
+          "value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"0\",\"positiveValue\":\"@original+40\",\"negativeValue\":\"0\"}",
+          "mode": 7,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": 1,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>The target’s Speed increases by 40 feet.</p>",
+      "statuses": []
+    }
+  ],
+  "flags": {
+    "core": {},
+    "exportSource": {
+      "world": "data-world",
+      "system": "a5e",
+      "coreVersion": "11.315",
+      "systemVersion": "0.18.11"
+    }
+  },
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "ZjImfGKB4ebTi8Ga": {
+        "name": "Battle Hymn: Onward to Battle",
+        "activation": {
+          "cost": "",
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "duration": {
+          "unit": "round",
+          "value": 1
+        },
+        "ranges": {
+          "ZetWavrEC0HEzI1a": {
+            "range": "medium"
+          }
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creature"
+        },
+        "consumers": {},
+        "prompts": {
+          "EpBhCyDcIMxcBYcF": {
+            "type": "effect",
+            "default": true,
+            "effectId": "FvshcvojJNSh34sy",
+            "label": "Battle Hymn: Onward to Battle"
+          }
+        }
+      }
+    },
+    "description": "<p>The target&rsquo;s Speed increases by 40 feet.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "longRest",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": {
+        "version": {
+          "schema": 0.018,
+          "foundry": "11.315",
+          "system": "0.18.11"
+        }
+      }
+    },
+    "classes": "bard"
+  },
+  "folder": "u0KUzUovslJ75fQp",
+  "_stats": {
+    "systemId": "a5e",
+    "systemVersion": "0.18.11",
+    "coreVersion": "11.315",
+    "createdTime": 1710676535142,
+    "modifiedTime": 1715665908123,
+    "lastModifiedBy": "SkNEzSES7ahAJz45"
+  }
 }
