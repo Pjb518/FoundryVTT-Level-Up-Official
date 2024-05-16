@@ -46,7 +46,12 @@
             : `${remainingSelections} choices remaining.`}
         showWarning={selected.length < totalCount}
     >
-        <CheckboxGroup {options} {selected} on:updateSelection={onUpdateSelection} />
+        <CheckboxGroup
+            {options}
+            {selected}
+            orange={choices}
+            on:updateSelection={onUpdateSelection}
+        />
     </FieldWrapper>
 
     <FieldWrapper>
