@@ -131,58 +131,6 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     );
   }
 
-  async createLeveledGrants_(
-    currentLevel: number = 0,
-    newLevel: number = 0,
-    cls: typeof Item | null = null
-  ): Promise<boolean> {
-    const difference = newLevel - currentLevel;
-    const sign = Math.sign(difference);
-    const characterLevel: number = this.actor.levels.character + difference;
-
-    if (sign === 0) return false;
-
-    if (sign === -1) {
-      // Remove any grants that are no longer applicable
-      await this.removeGrantsByLevel(characterLevel);
-      return true;
-    }
-
-    const applicableGrants: Grant[] = [];
-    const optionalGrants: Grant[] = [];
-    const items = this.actor.items
-      .filter((item: typeof Item) => this.allowedTypes.includes(item.type));
-
-    for await (const item of items) {
-      let classLevel: number = this.actor.levels.classes?.[item.slug] ?? 1;
-      if (item.slug === cls?.slug) classLevel += difference;
-
-      const grants = [...item.grants.values()];
-      const subGrants: Grant[] = (await Promise.all(
-        grants.map((grant) => this.#getSubGrants(grant, characterLevel))
-      )).flat().filter((g) => !!g);
-
-      grants.concat(subGrants).forEach((grant: Grant) => {
-        if (this.has(grant._id)) return;
-
-        const { levelType } = grant;
-        if (levelType === 'character' && grant.level > characterLevel) return;
-        if (levelType === 'class' && grant.level > classLevel) return;
-
-        if (grant.optional) optionalGrants.push(grant);
-        applicableGrants.push(grant);
-      });
-    }
-
-    const result = await this.#applyGrants(
-      applicableGrants,
-      optionalGrants,
-      { cls, clsLevel: newLevel, useUpdateSource: false }
-    );
-
-    return result;
-  }
-
   async createLeveledGrants(
     currentLevel: number = 0,
     newLevel: number = 0,
@@ -407,6 +355,10 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       const updateMethod = options.useUpdateSource
         ? options.cls.updateSource.bind(options.cls)
         : options.cls.update.bind(options.cls);
+
+      // Need to keep this console log otherwise the update will not work
+      // eslint-disable-next-line no-console
+      console.log('Updating class data for', options.cls.name);
 
       await updateMethod({
         [`system.hp.levels.${options.clsLevel}`]: hp,
