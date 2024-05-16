@@ -1,10 +1,10 @@
 import BaseGrant from './BaseGrant';
 
-import DocumentGrantSelectionDialog from '../../../apps/components/grants/DocumentGrantSelectionDialog.svelte';
+import FeatureGrantSelectionDialog from '../../../apps/components/grants/FeatureGrantSelectionDialog.svelte';
 import FeatureGrantConfig from '../../../apps/components/grants/FeatureGrantConfig.svelte';
 
 export default class FeatureGrant extends BaseGrant {
-  #component = DocumentGrantSelectionDialog;
+  #component = FeatureGrantSelectionDialog;
 
   #configComponent = FeatureGrantConfig;
 
@@ -71,10 +71,9 @@ export default class FeatureGrant extends BaseGrant {
 
   getSelectionComponentProps(data: any) {
     return {
-      base: this.features.base.map((f) => f.uuid) ?? [],
-      choices: this.features.options.map((f) => f.uuid) ?? [],
+      base: this.features.base,
+      choices: this.features.options,
       count: this.features.total,
-      documentType: this.#type,
       selected: data?.uuids ?? []
     };
   }

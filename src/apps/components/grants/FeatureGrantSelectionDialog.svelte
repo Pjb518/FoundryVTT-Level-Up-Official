@@ -1,4 +1,5 @@
 <script lang="ts">
+    import type { ActorFeatureGrant } from "../../../dataModels/actor/grants/ActorDocumentGrant";
     import type FeatureGrant from "../../../dataModels/item/Grants/FeatureGrant";
 
     import { getContext, createEventDispatcher } from "svelte";
@@ -7,17 +8,20 @@
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
 
+    type FeatureOption = {
+        uuid: string;
+        limitedReselection: boolean;
+        selectionLimit: number;
+    };
+
     export let grant: FeatureGrant;
-    export let base: string[];
-    export let choices: string[];
+    export let base: FeatureOption[];
+    export let choices: FeatureOption[];
     export let count: number;
-    export let documentType: string;
     export let selected: string[];
 
-    const allOptions = [...base, ...choices].map((uuid) => {
-        const doc = fromUuidSync(uuid);
-        return [uuid, doc.name];
-    });
+    const dispatch = createEventDispatcher();
+    const actor: typeof Actor = getContext("actor");
 
     function getGrantSummary(selected: string[]) {
         // return ` This grant provides a bonus of ${bonus} to ${selected
@@ -26,34 +30,35 @@
         return "";
     }
 
-    function getHeading(): string {
-        if (documentType === "feature") return `Feature Grant - ${grant.label}`;
-        return `Item Grant - ${grant.label}`;
-    }
-
     function onUpdateSelection({ detail }: { detail: string[] }) {
-        selected = detail;
-        dispatch("updateSelection", { uuids: selected, summary });
+        selectedOptions = detail;
+        dispatch("updateSelection", { uuids: selectedOptions, summary });
     }
 
-    function getExistingSelections() {
+    function getExistingSelections(): Set<string> {
         const selections: string[] = [];
-        if (documentType === "item") return new Set(selections);
 
-        actor.grants.byType("feature").forEach((grant) => {
-            selections.push(...grant.documentIds);
-        });
+        actor.grants.grantedFeatureDocuments
+            .entries()
+            .forEach(([docId, grantIds]: [string, string[]]) => {
+                const data = featureDataMap.get(docId);
+                if (!data) return selections.push(docId);
+
+                const takenCount = grantIds.length;
+                if (!data.limitedReselection || data.selectionLimit > takenCount) return;
+
+                selections.push(docId);
+            });
 
         return new Set(selections);
     }
 
     function getDisabledOptions() {
-        if (documentType === "item") return [];
-
         const disabled: string[] = [];
+
         for (const [value] of allOptions) {
             const strippedId = value.split(".").pop();
-            const alreadyTaken = existingSelections.has(strippedId);
+            const alreadyTaken = existingSelections.has(strippedId || "");
             if (alreadyTaken) {
                 disabled.push(value);
             }
@@ -63,13 +68,15 @@
     }
 
     function getOptions(choicesLocked: boolean): string[][] {
-        if (!choicesLocked || documentType === "item") return allOptions;
+        if (!choicesLocked) return allOptions;
 
         const options: string[][] = [];
+
         for (const [value, label] of allOptions) {
             const strippedId = value.split(".").pop();
-            const alreadyTaken = existingSelections.has(strippedId);
-            if (choices.includes(value) && !alreadyTaken) {
+            const alreadyTaken = existingSelections.has(strippedId || "");
+
+            if (choicesUuids.includes(value) && !alreadyTaken) {
                 options.push([value, label]);
             }
         }
@@ -77,20 +84,32 @@
         return options;
     }
 
-    const dispatch = createEventDispatcher();
-    const actor: typeof Actor = getContext("actor");
+    const allOptions: string[][] = [...base, ...choices].map((o) => {
+        const doc = fromUuidSync(o.uuid);
+        return [o.uuid, doc.name];
+    });
+
+    const featureDataMap = base.concat(choices).reduce((acc, f) => {
+        const docId = f.uuid.split(".").pop();
+        if (!docId) return acc;
+
+        acc.set(docId, f);
+        return acc;
+    }, new Map<string, FeatureOption>());
+
+    const choicesUuids = choices.map((o) => o.uuid);
     let choicesLocked = true;
     let existingSelections = getExistingSelections();
     let disabledOptions = getDisabledOptions();
 
-    $: selected = [...base, ...selected];
+    $: selectedOptions = [...base.map((o) => o.uuid), ...selected];
     $: totalCount = base.length + count;
-    $: remainingSelections = totalCount - selected.length;
-    $: summary = getGrantSummary(selected);
+    $: remainingSelections = totalCount - selectedOptions.length;
+    $: summary = getGrantSummary(selectedOptions);
 </script>
 
 <Section
-    heading={getHeading()}
+    heading="Feature Grant - {grant.label}"
     headerButtons={[
         {
             classes: "add-button",
@@ -98,9 +117,7 @@
             htmlString: `<i class="fa-solid ${
                 choicesLocked ? "fa-plus" : "fa-minus"
             }" />`,
-            tooltip: choicesLocked
-                ? "Locked to Grant Options"
-                : "Free Selection Mode",
+            tooltip: choicesLocked ? "Locked to Grant Options" : "Free Selection Mode",
         },
     ]}
     --a5e-section-body-gap="0.75rem"
@@ -109,14 +126,15 @@
         warning={remainingSelections === 1
             ? `1 choice remaining`
             : `${remainingSelections} choices remaining.`}
-        showWarning={selected.length < totalCount}
+        showWarning={selectedOptions.length < totalCount}
         --direction="column"
     >
         <CheckboxGroup
             options={getOptions(choicesLocked)}
-            {selected}
-            orange={choices}
-            disabled={selected.length >= totalCount}
+            selected={selectedOptions}
+            orange={choices.map((o) => o.uuid)}
+            disabled={selectedOptions.length >= totalCount}
+            {disabledOptions}
             on:updateSelection={onUpdateSelection}
         />
     </FieldWrapper>

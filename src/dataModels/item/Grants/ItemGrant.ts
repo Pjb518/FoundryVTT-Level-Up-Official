@@ -1,10 +1,10 @@
 import BaseGrant from './BaseGrant';
 
-import DocumentGrantSelectionDialog from '../../../apps/components/grants/DocumentGrantSelectionDialog.svelte';
+import ItemGrantSelectionDialog from '../../../apps/components/grants/ItemGrantSelectionDialog.svelte';
 import ItemGrantConfig from '../../../apps/components/grants/ItemGrantConfig.svelte';
 
 export default class ItemGrant extends BaseGrant {
-  #component = DocumentGrantSelectionDialog;
+  #component = ItemGrantSelectionDialog;
 
   #configComponent = ItemGrantConfig;
 
@@ -71,7 +71,6 @@ export default class ItemGrant extends BaseGrant {
       base: this.items.base.map(({ uuid }) => uuid) ?? [],
       choices: this.items.options.map(({ uuid }) => uuid) ?? [],
       count: this.items.total,
-      documentType: this.#type,
       selected: data?.uuids ?? []
     };
   }
