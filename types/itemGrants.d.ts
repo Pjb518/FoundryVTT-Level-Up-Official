@@ -7,7 +7,7 @@ export interface BaseGrant {
   level: number;
   levelType: 'character' | 'class';
   optional: boolean;
-  grantedBy?: { id: string, uuid: string };
+  grantedBy?: { id: string, selectionId: string };
 
   getApplyData(actor: Actor, data?: any): Record<string, any>;
   getSelectionComponent(): any;

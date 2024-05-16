@@ -101,6 +101,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const classLevel: number = this.actor.levels.classes?.[item?.slug] ?? 1;
 
     const grants: Grant[] = [...item.grants.values()];
+    grants.forEach((grant) => {
+      grant.grantedBy = { id: '', selectionId: '' };
+    });
 
     // Get all applicable grants
     const subGrants: Grant[] = (await Promise.all(
@@ -128,7 +131,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     );
   }
 
-  async createLeveledGrants(
+  async createLeveledGrants_(
     currentLevel: number = 0,
     newLevel: number = 0,
     cls: typeof Item | null = null
@@ -180,6 +183,76 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     return result;
   }
 
+  async createLeveledGrants(
+    currentLevel: number = 0,
+    newLevel: number = 0,
+    cls: typeof Item | null = null
+  ): Promise<boolean> {
+    const difference = newLevel - currentLevel;
+    const sign = Math.sign(difference);
+    const characterLevel: number = this.actor.levels.character + difference;
+
+    if (sign === 0) return false;
+    if (sign === -1) return await this.removeGrantsByLevel(characterLevel);
+
+    const applicableGrants: Grant[] = [];
+    const optionalGrants: Grant[] = [];
+
+    const items = this.actor.items
+      .filter((item: typeof Item) => this.allowedTypes.includes(item.type));
+
+    for await (const item of items) {
+      const itemSlug = item.slug || item.system.classes.slugify() || '';
+      let classLevel: number = this.actor.levels.classes?.[itemSlug] ?? 1;
+      if (itemSlug === cls?.slug) classLevel += difference;
+
+      const grants = [...item.grants.values()];
+      grants.forEach((grant: Grant) => {
+        grant.grantedBy = { id: '', selectionId: '' };
+      });
+
+      const subGrants: Grant[] = (await Promise.all(
+        grants.map((grant) => this.#getSubGrants(grant, characterLevel))
+      )).flat().filter((g) => !!g);
+
+      grants.concat(subGrants).forEach((grant: Grant) => {
+        let reSelectable = false;
+
+        if (grant.grantedBy?.id) {
+          const parentGrant = item.grants.get(grant.grantedBy.id);
+          reSelectable = this.#isReSelectable(parentGrant);
+        }
+
+        if (this.has(grant._id) && !reSelectable) return;
+        if (this.has(grant.grantedBy?.id || '') && !reSelectable) return;
+
+        const { levelType } = grant;
+        if (levelType === 'character' && grant.level > characterLevel) return;
+        if (levelType === 'class' && grant.level > classLevel) return;
+
+        if (grant.optional) optionalGrants.push(grant);
+        applicableGrants.push(grant);
+      });
+    }
+
+    const result = await this.#applyGrants(
+      applicableGrants,
+      optionalGrants,
+      { cls, clsLevel: newLevel, useUpdateSource: false }
+    );
+
+    return result;
+  }
+
+  #isReSelectable(grant: Grant | null): boolean {
+    if (!grant) return false;
+    if (grant.grantType !== 'feature') return false;
+
+    const { features } = grant;
+    return features.base.concat(features.options)
+      .some((f) => !f.limitedReselection || f.selectionLimit > 1);
+  }
+
   async #getSubGrants(grant: Grant, characterLevel: number): Promise<Grant[]> {
     if (grant.grantType !== 'feature') return [];
     if (grant.level > characterLevel) return [];
@@ -189,7 +262,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     const grants: Grant[] = docs.flatMap((doc) => [...doc.grants.values()]
       .map((g) => {
-        g.grantedBy = { id: grant._id, uuid: doc.flags.core.sourceId };
+        const hasSelectionId = !!grant.features.options.length;
+        g.grantedBy = { id: grant._id, selectionId: hasSelectionId ? doc.flags.core.sourceId : '' };
         return g;
       }));
 
@@ -368,7 +442,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     await this.actor.update(updates);
   }
 
-  async removeGrantsByLevel(level: number): Promise<void> {
+  async removeGrantsByLevel(level: number): Promise<boolean> {
     const updates: Record<string, any> = {};
 
     for (const [grantId, grant] of this) {
@@ -378,7 +452,15 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       }
     }
 
-    await this.actor.update(updates);
+    try {
+      await this.actor.update(updates);
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error(err);
+      return false;
+    }
+
+    return true;
   }
 
   async removeGrant(grantId: string): Promise<void> {

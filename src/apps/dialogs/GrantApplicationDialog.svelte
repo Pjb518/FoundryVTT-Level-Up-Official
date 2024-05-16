@@ -2,7 +2,6 @@
 
 <script lang="ts">
     import type { Grant } from "types/itemGrants";
-    import type { ActorGrant } from "types/actorGrants";
 
     import { getContext, setContext } from "svelte";
 
@@ -13,15 +12,7 @@
     import Section from "../components/Section.svelte";
     import ClassHitPointsSelection from "../components/ClassHitPointsSelection.svelte";
 
-    export let {
-        allGrants,
-        dialog,
-        optionalGrantsProp,
-        actor,
-        item,
-        cls,
-        clsLevel,
-    } =
+    export let { allGrants, dialog, optionalGrantsProp, actor, item, cls, clsLevel } =
         // @ts-ignore
         getContext("#external").application;
 
@@ -30,64 +21,47 @@
     setContext("item", item);
 
     function getStartingSelectedGrants(): Set<string> {
-        const preAppliedGrants: string[] = actor.grants
-            .byType("feature")
-            .map((grant: ActorGrant) => grant.grantId);
-
-        const newGrants = allGrants.reduce((acc: string[], grant: Grant) => {
-            if (!grant.grantedBy) acc.push(grant._id);
+        return allGrants.reduce((acc: Set<string>, grant: Grant) => {
+            if (!grant.grantedBy?.id) acc.add(grant._id);
             return acc;
-        }, []);
-
-        return new Set<string>([...preAppliedGrants, ...newGrants]);
+        }, new Set<string>());
     }
 
     function getStartingOptionalGrants() {
-        const preAppliedGrants: string[] = actor.grants
-            .byType("feature")
-            .map((grant: ActorGrant) => grant.grantId);
-
-        return optionalGrantsProp.reduce((acc: Grant[], grant: Grant) => {
-            if (!grant.grantedBy) acc.push(grant);
-            if (grant.grantedBy?.id) {
-                if (preAppliedGrants.includes(grant.grantedBy.id)) {
-                    acc.push(grant);
-                }
-            }
-            return acc;
-        }, []);
+        return optionalGrantsProp.filter((grant: Grant) => {
+            if (!grant.grantedBy?.id) return true;
+            return false;
+        });
     }
 
     function updateActiveGrants() {
-        const updatedList = [...getStartingSelectedGrants()];
+        const updatedList = getStartingSelectedGrants();
 
         // Get selected feature grants
         allGrants.forEach((grant: Grant) => {
             if (grant.grantType !== "feature") return;
-            if (applyData.has(grant._id)) updatedList.push(grant._id);
+            if (applyData.has(grant._id)) updatedList.add(grant._id);
         });
 
         // Update optional grants
         optionalGrants = optionalGrantsProp.filter((grant: Grant) => {
-            if (!grant.grantedBy) return true;
-            if (!updatedList.includes(grant.grantedBy.id)) return false;
+            if (!grant.grantedBy?.id) return true;
+            if (!updatedList.has(grant.grantedBy.id)) return false;
 
-            const uuids = applyData.get(grant.grantedBy.id)?.uuids;
-            if (uuids && uuids.includes(grant.grantedBy.uuid)) return true;
+            const uuids = applyData.get(grant.grantedBy.id)?.uuids ?? [];
+            const hasSelectionId = grant.grantedBy.selectionId
+                ? uuids.includes(grant.grantedBy.selectionId)
+                : false;
 
-            const allGrantIds = allGrants.map((g) => g._id);
-            if (!uuids && !allGrants.includes(grant.grantedBy.id)) return true;
+            if (hasSelectionId) return true;
 
             return false;
         });
 
-        // Update active grants
-        activeGrants = new Set<string>([
-            ...updatedList,
-            ...selectedOptionalGrants,
-        ]);
+        // // Update active grants
+        activeGrants = new Set<string>([...updatedList, ...selectedOptionalGrants]);
 
-        // Update grants
+        // // Update grants
         grants = getApplicableGrants(activeGrants, selectedOptionalGrants);
         configurableGrants = grants.filter((grant) => grant.requiresConfig);
     }
@@ -107,15 +81,14 @@
         // Add all non-optional grants and set config mode
         allGrants.forEach((grant: Grant) => {
             const { grantedBy } = grant;
-            if (grantedBy && !activeGrants.has(grantedBy.id)) {
-                return;
-            }
+            if (grantedBy?.id && !activeGrants.has(grantedBy.id)) return;
 
-            const uuids: string[] = applyData.get(grantedBy?.id ?? "")?.uuids;
-            if (grantedBy && uuids && !uuids.includes(grantedBy.uuid)) {
-                return;
-            }
+            const uuids: string[] = applyData.get(grantedBy?.id ?? "")?.uuids ?? [];
+            const hasSelectionId = grantedBy?.selectionId
+                ? uuids.includes(grantedBy.selectionId)
+                : true;
 
+            if (grantedBy?.id && uuids && !hasSelectionId) return;
             if (grant.optional) return;
 
             let requiresConfig = false;
@@ -127,10 +100,16 @@
         // Add all optional grants that are selected
         optionalGrants.forEach((grant: Grant) => {
             const { grantedBy } = grant;
-            if (grantedBy && !activeGrants.has(grantedBy.id)) {
+            if (grantedBy?.id && !activeGrants.has(grantedBy.id)) {
                 return;
             }
 
+            const uuids: string[] = applyData.get(grantedBy?.id ?? "")?.uuids ?? [];
+            const hasSelectionId = grantedBy?.selectionId
+                ? uuids.includes(grantedBy.selectionId)
+                : true;
+
+            if (grantedBy?.id && hasSelectionId) return;
             if (!selectedOptionalGrants.includes(grant._id)) return;
 
             let requiresConfig = false;
@@ -178,11 +157,7 @@
     <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
         {#if cls && cls?.type === "class"}
             {#if clsLevel > 1}
-                <ClassHitPointsSelection
-                    {cls}
-                    classLevel={clsLevel}
-                    bind:clsReturnData
-                />
+                <ClassHitPointsSelection {cls} classLevel={clsLevel} bind:clsReturnData />
             {/if}
 
             {#if cls.system.classLevels === 1 && cls.system.spellcasting.ability.options.length}
@@ -201,13 +176,9 @@
         {#if optionalGrants.length}
             <Section heading="Optional Grants Selection">
                 <CheckboxGroup
-                    options={optionalGrants.map((grant) => [
-                        grant._id,
-                        grant.label,
-                    ])}
+                    options={optionalGrants.map((grant) => [grant._id, grant.label])}
                     selected={selectedOptionalGrants}
-                    on:updateSelection={({ detail }) =>
-                        (selectedOptionalGrants = detail)}
+                    on:updateSelection={({ detail }) => (selectedOptionalGrants = detail)}
                 />
             </Section>
         {/if}
