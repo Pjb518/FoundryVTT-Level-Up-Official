@@ -71,7 +71,6 @@ export default class ItemGrantsManager extends Map<string, Grant> {
   }
 
   async duplicate(id: string) {
-    // @ts-ignore
     const newGrant = foundry.utils.duplicate(this.#item.system.grants[id]);
     newGrant.name = `${newGrant.name} (Copy)`;
 
@@ -103,23 +102,27 @@ export default class ItemGrantsManager extends Map<string, Grant> {
   /** ************************************************
   *                Static methods
   * ************************************************ */
-  static async addGrant(item: any, data = {}, update = true) {
+  static async addGrant(item: any, data = {}, update = true, returnId = false) {
     // @ts-ignore
-    const newGrant = foundry.utils.mergeObject({
+    const newGrant: Grant = foundry.utils.mergeObject({
       grantType: 'skill',
       level: 1,
       levelType: ['class', 'archetype'].includes(item.type) ? 'class' : 'character'
     }, data);
 
+    const id = foundry.utils.randomID();
+    newGrant._id = id;
+
     const updateData = {
       'system.grants': {
         ...item.system.grants,
         // @ts-ignore
-        [data?._id ?? foundry.utils.randomID()]: newGrant
+        [id]: newGrant
       }
     };
 
     if (update) await item.update(updateData);
+    if (returnId) return [id, updateData];
     return updateData;
   }
 }

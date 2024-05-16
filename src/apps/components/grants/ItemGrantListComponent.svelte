@@ -9,7 +9,19 @@
 
     function onGrantActivate() {}
 
-    function onDragStart() {}
+    function _onDragStart(
+        event: DragEvent & {
+            currentTarget: EventTarget & HTMLLIElement;
+        },
+    ) {
+        const dragData = {
+            grantId: grant._id,
+            itemUuid: $item.uuid,
+            type: "Grant",
+        };
+
+        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
+    }
 
     async function onAuxClick() {
         if (!rightClickConfigure) return;
@@ -25,7 +37,7 @@
 <li
     class="a5e-item a5e-item--grant"
     draggable="true"
-    on:dragstart={onDragStart}
+    on:dragstart={_onDragStart}
     on:auxclick|preventDefault={onAuxClick}
 >
     <button
@@ -64,8 +76,7 @@
                             class="action-button fas fa-cog"
                             data-tooltip="A5E.ButtonToolTipConfigure"
                             data-tooltip-direction="UP"
-                            on:click|stopPropagation={() =>
-                                grant.configureGrant()}
+                            on:click|stopPropagation={() => grant.configureGrant()}
                         />
                     </li>
 
