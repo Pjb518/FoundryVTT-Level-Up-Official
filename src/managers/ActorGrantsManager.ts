@@ -230,7 +230,16 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         if (levelType === 'character' && grant.level > characterLevel) return;
         if (levelType === 'class' && grant.level > classLevel) return;
 
-        if (grant.optional) optionalGrants.push(grant);
+        if (grant.optional) {
+          // Infer if the grant has been offered before
+          const isCurrentLevel = levelType === 'class'
+            ? grant.level === classLevel
+            : grant.level === characterLevel;
+
+          if (!isCurrentLevel && !grant.grantedBy?.id && !reSelectable) return;
+
+          optionalGrants.push(grant);
+        }
         applicableGrants.push(grant);
       });
     }
