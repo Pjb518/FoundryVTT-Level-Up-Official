@@ -38,6 +38,8 @@
     function getExistingSelections(): Set<string> {
         const selections: string[] = [];
 
+        console.log(actor.grants);
+
         actor.grants.grantedFeatureDocuments
             .entries()
             .forEach(([docId, grantIds]: [string, string[]]) => {

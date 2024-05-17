@@ -14,24 +14,18 @@ import prepareTraitGrantConfigObject from '../utils/prepareTraitGrantConfigObjec
 import fromUuidMulti from '../utils/fromUuidMulti';
 
 interface DefaultApplyOptions {
-  item?: typeof Item | null;
-  cls?: typeof Item | null;
+  item?: typeof Item;
+  cls?: typeof Item;
   clsLevel?: number;
   useUpdateSource?: boolean;
 }
-
-const DEFAULT_APPLY_OPTIONS: DefaultApplyOptions = {
-  item: null,
-  cls: null,
-  useUpdateSource: false
-};
 
 export default class ActorGrantsManger extends Map<string, ActorGrant> {
   private actor: typeof Actor;
 
   private allowedTypes = ['feature', 'background', 'class', 'culture', 'heritage'];
 
-  private grantedFeatureDocuments = new Map<string, string[]>();
+  grantedFeatureDocuments = new Map<string, string[]>();
 
   constructor(actor: typeof Actor) {
     super();
@@ -150,7 +144,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       .filter((item: typeof Item) => this.allowedTypes.includes(item.type));
 
     for await (const item of items) {
-      const itemSlug = item.slug || item.system.classes.slugify() || '';
+      const itemSlug = item.slug || item.system.classes?.slugify() || '';
       let classLevel: number = this.actor.levels.classes?.[itemSlug] ?? 1;
       if (itemSlug === cls?.slug) classLevel += difference;
 
@@ -234,10 +228,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   async #applyGrants(
     allGrants: Grant[],
     optionalGrants: Grant[],
-    options = DEFAULT_APPLY_OPTIONS
+    options: DefaultApplyOptions
   ): Promise<boolean> {
     if (!allGrants.length && !options.cls) return false;
-    options = foundry.utils.mergeObject(DEFAULT_APPLY_OPTIONS, options);
 
     const requiresDialog = [...allGrants].some((grant) => grant.requiresConfig())
       || !!optionalGrants.length || options.cls;
@@ -355,10 +348,6 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       const updateMethod = options.useUpdateSource
         ? options.cls.updateSource.bind(options.cls)
         : options.cls.update.bind(options.cls);
-
-      // Need to keep this console log otherwise the update will not work
-      // eslint-disable-next-line no-console
-      console.log('Updating class data for', options.cls.name);
 
       await updateMethod({
         [`system.hp.levels.${options.clsLevel}`]: hp,
