@@ -38,11 +38,8 @@
     function getExistingSelections(): Set<string> {
         const selections: string[] = [];
 
-        console.log(actor.grants);
-
-        actor.grants.grantedFeatureDocuments
-            .entries()
-            .forEach(([docId, grantIds]: [string, string[]]) => {
+        [...actor.grants.grantedFeatureDocuments.entries()].forEach(
+            ([docId, grantIds]: [string, string[]]) => {
                 const data = featureDataMap.get(docId);
                 if (!data) return selections.push(docId);
 
@@ -50,7 +47,8 @@
                 if (!data.limitedReselection || data.selectionLimit > takenCount) return;
 
                 selections.push(docId);
-            });
+            },
+        );
 
         return new Set(selections);
     }

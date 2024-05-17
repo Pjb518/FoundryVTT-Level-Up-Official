@@ -172,6 +172,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         if (levelType === 'character' && grant.level > characterLevel) return;
         if (levelType === 'class' && grant.level > classLevel) return;
 
+        if (applicableGrants.find((g) => g._id === grant._id)) return;
+
         if (grant.optional) {
           // Infer if the grant has been offered before
           const isCurrentLevel = levelType === 'class'
@@ -182,6 +184,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
           optionalGrants.push(grant);
         }
+
         applicableGrants.push(grant);
       });
     }
