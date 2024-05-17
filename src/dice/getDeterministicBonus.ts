@@ -1,5 +1,3 @@
-import zeroDiceTerms from './zeroDiceTerms';
-
 /**
  * A helper function for determining the deterministic bonuses for a given ability score or skill.
  *
@@ -15,16 +13,10 @@ export default function getDeterministicBonus(
   rollData: Record<string, any> = {}
 ): number | null {
   if (!formula) return null;
-  const zeroedFormula: string = zeroDiceTerms(formula.toString() || '0', rollData);
-
-  const roll = new Roll(zeroedFormula, rollData);
+  const roll = new Roll(formula, rollData);
   if (!Roll.validate(roll.formula)) throw Error('Invalid roll formula');
 
-  // TODO: v12 - Can possibly remove this version
-  // Make a dummy roll and calculate what portion of that came from dice.
-  const result = roll.evaluateSync();
-  const diceTotal = roll.dice.reduce((acc, curr) => acc + curr.total, 0);
-
-  // Return the roll total minus the dice component.
-  return result.total - diceTotal;
+  // TODO: Dice improvements - Make it not 0 out full function terms
+  const result = roll.evaluateSync({ strict: false });
+  return result.total ?? 0;
 }
