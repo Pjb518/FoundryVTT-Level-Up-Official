@@ -183,17 +183,19 @@
             </Section>
         {/if}
 
-        {#each configurableGrants as { grant, id }}
-            <svelte:component
-                this={grant.getSelectionComponent?.()}
-                {...grant.getSelectionComponentProps?.(applyData.get(id) ?? {})}
-                {grant}
-                on:updateSelection={({ detail }) => {
-                    applyData.set(id, detail);
-                    applyData = applyData;
-                }}
-            />
-        {/each}
+        {#key applyData}
+            {#each configurableGrants as { grant, id }}
+                <svelte:component
+                    this={grant.getSelectionComponent?.()}
+                    {...grant.getSelectionComponentProps?.(applyData.get(id) ?? {})}
+                    {grant}
+                    on:updateSelection={({ detail }) => {
+                        applyData.set(id, detail);
+                        applyData = applyData;
+                    }}
+                />
+            {/each}
+        {/key}
 
         <!-- TODO: Character Builder - Add a proper summary for the various grants -->
         <!-- <Section heading="Summary">
