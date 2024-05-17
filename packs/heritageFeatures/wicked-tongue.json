@@ -1,182 +1,183 @@
 {
-  "name": "Wicked Tongue",
-  "type": "feature",
-  "img": "icons/commodities/biological/tongue-violet.webp",
-  "effects": [
-    {
-      "icon": "icons/commodities/biological/tongue-violet.webp",
-      "origin": "Item.rrwj87yg4ro5humt",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "2wYWawGtWhTcVonx"
-        }
-      },
-      "transfer": false,
-      "name": "Wicked Tongue",
-      "_id": "DnT3eKoR2LYlw9zv",
-      "changes": [
-        {
-          "key": "system.attributes.ac.changes.bonuses.value",
-          "value": "2[Wicked Tongue]",
-          "mode": 3,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>A creature attached to your tongue cannot move further away from you and takes a -2 penalty to AC as long as the tongue is attached.</p>",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "folder": null,
-  "flags": {},
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "2wYWawGtWhTcVonx": {
-        "name": "Attack with Tongue",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {
-          "h74lY8LGI7ckh7tA": {
-            "type": "attack",
-            "default": true,
-            "attackType": "meleeWeaponAttack",
-            "proficient": true,
-            "ability": "none",
-            "bonus": "max(@str.mod, @dex.mod)"
-          }
-        },
-        "prompts": {
-          "Mi3nRxpCy42MyPGy": {
-            "type": "effect",
-            "default": true,
-            "effectId": "DnT3eKoR2LYlw9zv"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "description": "<p>On your turn as an action, you can make a melee attack using your tongue. You are considered proficient with your tongue and may use your Strength or Dexterity modifier for the attack, and it has a melee reach of 10 feet. On a hit you deal no damage, but your tongue attaches to the target. A creature attached to your tongue cannot move further away from you and takes a &ndash; 2 penalty to AC as long as the tongue is attached.</p><p>A creature can detach your tongue by succeeding on an opposed Strength (Athletics) check or by dealing slashing damage to the tongue (AC 14). Your tongue is profoundly elastic, so damage to the tongue does not deplete your actual hit points or do lasting harm.</p><p>You cannot move more than 10 feet away from an attached creature, but you can use a bonus action to release your tongue. If forced movement or another effect drives you and the attached creature further than 10 feet apart, your tongue detaches automatically.</p>",
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "ranges": {
-          "Xhttg56d4hx4FSVy": {
-            "range": 10,
-            "unit": "feet"
-          }
-        }
-      },
-      "0QKMrGqgLswEQhfw": {
-        "name": "Enemy Attempts to Detach Tongue",
-        "activation": {},
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "u5NCVRBzNi1z1jdr": {
-            "type": "skillCheck",
-            "default": true,
-            "skill": "ath",
-            "ability": "str",
-            "label": "Opposed Check"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      },
-      "cqJsJb68V7hZV07s": {
-        "name": "Detach Tongue",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "description": "<p>You cannot move more than 10 feet away from an attached creature, but you can use a bonus action to release your tongue. If forced movement or another effect drives you and the attached creature further than 10 feet apart, your tongue detaches automatically</p>"
-      }
-    },
-    "description": "<p>You have a long sticky tongue capable of immobilizing your prey or enemies. Your tongue is 10 feet long and is dexterous enough to perform simple actions a hand could perform, though it cannot wield weapons.</p><p>On your turn as an action, you can make a melee attack using your tongue. You are considered proficient with your tongue and may use your Strength or Dexterity modifier for the attack, and it has a melee reach of 10 feet. On a hit you deal no damage, but your tongue attaches to the target. A creature attached to your tongue cannot move further away from you and takes a &ndash; 2 penalty to AC as long as the tongue is attached.</p><p>A creature can detach your tongue by succeeding on an opposed Strength (Athletics) check or by dealing slashing damage to the tongue (AC 14). Your tongue is profoundly elastic, so damage to the tongue does not deplete your actual hit points or do lasting harm.</p><p>You cannot move more than 10 feet away from an attached creature, but you can use a bonus action to release your tongue. If forced movement or another effect drives you and the attached creature further than 10 feet apart, your tongue detaches automatically.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "heritage",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "_id": "rrwj87yg4ro5humt"
+	"name": "Wicked Tongue",
+	"type": "feature",
+	"img": "icons/commodities/biological/tongue-violet.webp",
+	"effects": [
+		{
+			"icon": "icons/commodities/biological/tongue-violet.webp",
+			"origin": "Item.DgjUovAxVR9QH0fM",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2wYWawGtWhTcVonx"
+				}
+			},
+			"transfer": false,
+			"name": "Wicked Tongue",
+			"_id": "DnT3eKoR2LYlw9zv",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2[Wicked Tongue]",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A creature attached to your tongue cannot move further away from you and takes a -2 penalty to AC as long as the tongue is attached.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"2wYWawGtWhTcVonx": {
+				"name": "Attack with Tongue",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"h74lY8LGI7ckh7tA": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "none",
+						"bonus": "max(@str.mod, @dex.mod)"
+					}
+				},
+				"prompts": {
+					"Mi3nRxpCy42MyPGy": {
+						"type": "effect",
+						"default": true,
+						"effectId": "DnT3eKoR2LYlw9zv"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"description": "<p>On your turn as an action, you can make a melee attack using your tongue. You are considered proficient with your tongue and may use your Strength or Dexterity modifier for the attack, and it has a melee reach of 10 feet. On a hit you deal no damage, but your tongue attaches to the target. A creature attached to your tongue cannot move further away from you and takes a &ndash; 2 penalty to AC as long as the tongue is attached.</p>\n<p>A creature can detach your tongue by succeeding on an opposed Strength (Athletics) check or by dealing slashing damage to the tongue (AC 14). Your tongue is profoundly elastic, so damage to the tongue does not deplete your actual hit points or do lasting harm.</p>\n<p>You cannot move more than 10 feet away from an attached creature, but you can use a bonus action to release your tongue. If forced movement or another effect drives you and the attached creature further than 10 feet apart, your tongue detaches automatically.</p>",
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"Xhttg56d4hx4FSVy": {
+						"range": 10,
+						"unit": "feet"
+					}
+				}
+			},
+			"0QKMrGqgLswEQhfw": {
+				"name": "Enemy Attempts to Detach Tongue",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"u5NCVRBzNi1z1jdr": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ath",
+						"ability": "str",
+						"label": "Opposed Check"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"cqJsJb68V7hZV07s": {
+				"name": "Detach Tongue",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"description": "<p>You cannot move more than 10 feet away from an attached creature, but you can use a bonus action to release your tongue. If forced movement or another effect drives you and the attached creature further than 10 feet apart, your tongue detaches automatically</p>"
+			}
+		},
+		"description": "<p>While all frogfolk use their sticky, arms-length tongue to eat, your tongue is exemplary. Between reach, strength, and stickiness, your tongue is a weapon unto itself. You gain the following benefits:</p>\n<p><strong>Wicked Tongue. </strong>You have a long sticky tongue capable of immobilizing your prey or enemies. Your tongue is 10 feet long and is dexterous enough to perform simple actions a hand could perform, though it cannot wield weapons.</p>\n<p>On your turn as an action, you can make a melee attack using your tongue. You are considered proficient with your tongue and may use your Strength or Dexterity modifier for the attack, and it has a melee reach of 10 feet. On a hit you deal no damage, but your tongue attaches to the target. A creature attached to your tongue cannot move further away from you and takes a &ndash; 2 penalty to AC as long as the tongue is attached.</p>\n<p>A creature can detach your tongue by succeeding on an opposed Strength (Athletics) check or by dealing slashing damage to the tongue (AC 14). Your tongue is profoundly elastic, so damage to the tongue does not deplete your actual hit points or do lasting harm.</p>\n<p>You cannot move more than 10 feet away from an attached creature, but you can use a bonus action to release your tongue. If forced movement or another effect drives you and the attached creature further than 10 feet apart, your tongue detaches automatically.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"_id": "rrwj87yg4ro5humt"
 }

@@ -1,140 +1,141 @@
 {
-  "folder": null,
-  "name": "Bottomless Darkness",
-  "type": "feature",
-  "img": "icons/magic/death/skull-weapon-staff-glow-pink.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "G2k1oPSrol3y1tHy": {
-        "name": "Bottomless Darkness",
-        "activation": {},
-        "consumers": {
-          "dRrV5l6Pko6ch8Dj": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "5mNpDZ4FBS6XEZY4": {
-            "type": "generic",
-            "default": true,
-            "label": "Poison Damage",
-            "formula": "1d6"
-          },
-          "eLRV28FRpqnK5hzG": {
-            "type": "effect",
-            "default": true,
-            "effectId": "uJ9DsIMSlAkeEv5j"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "LdXqKIajpEdnIeR0": {
-            "range": "touch"
-          }
-        }
-      }
-    },
-    "description": "<p>Your heinous misdeeds sow terror and corruption wherever you go. You may, once per hour and with a touch, do any of the following:</p><ul><li>Poison a well, wither 10,000 square feet of crops, or spoil all of the stored food and drink in a 1000-cubic foot space. Creatures consuming the poisoned fare receive no benefit from it and take 1d6 poison damage per portion they consume. Creatures who eat the food also suffer the poisoned condition for 8 hours.</li><li>Permanently afflict a creature with a CR equal to or less than 1/10th of your character level with a debilitating condition such as chronic pain or cancer. You can choose whether the condition will kill the creature over the course of 1-2 years or consign it to a lifetime of suffering.</li><li>Permanently erase a random pleasant memory from a creature&rsquo;s mind. The creature is aware of the loss.</li><li>Cause a creature&rsquo;s loved ones to stop trusting it for a week.</li><li>Learn the worst thing a creature with a CR up to 1/5th of your level has ever done.</li></ul><p>You may delay the onset of any of the above effects for up to a week in order to conceal your role.</p><p>In addition, you gain the Evil alignment trait, and you emit a strong evil aura for the purposes of any feature, spell, or trait that detects or affects Evil creatures.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "hour",
-      "recharge": {
-        "formula": "",
-        "threshold": 0
-      }
-    },
-    "concentration": false,
-    "featureType": "destiny",
-    "grants": {
-      "n4MTpqquz5AXBkvw": {
-        "grantType": "trait",
-        "level": 0,
-        "optional": false,
-        "label": "Bottomless Darkness"
-      }
-    },
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/death/skull-weapon-staff-glow-pink.webp",
-      "origin": "Item.5x273px7arx9z8y0",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "G2k1oPSrol3y1tHy",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Poisoned",
-      "_id": "uJ9DsIMSlAkeEv5j",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"poisoned\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 28800,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "poisoned"
-      ],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "5x273px7arx9z8y0"
+	"folder": null,
+	"name": "Bottomless Darkness",
+	"type": "feature",
+	"img": "icons/magic/death/skull-weapon-staff-glow-pink.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"G2k1oPSrol3y1tHy": {
+				"name": "Bottomless Darkness",
+				"activation": {},
+				"consumers": {
+					"dRrV5l6Pko6ch8Dj": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"5mNpDZ4FBS6XEZY4": {
+						"type": "generic",
+						"default": true,
+						"label": "Poison Damage",
+						"formula": "1d6"
+					},
+					"eLRV28FRpqnK5hzG": {
+						"type": "effect",
+						"default": true,
+						"effectId": "uJ9DsIMSlAkeEv5j"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"LdXqKIajpEdnIeR0": {
+						"range": "touch"
+					}
+				}
+			}
+		},
+		"description": "<p>Your heinous misdeeds sow terror and corruption wherever you go. You may, once per hour and with a touch, do any of the following:</p><ul><li>Poison a well, wither 10,000 square feet of crops, or spoil all of the stored food and drink in a 1000-cubic foot space. Creatures consuming the poisoned fare receive no benefit from it and take 1d6 poison damage per portion they consume. Creatures who eat the food also suffer the poisoned condition for 8 hours.</li><li>Permanently afflict a creature with a CR equal to or less than 1/10th of your character level with a debilitating condition such as chronic pain or cancer. You can choose whether the condition will kill the creature over the course of 1-2 years or consign it to a lifetime of suffering.</li><li>Permanently erase a random pleasant memory from a creature&rsquo;s mind. The creature is aware of the loss.</li><li>Cause a creature&rsquo;s loved ones to stop trusting it for a week.</li><li>Learn the worst thing a creature with a CR up to 1/5th of your level has ever done.</li></ul><p>You may delay the onset of any of the above effects for up to a week in order to conceal your role.</p><p>In addition, you gain the Evil alignment trait, and you emit a strong evil aura for the purposes of any feature, spell, or trait that detects or affects Evil creatures.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "hour",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "destiny",
+		"grants": {
+			"n4MTpqquz5AXBkvw": {
+				"grantType": "trait",
+				"level": 0,
+				"optional": false,
+				"label": "Bottomless Darkness"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/death/skull-weapon-staff-glow-pink.webp",
+			"origin": "Item.5x273px7arx9z8y0",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "G2k1oPSrol3y1tHy",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"_id": "uJ9DsIMSlAkeEv5j",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "5x273px7arx9z8y0"
 }

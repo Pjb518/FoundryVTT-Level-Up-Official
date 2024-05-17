@@ -1,8 +1,46 @@
 {
 	"name": "Critical: Deafening Blow",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/sonic/explosion-shock-wave-teal.webp",
+			"origin": "Item.pR57dzVKYyFjJbBS",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "g9OHQC9XMdPFF1lQ"
+				}
+			},
+			"transfer": false,
+			"name": "Deafened",
+			"_id": "iS3fgSubwzdIKpnW",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"deafened"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -17,7 +55,7 @@
 		},
 		"actions": {
 			"g9OHQC9XMdPFF1lQ": {
-				"name": "Critical: Deafening Blow",
+				"name": "Deafening Blow",
 				"activation": {
 					"cost": "",
 					"type": "special",
@@ -39,12 +77,17 @@
 				"prompts": {
 					"ixzTU4Iw1kBGm0Io": {
 						"ability": "con",
-						"onSave": "Can cast the spell",
+						"onSave": "",
 						"saveDC": {
 							"type": "custom",
-							"bonus": "8 + @prof + @con.mod"
+							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"S1jkVLFgoxP8nXq5": {
+						"type": "effect",
+						"default": true,
+						"effectId": "iS3fgSubwzdIKpnW"
 					}
 				},
 				"consumers": {}
@@ -69,15 +112,16 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.018,
+			"version": 0.019,
 			"lastMigration": {
 				"version": {
-					"schema": 0.016,
+					"schema": 0.018,
 					"foundry": "11.315",
-					"system": "0.17.41"
+					"system": "0.18.11"
 				}
 			}
-		}
+		},
+		"classes": "berserker"
 	},
 	"folder": null,
 	"_id": "p3ycq2i3kaapwg68"

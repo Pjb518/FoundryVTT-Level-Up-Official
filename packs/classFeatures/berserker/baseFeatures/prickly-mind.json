@@ -1,7 +1,7 @@
 {
 	"name": "Prickly Mind",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/commodities/biological/organ-brain-red.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,38 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"CAEc3HoouenQQTvJ": {
+				"name": "Prickly Mind",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Saving throw to resist being charmed"
+				},
+				"consumers": {},
+				"rolls": {
+					"DyE6IsO7b5ourBWR": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "@prof",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Starting at 15th level, your reactions are so honed that you react even to magic trying to affect your mind. When you make a saving throw to resist being charmed, you can use your reaction to deal an amount of psychic damage equal to your proficiency bonus to the creature attempting to charm you. This backlash does not reveal the creature that tried to charm you.</p><p>In addition, you gain proficiency with Wisdom saving throws.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -31,19 +62,36 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"KdWdAObpWIS3CNSa": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Prickly Mind",
+				"keys": {
+					"base": [
+						"wis"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "savingThrow"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.018,
+			"version": 0.019,
 			"lastMigration": {
 				"version": {
-					"schema": 0.016,
+					"schema": 0.018,
 					"foundry": "11.315",
-					"system": "0.17.41"
+					"system": "0.18.11"
 				}
 			}
-		}
+		},
+		"classes": "berserker"
 	},
 	"folder": null,
 	"_id": "ysuu60w7hjdplhyk"

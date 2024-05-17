@@ -69,7 +69,7 @@
 				"consumers": {}
 			}
 		},
-		"description": "<p>When you deal basic melee damage with a basic maneuver, you can deal additional damage equal to your martial arts die.</p>",
+		"description": "<p>When you deal basic melee damage with a basic maneuver, you can deal additional damage equal to your martial arts die.</p>\n<p><strong>Foundry Note:</strong> Make sure to update the damage grant as your Martial Arts Dice increases.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -84,19 +84,34 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"23lchUb9vKntWCar": {
+				"grantType": "damage",
+				"level": 11,
+				"levelType": "class",
+				"optional": false,
+				"label": "Total Combat",
+				"bonus": "1d4[Total Combat]",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack"
+					]
+				}
+			}
+		},
 		"prerequisite": "11th level",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.018,
+			"version": 0.019,
 			"lastMigration": {
 				"version": {
-					"schema": 0.016,
+					"schema": 0.018,
 					"foundry": "11.315",
-					"system": "0.17.41"
+					"system": "0.18.11"
 				}
 			}
-		}
+		},
+		"classes": "adept"
 	},
 	"folder": null,
 	"_id": "3j38fj9c72aaukeu"

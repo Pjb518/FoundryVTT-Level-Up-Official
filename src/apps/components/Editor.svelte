@@ -1,6 +1,6 @@
 <script>
     import { localize } from "#runtime/svelte/helper";
-    import { TJSTinyMCE } from "#standard/component";
+    import { TJSTinyMCE, TinyMCEHelper } from "#standard/component";
 
     export let document;
     export let content;
@@ -29,6 +29,12 @@
         }
     });
 
+    const editorOptions = TinyMCEHelper.configStandard();
+    editorOptions.toolbar =
+        "styles | fontfamily | table | bullist | numlist | image | superscript | subscript | hr | save | link | removeformat | code ";
+
+    const options = { mceConfig: editorOptions };
+
     $: (content = content || newLabel) || localize("A5E.NoDescription");
     $: enrichedContent = TextEditor.enrichHTML($document[updatePath], {
         async,
@@ -39,6 +45,7 @@
     <TJSTinyMCE
         {content}
         {enrichedContent}
+        {options}
         on:editor:save={updateEditorContent}
     />
 </div>

@@ -1,8 +1,48 @@
 {
 	"name": "Critical: Vitalizing Force",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/skills/movement/feet-winged-sandals-tan.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/movement/feet-winged-sandals-tan.webp",
+			"origin": "Item.3Jb1alaEXLBZCnlt",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "4RfMDe87SKXNmZgc",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Vitalizing Force",
+			"_id": "db63eI1JIPjhZF5o",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "20",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -17,21 +57,17 @@
 		},
 		"actions": {
 			"4RfMDe87SKXNmZgc": {
-				"name": "Critical: Vitalizing Force",
+				"name": "Vitalizing Force",
 				"activation": {
 					"cost": "",
 					"type": "special",
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "minute",
+					"unit": "",
 					"value": 1
 				},
-				"ranges": {
-					"DDgglWZXK4AfQHYD": {
-						"range": "self"
-					}
-				},
+				"ranges": {},
 				"area": {
 					"shape": "",
 					"size": "",
@@ -41,7 +77,14 @@
 					"quantity": "",
 					"type": ""
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"7Jx8xxJgK7tXLbI2": {
+						"type": "effect",
+						"default": true,
+						"effectId": "db63eI1JIPjhZF5o"
+					}
+				}
 			}
 		},
 		"description": "<p>The thrill of your attack drives you to greater feats. When you score a critical hit your base speed increases by 20 feet for 1 minute or until you use this Critical Focus again.</p>",
@@ -63,15 +106,16 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.018,
+			"version": 0.019,
 			"lastMigration": {
 				"version": {
-					"schema": 0.016,
+					"schema": 0.018,
 					"foundry": "11.315",
-					"system": "0.17.41"
+					"system": "0.18.11"
 				}
 			}
-		}
+		},
+		"classes": "berserker"
 	},
 	"folder": null,
 	"_id": "rof86q7ykt9yhkun"

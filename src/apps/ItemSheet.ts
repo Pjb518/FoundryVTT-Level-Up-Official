@@ -130,6 +130,7 @@ export default class ItemSheet extends SvelteApplication {
 
   async _onDropDocument(dragData) {
     if (dragData.type === 'Action') await this.#onDropAction(dragData);
+    if (dragData.type === 'Grant') await this.#onDropGrant(dragData);
     if (dragData.type === 'Item') await this.#onDropItem(dragData);
   }
 
@@ -138,13 +139,13 @@ export default class ItemSheet extends SvelteApplication {
     if (!actionId || !itemUuid) return;
 
     const document = await fromUuid(itemUuid);
-    const action = document.actions.get(actionId);
+    const action = foundry.utils.duplicate(document.actions.get(actionId));
     if (!action) return;
 
     // Change image
     action.img ??= document.img;
 
-    const [newActionId] = await this.item.actions.add(foundry.utils.duplicate(action), true, true);
+    const [newActionId] = await this.item.actions.add(action, true, true);
     if (!newActionId) return;
 
     // Copy over effects from old item to new item
@@ -181,6 +182,20 @@ export default class ItemSheet extends SvelteApplication {
     });
 
     this.item.update(updates);
+  }
+
+  async #onDropGrant(dragData: Record<string, any>) {
+    const { grantId, itemUuid } = dragData;
+    if (!grantId || !itemUuid) return;
+
+    const document = await fromUuid(itemUuid);
+    const grant = foundry.utils.duplicate(document.grants.get(grantId));
+    if (!grant) return;
+
+    // Change image
+    grant.img ??= document.img;
+
+    await this.item.grants.add(grant);
   }
 
   async #onDropItem(dragData) {

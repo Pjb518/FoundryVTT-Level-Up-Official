@@ -1,8 +1,46 @@
 {
 	"name": "Critical: Blinding Maneuver",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/skills/wounds/injury-eyes-blood-red.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/wounds/injury-eyes-blood-red.webp",
+			"origin": "Item.Tu047LHMciQzOTjv",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1sE4fa0Jpg59VN40"
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"_id": "YyGNJ9AuxzGrXbKQ",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -17,7 +55,7 @@
 		},
 		"actions": {
 			"1sE4fa0Jpg59VN40": {
-				"name": "Critical: Blinding Maneuver",
+				"name": "Blinding Maneuver",
 				"activation": {
 					"cost": "",
 					"type": "special",
@@ -36,7 +74,14 @@
 					"quantity": 1,
 					"type": "creature"
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"z4HhkjRHl3zUkFfh": {
+						"type": "effect",
+						"default": true,
+						"effectId": "YyGNJ9AuxzGrXbKQ"
+					}
+				}
 			}
 		},
 		"description": "<p>Your attack flings debris into the target’s eyes, causes blood to run into their eyes, or otherwise impedes their vision. When you score a critical hit, the target is blinded for a number of rounds equal to your proficiency bonus.</p>",
@@ -58,15 +103,16 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.018,
+			"version": 0.019,
 			"lastMigration": {
 				"version": {
-					"schema": 0.016,
+					"schema": 0.018,
 					"foundry": "11.315",
-					"system": "0.17.41"
+					"system": "0.18.11"
 				}
 			}
-		}
+		},
+		"classes": "berserker"
 	},
 	"folder": null,
 	"_id": "gfj3n6p8nyp2mmxr"

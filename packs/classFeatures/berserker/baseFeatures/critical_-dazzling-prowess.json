@@ -1,8 +1,50 @@
 {
 	"name": "Critical: Dazzling Prowess",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/magic/light/explosion-impact-purple.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/light/explosion-impact-purple.webp",
+			"origin": "Item.hTTgSTxwQDk3YNXo",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "uOxn1vVFURYJAfQO",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"_id": "8fDbY7URzGgsGoyv",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"stunned"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -17,7 +59,7 @@
 		},
 		"actions": {
 			"uOxn1vVFURYJAfQO": {
-				"name": "Critical: Dazzling Prowess",
+				"name": "Dazzling Prowess",
 				"activation": {
 					"cost": "",
 					"type": "special",
@@ -39,18 +81,23 @@
 				"prompts": {
 					"OLzbVraDa8xEMCRW": {
 						"ability": "wis",
-						"onSave": "No effect",
+						"onSave": "",
 						"saveDC": {
 							"type": "custom",
 							"bonus": "8 + @prof + @con.mod"
 						},
 						"type": "savingThrow"
+					},
+					"eBuD06TT0B6e49ef": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8fDbY7URzGgsGoyv"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p><em>Prerequisite: 6th level</em></p><p>Your show of martial skill is so stunning that the target can only gape. When you score a critical hit, the target makes a Wisdom saving throw or is stunned until the end of your next turn.</p>",
+		"description": "<p>Your show of martial skill is so stunning that the target can only gape. When you score a critical hit, the target makes a Wisdom saving throw or is stunned until the end of your next turn.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -66,18 +113,19 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": "",
+		"prerequisite": "6th level",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.018,
+			"version": 0.019,
 			"lastMigration": {
 				"version": {
-					"schema": 0.016,
+					"schema": 0.018,
 					"foundry": "11.315",
-					"system": "0.17.41"
+					"system": "0.18.11"
 				}
 			}
-		}
+		},
+		"classes": "berserker"
 	},
 	"folder": null,
 	"_id": "t2m2snx1qdjvuju8"

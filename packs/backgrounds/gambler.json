@@ -1,142 +1,146 @@
 {
-  "name": "Gambler",
-  "type": "background",
-  "img": "icons/sundries/gaming/playing-cards.webp",
-  "system": {
-    "description": "<p><strong>Ability Score Increases:</strong>&nbsp;+1 to Charisma and one other ability score.</p><p><strong>Skill Proficiencies:</strong>&nbsp;Deception, and either Insight or Sleight of Hand.</p><p><strong>Tool Proficiencies:&nbsp;</strong>Gaming set (dice set, playing cards set).</p><p><strong>Suggested Equipment (Cost 16 gold):</strong>&nbsp;Fine clothes, dice set, playing card set.</p><p><strong><em>Feature: Lady Luck.</em></strong>&nbsp;Each week you may attempt a &ldquo;lucky throw&rdquo; to support yourself by gambling. Roll a d6 to determine the lifestyle you can afford with your week&rsquo;s winnings (1&ndash;2: poor, 3&ndash;5: moderate, 6: rich).</p><p><strong><em>Adventures and Advancement.</em></strong>&nbsp;Once you&rsquo;ve had more than your fair share of lucky throws, you attract the attention of richer opponents. You add +1 to all your lucky throws. Additionally, you and your friends may be invited to exclusive games with more at stake than money.</p><h3><strong>GAMBLER CONNECTIONS</strong></h3><ol><li>The mentor you have now surpassed.</li><li>The duelist who will never forgive you for fleecing them.</li><li>The legendary gambler you aspire to beat.</li><li>The friendly rival who always keeps you on your toes.</li><li>The noble who publicly accused you of cheating.</li><li>An ink-stained academic who wants you to test a risky theory about how to beat the house.</li><li>The gang leader who would rather kill you than pay up.</li><li>The kid who strives to emulate you.</li><li>The cardsharp rival who cheats to win.</li><li>The rival who won something from you that you want back.</li></ol><hr><h3><strong>GAMBLER MEMENTOS</strong></h3><ol><li>Gambling debts owed you by someone who&rsquo;s gone missing.</li><li>Your lucky coin that you&rsquo;ve always won back after gambling it away.</li><li>The deeds to a monster-infested copper mine, a castle on another plane of existence, and several other valueless properties.</li><li>A pawn shop ticket for a valuable item&mdash;if you can gather enough money to redeem it.</li><li>The hard-to-sell heirloom that someone really wants back.</li><li>Loaded dice or marked cards. They grant advantage on gambling checks when used, but can be discovered when carefully examined by someone with the appropriate tool proficiency (dice or cards).</li><li>An invitation to an annual high-stakes game to which you can&rsquo;t even afford the ante.</li><li>A two-faced coin.</li><li>A torn half of a card&mdash;a long-lost relative is said to hold the other half.</li><li>An ugly trinket that its former owner claimed had hidden magical powers.</li></ol>",
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.01,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "grants": {
-      "EK23hsIgIRCYQiqm": {
-        "grantType": "ability",
-        "level": 0,
-        "optional": false,
-        "_id": "EK23hsIgIRCYQiqm",
-        "default": true,
-        "img": "",
-        "label": "Ability Score Increase",
-        "abilities": {
-          "base": [
-            "cha"
-          ],
-          "options": [
-            "str",
-            "dex",
-            "con",
-            "int",
-            "wis",
-            "cha"
-          ],
-          "total": 1
-        },
-        "bonus": "1",
-        "context": {
-          "types": [
-            "base"
-          ],
-          "requiresProficiency": false
-        }
-      },
-      "btIa5RiOYONUdZb9": {
-        "grantType": "feature",
-        "level": 0,
-        "optional": false,
-        "_id": "btIa5RiOYONUdZb9",
-        "default": true,
-        "img": "",
-        "label": "Feature",
-        "features": {
-          "base": [
-            "Compendium.a5e.a5e-background-features.Item.lo5obt0px93qczpg"
-          ],
-          "options": [],
-          "total": 0
-        }
-      },
-      "9T8EScAkLUWhbW3Q": {
-        "grantType": "proficiency",
-        "level": 0,
-        "optional": false,
-        "label": "Skill Proficiencies",
-        "keys": {
-          "base": [
-            "dec"
-          ],
-          "options": [
-            "ins",
-            "slt"
-          ],
-          "total": 1
-        },
-        "proficiencyType": "skill",
-        "_id": "9T8EScAkLUWhbW3Q",
-        "default": true,
-        "img": ""
-      },
-      "2mgdu7mE3QgUYvjC": {
-        "grantType": "item",
-        "level": 0,
-        "optional": true,
-        "label": "Suggested Equipment",
-        "items": {
-          "options": [
-            {
-              "uuid": "Compendium.a5e.a5e-adventuring-gear.Item.fs1g83t1y18hflen",
-              "quantityOverride": 0
-            },
-            {
-              "uuid": "Compendium.a5e.a5e-adventuring-gear.Item.8immo7012y7uj9u7",
-              "quantityOverride": 0
-            },
-            {
-              "uuid": "Compendium.a5e.a5e-adventuring-gear.Item.nzk5o2pu6bk18d67",
-              "quantityOverride": 0
-            }
-          ],
-          "total": 1,
-          "base": []
-        },
-        "_id": "2mgdu7mE3QgUYvjC",
-        "default": true,
-        "img": ""
-      },
-      "yXBWmFyk7Bo9r20m": {
-        "grantType": "proficiency",
-        "level": 0,
-        "optional": false,
-        "label": "Tool Proficiencies",
-        "traits": {
-          "base": [
-            "diceSet",
-            "playingCardSet"
-          ],
-          "options": [],
-          "total": 0,
-          "traitType": "tools"
-        },
-        "keys": {
-          "base": [
-            "diceSet",
-            "playingCardSet"
-          ],
-          "options": [],
-          "total": 0
-        },
-        "proficiencyType": "tool"
-      }
-    },
-    "source": "adventurersGuide"
-  },
-  "effects": [],
-  "flags": {},
-  "folder": null,
-  "_id": "ozxxla8s8niqzw9w"
+	"name": "Gambler",
+	"type": "background",
+	"img": "icons/sundries/gaming/playing-cards.webp",
+	"system": {
+		"description": "<p><strong>Ability Score Increases:</strong>&nbsp;+1 to Charisma and one other ability score.</p><p><strong>Skill Proficiencies:</strong>&nbsp;Deception, and either Insight or Sleight of Hand.</p><p><strong>Tool Proficiencies:&nbsp;</strong>Gaming set (dice set, playing cards set).</p><p><strong>Suggested Equipment (Cost 16 gold):</strong>&nbsp;Fine clothes, dice set, playing card set.</p><p><strong><em>Feature: Lady Luck.</em></strong>&nbsp;Each week you may attempt a &ldquo;lucky throw&rdquo; to support yourself by gambling. Roll a d6 to determine the lifestyle you can afford with your week&rsquo;s winnings (1&ndash;2: poor, 3&ndash;5: moderate, 6: rich).</p><p><strong><em>Adventures and Advancement.</em></strong>&nbsp;Once you&rsquo;ve had more than your fair share of lucky throws, you attract the attention of richer opponents. You add +1 to all your lucky throws. Additionally, you and your friends may be invited to exclusive games with more at stake than money.</p><h3><strong>GAMBLER CONNECTIONS</strong></h3><ol><li>The mentor you have now surpassed.</li><li>The duelist who will never forgive you for fleecing them.</li><li>The legendary gambler you aspire to beat.</li><li>The friendly rival who always keeps you on your toes.</li><li>The noble who publicly accused you of cheating.</li><li>An ink-stained academic who wants you to test a risky theory about how to beat the house.</li><li>The gang leader who would rather kill you than pay up.</li><li>The kid who strives to emulate you.</li><li>The cardsharp rival who cheats to win.</li><li>The rival who won something from you that you want back.</li></ol><hr><h3><strong>GAMBLER MEMENTOS</strong></h3><ol><li>Gambling debts owed you by someone who&rsquo;s gone missing.</li><li>Your lucky coin that you&rsquo;ve always won back after gambling it away.</li><li>The deeds to a monster-infested copper mine, a castle on another plane of existence, and several other valueless properties.</li><li>A pawn shop ticket for a valuable item&mdash;if you can gather enough money to redeem it.</li><li>The hard-to-sell heirloom that someone really wants back.</li><li>Loaded dice or marked cards. They grant advantage on gambling checks when used, but can be discovered when carefully examined by someone with the appropriate tool proficiency (dice or cards).</li><li>An invitation to an annual high-stakes game to which you can&rsquo;t even afford the ante.</li><li>A two-faced coin.</li><li>A torn half of a card&mdash;a long-lost relative is said to hold the other half.</li><li>An ugly trinket that its former owner claimed had hidden magical powers.</li></ol>",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"grants": {
+			"EK23hsIgIRCYQiqm": {
+				"grantType": "ability",
+				"level": 0,
+				"optional": false,
+				"_id": "EK23hsIgIRCYQiqm",
+				"default": true,
+				"img": "",
+				"label": "Ability Score Increase",
+				"abilities": {
+					"base": [
+						"cha"
+					],
+					"options": [
+						"str",
+						"dex",
+						"con",
+						"int",
+						"wis",
+						"cha"
+					],
+					"total": 1
+				},
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false
+				}
+			},
+			"btIa5RiOYONUdZb9": {
+				"grantType": "feature",
+				"level": 0,
+				"optional": false,
+				"_id": "btIa5RiOYONUdZb9",
+				"default": true,
+				"img": "",
+				"label": "Feature",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-background-features.Item.lo5obt0px93qczpg",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					],
+					"options": [],
+					"total": 0
+				}
+			},
+			"9T8EScAkLUWhbW3Q": {
+				"grantType": "proficiency",
+				"level": 0,
+				"optional": false,
+				"label": "Skill Proficiencies",
+				"keys": {
+					"base": [
+						"dec"
+					],
+					"options": [
+						"ins",
+						"slt"
+					],
+					"total": 1
+				},
+				"proficiencyType": "skill",
+				"_id": "9T8EScAkLUWhbW3Q",
+				"default": true,
+				"img": ""
+			},
+			"2mgdu7mE3QgUYvjC": {
+				"grantType": "item",
+				"level": 0,
+				"optional": true,
+				"label": "Suggested Equipment",
+				"items": {
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.fs1g83t1y18hflen",
+							"quantityOverride": 0
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.8immo7012y7uj9u7",
+							"quantityOverride": 0
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.nzk5o2pu6bk18d67",
+							"quantityOverride": 0
+						}
+					],
+					"total": 1,
+					"base": []
+				},
+				"_id": "2mgdu7mE3QgUYvjC",
+				"default": true,
+				"img": ""
+			},
+			"yXBWmFyk7Bo9r20m": {
+				"grantType": "proficiency",
+				"level": 0,
+				"optional": false,
+				"label": "Tool Proficiencies",
+				"traits": {
+					"base": [
+						"diceSet",
+						"playingCardSet"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "tools"
+				},
+				"keys": {
+					"base": [
+						"diceSet",
+						"playingCardSet"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "tool"
+			}
+		},
+		"source": "adventurersGuide"
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "ozxxla8s8niqzw9w"
 }

@@ -1,191 +1,192 @@
 {
-  "folder": null,
-  "name": "Mastery of the Leaf",
-  "type": "feature",
-  "img": "icons/consumables/plants/leaf-hastate-glowing-green.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "fJj7BcBB0Ly415k2": {
-        "name": "Call Upon the Blessings",
-        "activation": {},
-        "consumers": {
-          "ynnT02BXTn53ld2l": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "RCVb7gV9LcIXLtqe": {
-            "type": "effect",
-            "default": true,
-            "effectId": "tQIkoY3fNwO7z2oj"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      },
-      "S4FQxGsNY9JTTcR2": {
-        "name": "Serene Mind",
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "reactionTrigger": "Fail a saving throw for the chosen ability score"
-        },
-        "consumers": {
-          "V5Xy5yiSyp2l58ki": {
-            "type": "resource",
-            "default": true,
-            "resource": "exertion",
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "0u064CbK1hXc9qdv": {
-            "type": "savingThrow",
-            "default": false,
-            "ability": "int"
-          },
-          "EkmuOYvsmm5BLYVg": {
-            "type": "savingThrow",
-            "default": false,
-            "ability": "wis"
-          },
-          "PwrlUoaJP49UHqon": {
-            "type": "savingThrow",
-            "default": false,
-            "ability": "cha"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "img": "icons/magic/time/day-night-sunset-sunrise.webp"
-      },
-      "xOhxDoHAsZqlh2vx": {
-        "name": "Regain Exertion",
-        "activation": {},
-        "consumers": {
-          "AQFkH0zdhcVQsSpo": {
-            "type": "actionUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 1,
-          "max": "1",
-          "per": "minute",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>Beginning at 17th level, the gods bless you with a celestial talisman in the shape of a cup. In your hands it becomes a physical cup that provides all the hot drink (though not all the cups) needed for any of your features.</p><p>Once between long rests you can call upon the blessings of the gods and drink from the cup. Afterwards, you are immune to the blinded, deafened, charmed, and poisoned conditions. In addition, you can spend 1 exertion to use your Serene Mind feature on any ability check. Finally, once per combat you can use a bonus action to drink from the cup and roll your martial arts die, regaining an equal amount of exertion. These effects all last until the end of your next long rest.</p><p>If your talisman is destroyed, the gods provide another after you complete a worthy task to prove your continued dedication.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "gpg3",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "longRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/consumables/plants/leaf-hastate-glowing-green.webp",
-      "origin": "Item.xf9lz5zqjlrgk4b8",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "fJj7BcBB0Ly415k2",
-          "applyToSelf": true,
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Mastery of the Leaf",
-      "_id": "tQIkoY3fNwO7z2oj",
-      "changes": [
-        {
-          "key": "system.traits.conditionImmunities",
-          "value": "[\"blinded\",\"deafened\",\"charmed\",\"poisoned\"]",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 86400,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "xf9lz5zqjlrgk4b8"
+	"folder": null,
+	"name": "Mastery of the Leaf",
+	"type": "feature",
+	"img": "icons/consumables/plants/leaf-hastate-glowing-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"fJj7BcBB0Ly415k2": {
+				"name": "Call Upon the Blessings",
+				"activation": {},
+				"consumers": {
+					"ynnT02BXTn53ld2l": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"RCVb7gV9LcIXLtqe": {
+						"type": "effect",
+						"default": true,
+						"effectId": "tQIkoY3fNwO7z2oj"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"S4FQxGsNY9JTTcR2": {
+				"name": "Serene Mind",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Fail a saving throw for the chosen ability score"
+				},
+				"consumers": {
+					"V5Xy5yiSyp2l58ki": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"0u064CbK1hXc9qdv": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "int"
+					},
+					"EkmuOYvsmm5BLYVg": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "wis"
+					},
+					"PwrlUoaJP49UHqon": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "cha"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/magic/time/day-night-sunset-sunrise.webp"
+			},
+			"xOhxDoHAsZqlh2vx": {
+				"name": "Regain Exertion",
+				"activation": {},
+				"consumers": {
+					"AQFkH0zdhcVQsSpo": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "minute",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Beginning at 17th level, the gods bless you with a celestial talisman in the shape of a cup. In your hands it becomes a physical cup that provides all the hot drink (though not all the cups) needed for any of your features.</p><p>Once between long rests you can call upon the blessings of the gods and drink from the cup. Afterwards, you are immune to the blinded, deafened, charmed, and poisoned conditions. In addition, you can spend 1 exertion to use your Serene Mind feature on any ability check. Finally, once per combat you can use a bonus action to drink from the cup and roll your martial arts die, regaining an equal amount of exertion. These effects all last until the end of your next long rest.</p><p>If your talisman is destroyed, the gods provide another after you complete a worthy task to prove your continued dedication.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg3",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/consumables/plants/leaf-hastate-glowing-green.webp",
+			"origin": "Item.xf9lz5zqjlrgk4b8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "fJj7BcBB0Ly415k2",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mastery of the Leaf",
+			"_id": "tQIkoY3fNwO7z2oj",
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"blinded\",\"deafened\",\"charmed\",\"poisoned\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "xf9lz5zqjlrgk4b8"
 }

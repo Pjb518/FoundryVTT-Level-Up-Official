@@ -1,122 +1,123 @@
 {
-  "folder": null,
-  "name": "Dauntless Delver",
-  "type": "feature",
-  "img": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "2XAruFxTpwe1wUZn": {
-        "name": "Resistance Reaction",
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "reactionTrigger": "when you take damage"
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "KKhaIMvBht0DQzwf": {
-            "type": "effect",
-            "default": true,
-            "effectId": "lcVownLLljKq6Prh"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "target": {
-          "type": "self",
-          "quantity": 1
-        }
-      }
-    },
-    "description": "<p>Starting at 18th level, you have become better at withstanding common attacks you encounter when exploring the depths, shrugging off blows that would severely harm other adventurers. When you take damage, you can use your reaction to gain&nbsp;resistance</span>&nbsp;to bludgeoning, piercing, and slashing damage, as well as to acid, necrotic, and poison damage, until the start of your next turn. You can use this feature a number of times equal to your proficiency bonus, regaining all uses when you finish a&nbsp;<span>long rest.</p></div><div>&nbsp;",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "dungeonDelversGuide",
-    "uses": {
-      "value": 2,
-      "max": "@prof",
-      "per": "longRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
-      "origin": "Item.xyll994gs9323l3t",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "2XAruFxTpwe1wUZn",
-          "applyToSelf": true,
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Damage Resistances",
-      "_id": "lcVownLLljKq6Prh",
-      "changes": [
-        {
-          "key": "system.traits.damageResistances",
-          "value": "[\"bludgeoning\",\"piercing\",\"slashing\",\"acid\",\"necrotic\",\"poison\"]",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": 1,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "xyll994gs9323l3t"
+	"folder": null,
+	"name": "Dauntless Delver",
+	"type": "feature",
+	"img": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"2XAruFxTpwe1wUZn": {
+				"name": "Resistance Reaction",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "when you take damage"
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"KKhaIMvBht0DQzwf": {
+						"type": "effect",
+						"default": true,
+						"effectId": "lcVownLLljKq6Prh"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>Starting at 18th level, you have become better at withstanding common attacks you encounter when exploring the depths, shrugging off blows that would severely harm other adventurers. When you take damage, you can use your reaction to gain&nbsp;resistance</span>&nbsp;to bludgeoning, piercing, and slashing damage, as well as to acid, necrotic, and poison damage, until the start of your next turn. You can use this feature a number of times equal to your proficiency bonus, regaining all uses when you finish a&nbsp;<span>long rest.</p></div><div>&nbsp;",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "dungeonDelversGuide",
+		"uses": {
+			"value": 2,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
+			"origin": "Item.xyll994gs9323l3t",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2XAruFxTpwe1wUZn",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Damage Resistances",
+			"_id": "lcVownLLljKq6Prh",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"bludgeoning\",\"piercing\",\"slashing\",\"acid\",\"necrotic\",\"poison\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "xyll994gs9323l3t"
 }

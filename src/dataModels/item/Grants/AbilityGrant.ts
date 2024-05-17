@@ -77,12 +77,13 @@ export default class AbilityGrant extends BaseGrant {
 
   getSelectionComponentProps(data: any) {
     return {
-      base: data?.selected ?? this.abilities.base,
+      base: this.abilities.base,
       bonus: this.bonus,
       choices: this.abilities.options,
       configObject: CONFIG.A5E.abilities,
       count: this.abilities.total,
-      heading: 'Ability Grant Selection'
+      heading: 'Ability Grant Selection',
+      selected: data?.selected ?? []
     };
   }
 

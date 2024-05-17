@@ -1,51 +1,86 @@
 {
-  "name": "Townie",
-  "type": "feature",
-  "img": "icons/commodities/currency/coins-assorted-mix-copper-silver-gold.webp",
-  "effects": [],
-  "flags": {},
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p>Choose one skill you are proficient with. You gain an expertise die on checks made using the chosen skill. As long as you have a positive reputation in a town or city, all basic goods and spellcasting components cost 1/3rd less.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "knack",
-    "classes": "bard",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "folder": null,
-  "_id": "xsvbm7k97e84nkya"
+	"name": "Townie",
+	"type": "feature",
+	"img": "icons/commodities/currency/coins-assorted-mix-copper-silver-gold.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p>Choose one skill in which you are&nbsp;proficient. You gain an expertise die on&nbsp;checks made using the chosen skill.&nbsp;</p>\n<p>In addition, if you have a positive reputation in a town or city, all basic goods and spellcasting components cost&nbsp;you one-third less in that settlement.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {
+			"apw4tXPhxPEQ4zkL": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "class",
+				"optional": false,
+				"label": "Townie",
+				"keys": {
+					"base": [],
+					"options": [
+						"acr",
+						"ani",
+						"arc",
+						"ath",
+						"cul",
+						"dec",
+						"eng",
+						"his",
+						"ins",
+						"itm",
+						"inv",
+						"med",
+						"nat",
+						"prc",
+						"prf",
+						"per",
+						"rel",
+						"slt",
+						"ste",
+						"sur"
+					],
+					"total": 1
+				},
+				"expertiseType": "skill"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "bard"
+	},
+	"folder": null,
+	"_id": "xsvbm7k97e84nkya"
 }

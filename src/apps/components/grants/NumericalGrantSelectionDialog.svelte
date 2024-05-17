@@ -14,6 +14,7 @@
     export let configObject: Record<string, any> = {};
     export let count: number;
     export let bonus: string;
+    export let selected: string[];
 
     function getGrantSummary(bonus: string, selected: string[]) {
         return ` This grant provides a bonus of ${bonus} to ${selected
@@ -44,7 +45,7 @@
 
     $: totalCount = base.length + count;
 
-    $: selected = [...base];
+    $: selected = [...base, ...selected];
     $: remainingSelections = totalCount - selected.length;
     $: summary = getGrantSummary(bonus, selected);
 </script>

@@ -74,13 +74,14 @@ export default class SensesGrant extends BaseGrant {
 
   getSelectionComponentProps(data: Record<string, any>) {
     return {
-      base: data?.selected ?? this.senses.base ?? [],
+      base: this.senses.base ?? [],
       bonus: this.bonus,
       choices: this.senses.options ?? [],
       configObject: CONFIG.A5E.senses,
       count: this.senses.total,
       unit: this.unit,
-      heading: 'Senses Grant Selection'
+      heading: 'Senses Grant Selection',
+      selected: data?.selected ?? []
     };
   }
 

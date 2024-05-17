@@ -1,87 +1,94 @@
 {
-  "name": "Elemental Caretaker",
-  "type": "feature",
-  "img": "icons/magic/light/hand-sparks-smoke-green.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p>You have a stronger-than-normal focus on the elements than a normal druid (or perhaps a stronger focus on the natural world than a typical elementalist) but the two traditions are fundamentally complimentary.&nbsp;You gain the following benefits:</p><ul><li>You gain a +1 bonus to your Wisdom score, to a maximum value of 20. You may change your Elementalist spellcasting ability to Wisdom if it is something else. Once made, this choice is permanent.</li><li>You learn the @UUID[Compendium.a5e.a5e-spells.Item.tn41akceteoog5c2]{Elemental Manipulation} cantrip, which does not count against your druid cantrips known. If you already know it, you may select another druid cantrip from the <em>air</em>, <em>cold</em>, <em>earth</em>, <em>fire</em>, <em>lightning</em>, or <em>water</em> school instead.</li><li>Half of your druid levels count as elementalist levels for the purpose of determining how much damage your Elemental Blast does.</li></ul>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "feat",
-    "grants": {
-      "PSmRsAswakF8jI6f": {
-        "grantType": "ability",
-        "level": 1,
-        "levelType": "character",
-        "optional": false,
-        "label": "Elemental Caretaker",
-        "bonus": "1",
-        "abilities": {
-          "options": [],
-          "base": [
-            "wis"
-          ],
-          "total": 0
-        },
-        "context": {
-          "types": [
-            "base"
-          ],
-          "requiresProficiency": false,
-          "default": true
-        },
-        "_id": "PSmRsAswakF8jI6f",
-        "img": ""
-      },
-      "O7WkxzZtR7DBPfNT": {
-        "grantType": "feature",
-        "level": 1,
-        "levelType": "character",
-        "optional": true,
-        "label": "Elemental Caretaker",
-        "features": {
-          "base": [
-            "Compendium.a5e.a5e-spells.Item.tn41akceteoog5c2"
-          ]
-        }
-      }
-    },
-    "prerequisite": "3 levels in druid, 3 levels in elementalist",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.017,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "folder": null,
-  "_id": "4nkvir8tue7pgp92"
+	"name": "Elemental Caretaker",
+	"type": "feature",
+	"img": "icons/magic/light/hand-sparks-smoke-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p>You have a stronger-than-normal focus on the elements than a normal druid (or perhaps a stronger focus on the natural world than a typical elementalist) but the two traditions are fundamentally complimentary.&nbsp;You gain the following benefits:</p><ul><li>You gain a +1 bonus to your Wisdom score, to a maximum value of 20. You may change your Elementalist spellcasting ability to Wisdom if it is something else. Once made, this choice is permanent.</li><li>You learn the @UUID[Compendium.a5e.a5e-spells.Item.tn41akceteoog5c2]{Elemental Manipulation} cantrip, which does not count against your druid cantrips known. If you already know it, you may select another druid cantrip from the <em>air</em>, <em>cold</em>, <em>earth</em>, <em>fire</em>, <em>lightning</em>, or <em>water</em> school instead.</li><li>Half of your druid levels count as elementalist levels for the purpose of determining how much damage your Elemental Blast does.</li></ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"PSmRsAswakF8jI6f": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Elemental Caretaker",
+				"bonus": "1",
+				"abilities": {
+					"options": [],
+					"base": [
+						"wis"
+					],
+					"total": 0
+				},
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"_id": "PSmRsAswakF8jI6f",
+				"img": ""
+			},
+			"O7WkxzZtR7DBPfNT": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"label": "Elemental Caretaker",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-spells.Item.tn41akceteoog5c2",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					],
+					"options": [],
+					"total": 0
+				}
+			}
+		},
+		"prerequisite": "3 levels in druid, 3 levels in elementalist",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "4nkvir8tue7pgp92"
 }

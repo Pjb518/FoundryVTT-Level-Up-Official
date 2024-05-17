@@ -1,214 +1,215 @@
 {
-  "folder": null,
-  "name": "Gift of the Eldritch",
-  "type": "feature",
-  "img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "aMaNys2ER5IVxo6U": {
-        "name": "Cast Spell",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "consumers": {
-          "K93jMR0xGufiDFPb": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "T9VFB4CcJ122hbCi": {
-            "ability": "dex",
-            "onSave": "",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "XB4OYpN1KliFWkhX": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "cube",
-          "width": "20",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
-        "description": "<p>Writhing black tentacles fill the ground within the area turning it into difficult terrain. When a creature starts its turn in the area or enters the area for the first time on its turn, it takes 3d6 bludgeoning damage and is restrained by the tentacles unless it succeeds on a Dexterity saving throw. A creature that starts its turn restrained by the tentacles takes 3d6 bludgeoning damage.</p><p>A restrained creature can use its action to make an Acrobatics or Athletics check against the spell save DC, freeing itself on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
-        "descriptionOutputs": [
-          "action"
-        ]
-      },
-      "BNZ58DB9TA2RADKI": {
-        "name": "Deal Damage",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "XTGaMWZxzQyUMicw": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "3d6",
-            "damageType": "bludgeoning",
-            "label": "",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6",
-              "step": 2
-            }
-          }
-        },
-        "prompts": {
-          "KcIlKeyKyeZ6hud9": {
-            "type": "effect",
-            "default": true,
-            "label": "Black Tentacles",
-            "effectId": "jtHRTP4hsdLzVW3U"
-          },
-          "7ghwBedcIUTwtt2E": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "On a save, the target takes no damage and is not restrained"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "duration": {
-          "unit": "",
-          "value": 1
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>When a creature starts its turn in the area or enters the area for the first time on its turn, it takes 3d6 bludgeoning damage and is restrained by the tentacles unless it succeeds on a Dexterity saving throw.</p><p><strong><em>Cast at Higher Levels.</em></strong>&nbsp;The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
-        "img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp"
-      },
-      "z6EoybqizXenHqeM": {
-        "name": "Deal Additional Damage to Restrained Targets",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "PcQuzJ2DKDlp4FmA": {
-            "type": "damage",
-            "default": true,
-            "formula": "3d6",
-            "canCrit": false,
-            "damageType": "bludgeoning",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6",
-              "step": 2
-            }
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>A creature that starts its turn restrained by the tentacles takes 3d6 bludgeoning damage.</p><p><strong><em>Cast at Higher Levels.</em></strong>&nbsp;The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp"
-      }
-    },
-    "description": "<p>Starting At 15th level, you can innately cast @UUID[Compendium.a5e.a5e-spells.Item.67ex7mn5kkutvnqn]{Black Tentacles} at 4th level, requiring no component. You cannot use spell points to cast Black Tentacles.</p><p>Once you cast this spell using this feature, you can&rsquo;t use it again until you finish a long rest.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "theRuinStrider",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "longRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "1tezdj3hnyqcn2lf"
+	"folder": null,
+	"name": "Gift of the Eldritch",
+	"type": "feature",
+	"img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"aMaNys2ER5IVxo6U": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"K93jMR0xGufiDFPb": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"T9VFB4CcJ122hbCi": {
+						"ability": "dex",
+						"onSave": "",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"XB4OYpN1KliFWkhX": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"width": "20",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
+				"description": "<p>Writhing black tentacles fill the ground within the area turning it into difficult terrain. When a creature starts its turn in the area or enters the area for the first time on its turn, it takes 3d6 bludgeoning damage and is restrained by the tentacles unless it succeeds on a Dexterity saving throw. A creature that starts its turn restrained by the tentacles takes 3d6 bludgeoning damage.</p><p>A restrained creature can use its action to make an Acrobatics or Athletics check against the spell save DC, freeing itself on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"BNZ58DB9TA2RADKI": {
+				"name": "Deal Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"XTGaMWZxzQyUMicw": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d6",
+						"damageType": "bludgeoning",
+						"label": "",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6",
+							"step": 2
+						}
+					}
+				},
+				"prompts": {
+					"KcIlKeyKyeZ6hud9": {
+						"type": "effect",
+						"default": true,
+						"label": "Black Tentacles",
+						"effectId": "jtHRTP4hsdLzVW3U"
+					},
+					"7ghwBedcIUTwtt2E": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "On a save, the target takes no damage and is not restrained"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>When a creature starts its turn in the area or enters the area for the first time on its turn, it takes 3d6 bludgeoning damage and is restrained by the tentacles unless it succeeds on a Dexterity saving throw.</p><p><strong><em>Cast at Higher Levels.</em></strong>&nbsp;The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
+				"img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp"
+			},
+			"z6EoybqizXenHqeM": {
+				"name": "Deal Additional Damage to Restrained Targets",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"PcQuzJ2DKDlp4FmA": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d6",
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6",
+							"step": 2
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>A creature that starts its turn restrained by the tentacles takes 3d6 bludgeoning damage.</p><p><strong><em>Cast at Higher Levels.</em></strong>&nbsp;The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp"
+			}
+		},
+		"description": "<p>Starting At 15th level, you can innately cast @UUID[Compendium.a5e.a5e-spells.Item.67ex7mn5kkutvnqn]{Black Tentacles} at 4th level, requiring no component. You cannot use spell points to cast Black Tentacles.</p><p>Once you cast this spell using this feature, you can&rsquo;t use it again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "theRuinStrider",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "1tezdj3hnyqcn2lf"
 }

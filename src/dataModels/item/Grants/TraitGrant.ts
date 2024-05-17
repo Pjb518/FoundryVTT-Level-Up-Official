@@ -83,10 +83,11 @@ export default class TraitGrant extends BaseGrant {
 
   getSelectionComponentProps(data: any) {
     return {
-      base: data?.selected ?? this.traits.base ?? [],
+      base: this.traits.base ?? [],
       choices: this.traits.options,
       count: this.traits.total,
-      traitType: this.traits.traitType
+      traitType: this.traits.traitType,
+      selected: data?.selected ?? []
     };
   }
 

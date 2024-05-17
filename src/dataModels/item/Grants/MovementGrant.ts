@@ -74,13 +74,14 @@ export default class MovementGrant extends BaseGrant {
 
   getSelectionComponentProps(data: Record<string, any>) {
     return {
-      base: data?.selected ?? this.movementTypes.base ?? [],
+      base: this.movementTypes.base ?? [],
       bonus: this.bonus,
       choices: this.movementTypes.options ?? [],
       configObject: CONFIG.A5E.movementAbbreviations,
       count: this.movementTypes.total,
       unit: this.unit,
-      heading: 'Movement Grant Selection'
+      heading: 'Movement Grant Selection',
+      selected: data?.selected ?? []
     };
   }
 

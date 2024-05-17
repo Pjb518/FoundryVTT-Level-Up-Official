@@ -1,10 +1,10 @@
 import BaseGrant from './BaseGrant';
 
-import DocumentGrantSelectionDialog from '../../../apps/components/grants/DocumentGrantSelectionDialog.svelte';
+import FeatureGrantSelectionDialog from '../../../apps/components/grants/FeatureGrantSelectionDialog.svelte';
 import FeatureGrantConfig from '../../../apps/components/grants/FeatureGrantConfig.svelte';
 
 export default class FeatureGrant extends BaseGrant {
-  #component = DocumentGrantSelectionDialog;
+  #component = FeatureGrantSelectionDialog;
 
   #configComponent = FeatureGrantConfig;
 
@@ -13,8 +13,8 @@ export default class FeatureGrant extends BaseGrant {
   // Variables for the schema
 
   declare features: {
-    base: string[];
-    options: string[];
+    base: { uuid: string, limitedReselection: boolean, selectionLimit: number }[];
+    options: { uuid: string, limitedReselection: boolean, selectionLimit: number }[];
     total: number;
   };
 
@@ -25,11 +25,19 @@ export default class FeatureGrant extends BaseGrant {
       grantType: new fields.StringField({ required: true, initial: 'feature' }),
       features: new fields.SchemaField({
         base: new fields.ArrayField(
-          new fields.StringField({ required: true, initial: '' }),
+          new fields.SchemaField({
+            uuid: new fields.StringField({ required: true, initial: '' }),
+            limitedReselection: new fields.BooleanField({ required: true, initial: true }),
+            selectionLimit: new fields.NumberField({ nullable: false, initial: 1 })
+          }),
           { required: true, default: [] }
         ),
         options: new fields.ArrayField(
-          new fields.StringField({ required: true, initial: '' }),
+          new fields.SchemaField({
+            uuid: new fields.StringField({ required: true, initial: '' }),
+            limitedReselection: new fields.BooleanField({ required: true, initial: true }),
+            selectionLimit: new fields.NumberField({ nullable: false, initial: 1 })
+          }),
           { required: true, default: [] }
         ),
         total: new fields.NumberField({ required: true, initial: 0, integer: true })
@@ -63,10 +71,10 @@ export default class FeatureGrant extends BaseGrant {
 
   getSelectionComponentProps(data: any) {
     return {
-      base: data?.selected ?? this.features.base ?? [],
-      choices: this.features.options ?? [],
+      base: this.features.base,
+      choices: this.features.options,
       count: this.features.total,
-      documentType: this.#type
+      selected: data?.uuids ?? []
     };
   }
 
@@ -85,7 +93,7 @@ export default class FeatureGrant extends BaseGrant {
       'Configure Feature Grant',
       dialogData,
       this.#configComponent,
-      { width: 400 }
+      { width: 550 }
     );
   }
 }

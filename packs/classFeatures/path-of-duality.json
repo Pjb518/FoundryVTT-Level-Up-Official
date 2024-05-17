@@ -1,95 +1,96 @@
 {
-  "name": "Path of Duality",
-  "type": "feature",
-  "img": "icons/magic/light/beam-deflect-path-yellow.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p dir=\"ltr\">Finally at level 1, whenever you finish a long rest, choose one of the following two options:</p><ul><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\"><strong>Path of the Light.</strong> Until you finish a long rest, you gain an expertise die in Persuasion and your passive Perception score increases by an amount equal to your Intelligence modifier (minimum 1)</p></li><li dir=\"ltr\" aria-level=\"1\"><strong>Path of the Dark. </strong>Until you finish a long rest, you gain an expertise die in Deception and darkvision with a range of 60 feet. If you already have darkvision, its range increases by 60 feet instead.</li></ul>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "thematicToolkitItinerant",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "Archetype Mystic, Esper 1",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/light/beam-deflect-path-yellow.webp",
-      "origin": "Item.qbo302hh1n7s6fjd",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "7zZz0dPPN7RjaBH6",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Path of Light",
-      "_id": "b5iDUOowWjI9XWZ5",
-      "changes": [
-        {
-          "key": "system.skills.per.expertiseDice",
-          "value": "1",
-          "mode": 2,
-          "priority": 20
-        },
-        {
-          "key": "system.skills.prc.bonuses.passive",
-          "value": "5",
-          "mode": 2,
-          "priority": 20
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 86400,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "folder": null,
-  "flags": {},
-  "_id": "qbo302hh1n7s6fjd"
+	"name": "Path of Duality",
+	"type": "feature",
+	"img": "icons/magic/light/beam-deflect-path-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p dir=\"ltr\">Finally at level 1, whenever you finish a long rest, choose one of the following two options:</p><ul><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\"><strong>Path of the Light.</strong> Until you finish a long rest, you gain an expertise die in Persuasion and your passive Perception score increases by an amount equal to your Intelligence modifier (minimum 1)</p></li><li dir=\"ltr\" aria-level=\"1\"><strong>Path of the Dark. </strong>Until you finish a long rest, you gain an expertise die in Deception and darkvision with a range of 60 feet. If you already have darkvision, its range increases by 60 feet instead.</li></ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitItinerant",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "Archetype Mystic, Esper 1",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/light/beam-deflect-path-yellow.webp",
+			"origin": "Item.qbo302hh1n7s6fjd",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "7zZz0dPPN7RjaBH6",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Path of Light",
+			"_id": "b5iDUOowWjI9XWZ5",
+			"changes": [
+				{
+					"key": "system.skills.per.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": 20
+				},
+				{
+					"key": "system.skills.prc.bonuses.passive",
+					"value": "5",
+					"mode": 2,
+					"priority": 20
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_id": "qbo302hh1n7s6fjd"
 }

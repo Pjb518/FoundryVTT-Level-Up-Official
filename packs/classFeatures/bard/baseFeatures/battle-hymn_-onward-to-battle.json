@@ -2,7 +2,71 @@
 	"name": "Battle Hymn: Onward to Battle",
 	"type": "feature",
 	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+			"origin": "Item.HS8AavVMelOxFLKK",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ZjImfGKB4ebTi8Ga",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Battle Hymn: Onward to Battle",
+			"_id": "FvshcvojJNSh34sy",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"0\",\"positiveValue\":\"@original+40\",\"negativeValue\":\"0\"}",
+					"mode": 7,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"0\",\"positiveValue\":\"@original+40\",\"negativeValue\":\"0\"}",
+					"mode": 7,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.burrow.distance",
+					"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"0\",\"positiveValue\":\"@original+40\",\"negativeValue\":\"0\"}",
+					"mode": 7,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"0\",\"positiveValue\":\"@original+40\",\"negativeValue\":\"0\"}",
+					"mode": 7,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.swim.distance",
+					"value": "{\"comparisonOperator\":\">\",\"comparisonValue\":\"0\",\"positiveValue\":\"@original+40\",\"negativeValue\":\"0\"}",
+					"mode": 7,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target’s Speed increases by 40 feet.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -41,13 +105,21 @@
 					"quantity": 1,
 					"type": "creature"
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"EpBhCyDcIMxcBYcF": {
+						"type": "effect",
+						"default": true,
+						"effectId": "FvshcvojJNSh34sy",
+						"label": "Battle Hymn: Onward to Battle"
+					}
+				}
 			}
 		},
-		"description": "<p>The creature gains a 40 foot increase to Speed.</p>",
+		"description": "<p>The target&rsquo;s Speed increases by 40 feet.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "adventurersGuide",
+		"source": "",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -63,15 +135,16 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.018,
+			"version": 0.019,
 			"lastMigration": {
 				"version": {
-					"schema": 0.016,
+					"schema": 0.018,
 					"foundry": "11.315",
-					"system": "0.17.41"
+					"system": "0.18.11"
 				}
 			}
-		}
+		},
+		"classes": "bard"
 	},
 	"folder": null,
 	"_id": "zfb00h3gr85gramz"

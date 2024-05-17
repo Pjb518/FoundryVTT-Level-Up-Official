@@ -2,7 +2,40 @@
 	"name": "Battle Hymn: Call to Arms",
 	"type": "feature",
 	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+			"origin": "Item.VSBvptAzLWTOKqY0",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "T9mQYmm50UQ6by7t",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Battle Hymn: Call to Arms",
+			"_id": "NHiF2YuZEdpv57JP",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target can roll one additional weapon damage die with its weapon attacks. If the target makes at least one weapon attack on its turn and misses with all attacks, you can sustain this battle hymn for 1 round without expending a use of Bardic Inspiration.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -41,13 +74,21 @@
 					"quantity": 1,
 					"type": "creature"
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"PJfGEIMwVRtjl6K6": {
+						"type": "effect",
+						"default": true,
+						"effectId": "NHiF2YuZEdpv57JP",
+						"label": "Battle Hymn: Call to Arms"
+					}
+				}
 			}
 		},
-		"description": "<p>The creature can roll one additional weapon damage die on its weapon attacks. If the creature makes weapon attacks on its next turn and misses, you can sustain this battle hymn for 1 round without expending a use of Bardic Inspiration.</p>",
+		"description": "<p>The target can roll one additional weapon damage die with its weapon&nbsp;attacks. If the target makes at least one weapon attack on its turn and misses with all&nbsp;attacks, you can sustain this battle hymn for 1 round without expending a use of&nbsp;Bardic Inspiration.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "adventurersGuide",
+		"source": "",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -63,15 +104,16 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.018,
+			"version": 0.019,
 			"lastMigration": {
 				"version": {
-					"schema": 0.016,
+					"schema": 0.018,
 					"foundry": "11.315",
-					"system": "0.17.41"
+					"system": "0.18.11"
 				}
 			}
-		}
+		},
+		"classes": "bard"
 	},
 	"folder": null,
 	"_id": "w809qy93c5f33t2x"

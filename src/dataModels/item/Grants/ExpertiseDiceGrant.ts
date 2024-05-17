@@ -67,10 +67,11 @@ export default class ExpertiseDiceGrant extends BaseGrant {
 
   getSelectionComponentProps(data: any) {
     return {
-      base: data?.selected ?? this.keys.base ?? [],
+      base: this.keys.base ?? [],
       choices: this.keys.options,
       count: this.keys.total,
-      expertiseType: this.expertiseType
+      expertiseType: this.expertiseType,
+      selected: data?.selected ?? []
     };
   }
 

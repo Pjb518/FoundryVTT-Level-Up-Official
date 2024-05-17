@@ -5,7 +5,7 @@
 	"effects": [
 		{
 			"icon": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-			"origin": "Item.n37frzy7ja5gyo33",
+			"origin": "Item.nGtTC2w46Z1V2f27",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -14,7 +14,8 @@
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
-					}
+					},
+					"applyToSelf": true
 				}
 			},
 			"transfer": false,
@@ -33,12 +34,12 @@
 				"startTime": null,
 				"seconds": null,
 				"combat": null,
-				"rounds": null,
+				"rounds": 1,
 				"turns": 1,
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<ul>\n<li>A paralyzed creature is incapacitated and can't move or speak.</li>\n<li>A paralyzed creature automatically fails Strength and Dexterity saving throws. </li>\n<li>Attack rolls against a paralyzed creature have advantage.</li>\n<li>Any attack that hits a paralyzed creature is a critical hit if the attacker is within 5 feet.</li>\n</ul>",
 			"statuses": [
 				"paralyzed"
 			],
@@ -123,15 +124,16 @@
 		"prerequisite": "9th level",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.018,
+			"version": 0.019,
 			"lastMigration": {
 				"version": {
-					"schema": 0.016,
+					"schema": 0.018,
 					"foundry": "11.315",
-					"system": "0.17.41"
+					"system": "0.18.11"
 				}
 			}
-		}
+		},
+		"classes": "adept"
 	},
 	"folder": null,
 	"_id": "n37frzy7ja5gyo33"

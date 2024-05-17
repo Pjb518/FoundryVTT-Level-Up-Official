@@ -1,153 +1,154 @@
 {
-  "folder": null,
-  "name": "Mystical Retaliation",
-  "type": "feature",
-  "img": "icons/magic/nature/root-vine-fire-entangled-hand.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "H2QI7PNFJY4GjeVY": {
-        "name": "Mystical Retaliation (Melee)",
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "reactionTrigger": "Hit by an attack from a creature you can see within 120 feet"
-        },
-        "consumers": {
-          "8Wzu8343RDrij4Yf": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "pYnGvnFKcRPYve9q": {
-            "type": "attack",
-            "default": true,
-            "attackType": "meleeSpellAttack",
-            "proficient": true,
-            "ability": "spellcasting"
-          },
-          "Sr0WMINmjfxhSAYY": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d6",
-            "damageType": "force"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "gBWI5IotVkzVw54o": {
-            "range": "fiveFeet"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        }
-      },
-      "EJ141UIo2F2fwIEq": {
-        "name": "Mystical Retaliation (Ranged)",
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "reactionTrigger": "Hit by an attack from a creature you can see within 120 feet"
-        },
-        "consumers": {
-          "8Wzu8343RDrij4Yf": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "pYnGvnFKcRPYve9q": {
-            "type": "attack",
-            "default": true,
-            "attackType": "rangedSpellAttack",
-            "proficient": true,
-            "ability": "spellcasting"
-          },
-          "Sr0WMINmjfxhSAYY": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d6",
-            "damageType": "force"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "gBWI5IotVkzVw54o": {
-            "range": "long"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        }
-      }
-    },
-    "description": "<p>You are able to channel Nature's Magic as a way to&nbsp;steal your attackers potential to expand yours.</p><p>Starting at 7th level, when you are hit by an attack from a creature you can see within 120 feet, you can use your reaction to make a melee or ranged spell attack against the creature. On a hit, the creature takes 1d6 force damage, and you gain an equal amount of exertion point. The amount of exertion points gained this way increases by 1 when you reach 11th level, and again at 15th level.</p><p>When you use this feature, you can't cast spells other than cantrips until the end of your next turn.</p><p>When you use this feature, you can't use it again until you finish a long rest.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "theErrantSeer",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "longRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "bvmmoowq5k8eohr9"
+	"folder": null,
+	"name": "Mystical Retaliation",
+	"type": "feature",
+	"img": "icons/magic/nature/root-vine-fire-entangled-hand.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"H2QI7PNFJY4GjeVY": {
+				"name": "Mystical Retaliation (Melee)",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Hit by an attack from a creature you can see within 120 feet"
+				},
+				"consumers": {
+					"8Wzu8343RDrij4Yf": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"pYnGvnFKcRPYve9q": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"Sr0WMINmjfxhSAYY": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "force"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"gBWI5IotVkzVw54o": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"EJ141UIo2F2fwIEq": {
+				"name": "Mystical Retaliation (Ranged)",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Hit by an attack from a creature you can see within 120 feet"
+				},
+				"consumers": {
+					"8Wzu8343RDrij4Yf": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"pYnGvnFKcRPYve9q": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"Sr0WMINmjfxhSAYY": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "force"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"gBWI5IotVkzVw54o": {
+						"range": "long"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>You are able to channel Nature's Magic as a way to&nbsp;steal your attackers potential to expand yours.</p><p>Starting at 7th level, when you are hit by an attack from a creature you can see within 120 feet, you can use your reaction to make a melee or ranged spell attack against the creature. On a hit, the creature takes 1d6 force damage, and you gain an equal amount of exertion point. The amount of exertion points gained this way increases by 1 when you reach 11th level, and again at 15th level.</p><p>When you use this feature, you can't cast spells other than cantrips until the end of your next turn.</p><p>When you use this feature, you can't use it again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "theErrantSeer",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "bvmmoowq5k8eohr9"
 }

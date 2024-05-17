@@ -1,406 +1,407 @@
 {
-  "folder": null,
-  "name": "Greater Twisted Affliction (Fettered)",
-  "type": "feature",
-  "img": "icons/magic/unholy/projectile-spear-glow-pink.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "WVo96h6JL0A7pxgQ": {
-        "name": "Cast Spell",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "consumers": {
-          "gvQpIa3WO0mQPGKq": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "T9VFB4CcJ122hbCi": {
-            "ability": "dex",
-            "onSave": "",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "XB4OYpN1KliFWkhX": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "cube",
-          "width": "20",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": ""
-        },
-        "img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp"
-      },
-      "AwgrMMWvycWsGN35": {
-        "name": "Deal Damage",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "XTGaMWZxzQyUMicw": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "3d6",
-            "damageType": "bludgeoning",
-            "label": "",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6",
-              "step": 2
-            }
-          }
-        },
-        "prompts": {
-          "KcIlKeyKyeZ6hud9": {
-            "type": "effect",
-            "default": true,
-            "label": "Black Tentacles",
-            "effectId": "86DCodr4SzgoEb6y"
-          },
-          "7ghwBedcIUTwtt2E": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "On a save, the target takes no damage and is not restrained"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "duration": {
-          "unit": "",
-          "value": 1
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>When a creature starts its turn in the area or enters the area for the first time on its turn, it takes 3d6 bludgeoning damage and is restrained by the tentacles unless it succeeds on a Dexterity saving throw.</p><p><strong><em>Cast at Higher Levels.</em></strong>&nbsp;The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
-        "img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp"
-      },
-      "WFhtyjFvSHLOajs0": {
-        "name": "Deal Additional Damage to Restrained Targets",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "PcQuzJ2DKDlp4FmA": {
-            "type": "damage",
-            "default": true,
-            "formula": "3d6",
-            "canCrit": false,
-            "damageType": "bludgeoning",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6",
-              "step": 2
-            }
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>A creature that starts its turn restrained by the tentacles takes 3d6 bludgeoning damage.</p><p><strong><em>Cast at Higher Levels.</em></strong>&nbsp;The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp"
-      }
-    },
-    "description": "<p id=\"docs-internal-guid-dfb07ad6-7fff-5d5c-d15a-8bf6d1b2a34c\" dir=\"ltr\">Also at 10th level, you have learned to direct more of the power of your curse outward. What form this takes depends on your Artifact Affliction:</p><ul><li dir=\"ltr\"><strong>Unmoored:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.pdvg7c9emjgnib07]{Confusion} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Paranoid:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.4rawhkoa81x8uqs0]{Resilient Sphere} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Troubled:</strong> You can cast@UUID[Compendium.a5e.a5e-spells.Item.6y4rq48okutkormg]{Phantasmal Killer} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Fettered:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.67ex7mn5kkutvnqn]{Black Tentacles} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Gravebound:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.2q65v0xklhfx73to]{Blight} without using a spell slot once per long rest.</li></ul>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "thematicToolkitCarryTheDarkness",
-    "uses": {
-      "value": 1,
-      "max": "1",
-      "per": "longRest",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
-      "origin": "Item.8m17sp6akyllr3o5",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "jqb7BKBuOfS5Z1n8",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Confused",
-      "_id": "APjUmpvHpUXKHE3q",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"confused\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p>",
-      "statuses": [
-        "confused"
-      ],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
-      "origin": "Item.8m17sp6akyllr3o5",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "jqb7BKBuOfS5Z1n8",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Rattled",
-      "_id": "akprtVe9HKmWcxe3",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"rattled\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": 1,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "rattled"
-      ],
-      "folder": null
-    },
-    {
-      "icon": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
-      "origin": "Item.8m17sp6akyllr3o5",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "kIMKWG6qL4Rf5W7V"
-        }
-      },
-      "transfer": false,
-      "name": "Black Tentacles",
-      "_id": "C7myqYWRw4eMkp1Z",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"restrained\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "restrained"
-      ],
-      "tint": "#ffffff",
-      "folder": null
-    },
-    {
-      "icon": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
-      "origin": "Item.8m17sp6akyllr3o5",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "kIMKWG6qL4Rf5W7V"
-        }
-      },
-      "transfer": false,
-      "name": "Black Tentacles",
-      "_id": "86DCodr4SzgoEb6y",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"restrained\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "restrained"
-      ],
-      "tint": "#ffffff",
-      "folder": null
-    },
-    {
-      "icon": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
-      "origin": "Item.8m17sp6akyllr3o5",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "kIMKWG6qL4Rf5W7V"
-        }
-      },
-      "transfer": false,
-      "name": "Black Tentacles",
-      "_id": "knmgg0xMW0IU35o1",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"restrained\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "restrained"
-      ],
-      "tint": "#ffffff",
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "8m17sp6akyllr3o5"
+	"folder": null,
+	"name": "Greater Twisted Affliction (Fettered)",
+	"type": "feature",
+	"img": "icons/magic/unholy/projectile-spear-glow-pink.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"WVo96h6JL0A7pxgQ": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"gvQpIa3WO0mQPGKq": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"T9VFB4CcJ122hbCi": {
+						"ability": "dex",
+						"onSave": "",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"XB4OYpN1KliFWkhX": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"width": "20",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp"
+			},
+			"AwgrMMWvycWsGN35": {
+				"name": "Deal Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"XTGaMWZxzQyUMicw": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d6",
+						"damageType": "bludgeoning",
+						"label": "",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6",
+							"step": 2
+						}
+					}
+				},
+				"prompts": {
+					"KcIlKeyKyeZ6hud9": {
+						"type": "effect",
+						"default": true,
+						"label": "Black Tentacles",
+						"effectId": "86DCodr4SzgoEb6y"
+					},
+					"7ghwBedcIUTwtt2E": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "On a save, the target takes no damage and is not restrained"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>When a creature starts its turn in the area or enters the area for the first time on its turn, it takes 3d6 bludgeoning damage and is restrained by the tentacles unless it succeeds on a Dexterity saving throw.</p><p><strong><em>Cast at Higher Levels.</em></strong>&nbsp;The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
+				"img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp"
+			},
+			"WFhtyjFvSHLOajs0": {
+				"name": "Deal Additional Damage to Restrained Targets",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"PcQuzJ2DKDlp4FmA": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d6",
+						"canCrit": false,
+						"damageType": "bludgeoning",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6",
+							"step": 2
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>A creature that starts its turn restrained by the tentacles takes 3d6 bludgeoning damage.</p><p><strong><em>Cast at Higher Levels.</em></strong>&nbsp;The damage increases by 1d6 for every 2 slot levels above 4th.</p>",
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"img": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp"
+			}
+		},
+		"description": "<p id=\"docs-internal-guid-dfb07ad6-7fff-5d5c-d15a-8bf6d1b2a34c\" dir=\"ltr\">Also at 10th level, you have learned to direct more of the power of your curse outward. What form this takes depends on your Artifact Affliction:</p><ul><li dir=\"ltr\"><strong>Unmoored:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.pdvg7c9emjgnib07]{Confusion} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Paranoid:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.4rawhkoa81x8uqs0]{Resilient Sphere} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Troubled:</strong> You can cast@UUID[Compendium.a5e.a5e-spells.Item.6y4rq48okutkormg]{Phantasmal Killer} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Fettered:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.67ex7mn5kkutvnqn]{Black Tentacles} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Gravebound:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.2q65v0xklhfx73to]{Blight} without using a spell slot once per long rest.</li></ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitCarryTheDarkness",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+			"origin": "Item.8m17sp6akyllr3o5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jqb7BKBuOfS5Z1n8",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Confused",
+			"_id": "APjUmpvHpUXKHE3q",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p>",
+			"statuses": [
+				"confused"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+			"origin": "Item.8m17sp6akyllr3o5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jqb7BKBuOfS5Z1n8",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"_id": "akprtVe9HKmWcxe3",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
+			"origin": "Item.8m17sp6akyllr3o5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kIMKWG6qL4Rf5W7V"
+				}
+			},
+			"transfer": false,
+			"name": "Black Tentacles",
+			"_id": "C7myqYWRw4eMkp1Z",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"restrained"
+			],
+			"tint": "#ffffff",
+			"folder": null
+		},
+		{
+			"icon": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
+			"origin": "Item.8m17sp6akyllr3o5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kIMKWG6qL4Rf5W7V"
+				}
+			},
+			"transfer": false,
+			"name": "Black Tentacles",
+			"_id": "86DCodr4SzgoEb6y",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"restrained"
+			],
+			"tint": "#ffffff",
+			"folder": null
+		},
+		{
+			"icon": "icons/creatures/tentacles/tentacles-octopus-black-pink.webp",
+			"origin": "Item.8m17sp6akyllr3o5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kIMKWG6qL4Rf5W7V"
+				}
+			},
+			"transfer": false,
+			"name": "Black Tentacles",
+			"_id": "knmgg0xMW0IU35o1",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"restrained"
+			],
+			"tint": "#ffffff",
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "8m17sp6akyllr3o5"
 }

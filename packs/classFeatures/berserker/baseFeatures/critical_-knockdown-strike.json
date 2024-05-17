@@ -1,8 +1,46 @@
 {
 	"name": "Critical: Knockdown Strike",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/control/silhouette-fall-slip-prone.webp",
+			"origin": "Item.7nBbtscBadfZCM8Y",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2C0fFasoEoB6Ukjm"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"_id": "txaDOOdHGKrYVkmM",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -17,15 +55,15 @@
 		},
 		"actions": {
 			"2C0fFasoEoB6Ukjm": {
-				"name": "Critical: Knockdown Strike",
+				"name": "Knockdown Strike",
 				"activation": {
 					"cost": "",
 					"type": "special",
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "instantaneous",
-					"value": ""
+					"unit": "",
+					"value": 1
 				},
 				"area": {
 					"shape": "",
@@ -39,18 +77,23 @@
 				"prompts": {
 					"jkMedhklZJzJzGm6": {
 						"ability": "str",
-						"onSave": "No effect",
+						"onSave": "",
 						"saveDC": {
 							"type": "custom",
 							"bonus": "8 + @prof + @con.mod"
 						},
 						"type": "savingThrow"
+					},
+					"H27Fw4KV6L9bEu2J": {
+						"type": "effect",
+						"default": true,
+						"effectId": "txaDOOdHGKrYVkmM"
 					}
 				},
 				"consumers": {}
 			}
 		},
-		"description": "<p>ith the right angle, your attack knocks the target sprawling. When you score a critical hit, the target makes a Strength saving throw or is knocked prone. This Furious Critical can be taken a second time to combine its effects with&nbsp;Overbearing Hit.</p>",
+		"description": "<p>With the right angle, your attack knocks the target sprawling. When you score a critical hit, the target makes a Strength saving throw or is knocked prone. This Furious Critical can be taken a second time to combine its effects with @UUID[Compendium.a5e.a5e-class-features.Item.3ciin5fve17u0jyc]{Overbearing Hit}.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -69,15 +112,16 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.018,
+			"version": 0.019,
 			"lastMigration": {
 				"version": {
-					"schema": 0.016,
+					"schema": 0.018,
 					"foundry": "11.315",
-					"system": "0.17.41"
+					"system": "0.18.11"
 				}
 			}
-		}
+		},
+		"classes": "berserker"
 	},
 	"folder": null,
 	"_id": "5hesstjya6hc5qro"

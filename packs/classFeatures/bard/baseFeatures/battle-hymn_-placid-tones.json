@@ -2,7 +2,40 @@
 	"name": "Battle Hymn: Placid Tones",
 	"type": "feature",
 	"img": "icons/skills/trades/music-notes-sound-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+			"origin": "Item.WKxBYokGwfmE975x",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "9rCM5a3Q69pO7XEk",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Battle Hymn: Placid Tones",
+			"_id": "UqhJFCA1yMTLMXLA",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target gains an expertise die on Intelligence, Wisdom, and Charisma checks.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -41,13 +74,21 @@
 					"quantity": 1,
 					"type": "creature"
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {
+					"9SwsSgAKxWLpfbyE": {
+						"type": "effect",
+						"default": true,
+						"effectId": "UqhJFCA1yMTLMXLA",
+						"label": "Battle Hymn: Placid Tones"
+					}
+				}
 			}
 		},
-		"description": "<p>The creature gains an expertise die on Intelligence, Wisdom, and Charisma checks.</p>",
+		"description": "<p>The target gains an expertise die on Intelligence, Wisdom, and&nbsp;Charisma checks.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "adventurersGuide",
+		"source": "",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -63,15 +104,16 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.018,
+			"version": 0.019,
 			"lastMigration": {
 				"version": {
-					"schema": 0.016,
+					"schema": 0.018,
 					"foundry": "11.315",
-					"system": "0.17.41"
+					"system": "0.18.11"
 				}
 			}
-		}
+		},
+		"classes": "bard"
 	},
 	"folder": null,
 	"_id": "fjy7opusafsr55r1"

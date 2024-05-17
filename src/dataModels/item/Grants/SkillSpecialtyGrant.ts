@@ -75,10 +75,11 @@ export default class SkillSpecialtyGrant extends BaseGrant {
 
   getSelectionComponentProps(data: any) {
     return {
-      base: data?.selected ?? this.specialties.base ?? [],
+      base: this.specialties.base ?? [],
       choices: this.specialties.options,
       count: this.specialties.total,
-      skill: this.skill
+      skill: this.skill,
+      selected: data?.selected ?? []
     };
   }
 

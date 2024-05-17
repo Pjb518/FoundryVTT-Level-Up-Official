@@ -13,6 +13,7 @@
     export let base: string[];
     export let choices: string[];
     export let count: number;
+    export let selected: string[];
     export let traitType: string;
 
     function getGrantSummary(selected: string[]) {
@@ -44,7 +45,7 @@
     const configObject = prepareTraitGrantConfigObject();
     let choicesLocked = true;
 
-    $: selected = [...base];
+    $: selected = [...base, ...selected];
     $: totalCount = base.length + count;
     $: remainingSelections = totalCount - selected.length;
     $: summary = getGrantSummary(selected);
