@@ -1,137 +1,123 @@
 {
-  "name": "Corrosion",
-  "type": "feature",
-  "img": "icons/svg/item-bag.svg",
-  "effects": [
-    {
-      "icon": "icons/svg/item-bag.svg",
-      "origin": "Item.SV5P8TSoJ7jXjD8d",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "nBPjzCP56VGas1CB",
-          "applyToSelf": false,
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Corrosion",
-      "_id": "JsyJx2tzu9HhhuY0",
-      "changes": [
-        {
-          "key": "system.attributes.ac.changes.bonuses.value",
-          "value": "2[Corrosion]",
-          "mode": 3,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": 1,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>If that creature takes acid damage from the spell, its Armor Class is reduced by 2 until the end of your next turn.</p>",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "data-world",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "nBPjzCP56VGas1CB": {
-        "name": "Corrosion",
-        "activation": {
-          "cost": 1,
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "round",
-          "value": 1
-        },
-        "ranges": {},
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "consumers": {},
-        "prompts": {
-          "7jGVPrzx4iXTegZf": {
-            "type": "effect",
-            "default": true,
-            "effectId": "JsyJx2tzu9HhhuY0"
-          }
-        }
-      }
-    },
-    "description": "<p>When you cast a spell that deals acid damage, you can spend 1 sorcery point and choose one creature you can see. If that creature takes acid damage from the spell, its Armor Class is reduced by 2 until the end of your next turn.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": "sorcerer"
-  },
-  "folder": "DnwYxYpOESCgvDJZ",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715687294276,
-    "modifiedTime": 1715759117471,
-    "lastModifiedBy": "SkNEzSES7ahAJz45"
-  }
+	"name": "Corrosion",
+	"type": "feature",
+	"img": "icons/svg/item-bag.svg",
+	"effects": [
+		{
+			"icon": "icons/svg/item-bag.svg",
+			"origin": "Item.SV5P8TSoJ7jXjD8d",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "nBPjzCP56VGas1CB",
+					"applyToSelf": false,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Corrosion",
+			"_id": "JsyJx2tzu9HhhuY0",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2[Corrosion]",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If that creature takes acid damage from the spell, its Armor Class is reduced by 2 until the end of your next turn.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"nBPjzCP56VGas1CB": {
+				"name": "Corrosion",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"ranges": {},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"consumers": {},
+				"prompts": {
+					"7jGVPrzx4iXTegZf": {
+						"type": "effect",
+						"default": true,
+						"effectId": "JsyJx2tzu9HhhuY0"
+					}
+				}
+			}
+		},
+		"description": "<p>When you cast a spell that deals acid damage, you can spend 1 sorcery point and choose one creature you can see. If that creature takes acid damage from the spell, its Armor Class is reduced by 2 until the end of your next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "sorcerer"
+	},
+	"folder": null,
+	"_id": "rninqg6ekkggcukt"
 }

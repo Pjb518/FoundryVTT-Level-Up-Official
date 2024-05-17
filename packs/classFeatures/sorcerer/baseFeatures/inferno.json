@@ -1,134 +1,120 @@
 {
-  "name": "Inferno",
-  "type": "feature",
-  "img": "icons/svg/item-bag.svg",
-  "effects": [
-    {
-      "icon": "icons/svg/item-bag.svg",
-      "origin": "Item.MdEffDgaAERZDg6a",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "ap7EXnUX5iwJQJ9D"
-        }
-      },
-      "transfer": false,
-      "name": "Ongoing Fire",
-      "_id": "DYZDTrSLWABVgbVY",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Creature is taking 2d4 ongoing fire damage until it uses an action to put itself out or this effect ends.</p>",
-      "statuses": []
-    }
-  ],
-  "flags": {
-    "core": {},
-    "exportSource": {
-      "world": "data-world",
-      "system": "a5e",
-      "coreVersion": "11.315",
-      "systemVersion": "0.18.11"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "ap7EXnUX5iwJQJ9D": {
-        "name": "Inferno",
-        "activation": {
-          "cost": 1,
-          "type": "",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "",
-          "value": 1
-        },
-        "ranges": {},
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "rolls": {
-          "PetfJEcfZ57j8zUe": {
-            "canCrit": false,
-            "damageType": "fire",
-            "formula": "2d4",
-            "name": "Ongoing Fire",
-            "type": "damage"
-          }
-        },
-        "consumers": {},
-        "prompts": {
-          "YOjEcwNA7XC8CAfv": {
-            "type": "effect",
-            "default": true,
-            "effectId": "DYZDTrSLWABVgbVY"
-          }
-        }
-      }
-    },
-    "description": "<p>When you cast a spell that deals fire damage, you can spend 1 sorcery point and choose one creature you can see. If that creature takes fire damage from the spell, it is also set ablaze, taking 2d4 ongoing fire damage for a number of rounds equal to the spell’s level, or until it uses an action to put itself out.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": "sorcerer"
-  },
-  "folder": "DnwYxYpOESCgvDJZ",
-  "_stats": {
-    "systemId": "a5e",
-    "systemVersion": "0.18.11",
-    "coreVersion": "11.315",
-    "createdTime": 1715687301815,
-    "modifiedTime": 1715759125302,
-    "lastModifiedBy": "SkNEzSES7ahAJz45"
-  }
+	"name": "Inferno",
+	"type": "feature",
+	"img": "icons/svg/item-bag.svg",
+	"effects": [
+		{
+			"icon": "icons/svg/item-bag.svg",
+			"origin": "Item.MdEffDgaAERZDg6a",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ap7EXnUX5iwJQJ9D"
+				}
+			},
+			"transfer": false,
+			"name": "Ongoing Fire",
+			"_id": "DYZDTrSLWABVgbVY",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Creature is taking 2d4 ongoing fire damage until it uses an action to put itself out or this effect ends.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ap7EXnUX5iwJQJ9D": {
+				"name": "Inferno",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"rolls": {
+					"PetfJEcfZ57j8zUe": {
+						"canCrit": false,
+						"damageType": "fire",
+						"formula": "2d4",
+						"name": "Ongoing Fire",
+						"type": "damage"
+					}
+				},
+				"consumers": {},
+				"prompts": {
+					"YOjEcwNA7XC8CAfv": {
+						"type": "effect",
+						"default": true,
+						"effectId": "DYZDTrSLWABVgbVY"
+					}
+				}
+			}
+		},
+		"description": "<p>When you cast a spell that deals fire damage, you can spend 1 sorcery point and choose one creature you can see. If that creature takes fire damage from the spell, it is also set ablaze, taking 2d4 ongoing fire damage for a number of rounds equal to the spell’s level, or until it uses an action to put itself out.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "sorcerer"
+	},
+	"folder": null,
+	"_id": "4trx0rlh3upbnyza"
 }
