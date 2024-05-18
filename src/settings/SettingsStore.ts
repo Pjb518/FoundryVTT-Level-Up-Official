@@ -181,24 +181,6 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
-        key: 'diagonalRule',
-        options: {
-          name: 'A5E.settings.diagonalRule',
-          hint: 'A5E.settings.hints.diagonalRule',
-          scope: scope.world,
-          config: true,
-          default: 'normal',
-          type: String,
-          choices: {
-            normal: 'A5E.settings.diagonalRuleNormal',
-            euclidean: 'A5E.settings.diagonalRuleEuclidean',
-            5105: 'A5E.settings.diagonalRuleAlternating'
-          },
-          onChange: (rule) => { canvas.grid.diagonalRule = rule; }
-        }
-      },
-      {
-        namespace,
         key: 'placeItemTemplateDefault',
         options: {
           name: 'A5E.settings.placeItemTemplateDefault',
