@@ -1,0 +1,138 @@
+{
+  "Actor": {
+    "types": [
+      "character",
+      "npc"
+    ]
+  },
+  "Item": {
+    "types": [
+      "feature",
+      "maneuver",
+      "object",
+      "spell",
+      "background",
+      "culture",
+      "class",
+      "destiny",
+      "heritage"
+    ],
+    "templates": {
+      "base": {
+        "actions": {},
+        "description": "",
+        "favorite": false,
+        "secretDescription": "",
+        "source": "",
+        "uses": {
+          "value": null,
+          "max": "",
+          "per": null,
+          "recharge": {
+            "formula": "1d6",
+            "threshold": "6"
+          }
+        }
+      },
+      "armorClass": {
+        "ac": {
+          "baseFormula": "",
+          "formula": "",
+          "grantsDisadvantage": false,
+          "maxDex": 0,
+          "minStr": 0,
+          "mode": 2,
+          "requiresNoShield": false,
+          "requiresUnarmored": false
+        }
+      },
+      "schema": {
+        "schema": {
+          "version": null,
+          "lastMigration": null
+        }
+      }
+    },
+    "feature": {
+      "templates": [
+        "armorClass",
+        "base",
+        "schema"
+      ],
+      "concentration": false,
+      "featureType": "",
+      "grants": {},
+      "prerequisite": "",
+      "requiresBloodied": false
+    },
+    "maneuver": {
+      "templates": [
+        "base",
+        "schema"
+      ],
+      "concentration": false,
+      "degree": 0,
+      "exertionCost": 0,
+      "isStance": false,
+      "prerequisite": "",
+      "tradition": ""
+    },
+    "object": {
+      "templates": [
+        "armorClass",
+        "base",
+        "schema"
+      ],
+      "ammunitionProperties": [],
+      "armorCategory": "",
+      "armorProperties": [],
+      "attuned": false,
+      "bulky": false,
+      "craftingComponents": "",
+      "containerId": "",
+      "damagedState": 0,
+      "equippedState": 0,
+      "items": {},
+      "materialProperties": [],
+      "objectType": "",
+      "plotItem": false,
+      "price": 0,
+      "proficient": true,
+      "quantity": 1,
+      "rarity": "mundane",
+      "requiresAttunement": false,
+      "shieldCategory": "",
+      "shieldProperties": [],
+      "unidentified": false,
+      "unidentifiedDescription": "",
+      "unidentifiedName": "",
+      "weaponProperties": [],
+      "weight": 0
+    },
+    "spell": {
+      "templates": [
+        "base",
+        "schema"
+      ],
+      "classes": [],
+      "components": {
+        "vocalized": false,
+        "seen": false,
+        "material": false
+      },
+      "concentration": false,
+      "level": 0,
+      "materials": "",
+      "materialsConsumed": false,
+      "prepared": false,
+      "prerequisite": "",
+      "rare": false,
+      "requiresBloodied": false,
+      "ritual": false,
+      "schools": {
+        "primary": "abjuration",
+        "secondary": []
+      }
+    }
+  }
+}
