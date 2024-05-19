@@ -1,154 +1,154 @@
 {
-	"folder": null,
-	"name": "Searing Flesh: Fire (Elemental Defense)",
-	"type": "feature",
-	"img": "icons/magic/fire/flame-burning-fist-strike.webp",
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"2b47FeVFBoJKSrXu": {
-				"name": "Searing Flesh",
-				"activation": {
-					"type": "special"
-				},
-				"consumers": {},
-				"rolls": {
-					"CShFYYuJRoIZAo10": {
-						"type": "damage",
-						"default": true,
-						"formula": "@spellcasting.mod",
-						"damageType": "fire"
-					},
-					"arIA6HgnrKowckgN": {
-						"type": "damage",
-						"default": false,
-						"formula": "1d6 + @spellcasting.mod",
-						"damageType": "fire",
-						"label": "10th level"
-					},
-					"Az7cuEdXdLoki7YY": {
-						"type": "damage",
-						"default": false,
-						"formula": "2d6 + @spellcasting.mod",
-						"damageType": "fire",
-						"label": "18th level"
-					}
-				},
-				"prompts": {
-					"NblaiwbKNVD3u9hg": {
-						"type": "savingThrow",
-						"default": false,
-						"ability": "wis",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"label": "10th level"
-					},
-					"h80p43MKycrT9Vbz": {
-						"type": "generic",
-						"default": false,
-						"label": "18th level - Ongoing Fire Damage",
-						"formula": "1d8"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"descriptionOutputs": [
-					"action"
-				],
-				"duration": {
-					"unit": "",
-					"value": 1
-				},
-				"ranges": {
-					"0WPE0ozN3rKw4pXx": {
-						"range": "self"
-					}
-				}
-			}
-		},
-		"description": "<p id=\"docs-internal-guid-ab087d17-7fff-9826-b4a1-a666d0722f3b\" dir=\"ltr\">You can defend yourself with searing flesh or protective flames. When you are hit by a melee attack, your attacker takes fire damage from your burning aura equal to your spellcasting ability bonus. You emanate bright light in a 30-foot radius, and dim light for another 30 feet. You can activate and deactivate this ability as an action.</p>\n<p dir=\"ltr\">At 10th level, when a creature is damaged by your Searing Flesh, it must make a Wisdom saving throw against your spell save DC or be frightened of you until the end of its next turn. The base damage of searing flesh increases to 1d6 + your spellcasting ability bonus.</p>\n<p dir=\"ltr\">At 18th level, when a creature is damaged by your Searing Flesh it catches fire. The creature takes 1d8 ongoing fire damage for 1 minute; it can continue to make this save to end the effect at the end of its turn, or end the effect with an action on its turn. Also, the base damage of searing flesh increases to 2d6 + your spellcasting ability bonus.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "[object Object]",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": null
-		},
-		"classes": "elementalist"
-	},
-	"effects": [
-		{
-			"icon": "icons/magic/fire/flame-burning-fist-strike.webp",
-			"origin": "Item.N0a8Ow6HJTRmSNwL",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse"
-				}
-			},
-			"transfer": false,
-			"name": "Searing Flesh",
-			"_id": "mFICSAoamqGxmaHS",
-			"changes": [
-				{
-					"key": "@token.light.bright",
-					"mode": 5,
-					"value": "60",
-					"priority": null
-				},
-				{
-					"key": "@token.light.dim",
-					"mode": 5,
-					"value": "30",
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		}
-	],
-	"flags": {},
-	"_id": "r4nbkonkeme3d6uo"
+  "folder": null,
+  "name": "Searing Flesh: Fire (Elemental Defense)",
+  "type": "feature",
+  "img": "icons/magic/fire/flame-burning-fist-strike.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "2b47FeVFBoJKSrXu": {
+        "name": "Searing Flesh",
+        "activation": {
+          "type": "special"
+        },
+        "consumers": {},
+        "rolls": {
+          "CShFYYuJRoIZAo10": {
+            "type": "damage",
+            "default": true,
+            "formula": "@spellcasting.mod",
+            "damageType": "fire"
+          },
+          "arIA6HgnrKowckgN": {
+            "type": "damage",
+            "default": false,
+            "formula": "1d6 + @spellcasting.mod",
+            "damageType": "fire",
+            "label": "10th level"
+          },
+          "Az7cuEdXdLoki7YY": {
+            "type": "damage",
+            "default": false,
+            "formula": "2d6 + @spellcasting.mod",
+            "damageType": "fire",
+            "label": "18th level"
+          }
+        },
+        "prompts": {
+          "NblaiwbKNVD3u9hg": {
+            "type": "savingThrow",
+            "default": false,
+            "ability": "wis",
+            "saveDC": {
+              "type": "spellcasting"
+            },
+            "label": "10th level"
+          },
+          "h80p43MKycrT9Vbz": {
+            "type": "generic",
+            "default": false,
+            "label": "18th level - Ongoing Fire Damage",
+            "formula": "1d8"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "descriptionOutputs": [
+          "action"
+        ],
+        "duration": {
+          "unit": "",
+          "value": 1
+        },
+        "ranges": {
+          "0WPE0ozN3rKw4pXx": {
+            "range": "self"
+          }
+        }
+      }
+    },
+    "description": "<p id=\"docs-internal-guid-ab087d17-7fff-9826-b4a1-a666d0722f3b\" dir=\"ltr\">You can defend yourself with searing flesh or protective flames. When you are hit by a melee attack, your attacker takes fire damage from your burning aura equal to your spellcasting ability bonus. You emanate bright light in a 30-foot radius, and dim light for another 30 feet. You can activate and deactivate this ability as an action.</p>\n<p dir=\"ltr\">At 10th level, when a creature is damaged by your Searing Flesh, it must make a Wisdom saving throw against your spell save DC or be frightened of you until the end of its next turn. The base damage of searing flesh increases to 1d6 + your spellcasting ability bonus.</p>\n<p dir=\"ltr\">At 18th level, when a creature is damaged by your Searing Flesh it catches fire. The creature takes 1d8 ongoing fire damage for 1 minute; it can continue to make this save to end the effect at the end of its turn, or end the effect with an action on its turn. Also, the base damage of searing flesh increases to 2d6 + your spellcasting ability bonus.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": null
+    },
+    "classes": "elementalist"
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/fire/flame-burning-fist-strike.webp",
+      "origin": "Item.N0a8Ow6HJTRmSNwL",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse"
+        }
+      },
+      "transfer": false,
+      "name": "Searing Flesh",
+      "_id": "mFICSAoamqGxmaHS",
+      "changes": [
+        {
+          "key": "@token.light.bright",
+          "mode": 5,
+          "value": "60",
+          "priority": null
+        },
+        {
+          "key": "@token.light.dim",
+          "mode": 5,
+          "value": "30",
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "_id": "r4nbkonkeme3d6uo"
 }
