@@ -1,0 +1,158 @@
+{
+	"folder": null,
+	"name": "Elemental Focus: Water (Expand Element)",
+	"type": "feature",
+	"img": "icons/magic/water/projectile-ice-snowball.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Ni4aSdblPrHYr6zx": {
+				"name": "Cold Blast",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"FjY3y1OU4lMAcuzL": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"M2kadX27uguQXr0f": {
+						"type": "damage",
+						"default": true,
+						"formula": "round(@level/2)d6 + @spellcasting.mod",
+						"damageType": "cold"
+					}
+				},
+				"prompts": {
+					"PKJJx6HfFkKJH0dk": {
+						"type": "effect",
+						"default": true,
+						"effectId": "9MiQEIdgDgKP8dLd",
+						"label": "Slowing"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"NP1PMrLzOC4oO4Yk": {
+						"range": "medium"
+					}
+				},
+				"img": "icons/magic/water/projectile-ice-snowball.webp",
+				"description": "<p><span id=\"docs-internal-guid-bbc35d25-7fff-2bdf-724a-2b35ee47d03b\"><strong>Slowing:</strong> On hit, the target's speeds are reduced by 10 ft.</span></p>"
+			}
+		},
+		"description": "<p><span id=\"docs-internal-guid-871610b8-7fff-e567-5108-722751463cde\">If you choose Elemental Focus for your element, you gain access to a Focused Blast.</span></p>\n<p id=\"docs-internal-guid-89a77d71-7fff-1d70-d659-03d2f02bc8cc\" dir=\"ltr\">You can gain this ability multiple times, but for a different element each time.</p>\n<p dir=\"ltr\">A Focused Blast is a more focused and powerful version of a pure Elemental Blast.. You must possess Elemental Focus in an element to use its Focused Blast. Focused Blasts have different damage types and properties than their basic counterparts.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "[object Object]",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "Elemental Affinity in Water",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "elementalist"
+	},
+	"effects": [
+		{
+			"icon": "icons/svg/downgrade.svg",
+			"origin": "Item.fA5AqfcLjZziq82i",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse"
+				}
+			},
+			"transfer": false,
+			"name": "Slowing",
+			"_id": "9MiQEIdgDgKP8dLd",
+			"changes": [
+				{
+					"key": "system.attributes.movement.burrow.distance",
+					"mode": 2,
+					"value": "-10",
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"mode": 2,
+					"value": "-10",
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"mode": 2,
+					"value": "-10",
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.swim.distance",
+					"mode": 2,
+					"value": "-10",
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"mode": 2,
+					"value": "-10",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "vsfbu4bv6ui8hgo2"
+}

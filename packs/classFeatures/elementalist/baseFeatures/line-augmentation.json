@@ -1,0 +1,101 @@
+{
+	"folder": null,
+	"name": "Line Augmentation",
+	"type": "feature",
+	"img": "icons/magic/fire/beam-jet-stream-trails-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"BOzbDXC2RF1Ixyyp": {
+				"name": "Line Augmentation",
+				"activation": {},
+				"consumers": {
+					"uyqjS9rrmA3TczSI": {
+						"type": "spell",
+						"default": true,
+						"mode": "pointsOnly",
+						"spellLevel": 1,
+						"points": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"45Dbn8Spj1f6bYix": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"ranges": {
+					"ywFf2fiFTlqajZob": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "line",
+					"quantity": 1,
+					"length": 60,
+					"width": 5,
+					"placeTemplate": true,
+					"scaling": {
+						"mode": "spellPoints",
+						"formula": {
+							"length": "20"
+						}
+					}
+				}
+			}
+		},
+		"description": "<p><em><span id=\"docs-internal-guid-548cd743-7fff-402a-3347-3b762b29080f\"><strong>Type:</strong> Shape; <strong>Level:</strong> 5</span></em></p>\n<p><span id=\"docs-internal-guid-d5b2af08-7fff-ad52-ce7a-0befcd717d0e\">By spending 3 spell points, your blast becomes a 60-ft line, with a range of self, damaging all creatures and objects in the area. Targets make a Dexterity saving throw, taking half damage on a successful save. For every 1 additional spell point you spend, increase the size of the line by 20-ft.</span></p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "[object Object]",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "elementalist"
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "ytspprxa3xg5628r"
+}
