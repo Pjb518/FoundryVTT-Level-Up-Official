@@ -166,24 +166,31 @@ export default class BaseItemA5e extends Item {
     super._onDelete(data, options, user);
   }
 
-  static async _onCreateDocuments(items, context) {
-    if (!(context.parent instanceof Actor)) return Item._onCreateDocuments(items, context);
+  static async _onCreateOperation(documents, operation, user) {
+    if (game.user.id !== user.id) return Item._onCreateOperation(documents, operation, user);
+
+    // eslint-disable-next-line no-undef
+    const parent = fromUuidSync(operation.parentUuid) ?? {};
+    if (!(parent instanceof Actor)) {
+      return Item._onCreateOperation(documents, operation, user);
+    }
+
     const toCreate = [];
-    items.forEach((item) => {
+    documents.forEach((item) => {
       item.effects.forEach((effect) => {
         const isPassive = effect.flags?.a5e?.transferType === 'passive';
         if (!isPassive) return;
 
-        const effectData = effect.toJSON();
+        const effectData = effect.toObject();
         effectData.origin = item.uuid;
         toCreate.push(effectData);
       });
     });
 
-    if (!toCreate.length) return [];
+    if (!toCreate.length) return Item._onCreateOperation(documents, operation, user);
     const cls = getDocumentClass('ActiveEffect');
-    cls.createDocuments(toCreate, context);
+    await cls.createDocuments(toCreate, operation);
 
-    return Item._onCreateDocuments(items, context);
+    return Item._onCreateOperation(documents, operation, user);
   }
 }
