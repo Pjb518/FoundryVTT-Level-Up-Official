@@ -17,7 +17,7 @@
         const { content } = event.detail;
 
         $document.update({
-            [updatePath]: content === "<p></p>" ? "" : content,
+            [updatePath]: content === "" ? "" : content,
         });
     }
 
