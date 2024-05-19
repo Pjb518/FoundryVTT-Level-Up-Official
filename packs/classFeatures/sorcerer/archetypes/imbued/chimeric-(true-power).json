@@ -1,0 +1,131 @@
+{
+	"name": "Chimeric (True Power)",
+	"type": "feature",
+	"img": "icons/creatures/magical/humanoid-silhouette-glowing-pink.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"5zAXKCZJZQ81Yswg": {
+				"name": "Wing Buffet (Chimeric)",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"4ZUxQ8M9tnOWmDTp": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d8+@str.mod",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {
+					"QG1YkAhyNqkJTaUT": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Halves damage, negates prone, negates push"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"YmVRhDcNiG0ACDha": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"length": 4,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>At 18th level your transformation has finally reached its peak. You gain one of the following abilities based on what you chose for your twisted mutation.</p>\n<p><strong>Chimeric</strong>: Your fly speed increases to 120ft and you gain a Wing Buffet attack as an action. All creatures in a 20ft cone must make a Strength save or take 4d8+Str bludgeoning damage and be knocked prone and pushed 15ft away from you. On a successful save they take half damage and are not knocked prone.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "sorcerer"
+	},
+	"effects": [
+		{
+			"icon": "icons/svg/aura.svg",
+			"origin": "Item.TBLdKazp7R1BQnVd",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Chimeric",
+			"_id": "BXU2rCn2hVo5F8yo",
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"mode": 5,
+					"value": "120",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "z5gr89rgp4raqwmp"
+}

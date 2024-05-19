@@ -1,0 +1,94 @@
+{
+	"name": "Baleful Gaze (Bonded Power)",
+	"type": "feature",
+	"img": "icons/magic/symbols/triangle-glow-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"cUi8V6KyiBof2uGj": {
+				"name": "Baleful Gaze",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"0gt5OtyGX6lvwS5e": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"oiKdb3JrCbpLCDFQ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Negates stunned"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "special"
+				},
+				"ranges": {
+					"xNmTCKhAOZPwbFIq": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"length": 3
+				}
+			}
+		},
+		"description": "<p>Also at 1st level you gain a special ability tied to the experiments that were pressed upon you. Your bonded power must be of the same line as your flesh and bone selection.</p>\n<p><strong>Baleful Gaze</strong>: As an action you may attempt to stun all creatures in a 15ft cone. Creatures in the area must make a Constitution save against your spell DC. On a failure they are stunned until the beginning of their next turn. You may use this ability once per short rest, or expend a sorcery point as a bonus action to recover use of it.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "sorcerer"
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "kp2hj80bzmk9rmj6"
+}
