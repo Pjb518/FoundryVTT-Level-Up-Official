@@ -3,7 +3,6 @@
     import { localize } from "#runtime/svelte/helper";
 
     import DeletionConfirmationDialog from "../dialogs/initializers/DeletionConfirmationDialog";
-    import { get } from "svelte/store";
 
     export let effect;
 
@@ -44,8 +43,7 @@
 
         const action = $doc.system.actions[actionId];
         const prompt = Object.entries(action?.prompts ?? {}).find(
-            ([, prompt]) =>
-                prompt.type === "effect" && prompt.effectId === effectId,
+            ([, prompt]) => prompt.type === "effect" && prompt.effectId === effectId,
         );
 
         if (!prompt?.[0]) return;
@@ -61,10 +59,7 @@
 
         dragData.parentId = effect?.parent?.id;
 
-        return event.dataTransfer.setData(
-            "text/plain",
-            JSON.stringify(dragData),
-        );
+        return event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
     }
 
     const doc = getContext("actor") ?? getContext("item");
@@ -104,7 +99,7 @@
     >
         <img
             class="effect-image"
-            src={effect?.icon ?? doc.img ?? "icons/svg/aura.svg"}
+            src={effect?.img ?? doc.img ?? "icons/svg/aura.svg"}
             alt={effect?.name ?? localize("A5E.effects.new")}
         />
     </button>
