@@ -1,10 +1,8 @@
 {
   "id": "a5e",
-  "name": "a5e",
   "title": "Level Up: Advanced 5th Edition (Official)",
   "description": "An official implementation of the Level Up: Advanced 5th Edition system for FoundryVTT.",
   "version": "0.18.14",
-  "manifestPlusVersion": "1.2.0",
   "authors": [
     {
       "name": "Phillip Best",
@@ -25,10 +23,6 @@
   "scripts": [],
   "esmodules": [
     "index.js"
-  ],
-  "templates": [
-    "templates/sheet.hbs",
-    "templates/limited-actor-sheet.hbs"
   ],
   "styles": [
     "style.css"
@@ -233,8 +227,11 @@
     }
   ],
   "socket": true,
-  "gridDistance": 5,
-  "gridUnits": "ft",
+  "grid": {
+    "distance": 5,
+    "units": "ft",
+    "type": 1
+  },
   "primaryTokenAttribute": "attributes.hp",
   "secondaryTokenAttribute": null,
   "documentTypes": {
