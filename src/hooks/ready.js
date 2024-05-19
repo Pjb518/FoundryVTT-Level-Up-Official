@@ -7,15 +7,18 @@ import ModuleIncompatibilityDialog from '../apps/dialogs/initializers/ModuleInco
 
 // eslint-disable-next-line no-unused-vars
 async function handleAnnouncement() {
-  const LATEST_ANNOUNCEMENT_VERSION = '0.16.4';
+  const LATEST_ANNOUNCEMENT_VERSION = '0.18.14';
   const lastAnnouncementShown = game.user.getFlag('a5e', 'latestAnnouncement');
 
-  const showAnnouncement = !lastAnnouncementShown
-    || foundry.utils.isNewerVersion(LATEST_ANNOUNCEMENT_VERSION, lastAnnouncementShown);
+  // NOTE: The date comparison below is to ensure that this announcement isn't shown after
+  // the product bundles expire. It should be removed for future announcements.
+  const showAnnouncement = (!lastAnnouncementShown
+    || foundry.utils.isNewerVersion(LATEST_ANNOUNCEMENT_VERSION, lastAnnouncementShown))
+    && (Date.now() < 1718600413000);
 
   if (!showAnnouncement) return;
 
-  const announcementDialog = new AnnouncementDialog('A5e Version 0.16.4 Announcements');
+  const announcementDialog = new AnnouncementDialog('3PP Content Bundles');
   announcementDialog.render(true);
 
   game.user.setFlag('a5e', 'latestAnnouncement', game.system.version);

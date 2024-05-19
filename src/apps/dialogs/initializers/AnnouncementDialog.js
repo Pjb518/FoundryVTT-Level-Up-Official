@@ -15,7 +15,7 @@ export default class AnnouncementDialog extends TJSDialog {
       }
     }, {
       classes: ['a5e-sheet a5e-sheet--announcement'],
-      width: 540
+      width: 680
     });
 
     this.data.content.props.dialog = this;

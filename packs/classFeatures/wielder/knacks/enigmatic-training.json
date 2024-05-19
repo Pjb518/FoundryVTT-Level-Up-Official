@@ -1,0 +1,110 @@
+{
+	"name": "Enigmatic Training",
+	"type": "feature",
+	"img": "icons/commodities/treasure/puzzle-cube.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"nsFdeHjFpHWnrUkZ": {
+				"name": "Enigmatic Training",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"DZgFKYby0GwQInbh": {
+						"type": "effect",
+						"default": true,
+						"effectId": "gqo8kZWhxfHTNZut"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Your artifact is an intellectually challenging puzzle you find other challenges easier to parse after you make a breakthrough. Whenever you use your enigma tinkering or unlock potential features to learn a spell or relic art, you gain an expertise die on all Intelligence checks for the next hour (this ability does not stack with itself).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "Enigmatist archetype",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "wielder"
+	},
+	"effects": [
+		{
+			"icon": "icons/commodities/treasure/puzzle-cube.webp",
+			"origin": "Item.GXurgEm6mX2Zf6oG",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "nsFdeHjFpHWnrUkZ",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Enigmatic Training",
+			"_id": "gqo8kZWhxfHTNZut",
+			"changes": [
+				{
+					"key": "system.abilities.int.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain an expertise die on all Intelligence checks for the next hour (this ability does not stack with itself).</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "xqowsq7cklo291ze"
+}
