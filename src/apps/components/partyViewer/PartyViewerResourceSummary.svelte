@@ -9,7 +9,6 @@
     }
 
     function hasSpellPoints(actor) {
-        if (!actor?.flags?.a5e?.showSpellPoints) return false;
         if (!actor?.system?.spellResources?.points?.max) return false;
 
         return true;
@@ -50,8 +49,8 @@
     {#if propData.partyHasExertionPool}
         <span class="field field--exertion">
             {#if showExertion}
-                {actorData?.attributes.exertion?.current} / {actorData
-                    ?.attributes.exertion?.max}
+                {actorData?.attributes.exertion?.current} / {actorData?.attributes
+                    .exertion?.max}
             {:else}
                 <i
                     class="cross fa-solid fa-xmark"
@@ -65,8 +64,8 @@
     {#if propData.partyHasSpellPointPool}
         <span class="field field--spell-points">
             {#if showSpellPoints}
-                {actorData?.spellResources.points.current} / {actorData
-                    ?.spellResources.points.max}
+                {actorData?.spellResources.points.current} / {actorData?.spellResources
+                    .points.max}
             {:else}
                 <i
                     class="cross fa-solid fa-xmark"
