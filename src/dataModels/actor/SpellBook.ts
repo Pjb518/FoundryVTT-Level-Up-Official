@@ -14,6 +14,10 @@ export default class SpellBook extends A5EDataModel {
 
   declare disableSpellConsumers: boolean;
 
+  declare showArtifactCharges: boolean;
+
+  declare showSpellInventions: boolean;
+
   declare showSpellPoints: boolean;
 
   declare showSpellSlots: boolean;
@@ -38,6 +42,8 @@ export default class SpellBook extends A5EDataModel {
 
       ability: new fields.StringField({ required: true, initial: 'default' }),
       disableSpellConsumers: new fields.BooleanField({ required: true, initial: false }),
+      showArtifactCharges: new fields.BooleanField({ required: true, initial: false }),
+      showSpellInventions: new fields.BooleanField({ required: true, initial: false }),
       showSpellPoints: new fields.BooleanField({ required: true, initial: false }),
       showSpellSlots: new fields.BooleanField({ required: true, initial: true })
     };

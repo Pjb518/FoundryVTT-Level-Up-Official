@@ -331,6 +331,13 @@ export default class ItemA5e extends BaseItemA5e {
   }
 
   #getDefaultConsumerData(consumers) {
+    const actor = this.parent;
+    if (!actor) {
+      return {
+        actionUses: {}, hitDice: {}, itemUses: {}, spell: {}
+      };
+    }
+
     // Prepare the default action uses data.
     const actionUsesData = {};
     const actionConsumer = this.#getConsumerFromPreparedConsumers(consumers, 'actionUses');
@@ -369,7 +376,9 @@ export default class ItemA5e extends BaseItemA5e {
     const spellConsumer = Object.values(consumers.spell ?? {})?.[0]?.[1] ?? {};
     if (!foundry.utils.isEmpty(spellConsumer)) {
       const mode = spellConsumer.mode ?? 'variable';
-      const availableSpellSlots = Object.entries(this.parent?.system?.spellResources?.slots ?? {})
+      const availableCharges = actor.system.spellResources?.artifactCharges?.current ?? 0;
+      const availablePoints = actor.system.spellResources?.points?.current ?? 0;
+      const availableSpellSlots = Object.entries(actor.system.spellResources?.slots ?? {})
         .reduce(
           (acc, [level, slot]) => {
             if (slot.max > 0 && slot.current > 0) acc.push(level);
@@ -378,12 +387,13 @@ export default class ItemA5e extends BaseItemA5e {
           []
         );
 
-      // eslint-disable-next-line no-nested-ternary
-      spellData.consume = mode === 'pointsOnly'
-        ? 'spellPoint'
-        : availableSpellSlots.length > 0
-          ? 'spellSlot'
-          : 'spellPoint';
+      if (mode === 'chargesOnly') spellData.consume = 'artifactCharge';
+      else if (mode === 'pointsOnly') spellData.consume = 'spellPoint';
+      else if (mode === 'slotsOnly') spellData.consume = 'spellSlot';
+      else if (availableCharges > 0) spellData.consume = 'artifactCharge';
+      else if (availablePoints > 0) spellData.consume = 'spellPoint';
+      else if (availableSpellSlots.length > 0) spellData.consume = 'spellSlot';
+      else spellData.consume = 'spellPoint';
 
       if (this.system?.level === null || this.system?.level === undefined) {
         spellData.consume = 'noConsume';
@@ -391,15 +401,17 @@ export default class ItemA5e extends BaseItemA5e {
 
       const defaultLevel = spellConsumer.spellLevel ?? this.system?.level ?? 1;
       const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
-      const spellLevel = spellData.consume === 'noConsume'
-        ? defaultLevel
-        : Math.max(defaultLevel, smallestAvailable);
+      const spellLevel = spellData.consume === 'spellSlot'
+        ? Math.max(defaultLevel, smallestAvailable)
+        : defaultLevel;
       const spellPoints = spellConsumer.points ?? CONFIG.A5E.spellLevelCost[spellLevel] ?? 1;
 
-      spellData.basePoints = spellPoints;
+      spellData.baseCharges = spellLevel;
       spellData.baseLevel = spellLevel;
-      spellData.level = spellLevel;
+      spellData.basePoints = spellPoints;
+      spellData.charges = spellLevel;
       spellData.points = spellPoints;
+      spellData.level = spellLevel;
 
       const spellBook = this.parent?.spellBooks?.get(this.system.spellBook);
       if (spellBook?.disableSpellConsumers) spellData.consume = 'noConsume';

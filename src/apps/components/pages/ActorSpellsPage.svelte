@@ -63,21 +63,19 @@
         }
 
         if (currentSpellBook === spellBookId) {
-            const firstSpellBook = Object.keys(
-                $actor.system.spellBooks ?? {},
-            )?.[0];
+            const firstSpellBook = Object.keys($actor.system.spellBooks ?? {})?.[0];
 
             updateCurrentSpellBook(firstSpellBook);
         }
     }
 
-    function getMaxSpellPoints() {
+    function getMaxSpellResource(type) {
         if ($actor.type !== "character") {
-            return spellResources.points.max;
+            return spellResources[type].max;
         }
 
-        if (sheetIsLocked) return spellResources.points.max;
-        return spellResources.points.override;
+        if (sheetIsLocked) return spellResources[type].max;
+        return spellResources[type].override;
     }
 
     function updateCurrentSpellBook(spellBookId) {
@@ -93,11 +91,11 @@
         }));
     }
 
-    function updateSpellPointMax(value) {
+    function updateMaxSpellResource(type, value) {
         const key =
             $actor.type === "character"
-                ? `system.spellResources.points.override`
-                : `system.spellResources.points.max`;
+                ? `system.spellResources.${type}.override`
+                : `system.spellResources.${type}.max`;
 
         updateDocumentDataFromField($actor, key, value);
     }
@@ -121,12 +119,23 @@
         return true;
     }).length;
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
     $: spellBooks = $actor.spellBooks;
-    $: spellPointMax = getMaxSpellPoints(spellResources, sheetIsLocked);
+
+    $: artifactChargesMax = getMaxSpellResource(
+        "artifactCharges",
+        spellResources,
+        sheetIsLocked,
+    );
+
+    $: spellInventionsMax = getMaxSpellResource(
+        "inventions",
+        spellResources,
+        sheetIsLocked,
+    );
+
+    $: spellPointMax = getMaxSpellResource("points", spellResources, sheetIsLocked);
 
     let currentSpellBook =
         tempSettings[$actor?.uuid]?.currentSpellBook ??
@@ -154,16 +163,14 @@
                     <!-- svelte-ignore a11y-no-static-element-interactions -->
                     <i
                         class="a5e-control-button a5e-control-button--config fa-solid fa-gear"
-                        on:click|stopPropagation={() =>
-                            configureSpellbook(spellBookId)}
+                        on:click|stopPropagation={() => configureSpellbook(spellBookId)}
                     />
 
                     <!-- svelte-ignore a11y-click-events-have-key-events -->
                     <!-- svelte-ignore a11y-no-static-element-interactions -->
                     <i
                         class="a5e-control-button a5e-control-button--delete fa-solid fa-trash"
-                        on:click|stopPropagation={() =>
-                            deleteSpellbook(spellBookId)}
+                        on:click|stopPropagation={() => deleteSpellbook(spellBookId)}
                     />
                 {/if}
             </button>
@@ -197,13 +204,85 @@
             data-tooltip="This number does not include spells which are marked as always prepared."
             data-tooltip-direction="UP"
         >
-            <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                Spells Prepared:
-            </h3>
+            <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">Spells Prepared:</h3>
 
             <span class="a5e-footer-group__input">
                 {preparedSpellCount}
             </span>
+        </div>
+    {/if}
+
+    <!-- Artifact Charges -->
+    {#if $actor.spellBooks?.get(currentSpellBook)?.showArtifactCharges ?? false}
+        <div class="u-flex u-flex-wrap u-align-center u-gap-md">
+            <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
+                {localize("A5E.ArtifactCharges")}
+            </h3>
+
+            <input
+                class="a5e-footer-group__input"
+                class:disable-pointer-events={!$actor.isOwner}
+                type="number"
+                name="system.spellResources.artifactCharges.current"
+                value={spellResources.artifactCharges.current}
+                placeholder="0"
+                min="0"
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
+            />
+            /
+            <input
+                class="a5e-footer-group__input"
+                type="number"
+                name="system.spellResources.artifactCharges.max"
+                value={artifactChargesMax ?? 0}
+                disabled={sheetIsLocked}
+                placeholder="0"
+                min="0"
+                on:change={({ target }) =>
+                    updateMaxSpellResource("artifactCharges", Number(target.value))}
+            />
+        </div>
+    {/if}
+
+    <!-- Spell Inventions -->
+    {#if $actor.spellBooks?.get(currentSpellBook)?.showSpellInventions ?? false}
+        <div class="u-flex u-flex-wrap u-align-center u-gap-md">
+            <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
+                {localize("A5E.SpellInventions")}
+            </h3>
+
+            <!-- <input
+                class="a5e-footer-group__input"
+                class:disable-pointer-events={!$actor.isOwner}
+                type="number"
+                name="system.spellResources.inventions.current"
+                value={spellResources.inventions.current}
+                placeholder="0"
+                min="0"
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
+            />
+            / -->
+            <input
+                class="a5e-footer-group__input"
+                type="number"
+                name="system.spellResources.inventions.max"
+                value={spellInventionsMax ?? 0}
+                disabled={sheetIsLocked}
+                placeholder="0"
+                min="0"
+                on:change={({ target }) =>
+                    updateMaxSpellResource("inventions", Number(target.value))}
+            />
         </div>
     {/if}
 
@@ -239,7 +318,7 @@
                 placeholder="0"
                 min="0"
                 on:change={({ target }) =>
-                    updateSpellPointMax(Number(target.value))}
+                    updateMaxSpellResource("points", Number(target.value))}
             />
         </div>
     {/if}

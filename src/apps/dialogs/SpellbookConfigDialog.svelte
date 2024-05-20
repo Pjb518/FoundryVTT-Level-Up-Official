@@ -9,8 +9,7 @@
     import RadioGroup from "../components/RadioGroup.svelte";
     import Section from "../components/Section.svelte";
 
-    export let { document, appId, spellBookId } =
-        getContext("#external").application;
+    export let { document, appId, spellBookId } = getContext("#external").application;
 
     const abilityOptions = [
         ["default", "A5E.abilities.default"],
@@ -56,12 +55,26 @@
 
         <FieldWrapper>
             <Checkbox
-                label="Show Spell Slots"
-                checked={book?.showSpellSlots ?? true}
+                label="Show Artifact Charges"
+                checked={book?.showArtifactCharges ?? false}
                 on:updateSelection={({ detail }) => {
                     updateDocumentDataFromField(
                         $document,
-                        `system.spellBooks.${spellBookId}.showSpellSlots`,
+                        `system.spellBooks.${spellBookId}.showArtifactCharges`,
+                        detail,
+                    );
+                }}
+            />
+        </FieldWrapper>
+
+        <FieldWrapper>
+            <Checkbox
+                label="Show Spell Inventions"
+                checked={book?.showSpellInventions ?? false}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $document,
+                        `system.spellBooks.${spellBookId}.showSpellInventions`,
                         detail,
                     );
                 }}
@@ -76,6 +89,20 @@
                     updateDocumentDataFromField(
                         $document,
                         `system.spellBooks.${spellBookId}.showSpellPoints`,
+                        detail,
+                    );
+                }}
+            />
+        </FieldWrapper>
+
+        <FieldWrapper>
+            <Checkbox
+                label="Show Spell Slots"
+                checked={book?.showSpellSlots ?? true}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $document,
+                        `system.spellBooks.${spellBookId}.showSpellSlots`,
                         detail,
                     );
                 }}

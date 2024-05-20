@@ -60,11 +60,7 @@
 
 <div class="a5e-field-group u-flex-row u-gap-md">
     <FieldWrapper heading="A5E.ConsumerSpellMode">
-        <select
-            name="{actionId}-{consumerId}-item-id"
-            class="u-w-fit"
-            bind:value={mode}
-        >
+        <select name="{actionId}-{consumerId}-item-id" class="u-w-fit" bind:value={mode}>
             {#each Object.entries(A5E.spellConsumerModes) as [value, label]}
                 <option {value} selected={mode === value}>
                     {localize(label)}
@@ -89,11 +85,40 @@
         </FieldWrapper>
     {/if}
 
+    {#if mode === "chargesOnly"}
+        <FieldWrapper heading="A5E.ArtifactCharges" --a5e-field-wrapper-width="7.5rem">
+            <input
+                type="number"
+                d-type="Number"
+                value={consumer.charges ?? 1}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.consumers.${consumerId}.charges`,
+                        Number(target.value),
+                    )}
+            />
+        </FieldWrapper>
+    {/if}
+
+    {#if mode === "inventionsOnly"}
+        <FieldWrapper heading="A5E.SpellInventions" --a5e-field-wrapper-width="7.5rem">
+            <input
+                type="number"
+                d-type="Number"
+                value={consumer.inventions ?? 1}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.consumers.${consumerId}.inventions`,
+                        Number(target.value),
+                    )}
+            />
+        </FieldWrapper>
+    {/if}
+
     {#if mode === "pointsOnly"}
-        <FieldWrapper
-            heading="A5E.SpellPoints"
-            --a5e-field-wrapper-width="7.5rem"
-        >
+        <FieldWrapper heading="A5E.SpellPoints" --a5e-field-wrapper-width="7.5rem">
             <input
                 type="number"
                 d-type="Number"
@@ -124,8 +149,8 @@
         <div class="a5e-box hint">
             <dt class="u-text-bold">Variable</dt>
             <dd class="u-m-0 u-p-0">
-                Variable mode allows you to select from spell slots or spell
-                points at casting time.
+                Variable mode allows you to select from spell slots or spell points at
+                casting time.
             </dd>
 
             <dt class="u-text-bold">Spell Points Only</dt>

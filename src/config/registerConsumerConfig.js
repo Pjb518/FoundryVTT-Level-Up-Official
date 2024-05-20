@@ -16,6 +16,8 @@ export default function registerConsumerConfig(A5E) {
 
   A5E.spellConsumerModes = {
     variable: 'A5E.ConsumerSpellModeVariable',
+    chargesOnly: 'A5E.ConsumerSpellModeChargesOnly',
+    inventionsOnly: 'A5E.ConsumerSpellModeInventionsOnly',
     pointsOnly: 'A5E.ConsumerSpellModePointsOnly',
     slotsOnly: 'A5E.ConsumerSpellModeSlotsOnly'
   };

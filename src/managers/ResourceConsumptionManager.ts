@@ -1,17 +1,25 @@
+import type { Action } from 'types/action';
+import type { ConsumptionData } from 'types/consumers';
+
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 
 export default class ResourceConsumptionManager {
-  #actor;
+  #actor: typeof Actor;
 
-  #item;
+  #item: typeof Item;
 
-  #actionId;
+  #actionId: string;
 
-  #consumptionData;
+  #consumptionData: ConsumptionData;
 
-  #updates;
+  #updates: { actor: Record<string, any>; item: Record<string, any> };
 
-  constructor(actor, item, actionId, consumptionData) {
+  constructor(
+    actor: typeof Actor,
+    item: typeof Item,
+    actionId: string,
+    consumptionData: ConsumptionData
+  ) {
     this.#actor = actor;
     this.#item = item;
     this.#actionId = actionId;
@@ -23,7 +31,7 @@ export default class ResourceConsumptionManager {
     };
   }
 
-  get action() {
+  get action(): Action | undefined {
     return this.#item.actions[this.#actionId];
   }
 
@@ -35,7 +43,7 @@ export default class ResourceConsumptionManager {
     } = this.#consumptionData;
 
     consumers.forEach((consumer) => {
-      const consumerType = consumer?.type;
+      const consumerType = consumer.type;
 
       if (!consumerType) return;
 
@@ -52,8 +60,9 @@ export default class ResourceConsumptionManager {
     await this.#actor.update(this.#updates.actor);
   }
 
-  #consumeActionUses({ quantity } = {}) {
-    const actionUses = this.action?.uses ?? {};
+  #consumeActionUses({ quantity = 0 } = {}) {
+    const actionUses = this.action?.uses;
+    if (!actionUses) return;
 
     if (!quantity || (actionUses?.value !== 0 && !actionUses?.value) || !this.#actor) return;
 
@@ -61,16 +70,20 @@ export default class ResourceConsumptionManager {
       actionUses?.max ?? actionUses.value,
       this.#actor.getRollData(this.#item)
     );
+
+    if (!max) return;
     const newValue = Math.clamped(actionUses.value - quantity, 0, max);
 
     this.#updates.item[`system.actions.${this.#actionId}.uses.value`] = newValue;
   }
 
+  // @ts-ignore
   #consumeHitDice({ selected } = {}) {
     const { hitDice } = this.#actor.system.attributes;
 
     if (!selected || !this.#actor) return;
 
+    // @ts-ignore
     Object.entries(hitDice ?? {}).forEach(([die, { current }]) => {
       const consumeValue = selected[die] ?? 0;
       hitDice[die].current = Math.max(current - consumeValue, 0);
@@ -79,7 +92,7 @@ export default class ResourceConsumptionManager {
     this.#updates.actor['system.attributes.hitDice'] = hitDice;
   }
 
-  #consumeItemUses({ quantity } = {}) {
+  #consumeItemUses({ quantity = 0 } = {}) {
     const { value } = this.#item.system.uses;
     if ((value !== 0 && !value) || !quantity || !this.#actor) return;
 
@@ -87,10 +100,13 @@ export default class ResourceConsumptionManager {
       this.#item.system.uses.max ?? value,
       this.#actor.getRollData(this.#item)
     );
+
+    if (!max) return;
     this.#updates.item['system.uses.value'] = Math.clamped(value - quantity, 0, max);
   }
 
-  async #consumeQuantity({ itemId, quantity } = {}) {
+  // @ts-ignore
+  async #consumeQuantity({ itemId, quantity = 0 } = {}) {
     if (!this.#actor || itemId === '') return;
 
     const item = this.#actor.items.get(itemId);
@@ -104,13 +120,14 @@ export default class ResourceConsumptionManager {
     );
   }
 
+  // @ts-ignore
   #consumeResource({ quantity, resource, restore } = {}) {
     const config = CONFIG.A5E.resourceConsumerConfig?.[resource];
 
     if (!this.#actor || !resource || !config) return;
 
     const { path, type } = config;
-    const value = foundry.utils.getProperty(this.#actor.system, path) ?? 0;
+    const value = foundry.utils.getProperty(this.#actor.system, path) as number ?? 0;
 
     if (type === 'boolean') {
       this.#updates.actor[`system.${path}`] = (restore ?? false);
@@ -119,10 +136,12 @@ export default class ResourceConsumptionManager {
     }
   }
 
-  #consumeSpellResource(consumptionData) {
+  #consumeSpellResource(consumptionData: ConsumptionData['spell']) {
     if (!consumptionData || !this.#actor) return;
 
-    const { consume, level, points } = consumptionData;
+    const {
+      charges, consume, level, points
+    } = consumptionData;
 
     if (consume === 'spellSlot') {
       const value = this.#actor.system.spellResources.slots?.[level]?.current;
@@ -130,6 +149,9 @@ export default class ResourceConsumptionManager {
     } else if (consume === 'spellPoint') {
       const value = this.#actor.system.spellResources.points.current;
       this.#updates.actor['system.spellResources.points.current'] = Math.max(value - points, 0);
+    } else if (consume === 'artifactCharge') {
+      const value = this.#actor.system.spellResources.artifactCharges.current;
+      this.#updates.actor['system.spellResources.artifactCharges.current'] = Math.max(value - charges, 0);
     }
   }
 }

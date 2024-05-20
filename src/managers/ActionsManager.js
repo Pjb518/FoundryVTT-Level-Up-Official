@@ -356,6 +356,7 @@ export default class ActionsManager extends DataProxy {
 
     if (type === 'spell') {
       defaultData.mode = 'variable';
+      defaultData.charges = item.system.level ?? 1;
       defaultData.spellLevel = item.system.level ?? 1;
       defaultData.points = CONFIG.A5E.spellLevelCost?.[item.system.level] ?? 1;
     }
