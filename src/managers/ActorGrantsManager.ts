@@ -135,7 +135,12 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const characterLevel: number = this.actor.levels.character + difference;
 
     if (sign === 0) return false;
-    if (sign === -1) return await this.removeGrantsByLevel(characterLevel);
+    if (sign === -1) {
+      const clsSlug = cls?.slug || '';
+      const clsLevel = (this.actor.levels.classes?.[clsSlug] ?? 1) + difference;
+      await this.removeGrantsByClassLevel(clsLevel, clsSlug);
+      return await this.removeGrantsByLevel(characterLevel);
+    }
 
     const applicableGrants: Grant[] = [];
     const optionalGrants: Grant[] = [];
@@ -216,7 +221,16 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     if (grant.level > characterLevel) return [];
 
     const docIds: string[] = [...grant.features.base, ...grant.features.options].map((f) => f.uuid);
-    const docs = await fromUuidMulti(docIds, { parent: this.actor });
+    let docs = await fromUuidMulti(docIds, { parent: this.actor });
+
+    docs = docs.filter((d: any) => {
+      if (!d) {
+        ui.notifications.error(`Grant ${grant.label} has an invalid document reference.`);
+        return false;
+      }
+
+      return true;
+    });
 
     const grants: Grant[] = docs.flatMap((doc) => [...doc.grants.values()]
       .map((g) => {
@@ -281,18 +295,20 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       const updateData: Record<string, any> = {};
 
       for await (const [grantId, docData] of dialogData.documentData) {
-        const docs = await Promise.all(
+        const docs = (await Promise.all(
           docData.map(async (
             { uuid, type, quantity }: { uuid: string, type: string, quantity: number | null }
           ) => {
-            const doc = (await fromUuid(uuid)).toObject();
+            const doc = (await fromUuid(uuid))?.toObject();
+            if (!doc) return null;
+
             if (type === 'feature') return doc;
             if (!quantity) return doc;
 
             doc.system.quantity = quantity;
             return doc;
           })
-        );
+        )).filter((d) => !!d);
 
         try {
           if (docData[0]?.type === 'object') {
@@ -397,6 +413,36 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     }
 
     await this.actor.update(updates);
+  }
+
+  async removeGrantsByClassLevel(classLevel: number, slug: string): Promise<boolean> {
+    const updates: Record<string, any> = {};
+
+    for (const [grantId, grant] of this) {
+      const originItem = fromUuidSync(grant.itemUuid);
+
+      if (!originItem) continue;
+      if (!['class', 'feature'].includes(originItem.type)) continue;
+
+      // Skip if the grant is not from the origin class
+      if (originItem.type === 'class' && originItem.slug !== slug) continue;
+      if (originItem.type === 'feature' && originItem.system.classes !== slug) continue;
+
+      if (grant.level > classLevel) {
+        updates[`system.grants.-=${grantId}`] = null;
+        foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
+      }
+    }
+
+    try {
+      await this.actor.update(updates);
+    } catch (err) {
+      // eslint-disable-next-line no-console
+      console.error(err);
+      return false;
+    }
+
+    return true;
   }
 
   async removeGrantsByLevel(level: number): Promise<boolean> {

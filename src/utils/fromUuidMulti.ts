@@ -31,6 +31,11 @@ export default async function fromUuidMulti(uuids: string[], options: Record<str
   )).flat();
 
   const docs = results.concat(documents, folders).reduce((acc, doc) => {
+    if (!doc) {
+      acc.push(undefined);
+      return acc;
+    }
+
     // eslint-disable-next-line new-cap
     const item = new Item.implementation(doc.toObject(), { parent, keepId: true });
     item.updateSource({ 'flags.core.sourceId': doc.uuid });
