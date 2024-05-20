@@ -173,6 +173,10 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         if (levelType === 'class' && grant.level > classLevel) return;
 
         if (applicableGrants.find((g) => g._id === grant._id)) return;
+        if (
+          grant.grantedBy?.id
+          && !applicableGrants.find((g) => g._id === grant.grantedBy?.id)
+        ) return;
 
         if (grant.optional) {
           // Infer if the grant has been offered before
