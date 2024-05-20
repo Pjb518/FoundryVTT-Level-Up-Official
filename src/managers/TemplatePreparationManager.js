@@ -270,6 +270,7 @@ export default class TemplatePreparationManager {
     if (scalingMode === 'cantrip') return this.#applyCantripScaling(area);
     if (scalingMode === 'spellLevel') return this.#applySpellLevelScaling(area);
     if (scalingMode === 'spellPoints') return this.#applySpellPointScaling(area);
+    if (scalingMode === 'artifactCharges') return this.#applyArtifactChargesScaling(area);
     if (scalingMode === 'actionUses') return this.#applyActionUsesScaling(area);
     if (scalingMode === 'itemUses') return this.#applyItemUsesScaling(area);
 
@@ -320,6 +321,17 @@ export default class TemplatePreparationManager {
     if (basePoints >= spellConsumer.points) return area;
 
     const delta = Math.max(0, spellConsumer.points - basePoints);
+    return this.#applyResourceBasedScaling(area, delta);
+  }
+
+  #applyArtifactChargesScaling(area) {
+    const spellConsumer = this.#consumers.spell;
+    if (foundry.utils.isEmpty(spellConsumer)) return area;
+
+    const { baseCharges } = spellConsumer;
+    if (baseCharges >= spellConsumer.charges) return area;
+
+    const delta = Math.max(0, spellConsumer.charges - baseCharges);
     return this.#applyResourceBasedScaling(area, delta);
   }
 

@@ -9,10 +9,7 @@
     export let { document, actionId } = getContext("#external").application;
 
     function getTargetScalingOptions() {
-        return [
-            [null, "A5E.None"],
-            ...Object.entries(CONFIG.A5E.targetScalingModes),
-        ];
+        return [[null, "A5E.None"], ...Object.entries(CONFIG.A5E.targetScalingModes)];
     }
 
     const item = document;
@@ -48,11 +45,7 @@
                 name="system.actions.{actionId}.target.scaling.formula"
                 value={action.target.scaling?.formula ?? 0}
                 on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        target.value,
-                    )}
+                    updateDocumentDataFromField($item, target.name, target.value)}
             />
         </FormSection>
     {:else if scalingMode === "spellLevel"}
@@ -71,17 +64,11 @@
                         name="system.actions.{actionId}.target.scaling.formula"
                         value={target?.scaling?.formula ?? 0}
                         on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                target.name,
-                                target.value,
-                            )}
+                            updateDocumentDataFromField($item, target.name, target.value)}
                     />
                 </div>
 
-                <div
-                    class="a5e-field-group u-w-12 a5e-field-group--spell-level"
-                >
+                <div class="a5e-field-group u-w-12 a5e-field-group--spell-level">
                     <label for="{actionId}targets-scaling-step"> Per </label>
 
                     <input
@@ -103,7 +90,7 @@
                 </div>
             </section>
         </FormSection>
-    {:else if ["spellPoints", "actionUses", "itemUses"].includes(scalingMode)}
+    {:else if ["artifactCharges", "spellPoints", "actionUses", "itemUses"].includes(scalingMode)}
         <FormSection>
             <section class="row u-flex-wrap">
                 <div class="a5e-field-group a5e-field-group--formula">
@@ -117,11 +104,7 @@
                         name="system.actions.{actionId}.target.scaling.formula"
                         value={target?.scaling?.formula ?? 0}
                         on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $item,
-                                target.name,
-                                target.value,
-                            )}
+                            updateDocumentDataFromField($item, target.name, target.value)}
                     />
                 </div>
 
@@ -145,9 +128,7 @@
 
                 <div class="a5e-field-group levels-wrapper">
                     <span class="levels">
-                        Additional {scalingMode === "spellPoints"
-                            ? "Points"
-                            : "Uses"}
+                        Additional {scalingMode === "spellPoints" ? "Points" : "Uses"}
                     </span>
                 </div>
             </section>
