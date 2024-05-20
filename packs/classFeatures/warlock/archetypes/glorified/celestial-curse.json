@@ -1,0 +1,152 @@
+{
+	"name": "Celestial Curse",
+	"type": "feature",
+	"img": "icons/magic/fire/flame-burning-eye.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"oZgJ7lN9XSpIGV5n": {
+				"name": "Celestial Curse",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"dPHoMmYyEXx9GUzt": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"uwqU0fXLb7kzDBWc": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "max(spellcasting.mod + @classes.warlock.level,1)"
+					}
+				},
+				"prompts": {
+					"JcuuDp3PLZEJORVj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XjIbXSMRoXRu05Yw"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"khnoEHa0PLiodygS": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"99AoIfkJyVpk6mJ5": {
+				"name": "Deal Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"F5H21f9ydIvd10mY": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You can use a bonus action to place a curse on a creature you can see within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated.</p>\n<p>The curse has the following effects:</p>\n<ul>\n<li>\n<p>When you deal damage against the cursed creature, it takes an additional 1d4 radiant damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>\n</li>\n<li>\n<p>Upon placing the curse, your patron fills you with a spirit of perseverance. You gain temporary hit points equal to spellcasting ability modifier + your warlock level (minimum 1). If you already have temporary hit points when you use this feature, you instead increase your temporary hit points by this amount.</p>\n</li>\n</ul>\n<p>Once you have used this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "warlock"
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/fire/flame-burning-eye.webp",
+			"origin": "Item.FGs6Aa7fzQBiuwj7",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "oZgJ7lN9XSpIGV5n",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Celestial Curse",
+			"_id": "XjIbXSMRoXRu05Yw",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "ba6f465sx0sxd62j"
+}

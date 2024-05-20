@@ -14,7 +14,41 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"28nKCZJaMEknk2g4": {
+				"name": "Reduce Damage",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "A creature you see within 10 feet of your Drowner’s Curse target or within 10 feet of your Aquatic Servant takes damage"
+				},
+				"consumers": {},
+				"rolls": {
+					"7g96ZSZm3T4qDtWW": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "-@prof"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
 		"description": "<p dir=\"ltr\">At 6th level, you gain resistance to your choice of either cold, lightning, or thunder damage.</p>\n<p dir=\"ltr\">Additionally, whenever a creature you see within 10 feet of your Drowner&rsquo;s Curse target or within 10 feet of your Aquatic Servant takes damage, you can use your reaction to reduce that damage by an amount equal to your proficiency bonus.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -29,12 +63,30 @@
 			}
 		},
 		"concentration": false,
-		"featureType": "",
-		"grants": {},
+		"featureType": "class",
+		"grants": {
+			"lHXe6qauEUK4viBq": {
+				"grantType": "trait",
+				"level": 6,
+				"levelType": "class",
+				"optional": false,
+				"label": "Smooth Sailing",
+				"traits": {
+					"base": [],
+					"options": [
+						"cold",
+						"lightning",
+						"thunder"
+					],
+					"total": 1,
+					"traitType": "damageResistances"
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.019,
+			"version": 0.018,
 			"lastMigration": null
 		},
 		"classes": "warlock"

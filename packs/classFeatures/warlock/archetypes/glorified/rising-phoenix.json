@@ -13,15 +13,96 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<blockquote><p>At 14th level, you learn the secret of the phoenix and the newday sun.</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>When you are knocked unconscious (even if you would be killed outright), you can use this feature to automatically stabilize and to emit a fiery eruption, creating a zone of immolation within 30 feet of you.</p><p>While this effect is active, taking damage does not cause you to accumulate death save failures.</p><ul><li><p>At the start of your next two turns, creatures in the immolation zone other than those you designate take fire or radiant damage (your choice once per round) equal to 2d8 + your spellcasting ability modifier.</p></li><li><p>At the start of your third turn of this effect, you regain half your hit points + 1, and you may stand from prone (this spends no movement).</p><p></p></li></ul><p>Any damage to your weapons and clothing are repaired, and you and your gear are all cleaned.</p><p>Once you use this feature, you can’t do so again until you complete a long rest.</p>",
+		"actions": {
+			"145gHKEnJiKxoTHX": {
+				"name": "Rising Phoenix",
+				"activation": {},
+				"consumers": {
+					"MSC2LFc9hPo5rmjE": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"QUjrvTyfT4bwfEa2": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Fire",
+						"formula": "2d8 + @spellcasting.mod",
+						"damageType": "fire"
+					},
+					"UPlaWzhGt9Y37cgL": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Radiant",
+						"formula": "2d8 + @spellcasting.mod",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"0oUTvpyMEIg1jU2l": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "turn",
+					"value": 2
+				}
+			},
+			"23XTHZ7U6lFkqkUj": {
+				"name": "Third Round",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"f1WA4W1qjhLArQ5M": {
+						"type": "healing",
+						"default": true,
+						"formula": "round(@attributes.hp.baseMax/2) + 1"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 14th level, you learn the secret of the phoenix and the newday sun. When you are knocked unconscious (even if you would be killed outright), you can use this feature to automatically stabilize and to emit a fiery eruption, creating a zone of immolation within 30 feet of you. While this effect is active, taking damage does not cause you to accumulate death save failures.</p>\n<p>At the start of your next two turns, creatures in the immolation zone other than those you designate take fire or radiant damage (your choice once per round) equal to 2d8 + your spellcasting ability modifier.</p>\n<p>At the start of your third turn of this effect, you regain half your hit points + 1, and you may stand from prone (this spends no movement). Any damage to your weapons and clothing are repaired, and you and your gear are all cleaned.</p>\n<p>Once you use this feature, you can&rsquo;t do so again until you complete a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -33,7 +114,7 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.019,
+			"version": 0.018,
 			"lastMigration": null
 		},
 		"classes": "warlock"

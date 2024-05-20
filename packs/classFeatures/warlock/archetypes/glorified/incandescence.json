@@ -14,7 +14,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<blockquote><p>At 6th level, you establish a connection to the Plane of Positive Energy so powerful it almost causes you to glow.</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>You gain resistance to radiant damage.</p><p>When you cast a fire or radiant spell, you can increase the damage against one target by your spellcasting ability modifier.</p>",
+		"description": "<p>At 6th level, you establish a connection to the Plane of Positive Energy so powerful it almost causes you to glow.&nbsp;You gain resistance to radiant damage.&nbsp;When you cast a fire or radiant spell, you can increase the damage against one target by your spellcasting ability modifier.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -29,11 +29,80 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"cybjoMfyFDz3fqUD": {
+				"grantType": "trait",
+				"level": 6,
+				"levelType": "class",
+				"optional": false,
+				"label": "Incandescence",
+				"traits": {
+					"base": [
+						"radiant"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				},
+				"_id": "cybjoMfyFDz3fqUD",
+				"img": ""
+			},
+			"MooSYlLL3Zr8rZMI": {
+				"grantType": "damage",
+				"level": 6,
+				"levelType": "class",
+				"optional": false,
+				"label": "Incandescence (Fire)",
+				"bonus": "@spellcasting.mod",
+				"damageType": "fire",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"damageTypes": [
+						"fire"
+					],
+					"isCritBonus": false,
+					"spellLevels": [],
+					"default": true
+				},
+				"_id": "MooSYlLL3Zr8rZMI",
+				"img": ""
+			},
+			"J7lIWbxYxmbVY6ck": {
+				"grantType": "damage",
+				"level": 6,
+				"levelType": "class",
+				"optional": false,
+				"label": "Incandescence (Radiant)",
+				"bonus": "@spellcasting.mod",
+				"damageType": "radiant",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"damageTypes": [
+						"radiant"
+					],
+					"isCritBonus": false,
+					"spellLevels": [],
+					"default": true
+				},
+				"_id": "MooSYlLL3Zr8rZMI",
+				"img": "",
+				"name": "undefined (Copy)"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.019,
+			"version": 0.018,
 			"lastMigration": null
 		},
 		"classes": "warlock"

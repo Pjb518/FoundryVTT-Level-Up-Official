@@ -36,9 +36,132 @@
 						"threshold": 6
 					}
 				}
+			},
+			"bVvHOJS2wPVukrDy": {
+				"name": "Gain Temporary Hit Points",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"ufL8JPVzEXmdZmAA": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "@classes.warlock.level"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"RQd7yWmWohsTMX15": {
+				"name": "Teleport",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"d0urPQlnBAJFWPPY": {
+						"range": "medium"
+					}
+				}
+			},
+			"9vE9XCtTEUGDo9Yq": {
+				"name": "Extinguish Flames",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"5g0x0YxMq9iJoFGk": {
+						"range": "medium"
+					}
+				}
+			},
+			"gUl0qanUwJZfj1AT": {
+				"name": "Fog Cloud",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"iLg07tZsiFF9l4GS": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "20",
+					"placeTemplate": true,
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": {
+							"quantity": "1",
+							"radius": "20"
+						}
+					}
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/air/fog-gas-smoke-blue-gray.webp",
+				"description": "<p>You create a heavily obscured area of fog. The fog spreads around corners and can be dispersed by a moderate wind (at least 10 miles per hour).</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's radius increases by 20 feet for each slot level above 1st.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
 			}
 		},
-		"description": "<p dir=\"ltr\">At 10th level, your patron reveals to you a secret long lost to arcanists of the surface world. Choose one spell from the following: black tentacles, blight, phantasmal killer, or tearful sonnet. This is a warlock spell for you, it does not count against&nbsp; your spells known.</p>\n<p dir=\"ltr\">Once between long rests, you can use this feature to cast the chosen spell without spending spell points. Damage can&rsquo;t break your concentration on this spell. You also gain one benefit from the following:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain temporary hit points equal to your warlock level.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You teleport to a location you can see within 60 feet.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">Water falls as rain that extinguishes exposed flames within 60 feet.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">A fog cloud effect comes into being as though cast by you, although it does not require concentration.</p>\n</li>\n</ul>",
+		"description": "<p dir=\"ltr\">At 10th level, your patron reveals to you a secret long lost to arcanists of the surface world. Choose one spell from the following: @UUID[Compendium.a5e.a5e-spells.Item.67ex7mn5kkutvnqn]{Black Tentacles}, @UUID[Compendium.a5e.a5e-spells.Item.2q65v0xklhfx73to]{Blight},@UUID[Compendium.a5e.a5e-spells.Item.6y4rq48okutkormg]{Phantasmal Killer}, or @UUID[Compendium.a5e.a5e-spells.Item.rvp7imtsq1ilkj8h]{Tearful Sonnet}. This is a warlock spell for you, it does not count against your spells known.</p>\n<p dir=\"ltr\">Once between long rests, you can use this feature to cast the chosen spell without spending spell points. Damage can&rsquo;t break your concentration on this spell. You also gain one benefit from the following:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain temporary hit points equal to your warlock level.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You teleport to a location you can see within 60 feet.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">Water falls as rain that extinguishes exposed flames within 60 feet.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">A @UUID[Compendium.a5e.a5e-spells.Item.i4ejucvglhqpfm57]{Fog Cloud} effect comes into being as though cast by you, although it does not require concentration.</p>\n</li>\n</ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -57,7 +180,7 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.019,
+			"version": 0.018,
 			"lastMigration": null
 		},
 		"classes": "warlock"
