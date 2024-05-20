@@ -1,51 +1,133 @@
 {
-  "name": "Undaunted",
-  "type": "feature",
-  "img": "icons/environment/wilderness/mine-interior-dungeon-door.webp",
-  "effects": [],
-  "flags": {},
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p>While exploring a place which you have never been to before, you can use your reaction to gain advantage on ability checks and attack rolls until the end of your next turn. You can do so a number of times equal to your Wisdom modifier, and regain spent uses upon finishing a long rest.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "knack",
-    "classes": "herald",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "folder": null,
-  "_id": "o1y67idftch7m18s"
+	"name": "Undaunted",
+	"type": "feature",
+	"img": "icons/environment/wilderness/mine-interior-dungeon-door.webp",
+	"effects": [
+		{
+			"icon": "icons/environment/wilderness/mine-interior-dungeon-door.webp",
+			"origin": "Item.781o4evp4C5YLbLO",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FtrdSRuv8siHWpqZ",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Undaunted",
+			"_id": "s162fdLVK2ur9uHa",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain advantage on ability checks and attack rolls until the end of your next turn.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"FtrdSRuv8siHWpqZ": {
+				"name": "Undaunted",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Exploring a place which you have never been to before"
+				},
+				"consumers": {
+					"ijYwdhHVcuJIIWGs": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"QNr8Ymx52z8rZdYF": {
+						"type": "effect",
+						"default": true,
+						"effectId": "s162fdLVK2ur9uHa"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>While exploring a place which you have never been to before, you can use your reaction to gain advantage on ability checks and attack rolls until the end of your next turn. You can do so a number of times equal to your Wisdom modifier, and regain spent uses upon finishing a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "@wis.mod",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"classes": "herald",
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		}
+	},
+	"folder": null,
+	"_id": "o1y67idftch7m18s"
 }

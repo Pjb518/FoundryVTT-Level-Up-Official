@@ -1,7 +1,7 @@
 {
-	"name": "Greater Empowered Smite: Blinding Smite",
+	"name": "Inspiring Devotion: Truth of Conviction",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/holy/angel-wings-gray.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -16,15 +16,15 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"Cs7Pkm4ljiQmK1xw": {
-				"name": "Greater Empowered Smite: Blinding Smite",
+			"FY8seZKWw7DdWFqY": {
+				"name": "Truth of Conviction",
 				"activation": {
-					"cost": "",
-					"type": "none",
+					"cost": 1,
+					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "minute",
+					"unit": "",
 					"value": 1
 				},
 				"area": {
@@ -36,28 +36,23 @@
 					"quantity": "",
 					"type": ""
 				},
-				"prompts": {
-					"RriuspA5WSg1sEFy": {
-						"ability": "con",
-						"onSave": "Ends effect.",
-						"saveDC": {
-							"type": "custom",
-							"bonus": null
-						},
-						"type": "savingThrow"
+				"consumers": {
+					"SyNOIFtwdTSRf2uw": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
 					}
-				},
-				"consumers": {}
+				}
 			}
 		},
-		"description": "<p>The target makes a Constitution saving throw. On a failure, it is blinded for 1 minute. At the end of each of its turns, the target can repeat the saving throw, ending the effect on a success.</p>",
+		"description": "<p>Whenever you or an ally are telling the truth and make any Charisma ability check to do so, you can use this feature to treat any roll of 10 or less as an 11 for that roll. Once you have used this feature you can't do so again until you finish a short rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -78,8 +73,8 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald"
 	},
 	"folder": null,
-	"_id": "cni6qz1r2kpuuhji"
+	"_id": "rq1gmh9bbtpyccmo"
 }

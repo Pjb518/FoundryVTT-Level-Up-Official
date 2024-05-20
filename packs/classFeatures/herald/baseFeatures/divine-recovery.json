@@ -1,7 +1,7 @@
 {
-	"name": "Greater Empowered Smite: Taunting Smite",
+	"name": "Divine Recovery",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/holy/meditation-chi-focus-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -16,15 +16,15 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"rnnVVy5i2in1RAog": {
-				"name": "Greater Empowered Smite: Taunting Smite",
+			"8PLwYNKdYzDNP3Ov": {
+				"name": "Divine Recovery",
 				"activation": {
-					"cost": "",
-					"type": "none",
+					"cost": 1,
+					"type": "bonusAction",
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "minute",
+					"unit": "",
 					"value": 1
 				},
 				"area": {
@@ -34,30 +34,25 @@
 				},
 				"target": {
 					"quantity": "",
-					"type": ""
+					"type": "",
+					"shape": "",
+					"size": ""
 				},
-				"prompts": {
-					"FN5Uev7gku7iUAqq": {
-						"ability": "wis",
-						"onSave": "Ends effect.",
-						"saveDC": {
-							"type": "custom",
-							"bonus": null
-						},
-						"type": "savingThrow"
+				"consumers": {
+					"wvjcW6BbGgiQgzWq": {
+						"type": "itemUses"
 					}
-				},
-				"consumers": {}
+				}
 			}
 		},
-		"description": "<p>The target makes a Wisdom saving throw. On a failed save, it takes an additional 1d6 radiant damage when attacking a creature other than you and cannot make opportunity attacks against anyone but you. This effect lasts up to 1 minute, and the target can repeat the saving throw at the end of each of its turns, ending the effect on a success.</p>",
+		"description": "<p>At 12th level, you can transform divine energy into more easily manipulated magics. You can use a bonus action to recite a short prayer or mantra and expend a use of Channel Divinity to regain a spell slot of 3rd-level or less.</p><p>Once you have used this feature three times, you cannot do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 3,
+			"max": "3",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -78,8 +73,8 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald"
 	},
 	"folder": null,
-	"_id": "zrhw2o9nkju0vrsy"
+	"_id": "qaiz9fwowbfzsm8y"
 }

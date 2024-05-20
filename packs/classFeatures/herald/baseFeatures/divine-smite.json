@@ -1,7 +1,7 @@
 {
-	"name": "Infectious Resolve",
+	"name": "Divine Smite",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/melee/strike-sword-steel-yellow.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -16,22 +16,18 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"7GItybN2hQIR3rsg": {
-				"name": "Infectious Resolve",
+			"nmVTPrSmRfLujs3i": {
+				"name": "Divine Smite",
 				"activation": {
-					"cost": "",
+					"cost": 1,
 					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
 					"unit": "",
-					"value": ""
+					"value": 1
 				},
-				"ranges": {
-					"9q65GM2nPqe4jtnS": {
-						"range": "touch"
-					}
-				},
+				"ranges": {},
 				"area": {
 					"shape": "",
 					"size": "",
@@ -43,17 +39,32 @@
 					"shape": "",
 					"size": ""
 				},
-				"consumers": {}
+				"rolls": {
+					"JOnm8KDSOSwf7yQg": {
+						"canCrit": true,
+						"damageType": "radiant",
+						"formula": "1d8",
+						"name": "1d8",
+						"type": "damage"
+					}
+				},
+				"consumers": {
+					"bixaZcb4C0P3ymLT": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
 			}
 		},
-		"description": "<p>Starting at 14th level, you can use your action to touch one willing creature (or yourself) and choose one of the following effects.</p><p><strong>All In.</strong> <em>The target gains advantage on its next weapon attack, and deals an extra 1d8 radiant damage on a hit.</em></p><p><strong>Iron Will.</strong> <em>For the next minute, as long as you are conscious the target gains advantage on Wisdom saving throws made against spells and other magical effects.</em></p><p><strong>Walk It Off.</strong> <em>One spell or condition affecting the target ends.</em></p><p>Once you have used this feature a number of times equal to your Charisma modifier, you cannot do so again until you finish a long rest.</p>",
+		"description": "<p>Starting at 2nd level, whenever you hit a creature with a weapon attack you can choose to deliver a divine smite that deals an additional 1d8 radiant damage. The amount of extra damage increases as you gain levels in this class, as shown in the Smite Damage column of the Herald table.</p><p>You can use this feature a number of times equal to your proficiency bonus, and regain spent uses upon finishing a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "@prof",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -74,8 +85,8 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald"
 	},
 	"folder": null,
-	"_id": "dn7qd4m58ac396qm"
+	"_id": "c6aiq8cd90fo3ry1"
 }
