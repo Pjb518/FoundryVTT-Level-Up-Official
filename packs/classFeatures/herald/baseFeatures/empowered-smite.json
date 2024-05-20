@@ -1,0 +1,257 @@
+{
+	"name": "Empowered Smite",
+	"type": "feature",
+	"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/melee/strike-axe-energy-pink.webp",
+			"origin": "Item.gr9CzCkcULpMlkRU",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "A1PywhxSf3xlGdXf",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Marking Smite",
+			"_id": "vvZvwbiXZrsqVdtJ",
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Shed bright light for 5 feet, and dim light for an additional 5 feet. The effect lasts for up to 1 minute, or until you target another creature with a weapon attack. As long as the effect lasts, the target gains no benefit from invisibility and has disadvantage on checks made to hide.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/strike-axe-energy-pink.webp",
+			"origin": "Item.gr9CzCkcULpMlkRU",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "V5S1M9S7W7MoHu2z"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"_id": "yhgN7UKeGtUZtZcn",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"f3Ru8pEZgB6iF02v": {
+				"name": "Igniting Smite",
+				"activation": {},
+				"consumers": {
+					"BjcmqGIKqxPMN5db": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"Q0V4PQhxMzVnLNv9": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"formula": "1d8",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {
+					"CoaK0NlPpzVipP7V": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"cHTaxmcs2qiJi6Kt": {
+						"type": "generic",
+						"default": true,
+						"label": "Ongoing Fire Damage",
+						"formula": "1d6"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"A1PywhxSf3xlGdXf": {
+				"name": "Marking Smite",
+				"activation": {},
+				"consumers": {
+					"ptdGdaFb9PitOlMP": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"a7VqPTSUOMgaZEtv": {
+						"type": "effect",
+						"default": true,
+						"effectId": "vvZvwbiXZrsqVdtJ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"V5S1M9S7W7MoHu2z": {
+				"name": "Repelling Smite",
+				"activation": {},
+				"consumers": {
+					"2lciJk5V15DA9VIh": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"FTGmCS31MEscwjeI": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"damageType": "force"
+					}
+				},
+				"prompts": {
+					"A2pZkoIj4qUKtSpN": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Knocked back only 5 feet and is not knocked prone"
+					},
+					"HJZiGUTF0hvFBISn": {
+						"type": "effect",
+						"default": true,
+						"effectId": "yhgN7UKeGtUZtZcn"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 4th level, you are able to manipulate magic to add extra power to your smites. Whenever you would use your Divine Smite feature, you can choose one of the following effects. Once you have used this feature you can't do so again until you finish a long rest. Alternatively, you can empower a smite by expending a spell slot of 1st-level or higher.</p>\n<p>Some empowerments require your target to make a saving throw to resist some of the empowerments effects. The DC for these saving throws is the same as your herald spell save DC.</p>\n<h2>Igniting Smite</h2>\n<p>Your smite instead deals fire damage, and the target must make a Constitution saving throw at the start of each of its turns or take 1d6 fire damage. On a successful save, it takes no damage and the fire is extinguished. The fire can also be put out as an action or by the environment, and extinguishes itself after 1 minute.</p>\n<h2>Marking Smite</h2>\n<p>Your smite causes the target to shed bright light for 5 feet, and dim light for an additional 5 feet. The effect lasts for up to 1 minute, or until you target another creature with a weapon attack. As long as the effect lasts, the target gains no benefit from invisibility and has disadvantage on checks made to hide.</p>\n<h2>Repelling Smite</h2>\n<p>Your smite instead deals force damage, and the target must make a Strength saving throw or be pushed back 10 feet and knocked prone. On a successful save, the target is knocked back only 5 feet and is not knocked prone.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "herald"
+	},
+	"folder": null,
+	"_id": "u220f22b3cpphtgb"
+}

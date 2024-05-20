@@ -1,0 +1,259 @@
+{
+	"name": "Greater Empowered Smite",
+	"type": "feature",
+	"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/melee/strike-axe-energy-pink.webp",
+			"origin": "Item.572rzHWo6OYdkCmo",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "9XFkCWKy9m8FnF25",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"_id": "cPzjNcpqoHUh0W6s",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/strike-axe-energy-pink.webp",
+			"origin": "Item.572rzHWo6OYdkCmo",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ILQ1sTfIdF2JirDS",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Disorienting Smite",
+			"_id": "YGGsYHiZdd6cibgR",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Disadvantage on attack rolls.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"9XFkCWKy9m8FnF25": {
+				"name": "Blinding Smite",
+				"activation": {},
+				"consumers": {
+					"bdDZGqY2k0haqMyK": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"LuIRynywRZptduzY": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"RpKVjz7HBvWB8BqW": {
+						"type": "effect",
+						"default": true,
+						"effectId": "cPzjNcpqoHUh0W6s"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"ILQ1sTfIdF2JirDS": {
+				"name": "Disorienting Smite",
+				"activation": {},
+				"consumers": {
+					"D1E3AKCMCqlUFR12": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"thcS5edxdHEtTLOm": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d8"
+					}
+				},
+				"prompts": {
+					"IYhyDysm6nFtJzDp": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"plsFPxkfMJNb5gMa": {
+						"type": "effect",
+						"default": true,
+						"effectId": "YGGsYHiZdd6cibgR"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"2zWpTNewSxUAJqig": {
+				"name": "Taunting Smite",
+				"activation": {},
+				"consumers": {
+					"nf3tqRRVjSyXm7Th": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"GEf5rXACMarsAvmW": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d8",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {
+					"yIOWxhXjAMiTIHnh": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"VyQGueJhJKuvpgQm": {
+						"type": "generic",
+						"default": true,
+						"label": "Failed Save",
+						"formula": "1d6"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 8th level you learn the following new empowerments for your smites, and can use this feature twice at no cost in between long rests. Alternatively, you can use an empowered smite by expending a spell slot of 1st-level or higher.</p>\n<h2>Blinding Smite</h2>\n<p>The target makes a Constitution saving throw. On a failure, it is blinded for 1 minute. At the end of each of its turns, the target can repeat the saving throw, ending the effect on a success.</p>\n<h2>Disorienting Smite</h2>\n<p>Your smite instead deals psychic damage and the target makes a Wisdom saving throw. On a failed save, it has disadvantage on attack rolls for 1 minute. At the end of each of its turns the target can repeat the saving throw, ending the effect on a success.</p>\n<h2>Taunting Smite</h2>\n<p>The target makes a Wisdom saving throw. On a failed save, it takes an additional 1d6 radiant damage when attacking a creature other than you and cannot make opportunity attacks against anyone but you. This effect lasts up to 1 minute, and the target can repeat the saving throw at the end of each of its turns, ending the effect on a success.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 2,
+			"max": "2",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "herald"
+	},
+	"folder": null,
+	"_id": "p9gkawegqqbxb821"
+}
