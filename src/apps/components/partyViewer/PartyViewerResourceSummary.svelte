@@ -4,23 +4,27 @@
     export let actor;
     export let propData = {};
 
+    function hasArtifactCharges(actor) {
+        return actor?.system?.spellResources?.artifactCharges?.max;
+    }
+
     function hasExertionPool(actor) {
         return actor?.system?.attributes.exertion?.max;
     }
 
     function hasSpellPoints(actor) {
-        if (!actor?.system?.spellResources?.points?.max) return false;
-
-        return true;
+        return actor?.system?.spellResources?.points?.max;
     }
 
     const { spellLevels } = CONFIG.A5E;
 
     $: actorData = $actor?.system;
+    $: showArtifactCharges = hasArtifactCharges($actor);
     $: showExertion = hasExertionPool($actor);
     $: showSpellPoints = hasSpellPoints($actor);
 
     $: showResources =
+        propData.partyHasArtifactCharges ||
         propData.partyHasExertionPool ||
         propData.partyHasInspiration ||
         propData.partyHasSpellPointPool ||
@@ -55,6 +59,21 @@
                 <i
                     class="cross fa-solid fa-xmark"
                     data-tooltip="{$actor.name} does not have an exertion pool."
+                    data-tooltip-direction="UP"
+                />
+            {/if}
+        </span>
+    {/if}
+
+    {#if propData.partyHasArtifactCharges}
+        <span class="field field--artifact-charges">
+            {#if showArtifactCharges}
+                {actorData?.spellResources.artifactCharges.current} / {actorData
+                    ?.spellResources.artifactCharges.max}
+            {:else}
+                <i
+                    class="cross fa-solid fa-xmark"
+                    data-tooltip="{$actor.name} does not have artifact charges."
                     data-tooltip-direction="UP"
                 />
             {/if}
@@ -117,6 +136,10 @@
     .field {
         text-align: center;
         margin-inline: 0.25rem;
+
+        &--artifact-charges {
+            grid-area: artifactCharges;
+        }
 
         &--exertion {
             grid-area: exertion;
