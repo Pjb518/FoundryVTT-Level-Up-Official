@@ -1,0 +1,77 @@
+{
+	"folder": null,
+	"name": "Take the Hit",
+	"type": "maneuver",
+	"img": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
+	"system": {
+		"actions": {
+			"MQTdYJ0cX3AzpKdB": {
+				"name": "Execute",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "A creature within 5 feet of you is hit by an attack"
+				},
+				"consumers": {
+					"cwXSblbxuSdz7AY1": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"q7yiQoftZ64a5y1v": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>In reaction to a creature within 5 feet of you being hit by an attack, you may use your reaction to swap places with them, becoming the target of the attack instead. This movement does not provoke opportunity attacks.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "secretsOfTheSelkies",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 1,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "selflessSentinel",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "vp4p8agmp1owl4ms"
+}

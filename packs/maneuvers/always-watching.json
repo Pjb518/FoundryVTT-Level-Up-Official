@@ -1,0 +1,125 @@
+{
+	"folder": null,
+	"name": "Always Watching",
+	"type": "maneuver",
+	"img": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
+	"system": {
+		"actions": {
+			"oeVTxFuOUjDZ1JxK": {
+				"name": "Execute",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"6k483xCW1r8rGigW": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"uu1KsqYo5B6o3eLZ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "C2gNB0g5xxFtR4kR"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>As a bonus action, you gain blindsight and tremorsense to a range of 30 feet until the end of your next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "secretsOfTheSelkies",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 4,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "selflessSentinel",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
+			"origin": "Item.loWeaOgngqZcjnIR",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "oeVTxFuOUjDZ1JxK",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Always Watching",
+			"_id": "C2gNB0g5xxFtR4kR",
+			"changes": [
+				{
+					"key": "system.attributes.senses.blindsight.distance",
+					"value": "30",
+					"mode": 5,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.senses.tremorsense.distance",
+					"value": "30",
+					"mode": 5,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>As a bonus action, you gain blindsight and tremorsense to a range of 30 feet until the end of your next turn.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "vbilb2xn9d8sj33t"
+}
