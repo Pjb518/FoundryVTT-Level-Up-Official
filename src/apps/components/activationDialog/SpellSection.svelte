@@ -117,7 +117,7 @@
         const scalingTypes = getActionScalingModes(action);
         if (scalingTypes.size) {
             if (scalingTypes.has("spellPoints")) mode = "pointsOnly";
-            else if (scalingTypes.has("spellSlots")) mode = "spellsOnly";
+            else if (scalingTypes.has("spellSlots")) mode = "slotsOnly";
 
             // Set base points and level to 0 since no consumer data is available
             spellData.basePoints = 0;
@@ -140,8 +140,7 @@
     }
 
     spellData.level = getDefaultSpellLevel();
-    spellData.points =
-        consumer.points ?? A5E.spellLevelCost[$item.system?.level] ?? 1;
+    spellData.points = consumer.points ?? A5E.spellLevelCost[$item.system?.level] ?? 1;
 
     if (spellData.consume === "spellSlot") disableSpellSlotOptions();
     else if (spellData.consume === "noConsume") disableBaseSlotOptions();
