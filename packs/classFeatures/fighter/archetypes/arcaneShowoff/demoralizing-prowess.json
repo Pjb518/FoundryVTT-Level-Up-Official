@@ -13,16 +13,55 @@
       "requiresNoShield": false,
       "requiresUnarmored": false
     },
-    "actions": {},
+    "actions": {
+      "nhiL9YMLsVVYqFhd": {
+        "name": "Demoralizing Prowess",
+        "activation": {},
+        "consumers": {
+          "ctv6aLV2E0rtZDb7": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          }
+        },
+        "rolls": {
+          "cuCpxt0av89HoBJJ": {
+            "type": "damage",
+            "default": true,
+            "formula": "1d6"
+          }
+        },
+        "prompts": {
+          "S9oN2N9oPkO2UMUa": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "wis",
+            "saveDC": {
+              "type": "maneuver"
+            }
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
     "description": "<p>At 7th level, you learn to humiliate your foes even as you strike them down. Once per turn, when you hit with a melee weapon attack, choose one damage type from fire, lightning, radiant, or thunder. The attack deals 1d6 bonus damage of the chosen type.&nbsp; The target of the attack must also make a Wisdom saving throw against your maneuver save DC; on a failure, it is rattled until the end of its next turn.</p>",
     "favorite": false,
     "secretDescription": "",
-    "classes": "fighter",
     "source": "moarComplete",
     "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
+      "value": 1,
+      "max": "1",
+      "per": "turn",
       "recharge": {
         "formula": "1d6",
         "threshold": 6
@@ -34,9 +73,16 @@
     "prerequisite": "",
     "requiresBloodied": false,
     "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": null
-    }
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "classes": "fighter"
   },
   "effects": [],
   "flags": {},

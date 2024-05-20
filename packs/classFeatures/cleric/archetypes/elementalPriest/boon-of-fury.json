@@ -1,0 +1,76 @@
+{
+	"folder": null,
+	"name": "Boon of Fury",
+	"type": "feature",
+	"img": "icons/magic/symbols/arrowhead-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"07S61V0kIQohV9Dx": {
+				"name": "Boon of Fury",
+				"activation": {},
+				"consumers": {
+					"AyzDq7pRp2EMyl8a": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"s5cdR8AwVqtwvJ2N": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Your weapon attacks deal extra damage equal to your Wisdom modifier. In addition, you can infuse divine power into a weapon attack to deal an extra 1d8 damage, the type of which is the same as you deal with Channel Divinity: Elemental Intervention. Once you have used this feature a number of times equal to your Wisdom modifier, you can&rsquo;t do so again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "@wis.mod",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "cleric"
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "d6loxdjfa2qr7wj0"
+}

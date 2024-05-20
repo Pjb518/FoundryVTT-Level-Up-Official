@@ -1,45 +1,76 @@
 {
-  "folder": null,
-  "name": "Super Charge",
-  "type": "feature",
-  "img": "icons/magic/lightning/bolt-strike-explosion-yellow.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<div class=\"page\" title=\"Page 87\">\n<div class=\"section\">\n<div class=\"layoutArea\">\n<div class=\"column\">\n<p>You have nearly become an open gateway to pure, unlimited elemental energy.</p>\n<p>Starting at 15th level, you may use Power Surge without taking damage once per minute.</p>\n</div>\n</div>\n</div>\n</div>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": null
-    },
-    "classes": "elementalist"
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "y4vc4jmxeg8lgz6m"
+	"folder": null,
+	"name": "Super Charge",
+	"type": "feature",
+	"img": "icons/magic/lightning/bolt-strike-explosion-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"8B7BXv3fhxJq3GGA": {
+				"name": "Super Charge",
+				"activation": {},
+				"consumers": {
+					"C6Iq7hOpxxanEZcC": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<div class=\"page\" title=\"Page 87\">\n<div class=\"section\">\n<div class=\"layoutArea\">\n<div class=\"column\">\n<p>You have nearly become an open gateway to pure, unlimited elemental energy.</p>\n<p>Starting at 15th level, you may use Power Surge without taking damage once per minute.</p>\n</div>\n</div>\n</div>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "minute",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"classes": "elementalist"
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "y4vc4jmxeg8lgz6m"
 }

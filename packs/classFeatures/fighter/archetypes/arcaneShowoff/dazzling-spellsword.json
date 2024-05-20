@@ -13,16 +13,60 @@
       "requiresNoShield": false,
       "requiresUnarmored": false
     },
-    "actions": {},
-    "description": "<p>At 10th level, you have learned to weave together your combat prowess, flair for the dramatic, and magical acumen. When you take the Attack action, you can&nbsp; spend 2 exertion points to substitute one of your attacks with a spell with a casting time of 1 Action. When you do, you emit a flash of magical energy that jangles the equilibrium of those around you. Hostile creatures within 10 feet of you must make a Constitution saving throw against your spell save DC; creatures who fail are poisoned and deafened until the end of their next turn.</p><p>You can cast a spell in this way only once per turn.</p>",
+    "actions": {
+      "qMSLcBIHGwW0kdxw": {
+        "name": "Dazzling Spellsword",
+        "activation": {},
+        "consumers": {
+          "7nuuHeRzZi9cUwn1": {
+            "type": "itemUses",
+            "default": true,
+            "quantity": 1
+          },
+          "iHqvTWnZlCbPYDZW": {
+            "type": "resource",
+            "default": true,
+            "resource": "exertion",
+            "quantity": 2
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "fJpbvlnEj4ZYVtSu": {
+            "type": "savingThrow",
+            "default": true,
+            "ability": "con",
+            "saveDC": {
+              "type": "spellcasting"
+            }
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "area": {
+          "shape": "emanation",
+          "quantity": 1,
+          "radius": 10
+        }
+      }
+    },
+    "description": "<p>At 10th level, you have learned to weave together your combat prowess, flair for the dramatic, and magical acumen. When you take the Attack action, you can spend 2 exertion points to substitute one of your attacks with a spell with a casting time of 1 Action. When you do, you emit a flash of magical energy that jangles the equilibrium of those around you. Hostile creatures within 10 feet of you must make a Constitution saving throw against your spell save DC; creatures who fail are poisoned and deafened until the end of their next turn.</p>\n<p>You can cast a spell in this way only once per turn.</p>",
     "favorite": false,
     "secretDescription": "",
-    "classes": "fighter",
     "source": "moarComplete",
     "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
+      "value": 1,
+      "max": "1",
+      "per": "turn",
       "recharge": {
         "formula": "1d6",
         "threshold": 6
@@ -34,9 +78,16 @@
     "prerequisite": "",
     "requiresBloodied": false,
     "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": null
-    }
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "classes": "fighter"
   },
   "effects": [],
   "flags": {},
