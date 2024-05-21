@@ -14,7 +14,75 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"cmeDFJjLvbiSvdMa": {
+				"name": "Use Feature",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"Rut8H4hGd1oNk1lF": {
+						"type": "effect",
+						"default": true,
+						"effectId": "MxtzeopqgjeTxrxm"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				}
+			},
+			"dwXKK99E897rLD2a": {
+				"name": "Use Feature",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "taking damage"
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"v75nUI1DS37zWYAz": {
+						"type": "effect",
+						"default": true,
+						"effectId": "4zJNr6OwkXTT67sn"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				}
+			}
+		},
 		"description": "<p>Your magic is that of people who prefer to remain unseen&mdash;perhaps a gift passed to you by a gnomish ancestor. You gain the following benefits:</p>\n<p><strong>Into Mist. </strong>As a bonus action, or as a reaction immediately after taking damage, you can turn invisible. The invisibility lasts until the end of your next turn, and it ends early if you attack, deal damage, cast a spell, or force a creature to make a saving throw. Once you use this trait, you must finish a short or long rest before doing so again.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -30,26 +98,7 @@
 		},
 		"concentration": false,
 		"featureType": "heritage",
-		"grants": {
-			"USvdhueHcUueFfS0": {
-				"grantType": "feature",
-				"level": 1,
-				"levelType": "character",
-				"optional": false,
-				"label": "Traits",
-				"features": {
-					"base": [
-						{
-							"uuid": "Compendium.a5e.a5e-heritage-features.Item.78z2weqc4dx3b308",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						}
-					],
-					"options": [],
-					"total": 0
-				}
-			}
-		},
+		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -64,7 +113,92 @@
 		},
 		"classes": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"icon": "icons/skills/movement/ball-spinning-blue.webp",
+			"origin": "Item.5EEaKtS4SWxfmC6A",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "cmeDFJjLvbiSvdMa",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Invisible",
+			"_id": "MxtzeopqgjeTxrxm",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>An invisible creature is impossible to see without the aid of magic or a special sense (it gains no benefits from this condition against creatures still able to see it).</li>\n<li>An invisible creature is heavily obscured for the purpose of hiding. </li>\n<li>An invisible creature's location can be detected by noises it makes or tracks it leaves.</li>\n<li>Attack rolls against an invisible creature are made with disadvantage .</li>\n<li>An invisible creature makes attack rolls with advantage .</li>\n</ul>",
+			"statuses": [
+				"invisible"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/movement/ball-spinning-blue.webp",
+			"origin": "Item.5EEaKtS4SWxfmC6A",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "dwXKK99E897rLD2a",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Invisible",
+			"_id": "4zJNr6OwkXTT67sn",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>An invisible creature is impossible to see without the aid of magic or a special sense (it gains no benefits from this condition against creatures still able to see it).</li>\n<li>An invisible creature is heavily obscured for the purpose of hiding. </li>\n<li>An invisible creature's location can be detected by noises it makes or tracks it leaves.</li>\n<li>Attack rolls against an invisible creature are made with disadvantage .</li>\n<li>An invisible creature makes attack rolls with advantage .</li>\n</ul>",
+			"statuses": [
+				"invisible"
+			],
+			"folder": null
+		}
+	],
 	"flags": {},
 	"_id": "78z2weqc4dx3b308"
 }
