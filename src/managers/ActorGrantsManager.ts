@@ -318,7 +318,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
         try {
           if (docData[0]?.type === 'object') {
-            const ids = (await this.actor.createEmbeddedDocuments('Item', docs, { noHook: true }))
+            const ids = (await this.actor.createEmbeddedDocuments('Item', docs))
               .map((i: any) => i.id);
 
             updateData[`system.grants.${grantId}.documentIds`] = ids;
@@ -331,7 +331,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
             const filtered = docs.filter((d) => !existingIds.includes(d._id));
 
-            const ids = (await this.actor.createEmbeddedDocuments('Item', filtered, { noHook: true, keepId: true }))
+            const ids = (await this.actor.createEmbeddedDocuments('Item', filtered, { noGrant: true, keepId: true }))
               .map((i: any) => i.id);
 
             updateData[`system.grants.${grantId}.documentIds`] = [...ids, ...existingIds];
