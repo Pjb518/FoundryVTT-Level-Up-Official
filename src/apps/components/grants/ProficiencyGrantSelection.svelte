@@ -46,8 +46,7 @@
 
         if (!choicesLocked) return configObject[proficiencyType]?.config ?? [];
 
-        for (const [value, label] of configObject[proficiencyType]?.config ??
-            []) {
+        for (const [value, label] of configObject[proficiencyType]?.config ?? []) {
             if (choices.includes(value)) {
                 options.push([value, label]);
             }
@@ -61,7 +60,7 @@
 
     let choicesLocked = true;
 
-    $: selected = [...base, ...selected];
+    $: selected = [...new Set(base.concat(selected))];
     $: totalCount = base.length + count;
     $: remainingSelections = totalCount - selected.length;
     $: summary = getGrantSummary(selected);

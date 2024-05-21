@@ -33,7 +33,7 @@
         return [uuid, doc.name];
     });
 
-    $: selected = [...base, ...selected];
+    $: selected = [...new Set(base.concat(selected))];
     $: totalCount = base.length + count;
     $: remainingSelections = totalCount - selected.length;
     $: summary = getGrantSummary(selected);

@@ -102,7 +102,7 @@
     let existingSelections = getExistingSelections();
     let disabledOptions = getDisabledOptions();
 
-    $: selectedOptions = [...base.map((o) => o.uuid), ...selected];
+    $: selectedOptions = [...new Set(base.map((o) => o.uuid).concat(selected))];
     $: totalCount = base.length + count;
     $: remainingSelections = totalCount - selectedOptions.length;
     $: summary = getGrantSummary(selectedOptions);
