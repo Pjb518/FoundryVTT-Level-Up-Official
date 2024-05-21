@@ -157,8 +157,8 @@ export default class ObjectItemA5e extends ItemA5e {
   }
 
   /** @inheritdoc */
-  async _preCreate(data, options, user) {
-    await super._preCreate(data, options, user);
+  _preCreate(data, options, user) {
+    super._preCreate(data, options, user);
   }
 
   async _preUpdate(data, options, user) {

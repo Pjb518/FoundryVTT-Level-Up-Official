@@ -35,8 +35,7 @@
                 ?.some((action) => action.uses?.value || action.uses?.max);
         }
 
-        if (game.settings.get("a5e", "collapseActionList") && sheetIsLocked)
-            return false;
+        if (game.settings.get("a5e", "collapseActionList") && sheetIsLocked) return false;
 
         return true;
     }
@@ -62,10 +61,7 @@
         dragData.actorId = item?.parent.id;
         dragData.actionId = actionId;
 
-        return event.dataTransfer.setData(
-            "text/plain",
-            JSON.stringify(dragData),
-        );
+        return event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
     }
 
     async function getDescription() {
@@ -83,31 +79,24 @@
         return data;
     }
 
-    $: containerItems = (item?.containerItems?.documents ?? []).reduce(
-        (acc, [k, v]) => {
-            const i = fromUuidSync(v.uuid);
-            if (!i) return acc;
-            if (i.parent?.id !== $actor.id) return acc;
+    let showContainerItems = false;
 
-            acc.push([k, i]);
-            return acc;
-        },
-        [],
-    );
+    $: containerItems = (item?.containerItems?.documents ?? []).reduce((acc, [k, v]) => {
+        const i = fromUuidSync(v.uuid);
+        if (!i) return acc;
+        if (i.parent?.id !== $actor.id) return acc;
+
+        acc.push([k, i]);
+        return acc;
+    }, []);
 
     $: description = getDescription(item)
         .then((data) => (description = data))
         .catch((err) => (description = err));
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
-    $: showActionList = determineActionListVisibility(
-        action,
-        item,
-        sheetIsLocked,
-    );
+    $: showActionList = determineActionListVisibility(action, item, sheetIsLocked);
 
     $: summaryData = getSummaryData(item, action);
 </script>
@@ -152,7 +141,12 @@
         <img class="a5e-item__image--die" src="/icons/svg/d20.svg" alt="Roll" />
     </button>
 
-    <ItemInnerWrapper {actionId} {action} {item} />
+    <ItemInnerWrapper
+        {actionId}
+        {action}
+        {item}
+        on:toggleActionList={() => (showActionList = !showActionList)}
+    />
 
     {#if $actor.isOwner}
         <ItemActionButtons action={actionId} {item} />
