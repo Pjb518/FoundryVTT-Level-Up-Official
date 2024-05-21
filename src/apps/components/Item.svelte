@@ -35,6 +35,8 @@
                 ?.some((action) => action.uses?.value || action.uses?.max);
         }
 
+        if (item.getFlag("a5e", "showActionList") === false) return false;
+
         if (game.settings.get("a5e", "collapseActionList") && sheetIsLocked) return false;
 
         return true;
@@ -78,8 +80,6 @@
 
         return data;
     }
-
-    let showContainerItems = false;
 
     $: containerItems = (item?.containerItems?.documents ?? []).reduce((acc, [k, v]) => {
         const i = fromUuidSync(v.uuid);
@@ -145,7 +145,10 @@
         {actionId}
         {action}
         {item}
-        on:toggleActionList={() => (showActionList = !showActionList)}
+        on:toggleActionList={() => {
+            showActionList = !showActionList;
+            item.setFlag("a5e", "showActionList", showActionList);
+        }}
     />
 
     {#if $actor.isOwner}
