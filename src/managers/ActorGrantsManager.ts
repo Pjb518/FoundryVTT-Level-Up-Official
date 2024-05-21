@@ -138,6 +138,12 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     if (sign === -1) {
       const clsSlug = cls?.slug || '';
       const clsLevel = (this.actor.levels.classes?.[clsSlug] ?? 1) + difference;
+      if (clsLevel < 1) {
+        await cls?.sheet?.close();
+        cls.delete();
+        return true;
+      }
+
       await this.removeGrantsByClassLevel(clsLevel, clsSlug);
       return await this.removeGrantsByLevel(characterLevel);
     }
