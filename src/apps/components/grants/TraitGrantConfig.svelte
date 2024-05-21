@@ -89,6 +89,7 @@
                 localize(label),
             ])}
             selected={traitType}
+            allowDeselect={false}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("traits.traitType", detail);
             }}
