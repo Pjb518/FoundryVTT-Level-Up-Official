@@ -1,45 +1,64 @@
 {
-  "folder": null,
-  "name": "Flesh of Stone: Earth (Elemental Defense)",
-  "type": "feature",
-  "img": "icons/magic/earth/strike-fist-stone-light.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p id=\"docs-internal-guid-da5fa7c9-7fff-3fd7-40d6-025a92f90f4b\" dir=\"ltr\">You learn how to take on the attributes of hard, unyielding stone, either by literally hardening your skin or just hardening your resolve. You can use your spellcasting ability modifier in place of your Dexterity modifier when determining your AC.</p>\n<p dir=\"ltr\">At 10th level, you become immune to the additional damage from critical hits.</p>\n<p dir=\"ltr\">At 18th level, you gain resistance to bludgeoning, piercing, and slashing damage.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": null
-    },
-    "classes": "elementalist"
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "b9bo2jo7hwc7fyq7"
+	"folder": null,
+	"name": "Flesh of Stone: Earth (Elemental Defense)",
+	"type": "feature",
+	"img": "icons/magic/earth/strike-fist-stone-light.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p id=\"docs-internal-guid-da5fa7c9-7fff-3fd7-40d6-025a92f90f4b\" dir=\"ltr\">You learn how to take on the attributes of hard, unyielding stone, either by literally hardening your skin or just hardening your resolve. You can use your spellcasting ability modifier in place of your Dexterity modifier when determining your AC.</p>\n<p dir=\"ltr\">At 10th level, you become immune to the additional damage from critical hits.</p>\n<p dir=\"ltr\">At 18th level, you gain resistance to bludgeoning, piercing, and slashing damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"lBpPexbbCylxE0Mm": {
+				"grantType": "trait",
+				"level": 18,
+				"levelType": "class",
+				"optional": false,
+				"_id": "lBpPexbbCylxE0Mm",
+				"label": "Flesh of Stone: Earth",
+				"traits": {
+					"base": [
+						"bludgeoning",
+						"piercing",
+						"slashing"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "elementalist"
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "b9bo2jo7hwc7fyq7"
 }

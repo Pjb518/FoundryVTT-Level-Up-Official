@@ -1,45 +1,244 @@
 {
-  "folder": null,
-  "name": "Master of the Winds (Apotheosis)",
-  "type": "feature",
-  "img": "icons/magic/air/air-smoke-casting.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p><span id=\"docs-internal-guid-1e642fad-7fff-d812-ba66-f590b83a515a\">You have mastered the power of air. You are able to cast</span> <em>tornado </em>once without expending a spell slot. Once you use this feature, you must complete a long rest before you can use it again.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "Elemental Mastery in Air",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": null
-    },
-    "classes": "elementalist"
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "3vyb3h71h6zj88ov"
+	"folder": null,
+	"name": "Master of the Winds (Apotheosis)",
+	"type": "feature",
+	"img": "icons/magic/air/air-smoke-casting.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"huGwjLQLqrGv21q4": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"Lboh4KmB7a4Lj2GX": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"RfLqc59eKwZV7z3h": {
+						"type": "damage",
+						"default": true,
+						"formula": "8d8",
+						"damageType": "bludgeoning",
+						"label": "Contact Damage",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"AZH73SP6sYJ6Fw1R": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "",
+						"onSave": "half damage, not lifted & restrained"
+					},
+					"FYDgwvkoF0fW0SsR": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "ath",
+						"ability": "str",
+						"label": "Athletics"
+					},
+					"Clk1ZuROTzaP8kna": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "acr",
+						"ability": "dex",
+						"label": "Acrobatics"
+					},
+					"4hdiAS053BGejO6X": {
+						"type": "effect",
+						"default": true,
+						"effectId": "dhX657Hb9kDL6Guw"
+					},
+					"Id4Zm7Lqp0wEX1Vg": {
+						"type": "generic",
+						"default": true,
+						"label": "Ejected Direction",
+						"formula": "1d8"
+					},
+					"kWx6qYX3Z9Y2p1qM": {
+						"type": "generic",
+						"default": true,
+						"label": "Distance from Tornado",
+						"formula": "(1d12)*5"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"wPLzh0qbvYGOhXNS": {
+						"range": "1200",
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "cylinder",
+					"quantity": 1,
+					"placeTemplate": true,
+					"radius": 5,
+					"height": 40
+				},
+				"img": "icons/magic/air/wind-tornado-cyclone-white.webp"
+			},
+			"RD5n74RcVYASji3P": {
+				"name": "Ongoing Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Rm3kjkuCnRM37htu": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d6",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/magic/air/wind-tornado-cyclone-white.webp"
+			}
+		},
+		"description": "<p><span id=\"docs-internal-guid-1e642fad-7fff-d812-ba66-f590b83a515a\">You have mastered the power of air. You are able to cast</span> @UUID[Compendium.a5e.a5e-spells.Item.ajxs7v7usfte05qe]{Tornado} once without expending a spell slot. Once you use this feature, you must complete a long rest before you can use it again.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "Elemental Mastery in Air",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "elementalist"
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/air/wind-tornado-cyclone-white.webp",
+			"origin": "Item.ajxs7v7usfte05qe",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "huGwjLQLqrGv21q4"
+				}
+			},
+			"transfer": false,
+			"name": "Lifted",
+			"_id": "dhX657Hb9kDL6Guw",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"restrained"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/air/wind-tornado-cyclone-white.webp",
+			"origin": "Item.ajxs7v7usfte05qe",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "RD5n74RcVYASji3P"
+				}
+			},
+			"transfer": false,
+			"name": "Lifted",
+			"_id": "ZVT9eoAU9CoXOEfT",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"restrained"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "3vyb3h71h6zj88ov"
 }
