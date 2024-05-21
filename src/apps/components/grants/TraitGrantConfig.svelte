@@ -6,14 +6,14 @@
     import prepareTraitGrantConfigObject from "../../../utils/prepareTraitGrantConfigObject";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
-    import ComplexDetailEmbed from "../ComplexDetailEmbed.svelte";
+    import CustomTagGroup from "../CustomTagGroup.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
     import GrantConfig from "./GrantConfig.svelte";
+    import Section from "../Section.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
 
-    export let { document, grantId, grantType } =
-        getContext("#external").application;
+    export let { document, grantId, grantType } = getContext("#external").application;
 
     function updateImage() {
         const current = grant?.img;
@@ -31,11 +31,11 @@
 
     function onUpdateValue(key, value) {
         if (key === "traits.traitType") {
-            updateDocumentDataFromField(
-                $item,
-                `system.grants.${grantId}.traits`,
-                { base: [], options: [], total: 0 },
-            );
+            updateDocumentDataFromField($item, `system.grants.${grantId}.traits`, {
+                base: [],
+                options: [],
+                total: 0,
+            });
         }
 
         key = `system.grants.${grantId}.${key}`;
@@ -51,6 +51,7 @@
 
     $: grant = $item.system.grants[grantId];
     $: traitType = grant?.traits?.traitType || "armorTypes";
+    $: options = configObject[traitType]?.config ?? [];
 
     setContext("item", item);
     setContext("grantId", grantId);
@@ -80,48 +81,42 @@
         </div>
     </header>
 
-    <Section
-        heading="Trait Type"
-        --a5e-section-margin="0.25rem 0"
-        --a5e-section-body-direction="row"
-    >
-        <FieldWrapper>
-            <select
-                class="u-w-fit damage-type-select"
-                on:change={({ target }) =>
-                    onUpdateValue("traits.traitType", target.value)}
-            >
-                {#each Object.entries(configObject) as [key, { label }]}
-                    <option value={key} selected={traitType === key}>
-                        {localize(label)}
-                    </option>
-                {/each}
-            </select>
-        </FieldWrapper>
-    </Section>
-
-    <GrantConfig>
-        <CheckboxGroup
-            heading="Base Options"
-            options={configObject[traitType]?.config}
-            selected={grant?.traits?.base}
-            disabledOptions={grant?.traits?.options}
-            showToggleAllButton={true}
+    <Section heading="Trait Config" --a5e-section-body-gap="0.75rem">
+        <RadioGroup
+            heading="Trait Type"
+            options={Object.entries(configObject).map(([key, { label }]) => [
+                key,
+                localize(label),
+            ])}
+            selected={traitType}
             on:updateSelection={({ detail }) => {
-                onUpdateValue("traits.base", detail);
+                onUpdateValue("traits.traitType", detail);
             }}
         />
 
-        <CheckboxGroup
-            heading="Optional Choices"
-            options={configObject[traitType]?.config}
-            selected={grant?.traits?.options}
-            disabledOptions={grant?.traits?.base}
-            showToggleAllButton={true}
-            on:updateSelection={({ detail }) => {
-                onUpdateValue("traits.options", detail);
-            }}
-        />
+        {#key traitType}
+            <CustomTagGroup
+                heading="Base Options"
+                {options}
+                selected={grant?.traits?.base}
+                disabledOptions={grant?.traits?.options}
+                showToggleAllButton={true}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("traits.base", detail);
+                }}
+            />
+
+            <CustomTagGroup
+                heading="Optional Choices"
+                {options}
+                selected={grant?.traits?.options}
+                disabledOptions={grant?.traits?.base}
+                showToggleAllButton={true}
+                on:updateSelection={({ detail }) => {
+                    onUpdateValue("traits.options", detail);
+                }}
+            />
+        {/key}
 
         <FieldWrapper heading="Selectable Options Count">
             <input
@@ -131,7 +126,9 @@
                     onUpdateValue("traits.total", Number(target.value))}
             />
         </FieldWrapper>
-    </GrantConfig>
+    </Section>
+
+    <GrantConfig />
 </form>
 
 <style lang="scss">

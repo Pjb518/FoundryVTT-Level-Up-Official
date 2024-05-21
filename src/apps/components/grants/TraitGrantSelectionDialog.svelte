@@ -30,9 +30,19 @@
 
     function getOptions(choicesLocked: boolean): string[][] {
         const options: string[][] = [];
-        if (!choicesLocked) return configObject[traitType]?.config ?? [];
+        const optionKeys: string[] =
+            configObject[traitType]?.config.map(([key]) => key) ?? [];
 
-        for (const [value, label] of configObject[traitType]?.config ?? []) {
+        const extra = choices.filter((c) => !optionKeys.includes(c));
+
+        const totalOptions = [
+            ...(configObject[traitType]?.config ?? []),
+            ...extra.map((e) => [e, e]),
+        ];
+
+        if (!choicesLocked) return totalOptions;
+
+        for (const [value, label] of totalOptions) {
             if (choices.includes(value)) {
                 options.push([value, label]);
             }
@@ -45,7 +55,7 @@
     const configObject = prepareTraitGrantConfigObject();
     let choicesLocked = true;
 
-    $: selected = [...base, ...selected];
+    $: selected = [...new Set(base.concat(selected))];
     $: totalCount = base.length + count;
     $: remainingSelections = totalCount - selected.length;
     $: summary = getGrantSummary(selected);
@@ -60,9 +70,7 @@
             htmlString: `<i class="fa-solid ${
                 choicesLocked ? "fa-plus" : "fa-minus"
             }" />`,
-            tooltip: choicesLocked
-                ? "Locked to Grant Options"
-                : "Free Selection Mode",
+            tooltip: choicesLocked ? "Locked to Grant Options" : "Free Selection Mode",
         },
     ]}
     --a5e-section-body-gap="0.75rem"
