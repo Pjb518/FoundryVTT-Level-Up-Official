@@ -528,7 +528,7 @@ A5E.knackTypes = {
   ranger: 'Exploration Knack',
   rogue: 'Skill Trick',
   savant: 'Clever Scheme',
-  scholar: 'Scholarly Discoveries',
+  scholar: 'Scholarly Discovery',
   sorcerer: 'Arcane Innovation',
   warlock: 'Secret of Arcana',
   wielder: 'Artifact Whisper',
