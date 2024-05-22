@@ -1,6 +1,7 @@
 {
+	"folder": null,
 	"name": "Advanced Tactical Chemistry (Humanoid Biochemistry)",
-	"type": "feature",
+	"type": "object",
 	"img": "icons/skills/wounds/blood-cells-vessel-red-orange.webp",
 	"system": {
 		"ac": {
@@ -13,39 +14,160 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 9th level you&rsquo;ve mastered and branched out from basic chemistry, discovering a new science to integrate into your tactics. You may add your Intelligence modifier to the saving throw DC of any item you create using Tactical Chemistry.</p><h3>Humanoid Biochemistry</h3><p>You&rsquo;ve learned a great deal of biochemistry and what chemicals you can apply to alleviate many ailments. You can create the following additional items using your Tactical Chemistry feature:</p><p>@UUID[Compendium.a5e.a5e-adventuring-gear.vzy6r3gv8ylwoim7]{Antitoxin}</p><p>@UUID[Compendium.a5e.a5e-adventuring-gear.nees9nzonritxzwe]{Healing Potion (greater)}</p><p>@UUID[Compendium.a5e.a5e-adventuring-gear.x9t8xc1kffdnm5nz]{Laudanum}</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "gpg0",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"concentration": false,
-		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
-		"requiresBloodied": false,
-		"schemaVersion": {
-			"version": 0.019,
-			"lastMigration": {
-				"version": {
-					"schema": 0.018,
-					"foundry": "11.315",
-					"system": "0.18.11"
+		"actions": {
+			"fkRt4tEWE3BOTiZR": {
+				"name": "Create Tactical Chemistry Item",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"9aDRoTc5VP5ruUH5": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
 				}
 			}
 		},
-		"classes": ""
+		"description": "<p>As a bonus action, you can create one of the following items:</p>\n<ul>\n<li>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.b0z0yz39b3qy3hdo\" data-id=\"b0z0yz39b3qy3hdo\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Acid (vial)</a></p>\n</li>\n<li>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.4t0m2ttaca5hg2vi\" data-id=\"4t0m2ttaca5hg2vi\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Alchemist's fire (flask)</a></p>\n</li>\n<li>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.yrsiymhg2jgu9vdd\" data-id=\"yrsiymhg2jgu9vdd\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Black powder charge</a></p>\n</li>\n<li>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.5tdp8fyztsvgmk4b\" data-id=\"5tdp8fyztsvgmk4b\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Ether (flask)</a></p>\n</li>\n<li>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.67lx2tqow4t9aiwp\" data-id=\"67lx2tqow4t9aiwp\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Flash bomb</a></p>\n</li>\n<li>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.322whxi7q57yw3ww\" data-id=\"322whxi7q57yw3ww\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Oil, Flask</a></p>\n</li>\n<li>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.h8qq0ij4eokx034z\" data-id=\"h8qq0ij4eokx034z\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Paint pot</a></p>\n</li>\n<li>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.31kqyuyw2vkmyd4l\" data-id=\"31kqyuyw2vkmyd4l\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Poison, basic (vial)</a></p>\n</li>\n<li>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.erxssofi2jlptyv7\" data-id=\"erxssofi2jlptyv7\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Smoke bomb</a></p>\n</li>\n<li>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.ukcav3i8dudpalir\" data-id=\"ukcav3i8dudpalir\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Tanglefoot bag</a></p>\n</li>\n<li>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.7tw73cwd1j8zf3g5\" data-id=\"7tw73cwd1j8zf3g5\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Torch</a></p>\n</li>\n<li>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.dao6cj4buzfcr4b9\" data-id=\"dao6cj4buzfcr4b9\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Torch (alchemical)</a></p>\n</li>\n</ul>\n<p>Items you make in this way are extremely unstable and must be used immediately. If an item you created in this way is not used (activated, lit, thrown, or applied as appropriate to the item) by the end of your next turn it dissolves into useless sludge.</p>\n<p>You can use this feature to create a number of items equal to your proficiency bonus. You regain all expended uses when you finish a short or long rest. You cannot regain expended uses in this way if you don&rsquo;t have access to tools of artifice.</p>\n<h3>Humanoid Biochemistry</h3>\n<p>You&rsquo;ve learned a great deal of biochemistry and what chemicals you can apply to alleviate many ailments. You can create the following additional items using your Tactical Chemistry feature:</p>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.vzy6r3gv8ylwoim7\" data-id=\"vzy6r3gv8ylwoim7\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Antitoxin</a></p>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.nees9nzonritxzwe\" data-id=\"nees9nzonritxzwe\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Healing Potion (greater)</a></p>\n<p><a class=\"content-link\" draggable=\"true\" data-uuid=\"Compendium.a5e.a5e-adventuring-gear.Item.x9t8xc1kffdnm5nz\" data-id=\"x9t8xc1kffdnm5nz\" data-type=\"Item\" data-pack=\"a5e.a5e-adventuring-gear\" data-tooltip=\"Object Item\">Laudanum</a></p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 2,
+			"max": "@prof",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {
+			"I0lQbHeZlmqdwak3": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.b0z0yz39b3qy3hdo",
+				"quantity": 1
+			},
+			"f92tZ1PxF52tsgaN": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.4t0m2ttaca5hg2vi",
+				"quantity": 1
+			},
+			"3WChqJbLrAjY0u6K": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.yrsiymhg2jgu9vdd",
+				"quantity": 1
+			},
+			"3H2HdCyfQdSIL2Sa": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.5tdp8fyztsvgmk4b",
+				"quantity": 1
+			},
+			"IduAKZVjbq8FMK8Y": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.322whxi7q57yw3ww",
+				"quantity": 1
+			},
+			"bsWg8tpnncONjXf9": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.h8qq0ij4eokx034z",
+				"quantity": 1
+			},
+			"Ragbk0YXxSTRKb7b": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.31kqyuyw2vkmyd4l",
+				"quantity": 1
+			},
+			"Tug2Ss42R6amVF50": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.adapajgfwi8wio20",
+				"quantity": 1
+			},
+			"C28wsZG1SWe6q9gB": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.jtte8esxstc55gx6",
+				"quantity": 1
+			},
+			"sruf7Oa0A0ohoin8": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.ukcav3i8dudpalir",
+				"quantity": 1
+			},
+			"SrZ7rOMSVgJFCNwA": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.7tw73cwd1j8zf3g5",
+				"quantity": 1
+			},
+			"8kzRbGafhMDKP98I": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.dao6cj4buzfcr4b9",
+				"quantity": 1
+			},
+			"Sm26gsXb2aEQvDXf": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.vzy6r3gv8ylwoim7",
+				"quantity": 1
+			},
+			"smZ4PZRryyEM2F5Z": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.nees9nzonritxzwe",
+				"quantity": 1
+			},
+			"XssBfG0YsyoQVWrw": {
+				"optional": true,
+				"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.x9t8xc1kffdnm5nz",
+				"quantity": 1
+			}
+		},
+		"materialProperties": [],
+		"objectType": "container",
+		"plotItem": false,
+		"price": "",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"breakerProperties": [],
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": ""
 	},
 	"effects": [],
 	"flags": {},
-	"folder": null,
 	"_id": "dlo8wej7qkhd9wpv"
 }
