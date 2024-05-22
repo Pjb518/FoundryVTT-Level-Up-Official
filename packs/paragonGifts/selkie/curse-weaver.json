@@ -1,0 +1,117 @@
+{
+	"folder": null,
+	"name": "Curse Weaver",
+	"type": "feature",
+	"img": "icons/magic/water/wave-water-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"L6BH9dbGEpuEK9xE": {
+				"name": "Bestow Curse",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"5QYMXN2lWac6EUVh": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"TMF7oR2EHe2nnSU0": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "wis",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"label": "Wisdom Spellcasting",
+						"default": false
+					},
+					"Tthn0x4Y0dphlsm2": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "cha",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"label": "Charisma Spellcasting",
+						"default": false
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 8
+				},
+				"ranges": {
+					"7kCGpenqBfTBkHf5": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/unholy/hand-claw-fire-blue.webp"
+			}
+		},
+		"description": "<p>Once per long rest, you may cast @UUID[Compendium.a5e.a5e-spells.Item.339zx6f5jk81fobw]{Bestow Curse} at 5th level without a spell slot. You may choose either Wisdom or Charisma as your spellcasting ability for this spell.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "secretsOfTheSelkies",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "1dczrroafq97d3hp"
+}
