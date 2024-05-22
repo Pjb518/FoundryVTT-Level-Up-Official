@@ -633,6 +633,10 @@
     .number-input {
         font-size: var(--a5e-text-size-xs);
         text-align: center;
+
+        &:disabled {
+            border: 1px solid transparent;
+        }
     }
 
     .quantity-wrapper,
