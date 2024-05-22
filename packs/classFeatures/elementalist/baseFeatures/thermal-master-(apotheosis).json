@@ -1,45 +1,245 @@
 {
-  "folder": null,
-  "name": "Thermal Master (Apotheosis)",
-  "type": "feature",
-  "img": "icons/magic/fire/explosion-flame-blue.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p><span id=\"docs-internal-guid-4a8b596a-7fff-1116-6eb8-6d808a462583\">You have mastered the opposing forces of fire and ice, fusing them into pure power. You can cast </span><em>flashfreeze heatwave</em> once without expending a spell slot or spell points. Once you use this feature, you must complete a long rest before you can use it again.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "Elemental Focus in Fire and Water",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": null
-    },
-    "classes": "elementalist"
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "3ehi612ljbdalpm6"
+	"folder": null,
+	"name": "Thermal Master (Apotheosis)",
+	"type": "feature",
+	"img": "icons/magic/fire/explosion-flame-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"mcipCwwQxIU6jbeu": {
+				"name": "Cast Spell/Freeze Area",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"sHUi4XLbsvjraQWh": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"fBB3V9qzwgxlVpKL": {
+						"type": "damage",
+						"default": true,
+						"formula": "6d6",
+						"damageType": "cold",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						},
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"6X53DtqfSy9XmMjj": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "Frozen Area",
+						"onSave": "half damage, not restrained"
+					},
+					"Zc2rBYwilFEVxS7O": {
+						"type": "effect",
+						"default": true,
+						"effectId": "L2PcPxoZtrpgM76k"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"ranges": {
+					"kzlt4eIXeHKlDGeu": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 40,
+					"placeTemplate": true
+				},
+				"img": "icons/magic/water/ice-crystal-white.webp"
+			},
+			"DRaoagGIA0b6Kf5N": {
+				"name": "Flames",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"eHrvTLt1nl4veWIu": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "6d6",
+						"damageType": "fire",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					},
+					"X7K3Vk3Uq348XjwU": {
+						"type": "damage",
+						"default": true,
+						"label": "Interrupted Movement",
+						"formula": "3d6",
+						"damageType": "",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						},
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"inj2IH8Cm85Z8Sgl": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage, not pushed"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/magic/water/ice-crystal-white.webp"
+			}
+		},
+		"description": "<p><span id=\"docs-internal-guid-4a8b596a-7fff-1116-6eb8-6d808a462583\">You have mastered the opposing forces of fire and ice, fusing them into pure power. You can cast&nbsp;</span>@UUID[Compendium.a5e.a5e-spells.Item.gc2j4x57gy5ma2fw]{Flashfreeze Heatwave}&nbsp; once without expending a spell slot or spell points. Once you use this feature, you must complete a long rest before you can use it again.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "Elemental Focus in Fire and Water",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "elementalist"
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/water/ice-crystal-white.webp",
+			"origin": "Item.gc2j4x57gy5ma2fw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "mcipCwwQxIU6jbeu"
+				}
+			},
+			"transfer": false,
+			"name": "Restrained",
+			"_id": "L2PcPxoZtrpgM76k",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"restrained"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/water/ice-crystal-white.webp",
+			"origin": "Item.gc2j4x57gy5ma2fw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "DRaoagGIA0b6Kf5N"
+				}
+			},
+			"transfer": false,
+			"name": "Restrained",
+			"_id": "Q0DCqkSTZokRtDJj",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"restrained"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "3ehi612ljbdalpm6"
 }

@@ -1,45 +1,110 @@
 {
-  "folder": null,
-  "name": "Earthen Shield",
-  "type": "feature",
-  "img": "icons/magic/defensive/shield-barrier-glowing-triangle-green.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p dir=\"ltr\">If you have a hand free, you can use an action to manifest a shield from solid stone or metal. This acts as a medium shield. You can use your reaction to sacrifice this shield, as normal, and can use another action on a subsequent round to manifest a new shield.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "knack",
-    "grants": {},
-    "prerequisite": "Elemental Affinity: Earth",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": null
-    },
-    "classes": "elementalist"
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "1yefrzdjwwuino3j"
+	"folder": null,
+	"name": "Earthen Shield",
+	"type": "feature",
+	"img": "icons/magic/defensive/shield-barrier-glowing-triangle-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"WsEu0cBOrLXrjVJY": {
+				"name": "Earthen Shield",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"TLlUeRcTvz9Xh4aW": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Bj0s7jIm7xPl0BFY"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">If you have a hand free, you can use an action to manifest a shield from solid stone or metal. This acts as a medium shield. You can use your reaction to sacrifice this shield, as normal, and can use another action on a subsequent round to manifest a new shield.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "Elemental Affinity: Earth",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "elementalist"
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/shield-barrier-glowing-triangle-green.webp",
+			"origin": "Item.X0K2eLOFIolVK8oh",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "WsEu0cBOrLXrjVJY",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Earthen Shield",
+			"_id": "Bj0s7jIm7xPl0BFY",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Acts as a medium shield. You can use your reaction to sacrifice this shield, as normal, and can use another action on a subsequent round to manifest a new shield.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "1yefrzdjwwuino3j"
 }

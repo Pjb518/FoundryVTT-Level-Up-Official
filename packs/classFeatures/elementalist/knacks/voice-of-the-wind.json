@@ -1,45 +1,79 @@
 {
-  "folder": null,
-  "name": "Voice of the Wind",
-  "type": "feature",
-  "img": "icons/magic/sonic/scream-wail-shout-teal.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p>You can use the wind to carry your whispers to any creature of your choice that you can see within 120 ft, as if they were the target of a&nbsp;<em>message </em>spell. Alternatively, as an action, you can cast <em>whispering wind</em> without expending spell points.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "knack",
-    "grants": {},
-    "prerequisite": "Elemental Affinity: Air; 5th level",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": null
-    },
-    "classes": "elementalist"
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "9bb40lsywt04okim"
+	"folder": null,
+	"name": "Voice of the Wind",
+	"type": "feature",
+	"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"EOMuvb7plTT1kLQG": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 10
+				},
+				"ranges": {
+					"FCi27Tfwl5tDH6TW": {
+						"range": 3,
+						"unit": "miles"
+					}
+				},
+				"img": "icons/magic/air/wind-stream-blue-gray.webp"
+			}
+		},
+		"description": "<p>You can use the wind to carry your whispers to any creature of your choice that you can see within 120 ft, as if they were the target of a @UUID[Compendium.a5e.a5e-spells.Item.4gcxix2l4zvy9kdu]{Message} spell. Alternatively, as an action, you can cast @UUID[Compendium.a5e.a5e-spells.Item.men9jsj0d9d1u4x0]{Whispering Wind} without expending spell points.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "Elemental Affinity: Air; 5th level",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "elementalist"
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "9bb40lsywt04okim"
 }

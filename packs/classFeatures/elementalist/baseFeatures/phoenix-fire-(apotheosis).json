@@ -1,45 +1,217 @@
 {
-  "folder": null,
-  "name": "Phoenix Fire (Apotheosis)",
-  "type": "feature",
-  "img": "icons/magic/fire/elemental-fire-flying.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p><span id=\"docs-internal-guid-5c16e776-7fff-347c-777e-71e6eb4a926e\">Unlike other masters of fire, you know that fire&rsquo;s destruction is how nature clears space for rebirth. You are able to cast</span> <em>phoenix rebirth</em> once without expending a spell slot. Once you use this feature, you must complete a long rest before you can use it again.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "Elemental Mastery in Fire",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": null
-    },
-    "classes": "elementalist"
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "vzc3kkgt54e7ndfq"
+	"folder": null,
+	"name": "Phoenix Fire (Apotheosis)",
+	"type": "feature",
+	"img": "icons/magic/fire/elemental-fire-flying.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"iEU332tZcAGD1ICb": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"RDvZ2zd0kCjxvITv": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"n2yVZUkkJopCDAGR": {
+						"type": "damage",
+						"default": true,
+						"label": "Fiery Explosion",
+						"formula": "11d6",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d6"
+						},
+						"damageType": "fire",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"k7vzQavDsUwF5oU9": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage"
+					},
+					"fPc6fRxPcGtryDmU": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3Ly91PDB0fJL3zvM"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"U1bAT0257OqxZIBd": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 30
+				},
+				"img": "icons/magic/fire/projectile-feathers-embers-gold.webp"
+			},
+			"dNDj85cJvIZatWz8": {
+				"name": "Rebirth",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"L6p6bAwpKW8m5eFv": {
+						"type": "healing",
+						"default": true,
+						"formula": "11d6",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d6"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/magic/fire/projectile-feathers-embers-gold.webp"
+			}
+		},
+		"description": "<p><span id=\"docs-internal-guid-5c16e776-7fff-347c-777e-71e6eb4a926e\">Unlike other masters of fire, you know that fire&rsquo;s destruction is how nature clears space for rebirth. You are able to cast</span>&nbsp;@UUID[Compendium.a5e.a5e-spells.Item.8fve58oe1aaaldmx]{Phoenix Rebirth}&nbsp; once without expending a spell slot. Once you use this feature, you must complete a long rest before you can use it again.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "Elemental Mastery in Fire",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "elementalist"
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/fire/projectile-feathers-embers-gold.webp",
+			"origin": "Item.8fve58oe1aaaldmx",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iEU332tZcAGD1ICb",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Ash",
+			"_id": "3Ly91PDB0fJL3zvM",
+			"changes": [
+				{
+					"key": "system.attributes.hp.value",
+					"value": "9999",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/fire/projectile-feathers-embers-gold.webp",
+			"origin": "Item.8fve58oe1aaaldmx",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "dNDj85cJvIZatWz8",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Ash",
+			"_id": "etMZtOTeGn8gOKqa",
+			"changes": [
+				{
+					"key": "system.attributes.hp.value",
+					"value": "9999",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "vzc3kkgt54e7ndfq"
 }

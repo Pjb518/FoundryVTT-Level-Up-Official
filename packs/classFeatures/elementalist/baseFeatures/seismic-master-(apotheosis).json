@@ -1,45 +1,324 @@
 {
-  "folder": null,
-  "name": "Seismic Master (Apotheosis)",
-  "type": "feature",
-  "img": "icons/magic/earth/projectile-stone-landslide.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p><span id=\"docs-internal-guid-bc56dea6-7fff-1735-7b7a-6f54f1cf50b6\">You have mastered the tremendous power of the earth. You are able to cast </span>@UUID[Compendium.a5e.a5e-spells.Item.lekm98iu8ilkj7wl]{Earthquake} once without expending a spell slot. Once you use this feature, you must complete a long rest before you can use it again.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "Elemental Mastery in Earth",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": null
-    },
-    "classes": "elementalist"
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "ad9wyhls6x5fgzpg"
+	"folder": null,
+	"name": "Seismic Master (Apotheosis)",
+	"type": "feature",
+	"img": "icons/magic/earth/projectile-stone-landslide.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ClyoEJ1EYeCO9nDm": {
+				"name": "Earthquake",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"AIfXs7q8khx0cOJx": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"3AcwQxvHTKqFFzds": {
+						"ability": "dex",
+						"onSave": "Not knocked prone",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"HbiOtt5iDXBRCK0s": {
+						"range": "500 feet"
+					}
+				},
+				"area": {
+					"shape": "cylinder",
+					"radius": "100",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": null,
+					"type": "other"
+				},
+				"img": "icons/magic/earth/projectile-stone-landslide.webp"
+			},
+			"kilThNPmiIAYHCTE": {
+				"name": "Fissures",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"dNfo1hrSzOqadQgh": {
+						"type": "generic",
+						"default": true,
+						"label": "Number of Fissures",
+						"formula": "1d6"
+					}
+				},
+				"prompts": {
+					"ezpZx655JS9aHykw": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Moves with fissure edge"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "line",
+					"quantity": 1,
+					"length": 200,
+					"width": 10,
+					"placeTemplate": true
+				},
+				"img": "icons/magic/earth/projectile-stone-landslide.webp"
+			},
+			"tCaeluji1w9ubvm1": {
+				"name": "Structures",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"vhDrfZhWDjzFOW5f": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "5d6",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {
+					"Kkh8BPpCpGKPrG3b": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage, not prone or buried"
+					},
+					"sxBOWgAdikAkXRGz": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "acr",
+						"ability": "none",
+						"label": "Buried In Rubble"
+					},
+					"PEtHeEO0wuWKJ5HZ": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ath",
+						"ability": "none",
+						"label": "Buried In Rubble"
+					},
+					"Ubxcz0OYGPFTjXj2": {
+						"type": "effect",
+						"default": true,
+						"effectId": "HwT4xDIO9sipNLWs"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/magic/earth/projectile-stone-landslide.webp"
+			}
+		},
+		"description": "<p><span id=\"docs-internal-guid-bc56dea6-7fff-1735-7b7a-6f54f1cf50b6\">You have mastered the tremendous power of the earth. You are able to cast </span>@UUID[Compendium.a5e.a5e-spells.Item.lekm98iu8ilkj7wl]{Earthquake} once without expending a spell slot. Once you use this feature, you must complete a long rest before you can use it again.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "Elemental Mastery in Earth",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "elementalist"
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/earth/projectile-stone-landslide.webp",
+			"origin": "Item.lekm98iu8ilkj7wl",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ClyoEJ1EYeCO9nDm",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Buried",
+			"_id": "rau1jFawSICs4WQt",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/earth/projectile-stone-landslide.webp",
+			"origin": "Item.lekm98iu8ilkj7wl",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kilThNPmiIAYHCTE",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Buried",
+			"_id": "CiPY4kJhPg0wAvZf",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/earth/projectile-stone-landslide.webp",
+			"origin": "Item.lekm98iu8ilkj7wl",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "tCaeluji1w9ubvm1",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Buried",
+			"_id": "HwT4xDIO9sipNLWs",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "ad9wyhls6x5fgzpg"
 }
