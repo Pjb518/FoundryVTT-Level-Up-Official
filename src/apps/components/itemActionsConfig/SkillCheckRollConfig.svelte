@@ -23,7 +23,8 @@
         delete skills.eng;
     }
 
-    function updateAbility() {
+    function updateAbility(ability) {
+        selectedAbility = ability;
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.ability`,
@@ -32,15 +33,13 @@
     }
 
     $: selectedAbility = roll?.ability ?? "none";
-    $: selectedAbility, updateAbility();
 </script>
 
 <FieldWrapper
     heading="A5E.Label"
     buttons={[
         {
-            classes:
-                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes: "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicateRoll(actionId, roll),
         },
         {
@@ -88,7 +87,7 @@
     optionStyles="min-width: 2rem; text-align: center;"
     options={prepareAbilityOptions(false, true)}
     selected={selectedAbility}
-    on:updateSelection={({ detail }) => (selectedAbility = detail)}
+    on:updateSelection={({ detail }) => updateAbility(detail)}
 />
 
 <FieldWrapper heading="A5E.CheckBonus">

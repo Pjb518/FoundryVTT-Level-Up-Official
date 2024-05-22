@@ -16,7 +16,7 @@
     const actionId = getContext("actionId");
     const { abilities } = CONFIG.A5E;
 
-    function updateAbility() {
+    function updateAbility(ability) {
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.ability`,
@@ -25,15 +25,13 @@
     }
 
     $: selectedAbility = roll.ability ?? "none";
-    $: selectedAbility, updateAbility();
 </script>
 
 <FieldWrapper
     heading="A5E.Label"
     buttons={[
         {
-            classes:
-                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes: "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicateRoll(actionId, roll),
         },
         {
@@ -63,7 +61,7 @@
     options={Object.entries(abilities)}
     selected={selectedAbility}
     allowDeselect={false}
-    on:updateSelection={({ detail }) => (selectedAbility = detail)}
+    on:updateSelection={({ detail }) => updateAbility(detail)}
 />
 
 <FieldWrapper heading="A5E.CheckBonus">

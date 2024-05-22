@@ -6,7 +6,6 @@
 
     import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
-    import FormSection from "../LegacyFormSection.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
     export let deleteRoll;
@@ -17,7 +16,8 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    function updateAbility() {
+    function updateAbility(ability) {
+        selectedAbility = ability;
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.ability`,
@@ -26,15 +26,13 @@
     }
 
     $: selectedAbility = roll.ability ?? "none";
-    $: selectedAbility, updateAbility();
 </script>
 
 <FieldWrapper
     heading="A5E.Label"
     buttons={[
         {
-            classes:
-                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes: "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicateRoll(actionId, roll),
         },
         {
@@ -64,7 +62,7 @@
     options={prepareAbilityOptions()}
     selected={selectedAbility}
     allowDeselect={false}
-    on:updateSelection={({ detail }) => (selectedAbility = detail)}
+    on:updateSelection={({ detail }) => updateAbility(detail)}
 />
 
 <FieldWrapper heading="A5E.SaveBonus">
