@@ -44,6 +44,10 @@ export default function registerModuleIncompatibilities(A5E) {
       reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
       priority: 'low'
     },
+    'a5e-secrets-of-the-selkies': {
+      reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
+      priority: 'low'
+    },
     'a5e-spells-from-the-forgotten-vault': {
       reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
       priority: 'low'
