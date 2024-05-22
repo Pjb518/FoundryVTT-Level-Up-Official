@@ -35,13 +35,9 @@
     const optionKeys = options.map(([key]) => key);
     const dispatch = createEventDispatcher();
 
-    $: selectedCoreOptions = selected.filter((option) =>
-        optionKeys.includes(option),
-    );
+    $: selectedCoreOptions = selected.filter((option) => optionKeys.includes(option));
 
-    $: selectedCustomOptions = selected.filter(
-        (option) => !optionKeys.includes(option),
-    );
+    $: selectedCustomOptions = selected.filter((option) => !optionKeys.includes(option));
 
     $: selectedCoreOptions, selectedCustomOptions, updateSelections();
 </script>

@@ -378,6 +378,7 @@ A5E.baseScalingModes = {
   cantrip: 'A5E.scaling.modes.cantrip',
   spellLevel: 'A5E.scaling.modes.spellLevel',
   spellPoints: 'A5E.scaling.modes.spellPoints',
+  artifactCharges: 'A5E.scaling.modes.artifactCharges',
   actionUses: 'A5E.scaling.modes.actionUses',
   itemUses: 'A5E.scaling.modes.itemUses'
 };
@@ -386,6 +387,7 @@ A5E.targetScalingModes = {
   cantrip: 'A5E.scaling.modes.cantrip',
   spellLevel: 'A5E.scaling.modes.spellLevel',
   spellPoints: 'A5E.scaling.modes.spellPoints',
+  artifactCharges: 'A5E.scaling.modes.artifactCharges',
   actionUses: 'A5E.scaling.modes.actionUses',
   itemUses: 'A5E.scaling.modes.itemUses'
 };

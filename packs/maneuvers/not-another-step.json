@@ -1,0 +1,87 @@
+{
+	"folder": null,
+	"name": "Not Another Step",
+	"type": "maneuver",
+	"img": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
+	"system": {
+		"actions": {
+			"snRycF8Cpa3K4z5Q": {
+				"name": "Execute",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"2HFJNbWeiE8PwWEQ": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"liU2uGpaaTn5kOQK": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Attackers can move within 15 feet of the protected ally"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"auVXbjFuuROcMzRE": {
+						"range": "short"
+					}
+				}
+			}
+		},
+		"description": "<p>When you activate this maneuver, select an ally you can see within 30 feet of you. For 1 minute, hostile creatures must succeed on a Charisma saving throw the first time each round they try to move within 15 feet of your ally. On a failure, they are unable to move closer to your ally until the start of your next turn, but on a success, they become immune to this ability for 24 hours. This effect ends early if you are incapacitated.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "secretsOfTheSelkies",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 3,
+		"exertionCost": 3,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "selflessSentinel",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "38hk2bd07v37k3d0"
+}

@@ -4,24 +4,27 @@
     export let actor;
     export let propData = {};
 
+    function hasArtifactCharges(actor) {
+        return actor?.system?.spellResources?.artifactCharges?.max;
+    }
+
     function hasExertionPool(actor) {
         return actor?.system?.attributes.exertion?.max;
     }
 
     function hasSpellPoints(actor) {
-        if (!actor?.flags?.a5e?.showSpellPoints) return false;
-        if (!actor?.system?.spellResources?.points?.max) return false;
-
-        return true;
+        return actor?.system?.spellResources?.points?.max;
     }
 
     const { spellLevels } = CONFIG.A5E;
 
     $: actorData = $actor?.system;
+    $: showArtifactCharges = hasArtifactCharges($actor);
     $: showExertion = hasExertionPool($actor);
     $: showSpellPoints = hasSpellPoints($actor);
 
     $: showResources =
+        propData.partyHasArtifactCharges ||
         propData.partyHasExertionPool ||
         propData.partyHasInspiration ||
         propData.partyHasSpellPointPool ||
@@ -50,8 +53,8 @@
     {#if propData.partyHasExertionPool}
         <span class="field field--exertion">
             {#if showExertion}
-                {actorData?.attributes.exertion?.current} / {actorData
-                    ?.attributes.exertion?.max}
+                {actorData?.attributes.exertion?.current} / {actorData?.attributes
+                    .exertion?.max}
             {:else}
                 <i
                     class="cross fa-solid fa-xmark"
@@ -62,11 +65,26 @@
         </span>
     {/if}
 
+    {#if propData.partyHasArtifactCharges}
+        <span class="field field--artifact-charges">
+            {#if showArtifactCharges}
+                {actorData?.spellResources.artifactCharges.current} / {actorData
+                    ?.spellResources.artifactCharges.max}
+            {:else}
+                <i
+                    class="cross fa-solid fa-xmark"
+                    data-tooltip="{$actor.name} does not have artifact charges."
+                    data-tooltip-direction="UP"
+                />
+            {/if}
+        </span>
+    {/if}
+
     {#if propData.partyHasSpellPointPool}
         <span class="field field--spell-points">
             {#if showSpellPoints}
-                {actorData?.spellResources.points.current} / {actorData
-                    ?.spellResources.points.max}
+                {actorData?.spellResources.points.current} / {actorData?.spellResources
+                    .points.max}
             {:else}
                 <i
                     class="cross fa-solid fa-xmark"
@@ -118,6 +136,10 @@
     .field {
         text-align: center;
         margin-inline: 0.25rem;
+
+        &--artifact-charges {
+            grid-area: artifactCharges;
+        }
 
         &--exertion {
             grid-area: exertion;

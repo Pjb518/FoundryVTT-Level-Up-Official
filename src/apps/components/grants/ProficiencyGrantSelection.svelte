@@ -29,25 +29,36 @@
 
     function getOptions(choicesLocked: boolean): string[][] {
         const options: string[][] = [];
+        let optionKeys: string[];
 
         if (["weapon", "tool"].includes(proficiencyType)) {
             const config: Record<string, string>[] = Object.values(
                 configObject[proficiencyType]?.config ?? {},
             );
 
-            config.forEach((category) => {
-                for (const [value, label] of Object.entries(category)) {
-                    if (choices.includes(value)) options.push([value, label]);
-                }
+            optionKeys = config.flatMap((category) => {
+                return Object.entries(category).map(([key]) => key);
             });
-
-            return options;
+        } else {
+            optionKeys = configObject[proficiencyType]?.config.map(([key]) => key) ?? [];
         }
 
-        if (!choicesLocked) return configObject[proficiencyType]?.config ?? [];
+        const extra = choices.filter((c) => !optionKeys.includes(c));
+        const totalOptions = [
+            ...(["weapon", "tool"].includes(proficiencyType)
+                ? Object.values(
+                      (configObject[proficiencyType]?.config ?? {}) as Record<
+                          string,
+                          string
+                      >,
+                  ).flatMap((category) => Object.entries(category))
+                : configObject[proficiencyType]?.config ?? []),
+            ...extra.map((e) => [e, e]),
+        ];
 
-        for (const [value, label] of configObject[proficiencyType]?.config ??
-            []) {
+        if (!choicesLocked) return totalOptions;
+
+        for (const [value, label] of totalOptions) {
             if (choices.includes(value)) {
                 options.push([value, label]);
             }
@@ -61,7 +72,7 @@
 
     let choicesLocked = true;
 
-    $: selected = [...base, ...selected];
+    $: selected = [...new Set(base.concat(selected))];
     $: totalCount = base.length + count;
     $: remainingSelections = totalCount - selected.length;
     $: summary = getGrantSummary(selected);

@@ -1,0 +1,127 @@
+{
+	"name": "Sweeping Stride",
+	"type": "feature",
+	"img": "icons/magic/movement/trail-streak-pink.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"KcJkydfU33MIVY4A": {
+				"name": "Sweeping Stride",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"prompts": {
+					"2xGvQQ5y5qXmYDSd": {
+						"ability": "dex",
+						"onSave": "Not prone",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8+@prof+@int.mod"
+						},
+						"type": "savingThrow"
+					},
+					"Ihre6VkVlbF7L99o": {
+						"type": "effect",
+						"default": true,
+						"effectId": "1hM5tuUpOzM26FbW"
+					}
+				},
+				"consumers": {}
+			}
+		},
+		"description": "<p>When you stand up, or when you move at least 10 feet and enter a space adjacent to a creature no more than one size larger than you, you can try to trip it. If the creature fails a Dexterity saving throw, it falls prone. If it succeeds, instead your movement ends in the space you entered to use this ability. If you used this ability while standing up, you remain prone.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventuresInZeitgeist",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "savant"
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/movement/trail-streak-pink.webp",
+			"origin": "Item.3tYOIv83jKtara4U",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "KcJkydfU33MIVY4A"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"_id": "1hM5tuUpOzM26FbW",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "nd9r8bgj96om9rl2"
+}

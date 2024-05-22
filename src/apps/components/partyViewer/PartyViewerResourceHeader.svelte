@@ -4,9 +4,7 @@
     function getSpellLevels({ highestSpellSlotLevel }) {
         return Object.entries(CONFIG.A5E.spellLevels).filter(
             ([spellLevel]) =>
-                spellLevel &&
-                spellLevel !== "0" &&
-                spellLevel <= highestSpellSlotLevel,
+                spellLevel && spellLevel !== "0" && spellLevel <= highestSpellSlotLevel,
         );
     }
 </script>
@@ -28,6 +26,14 @@
         />
     {/if}
 
+    {#if propData.partyHasArtifactCharges}
+        <i
+            class="heading heading--artifact-charges fa-solid fa-wand-sparkles"
+            data-tooltip="Artifact Charges"
+            data-tooltip-direction="UP"
+        />
+    {/if}
+
     {#if propData.partyHasSpellPointPool}
         <i
             class="heading heading--spell-points fa-solid fa-hand-sparkles"
@@ -41,8 +47,7 @@
             {#each getSpellLevels(propData) as [spellLevel, tooltip]}
                 <li
                     class="spell-level"
-                    class:spell-level--narrow={propData.highestSpellSlotLevel >=
-                        8}
+                    class:spell-level--narrow={propData.highestSpellSlotLevel >= 8}
                     data-tooltip={`${tooltip} Spell Slots`}
                     data-tooltip-direction="UP"
                 >
@@ -59,6 +64,10 @@
     .heading {
         font-size: 0.833rem;
         text-align: center;
+
+        &--artifact-charges {
+            grid-area: artifactCharges;
+        }
 
         &--exertion {
             grid-area: exertion;
@@ -89,7 +98,7 @@
         line-height: 1;
 
         &:before {
-            content: "\f72b";
+            content: "\e2ca";
             position: absolute;
             top: 50%;
             left: 50%;

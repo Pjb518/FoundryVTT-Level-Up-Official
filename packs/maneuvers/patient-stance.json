@@ -1,0 +1,110 @@
+{
+	"folder": null,
+	"name": "Patient Stance",
+	"type": "maneuver",
+	"img": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
+	"system": {
+		"actions": {
+			"xQQbhraU6YXPqGvQ": {
+				"name": "Execute",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"6JEcL2q6eBwSIO2R": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"EVA8Op2tZv91s3N7": {
+						"type": "effect",
+						"default": true,
+						"effectId": "GM5ICdCBlCPJFieO"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				},
+				"duration": {
+					"unit": "special"
+				}
+			}
+		},
+		"description": "<p>If you do not move on your turn, you gain an additional reaction. You must use this reaction before the start of your next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "secretsOfTheSelkies",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 4,
+		"exertionCost": 2,
+		"isStance": true,
+		"prerequisite": "",
+		"tradition": "selflessSentinel",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
+			"origin": "Item.SnSHsJwwZCBSz8tc",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "xQQbhraU6YXPqGvQ",
+					"duration": {
+						"type": ""
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Patient Stance",
+			"_id": "GM5ICdCBlCPJFieO",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If you do not move on your turn, you gain an additional reaction. You must use this reaction before the start of your next turn.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "366e45hcq0wywftr"
+}

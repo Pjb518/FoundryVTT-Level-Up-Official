@@ -45,7 +45,7 @@
 
     $: totalCount = base.length + count;
 
-    $: selected = [...base, ...selected];
+    $: selected = [...new Set(base.concat(selected))];
     $: remainingSelections = totalCount - selected.length;
     $: summary = getGrantSummary(bonus, selected);
 </script>
@@ -59,9 +59,7 @@
             htmlString: `<i class="fa-solid ${
                 choicesLocked ? "fa-plus" : "fa-minus"
             }" />`,
-            tooltip: choicesLocked
-                ? "Locked to Grant Options"
-                : "Free Selection Mode",
+            tooltip: choicesLocked ? "Locked to Grant Options" : "Free Selection Mode",
         },
     ]}
     --a5e-section-body-gap="0.75rem"

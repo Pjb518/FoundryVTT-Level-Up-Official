@@ -1,0 +1,156 @@
+{
+	"name": "Battlefield Maestro",
+	"type": "feature",
+	"img": "icons/skills/melee/maneuver-sword-katana-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Qjdo983bU68P1p6v": {
+				"name": "Battlefield Maestro",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "See a creature within 30 feet make an attack roll (including yourself)"
+				},
+				"consumers": {
+					"TpiO2khCAMM1zq5n": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"hl4Yadu2OXTaz3yX": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Ol41LJNEjmxAu5l5"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"xUTbrj8WKC7Ymlef": {
+						"range": "short"
+					}
+				}
+			}
+		},
+		"description": "<p>At 6th level, you gain supernatural influence over the flow of combat. As a reaction when you see a creature within 30 feet make an attack roll (including yourself), you can choose to grant advantage or impose disadvantage. After using this feature a number of times equal to your spellcasting ability modifier, you cannot do so again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "@spellcasting.mod",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "warlock"
+	},
+	"effects": [
+		{
+			"icon": "icons/skills/melee/maneuver-sword-katana-yellow.webp",
+			"origin": "Item.y13FYPfNCsWKNa1U",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Qjdo983bU68P1p6v"
+				}
+			},
+			"transfer": false,
+			"name": "Advantage",
+			"_id": "Ol41LJNEjmxAu5l5",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/maneuver-sword-katana-yellow.webp",
+			"origin": "Item.y13FYPfNCsWKNa1U",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Qjdo983bU68P1p6v"
+				}
+			},
+			"transfer": false,
+			"name": "Disadvantage",
+			"_id": "N4tif6AhjJMwFga5",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "mm5s17svrk9cqgo7"
+}

@@ -11,6 +11,7 @@
     export let currentViewMode = "core";
     export let highestPassiveScores = {};
     export let highestSpellSlotLevel = 0;
+    export let partyHasArtifactCharges = true;
     export let partyHasExertionPool = true;
     export let partyHasInspiration = false;
     export let partyHasSpellPointPool = true;
@@ -38,9 +39,7 @@
     const dispatch = createEventDispatcher();
     const { isGM } = game.user;
 
-    const unsubscribe = actor.subscribe((_) =>
-        dispatch("actor-updated", actorId),
-    );
+    const unsubscribe = actor.subscribe((_) => dispatch("actor-updated", actorId));
 
     $: viewComponent = getViewModeComponent(currentViewMode);
 
@@ -65,6 +64,7 @@
         propData={{
             highestPassiveScores,
             highestSpellSlotLevel,
+            partyHasArtifactCharges,
             partyHasExertionPool,
             partyHasInspiration,
             partyHasSpellPointPool,

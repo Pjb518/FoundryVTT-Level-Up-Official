@@ -1,0 +1,169 @@
+{
+  "name": "Fireworks",
+  "type": "feature",
+  "img": "icons/magic/light/projectile-smoke-blue-white.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "CBY6zlxzliW4rSjM": {
+        "name": "Activate Fireworks",
+        "activation": {},
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "uMm2Hz62uVdAj0j1": {
+            "type": "effect",
+            "default": true,
+            "effectId": "Ps7Ro3VyWbjNv06q"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "yBizVgVV6cWRaPIY": {
+        "name": "Bonus Action",
+        "activation": {
+          "type": "bonusAction",
+          "cost": 1
+        },
+        "consumers": {
+          "ey33lSDOtEKguKVD": {
+            "type": "resource",
+            "default": true,
+            "resource": "exertion",
+            "quantity": 2
+          }
+        },
+        "rolls": {},
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "turn",
+          "value": 1
+        }
+      }
+    },
+    "description": "<p>Starting at 18th level, you infuse everything you do with spectacular magical ornamentation. When you roll initiative, you can activate your Fireworks (no action). This grants you advantage on Performance and Intimidation checks. While under the effects of Fireworks, you cannot make Stealth checks, you do not benefit from invisibility, and the noise of your magically-infused assault can be heard up to 300 feet away with no checks required. You shed bright light in a 30-foot radius around yourself and dim light a further 30 feet beyond that.&nbsp;</p><p>Additionally, you can spend 2 exertion points as a bonus action to have all attacks you make until the end of your turn benefit from Demoralizing Prowess. When you do, you must pick a different damage type each time Demoralizing Prowess triggers. In addition, the severity of the effects of your attacks increases. If a creature fails a second saving throw in the same round against your Demoralizing Prowess, it is also blinded until the end of its next turn. If it fails a third, it is also stunned for that duration.&nbsp;</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "classes": "fighter"
+  },
+  "effects": [
+    {
+      "icon": "icons/magic/light/projectile-smoke-blue-white.webp",
+      "origin": "Item.mkSqVtAVTdMJQ7Si",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "CBY6zlxzliW4rSjM",
+          "applyToSelf": true
+        }
+      },
+      "transfer": false,
+      "name": "Fireworks",
+      "_id": "Ps7Ro3VyWbjNv06q",
+      "changes": [
+        {
+          "key": "flags.a5e.effects.rollMode.skillCheck.prf",
+          "value": "1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "flags.a5e.effects.rollMode.skillCheck.itm",
+          "value": "1",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "system.traits.conditionImmunities",
+          "value": "[\"invisible\"]",
+          "mode": 2,
+          "priority": null
+        },
+        {
+          "key": "@token.light.bright",
+          "value": "30",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "@token.light.dim",
+          "value": "60",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": null,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "<p>When you roll initiative, you can activate your Fireworks (no action). This grants you advantage on Performance and Intimidation checks. While under the effects of Fireworks, you cannot make Stealth checks, you do not benefit from invisibility, and the noise of your magically-infused assault can be heard up to 300 feet away with no checks required. You shed bright light in a 30-foot radius around yourself and dim light a further 30 feet beyond that. </p>",
+      "statuses": [],
+      "folder": null
+    }
+  ],
+  "flags": {},
+  "folder": null,
+  "_id": "htygz84ub49jm965"
+}

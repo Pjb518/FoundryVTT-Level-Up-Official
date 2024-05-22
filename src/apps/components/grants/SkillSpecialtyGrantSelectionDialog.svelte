@@ -27,7 +27,7 @@
     const { skillSpecialties } = CONFIG.A5E;
     let choicesLocked = true;
 
-    $: selected = [...base, ...selected];
+    $: selected = [...new Set(base.concat(selected))];
     $: totalCount = count + base.length;
     $: remainingSelections = totalCount - selected.length;
     $: summary = getGrantSummary(selected);
@@ -42,9 +42,7 @@
             htmlString: `<i class="fa-solid ${
                 choicesLocked ? "fa-plus" : "fa-minus"
             }" />`,
-            tooltip: choicesLocked
-                ? "Locked to Grant Options"
-                : "Free Selection Mode",
+            tooltip: choicesLocked ? "Locked to Grant Options" : "Free Selection Mode",
         },
     ]}
 >

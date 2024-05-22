@@ -1,0 +1,326 @@
+{
+	"folder": null,
+	"name": "Living Typhoon",
+	"type": "feature",
+	"img": "icons/magic/water/vortex-water-whirlpool.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"iGdaLOetGHVozgJO": {
+				"name": "Summon Hurricane",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"CHYPh1HjCrWZDXqu": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"GtMmxEtSbwdkhSXI": {
+						"type": "effect",
+						"default": true,
+						"effectId": "YR5UHp4xNE4wjfYy"
+					},
+					"oi2lqSlv0CZHsJnr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ah8SOdGD6vzUvG77"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				}
+			},
+			"9znODsIjoFazuooI": {
+				"name": "Deal Secondary Damage",
+				"activation": {
+					"type": "none"
+				},
+				"consumers": {},
+				"rolls": {
+					"EeS4IyQWuN851cMc": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"canCrit": false
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">At 14th level, you can open yourself to ocean spirits as a bonus action and surround yourself with a miniature hurricane for 1 minute. In this state you gain the following benefits:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">Violent wind (or current) surrounds you, creating difficult terrain for creatures within 30 feet.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain a flight speed of 60 feet; your swim speed increases to 60 feet.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain an expertise die on saving throws against spells and other magical abilities.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You have immunity to one damage type, chosen from acid, cold, fire, lightning, or thunder.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">Once on your turn, after you attack or cast a spell, regardless of whether you hit or if the target saved, you can cause one target of that attack or spell to take 2d6 acid, cold, force, lighting, or thunder damage (your choice)</p>\n</li>\n</ul>\n<p dir=\"ltr\">Once you use this feature, you must complete a short or long rest to use it again.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "warlock"
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/water/vortex-water-whirlpool.webp",
+			"origin": "Item.3tWtHPxzPFoMLwUB",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iGdaLOetGHVozgJO",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Living Typhoon",
+			"_id": "YR5UHp4xNE4wjfYy",
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.swim.distance",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain an expertise die on saving throws against spells and other magical abilities.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/water/vortex-water-whirlpool.webp",
+			"origin": "Item.3tWtHPxzPFoMLwUB",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iGdaLOetGHVozgJO",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Acid Immunity",
+			"_id": "ah8SOdGD6vzUvG77",
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"acid\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/water/vortex-water-whirlpool.webp",
+			"origin": "Item.3tWtHPxzPFoMLwUB",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iGdaLOetGHVozgJO",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Cold Immunity",
+			"_id": "c1tQgrMcHiJZBRfn",
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"cold\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/water/vortex-water-whirlpool.webp",
+			"origin": "Item.3tWtHPxzPFoMLwUB",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iGdaLOetGHVozgJO",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Fire Immunity",
+			"_id": "SkrVFeHC66BMfIVq",
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"fire\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/water/vortex-water-whirlpool.webp",
+			"origin": "Item.3tWtHPxzPFoMLwUB",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iGdaLOetGHVozgJO",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lightning Immunity",
+			"_id": "ijFo8fKbbhQJ9Hv4",
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"lightning\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "a3mgcfl941r0ehom"
+}

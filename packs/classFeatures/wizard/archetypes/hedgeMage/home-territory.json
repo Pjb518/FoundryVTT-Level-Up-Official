@@ -1,0 +1,144 @@
+{
+	"name": "Home Territory",
+	"type": "feature",
+	"img": "icons/environment/wilderness/altar-hidden.webp",
+	"effects": [
+		{
+			"icon": "icons/environment/wilderness/altar-hidden.webp",
+			"origin": "Item.q6jmHztzffZCYANP",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2e61WNZdmHigjUU4",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Fatigue",
+			"_id": "MaNkxlBa1QOtBbe5",
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"2e61WNZdmHigjUU4": {
+				"name": "Home Territory",
+				"activation": {
+					"type": "hour",
+					"cost": 8
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"nBK6xbIzb5elNBaj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "MaNkxlBa1QOtBbe5"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"Z4t6HR8Qgk6jZrgO": {
+				"name": "Adjust Weather",
+				"activation": {},
+				"consumers": {
+					"PnepexDKwXhdsEVJ": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "@int.mod",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>At 14th level, you may designate a specific location as your home territory. Doing so requires you to have lived there for at least a month and also requires that you perform a magical ritual that takes 8 hours, consumes 200 gold worth of ingredients, and leaves you with a level of fatigue at the end (which may be recovered normally). Your Home Territory is centered on the ritual site and extends out from it a number of miles equal to your proficiency bonus. Once you have designated an area as your home, you gain the following benefits:</p>\n<ul>\n<li>\n<p>You learn the @UUID[Compendium.a5e.a5e-spells.Item.ppht0do531mq84uw]{Scrying} spell and always have it prepared. It does not count against your maximum number of spells prepared.</p>\n</li>\n<li>\n<p>You are aware of the comings and goings of any creature that speaks at least one language in your Home Territory. You do not know the creatures&rsquo; exact locations, but <em>scrying</em> on them is performed as if you had one of their garments or possessions.</p>\n</li>\n<li>\n<p>You cannot become lost in your Home Territory, and always know how long it will take to travel from one part of it to another (barring the actions of other creatures).</p>\n</li>\n<li>\n<p>Creatures of the Beast, Plant, and Monstrosity types in your Home Territory become more friendly, having their attitude toward you adjusted up by one. Hostile creatures are indifferent, indifferent creatures are friendly, and creatures that are normally friendly become affectionate towards you as long as you treat them with kindness.</p>\n</li>\n<li>\n<p>You ignore non-magical difficult terrain in your Home Territory.</p>\n</li>\n<li>\n<p>You gain a measure of control over the weather in your Home Territory. Once per hour you may adjust one of the conditions in your Home Territory by one step (per the&nbsp;@UUID[Compendium.a5e.a5e-spells.Item.ekzbxzb2pzhffev9]{Control Weather} spell). You may use this benefit a number of times equal to your Intelligence modifier, after which you must finish a long rest before you can use it again.</p>\n</li>\n<li>\n<p>While in your Home Territory, you are under a continuous @UUID[Compendium.a5e.a5e-spells.Item.8j1p6dsp3qfvjprc]{Tree Stride} effect.</p>\n</li>\n<li>\n<p>You may only have one Home Territory at a time, but you may create a new Home Territory whenever you wish, provided you meet the prerequisites. If a given location was previously your Home Territory, you can perform the ritual to reestablish it as your Home Territory immediately upon your return, ignoring the residency duration prerequisite.</p>\n</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.017,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"classes": "wizard"
+	},
+	"_id": "6eqe5p0r7m5u5q4k"
+}

@@ -1,0 +1,226 @@
+{
+	"folder": null,
+	"name": "Drowner’s Curse",
+	"type": "feature",
+	"img": "icons/magic/water/projectile-water-rings.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"afy665nn08yyIPAW": {
+				"name": "Drowner’s Curse",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"YWxKaM2vFwo32a4T": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"XHkVsX6W8FHldfFE": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Cold Damage",
+						"formula": "1d4",
+						"damageType": "cold",
+						"scaling": {
+							"mode": null,
+							"formula": "1d4"
+						}
+					},
+					"mygNiVMkqKWG00eg": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Piercing Damage",
+						"formula": "1d4",
+						"damageType": "piercing",
+						"scaling": {
+							"mode": null,
+							"formula": "1d4"
+						}
+					}
+				},
+				"prompts": {
+					"IfeD3kO12R9zaeiI": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6EqQBQVIklKGdH2Z"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"zDXJHYvPffphbosc": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>You can use a bonus action to place a curse on a creature you can see within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated. The curse has the following effects:</p>\n<p>Choose cold or piercing damage. When you deal damage against the cursed creature, it takes an additional 1d4 damage of the chosen type. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>\n<p>The cursed creature&rsquo;s speed is reduced by half, and they have disadvantage on Strength, Dexterity, and Constitution checks. They halve the duration they can hold their breath and they double the rate at which they sink.</p>\n<p>Once you have used this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "warlock"
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/water/projectile-water-rings.webp",
+			"origin": "Item.Tz1t0HFM1XlIXCYZ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "afy665nn08yyIPAW",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Drowner’s Curse (Cold)",
+			"_id": "6EqQBQVIklKGdH2Z",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.movement.allDistances",
+					"value": "0.5",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.con",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When the caster deals damage to the cursed creature, it takes an additional 1d4 cold damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>\n<p>Speed is reduced by half, and disadvantage on Strength, Dexterity, and Constitution checks. Halve the duration they can hold their breath and they double the rate at which they sink.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/water/projectile-water-rings.webp",
+			"origin": "Item.Tz1t0HFM1XlIXCYZ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "afy665nn08yyIPAW",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Drowner’s Curse (Piercing)",
+			"_id": "HeCDj8Nb0pbA1Wqp",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.movement.allDistances",
+					"value": "0.5",
+					"mode": 1,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.con",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When the caster deals damage to the cursed creature, it takes an additional 1d4 piercing damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>\n<p>Speed is reduced by half, and disadvantage on Strength, Dexterity, and Constitution checks. Halve the duration they can hold their breath and they double the rate at which they sink.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "xeym1rf3zutjljpo"
+}

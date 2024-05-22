@@ -1,0 +1,142 @@
+{
+	"name": "Beastmantle (Bonded Power)",
+	"type": "feature",
+	"img": "icons/magic/symbols/triangle-glow-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"t4I5Z3E3mm3l0pAE": {
+				"name": "Beastmantle (Bite)",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"TC12cLZNFiaOr293": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "str"
+					},
+					"or0O1zY1RRuFSg3N": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6+@mod",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"N6KwNXCKp6tNzo9l": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"ZSQzIprk36jDoV9K": {
+				"name": "Beastmantle (Stinger)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"G7fGNZ5pGzMM4Yzp": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"VWTXQJjAjs1RVs5k": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"damageType": "piercing"
+					},
+					"XtMOeTBlYy6VH21f": {
+						"type": "damage",
+						"default": true,
+						"formula": "@con.mod",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"VVXlPhxl3BpyqNL2": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>Also at 1st level you gain a special ability tied to the experiments that were pressed upon you. Your bonded power must be of the same line as your flesh and bone selection.</p>\n<p><strong>Beastmantle</strong>: You gain a Bite attack as a natural weapon which deals 1d6+Str piercing damage. When you cast a spell with a range of touch you may use your bite attack as part of the spellcasting action to deliver the spell. In addition you grow a long tail with a stinger. As a bonus action on your turn you may use your tail as a natural finesse weapon to attack. On a hit you deal 1d4 piercing damage and poison damage equal to your Constitution modifier.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "sorcerer"
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "fu6smv03quuleegl"
+}

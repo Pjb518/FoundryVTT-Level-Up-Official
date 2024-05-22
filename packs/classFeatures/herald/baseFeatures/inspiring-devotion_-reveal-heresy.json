@@ -1,0 +1,120 @@
+{
+	"name": "Inspiring Devotion: Reveal Heresy",
+	"type": "feature",
+	"img": "icons/tools/scribal/magnifying-glass.webp",
+	"effects": [],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"nkn32oiKTGF0pLGM": {
+				"name": "Reveal Heresy",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"consumers": {},
+				"prompts": {
+					"xIvUDpoquGbEUBfI": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@skill.ins.passive"
+						}
+					}
+				}
+			}
+		},
+		"description": "<p>You gain proficiency in the Insight skill, and gain an expertise die on to Insight checks. Whenever a creature is lying to you, it makes a Charisma saving throw against a DC equal to your passive Insight score. This save is made with disadvantage and done in secret by the Narrator. On a failure, you get a strong sense that they are being untruthful.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"ZRNMRjs19mSl8auf": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "ZRNMRjs19mSl8auf",
+				"label": "Reveal Heresy",
+				"keys": {
+					"base": [
+						"ins"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill",
+				"img": "",
+				"isExpertise": false
+			},
+			"YwT6AdsQ9agBmmB9": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "YwT6AdsQ9agBmmB9",
+				"label": "Reveal Heresy",
+				"keys": {
+					"base": [
+						"ins"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "herald"
+	},
+	"folder": null,
+	"_id": "ezpi2wscmsddykvo"
+}

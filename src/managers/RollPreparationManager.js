@@ -434,6 +434,7 @@ export default class RollPreparationManager {
     if (scalingMode === 'spellPoints') return this.#applySpellPointScaling(roll);
     if (scalingMode === 'actionUses') return this.#applyActionUsesScaling(roll);
     if (scalingMode === 'itemUses') return this.#applyItemUsesScaling(roll);
+    if (scalingMode === 'artifactCharges') return this.#applyArtifactChargesScaling(roll);
 
     return roll.formula ?? 0;
   }
@@ -471,6 +472,17 @@ export default class RollPreparationManager {
     if (basePoints >= spellConsumer.points) return roll.formula;
 
     const delta = Math.max(0, spellConsumer.points - basePoints);
+    return this.#applyResourceBasedScaling(roll, delta);
+  }
+
+  #applyArtifactChargesScaling(roll) {
+    const spellConsumer = this.#consumers.spell;
+    if (foundry.utils.isEmpty(spellConsumer)) return roll.formula;
+
+    const baseCharges = spellConsumer?.baseCharges || 1;
+    if (baseCharges >= spellConsumer.charges) return roll.formula;
+
+    const delta = Math.max(0, spellConsumer.charges - baseCharges);
     return this.#applyResourceBasedScaling(roll, delta);
   }
 

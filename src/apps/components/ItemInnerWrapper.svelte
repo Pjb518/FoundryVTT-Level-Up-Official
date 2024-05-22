@@ -1,5 +1,5 @@
 <script>
-    import { getContext } from "svelte";
+    import { getContext, createEventDispatcher } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
     import getDeterministicBonus from "../../dice/getDeterministicBonus";
@@ -140,6 +140,7 @@
     }
 
     const actor = getContext("actor");
+    const dispatch = createEventDispatcher();
 
     const {
         damagedStates,
@@ -162,10 +163,7 @@
         action: {
             value: action ? action.uses?.value : 0,
             max: action
-                ? getDeterministicBonus(
-                      action.uses?.max ?? 0,
-                      $actor.getRollData(item),
-                  )
+                ? getDeterministicBonus(action.uses?.max ?? 0, $actor.getRollData(item))
                 : 0,
             updatePath: `system.actions.${actionId}.uses`,
         },
@@ -180,13 +178,9 @@
     };
 
     $: ammunitionItems = $actor.items
-        .filter(
-            (i) => i.type === "object" && i.system.objectType === "ammunition",
-        )
+        .filter((i) => i.type === "object" && i.system.objectType === "ammunition")
         .map((i) => ({ name: i.name, id: i.id }))
-        .sort((a, b) =>
-            a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
-        );
+        .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 
     $: rechargeState = actionId
         ? action.uses?.max == action.uses?.value
@@ -197,10 +191,7 @@
     $: selectedAmmo = getSelectedAmmo(item, action);
 </script>
 
-<div
-    class="name-wrapper"
-    class:name-wrapper--ammunition={hasAmmunition(item, action)}
->
+<div class="name-wrapper" class:name-wrapper--ammunition={hasAmmunition(item, action)}>
     <div class="name">
         {action?.name ?? item.name}
 
@@ -230,6 +221,15 @@
                 data-tooltip-direction="UP"
             />
         {/if}
+
+        {#if !action && item.actions?.count > 1}
+            <button
+                class="action-button fas fa-chevron-down"
+                on:click|stopPropagation={() => {
+                    dispatch("toggleActionList");
+                }}
+            />
+        {/if}
     </div>
 
     {#if hasAmmunition(item, action)}
@@ -239,11 +239,7 @@
             on:click|stopPropagation
             on:change={updateAmmunition}
         >
-            <option
-                value=""
-                on:click|stopPropagation
-                selected={selectedAmmo === ""}
-            />
+            <option value="" on:click|stopPropagation selected={selectedAmmo === ""} />
             {#each ammunitionItems as { name, id } (id)}
                 <option
                     value={id}
@@ -368,12 +364,9 @@
                             EQUIPPED_STATES.EQUIPPED,
                             EQUIPPED_STATES.CARRIED,
                         ].includes(item.system.equippedState)}
-                        data-tooltip={equippedStates[
-                            item.system.equippedState ?? 0
-                        ]}
+                        data-tooltip={equippedStates[item.system.equippedState ?? 0]}
                         data-tooltip-direction="UP"
-                        on:click|stopPropagation={() =>
-                            item.toggleEquippedState()}
+                        on:click|stopPropagation={() => item.toggleEquippedState()}
                     />
                 {/if}
 
@@ -390,12 +383,9 @@
                             DAMAGED_STATES.DAMAGED,
                             DAMAGED_STATES.BROKEN,
                         ].includes(item.system.damagedState)}
-                        data-tooltip={damagedStates[
-                            item.system.damagedState ?? 0
-                        ]}
+                        data-tooltip={damagedStates[item.system.damagedState ?? 0]}
                         data-tooltip-direction="UP"
-                        on:click|stopPropagation={() =>
-                            item.toggleDamagedState()}
+                        on:click|stopPropagation={() => item.toggleDamagedState()}
                     />
                 {/if}
             {/if}
@@ -407,16 +397,13 @@
                         PREPARED_STATES.UNPREPARED,
                         PREPARED_STATES.PREPARED,
                     ].includes(Number(item.system.prepared ?? 0))}
-                    class:fa-book-sparkles={Number(
-                        item.system.prepared ?? 0,
-                    ) === PREPARED_STATES.ALWAYS_PREPARED}
+                    class:fa-book-sparkles={Number(item.system.prepared ?? 0) ===
+                        PREPARED_STATES.ALWAYS_PREPARED}
                     class:active={[
                         PREPARED_STATES.PREPARED,
                         PREPARED_STATES.ALWAYS_PREPARED,
                     ].includes(Number(item.system.prepared ?? 0))}
-                    data-tooltip={preparedStates[
-                        Number(item.system.prepared ?? 0)
-                    ]}
+                    data-tooltip={preparedStates[Number(item.system.prepared ?? 0)]}
                     data-tooltip-direction="UP"
                     on:click|stopPropagation={() => item.togglePrepared()}
                 />

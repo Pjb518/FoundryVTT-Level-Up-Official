@@ -1,0 +1,79 @@
+{
+	"name": "Fortitude of the Heavens",
+	"type": "feature",
+	"img": "icons/magic/defensive/shield-barrier-flaming-pentagon-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"TtGmuq1BEmdT6PHe": {
+				"name": "Fortitude of the Heavens",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"veIWn8d9pvc8Xa0s": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"label": "Temporary Hit Points for Self",
+						"formula": "@classes.warlock.level + @spellcasting.mod"
+					},
+					"lPAL7CmBrcdZ7m9R": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"label": "Temporary Hit Points for Others",
+						"formula": "round((@classes.warlock.level + @spellcasting.mod)/2)"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 10th level, whenever you complete a short or long rest, you gain temporary hit points equal to your warlock level + your spellcasting ability modifier.&nbsp;When you do, you grant half as many temporary hit points to up to five creatures you can see.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "warlock"
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "v29tulwtexhv4qzc"
+}

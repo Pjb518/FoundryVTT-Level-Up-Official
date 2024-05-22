@@ -1,0 +1,110 @@
+{
+	"name": "Bodyguard Stance",
+	"type": "maneuver",
+	"img": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
+	"system": {
+		"actions": {
+			"E0dFIJ9HppOJOo3Y": {
+				"name": "Execute",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"vJYtKHPVIioRIFxe": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"pVpbuXPu7h3qAoUV": {
+						"type": "effect",
+						"default": true,
+						"effectId": "4t4U9jiEs8Erqkps"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "special"
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>Instead of half cover, you provide three-quarters cover to allies within 5 feet of you.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "secretsOfTheSelkies",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 1,
+		"exertionCost": 1,
+		"isStance": true,
+		"prerequisite": "",
+		"tradition": "selflessSentinel",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
+			"origin": "Item.DFx4MjNr4VPBHRGS",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "E0dFIJ9HppOJOo3Y",
+					"applyToSelf": true,
+					"duration": {
+						"type": ""
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Bodyguard Stance",
+			"_id": "4t4U9jiEs8Erqkps",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Instead of half cover, you provide three-quarters cover to allies within 5 feet of you.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_id": "sxieh9ljsafzz2e6"
+}

@@ -1,0 +1,119 @@
+{
+	"folder": null,
+	"name": "Make them Pay",
+	"type": "maneuver",
+	"img": "icons/magic/defensive/shield-barrier-deflect-gold.webp",
+	"system": {
+		"actions": {
+			"weRLHw0jU1B9mhly": {
+				"name": "Execute",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"lYJjlNT8NCMrJKkd": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"EquDlTIx7gZiQji0": {
+						"type": "effect",
+						"default": true,
+						"effectId": "m980doJPjNFVvrSo"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>If an ally you can see has been reduced to 0 hit points by an enemy creature since the end of your last turn, you may use your bonus action to grant yourself advantage on all of your weapon attacks until the end of your next turn, and any of your weapon attacks that hit during that time are critical hits.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "secretsOfTheSelkies",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 5,
+		"exertionCost": 3,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "selflessSentinel",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/svg/item-bag.svg",
+			"origin": "Item.bslbzwKANMphpU3k",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "weRLHw0jU1B9mhly",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Make them Pay",
+			"_id": "m980doJPjNFVvrSo",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If an ally you can see has been reduced to 0 hit points by an enemy creature since the end of your last turn, you may use your bonus action to grant yourself advantage on all of your weapon attacks until the end of your next turn, and any of your weapon attacks that hit during that time are critical hits.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "zzqmlbofe7rs2qw1"
+}

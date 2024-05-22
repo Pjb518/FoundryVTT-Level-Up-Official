@@ -1,0 +1,95 @@
+{
+	"name": "Growing Strength",
+	"type": "feature",
+	"img": "icons/magic/unholy/strike-body-life-soul-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"KR9t6KbgWizQkxNO": {
+				"name": "Roar (King of Beasts)",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"NiWUgcy89uIiTcd8": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"M4z8IFZV2FVGASSq": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Negates"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"sovAruo2x3toDjKr": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 60
+				}
+			}
+		},
+		"description": "<p>At 14th level your power grows by leaps and bounds. You gain one of the following abilities based on your choice of flesh and bone.</p>\n<ul>\n<li><strong>Bale Eye</strong>: Your bonded power grows significantly. You may now use your baleful gaze in a 30ft cone or a 15ft radius around yourself. In addition, creatures that roll a natural 1 on their saving throw against your bonded power become petrified for 1 minute.</li>\n<li><strong>King of Beasts</strong>: As an action you can throw your head back to unleash a terrifying roar that is audible up to 300ft away. All creatures within the area must make a Wisdom save against your spell save DC or become frightened for up to 1 minute. Affected creatures may make a Wisdom save at the end of each of their turns to end the effect, and any creature that has been affected by this ability becomes immune for 24 hours once they make a successful save. You may use this ability once per short rest, or spend a sorcery point as a bonus action to regain use of it.<br>In addition, your bite attack now deals 2d8 acid damage on a successful hit.</li>\n<li><strong>Changeling</strong>: Your bonded power grows significantly. You may now use it to cast @UUID[Compendium.a5e.a5e-spells.Item.95tar7xr3hdp0o92]{Polymorph} on yourself. When you do so, the spell has no components and does not require concentration.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "sorcerer"
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "5hu1uajdbvm91ihg"
+}

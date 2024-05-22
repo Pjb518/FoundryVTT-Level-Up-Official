@@ -11,10 +11,7 @@
     export let { document, actionId } = getContext("#external").application;
 
     function getScalingOptions() {
-        return [
-            [null, "A5E.None"],
-            ...Object.entries(CONFIG.A5E.targetScalingModes),
-        ];
+        return [[null, "A5E.None"], ...Object.entries(CONFIG.A5E.targetScalingModes)];
     }
 
     const item = document;
@@ -61,8 +58,7 @@
                             class="a5e-input"
                             type="text"
                             name="system.actions.{actionId}.area.scaling.formula.{property}"
-                            value={action.area.scaling?.formula?.[property] ??
-                                0}
+                            value={action.area.scaling?.formula?.[property] ?? 0}
                             on:change={({ target }) =>
                                 updateDocumentDataFromField(
                                     $item,
@@ -123,7 +119,7 @@
                 </div>
             </section>
         </FieldWrapper>
-    {:else if ["spellPoints", "actionUses", "itemUses"].includes(scalingMode)}
+    {:else if ["artifactCharges", "spellPoints", "actionUses", "itemUses"].includes(scalingMode)}
         <FieldWrapper>
             <section class="row u-flex-wrap">
                 {#each properties as property}
@@ -168,9 +164,7 @@
 
                 <div class="a5e-field-group levels-wrapper">
                     <span class="levels">
-                        Additional {scalingMode === "spellPoints"
-                            ? "Points"
-                            : "Uses"}
+                        Additional {scalingMode === "spellPoints" ? "Points" : "Uses"}
                     </span>
                 </div>
             </section>

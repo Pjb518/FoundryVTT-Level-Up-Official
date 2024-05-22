@@ -30,22 +30,17 @@
     let showUses = false;
 
     const unsubscribe = reducer.subscribe((_) => {
-        const spells = Object.keys(spellLevels).reduce(
-            (spellBookSpells, level) => {
-                spellBookSpells.push(...$reducer?._levels[level]);
-                return spellBookSpells;
-            },
-            [],
-        );
+        const spells = Object.keys(spellLevels).reduce((spellBookSpells, level) => {
+            spellBookSpells.push(...$reducer?._levels[level]);
+            return spellBookSpells;
+        }, []);
         showUses = usesRequired(spells);
     });
 
     $: menuList = Object.entries(spellLevels);
     $: spellBook = $actor?.spellBooks?.get(spellBookId);
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
     $: isSpellLevelVisible = (level) => {
         if (!sheetIsLocked) return true;
@@ -102,6 +97,7 @@
                     {level}
                     {label}
                     {showDescription}
+                    showArtifactCharges={spellBook?.showArtifactCharges ?? false}
                     showSpellPoints={spellBook?.showSpellPoints ?? false}
                     showSpellSlots={spellBook?.showSpellSlots ?? true}
                     {showUses}

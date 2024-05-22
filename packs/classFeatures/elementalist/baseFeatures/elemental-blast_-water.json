@@ -1,0 +1,90 @@
+{
+  "folder": null,
+  "name": "Elemental Blast: Water",
+  "type": "feature",
+  "img": "icons/magic/water/projectile-icecicle-glowing.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "XEHOjBtkgZm3bwGh": {
+        "name": "Water Blast",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "FjY3y1OU4lMAcuzL": {
+            "type": "attack",
+            "default": true,
+            "attackType": "rangedSpellAttack",
+            "proficient": true,
+            "ability": "spellcasting"
+          },
+          "M2kadX27uguQXr0f": {
+            "type": "damage",
+            "default": true,
+            "formula": "round(@level/2)d6 + @spellcasting.mod",
+            "damageType": "piercing"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "descriptionOutputs": [
+          "action"
+        ],
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "NP1PMrLzOC4oO4Yk": {
+            "range": "medium"
+          }
+        }
+      }
+    },
+    "description": "<p id=\"docs-internal-guid-148d31e1-7fff-9524-e53e-9ecdf28a97cc\" dir=\"ltr\">The most basic use of your elemental power is showcased by your ability to lash out with attacks of raw elemental energy. To use your elemental blast, as an action, make a ranged spell attack with a range of 60 feet. Your elemental blast deals damage equal to 1d6 + your spellcasting modifier, and the damage dealt is determined by the blast you used.</p>\n<p dir=\"ltr\">The elemental energy fades after the attack, but its effects are left behind (for instance, a fire blast could ignite flammable materials, and an earth blast or a water blast could smother or quench a fire, but an earth blast or water blast will not leave earth or water behind). Each elemental blast power has its own damage type, as seen below in table &ldquo;Basic Elemental Blasts&rdquo; and properties.</p>\n<p dir=\"ltr\">As you gain levels, the number of damage dice your Elemental Blast deals increases, as shown in the Blast Dice column on the Elementalist table. If you later gain a new Elemental Affinity, you gain access to that element&rsquo;s blast as well.</p>\n<p dir=\"ltr\">&nbsp;</p>\n<table style=\"width: 52.1989%;\" border=\"1\"><colgroup><col style=\"width: 23.4323%;\"><col style=\"width: 32.6963%;\"><col style=\"width: 43.5517%;\"></colgroup>\n<tbody>\n<tr>\n<td><strong>Affinity</strong></td>\n<td><strong>Blast</strong></td>\n<td><strong>Damage</strong></td>\n</tr>\n<tr>\n<td>Air</td>\n<td>Air Blast</td>\n<td>Slashing</td>\n</tr>\n<tr>\n<td>Earth</td>\n<td>Earth Blast</td>\n<td>Bludgeoning</td>\n</tr>\n<tr>\n<td>Fire</td>\n<td>Fire Blast</td>\n<td>Fire</td>\n</tr>\n<tr>\n<td>Water</td>\n<td>Water Blast</td>\n<td>Piercing</td>\n</tr>\n</tbody>\n</table>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": null
+    },
+    "classes": "elementalist"
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "29y87toxweuez9fa"
+}

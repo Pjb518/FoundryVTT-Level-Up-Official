@@ -53,14 +53,14 @@ interface UsesProperties {
 // +++++++++++++++++++++++++++++++++++++++++++++++++++
 //      Action Type
 // +++++++++++++++++++++++++++++++++++++++++++++++++++
-interface Action {
+export interface Action {
   name: string;
   description?: string;
   activation: ActivationProperties;
   area: CircleArea | ConeArea | CubeArea | CylinderArea | LineArea | SphereArea | undefined;
   duration: DurationProperties
 
-  consumers: Any;
+  consumers: { [id: string]: Consumers };
 
   prompts: {};
 

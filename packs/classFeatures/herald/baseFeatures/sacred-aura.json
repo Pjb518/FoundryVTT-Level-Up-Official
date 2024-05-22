@@ -1,0 +1,194 @@
+{
+	"name": "Sacred Aura",
+	"type": "feature",
+	"img": "icons/magic/light/explosion-glow-spiral-yellow.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/light/explosion-glow-spiral-yellow.webp",
+			"origin": "Item.PlvSiUCF6rKfAkeV",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "s9LfjFsJQ2pAuPjA",
+					"applyToSelf": false
+				}
+			},
+			"transfer": false,
+			"name": "Aura of Courage",
+			"_id": "pSapLrJumPi6xXb4",
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"frightened\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You and allies within range cannot be frightened.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/light/explosion-glow-spiral-yellow.webp",
+			"origin": "Item.PlvSiUCF6rKfAkeV",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "s9LfjFsJQ2pAuPjA",
+					"applyToSelf": false
+				}
+			},
+			"transfer": false,
+			"name": "Aura of Resistance",
+			"_id": "uX7rl7dTkPhPQIkk",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You and allies within range of your aura gain a bonus on saving throws equal to your Charisma modifier (+1).</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/light/explosion-glow-spiral-yellow.webp",
+			"origin": "Item.PlvSiUCF6rKfAkeV",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "s9LfjFsJQ2pAuPjA",
+					"applyToSelf": false
+				}
+			},
+			"transfer": false,
+			"name": "Aura of Willpower",
+			"_id": "2GqbhdJ58dSJUqhH",
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"charmed\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You and allies within range cannot be charmed.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"s9LfjFsJQ2pAuPjA": {
+				"name": "Sacred Aura",
+				"activation": {},
+				"consumers": {
+					"mOd0ts6FOJU9rCCB": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"bTyv2IGUHZvXpfmK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "pSapLrJumPi6xXb4"
+					},
+					"Ob7agioVB4QIQOYg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "uX7rl7dTkPhPQIkk"
+					},
+					"p7soXuqDrv50VEVJ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2GqbhdJ58dSJUqhH"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 6th level, you are able to manifest an aura that aids you and your allies. Each aura has a radius of 15 feet, is centered on you, and you must be conscious for you and your allies to benefit from it. You can have only one of the following auras active at a time, and can change which aura is active whenever you finish a long rest. At 18th level, the range of all auras increases to 30 feet.</p>\n<h2>Aura of Courage</h2>\n<p>You and allies within range cannot be frightened.</p>\n<h2>Aura of Resistance</h2>\n<p>You and allies within range of your aura gain a bonus on saving throws equal to your Charisma modifier (+1).</p>\n<h2>Aura of Willpower</h2>\n<p>You and allies within range cannot be charmed.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "herald"
+	},
+	"folder": null,
+	"_id": "xezwxikwrsfkzg4o"
+}

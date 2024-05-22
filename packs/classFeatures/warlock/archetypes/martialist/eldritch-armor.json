@@ -1,0 +1,106 @@
+{
+	"name": "Eldritch Armor",
+	"type": "feature",
+	"img": "icons/magic/defensive/shield-barrier-flaming-pentagon-magenta.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"U21Iv8OmxQtcFnqT": {
+				"name": "Eldritch Armor",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"nebSwoNbbGEeLEqi": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"TDTCGLquF8fQk2vK": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "3d10 + @spellcasting.mod"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"5IHuo1LN0Jt1c5bK": {
+				"name": "Force Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"ye0Ct1tWX9jJ8w1U": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d4",
+						"damageType": "force"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 14th level, you learn to shape your @UUID[Compendium.a5e.a5e-class-features.Item.ulmcmf3ofmpzmgzf]{Eldritch Blast} into a protective field around yourself, known as Eldritch Armor. You can use your action and forego your movement this turn to gain temporary hit points equal to 3d10 + your spellcasting ability modifier. The temporary hit points persist until depleted or until you drop the field (no action required), fall unconscious, or die. While you have temporary hit points from your Eldritch Armor, a creature that damages you takes 3d4 force damage. When you reach 17th level, your temporary hit points increase to 4d10 + your spellcasting modifier and the damage done to creatures that damage you increases to 4d4.&nbsp;</p>\n<p>You cannot use your Eldritch Blast while this field is active. You may use this feature a number of times equal to half your proficiency modifier (rounded down) and regain all uses when you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "round(@prof/2)",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "warlock"
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "ykqdhitu9lfck3ya"
+}

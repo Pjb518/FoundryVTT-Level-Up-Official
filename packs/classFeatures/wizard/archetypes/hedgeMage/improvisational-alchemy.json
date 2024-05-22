@@ -1,0 +1,83 @@
+{
+	"name": "Improvisational Alchemy",
+	"type": "feature",
+	"img": "icons/consumables/potions/round-cork-leaf-green.webp",
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"mpTWrdBOMnIodEKC": {
+				"name": "Create Item",
+				"activation": {
+					"type": "hour",
+					"cost": 1
+				},
+				"consumers": {
+					"voMoq7FUANQdu4EN": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 8
+				}
+			}
+		},
+		"description": "<p>At level 10, you develop a certain \"quick and dirty\" knowledge of herbalism and alchemy that you can use in a pinch. As long as you are in natural surroundings (such as a forest or a cave), you can spend an hour to create any consumable item (such as a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.yla4i7uz4h58mfqb]{Healing Potion (Basic)} or a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.ukcav3i8dudpalir]{Tanglefoot Bag}) that costs 100 gold or less. At any given time, you may only have a number of these items equal to your Intelligence modifier in existence at once, and they only last for 8 hours before losing potency.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "@int.mod",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.017,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"classes": "wizard"
+	},
+	"_id": "8p5zy3r511bdqaut"
+}

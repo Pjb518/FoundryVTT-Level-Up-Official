@@ -27,12 +27,10 @@
     }
 
     function getOptions(choicesLocked: boolean): string[][] {
-        if (!choicesLocked)
-            return configObject[rollOverrideType]?.options ?? [];
+        if (!choicesLocked) return configObject[rollOverrideType]?.options ?? [];
 
         const options: string[][] = [];
-        for (const [value, label] of configObject[rollOverrideType]?.options ??
-            []) {
+        for (const [value, label] of configObject[rollOverrideType]?.options ?? []) {
             if (choices.includes(value)) {
                 options.push([value, label]);
             }
@@ -75,7 +73,7 @@
 
     let choicesLocked = true;
 
-    $: selected = [...base, ...selected];
+    $: selected = [...new Set(base.concat(selected))];
     $: totalCount = base.length + count;
     $: remainingSelections = totalCount - selected.length;
     $: summary = getGrantSummary(selected);
@@ -90,9 +88,7 @@
             htmlString: `<i class="fa-solid ${
                 choicesLocked ? "fa-plus" : "fa-minus"
             }" />`,
-            tooltip: choicesLocked
-                ? "Locked to Grant Options"
-                : "Free Selection Mode",
+            tooltip: choicesLocked ? "Locked to Grant Options" : "Free Selection Mode",
         },
     ]}
     --a5e-section-body-gap="0.75rem"

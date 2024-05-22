@@ -1,0 +1,263 @@
+{
+	"folder": null,
+	"name": "Warrior’s Curse",
+	"type": "feature",
+	"img": "icons/skills/melee/shield-damaged-broken-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"N7wKVxfis6RjLEUH": {
+				"name": "Warrior’s Curse",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"Z7GVguXPEbLm9lbx": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"lUPl8NmAXGe7H3Gx": {
+						"type": "damage",
+						"default": false,
+						"label": "Magical Bludgeoning",
+						"formula": "1d4",
+						"damageType": "bludgeoning"
+					},
+					"Ok56NruQ3zL71Sf9": {
+						"type": "damage",
+						"default": false,
+						"label": "Magical Piercing",
+						"formula": "1d4",
+						"damageType": "piercing"
+					},
+					"07Ng3urlDej5ftcW": {
+						"type": "damage",
+						"default": false,
+						"label": "Magical Slashing",
+						"formula": "1d4",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {
+					"UQ4gFFv0gFjiUJ3A": {
+						"type": "effect",
+						"default": true,
+						"effectId": "7yRtjsE7ZstlBZPZ"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"1liCgkll2LECdTWD": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"XZq8xROYvueltU7Z": {
+				"name": "Gain Defensive Die",
+				"activation": {},
+				"consumers": {
+					"GoZZWcAOELbBuOmT": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"k2FY0HmcXf5JJVSg": {
+				"name": "Use Defensive Die",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Hit with an attack"
+				},
+				"consumers": {
+					"lTGU2LMfB5AfaDlN": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"bhD0FpNTOgc4qGvN": {
+						"type": "generic",
+						"default": true,
+						"label": "AC",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You can use a bonus action to place a curse on a creature you can see within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated. The curse has the following effects:</p>\n<ul>\n<li>\n<p>Choose magical bludgeoning, piercing, or slashing damage when you apply the curse. When you deal damage against the cursed creature, it takes an additional 1d4 damage of the chosen type. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>\n</li>\n<li>\n<p>You gain a pool of defensive dice, which begins empty. Every time the cursed creature hits you with an attack, you gain a defensive die. You may spend one of your defensive dice as a reaction when you are hit with an attack, adding 1d4 to your AC against that attack and potentially turning the hit into a miss. You may not spend a defensive die on the attack that you acquired it from. The pool disappears when you finish a short or long rest.</p>\n</li>\n</ul>\n<p>Once you have used this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "999",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "warlock"
+	},
+	"effects": [
+		{
+			"icon": "icons/skills/melee/shield-damaged-broken-orange.webp",
+			"origin": "Item.KTxiiGtIyy0JY4wT",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "N7wKVxfis6RjLEUH",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Warrior’s Curse (Magical Bludgeoning)",
+			"_id": "7yRtjsE7ZstlBZPZ",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When the caster deals damage to the cursed creature, it takes an additional 1d4 magical bludgeoning damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/shield-damaged-broken-orange.webp",
+			"origin": "Item.KTxiiGtIyy0JY4wT",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "N7wKVxfis6RjLEUH",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Warrior’s Curse (Magical Piercing)",
+			"_id": "ngWSfjB9XiPJ6nU3",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When the caster deals damage to the cursed creature, it takes an additional 1d4 magical piercing damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/skills/melee/shield-damaged-broken-orange.webp",
+			"origin": "Item.KTxiiGtIyy0JY4wT",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "N7wKVxfis6RjLEUH",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Warrior’s Curse (Magical Slashing)",
+			"_id": "5TwPP4lFeTaau2xL",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When the caster deals damage to the cursed creature, it takes an additional 1d4 magical slashing damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "oqfygkxm0aa6uh0f"
+}

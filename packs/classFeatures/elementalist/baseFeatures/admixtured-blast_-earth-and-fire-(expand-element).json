@@ -1,0 +1,100 @@
+{
+  "folder": null,
+  "name": "Admixtured Blast: Earth and Fire (Expand Element)",
+  "type": "feature",
+  "img": "icons/magic/earth/explosion-lava-stone-green.webp",
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 2,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "fkNHL3pfIxEN9TPJ": {
+        "name": "Lava Blast",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {
+          "FjY3y1OU4lMAcuzL": {
+            "type": "attack",
+            "default": true,
+            "attackType": "rangedSpellAttack",
+            "proficient": true,
+            "ability": "spellcasting"
+          },
+          "M2kadX27uguQXr0f": {
+            "type": "damage",
+            "default": true,
+            "formula": "round(@level/2)d6 + @spellcasting.mod",
+            "damageType": "null",
+            "label": "Bludgeoning and Piercing"
+          }
+        },
+        "prompts": {
+          "y5ajfCnPteQdZDkM": {
+            "type": "generic",
+            "default": false,
+            "label": "Persistent Fire",
+            "formula": "1d6"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "descriptionOutputs": [
+          "action"
+        ],
+        "duration": {
+          "unit": "instantaneous"
+        },
+        "ranges": {
+          "NP1PMrLzOC4oO4Yk": {
+            "range": "medium"
+          }
+        },
+        "img": "icons/magic/earth/explosion-lava-stone-green.webp",
+        "description": "<p><span id=\"docs-internal-guid-c6bdb057-7fff-3635-8e1f-7ae9729e7eb0\"><strong>Searing:</strong> On hit, target ignites, taking 1d6 persistent fire damage on the start of its next turn. Particularly flammable targets may continue to burn.</span></p>"
+      }
+    },
+    "description": "<p><span id=\"docs-internal-guid-3b9d0d13-7fff-b373-76db-c463e4ae3e8c\">An Admixtured Blast combines the power of two elements into one blast. If you have two or more Elemental Affinities, you gain access to Admixtured Blasts. Admixtured blasts deal two damage types and have their own properties. Admixtured blasts can utilize augments of any of their base elements.</span></p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "moarComplete",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "concentration": false,
+    "featureType": "class",
+    "grants": {},
+    "prerequisite": "",
+    "requiresBloodied": false,
+    "schemaVersion": {
+      "version": 0.019,
+      "lastMigration": null
+    },
+    "classes": "elementalist"
+  },
+  "effects": [],
+  "flags": {},
+  "_id": "ezfix0rngq1qqirj"
+}

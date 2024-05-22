@@ -13,9 +13,9 @@
     import Checkbox from "../Checkbox.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import ComplexDetailEmbed from "../ComplexDetailEmbed.svelte";
+    import CustomTagGroup from "../CustomTagGroup.svelte";
 
-    export let { document, grantId, grantType } =
-        getContext("#external").application;
+    export let { document, grantId, grantType } = getContext("#external").application;
 
     function updateImage() {
         const current = grant?.img;
@@ -33,11 +33,11 @@
 
     function onUpdateValue(key, value) {
         if (key === "proficiencyType") {
-            updateDocumentDataFromField(
-                $item,
-                `system.grants.${grantId}.keys`,
-                { base: [], options: [], total: 0 },
-            );
+            updateDocumentDataFromField($item, `system.grants.${grantId}.keys`, {
+                base: [],
+                options: [],
+                total: 0,
+            });
         }
 
         key = `system.grants.${grantId}.${key}`;
@@ -54,6 +54,7 @@
 
     $: grant = $item.system.grants[grantId];
     $: proficiencyType = grant?.proficiencyType || "armor";
+    $: options = configObject[proficiencyType]?.config ?? [];
 
     setContext("item", item);
     setContext("grantId", grantId);
@@ -94,8 +95,8 @@
                 localize(label),
             ])}
             selected={proficiencyType}
-            on:updateSelection={({ detail }) =>
-                onUpdateValue("proficiencyType", detail)}
+            allowDeselect={false}
+            on:updateSelection={({ detail }) => onUpdateValue("proficiencyType", detail)}
         />
 
         <!-- Keep this else it breaks when switching from tools to weapons -->
@@ -104,7 +105,7 @@
                 <Section heading="Base Options">
                     <ComplexDetailEmbed
                         heading="Base Options"
-                        configObject={configObject[proficiencyType]?.config}
+                        configObject={options}
                         existingProperties={grant?.keys?.base}
                         disabledProperties={grant?.keys?.options}
                         headings={proficiencyType === "tool"
@@ -118,7 +119,7 @@
 
                 <Section heading="Optional Choices">
                     <ComplexDetailEmbed
-                        configObject={configObject[proficiencyType]?.config}
+                        configObject={options}
                         existingProperties={grant?.keys?.options}
                         disabledProperties={grant?.keys?.base}
                         headings={proficiencyType === "tool"
@@ -129,10 +130,10 @@
                         }}
                     />
                 </Section>
-            {:else}
+            {:else if ["skill", "savingThrow"].includes(proficiencyType)}
                 <CheckboxGroup
                     heading="Base Options"
-                    options={configObject[proficiencyType]?.config}
+                    {options}
                     selected={grant?.keys?.base}
                     showToggleAllButton={true}
                     disabledOptions={grant?.keys?.options}
@@ -143,7 +144,29 @@
 
                 <CheckboxGroup
                     heading="Optional Choices"
-                    options={configObject[proficiencyType]?.config}
+                    {options}
+                    selected={grant?.keys?.options}
+                    disabledOptions={grant?.keys?.base}
+                    showToggleAllButton={true}
+                    on:updateSelection={({ detail }) => {
+                        onUpdateValue("keys.options", detail);
+                    }}
+                />
+            {:else}
+                <CustomTagGroup
+                    heading="Base Options"
+                    {options}
+                    selected={grant?.keys?.base}
+                    showToggleAllButton={true}
+                    disabledOptions={grant?.keys?.options}
+                    on:updateSelection={({ detail }) => {
+                        onUpdateValue("keys.base", detail);
+                    }}
+                />
+
+                <CustomTagGroup
+                    heading="Optional Choices"
+                    {options}
                     selected={grant?.keys?.options}
                     disabledOptions={grant?.keys?.base}
                     showToggleAllButton={true}
@@ -167,8 +190,7 @@
             <Checkbox
                 label="Grant 5e expertise in these instead of proficiency"
                 checked={grant.isExpertise ?? false}
-                on:updateSelection={({ detail }) =>
-                    onUpdateValue("isExpertise", detail)}
+                on:updateSelection={({ detail }) => onUpdateValue("isExpertise", detail)}
             />
         {/if}
     </Section>

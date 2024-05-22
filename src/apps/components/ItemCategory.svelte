@@ -10,8 +10,10 @@
     export let level = 0;
     export let items;
     export let type;
+    export let showArtifactCharges = false;
     export let showDescription = false;
     export let showQuantity = false;
+    // export let showSpellInventions = false;
     export let showSpellPoints = false;
     export let showSpellSlots = false;
     export let showUses = false;
@@ -22,9 +24,7 @@
     const { A5E } = CONFIG;
 
     async function onDropObject(event, items) {
-        const draggedItemUUID = JSON.parse(
-            event.dataTransfer.getData("text/plain"),
-        ).uuid;
+        const draggedItemUUID = JSON.parse(event.dataTransfer.getData("text/plain")).uuid;
 
         const draggedItem = await fromUuid(draggedItemUUID);
 
@@ -103,10 +103,7 @@
         showQuantity,
     );
 
-    $: itemTemplateConfiguration = getItemTemplateConfiguration(
-        showUses,
-        showQuantity,
-    );
+    $: itemTemplateConfiguration = getItemTemplateConfiguration(showUses, showQuantity);
 </script>
 
 <section class="category-container">
@@ -119,9 +116,7 @@
                 --a5e-section-heading-template-columns: {headingTemplateConfiguration.columns};
             "
         >
-            <h3
-                class="a5e-section-header__heading a5e-section-header__heading--name"
-            >
+            <h3 class="a5e-section-header__heading a5e-section-header__heading--name">
                 <div>
                     {#if icon}
                         <i class={icon} />
@@ -137,6 +132,18 @@
                 {#if type === "spellLevels" && showSpellSlots}
                     <SpellSlots {level} />
                 {/if}
+
+                {#if type === "spellLevels" && showArtifactCharges}
+                    {localize("A5E.ArtifactChargesCost", {
+                        cost: level,
+                    })}
+                {/if}
+
+                <!-- {#if type === "spellLevels" && showSpellInventions}
+                    {localize("A5E.SpellInventionsCost", {
+                        cost: 1,
+                    })}
+                {/if} -->
 
                 {#if type === "spellLevels" && showSpellPoints}
                     {localize("A5E.SpellPointsCost", {
