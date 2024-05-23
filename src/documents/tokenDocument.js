@@ -41,7 +41,10 @@ export default class TokenDocumentA5e extends TokenDocument {
     super._prepareDetectionModes();
 
     const { actor, scene } = this;
-    if (!scene || !actor || !this.automateVision) return;
+    if (!scene || !actor || !this.automateVision) {
+      super._prepareDetectionModes();
+      return;
+    }
 
     this.sight.attenuation = 0.1;
     this.sight.brightness = 0;
@@ -60,7 +63,10 @@ export default class TokenDocumentA5e extends TokenDocument {
 
     if (currentMode === 'darkvision') {
       const basic = this.detectionModes.at(0);
-      if (!basic) return;
+      if (!basic) {
+        super._prepareDetectionModes();
+        return;
+      }
 
       basic.range = visionData.senses.darkvision.distance;
       this.sight.range = visionData.senses.darkvision.distance;
