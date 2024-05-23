@@ -1,45 +1,88 @@
 {
-  "folder": null,
-  "name": "Earthsense",
-  "type": "feature",
-  "img": "icons/environment/wilderness/terrain-forest-gray.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p>By focusing for 10 minutes while sitting quietly in contact with natural earth or stone, you can cast&nbsp;<em>commune with nature</em>.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "knack",
-    "grants": {},
-    "prerequisite": "Elemental Affinity: Earth; 17th level; Adaptations: Tremorsense",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": null
-    },
-    "classes": "elementalist"
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "f6wgb9b0n8r7wsen"
+	"folder": null,
+	"name": "Earthsense",
+	"type": "feature",
+	"img": "icons/environment/wilderness/terrain-forest-gray.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"7Tnd08VeltIzfoxi": {
+				"name": "Commune with Nature",
+				"activation": {
+					"cost": 10,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"GFicQvVjHSvbP4jV": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/nature/tree-spirit-glow-black-yellow.webp"
+			}
+		},
+		"description": "<p>By focusing for 10 minutes while sitting quietly in contact with natural earth or stone, you can cast @UUID[Compendium.a5e.a5e-spells.Item.pdwrag8eq7r0ldcp]{Commune with Nature}.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "Elemental Affinity: Earth; 17th level; Adaptations: Tremorsense",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "elementalist"
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "f6wgb9b0n8r7wsen"
 }

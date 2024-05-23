@@ -13,15 +13,44 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 7th level, your attitudes and academic manners have cemented how you and your intellect are perceived by your peers.</p><h3><strong>Sporadic Genius</strong></h3><p>You’re known for sudden bursts of insight and people listen to your fervorous insights. When you or another creature you can see within 30 feet of you makes an ability check or a saving throw, you can use your reaction to add your Intelligence modifier to the roll. You can use this feature a number of times equal to your Intelligence modifier (minimum of once). You regain all expended uses when you finish a long rest.</p>",
+		"actions": {
+			"FbOdNWUzYUFyac5k": {
+				"name": "Use Feature",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "when you or another creature you can see within 30 feet of you makes an ability check or a saving throw"
+				},
+				"consumers": {
+					"BFNLoalQCSRb39YK": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You&rsquo;re known for sudden bursts of insight and people listen to your fervorous insights. When you or another creature you can see within 30 feet of you makes an ability check or a saving throw, you can use your reaction to add your Intelligence modifier to the roll. You can use this feature a number of times equal to your Intelligence modifier (minimum of once). You regain all expended uses when you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "gpg0",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "max(1, @int.mod)",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6

@@ -1,45 +1,63 @@
 {
-  "folder": null,
-  "name": "Flame Jet, Greater",
-  "type": "feature",
-  "img": "icons/magic/fire/beam-strike-whip-red.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p dir=\"ltr\">You gain a Fly speed equal to your speed, and can hover. When using the Flame Jet adaptation, you do not need to use it each round to keep from falling.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "knack",
-    "grants": {},
-    "prerequisite": "Elemental Affinity: Fire; Elemental Leap and Flame jet adaptations; 17th level",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": null
-    },
-    "classes": "elementalist"
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "a1xg2ajatk8okq2e"
+	"folder": null,
+	"name": "Flame Jet, Greater",
+	"type": "feature",
+	"img": "icons/magic/fire/beam-strike-whip-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p dir=\"ltr\">You gain a Fly speed equal to your speed, and can hover. When using the Flame Jet adaptation, you do not need to use it each round to keep from falling.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {
+			"T3sQHgbprCE2kyGe": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "T3sQHgbprCE2kyGe",
+				"label": "Flame Jet, Greater",
+				"bonus": "@movement.walk.distance",
+				"movementTypes": {
+					"base": [
+						"fly"
+					]
+				},
+				"context": {
+					"isHover": true
+				}
+			}
+		},
+		"prerequisite": "Elemental Affinity: Fire; Elemental Leap and Flame jet adaptations; 17th level",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "elementalist"
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "a1xg2ajatk8okq2e"
 }

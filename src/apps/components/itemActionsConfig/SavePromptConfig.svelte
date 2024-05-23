@@ -12,7 +12,9 @@
     import RadioGroup from "../RadioGroup.svelte";
     import Section from "../Section.svelte";
 
-    function updateAbility() {
+    function updateAbility(ability) {
+        selectedAbility = ability;
+
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.prompts.${promptId}.ability`,
@@ -60,15 +62,13 @@
     $: saveDC = onSaveDCUpdate($actor, prompt?.saveDC?.type, saveDCBonus);
 
     $: selectedAbility = prompt.ability ?? "none";
-    $: selectedAbility, updateAbility();
 </script>
 
 <FieldWrapper
     heading="A5E.Label"
     buttons={[
         {
-            classes:
-                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes: "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicatePrompt(actionId, prompt),
         },
         {
@@ -98,7 +98,7 @@
     options={prepareAbilityOptions()}
     selected={selectedAbility}
     allowDeselect={false}
-    on:updateSelection={({ detail }) => (selectedAbility = detail)}
+    on:updateSelection={({ detail }) => updateAbility(detail)}
 />
 
 <Section
@@ -106,10 +106,7 @@
     --a5e-section-body-wrap="nowrap"
     --a5e-section-body-padding="0"
 >
-    <FieldWrapper
-        heading="A5E.ItemSavingThrowDC"
-        --a5e-field-wrapper-label-width="9rem"
-    >
+    <FieldWrapper heading="A5E.ItemSavingThrowDC" --a5e-field-wrapper-label-width="9rem">
         <select on:change={selectSaveDCCalculationType}>
             {#each Object.entries(saveDCOptions) as [type, label]}
                 <option value={type} selected={type === prompt?.saveDC?.type}>

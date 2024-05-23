@@ -1,45 +1,185 @@
 {
-  "folder": null,
-  "name": "Wings of Air, Greater",
-  "type": "feature",
-  "img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p dir=\"ltr\">Your Fly speed increases to double your speed. As an action, you can reduce your Fly speed back to your speed and instead grant all allies within 30 feet of you a Fly speed equal to their speed (or 20 feet, whichever is greater); both effects last for 1 minute, and using the action a further time resets the duration to 1 minute.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "knack",
-    "grants": {},
-    "prerequisite": "Elemental Affinity: Air; Wings of Air adaptation; 17th level",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": null
-    },
-    "classes": "elementalist"
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "oxqqvlra0gse3tvo"
+	"folder": null,
+	"name": "Wings of Air, Greater",
+	"type": "feature",
+	"img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"CSoktB5cWFjIxgPB": {
+				"name": "Wings of Air, Greater",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"sOaeKdQolGAcupdd": {
+						"type": "effect",
+						"default": true,
+						"effectId": "7JI7tAAKtHnZoGFY"
+					},
+					"bVcQ7TKTMTDyTwSM": {
+						"type": "effect",
+						"default": true,
+						"effectId": "a7KubQDvw2XuZeH9"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"xqqHLoHp6QD0JfoW": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">Your Fly speed increases to double your speed. As an action, you can reduce your Fly speed back to your speed and instead grant all allies within 30 feet of you a Fly speed equal to their speed (or 20 feet, whichever is greater); both effects last for 1 minute, and using the action a further time resets the duration to 1 minute.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {
+			"ZaI8CH4XdYKsfb6h": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "ZaI8CH4XdYKsfb6h",
+				"label": "Wings of Air, Greater",
+				"bonus": "2*@movement.walk.distance",
+				"movementTypes": {
+					"base": [
+						"fly"
+					]
+				},
+				"context": {
+					"isHover": true
+				}
+			}
+		},
+		"prerequisite": "Elemental Affinity: Air; Wings of Air adaptation; 17th level",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "elementalist"
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/holy/angel-winged-humanoid-blue.webp",
+			"origin": "Item.OITBcOLggQvBYxwS",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CSoktB5cWFjIxgPB",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Reduce Flying Speed",
+			"_id": "7JI7tAAKtHnZoGFY",
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "@movement.walk.distance",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/holy/angel-winged-humanoid-blue.webp",
+			"origin": "Item.OITBcOLggQvBYxwS",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CSoktB5cWFjIxgPB",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Grant Flying Speed",
+			"_id": "a7KubQDvw2XuZeH9",
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "max(@movement.walk.distance,20)",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "oxqqvlra0gse3tvo"
 }

@@ -24,7 +24,8 @@
         delete skills.eng;
     }
 
-    function updateAbility() {
+    function updateAbility(ability) {
+        selectedAbility = ability;
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.prompts.${promptId}.ability`,
@@ -34,15 +35,13 @@
 
     $: prompt = prompt;
     $: selectedAbility = prompt.ability ?? "none";
-    $: selectedAbility, updateAbility();
 </script>
 
 <FieldWrapper
     heading="A5E.Label"
     buttons={[
         {
-            classes:
-                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes: "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicatePrompt(actionId, prompt),
         },
         {
@@ -90,7 +89,7 @@
     options={prepareAbilityOptions(false, true)}
     selected={selectedAbility}
     allowDeselect={false}
-    on:updateSelection={({ detail }) => (selectedAbility = detail)}
+    on:updateSelection={({ detail }) => updateAbility(detail)}
 />
 
 <Checkbox

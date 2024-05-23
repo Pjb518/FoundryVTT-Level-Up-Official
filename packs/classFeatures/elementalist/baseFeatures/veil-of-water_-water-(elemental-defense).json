@@ -1,82 +1,276 @@
 {
-  "folder": null,
-  "name": "Veil of Water: Water (Elemental Defense)",
-  "type": "feature",
-  "img": "icons/magic/water/barrier-ice-shield.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "btXz9F7K6ojN7Fa0": {
-        "name": "Veil of Water",
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "reactionTrigger": "Melee weapon attack"
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "PvKRb7k1hgKShiBY": {
-            "type": "savingThrow",
-            "default": false,
-            "ability": "str",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "label": "18th level"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "duration": {
-          "unit": "instantaneous"
-        }
-      }
-    },
-    "description": "<p id=\"docs-internal-guid-2bf2452d-7fff-417a-c728-33d374a2e8bd\" dir=\"ltr\">You are able to protect yourself with a veil of flowing water. As an action, you can activate your veil of water, which grants you a +2 bonus to AC (this does not stack with the AC bonus from a shield) and an expertise die on saving throws against fire spells and effects.</p>\n<p dir=\"ltr\">Additionally, when you are hit by a weapon attack, you can use your reaction to add your spellcasting ability bonus to your AC, potentially causing the attack to miss you. This expends your veil of water, which can be reactivated on a subsequent round as an action.</p>\n<p dir=\"ltr\">At 10th level, when you use your veil of water reaction, you gain resistance to fire damage until the start of your next turn. You can use this reaction in response to taking fire damage as well as being targeted by a melee attack, gaining your spellcasting ability bonus to your AC or saving throw bonus.</p>\n<p dir=\"ltr\">At 18th level, when you use your veil of water reaction in response to a melee weapon attack, the triggering attacker must make a Strength saving throw against your spell save DC or be pushed 15 feet.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": null
-    },
-    "classes": "elementalist"
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "to10kzs9plkj1rxm"
+	"folder": null,
+	"name": "Veil of Water: Water (Elemental Defense)",
+	"type": "feature",
+	"img": "icons/magic/water/barrier-ice-shield.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ufKl5RF9qzc8iIoi": {
+				"name": "Veil of Water",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"yh36qdWY0FhIOSi8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "hm5SfrymkxATi7eC"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"xuXQJi3X0KbHln8P": {
+				"name": "Expend Veil",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Hit by a weapon attack"
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"QDjpHgu6plcdYCFB": {
+				"name": "Expend Veil (10th Level)",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Taking fire damage as well as being targeted by a melee attack"
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"5VRgHUCzWna3BhEj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "4R6K0tHHpOEusrCU"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"eOnpfVPZnxhTZio9": {
+				"name": "Expend Veil (18th Level)",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Taking fire damage as well as being targeted by a melee attack"
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"5VRgHUCzWna3BhEj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "BYrUYvEJXR3hArRx"
+					},
+					"ztUlKvsaT2uuW8RD": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p id=\"docs-internal-guid-2bf2452d-7fff-417a-c728-33d374a2e8bd\" dir=\"ltr\">You are able to protect yourself with a veil of flowing water. As an action, you can activate your veil of water, which grants you a +2 bonus to AC (this does not stack with the AC bonus from a shield) and an expertise die on saving throws against fire spells and effects.</p>\n<p dir=\"ltr\">Additionally, when you are hit by a weapon attack, you can use your reaction to add your spellcasting ability bonus to your AC, potentially causing the attack to miss you. This expends your veil of water, which can be reactivated on a subsequent round as an action.</p>\n<p dir=\"ltr\">At 10th level, when you use your veil of water reaction, you gain resistance to fire damage until the start of your next turn. You can use this reaction in response to taking fire damage as well as being targeted by a melee attack, gaining your spellcasting ability bonus to your AC or saving throw bonus.</p>\n<p dir=\"ltr\">At 18th level, when you use your veil of water reaction in response to a melee weapon attack, the triggering attacker must make a Strength saving throw against your spell save DC or be pushed 15 feet.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "elementalist"
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/water/barrier-ice-shield.webp",
+			"origin": "Item.oy50xxWeETnJg4aJ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ufKl5RF9qzc8iIoi",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Veil of Water",
+			"_id": "hm5SfrymkxATi7eC",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>+2 bonus to AC (this does not stack with the AC bonus from a shield) and an expertise die on saving throws against fire spells and effects.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/water/barrier-ice-shield.webp",
+			"origin": "Item.oy50xxWeETnJg4aJ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "QDjpHgu6plcdYCFB",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Expend Veil",
+			"_id": "4R6K0tHHpOEusrCU",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"fire\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Resistance to fire damage until the start of your next turn.</p>",
+			"statuses": [],
+			"folder": null
+		},
+		{
+			"icon": "icons/magic/water/barrier-ice-shield.webp",
+			"origin": "Item.oy50xxWeETnJg4aJ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "eOnpfVPZnxhTZio9",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Expend Veil",
+			"_id": "BYrUYvEJXR3hArRx",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"fire\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Resistance to fire damage until the start of your next turn.</p>",
+			"statuses": [],
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "to10kzs9plkj1rxm"
 }

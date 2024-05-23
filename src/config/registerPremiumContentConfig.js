@@ -426,7 +426,7 @@ export default function registerPremiumContentConfig(A5E) {
       url: 'https://ravine.itch.io/a5e-spells01-arcaneweapon'
     },
     heroesOldAndNew: {
-      abbreviation: 'MMM',
+      abbreviation: 'HOaN',
       affiliate: true,
       publisher: 'rollThemBones',
       title: 'Heroes Old and New',

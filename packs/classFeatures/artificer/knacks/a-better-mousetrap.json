@@ -1,51 +1,77 @@
 {
-  "name": "A Better Mousetrap",
-  "type": "feature",
-  "img": "icons/environment/traps/net.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {},
-    "description": "<p>There&rsquo;s always a better trap design if you put your mind to it. You can improve fishing traps, hunting snares, and hunting traps as you set them. Hunting traps you improve in this way are always considered masterwork hunting traps. Whenever you retrieve an improved fishing trap or hunting snare, you may add a d6 to the result determining how much Supply has been captured. </p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "gpg0",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "knack",
-    "classes": "artificer",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "folder": null,
-  "_id": "jg5ptsds5fgmupgr"
+	"name": "A Better Mousetrap",
+	"type": "feature",
+	"img": "icons/environment/traps/net.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"u0zhIrPGugdoakBb": {
+				"name": "Use Feature",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"odCtVGyV20qtUT9G": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d6",
+						"label": "Additional Supply"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>There&rsquo;s always a better trap design if you put your mind to it. You can improve fishing traps, hunting snares, and hunting traps as you set them. Hunting traps you improve in this way are always considered masterwork hunting traps. Whenever you retrieve an improved fishing trap or hunting snare, you may add a d6 to the result determining how much Supply has been captured. </p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg0",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"classes": "artificer",
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "jg5ptsds5fgmupgr"
 }

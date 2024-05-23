@@ -16,7 +16,8 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
 
-    function updateAbility() {
+    function updateAbility(ability) {
+        selectedAbility = ability;
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.prompts.${promptId}.ability`,
@@ -25,15 +26,13 @@
     }
 
     $: selectedAbility = prompt.ability ?? "none";
-    $: selectedAbility, updateAbility();
 </script>
 
 <FieldWrapper
     heading="A5E.Label"
     buttons={[
         {
-            classes:
-                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes: "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicatePrompt(actionId, prompt),
         },
         {
@@ -63,7 +62,7 @@
     optionStyles="min-width: 2rem; text-align: center;"
     options={prepareAbilityOptions()}
     selected={selectedAbility}
-    on:updateSelection={({ detail }) => (selectedAbility = detail)}
+    on:updateSelection={({ detail }) => updateAbility(detail)}
 />
 
 <Checkbox

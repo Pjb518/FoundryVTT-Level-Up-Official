@@ -1,0 +1,106 @@
+{
+	"folder": null,
+	"name": "Fearsome Roar",
+	"type": "feature",
+	"img": "icons/magic/water/wave-water-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"lEwx510HKL5ndzTf": {
+				"name": "Bloody Roar",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"oFAknCbW0gfATQfI": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"qoLo9IbRVXXvrd1s": {
+						"ability": "wis",
+						"onSave": "Takes half damage and does not become frightened.",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@maneuverDC"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"ranges": {
+					"WNWmX9Bw0KdUMmtP": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"width": 30,
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": null,
+					"type": "creature",
+					"shape": "",
+					"size": ""
+				},
+				"img": "icons/creatures/abilities/cougar-pounce-stalk-black.webp"
+			}
+		},
+		"description": "<p>Once between each short and long rest, you may activate the @UUID[Compendium.a5e.a5e-maneuvers.Item.ti286cy1wamgttiv]{Bloody Roar} maneuver without using exertion.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "secretsOfTheSelkies",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "6dcdnxc0vzs8kbp3"
+}

@@ -27,8 +27,13 @@
             .filter(Boolean);
     }
 
-    function updateSelections() {
-        selected = [...selectedCoreOptions, ...selectedCustomOptions];
+    function updateCoreSelections(detail: string[]) {
+        selected = [...detail, ...selectedCustomOptions];
+        dispatch("updateSelection", [...detail, ...selectedCustomOptions]);
+    }
+
+    function updateCustomSelections(detail: string) {
+        selected = [...selectedCoreOptions, ...splitCustomSelections(detail)];
         dispatch("updateSelection", selected);
     }
 
@@ -36,10 +41,7 @@
     const dispatch = createEventDispatcher();
 
     $: selectedCoreOptions = selected.filter((option) => optionKeys.includes(option));
-
     $: selectedCustomOptions = selected.filter((option) => !optionKeys.includes(option));
-
-    $: selectedCoreOptions, selectedCustomOptions, updateSelections();
 </script>
 
 <CheckboxGroup
@@ -57,7 +59,7 @@
     {showWarning}
     {tooltipData}
     {warning}
-    on:updateSelection={(event) => (selectedCoreOptions = event.detail)}
+    on:updateSelection={(event) => updateCoreSelections(event.detail)}
 />
 
 {#if showCustomInput}
@@ -68,7 +70,7 @@
             value={selectedCustomOptions.join("; ")}
             on:change={({ target }) => {
                 // @ts-ignore
-                selectedCustomOptions = splitCustomSelections(target.value);
+                updateCustomSelections(target.value);
             }}
         />
     </FieldWrapper>
