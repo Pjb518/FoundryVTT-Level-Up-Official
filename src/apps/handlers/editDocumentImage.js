@@ -10,8 +10,7 @@ export default async function editDocumentImage(document, options = {}) {
   }
 
   const current = foundry.utils.getProperty(document, `system.actions.${options?.actionId}.img`)
-    ?? document.img
-    ?? document.icon;
+    ?? document.img;
 
   const filePicker = new FilePicker({
     type: 'image',
@@ -19,8 +18,6 @@ export default async function editDocumentImage(document, options = {}) {
     callback: async (path) => {
       if (options?.actionId) {
         await document.update({ [`system.actions.${options?.actionId}.img`]: path });
-      } else if (options?.type === 'effect') {
-        await document.update({ icon: path });
       } else {
         await document.update({ img: path });
       }

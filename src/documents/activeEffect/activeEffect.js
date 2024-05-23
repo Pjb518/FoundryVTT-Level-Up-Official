@@ -13,7 +13,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
   // -------------------------------------------------------
   //  Static Properties
   // -------------------------------------------------------
-  static FALLBACK_ICON = 'icons/svg/aura.svg';
+  static FALLBACK_IMG = 'icons/svg/hazard.svg';
 
   static PHASES = ['applyAEs', 'afterDerived'];
 
@@ -624,7 +624,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
   static createDefaultEffect(parentDocument) {
     const data = {
       name: localize('A5E.effects.new'),
-      icon: this.FALLBACK_ICON,
+      icon: this.FALLBACK_IMG,
       flags: { a5e: { sort: 0 } }
     };
     return super.create(data, { parent: parentDocument });
