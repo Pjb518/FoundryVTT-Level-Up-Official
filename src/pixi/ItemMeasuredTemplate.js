@@ -58,7 +58,7 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
     if (now - this.#moveTime <= 10) return;
     const center = e.data.getLocalPosition(this.layer);
     const interval = canvas.grid.type === CONST.GRID_TYPES.GRIDLESS ? 0 : 2;
-    const snapped = canvas.grid.getSnappedPosition(center.x, center.y, interval);
+    const snapped = canvas.grid.getSnappedPoint({ x: center.x, y: center.y }, { mode: interval });
 
     this.document.updateSource({ x: snapped.x, y: snapped.y });
     this.refresh();
@@ -82,7 +82,10 @@ export default class ItemMeasuredTemplate extends MeasuredTemplate {
   async _onConfirm(e) {
     await this._finishPlacement(e);
     const interval = canvas.grid.type === CONST.GRID_TYPES.GRIDLESS ? 0 : 2;
-    const destination = canvas.grid.getSnappedPosition(this.document.x, this.document.y, interval);
+    const destination = canvas.grid.getSnappedPoint(
+      { x: this.document.x, y: this.document.y },
+      { mode: interval }
+    );
 
     this.document.updateSource(destination);
     this.#events.resolve(

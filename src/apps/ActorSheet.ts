@@ -431,7 +431,9 @@ export default class ActorSheet extends SvelteApplication {
   async _render(force = false, options = {}) {
     await super._render(force, options);
 
-    const sheet = this.element[0];
+    const sheet = this.element?.[0];
+    if (!sheet) return;
+
     const sheetTitle = sheet.querySelector('.window-header .window-title');
 
     const existingIdLink = sheetTitle.querySelector('.document-id-link');

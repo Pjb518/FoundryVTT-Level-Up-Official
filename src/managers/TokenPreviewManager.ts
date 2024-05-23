@@ -60,7 +60,7 @@ export default class TokenPreviewManager {
     const x = center.x - (this.token.document.width * hw);
     const y = center.y - (this.token.document.height * hh);
 
-    const destination = e.shiftKey ? { x, y } : canvas.grid.getSnappedPosition(x, y);
+    const destination = e.shiftKey ? { x, y } : canvas.grid.getSnappedPoint({ x, y });
 
     this.token.document.updateSource({ x: destination.x, y: destination.y });
     this.token.refresh();
@@ -93,7 +93,7 @@ export default class TokenPreviewManager {
     const { token } = this;
     const interval = canvas.grid.type === CONST.GRID_TYPES.GRIDLESS ? 0 : 2;
     const destination = canvas.grid
-      .getSnappedPosition(token.document.x, token.document.y, interval);
+      .getSnappedPoint({ x: token.document.x, y: token.document.y }, { mode: interval });
 
     token.document.updateSource({ x: destination.x, y: destination.y });
     token.refresh();
