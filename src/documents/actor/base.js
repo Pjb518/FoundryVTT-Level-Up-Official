@@ -1652,11 +1652,11 @@ export default class BaseActorA5e extends Actor {
   // Functionality Patches
   // -------------------------------------------------------------
   async toggleStatusEffect(statusId, options = {}) {
-    const { active } = options;
-    const overlay = options.overlay ?? false;
+    const { active, overlay = false } = options;
 
     const status = CONFIG.statusEffects.find((e) => e.id === statusId);
     if (!status) throw new Error(`Invalid status ID "${statusId}" provided to Actor#toggleStatusEffect`);
+
     const existing = [];
     const existingEffects = [];
 

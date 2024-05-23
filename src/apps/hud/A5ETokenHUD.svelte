@@ -5,12 +5,12 @@
 
     export let HUD;
 
-    function handleStatusEffectAdd({ id, src }, type = "status") {
-        HUD.object._addStatusEffect({ id, src });
+    function handleStatusEffectAdd({ id, src }, options = {}) {
+        HUD.object._addStatusEffect({ id, src }, options);
     }
 
-    function handleStatusEffectRemove({ id, src }, type = "status") {
-        HUD.object._removeStatusEffect({ id, src });
+    function handleStatusEffectRemove({ id, src }, options = {}) {
+        HUD.object._removeStatusEffect({ id, src }, options);
     }
 
     const data = HUD.getData();
@@ -41,10 +41,7 @@
         7: "#e00006",
     };
 
-    $: conditionsFlowDirection = game.settings.get(
-        "a5e",
-        "conditionFlowDirection",
-    );
+    $: conditionsFlowDirection = game.settings.get("a5e", "conditionFlowDirection");
 
     $: fatigue = HUD?.object?.actor?.system?.attributes?.fatigue ?? 0;
     $: strife = HUD?.object?.actor?.system?.attributes?.strife ?? 0;
@@ -52,8 +49,7 @@
 
 <div
     class="status-effects-container"
-    class:status-effects-container--column-flow={conditionsFlowDirection ===
-        "column"}
+    class:status-effects-container--column-flow={conditionsFlowDirection === "column"}
 >
     {#each statusEffects as effect}
         {@const linked = subConditions[effect.id]?.some((c) =>
@@ -71,11 +67,11 @@
             disabled={conditionImmunities.includes(effect.id) || linked}
             on:click|preventDefault|stopPropagation={() => {
                 if (linked) return;
-                handleStatusEffectAdd(effect);
+                handleStatusEffectAdd(effect, { overlay: effect.isOverlay });
             }}
             on:auxclick|preventDefault|stopPropagation={() => {
                 if (linked) return;
-                handleStatusEffectRemove(effect);
+                handleStatusEffectRemove(effect, { overlay: effect.isOverlay });
             }}
         >
             <img
@@ -105,8 +101,7 @@
             class="condition-container {effect.cssClass}"
             title={effect.title ?? ""}
             data-status-id={effect.id}
-            on:click|preventDefault|stopPropagation={() =>
-                handleStatusEffectAdd(effect)}
+            on:click|preventDefault|stopPropagation={() => handleStatusEffectAdd(effect)}
             on:auxclick|preventDefault|stopPropagation={() =>
                 handleStatusEffectRemove(effect)}
         >
@@ -121,10 +116,7 @@
     {/each}
 </div>
 
-<button
-    class="clear-all-conditions"
-    on:click={HUD?._clearAllConditions.bind(HUD)}
->
+<button class="clear-all-conditions" on:click={HUD?._clearAllConditions.bind(HUD)}>
     <i class="fa-solid fa-octagon-xmark" />
     {localize("A5E.UIClearAll")}
 </button>

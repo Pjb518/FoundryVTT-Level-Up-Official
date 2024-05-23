@@ -50,6 +50,7 @@ export default class TokenA5e extends Token {
         status.isOverlay ? 'overlay' : null
       ].filterJoin(' ');
     }
+
     return choices;
   }
 
@@ -60,7 +61,7 @@ export default class TokenA5e extends Token {
     }, []);
   }
 
-  _addStatusEffect({ id, src }, { overlay = false } = {}) {
+  _addStatusEffect({ id, src }, { overlay } = {}) {
     if (['fatigue', 'exhaustion', 'strife'].includes(id)) {
       return this.actor.toggleStatusEffect(id, { active: true, overlay });
     }
@@ -71,7 +72,7 @@ export default class TokenA5e extends Token {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  _removeStatusEffect({ id, src }, { overlay = false } = {}) {
+  _removeStatusEffect({ id, src }, { overlay } = {}) {
     if (['fatigue', 'exhaustion', 'strife'].includes(id)) {
       return this.actor.toggleStatusEffect(id, { active: false, overlay });
     }
@@ -216,7 +217,7 @@ export default class TokenA5e extends Token {
 
     if (!src) return null;
 
-    const texture = await loadTexture(src, { fallback: 'icons/svg/aura.svg' });
+    const texture = await loadTexture(src, { fallback: 'icons/svg/hazard.svg' });
     const icon = new PIXI.Sprite(texture);
 
     if (isOverlay) {
@@ -256,6 +257,7 @@ export default class TokenA5e extends Token {
 
     const icon = await this._drawEffect(src, tint, true);
     if (icon) icon.alpha = 0.8;
+    this.effects.overlay = icon ?? null;
     return icon;
   }
 
