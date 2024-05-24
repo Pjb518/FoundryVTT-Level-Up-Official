@@ -148,7 +148,7 @@ export default class BaseItemA5e extends Item {
   }
 
   async _preUpdate(data, options, user) {
-    super._onUpdate(data, options, user);
+    super._preUpdate(data, options, user);
   }
 
   async _onCreate(data, options, userId) {

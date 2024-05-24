@@ -531,9 +531,7 @@ export default class ItemA5e extends BaseItemA5e {
   }
 
   async _preUpdate(data, options, user) {
-    if (foundry.utils.getProperty(data, 'system.objectType')) await this._preUpdateObjectType();
-
-    super._onUpdate(data, options, user);
+    super._preUpdate(data, options, user);
   }
 
   async _onCreate(data, options, userId) {
