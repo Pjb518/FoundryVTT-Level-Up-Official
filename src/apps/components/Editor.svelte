@@ -5,7 +5,6 @@
     export let document;
     export let content;
     export let updatePath;
-    export let async = false;
 
     const descriptionTypes = {
         secretDescription: "A5E.NoSecretDescription",
