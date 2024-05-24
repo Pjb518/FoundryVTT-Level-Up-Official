@@ -185,7 +185,6 @@ export default class ItemA5e extends BaseItemA5e {
           actionName: action.name,
           actionDescription: action?.descriptionOutputs?.includes('action')
             ? await TextEditor.enrichHTML(action.description, {
-              async: true,
               secrets: this.isOwner,
               relativeTo: this,
               rollData: this?.actor?.getRollData(this) ?? {}
@@ -193,7 +192,6 @@ export default class ItemA5e extends BaseItemA5e {
             : null,
           itemDescription: action?.descriptionOutputs?.includes('item') ?? true
             ? await TextEditor.enrichHTML(this.system.description, {
-              async: true,
               secrets: this.isOwner,
               relativeTo: this,
               rollData: this?.actor?.getRollData(this) ?? {}
@@ -201,7 +199,6 @@ export default class ItemA5e extends BaseItemA5e {
             : null,
           unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
             ? await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
-              async: true,
               secrets: this.isOwner,
               relativeTo: this,
               rollData: this?.actor?.getRollData(this) ?? {}
