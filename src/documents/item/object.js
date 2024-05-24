@@ -10,6 +10,13 @@ export default class ObjectItemA5e extends ItemA5e {
     return this.system.weight;
   }
 
+  get container() {
+    if (!this.system.containerId) return null;
+    if (this.isEmbedded) return this.actor.items.get(this.system.containerId);
+    if (this.pack) return game.packs.get(this.pack).getDocument(this.system.containerId);
+    return game.items.get(this.system.containerId);
+  }
+
   // TODO: Container Rework - Add a solid fix at some point
   get containerItemNames() {
     if (!this.containerItems) return '';
