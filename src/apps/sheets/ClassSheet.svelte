@@ -10,13 +10,23 @@
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
-    export let { document } = getContext("#external").application;
+    export let { document, sheet } = getContext("#external").application;
     export let elementRoot;
 
     const item = document;
 
     function updateCurrentTab(event) {
         currentTab = tabs[event.detail];
+    }
+
+    // **********************************************
+    // Drag Drop Handlers
+    function onDrop(event) {
+        const transferData = event.dataTransfer.getData("text/plain");
+        if (!transferData) return;
+
+        const dragData = JSON.parse(transferData);
+        sheet._onDropDocument(dragData);
     }
 
     const tabs = [
@@ -43,7 +53,7 @@
 </script>
 
 <ApplicationShell bind:elementRoot>
-    <main>
+    <main on:drop|preventDefault|stopPropagation={(event) => onDrop(event)}>
         <ItemSheetHeader />
 
         <NavigationBar {currentTab} {tabs} on:tab-change={updateCurrentTab} />

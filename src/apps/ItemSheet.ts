@@ -129,9 +129,14 @@ export default class ItemSheet extends SvelteApplication {
   }
 
   async _onDropDocument(dragData) {
-    if (dragData.type === 'Action') await this.#onDropAction(dragData);
-    if (dragData.type === 'Grant') await this.#onDropGrant(dragData);
-    if (dragData.type === 'Item') await this.#onDropItem(dragData);
+    const types = ['archetype', 'background', 'class', 'culture', 'heritage'];
+    if (types.includes(this.item.type)) {
+      if (dragData.type === 'Grant') await this.#onDropGrant(dragData);
+    } else {
+      if (dragData.type === 'Action') await this.#onDropAction(dragData);
+      if (dragData.type === 'Grant') await this.#onDropGrant(dragData);
+      if (dragData.type === 'Item') await this.#onDropItem(dragData);
+    }
   }
 
   async #onDropAction(dragData: any) {
