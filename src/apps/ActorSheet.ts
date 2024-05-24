@@ -9,8 +9,6 @@ import ActorSheetTempSettingsStore from '../stores/ActorSheetTempSettingsStore';
 import ActorSheetComponent from './sheets/ActorSheet.svelte';
 import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 
-import SubObjectManager from '../managers/subItems/SubObjectManager';
-
 import getDocumentSourceTooltip from '../utils/getDocumentSourceTooltip';
 
 export default class ActorSheet extends SvelteApplication {
@@ -300,16 +298,6 @@ export default class ActorSheet extends SvelteApplication {
   }
 
   async #onDropObject(item: typeof Item, options: Record<string, any>) {
-    if (item.system.objectType === 'container' && item.parent?.id !== this.actor.id) {
-      const container = await SubObjectManager.createContainerOnActor(this.actor, item);
-
-      if (container && options.containerUuid) {
-        container.updateContainer(options.containerUuid ?? '');
-      }
-
-      return;
-    }
-
     // Check if item is dropped is on the sheet already
     if (item?.parent?.id === this.actor.id) {
       item.updateContainer(options.containerUuid ?? '');

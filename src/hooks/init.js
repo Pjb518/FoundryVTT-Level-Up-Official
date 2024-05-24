@@ -31,9 +31,6 @@ import itemDataModels from '../dataModels/item/itemModels';
 import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions';
 import EffectOption from '../documents/activeEffect/EffectOption';
 
-// Sidebar
-import ItemDirectoryA5E from '../sidebar/ItemDirectoryA5E';
-
 import registerKeybindings from '../keybindings';
 
 import _onCombatControl from '../combat/_onCombatControl';
@@ -53,6 +50,7 @@ import createMacro from '../macros/createMacro';
 
 // Managers
 import ActionsManager from '../managers/ActionsManager';
+import ContainerManager from '../managers/ContainerManager';
 import ForeignDocumentManager from '../managers/ForeignDocumentManager';
 import HitDiceManager from '../managers/HitDiceManager';
 import ItemGrantsManager from '../managers/ItemGrantsManager';
@@ -60,7 +58,6 @@ import ModifierManager from '../managers/ModifierManager';
 import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
 import RestManager from '../managers/RestManager';
 import RollPreparationManager from '../managers/RollPreparationManager';
-import SubObjectManager from '../managers/subItems/SubObjectManager';
 import TemplatePreparationManager from '../managers/TemplatePreparationManager';
 
 // Migrations
@@ -85,8 +82,6 @@ export default function init() {
   CONFIG.Item.documentClass = ItemProxy;
   CONFIG.Token.documentClass = TokenDocumentA5e;
   CONFIG.Token.objectClass = TokenA5e;
-
-  CONFIG.ui.items = ItemDirectoryA5E;
 
   CONFIG.Dice.D20Roll = D20Roll;
 
@@ -152,6 +147,7 @@ export default function init() {
     },
     managers: {
       ActionsManager,
+      ContainerManager,
       ForeignDocumentManager,
       HitDiceManager,
       ItemGrantsManager,
@@ -159,7 +155,6 @@ export default function init() {
       ResourceConsumptionManager,
       RestManager,
       RollPreparationManager,
-      SubObjectManager,
       TemplatePreparationManager
     },
     migrations: {
