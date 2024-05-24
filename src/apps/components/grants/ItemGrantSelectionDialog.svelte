@@ -50,6 +50,7 @@
             {options}
             {selected}
             orange={choices}
+            disabled={selected.length >= totalCount}
             on:updateSelection={onUpdateSelection}
         />
     </FieldWrapper>
