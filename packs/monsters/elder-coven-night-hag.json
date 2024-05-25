@@ -1,5 +1,5 @@
 {
-	"name": "Elder Night Hag",
+	"name": "Elder Coven Night Hag",
 	"type": "npc",
 	"img": "systems/a5e/assets/green-hag.webp",
 	"items": [
@@ -2051,6 +2051,245 @@
 			"ownership": {
 				"default": 0
 			}
+		},
+		{
+			"name": "Fragmentary Dream",
+			"type": "feature",
+			"_id": "DLvglOlNT96XxCPs",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"QgBRIGT2Van9xR7m": {
+						"name": "Fragmentary Dream",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"6KaoWWCl2r8F3ij1": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "4d10",
+								"damageType": "psychic"
+							}
+						},
+						"prompts": {
+							"SDmrrC5qAV8Dnh0f": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "wis",
+								"saveDC": {
+									"type": "spellcasting"
+								},
+								"onSave": "Half damage"
+							},
+							"BqJFWznyf4KqXV5Q": {
+								"type": "effect",
+								"default": true,
+								"effectId": "Hb3AeJbA9ziMfQmm"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"uURmNVMDpj37d42I": {
+								"range": "long"
+							}
+						},
+						"target": {
+							"type": "creature",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>The hag creates a terrifying illusion visible only to one creature that it can see within 120 feet. The creature makes a DC 14 Wisdom saving throw . It takes 22 (4d10) psychic damage and becomes frightened until the end of its turn on a failure, or takes half damage on a success. A sleeping creature automatically fails this saving throw.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				},
+				"classes": ""
+			},
+			"effects": [
+				{
+					"origin": "Actor.n6rT5T5GwpFsIht7.Item.DLvglOlNT96XxCPs",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "QgBRIGT2Van9xR7m",
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Frightened",
+					"img": "icons/svg/item-bag.svg",
+					"_id": "Hb3AeJbA9ziMfQmm",
+					"type": "base",
+					"system": {},
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"frightened\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": 1,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"tint": "#ffffff",
+					"statuses": [
+						"frightened"
+					],
+					"sort": 0,
+					"folder": null
+				}
+			],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
+		},
+		{
+			"name": "Steal Magic",
+			"type": "feature",
+			"_id": "xj52Ds43lHCdoDAC",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"mnUi0kAHT51Bw4vw": {
+						"name": "Steal Magic",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "A creature the hag can see within 60 feet casts a spell using a 3rd-level or lower spell slot"
+						},
+						"consumers": {
+							"rQcPT3Sm0BPLPrep": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>When a creature the hag can see within 60 feet casts a spell using a 3rd-level or lower spell slot, the hag attempts to steal its power. The caster makes a DC 14 saving throw using its spellcasting ability. On a failure, the spell fails, and the hag gains 5 (1d10) temporary hit points per level of the spell slot used.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 3,
+					"max": "3",
+					"per": "day",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				},
+				"classes": ""
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"ownership": {
+				"default": 0
+			},
+			"flags": {}
 		}
 	],
 	"effects": [],
@@ -2735,5 +2974,5 @@
 		}
 	},
 	"folder": null,
-	"_id": "tnk0ccd7qrpxnqnf"
+	"_id": "oj5xpkgyap3k9qcr"
 }
