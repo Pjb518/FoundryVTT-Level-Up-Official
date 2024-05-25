@@ -440,7 +440,7 @@ export default function registerPremiumContentConfig(A5E) {
       url: 'https://bit.ly/4b7Fsyi'
     },
     monstrousMenagerie: {
-      abbreviation: 'MM',
+      abbreviation: 'MoMe',
       affiliate: true,
       publisher: 'enPublishing',
       title: 'Level Up: Monstrous Menagerie',
