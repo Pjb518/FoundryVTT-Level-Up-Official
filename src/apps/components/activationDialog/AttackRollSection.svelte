@@ -54,10 +54,10 @@
         rollMode,
     );
 
-    $: selectedAttackBonuses = $actor.BonusesManager.getDefaultSelections(
-        "attacks",
-        { item: $item, attackType: attackRoll?.attackType },
-    );
+    $: selectedAttackBonuses = $actor.BonusesManager.getDefaultSelections("attacks", {
+        item: $item,
+        attackType: attackRoll?.attackType,
+    });
 
     $: rollFormula = getRollFormula($actor, {
         ability: attackAbility,
