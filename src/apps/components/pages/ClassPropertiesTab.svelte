@@ -34,8 +34,7 @@
                 actor.getRollData(),
             ) ?? 0;
 
-        const otherHpBonuses =
-            allHpBonuses - hpBonusPerLevel * actor.levels.character;
+        const otherHpBonuses = allHpBonuses - hpBonusPerLevel * actor.levels.character;
 
         const tempBonuses = actor.system.attributes.hp.bonus;
 
@@ -80,8 +79,7 @@
 
                 <button
                     class="slug-reset-button"
-                    on:click={() =>
-                        updateDocumentDataFromField($item, "system.slug", "")}
+                    on:click={() => updateDocumentDataFromField($item, "system.slug", "")}
                 >
                     <i class="fas fa-solid fa-rotate-left" />
                 </button>
@@ -95,11 +93,7 @@
             options={hitDiceSize}
             selected={$item.system.hp.hitDiceSize}
             on:updateSelection={({ detail }) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.hp.hitDiceSize",
-                    detail,
-                )}
+                updateDocumentDataFromField($item, "system.hp.hitDiceSize", detail)}
         />
 
         {#if $item.actor}
@@ -125,6 +119,7 @@
         <Section heading="Hit Points" --a5e-section-body-gap="0.75rem">
             <div class="a5e-class-hp-table">
                 <header class="a5e-class-hp-table__header">
+                    <h3 class="a5e-class-hp-table__heading">Level</h3>
                     <h3 class="a5e-class-hp-table__heading">Base HP</h3>
                     <h3 class="a5e-class-hp-table__heading">Con Mod</h3>
                     <h3 class="a5e-class-hp-table__heading">Bonus HP</h3>
@@ -134,7 +129,11 @@
                 <hr class="a5e-class-hp-table__rule" />
 
                 {#each Object.entries($item.system.hp.levels) as [level, hp]}
-                    {#if level <= classLevel}
+                    {#if hp}
+                        <span class="a5e-class-hp-table__field">
+                            {level}
+                        </span>
+
                         <input
                             class="a5e-class-hp-table__field"
                             type="number"
@@ -268,11 +267,7 @@
                 type="text"
                 value={$item.system.wealth}
                 on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.wealth",
-                        target.value,
-                    )}
+                    updateDocumentDataFromField($item, "system.wealth", target.value)}
             />
         </FieldWrapper>
     </Section>
@@ -281,7 +276,7 @@
 <style lang="scss">
     .a5e-class-hp-table {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(5, 1fr);
         align-items: center;
         gap: 0rem;
         margin-bottom: -0.375rem;
@@ -318,14 +313,14 @@
 
             &--footer {
                 padding-block: 0.25rem;
-                grid-column: span 3;
+                grid-column: span 4;
                 text-align: right;
             }
         }
 
         &__rule {
             width: 100%;
-            grid-column: span 4;
+            grid-column: span 5;
             margin-block: 0.25rem;
             border: 0.5px solid #ccc;
         }
