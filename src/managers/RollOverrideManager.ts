@@ -64,25 +64,11 @@ export default class RollOverrideManager {
               value: die,
               overrideType: 'expertiseDice',
               source: CONFIG.A5E.abilities[ablKey],
-              mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.OVERRIDE
+              mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.ADD
             }
           );
         }
       });
-    });
-
-    Object.entries(this.actor.system.skills).forEach(([skillKey, skill]: [string, any]) => {
-      if (skill.expertiseDice) {
-        const die = skill.expertiseDice;
-        this.overrides.get(`system.skills.${skillKey}`)?.push(
-          {
-            value: die,
-            overrideType: 'expertiseDice',
-            source: CONFIG.A5E.skills[skillKey],
-            mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.OVERRIDE
-          }
-        );
-      }
     });
 
     // Register expertise dice from grants
@@ -104,17 +90,6 @@ export default class RollOverrideManager {
       } else if (type === 'abilitySave') {
         keys.forEach((key: string) => {
           this.overrides.get(`system.abilities.${key}.save`)?.push(
-            {
-              value: expertiseCount,
-              overrideType: 'expertiseDice',
-              source: name,
-              mode: CONFIG.A5E.ACTIVE_EFFECT_MODES.ADD
-            }
-          );
-        });
-      } else if (type === 'skill') {
-        keys.forEach((key: string) => {
-          this.overrides.get(`system.skills.${key}`)?.push(
             {
               value: expertiseCount,
               overrideType: 'expertiseDice',

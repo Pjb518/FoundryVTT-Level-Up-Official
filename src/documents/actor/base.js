@@ -479,6 +479,23 @@ export default class BaseActorA5e extends Actor {
       }
     });
 
+    // Prepare skill expertise die
+    const grants = this.grants.byType('expertiseDice')
+      .filter((g) => g.expertiseDiceData?.expertiseType === 'skill');
+
+    Object.entries(actorData.skills).forEach(([key, skill]) => {
+      const baseDie = skill.expertiseDice ?? 0;
+      const expertiseDice = grants.reduce((acc, grant) => {
+        const { expertiseCount, keys } = grant.expertiseDiceData;
+        if (!keys.includes(key)) return acc;
+
+        return Math.clamp(acc + Number(expertiseCount), 0, 5);
+      }, baseDie);
+
+      skill.expertiseDice = expertiseDice;
+    });
+
+    // Prepare skill mod
     Object.entries(actorData.skills).forEach(([key, skill]) => {
       const skillName = localize(CONFIG.A5E.skills[key]);
 
@@ -1169,6 +1186,8 @@ export default class BaseActorA5e extends Actor {
    */
   async rollSkillCheck(skillKey, options = {}) {
     let dialogData;
+
+    options.expertiseDice ??= this.system.skills[skillKey].expertiseDice ?? 0;
 
     if (options.skipRollDialog) dialogData = this.getDefaultSkillCheckData(skillKey, options);
     else dialogData = await this.#showSkillCheckPrompt(skillKey, options);

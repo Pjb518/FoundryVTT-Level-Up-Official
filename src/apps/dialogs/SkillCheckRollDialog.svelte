@@ -46,36 +46,28 @@
         ability: localizedSkill,
     });
 
-    let abilityKey =
-        options.abilityKey ?? $actor.system.skills[skillKey].ability;
+    let abilityKey = options.abilityKey ?? $actor.system.skills[skillKey].ability;
 
-    let visibilityMode =
-        options.visibilityMode ?? game.settings.get("core", "rollMode");
+    let visibilityMode = options.visibilityMode ?? game.settings.get("core", "rollMode");
 
     let { minRoll } = options.minRoll ?? $actor.system.skills[skillKey];
     let rollFormula;
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let situationalMods = options.situationalMods ?? "";
 
-    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(
-        abilityKey,
-        "check",
-    );
+    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(abilityKey, "check");
 
-    $: skillBonuses = $actor.BonusesManager.prepareSkillBonuses(
+    $: skillBonuses = $actor.BonusesManager.prepareSkillBonuses(skillKey, abilityKey);
+
+    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections("abilities", {
+        abilityKey,
+        abilityType: "check",
+    });
+
+    $: selectedSkillBonuses = $actor.BonusesManager.getDefaultSelections("skills", {
         skillKey,
         abilityKey,
-    );
-
-    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
-        "abilities",
-        { abilityKey, abilityType: "check" },
-    );
-
-    $: selectedSkillBonuses = $actor.BonusesManager.getDefaultSelections(
-        "skills",
-        { skillKey, abilityKey },
-    );
+    });
 
     $: expertiseDie = getInitialExpertiseDieSelection();
 
@@ -142,8 +134,7 @@
                 abilityBonus.label || abilityBonus.defaultLabel,
             ])}
             selected={selectedAbilityBonuses}
-            on:updateSelection={({ detail }) =>
-                (selectedAbilityBonuses = detail)}
+            on:updateSelection={({ detail }) => (selectedAbilityBonuses = detail)}
         />
     {/if}
 
