@@ -132,12 +132,6 @@ export default class ClassItemA5e extends OriginItemA5e {
     foundry.utils.setProperty(data, 'system.classLevels', 1);
     foundry.utils.setProperty(data, 'system.hp.hitDiceUsed', 0);
 
-    // Update starting hp
-    if (!foundry.utils.getProperty(data, 'system.hp.levels.1')) {
-      const startingHp = foundry.utils.getProperty(data, 'system.hp.hitDiceSize') ?? 6;
-      foundry.utils.setProperty(data, 'system.hp.levels.1', startingHp);
-    }
-
     // Reset hp rolls
     Array.from({ length: 19 }, (_, i) => i + 2).forEach((level) => {
       foundry.utils.setProperty(data, `system.hp.levels.${level}`, 0);
@@ -149,6 +143,10 @@ export default class ClassItemA5e extends OriginItemA5e {
 
       if (!Object.keys(classes).length) {
         actor.update({ 'system.classes.startingClass': this.slug });
+
+        // Update starting hp
+        const startingHp = this?.system?.hp?.hitDiceSize ?? 6;
+        foundry.utils.setProperty(data, 'system.hp.levels.1', startingHp);
       }
 
       const existing = classes[this.slug];
@@ -205,5 +203,10 @@ export default class ClassItemA5e extends OriginItemA5e {
 
   async _onDelete(data, options, user) {
     super._onDelete(data, options, user);
+
+    if (this.isStartingClass && this.parent?.documentName === 'Actor') {
+      const actor = this.parent;
+      actor.update({ 'system.classes.startingClass': '' });
+    }
   }
 }
