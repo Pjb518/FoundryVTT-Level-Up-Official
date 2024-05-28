@@ -16,14 +16,19 @@ export default class ClassItemA5e extends OriginItemA5e {
     return Math.floor(this.hitDice.size / 2) + 1;
   }
 
+  get classLevels() {
+    return this.system.classLevels;
+  }
+
   get isStartingClass() {
     if (!this.isEmbedded) return false;
 
     return this.parent.system.classes.startingClass === this.slug;
   }
 
-  get classLevels() {
-    return this.system.classLevels;
+  // TODO: Class documents - Cache this
+  get maxHP() {
+    return this.prepareMaxHitPoints();
   }
 
   get subclass() {
@@ -44,7 +49,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     // Set up class resource manager
     this.resources = new ClassResourceManager(this);
 
-    this.maxHP = this.prepareMaxHitPoints();
+    // this.maxHP = this.prepareMaxHitPoints();
     this.hitDice = {
       current: this.totalHitDice - this.system.hp.hitDiceUsed,
       total: this.totalHitDice,
@@ -57,8 +62,11 @@ export default class ClassItemA5e extends OriginItemA5e {
   prepareMaxHitPoints() {
     const { levels } = this.system.hp;
 
+    const actor = this.isEmbedded ? this.parent : null;
+    const maxLevel = actor ? actor.levels.character : 20;
+
     return Object.entries(levels ?? {}).reduce((acc, [level, value]) => {
-      if (!value) return acc;
+      if (!value || level > maxLevel) return acc;
       return acc + value;
     }, 0);
   }

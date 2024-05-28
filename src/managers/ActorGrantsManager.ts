@@ -91,7 +91,12 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     const applicableGrants: Grant[] = [];
     const optionalGrants: Grant[] = [];
-    const characterLevel: number = this.actor.levels.character;
+
+    const classes = Object.keys(this.actor.levels.classes);
+    const characterLevel: number = classes.length
+      ? this.actor.levels.character + 1
+      : this.actor.levels.character;
+
     const classLevel: number = this.actor.levels.classes?.[item?.slug] ?? 1;
 
     const grants: Grant[] = [...item.grants.values()];
@@ -120,7 +125,10 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       applicableGrants,
       optionalGrants,
       {
-        item, cls, clsLevel: classLevel, useUpdateSource: isPreCreate
+        item,
+        cls,
+        clsLevel: characterLevel,
+        useUpdateSource: isPreCreate
       }
     );
   }
@@ -207,7 +215,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const result = await this.#applyGrants(
       applicableGrants,
       optionalGrants,
-      { cls, clsLevel: newLevel, useUpdateSource: false }
+      { cls, clsLevel: characterLevel, useUpdateSource: false }
     );
 
     return result;
@@ -374,13 +382,13 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         || options.cls.system.spellcasting.ability.options[0]
         || options.cls.system.spellcasting.ability.base;
 
+      // TODO: Remove updateSource method
       const updateMethod = options.useUpdateSource
         ? options.cls.updateSource.bind(options.cls)
         : options.cls.update.bind(options.cls);
 
-      const charLevel = (this.actor.levels.character ?? 0) + 1;
       await updateMethod({
-        [`system.hp.levels.${charLevel}`]: hp,
+        [`system.hp.levels.${options.clsLevel}`]: hp,
         'system.spellcasting.ability.value': spellCastingAbility
       });
     }

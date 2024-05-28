@@ -1,5 +1,4 @@
 <script lang="ts">
-    import getDeterministicBonus from "../../dice/getDeterministicBonus";
     import FieldWrapper from "./FieldWrapper.svelte";
     import RadioGroup from "./RadioGroup.svelte";
     import Section from "./Section.svelte";
