@@ -378,8 +378,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         ? options.cls.updateSource.bind(options.cls)
         : options.cls.update.bind(options.cls);
 
+      const charLevel = (this.actor.levels.character ?? 0) + 1;
       await updateMethod({
-        [`system.hp.levels.${options.clsLevel}`]: hp,
+        [`system.hp.levels.${charLevel}`]: hp,
         'system.spellcasting.ability.value': spellCastingAbility
       });
     }

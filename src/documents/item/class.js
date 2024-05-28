@@ -58,7 +58,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     const { levels } = this.system.hp;
 
     return Object.entries(levels ?? {}).reduce((acc, [level, value]) => {
-      if (level > this.classLevels) return acc;
+      if (!value) return acc;
       return acc + value;
     }, 0);
   }
@@ -147,6 +147,8 @@ export default class ClassItemA5e extends OriginItemA5e {
         // Update starting hp
         const startingHp = this?.system?.hp?.hitDiceSize ?? 6;
         foundry.utils.setProperty(data, 'system.hp.levels.1', startingHp);
+      } else {
+        foundry.utils.setProperty(data, 'system.hp.levels.1', 0);
       }
 
       const existing = classes[this.slug];
