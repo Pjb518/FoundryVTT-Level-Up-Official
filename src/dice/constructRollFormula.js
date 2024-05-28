@@ -18,7 +18,12 @@ export default function constructRollFormula({
     ...(modifiers ?? []).map(({ label, value }) => {
       if (!value || value === 0) return null;
 
-      const modifier = new Roll(value.toString(), rollData);
+      let modifier;
+      try {
+        modifier = new Roll(value.toString(), rollData);
+      } catch (err) {
+        return null;
+      }
 
       modifier.terms.forEach((m) => {
         if (!['OperatorTerm', 'StringTerm'].includes(m.constructor.name)) m.options.flavor ??= label;

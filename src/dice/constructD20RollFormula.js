@@ -14,12 +14,21 @@ export default function constructD20RollFormula({
 }) {
   const rollData = actor.getRollData(item);
 
+  console.log(modifiers);
+
   const parts = [
     constructD20Term({ actor, minRoll, rollMode }),
     ...(modifiers ?? []).map(({ label, value }) => {
       if (!value || value === 0) return null;
 
-      const modifier = new Roll(value.toString(), rollData);
+      let modifier;
+
+      try {
+        modifier = new Roll(value.toString(), rollData);
+      } catch (err) {
+        console.error(`Invalid modifier value: ${value}`);
+        return null;
+      }
 
       modifier.terms.forEach((m) => {
         if (m.constructor.name !== 'OperatorTerm') m.options.flavor ??= label;
