@@ -230,6 +230,15 @@
                 }}
             />
         {/if}
+
+        {#if item?.system?.objectType === "container"}
+            <button
+                class="action-button fas fa-chevron-down"
+                on:click|stopPropagation={() => {
+                    dispatch("toggleContainer");
+                }}
+            />
+        {/if}
     </div>
 
     {#if hasAmmunition(item, action)}

@@ -95,6 +95,8 @@
 
     $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
     $: showActionList = determineActionListVisibility(action, item, sheetIsLocked);
+    $: showContainerItems =
+        item.getFlag("a5e", "showContainer") ?? containerItems.length > 0;
     $: summaryData = getSummaryData(item, action);
 </script>
 
@@ -146,6 +148,10 @@
             showActionList = !showActionList;
             item.setFlag("a5e", "showActionList", showActionList);
         }}
+        on:toggleContainer={() => {
+            showContainerItems = !showContainerItems;
+            item.setFlag("a5e", "showContainer", showContainerItems);
+        }}
     />
 
     {#if $actor.isOwner}
@@ -180,7 +186,7 @@
     </ul>
 {/if}
 
-{#if containerItems.length}
+{#if showContainerItems}
     <ul class="a5e-item-list a5e-item-list--sub-items">
         {#each containerItems as [id, child] (id)}
             <svelte:self item={child} />
