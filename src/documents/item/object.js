@@ -139,13 +139,13 @@ export default class ObjectItemA5e extends ItemA5e {
       if (!container) return;
 
       await this.update({ 'system.containerId': '' });
-      await container.containerItems.delete(this.uuid);
+      await container.containerItems.remove(this.uuid);
       return;
     }
 
     // Remove from old container
     const oldContainer = await fromUuid(this.system.containerId);
-    if (oldContainer) await oldContainer.containerItems.delete(this.uuid);
+    if (oldContainer) await oldContainer.containerItems.remove(this.uuid);
 
     const container = await fromUuid(containerUuid);
     if (!container

@@ -65,7 +65,7 @@ export default class ContainerManager extends Map<string, SubObjectField> {
         });
       });
 
-      return all;
+      return all.filter((i) => !!i);
     }
 
     items.forEach((i) => {
@@ -75,7 +75,8 @@ export default class ContainerManager extends Map<string, SubObjectField> {
         all.push(...(i?.containerItems?.allItems ?? []));
       }
     });
-    return all;
+
+    return all.filter((i) => !!i);
   }
 
   get bulkyCount(): number | Promise<number> {
