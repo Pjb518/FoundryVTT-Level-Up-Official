@@ -24,7 +24,7 @@ export default class ObjectDataModel extends A5EDataModel.mixin(BaseItemData, Ar
         { required: true, initial: [] }
       ),
       capacity: new fields.SchemaField({
-        type: new fields.StringField({ required: true, initial: '' }),
+        type: new fields.StringField({ required: true, initial: 'weight' }),
         value: new fields.NumberField({ nullable: false, initial: 0, min: 0 })
       }),
       containerId: new fields.StringField({ required: true, initial: '' }),

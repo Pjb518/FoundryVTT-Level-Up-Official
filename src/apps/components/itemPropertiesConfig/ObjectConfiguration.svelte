@@ -36,11 +36,7 @@
             options={Object.entries(A5E.objectTypes)}
             selected={$item.system.objectType}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.objectType",
-                    event.detail,
-                )}
+                updateDocumentDataFromField($item, "system.objectType", event.detail)}
         />
 
         <RadioGroup
@@ -48,17 +44,10 @@
             options={Object.entries(A5E.itemRarity)}
             selected={$item.system.rarity}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.rarity",
-                    event.detail,
-                )}
+                updateDocumentDataFromField($item, "system.rarity", event.detail)}
         />
 
-        <Section
-            --a5e-section-body-direction="row"
-            --a5e-section-body-gap="0.75rem"
-        >
+        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
             <Checkbox
                 label="A5E.AttunementRequiredPrompt"
                 checked={$item.system.requiresAttunement}
@@ -75,11 +64,7 @@
                     label="A5E.AttunementPrompt"
                     checked={$item.system.attuned}
                     on:updateSelection={({ detail }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.attuned",
-                            detail,
-                        )}
+                        updateDocumentDataFromField($item, "system.attuned", detail)}
                 />
             {/if}
 
@@ -88,25 +73,27 @@
                     label="A5E.PlotItem"
                     checked={$item.system.plotItem}
                     on:updateSelection={({ detail }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.plotItem",
-                            detail,
-                        )}
+                        updateDocumentDataFromField($item, "system.plotItem", detail)}
                 />
 
                 <Checkbox
                     label="A5E.ItemUnidentified"
                     checked={$item.system.unidentified}
                     on:updateSelection={({ detail }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.unidentified",
-                            detail,
-                        )}
+                        updateDocumentDataFromField($item, "system.unidentified", detail)}
                 />
             {/if}
         </Section>
+
+        {#if $item.system.objectType === "container"}
+            <RadioGroup
+                heading="Capacity Type"
+                options={Object.entries(A5E.capacityTypes)}
+                selected={$item.system.capacity.type}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField($item, "system.capacity.type", detail)}
+            />
+        {/if}
 
         <FieldWrapper
             heading="A5E.ItemWeight"
@@ -181,11 +168,7 @@
                     id={`${appId}-price`}
                     value={$item.system.price}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            target.name,
-                            target.value,
-                        )}
+                        updateDocumentDataFromField($item, target.name, target.value)}
                 />
             </div>
         </FieldWrapper>
@@ -198,11 +181,7 @@
                 value={$item.system.craftingComponents}
                 id={`${appId}-craftingComponents`}
                 on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        target.value,
-                    )}
+                    updateDocumentDataFromField($item, target.name, target.value)}
             />
         </FieldWrapper>
 
@@ -224,18 +203,14 @@
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.ObjectTypePrompt")}:</dt>
                 <dd class="u-m-0 u-p-0">
-                    {A5E.objectTypes[$item.system.objectType] ??
-                        localize("A5E.None")}
+                    {A5E.objectTypes[$item.system.objectType] ?? localize("A5E.None")}
                 </dd>
             </div>
 
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.ItemRarity")}:</dt>
                 <dd class="u-m-0 u-p-0">
-                    {localize(
-                        A5E.itemRarity[$item.system.rarity] ??
-                            $item.system.rarity,
-                    )}
+                    {localize(A5E.itemRarity[$item.system.rarity] ?? $item.system.rarity)}
                 </dd>
             </div>
 
@@ -246,9 +221,7 @@
                         {localize("A5E.AttunementRequired")}
 
                         ({localize(
-                            $item.system.attuned
-                                ? "A5E.Attuned"
-                                : "A5E.AttunedNot",
+                            $item.system.attuned ? "A5E.Attuned" : "A5E.AttunedNot",
                         )})
                     {:else}
                         {localize("A5E.AttunementNotRequired")}
@@ -289,8 +262,7 @@
                         {localize("A5E.CraftingComponents")}:
                     </dt>
                     <dd class="u-m-0 u-p-0">
-                        {$item.system.craftingComponents ??
-                            localize("A5E.None")}
+                        {$item.system.craftingComponents ?? localize("A5E.None")}
                     </dd>
                 </div>
             {/if}
