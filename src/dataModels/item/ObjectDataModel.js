@@ -23,8 +23,12 @@ export default class ObjectDataModel extends A5EDataModel.mixin(BaseItemData, Ar
         new fields.StringField({ required: true, initial: '' }),
         { required: true, initial: [] }
       ),
-      craftingComponents: new fields.StringField({ required: true, initial: '' }),
+      capacity: new fields.SchemaField({
+        type: new fields.StringField({ required: true, initial: '' }),
+        value: new fields.NumberField({ nullable: false, initial: 0, min: 0 })
+      }),
       containerId: new fields.StringField({ required: true, initial: '' }),
+      craftingComponents: new fields.StringField({ required: true, initial: '' }),
       damagedState: new fields.NumberField({
         required: true, initial: 0, integer: true, min: 0, max: 2
       }),
@@ -32,12 +36,10 @@ export default class ObjectDataModel extends A5EDataModel.mixin(BaseItemData, Ar
       equippedState: new fields.NumberField({
         required: true, initial: 0, integer: true, min: 0, max: 2
       }),
-      // TODO: Container Rework - Remove this in favor of a greedy approach
       flaws: new fields.ArrayField(
         new fields.StringField({ required: true, initial: '' }),
         { required: true, initial: [] }
       ),
-      // TODO: Remove this in favor of a greedy approach
       items: new fields.ObjectField({ required: true, initial: {} }),
       materialProperties: new fields.ArrayField(
         new fields.StringField({ required: true, initial: '' }),

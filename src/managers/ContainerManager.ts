@@ -48,7 +48,103 @@ export default class ContainerManager extends Map<string, SubObjectField> {
   }
 
   /** ************************************************
-  *               Helper methods
+  *               Functionality
+  * ************************************************ */
+  get allItems(): any[] | Promise<any[]> {
+    const all: any[] = [];
+    const { items } = this;
+
+    if (items instanceof Promise) {
+      items.then((promisedItems) => {
+        all.push(...promisedItems);
+
+        promisedItems.forEach((i) => {
+          if (i?.system?.objectType === 'container') {
+            all.push(...(i?.containerItems?.allItems ?? []));
+          }
+        });
+      });
+
+      return all;
+    }
+
+    items.forEach((i) => {
+      all.push(i);
+
+      if (i?.system?.objectType === 'container') {
+        all.push(...(i?.containerItems?.allItems ?? []));
+      }
+    });
+    return all;
+  }
+
+  get bulkyCount(): number | Promise<number> {
+    const contents = this.allItems;
+    if (contents instanceof Promise) {
+      return contents.then((items) => items.reduce((acc, i) => {
+        if (i.system?.bulky) return acc + 1;
+        return acc;
+      }, 0));
+    }
+
+    return contents.reduce((acc, i) => {
+      if (i.system?.bulky) return acc + 1;
+      return acc;
+    }, 0);
+  }
+
+  get count(): number | Promise<number> {
+    const contents = this.allItems;
+    if (contents instanceof Promise) {
+      return contents.then((items) => items.reduce((acc, i) => acc + i.system.quantity, 0));
+    }
+
+    return contents.reduce((acc, i) => acc + i.system.quantity, 0);
+  }
+
+  get weight(): number | Promise<number> {
+    // TODO: Add support for weightless containers
+
+    const contents = this.allItems;
+    if (contents instanceof Promise) {
+      return contents.then(
+        (items) => items
+          .reduce((acc, i) => acc + (i.system.quantity * i.system.weight), 0)
+      );
+    }
+
+    return contents
+      .reduce((acc, i) => acc + (i.system.quantity * i.system.weight), 0);
+  }
+
+  async capacity() {
+    const { value, type } = this.#item.system.capacity;
+
+    const data = {
+      max: value ?? Infinity,
+      percentage: 0,
+      unit: '',
+      value: 0
+    };
+
+    if (type === 'bulk') {
+      data.value = await this.bulkyCount;
+      data.unit = 'bulk';
+    } else if (type === 'weight') {
+      data.value = await this.weight;
+      data.unit = 'lbs';
+    } else if (type === 'count') {
+      data.value = await this.count;
+      data.unit = 'items';
+    }
+
+    // Calculate percentage
+    data.percentage = Math.clamp(data.max ? (data.value / data.max) * 100 : 0, 0, 100);
+    return data;
+  }
+
+  /** ************************************************
+  *               Data Helper methods
   * ************************************************ */
   async add(uuid: string, data: SubObjectField) {
     if (!data) data = {} as SubObjectField;

@@ -4,7 +4,10 @@ import ContainerManager from '../../managers/ContainerManager';
 
 export default class ObjectItemA5e extends ItemA5e {
   get weight() {
-    // TODO: Container Rework - Implement weight for containers
+    if (this.system.objectType === 'container') {
+      return (this.containerItems?.weight ?? 0) + this.system.weight;
+    }
+
     return this.system.weight;
   }
 
