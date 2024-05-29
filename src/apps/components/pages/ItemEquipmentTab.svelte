@@ -1,7 +1,6 @@
 <script lang="ts">
     import { getContext } from "svelte";
 
-    import OriginDropArea from "../dropAreas/OriginDropArea.svelte";
     import DropArea from "../dropAreas/DropArea.svelte";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -50,8 +49,6 @@
     $: docs = Object.entries($item.system.items ?? {})
         .map(([id, e]: any) => [id, fromUuidSync(e.uuid), e.quantityOverride])
         .filter(([, d]: any) => !!d);
-
-    $: console.log(docs);
 </script>
 
 <article>

@@ -2,24 +2,19 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import DropArea from "../dropAreas/OriginDropArea.svelte";
+    import DropAreaSingular from "../dropAreas/DropAreaSingular.svelte";
 
     const item = getContext("item");
 
     async function addFeature(event, path) {
         const [dragEvent] = event.detail;
         try {
-            const { uuid } = JSON.parse(
-                dragEvent.dataTransfer.getData("text/plain")
-            );
+            const { uuid } = JSON.parse(dragEvent.dataTransfer.getData("text/plain"));
 
-            const doc = await fromUuid(uuid);
-            if (
-                doc?.type !== "feature" ||
-                doc?.system?.featureType !== "destiny"
-            )
+            const doc = await Item.fromDropData({ uuid });
+            if (doc?.type !== "feature" || doc?.system?.featureType !== "destiny")
                 return ui.notifications.warn(
-                    localize("A5E.validations.warnings.InvalidForeignDocument")
+                    localize("A5E.validations.warnings.InvalidForeignDocument"),
                 );
 
             $item.update({ [`system.${path}`]: uuid });
@@ -42,13 +37,12 @@
         <h3 class="section-title">
             {localize("A5E.DestinyFeatureSource")}
         </h3>
-        <DropArea
-            uuids={[source]}
+
+        <DropAreaSingular
+            uuid={source}
             singleDocument={true}
-            on:item-dropped={(event) =>
-                addFeature(event, "sourceOfInspiration")}
-            on:item-deleted={(event) =>
-                deleteFeature(event, "sourceOfInspiration")}
+            on:document-dropped={(event) => addFeature(event, "sourceOfInspiration")}
+            on:document-deleted={(event) => deleteFeature(event, "sourceOfInspiration")}
         />
     </section>
 
@@ -57,12 +51,11 @@
             {localize("A5E.DestinyFeatureInspiration")}
         </h3>
 
-        <DropArea
-            uuids={[inspiration]}
+        <DropAreaSingular
+            uuid={inspiration}
             singleDocument={true}
-            on:item-dropped={(event) => addFeature(event, "inspirationFeature")}
-            on:item-deleted={(event) =>
-                deleteFeature(event, "inspirationFeature")}
+            on:document-dropped={(event) => addFeature(event, "inspirationFeature")}
+            on:document-deleted={(event) => deleteFeature(event, "inspirationFeature")}
         />
     </section>
 
@@ -71,12 +64,11 @@
             {localize("A5E.DestinyFeatureFulfillment")}
         </h3>
 
-        <DropArea
-            uuids={[fulfillment]}
+        <DropAreaSingular
+            uuid={fulfillment}
             singleDocument={true}
-            on:item-dropped={(event) => addFeature(event, "fulfillmentFeature")}
-            on:item-deleted={(event) =>
-                deleteFeature(event, "fulfillmentFeature")}
+            on:document-dropped={(event) => addFeature(event, "fulfillmentFeature")}
+            on:document-deleted={(event) => deleteFeature(event, "fulfillmentFeature")}
         />
     </section>
 </article>
