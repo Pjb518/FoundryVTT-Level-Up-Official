@@ -14,8 +14,9 @@
                 const dataTransfer = dragEvent.dataTransfer;
                 if (!dataTransfer) return;
 
-                const { uuid, type }: { uuid: string; type: string } =
-                    JSON.parse(dataTransfer.getData("text/plain"));
+                const { uuid, type }: { uuid: string; type: string } = JSON.parse(
+                    dataTransfer.getData("text/plain"),
+                );
 
                 if (type !== documentType) return;
                 dispatch("document-dropped", { dragEvent, uuid });
