@@ -21,10 +21,8 @@
 
     function getEffectIcon(prompt) {
         if (prompt.type !== "effect") return null;
-
         const effect = fromUuidSync(prompt.effectUuid);
-
-        return effect.icon;
+        return effect?.img ?? "icons/svg/hazard.svg";
     }
 
     function getHoverColor(pressedKeysStore) {
@@ -91,10 +89,7 @@
         else {
             const newExpertiseDieRoll = new foundry.dice.terms.Die({
                 number: 1,
-                faces: parseInt(
-                    getExpertiseDieSize(expertiseDice).slice(2),
-                    10,
-                ),
+                faces: parseInt(getExpertiseDieSize(expertiseDice).slice(2), 10),
                 options: {
                     flavor: "Expertise Die",
                 },
@@ -170,8 +165,7 @@
         // secondary die result for the current die if available.
         if (d20Term.number === 2) {
             const secondDieResult = d20Term.results[1].result;
-            $message.flags.a5e.rollData[rollIndex].secondDieResult ??=
-                secondDieResult;
+            $message.flags.a5e.rollData[rollIndex].secondDieResult ??= secondDieResult;
         }
 
         // Remove kh and kl modifiers
@@ -191,8 +185,7 @@
             if (!originalRollMode) {
                 d20Term.number = 2;
 
-                const { secondDieResult } =
-                    $message?.flags?.a5e?.rollData[rollIndex];
+                const { secondDieResult } = $message?.flags?.a5e?.rollData[rollIndex];
 
                 // If a secondary d20 roll exists in the rollData, use that; otherwise,
                 // generate a new result.
@@ -391,8 +384,7 @@
                         {roll}
                         {rollData}
                         --a5e-roll-color={prepareRollColor(rollData)}
-                        on:toggleRollMode={({ detail }) =>
-                            toggleRollMode(i, detail)}
+                        on:toggleRollMode={({ detail }) => toggleRollMode(i, detail)}
                         on:toggleExpertiseDice={({ detail }) =>
                             toggleExpertiseDice(i, detail)}
                     />

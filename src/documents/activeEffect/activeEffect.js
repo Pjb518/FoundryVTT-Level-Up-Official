@@ -240,6 +240,8 @@ export default class ActiveEffectA5e extends ActiveEffect {
     const isActor = document.documentName === 'Actor';
     const isItem = document.documentName === 'Item';
 
+    if (change.mode === CONFIG.A5E.ACTIVE_EFFECT_MODES.CONDITIONAL) return 0;
+
     try {
       if (isActor) {
         const targetField = game.a5e.activeEffects.options[document.type].allOptions[change.key];
