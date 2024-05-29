@@ -81,12 +81,11 @@
         return data;
     }
 
-    $: containerItems = (item?.containerItems?.documents ?? []).reduce((acc, [k, v]) => {
-        const i = fromUuidSync(v.uuid);
+    $: containerItems = (item?.items ?? []).reduce((acc, i) => {
         if (!i) return acc;
         if (i.parent?.id !== $actor.id) return acc;
 
-        acc.push([k, i]);
+        acc.push([i?.id ?? foundry.utils.randomId(), i]);
         return acc;
     }, []);
 
@@ -95,9 +94,7 @@
         .catch((err) => (description = err));
 
     $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
-
     $: showActionList = determineActionListVisibility(action, item, sheetIsLocked);
-
     $: summaryData = getSummaryData(item, action);
 </script>
 

@@ -34,6 +34,11 @@ export default class ObjectItemA5e extends ItemA5e {
     return names.join(', ');
   }
 
+  get items() {
+    if (this.system.objectType !== 'container') return [];
+    return this.containerItems?.items ?? [];
+  }
+
   prepareBaseData() {
     super.prepareBaseData();
 
@@ -122,6 +127,7 @@ export default class ObjectItemA5e extends ItemA5e {
     });
   }
 
+  // TODO: Container Rework - Move to manager
   async updateContainer(containerUuid) {
     if (containerUuid === this.uuid) return;
 

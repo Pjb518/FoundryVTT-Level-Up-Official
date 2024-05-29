@@ -32,9 +32,19 @@ export default class ContainerManager extends Map<string, SubObjectField> {
     });
   }
 
-  /** @deprecated */
-  get documents() {
-    return [...this.entries()];
+  get items() {
+    const parent = this.#item;
+    const docUuids = [...this.values()].map((e) => e.uuid);
+
+    if (parent.isEmbedded) {
+      return docUuids.map((uuid) => fromUuidSync(uuid));
+    }
+
+    if (parent.pack) {
+      return Promise.all(docUuids.map((uuid) => fromUuid(uuid)));
+    }
+
+    return docUuids.map((uuid) => fromUuidSync(uuid));
   }
 
   /** ************************************************
