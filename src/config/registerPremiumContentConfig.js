@@ -148,6 +148,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'AAGtN',
       affiliate: true,
       publisher: 'acesAdventuringGuides',
+      systems: ['a5e'],
       title: "Ace's Adventuring Guide to Necromancy",
       url: 'https://bit.ly/4bez8oK'
     },
@@ -155,6 +156,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'AAGtN:S',
       affiliate: true,
       publisher: 'acesAdventuringGuides',
+      systems: ['a5e'],
       title: "Ace's Adventuring Guide to Necromancy: A Supplement",
       url: 'https://bit.ly/3HQ17gV'
     },
@@ -162,6 +164,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'AG',
       affiliate: true,
       publisher: 'enPublishing',
+      systems: ['a5e'],
       title: "Level Up: Adventurer's Guide",
       url: 'https://bit.ly/3w15Iua'
     },
@@ -169,6 +172,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'AiZ',
       affiliate: true,
       publisher: 'enPublishing',
+      systems: ['a5e'],
       title: 'Level Up: Adventures in ZEITGEIST',
       url: 'https://bit.ly/3u99LnT'
     },
@@ -176,6 +180,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'AotM',
       affiliate: false,
       publisher: 'ravine',
+      systems: ['a5e'],
       title: 'Agent of the Magus',
       url: 'https://ravine.itch.io/a5e-subclass01-magus'
     },
@@ -183,6 +188,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'AS',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      systems: ['a5e'],
       title: 'Arcane Sniper',
       url: 'https://bit.ly/3I3t0SW'
     },
@@ -190,6 +196,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'ConfMage',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      systems: ['a5e'],
       title: 'Confidence Mage',
       url: 'https://preview.drivethrurpg.com/en/product/403897/confidence-mage-a5e?affiliate_id=1388381'
     },
@@ -197,6 +204,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'DM Vol.1',
       affiliate: true,
       publisher: 'koboldPress',
+      systems: ['5e'],
       title: 'Deep Magic Volume 1',
       url: 'https://bit.ly/3TfgMvP'
     },
@@ -204,6 +212,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'DM Vol.2',
       affiliate: false,
       publisher: 'koboldPress',
+      systems: ['5e'],
       title: 'Deep Magic Volume 2',
       url: 'https://bit.ly/3v2z4Zf'
     },
@@ -211,6 +220,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'DOD:TH',
       affiliate: true,
       publisher: 'joshGentry',
+      systems: ['a5e'],
       title: 'Dose of Dungeonpunk - The Talos Heritage',
       url: 'https://bit.ly/4bo5FsM'
     },
@@ -218,6 +228,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'DDG',
       affiliate: true,
       publisher: 'enPublishing',
+      systems: ['a5e'],
       title: "Level Up: Dungeon Delver's Guide",
       url: 'https://bit.ly/4bLImsK'
     },
@@ -225,6 +236,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'ECaDM',
       affiliate: true,
       publisher: 'rollThemBones',
+      systems: ['a5e'],
       title: 'Extra Credit and Deeper Mysteries',
       url: 'https://bit.ly/47UnJaV'
     },
@@ -232,6 +244,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'FE',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      systems: ['a5e'],
       title: 'Field Engineer',
       url: 'https://bit.ly/49D4FPF'
     },
@@ -239,6 +252,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'FJ',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      systems: ['a5e'],
       title: 'Fiery Justice',
       url: 'https://preview.drivethrurpg.com/en/product/409471/fiery-justice-a5e?affiliate_id=1388381'
     },
@@ -247,6 +261,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #0',
       url: 'https://bit.ly/3HMhZW5'
     },
@@ -255,6 +270,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #1',
       url: 'https://bit.ly/48YR8BZ'
     },
@@ -263,6 +279,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #2',
       url: 'https://bit.ly/49hj181'
     },
@@ -271,6 +288,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #3',
       url: 'https://bit.ly/49elHTS'
     },
@@ -279,6 +297,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #4',
       url: 'https://bit.ly/4bo5Vbe'
     },
@@ -287,6 +306,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #5',
       url: 'https://bit.ly/3uuw1sx'
     },
@@ -295,6 +315,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #6',
       url: 'https://bit.ly/3SquHyB'
     },
@@ -303,6 +324,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #7',
       url: 'https://bit.ly/4bEHc2h'
     },
@@ -311,6 +333,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #8',
       url: 'https://bit.ly/3SNRHrB'
     },
@@ -319,6 +342,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #9',
       url: 'https://bit.ly/3OvH2k2'
     },
@@ -327,6 +351,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #10',
       url: 'https://bit.ly/42JSXR0'
     },
@@ -335,6 +360,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #11',
       url: 'https://bit.ly/3OsnMnu'
     },
@@ -343,6 +369,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #12',
       url: 'https://bit.ly/3uI2SKn'
     },
@@ -351,6 +378,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #13',
       url: 'https://bit.ly/3T1ABHU'
     },
@@ -359,6 +387,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #14',
       url: 'https://bit.ly/49kSzLo'
     },
@@ -367,6 +396,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #15',
       url: 'https://bit.ly/49kSzLo'
     },
@@ -375,6 +405,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #16',
       url: 'https://bit.ly/3IqpKBv'
     },
@@ -383,6 +414,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #17',
       url: 'https://bit.ly/3uHrm6p'
     },
@@ -391,6 +423,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #18',
       url: 'https://bit.ly/48pPGaX'
     },
@@ -399,6 +432,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #19',
       url: 'https://bit.ly/4blqODO'
     },
@@ -407,6 +441,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #20',
       url: 'https://bit.ly/49OPl2F'
     },
@@ -415,6 +450,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'enPublishing',
       series: 'gatePassGazette',
+      systems: ['a5e'],
       title: 'Level Up: Gate Pass Gazette Issue #21',
       url: 'https://bit.ly/4c1jnCf'
     },
@@ -422,6 +458,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'HPtAW',
       affiliate: false,
       publisher: 'ravine',
+      systems: ['a5e'],
       title: "Hakan's Pamphlet to Arcane Weaponry",
       url: 'https://ravine.itch.io/a5e-spells01-arcaneweapon'
     },
@@ -429,6 +466,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'HOaN',
       affiliate: true,
       publisher: 'rollThemBones',
+      systems: ['a5e'],
       title: 'Heroes Old and New',
       url: 'https://bit.ly/3UevPrJ'
     },
@@ -436,6 +474,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'MoAR',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      systems: ['a5e'],
       title: 'Manual of Adventurous Resources: Complete',
       url: 'https://bit.ly/4b7Fsyi'
     },
@@ -443,6 +482,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'MoMe',
       affiliate: true,
       publisher: 'enPublishing',
+      systems: ['a5e'],
       title: 'Level Up: Monstrous Menagerie',
       url: 'https://bit.ly/3T1jeqJ'
     },
@@ -450,6 +490,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'Mort',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      systems: ['a5e'],
       title: 'Mortalist',
       url: 'https://bit.ly/3I6n4Zj'
     },
@@ -457,6 +498,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'SA:MC',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      systems: ['a5e'],
       title: 'System Architecture: Motif Classes',
       url: 'https://bit.ly/4bgzU4N'
     },
@@ -464,6 +506,8 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'MulMan Vol. 1',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      series: 'multiclassersManual',
+      systems: ['a5e'],
       title: "Multiclasser's Manual, Volume 1",
       url: 'https://bit.ly/3JZTA08'
     },
@@ -471,6 +515,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'MMM',
       affiliate: true,
       publisher: 'rollThemBones',
+      systems: ['a5e'],
       title: 'Mysterious and Marvelous Miscellanea',
       url: 'https://bit.ly/42fLLM8'
     },
@@ -478,6 +523,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'PoS',
       affiliate: true,
       publisher: 'plantWitchPress',
+      systems: ['a5e'],
       title: 'Paradigms of Skill',
       url: 'https://bit.ly/3TvtZRl'
     },
@@ -485,6 +531,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'PJ',
       affiliate: true,
       publisher: 'enPublishing',
+      systems: ['a5e'],
       title: "Planestrider's Journal",
       url: ''
     },
@@ -492,6 +539,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'RP',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      systems: ['a5e'],
       title: 'Riding Parsnip',
       url: 'https://bit.ly/3xh28Nk'
     },
@@ -499,6 +547,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'SotS',
       affiliate: true,
       publisher: 'speaksAndSpells',
+      systems: ['a5e'],
       title: 'Secrets of the Selkies',
       url: 'https://bit.ly/3USEOix'
     },
@@ -506,6 +555,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'SinSen',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      systems: ['a5e'],
       title: 'Sinuous Sentinels',
       url: 'https://bit.ly/3SSNXoy'
     },
@@ -513,6 +563,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'SftFV',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      systems: ['a5e'],
       title: 'Spells from the Forgotten Vault',
       url: 'https://bit.ly/3T8o5GU'
     },
@@ -520,6 +571,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'Spirit',
       affiliate: true,
       publisher: 'purpleMartinGames',
+      systems: ['a5e'],
       title: 'Spiritualist',
       url: 'https://preview.drivethrurpg.com/en/product/424846/spiritualist-a5e?affiliate_id=1388381'
     },
@@ -527,6 +579,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'SS',
       affiliate: true,
       publisher: 'dmSarah',
+      systems: ['a5e'],
       title: 'Stranger Sights: Challenges for 5e and Advanced 5e',
       url: 'https://bit.ly/3SmPaEv'
     },
@@ -534,6 +587,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'THoCR',
       affiliate: false,
       publisher: 'enPublishing',
+      systems: ['a5e'],
       title: 'The Haunting of Calrow Ruins',
       url: 'https://enpublishingrpg.com/products/the-haunting-of-calrow-ruins'
     },
@@ -542,6 +596,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'purpleMartinGames',
       series: 'thematicToolkit',
+      systems: ['a5e'],
       title: 'Thematic Toolkit: Arcane Avenger',
       url: 'https://preview.drivethrurpg.com/en/product/392599/thematic-toolkit-arcane-avenger-a5e?affiliate_id=1388381'
     },
@@ -550,6 +605,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'purpleMartinGames',
       series: 'thematicToolkit',
+      systems: ['a5e'],
       title: 'Thematic Toolkit: Burning Gloom',
       url: 'https://bit.ly/48XRLfm'
     },
@@ -558,6 +614,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'purpleMartinGames',
       series: 'thematicToolkit',
+      systems: ['a5e'],
       title: 'Thematic Toolkit: Carry the Darkness',
       url: 'https://bit.ly/480m03Y'
     },
@@ -566,6 +623,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'purpleMartinGames',
       series: 'thematicToolkit',
+      systems: ['a5e'],
       title: 'Thematic Toolkit: Cultist',
       url: 'https://preview.drivethrurpg.com/en/product/392588/thematic-toolkit-cultist-a5e?affiliate_id=1388381'
     },
@@ -574,6 +632,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'purpleMartinGames',
       series: 'thematicToolkit',
+      systems: ['a5e'],
       title: 'Thematic Toolkit: Folk of the Court',
       url: 'https://bit.ly/48SVn1R'
     },
@@ -582,6 +641,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'purpleMartinGames',
       series: 'thematicToolkit',
+      systems: ['a5e'],
       title: 'Thematic Toolkit: Hazardous Knowledge',
       url: 'https://bit.ly/4d7WzRz'
     },
@@ -590,6 +650,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'purpleMartinGames',
       series: 'thematicToolkit',
+      systems: ['a5e'],
       title: 'Thematic Toolkit: Itinerant',
       url: 'https://bit.ly/3Sidh7p'
     },
@@ -598,6 +659,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'purpleMartinGames',
       series: 'thematicToolkit',
+      systems: ['a5e'],
       title: 'Thematic Toolkit: Judge, Jury, and Executioner',
       url: 'https://bit.ly/42OmyZC'
     },
@@ -606,6 +668,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'purpleMartinGames',
       series: 'thematicToolkit',
+      systems: ['a5e'],
       title: 'Thematic Toolkit: Master of Ceremonies',
       url: 'https://preview.drivethrurpg.com/en/product/422460/thematic-toolkit-master-of-ceremonies-a5e?affiliate_id=1388381'
     },
@@ -614,6 +677,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'purpleMartinGames',
       series: 'thematicToolkit',
+      systems: ['a5e'],
       title: 'Thematic Toolkit: Scrapper',
       url: 'https://preview.drivethrurpg.com/en/product/412017/thematic-toolkit-scrapper-a5e?affiliate_id=1388381'
     },
@@ -622,6 +686,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'purpleMartinGames',
       series: 'thematicToolkit',
+      systems: ['a5e'],
       title: 'Thematic Toolkit: Storyteller',
       url: 'https://preview.drivethrurpg.com/en/product/407903/thematic-toolkit-storyteller-a5e?affiliate_id=1388381'
     },
@@ -630,6 +695,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'purpleMartinGames',
       series: 'thematicToolkit',
+      systems: ['a5e'],
       title: 'Thematic Toolkit: Thunder of War',
       url: 'https://preview.drivethrurpg.com/en/product/404207/thematic-toolkit-thunder-of-war-a5e?affiliate_id=1388381'
     },
@@ -638,6 +704,7 @@ export default function registerPremiumContentConfig(A5E) {
       affiliate: true,
       publisher: 'purpleMartinGames',
       series: 'thematicToolkit',
+      systems: ['a5e'],
       title: 'Thematic Toolkit: Venomous Shadow',
       url: 'https://preview.drivethrurpg.com/en/product/400541/thematic-toolkit-venomous-shadow-a5e?affiliate_id=1388381'
     },
@@ -645,6 +712,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TES',
       affiliate: false,
       publisher: 'ravine',
+      systems: ['a5e'],
       title: 'The Errant Seer',
       url: 'https://ravine.itch.io/a5e-subclass03-errant-seer'
     },
@@ -652,6 +720,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TRS',
       affiliate: false,
       publisher: 'ravine',
+      systems: ['a5e'],
       title: 'The Ruin Stider',
       url: 'https://ravine.itch.io/a5e-subclass02-ruin-strider'
     },
@@ -659,6 +728,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TS',
       affiliate: false,
       publisher: 'ravine',
+      systems: ['a5e'],
       title: 'The Spellbreaker',
       url: 'https://ravine.itch.io/a5e-subclass04-spellbreaker'
     },
@@ -666,6 +736,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TaT',
       affiliate: true,
       publisher: 'plantWitchPress',
+      systems: ['a5e'],
       title: 'Toil and Trouble',
       url: 'https://bit.ly/3HE10VQ'
     },
@@ -673,6 +744,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'TSaK',
       affiliate: true,
       publisher: 'enPublishing',
+      systems: ['a5e'],
       title: 'Level Up: To Save a Kingdom',
       url: 'https://bit.ly/42iQKvN'
     },
@@ -680,6 +752,7 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'T&T',
       affiliate: true,
       publisher: 'enPublishing',
+      systems: ['a5e'],
       title: 'Level Up: Trials and Treasures',
       url: 'https://bit.ly/3w8ha7b'
     },
@@ -687,8 +760,9 @@ export default function registerPremiumContentConfig(A5E) {
       abbreviation: 'VF',
       affiliate: true,
       publisher: 'speaksAndSpells',
+      systems: ['a5e'],
       title: 'Venture Forth',
-      url: ''
+      url: 'https://bit.ly/49prJRm'
     }
   };
 }
