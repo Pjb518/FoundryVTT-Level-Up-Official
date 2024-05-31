@@ -2,7 +2,44 @@
 	"name": "Lavender Paste",
 	"type": "object",
 	"img": "icons/consumables/potions/potion-bottle-labeled-stopped-purple.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.p505zZtJ2xNgtkRN",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2Iy0v1jbNJ0aTfDf",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mosquito Netting (Lavender Paste)",
+			"img": "icons/consumables/potions/potion-bottle-labeled-stopped-purple.webp",
+			"_id": "bHi6W3T5A8g1BW19",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>This paste provides protection from small insects while sleeping in jungles, swamps, or similar environments.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,14 +52,45 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"2Iy0v1jbNJ0aTfDf": {
+				"name": "Apply Lavender Paste",
+				"activation": {},
+				"consumers": {
+					"0oLMSogDsaM9JU8f": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"t266cMf7sjBzfxGY": {
+						"type": "effect",
+						"default": true,
+						"effectId": "bHi6W3T5A8g1BW19"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Mixing lavender petals with herbs creates a natural insect repellent. You can use an action to apply the paste to yourself or a willing creature, granting immunity to insect-based hazards in swampy terrain. In addition, the creature gains benefits equivalent to mosquito netting for the next 24 hours.&nbsp;&nbsp;</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
+			"value": 5,
+			"max": "5",
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
@@ -42,7 +110,7 @@
 		"materialProperties": [],
 		"objectType": "consumable",
 		"plotItem": false,
-		"price": "35 gp",
+		"price": "10 gp",
 		"proficient": true,
 		"quantity": 1,
 		"rarity": "mundane",
@@ -53,7 +121,7 @@
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
 		"weaponProperties": [],
-		"weight": 1,
+		"weight": 0.5,
 		"schemaVersion": {
 			"version": 0.018,
 			"lastMigration": {

@@ -2,7 +2,40 @@
 	"name": "Jar of Leeches",
 	"type": "object",
 	"img": "icons/consumables/food/soup-broth-bowl-tentacle.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.bVtodnYj9UyIMlfW",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "F88edt6ev053GUxr"
+				}
+			},
+			"transfer": false,
+			"name": "Ongoing Damage (Jar of Leeches)",
+			"img": "icons/consumables/food/soup-broth-bowl-tentacle.webp",
+			"_id": "wfeFA8FnA2AE3YQ6",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>On a hit, if the target is a Large or smaller creature it takes 1d4 ongoing damage. A creature can end this damage by using its action to remove the leeches.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,7 +48,96 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"115MbrVPiloZw5mX": {
+				"name": "Apply Leeches",
+				"activation": {},
+				"consumers": {
+					"OsrW2GoUu17X1WNm": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"F88edt6ev053GUxr": {
+				"name": "Throw Jar of Leeches",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"BzgT6EKzGKxKJJQY": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"026qOWgwYpRXazSP": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": false,
+						"ability": "default"
+					},
+					"1d2qE7IPwDqrMjJj": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"label": "Ongoing Damage (End of Turn Application)",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"ekH1gATBlHAXQlvl": {
+						"type": "effect",
+						"default": true,
+						"effectId": "wfeFA8FnA2AE3YQ6"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action",
+					"item"
+				],
+				"description": "<p>As an action you can throw this jar up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the jar as an improvised weapon. On a hit, if the target is a Large or smaller creature it takes 1d4 ongoing damage. A creature can end this damage by using its action to remove the leeches.</p>",
+				"ranges": {
+					"HNmh1oudJiOVpfHN": {
+						"range": 20,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			}
+		},
 		"description": "<p>This jar contains bloodthirsty medicinal worms useful for curing many maladies. You can expend one use of this jar during a short rest to administer leeches to yourself or a willing creature. A creature who has leeches administered to them cannot regain hit points during this short rest due to blood loss, but it may repeat a saving throw to remove the poisoned condition or a blood-borne disease (DC equal to the original effect).</p><p>Alternatively, as an action you can throw this jar up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the jar as an improvised weapon. On a hit, if the target is a Large or smaller creature it takes 1d4 ongoing damage. A creature can end this damage by using its action to remove the leeches.</p>",
 		"favorite": false,
 		"secretDescription": "",
