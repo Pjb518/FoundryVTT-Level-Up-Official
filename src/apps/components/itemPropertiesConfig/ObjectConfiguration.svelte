@@ -85,16 +85,6 @@
             {/if}
         </Section>
 
-        {#if $item.system.objectType === "container"}
-            <RadioGroup
-                heading="Capacity Type"
-                options={Object.entries(A5E.capacityTypes)}
-                selected={$item.system.capacity.type}
-                on:updateSelection={({ detail }) =>
-                    updateDocumentDataFromField($item, "system.capacity.type", detail)}
-            />
-        {/if}
-
         <FieldWrapper
             heading="A5E.ItemWeight"
             --a5e-field-wrapper-gap="0.375rem 1rem"
