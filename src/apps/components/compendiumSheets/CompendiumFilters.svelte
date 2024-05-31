@@ -19,10 +19,7 @@
 </script>
 
 <section class="filter-page" transition:fade>
-    <svelte:component
-        this={compendiumItemComponents[compendiumType]}
-        {compendiumType}
-    />
+    <svelte:component this={compendiumItemComponents[compendiumType]} {compendiumType} />
 </section>
 
 <style lang="scss">
