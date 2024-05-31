@@ -36,6 +36,12 @@ const SpellFilterStore = writable({
     inclusiveMode: 1,
     exclusive: [],
     exclusiveMode: 1
+  },
+  source: {
+    inclusive: [],
+    inclusiveMode: 0,
+    exclusive: [],
+    exclusiveMode: 0
   }
 });
 

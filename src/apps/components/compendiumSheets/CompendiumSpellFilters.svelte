@@ -6,8 +6,12 @@
     export let compendiumType = "spell";
 
     const filterStore = getContext("filterStore");
-    const { classSpellLists, spellLevels, spellSchools, spellComponents } =
-        CONFIG.A5E;
+    const { classSpellLists, spellLevels, spellSchools, spellComponents } = CONFIG.A5E;
+
+    const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
+        acc[key] = value.abbreviation;
+        return acc;
+    }, {});
 
     let filterSelections = {};
 
@@ -30,9 +34,7 @@
         {
             filterKey: "primarySpellSchools",
             heading:
-                compendiumType === "spell"
-                    ? "Primary Spell Schools"
-                    : "Spell Schools",
+                compendiumType === "spell" ? "Primary Spell Schools" : "Spell Schools",
             options: spellSchools.primary,
         },
         {
@@ -55,6 +57,11 @@
                 ritual: "Ritual",
             },
         },
+        {
+            filterKey: "source",
+            heading: "Source",
+            options: products,
+        },
     ];
 </script>
 
@@ -70,8 +77,7 @@
                     ...currentFilterSelections,
                     [filterKey]: {
                         inclusive: filterSelections[filterKey].inclusive,
-                        inclusiveMode:
-                            filterSelections[filterKey].inclusiveMode,
+                        inclusiveMode: filterSelections[filterKey].inclusiveMode,
                         exclusive: filterSelections[filterKey].exclusive,
                         exclusiveMode: detail,
                     },
@@ -84,8 +90,7 @@
                         inclusive: filterSelections[filterKey].inclusive,
                         inclusiveMode: detail,
                         exclusive: filterSelections[filterKey].exclusive,
-                        exclusiveMode:
-                            filterSelections[filterKey].exclusiveMode,
+                        exclusiveMode: filterSelections[filterKey].exclusiveMode,
                     },
                 }));
             }}
@@ -94,11 +99,9 @@
                     ...currentFilterSelections,
                     [filterKey]: {
                         inclusive: detail[0],
-                        inclusiveMode:
-                            filterSelections[filterKey].inclusiveMode,
+                        inclusiveMode: filterSelections[filterKey].inclusiveMode,
                         exclusive: detail[1],
-                        exclusiveMode:
-                            filterSelections[filterKey].exclusiveMode,
+                        exclusiveMode: filterSelections[filterKey].exclusiveMode,
                     },
                 }));
             }}

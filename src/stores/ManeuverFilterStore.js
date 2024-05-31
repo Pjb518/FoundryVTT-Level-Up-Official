@@ -22,6 +22,12 @@ const ManeuverFilterStore = writable({
     inclusiveMode: 0,
     exclusive: [],
     exclusiveMode: 0
+  },
+  source: {
+    inclusive: [],
+    inclusiveMode: 0,
+    exclusive: [],
+    exclusiveMode: 0
   }
 });
 

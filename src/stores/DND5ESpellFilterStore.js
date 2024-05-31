@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
 const DND5ESpellFilterStore = writable({
   spellLevels: {
@@ -14,6 +14,12 @@ const DND5ESpellFilterStore = writable({
     exclusiveMode: 0
   },
   primarySpellSchools: {
+    inclusive: [],
+    inclusiveMode: 0,
+    exclusive: [],
+    exclusiveMode: 0
+  },
+  source: {
     inclusive: [],
     inclusiveMode: 0,
     exclusive: [],

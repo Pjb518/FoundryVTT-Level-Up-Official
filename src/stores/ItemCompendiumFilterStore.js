@@ -1,4 +1,4 @@
-import { writable } from "svelte/store";
+import { writable } from 'svelte/store';
 
 const MagicItemCompendiumStore = writable({
   objectType: {
@@ -14,6 +14,12 @@ const MagicItemCompendiumStore = writable({
     exclusiveMode: 0
   },
   miscellaneous: {
+    inclusive: [],
+    inclusiveMode: 0,
+    exclusive: [],
+    exclusiveMode: 0
+  },
+  source: {
     inclusive: [],
     inclusiveMode: 0,
     exclusive: [],

@@ -10,6 +10,11 @@
     const filterStore = getContext("filterStore");
     const { actorSizes, creatureTypes, terrainTypes } = CONFIG.A5E;
 
+    const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
+        acc[key] = value.abbreviation;
+        return acc;
+    }, {});
+
     function getChallengeRatingRangeLabel({ cr }) {
         const { min, max } = cr;
 
@@ -48,6 +53,11 @@
                 elite: "Elite",
                 swarm: "Swarm",
             },
+        },
+        {
+            filterKey: "source",
+            heading: "Source",
+            options: products,
         },
     ];
 

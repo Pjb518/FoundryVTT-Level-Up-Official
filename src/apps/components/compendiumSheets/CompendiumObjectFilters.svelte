@@ -8,6 +8,11 @@
     const filterStore = getContext("filterStore");
     const { itemRarity, objectTypes } = CONFIG.A5E;
 
+    const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
+        acc[key] = value.abbreviation;
+        return acc;
+    }, {});
+
     function getFormSections() {
         const formSectionMap = [
             {
@@ -28,6 +33,11 @@
                     bulky: "Bulky",
                 },
             },
+            {
+                filterKey: "source",
+                heading: "Source",
+                options: products,
+            },
         ];
 
         if (compendiumType === "magicItem") {
@@ -35,8 +45,7 @@
                 (filterSection) => filterSection.filterKey === "miscellaneous",
             );
 
-            miscellaneousSection.options.requiresAttunement =
-                "Requires Attunement";
+            miscellaneousSection.options.requiresAttunement = "Requires Attunement";
         }
 
         return formSectionMap;
@@ -61,8 +70,7 @@
                     ...currentFilterSelections,
                     [filterKey]: {
                         inclusive: filterSelections[filterKey].inclusive,
-                        inclusiveMode:
-                            filterSelections[filterKey].inclusiveMode,
+                        inclusiveMode: filterSelections[filterKey].inclusiveMode,
                         exclusive: filterSelections[filterKey].exclusive,
                         exclusiveMode: detail,
                     },
@@ -75,8 +83,7 @@
                         inclusive: filterSelections[filterKey].inclusive,
                         inclusiveMode: detail,
                         exclusive: filterSelections[filterKey].exclusive,
-                        exclusiveMode:
-                            filterSelections[filterKey].exclusiveMode,
+                        exclusiveMode: filterSelections[filterKey].exclusiveMode,
                     },
                 }));
             }}
@@ -85,11 +92,9 @@
                     ...currentFilterSelections,
                     [filterKey]: {
                         inclusive: detail[0],
-                        inclusiveMode:
-                            filterSelections[filterKey].inclusiveMode,
+                        inclusiveMode: filterSelections[filterKey].inclusiveMode,
                         exclusive: detail[1],
-                        exclusiveMode:
-                            filterSelections[filterKey].exclusiveMode,
+                        exclusiveMode: filterSelections[filterKey].exclusiveMode,
                     },
                 }));
             }}

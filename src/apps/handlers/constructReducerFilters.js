@@ -47,6 +47,10 @@ const spellsFilterConfig = {
         type: 'boolean'
       }
     }
+  },
+  source: {
+    key: 'system.source',
+    type: 'value'
   }
 };
 
@@ -74,6 +78,10 @@ const maneuverFilterConfig = {
         type: 'boolean'
       }
     }
+  },
+  source: {
+    key: 'system.source',
+    type: 'value'
   }
 };
 
@@ -105,6 +113,10 @@ const monstersFilterConfig = {
   terrain: {
     key: 'system.details.terrain',
     type: 'array'
+  },
+  source: {
+    key: 'system.source',
+    type: 'value'
   }
 };
 
@@ -128,6 +140,10 @@ const objectFilterConfig = {
         type: 'boolean'
       }
     }
+  },
+  source: {
+    key: 'system.source',
+    type: 'value'
   }
 };
 
