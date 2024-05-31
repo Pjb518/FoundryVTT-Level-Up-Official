@@ -139,6 +139,17 @@
         item.actions?.configure(id);
     }
 
+    function getCapacity() {
+        if (item.system?.objectType !== "container") return 0;
+
+        const capacity = item.containerItems
+            ?.capacity()
+            .then((c) => (containerCapacity = c.percentage))
+            .catch((e) => console.error(e));
+
+        return capacity?.percentage ?? 0;
+    }
+
     const actor = getContext("actor");
     const dispatch = createEventDispatcher();
 
@@ -188,6 +199,7 @@
 
     $: activationCost = getActivationCost(item, action);
     $: activationCostLabel = getActivationCostLabel(activationCost);
+    $: containerCapacity = getCapacity(item);
     $: selectedAmmo = getSelectedAmmo(item, action);
 </script>
 
@@ -232,6 +244,12 @@
         {/if}
 
         {#if item?.system?.objectType === "container"}
+            {#if containerCapacity}
+                <span data-tooltip="Capacity" data-tooltip-direction="UP">
+                    ({containerCapacity}%)
+                </span>
+            {/if}
+
             <button
                 class="action-button fas fa-chevron-down"
                 on:click|stopPropagation={() => {

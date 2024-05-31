@@ -104,7 +104,8 @@ export default class ContainerManager extends Map<string, SubObjectField> {
   }
 
   get weight(): number | Promise<number> {
-    // TODO: Add support for weightless containers
+    const hasWeightlessContents = this.#item.system?.capacity?.weightlessContents ?? false;
+    if (hasWeightlessContents) return 0;
 
     const contents = this.allItems;
     if (contents instanceof Promise) {
@@ -140,7 +141,10 @@ export default class ContainerManager extends Map<string, SubObjectField> {
     }
 
     // Calculate percentage
-    data.percentage = Math.clamp(data.max ? (data.value / data.max) * 100 : 0, 0, 100);
+    data.percentage = Math.round(
+      Math.clamp(data.max ? (data.value / data.max) * 100 : 0, 0, 100)
+    );
+
     return data;
   }
 
