@@ -1,265 +1,233 @@
 {
-  "name": "Torch (Alchemical)",
-  "type": "object",
-  "img": "icons/sundries/lights/torch-white.webp",
-  "effects": [
-    {
-      "origin": "Item.e1OEzVhRgGgzSOE4",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "PpLBS3C2ZudfkEnu",
-          "applyToSelf": true,
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Light",
-      "img": "icons/sundries/lights/torch-white.webp",
-      "_id": "YUXxYA5MM79LVumS",
-      "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "@token.light.bright",
-          "value": "10",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "@token.light.dim",
-          "value": "20",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "tint": "#ffffff",
-      "statuses": [],
-      "sort": 0,
-      "_stats": {
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "coreVersion": "12.325",
-        "systemId": "a5e",
-        "systemVersion": "0.19.3",
-        "createdTime": 1717611896311,
-        "modifiedTime": 1717611948646,
-        "lastModifiedBy": "Glw114cHAVexdKTu"
-      }
-    },
-    {
-      "origin": "Item.e1OEzVhRgGgzSOE4",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "PpLBS3C2ZudfkEnu",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Underwater",
-      "img": "icons/sundries/lights/torch-white.webp",
-      "_id": "Yhh6hVl9XE4hMYpP",
-      "type": "base",
-      "system": {},
-      "changes": [
-        {
-          "key": "@token.light.bright",
-          "value": "0",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "@token.light.dim",
-          "value": "5",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "tint": "#ffffff",
-      "statuses": [],
-      "sort": 0,
-      "_stats": {
-        "compendiumSource": null,
-        "duplicateSource": null,
-        "coreVersion": "12.325",
-        "systemId": "a5e",
-        "systemVersion": "0.19.3",
-        "createdTime": 1717611972391,
-        "modifiedTime": 1717612002111,
-        "lastModifiedBy": "Glw114cHAVexdKTu"
-      }
-    }
-  ],
-  "flags": {
-    "exportSource": {
-      "world": "rpi-clean",
-      "system": "a5e",
-      "coreVersion": "12.325",
-      "systemVersion": "0.19.3"
-    }
-  },
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 1,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "PpLBS3C2ZudfkEnu": {
-        "name": "Light Torch",
-        "activation": {},
-        "consumers": {
-          "H2pEOFDE3FIneMuI": {
-            "type": "quantity",
-            "default": true,
-            "itemId": "",
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "HUcMUJ4QJZEQ9VMP": {
-            "type": "effect",
-            "default": true,
-            "effectId": "YUXxYA5MM79LVumS"
-          },
-          "tNCU5ytxCrSSiMm0": {
-            "type": "effect",
-            "default": true,
-            "effectId": "Yhh6hVl9XE4hMYpP"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      },
-      "GEGVWaMhntXPqRTE": {
-        "name": "Use Object",
-        "activation": {},
-        "consumers": {},
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>The rough, sticky tar at the end of this torch burns through even the most adverse conditions. An alchemical torch burns for 1 hour even in heavy rains, strong winds, and underwater (albeit poorly when submerged, shedding only dim light in a 5-foot radius). Dimmer than a normal torch, it sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "miscellaneous",
-    "plotItem": false,
-    "price": "25 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "mundane",
-    "requiresAttunement": false,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [],
-    "weight": 1,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "breakerProperties": [],
-    "defensiveProperties": "",
-    "flaws": [],
-    "versatile": "",
-    "mounted": [],
-    "capacity": {
-      "type": "weight",
-      "value": 0,
-      "weightlessContents": false
-    }
-  },
-  "folder": "ItefANproVux8QRz",
-  "_stats": {
-    "coreVersion": "12.325",
-    "systemId": "a5e",
-    "systemVersion": "0.19.3",
-    "createdTime": 1717611875624,
-    "modifiedTime": 1717611972422,
-    "lastModifiedBy": "Glw114cHAVexdKTu"
-  }
+	"name": "Torch (Alchemical)",
+	"type": "object",
+	"img": "icons/sundries/lights/torch-white.webp",
+	"effects": [
+		{
+			"origin": "Item.e1OEzVhRgGgzSOE4",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PpLBS3C2ZudfkEnu",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Light",
+			"img": "icons/sundries/lights/torch-white.webp",
+			"_id": "YUXxYA5MM79LVumS",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.e1OEzVhRgGgzSOE4",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PpLBS3C2ZudfkEnu",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Underwater",
+			"img": "icons/sundries/lights/torch-white.webp",
+			"_id": "Yhh6hVl9XE4hMYpP",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "0",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"PpLBS3C2ZudfkEnu": {
+				"name": "Light Torch",
+				"activation": {},
+				"consumers": {
+					"H2pEOFDE3FIneMuI": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"HUcMUJ4QJZEQ9VMP": {
+						"type": "effect",
+						"default": true,
+						"effectId": "YUXxYA5MM79LVumS"
+					},
+					"tNCU5ytxCrSSiMm0": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Yhh6hVl9XE4hMYpP"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"GEGVWaMhntXPqRTE": {
+				"name": "Use Object",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>The rough, sticky tar at the end of this torch burns through even the most adverse conditions. An alchemical torch burns for 1 hour even in heavy rains, strong winds, and underwater (albeit poorly when submerged, shedding only dim light in a 5-foot radius). Dimmer than a normal torch, it sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": "25 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 1,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"breakerProperties": [],
+		"defensiveProperties": "",
+		"flaws": [],
+		"versatile": "",
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
+	},
+	"folder": null,
+	"_id": "dao6cj4buzfcr4b9"
 }
