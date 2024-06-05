@@ -1,223 +1,254 @@
 {
-	"name": "Torch",
-	"type": "object",
-	"img": "icons/sundries/lights/torch-brown-lit.webp",
-	"effects": [
-		{
-			"icon": "icons/sundries/lights/torch-brown-lit.webp",
-			"origin": "Item.7tw73cwd1j8zf3g5",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "WubkgIWC5d19zUDb",
-					"applyToSelf": true,
-					"duration": {
-						"unit": "hours"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Light",
-			"_id": "iswsGw5aTV3nSNGd",
-			"changes": [
-				{
-					"key": "@token.light.bright",
-					"value": "20",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.light.dim",
-					"value": "40",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "@token.light.animation.type",
-					"value": "Torch",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 3600,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"tint": "#ffffff",
-			"folder": null
-		}
-	],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 1,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {
-			"WubkgIWC5d19zUDb": {
-				"name": "Light Torch",
-				"activation": {
-					"type": "objectInteraction",
-					"cost": 1
-				},
-				"consumers": {
-					"DJvbbIhwN6sJzpar": {
-						"type": "quantity",
-						"default": true,
-						"itemId": "7tw73cwd1j8zf3g5",
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"O0J1ig5IuDwcXP6o": {
-						"type": "effect",
-						"default": true,
-						"effectId": "iswsGw5aTV3nSNGd"
-					}
-				},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				}
-			},
-			"EzcV7dhxP2t5HUCh": {
-				"name": "Attack",
-				"activation": {
-					"cost": 1,
-					"type": "action",
-					"reactionTrigger": ""
-				},
-				"consumers": {},
-				"rolls": {
-					"4loQUAEZaCc8RC8h": {
-						"bonus": "",
-						"critThreshold": "20",
-						"type": "attack",
-						"attackType": "meleeWeaponAttack",
-						"ability": "default",
-						"label": "Club"
-					},
-					"3DTZ2lWFlQONwpTn": {
-						"canCrit": true,
-						"damageType": "bludgeoning",
-						"formula": "1d4 + @str.mod",
-						"name": "Club",
-						"type": "damage"
-					},
-					"X2ifvBL1zBwVqirL": {
-						"type": "damage",
-						"default": true,
-						"formula": "1",
-						"damageType": "fire"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false,
-					"quantity": 1
-				},
-				"target": {
-					"quantity": 1,
-					"type": "creatureObject"
-				},
-				"img": "icons/sundries/lights/torch-brown-lit.webp",
-				"ranges": {
-					"KrdoHY56z9Tl1dHJ": {
-						"range": "fiveFeet"
-					}
-				}
-			}
-		},
-		"description": "<p>A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. When you use a burning torch as a club to make a melee attack, it deals an extra 1 fire damage on a hit.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "miscellaneous",
-		"plotItem": false,
-		"price": "1 cp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "mundane",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [],
-		"weight": 1,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"breakerProperties": [],
-		"defensiveProperties": "",
-		"flaws": [],
-		"versatile": "",
-		"mounted": []
-	},
-	"folder": null,
-	"_id": "7tw73cwd1j8zf3g5"
+  "name": "Torch",
+  "type": "object",
+  "img": "icons/sundries/lights/torch-brown-lit.webp",
+  "effects": [
+    {
+      "origin": "Item.ZXkkcOKKjIC2hDRI",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "WubkgIWC5d19zUDb",
+          "applyToSelf": true,
+          "duration": {
+            "unit": "hours"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Light",
+      "_id": "iswsGw5aTV3nSNGd",
+      "changes": [
+        {
+          "key": "@token.light.bright",
+          "value": "20",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "@token.light.dim",
+          "value": "40",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "@token.light.animation.type",
+          "value": "Torch",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 3600,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "statuses": [],
+      "tint": "#ffffff",
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.325",
+        "systemId": "a5e",
+        "systemVersion": "0.19.3",
+        "createdTime": null,
+        "modifiedTime": 1717611754207,
+        "lastModifiedBy": "Glw114cHAVexdKTu"
+      },
+      "img": "icons/sundries/lights/torch-brown-lit.webp",
+      "type": "base",
+      "system": {},
+      "sort": 0
+    }
+  ],
+  "flags": {
+    "exportSource": {
+      "world": "rpi-clean",
+      "system": "a5e",
+      "coreVersion": "12.325",
+      "systemVersion": "0.19.3"
+    }
+  },
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 1,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "WubkgIWC5d19zUDb": {
+        "name": "Light Torch",
+        "activation": {
+          "type": "",
+          "cost": 1
+        },
+        "consumers": {
+          "DJvbbIhwN6sJzpar": {
+            "type": "quantity",
+            "default": true,
+            "itemId": "ZXkkcOKKjIC2hDRI",
+            "quantity": 1
+          }
+        },
+        "rolls": {},
+        "prompts": {
+          "O0J1ig5IuDwcXP6o": {
+            "type": "effect",
+            "default": true,
+            "effectId": "iswsGw5aTV3nSNGd"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        }
+      },
+      "EzcV7dhxP2t5HUCh": {
+        "name": "Attack",
+        "activation": {
+          "cost": 1,
+          "type": "",
+          "reactionTrigger": ""
+        },
+        "consumers": {},
+        "rolls": {
+          "4loQUAEZaCc8RC8h": {
+            "bonus": "",
+            "critThreshold": "20",
+            "type": "attack",
+            "attackType": "meleeWeaponAttack",
+            "ability": "default",
+            "label": "Club"
+          },
+          "3DTZ2lWFlQONwpTn": {
+            "canCrit": true,
+            "damageType": "bludgeoning",
+            "formula": "1d4 + @str.mod",
+            "name": "Club",
+            "type": "damage"
+          },
+          "X2ifvBL1zBwVqirL": {
+            "type": "damage",
+            "default": true,
+            "formula": "1",
+            "damageType": "fire"
+          }
+        },
+        "prompts": {},
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "threshold": 6
+          }
+        },
+        "duration": {
+          "unit": "",
+          "value": ""
+        },
+        "area": {
+          "shape": "",
+          "size": "",
+          "placeTemplate": false,
+          "quantity": 1
+        },
+        "target": {
+          "quantity": 1,
+          "type": "creatureObject"
+        },
+        "img": "icons/sundries/lights/torch-brown-lit.webp",
+        "ranges": {
+          "KrdoHY56z9Tl1dHJ": {
+            "range": "fiveFeet"
+          }
+        }
+      }
+    },
+    "description": "<p>A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 20 feet. When you use a burning torch as a club to make a melee attack, it deals an extra 1 fire damage on a hit.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "adventurersGuide",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "miscellaneous",
+    "plotItem": false,
+    "price": "1 cp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "mundane",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 1,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "breakerProperties": [],
+    "defensiveProperties": "",
+    "flaws": [],
+    "versatile": "",
+    "mounted": [],
+    "capacity": {
+      "type": "weight",
+      "value": 0,
+      "weightlessContents": false
+    }
+  },
+  "folder": "ItefANproVux8QRz",
+  "_stats": {
+    "coreVersion": "12.325",
+    "systemId": "a5e",
+    "systemVersion": "0.19.3",
+    "createdTime": 1717611754180,
+    "modifiedTime": 1717611865134,
+    "lastModifiedBy": "Glw114cHAVexdKTu"
+  }
 }

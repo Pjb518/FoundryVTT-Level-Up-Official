@@ -1,75 +1,263 @@
 {
-	"name": "Lantern (hooded)",
-	"type": "object",
-	"img": "icons/sundries/lights/lantern-iron-yellow.webp",
-	"effects": [],
-	"flags": {},
-	"system": {
-		"ac": {
-			"baseFormula": "",
-			"formula": "",
-			"grantsDisadvantage": false,
-			"maxDex": 0,
-			"minStr": 0,
-			"mode": 1,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
-		},
-		"actions": {},
-		"description": "<p>Once lit, a lantern burns for 6 hours on a flask of oil (1 pint).</p><p>Hooded: Casts bright light in a 30-foot radius and dim light for an additional 30 feet. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius.</p>",
-		"favorite": false,
-		"secretDescription": "",
-		"source": "adventurersGuide",
-		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
-			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
-			}
-		},
-		"ammunitionProperties": [],
-		"armorCategory": "",
-		"armorProperties": [],
-		"attuned": false,
-		"bulky": false,
-		"craftingComponents": "",
-		"containerId": "",
-		"damagedState": 0,
-		"equippedState": 0,
-		"items": {},
-		"materialProperties": [],
-		"objectType": "miscellaneous",
-		"plotItem": false,
-		"price": "5 gp",
-		"proficient": true,
-		"quantity": 1,
-		"rarity": "mundane",
-		"requiresAttunement": false,
-		"shieldCategory": "",
-		"shieldProperties": [],
-		"unidentified": false,
-		"unidentifiedDescription": "",
-		"unidentifiedName": "",
-		"weaponProperties": [],
-		"weight": 2,
-		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		},
-		"breakerProperties": [],
-		"defensiveProperties": "",
-		"flaws": [],
-		"versatile": "",
-		"mounted": []
-	},
-	"folder": null,
-	"_id": "2cnb4ywk6y2pn9jo"
+  "name": "Lantern (hooded)",
+  "type": "object",
+  "img": "icons/sundries/lights/lantern-iron-yellow.webp",
+  "effects": [
+    {
+      "origin": "Item.tITVlaFfKCJgWouA",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "EKAkBGHMAuPuiTS0",
+          "applyToSelf": true,
+          "duration": {
+            "unit": "hours"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Full Light",
+      "img": "icons/sundries/lights/lantern-iron-yellow.webp",
+      "_id": "xqeZDgm01IgFtS4n",
+      "type": "base",
+      "system": {},
+      "changes": [
+        {
+          "key": "@token.light.bright",
+          "value": "30",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "@token.light.dim",
+          "value": "60",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 21600,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.325",
+        "systemId": "a5e",
+        "systemVersion": "0.19.3",
+        "createdTime": 1717611631320,
+        "modifiedTime": 1717611661954,
+        "lastModifiedBy": "Glw114cHAVexdKTu"
+      }
+    },
+    {
+      "origin": "Item.tITVlaFfKCJgWouA",
+      "flags": {
+        "a5e": {
+          "sort": 0,
+          "transferType": "onUse",
+          "actionId": "nNYoMASCBmxkUNnU",
+          "applyToSelf": true,
+          "duration": {
+            "unit": "hours"
+          }
+        }
+      },
+      "transfer": false,
+      "name": "Lower Hood",
+      "img": "icons/sundries/lights/lantern-iron-yellow.webp",
+      "_id": "MubN5IGOQsTTxMA1",
+      "type": "base",
+      "system": {},
+      "changes": [
+        {
+          "key": "@token.light.bright",
+          "value": "0",
+          "mode": 6,
+          "priority": null
+        },
+        {
+          "key": "@token.light.dim",
+          "value": "5",
+          "mode": 6,
+          "priority": null
+        }
+      ],
+      "disabled": false,
+      "duration": {
+        "startTime": null,
+        "seconds": 21600,
+        "combat": null,
+        "rounds": null,
+        "turns": null,
+        "startRound": null,
+        "startTurn": null
+      },
+      "description": "",
+      "tint": "#ffffff",
+      "statuses": [],
+      "sort": 0,
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "coreVersion": "12.325",
+        "systemId": "a5e",
+        "systemVersion": "0.19.3",
+        "createdTime": 1717611685208,
+        "modifiedTime": 1717611706635,
+        "lastModifiedBy": "Glw114cHAVexdKTu"
+      }
+    }
+  ],
+  "flags": {
+    "exportSource": {
+      "world": "rpi-clean",
+      "system": "a5e",
+      "coreVersion": "12.325",
+      "systemVersion": "0.19.3"
+    }
+  },
+  "system": {
+    "ac": {
+      "baseFormula": "",
+      "formula": "",
+      "grantsDisadvantage": false,
+      "maxDex": 0,
+      "minStr": 0,
+      "mode": 1,
+      "requiresNoShield": false,
+      "requiresUnarmored": false
+    },
+    "actions": {
+      "EKAkBGHMAuPuiTS0": {
+        "name": "Full Light",
+        "activation": {},
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "K7Lo3yOQFiO0mdtL": {
+            "type": "effect",
+            "default": true,
+            "effectId": "xqeZDgm01IgFtS4n"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      },
+      "nNYoMASCBmxkUNnU": {
+        "name": "Lower Hood",
+        "activation": {
+          "type": "action",
+          "cost": 1
+        },
+        "consumers": {},
+        "rolls": {},
+        "prompts": {
+          "0ksIlUsGDWXqBwus": {
+            "type": "effect",
+            "default": true,
+            "effectId": "MubN5IGOQsTTxMA1"
+          }
+        },
+        "uses": {
+          "value": 0,
+          "max": "",
+          "per": "",
+          "recharge": {
+            "formula": "1d6",
+            "rechargeType": "custom",
+            "rechargeAmount": "1",
+            "threshold": 6
+          }
+        }
+      }
+    },
+    "description": "<p>Once lit, a lantern burns for 6 hours on a flask of oil (1 pint).</p><p>Hooded: Casts bright light in a 30-foot radius and dim light for an additional 30 feet. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius.</p>",
+    "favorite": false,
+    "secretDescription": "",
+    "source": "adventurersGuide",
+    "uses": {
+      "value": 0,
+      "max": "",
+      "per": "",
+      "recharge": {
+        "formula": "1d6",
+        "threshold": 6
+      }
+    },
+    "ammunitionProperties": [],
+    "armorCategory": "",
+    "armorProperties": [],
+    "attuned": false,
+    "bulky": false,
+    "craftingComponents": "",
+    "containerId": "",
+    "damagedState": 0,
+    "equippedState": 0,
+    "items": {},
+    "materialProperties": [],
+    "objectType": "miscellaneous",
+    "plotItem": false,
+    "price": "5 gp",
+    "proficient": true,
+    "quantity": 1,
+    "rarity": "mundane",
+    "requiresAttunement": false,
+    "shieldCategory": "",
+    "shieldProperties": [],
+    "unidentified": false,
+    "unidentifiedDescription": "",
+    "unidentifiedName": "",
+    "weaponProperties": [],
+    "weight": 2,
+    "schemaVersion": {
+      "version": 0.018,
+      "lastMigration": {
+        "version": {
+          "schema": 0.016,
+          "foundry": "11.315",
+          "system": "0.17.41"
+        }
+      }
+    },
+    "breakerProperties": [],
+    "defensiveProperties": "",
+    "flaws": [],
+    "versatile": "",
+    "mounted": [],
+    "capacity": {
+      "type": "weight",
+      "value": 0,
+      "weightlessContents": false
+    }
+  },
+  "folder": "ItefANproVux8QRz",
+  "_stats": {
+    "coreVersion": "12.325",
+    "systemId": "a5e",
+    "systemVersion": "0.19.3",
+    "createdTime": 1717611596535,
+    "modifiedTime": 1717611685246,
+    "lastModifiedBy": "Glw114cHAVexdKTu"
+  }
 }
