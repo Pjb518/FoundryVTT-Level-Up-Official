@@ -2,7 +2,57 @@
 	"name": "Candle",
 	"type": "object",
 	"img": "icons/sundries/lights/candle-unlit-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.0hpDXHRTpZ43LiVK",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "EHkVt6KPlRyxHsR9",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Candle",
+			"img": "icons/sundries/lights/candle-unlit-yellow.webp",
+			"_id": "TOA1tMuac33DzUhy",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,7 +65,39 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"EHkVt6KPlRyxHsR9": {
+				"name": "Candle",
+				"activation": {},
+				"consumers": {
+					"GRuf6zBQgzYvKVtN": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"XC99FVEMGb67x9f7": {
+						"type": "effect",
+						"default": true,
+						"effectId": "TOA1tMuac33DzUhy"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>A lit candle sheds bright light in a 5-foot radius and dim light for an additional 5 feet for up to 1 hour.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -68,7 +150,12 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"folder": null,
 	"_id": "lb7tdxfzjci1f43y"

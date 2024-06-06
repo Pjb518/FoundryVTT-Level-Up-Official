@@ -2,7 +2,57 @@
 	"name": "Lantern (standard)",
 	"type": "object",
 	"img": "icons/sundries/lights/lantern-iron-lit-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.7HwBBQgycODa6AJ2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kswZeDoUOhgTVcgj",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lantern (standard)",
+			"img": "icons/sundries/lights/lantern-iron-lit-yellow.webp",
+			"_id": "jTTiaTyc8JrMyxEQ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "15",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "45",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 21600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,7 +65,32 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"kswZeDoUOhgTVcgj": {
+				"name": "Lantern (standard)",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"sWUTL5AkyBJnlQd8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "jTTiaTyc8JrMyxEQ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Once lit, a lantern burns for 6 hours on a flask of oil (1 pint).</p><p>Standard: Casts bright light in a 15-foot radius and dim light for an additional 30 feet.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -68,7 +143,12 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"folder": null,
 	"_id": "zxrg767i23o686l6"

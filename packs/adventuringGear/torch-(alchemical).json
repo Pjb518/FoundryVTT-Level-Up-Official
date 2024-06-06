@@ -2,7 +2,105 @@
 	"name": "Torch (Alchemical)",
 	"type": "object",
 	"img": "icons/sundries/lights/torch-white.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.e1OEzVhRgGgzSOE4",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PpLBS3C2ZudfkEnu",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Light",
+			"img": "icons/sundries/lights/torch-white.webp",
+			"_id": "YUXxYA5MM79LVumS",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.e1OEzVhRgGgzSOE4",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PpLBS3C2ZudfkEnu",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Underwater",
+			"img": "icons/sundries/lights/torch-white.webp",
+			"_id": "Yhh6hVl9XE4hMYpP",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "0",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,14 +113,69 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"PpLBS3C2ZudfkEnu": {
+				"name": "Light Torch",
+				"activation": {},
+				"consumers": {
+					"H2pEOFDE3FIneMuI": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"HUcMUJ4QJZEQ9VMP": {
+						"type": "effect",
+						"default": true,
+						"effectId": "YUXxYA5MM79LVumS"
+					},
+					"tNCU5ytxCrSSiMm0": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Yhh6hVl9XE4hMYpP"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"GEGVWaMhntXPqRTE": {
+				"name": "Use Object",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>The rough, sticky tar at the end of this torch burns through even the most adverse conditions. An alchemical torch burns for 1 hour even in heavy rains, strong winds, and underwater (albeit poorly when submerged, shedding only dim light in a 5-foot radius). Dimmer than a normal torch, it sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 1,
-			"max": "1",
+			"value": 0,
+			"max": "",
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
@@ -68,7 +221,12 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"folder": null,
 	"_id": "dao6cj4buzfcr4b9"

@@ -2,7 +2,106 @@
 	"name": "Lantern (hooded)",
 	"type": "object",
 	"img": "icons/sundries/lights/lantern-iron-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.tITVlaFfKCJgWouA",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "EKAkBGHMAuPuiTS0",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Full Light",
+			"img": "icons/sundries/lights/lantern-iron-yellow.webp",
+			"_id": "xqeZDgm01IgFtS4n",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "30",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 21600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.tITVlaFfKCJgWouA",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "nNYoMASCBmxkUNnU",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lower Hood",
+			"img": "icons/sundries/lights/lantern-iron-yellow.webp",
+			"_id": "MubN5IGOQsTTxMA1",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "0",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 21600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,7 +114,59 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"EKAkBGHMAuPuiTS0": {
+				"name": "Full Light",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"K7Lo3yOQFiO0mdtL": {
+						"type": "effect",
+						"default": true,
+						"effectId": "xqeZDgm01IgFtS4n"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"nNYoMASCBmxkUNnU": {
+				"name": "Lower Hood",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"0ksIlUsGDWXqBwus": {
+						"type": "effect",
+						"default": true,
+						"effectId": "MubN5IGOQsTTxMA1"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Once lit, a lantern burns for 6 hours on a flask of oil (1 pint).</p><p>Hooded: Casts bright light in a 30-foot radius and dim light for an additional 30 feet. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -68,7 +219,12 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"folder": null,
 	"_id": "2cnb4ywk6y2pn9jo"
