@@ -11,7 +11,7 @@
     const { actorSizes, creatureTypes, terrainTypes } = CONFIG.A5E;
 
     const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
-        acc[key] = value.abbreviation;
+        acc[key] = value.title;
         return acc;
     }, {});
 

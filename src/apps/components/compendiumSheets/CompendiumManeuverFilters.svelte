@@ -9,9 +9,11 @@
     const { maneuverDegrees, maneuverTraditions } = CONFIG.A5E;
 
     const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
-        acc[key] = value.abbreviation;
+        acc[key] = value.title;
         return acc;
     }, {});
+
+    console.log(products);
 
     function getExertionCostLabel({ exertion }) {
         const { min, max } = exertion;
