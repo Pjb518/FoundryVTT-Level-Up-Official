@@ -251,7 +251,8 @@ export default class CharacterActorA5E extends BaseActorA5e {
         const progressionConfig = CONFIG.A5E.casterProgression[cls.casting.casterType];
         if (!progressionConfig) return acc;
 
-        const roundFunc = progressionConfig.roundUp ? Math.ceil : Math.floor;
+        let roundFunc = Math.floor;
+        if (progressionConfig.roundUp && progressionConfig.roundUpMulti) roundFunc = Math.ceil;
         return acc + roundFunc(classLevels * progressionConfig.multiplier);
       }, 0);
 

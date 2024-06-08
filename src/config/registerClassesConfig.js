@@ -58,6 +58,7 @@ export default function registerClassesConfig(A5E) {
     quaternaryCaster: 'A5E.classes.casterTypes.quaternaryCaster',
     artificerA5e: 'A5E.classes.casterTypes.artificerA5e',
     elementalist: 'A5E.classes.casterTypes.elementalist',
+    herald: 'A5E.classes.casterTypes.herald',
     warlockA5e: 'A5E.classes.casterTypes.warlockA5e',
     warlock5e: 'A5E.classes.casterTypes.warlock5e',
     wielder: 'A5E.classes.casterTypes.wielder'
@@ -241,7 +242,8 @@ export default function registerClassesConfig(A5E) {
       config: A5E.SPELL_SLOT_TABLE,
       resource: 'slots',
       multiplier: 0.5,
-      roundUp: true
+      roundUp: true,
+      roundUpMulti: true
     },
     artificerA5e: {
       type: 'reference',
@@ -253,6 +255,14 @@ export default function registerClassesConfig(A5E) {
       config: A5E.SPELL_POINTS_TABLE_ELEMENTALIST,
       resource: 'points',
       multiclassMode: 'ADD'
+    },
+    herald: {
+      type: 'multiplier',
+      config: A5E.SPELL_SLOT_TABLE,
+      resource: 'slots',
+      multiplier: 0.5,
+      roundUp: true,
+      roundUpMulti: false
     },
     warlockA5e: {
       type: 'reference',
