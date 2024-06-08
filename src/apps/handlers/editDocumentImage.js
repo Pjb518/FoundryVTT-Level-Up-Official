@@ -1,6 +1,6 @@
 export default async function editDocumentImage(document, options = {}) {
   // Add support for tokenizer
-  if (game.modules.get('vtta-tokenizer')?.active) {
+  if (game.modules.get('vtta-tokenizer')?.active && !options.shiftKey) {
     if (['character', 'npc'].includes(document.type)) {
       // eslint-disable-next-line no-undef
       Tokenizer?.tokenizeActor(document);
