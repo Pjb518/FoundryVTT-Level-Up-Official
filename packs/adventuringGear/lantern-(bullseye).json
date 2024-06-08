@@ -2,7 +2,63 @@
 	"name": "Lantern (bullseye)",
 	"type": "object",
 	"img": "icons/sundries/lights/lantern-bullseye-signal-copper.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.VDKfzVgLHrt32KCv",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kx62MAxlrMJKrd9g",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Light",
+			"img": "icons/sundries/lights/lantern-bullseye-signal-copper.webp",
+			"_id": "Fb70vShRhw4ppRXb",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "120",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.angle",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 21600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,7 +71,36 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"kx62MAxlrMJKrd9g": {
+				"name": "Light",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"Pn1NOo9nk0O1HdJg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Fb70vShRhw4ppRXb"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 6
+				}
+			}
+		},
 		"description": "<p>Once lit, a lantern burns for 6 hours on a flask of oil (1 pint).</p><p>Bullseye: Casts bright light in a 60-foot cone and dim light for an additional 60 feet.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -68,7 +153,12 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"folder": null,
 	"_id": "7eq5ng3b4c967f8p"
