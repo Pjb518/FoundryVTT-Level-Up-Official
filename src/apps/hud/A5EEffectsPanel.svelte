@@ -12,9 +12,7 @@
 
         if (statuses.size === 1) {
             if (
-                subConditions[statuses.first()]?.some((c) =>
-                    activeConditions.includes(c),
-                )
+                subConditions[statuses.first()]?.some((c) => activeConditions.includes(c))
             )
                 return;
             const id = statuses.first();
@@ -29,10 +27,7 @@
         const effect = $actor.effects.get(id);
         const statuses = effect.statuses;
 
-        if (
-            statuses.size === 1 &&
-            ["fatigue", "strife"].includes(statuses.first())
-        ) {
+        if (statuses.size === 1 && ["fatigue", "strife"].includes(statuses.first())) {
             const id = statuses.first();
             const src = effect.img;
             return token?.object?._addStatusEffect({ id, src });
@@ -55,15 +50,12 @@
     // Get current controlled token
     function getReactiveActor() {
         actor?.destroy();
-        if (!token) return null;
+        if (!token || !token?.actor) return null;
         return new TJSDocument(token?.actor ?? game.user?.character ?? null);
     }
 
     function convertRemToPixels(rem) {
-        return (
-            rem *
-            parseFloat(getComputedStyle(document.documentElement).fontSize)
-        );
+        return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
     }
 
     function getIconSize(size) {
