@@ -13,7 +13,8 @@ export default function getExpertiseDieSize(
   else if (diceQuantity === 2) dieSize = 'd6';
   else if (diceQuantity === 3) dieSize = 'd8';
   else if (diceQuantity === 4) dieSize = 'd10';
-  else if (diceQuantity >= 5) dieSize = 'd12';
+  else if (diceQuantity === 5) dieSize = 'd12';
+  else if (diceQuantity >= 6) dieSize = 'd20';
   else return null;
 
   return `${includeDiePrefix ? 1 : ''}${dieSize}`;
