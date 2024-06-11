@@ -74,23 +74,26 @@ export default class MigrationRunnerBase {
       try {
         await migration?.updateActor?.(actorData);
 
-        for (const currentItem of actorData.items) {
+        for (const currentItem of (actorData?.items ?? [])) {
           try {
             await migration?.preUpdateItem?.(currentItem, actorData);
             await migration?.updateItem?.(currentItem, actorData);
           } catch (e) {
+            console.info(`Actor ${actorData.name} failed items update.`);
             console.error(e);
           }
         }
 
-        for (const currentEffect of actorData.effects) {
+        for (const currentEffect of (actorData?.effects ?? [])) {
           try {
             await migration?.updateEffect?.(currentEffect, actorData);
           } catch (e) {
+            console.info(`Actor ${actorData.name} failed effects update.`);
             console.error(e);
           }
         }
       } catch (e) {
+        console.info(`Actor ${actorData.name} failed actor update.`);
         console.error(e);
       }
     }
@@ -127,11 +130,13 @@ export default class MigrationRunnerBase {
           try {
             await migration?.updateEffect?.(currentEffect, itemData);
           } catch (e) {
+            console.info(`Item ${itemData.name} failed effects update.`);
             console.error(e);
           }
         }
       }
     } catch (e) {
+      console.info(`Item ${itemData.name} failed item update.`);
       console.error(e);
     }
 
@@ -192,6 +197,7 @@ export default class MigrationRunnerBase {
       try {
         await migration?.updateToken?.(tokenData, token.actor, token.scene);
       } catch (e) {
+        console.info(`Token ${tokenData.name} failed token update.`);
         console.error(e);
       }
     }
@@ -212,6 +218,7 @@ export default class MigrationRunnerBase {
       try {
         await migration?.updateUser?.(userData);
       } catch (e) {
+        console.info(`User ${userData.name} failed user update.`);
         console.error(e);
       }
     }
