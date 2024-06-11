@@ -109,7 +109,7 @@
                 ? uuids.includes(grantedBy.selectionId)
                 : true;
 
-            if (grantedBy?.id && hasSelectionId) return;
+            if (grantedBy?.id && !hasSelectionId) return;
             if (!selectedOptionalGrants.includes(grant._id)) return;
 
             let requiresConfig = false;
