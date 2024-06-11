@@ -81,7 +81,7 @@
         return data;
     }
 
-    $: containerItems = (item?.items ?? []).reduce((acc, i) => {
+    $: containerItems = (item?.containerItems ?? []).reduce((acc, i) => {
         if (!i) return acc;
         if (i.parent?.id !== $actor.id) return acc;
 
