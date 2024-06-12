@@ -95,6 +95,7 @@
             if (grant.requiresConfig()) requiresConfig = true;
 
             grantsList.push({ grant, requiresConfig, id: grant._id });
+            activeGrants.add(grant._id);
         });
 
         // Add all optional grants that are selected
@@ -116,6 +117,7 @@
             if (grant.requiresConfig()) requiresConfig = true;
 
             grantsList.push({ grant, requiresConfig, id: grant._id });
+            activeGrants.add(grant._id);
         });
 
         return grantsList;
