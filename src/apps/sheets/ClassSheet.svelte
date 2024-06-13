@@ -9,6 +9,7 @@
     import ItemGrantsTab from "../components/pages/ItemGrantsTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
+    import ClassResourcesTab from "../components/pages/ClassResourcesTab.svelte";
 
     export let { document, sheet } = getContext("#external").application;
     export let elementRoot;
@@ -39,6 +40,11 @@
             name: "properties",
             label: "A5E.ItemSheetLabelPropertiesTab",
             component: ClassPropertiesTab,
+        },
+        {
+            name: "resources",
+            label: "A5E.TabResources",
+            component: ClassResourcesTab,
         },
         {
             name: "grants",

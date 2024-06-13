@@ -1,6 +1,7 @@
 interface ClassResource {
   name: string;
   reference: { [level: number]: string | number };
+  recovery: string;
   slug?: string;
   type: 'number' | 'dice' | 'string';
 }
@@ -17,7 +18,7 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
     const classResourceData: ClassResource[] = this.item.system.resources ?? [];
     classResourceData.forEach((data: ClassResource) => {
       const classResource = data;
-      const slug = classResource.name.slugify();
+      const slug = classResource.slug || classResource.name.slugify();
       // const isValid = this.validateResource(classResource);
       // TODO: Class Documents - Clean up the resource data if it's invalid and try again
 
@@ -50,8 +51,18 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
     return true;
   }
 
-  async add(data: ClassResource) {
-    delete data.slug;
+  // @ts-ignore
+  async add(data: ClassResource = {}) {
+    if (!data?.name) {
+      const count = [...this].reduce((acc, [, { name }]) => (name === 'New Resource' ? acc + 1 : acc), 0);
+
+      if (count > 0) data.name = `New Resource ${count + 1}`;
+      else data.name = 'New Resource';
+    }
+
+    if (!data?.type) data.type = 'number';
+    if (!data?.recovery) data.recovery = 'longRest';
+    if (!data?.reference) data.reference = {};
 
     await this.item.update({
       'system.resources': [
@@ -64,7 +75,7 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
   async remove(slug: string) {
     await this.item.update({
       'system.resources': this.item.system.resources
-        .filter((resource: ClassResource) => resource.name.slugify() !== slug)
+        .filter((resource: ClassResource) => resource.slug || resource.name.slugify() !== slug)
     });
   }
 
