@@ -117,6 +117,7 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
                 return acc;
               }, {})
           ),
+          recovery: new fields.StringField({ required: true, initial: '' }),
           type: new fields.StringField({
             nullable: false,
             initial: '',
