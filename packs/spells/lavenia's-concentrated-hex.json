@@ -1,477 +1,513 @@
 {
-  "name": "Lavenia’s Concentrated Hex",
-  "type": "spell",
-  "img": "icons/magic/unholy/barrier-fire-pink.webp",
-  "system": {
-    "actions": {
-      "qnM6Spk3Vhqv1IN1": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {
-          "wgIpAiWdCf1xqn13": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "2nzNqT2DeF3PUHvC": {
-            "type": "effect",
-            "default": true,
-            "effectId": "2ZvAToQbiEilyNbl"
-          },
-          "NeEK0bRRwo5r2gdD": {
-            "type": "effect",
-            "default": true,
-            "effectId": "n9fW7lFgpzY6K6aj"
-          },
-          "iP3MvmkBRI0gMFCt": {
-            "type": "generic",
-            "default": false,
-            "label": "Addtional Necrotic Damage",
-            "formula": "1d6"
-          },
-          "67c8CGRwjcOBK6NM": {
-            "type": "effect",
-            "default": true,
-            "effectId": "mz43KJqDii2Iz56B"
-          },
-          "pOtrpIY7RNrpXK2f": {
-            "type": "effect",
-            "default": true,
-            "effectId": "kJoheHGJn3rw8VPl"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "hour",
-          "value": 1
-        },
-        "ranges": {
-          "Ov0HM7r0qwr6f72A": {
-            "range": "medium"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        }
-      }
-    },
-    "description": "<p>You place a lesser curse on a creature you can see within range <strong>(no save)</strong>. You also gain this as an additional curse option:&nbsp;<br>You choose one effect from the following:</p><ul><li><p>The target is rattled.</p></li><li><p>The target’s speed is reduced by 5 feet.</p></li><li><p>When you deal damage against the target, it takes an additional 1d4 necrotic damage.</p></li><li><p>Each time the target fails a saving throw it falls prone and breaks a nail, taking 1 necrotic damage.</p></li></ul><p>At the Narrator’s discretion you may create a different curse effect with this spell so long as it is weaker than the options above.</p><p>A creature already under a curse, such as your or another creature’s Diabolist Curse or another instance of this spell, cannot be targeted by this spell.</p><p><strong>Special:</strong> Warlocks who know this spell can cast it as a ritual even if they are otherwise unable to cast rituals. When you cast this spell as a ritual, you can instead target a creature you’ve seen within the past 24 hours, as long as they are on the same plane as you. To target this creature, you must also provide a material component strongly associated with that creature—such as a fingernail clipping, lock of hair, or article of clothing—which this spell consumes. When cast as a ritual, this spell instead has a duration of 1 hour (no concentration), and the effects can be as severe as the poisoned condition or indigestion. At the Narrator’s discretion, you can create even more powerful curse effects or longer durations with the use of rare or expensive components, as long as their effects are less than the power of <em>bestow curse</em>.</p><hr class=\"a5e-rule u-my-md\"><p><strong><em>Lavenia’s Concentrated Hex</em></strong>: The spell’s duration is concentration (1 hour); if the target falls unconscious before the duration ends, you can use a bonus action to select a new target within range. You also gain this as an additional curse option:&nbsp;</p><ul><li><p>You deal an extra 1d6 necrotic damage against the target when you deal damage against the target. Also, choose an ability; the target has disadvantage on checks made with that ability</p></li></ul>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "cleric",
-      "druid",
-      "witch"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "puppy-dog tail",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "necromancy",
-      "secondary": [
-        "affliction",
-        "arcane",
-        "divine",
-        "necrotic"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/unholy/barrier-fire-pink.webp",
-      "origin": "Item.hsna63fb3f6r277x",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "qnM6Spk3Vhqv1IN1",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Rattled",
-      "_id": "2ZvAToQbiEilyNbl",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"rattled\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "rattled"
-      ],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/unholy/barrier-fire-pink.webp",
-      "origin": "Item.hsna63fb3f6r277x",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "qnM6Spk3Vhqv1IN1",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Reduce Speed",
-      "_id": "n9fW7lFgpzY6K6aj",
-      "changes": [
-        {
-          "key": "system.attributes.movement.walk.distance",
-          "value": "5",
-          "mode": 3,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/unholy/barrier-fire-pink.webp",
-      "origin": "Item.hsna63fb3f6r277x",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "qnM6Spk3Vhqv1IN1",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Disadvantage on Strength Checks",
-      "_id": "mz43KJqDii2Iz56B",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.str",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/unholy/barrier-fire-pink.webp",
-      "origin": "Item.hsna63fb3f6r277x",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "qnM6Spk3Vhqv1IN1",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Disadvantage on Dexterity Checks",
-      "_id": "e16K82pMP51UWyEO",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.dex",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/unholy/barrier-fire-pink.webp",
-      "origin": "Item.hsna63fb3f6r277x",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "qnM6Spk3Vhqv1IN1",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Disadvantage on Constitution Checks",
-      "_id": "SeDrOvAWHjGONzX7",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.con",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/unholy/barrier-fire-pink.webp",
-      "origin": "Item.hsna63fb3f6r277x",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "qnM6Spk3Vhqv1IN1",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Disadvantage on Intelligence Checks",
-      "_id": "9lEOLXaCoVtZRVjJ",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.int",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/unholy/barrier-fire-pink.webp",
-      "origin": "Item.hsna63fb3f6r277x",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "qnM6Spk3Vhqv1IN1",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Disadvantage on Wisdom Checks",
-      "_id": "ia6EYUx0T0GfAkWO",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.wis",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/unholy/barrier-fire-pink.webp",
-      "origin": "Item.hsna63fb3f6r277x",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "qnM6Spk3Vhqv1IN1",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Disadvantage on Charisma Checks",
-      "_id": "mEyoY2s0P4s61eIy",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.cha",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/unholy/barrier-fire-pink.webp",
-      "origin": "Item.hsna63fb3f6r277x",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "qnM6Spk3Vhqv1IN1"
-        }
-      },
-      "transfer": false,
-      "name": "Prone",
-      "_id": "kJoheHGJn3rw8VPl",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"prone\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "prone"
-      ],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "folder": null,
-  "_id": "hsna63fb3f6r277x"
+	"name": "Lavenia’s Concentrated Hex",
+	"type": "spell",
+	"img": "icons/magic/unholy/barrier-fire-pink.webp",
+	"system": {
+		"actions": {
+			"qnM6Spk3Vhqv1IN1": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"wgIpAiWdCf1xqn13": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"2nzNqT2DeF3PUHvC": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2ZvAToQbiEilyNbl"
+					},
+					"NeEK0bRRwo5r2gdD": {
+						"type": "effect",
+						"default": true,
+						"effectId": "n9fW7lFgpzY6K6aj"
+					},
+					"iP3MvmkBRI0gMFCt": {
+						"type": "generic",
+						"default": false,
+						"label": "Addtional Necrotic Damage",
+						"formula": "1d6"
+					},
+					"67c8CGRwjcOBK6NM": {
+						"type": "effect",
+						"default": true,
+						"effectId": "mz43KJqDii2Iz56B"
+					},
+					"pOtrpIY7RNrpXK2f": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kJoheHGJn3rw8VPl"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"ranges": {
+					"Ov0HM7r0qwr6f72A": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>You place a lesser curse on a creature you can see within range <strong>(no save)</strong>. You also gain this as an additional curse option:&nbsp;<br>You choose one effect from the following:</p><ul><li><p>The target is rattled.</p></li><li><p>The target’s speed is reduced by 5 feet.</p></li><li><p>When you deal damage against the target, it takes an additional 1d4 necrotic damage.</p></li><li><p>Each time the target fails a saving throw it falls prone and breaks a nail, taking 1 necrotic damage.</p></li></ul><p>At the Narrator’s discretion you may create a different curse effect with this spell so long as it is weaker than the options above.</p><p>A creature already under a curse, such as your or another creature’s Diabolist Curse or another instance of this spell, cannot be targeted by this spell.</p><p><strong>Special:</strong> Warlocks who know this spell can cast it as a ritual even if they are otherwise unable to cast rituals. When you cast this spell as a ritual, you can instead target a creature you’ve seen within the past 24 hours, as long as they are on the same plane as you. To target this creature, you must also provide a material component strongly associated with that creature—such as a fingernail clipping, lock of hair, or article of clothing—which this spell consumes. When cast as a ritual, this spell instead has a duration of 1 hour (no concentration), and the effects can be as severe as the poisoned condition or indigestion. At the Narrator’s discretion, you can create even more powerful curse effects or longer durations with the use of rare or expensive components, as long as their effects are less than the power of <em>bestow curse</em>.</p><hr class=\"a5e-rule u-my-md\"><p><strong><em>Lavenia’s Concentrated Hex</em></strong>: The spell’s duration is concentration (1 hour); if the target falls unconscious before the duration ends, you can use a bonus action to select a new target within range. You also gain this as an additional curse option:&nbsp;</p><ul><li><p>You deal an extra 1d6 necrotic damage against the target when you deal damage against the target. Also, choose an ability; the target has disadvantage on checks made with that ability</p></li></ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric",
+			"druid",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "puppy-dog tail",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "necromancy",
+			"secondary": [
+				"affliction",
+				"arcane",
+				"divine",
+				"necrotic"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.4fIB6adSFl5MEN59",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qnM6Spk3Vhqv1IN1",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"_id": "2ZvAToQbiEilyNbl",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled"
+			],
+			"img": "icons/magic/unholy/barrier-fire-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.4fIB6adSFl5MEN59",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qnM6Spk3Vhqv1IN1",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Reduce Speed",
+			"_id": "n9fW7lFgpzY6K6aj",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "5",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"img": "icons/magic/unholy/barrier-fire-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.4fIB6adSFl5MEN59",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qnM6Spk3Vhqv1IN1",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Disadvantage on Strength Checks",
+			"_id": "mz43KJqDii2Iz56B",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"img": "icons/magic/unholy/barrier-fire-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.4fIB6adSFl5MEN59",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qnM6Spk3Vhqv1IN1",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Disadvantage on Dexterity Checks",
+			"_id": "e16K82pMP51UWyEO",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"img": "icons/magic/unholy/barrier-fire-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.4fIB6adSFl5MEN59",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qnM6Spk3Vhqv1IN1",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Disadvantage on Constitution Checks",
+			"_id": "SeDrOvAWHjGONzX7",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.con",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"img": "icons/magic/unholy/barrier-fire-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.4fIB6adSFl5MEN59",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qnM6Spk3Vhqv1IN1",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Disadvantage on Intelligence Checks",
+			"_id": "9lEOLXaCoVtZRVjJ",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.int",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"img": "icons/magic/unholy/barrier-fire-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.4fIB6adSFl5MEN59",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qnM6Spk3Vhqv1IN1",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Disadvantage on Wisdom Checks",
+			"_id": "ia6EYUx0T0GfAkWO",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.wis",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"img": "icons/magic/unholy/barrier-fire-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.4fIB6adSFl5MEN59",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qnM6Spk3Vhqv1IN1",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Disadvantage on Charisma Checks",
+			"_id": "mEyoY2s0P4s61eIy",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.cha",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"img": "icons/magic/unholy/barrier-fire-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.4fIB6adSFl5MEN59",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qnM6Spk3Vhqv1IN1"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"_id": "kJoheHGJn3rw8VPl",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"img": "icons/magic/unholy/barrier-fire-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "hsna63fb3f6r277x"
 }
