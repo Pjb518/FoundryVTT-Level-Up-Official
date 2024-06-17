@@ -181,6 +181,18 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: 'visionRulesApplyToCharactersOnly',
+        options: {
+          name: 'A5E.settings.visionRulesApplyToCharactersOnly',
+          hint: 'A5E.settings.hints.visionRulesApplyToCharactersOnly',
+          scope: scope.world,
+          config: true,
+          default: true,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
         key: 'placeItemTemplateDefault',
         options: {
           name: 'A5E.settings.placeItemTemplateDefault',

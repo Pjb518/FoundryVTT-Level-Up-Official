@@ -12,6 +12,7 @@
     const updates = getContext("updates");
 
     let visionRules = settings.getStore("automateVisionRules");
+    let charOnlyVisionRules = settings.getStore("visionRulesApplyToCharactersOnly");
     let placeTemplate = settings.getStore("placeItemTemplateDefault");
 </script>
 
@@ -22,10 +23,26 @@
             checked={updates.get("automateVisionRules") ?? $visionRules ?? false}
             on:updateSelection={({ detail }) => {
                 updates.set("automateVisionRules", detail);
+                visionRules.set(detail);
                 reload = true;
             }}
         />
     </FieldWrapper>
+
+    {#if $visionRules}
+        <FieldWrapper hint="A5E.settings.hints.visionRulesApplyToCharactersOnly">
+            <Checkbox
+                label="A5E.settings.visionRulesApplyToCharactersOnly"
+                checked={updates.get("visionRulesApplyToCharactersOnly") ??
+                    $charOnlyVisionRules ??
+                    true}
+                on:updateSelection={({ detail }) => {
+                    updates.set("visionRulesApplyToCharactersOnly", detail);
+                    reload = true;
+                }}
+            />
+        </FieldWrapper>
+    {/if}
 </Section>
 
 <Section heading="Template Settings" --a5e-section-body-gap="0.5rem">
