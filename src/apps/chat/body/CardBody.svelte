@@ -216,7 +216,7 @@
             d20Term.results.length > originalResultsLength
         ) {
             const fakeD20Roll = Roll.fromTerms([
-                new foundry.dice.terms.Die({ ...d20Term }),
+                foundry.dice.terms.RollTerm.fromData(d20Term.toJSON()),
             ]);
 
             fakeD20Roll.terms[0].number = fakeD20Roll.terms[0].results.length;
