@@ -2,7 +2,43 @@
 	"name": "Virtuoso",
 	"type": "feature",
 	"img": "icons/tools/instruments/lute-gold-brown.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.s8gDMIObfjwX8clY",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PXKotuWb21UPfWWT",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"img": "icons/tools/instruments/lute-gold-brown.webp",
+			"_id": "Faord3cWTZ49D58d",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 518400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A charmed creature regards you as a friendly acquaintance.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,15 +51,66 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 20th level, you can use an action and&nbsp;expend a use of Bardic Inspiration to start&nbsp;an epic performance that lasts for 1d4&nbsp;rounds. While the performance lasts, you&nbsp;can choose up to 50 creatures that are&nbsp;within 120 feet and that can hear or see&nbsp;your performance. Each creature you&nbsp;choose makes a Charisma saving throw. On&nbsp;a failed save, the target is charmed by you&nbsp;for the performance&rsquo;s duration and for 6&nbsp;days afterwards, or until you or your&nbsp;companions do anything harmful to it. A&nbsp;charmed creature regards you as a friendly&nbsp;acquaintance.&nbsp;</p>\n<p>The performance ends early if you are incapacitated or silenced, or if you voluntarily end it (no action required). At the end of the performance, you can extend the duration by 1d4 rounds by expending an additional use of Bardic Inspiration.</p>\n<p>If your epic performance lasts at least 1 minute, when the performance ends each charmed creature you choose is affected by a mass suggestion spell cast at 9th level. Creatures do not make saving throws to resist this effect. The commands you give a charmed creature are not obvious, and other creatures must make an Insight check contested by your Performance check to notice that you are doing anything more than giving a performance. You can give each creature its own set of commands but can give out only six different sets of commands.&nbsp;</p>\n<p>Once you use this feature, you can&rsquo;t use it&nbsp;again until you finish a long rest.</p>",
+		"actions": {
+			"PXKotuWb21UPfWWT": {
+				"name": "Virtuoso",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"c2k2kAsxlKylOV6e": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"0yUHGnv2tpET0L1O": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"TzJvFivTd2cvrd49": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Faord3cWTZ49D58d"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 50
+				},
+				"ranges": {
+					"iXD4kmp25b6iugJF": {
+						"range": "long"
+					}
+				}
+			}
+		},
+		"description": "<p>At 20th level, you can use an action and&nbsp;expend a use of Bardic Inspiration to start&nbsp;an epic performance that lasts for 1d4&nbsp;rounds. While the performance lasts, you&nbsp;can choose up to 50 creatures that are&nbsp;within 120 feet and that can hear or see&nbsp;your performance. Each creature you&nbsp;choose makes a Charisma saving throw. On&nbsp;a failed save, the target is charmed by you&nbsp;for the performance&rsquo;s duration and for 6&nbsp;days afterwards, or until you or your&nbsp;companions do anything harmful to it. A&nbsp;charmed creature regards you as a friendly&nbsp;acquaintance.&nbsp;</p>\n<p>The performance ends early if you are incapacitated or silenced, or if you voluntarily end it (no action required). At the end of the performance, you can extend the duration by 1d4 rounds by expending an additional use of Bardic Inspiration.</p>\n<p>If your epic performance lasts at least 1 minute, when the performance ends each charmed creature you choose is affected by a @UUID[Compendium.a5e.a5e-spells.Item.kk4zbky96t1rhkl1]{Mass Suggestion} spell cast at 9th level. Creatures do not make saving throws to resist this effect. The commands you give a charmed creature are not obvious, and other creatures must make an Insight check contested by your Performance check to notice that you are doing anything more than giving a performance. You can give each creature its own set of commands but can give out only six different sets of commands.&nbsp;</p>\n<p>Once you use this feature, you can&rsquo;t use it&nbsp;again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6

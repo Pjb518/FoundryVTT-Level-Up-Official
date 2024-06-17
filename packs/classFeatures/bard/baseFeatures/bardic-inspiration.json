@@ -4,8 +4,7 @@
 	"img": "icons/skills/trades/music-singing-voice-blue.webp",
 	"effects": [
 		{
-			"icon": "icons/skills/trades/music-singing-voice-blue.webp",
-			"origin": "Item.ZsOEDe1bOPeX0tN4",
+			"origin": "Item.ep2poGJWrQEvdDxO",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -32,6 +31,11 @@
 			},
 			"description": "<p>Within the next 10 minutes, before or after rolling an ability check, attack roll, or saving<br />throw (but before the result is determined), the creature can roll the Bardic Inspiration<br />die and add the number rolled to the result. Once the Bardic Inspiration die is rolled, it is<br />expended. A creature can have only one Bardic Inspiration die at a time.</p>",
 			"statuses": [],
+			"img": "icons/skills/trades/music-singing-voice-blue.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
 			"folder": null
 		}
 	],
@@ -75,7 +79,13 @@
 					"shape": "",
 					"size": ""
 				},
-				"consumers": {},
+				"consumers": {
+					"DxZk5j2d83zaBmtE": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"prompts": {
 					"x3eExwTNzZCoU4ya": {
 						"type": "effect",
@@ -91,7 +101,7 @@
 		"source": "",
 		"uses": {
 			"value": 0,
-			"max": "",
+			"max": "max(@cha.mod,1)",
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
