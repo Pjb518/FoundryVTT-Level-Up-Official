@@ -1,114 +1,169 @@
 {
-  "name": "Rod of Rulership",
-  "type": "object",
-  "img": "icons/weapons/staves/staff-obsidian.webp",
-  "effects": [],
-  "flags": {},
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 1,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "WVbVRxERAWLJ1kfd": {
-        "name": "Rod of Rulership",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "hour",
-          "value": 8
-        },
-        "ranges": {
-          "465rEwR6EaRyje9l": {
-            "range": "Each creature of your choice within 120 ft. that you can see"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": null,
-          "type": "creature"
-        },
-        "prompts": {
-          "21eQNRjKhKS6uYF1": {
-            "ability": "wis",
-            "onSave": "not charmed",
-            "saveDC": {
-              "type": "custom",
-              "bonus": "15"
-            },
-            "type": "savingThrow"
-          }
-        },
-        "consumers": {}
-      }
-    },
-    "description": "<p>Once per dawn, while holding this rod you can use an action to command obedience. Each creature of your choice that you can see within 120 feet makes a DC 15 Wisdom saving throw. On a failure, a creature is charmed by you for 8 hours. A creature charmed by you regards you as its trusted leader. The charm is broken if you or your companions either command a charmed creature to do something contrary to its nature, or cause the creature harm.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "trialsAndTreasures",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "Royal scepter given as a prize",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "miscellaneous",
-    "plotItem": false,
-    "price": "5,000 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "rare",
-    "requiresAttunement": true,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [],
-    "weight": 0,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "breakerProperties": [],
-    "defensiveProperties": "",
-    "flaws": [],
-    "versatile": "",
-    "mounted": []
-  },
-  "folder": null,
-  "_id": "bn5427lz12qhs70h"
+	"name": "Rod of Rulership",
+	"type": "object",
+	"img": "icons/weapons/staves/staff-obsidian.webp",
+	"effects": [
+		{
+			"origin": "Item.jqAi0LrDoZxOrOSv",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "WVbVRxERAWLJ1kfd",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"img": "icons/weapons/staves/staff-obsidian.webp",
+			"_id": "ejDC5cpefe21mRBx",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A creature charmed by you regards you as its trusted leader.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"charmed"
+			],
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"WVbVRxERAWLJ1kfd": {
+				"name": "Rod of Rulership",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"465rEwR6EaRyje9l": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": ""
+				},
+				"prompts": {
+					"21eQNRjKhKS6uYF1": {
+						"ability": "wis",
+						"onSave": "",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "15"
+						},
+						"type": "savingThrow"
+					},
+					"ZuG79Mw6eeJ7uy5S": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ejDC5cpefe21mRBx"
+					}
+				},
+				"consumers": {}
+			}
+		},
+		"description": "<p>Once per dawn, while holding this rod you can use an action to command obedience. Each creature of your choice that you can see within 120 feet makes a DC 15 Wisdom saving throw. On a failure, a creature is charmed by you for 8 hours. A creature charmed by you regards you as its trusted leader. The charm is broken if you or your companions either command a charmed creature to do something contrary to its nature, or cause the creature harm.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "trialsAndTreasures",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Royal scepter given as a prize",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": "5,000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"breakerProperties": [],
+		"defensiveProperties": "",
+		"flaws": [],
+		"versatile": "",
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
+	},
+	"folder": null,
+	"_id": "bn5427lz12qhs70h"
 }

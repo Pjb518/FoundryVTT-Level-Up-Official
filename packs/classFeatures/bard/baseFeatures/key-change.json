@@ -15,14 +15,42 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"ptlBvrfA5Ea7bGXF": {
+				"name": "Key Change",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"SdjvzZwzDOwMiyn0": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Also at 5th level, you can use a bonus action to switch instruments and change your Art Speciality. Once you have used this feature, you cannot do so again until you finish a short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
 		"uses": {
-			"value": 0,
-			"max": "",
+			"value": 1,
+			"max": "1",
 			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
