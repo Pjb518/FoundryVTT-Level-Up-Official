@@ -41,11 +41,23 @@ export default function prepareApplyData(
       return;
     }
 
+    let grantUpdates;
     if (inputData) {
-      foundry.utils.mergeObject(updateData, grant.getApplyData(actor, inputData));
+      grantUpdates = grant.getApplyData(actor, inputData);
     } else {
-      foundry.utils.mergeObject(updateData, grant.getApplyData(actor));
+      grantUpdates = grant.getApplyData(actor);
     }
+
+    // Manually merge arrays from updateData
+    Object.entries(grantUpdates ?? {}).forEach(([key, value]) => {
+      if (!Array.isArray(value)) return;
+
+      const originalValue = (foundry.utils.getProperty(updateData, key) as string[]) ?? [];
+      const newValue = [...new Set([...originalValue, ...(value as any[])])];
+      grantUpdates[key] = newValue;
+    });
+
+    foundry.utils.mergeObject(updateData, grantUpdates);
   });
 
   return { updateData, documentData };

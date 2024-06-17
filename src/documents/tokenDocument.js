@@ -63,7 +63,7 @@ export default class TokenDocumentA5e extends TokenDocument {
     this.sight.saturation = 0;
 
     const { visionData } = actor;
-    const currentMode = visionData.hasDarkvision ? 'darkvision' : 'basicSight';
+    const currentMode = visionData.hasDarkvision ? 'darkvision' : 'basic';
     this.sight.visionMode = currentMode;
     const { defaults } = CONFIG.Canvas.visionModes[currentMode].vision;
 
@@ -74,7 +74,7 @@ export default class TokenDocumentA5e extends TokenDocument {
     if (currentMode === 'darkvision') {
       this.sight.range = visionData.senses.darkvision.distance;
       basicSight.range = visionData.senses.darkvision.distance;
-      this.sight.saturation = 1;
+      this.sight.saturation = -1;
     }
 
     if (visionData.hasBlindsight) {
