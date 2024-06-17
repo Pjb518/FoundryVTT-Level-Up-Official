@@ -7,7 +7,9 @@ import ActiveEffectA5e from './activeEffect/activeEffect';
 export default class TokenDocumentA5e extends TokenDocument {
   overrides = this.overrides ?? {};
 
-  automateVision = game.settings.storage.get('world').getItem('a5e.automatedVisionRules');
+  automateVision;
+
+  charOnlyVisionAutomation;
 
   get scene() {
     return this.parent;
@@ -34,27 +36,35 @@ export default class TokenDocumentA5e extends TokenDocument {
   }
 
   _prepareDetectionModes() {
-    this.automateVision ??= game.settings.storage.get('world').getItem('a5e.automateVisionRules');
-
-    // Enable actor vision if setting checked
-    if (this.automateVision) this.sight.enabled = true;
-    super._prepareDetectionModes();
+    this.automateVision ??= game.settings.storage.get('world').getItem('a5e.automateVisionRules') ?? false;
+    this.charOnlyVisionAutomation ??= game.settings.storage.get('world').getItem('a5e.visionRulesApplyToCharactersOnly') ?? true;
 
     const { actor, scene } = this;
-    if (!scene || !actor || !this.automateVision) {
+    if (!this.automateVision || !scene || !actor) {
       super._prepareDetectionModes();
       return;
     }
+
+    if (actor.type === 'npc' && this.charOnlyVisionAutomation) {
+      super._prepareDetectionModes();
+      return;
+    }
+
+    // Enable actor vision if setting checked
+    this.sight.enabled = true;
+    const lightPerception = { id: 'lightPerception', enabled: true, range: null };
+    const basicSight = { id: 'basicSight', enabled: true, range: 0 };
+    this.detectionModes = [lightPerception, basicSight];
 
     this.sight.attenuation = 0.1;
     this.sight.brightness = 0;
     this.sight.contrast = 0;
     this.sight.range = 0;
     this.sight.saturation = 0;
-    this.sight.visionMode = 'basic';
 
     const { visionData } = actor;
-    const currentMode = visionData.hasDarkvision ? 'darkvision' : 'basic';
+    const currentMode = visionData.hasDarkvision ? 'darkvision' : 'basicSight';
+    this.sight.visionMode = currentMode;
     const { defaults } = CONFIG.Canvas.visionModes[currentMode].vision;
 
     this.sight.visionMode = currentMode;
@@ -62,14 +72,9 @@ export default class TokenDocumentA5e extends TokenDocument {
     this.sight.saturation = defaults.saturation ?? 0;
 
     if (currentMode === 'darkvision') {
-      const basic = this.detectionModes.at(0);
-      if (!basic) {
-        super._prepareDetectionModes();
-        return;
-      }
-
-      basic.range = visionData.senses.darkvision.distance;
       this.sight.range = visionData.senses.darkvision.distance;
+      basicSight.range = visionData.senses.darkvision.distance;
+      this.sight.saturation = 1;
     }
 
     if (visionData.hasBlindsight) {
