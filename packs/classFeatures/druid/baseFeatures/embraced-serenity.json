@@ -15,7 +15,29 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"04LXedXEukukEMNw": {
+				"name": "Embraced Serenity",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>You have advantage on concentration checks made to maintain spells. In addition, as a bonus action you may sacrifice a use of Wild Shape to recover an expended spell slot of 3rd-level or lower, or two uses of your Wild Shape feature to recover an expended spell slot of 6th-level or lower.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -31,7 +53,18 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"iVd4hedFXLQSsxYZ": {
+				"grantType": "rollOverride",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "iVd4hedFXLQSsxYZ",
+				"label": "Embraced Serenity",
+				"rollOverrideType": "concentration",
+				"rollMode": 1
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
