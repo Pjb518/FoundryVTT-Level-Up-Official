@@ -113,11 +113,12 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
           reference: new fields.SchemaField(
             Array.from({ length: 20 }, (_, i) => i + 1)
               .reduce((acc, level) => {
-                acc[level] = new fields.StringField({ required: true, initial: '' });
+                acc[level] = new fields.StringField({ required: false, initial: '' });
                 return acc;
               }, {})
           ),
           recovery: new fields.StringField({ required: true, initial: '' }),
+          slug: new fields.StringField({ required: true, initial: '' }),
           type: new fields.StringField({
             nullable: false,
             initial: '',

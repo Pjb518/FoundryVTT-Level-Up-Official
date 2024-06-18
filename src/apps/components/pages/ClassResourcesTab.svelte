@@ -4,6 +4,8 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
@@ -15,22 +17,23 @@
         $item.resources.add();
     }
 
-    // const resourceTypes = {
-    //     number: { heading: "Number", singleLabel: "", component: null },
-    //     dice: { heading: "Dice", component: null },
-    //     string: { heading: "String", component: null },
-    // };
+    function updateResource(idx: number, key: string, value: string | number) {
+        const resource = $item.system.resources?.[idx];
+        if (!resource) return;
+
+        resource[key] = value;
+        $item.system.resources[idx] = resource;
+
+        // TODO: If change in type reset value
+
+        // key = `system.resources.${idx}.${key}`;
+        updateDocumentDataFromField($item, "system.resources", $item.system.resources);
+    }
 
     const { resourceRecoveryOptions } = CONFIG.A5E;
     delete resourceRecoveryOptions.recharge;
 
     const resourceTypes = { number: "Number", dice: "Dice", string: "String" };
-
-    $: menuList = [
-        ["number", "Number"],
-        ["dice", "Dice"],
-        ["string", "String"],
-    ];
 
     $: resources = [...($item.resources as ClassResourceManager)];
 
@@ -38,9 +41,17 @@
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
-    {#each resources as [slug, resource]}
+    {#each resources as [slug, resource], idx}
         <div class="a5e-class-resource">
-            <input class="a5e-input" type="text" value={resource.name} />
+            <input
+                class="a5e-input"
+                type="text"
+                value={resource.name}
+                on:change={({ target }) => {
+                    // @ts-ignore
+                    updateResource(idx, "name", target?.value);
+                }}
+            />
 
             <Section heading="Metadata" --a5e-section-body-gap="0.75rem">
                 <FieldWrapper
@@ -53,7 +64,10 @@
                             class="a5e-input a5e-input--slim slug-input"
                             value={slug || ""}
                             type="text"
-                            on:change={({ target }) => {}}
+                            on:change={({ target }) => {
+                                // @ts-ignore
+                                updateResource(idx, "slug", target?.value);
+                            }}
                         />
 
                         <button class="slug-reset-button" on:click={() => null}>
@@ -66,21 +80,64 @@
                     heading="Resource Type"
                     options={Object.entries(resourceTypes)}
                     selected={resource.type}
+                    on:updateSelection={({ detail }) => {
+                        updateResource(idx, "type", detail);
+                    }}
                 />
             </Section>
 
             <Section heading="Level Information" --a5e-section-body-gap="0.75rem">
                 {#if resource.type === "number"}
-                    <FieldWrapper --a5e-field-wrapper-direction="row">
+                    <div
+                        class="a5e-class-resource-reference-container a5e-class-resource-reference-container--number"
+                    >
                         {#each Object.entries(resource.reference) as [level, value]}
-                            <input
-                                class="a5e-input a5e-input--slim a5e-input--small"
-                                {value}
-                                type="number"
-                                on:change={({ target }) => {}}
-                            />
+                            <FieldWrapper
+                                heading="Level {level}"
+                                --a5e-field-wrapper-margin="auto"
+                                --a5e-field-wrapper-header-item-justification="center"
+                                --a5e-field-wrapper-width="min-content"
+                            >
+                                <input
+                                    class="a5e-input a5e-input--slim a5e-input--small"
+                                    {value}
+                                    type="number"
+                                    on:change={({ target }) => {
+                                        updateResource(
+                                            idx,
+                                            `reference.${level}`,
+                                            // @ts-ignore
+                                            target.value,
+                                        );
+                                    }}
+                                />
+                            </FieldWrapper>
                         {/each}
-                    </FieldWrapper>
+                    </div>
+                {:else}
+                    <div class="a5e-class-resource-reference-container">
+                        {#each Object.entries(resource.reference) as [level, value]}
+                            <FieldWrapper
+                                heading="Level {level}"
+                                --a5e-field-wrapper-margin="auto"
+                                --a5e-field-wrapper-header-item-justification="center"
+                            >
+                                <input
+                                    class="a5e-input a5e-input--slim"
+                                    {value}
+                                    type="text"
+                                    on:change={({ target }) => {
+                                        updateResource(
+                                            idx,
+                                            `reference.${level}`,
+                                            // @ts-ignore
+                                            target.value,
+                                        );
+                                    }}
+                                />
+                            </FieldWrapper>
+                        {/each}
+                    </div>
                 {/if}
             </Section>
 
@@ -88,7 +145,9 @@
                 <RadioGroup
                     options={Object.entries(resourceRecoveryOptions)}
                     selected={resource.recovery}
-                    on:updateSelection={({ detail }) => {}}
+                    on:updateSelection={({ detail }) => {
+                        updateResource(idx, "recovery", detail);
+                    }}
                 />
             </Section>
         </div>
@@ -107,6 +166,18 @@
         padding: 0.75rem;
         margin-bottom: 1rem;
         background-color: #f6f2eb;
+    }
+
+    .a5e-class-resource-reference-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        row-gap: 0.75rem;
+        justify-content: center;
+        align-items: center;
+
+        &--number {
+            grid-template-columns: repeat(5, 1fr);
+        }
     }
 
     .slug-reset-button {

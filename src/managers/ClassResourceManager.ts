@@ -1,6 +1,8 @@
+import getDeterministicBonus from '../dice/getDeterministicBonus';
+
 interface ClassResource {
   name: string;
-  reference: { [level: number]: string | number };
+  reference: { [level: number]: string };
   recovery: string;
   slug?: string;
   type: 'number' | 'dice' | 'string';
@@ -8,6 +10,8 @@ interface ClassResource {
 
 export default class ClassResourceManager extends Map<string, ClassResource> {
   private item: typeof Item;
+
+  rollData: Record<string, number> = {};
 
   constructor(item: typeof Item) {
     super();
@@ -19,36 +23,30 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
     classResourceData.forEach((data: ClassResource) => {
       const classResource = data;
       const slug = classResource.slug || classResource.name.slugify();
-      // const isValid = this.validateResource(classResource);
-      // TODO: Class Documents - Clean up the resource data if it's invalid and try again
 
       this.set(slug, classResource);
     });
+
+    // Prepare level based resources
+    this.prepareResources();
   }
 
-  validateResource(resource: ClassResource): boolean {
-    const warnings: string[] = [];
+  prepareResources() {
+    const level = this.item.system.classLevels;
+    [...this.entries()].forEach(([slug, resource]) => {
+      const rawValue = resource.reference?.[level] || '';
 
-    Object.values(resource.reference ?? {}).forEach((value) => {
-      if (resource.type === 'number' && typeof value !== 'number') {
-        warnings.push(`Resource ${resource.name} reference value must be a number`);
+      let value: number | null = null;
+      try {
+        // TODO: Class Resources- Maybe use actor rollData here
+        value = getDeterministicBonus(rawValue, this.item.getRollData());
+      } catch (e) {
+        ui.notifications.error(`Error parsing resource value for ${slug}: ${e}`);
       }
 
-      if (resource.type === 'dice' && typeof value !== 'number') {
-        warnings.push(`Resource ${resource.name} reference value must be a number`);
-      }
-
-      if (resource.type === 'string' && typeof value !== 'string') {
-        warnings.push(`Resource ${resource.name} reference value must be a string`);
-      }
+      if (value === null || value === undefined) return;
+      this.rollData[slug] = value;
     });
-
-    if (warnings.length > 0) {
-      ui.notifications.warn(warnings.join('<br>'));
-      return false;
-    }
-
-    return true;
   }
 
   // @ts-ignore
