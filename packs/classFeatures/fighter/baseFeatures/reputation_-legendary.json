@@ -15,7 +15,48 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"73Xz9uTOQABvGT8p": {
+				"name": "Reputation: Legendary",
+				"activation": {},
+				"consumers": {
+					"lD5bYIgGsSrVNlB3": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"3T93fscEmD4RIouI": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "per",
+						"ability": "cha",
+						"label": "Persuasion (With Advantage)"
+					},
+					"GtrEYpGLtzGIsGQv": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "dec",
+						"ability": "cha",
+						"label": "Deception (With Advantage)"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Your deeds have become epic stories, growing bigger and more outlandish with each retelling. You gain an expertise die on Deception checks. In addition, you can spend 1 exertion point to weave your real legendary deeds into a Persuasion check as boasting, or include fabricated legendary deeds into a Deception check. When you do so, you have advantage on the check.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -31,7 +72,24 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"o3kLMWF63XAshpzy": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "o3kLMWF63XAshpzy",
+				"label": "Reputation: Legendary",
+				"keys": {
+					"base": [
+						"dec"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
