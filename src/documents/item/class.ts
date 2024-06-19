@@ -1,8 +1,14 @@
+import type { ClassSystemSource } from './classData';
+
 import OriginItemA5e from './origin';
 
 import ClassResourceManager from '../../managers/ClassResourceManager';
 
 export default class ClassItemA5e extends OriginItemA5e {
+  declare system: ClassSystemSource;
+
+  resources: ClassResourceManager;
+
   get associatedLevels() {
     const { levels } = this.system.hp;
     return Object.entries(levels ?? {}).reduce((acc, [level, value]) => {
