@@ -17,7 +17,9 @@
 
         if (!dialogData || !dialogData?.confirmDeletion) return;
 
-        await collection.delete(document._id);
+        const doc = await collection.getDocument(document._id);
+        await doc.delete();
+
         await sheet.render(true);
     }
 
