@@ -12,6 +12,8 @@
             reverseAlt: settings.get("a5e", "reverseInitiativeAltBehavior"),
         });
 
+        console.log(options);
+
         options.expertiseDie = $actor.RollOverrideManager.getExpertiseDice(
             "initiative",
             options.expertiseDie ?? 0,
@@ -29,9 +31,7 @@
 
     let abilityKey = $actor.system.attributes.initiative.ability ?? "dex";
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <li>

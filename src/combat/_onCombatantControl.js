@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable consistent-return */
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export default async function _onCombatantControl(event) {
   event.preventDefault();
   event.stopPropagation();
@@ -15,6 +16,12 @@ export default async function _onCombatantControl(event) {
 
   rollMode = (event.metaKey || event.ctrlKey) ? CONFIG.A5E.ROLL_MODE.DISADVANTAGE : rollMode;
 
+  const reverseAlt = game.settings.get('a5e', 'reverseInitiativeAltBehavior');
+  const defaultAltBehavior = game.settings.get('a5e', 'reverseAltBehavior');
+
+  let skipRollDialog = defaultAltBehavior ? !event.altKey : event.altKey;
+  skipRollDialog = reverseAlt ? !skipRollDialog : skipRollDialog;
+
   // Switch control action
   // eslint-disable-next-line default-case
   switch (btn.dataset.control) {
@@ -29,10 +36,7 @@ export default async function _onCombatantControl(event) {
       return combat.rollInitiative([c.id], {
         rollOptions: {
           rollMode,
-          skipRollDialog: game.settings.get(
-            'a5e',
-            'reverseInitiativeAltBehavior'
-          ) ? !event.altKey : event.altKey
+          skipRollDialog
         }
       });
 
