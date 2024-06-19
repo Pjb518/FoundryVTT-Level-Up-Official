@@ -79,7 +79,7 @@
                             name="system.attributes.hitDice.{dieSize}.current"
                             disabled={disableHitDice}
                             data-tooltip={disableHitDice
-                                ? "Update Hit Dice in class document."
+                                ? "Update Hit Dice in class document.   "
                                 : ""}
                             value={current}
                             on:change={({ target }) =>

@@ -17,6 +17,7 @@
     const { abilities } = CONFIG.A5E;
 
     function updateAbility(ability) {
+        selectedAbility = ability;
         updateDocumentDataFromField(
             $item,
             `system.actions.${actionId}.rolls.${rollId}.ability`,
