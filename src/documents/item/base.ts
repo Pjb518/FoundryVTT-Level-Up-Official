@@ -1,5 +1,7 @@
 /* eslint-disable no-continue */
 /* eslint-disable no-unused-vars */
+import type { BaseItemSystemSource } from './data';
+
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import getSummaryData from '../../utils/summaries/getSummaryData';
 
@@ -8,6 +10,8 @@ import getSummaryData from '../../utils/summaries/getSummaryData';
  * @extends {Item}
  */
 export default class BaseItemA5e extends Item {
+  declare system: BaseItemSystemSource;
+
   constructor(...args) {
     super(...args);
 
@@ -47,7 +51,7 @@ export default class BaseItemA5e extends Item {
     // Do not allow an item to activate if it not attached to an actor or if the user does
     // not have owner permissions for the actor.
     if (!this.actor || !this?.actor.isOwner) return;
-    this.shareItemDescription();
+    this.shareItemDescription(null);
   }
 
   async shareItemDescription(action) {
@@ -172,7 +176,7 @@ export default class BaseItemA5e extends Item {
       return Item._onCreateOperation(documents, operation, user);
     }
 
-    const toCreate = [];
+    const toCreate: any[] = [];
     documents.forEach((item) => {
       item.effects.forEach((effect) => {
         const isPassive = effect.flags?.a5e?.transferType === 'passive';

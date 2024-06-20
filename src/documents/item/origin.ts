@@ -1,8 +1,17 @@
+import type {
+  BackgroundSystemSource, CultureSystemSource, DestinySystemSource, HeritageSystemSource
+} from './data';
+
 import BaseItemA5e from './base';
 
 import ItemGrantsManager from '../../managers/ItemGrantsManager';
 
 export default class OriginItemA5e extends BaseItemA5e {
+  declare grants: ItemGrantsManager;
+
+  declare system: BackgroundSystemSource | CultureSystemSource
+    | DestinySystemSource | HeritageSystemSource;
+
   prepareBaseData() {
     super.prepareBaseData();
 

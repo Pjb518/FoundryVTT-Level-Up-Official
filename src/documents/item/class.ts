@@ -1,13 +1,21 @@
-import type { ClassSystemSource } from './classData';
+import type { ClassCastingData, ClassSystemSource } from './data';
 
 import OriginItemA5e from './origin';
 
 import ClassResourceManager from '../../managers/ClassResourceManager';
 
 export default class ClassItemA5e extends OriginItemA5e {
+  declare casting: ClassCastingData | null;
+
+  declare hitDice: {
+    current: number;
+    total: number;
+    size: number;
+  };
+
   declare system: ClassSystemSource;
 
-  resources: ClassResourceManager;
+  declare resources: ClassResourceManager;
 
   get associatedLevels() {
     const { levels } = this.system.hp;
@@ -15,7 +23,7 @@ export default class ClassItemA5e extends OriginItemA5e {
       if (!value) return acc;
       acc.push(level);
       return acc;
-    }, []);
+    }, [] as string[]);
   }
 
   get averageHP() {
@@ -88,14 +96,14 @@ export default class ClassItemA5e extends OriginItemA5e {
       type, config, resource, multiplier, roundUp, multiclassMode
     } = progressionConfig;
 
-    const data = { casterType, resource, progressionType: type };
+    const data: ClassCastingData = { casterType, resource, progressionType: type };
 
     // Add spellcasting resource data
     if (type === 'multiplier' && resource === 'slots') {
       const roundFunc = Math.ceil;
       const slots = config[roundFunc(this.classLevels * (multiplier ?? 1))] ?? [];
 
-      data.slots = Object.fromEntries(slots.map((slot, idx) => {
+      data.slots = Object.fromEntries(slots.map((slot: number, idx: number) => {
         const skip = Math.round(1 / multiplier) > this.classLevels;
         if (multiplier < 1 && skip && !roundUp) return [idx + 1, 0];
 

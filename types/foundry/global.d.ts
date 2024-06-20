@@ -21,6 +21,7 @@ declare const Token: any;
 
 declare const DocumentSheetConfig: any;
 declare const TokenDocument: any;
+declare const TextEditor: any;
 
 declare const foundry: {
   CONST: any;

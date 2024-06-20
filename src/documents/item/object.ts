@@ -1,8 +1,14 @@
+import type { ObjectSystemSource } from './data';
+
 import ItemA5e from './item';
 
 import ContainerManager from '../../managers/ContainerManager';
 
 export default class ObjectItemA5e extends ItemA5e {
+  declare containerItems: ContainerManager | null;
+
+  declare system: ObjectSystemSource;
+
   get weight() {
     if (this.system.objectType === 'container') {
       return (this.containerItems?.weight ?? 0) + this.system.weight;
