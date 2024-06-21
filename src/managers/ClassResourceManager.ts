@@ -1,19 +1,42 @@
+import type ClassItemA5e from '../documents/item/class';
+
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 
-interface ClassResource {
+interface NumberClassResource {
+  name: string;
+  reference: { [level: number]: number };
+  recovery: string;
+  slug: string;
+  type: 'number';
+}
+
+interface DiceClassResource {
+  name: string;
+  reference: { [level: number]: { number: number, faces: number, modifier: string } };
+  slug: string;
+  type: 'dice';
+
+  convertFromString(formula: string): { number: number, faces: number, modifier: string };
+  getDie(level: number): string;
+  getFormula(level: number): string;
+}
+
+interface StringClassResource {
   name: string;
   reference: { [level: number]: string };
   recovery: string;
-  slug?: string;
-  type: 'number' | 'dice' | 'string';
+  slug: string;
+  type: 'string';
 }
 
+type ClassResource = NumberClassResource | DiceClassResource | StringClassResource;
+
 export default class ClassResourceManager extends Map<string, ClassResource> {
-  private item: typeof Item;
+  private item: ClassItemA5e;
 
-  rollData: Record<string, number> = {};
+  rollData: Record<string, number | string> = {};
 
-  constructor(item: typeof Item) {
+  constructor(item: ClassItemA5e) {
     super();
 
     this.item = item;
@@ -36,15 +59,23 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
     [...this.entries()].forEach(([slug, resource]) => {
       const rawValue = resource.reference?.[level] || '';
 
-      let value: number | null = null;
-      try {
-        // TODO: Class Resources- Maybe use actor rollData here
-        value = getDeterministicBonus(rawValue, this.item.getRollData());
-      } catch (e) {
-        ui.notifications.error(`Error parsing resource value for ${slug}: ${e}`);
+      let value: number | string | null = null;
+
+      if (resource.type === 'number') {
+        if (typeof rawValue === 'number') value = rawValue;
+        else value = parseInt(rawValue as string, 10);
+      } else if (resource.type === 'dice') {
+        value = resource.getFormula(level);
+      } else if (resource.type === 'string') {
+        try {
+          // TODO: Class Resources- Maybe use actor rollData here
+          value = getDeterministicBonus(rawValue as string, this.item.getRollData());
+        } catch (e) {
+          value = rawValue as string;
+        }
       }
 
-      if (value === null || value === undefined) return;
+      if (!value) value = 0;
       this.rollData[slug] = value;
     });
   }
@@ -52,14 +83,16 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
   // @ts-ignore
   async add(data: ClassResource = {}) {
     if (!data?.name) {
-      const count = [...this].reduce((acc, [, { name }]) => (name === 'New Resource' ? acc + 1 : acc), 0);
+      const count = [...this]
+        .reduce((acc, [, { name }]) => (name === 'New Resource' ? acc + 1 : acc), 0);
 
       if (count > 0) data.name = `New Resource ${count + 1}`;
       else data.name = 'New Resource';
     }
 
+    // @ts-ignore
     if (!data?.type) data.type = 'number';
-    if (!data?.recovery) data.recovery = 'longRest';
+    if (data.type !== 'dice' && !data?.recovery) data.recovery = 'longRest';
     if (!data?.reference) data.reference = {};
 
     await this.item.update({

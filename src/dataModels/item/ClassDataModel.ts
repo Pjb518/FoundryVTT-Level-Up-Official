@@ -108,9 +108,7 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
           }
         })
       }),
-      resources: new fields.ArrayField(
-        new ClassResourceField()
-      ),
+      resources: new fields.ArrayField(new ClassResourceField()),
       source: new fields.StringField({ nullable: false, initial: '' }),
       spellcasting: new fields.SchemaField({
         ability: new fields.SchemaField({

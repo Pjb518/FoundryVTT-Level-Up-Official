@@ -18,18 +18,21 @@
     }
 
     function updateResource(idx: number, key: string, value: string | number) {
-        const resource = $item.system.resources?.[idx];
+        const resources: any[] = $item.system.resources.map((r: any) => r.toObject());
+        if (key === "type") {
+            resources.forEach((r) => delete r.reference);
+        }
+
+        const resource = resources.at(idx);
         if (!resource) return;
 
         resource[key] = value;
-        $item.system.resources[idx] = resource;
+        resources[idx] = resource;
 
-        // TODO: If change in type reset value
-
-        // key = `system.resources.${idx}.${key}`;
-        updateDocumentDataFromField($item, "system.resources", $item.system.resources);
+        updateDocumentDataFromField($item, "system.resources", resources);
     }
 
+    // @ts-ignore
     const { resourceRecoveryOptions } = CONFIG.A5E;
     delete resourceRecoveryOptions.recharge;
 
@@ -37,7 +40,7 @@
 
     $: resources = [...($item.resources as ClassResourceManager)];
 
-    $: console.log(resources);
+    $: console.log(resources[0][1].reference);
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
@@ -114,6 +117,32 @@
                             </FieldWrapper>
                         {/each}
                     </div>
+                {:else if resource.type === "dice"}
+                    <div class="a5e-class-resource-reference-container">
+                        {#each Object.entries(resource.reference) as [level]}
+                            {@const value = resource.getFormula(Number(level))}
+
+                            <FieldWrapper
+                                heading="Level {level}"
+                                --a5e-field-wrapper-margin="auto"
+                                --a5e-field-wrapper-header-item-justification="center"
+                            >
+                                <input
+                                    class="a5e-input a5e-input--slim"
+                                    {value}
+                                    type="text"
+                                    on:change={({ target }) => {
+                                        updateResource(
+                                            idx,
+                                            `reference.${level}`,
+                                            // @ts-ignore
+                                            resource.convertFromString(target.value),
+                                        );
+                                    }}
+                                />
+                            </FieldWrapper>
+                        {/each}
+                    </div>
                 {:else}
                     <div class="a5e-class-resource-reference-container">
                         {#each Object.entries(resource.reference) as [level, value]}
@@ -141,15 +170,17 @@
                 {/if}
             </Section>
 
-            <Section heading="Recovery">
-                <RadioGroup
-                    options={Object.entries(resourceRecoveryOptions)}
-                    selected={resource.recovery}
-                    on:updateSelection={({ detail }) => {
-                        updateResource(idx, "recovery", detail);
-                    }}
-                />
-            </Section>
+            {#if resource.type !== "dice"}
+                <Section heading="Recovery">
+                    <RadioGroup
+                        options={Object.entries(resourceRecoveryOptions)}
+                        selected={resource.recovery || ""}
+                        on:updateSelection={({ detail }) => {
+                            updateResource(idx, "recovery", detail);
+                        }}
+                    />
+                </Section>
+            {/if}
         </div>
     {/each}
 </div>

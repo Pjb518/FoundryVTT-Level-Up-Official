@@ -20,6 +20,8 @@ class ResourceNumberData extends foundry.abstract.DataModel {
 }
 
 class ResourceDiceData extends foundry.abstract.DataModel {
+  declare reference: Record<number, { number: number; faces: number; modifier: string }>;
+
   static defineSchema() {
     const { fields } = foundry.data;
 
@@ -42,6 +44,42 @@ class ResourceDiceData extends foundry.abstract.DataModel {
   }
 
   static FACES = [2, 3, 4, 6, 8, 10, 12, 20, 100];
+
+  static convertFromString(formula: string) {
+    const [initialSeg, number, faces] = formula.match(/(\d+)?d(\d+)([+-]\d+)?/i) || [];
+    const modifier = formula.replace(initialSeg || '', '');
+
+    if (!faces || !Number.isNumeric(number) || !Number.isNumeric(faces)) return null;
+    return {
+      number: parseInt(number || '1', 10),
+      faces: parseInt(faces, 10),
+      modifier: modifier || ''
+    };
+  }
+
+  getFormula(level: number) {
+    const data = this.reference[level];
+    if (!data) return '';
+
+    const { number, faces } = data;
+    if (!faces) return '';
+
+    return `${number || '1'}d${this.getDie(level)}`;
+  }
+
+  getDie(level: number) {
+    const data = this.reference[level];
+    if (!data) return '';
+
+    const { faces, modifier } = data;
+    if (!faces) return '';
+
+    return `${faces}${modifier || ''}`;
+  }
+
+  convertFromString(formula: string) {
+    return ResourceDiceData.convertFromString(formula);
+  }
 }
 
 class ResourceStringData extends foundry.abstract.DataModel {
