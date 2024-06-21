@@ -1,6 +1,11 @@
 /* eslint-disable max-classes-per-file */
+
+// TODO: Types - Remove when types are fixed
+// @ts-ignore
 class ResourceNumberData extends foundry.abstract.DataModel {
   static defineSchema() {
+    // TODO: Types - Remove when types are fixed
+    // @ts-ignore
     const { fields } = foundry.data;
 
     return {
@@ -12,17 +17,21 @@ class ResourceNumberData extends foundry.abstract.DataModel {
             return acc;
           }, {})
       ),
-      recovery: new fields.StringField({ required: true, initial: '' }),
+      recovery: new fields.StringField({ required: true, initial: 'longRest' }),
       slug: new fields.StringField({ required: true, initial: '' }),
       type: new fields.StringField({ required: true, initial: '' })
     };
   }
 }
 
+// TODO: Types - Remove when types are fixed
+// @ts-ignore
 class ResourceDiceData extends foundry.abstract.DataModel {
   declare reference: Record<number, { number: number; faces: number; modifier: string }>;
 
   static defineSchema() {
+    // TODO: Types - Remove when types are fixed
+    // @ts-ignore
     const { fields } = foundry.data;
 
     return {
@@ -82,8 +91,12 @@ class ResourceDiceData extends foundry.abstract.DataModel {
   }
 }
 
+// TODO: Types - Remove when types are fixed
+// @ts-ignore
 class ResourceStringData extends foundry.abstract.DataModel {
   static defineSchema() {
+    // TODO: Types - Remove when types are fixed
+    // @ts-ignore
     const { fields } = foundry.data;
 
     return {
@@ -95,13 +108,15 @@ class ResourceStringData extends foundry.abstract.DataModel {
             return acc;
           }, {})
       ),
-      recovery: new fields.StringField({ required: true, initial: '' }),
+      recovery: new fields.StringField({ required: true, initial: 'longRest' }),
       slug: new fields.StringField({ required: true, initial: '' }),
       type: new fields.StringField({ required: true, initial: '' })
     };
   }
 }
 
+// TODO: Types - Remove when types are fixed
+// @ts-ignore
 export default class ClassResourceField extends foundry.data.fields.ObjectField {
   getModel(type: 'number' | 'string' | 'dice') {
     if (type === 'number') return ResourceNumberData;
@@ -111,8 +126,9 @@ export default class ClassResourceField extends foundry.data.fields.ObjectField 
   }
 
   initialize(value: any, model: any, options = {}) {
-    console.log(value.type);
     const Cls = this.getModel(value.type);
+    // TODO: Types - Remove when types are fixed
+    // @ts-ignore
     if (Cls) return new Cls(value, { parent: model, ...options });
     return foundry.utils.deepClone(value);
   }

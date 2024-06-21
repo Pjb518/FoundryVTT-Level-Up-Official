@@ -68,8 +68,11 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
         value = resource.getFormula(level);
       } else if (resource.type === 'string') {
         try {
-          // TODO: Class Resources- Maybe use actor rollData here
-          value = getDeterministicBonus(rawValue as string, this.item.getRollData());
+          const doc = this.item.isEmbedded ? this.item.parent ?? this.item : this.item;
+
+          // TODO: Types - Remove when types are fixed
+          // @ts-ignore
+          value = getDeterministicBonus(rawValue as string, doc.getRollData(this.item));
         } catch (e) {
           value = rawValue as string;
         }

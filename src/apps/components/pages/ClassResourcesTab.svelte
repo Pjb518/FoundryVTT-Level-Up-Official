@@ -40,7 +40,7 @@
 
     $: resources = [...($item.resources as ClassResourceManager)];
 
-    $: console.log(resources[0][1].reference);
+    $: console.log(resources);
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
