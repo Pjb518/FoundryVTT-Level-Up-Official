@@ -143,3 +143,12 @@ export interface SpellSystemSource extends BaseItemSystemSource {
   }
   spellBook: string;
 }
+
+export type ItemSystemSource = BackgroundSystemSource
+  | ClassSystemSource
+  | CultureSystemSource
+  | DestinySystemSource
+  | FeatureSystemSource
+  | HeritageSystemSource
+  | ObjectSystemSource
+  | SpellSystemSource;

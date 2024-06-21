@@ -1,6 +1,6 @@
 /* eslint-disable no-continue */
 /* eslint-disable no-unused-vars */
-import type { BaseItemSystemSource } from './data';
+import type { ItemSystemSource } from './data';
 
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import getSummaryData from '../../utils/summaries/getSummaryData';
@@ -10,7 +10,14 @@ import getSummaryData from '../../utils/summaries/getSummaryData';
  * @extends {Item}
  */
 export default class BaseItemA5e extends Item {
-  declare system: BaseItemSystemSource;
+  declare system: ItemSystemSource;
+
+  dialogs: {
+    actions: Record<string, any>;
+    areaScaling: Record<string, any>;
+    rollScaling: Record<string, any>;
+    targetScaling: Record<string, any>;
+  };
 
   constructor(...args) {
     super(...args);
@@ -21,6 +28,11 @@ export default class BaseItemA5e extends Item {
       rollScaling: {},
       targetScaling: {}
     };
+  }
+
+  // *****************************************************************************************
+  get sourceId(): string | null {
+    return this._stats.compendiumSource?.id || this.flags.core?.sourceId || null;
   }
 
   // *****************************************************************************************
@@ -60,7 +72,7 @@ export default class BaseItemA5e extends Item {
       speaker: ChatMessage.getSpeaker({ actor: this }),
       flags: {
         a5e: {
-          actorId: this.actor.uuid,
+          actorId: this.actor?.uuid,
           itemId: this.uuid,
           cardType: 'item',
           actionName: action?.name,
@@ -127,6 +139,78 @@ export default class BaseItemA5e extends Item {
     await this.update({
       'system.favorite': !this.system.favorite
     });
+  }
+
+  async revitalize(options: Record<string, any> = {}): Promise<this | null> {
+    const { sourceId } = this;
+
+    if (!sourceId) {
+      if (options.notify !== false) ui.notifications?.error('Cannot revitalize an item without a source ID.');
+      return null;
+    }
+
+    if (this.uuid === sourceId) {
+      if (options.notify !== false) ui.notifications?.error('Cannot revitalize an item that is already the source.');
+      return null;
+    }
+
+    if (!sourceId.startsWith('Compendium.')) {
+      if (options.notify !== false) ui.notifications?.error('Cannot revitalize an item that is not from a compendium.');
+      return null;
+    }
+
+    options.name ??= true;
+    options.update ??= true;
+    options.notify ??= true;
+
+    const currentData = this.toObject();
+    const compendiumData = (await fromUuid(sourceId))?.toObject();
+
+    if (!compendiumData) {
+      if (options.notify !== false) ui.notifications?.error('Unable to find source.');
+      return null;
+    }
+
+    if (currentData.type !== compendiumData.type) {
+      if (options.notify !== false) ui.notifications?.error('Cannot revitalize an item with a different type.');
+      return null;
+    }
+
+    const updates: Record<string, any> = {
+      name: options.name ? compendiumData.name : currentData.name,
+      img: compendiumData.img,
+      system: foundry.utils.deepClone(compendiumData.system)
+    };
+
+    // TODO: Revitalize - Add support for grants
+    // Don't update grants
+    if (this.system?.grants) updates.system.grants = this.system.grants;
+
+    // Ignore favorite state
+    updates.system.favorite = this.system.favorite;
+
+    // Don't update some properties for objects
+    if (this.type === 'object') {
+      // Ignore container data
+      updates.system.containerId = this.system.containerId;
+      updates.system.items = this.system.items;
+
+      // Ignore states
+      updates.system.damagedState = this.system.damagedState;
+      updates.system.equippedState = this.system.equippedState;
+      updates.system.unidentified = this.system.unidentified;
+
+      // Ignore proficiency
+      updates.system.proficient = this.system.proficient;
+
+      // Ignore quantity
+      updates.system.quantity = this.system.quantity;
+
+      // Ignore current uses
+      updates.system.uses.value = this.system.uses.value;
+    }
+
+    return null;
   }
 
   /** @inheritdoc */
