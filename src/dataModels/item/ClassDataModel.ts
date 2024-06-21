@@ -1,4 +1,5 @@
 import A5EDataModel from '../A5EDataModel';
+import ClassResourceField from '../fields/ClassResourceField';
 import SchemaDataModel from '../template/SchemaDataModel';
 
 export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) {
@@ -108,23 +109,7 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
         })
       }),
       resources: new fields.ArrayField(
-        new fields.SchemaField({
-          name: new fields.StringField({ nullable: false, initial: 'New Resource' }),
-          reference: new fields.SchemaField(
-            Array.from({ length: 20 }, (_, i) => i + 1)
-              .reduce((acc, level) => {
-                acc[level] = new fields.StringField({ required: false, initial: '' });
-                return acc;
-              }, {})
-          ),
-          recovery: new fields.StringField({ required: true, initial: '' }),
-          slug: new fields.StringField({ required: true, initial: '' }),
-          type: new fields.StringField({
-            nullable: false,
-            initial: '',
-            choices: ['number', 'dice', 'string']
-          })
-        })
+        new ClassResourceField()
       ),
       source: new fields.StringField({ nullable: false, initial: '' }),
       spellcasting: new fields.SchemaField({
