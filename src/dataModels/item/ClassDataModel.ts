@@ -1,9 +1,10 @@
 import A5EDataModel from '../A5EDataModel';
-import ClassResourceField from '../fields/ClassResourceField';
 import SchemaDataModel from '../template/SchemaDataModel';
 
 export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) {
   static defineSchema() {
+    // TODO: Types - Remove when types are fixed
+    // @ts-ignore
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -108,7 +109,21 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
           }
         })
       }),
-      resources: new fields.ArrayField(new ClassResourceField()),
+      resources: new fields.ArrayField(
+        new fields.SchemaField({
+          name: new fields.StringField({ nullable: false, initial: 'New Resource' }),
+          reference: new fields.SchemaField(
+            Array.from({ length: 20 }, (_, i) => i + 1)
+              .reduce((acc, level) => {
+                acc[level] = new fields.StringField({ required: true, initial: '' });
+                return acc;
+              }, {})
+          ),
+          recovery: new fields.StringField({ nullable: false, initial: 'longRest' }),
+          slug: new fields.StringField({ nullable: false, initial: '' })
+        }),
+        { nullable: false, initial: [] }
+      ),
       source: new fields.StringField({ nullable: false, initial: '' }),
       spellcasting: new fields.SchemaField({
         ability: new fields.SchemaField({

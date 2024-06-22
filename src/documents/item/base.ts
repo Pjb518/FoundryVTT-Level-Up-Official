@@ -210,7 +210,11 @@ export default class BaseItemA5e extends Item {
       updates.system.uses.value = this.system.uses.value;
     }
 
-    return null;
+    if (options.update) await this.update(updates, { diff: false, recursive: false });
+
+    if (options.notify !== false) ui.notifications?.info('Item revitalized.');
+
+    return this;
   }
 
   /** @inheritdoc */

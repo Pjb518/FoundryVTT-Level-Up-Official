@@ -17,16 +17,25 @@
         $item.resources.add();
     }
 
-    function updateResource(idx: number, key: string, value: string | number) {
-        const resources: any[] = $item.system.resources.map((r: any) => r.toObject());
-        if (key === "type") {
-            resources.forEach((r) => delete r.reference);
-        }
+    function updateResource(idx: number, key: string, value: string) {
+        const resources: any[] = $item.system.resources.map((r: any) =>
+            foundry.utils.deepClone(r),
+        );
 
         const resource = resources.at(idx);
         if (!resource) return;
 
         resource[key] = value;
+
+        if (key.includes("reference.")) {
+            const [, parsedLevel] = key.split(".");
+            const level = parseInt(parsedLevel, 10);
+
+            Object.keys(resource.reference ?? {}).forEach((l) => {
+                if (parseInt(l, 10) >= level) resource.reference[l] = value;
+            });
+        }
+
         resources[idx] = resource;
 
         updateDocumentDataFromField($item, "system.resources", resources);
@@ -35,8 +44,6 @@
     // @ts-ignore
     const { resourceRecoveryOptions } = CONFIG.A5E;
     delete resourceRecoveryOptions.recharge;
-
-    const resourceTypes = { number: "Number", dice: "Dice", string: "String" };
 
     $: resources = [...($item.resources as ClassResourceManager)];
 
@@ -78,109 +85,43 @@
                         </button>
                     </div>
                 </FieldWrapper>
-
-                <RadioGroup
-                    heading="Resource Type"
-                    options={Object.entries(resourceTypes)}
-                    selected={resource.type}
-                    on:updateSelection={({ detail }) => {
-                        updateResource(idx, "type", detail);
-                    }}
-                />
             </Section>
 
             <Section heading="Level Information" --a5e-section-body-gap="0.75rem">
-                {#if resource.type === "number"}
-                    <div
-                        class="a5e-class-resource-reference-container a5e-class-resource-reference-container--number"
-                    >
-                        {#each Object.entries(resource.reference) as [level, value]}
-                            <FieldWrapper
-                                heading="Level {level}"
-                                --a5e-field-wrapper-margin="auto"
-                                --a5e-field-wrapper-header-item-justification="center"
-                                --a5e-field-wrapper-width="min-content"
-                            >
-                                <input
-                                    class="a5e-input a5e-input--slim a5e-input--small"
-                                    {value}
-                                    type="number"
-                                    on:change={({ target }) => {
-                                        updateResource(
-                                            idx,
-                                            `reference.${level}`,
-                                            // @ts-ignore
-                                            target.value,
-                                        );
-                                    }}
-                                />
-                            </FieldWrapper>
-                        {/each}
-                    </div>
-                {:else if resource.type === "dice"}
-                    <div class="a5e-class-resource-reference-container">
-                        {#each Object.entries(resource.reference) as [level]}
-                            {@const value = resource.getFormula(Number(level))}
-
-                            <FieldWrapper
-                                heading="Level {level}"
-                                --a5e-field-wrapper-margin="auto"
-                                --a5e-field-wrapper-header-item-justification="center"
-                            >
-                                <input
-                                    class="a5e-input a5e-input--slim"
-                                    {value}
-                                    type="text"
-                                    on:change={({ target }) => {
-                                        updateResource(
-                                            idx,
-                                            `reference.${level}`,
-                                            // @ts-ignore
-                                            resource.convertFromString(target.value),
-                                        );
-                                    }}
-                                />
-                            </FieldWrapper>
-                        {/each}
-                    </div>
-                {:else}
-                    <div class="a5e-class-resource-reference-container">
-                        {#each Object.entries(resource.reference) as [level, value]}
-                            <FieldWrapper
-                                heading="Level {level}"
-                                --a5e-field-wrapper-margin="auto"
-                                --a5e-field-wrapper-header-item-justification="center"
-                            >
-                                <input
-                                    class="a5e-input a5e-input--slim"
-                                    {value}
-                                    type="text"
-                                    on:change={({ target }) => {
-                                        updateResource(
-                                            idx,
-                                            `reference.${level}`,
-                                            // @ts-ignore
-                                            target.value,
-                                        );
-                                    }}
-                                />
-                            </FieldWrapper>
-                        {/each}
-                    </div>
-                {/if}
+                <div class="a5e-class-resource-reference-container">
+                    {#each Object.entries(resource.reference) as [level, value]}
+                        <FieldWrapper
+                            heading="Level {level}"
+                            --a5e-field-wrapper-margin="auto"
+                            --a5e-field-wrapper-header-item-justification="center"
+                        >
+                            <input
+                                class="a5e-input a5e-input--slim"
+                                {value}
+                                type="text"
+                                on:change={({ target }) => {
+                                    updateResource(
+                                        idx,
+                                        `reference.${level}`,
+                                        // @ts-ignore
+                                        target.value,
+                                    );
+                                }}
+                            />
+                        </FieldWrapper>
+                    {/each}
+                </div>
             </Section>
 
-            {#if resource.type !== "dice"}
-                <Section heading="Recovery">
-                    <RadioGroup
-                        options={Object.entries(resourceRecoveryOptions)}
-                        selected={resource.recovery || ""}
-                        on:updateSelection={({ detail }) => {
-                            updateResource(idx, "recovery", detail);
-                        }}
-                    />
-                </Section>
-            {/if}
+            <Section heading="Recovery">
+                <RadioGroup
+                    options={Object.entries(resourceRecoveryOptions)}
+                    selected={resource.recovery || ""}
+                    on:updateSelection={({ detail }) => {
+                        updateResource(idx, "recovery", detail);
+                    }}
+                />
+            </Section>
         </div>
     {/each}
 </div>
@@ -203,12 +144,9 @@
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         row-gap: 0.75rem;
+        column-gap: 0.5rem;
         justify-content: center;
         align-items: center;
-
-        &--number {
-            grid-template-columns: repeat(5, 1fr);
-        }
     }
 
     .slug-reset-button {

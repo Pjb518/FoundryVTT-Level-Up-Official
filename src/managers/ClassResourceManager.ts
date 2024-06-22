@@ -2,34 +2,12 @@ import type ClassItemA5e from '../documents/item/class';
 
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 
-interface NumberClassResource {
-  name: string;
-  reference: { [level: number]: number };
-  recovery: string;
-  slug: string;
-  type: 'number';
-}
-
-interface DiceClassResource {
-  name: string;
-  reference: { [level: number]: { number: number, faces: number, modifier: string } };
-  slug: string;
-  type: 'dice';
-
-  convertFromString(formula: string): { number: number, faces: number, modifier: string };
-  getDie(level: number): string;
-  getFormula(level: number): string;
-}
-
-interface StringClassResource {
+interface ClassResource {
   name: string;
   reference: { [level: number]: string };
   recovery: string;
   slug: string;
-  type: 'string';
 }
-
-type ClassResource = NumberClassResource | DiceClassResource | StringClassResource;
 
 export default class ClassResourceManager extends Map<string, ClassResource> {
   private item: ClassItemA5e;
@@ -61,21 +39,18 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
 
       let value: number | string | null = null;
 
-      if (resource.type === 'number') {
-        if (typeof rawValue === 'number') value = rawValue;
-        else value = parseInt(rawValue as string, 10);
-      } else if (resource.type === 'dice') {
-        value = resource.getFormula(level);
-      } else if (resource.type === 'string') {
-        try {
-          const doc = this.item.isEmbedded ? this.item.parent ?? this.item : this.item;
+      try {
+        const doc = this.item.isEmbedded ? this.item.parent ?? this.item : this.item;
 
+        value = getDeterministicBonus(
+          rawValue as string,
           // TODO: Types - Remove when types are fixed
           // @ts-ignore
-          value = getDeterministicBonus(rawValue as string, doc.getRollData(this.item));
-        } catch (e) {
-          value = rawValue as string;
-        }
+          doc.getRollData(this.item),
+          { strict: true }
+        );
+      } catch (e) {
+        value = rawValue as string;
       }
 
       if (!value) value = 0;
@@ -93,9 +68,7 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
       else data.name = 'New Resource';
     }
 
-    // @ts-ignore
-    if (!data?.type) data.type = 'number';
-    if (data.type !== 'dice' && !data?.recovery) data.recovery = 'longRest';
+    if (!data?.recovery) data.recovery = 'longRest';
     if (!data?.reference) data.reference = {};
 
     await this.item.update({
