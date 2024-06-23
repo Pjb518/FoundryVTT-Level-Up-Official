@@ -15,15 +15,50 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"Bj4SL8axcI5FP6Mc": {
+				"name": "Dwarven Toughness",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"tISqIHFOgRlRaSpg": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"tOyviBeqZ5vyKHQo": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "1d10 + @level"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>As a bonus action, you gain a number of temporary hit points equal to 1d10 plus your level. These temporary hit points last for 1 minute. You can’t use this trait again until after you finish a long rest.</p><p>You gain an expertise die on saving throws against poison, and you have resistance against poison damage.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -31,7 +66,24 @@
 		},
 		"concentration": false,
 		"featureType": "heritage",
-		"grants": {},
+		"grants": {
+			"DthApE2p5Bxq3krZ": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "DthApE2p5Bxq3krZ",
+				"label": "Dwarven Toughness",
+				"traits": {
+					"base": [
+						"poison"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
