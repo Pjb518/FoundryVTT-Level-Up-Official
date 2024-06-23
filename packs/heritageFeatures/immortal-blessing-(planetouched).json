@@ -15,15 +15,46 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"52HgytR5iwHllya9": {
+				"name": "Immortal Blessing",
+				"activation": {},
+				"consumers": {
+					"5vtELbnTGgIBPLAk": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"P9jBn5v6rOpPpfb7": {
+						"type": "healing",
+						"default": true,
+						"formula": "1"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Your connection with the source of your bloodline allows you to cheat death. When you would ordinarily be reduced to zero hit points, you are instead reduced to one hit point. You cannot use this feature again until you have finished a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6

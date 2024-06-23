@@ -2,7 +2,100 @@
 	"name": "Into Mist (Gnome)",
 	"type": "feature",
 	"img": "icons/magic/air/fog-gas-smoke-dense-white.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.P9Yo5fISC9tPo3k0",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "hlEemutoj3xs0TmJ",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Invisible",
+			"img": "icons/magic/air/fog-gas-smoke-dense-white.webp",
+			"_id": "4aKHtpDl8tfpdsSF",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"invisible"
+			],
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.P9Yo5fISC9tPo3k0",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "gbUOoaaiXq5E7iLG",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Invisible",
+			"img": "icons/magic/air/fog-gas-smoke-dense-white.webp",
+			"_id": "XuBfayLm1EIyUGtN",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"invisible"
+			],
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,15 +108,83 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"hlEemutoj3xs0TmJ": {
+				"name": "Into Mist",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"T7IUqCf0DhpYS7a2": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"8IYb4Igl7bBl0oRA": {
+						"type": "effect",
+						"default": true,
+						"effectId": "4aKHtpDl8tfpdsSF"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"gbUOoaaiXq5E7iLG": {
+				"name": "Into Mist",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Taking damage"
+				},
+				"consumers": {
+					"cPGSp9vJkkKrYcqx": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"8IYb4Igl7bBl0oRA": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XuBfayLm1EIyUGtN"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>As a bonus action, or as a reaction immediately after taking damage, you can turn invisible. The invisibility lasts until the end of your next turn, and it ends early if you attack, deal damage, cast a spell, or force a creature to make a saving throw. Once you use this feature, you must finish a short or long rest before doing so again.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
