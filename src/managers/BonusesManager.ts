@@ -199,12 +199,6 @@ export default class BonusesManager {
       const original: number = this.#actor._source.system.attributes.movement[type]?.distance ?? 0;
       const formula = bonus.formula.trim().replace('@original', original.toString());
 
-      // if (bonus.context.valueIfOriginalIsZero && original === 0) {
-      //   formula = bonus.context.valueIfOriginalIsZero;
-      // } else {
-      //   formula = bonus.formula;
-      // }
-
       return formula;
     });
 
@@ -219,12 +213,6 @@ export default class BonusesManager {
       const original: number = this.#actor._source.system.attributes.senses[type]?.distance ?? 0;
       if (bonus.unit === 'unlimited') isUnlimited = true;
       const formula = bonus.formula.trim().replace('@original', original.toString());
-
-      // if (bonus.context.valueIfOriginalIsZero && original === 0) {
-      //   formula = bonus.context.valueIfOriginalIsZero;
-      // } else {
-      //   formula = bonus.formula;
-      // }
 
       return formula;
     });

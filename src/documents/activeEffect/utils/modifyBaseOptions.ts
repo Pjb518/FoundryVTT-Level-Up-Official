@@ -126,6 +126,15 @@ export default function modifyBaseOptions(options: Object) {
   delete options['system.resources.tertiary.hideMax'];
   delete options['system.resources.quaternary.hideMax'];
 
+  // Delete movement and senses for derived data
+  Object.keys(CONFIG.A5E.movement).forEach((m) => {
+    delete options[`system.attributes.movement.${m}.distance`];
+  });
+
+  Object.keys(CONFIG.A5E.senses).forEach((s) => {
+    delete options[`system.attributes.senses.${s}.distance`];
+  });
+
   // Temporarily delete bonus fields
   delete options['system.bonuses.abilities'];
   delete options['system.bonuses.attacks'];
