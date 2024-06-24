@@ -46,22 +46,28 @@
     delete resourceRecoveryOptions.recharge;
 
     $: resources = [...($item.resources as ClassResourceManager)];
-
-    $: console.log(resources);
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     {#each resources as [slug, resource], idx}
         <div class="a5e-class-resource">
             <input
-                class="a5e-input"
+                class="a5e-input a5e-class-resource-name"
                 type="text"
+                placeholder="New Resource"
                 value={resource.name}
                 on:change={({ target }) => {
                     // @ts-ignore
                     updateResource(idx, "name", target?.value);
                 }}
             />
+
+            <button
+                class="a5e-class-resource-delete-button"
+                on:click={() => $item.resources.remove(slug)}
+            >
+                <i class="fas fa-trash" />
+            </button>
 
             <Section heading="Metadata" --a5e-section-body-gap="0.75rem">
                 <FieldWrapper
@@ -136,8 +142,38 @@
         flex-direction: column;
         gap: 0.5rem;
         padding: 0.75rem;
+        position: relative;
         margin-bottom: 1rem;
         background-color: #f6f2eb;
+    }
+
+    .a5e-class-resource-delete-button {
+        background: none;
+        border: 0;
+        padding: 0;
+        position: absolute;
+        right: 0.5rem;
+        top: 0.25rem;
+
+        width: fit-content;
+        height: fit-content;
+        color: rgba(0 0 0 / 0.2);
+        transition: all 0.15s ease-in-out;
+
+        &:hover,
+        &:focus {
+            box-shadow: none;
+            transform: scale(1.2);
+            color: #8b2525;
+        }
+    }
+
+    .a5e-class-resource-name {
+        font-size: 1.5rem;
+        border: 0;
+        background: none;
+        padding-left: 0;
+        width: 90%;
     }
 
     .a5e-class-resource-reference-container {
