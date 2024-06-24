@@ -16,15 +16,40 @@
 		},
 		"actions": {
 			"bG9C0kc2ZUrkq4G7": {
-				"name": "Use Feature",
+				"name": "Adaptability",
 				"activation": {},
-				"consumers": {},
+				"consumers": {
+					"ds4pz86c8WPmFtLI": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {},
 				"prompts": {
 					"vdJ4ryn6WH3LIRAu": {
 						"type": "effect",
 						"default": true,
-						"effectId": "VyKVCm34qo6KTwKK"
+						"effectId": "VyKVCm34qo6KTwKK",
+						"label": "Amphibious"
+					},
+					"kKUfXQx9s7Y0bi5E": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2mg8XT5r3MucLaRP",
+						"label": "Arboreal"
+					},
+					"wQ1xHy7KJUT2ESxt": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8s5YAf1eXJhn4DdU",
+						"label": "Cold Adapted"
+					},
+					"mtHvBxejZesIg8et": {
+						"type": "effect",
+						"default": true,
+						"effectId": "OoYsI7pU60CbFI0n",
+						"label": "Heat Adapted"
 					}
 				},
 				"uses": {
@@ -36,6 +61,28 @@
 						"threshold": 6
 					}
 				}
+			},
+			"FTTHLXXNsdbqKbrR": {
+				"name": "Arboreal",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Falling"
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p>You can change your body to survive various environments. You gain resistance to poison damage. In addition, whenever you finish a&nbsp;long rest</span>, you can choose one of the following forms:</p><ul><li><strong>Amphibious.&nbsp;</strong>You can breathe underwater and gain a swim speed equal to your walking speed.</li><li><strong>Arboreal.&nbsp;</strong>You gain a climb speed equal to your walking speed. When you fall, you can use your reaction to float gently to the ground, taking no damage from the fall.</li><li><strong>Cold Adapted.</strong>&nbsp;You gain&nbsp;resistance&nbsp;to cold damage.</li><li><strong>Heat Adapted.</strong>&nbsp;You gain&nbsp;<span>resistance&nbsp;to fire damage.</li></ul><p>You remain in your new form until you use this ability again. You can benefit from only one form at a time.</p>",
@@ -43,9 +90,9 @@
 		"secretDescription": "",
 		"source": "dungeonDelversGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -53,7 +100,24 @@
 		},
 		"concentration": false,
 		"featureType": "heritage",
-		"grants": {},
+		"grants": {
+			"M8nBnubjElJ83gz3": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "M8nBnubjElJ83gz3",
+				"label": "Adaptability",
+				"traits": {
+					"base": [
+						"poison"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -70,22 +134,23 @@
 	},
 	"effects": [
 		{
-			"icon": "icons/consumables/mushrooms/conical-bell-green.webp",
-			"origin": "Item.xjszjodeumkeqwqg",
+			"origin": "Item.IR0MBmJbsnkJ0HO3",
 			"flags": {
 				"a5e": {
-					"sort": 5,
-					"transferType": "passive"
+					"sort": 4,
+					"transferType": "onUse",
+					"actionId": "bG9C0kc2ZUrkq4G7",
+					"applyToSelf": false
 				}
 			},
 			"transfer": false,
-			"name": "Poison Resistance",
-			"_id": "1EFAQ52a2kghOpzL",
+			"name": "Amphibious",
+			"_id": "VyKVCm34qo6KTwKK",
 			"changes": [
 				{
-					"key": "system.traits.damageResistances",
-					"value": "[\"poison\"]",
-					"mode": 2,
+					"key": "system.attributes.movement.swim.distance",
+					"value": "@movement.walk.distance",
+					"mode": 6,
 					"priority": null
 				}
 			],
@@ -99,22 +164,69 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<p>You can breathe underwater and gain a swim speed equal to your walking speed.</p>",
 			"statuses": [],
+			"img": "icons/consumables/mushrooms/umbontae-bumpy-purple.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
 			"folder": null
 		},
 		{
-			"icon": "icons/consumables/mushrooms/ovate-blue.webp",
-			"origin": "Item.xjszjodeumkeqwqg",
+			"origin": "Item.IR0MBmJbsnkJ0HO3",
 			"flags": {
 				"a5e": {
-					"sort": 2,
-					"transferType": "passive"
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "bG9C0kc2ZUrkq4G7"
+				}
+			},
+			"transfer": false,
+			"name": "Arboreal",
+			"img": "icons/consumables/mushrooms/umbontae-bumpy-purple.webp",
+			"_id": "2mg8XT5r3MucLaRP",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "@movement.walk.distance",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You gain a climb speed equal to your walking speed. When you fall, you can use your reaction to float gently to the ground, taking no damage from the fall.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.IR0MBmJbsnkJ0HO3",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "bG9C0kc2ZUrkq4G7"
 				}
 			},
 			"transfer": false,
 			"name": "Cold Adapted",
-			"_id": "rnIk53irzzvQMSC1",
+			"img": "icons/consumables/mushrooms/umbontae-bumpy-purple.webp",
+			"_id": "8s5YAf1eXJhn4DdU",
+			"type": "base",
+			"system": {},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",
@@ -133,22 +245,27 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<p>You gain resistance to cold damage.</p>",
+			"tint": "#ffffff",
 			"statuses": [],
+			"sort": 0,
 			"folder": null
 		},
 		{
-			"icon": "icons/consumables/mushrooms/campanulate-bell-shiny-red.webp",
-			"origin": "Item.xjszjodeumkeqwqg",
+			"origin": "Item.IR0MBmJbsnkJ0HO3",
 			"flags": {
 				"a5e": {
-					"sort": 3,
-					"transferType": "passive"
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "bG9C0kc2ZUrkq4G7"
 				}
 			},
 			"transfer": false,
 			"name": "Heat Adapted",
-			"_id": "LCBQ4stp8ySZAbpe",
+			"img": "icons/consumables/mushrooms/umbontae-bumpy-purple.webp",
+			"_id": "OoYsI7pU60CbFI0n",
+			"type": "base",
+			"system": {},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",
@@ -167,111 +284,10 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<p>You gain resistance to fire damage.</p>",
+			"tint": "#ffffff",
 			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/svg/item-bag.svg",
-			"origin": "Item.xjszjodeumkeqwqg",
-			"flags": {
-				"a5e": {
-					"sort": 4,
-					"transferType": "onUse",
-					"actionId": "bG9C0kc2ZUrkq4G7"
-				}
-			},
-			"transfer": false,
-			"name": "New Effect",
-			"_id": "VyKVCm34qo6KTwKK",
-			"changes": [
-				{
-					"key": "",
-					"mode": null,
-					"value": "",
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/consumables/mushrooms/campanulate-bell-shiny-blue.webp",
-			"origin": "Item.xjszjodeumkeqwqg",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
-			},
-			"transfer": false,
-			"name": "Amphibious",
-			"_id": "1P5vdP23zJzmTmaR",
-			"changes": [
-				{
-					"key": "system.attributes.movement.swim.distance",
-					"value": "30",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null
-		},
-		{
-			"icon": "icons/consumables/mushrooms/bell-shiitake-brown.webp",
-			"origin": "Item.xjszjodeumkeqwqg",
-			"flags": {
-				"a5e": {
-					"sort": 1,
-					"transferType": "passive"
-				}
-			},
-			"transfer": false,
-			"name": "Arboreal",
-			"_id": "E2wCeTF70M4nrhIg",
-			"changes": [
-				{
-					"key": "system.attributes.movement.climb.distance",
-					"value": "30",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
+			"sort": 0,
 			"folder": null
 		}
 	],

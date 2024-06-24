@@ -15,14 +15,39 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"j47j1Gdjcrxw3PtR": {
+				"name": "Inexorable Concentration",
+				"activation": {},
+				"consumers": {
+					"bLfrqIPKL7ncgDWN": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>When you fail a Constitution saving throws to maintain concentration, you can immediately reroll it, taking the new result. You may use this trait a number of times equal to your Intelligence modifier (minimum 1), and regain all expended uses after a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 1,
-			"max": "1",
+			"value": 0,
+			"max": "max(@int.mod,1)",
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
