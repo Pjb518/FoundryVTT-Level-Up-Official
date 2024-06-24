@@ -47,7 +47,7 @@ export default class ModifierManager {
   }
 
   #getInitiativeRollModifiers() {
-    if (game.settings.storage.get('world').getItem('a5e.5eStyleInitiative') ?? false) {
+    if (game.settings.storage.get('world').getItem('a5e.simpleInitiative') ?? false) {
       return [
         this.#getInitiativeBonus(),
         ...this.#getAbilityCheckModifiers()
@@ -128,7 +128,7 @@ export default class ModifierManager {
 
     return {
       label: localize('A5E.ProficiencyBonusJack'),
-      value: this.actor.system.abilities[ability]?.mod ?? null
+      value: Math.floor(this.actor.system.attributes.prof / 2)
     };
   }
 
