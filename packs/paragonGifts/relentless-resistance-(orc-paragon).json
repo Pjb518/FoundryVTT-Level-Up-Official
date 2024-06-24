@@ -6,24 +6,55 @@
 	"flags": {},
 	"system": {
 		"ac": {
-			"baseFormula": "",
+			"baseFormula": "1",
 			"formula": "",
 			"grantsDisadvantage": false,
 			"maxDex": 0,
 			"minStr": 0,
-			"mode": 2,
+			"mode": 1,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": true
 		},
-		"actions": {},
+		"actions": {
+			"toKzGRGPnjSaVKyI": {
+				"name": "Relentless Resistance",
+				"activation": {},
+				"consumers": {
+					"ZToA6j4h9o1VnSTy": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"6KPujeyaGjRgnOPl": {
+						"type": "healing",
+						"default": true,
+						"formula": "1"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>When you are reduced to 0 hit points but not killed outright, you can drop to 1 hit point instead. Once you have used this trait, you cannot do so again until you finish a long rest.</p><p>Additionally, the many struggles of your ancestors has given you a thick skin, and the ability to shrug off less powerful blows. When not wearing armor, your Armor Class increases by 1.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6

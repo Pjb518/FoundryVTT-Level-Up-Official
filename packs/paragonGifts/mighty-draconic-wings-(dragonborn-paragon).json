@@ -4,8 +4,7 @@
 	"img": "icons/commodities/biological/wing-lizard-green.webp",
 	"effects": [
 		{
-			"icon": "icons/commodities/biological/wing-lizard-green.webp",
-			"origin": "Item.7urchbv3furi3g1o",
+			"origin": "Item.QoWsoHbbxFHoy5Wd",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -36,6 +35,10 @@
 			"description": "",
 			"statuses": [],
 			"tint": "#ffffff",
+			"img": "icons/commodities/biological/wing-lizard-green.webp",
+			"type": "base",
+			"system": {},
+			"sort": 0,
 			"folder": null
 		}
 	],
@@ -51,7 +54,32 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"Ejxh9Rj3XqI7llxn": {
+				"name": "Suffer Fatigue",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"UazBX238GHcTyjcH": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Your fly speed increases to 40 feet and you can fly while wearing medium or heavy armor. When you would suffer fatigue from using your fly speed, you make a Constitution saving throw (DC 10 + 1 per previous save in the last minute). On a success, you do not suffer fatigue from flying that round.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -67,7 +95,22 @@
 		},
 		"concentration": false,
 		"featureType": "heritage",
-		"grants": {},
+		"grants": {
+			"Y20EkNQbvNn4N4dE": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "Y20EkNQbvNn4N4dE",
+				"label": "Mighty Draconic Wings",
+				"bonus": "10",
+				"movementTypes": {
+					"base": [
+						"fly"
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {

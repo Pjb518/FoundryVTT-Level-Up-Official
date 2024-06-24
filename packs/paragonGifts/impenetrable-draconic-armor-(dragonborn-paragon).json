@@ -6,16 +6,49 @@
 	"flags": {},
 	"system": {
 		"ac": {
-			"baseFormula": "",
+			"baseFormula": "1",
 			"formula": "",
 			"grantsDisadvantage": false,
 			"maxDex": 0,
 			"minStr": 0,
-			"mode": 2,
+			"mode": 1,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": true
 		},
-		"actions": {},
+		"actions": {
+			"OtKIhA4GC7JyYSmK": {
+				"name": "Claws",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"r6cGATefmsLfzfdb": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"yI2RKanO9rzoKlpk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8 + @str.mod",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Your claws and scales harden to the deadly consistency of a true dragon. Your claws deal slashing damage equal to 1d8 + your Strength modifier, and your AC increases by 1.</p>",
 		"favorite": false,
 		"secretDescription": "",

@@ -2,7 +2,49 @@
 	"name": "Fury of the Earth (Dwarf Paragon)",
 	"type": "feature",
 	"img": "icons/magic/earth/barrier-stone-explosion-debris.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.4dw171L3dIOThWYN",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "0rd5y6SLhG0yahtu"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"img": "icons/magic/earth/barrier-stone-explosion-debris.webp",
+			"_id": "pYxuhIZ8DrYeoAq2",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,15 +57,69 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"0rd5y6SLhG0yahtu": {
+				"name": "Strike Ground",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"BFtur0NVpJscGr4h": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"Hx3A54O25R0UdSpq": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "8 + @prof + @str.mod"
+						}
+					},
+					"QVb35P06GCjAHpe9": {
+						"type": "effect",
+						"default": true,
+						"effectId": "pYxuhIZ8DrYeoAq2"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"lQ76rGHlRnrWBxEC": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				}
+			}
+		},
 		"description": "<p>As an action, you can strike the ground with a melee weapon you’re proficient with. The ground in a 30-foot burst centered on you becomes difficult terrain. Each creature on the ground in the area makes a Dexterity saving throw (DC 8 + your proficiency bonus + your Strength modifier) or is knocked prone. A creature concentrating on a spell makes a Constitution saving throw or its concentration is broken. You can't use this feature again until after you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
