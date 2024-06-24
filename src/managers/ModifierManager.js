@@ -28,6 +28,7 @@ export default class ModifierManager {
   #getAbilityCheckModifiers() {
     return [
       this.#getAbilityModifier(),
+      this.#getAbilityCheckProficiencyBonus(),
       this.#getAbilityCheckBonus(),
       this.#getExpertiseDice(),
       this.#getSituationalModifiers()
@@ -46,6 +47,13 @@ export default class ModifierManager {
   }
 
   #getInitiativeRollModifiers() {
+    if (game.settings.storage.get('world').getItem('a5e.5eStyleInitiative') ?? false) {
+      return [
+        this.#getInitiativeBonus(),
+        ...this.#getAbilityCheckModifiers()
+      ];
+    }
+
     return [
       this.#getInitiativeBonus(),
       ...this.#getSkillCheckModifiers()
@@ -102,6 +110,24 @@ export default class ModifierManager {
       label: localize('A5E.AbilityCheckMod', {
         ability: CONFIG.A5E.abilities[ability] ?? ability
       }),
+      value: this.actor.system.abilities[ability]?.mod ?? null
+    };
+  }
+
+  #getAbilityCheckProficiencyBonus() {
+    const { ability } = this.rollData;
+
+    if (!ability) return null;
+
+    let jackOfAllTrades = false;
+    if (game.settings.storage.get('world').getItem('a5e.5eStyleJackOfAllTrades') ?? false) {
+      jackOfAllTrades = this.actor.flags.a5e?.jackOfAllTrades ?? false;
+    }
+
+    if (!jackOfAllTrades) return null;
+
+    return {
+      label: localize('A5E.ProficiencyBonusJack'),
       value: this.actor.system.abilities[ability]?.mod ?? null
     };
   }

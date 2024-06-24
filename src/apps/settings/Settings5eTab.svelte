@@ -13,6 +13,7 @@
     let deathSaves = settings.getStore("5eStyleDeathSaves");
     let exhaustion = settings.getStore("replaceFatigueAndStrife");
     let expertise = settings.getStore("5eStyleExpertise");
+    let jackOfAllTrades = settings.getStore("5eStyleJackOfAllTrades");
     let hideA5eSkills = settings.getStore("hideA5eSkills");
     let hideBrokenAndDamaged = settings.getStore("hideBrokenAndDamaged");
     let hideExpertiseDice = settings.getStore("hideExpertiseDice");
@@ -47,6 +48,17 @@
         />
     </FieldWrapper>
 
+    <FieldWrapper hint="A5E.settings.hints.5eStyleJackOfAllTrades">
+        <Checkbox
+            label="A5E.settings.5eStyleJackOfAllTrades"
+            checked={updates.get("5eStyleJackOfAllTrades") ?? $jackOfAllTrades ?? false}
+            on:updateSelection={({ detail }) => {
+                updates.set("5eStyleJackOfAllTrades", detail);
+                reload = true;
+            }}
+        />
+    </FieldWrapper>
+
     <FieldWrapper hint="A5E.settings.hints.hideA5eSkills">
         <Checkbox
             label="A5E.settings.hideA5eSkills"
@@ -61,9 +73,7 @@
     <FieldWrapper hint="A5E.settings.hints.hideExpertiseDice">
         <Checkbox
             label="A5E.settings.hideExpertiseDice"
-            checked={updates.get("hideExpertiseDice") ??
-                $hideExpertiseDice ??
-                false}
+            checked={updates.get("hideExpertiseDice") ?? $hideExpertiseDice ?? false}
             on:updateSelection={({ detail }) => {
                 updates.set("hideExpertiseDice", detail);
                 reload = true;
@@ -100,9 +110,7 @@
     <FieldWrapper hint="A5E.settings.hints.replaceFatigueAndStrife">
         <Checkbox
             label="A5E.settings.replaceFatigueAndStrife"
-            checked={updates.get("replaceFatigueAndStrife") ??
-                $exhaustion ??
-                false}
+            checked={updates.get("replaceFatigueAndStrife") ?? $exhaustion ?? false}
             on:updateSelection={({ detail }) => {
                 updates.set("replaceFatigueAndStrife", detail);
                 reload = true;
@@ -113,9 +121,7 @@
     <FieldWrapper hint="A5E.settings.hints.simpleInitiative">
         <Checkbox
             label="A5E.settings.simpleInitiative"
-            checked={updates.get("simpleInitiative") ??
-                $simpleInitiative ??
-                false}
+            checked={updates.get("simpleInitiative") ?? $simpleInitiative ?? false}
             on:updateSelection={({ detail }) => {
                 updates.set("simpleInitiative", detail);
                 reload = true;

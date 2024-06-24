@@ -437,6 +437,18 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: '5eStyleJackOfAllTrades',
+        options: {
+          name: 'A5E.settings.5eStyleJackOfAllTrades',
+          hint: 'A5E.settings.hints.5eStyleJackOfAllTrades',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
         key: 'hideA5eSkills',
         options: {
           name: 'A5E.settings.hideA5eSkills',
