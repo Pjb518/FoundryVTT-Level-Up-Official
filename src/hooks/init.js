@@ -99,11 +99,6 @@ export default function init() {
 
   CONFIG.Item.dataModels = itemDataModels;
 
-  // CONFIG.Item.dataModels.background = BackgroundDataModel;
-  // CONFIG.Item.dataModels.culture = CultureDataModel;
-  // CONFIG.Item.dataModels.destiny = DestinyDataModel;
-  // CONFIG.Item.dataModels.heritage = HeritageDataModel;
-
   // Initialize the game's A5E namespace
   game.a5e = {
     applications: {

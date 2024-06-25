@@ -5,7 +5,8 @@ const base = {
   value: [
     ...Object.keys(A5E.skills).map((s) => `skills.${s}.passive`),
     ...Object.keys(A5E.abilities).map((a) => `abilities.${a}.value`),
-    'attributes.hp.temp'
+    'attributes.hp.temp',
+    'attributes.exertion.current'
   ]
 };
 
