@@ -7,7 +7,6 @@
     import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
-    import { strict } from "assert";
 
     const item = getContext("item");
     const abilities = { none: "None", ...CONFIG.A5E.abilities };
@@ -18,7 +17,7 @@
 <article class="a5e-page-wrapper a5e-page-wrapper--scrollable">
     <Section heading="Metadata" --a5e-section-body-gap="0.75rem">
         <FieldWrapper
-            heading="Class Identifier"
+            heading="Sub Class Identifier"
             --a5e-field-wrapper-header-item-justification="flex-start"
             --a5e-field-wrapper-header-gap="0.5rem"
         >

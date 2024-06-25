@@ -1,3 +1,4 @@
+import type ArchetypeItemA5e from '../documents/item/archetype';
 import type ClassItemA5e from '../documents/item/class';
 
 import getDeterministicBonus from '../dice/getDeterministicBonus';
@@ -10,11 +11,11 @@ interface ClassResource {
 }
 
 export default class ClassResourceManager extends Map<string, ClassResource> {
-  private item: ClassItemA5e;
+  private item: ClassItemA5e | ArchetypeItemA5e;
 
   rollData: Record<string, number | string> = {};
 
-  constructor(item: ClassItemA5e) {
+  constructor(item: ClassItemA5e | ArchetypeItemA5e) {
     super();
 
     this.item = item;
@@ -33,7 +34,18 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
   }
 
   prepareResources() {
-    const level = this.item.system.classLevels;
+    let level: number;
+
+    if (this.item.type === 'class') {
+      // @ts-expect-error  This is correct just need to update this when the types are fixed
+      level = this.item.system.classLevels;
+    } else {
+      const cls = (this.item as ArchetypeItemA5e).class;
+      if (!cls) return;
+
+      level = cls.system.classLevels;
+    }
+
     [...this.entries()].forEach(([slug, resource]) => {
       const rawValue = resource.reference?.[level] || '';
 

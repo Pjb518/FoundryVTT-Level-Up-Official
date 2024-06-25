@@ -287,7 +287,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       };
     } else {
       const dialog = new GenericDialog(
-        `${this.actor.name} - Apply Grants`,
+        `${this.actor.name} - Apply Grants (${options.item?.name ?? options.cls?.name})`,
         GrantApplicationDialog,
         {
           actor: this.actor,

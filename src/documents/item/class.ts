@@ -143,6 +143,12 @@ export default class ClassItemA5e extends OriginItemA5e {
     const data: Record<string, any> = { ...super.getRollData() };
     const resources = this?.resources?.rollData ?? {};
 
+    const { subclass } = this;
+    if (subclass) {
+      const subResources = subclass?.resources?.rollData ?? {};
+      Object.assign(resources, subResources);
+    }
+
     data.actorTransfer = {
       level: this.classLevels,
       hitDiceSize: this.system.hp.hitDiceSize,
