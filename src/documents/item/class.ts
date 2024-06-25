@@ -95,7 +95,9 @@ export default class ClassItemA5e extends OriginItemA5e {
 
   prepareCasterData() {
     const { casterType } = this.system.spellcasting;
-    if (!casterType || casterType === 'none' || !this.classLevels) return null;
+    if (!casterType || casterType === 'none' || !this.classLevels) {
+      return this.subclass?.casting ?? null;
+    }
 
     const progressionConfig = CONFIG.A5E.casterProgression[casterType] ?? null;
     if (!progressionConfig) return null;
