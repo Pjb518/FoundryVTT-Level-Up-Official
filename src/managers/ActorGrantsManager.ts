@@ -180,7 +180,10 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         let reSelectable = false;
 
         if (grant.grantedBy?.id) {
-          const parentGrant = item.grants.get(grant.grantedBy.id);
+          const parentGrant = item.grants.get(grant.grantedBy.id)
+            ?? applicableGrants.find((g) => g._id === grant.grantedBy?.id)
+            ?? this.get(grant.grantedBy?.id);
+
           reSelectable = this.#isReSelectable(parentGrant);
         }
 
@@ -239,7 +242,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     docs = docs.filter((d: any) => {
       if (!d) {
-        ui.notifications.error(`Grant ${grant.label} has an invalid document reference.`);
+        ui.notifications?.error(`Grant ${grant.label} has an invalid document reference.`);
         return false;
       }
 

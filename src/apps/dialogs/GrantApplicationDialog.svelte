@@ -19,7 +19,6 @@
     // Set contexts
     setContext("actor", actor);
     setContext("item", item);
-    console.log(clsLevel);
 
     function getStartingSelectedGrants(): Set<string> {
         return allGrants.reduce((acc: Set<string>, grant: Grant) => {
