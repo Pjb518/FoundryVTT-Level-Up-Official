@@ -181,8 +181,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
         if (grant.grantedBy?.id) {
           const parentGrant = item.grants.get(grant.grantedBy.id)
-            ?? applicableGrants.find((g) => g._id === grant.grantedBy?.id)
-            ?? this.get(grant.grantedBy?.id);
+            ?? applicableGrants.find((g) => g._id === grant.grantedBy?.id);
 
           reSelectable = this.#isReSelectable(parentGrant);
         }
