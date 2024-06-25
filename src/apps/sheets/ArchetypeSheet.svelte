@@ -6,6 +6,7 @@
 
     import ClassPropertiesTab from "../components/pages/ClassPropertiesTab.svelte";
     import ClassResourcesTab from "../components/pages/ClassResourcesTab.svelte";
+    import ArchetypePropertiesTab from "../components/pages/ArchetypePropertiesTab.svelte";
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
     import ItemGrantsTab from "../components/pages/ItemGrantsTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
@@ -39,7 +40,7 @@
         {
             name: "properties",
             label: "A5E.ItemSheetLabelPropertiesTab",
-            component: ClassPropertiesTab,
+            component: ArchetypePropertiesTab,
         },
         {
             name: "resources",

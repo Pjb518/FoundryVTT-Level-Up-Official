@@ -1,3 +1,4 @@
+import type ArchetypeItemA5e from './archetype';
 import type { ClassCastingData, ClassSystemSource } from './data';
 
 import OriginItemA5e from './origin';
@@ -37,7 +38,7 @@ export default class ClassItemA5e extends OriginItemA5e {
   get isStartingClass() {
     if (!this.isEmbedded) return false;
 
-    return this.parent.system.classes.startingClass === this.slug;
+    return this.parent?.system.classes.startingClass === this.slug;
   }
 
   // TODO: Class documents - Cache this
@@ -46,11 +47,18 @@ export default class ClassItemA5e extends OriginItemA5e {
   }
 
   get subclass() {
-    return null;
+    if (!this.isEmbedded) return null;
+    const { slug } = this;
+
+    const cls: unknown | undefined = this.parent?.items
+      .find((i) => i.type === 'archetype' && i.system.class === slug);
+
+    if (!cls) return null;
+    return cls as ArchetypeItemA5e;
   }
 
   get slug() {
-    return this.system.slug || this.name.slugify();
+    return this.system.slug || this.name.slugify({ strict: true });
   }
 
   get totalHitDice() {
@@ -128,13 +136,6 @@ export default class ClassItemA5e extends OriginItemA5e {
       }
     }
 
-    // Add known data for spells and cantrips
-    const knownCantrips = this.system.spellcasting.knownCantrips[this.classLevels] ?? 0;
-    const knownSpells = this.system.spellcasting.knownSpells[this.classLevels] ?? 0;
-
-    if (knownCantrips) data.knownCantrips = knownCantrips;
-    if (knownSpells) data.knownSpells = knownSpells;
-
     return data;
   }
 
@@ -191,7 +192,7 @@ export default class ClassItemA5e extends OriginItemA5e {
 
   // eslint-disable-next-line consistent-return
   async _preUpdate(changed, options, user) {
-    super._preUpdate(changed, options, user);
+    await super._preUpdate(changed, options, user);
 
     const keys = Object.keys(foundry.utils.flattenObject(changed));
     if (keys.includes('system.hp.hitDiceSize') && (this.isStartingClass || !this.parent)) {

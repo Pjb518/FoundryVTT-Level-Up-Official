@@ -23,7 +23,7 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
     const classResourceData: ClassResource[] = this.item.system.resources ?? [];
     classResourceData.forEach((data: ClassResource) => {
       const classResource = data;
-      const slug = classResource.slug || classResource.name.slugify();
+      const slug = classResource.slug || classResource.name.slugify({ strict: true });
 
       this.set(slug, classResource);
     });
@@ -82,7 +82,9 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
   async remove(slug: string) {
     await this.item.update({
       'system.resources': this.item.system.resources
-        .filter((resource: ClassResource) => resource.slug || resource.name.slugify() !== slug)
+        .filter((
+          resource: ClassResource
+        ) => resource.slug || resource.name.slugify({ strict: true }) !== slug)
     });
   }
 

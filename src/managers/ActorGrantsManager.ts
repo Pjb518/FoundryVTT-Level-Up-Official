@@ -163,7 +163,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       .filter((item: typeof Item) => this.allowedTypes.includes(item.type));
 
     for await (const item of items) {
-      const itemSlug = item.slug || item.system.classes?.slugify() || '';
+      const itemSlug = item.slug || item.system.classes?.slugify({ strict: true }) || '';
       let classLevel: number = this.actor.levels.classes?.[itemSlug] ?? 1;
       if (itemSlug === cls?.slug) classLevel += difference;
 

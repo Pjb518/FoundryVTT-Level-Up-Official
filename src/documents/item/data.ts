@@ -62,8 +62,6 @@ export interface ClassSystemSource extends BaseItemSystemSource {
 export interface ClassCastingData {
   casterType: string;
   charges?: number;
-  knownCantrips?: number;
-  knownSpells?: number;
   inventions?: number;
   maxLevel?: number;
   multiclassMode?: 'ADD';

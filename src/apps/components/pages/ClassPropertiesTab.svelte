@@ -72,7 +72,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.slug",
-                            target.value.slugify(),
+                            target.value.slugify({ strict: true }),
                         );
                     }}
                 />
