@@ -124,8 +124,6 @@
     }
 
     function getArchetypeChoices() {
-        console.log(cls);
-        console.log(clsLevel, cls.system.archetypeLevel);
         if (!cls) return [];
         if (clsLevel !== cls.system.archetypeLevel) return [];
 

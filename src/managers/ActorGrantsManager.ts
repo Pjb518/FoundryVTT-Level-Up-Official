@@ -380,10 +380,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     // Add archetype
     const archetypeUuid = dialogData.clsReturnData.archetype;
-    console.log(archetypeUuid);
     if (archetypeUuid) {
       const archetype = await Item.fromDropData({ uuid: archetypeUuid });
-      console.log(archetype);
       if (archetype) {
         const archetypeData = archetype.toObject();
         this.actor.createEmbeddedDocuments('Item', [archetypeData]);
@@ -489,8 +487,6 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       console.error(err);
       return false;
     }
-
-    console.log('Here');
 
     // Remove archetype
     const cls = this.actor.classes[slug];
