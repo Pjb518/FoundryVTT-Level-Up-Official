@@ -490,6 +490,18 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       return false;
     }
 
+    console.log('Here');
+
+    // Remove archetype
+    const cls = this.actor.classes[slug];
+    if (!cls) return true;
+
+    if (classLevel > cls.system.archetypeLevel) return true;
+
+    const { archetype } = cls;
+    if (!archetype) return true;
+
+    archetype.delete();
     return true;
   }
 

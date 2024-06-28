@@ -31,7 +31,6 @@ export default class OriginItemA5e extends BaseItemA5e {
       const actor = this.parent;
       // Keep id of the original document
       options.keepId = true;
-      console.log('here');
       if (!options.noGrant) actor.grants.createInitialGrants(this, false);
     }
 

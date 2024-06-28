@@ -46,7 +46,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     return this.prepareMaxHitPoints();
   }
 
-  get subclass() {
+  get archetype() {
     if (!this.isEmbedded) return null;
     const { slug } = this;
 
@@ -96,7 +96,7 @@ export default class ClassItemA5e extends OriginItemA5e {
   prepareCasterData() {
     const { casterType } = this.system.spellcasting;
     if (!casterType || casterType === 'none' || !this.classLevels) {
-      return this.subclass?.casting ?? null;
+      return this.archetype?.casting ?? null;
     }
 
     const progressionConfig = CONFIG.A5E.casterProgression[casterType] ?? null;
@@ -145,9 +145,9 @@ export default class ClassItemA5e extends OriginItemA5e {
     const data: Record<string, any> = { ...super.getRollData() };
     const resources = this?.resources?.rollData ?? {};
 
-    const { subclass } = this;
-    if (subclass) {
-      const subResources = subclass?.resources?.rollData ?? {};
+    const { archetype } = this;
+    if (archetype) {
+      const subResources = archetype?.resources?.rollData ?? {};
       Object.assign(resources, subResources);
     }
 
@@ -243,6 +243,12 @@ export default class ClassItemA5e extends OriginItemA5e {
     if (this.isStartingClass && this.parent?.documentName === 'Actor') {
       const actor = this.parent;
       actor.update({ 'system.classes.startingClass': '' });
+    }
+
+    if (this.parent?.documentName === 'Actor') {
+      // Delete associated archetype
+      const { archetype } = this;
+      if (archetype) archetype.delete();
     }
   }
 }
