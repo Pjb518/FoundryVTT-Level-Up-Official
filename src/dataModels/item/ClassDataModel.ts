@@ -9,6 +9,9 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
 
     return this.mergeSchema(super.defineSchema(), {
       slug: new fields.StringField({ nullable: false, initial: '' }),
+      archetypeLevel: new fields.NumberField({
+        nullable: false, initial: 3, min: 0, max: 20
+      }),
       description: new fields.HTMLField({ nullable: false, initial: '' }),
       classLevels: new fields.NumberField({
         nullable: false, initial: 0, min: 0, max: 20

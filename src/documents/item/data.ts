@@ -17,6 +17,7 @@ export interface BaseItemSystemSource {
 
 export interface ArchetypeSystemSource extends BaseItemSystemSource {
   slug: string;
+  archetypeLevel: number;
   class: string;
   description: string;
   grants: Record<string, any>;

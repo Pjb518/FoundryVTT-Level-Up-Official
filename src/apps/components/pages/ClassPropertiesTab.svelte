@@ -85,6 +85,25 @@
                 </button>
             </div>
         </FieldWrapper>
+
+        <FieldWrapper
+            heading="Archetype Level"
+            hint="The level at which the archetypes are first chosen."
+            --a5e-field-wrapper-header-gap="0.5rem"
+        >
+            <input
+                class="a5e-input a5e-input--slim a5e-input--small"
+                type="number"
+                min="0"
+                value={$item.system.archetypeLevel}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.archetypeLevel",
+                        Number(target.value),
+                    )}
+            />
+        </FieldWrapper>
     </Section>
 
     <Section heading="Hit Dice" --a5e-section-body-gap="0.75rem">
