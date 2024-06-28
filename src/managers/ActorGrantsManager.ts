@@ -162,8 +162,37 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const items = this.actor.items
       .filter((item: typeof Item) => this.allowedTypes.includes(item.type));
 
+    // Archetype Handling
+    if (cls && cls.system.archetypeLevel === newLevel) {
+      const clsSlug = cls.slug || '';
+      // Get all the archetypes for the class
+
+      const archetypeUuids = (game as Game).packs.reduce((acc: string[], pack) => {
+        if (pack.metadata.type !== 'Item') return acc;
+
+        const uuids = pack.index.reduce((acc2: string[], i) => {
+          if (i.type !== 'archetype') return acc2;
+          if (i.system.class !== clsSlug) return acc2;
+
+          acc2.push(i.uuid);
+          return acc2;
+        }, []);
+
+        acc.push(...uuids);
+        return acc;
+      }, []);
+
+      const archetypes = await fromUuidMulti(archetypeUuids);
+      items.push(...archetypes);
+    }
+
     for await (const item of items) {
-      const itemSlug = item.slug || item.system.classes?.slugify({ strict: true }) || '';
+      let itemSlug: string;
+
+      if (item.type === 'class') itemSlug = item.slug;
+      else if (item.type === 'archetype') itemSlug = item.system.class;
+      else itemSlug = item.system.classes?.slugify({ strict: true }) || '';
+
       let classLevel: number = this.actor.levels.classes?.[itemSlug] ?? 1;
       if (itemSlug === cls?.slug) classLevel += difference;
 
@@ -194,6 +223,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         if (levelType === 'class' && grant.level > classLevel) return;
 
         if (applicableGrants.find((g) => g._id === grant._id)) return;
+        if (applicableGrants.find((g) => this.#getFullId(g) === this.#getFullId(grant))) return;
         if (
           grant.grantedBy?.id
           && !applicableGrants.find((g) => g._id === grant.grantedBy?.id)
@@ -221,6 +251,10 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     );
 
     return result;
+  }
+
+  #getFullId(grant: Grant): string {
+    return `${grant.parent?.id || ''}.${grant._id}`;
   }
 
   #isReSelectable(grant: Grant | null): boolean {
@@ -251,7 +285,12 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const grants: Grant[] = docs.flatMap((doc) => [...doc.grants.values()]
       .map((g) => {
         const hasSelectionId = !!grant.features.options.length;
-        g.grantedBy = { id: grant._id, selectionId: hasSelectionId ? doc.flags.core.sourceId : '' };
+
+        g.grantedBy = {
+          id: grant._id,
+          selectionId: hasSelectionId ? doc.flags.core.sourceId : ''
+        };
+
         return g;
       }));
 

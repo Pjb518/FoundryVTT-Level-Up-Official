@@ -16,6 +16,8 @@
         // @ts-ignore
         getContext("#external").application;
 
+    console.log(allGrants);
+
     // Set contexts
     setContext("actor", actor);
     setContext("item", item);
