@@ -1,6 +1,10 @@
 import * as indexFunctions from '../utils/createIndexes';
 
 const fancyPackData = {
+  archetypes: {
+    packs: ['a5e.a5e-archetypes'],
+    func: indexFunctions.createArchetypeLikeIndex
+  },
   classFeatures: {
     packs: ['a5e.a5e-class-features'],
     func: indexFunctions.createClassFeatureLikeIndex
