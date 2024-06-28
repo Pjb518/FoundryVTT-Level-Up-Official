@@ -23,7 +23,7 @@ interface DefaultApplyOptions {
 export default class ActorGrantsManger extends Map<string, ActorGrant> {
   private actor: typeof Actor;
 
-  private allowedTypes = ['feature', 'background', 'class', 'culture', 'heritage'];
+  private allowedTypes = ['feature', 'archetype', 'background', 'class', 'culture', 'heritage'];
 
   grantedFeatureDocuments = new Map<string, string[]>();
 
@@ -97,7 +97,13 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       ? this.actor.levels.character + 1
       : this.actor.levels.character;
 
-    const classLevel: number = this.actor.levels.classes?.[item?.slug] ?? 1;
+    let itemSlug: string;
+
+    if (item.type === 'class') itemSlug = item.slug;
+    else if (item.type === 'archetype') itemSlug = item.system.class;
+    else itemSlug = item.system.classes?.slugify({ strict: true }) || '';
+
+    const classLevel: number = this.actor.levels.classes?.[itemSlug] ?? 1;
 
     const grants: Grant[] = [...item.grants.values()];
     grants.forEach((grant) => {
@@ -162,30 +168,6 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const items = this.actor.items
       .filter((item: typeof Item) => this.allowedTypes.includes(item.type));
 
-    // Archetype Handling
-    if (cls && cls.system.archetypeLevel === newLevel) {
-      const clsSlug = cls.slug || '';
-      // Get all the archetypes for the class
-
-      const archetypeUuids = (game as Game).packs.reduce((acc: string[], pack) => {
-        if (pack.metadata.type !== 'Item') return acc;
-
-        const uuids = pack.index.reduce((acc2: string[], i) => {
-          if (i.type !== 'archetype') return acc2;
-          if (i.system.class !== clsSlug) return acc2;
-
-          acc2.push(i.uuid);
-          return acc2;
-        }, []);
-
-        acc.push(...uuids);
-        return acc;
-      }, []);
-
-      const archetypes = await fromUuidMulti(archetypeUuids);
-      items.push(...archetypes);
-    }
-
     for await (const item of items) {
       let itemSlug: string;
 
@@ -222,12 +204,11 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         if (levelType === 'character' && grant.level > characterLevel) return;
         if (levelType === 'class' && grant.level > classLevel) return;
 
-        if (applicableGrants.find((g) => g._id === grant._id)) return;
+        // if (applicableGrants.find((g) => g._id === grant._id)) return;
         if (applicableGrants.find((g) => this.#getFullId(g) === this.#getFullId(grant))) return;
-        if (
-          grant.grantedBy?.id
-          && !applicableGrants.find((g) => g._id === grant.grantedBy?.id)
-        ) return;
+
+        const hasGrantedGrant = applicableGrants.find((g) => g._id === grant.grantedBy?.id);
+        if (grant.grantedBy?.id && !hasGrantedGrant) return;
 
         if (grant.optional) {
           // Infer if the grant has been offered before
@@ -395,6 +376,18 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       }
 
       foundry.utils.mergeObject(dialogData.updateData, updateData);
+    }
+
+    // Add archetype
+    const archetypeUuid = dialogData.clsReturnData.archetype;
+    console.log(archetypeUuid);
+    if (archetypeUuid) {
+      const archetype = await Item.fromDropData({ uuid: archetypeUuid });
+      console.log(archetype);
+      if (archetype) {
+        const archetypeData = archetype.toObject();
+        this.actor.createEmbeddedDocuments('Item', [archetypeData]);
+      }
     }
 
     // Update actor with grants data

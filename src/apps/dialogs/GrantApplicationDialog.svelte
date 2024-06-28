@@ -16,8 +16,6 @@
         // @ts-ignore
         getContext("#external").application;
 
-    console.log(allGrants);
-
     // Set contexts
     setContext("actor", actor);
     setContext("item", item);
@@ -125,6 +123,32 @@
         return grantsList;
     }
 
+    function getArchetypeChoices() {
+        console.log(cls);
+        console.log(clsLevel, cls.system.archetypeLevel);
+        if (!cls) return [];
+        if (clsLevel !== cls.system.archetypeLevel) return [];
+
+        const classIdentifier = cls?.slug;
+
+        const options = (game as Game).packs.reduce((acc: string[][], pack) => {
+            if (pack.metadata.type !== "Item") return acc;
+
+            const uuids = pack.index.reduce((acc2: string[][], i) => {
+                if (i.type !== "archetype") return acc2;
+                if (i.system.class !== classIdentifier) return acc2;
+
+                acc2.push([i.uuid, i.name || ""]);
+                return acc2;
+            }, []);
+
+            acc.push(...uuids);
+            return acc;
+        }, []);
+
+        return options;
+    }
+
     function onSubmit() {
         const { updateData, documentData } =
             prepareGrantsApplyData(actor, grants, applyData) ?? {};
@@ -144,6 +168,8 @@
     let clsReturnData: Record<string, any> = {};
     let spellcastingAbility: string =
         cls?.system?.spellcasting?.ability?.options[0] ?? "";
+
+    let archetypeChoices = getArchetypeChoices();
 
     $: applyData = new Map<string, any>();
     $: grants = getApplicableGrants(activeGrants, selectedOptionalGrants);
@@ -172,6 +198,18 @@
                         selected={spellcastingAbility || ""}
                         on:updateSelection={({ detail }) =>
                             (spellcastingAbility = detail)}
+                    />
+                </Section>
+            {/if}
+
+            {#if archetypeChoices.length}
+                <Section heading="Archetype Selection">
+                    <RadioGroup
+                        options={archetypeChoices}
+                        allowDeselect={false}
+                        selected={clsReturnData.archetype || ""}
+                        on:updateSelection={({ detail }) =>
+                            (clsReturnData.archetype = detail)}
                     />
                 </Section>
             {/if}
