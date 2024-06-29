@@ -28,10 +28,19 @@
         dispatch("updateSelection", { uuids: selected, summary });
     }
 
-    const options = [...base, ...choices].map((uuid) => {
-        const doc = fromUuidSync(uuid);
-        return [uuid, doc.name];
-    });
+    const options = [...base, ...choices]
+        .map((uuid) => {
+            const doc = fromUuidSync(uuid);
+            if (!doc) {
+                ui.notifications?.error(
+                    `Could not find document with UUID ${uuid} in grant ${grant.label}.`,
+                );
+                return null;
+            }
+
+            return [uuid, doc.name];
+        })
+        .filter(Boolean) as [string, string][];
 
     $: selected = [...new Set(base.concat(selected))];
     $: totalCount = base.length + count;
