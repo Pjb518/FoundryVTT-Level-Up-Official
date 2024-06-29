@@ -104,7 +104,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     else if (item.type === 'archetype') itemSlug = item.system.class;
     else itemSlug = item.system.classes?.slugify({ strict: true }) || '';
 
-    const classLevel: number = (this.actor.levels.classes?.[itemSlug] ?? 1) + 1;
+    const classLevel: number = (this.actor.levels.classes?.[itemSlug] ?? 0) + 1;
 
     const grants: Grant[] = [...item.grants.values()];
     grants.forEach((grant) => {
