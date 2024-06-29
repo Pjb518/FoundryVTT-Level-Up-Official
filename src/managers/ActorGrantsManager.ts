@@ -16,6 +16,7 @@ import fromUuidMulti from '../utils/fromUuidMulti';
 interface DefaultApplyOptions {
   item?: typeof Item;
   cls?: typeof Item;
+  charLevel?: number;
   clsLevel?: number;
   useUpdateSource?: boolean;
 }
@@ -136,7 +137,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       {
         item,
         cls,
-        clsLevel: characterLevel,
+        charLevel: characterLevel,
+        clsLevel: classLevel,
         useUpdateSource: isPreCreate
       }
     );
@@ -150,11 +152,11 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const difference = newLevel - currentLevel;
     const sign = Math.sign(difference);
     const characterLevel: number = this.actor.levels.character + difference;
+    const clsLevel = (this.actor.levels.classes?.[cls?.slug || ''] ?? 1) + difference;
 
     if (sign === 0) return false;
     if (sign === -1) {
       const clsSlug = cls?.slug || '';
-      const clsLevel = (this.actor.levels.classes?.[clsSlug] ?? 1) + difference;
       if (clsLevel < 1) {
         await cls?.sheet?.close();
         cls.delete();
@@ -231,7 +233,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const result = await this.#applyGrants(
       applicableGrants,
       optionalGrants,
-      { cls, clsLevel: characterLevel, useUpdateSource: false }
+      {
+        cls, charLevel: characterLevel, clsLevel, useUpdateSource: false
+      }
     );
 
     return result;
@@ -395,7 +399,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     if (dialogData.updateData) await this.actor.update(dialogData.updateData);
 
     // Update class data if available
-    if (options.cls) {
+    if (options.cls && !options.item) {
       const { clsReturnData } = dialogData;
       const { leveledHpType, hpFormula, hpValue } = clsReturnData;
 
@@ -423,7 +427,24 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         : options.cls.update.bind(options.cls);
 
       await updateMethod({
-        [`system.hp.levels.${options.clsLevel}`]: hp,
+        [`system.hp.levels.${options.charLevel}`]: hp,
+        'system.spellcasting.ability.value': spellCastingAbility
+      });
+    }
+
+    // Update archetype data if available
+    if (options.item && options.item?.type === 'archetype') {
+      const archetype = options.item;
+
+      const spellCastingAbility = dialogData.clsReturnData.spellcastingAbility
+        || archetype.system.spellcasting.ability.options[0]
+        || archetype.system.spellcasting.ability.base;
+
+      const updateMethod = options.useUpdateSource
+        ? archetype.updateSource.bind(archetype)
+        : archetype.update.bind(archetype);
+
+      await updateMethod({
         'system.spellcasting.ability.value': spellCastingAbility
       });
     }

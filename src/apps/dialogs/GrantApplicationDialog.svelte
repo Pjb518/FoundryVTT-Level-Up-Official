@@ -153,8 +153,6 @@
             return true;
         }
 
-        console.log(item?.system.spellcasting?.ability?.options.length);
-
         if (item?.type !== "archetype") return false;
         if (!item?.system?.spellcasting?.ability?.options.length) return false;
 
