@@ -237,7 +237,7 @@
                 </Section>
             {/if}
 
-            {#if archetypeChoices.length && item?.type === "archetype"}
+            {#if archetypeChoices.length}
                 <Section heading="Archetype Selection">
                     <RadioGroup
                         options={archetypeChoices}
