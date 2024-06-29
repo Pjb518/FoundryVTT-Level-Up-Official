@@ -16,6 +16,8 @@
         // @ts-ignore
         getContext("#external").application;
 
+    console.log(allGrants);
+
     // Set contexts
     setContext("actor", actor);
     setContext("item", item);
@@ -130,20 +132,22 @@
 
         const classIdentifier = cls?.slug;
 
-        const options = (game as Game).packs.reduce((acc: string[][], pack) => {
-            if (pack.metadata.type !== "Item") return acc;
+        const options = (game as Game).packs
+            .reduce((acc: string[][], pack) => {
+                if (pack.metadata.type !== "Item") return acc;
 
-            const uuids = pack.index.reduce((acc2: string[][], i) => {
-                if (i.type !== "archetype") return acc2;
-                if (i.system.class !== classIdentifier) return acc2;
+                const uuids = pack.index.reduce((acc2: string[][], i) => {
+                    if (i.type !== "archetype") return acc2;
+                    if (i.system.class !== classIdentifier) return acc2;
 
-                acc2.push([i.uuid, i.name || ""]);
-                return acc2;
-            }, []);
+                    acc2.push([i.uuid, i.name || ""]);
+                    return acc2;
+                }, []);
 
-            acc.push(...uuids);
-            return acc;
-        }, []);
+                acc.push(...uuids);
+                return acc;
+            }, [])
+            .sort((a, b) => a[1].localeCompare(b[1]));
 
         return options;
     }
@@ -216,7 +220,7 @@
 
 <article>
     <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
-        {#if cls && cls?.type === "class"}
+        {#if cls && cls?.type === "class" && !item}
             {#if clsLevel > 1}
                 <ClassHitPointsSelection {cls} classLevel={clsLevel} bind:clsReturnData />
             {/if}
