@@ -126,7 +126,10 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       applicableGrants.push(grant);
     });
 
-    const cls = item.type === 'class' ? item : null;
+    let cls = null;
+    if (item.type === 'class') cls = item;
+    else if (item.type === 'archetype') cls = this.actor.classes[item.system.class];
+
     await this.#applyGrants(
       applicableGrants,
       optionalGrants,

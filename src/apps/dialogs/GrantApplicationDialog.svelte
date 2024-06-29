@@ -126,6 +126,7 @@
     function getArchetypeChoices() {
         if (!cls) return [];
         if (clsLevel !== cls.system.archetypeLevel) return [];
+        if (item?.type === "archetype") return [];
 
         const classIdentifier = cls?.slug;
 
@@ -147,6 +148,43 @@
         return options;
     }
 
+    function showSpellAbilitySelection() {
+        if (clsLevel === 1 && cls?.system?.spellcasting?.ability?.options.length) {
+            return true;
+        }
+
+        console.log(item?.system.spellcasting?.ability?.options.length);
+
+        if (item?.type !== "archetype") return false;
+        if (!item?.system?.spellcasting?.ability?.options.length) return false;
+
+        return true;
+    }
+
+    function getSpellCastingAbility(): string {
+        if (clsLevel === 1) {
+            return cls?.system?.spellcasting?.ability?.options?.[0] ?? "";
+        }
+
+        if (item?.type !== "archetype") return "";
+        return item?.system?.spellcasting?.ability?.options?.[0] ?? "";
+    }
+
+    function getSpellCastingOptions(): string[][] {
+        if (clsLevel === 1) {
+            return cls?.system?.spellcasting?.ability?.options?.map((option: string) => [
+                option,
+                CONFIG.A5E.abilities[option],
+            ]);
+        }
+
+        if (item?.type !== "archetype") return [];
+        return item?.system?.spellcasting?.ability?.options?.map((option: string) => [
+            option,
+            CONFIG.A5E.abilities[option],
+        ]);
+    }
+
     function onSubmit() {
         const { updateData, documentData } =
             prepareGrantsApplyData(actor, grants, applyData) ?? {};
@@ -164,8 +202,7 @@
     let activeGrants: Set<string> = getStartingSelectedGrants();
     let selectedOptionalGrants: string[] = [];
     let clsReturnData: Record<string, any> = {};
-    let spellcastingAbility: string =
-        cls?.system?.spellcasting?.ability?.options[0] ?? "";
+    let spellcastingAbility: string = getSpellCastingAbility();
 
     let archetypeChoices = getArchetypeChoices();
 
@@ -174,9 +211,7 @@
     $: optionalGrants = getStartingOptionalGrants();
     $: configurableGrants = grants.filter((grant) => grant.requiresConfig);
 
-    $: spellCastingOptions = cls?.system?.spellcasting?.ability?.options?.map(
-        (option: string) => [option, CONFIG.A5E.abilities[option]],
-    );
+    $: spellCastingOptions = getSpellCastingOptions();
 
     $: selectedOptionalGrants, applyData, updateActiveGrants();
 </script>
@@ -188,7 +223,9 @@
                 <ClassHitPointsSelection {cls} classLevel={clsLevel} bind:clsReturnData />
             {/if}
 
-            {#if clsLevel === 1 && cls.system.spellcasting.ability.options.length}
+            <!-- TODO: Update for archetypes -->
+            <!-- {#if clsLevel === 1 && cls.system.spellcasting.ability.options.length} -->
+            {#if showSpellAbilitySelection()}
                 <Section heading="Spellcasting Config">
                     <RadioGroup
                         options={spellCastingOptions}
