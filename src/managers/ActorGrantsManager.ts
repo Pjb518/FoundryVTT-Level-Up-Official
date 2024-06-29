@@ -402,7 +402,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     if (dialogData.updateData) await this.actor.update(dialogData.updateData);
 
     // Update class data if available
-    if (options.cls && !options.item) {
+    if (options.cls && options.item?.type === 'class') {
       const { clsReturnData } = dialogData;
       const { leveledHpType, hpFormula, hpValue } = clsReturnData;
 

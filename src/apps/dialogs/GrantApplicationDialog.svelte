@@ -153,7 +153,6 @@
     }
 
     function showSpellAbilitySelection() {
-        console.log("Here");
         if (clsLevel === 1 && cls?.system?.spellcasting?.ability?.options.length) {
             return true;
         }
