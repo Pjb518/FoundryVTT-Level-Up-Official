@@ -296,8 +296,11 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   ): Promise<boolean> {
     if (!allGrants.length && !options.cls) return false;
 
-    const requiresDialog = [...allGrants].some((grant) => grant.requiresConfig())
-      || !!optionalGrants.length || options.cls;
+    const requiresConfig = [...allGrants].some((grant) => grant.requiresConfig());
+    const isClass = options.cls && !options.item;
+    const hasSpellCasting = options.item?.system?.spellcasting?.ability?.options?.length;
+
+    const requiresDialog = requiresConfig || !!optionalGrants.length || isClass || hasSpellCasting;
 
     let dialogData: {
       updateData: any,

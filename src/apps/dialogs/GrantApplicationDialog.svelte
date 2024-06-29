@@ -153,6 +153,7 @@
     }
 
     function showSpellAbilitySelection() {
+        console.log("Here");
         if (clsLevel === 1 && cls?.system?.spellcasting?.ability?.options.length) {
             return true;
         }
@@ -220,13 +221,11 @@
 
 <article>
     <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
-        {#if cls && cls?.type === "class" && !item}
-            {#if clsLevel > 1}
+        {#if cls && cls?.type === "class"}
+            {#if clsLevel > 1 && !item}
                 <ClassHitPointsSelection {cls} classLevel={clsLevel} bind:clsReturnData />
             {/if}
 
-            <!-- TODO: Update for archetypes -->
-            <!-- {#if clsLevel === 1 && cls.system.spellcasting.ability.options.length} -->
             {#if showSpellAbilitySelection()}
                 <Section heading="Spellcasting Config">
                     <RadioGroup
@@ -239,7 +238,7 @@
                 </Section>
             {/if}
 
-            {#if archetypeChoices.length}
+            {#if archetypeChoices.length && item?.type === "archetype"}
                 <Section heading="Archetype Selection">
                     <RadioGroup
                         options={archetypeChoices}
