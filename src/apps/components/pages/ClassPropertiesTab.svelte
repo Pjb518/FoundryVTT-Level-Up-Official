@@ -72,7 +72,7 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.slug",
-                            target.value.slugify(),
+                            target.value.slugify({ strict: true }),
                         );
                     }}
                 />
@@ -84,6 +84,25 @@
                     <i class="fas fa-solid fa-rotate-left" />
                 </button>
             </div>
+        </FieldWrapper>
+
+        <FieldWrapper
+            heading="Archetype Level"
+            hint="The level at which the archetypes are first chosen."
+            --a5e-field-wrapper-header-gap="0.5rem"
+        >
+            <input
+                class="a5e-input a5e-input--slim a5e-input--small"
+                type="number"
+                min="0"
+                value={$item.system.archetypeLevel}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.archetypeLevel",
+                        Number(target.value),
+                    )}
+            />
         </FieldWrapper>
     </Section>
 

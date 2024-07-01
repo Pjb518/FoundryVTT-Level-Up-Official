@@ -5,11 +5,11 @@
     import { ApplicationShell } from "#runtime/svelte/component/core";
 
     import ClassPropertiesTab from "../components/pages/ClassPropertiesTab.svelte";
+    import ClassResourcesTab from "../components/pages/ClassResourcesTab.svelte";
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
     import ItemGrantsTab from "../components/pages/ItemGrantsTab.svelte";
     import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
-    import ClassResourcesTab from "../components/pages/ClassResourcesTab.svelte";
 
     export let { document, sheet } = getContext("#external").application;
     export let elementRoot;

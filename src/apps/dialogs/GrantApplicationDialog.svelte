@@ -16,6 +16,8 @@
         // @ts-ignore
         getContext("#external").application;
 
+    console.log(allGrants);
+
     // Set contexts
     setContext("actor", actor);
     setContext("item", item);
@@ -123,6 +125,68 @@
         return grantsList;
     }
 
+    function getArchetypeChoices() {
+        if (!cls) return [];
+        if (clsLevel !== cls.system.archetypeLevel) return [];
+        if (item?.type === "archetype") return [];
+
+        const classIdentifier = cls?.slug;
+
+        const options = (game as Game).packs
+            .reduce((acc: string[][], pack) => {
+                if (pack.metadata.type !== "Item") return acc;
+
+                const uuids = pack.index.reduce((acc2: string[][], i) => {
+                    if (i.type !== "archetype") return acc2;
+                    if (i.system.class !== classIdentifier) return acc2;
+
+                    acc2.push([i.uuid, i.name || ""]);
+                    return acc2;
+                }, []);
+
+                acc.push(...uuids);
+                return acc;
+            }, [])
+            .sort((a, b) => a[1].localeCompare(b[1]));
+
+        return options;
+    }
+
+    function showSpellAbilitySelection() {
+        if (clsLevel === 1 && cls?.system?.spellcasting?.ability?.options.length) {
+            return true;
+        }
+
+        if (item?.type !== "archetype") return false;
+        if (!item?.system?.spellcasting?.ability?.options.length) return false;
+
+        return true;
+    }
+
+    function getSpellCastingAbility(): string {
+        if (clsLevel === 1) {
+            return cls?.system?.spellcasting?.ability?.options?.[0] ?? "";
+        }
+
+        if (item?.type !== "archetype") return "";
+        return item?.system?.spellcasting?.ability?.options?.[0] ?? "";
+    }
+
+    function getSpellCastingOptions(): string[][] {
+        if (clsLevel === 1) {
+            return cls?.system?.spellcasting?.ability?.options?.map((option: string) => [
+                option,
+                CONFIG.A5E.abilities[option],
+            ]);
+        }
+
+        if (item?.type !== "archetype") return [];
+        return item?.system?.spellcasting?.ability?.options?.map((option: string) => [
+            option,
+            CONFIG.A5E.abilities[option],
+        ]);
+    }
+
     function onSubmit() {
         const { updateData, documentData } =
             prepareGrantsApplyData(actor, grants, applyData) ?? {};
@@ -140,17 +204,16 @@
     let activeGrants: Set<string> = getStartingSelectedGrants();
     let selectedOptionalGrants: string[] = [];
     let clsReturnData: Record<string, any> = {};
-    let spellcastingAbility: string =
-        cls?.system?.spellcasting?.ability?.options[0] ?? "";
+    let spellcastingAbility: string = getSpellCastingAbility();
+
+    let archetypeChoices = getArchetypeChoices();
 
     $: applyData = new Map<string, any>();
     $: grants = getApplicableGrants(activeGrants, selectedOptionalGrants);
     $: optionalGrants = getStartingOptionalGrants();
     $: configurableGrants = grants.filter((grant) => grant.requiresConfig);
 
-    $: spellCastingOptions = cls?.system?.spellcasting?.ability?.options?.map(
-        (option: string) => [option, CONFIG.A5E.abilities[option]],
-    );
+    $: spellCastingOptions = getSpellCastingOptions();
 
     $: selectedOptionalGrants, applyData, updateActiveGrants();
 </script>
@@ -158,11 +221,11 @@
 <article>
     <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
         {#if cls && cls?.type === "class"}
-            {#if clsLevel > 1}
+            {#if clsLevel > 1 && !item}
                 <ClassHitPointsSelection {cls} classLevel={clsLevel} bind:clsReturnData />
             {/if}
 
-            {#if clsLevel === 1 && cls.system.spellcasting.ability.options.length}
+            {#if showSpellAbilitySelection()}
                 <Section heading="Spellcasting Config">
                     <RadioGroup
                         options={spellCastingOptions}
@@ -170,6 +233,18 @@
                         selected={spellcastingAbility || ""}
                         on:updateSelection={({ detail }) =>
                             (spellcastingAbility = detail)}
+                    />
+                </Section>
+            {/if}
+
+            {#if archetypeChoices.length}
+                <Section heading="Archetype Selection">
+                    <RadioGroup
+                        options={archetypeChoices}
+                        allowDeselect={false}
+                        selected={clsReturnData.archetype || ""}
+                        on:updateSelection={({ detail }) =>
+                            (clsReturnData.archetype = detail)}
                     />
                 </Section>
             {/if}

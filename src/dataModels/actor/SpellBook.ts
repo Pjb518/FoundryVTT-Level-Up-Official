@@ -73,7 +73,7 @@ export default class SpellBook extends A5EDataModel {
       this.spells.set(item.id, item);
     }
 
-    this.slug = `spellbook-${this.name}`.slugify();
+    this.slug = `spellbook-${this.name}`.slugify({ strict: true });
     this.prepareSpellBookStats();
   }
 

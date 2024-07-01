@@ -2,6 +2,7 @@ import { SvelteApplication } from '#runtime/svelte/application';
 
 import ItemDocument from './ItemDocument';
 
+import ArchetypeSheetComponent from './sheets/ArchetypeSheet.svelte';
 import BackgroundSheetComponent from './sheets/BackgroundSheet.svelte';
 import ClassSheetComponent from './sheets/ClassSheet.svelte';
 import CultureSheetComponent from './sheets/CultureSheet.svelte';
@@ -229,6 +230,7 @@ export default class ItemSheet extends SvelteApplication {
   }
 
   static getSheetComponent(type) {
+    if (type === 'archetype') return ArchetypeSheetComponent;
     if (type === 'background') return BackgroundSheetComponent;
     if (type === 'class') return ClassSheetComponent;
     if (type === 'culture') return CultureSheetComponent;

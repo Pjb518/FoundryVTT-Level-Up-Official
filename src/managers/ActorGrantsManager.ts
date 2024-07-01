@@ -16,6 +16,7 @@ import fromUuidMulti from '../utils/fromUuidMulti';
 interface DefaultApplyOptions {
   item?: typeof Item;
   cls?: typeof Item;
+  charLevel?: number;
   clsLevel?: number;
   useUpdateSource?: boolean;
 }
@@ -23,7 +24,7 @@ interface DefaultApplyOptions {
 export default class ActorGrantsManger extends Map<string, ActorGrant> {
   private actor: typeof Actor;
 
-  private allowedTypes = ['feature', 'background', 'class', 'culture', 'heritage'];
+  private allowedTypes = ['feature', 'archetype', 'background', 'class', 'culture', 'heritage'];
 
   grantedFeatureDocuments = new Map<string, string[]>();
 
@@ -41,8 +42,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       if (!Cls) console.warn(`Grant ${id} has no class mapping.`);
       Cls ??= actorGrants.base;
       const grant: any = new Cls(data, { parent: actor });
+      const grantFullId = `${grant.itemUuid.split('.').at(-1)}.${id}`;
 
-      this.set(id, grant);
+      this.set(grantFullId, grant);
     });
 
     // Aggregate granted documents
@@ -97,7 +99,13 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       ? this.actor.levels.character + 1
       : this.actor.levels.character;
 
-    const classLevel: number = this.actor.levels.classes?.[item?.slug] ?? 1;
+    let itemSlug: string;
+
+    if (item.type === 'class') itemSlug = item.slug;
+    else if (item.type === 'archetype') itemSlug = item.system.class;
+    else itemSlug = item.system.classes?.slugify({ strict: true }) || '';
+
+    const classLevel: number = (this.actor.levels.classes?.[itemSlug] ?? 0) + 1;
 
     const grants: Grant[] = [...item.grants.values()];
     grants.forEach((grant) => {
@@ -110,7 +118,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     )).flat().filter((g) => !!g);
 
     grants.concat(subGrants).forEach((grant) => {
-      if (this.has(grant._id)) return;
+      if (this.has(this.#getFullId(grant))) return;
 
       const { levelType } = grant;
       if (levelType === 'character' && grant.level > characterLevel) return;
@@ -120,14 +128,20 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       applicableGrants.push(grant);
     });
 
-    const cls = item.type === 'class' ? item : null;
+    let cls = null;
+    if (item.type === 'class') cls = item;
+    else if (item.type === 'archetype') cls = this.actor.classes[item.system.class];
+
+    console.log(applicableGrants, optionalGrants);
+
     await this.#applyGrants(
       applicableGrants,
       optionalGrants,
       {
         item,
         cls,
-        clsLevel: characterLevel,
+        charLevel: characterLevel,
+        clsLevel: classLevel,
         useUpdateSource: isPreCreate
       }
     );
@@ -141,11 +155,11 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const difference = newLevel - currentLevel;
     const sign = Math.sign(difference);
     const characterLevel: number = this.actor.levels.character + difference;
+    const clsLevel = (this.actor.levels.classes?.[cls?.slug || ''] ?? 1) + difference;
 
     if (sign === 0) return false;
     if (sign === -1) {
       const clsSlug = cls?.slug || '';
-      const clsLevel = (this.actor.levels.classes?.[clsSlug] ?? 1) + difference;
       if (clsLevel < 1) {
         await cls?.sheet?.close();
         cls.delete();
@@ -163,7 +177,12 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       .filter((item: typeof Item) => this.allowedTypes.includes(item.type));
 
     for await (const item of items) {
-      const itemSlug = item.slug || item.system.classes?.slugify() || '';
+      let itemSlug: string;
+
+      if (item.type === 'class') itemSlug = item.slug;
+      else if (item.type === 'archetype') itemSlug = item.system.class;
+      else itemSlug = item.system.classes?.slugify({ strict: true }) || '';
+
       let classLevel: number = this.actor.levels.classes?.[itemSlug] ?? 1;
       if (itemSlug === cls?.slug) classLevel += difference;
 
@@ -186,18 +205,19 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
           reSelectable = this.#isReSelectable(parentGrant);
         }
 
-        if (this.has(grant._id) && !reSelectable) return;
-        if (this.has(grant.grantedBy?.id || '') && !reSelectable) return;
+        if (this.has(this.#getFullId(grant)) && !reSelectable) return;
+        const parentGrant = [...this.values()].find((g) => g.grantId === grant.grantedBy?.id);
+        if (parentGrant && !reSelectable) return;
 
         const { levelType } = grant;
         if (levelType === 'character' && grant.level > characterLevel) return;
         if (levelType === 'class' && grant.level > classLevel) return;
 
-        if (applicableGrants.find((g) => g._id === grant._id)) return;
-        if (
-          grant.grantedBy?.id
-          && !applicableGrants.find((g) => g._id === grant.grantedBy?.id)
-        ) return;
+        // if (applicableGrants.find((g) => g._id === grant._id)) return;
+        if (applicableGrants.find((g) => this.#getFullId(g) === this.#getFullId(grant))) return;
+
+        const hasGrantedGrant = applicableGrants.find((g) => g._id === grant.grantedBy?.id);
+        if (grant.grantedBy?.id && !hasGrantedGrant) return;
 
         if (grant.optional) {
           // Infer if the grant has been offered before
@@ -217,10 +237,16 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const result = await this.#applyGrants(
       applicableGrants,
       optionalGrants,
-      { cls, clsLevel: characterLevel, useUpdateSource: false }
+      {
+        cls, charLevel: characterLevel, clsLevel, useUpdateSource: false
+      }
     );
 
     return result;
+  }
+
+  #getFullId(grant: Grant): string {
+    return `${grant.parent?.id || ''}.${grant._id}`;
   }
 
   #isReSelectable(grant: Grant | null): boolean {
@@ -251,7 +277,12 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     const grants: Grant[] = docs.flatMap((doc) => [...doc.grants.values()]
       .map((g) => {
         const hasSelectionId = !!grant.features.options.length;
-        g.grantedBy = { id: grant._id, selectionId: hasSelectionId ? doc.flags.core.sourceId : '' };
+
+        g.grantedBy = {
+          id: grant._id,
+          selectionId: hasSelectionId ? doc.flags.core.sourceId : ''
+        };
+
         return g;
       }));
 
@@ -269,8 +300,11 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   ): Promise<boolean> {
     if (!allGrants.length && !options.cls) return false;
 
-    const requiresDialog = [...allGrants].some((grant) => grant.requiresConfig())
-      || !!optionalGrants.length || options.cls;
+    const requiresConfig = [...allGrants].some((grant) => grant.requiresConfig());
+    const isClass = options.cls && !options.item;
+    const hasSpellCasting = options.item?.system?.spellcasting?.ability?.options?.length;
+
+    const requiresDialog = requiresConfig || !!optionalGrants.length || isClass || hasSpellCasting;
 
     let dialogData: {
       updateData: any,
@@ -287,7 +321,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       };
     } else {
       const dialog = new GenericDialog(
-        `${this.actor.name} - Apply Grants`,
+        `${this.actor.name} - Apply Grants (${options.item?.name ?? options.cls?.name})`,
         GrantApplicationDialog,
         {
           actor: this.actor,
@@ -358,11 +392,21 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       foundry.utils.mergeObject(dialogData.updateData, updateData);
     }
 
+    // Add archetype
+    const archetypeUuid = dialogData.clsReturnData.archetype;
+    if (archetypeUuid) {
+      const archetype = await Item.fromDropData({ uuid: archetypeUuid });
+      if (archetype) {
+        const archetypeData = archetype.toObject();
+        this.actor.createEmbeddedDocuments('Item', [archetypeData]);
+      }
+    }
+
     // Update actor with grants data
     if (dialogData.updateData) await this.actor.update(dialogData.updateData);
 
     // Update class data if available
-    if (options.cls) {
+    if (options.cls && options.item?.type === 'class') {
       const { clsReturnData } = dialogData;
       const { leveledHpType, hpFormula, hpValue } = clsReturnData;
 
@@ -390,7 +434,24 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         : options.cls.update.bind(options.cls);
 
       await updateMethod({
-        [`system.hp.levels.${options.clsLevel}`]: hp,
+        [`system.hp.levels.${options.charLevel}`]: hp,
+        'system.spellcasting.ability.value': spellCastingAbility
+      });
+    }
+
+    // Update archetype data if available
+    if (options.item && options.item?.type === 'archetype') {
+      const archetype = options.item;
+
+      const spellCastingAbility = dialogData.clsReturnData.spellcastingAbility
+        || archetype.system.spellcasting.ability.options[0]
+        || archetype.system.spellcasting.ability.base;
+
+      const updateMethod = options.useUpdateSource
+        ? archetype.updateSource.bind(archetype)
+        : archetype.update.bind(archetype);
+
+      await updateMethod({
         'system.spellcasting.ability.value': spellCastingAbility
       });
     }
@@ -421,10 +482,10 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   async removeGrantsByItem(itemUuid: string): Promise<void> {
     const updates: Record<string, any> = {};
 
-    for (const [grantId, grant] of this) {
+    for (const [, grant] of this) {
       if (grant.itemUuid !== itemUuid) continue;
 
-      updates[`system.grants.-=${grantId}`] = null;
+      updates[`system.grants.-=${grant.grantId}`] = null;
       foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
     }
 
@@ -434,7 +495,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   async removeGrantsByClassLevel(classLevel: number, slug: string): Promise<boolean> {
     const updates: Record<string, any> = {};
 
-    for (const [grantId, grant] of this) {
+    for (const [, grant] of this) {
       const originItem = fromUuidSync(grant.itemUuid);
 
       if (!originItem) continue;
@@ -445,7 +506,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       if (originItem.type === 'feature' && originItem.system.classes !== slug) continue;
 
       if (grant.level > classLevel) {
-        updates[`system.grants.-=${grantId}`] = null;
+        updates[`system.grants.-=${grant.grantId}`] = null;
         foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
       }
     }
@@ -458,15 +519,25 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       return false;
     }
 
+    // Remove archetype
+    const cls = this.actor.classes[slug];
+    if (!cls) return true;
+
+    if (classLevel > cls.system.archetypeLevel) return true;
+
+    const { archetype } = cls;
+    if (!archetype) return true;
+
+    archetype.delete();
     return true;
   }
 
   async removeGrantsByLevel(level: number): Promise<boolean> {
     const updates: Record<string, any> = {};
 
-    for (const [grantId, grant] of this) {
+    for (const [, grant] of this) {
       if (grant.level > level) {
-        updates[`system.grants.-=${grantId}`] = null;
+        updates[`system.grants.-=${grant.grantId}`] = null;
         foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
       }
     }
@@ -483,7 +554,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   }
 
   async removeGrant(grantId: string): Promise<void> {
-    const grant = this.get(grantId);
+    const grant = [...this.values()].find((g) => g.grantId === grantId) as ActorGrant;
     if (!grant) return;
 
     const updates: Record<string, any> = {
@@ -497,8 +568,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   async removeAll(): Promise<void> {
     const updates: Record<string, any> = {};
 
-    for (const [grantId, grant] of this) {
-      updates[`system.grants.-=${grantId}`] = null;
+    for (const [, grant] of this) {
+      updates[`system.grants.-=${grant.grantId}`] = null;
       foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
     }
 

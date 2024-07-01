@@ -5,6 +5,20 @@ import ManeuverCompendiumSheet from '../apps/ManeuverCompendiumSheet';
 import MonsterCompendiumSheet from '../apps/MonsterCompendiumSheet';
 import SpellCompendiumSheet from '../apps/SpellCompendiumSheet';
 
+// TODO: Redo this to support indexing without applying fancy sheets
+
+export async function createArchetypeLikeIndex(packId: string) {
+  const pack = game.packs.get(packId);
+
+  pack.getIndex({
+    fields: [
+      'system.description',
+      'system.class',
+      'system.source'
+    ]
+  });
+}
+
 export async function createClassFeatureLikeIndex(packId: string) {
   const pack = game.packs.get(packId);
 
