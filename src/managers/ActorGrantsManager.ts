@@ -42,8 +42,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       if (!Cls) console.warn(`Grant ${id} has no class mapping.`);
       Cls ??= actorGrants.base;
       const grant: any = new Cls(data, { parent: actor });
+      const grantFullId = `${grant.itemUuid.split('.').at(-1)}.${id}`;
 
-      this.set(id, grant);
+      this.set(grantFullId, grant);
     });
 
     // Aggregate granted documents
@@ -117,7 +118,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     )).flat().filter((g) => !!g);
 
     grants.concat(subGrants).forEach((grant) => {
-      if (this.has(grant._id)) return;
+      if (this.has(this.#getFullId(grant))) return;
 
       const { levelType } = grant;
       if (levelType === 'character' && grant.level > characterLevel) return;
@@ -130,6 +131,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     let cls = null;
     if (item.type === 'class') cls = item;
     else if (item.type === 'archetype') cls = this.actor.classes[item.system.class];
+
+    console.log(applicableGrants, optionalGrants);
 
     await this.#applyGrants(
       applicableGrants,
@@ -202,8 +205,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
           reSelectable = this.#isReSelectable(parentGrant);
         }
 
-        if (this.has(grant._id) && !reSelectable) return;
-        if (this.has(grant.grantedBy?.id || '') && !reSelectable) return;
+        if (this.has(this.#getFullId(grant)) && !reSelectable) return;
+        const parentGrant = [...this.values()].find((g) => g.grantId === grant.grantedBy?.id);
+        if (parentGrant && !reSelectable) return;
 
         const { levelType } = grant;
         if (levelType === 'character' && grant.level > characterLevel) return;
@@ -478,10 +482,10 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   async removeGrantsByItem(itemUuid: string): Promise<void> {
     const updates: Record<string, any> = {};
 
-    for (const [grantId, grant] of this) {
+    for (const [, grant] of this) {
       if (grant.itemUuid !== itemUuid) continue;
 
-      updates[`system.grants.-=${grantId}`] = null;
+      updates[`system.grants.-=${grant.grantId}`] = null;
       foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
     }
 
@@ -491,7 +495,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   async removeGrantsByClassLevel(classLevel: number, slug: string): Promise<boolean> {
     const updates: Record<string, any> = {};
 
-    for (const [grantId, grant] of this) {
+    for (const [, grant] of this) {
       const originItem = fromUuidSync(grant.itemUuid);
 
       if (!originItem) continue;
@@ -502,7 +506,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       if (originItem.type === 'feature' && originItem.system.classes !== slug) continue;
 
       if (grant.level > classLevel) {
-        updates[`system.grants.-=${grantId}`] = null;
+        updates[`system.grants.-=${grant.grantId}`] = null;
         foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
       }
     }
@@ -531,9 +535,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   async removeGrantsByLevel(level: number): Promise<boolean> {
     const updates: Record<string, any> = {};
 
-    for (const [grantId, grant] of this) {
+    for (const [, grant] of this) {
       if (grant.level > level) {
-        updates[`system.grants.-=${grantId}`] = null;
+        updates[`system.grants.-=${grant.grantId}`] = null;
         foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
       }
     }
@@ -550,7 +554,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   }
 
   async removeGrant(grantId: string): Promise<void> {
-    const grant = this.get(grantId);
+    const grant = [...this.values()].find((g) => g.grantId === grantId) as ActorGrant;
     if (!grant) return;
 
     const updates: Record<string, any> = {
@@ -564,8 +568,8 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
   async removeAll(): Promise<void> {
     const updates: Record<string, any> = {};
 
-    for (const [grantId, grant] of this) {
-      updates[`system.grants.-=${grantId}`] = null;
+    for (const [, grant] of this) {
+      updates[`system.grants.-=${grant.grantId}`] = null;
       foundry.utils.mergeObject(updates, this.#getRemoveUpdates(grant));
     }
 
