@@ -543,7 +543,7 @@
         margin: 1rem;
         font-size: 1rem;
         border: 2px solid #ccc;
-        border-radius: 3px;
+        border-radius: var(--a5e-border-radius-standard);
     }
 
     .sheet-lock {

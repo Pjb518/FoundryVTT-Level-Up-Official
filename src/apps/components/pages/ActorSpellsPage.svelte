@@ -377,7 +377,7 @@
             line-height: 1;
             background: rgba(0 0 0 / 0.05);
             border: 1px solid #ccc;
-            border-radius: 3px;
+            border-radius: var(--a5e-border-radius-standard);
 
             &:focus,
             &:hover {

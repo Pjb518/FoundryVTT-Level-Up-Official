@@ -127,7 +127,7 @@
         color: var(--color-text-light-heading);
         background: rgba(0, 0, 0, 0.6);
         border: 1px solid var(--color-border-dark-secondary);
-        border-radius: 3px;
+        border-radius: var(--a5e-border-radius-standard);
 
         &--letter-key {
             padding-inline: 0.25rem;

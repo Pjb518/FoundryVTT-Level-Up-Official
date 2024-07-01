@@ -28,16 +28,12 @@
     on:click={() =>
         dispatch("updateConditionIcon", [
             conditionKey,
-            icon ||
-                $iconStore[conditionKey] ||
-                conditionIconsDefault[conditionKey],
+            icon || $iconStore[conditionKey] || conditionIconsDefault[conditionKey],
         ])}
 >
     <img
         class="condition-icon"
-        src={icon ||
-            $iconStore[conditionKey] ||
-            conditionIconsDefault[conditionKey]}
+        src={icon || $iconStore[conditionKey] || conditionIconsDefault[conditionKey]}
         alt={getConditionName()}
     />
 
@@ -51,7 +47,7 @@
         gap: 0.5rem;
         padding: 0.125rem;
         background: rgba(0, 0, 0, 0.05);
-        border-radius: 3px;
+        border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
     }
 

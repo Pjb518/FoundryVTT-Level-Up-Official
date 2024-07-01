@@ -10,10 +10,7 @@
 </script>
 
 <button class="save-prompt" on:click={() => dispatch("triggerPrompt")}>
-    <div
-        class="icon-wrapper"
-        class:icon-wrapper--effect={prompt.type === "effect"}
-    >
+    <div class="icon-wrapper" class:icon-wrapper--effect={prompt.type === "effect"}>
         {#if prompt.type === "effect"}
             <img class="effect-icon" src={icon} alt="title" />
         {:else}
@@ -63,7 +60,7 @@
         height: 2rem;
         object-fit: cover;
         object-position: top;
-        border-radius: 3px;
+        border-radius: var(--a5e-border-radius-standard);
     }
 
     .save-prompt {

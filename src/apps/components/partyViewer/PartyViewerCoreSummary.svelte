@@ -14,16 +14,12 @@
     function calculateTotalHPPercentage(hp) {
         const tempHP = hp.temp || 0;
 
-        return Math.min(
-            ((hp.value + (hp.temp || 0)) / (hp.max + tempHP)) * 100,
-            100,
-        );
+        return Math.min(((hp.value + (hp.temp || 0)) / (hp.max + tempHP)) * 100, 100);
     }
 
     $: actorData = $actor?.system;
     $: isBloodied =
-        $actor?.system?.attributes.hp.max / 2 >=
-        $actor?.system?.attributes.hp.value;
+        $actor?.system?.attributes.hp.max / 2 >= $actor?.system?.attributes.hp.value;
 
     $: hp = $actor?.system?.attributes.hp;
     $: totalHPPercentage = convertToPercentage(calculateTotalHPPercentage(hp));
@@ -119,11 +115,11 @@
             background: $color-primary;
             color: white;
             border: 1px solid darken($color-primary, 5%);
-            border-radius: 3px;
+            border-radius: var(--a5e-border-radius-standard);
         }
 
         &--highlight-hp {
-            border-radius: 3px;
+            border-radius: var(--a5e-border-radius-standard);
             padding-block: 1px;
             color: white;
             text-shadow:
