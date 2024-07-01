@@ -9,6 +9,9 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
 
     return this.mergeSchema(super.defineSchema(), {
       slug: new fields.StringField({ nullable: false, initial: '' }),
+      archetypeLevel: new fields.NumberField({
+        nullable: false, initial: 3, min: 0, max: 20
+      }),
       description: new fields.HTMLField({ nullable: false, initial: '' }),
       classLevels: new fields.NumberField({
         nullable: false, initial: 0, min: 0, max: 20
@@ -134,21 +137,7 @@ export default class ClassDataModel extends A5EDataModel.mixin(SchemaDataModel) 
           ),
           value: new fields.StringField({ nullable: false, initial: 'none' })
         }),
-        casterType: new fields.StringField({ nullable: false, initial: 'none' }),
-        knownCantrips: new fields.SchemaField(
-          Array.from({ length: 20 }, (_, i) => i + 1)
-            .reduce((acc, level) => {
-              acc[level] = new fields.NumberField({ nullable: false, initial: 0, min: 0 });
-              return acc;
-            }, {})
-        ),
-        knownSpells: new fields.SchemaField(
-          Array.from({ length: 20 }, (_, i) => i + 1)
-            .reduce((acc, level) => {
-              acc[level] = new fields.NumberField({ nullable: false, initial: 0, min: 0 });
-              return acc;
-            }, {})
-        )
+        casterType: new fields.StringField({ nullable: false, initial: 'none' })
       }),
       wealth: new fields.StringField({ nullable: false, initial: '' })
     });

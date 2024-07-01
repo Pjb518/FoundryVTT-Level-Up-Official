@@ -2,7 +2,7 @@ import { DynMapReducer } from '#runtime/svelte/store/reducer';
 
 export default class FeatureMapReducer extends DynMapReducer {
   initialize() {
-    this.filters.add((item) => ['feature', 'background', 'culture', 'destiny', 'heritage', 'class', 'subclass'].includes(item.type));
+    this.filters.add((item) => ['archetype', 'feature', 'background', 'culture', 'destiny', 'heritage', 'class', 'subclass'].includes(item.type));
     this.sort.set((a, b) => a.sort - b.sort);
 
     this._types = {};
@@ -11,7 +11,11 @@ export default class FeatureMapReducer extends DynMapReducer {
     });
 
     Object.entries(this._types).forEach(([key, reducer]) => {
-      reducer.filters.add((item) => item.system.featureType === key || item.type === key);
+      reducer.filters.add((item) => {
+        if (item.system.featureType === key || item.type === key) return true;
+        if (item.type === 'archetype' && key === 'class') return true;
+        return false;
+      });
     });
 
     this._types.Uncategorized = this.derived.create('uncategorized');

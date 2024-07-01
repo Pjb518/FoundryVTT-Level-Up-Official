@@ -156,7 +156,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
       const level = cls.system.classLevels;
       if (!level) return acc;
 
-      acc.classes[cls.system.slug || cls.name.slugify()] = level;
+      acc.classes[cls.system.slug || cls.name.slugify({ strict: true })] = level;
       acc.character += level;
       return acc;
     }, { character: 0, classes: {} });
@@ -295,22 +295,6 @@ export default class CharacterActorA5E extends BaseActorA5e {
     actorData.spellResources.points.max = spellResources.points.max ?? 0;
     actorData.spellResources.inventions.max = spellResources.inventions.max ?? 0;
     actorData.spellResources.artifactCharges.max = spellResources.artifactCharges.max ?? 0;
-
-    actorData.spellResources.knownSpells = Object.values(classes).reduce((acc, cls) => {
-      const { knownSpells } = cls?.casting ?? {};
-      if (!knownSpells) return acc;
-
-      acc[cls.slug] = knownSpells;
-      return acc;
-    }, {});
-
-    actorData.spellResources.knownCantrips = Object.values(classes).reduce((acc, cls) => {
-      const { knownCantrips } = cls?.casting ?? {};
-      if (!knownCantrips) return acc;
-
-      acc[cls.slug] = knownCantrips;
-      return acc;
-    }, {});
 
     actorData.spellResources.maxSpellLevel = Object.values(classes).reduce((acc, cls) => {
       const { maxLevel } = cls?.casting ?? {};

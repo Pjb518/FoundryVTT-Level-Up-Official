@@ -15,6 +15,24 @@ export interface BaseItemSystemSource {
   }
 }
 
+export interface ArchetypeSystemSource extends BaseItemSystemSource {
+  slug: string;
+  archetypeLevel: number;
+  class: string;
+  description: string;
+  grants: Record<string, any>;
+  resources: Record<string, any>;
+  source: string;
+  spellcasting: {
+    ability: {
+      base: string;
+      options: string[];
+      value: string;
+    };
+    casterType: string;
+  };
+}
+
 export interface BackgroundSystemSource extends BaseItemSystemSource {
   grants: Record<string, any>;
   schemaVersion: any; // TODO: Update this
@@ -38,8 +56,6 @@ export interface ClassSystemSource extends BaseItemSystemSource {
       value: string;
     };
     casterType: string;
-    knownCantrips: Record<number, number>;
-    knownSpells: Record<number, number>;
   };
   wealth: string;
 }
@@ -47,8 +63,6 @@ export interface ClassSystemSource extends BaseItemSystemSource {
 export interface ClassCastingData {
   casterType: string;
   charges?: number;
-  knownCantrips?: number;
-  knownSpells?: number;
   inventions?: number;
   maxLevel?: number;
   multiclassMode?: 'ADD';

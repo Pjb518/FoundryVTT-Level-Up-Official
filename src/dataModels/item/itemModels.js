@@ -1,3 +1,4 @@
+import ArchetypeDataModel from './ArchetypeDataModel';
 import BackgroundDataModel from './BackgroundDataModel';
 import ClassDataModel from './ClassDataModel';
 import CultureDataModel from './CultureDataModel';
@@ -10,6 +11,7 @@ import ObjectDataModel from './ObjectDataModel';
 import SpellDataModel from './SpellDataModel';
 
 const itemDataModels = {
+  archetype: ArchetypeDataModel,
   background: BackgroundDataModel,
   class: ClassDataModel,
   culture: CultureDataModel,
