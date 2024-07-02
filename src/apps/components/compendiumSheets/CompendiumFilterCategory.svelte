@@ -88,7 +88,7 @@
         }
 
         &--exclusive {
-            color: #8b2525;
+            color: var(--a5e-color-error);
             border-left: 0;
             border-radius: 0 3px 3px 0;
         }
