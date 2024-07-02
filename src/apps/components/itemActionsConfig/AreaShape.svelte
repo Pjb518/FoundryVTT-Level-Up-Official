@@ -37,7 +37,7 @@
             $item,
             `system.actions.${actionId}.area.shape`,
             target.value,
-            `system.actions.${actionId}.area.quantity`
+            `system.actions.${actionId}.area.quantity`,
         );
     }}
 />
@@ -56,14 +56,13 @@
             display: none;
 
             &:checked + .area-shape__label {
-                background: $color-primary;
-                border-color: darken($color: $color-primary, $amount: 5);
-                box-shadow: 0 0 10px darken($color: $color-primary, $amount: 10)
-                    inset;
+                background: var(--a5e-color-primary);
+                border-color: #darken(var(--a5e-color-primary), 5);
+                box-shadow: 0 0 10px #darken(var(--a5e-color-primary), 10) inset;
                 color: $color-light-text;
 
                 &:hover {
-                    background: $color-primary;
+                    background: var(--a5e-color-primary);
                 }
             }
         }

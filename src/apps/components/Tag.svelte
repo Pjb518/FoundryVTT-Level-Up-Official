@@ -37,9 +37,9 @@
         if (color === "green") {
             return `
                 --tag-font-color: hsl(190, 21%, 100%);
-                --tag-background-color: hsl(190, 21%, 33%);
+                --tag-background-color: var(--a5e-color-primary);
                 --tag-border-color: hsl(190, 21%, 28%);
-                --tag-hover-background-color: hsl(190, 21%, 33%);
+                --tag-hover-background-color: var(--a5e-color-primary);
                 --tag-hover-font-color: var(--color-hover, hsl(190, 21%, 100%));
             `;
         }

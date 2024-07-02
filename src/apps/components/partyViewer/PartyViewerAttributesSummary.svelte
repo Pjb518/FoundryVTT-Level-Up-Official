@@ -19,9 +19,7 @@
             data-tooltip-direction="UP"
         >
             <span>
-                {replaceHyphenWithMinusSign(
-                    attribute?.check?.deterministicBonus,
-                )}
+                {replaceHyphenWithMinusSign(attribute?.check?.deterministicBonus)}
             </span>
         </div>
 
@@ -34,9 +32,7 @@
             data-tooltip-direction="UP"
         >
             <span>
-                {replaceHyphenWithMinusSign(
-                    attribute?.save?.deterministicBonus,
-                )}
+                {replaceHyphenWithMinusSign(attribute?.save?.deterministicBonus)}
             </span>
         </div>
     </div>
@@ -107,7 +103,7 @@
                 color: $color-light-text;
 
                 &::before {
-                    color: $color-primary;
+                    color: var(--a5e-color-primary);
                 }
             }
         }

@@ -17,9 +17,7 @@
 
         if (!d20Roll) return false;
 
-        return d20Roll.results.some(
-            ({ result, active }) => active && result === 1,
-        );
+        return d20Roll.results.some(({ result, active }) => active && result === 1);
     }
 
     function determineIfCriticalSuccess(roll) {
@@ -28,8 +26,7 @@
         if (!d20Roll) return false;
 
         return d20Roll.results.some(
-            ({ result, active }) =>
-                active && result >= (rollData.critThreshold ?? 20),
+            ({ result, active }) => active && result >= (rollData.critThreshold ?? 20),
         );
     }
 
@@ -37,9 +34,7 @@
         if (!rollMode) return null;
 
         return localize(
-            rollMode === 1
-                ? "A5E.RollModeAdvantage"
-                : "A5E.RollModeDisadvantage",
+            rollMode === 1 ? "A5E.RollModeAdvantage" : "A5E.RollModeDisadvantage",
         );
     }
 
@@ -53,9 +48,7 @@
 
     async function rollOnSkillTable(skillKey, resultType) {
         const tableKey =
-            resultType === "critical"
-                ? "skillCriticalTables"
-                : "skillFumbleTables";
+            resultType === "critical" ? "skillCriticalTables" : "skillFumbleTables";
 
         const critTableUUID = CONFIG.A5E[tableKey]?.[skillKey];
         const critTable = await fromUuid(critTableUUID);
@@ -81,10 +74,7 @@
             content: "<article></article>",
         };
 
-        ChatMessage.applyRollMode(
-            chatData,
-            game.settings.get("core", "rollMode"),
-        );
+        ChatMessage.applyRollMode(chatData, game.settings.get("core", "rollMode"));
 
         return ChatMessage.create(chatData);
     }
@@ -102,10 +92,7 @@
         }
     }
 
-    let hideSkillCriticalPrompt = game.settings.get(
-        "a5e",
-        "hideSkillCriticalPrompt",
-    );
+    let hideSkillCriticalPrompt = game.settings.get("a5e", "hideSkillCriticalPrompt");
 
     let showRollConfig = false;
 
@@ -173,9 +160,7 @@
 
 {#if !hideSkillCriticalPrompt && rollData.type === "skillCheck" && rollData.skillKey}
     {#if isCriticalSuccess}
-        <button
-            on:click={() => rollOnSkillTable(rollData.skillKey, "critical")}
-        >
+        <button on:click={() => rollOnSkillTable(rollData.skillKey, "critical")}>
             <i class="fa-solid fa-dice-d20"></i>
             Roll on the skill critical success table
         </button>
@@ -190,11 +175,7 @@
 {/if}
 
 {#if showRollConfig}
-    <RollConfigurationOptions
-        {rollData}
-        on:toggleRollMode
-        on:toggleExpertiseDice
-    />
+    <RollConfigurationOptions {rollData} on:toggleRollMode on:toggleExpertiseDice />
 {/if}
 
 <style lang="scss">
@@ -293,8 +274,8 @@
         font-size: var(--a5e-text-size-xs);
         line-height: 1;
         color: white;
-        background: $color-primary;
-        border: 1px solid $color-primary;
+        background: var(--a5e-color-primary);
+        border: 1px solid var(--a5e-color-primary);
         border-radius: $border-radius-standard;
     }
 

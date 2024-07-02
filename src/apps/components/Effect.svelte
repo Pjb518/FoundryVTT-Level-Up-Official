@@ -286,7 +286,7 @@
         }
 
         &:hover {
-            color: $color-primary;
+            color: var(--a5e-color-primary);
         }
 
         &:hover,
@@ -296,7 +296,7 @@
     }
 
     .active {
-        color: $color-primary;
+        color: var(--a5e-color-primary);
     }
 
     .locked {

@@ -112,9 +112,9 @@
         }
 
         &--highlight {
-            background: $color-primary;
+            background: var(--a5e-color-primary);
             color: white;
-            border: 1px solid darken($color-primary, 5%);
+            border: 1px solid #darken(var(--a5e-color-primary), 5%);
             border-radius: var(--a5e-border-radius-standard);
         }
 

@@ -567,7 +567,7 @@
         transition: var(--a5e-transition-standard);
 
         &--locked {
-            color: $color-primary;
+            color: var(--a5e-color-primary);
         }
 
         &:focus,

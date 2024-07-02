@@ -569,10 +569,10 @@
     }
 
     .active {
-        color: var(--icon-color-active, $color-primary);
+        color: var(--icon-color-active, var(--a5e-color-primary));
 
         &:hover {
-            color: var(--icon-color-active, $color-primary);
+            color: var(--icon-color-active, var(--a5e-color-primary));
             box-shadow: none;
         }
     }

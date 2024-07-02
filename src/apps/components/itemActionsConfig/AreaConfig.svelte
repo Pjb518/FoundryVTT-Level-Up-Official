@@ -104,10 +104,7 @@
 
     {#if action.area?.shape}
         <div class="u-flex u-gap-md u-w-full">
-            <FieldWrapper
-                heading="A5E.ItemQuantity"
-                --a5e-field-wrapper-width="7.5rem"
-            >
+            <FieldWrapper heading="A5E.ItemQuantity" --a5e-field-wrapper-width="7.5rem">
                 <input
                     id="{actionId}-area-quantity"
                     type="number"
@@ -122,10 +119,7 @@
             </FieldWrapper>
 
             {#if getShapeProperties(action.area.shape).includes("radius")}
-                <FieldWrapper
-                    heading="Radius"
-                    --a5e-field-wrapper-width="7.5rem"
-                >
+                <FieldWrapper heading="Radius" --a5e-field-wrapper-width="7.5rem">
                     <input
                         id="{actionId}-area-radius"
                         type="number"
@@ -262,14 +256,13 @@
             display: none;
 
             &:checked + .area-shape-label {
-                background: $color-primary;
-                border-color: darken($color: $color-primary, $amount: 5);
-                box-shadow: 0 0 10px darken($color: $color-primary, $amount: 10)
-                    inset;
+                background: var(--a5e-color-primary);
+                border-color: #darken(var(--a5e-color-primary), 5);
+                box-shadow: 0 0 10px #darken(var(--a5e-color-primary), 10) inset;
                 color: $color-light-text;
 
                 &:hover {
-                    background: $color-primary;
+                    background: var(--a5e-color-primary);
                 }
             }
         }

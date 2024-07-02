@@ -385,7 +385,7 @@
             }
 
             &--active {
-                background-color: hsl(190, 21%, 33%);
+                background-color: var(--a5e-color-primary);
                 border-color: hsl(190, 21%, 28%);
                 color: hsl(190, 21%, 100%);
             }

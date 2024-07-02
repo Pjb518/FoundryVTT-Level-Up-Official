@@ -55,10 +55,7 @@
             return onUpdateFilters(inclusiveFilters, []);
         }
 
-        const inclusiveFilters = new Set([
-            ...filters,
-            ...activeFilters?.inclusive,
-        ]);
+        const inclusiveFilters = new Set([...filters, ...activeFilters?.inclusive]);
 
         return onUpdateFilters([...inclusiveFilters], []);
     }
@@ -71,10 +68,7 @@
 
     $: numInclusiveFilters = activeFilters?.inclusive?.length ?? 0;
     $: numExclusiveFilters = activeFilters?.exclusive?.length ?? 0;
-    $: filterTooltip = getFilterTooltip(
-        numInclusiveFilters,
-        numExclusiveFilters,
-    );
+    $: filterTooltip = getFilterTooltip(numInclusiveFilters, numExclusiveFilters);
 
     updateFilters(reducer, reducerType, activeFilters);
 </script>
@@ -110,8 +104,7 @@
 
                             <button
                                 class=" filter-button u-text-xs"
-                                on:click|stopPropagation={() =>
-                                    toggleAll(filters)}
+                                on:click|stopPropagation={() => toggleAll(filters)}
                             >
                                 {localize("A5E.ButtonToggleAll")}
                             </button>
@@ -134,8 +127,7 @@
                 {/each}
 
                 <div class="hint">
-                    Hint: Right-click a filter to quickly remove it from the
-                    selection.
+                    Hint: Right-click a filter to quickly remove it from the selection.
                 </div>
             </article>
         </TJSMenu>
@@ -187,7 +179,7 @@
         position: relative;
 
         &--green {
-            color: $color-primary;
+            color: var(--a5e-color-primary);
         }
 
         &--red {
