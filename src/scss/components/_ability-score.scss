@@ -8,7 +8,8 @@
 
   &__body {
     display: grid;
-    grid-template-areas: "value value"
+    grid-template-areas:
+      "value value"
       "check save";
     grid-template-columns: repeat(2, 1fr);
     border: 1px solid #ccc;
@@ -43,7 +44,7 @@
     padding: 0.25rem 0.5rem;
     font-size: var(--a5e-text-size-sm);
     color: #f6f2eb;
-    background: #425f65;
+    background: var(--a5e-color-primary);
     border: 1px solid #3e4240;
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
@@ -129,7 +130,7 @@
       color: #f6f2eb;
 
       &::after {
-        color: #425f65;
+        color: var(--a5e-color-primary);
       }
     }
   }

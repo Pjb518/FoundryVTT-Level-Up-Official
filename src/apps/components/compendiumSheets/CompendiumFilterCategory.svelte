@@ -94,7 +94,7 @@
         }
 
         &--inclusive {
-            color: #425f65;
+            color: var(--a5e-color-primary);
             border-right: 1px solid #b5b3a4;
             border-radius: 3px 0 0 3px;
         }
