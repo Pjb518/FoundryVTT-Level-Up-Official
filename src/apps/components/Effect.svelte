@@ -203,7 +203,7 @@
         padding: 0;
         margin: 0;
         background: transparent;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         grid-area: icon;
 
         &:hover {
@@ -265,7 +265,7 @@
         justify-content: center;
         height: 1rem;
         width: 1rem;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         font-size: $font-size-sm;
         color: #808080;
     }

@@ -36,10 +36,12 @@
                     damageType,
                 });
             } else {
-                return localize(
-                    "A5E.scaling.summaries.steppedSpellLevel.damage",
-                    { formula, step, level, damageType },
-                );
+                return localize("A5E.scaling.summaries.steppedSpellLevel.damage", {
+                    formula,
+                    step,
+                    level,
+                    damageType,
+                });
             }
         }
 
@@ -49,10 +51,10 @@
                     formula,
                 });
             } else {
-                return localize(
-                    "A5E.scaling.summaries.steppedSpellPoint.damage",
-                    { formula, step },
-                );
+                return localize("A5E.scaling.summaries.steppedSpellPoint.damage", {
+                    formula,
+                    step,
+                });
             }
         }
 
@@ -107,8 +109,7 @@
     heading="A5E.Label"
     buttons={[
         {
-            classes:
-                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes: "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicateRoll(actionId, roll),
         },
         {
@@ -151,10 +152,7 @@
                     )}
             />
 
-            <button
-                class="scaling-button"
-                on:click|preventDefault={onClickScalingButton}
-            >
+            <button class="scaling-button" on:click|preventDefault={onClickScalingButton}>
                 <i
                     class="fa-solid fa-arrow-up-right-dots"
                     data-tooltip="A5E.ConfigureDamageScaling"
@@ -249,7 +247,7 @@
         background: transparent;
         color: #999;
         border: 1px solid #7a7971;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
 
         transition: $standard-transition;

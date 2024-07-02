@@ -78,7 +78,7 @@
         padding-right: 0.5rem;
         font-size: $font-size-sm;
         background: $color-light-background;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         border: 1px solid #ccc;
 
         h3 {
@@ -90,7 +90,7 @@
     .document-image {
         height: 2rem;
         width: 2rem;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
     }
 
     .delete-button {

@@ -41,7 +41,7 @@
         color: $color-light-text;
         font-family: $font-primary;
         font-size: $font-size-md;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         text-transform: lowercase;
         box-shadow: 0 0 10px #darken(var(--a5e-color-primary), 10) inset;
     }

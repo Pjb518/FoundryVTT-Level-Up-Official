@@ -62,9 +62,7 @@
 
     $: resource = resource;
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
     $: showRechargeButton = canRecharge($actor, sheetIsLocked);
 </script>
@@ -119,11 +117,7 @@
             placeholder="0"
             min="0"
             on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    target.name,
-                    Number(target.value),
-                )}
+                updateDocumentDataFromField($actor, target.name, Number(target.value))}
         />
 
         {#if resource.hideMax}
@@ -138,10 +132,7 @@
             <input
                 type="number"
                 name="system.resources.{source}.max"
-                value={getDeterministicBonus(
-                    resource.max ?? 0,
-                    $actor.getRollData(),
-                )}
+                value={getDeterministicBonus(resource.max ?? 0, $actor.getRollData())}
                 class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
                 placeholder="0"
                 disabled
@@ -159,7 +150,7 @@
         position: relative;
         padding: 0.125rem 0.25rem 0.25rem 0.25rem;
         border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         min-width: 7rem;
     }
 

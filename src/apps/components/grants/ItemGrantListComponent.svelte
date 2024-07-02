@@ -115,7 +115,7 @@
         padding: 0;
         margin: 0;
         background: transparent;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         grid-area: icon;
 
         &:hover {

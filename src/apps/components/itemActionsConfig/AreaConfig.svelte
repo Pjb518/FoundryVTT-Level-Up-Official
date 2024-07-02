@@ -272,7 +272,7 @@
             align-items: center;
             flex-grow: 1;
             gap: 0.5rem;
-            border-radius: $border-radius-standard;
+            border-radius: var(--a5e-border-radius-standard);
             border: 1px solid #bbb;
             font-size: $font-size-sm;
             padding: 0.375rem 0.5rem;
@@ -305,7 +305,7 @@
         background: transparent;
         color: #999;
         border: 1px solid #7a7971;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
 
         transition: $standard-transition;

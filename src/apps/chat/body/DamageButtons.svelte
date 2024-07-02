@@ -120,7 +120,7 @@
         padding: 0;
         list-style: none;
         border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
 
         &__item {
             display: flex;
@@ -157,7 +157,7 @@
             color: #7e7960;
             background: rgba(0, 0, 0, 0.05);
             border: 1px solid #ccc;
-            border-radius: $border-radius-standard;
+            border-radius: var(--a5e-border-radius-standard);
 
             transition: $standard-transition;
 
@@ -178,7 +178,7 @@
         color: #7e7960;
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
 
         transition: $standard-transition;
 

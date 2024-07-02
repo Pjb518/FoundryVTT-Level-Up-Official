@@ -190,7 +190,7 @@
         font-size: var(--a5e-text-size-lg);
         font-weight: 700;
         border: 0.5px solid var(--a5e-roll-color, #ccc);
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
 
         &::after {
@@ -254,7 +254,7 @@
         color: #7e7960;
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
 
         transition: $standard-transition;
 
@@ -276,7 +276,7 @@
         color: white;
         background: var(--a5e-color-primary);
         border: 1px solid var(--a5e-color-primary);
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
     }
 
     .roll-mode--disadvantage {

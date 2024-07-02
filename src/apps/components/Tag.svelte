@@ -101,7 +101,7 @@
         display: inline;
         padding: 0.15rem 0.4rem;
         border: 1px solid var(--tag-border-color);
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         color: var(--tag-font-color, inherit);
         transition: $standard-transition;
         white-space: normal;

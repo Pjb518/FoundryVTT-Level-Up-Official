@@ -51,10 +51,7 @@
     $: skills = getSkills($actor.system.skills);
     $: showSpecialties = determineWhetherToShowSkillSpecialties(skills);
 
-    $: skillListFlowDirection = game.settings.get(
-        "a5e",
-        "skillListFlowDirection",
-    );
+    $: skillListFlowDirection = game.settings.get("a5e", "skillListFlowDirection");
 </script>
 
 <div class="skill-page-wrapper">
@@ -82,8 +79,7 @@
                                     class="a5e-skill-specialties__list-item"
                                     data-tooltip="Roll {skillName} check with {specialty} specialty"
                                     data-tooltip-direction="UP"
-                                    on:click={() =>
-                                        rollSkillCheckWithSpecialty(skillKey)}
+                                    on:click={() => rollSkillCheckWithSpecialty(skillKey)}
                                 >
                                     {specialty}
                                 </button>
@@ -97,15 +93,10 @@
 
     <ul
         class="skills-container"
-        class:skills-container--column-flow={skillListFlowDirection ===
-            "column"}
+        class:skills-container--column-flow={skillListFlowDirection === "column"}
     >
         {#each Object.entries(skills) as [key, skill], i}
-            <Skill
-                {key}
-                {skill}
-                columnFlow={skillListFlowDirection === "column"}
-            />
+            <Skill {key} {skill} columnFlow={skillListFlowDirection === "column"} />
         {/each}
     </ul>
 </div>
@@ -125,7 +116,7 @@
         padding: 0;
         list-style: none;
         border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
 
         &--column-flow {
             grid-template-rows: repeat(10, 1.5rem);

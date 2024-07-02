@@ -36,8 +36,7 @@
     const spellComponents = getSpellComponents(item);
     const spellLevel = CONFIG.A5E.spellLevels[item?.system?.level];
 
-    const castingLevel =
-        CONFIG.A5E.spellLevels[$message?.flags?.a5e?.castingLevel ?? ""];
+    const castingLevel = CONFIG.A5E.spellLevels[$message?.flags?.a5e?.castingLevel ?? ""];
 </script>
 
 {#if item?.type === "spell"}
@@ -89,7 +88,7 @@
         justify-content: center;
         height: 1rem;
         width: 1rem;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         font-size: var(--a5e-text-size-xxs);
         background: var(--indicator-background, #c6c5bc);
     }
