@@ -142,27 +142,34 @@ export default class TokenA5e extends Token {
     if (!(game.settings.get('a5e', 'enableRadialEffects'))) return;
 
     // Update effect sizes
-    const effectsCount = this.actor?.effects?.filter((e) => {
-      const isOverlay = e.getFlag('core', 'overlay') ?? false;
-      if (isOverlay) return false;
+    // const effectsCount = this.actor?.effects?.filter((e) => {
+    //   const isOverlay = e.getFlag('core', 'overlay') ?? false;
+    //   if (isOverlay) return false;
 
-      const isActive = e.isSuppressed ?? false;
-      if (isActive) return false;
+    //   const isActive = e.isSuppressed ?? false;
+    //   if (isActive) return false;
 
-      const isTemporary = e.isTemporary ?? false;
-      const isOnUse = e.getFlag('a5e', 'transferType') === 'onUse';
-      if (!isTemporary && !isOnUse) return false;
+    //   const isTemporary = e.isTemporary ?? false;
+    //   const isOnUse = e.getFlag('a5e', 'transferType') === 'onUse';
+    //   if (!isTemporary && !isOnUse) return false;
 
-      return true;
-    })?.length ?? 0;
+    //   return true;
+    // })?.length ?? 0;
 
-    if (!effectsCount || !this.effects.children.length) return;
+    // if (!effectsCount || !this.effects.children.length) return;
 
     const background = this.effects.children[0];
     if (!(background instanceof PIXI.Graphics)) return;
     background.clear();
 
-    const icons = this.effects.children.slice(1, 1 + effectsCount);
+    // const icons = this.effects.children.slice(1, 1 + effectsCount);
+    const icons = this.effects.children.filter((e) => {
+      if (e === this.effects.overlay) return false;
+      if (e === this.effects.bg) return false;
+
+      return true;
+    });
+
     const tokenSize = Math.max(this.document.height, this.document.width);
     const gridSize = this?.scene?.grid?.size ?? 100;
 
