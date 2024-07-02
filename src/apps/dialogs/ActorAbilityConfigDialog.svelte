@@ -8,8 +8,7 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { document, appId, abilityKey } =
-        getContext("#external").application;
+    export let { document, appId, abilityKey } = getContext("#external").application;
 
     const actor = document;
     const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
@@ -22,7 +21,8 @@
     {#if !hideExpertiseDice}
         <Section heading="Ability Check Configuration">
             <ExpertiseDiePicker
-                selected={ability?.check.expertiseDice}
+                selected={$actor._source.system.abilities[abilityKey]?.check
+                    ?.expertiseDice}
                 type={$actor.type}
                 on:updateSelection={({ detail }) =>
                     updateDocumentDataFromField(
@@ -34,10 +34,7 @@
         </Section>
     {/if}
 
-    <Section
-        heading="Saving Throw Configuration"
-        --a5e-section-body-gap="0.75rem"
-    >
+    <Section heading="Saving Throw Configuration" --a5e-section-body-gap="0.75rem">
         <FieldWrapper
             hint="Determines whether to add this actor's proficiency bonus to its saving throws"
         >
@@ -56,7 +53,8 @@
 
         {#if !hideExpertiseDice}
             <ExpertiseDiePicker
-                selected={ability?.save.expertiseDice}
+                selected={$actor._source.system.abilities[abilityKey]?.save
+                    ?.expertiseDice}
                 type={$actor.type}
                 on:updateSelection={({ detail }) =>
                     updateDocumentDataFromField(
