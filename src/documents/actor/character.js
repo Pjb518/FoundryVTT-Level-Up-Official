@@ -324,7 +324,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
       return acc;
     }, {});
 
-    Object.assign(data.resources, resources);
+    data.classResources = resources;
 
     return data;
   }
