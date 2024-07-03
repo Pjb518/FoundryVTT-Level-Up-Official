@@ -1,19 +1,24 @@
 import MigrationRunner from '../../migration/MigrationRunner';
 
+// eslint-disable-next-line @typescript-eslint/naming-convention
+
 export type SchemaSchema = {
-  schemaVersion: {
-    version: number;
-    lastMigration: {
-      version: {
-        schema: number | null;
-        system?: string;
-        foundry?: string;
-      };
-    } | null;
-  }
+  schemaVersion: foundry.data.fields.SchemaField<{
+    version: foundry.data.fields.NumberField<{ nullable: true, initial: number }>;
+    lastMigration: foundry.data.fields.SchemaField<{
+      version: foundry.data.fields.SchemaField<{
+        schema: foundry.data.fields.NumberField<{ nullable: true }>;
+        system: foundry.data.fields.StringField<{ nullable: true, required: false }>;
+        foundry: foundry.data.fields.StringField<{ nullable: true, required: false }>;
+      }>;
+    }, { nullable: true, initial: null }>;
+  }>
 };
 
-export default class SchemaDataModel extends foundry.abstract.TypeDataModel {
+export default class SchemaDataModel extends foundry.abstract.TypeDataModel<
+  SchemaSchema
+  , Item.ConfiguredInstance
+> {
   static defineSchema(): SchemaSchema {
     return {
       schemaVersion: new foundry.data.fields.SchemaField({
