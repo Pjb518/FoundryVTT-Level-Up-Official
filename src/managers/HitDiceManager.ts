@@ -70,6 +70,38 @@ export default class HitDiceManager {
     return hitDiceData;
   }
 
+  async consumeHitDice(consumeData: Record<string, any>) {
+    if (this.#actor.type === 'npc' || !this.#automate) {
+      const { hitDice } = this.#actor.system.attributes;
+
+      Object.entries(hitDice ?? {}).forEach(([die, { current }]) => {
+        const consumeValue = consumeData[die] ?? 0;
+        hitDice[die].current = Math.max(current - consumeValue, 0);
+      });
+
+      await this.#actor.update({
+        'system.attributes.hitDice': hitDice
+      });
+    }
+
+    const classes = this.#actor.classes ?? {} as any;
+    const updates: any[] = [];
+
+    Object.entries(consumeData ?? {}).forEach(([die, quantity]) => {
+      const cls = Object.values(classes).find((c: any) => (
+        c.hitDice.size === parseInt(die.slice(1), 10) && c.hitDice.current - quantity >= 0));
+
+      if (!cls) return;
+
+      updates.push({
+        _id: cls.id,
+        'system.hp.hitDiceUsed': Math.min(cls.system.hp.hitDiceUsed + quantity, cls.classLevels)
+      });
+    });
+
+    await this.#actor.updateEmbeddedDocuments('Item', updates);
+  }
+
   async rollHitDice(dieSize: string | null = null, quantity: number = 1): Promise<any> {
     const actorData = this.#actor.system;
     const conMod = parseInt(actorData.abilities.con.check.mod, 10) || 0;

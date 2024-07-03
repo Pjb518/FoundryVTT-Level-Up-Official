@@ -79,17 +79,8 @@ export default class ResourceConsumptionManager {
 
   // @ts-ignore
   #consumeHitDice({ selected } = {}) {
-    const { hitDice } = this.#actor.system.attributes;
-
     if (!selected || !this.#actor) return;
-
-    // @ts-ignore
-    Object.entries(hitDice ?? {}).forEach(([die, { current }]) => {
-      const consumeValue = selected[die] ?? 0;
-      hitDice[die].current = Math.max(current - consumeValue, 0);
-    });
-
-    this.#updates.actor['system.attributes.hitDice'] = hitDice;
+    this.#actor.HitDiceManager.consumeHitDice(selected);
   }
 
   #consumeItemUses({ quantity = 0 } = {}) {
