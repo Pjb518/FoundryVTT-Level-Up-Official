@@ -14,7 +14,7 @@
     const actor = document;
     const abilityOptions = prepareAbilityOptions();
 
-    $: initiative = $actor.system.attributes.initiative;
+    $: initiative = $actor._source.system.attributes.initiative;
 </script>
 
 <Section --a5e-section-body-gap="0.75rem" --a5e-section-padding="0.75rem">

@@ -121,7 +121,15 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       if (this.has(this.#getFullId(grant))) return;
 
       const { levelType } = grant;
-      if (levelType === 'character' && grant.level > characterLevel) return;
+
+      if (levelType === 'character') {
+        if (grant.level > characterLevel) return;
+        if (item.type === 'class') {
+          const parentGrant = item.grants.get(grant?.grantedBy?.id);
+          if (!parentGrant && grant.level !== characterLevel) return;
+        }
+      }
+
       if (levelType === 'class' && grant.level > classLevel) return;
 
       if (grant.optional) optionalGrants.push(grant);
@@ -131,8 +139,6 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     let cls = null;
     if (item.type === 'class') cls = item;
     else if (item.type === 'archetype') cls = this.actor.classes[item.system.class];
-
-    console.log(applicableGrants, optionalGrants);
 
     await this.#applyGrants(
       applicableGrants,
@@ -210,7 +216,15 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         if (parentGrant && !reSelectable) return;
 
         const { levelType } = grant;
-        if (levelType === 'character' && grant.level > characterLevel) return;
+
+        if (levelType === 'character') {
+          if (grant.level > characterLevel) return;
+          if (item.type === 'class') {
+            const classParentGrant = item.grants.get(grant?.grantedBy?.id);
+            if (!classParentGrant && grant.level !== characterLevel) return;
+          }
+        }
+
         if (levelType === 'class' && grant.level > classLevel) return;
 
         // if (applicableGrants.find((g) => g._id === grant._id)) return;

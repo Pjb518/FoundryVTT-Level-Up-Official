@@ -11,20 +11,16 @@
     import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { document, appId, skillKey } =
-        getContext("#external").application;
+    export let { document, appId, skillKey } = getContext("#external").application;
 
     const actor = document;
     const abilityOptions = prepareAbilityOptions();
 
-    const specialtyOptions = Object.entries(
-        CONFIG.A5E.skillSpecialties[skillKey],
-    );
+    const specialtyOptions = Object.entries(CONFIG.A5E.skillSpecialties[skillKey]);
 
     let dnd5eStyleExpertise = game.settings.get("a5e", "5eStyleExpertise");
 
-    let hideSkillSpecialties =
-        game.settings.get("a5e", "hideSkillSpecialties") ?? false;
+    let hideSkillSpecialties = game.settings.get("a5e", "hideSkillSpecialties") ?? false;
 
     $: skill = $actor.system.skills[skillKey];
 </script>
@@ -82,10 +78,7 @@
         <RadioGroup
             heading="A5E.AbilityScore"
             optionStyles="min-width:2rem; text-align: center;"
-            options={[
-                ...abilityOptions,
-                ["@attributes.spellcasting", "Spellcasting"],
-            ]}
+            options={[...abilityOptions, ["@attributes.spellcasting", "Spellcasting"]]}
             selected={$actor._source.system.skills[skillKey].ability}
             allowDeselect={false}
             on:updateSelection={(event) =>
@@ -97,7 +90,7 @@
         />
 
         <ExpertiseDiePicker
-            selected={skill.expertiseDice}
+            selected={$actor._source.system.skills[skillKey]?.expertiseDice}
             type={$actor.type}
             on:updateSelection={({ detail }) =>
                 updateDocumentDataFromField(

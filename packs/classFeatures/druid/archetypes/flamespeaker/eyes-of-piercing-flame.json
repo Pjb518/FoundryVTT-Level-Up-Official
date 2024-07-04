@@ -1,0 +1,159 @@
+{
+	"folder": null,
+	"name": "Eyes of Piercing Flame",
+	"type": "feature",
+	"img": "icons/magic/fire/projectile-flaming-eyeball-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"fnP1TBItVLpp8BUc": {
+				"name": "Eyes of Piercing Flame",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"ilNsBnZgRBkecx2U": {
+						"type": "effect",
+						"default": true,
+						"effectId": "WZF6DwLkxI79N6BO"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"H7IpoQC12Xg5dDjF": {
+				"name": "Dismiss",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 10th level, your gaze burns away more insidious falsehoods and you see visions in fire.</p>\n<p>As a bonus action, you may activate your Eyes of Piercing Flame. When you do, your eyes blaze with spectral flames, which shines bright light in a 30-foot cone emanating from you and dim light in that cone 30 feet beyond that. You gain the benefits of the @UUID[Compendium.a5e.a5e-spells.Item.i0o4xqqd86vdkwwu]{Zone of Truth} spell on all creatures in the bright light cast this way, and you have advantage on Insight checks against creatures in the bright and dim portions. The damage done to creatures that attempt to lie is fire damage rather than psychic damage. The effect persists until you dismiss it as an action.</p>\n<p>While this effect is active, you have disadvantage on Stealth checks and may not benefit from invisibility.</p>\n<p>You also always have the @UUID[Compendium.a5e.a5e-spells.Item.ppht0do531mq84uw]{Scrying} spell prepared (it does not count against your number of spells prepared) and may use any fire larger than a torch as the focus.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "druid"
+	},
+	"effects": [
+		{
+			"origin": "Item.6qPdbMpanEXSK84U",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "fnP1TBItVLpp8BUc",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Eyes of Piercing Flame",
+			"img": "icons/magic/fire/projectile-flaming-eyeball-red.webp",
+			"_id": "WZF6DwLkxI79N6BO",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "30",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.angle",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"invisible\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_id": "hm481xz98jml7nbb"
+}

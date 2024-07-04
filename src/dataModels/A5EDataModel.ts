@@ -1,12 +1,57 @@
-// eslint-disable-next-line max-classes-per-file
-export default class A5EDataModel extends foundry.abstract.TypeDataModel {
-  static _documentType: string;
+/* eslint-disable @typescript-eslint/no-shadow */
+/* eslint-disable max-classes-per-file */
+/* eslint-disable max-len */
+/**
+     * Metadata that describes a system data type.
+     *
+     * @typedef {object} A5EDataModelMetaData
+     * @property {string} type - Name of type to which this system data model belongs.
+     * @property {string} [module] - For module-defined types, which module provides this type.
+     * @property {string} [category] - Which category in the create item dialog should this Document be listed?
+     * @property {string} localization - Base localization key for this type. This should be a localization key that
+     *                                   accepts plural types (e.g. `BF.Item.Type.Weapon` becomes
+     *                                   `BF.Item.Type.Weapon[few]` and `BF.Item.Type.Weapon[other]`).
+     * @property {string} [icon] - Font awesome icon string used for links to this type.
+     * @property {string} [img] - Default image used when creating a Document of this type.
+     */
+interface A5EDataModelMetaData {
+  type?: string;
+  module?: string;
+  category?: string;
+  localization?: string;
+  icon?: string;
+  img?: string;
+}
+
+export default class A5EDataModel<
+  Schema extends DataSchema,
+  Parent extends foundry.abstract.Document<DataSchema, any, any>,
+  BaseData extends Record<string, any> = Record<string, never>,
+  DerivedData extends Record<string, any> = Record<string, never>
+> extends foundry.abstract.TypeDataModel<Schema, Parent, BaseData, DerivedData> {
+  static metadata: A5EDataModelMetaData = {};
+
+  get metadata() {
+    return A5EDataModel.metadata;
+  }
+
+  static get fullType() {
+    return this.metadata.type ? `${this.metadata.module}.${this.metadata.type}` : this.metadata.module;
+  }
 
   static _schemaTemplates: Array<any> = [];
 
-  static _immiscible: Set<string> = new Set(['length', 'mixed', 'name', 'prototype', 'cleanData', '_cleanData',
-    '_initializationOrder', 'validateJoint', '_validateJoint', 'migrateData', '_migrateData',
-    'shimData', '_shimData', 'defineSchema']);
+  static _immiscible: Set<string> = new Set(['length', 'mixed', 'name', 'prototype', 'migrateData', 'defineSchema']);
+
+  static defineSchema() {
+    const schema = {};
+    for (const template of this._schemaTemplates) {
+      if (!template.defineSchema) throw new Error(`Invalid a5e template mixin ${template} defined on class ${this.constructor}`);
+      this.mergeSchema(schema, template.defineSchema?.() ?? {});
+    }
+
+    return schema;
+  }
 
   /**
    * The field names of the base templates used for construction.
@@ -27,30 +72,13 @@ export default class A5EDataModel extends foundry.abstract.TypeDataModel {
     return fieldNames;
   }
 
-  static metadata: any = Object.freeze({
-    systemFlagsModel: null
-  });
-
-  get metadata() {
-    return A5EDataModel.metadata;
-  }
-
-  static defineSchema(): any {
-    const schema = {};
-    for (const template of this._schemaTemplates) {
-      if (!template.defineSchema) throw new Error(`Invalid a5e template mixin ${template} defined on class ${this.constructor}`);
-      this.mergeSchema(schema, template.defineSchema());
-    }
-
-    return schema;
-  }
-
   static mergeSchema(schema: any, template: any): any {
     const { fields } = foundry.data;
 
     for (const key of Object.keys(template)) {
       if (!(key in schema) || (schema[key].constructor !== template[key].constructor)) {
-        schema[key] = template[key];
+        if (template[key] === false) delete schema[key];
+        else schema[key] = template[key];
         continue;
       }
 
@@ -83,26 +111,9 @@ export default class A5EDataModel extends foundry.abstract.TypeDataModel {
     return schema;
   }
 
-  static mergeData(source: any) {
-    for (const template of this._schemaTemplates) {
-      template.migrateData?.(source);
-    }
-    return super.migrateData(source);
-  }
-
-  // static cleanData(source: Record<string, any>, options: Record<string, any> = {}) {
-  //   this._cleanData(source, options);
-  //   return super.cleanData(source, options);
-  // }
-
-  // static _cleanData(source: Record<string, any>, options: Record<string, any> = {}) {
-  //   for (const template of this._schemaTemplates) {
-  //     template._cleanData?.(source, options);
-  //   }
-  // }
-
   // eslint-disable-next-line generator-star-spacing
-  static * _initializationOrder() {
+  protected static * _initializationOrder(): Generator<[string, foundry.data.fields.DataField.Any]> {
+    super._initializationOrder();
     for (const template of this._schemaTemplates) {
       for (const entry of template._initializationOrder()) {
         entry[1] = this.schema.get(entry[0]);
@@ -116,41 +127,17 @@ export default class A5EDataModel extends foundry.abstract.TypeDataModel {
     }
   }
 
-  // static validateJoint(data: Record<string, any>) {
-  //   this._validateJoint(data);
-  //   return super.validateJoint(data);
-  // }
+  /**
+   * Mix multiple templates with the base type.
+   */
+  static mixin(...templates: (typeof foundry.abstract.TypeDataModel)[]) {
+    const Base = class Base<
+      Schema extends DataSchema,
+      Parent extends foundry.abstract.Document<DataSchema, any, any>,
+      BaseData extends Record<string, any> = Record<string, never>,
+      DerivedData extends Record<string, any> = Record<string, never>
+    > extends A5EDataModel<Schema, Parent, BaseData, DerivedData> { };
 
-  // static _validateJoint(data) {
-  //   for (const template of this._schemaTemplates) {
-  //     template._validateJoint(data);
-  //   }
-  // }
-
-  // static migrateData(source: Record<string, any>) {
-  //   this._migrateData(source);
-  //   return super.migrateData(source);
-  // }
-
-  // static _migrateData(source: Record<string, any>) {
-  //   for (const template of this._schemaTemplates) {
-  //     template._migrateData(source);
-  //   }
-  // }
-
-  // static shimData(data: Record<string, any>, options: Record<string, any>) {
-  //   this._shimData(data, options);
-  //   return super.shimData(data, options);
-  // }
-
-  // static _shimData(data: Record<string, any>, options: Record<string, any>) {
-  //   for (const template of this._schemaTemplates) {
-  //     template._shimData(data, options);
-  //   }
-  // }
-
-  static mixin(...templates: any[]): typeof A5EDataModel {
-    const Base: typeof A5EDataModel = class extends A5EDataModel { };
     Object.defineProperty(Base, '_schemaTemplates', {
       value: Object.seal([...this._schemaTemplates, ...templates]),
       writable: false,
@@ -158,10 +145,13 @@ export default class A5EDataModel extends foundry.abstract.TypeDataModel {
     });
 
     for (const template of templates) {
+      let defineSchema: PropertyDescriptor | undefined;
+
       // Take all static methods and fields from template and mix in to base class
-      for (const [key, value] of Object.entries(Object.getOwnPropertyDescriptors(template))) {
+      for (const [key, descriptor] of Object.entries(Object.getOwnPropertyDescriptors(template))) {
+        if (key === 'defineSchema') defineSchema = descriptor;
         if (this._immiscible.has(key)) continue;
-        Object.defineProperty(Base.prototype, key, value);
+        Object.defineProperty(Base.prototype, key, { ...descriptor, enumerable: true });
       }
 
       // Take all instance methods and fields from template and mix in to base class
@@ -169,24 +159,73 @@ export default class A5EDataModel extends foundry.abstract.TypeDataModel {
         Object.getOwnPropertyDescriptors(template.prototype)
       )) {
         if (['constructor'].includes(key)) continue;
-        Object.defineProperty(Base.prototype, key, descriptor);
+        Object.defineProperty(Base.prototype, key, { ...descriptor, enumerable: true });
+      }
+
+      // Copy over defineSchema with a custom name
+      if (defineSchema) {
+        Object.defineProperty(Base, `${template.name}_defineSchema`, defineSchema);
       }
     }
 
     return Base;
   }
 
-  // @ts-ignore
-  override _cleanType(data: Record<string, any>, options: any = {}) {
-    options.source = options.source ?? data;
-
-    // Clean each field that belongs to the schema
-    for (const [name, field] of this.entries()) {
-      if (!(name in data) && options.partial) continue;
-      data[name] = field.clean(data[name], options);
-      if (data[name] === undefined) delete data[name];
+  /**
+   * Determine whether this class mixes in a specific template.
+   */
+  static mixes(template: typeof A5EDataModel | string): boolean {
+    if (foundry.utils.getType(template) === 'string') {
+      return this._schemaTemplates.find((t) => t.name === template) !== undefined;
     }
 
-    return data;
+    return this._schemaTemplates.includes(template);
+  }
+
+  /**
+   * Helper method to get all enumerable methods, inherited or own, for this class.
+   * @param {object} options
+   * @param {string} [options.startingWith] - Optional filtering string.
+   * @param {string} [options.notEndingWith] - Exclude any method that ends with this suffix.
+   * @param {boolean} [options.prototype=true] - Whether the prototype should be checked or the class.
+   * @returns {string[]} - Array of method keys.
+   */
+  static _getMethods(
+    { startingWith, notEndingWith, prototype = true }:
+      { startingWith?: string; notEndingWith?: string; prototype?: boolean }
+  ) {
+    let keys: string[] = [];
+
+    // eslint-disable-next-line guard-for-in
+    for (const key in (prototype ? this.prototype : this)) {
+      keys.push(key);
+    }
+
+    for (let cls of [this, ...foundry.utils.getParentClasses(this)].reverse()) {
+      if (['Base', 'BaseDataModel', 'DataModel'].includes(cls.name)) continue;
+      if (prototype) cls = cls.prototype;
+      keys.push(...Object.getOwnPropertyNames(cls));
+    }
+    if (startingWith) keys = keys.filter((key) => key.startsWith(startingWith) && key !== startingWith);
+    if (notEndingWith) keys = keys.filter((key) => !key.endsWith(notEndingWith));
+    return keys;
+  }
+
+  /** @override */
+  static migrateData(source) {
+    this._getMethods({ startingWith: 'migrate', notEndingWith: 'Data', prototype: false }).forEach((k) => this[k](source));
+    return super.migrateData(source);
+  }
+
+  prepareBaseData() {
+    A5EDataModel._getMethods({ startingWith: 'prepareBase', notEndingWith: 'Data' }).forEach((k) => this[k]());
+  }
+
+  prepareEmbeddedData() {
+    A5EDataModel._getMethods({ startingWith: 'prepareEmbedded', notEndingWith: 'Data' }).forEach((k) => this[k]());
+  }
+
+  prepareDerivedData() {
+    A5EDataModel._getMethods({ startingWith: 'prepareDerived', notEndingWith: 'Data' }).forEach((k) => this[k]());
   }
 }
