@@ -6,7 +6,7 @@ import DestinyDataModel from './DestinyDataModel';
 import HeritageDataModel from './HeritageDataModel';
 
 import { A5EFeatureData } from './FeatureDataModel';
-import ManeuverDataModel from './ManeuverDataModel';
+import { A5EManeuverData } from './ManeuverDataModel';
 import { A5EObjectData } from './ObjectDataModel';
 import SpellDataModel from './SpellDataModel';
 
@@ -19,7 +19,7 @@ const itemDataModels = {
   heritage: HeritageDataModel,
 
   feature: A5EFeatureData,
-  maneuver: ManeuverDataModel,
+  maneuver: A5EManeuverData,
   object: A5EObjectData,
   spell: SpellDataModel
 };
