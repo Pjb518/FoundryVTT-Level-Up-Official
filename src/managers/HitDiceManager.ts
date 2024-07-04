@@ -12,6 +12,8 @@ export default class HitDiceManager {
   dieSizes = new Set<number>();
 
   constructor(actor: typeof Actor, automate = true) {
+    console.log(automate, 'automate');
+
     this.#actor = actor;
     this.#automate = automate;
 
@@ -118,7 +120,7 @@ export default class HitDiceManager {
         .#rollHitDice(dieSize, attributes.hitDice[dieSize].current, quantity, formula);
 
       this.#actor.update({
-        'data.attributes': {
+        'system.attributes': {
           [`hitDice.${dieSize}.current`]: attributes.hitDice[dieSize].current - quantity
         }
       });

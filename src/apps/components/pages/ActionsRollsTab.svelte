@@ -92,14 +92,11 @@
         ([_, roll]) => roll.type === "attack",
     );
 
-    $: menuList = Object.entries(rollTypes).reduce(
-        (acc, [rollType, { singleLabel }]) => {
-            if (!(rollType === "attack" && attackRolls.length > 0))
-                acc.push([rollType, singleLabel]);
-            return acc;
-        },
-        [],
-    );
+    $: menuList = Object.entries(rollTypes).reduce((acc, [rollType, { singleLabel }]) => {
+        if (!(rollType === "attack" && attackRolls.length > 0))
+            acc.push([rollType, singleLabel]);
+        return acc;
+    }, []);
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
@@ -109,24 +106,26 @@
                 <li class="roll-config-list__item">
                     <Section
                         {heading}
-                        headerButtons={[
-                            {
-                                classes: "add-button",
-                                handler: () =>
-                                    ActionsManager.addRoll(
-                                        $item,
-                                        [actionId, action],
-                                        rollType,
-                                    ),
-                                label: localize("A5E.ButtonAddRoll", {
-                                    type: localize(
-                                        rollType === "damage"
-                                            ? buttonLabel
-                                            : singleLabel,
-                                    ),
-                                }),
-                            },
-                        ]}
+                        headerButtons={rollType === "attack"
+                            ? []
+                            : [
+                                  {
+                                      classes: "add-button",
+                                      handler: () =>
+                                          ActionsManager.addRoll(
+                                              $item,
+                                              [actionId, action],
+                                              rollType,
+                                          ),
+                                      label: localize("A5E.ButtonAddRoll", {
+                                          type: localize(
+                                              rollType === "damage"
+                                                  ? buttonLabel
+                                                  : singleLabel,
+                                          ),
+                                      }),
+                                  },
+                              ]}
                         --a5e-section-gap="0"
                     >
                         <ul class="a5e-item-list">

@@ -258,6 +258,12 @@ export default class ActionsManager extends DataProxy {
 
     if (type === 'attack') {
       // TODO: Error System - Throw error on multiple attack rolls
+
+      if (Object.keys(action[1]?.rolls).length > 0) {
+        ui.notifications?.error('Only one attack roll is allowed per action.');
+        return null;
+      }
+
       defaultData.attackType = 'meleeWeaponAttack';
       defaultData.proficient = true;
     }
