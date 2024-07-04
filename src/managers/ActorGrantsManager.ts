@@ -252,7 +252,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       applicableGrants,
       optionalGrants,
       {
-        cls, charLevel: characterLevel, clsLevel, useUpdateSource: false
+        cls, item: cls, charLevel: characterLevel, clsLevel, useUpdateSource: false
       }
     );
 
@@ -433,7 +433,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       } else if (['custom', 'average'].includes(leveledHpType) && hpValue) {
         hp = hpValue;
       } else {
-        hp = options.cls.system.classLevels === 1
+        hp = options.cls.system.classLevels === 1 && options.charLevel === 1
           ? options.cls.system.hp.levels['1']
           : options.cls.averageHP;
       }

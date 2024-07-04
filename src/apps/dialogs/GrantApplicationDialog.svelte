@@ -12,11 +12,18 @@
     import Section from "../components/Section.svelte";
     import ClassHitPointsSelection from "../components/ClassHitPointsSelection.svelte";
 
-    export let { allGrants, dialog, optionalGrantsProp, actor, item, cls, clsLevel } =
+    export let {
+        allGrants,
+        dialog,
+        optionalGrantsProp,
+        actor,
+        item,
+        cls,
+        charLevel,
+        clsLevel,
+    } =
         // @ts-ignore
         getContext("#external").application;
-
-    console.log(allGrants);
 
     // Set contexts
     setContext("actor", actor);
