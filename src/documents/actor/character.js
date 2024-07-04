@@ -53,10 +53,10 @@ export default class CharacterActorA5E extends BaseActorA5e {
     this.automationAvailable = automationAvailable;
 
     this.classAutomationFlags = {
-      classes: this.getFlag('a5e', 'automateClasses') ?? automationAvailable ?? true,
-      hitDice: this.getFlag('a5e', 'automateHitDice') ?? automationAvailable ?? true,
-      hitPoints: this.getFlag('a5e', 'automateHitPoints') ?? automationAvailable ?? true,
-      spellResources: this.getFlag('a5e', 'automateSpellResources') ?? automationAvailable ?? true
+      classes: this.getFlag('a5e', 'automateClasses') ?? automationAvailable ?? false,
+      hitDice: this.getFlag('a5e', 'automateHitDice') ?? automationAvailable ?? false,
+      hitPoints: this.getFlag('a5e', 'automateHitPoints') ?? automationAvailable ?? false,
+      spellResources: this.getFlag('a5e', 'automateSpellResources') ?? automationAvailable ?? false
     };
 
     this.prepareLevelData();
