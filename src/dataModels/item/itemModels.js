@@ -8,7 +8,7 @@ import HeritageDataModel from './HeritageDataModel';
 import { A5EFeatureData } from './FeatureDataModel';
 import { A5EManeuverData } from './ManeuverDataModel';
 import { A5EObjectData } from './ObjectDataModel';
-import SpellDataModel from './SpellDataModel';
+import { A5ESpellData } from './SpellDataModel';
 
 const itemDataModels = {
   archetype: ArchetypeDataModel,
@@ -21,7 +21,7 @@ const itemDataModels = {
   feature: A5EFeatureData,
   maneuver: A5EManeuverData,
   object: A5EObjectData,
-  spell: SpellDataModel
+  spell: A5ESpellData
 };
 
 export default itemDataModels;
