@@ -1,23 +1,32 @@
-import A5EDataModel from '../A5EDataModel';
-import SchemaDataModel from '../template/SchemaDataModel';
-import type { SchemaSchema } from '../template/SchemaDataModel';
+import { A5EBaseItemData } from './base';
 
-type DestinySchema = {
-  description: string;
-  sourceOfInspiration: string;
-  inspirationFeature: string;
-  fulfillmentFeature: string;
-  schemaVersion: SchemaSchema;
+const { fields } = foundry.data;
+
+const schema = {
+  sourceOfInspiration: new fields.StringField({ nullable: false, initial: '' }),
+  inspirationFeature: new fields.StringField({ nullable: false, initial: '' }),
+  fulfillmentFeature: new fields.StringField({ nullable: false, initial: '' })
 };
 
-export default class DestinyDataModel extends A5EDataModel.mixin(SchemaDataModel) {
-  static defineSchema(): DestinySchema {
-    return this.mergeSchema(super.defineSchema(), {
-      description: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
-      sourceOfInspiration: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
-      inspirationFeature: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
-      fulfillmentFeature: new foundry.data.fields.StringField({ nullable: false, initial: '' }),
-      source: new foundry.data.fields.StringField({ nullable: false, initial: '' })
-    });
+declare namespace A5EDestinyData {
+  type Schema = A5EBaseItemData.Schema & typeof schema;
+  type BaseData = A5EBaseItemData.BaseData;
+  type DerivedData = A5EBaseItemData.DerivedData;
+}
+
+class A5EDestinyData extends A5EBaseItemData<
+  A5EDestinyData.Schema,
+  A5EDestinyData.BaseData,
+  A5EDestinyData.DerivedData
+> {
+  /** @inheritDoc */
+  static override defineSchema(): A5EDestinyData.Schema {
+    return {
+      ...super.defineSchema(),
+      ...schema
+    };
   }
 }
+
+// eslint-disable-next-line import/prefer-default-export
+export { A5EDestinyData };
