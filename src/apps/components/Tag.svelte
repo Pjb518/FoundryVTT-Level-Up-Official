@@ -17,9 +17,9 @@
         if (color === "red") {
             return `
                 --tag-font-color: hsl(0, 58%, 100%);
-                --tag-background-color: hsl(0, 58%, 35%);
+                --tag-background-color: var(--a5e-color-error);
                 --tag-border-color: hsl(0, 58%, 28%);
-                --tag-hover-background-color: hsl(0, 58%, 35%);
+                --tag-hover-background-color: var(--a5e-color-error);
                 --tag-hover-font-color: var(--color-hover, hsl(0, 58%, 100%));
             `;
         }

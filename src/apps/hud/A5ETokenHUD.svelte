@@ -292,7 +292,7 @@
         transition: $standard-transition;
 
         &:hover {
-            color: lighten($color-secondary, 15);
+            color: #lighten(var(--a5e-color-error), 15);
             box-shadow: none;
         }
     }

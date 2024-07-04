@@ -330,7 +330,7 @@
     }
 
     .delete-button:hover {
-        color: $color-secondary;
+        color: var(--a5e-color-error);
     }
 
     .track {

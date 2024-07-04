@@ -281,7 +281,7 @@
 
     .roll-mode--disadvantage {
         border-color: #772020;
-        background: $color-secondary;
+        background: var(--a5e-color-error);
     }
 
     .roll-sublabel {
