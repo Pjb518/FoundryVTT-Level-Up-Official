@@ -12,8 +12,6 @@ export default class HitDiceManager {
   dieSizes = new Set<number>();
 
   constructor(actor: typeof Actor, automate = true) {
-    console.log(automate, 'automate');
-
     this.#actor = actor;
     this.#automate = automate;
 
