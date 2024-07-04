@@ -25,7 +25,7 @@ import SpellCompendiumSheet from '../apps/SpellCompendiumSheet';
 import CharacterData from '../dataModels/actor/CharacterData';
 import NPCData from '../dataModels/actor/NPCData';
 
-import itemDataModels from '../dataModels/item/itemModels';
+import itemDataModels from '../dataModels/item/itemDataModels';
 
 // Effects
 import constructEffectOptions from '../documents/activeEffect/utils/constructEffectOptions';

@@ -1,6 +1,5 @@
 /* eslint-disable no-continue */
 /* eslint-disable no-unused-vars */
-import type { ItemSystemSource } from './data';
 
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import getSummaryData from '../../utils/summaries/getSummaryData';
@@ -10,8 +9,6 @@ import getSummaryData from '../../utils/summaries/getSummaryData';
  * @extends {Item}
  */
 export default class BaseItemA5e extends Item {
-  declare system: ItemSystemSource;
-
   dialogs: {
     actions: Record<string, any>;
     areaScaling: Record<string, any>;

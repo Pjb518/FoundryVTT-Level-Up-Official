@@ -1,10 +1,6 @@
-import type { SpellSystemSource } from './data';
-
 import ItemA5e from './item';
 
 export default class SpellItemA5e extends ItemA5e {
-  declare system: SpellSystemSource;
-
   get spellBook() {
     return this.system.spellBook;
   }
