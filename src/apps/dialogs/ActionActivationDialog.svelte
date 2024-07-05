@@ -56,54 +56,46 @@
                 itemUses: itemUsesData,
                 spell: spellData,
             },
-            damageBonuses: Object.entries(
-                $actor.system.bonuses.damage ?? {},
-            ).reduce((acc, [key, damageBonus]) => {
-                if (selectedDamageBonuses.includes(key)) {
-                    acc.push(damageBonus);
-                }
-
-                return acc;
-            }, []),
-            healingBonuses: Object.entries(
-                $actor.system.bonuses.healing ?? {},
-            ).reduce((acc, [key, healingBonus]) => {
-                if (selectedHealingBonuses.includes(key)) {
-                    acc.push(healingBonus);
-                }
-
-                return acc;
-            }, []),
-            prompts: Object.entries(action.prompts ?? {}).reduce(
-                (acc, [key, prompt]) => {
-                    if (selectedPrompts.includes(key)) {
-                        if (prompt.type === "savingThrow") {
-                            prompt.dc = computeSaveDC(
-                                $actor,
-                                $item,
-                                prompt.saveDC,
-                            );
-                        }
-
-                        acc.push(prompt);
+            damageBonuses: Object.entries($actor.system.bonuses.damage ?? {}).reduce(
+                (acc, [key, damageBonus]) => {
+                    if (selectedDamageBonuses.includes(key)) {
+                        acc.push(damageBonus);
                     }
 
                     return acc;
                 },
                 [],
             ),
-            rolls: Object.entries(action.rolls ?? {}).reduce(
-                (acc, [key, roll]) => {
-                    // Attack rolls are excluded here because they are formatted differently
-                    // and require additional processing.
-                    if (selectedRolls.includes(key) && roll.type !== "attack") {
-                        acc.push(roll);
+            healingBonuses: Object.entries($actor.system.bonuses.healing ?? {}).reduce(
+                (acc, [key, healingBonus]) => {
+                    if (selectedHealingBonuses.includes(key)) {
+                        acc.push(healingBonus);
                     }
 
                     return acc;
                 },
                 [],
             ),
+            prompts: Object.entries(action.prompts ?? {}).reduce((acc, [key, prompt]) => {
+                if (selectedPrompts.includes(key)) {
+                    if (prompt.type === "savingThrow") {
+                        prompt.dc = computeSaveDC($actor, $item, prompt.saveDC);
+                    }
+
+                    acc.push(prompt);
+                }
+
+                return acc;
+            }, []),
+            rolls: Object.entries(action.rolls ?? {}).reduce((acc, [key, roll]) => {
+                // Attack rolls are excluded here because they are formatted differently
+                // and require additional processing.
+                if (selectedRolls.includes(key) && roll.type !== "attack") {
+                    acc.push(roll);
+                }
+
+                return acc;
+            }, []),
             placeTemplate,
             visibilityMode,
         });
@@ -116,10 +108,7 @@
     const consumers = prepareConsumers(action.consumers);
     const prompts = preparePrompts(action.prompts, $item);
     const rolls = prepareRolls(action.rolls);
-    const damageBonuses = $actor.BonusesManager.prepareGlobalDamageBonuses(
-        $item,
-        rolls,
-    );
+    const damageBonuses = $actor.BonusesManager.prepareGlobalDamageBonuses($item, rolls);
     const healingBonuses = $actor.BonusesManager.prepareGlobalHealingBonuses(
         $item,
         rolls,
@@ -143,12 +132,7 @@
         action?.area?.placeTemplate ||
         false;
 
-    const validator = new ConsumptionValidator(
-        $actor,
-        $item,
-        action,
-        consumers,
-    );
+    const validator = new ConsumptionValidator($actor, $item, action, consumers);
 
     const { isEmpty } = foundry.utils;
     const preventActionRollOnWarning = game.settings.get(
@@ -174,7 +158,7 @@
     {#if warnings.length}
         <section class="warning__wrapper">
             {#each warnings as warning}
-                <p class="warning" style="color: $color-warning;">
+                <p class="warning" style="color: var(--a5e-color-warning);">
                     <i class="fa-solid fa-circle-exclamation" />
                     {warning}
                 </p>
@@ -214,8 +198,7 @@
                 damageBonus.label || damageBonus.defaultLabel,
             ])}
             selected={selectedDamageBonuses}
-            on:updateSelection={({ detail }) =>
-                (selectedDamageBonuses = detail)}
+            on:updateSelection={({ detail }) => (selectedDamageBonuses = detail)}
         />
     {/if}
 
@@ -228,8 +211,7 @@
                 healingBonus.label || healingBonus.defaultLabel,
             ])}
             selected={selectedHealingBonuses}
-            on:updateSelection={({ detail }) =>
-                (selectedHealingBonuses = detail)}
+            on:updateSelection={({ detail }) => (selectedHealingBonuses = detail)}
         />
     {/if}
 
@@ -258,7 +240,7 @@
             {#if warnings.length}
                 <i
                     class="fa-solid fa-circle-exclamation"
-                    style="color: $color-warning;"
+                    style="color: var(--a5e-color-warning);"
                 />
             {:else}
                 <i class="fa-solid fa-dice" />

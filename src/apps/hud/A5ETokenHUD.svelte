@@ -174,7 +174,7 @@
             h3 {
                 cursor: not-allowed;
                 font-weight: bold;
-                color: lighten($color: $color-warning, $amount: 15);
+                color: #lighten(var(--a5e-color-warning), 15);
                 // filter: invert(11%) sepia(42%) saturate(7092%)
                 //     hue-rotate(352deg) brightness(94%) contrast(81%);
             }

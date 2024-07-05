@@ -27,9 +27,9 @@
         if (color === "orange") {
             return `
                 --tag-font-color: hsl(36, 58%, 100%);
-                --tag-background-color: hsl(36, 58%, 35%);
+                --tag-background-color: var(--a5e-color-warning);
                 --tag-border-color: hsl(36, 58%, 28%);
-                --tag-hover-background-color: hsl(36, 58%, 35%);
+                --tag-hover-background-color: var(--a5e-color-warning);
                 --tag-hover-font-color: var(--color-hover, hsl(36, 58%, 100%));
             `;
         }
