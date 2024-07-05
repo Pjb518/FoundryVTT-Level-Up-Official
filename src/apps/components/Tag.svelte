@@ -47,9 +47,9 @@
         if (color === "disabled") {
             return `
                 --tag-font-color: hsl(0, 0%, 100%);
-                --tag-background-color: hsl(0, 0%, 67%);
+                --tag-background-color: var(--a5e-color-disabled);
                 --tag-border-color: hsl(0, 0%, 60%);
-                --tag-hover-background-color: hsl(0, 0%, 67%);
+                --tag-hover-background-color: var(--a5e-color-disabled);
                 --tag-hover-font-color: var(--color-hover, hsl(0, 0%, 100%));
             `;
         }

@@ -130,7 +130,7 @@
     }
 
     .cross {
-        color: #aaa;
+        color: var(--a5e-color-disabled);
     }
 
     .field {
