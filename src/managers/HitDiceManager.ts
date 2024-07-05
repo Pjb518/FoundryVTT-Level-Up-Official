@@ -118,7 +118,7 @@ export default class HitDiceManager {
         .#rollHitDice(dieSize, attributes.hitDice[dieSize].current, quantity, formula);
 
       this.#actor.update({
-        'data.attributes': {
+        'system.attributes': {
           [`hitDice.${dieSize}.current`]: attributes.hitDice[dieSize].current - quantity
         }
       });
