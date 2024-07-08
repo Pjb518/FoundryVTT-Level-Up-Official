@@ -259,7 +259,7 @@
                 background: var(--a5e-color-primary);
                 border-color: #darken(var(--a5e-color-primary), 5);
                 box-shadow: 0 0 10px #darken(var(--a5e-color-primary), 10) inset;
-                color: $color-light-text;
+                color: var(--a5e-color-text-light);
 
                 &:hover {
                     background: var(--a5e-color-primary);

@@ -100,7 +100,7 @@
             }
 
             &--proficient {
-                color: $color-light-text;
+                color: var(--a5e-color-text-light);
 
                 &::before {
                     color: var(--a5e-color-primary);

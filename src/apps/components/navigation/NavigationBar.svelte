@@ -38,7 +38,7 @@
         margin: 0.25rem 0;
         padding: 0.375rem 0.75rem;
         background: var(--a5e-color-primary);
-        color: $color-light-text;
+        color: var(--a5e-color-text-light);
         font-family: $font-primary;
         font-size: $font-size-md;
         border-radius: var(--a5e-border-radius-standard);
