@@ -131,7 +131,7 @@
             padding: 0.125rem 0.5rem;
             white-space: nowrap;
             background: #e1ddd5;
-            color: #7e7960;
+            color: var(--a5e-color-text-medium);
 
             transition: $standard-transition;
 
@@ -154,7 +154,7 @@
             margin: 0;
             padding: 0.25rem 0.375rem;
             line-height: 1;
-            color: #7e7960;
+            color: var(--a5e-color-text-medium);
             background: rgba(0, 0, 0, 0.05);
             border: 1px solid #ccc;
             border-radius: var(--a5e-border-radius-standard);
@@ -175,7 +175,7 @@
         margin-left: auto;
         padding: 0.25rem 0.375rem;
         line-height: 1;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
         border-radius: var(--a5e-border-radius-standard);

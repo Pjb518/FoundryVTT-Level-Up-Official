@@ -107,7 +107,7 @@
         height: 100%;
         width: 4rem;
         padding: 0.125rem 0;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
         border: 1px solid #ccc;
         border-radius: 4px;
         background: $color-light-background;

@@ -32,18 +32,14 @@
 
     const actor = getContext("actor");
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 {#if sheetIsLocked}
     <div class="hp-container">
         {#each hpFields as { key, label, value }}
             <div class="hp-box">
-                <label class="hp-label" for="{$actor.id}-hp-{key}"
-                    >{label}</label
-                >
+                <label class="hp-label" for="{$actor.id}-hp-{key}">{label}</label>
 
                 <input
                     id="{$actor.id}-hp-{key}"
@@ -59,7 +55,7 @@
                         updateDocumentDataFromField(
                             $actor,
                             target.name,
-                            Number(target.value)
+                            Number(target.value),
                         )}
                     on:click={({ target }) => target.select()}
                 />
@@ -93,7 +89,7 @@
         width: 3.5rem;
         padding: 0.125rem 0;
         font-family: $font-primary;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
         border: 1px solid #ccc;
         border-radius: 4px;
         background: $color-light-background;

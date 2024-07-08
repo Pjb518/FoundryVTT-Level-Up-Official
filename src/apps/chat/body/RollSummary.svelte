@@ -251,7 +251,7 @@
         padding: 0.25rem 0.375rem;
         font-size: var(--a5e-text-size-sm);
         line-height: 1;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
         border-radius: var(--a5e-border-radius-standard);
@@ -288,7 +288,7 @@
         width: 100%;
         font-size: var(--a5e-text-size-xs);
         line-height: 1;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
     }
 
     .subtitle-wrapper {

@@ -40,7 +40,7 @@
         flex: 1;
         padding: 0.125rem 0;
         font-family: $font-primary;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
         border: 1px solid #ccc;
         border-radius: 4px;
         background-color: $color-light-background;

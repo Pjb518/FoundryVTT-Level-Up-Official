@@ -189,7 +189,7 @@
         height: 27px;
         width: fit-content;
         background: transparent;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
         cursor: pointer;
 
         &:hover {

@@ -36,7 +36,7 @@
         font-size: 2rem;
         padding: 0;
         margin: 0;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
         border: 0;
         transition: $standard-transition;
     }
@@ -86,7 +86,7 @@
         width: 100%;
         font-size: var(--a5e-text-size-xs);
         line-height: 1;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
     }
 
     .title {
