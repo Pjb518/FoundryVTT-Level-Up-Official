@@ -20,17 +20,17 @@ export default class LevelDatabase extends ClassicLevel {
 
     const { dbKey, embeddedKeys } = this.#getDBKeys(options.packName);
 
+    this.dbOptions = dbOptions;
     this.#dbKey = dbKey;
     this.#embeddedKeys = embeddedKeys ?? [];
 
     this.#documentDb = this.sublevel(dbKey, dbOptions);
 
     if (this.#embeddedKeys.length) {
-      this.#embeddedDbs = this.#embeddedKeys
-        .map((key) => ({
-          key,
-          db: this.sublevel(`${this.#dbKey}.${key}`, dbOptions)
-        }));
+      this.#embeddedDbs = this.#embeddedKeys.map((key) => ({
+        key: key.replaceAll('.', '-'),
+        db: this.sublevel(`${this.#dbKey}.${key}`, dbOptions)
+      }));
     }
   }
 
@@ -46,7 +46,7 @@ export default class LevelDatabase extends ClassicLevel {
     else dbKey = `${metadata.type.toLowerCase()}s`;
 
     let embeddedKeys = [];
-    if (dbKey === 'actors') embeddedKeys = ['effects', 'items'];
+    if (dbKey === 'actors') embeddedKeys = ['effects', 'items', 'items.effects'];
     if (dbKey === 'items') embeddedKeys = ['effects'];
     else if (dbKey === 'journal') embeddedKeys = ['pages'];
     else if (dbKey === 'tables') embeddedKeys = ['results'];
@@ -64,17 +64,21 @@ export default class LevelDatabase extends ClassicLevel {
     for (const source of docs) {
       if (this.#embeddedKeys.length) {
         this.#embeddedKeys.forEach((key) => {
-          const embeddedDocs = source[key];
+          if (key === 'items.effects') return; // TODO:: Make this generic
+          if (this.#dbKey === 'actors' && key === 'items') {
+            const items = source[key];
 
-          if ((Array.isArray(embeddedDocs))) {
-            for (let i = 0; i < embeddedDocs.length; i += 1) {
-              const doc = embeddedDocs[i];
-              if (embeddedBatches[key]) {
-                embeddedBatches[key].put(`${source._id}.${doc._id}`, doc);
-                if (!doc._id) console.log(`${doc.name}`);
-                embeddedDocs[i] = doc._id ?? '';
-              }
+            // Do effects
+            for (const item of items) {
+              const { effects } = item;
+              this.#addDataToBatch(effects, embeddedBatches['items-effects'], `${source._id}.${item._id}`);
             }
+
+            // Do items
+            this.#addDataToBatch(items, embeddedBatches[key], source._id);
+          } else {
+            const embeddedDocs = source[key];
+            this.#addDataToBatch(embeddedDocs, embeddedBatches[key], source._id);
           }
         });
       }
@@ -82,12 +86,22 @@ export default class LevelDatabase extends ClassicLevel {
     }
 
     await docBatch.write();
-
-    for await (const [key, batch] of Object.entries(embeddedBatches)) {
-      console.log(key, batch.length);
+    for await (const batch of Object.values(embeddedBatches)) {
       if (batch.length) await batch.write();
     }
 
     await this.close();
+  }
+
+  #addDataToBatch(embeddedDocs, batch, sourceId) {
+    if (Array.isArray(embeddedDocs)) {
+      for (let i = 0; i < embeddedDocs.length; i += 1) {
+        const doc = embeddedDocs[i];
+        if (batch) {
+          batch.put(`${sourceId}.${doc._id}`, doc);
+          embeddedDocs[i] = doc._id ?? '';
+        }
+      }
+    }
   }
 }
