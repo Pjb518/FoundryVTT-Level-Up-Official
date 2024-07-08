@@ -38,7 +38,7 @@ export default class LevelDatabase extends ClassicLevel {
     const metadata = systemJSON.packs
       .find((p) => path.basename(p.path).split('.')[0] === packName);
 
-    if (!metadata) throw Error(`Pack ${packName} isn't setup in system.json.`);
+    if (!metadata) throw Error(`[ERROR] - Pack ${packName} isn't setup in system.json.`);
 
     let dbKey = null;
     if (metadata.type === 'JournalEntry') dbKey = 'journal';

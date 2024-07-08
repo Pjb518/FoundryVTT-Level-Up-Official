@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import fs from 'fs';
 import path from 'path';
 import url from 'url';
@@ -5,21 +6,18 @@ import url from 'url';
 // eslint-disable-next-line import/extensions
 import Pack from './lib/Pack.mjs';
 
-function main() {
-  const dirName = url.fileURLToPath(new URL('.', import.meta.url));
-  const dataPath = path.resolve(dirName, '../packs');
-  const dirPaths = fs.readdirSync(dataPath)
-    .map((name) => path.resolve(dirName, dataPath, name));
+const dirName = url.fileURLToPath(new URL('.', import.meta.url));
+const dataPath = path.resolve(dirName, '../packs');
+const dirPaths = fs.readdirSync(dataPath)
+  .map((name) => path.resolve(dirName, dataPath, name));
 
-  const packs = dirPaths.reduce((acc, pack) => {
-    if (pack.endsWith('json')) return acc;
-    acc.push(Pack.loadJSONFiles(pack));
-    return acc;
-  }, []);
+const packs = dirPaths.reduce((acc, pack) => {
+  if (pack.endsWith('json')) return acc;
+  acc.push(Pack.loadJSONFiles(pack));
+  return acc;
+}, []);
 
-  packs.map((p) => p.saveAsPack());
+const counts = await Promise.all(packs.map((p) => p.saveAsPack()));
+const totalCount = counts.reduce((acc, curr) => acc + curr, 0);
 
-  // console.log(packs);
-}
-
-main();
+console.log(`[INFO] - Successfully built ${counts.length} packs with a total of ${totalCount} documents.`);
