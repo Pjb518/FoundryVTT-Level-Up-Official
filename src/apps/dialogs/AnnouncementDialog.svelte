@@ -149,7 +149,7 @@
 
     .price {
         margin-block: 0.25rem;
-        font-size: 1rem;
+        font-size: var(--a5e-text-size-md);
         color: inherit;
         text-align: center;
 

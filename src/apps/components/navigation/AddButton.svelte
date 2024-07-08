@@ -4,10 +4,7 @@
     const dispatch = createEventDispatcher();
 </script>
 
-<button
-    class="sheet-lock fas fa-plus"
-    on:click={() => dispatch("add-button-clicked")}
-/>
+<button class="sheet-lock fas fa-plus" on:click={() => dispatch("add-button-clicked")} />
 
 <style lang="scss">
     .sheet-lock {
@@ -18,7 +15,7 @@
         width: fit-content;
         padding: 0 0.125rem;
         margin-left: auto;
-        font-size: $font-size-md;
+        font-size: var(--a5e-text-size-md);
         color: inherit;
         opacity: 0.85;
         background: transparent;

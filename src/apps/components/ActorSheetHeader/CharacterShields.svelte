@@ -168,7 +168,7 @@
         border: 0;
         background: transparent;
         padding-inline: 0.125rem;
-        font-size: $font-size-md;
+        font-size: var(--a5e-text-size-md);
 
         &:active,
         &:focus {
@@ -182,7 +182,7 @@
     }
 
     .shield-inspiration {
-        font-size: $font-size-md;
+        font-size: var(--a5e-text-size-md);
         color: #bbbaba;
         border: 0;
         padding: 0.125rem;

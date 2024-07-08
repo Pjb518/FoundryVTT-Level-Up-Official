@@ -55,6 +55,6 @@
         color: black;
         text-align: center;
         padding-inline: 0.25rem;
-        font-size: $font-size-md;
+        font-size: var(--a5e-text-size-md);
     }
 </style>

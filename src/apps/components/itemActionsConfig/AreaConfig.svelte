@@ -301,7 +301,7 @@
         width: 1.625rem;
         padding: 0;
         margin: 0;
-        font-size: $font-size-md;
+        font-size: var(--a5e-text-size-md);
         background: transparent;
         color: #999;
         border: 1px solid #7a7971;

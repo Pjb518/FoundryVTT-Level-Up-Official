@@ -541,7 +541,7 @@
         height: 5rem;
         padding: 1rem;
         margin: 1rem;
-        font-size: 1rem;
+        font-size: var(--a5e-text-size-md);
         border: 2px solid #ccc;
         border-radius: var(--a5e-border-radius-standard);
     }

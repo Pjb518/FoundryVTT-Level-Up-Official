@@ -154,7 +154,7 @@
         position: relative;
         background-color: transparent;
         gap: 0.5rem;
-        font-size: 1rem;
+        font-size: var(--a5e-text-size-md);
         align-items: center;
         margin-block: 0.125rem;
         border: none;
@@ -220,7 +220,7 @@
             h3::before {
                 content: var(--fatigue);
                 font-family: $font-secondary;
-                font-size: 1rem;
+                font-size: var(--a5e-text-size-md);
                 background-color: var(--fatigue-col);
             }
         }
@@ -229,7 +229,7 @@
             h3::before {
                 content: var(--strife);
                 font-family: $font-secondary;
-                font-size: 1rem;
+                font-size: var(--a5e-text-size-md);
                 background-color: var(--strife-col);
             }
         }

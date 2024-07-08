@@ -206,7 +206,7 @@
             background: #ebe9e0;
             border-radius: 50%;
             cursor: pointer;
-            font-size: $font-size-md;
+            font-size: var(--a5e-text-size-md);
             transform: translateX(-1px);
 
             transition: $standard-transition;

@@ -40,7 +40,7 @@
         background: var(--a5e-color-primary);
         color: var(--a5e-color-text-light);
         font-family: $font-primary;
-        font-size: $font-size-md;
+        font-size: var(--a5e-text-size-md);
         border-radius: var(--a5e-border-radius-standard);
         text-transform: lowercase;
         box-shadow: 0 0 10px #darken(var(--a5e-color-primary), 10) inset;
