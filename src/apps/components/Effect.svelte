@@ -282,7 +282,7 @@
         transition: $standard-transition;
 
         &--active-toggle {
-            font-size: $font-size-xl;
+            font-size: var(--a5e-text-size-xl);
         }
 
         &:hover {

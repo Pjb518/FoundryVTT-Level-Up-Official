@@ -50,7 +50,7 @@
 
     .drop-icon {
         color: #888;
-        font-size: $font-size-xl;
+        font-size: var(--a5e-text-size-xl);
         font-style: normal;
     }
 </style>

@@ -82,7 +82,7 @@
                 top: 50%;
                 left: 50%;
                 font: var(--fa-font-solid);
-                font-size: 1.44rem;
+                font-size: var(--a5e-text-size-xl);
                 transform: translate(-50%, -50%);
                 color: #e7e5db;
                 z-index: 0;
