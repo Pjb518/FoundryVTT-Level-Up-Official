@@ -29,7 +29,7 @@
         if (pressedKeysStore.Shift) return "#2b6537";
         if (pressedKeysStore.Control) return "var(--a5e-color-error)";
 
-        return "$color-dark-text";
+        return "var(--a5e-color-text-dark)";
     }
 
     function prepareRollColor(rollData) {

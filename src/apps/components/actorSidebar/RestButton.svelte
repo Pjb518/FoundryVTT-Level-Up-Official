@@ -3,10 +3,7 @@
 
     const actor = getContext("actor");
 
-    let replaceFatigueAndStrife = game.settings.get(
-        "a5e",
-        "replaceFatigueAndStrife",
-    );
+    let replaceFatigueAndStrife = game.settings.get("a5e", "replaceFatigueAndStrife");
 </script>
 
 <div
@@ -71,7 +68,7 @@
             background-color: darken(#dddace, 2.5%);
 
             .rest__icon {
-                color: lighten($color-dark-text, 35%);
+                color: #lighten(var(--a5e-color-text-dark), 35%);
             }
         }
     }

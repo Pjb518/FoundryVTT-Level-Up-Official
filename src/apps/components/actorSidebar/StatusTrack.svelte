@@ -10,19 +10,12 @@
     export let selectedOption;
 
     function handleStatusEffectChange(value) {
-        updateDocumentDataFromField(
-            $actor,
-            `system.attributes.${trackProperty}`,
-            value,
-        );
+        updateDocumentDataFromField($actor, `system.attributes.${trackProperty}`, value);
     }
 
     const actor = getContext("actor");
 
-    let replaceFatigueAndStrife = game.settings.get(
-        "a5e",
-        "replaceFatigueAndStrife",
-    );
+    let replaceFatigueAndStrife = game.settings.get("a5e", "replaceFatigueAndStrife");
 </script>
 
 <div
@@ -174,7 +167,7 @@
             }
 
             .track-icon {
-                color: lighten($color-dark-text, 35%);
+                color: #lighten(var(--a5e-color-text-dark), 35%);
 
                 @each $level, $color in $colors {
                     &-level-#{$level} {

@@ -74,11 +74,11 @@
         box-shadow: none;
 
         &:hover .die {
-            color: var(--hover-color, $color-dark-text);
+            color: var(--hover-color, var(--a5e-color-text-dark));
         }
 
         &:hover .die--generic-prompt {
-            color: $color-dark-text;
+            color: var(--a5e-color-text-dark);
         }
     }
 

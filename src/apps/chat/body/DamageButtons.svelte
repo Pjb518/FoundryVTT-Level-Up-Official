@@ -136,7 +136,7 @@
             transition: $standard-transition;
 
             &:hover {
-                color: $color-dark-text;
+                color: var(--a5e-color-text-dark);
             }
         }
     }
@@ -162,7 +162,7 @@
             transition: $standard-transition;
 
             &:hover {
-                color: $color-dark-text;
+                color: var(--a5e-color-text-dark);
                 box-shadow: none;
             }
         }
@@ -183,7 +183,7 @@
         transition: $standard-transition;
 
         &:hover {
-            color: $color-dark-text;
+            color: var(--a5e-color-text-dark);
             box-shadow: none;
         }
     }

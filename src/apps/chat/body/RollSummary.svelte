@@ -260,7 +260,7 @@
 
         &:hover,
         &:focus {
-            color: $color-dark-text;
+            color: var(--a5e-color-text-dark);
             box-shadow: none;
         }
     }

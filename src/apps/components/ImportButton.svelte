@@ -36,7 +36,7 @@
         transition: var(--a5e-transition-standard);
 
         &:hover {
-            color: #191813;
+            color: var(--a5e-color-text-dark);
             transform: scale(1.2);
             box-shadow: none;
         }
