@@ -10,8 +10,7 @@
     import Section from "../Section.svelte";
     import GrantConfig from "./GrantConfig.svelte";
 
-    export let { document, grantId, grantType } =
-        getContext("#external").application;
+    export let { document, grantId, grantType } = getContext("#external").application;
 
     function updateImage() {
         const current = grant?.img;
@@ -94,15 +93,13 @@
         <DropArea
             type="uuid"
             documentType="Item"
-            on:document-dropped={({ detail }) =>
-                onDropUpdate("items.base", detail.uuid)}
+            on:document-dropped={({ detail }) => onDropUpdate("items.base", detail.uuid)}
         />
 
         <DropTag
             embeddedData={grant.items.base}
             type="item"
-            on:updateSelection={({ detail }) =>
-                onUpdateValue("items.base", detail)}
+            on:updateSelection={({ detail }) => onUpdateValue("items.base", detail)}
         />
     </Section>
 
@@ -117,8 +114,7 @@
         <DropTag
             embeddedData={grant.items.options}
             type="item"
-            on:updateSelection={({ detail }) =>
-                onUpdateValue("items.options", detail)}
+            on:updateSelection={({ detail }) => onUpdateValue("items.options", detail)}
         />
     </Section>
 
@@ -149,7 +145,7 @@
     .grant-name,
     .grant-name[type="text"] {
         font-family: $font-primary;
-        font-size: $font-size-xxl;
+        font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;
         text-overflow: ellipsis;

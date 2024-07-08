@@ -10,8 +10,7 @@
     import GrantConfig from "./GrantConfig.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
-    export let { document, grantId, grantType } =
-        getContext("#external").application;
+    export let { document, grantId, grantType } = getContext("#external").application;
 
     function updateImage() {
         const current = grant?.img;
@@ -29,11 +28,11 @@
 
     function onUpdateValue(key, value) {
         if (key === "skill") {
-            updateDocumentDataFromField(
-                $item,
-                `system.grants.${grantId}.specialties`,
-                { base: [], options: [], total: 0 },
-            );
+            updateDocumentDataFromField($item, `system.grants.${grantId}.specialties`, {
+                base: [],
+                options: [],
+                total: 0,
+            });
         }
 
         key = `system.grants.${grantId}.${key}`;
@@ -145,7 +144,7 @@
     .grant-name,
     .grant-name[type="text"] {
         font-family: $font-primary;
-        font-size: $font-size-xxl;
+        font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;
         text-overflow: ellipsis;

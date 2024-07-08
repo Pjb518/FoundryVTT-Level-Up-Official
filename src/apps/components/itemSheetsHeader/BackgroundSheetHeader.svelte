@@ -7,12 +7,7 @@
 </script>
 
 <header class="sheet-header">
-    <img
-        class="item-image"
-        src={$item.img}
-        alt={$item.name}
-        title={$item.name}
-    />
+    <img class="item-image" src={$item.img} alt={$item.name} title={$item.name} />
 
     <input
         type="text"
@@ -42,7 +37,7 @@
     .item-name,
     .item-name[type="text"] {
         font-family: $font-primary;
-        font-size: $font-size-xxl;
+        font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;
 

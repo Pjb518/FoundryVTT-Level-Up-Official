@@ -9,8 +9,7 @@
     import Section from "../Section.svelte";
     import GrantConfig from "./GrantConfig.svelte";
 
-    export let { document, grantId, grantType } =
-        getContext("#external").application;
+    export let { document, grantId, grantType } = getContext("#external").application;
 
     function updateImage() {
         const current = grant?.img;
@@ -49,9 +48,7 @@
         if (!feature) return;
 
         if (feature.type !== "feature") {
-            return ui.notifications.error(
-                "Invalid Document - Must be a Feature.",
-            );
+            return ui.notifications.error("Invalid Document - Must be a Feature.");
         }
 
         const entry = {
@@ -133,9 +130,7 @@
                 <header class="feature-table__header">
                     <span class="feature-table__heading"></span>
                     <span class="feature-table__heading"></span>
-                    <span class="feature-table__heading">
-                        Limited Reselection
-                    </span>
+                    <span class="feature-table__heading"> Limited Reselection </span>
                     <span class="feature-table__heading">Selection Limit</span>
                     <span class="feature-table__heading"></span>
                 </header>
@@ -218,9 +213,7 @@
                 <header class="feature-table__header">
                     <span class="feature-table__heading"></span>
                     <span class="feature-table__heading"></span>
-                    <span class="feature-table__heading">
-                        Limited Reselection
-                    </span>
+                    <span class="feature-table__heading"> Limited Reselection </span>
                     <span class="feature-table__heading">Selection Limit</span>
                     <span class="feature-table__heading"></span>
                 </header>
@@ -317,7 +310,7 @@
     .grant-name,
     .grant-name[type="text"] {
         font-family: $font-primary;
-        font-size: $font-size-xxl;
+        font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;
         text-overflow: ellipsis;

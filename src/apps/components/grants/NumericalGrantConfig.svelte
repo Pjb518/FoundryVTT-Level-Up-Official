@@ -10,8 +10,7 @@
     import NumericalGrantContexts from "./NumericalGrantContexts.svelte";
     import GrantConfig from "./GrantConfig.svelte";
 
-    export let { document, grantId, grantType } =
-        getContext("#external").application;
+    export let { document, grantId, grantType } = getContext("#external").application;
 
     function updateImage() {
         const current = grant?.img;
@@ -61,12 +60,9 @@
         },
         skills: {},
     };
-    const hasSelectDialog = [
-        "damage",
-        "healing",
-        "movement",
-        "senses",
-    ].includes(grantType);
+    const hasSelectDialog = ["damage", "healing", "movement", "senses"].includes(
+        grantType,
+    );
 
     $: grant = $item.system.grants[grantId];
     $: selectProperty = configObject[grantType]?.selectProperty;
@@ -138,10 +134,7 @@
                     </option>
 
                     {#each Object.entries(configObject[grantType].selectTypes) as [key, name] (key)}
-                        <option
-                            value={key}
-                            selected={grant[selectProperty] === key}
-                        >
+                        <option value={key} selected={grant[selectProperty] === key}>
                             {localize(name)}
                         </option>
                     {/each}
@@ -168,7 +161,7 @@
     .grant-name,
     .grant-name[type="text"] {
         font-family: $font-primary;
-        font-size: $font-size-xxl;
+        font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;
         text-overflow: ellipsis;
