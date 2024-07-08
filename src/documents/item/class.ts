@@ -1,5 +1,5 @@
 import type ArchetypeItemA5e from './archetype';
-import type { ClassCastingData, ClassSystemSource } from './data';
+import type { ClassCastingData } from './data';
 
 import OriginItemA5e from './origin';
 
@@ -13,8 +13,6 @@ export default class ClassItemA5e extends OriginItemA5e {
     total: number;
     size: number;
   };
-
-  declare system: ClassSystemSource;
 
   declare resources: ClassResourceManager;
 

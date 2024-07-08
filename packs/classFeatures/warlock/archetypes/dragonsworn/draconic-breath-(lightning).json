@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Dragon Touched - Draconic Breath (Dragonsworn)",
+	"name": "Draconic Breath (Lightning)",
 	"type": "feature",
 	"img": "icons/magic/fire/beam-jet-stream-blue.webp",
 	"system": {
@@ -25,59 +25,21 @@
 				"rolls": {
 					"dKNzoSOZrJN88cwr": {
 						"type": "damage",
-						"default": false,
+						"default": true,
 						"formula": "2d6",
-						"label": "Fire",
-						"damageType": "fire"
-					},
-					"YdyFq0aUBlLxEfNT": {
-						"type": "damage",
-						"default": false,
-						"formula": "2d6",
-						"label": "Cold",
-						"damageType": "cold"
-					},
-					"sdX3544jbfxyBeVM": {
-						"type": "damage",
-						"default": false,
-						"formula": "2d6",
-						"label": "Lightning",
+						"label": "",
 						"damageType": "lightning"
-					},
-					"Hni1HTZLZBkWBzMB": {
-						"type": "damage",
-						"default": false,
-						"formula": "2d6",
-						"label": "Acid",
-						"damageType": "acid"
-					},
-					"OCJyg3taxcNf4tsB": {
-						"type": "damage",
-						"default": false,
-						"formula": "2d6",
-						"label": "Poison",
-						"damageType": "poison"
 					}
 				},
 				"prompts": {
 					"gFMeFaEJb6bTVCd0": {
 						"type": "savingThrow",
-						"default": false,
+						"default": true,
 						"ability": "dex",
 						"saveDC": {
 							"type": "spellcasting"
 						},
-						"label": "Dexterity - Fire, Lightning, or Acid",
-						"onSave": "half damage"
-					},
-					"K1fOesx7kDtY6Rox": {
-						"type": "savingThrow",
-						"default": false,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"label": "Constitution - Cold or Poison",
+						"label": "",
 						"onSave": "half damage"
 					}
 				},
@@ -100,20 +62,52 @@
 					"placeTemplate": true
 				}
 			},
-			"I7XIGMN610oOlKy7": {
+			"1Za3iZObT0ssGIz8": {
 				"name": " Draconic Breath - Line",
-				"activation": {},
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
 				"consumers": {},
-				"rolls": {},
-				"prompts": {},
+				"rolls": {
+					"dKNzoSOZrJN88cwr": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"label": "",
+						"damageType": "lightning"
+					}
+				},
+				"prompts": {
+					"gFMeFaEJb6bTVCd0": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "",
+						"onSave": "half damage"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
-					"per": "",
+					"per": "shortRest",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
 					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"area": {
+					"shape": "line",
+					"quantity": 1,
+					"placeTemplate": true,
+					"length": 30,
+					"width": 5
 				}
 			}
 		},
@@ -133,7 +127,7 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": "Warlock Level 1; Dragonsworn Archetype",
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -145,9 +139,10 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "6vhz2tqhoxvspbog"
+	"_id": "7gk1oapg2wb7iulf"
 }
