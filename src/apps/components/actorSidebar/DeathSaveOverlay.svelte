@@ -103,7 +103,7 @@
 
         &__icon {
             cursor: pointer;
-            font-size: $font-size-lg;
+            font-size: var(--a5e-text-size-lg);
             transition: $standard-transition;
 
             &:hover {

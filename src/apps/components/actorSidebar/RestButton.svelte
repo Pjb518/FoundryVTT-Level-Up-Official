@@ -58,7 +58,7 @@
             box-shadow: 0 0 10px #ccc inset;
             color: rgba(0 0 0 / 0.2);
             cursor: pointer;
-            font-size: $font-size-lg;
+            font-size: var(--a5e-text-size-lg);
             transform: translateX(-1px);
 
             transition: $standard-transition;

@@ -278,7 +278,7 @@
         background: none;
         color: #999;
         border: 0;
-        font-size: $font-size-lg;
+        font-size: var(--a5e-text-size-lg);
         transition: $standard-transition;
 
         &--active-toggle {

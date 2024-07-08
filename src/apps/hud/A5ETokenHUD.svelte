@@ -128,7 +128,7 @@
         gap: 0.75rem;
         padding: 0.75rem;
         padding-bottom: 0.5rem;
-        font-size: 1.2rem;
+        font-size: var(--a5e-text-size-lg);
         line-height: 1.2rem;
         text-align: left;
         width: max-content;
