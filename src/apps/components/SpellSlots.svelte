@@ -140,7 +140,7 @@
         background: rgba(255, 255, 255, 0.15);
         border: 1px solid rgba(255, 255, 255, 0.1);
         text-align: center;
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
 
         &:active,
         &:focus {

@@ -120,7 +120,7 @@
     }
 
     .button-hint {
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
         padding: 0.125rem;
         line-height: 1;
         margin: 0 0.125rem;

@@ -1,11 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
-    import {
-        TJSMenu,
-        TJSIconButton,
-        TJSToggleIconButton,
-    } from "#standard/component";
+    import { TJSMenu, TJSIconButton, TJSToggleIconButton } from "#standard/component";
     import { createEventDispatcher } from "svelte";
 
     import createItem from "../../../utils/createItem";
@@ -29,8 +25,7 @@
         if (documentName === "Item" && $document.documentName === "Actor")
             return createItem($document, reducerType.slice(0, -1), entityType);
 
-        if (documentName === "ActiveEffect")
-            return createEffect($document, options);
+        if (documentName === "ActiveEffect") return createEffect($document, options);
     }
 
     const document = getContext("actor") ?? getContext("item");
@@ -59,9 +54,7 @@
         <TJSMenu {offset}>
             <article>
                 {#each menuList as [type, heading]}
-                    <button
-                        on:click|preventDefault={() => createDocument(type)}
-                    >
+                    <button on:click|preventDefault={() => createDocument(type)}>
                         {localize(heading)}
                     </button>
                 {/each}
@@ -100,6 +93,6 @@
     button {
         background: transparent;
         color: white;
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
     }
 </style>

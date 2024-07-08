@@ -68,6 +68,6 @@
     .hint {
         margin-top: 0.25rem;
         color: #555;
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
     }
 </style>

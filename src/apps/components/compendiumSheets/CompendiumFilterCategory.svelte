@@ -77,7 +77,7 @@
         width: fit-content;
         margin: 0;
         padding: 0.125rem 0.5rem;
-        font-size: 0.694rem;
+        font-size: var(--a5e-text-size-xs);
         font-weight: bold;
         line-height: 1;
         background: transparent;

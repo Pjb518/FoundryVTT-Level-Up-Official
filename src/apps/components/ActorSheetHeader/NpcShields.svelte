@@ -136,7 +136,7 @@
     }
 
     .xp-label {
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
     }
 
     .shield-elite {

@@ -48,7 +48,7 @@
     }
 
     .passive-label {
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
     }
 
     .passive-value {

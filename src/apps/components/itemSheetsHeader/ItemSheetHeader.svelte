@@ -299,7 +299,7 @@
         background: #82817d;
         color: white;
         width: max-content;
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs)t-size-xs);
         padding-inline: 0.75rem;
         white-space: nowrap;
         transition: $standard-transition;
