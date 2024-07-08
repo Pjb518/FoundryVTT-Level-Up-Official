@@ -169,7 +169,7 @@
     .product-card {
         border-radius: 8px;
         color: black;
-        transition: all 0.15s ease-in-out;
+        transition: var(--a5e-transition-standard);
         overflow: hidden;
         background: #fdfdfd;
         padding-bottom: 0.25rem;

@@ -279,7 +279,7 @@
         color: #999;
         border: 0;
         font-size: var(--a5e-text-size-lg);
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &--active-toggle {
             font-size: var(--a5e-text-size-xl);
@@ -316,7 +316,7 @@
         // 17.5 pixels: the width of the largest icon we have
         min-width: 1.09375rem;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             color: #555;
@@ -362,7 +362,7 @@
             font-size: var(--a5e-text-size-md);
             transform: translateX(-1px);
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
         }
 
         &-items {
@@ -381,7 +381,7 @@
             opacity: 0;
             transform: translateX(calc(-100% - 1rem));
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
         }
 
         &:hover {

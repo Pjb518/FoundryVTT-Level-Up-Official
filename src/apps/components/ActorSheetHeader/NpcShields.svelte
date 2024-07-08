@@ -143,7 +143,7 @@
         font-size: 0.95rem;
         border: 0;
         padding: 0.125rem;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &--unlocked {
             cursor: pointer;

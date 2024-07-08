@@ -96,7 +96,7 @@
         padding: 0.25rem;
         background: none;
         border: 0;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
         color: #999;
 
         &:hover,

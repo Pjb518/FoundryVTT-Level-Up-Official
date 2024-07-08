@@ -160,7 +160,7 @@
         border: none;
         color: rgb(204 204 204);
         cursor: pointer;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover,
         &:focus {
@@ -289,7 +289,7 @@
         background-color: black;
         font-size: 1.25rem;
         cursor: pointer;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             color: #lighten(var(--a5e-color-error), 15);

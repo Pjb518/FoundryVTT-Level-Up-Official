@@ -95,7 +95,7 @@
             font-size: var(--a5e-text-size-lg);
             transform: translateX(-1px);
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             @each $level, $color in $colors {
                 &-level-#{$level} {
@@ -114,7 +114,7 @@
             background: transparent;
             border-radius: 0;
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &:focus,
             &:hover {
@@ -141,7 +141,7 @@
             opacity: 0;
             transform: translateX(-1rem);
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
         }
 
         &--fatigue {

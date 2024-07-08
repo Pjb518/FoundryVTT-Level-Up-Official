@@ -133,7 +133,7 @@
             background: #e1ddd5;
             color: var(--a5e-color-text-medium);
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &:hover {
                 color: var(--a5e-color-text-dark);
@@ -159,7 +159,7 @@
             border: 1px solid #ccc;
             border-radius: var(--a5e-border-radius-standard);
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &:hover {
                 color: var(--a5e-color-text-dark);
@@ -180,7 +180,7 @@
         border: 1px solid #ccc;
         border-radius: var(--a5e-border-radius-standard);
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             color: var(--a5e-color-text-dark);

@@ -199,7 +199,7 @@
 
         i {
             height: 27px;
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &:hover {
                 transform: scale(1.2);

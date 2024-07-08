@@ -186,7 +186,7 @@
         color: #bbbaba;
         border: 0;
         padding: 0.125rem;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
         cursor: pointer;
 
         &:hover {

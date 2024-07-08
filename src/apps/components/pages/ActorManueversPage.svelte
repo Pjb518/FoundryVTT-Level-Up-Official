@@ -136,7 +136,7 @@
         color: #999;
         border: 0;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             color: #555;

@@ -47,7 +47,7 @@
         --tjs-icon-button-background-selected="none"
         --tjs-icon-button-text-shadow-hover="none"
         --tjs-icon-button-text-shadow-focus="none"
-        --tjs-icon-button-transition="all 0.15s ease-in-out"
+        --tjs-icon-button-transition="var(--a5e-transition-standard)"
         --tjs-icon-button-diameter="1.1rem"
         --tjs-icon-button-border-radius="0"
     >
@@ -72,7 +72,7 @@
         --tjs-icon-button-background-selected="none"
         --tjs-icon-button-text-shadow-hover="none"
         --tjs-icon-button-text-shadow-focus="none"
-        --tjs-icon-button-transition="$standard-transition"
+        --tjs-icon-button-transition="var(--a5e-transition-standard)"
         --tjs-icon-button-diameter="1rem"
         --tjs-icon-button-border-radius="0"
     />

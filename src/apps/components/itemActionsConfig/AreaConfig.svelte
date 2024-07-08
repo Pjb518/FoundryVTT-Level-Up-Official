@@ -277,7 +277,7 @@
             font-size: var(--a5e-text-size-sm);
             padding: 0.375rem 0.5rem;
             cursor: pointer;
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &:hover {
                 background-color: rgba(0, 0, 0, 0.1);
@@ -308,7 +308,7 @@
         border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         i {
             margin: 0;

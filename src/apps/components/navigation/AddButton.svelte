@@ -24,7 +24,7 @@
         // Nudge the button down 1px so that it _looks_ centred
         top: 1px;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:focus,
         &:hover {

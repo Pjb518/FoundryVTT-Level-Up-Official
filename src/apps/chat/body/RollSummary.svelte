@@ -256,7 +256,7 @@
         border: 1px solid #ccc;
         border-radius: var(--a5e-border-radius-standard);
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover,
         &:focus {

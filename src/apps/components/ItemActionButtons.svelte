@@ -117,7 +117,7 @@
         // 17.5 pixels: the width of the largest icon we have
         min-width: 1.09375rem;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             color: var(--icon-color-active, #555);
@@ -163,7 +163,7 @@
             border-radius: 50%;
             cursor: pointer;
             transform: translateX(-1px);
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &--description-button {
                 font-size: var(--a5e-text-size-sm);
@@ -186,7 +186,7 @@
             opacity: 0;
             transform: translateX(calc(-100% - 1rem));
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
         }
 
         &:hover {

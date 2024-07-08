@@ -38,7 +38,7 @@
         margin: 0;
         color: var(--a5e-color-text-medium);
         border: 0;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
     }
 
     .icon-wrapper {

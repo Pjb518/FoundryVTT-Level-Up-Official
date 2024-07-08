@@ -61,7 +61,7 @@
             font-size: var(--a5e-text-size-lg);
             transform: translateX(-1px);
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
         }
 
         &:hover {

@@ -179,7 +179,7 @@
     .header-button {
         display: flex;
         font-size: 2.25rem;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
         padding: 0;
         background: none;
         color: #999;
@@ -302,7 +302,7 @@
         font-size: var(--a5e-text-size-xs)t-size-xs);
         padding-inline: 0.75rem;
         white-space: nowrap;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:disabled {
             cursor: auto;

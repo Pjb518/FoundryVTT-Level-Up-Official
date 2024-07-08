@@ -38,7 +38,7 @@
             background: transparent;
             border: none;
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &:focus,
             &:hover {

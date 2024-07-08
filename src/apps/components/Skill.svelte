@@ -221,7 +221,7 @@
             background: transparent;
             color: rgba(0, 0, 0, 0.25);
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &:focus,
             &:hover {
@@ -294,7 +294,7 @@
         &__roll-icon {
             display: none;
             color: #555;
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &--ctrl {
                 color: #ffb63b;

@@ -250,7 +250,7 @@
         border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         i {
             margin: 0;

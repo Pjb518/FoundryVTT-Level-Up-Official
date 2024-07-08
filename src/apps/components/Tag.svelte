@@ -103,7 +103,7 @@
         border: 1px solid var(--tag-border-color);
         border-radius: var(--a5e-border-radius-standard);
         color: var(--tag-font-color, inherit);
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
         white-space: normal;
         cursor: pointer;
 

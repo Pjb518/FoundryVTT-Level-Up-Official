@@ -401,7 +401,7 @@
     .a5e-control-button {
         margin: 0;
         padding: 0;
-        transition: all 0.15s ease-in-out;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             transform: scale(1.2);

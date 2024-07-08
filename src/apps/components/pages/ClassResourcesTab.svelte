@@ -158,7 +158,7 @@
         width: fit-content;
         height: fit-content;
         color: rgba(0 0 0 / 0.2);
-        transition: all 0.15s ease-in-out;
+        transition: var(--a5e-transition-standard);
 
         &:hover,
         &:focus {
@@ -192,7 +192,7 @@
         width: fit-content;
         height: fit-content;
         color: rgba(0 0 0 / 0.2);
-        transition: all 0.15s ease-in-out;
+        transition: var(--a5e-transition-standard);
 
         &:hover,
         &:focus {
