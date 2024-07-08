@@ -144,7 +144,7 @@
         padding: 0.75rem;
         position: relative;
         margin-bottom: 1rem;
-        background-color: #f6f2eb;
+        background-color: var(--a5e-color-background-light);
     }
 
     .a5e-class-resource-delete-button {
