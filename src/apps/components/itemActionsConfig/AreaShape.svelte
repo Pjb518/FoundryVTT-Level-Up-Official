@@ -74,7 +74,7 @@
             gap: 0.5rem;
             border-radius: var(--a5e-border-radius-standard);
             border: 1px solid #bbb;
-            font-size: $font-size-sm;
+            font-size: var(--a5e-text-size-sm);
             padding: 0.375rem 0.5rem;
             cursor: pointer;
             transition: $standard-transition;

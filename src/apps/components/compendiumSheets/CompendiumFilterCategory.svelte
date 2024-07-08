@@ -60,7 +60,7 @@
     .a5efc-filter-heading {
         flex-shrink: 0;
         margin: 0;
-        font-size: 0.833rem;
+        font-size: var(--a5e-text-size-sm);
         font-weight: bold;
         border-bottom: 0;
     }

@@ -115,8 +115,7 @@
         heading="A5E.effects.options"
         options={optionsList[key]?.options ?? [[null, null]]}
         selected={convertToArray(value)}
-        on:updateSelection={({ detail }) =>
-            dispatch("change", JSON.stringify(detail))}
+        on:updateSelection={({ detail }) => dispatch("change", JSON.stringify(detail))}
     />
 {:else if componentType === "TAG_GROUP"}
     <CustomTagGroup
@@ -199,7 +198,7 @@
         &-input {
             width: 8rem;
             height: 27px;
-            font-size: $font-size-sm;
+            font-size: var(--a5e-text-size-sm);
         }
     }
 

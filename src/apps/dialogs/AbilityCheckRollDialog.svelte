@@ -58,16 +58,15 @@
         selectedRollMode,
     );
 
-    let visibilityMode =
-        options.visibilityMode ?? game.settings.get("core", "rollMode");
+    let visibilityMode = options.visibilityMode ?? game.settings.get("core", "rollMode");
 
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
 
-    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
-        "abilities",
-        { abilityKey, abilityType: "check" },
-    );
+    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections("abilities", {
+        abilityKey,
+        abilityType: "check",
+    });
 
     $: rollFormula = getRollFormula($actor, {
         ability: abilityKey,
@@ -103,8 +102,7 @@
                 abilityBonus.label || abilityBonus.defaultLabel,
             ])}
             selected={selectedAbilityBonuses}
-            on:updateSelection={({ detail }) =>
-                (selectedAbilityBonuses = detail)}
+            on:updateSelection={({ detail }) => (selectedAbilityBonuses = detail)}
         />
     {/if}
 
@@ -136,7 +134,7 @@
 
     .roll-formula-preview {
         padding: 0.5rem;
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
         border: 1px solid #7a7971;
         border-radius: 4px;
     }

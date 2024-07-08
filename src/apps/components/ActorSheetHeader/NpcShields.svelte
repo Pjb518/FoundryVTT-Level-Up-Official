@@ -126,7 +126,7 @@
         border: 0;
         background: transparent;
         padding-inline: 0.125rem;
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
 
         &:active,
         &:focus {

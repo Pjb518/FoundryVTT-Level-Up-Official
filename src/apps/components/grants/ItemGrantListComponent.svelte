@@ -139,7 +139,7 @@
     }
 
     .name {
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;

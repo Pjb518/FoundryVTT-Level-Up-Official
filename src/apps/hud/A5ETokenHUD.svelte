@@ -202,7 +202,7 @@
                 width: 1.25rem;
                 aspect-ratio: 1/1;
                 color: white;
-                font-size: 0.833rem;
+                font-size: var(--a5e-text-size-sm);
 
                 position: absolute;
                 top: -0.75rem;

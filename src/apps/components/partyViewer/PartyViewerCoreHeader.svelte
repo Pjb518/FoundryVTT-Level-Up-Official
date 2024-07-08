@@ -44,7 +44,7 @@
 
 <style lang="scss">
     .heading {
-        font-size: 0.833rem;
+        font-size: var(--a5e-text-size-sm);
         text-align: center;
 
         &--ac {

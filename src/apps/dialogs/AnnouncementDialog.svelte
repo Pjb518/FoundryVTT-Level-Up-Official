@@ -137,7 +137,7 @@
     .disclaimer {
         margin-block: 1rem 0.25rem;
         padding: 0.5rem 0.75rem;
-        font-size: 0.833rem;
+        font-size: var(--a5e-text-size-sm);
         background: hsl(0, 0%, 90%);
         border: 1px solid #ccc;
         border-radius: 4px;

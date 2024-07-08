@@ -4,10 +4,7 @@
 </script>
 
 <footer class="wealth-footer">
-    <h3
-        class="heading"
-        class:heading--no-actor-image={!$showActorImagesInPartyViewer}
-    >
+    <h3 class="heading" class:heading--no-actor-image={!$showActorImagesInPartyViewer}>
         Party Total
     </h3>
 
@@ -42,7 +39,7 @@
         grid-column-start: img;
         grid-column-end: name;
         padding-right: 0.75rem;
-        font-size: 0.833rem;
+        font-size: var(--a5e-text-size-sm);
         font-weight: bold;
         text-align: right;
         line-height: 1;
@@ -54,7 +51,7 @@
     }
 
     .total {
-        font-size: 0.833rem;
+        font-size: var(--a5e-text-size-sm);
         line-height: 1;
         text-align: center;
 

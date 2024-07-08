@@ -156,7 +156,7 @@
             flex-shrink: 0;
             align-items: center;
             justify-content: center;
-            font-size: $font-size-sm;
+            font-size: var(--a5e-text-size-sm);
             color: var(--icon-color, inherit);
             border: 1px solid var(--track-border-color, #ccc);
             background: var(--track-background, #ebe9e0);
@@ -166,7 +166,7 @@
             transition: $standard-transition;
 
             &--description-button {
-                font-size: 0.833rem;
+                font-size: var(--a5e-text-size-sm);
             }
         }
 

@@ -39,7 +39,7 @@
 <style lang="scss">
     .ac-formula-preview {
         padding: 0.5rem;
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
         border: 1px solid #7a7971;
         border-radius: 4px;
     }

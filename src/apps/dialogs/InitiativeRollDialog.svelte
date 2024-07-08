@@ -10,8 +10,7 @@
     import getRollFormula from "../../utils/getRollFormula";
     import RollModePicker from "../components/RollModePicker.svelte";
 
-    export let { document, dialog, options } =
-        getContext("#external").application;
+    export let { document, dialog, options } = getContext("#external").application;
 
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
@@ -39,9 +38,7 @@
     }
 
     let abilityKey =
-        options.abilityKey ??
-        $actor.system.attributes.initiative.ability ??
-        "dex";
+        options.abilityKey ?? $actor.system.attributes.initiative.ability ?? "dex";
 
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let skillKey = options.skillKey ?? "none";
@@ -68,30 +65,24 @@
         { ability: abilityKey, skill: skillKey },
     );
 
-    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(
-        abilityKey,
-        "check",
-    );
+    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(abilityKey, "check");
 
-    $: skillBonuses = $actor.BonusesManager.prepareSkillBonuses(
-        skillKey,
-        abilityKey,
-    );
+    $: skillBonuses = $actor.BonusesManager.prepareSkillBonuses(skillKey, abilityKey);
 
     $: initiativeBonuses = $actor.BonusesManager.prepareInitiativeBonuses({
         abilityKey,
         skillKey,
     });
 
-    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections(
-        "abilities",
-        { abilityKey, abilityType: "check" },
-    );
+    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections("abilities", {
+        abilityKey,
+        abilityType: "check",
+    });
 
-    $: selectedSkillBonuses = $actor.BonusesManager.getDefaultSelections(
-        "skills",
-        { skillKey, abilityKey },
-    );
+    $: selectedSkillBonuses = $actor.BonusesManager.getDefaultSelections("skills", {
+        skillKey,
+        abilityKey,
+    });
 
     $: selectedInitiativeBonuses = $actor.BonusesManager.getDefaultSelections(
         "initiative",
@@ -149,8 +140,7 @@
                 abilityBonus.label || abilityBonus.defaultLabel,
             ])}
             selected={selectedAbilityBonuses}
-            on:updateSelection={({ detail }) =>
-                (selectedAbilityBonuses = detail)}
+            on:updateSelection={({ detail }) => (selectedAbilityBonuses = detail)}
         />
     {/if}
 
@@ -174,8 +164,7 @@
                 initiativeBonus.label || initiativeBonus.defaultLabel,
             ])}
             selected={selectedInitiativeBonuses}
-            on:updateSelection={({ detail }) =>
-                (selectedInitiativeBonuses = detail)}
+            on:updateSelection={({ detail }) => (selectedInitiativeBonuses = detail)}
         />
     {/if}
 
@@ -207,7 +196,7 @@
 
     .roll-formula-preview {
         padding: 0.5rem;
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
         border: 1px solid #7a7971;
         border-radius: 4px;
     }

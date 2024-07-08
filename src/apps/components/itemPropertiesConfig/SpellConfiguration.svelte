@@ -15,10 +15,7 @@
     function prepareSpellComponents(item) {
         return Object.entries(item.system.components)
             .filter(([_, state]) => state)
-            .map(
-                ([component]) =>
-                    spellComponentAbbreviations[component] ?? component,
-            )
+            .map(([component]) => spellComponentAbbreviations[component] ?? component)
             .join(", ");
     }
 
@@ -68,11 +65,7 @@
             options={Object.entries(classSpellLists)}
             selected={$item.system.classes}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.classes",
-                    event.detail,
-                )}
+                updateDocumentDataFromField($item, "system.classes", event.detail)}
         />
 
         <RadioGroup
@@ -80,11 +73,7 @@
             options={objectEntriesNumberKeyConverter(spellLevels)}
             selected={$item.system.level}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.level",
-                    event.detail,
-                )}
+                updateDocumentDataFromField($item, "system.level", event.detail)}
         />
 
         <RadioGroup
@@ -139,28 +128,17 @@
                     name="system.materials"
                     value={$item.system.materials}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            target.name,
-                            target.value,
-                        )}
+                        updateDocumentDataFromField($item, target.name, target.value)}
                 />
             </FieldWrapper>
         {/if}
 
-        <Section
-            --a5e-section-body-direction="row"
-            --a5e-section-body-gap="0.75rem"
-        >
+        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
             <Checkbox
                 label="A5E.SpellConcentration"
                 checked={$item.system.concentration}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.concentration",
-                        detail,
-                    );
+                    updateDocumentDataFromField($item, "system.concentration", detail);
                 }}
             />
 
@@ -168,11 +146,7 @@
                 label="A5E.ItemPrepared"
                 checked={$item.system.prepared}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.prepared",
-                        detail,
-                    );
+                    updateDocumentDataFromField($item, "system.prepared", detail);
                 }}
             />
 
@@ -196,11 +170,7 @@
                     label="A5E.SpellRitual"
                     checked={$item.system.ritual}
                     on:updateSelection={({ detail }) => {
-                        updateDocumentDataFromField(
-                            $item,
-                            "system.ritual",
-                            detail,
-                        );
+                        updateDocumentDataFromField($item, "system.ritual", detail);
                     }}
                 />
             {/if}
@@ -214,10 +184,7 @@
             />
         </Section>
 
-        <Section
-            --a5e-section-body-direction="row"
-            --a5e-section-body-gap="0.75rem"
-        >
+        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
             <FieldWrapper>
                 <Checkbox
                     label="A5E.RequiresBloodied"
@@ -299,7 +266,7 @@
         flex-direction: column;
         gap: 0.375rem;
         margin: 0;
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
 
         &__item {
             display: flex;

@@ -39,10 +39,10 @@
         --item-padding="0.25rem"
         --group-item-padding-left="1rem"
         --border-radius="var(--a5e-border-radius-standard)"
-        --font-size="0.833rem"
+        --font-size="var(--a5e-text-size-sm)"
         --font-family="inherit"
         --input-color="black"
-        --group-title-font-size="0.833rem"
+        --group-title-font-size="var(--a5e-text-size-sm)"
         --group-title-font-weight="bold"
         --text-overflow="ellipsis"
     />

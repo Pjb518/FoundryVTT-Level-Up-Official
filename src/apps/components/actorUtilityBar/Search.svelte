@@ -32,7 +32,7 @@
 <style lang="scss">
     .search-container {
         flex-grow: 1;
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
         color: black;
     }
 </style>
