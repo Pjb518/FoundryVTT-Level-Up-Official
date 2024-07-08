@@ -19,18 +19,28 @@ export default class Pack {
 
     if (!metadata) throw Error(`[ERROR] - Pack ${dirName} isn't setup in system.json.`);
 
+    /** @type {string} */
     this.systemId = metadata.system;
+    /** @type {string} */
     this.packId = metadata.name;
+    /** @type {string} */
     this.documentType = metadata.type;
 
+    /** @type {string} */
     this.dirPath = dirName;
+    /** @type {string} */
     this.dirName = path.basename(dirName);
-    // TODO: Convert data to a map to map to original files
+    /** @type {Map<string, any>} */
     this.data = data;
   }
 
-  async cleanAndValidate() {
-    this.data = this.data.forEach((s) => this.#cleanDocument(s));
+  cleanAndValidate() {
+    [...this.data.entries()].map(([file, source]) => {
+      this.#cleanDocument(source);
+      fs.writeFileSync(file, JSON.stringify(source, null, '\t'), { encoding: 'utf-8' });
+
+      return source;
+    });
   }
 
   #cleanDocument(source) {
@@ -49,7 +59,7 @@ export default class Pack {
     source.folder = null;
 
     // Reset ownership data
-    source.ownership = { default: 0 };
+    if (source.ownership) delete source.ownership;
 
     // Update _stats data
     const stats = {
@@ -72,9 +82,11 @@ export default class Pack {
       fs.rmSync(outDir, { recursive: true });
     }
 
+    this.cleanAndValidate();
+
     const db = new LevelDatabase(outDir, { packName: this.dirName });
-    await db.createPack(this.data);
-    const count = this.data.length;
+    await db.createPack([...this.data.values()]);
+    const count = this.data.size;
 
     console.log(`[INFO] - Pack "${this.packId}" with ${count} documents built successfully.`);
 
@@ -85,7 +97,7 @@ export default class Pack {
 
   static loadJSONFiles(dirPath) {
     const filenames = globSync(`${dirPath}/**/*.json`);
-    const files = [];
+    const files = new Map();
 
     for (const file of filenames) {
       let jsonData;
@@ -100,7 +112,7 @@ export default class Pack {
 
       if (!jsonData) continue;
 
-      files.push(jsonData);
+      files.set(file, jsonData);
     }
 
     return new Pack(dirPath, files);
