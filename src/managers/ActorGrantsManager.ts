@@ -119,7 +119,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
 
     const allGrants = grants.concat(subGrants);
 
-    allGrants.concat(subGrants).forEach((grant) => {
+    allGrants.forEach((grant) => {
       if (this.has(this.#getFullId(grant))) return;
 
       const { levelType } = grant;
