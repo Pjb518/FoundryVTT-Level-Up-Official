@@ -14,8 +14,8 @@ import prepareTraitGrantConfigObject from '../utils/prepareTraitGrantConfigObjec
 import fromUuidMulti from '../utils/fromUuidMulti';
 
 interface DefaultApplyOptions {
-  item?: typeof Item;
-  cls?: typeof Item;
+  item: typeof Item;
+  cls: typeof Item;
   charLevel?: number;
   clsLevel?: number;
   useUpdateSource?: boolean;
@@ -117,7 +117,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       grants.map((grant) => this.#getSubGrants(grant, characterLevel))
     )).flat().filter((g) => !!g);
 
-    grants.concat(subGrants).forEach((grant) => {
+    const allGrants = grants.concat(subGrants);
+
+    allGrants.concat(subGrants).forEach((grant) => {
       if (this.has(this.#getFullId(grant))) return;
 
       const { levelType } = grant;
@@ -125,7 +127,15 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       if (levelType === 'character') {
         if (grant.level > characterLevel) return;
         if (item.type === 'class') {
-          const parentGrant = item.grants.get(grant?.grantedBy?.id);
+          let parentGrant: Grant | undefined = grant;
+
+          // eslint-disable-next-line no-constant-condition
+          while (true) {
+            // eslint-disable-next-line @typescript-eslint/no-loop-func
+            parentGrant = allGrants.find((g) => g._id === parentGrant?.grantedBy?.id);
+            if (!parentGrant || parentGrant.levelType === 'class') break;
+          }
+
           if (!parentGrant && grant.level !== characterLevel) return;
         }
       }
@@ -201,7 +211,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         grants.map((grant) => this.#getSubGrants(grant, characterLevel))
       )).flat().filter((g) => !!g);
 
-      grants.concat(subGrants).forEach((grant: Grant) => {
+      const allGrants = grants.concat(subGrants);
+
+      allGrants.forEach((grant: Grant) => {
         let reSelectable = false;
 
         if (grant.grantedBy?.id) {
@@ -220,7 +232,18 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         if (levelType === 'character') {
           if (grant.level > characterLevel) return;
           if (item.type === 'class') {
-            const classParentGrant = item.grants.get(grant?.grantedBy?.id);
+            let classParentGrant: Grant | undefined = grant;
+
+            // eslint-disable-next-line no-constant-condition
+            while (true) {
+              classParentGrant = allGrants
+                // eslint-disable-next-line @typescript-eslint/no-loop-func
+                .find((g) => g._id === classParentGrant?.grantedBy?.id);
+
+              if (!classParentGrant || classParentGrant.levelType === 'class') break;
+            }
+
+            // const classParentGrant = item.grants.get(grant?.grantedBy?.id);
             if (!classParentGrant && grant.level !== characterLevel) return;
           }
         }
@@ -315,7 +338,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     if (!allGrants.length && !options.cls) return false;
 
     const requiresConfig = [...allGrants].some((grant) => grant.requiresConfig());
-    const isClass = options.cls && !options.item;
+    const isClass = options.cls && options.item.type === 'class';
     const hasSpellCasting = options.item?.system?.spellcasting?.ability?.options?.length;
 
     const requiresDialog = requiresConfig || !!optionalGrants.length || isClass || hasSpellCasting;
