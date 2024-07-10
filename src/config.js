@@ -1421,7 +1421,9 @@ A5E.tools = {
     maraca: 'A5E.InstrumentMaraca',
     ocarina: 'A5E.InstrumentOcarina',
     panFlute: 'A5E.InstrumentPanFlute',
+    shawm: 'A5E.InstrumentShawm',
     trombone: 'A5E.InstrumentTrombone',
+    viol: 'A5E.InstrumentViol',
     violin: 'A5E.InstrumentViolin'
   },
   miscellaneous: {
@@ -1480,7 +1482,9 @@ A5E.toolsPlural = {
     maraca: 'A5E.InstrumentMaracaPlural',
     ocarina: 'A5E.InstrumentOcarinaPlural',
     panFlute: 'A5E.InstrumentPanFlutePlural',
+    shawm: 'A5E.InstrumentShawmPlural',
     trombone: 'A5E.InstrumentTrombonePlural',
+    viol: 'A5E.InstrumentViolPlural',
     violin: 'A5E.InstrumentViolinPlural'
   },
   miscellaneous: {

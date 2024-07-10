@@ -228,7 +228,7 @@
 <article>
     <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">
         {#if cls && cls?.type === "class"}
-            {#if clsLevel > 1 && !item}
+            {#if clsLevel > 1 && item.type === "class"}
                 <ClassHitPointsSelection {cls} classLevel={clsLevel} bind:clsReturnData />
             {/if}
 
