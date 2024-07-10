@@ -1,13 +1,9 @@
-import type { FeatureSystemSource } from './data';
-
 import ItemA5e from './item';
 
 import ItemGrantsManager from '../../managers/ItemGrantsManager';
 
 export default class FeatureItemA5e extends ItemA5e {
   declare grants: ItemGrantsManager;
-
-  declare system: FeatureSystemSource;
 
   prepareBaseData() {
     super.prepareBaseData();

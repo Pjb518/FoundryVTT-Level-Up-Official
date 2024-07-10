@@ -1,4 +1,4 @@
-import type { ArchetypeSystemSource, ClassCastingData } from './data';
+import type { ClassCastingData } from './data';
 import ClassResourceManager from '../../managers/ClassResourceManager';
 
 import OriginItemA5e from './origin';
@@ -9,8 +9,6 @@ export default class ArchetypeItemA5e extends OriginItemA5e {
   declare casting: ClassCastingData | null;
 
   declare class: ClassItemA5e | null;
-
-  declare system: ArchetypeSystemSource;
 
   declare resources: ClassResourceManager;
 

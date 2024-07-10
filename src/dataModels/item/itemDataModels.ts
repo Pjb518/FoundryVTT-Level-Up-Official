@@ -25,3 +25,22 @@ const itemDataModels = {
 };
 
 export default itemDataModels;
+
+// Merge types into fvtt-types
+declare global {
+  interface DataModelConfig {
+    Item: {
+      archetype: A5EArchetypeData;
+      background: A5EBackgroundData;
+      class: A5EClassData;
+      culture: A5ECultureData;
+      destiny: A5EDestinyData;
+      heritage: A5EHeritageData;
+
+      feature: A5EFeatureData;
+      maneuver: A5EManeuverData;
+      object: A5EObjectData;
+      spell: A5ESpellData;
+    }
+  }
+}
