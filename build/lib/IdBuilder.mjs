@@ -21,12 +21,16 @@ export default class IdBuilder {
     this.generatedIds = 0;
   }
 
+  get summary() {
+    return `Generated ${this.generatedIds} ids and fixed ${this.mappedIds}.`;
+  }
+
   loadIds() {
     const dirName = fileURLToPath(new URL('.', import.meta.url));
     const dataPath = path.resolve(dirName, '../../packs');
     const dirPaths = fs.readdirSync(dataPath).map((p) => path.resolve(dirName, dataPath, p));
 
-    const savedIdsPath = path.resolve(dirName, '../../packs/ids.json');
+    const savedIdsPath = path.resolve(dirName, '../../packs/_ids.json');
     const savedIdData = JSON.parse(
       fs.readFileSync(savedIdsPath, { encoding: 'utf-8' }).toString()
     );
@@ -126,6 +130,10 @@ export default class IdBuilder {
     return id;
   }
 
+  /**
+   * @param {any} doc
+   * @returns { "Actor" | "Item" | "Journal" | "RollTable" | null}
+   */
   static documentType(doc) {
     if (IdBuilder.#isActor(doc)) return 'Actor';
     if (IdBuilder.#isItem(doc)) return 'Item';
@@ -146,6 +154,10 @@ export default class IdBuilder {
     return parts.join('.');
   }
 
+  /**
+   * @param {*} length
+   * @returns {string}
+   */
   static randomId(length = 16) {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     const cutoff = 0x100000000 - (0x100000000 % chars.length);
@@ -158,20 +170,36 @@ export default class IdBuilder {
     return id;
   }
 
+  /**
+   * @param {any} doc
+   * @returns {boolean}
+   */
   static #isActor(doc) {
     return ('system' in doc && doc.system && 'items' in doc && Array.isArray(doc.items));
   }
 
+  /**
+   * @param {any} doc
+   * @returns {boolean}
+   */
   static #isItem(doc) {
     return (
       'system' in doc && doc.system && !IdBuilder.#isActor(doc) && !('text' in doc)
     );
   }
 
+  /**
+   * @param {any} doc
+   * @returns {boolean}
+   */
   static #isJournal(doc) {
     return 'pages' in doc;
   }
 
+  /**
+   * @param {any} doc
+   * @returns {boolean}
+   */
   static #isRollTable(doc) {
     return 'results' in doc;
   }
