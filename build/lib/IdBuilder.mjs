@@ -30,7 +30,7 @@ export default class IdBuilder {
     const dataPath = path.resolve(dirName, '../../packs');
     const dirPaths = fs.readdirSync(dataPath).map((p) => path.resolve(dirName, dataPath, p));
 
-    const savedIdsPath = path.resolve(dirName, '../../packs/_ids.json');
+    const savedIdsPath = path.resolve(dirName, '../../packs/ids.json');
     const savedIdData = JSON.parse(
       fs.readFileSync(savedIdsPath, { encoding: 'utf-8' }).toString()
     );

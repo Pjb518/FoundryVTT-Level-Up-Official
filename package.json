@@ -8,9 +8,7 @@
     "dev": "vite",
     "build": "npm run build:compendia && vite build",
     "build:system": "vite build",
-    "build:compendia": "node -e \"import('./compendia.mjs').then( m => m.compilePacks())\"",
-    "build:fixIds": "node -e \"import('./compendia.mjs').then( m => m.fixIds())\"",
-    "build:saveIds": "node -e \"import('./compendia.mjs').then( m => m.saveIds())\""
+    "build:compendia": "node ./build/buildCompendia.mjs"
   },
   "imports": {
     "#runtime/*": "@typhonjs-fvtt/runtime/*",
