@@ -22,7 +22,7 @@ export default class IdBuilder {
   }
 
   get summary() {
-    return `Generated ${this.generatedIds} ids and fixed ${this.mappedIds}.`;
+    return `Generated ${this.generatedIds} ids and fixed ${this.mappedIds} ids.`;
   }
 
   loadIds() {
@@ -98,19 +98,20 @@ export default class IdBuilder {
       }
     });
 
+    // Update ids.json
     if (this.generatedIds) {
+      // TODO: Delete non existent keys
+
       // Sort ids key
-      const replacer = (key, value) => (value instanceof Object && !(value instanceof Array)
+      const replacer = (_, value) => (value instanceof Object && !(value instanceof Array)
         ? Object.keys(value)
           .sort()
-          // eslint-disable-next-line @typescript-eslint/no-shadow
           .reduce((sorted, key) => {
             sorted[key] = value[key];
             return sorted;
           }, {})
         : value);
 
-      // Update ids.json
       fs.writeFileSync(
         savedIdsPath,
         JSON.stringify(savedIdData, replacer, '\t'),
