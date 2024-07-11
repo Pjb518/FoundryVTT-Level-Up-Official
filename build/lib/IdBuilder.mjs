@@ -6,7 +6,7 @@ import fs from 'fs';
 
 import { fileURLToPath } from 'url';
 import { globSync } from 'glob';
-import { getProperty, setProperty, flattenObject } from '../helpers.mjs';
+import { getProperty, setProperty } from '../helpers.mjs';
 
 export default class IdBuilder {
   constructor() {
@@ -86,6 +86,11 @@ export default class IdBuilder {
         } else {
           this.ids[docType].add(originalId);
         }
+
+        // This is for creating the ids file
+        // const idPath = IdBuilder.getIdKey(file);
+        // setProperty(savedIdData, idPath, jsonData._id);
+        // this.generatedIds += 1;
       }
     });
 
@@ -94,6 +99,7 @@ export default class IdBuilder {
       const replacer = (key, value) => (value instanceof Object && !(value instanceof Array)
         ? Object.keys(value)
           .sort()
+          // eslint-disable-next-line @typescript-eslint/no-shadow
           .reduce((sorted, key) => {
             sorted[key] = value[key];
             return sorted;
