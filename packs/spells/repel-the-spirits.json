@@ -1,278 +1,298 @@
 {
-  "name": "Repel the Spirits",
-  "type": "spell",
-  "img": "icons/creatures/magical/spirit-undead-ghost-purple.webp",
-  "effects": [
-    {
-      "icon": "icons/creatures/magical/spirit-undead-ghost-purple.webp",
-      "origin": "Item.8sawwvnsbxo6lutj",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "iu7ozXiVA0bXLtZK",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Disguise from Spirits",
-      "_id": "b6Pnhw0PsubhU4WS",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 604800,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Gains an expertise die on the first Deception, Intimidation, Stealth, and disguise kit check they make that day against a Celestial, Elemental, Fey, Fiend, or Undead.</p>",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/creatures/magical/spirit-undead-ghost-purple.webp",
-      "origin": "Item.8sawwvnsbxo6lutj",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "iu7ozXiVA0bXLtZK",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Feed Spirits",
-      "_id": "O8uzCCvVzb5Zp370",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 604800,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Cannot be possessed or have their dreams adversely affected by any means short of a wish spell.</p>",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/creatures/magical/spirit-undead-ghost-purple.webp",
-      "origin": "Item.8sawwvnsbxo6lutj",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "00qaonKExzl4Uqby",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Frightened",
-      "_id": "Wq95JYVeTKcbdbnJ",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"frightened\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 86400,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "frightened"
-      ],
-      "folder": null
-    }
-  ],
-  "folder": null,
-  "flags": {},
-  "system": {
-    "actions": {
-      "iu7ozXiVA0bXLtZK": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "hour",
-          "cost": 1
-        },
-        "consumers": {
-          "GyaZrrOUoxYyniNT": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "FPuVQPb4rfez77xy": {
-            "type": "effect",
-            "default": true,
-            "effectId": "b6Pnhw0PsubhU4WS"
-          },
-          "l53vc0XnXqdlcZqH": {
-            "type": "effect",
-            "default": true,
-            "effectId": "O8uzCCvVzb5Zp370"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "ranges": {
-          "rYNMzijhgs94Y0VA": {
-            "range": "short"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        }
-      },
-      "K9PZO9D2DS9NvcbF": {
-        "name": "Appease Spirits",
-        "activation": {},
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "1pO5QfIF7Xz9ba8D": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "wis",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      },
-      "00qaonKExzl4Uqby": {
-        "name": "Frighten Spirits",
-        "activation": {},
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "5Bq3hunYelWfO9Px": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "wis",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          },
-          "Z0ejhepY6qNBDdnh": {
-            "type": "effect",
-            "default": true,
-            "effectId": "Wq95JYVeTKcbdbnJ"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>During the casting time of this spell, you perform a rite in order to keep spirits from bothering mortals. When you cast the spell, you choose one of the following effects, any targets of which must be within range during the entire casting.</p><ul><li><strong>Appease Spirits:</strong> You target one acre of land, filling it with scents, sights, and sounds pleasing to spirit kind. One Celestial, Elemental, Fey, Fiend, or Undead creature inhabiting the target area improves its disposition towards mortals. Such a hostile spirit must make a Wisdom save at disadvantage or it becomes indifferent, and such an indifferent spirit becomes friendly. The same parcel of land cannot benefit from this spell again until the next new moon, and the same spirit cannot be affected by this spell again for 1 year.</li><li><strong>Disguise from Spirits:</strong> You target one creature, anointing them with aromatic ointments to disguise them from the spirits. For the next week, the target gains an expertise die on Deception, Intimidation, Stealth, and disguise kit checks made against Celestial, Elemental, Fey, Fiend, or Undead creatures.</li><li><strong>Feed Spirits:</strong> You target one creature and provide a meal to sate the spirits which have influence over the target. For the next week, the target cannot be possessed or have their dreams adversely affected by any means short of a @UUID[Compendium.a5e.a5e-spells.Item.pe52jryde7ljobzq]{Wish} spell. The target can refresh the one week duration for themself for up to one year by ritually offering 1 Supply to the spirits (such as through burning, throwing into a river, or leaving in the woods on a platter).</li><li><strong>Frighten Spirits:</strong> You target one acre of land, filling it with scents, sights, and sounds frightful to spirit kind (garlic, drums, sacred iconography, prayers, etc.). For the next 24 hours, whenever a Celestial, Elemental, Fey, Fiend, or Undead creature or a creature with the Etherealness trait attempts to enter 120 feet of the target, that creature must make a Wisdom saving throw or become frightened of the target. This fear effect lasts until for 24 hours, during which time the affected creature can attempt its saving throw again each hour to end the effect early. Once a creature saves against this effect, it cannot be affected by this casting of it again.</li></ul><p><strong>Special.</strong> Druids can cast this spell as a ritual even if they do not have it prepared.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "cleric",
-      "druid",
-      "warlock",
-      "witch"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "25 gold worth of incense or food, consumed by the spell",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": true,
-    "schools": {
-      "primary": "abjuration",
-      "secondary": [
-        "divine",
-        "protection",
-        "nature"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "_id": "8sawwvnsbxo6lutj"
+	"name": "Repel the Spirits",
+	"type": "spell",
+	"img": "icons/creatures/magical/spirit-undead-ghost-purple.webp",
+	"effects": [
+		{
+			"icon": "icons/creatures/magical/spirit-undead-ghost-purple.webp",
+			"origin": "Item.8sawwvnsbxo6lutj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iu7ozXiVA0bXLtZK",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Disguise from Spirits",
+			"_id": "b6Pnhw0PsubhU4WS",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 604800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gains an expertise die on the first Deception, Intimidation, Stealth, and disguise kit check they make that day against a Celestial, Elemental, Fey, Fiend, or Undead.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/creatures/magical/spirit-undead-ghost-purple.webp",
+			"origin": "Item.8sawwvnsbxo6lutj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iu7ozXiVA0bXLtZK",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Feed Spirits",
+			"_id": "O8uzCCvVzb5Zp370",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 604800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Cannot be possessed or have their dreams adversely affected by any means short of a wish spell.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/creatures/magical/spirit-undead-ghost-purple.webp",
+			"origin": "Item.8sawwvnsbxo6lutj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "00qaonKExzl4Uqby",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"_id": "Wq95JYVeTKcbdbnJ",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"frightened"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"system": {
+		"actions": {
+			"iu7ozXiVA0bXLtZK": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "hour",
+					"cost": 1
+				},
+				"consumers": {
+					"GyaZrrOUoxYyniNT": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"FPuVQPb4rfez77xy": {
+						"type": "effect",
+						"default": true,
+						"effectId": "b6Pnhw0PsubhU4WS"
+					},
+					"l53vc0XnXqdlcZqH": {
+						"type": "effect",
+						"default": true,
+						"effectId": "O8uzCCvVzb5Zp370"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"rYNMzijhgs94Y0VA": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"K9PZO9D2DS9NvcbF": {
+				"name": "Appease Spirits",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"1pO5QfIF7Xz9ba8D": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"00qaonKExzl4Uqby": {
+				"name": "Frighten Spirits",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"5Bq3hunYelWfO9Px": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"Z0ejhepY6qNBDdnh": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Wq95JYVeTKcbdbnJ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>During the casting time of this spell, you perform a rite in order to keep spirits from bothering mortals. When you cast the spell, you choose one of the following effects, any targets of which must be within range during the entire casting.</p><ul><li><strong>Appease Spirits:</strong> You target one acre of land, filling it with scents, sights, and sounds pleasing to spirit kind. One Celestial, Elemental, Fey, Fiend, or Undead creature inhabiting the target area improves its disposition towards mortals. Such a hostile spirit must make a Wisdom save at disadvantage or it becomes indifferent, and such an indifferent spirit becomes friendly. The same parcel of land cannot benefit from this spell again until the next new moon, and the same spirit cannot be affected by this spell again for 1 year.</li><li><strong>Disguise from Spirits:</strong> You target one creature, anointing them with aromatic ointments to disguise them from the spirits. For the next week, the target gains an expertise die on Deception, Intimidation, Stealth, and disguise kit checks made against Celestial, Elemental, Fey, Fiend, or Undead creatures.</li><li><strong>Feed Spirits:</strong> You target one creature and provide a meal to sate the spirits which have influence over the target. For the next week, the target cannot be possessed or have their dreams adversely affected by any means short of a @UUID[Compendium.a5e.a5e-spells.Item.pe52jryde7ljobzq]{Wish} spell. The target can refresh the one week duration for themself for up to one year by ritually offering 1 Supply to the spirits (such as through burning, throwing into a river, or leaving in the woods on a platter).</li><li><strong>Frighten Spirits:</strong> You target one acre of land, filling it with scents, sights, and sounds frightful to spirit kind (garlic, drums, sacred iconography, prayers, etc.). For the next 24 hours, whenever a Celestial, Elemental, Fey, Fiend, or Undead creature or a creature with the Etherealness trait attempts to enter 120 feet of the target, that creature must make a Wisdom saving throw or become frightened of the target. This fear effect lasts until for 24 hours, during which time the affected creature can attempt its saving throw again each hour to end the effect early. Once a creature saves against this effect, it cannot be affected by this casting of it again.</li></ul><p><strong>Special.</strong> Druids can cast this spell as a ritual even if they do not have it prepared.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric",
+			"druid",
+			"warlock",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "25 gold worth of incense or food, consumed by the spell",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": true,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"divine",
+				"protection",
+				"nature"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"_id": "8sawwvnsbxo6lutj",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

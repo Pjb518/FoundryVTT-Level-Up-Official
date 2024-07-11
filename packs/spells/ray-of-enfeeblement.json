@@ -1,152 +1,162 @@
 {
-  "name": "Ray of Enfeeblement",
-  "type": "spell",
-  "img": "icons/magic/unholy/projectile-missile-green.webp",
-  "effects": [
-    {
-      "icon": "icons/magic/unholy/projectile-missile-green.webp",
-      "origin": "Item.9eojtnhu5ptcipov",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "V8Mow1LinKc9f1OC",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Enfeebled",
-      "_id": "9QTmOApfjoZezikh",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>The target is weakened and only deals half damage with weapon attacks that use Strength.</p><p>At the end of each of the target's turns, it can make a Strength saving throw, ending the spell on a success.</p>",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "V8Mow1LinKc9f1OC": {
-        "name": "Ray of Enfeeblement",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "IzJaQhJ7dOEpFshp": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "rolls": {
-          "GYsjN0NtCFlwDKjJ": {
-            "bonus": "",
-            "critThreshold": 20,
-            "type": "attack",
-            "attackType": "rangedSpellAttack",
-            "ability": "spellcasting"
-          }
-        },
-        "prompts": {
-          "pEZZxoF4O42XEveS": {
-            "ability": "str",
-            "onSave": "Special",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          },
-          "glKi9aJfjvxGEcHr": {
-            "type": "effect",
-            "default": true,
-            "effectId": "9QTmOApfjoZezikh"
-          }
-        },
-        "consumers": {
-          "Na54jOqUxvh2xtGK": {
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>A black ray of necrotic energy shoots from your fingertip. Make a ranged spell attack against the target. On a hit, the target is weakened and only deals half damage with weapon attacks that use Strength.</p><p>At the end of each of the target's turns, it can make a Strength saving throw, ending the spell on a success.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "",
-        "threshold": 0
-      }
-    },
-    "classes": [
-      "warlock",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 2,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "necromancy",
-      "secondary": [
-        "arcane",
-        "necrotic"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "folder": null,
-  "_id": "9eojtnhu5ptcipov"
+	"name": "Ray of Enfeeblement",
+	"type": "spell",
+	"img": "icons/magic/unholy/projectile-missile-green.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/projectile-missile-green.webp",
+			"origin": "Item.9eojtnhu5ptcipov",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "V8Mow1LinKc9f1OC",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Enfeebled",
+			"_id": "9QTmOApfjoZezikh",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target is weakened and only deals half damage with weapon attacks that use Strength.</p><p>At the end of each of the target's turns, it can make a Strength saving throw, ending the spell on a success.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"V8Mow1LinKc9f1OC": {
+				"name": "Ray of Enfeeblement",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"IzJaQhJ7dOEpFshp": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"rolls": {
+					"GYsjN0NtCFlwDKjJ": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedSpellAttack",
+						"ability": "spellcasting"
+					}
+				},
+				"prompts": {
+					"pEZZxoF4O42XEveS": {
+						"ability": "str",
+						"onSave": "Special",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"glKi9aJfjvxGEcHr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "9QTmOApfjoZezikh"
+					}
+				},
+				"consumers": {
+					"Na54jOqUxvh2xtGK": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>A black ray of necrotic energy shoots from your fingertip. Make a ranged spell attack against the target. On a hit, the target is weakened and only deals half damage with weapon attacks that use Strength.</p><p>At the end of each of the target's turns, it can make a Strength saving throw, ending the spell on a success.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"warlock",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "necromancy",
+			"secondary": [
+				"arcane",
+				"necrotic"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"folder": null,
+	"_id": "9eojtnhu5ptcipov",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

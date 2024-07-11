@@ -1,124 +1,134 @@
 {
-  "folder": null,
-  "name": "Partner Fall",
-  "type": "maneuver",
-  "img": "icons/consumables/fruit/tomato-ripe-red.webp",
-  "system": {
-    "actions": {
-      "XPZWqOjb6arOZoWg": {
-        "name": "Partner Fall",
-        "activation": {
-          "type": "reaction",
-          "cost": 1,
-          "reactionTrigger": "A creature no more than one size category larger than you uses a basic combat maneuver against you or targets you with a melee attack"
-        },
-        "consumers": {
-          "NxhOftgCBCRIIeyV": {
-            "type": "resource",
-            "default": true,
-            "resource": "exertion",
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "Gt7K6ek5542CVkt0": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "maneuver"
-            },
-            "label": "With Disadvantage"
-          },
-          "hzd9cBO1VX4tqXgB": {
-            "type": "effect",
-            "default": true,
-            "effectId": "mcK5wtESB9K68eFR"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>The art of the pratfall is to make the dive to the floor spectacular, and nothing impresses like taking somebody down with you.</p><p>When a creature no more than one size category larger than you uses a basic combat maneuver against you or targets you with a melee attack, you can use your reaction to fall prone</span> and force the creature to make a Dexterity saving throw with <span>disadvantage or also fall prone.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "gpg19",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "degree": 3,
-    "exertionCost": 2,
-    "isStance": false,
-    "prerequisite": "",
-    "tradition": "comedicJabs",
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "effects": [
-    {
-      "icon": "icons/consumables/fruit/tomato-ripe-red.webp",
-      "origin": "Item.hdjd6xbw3vgoojfw",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "XPZWqOjb6arOZoWg"
-        }
-      },
-      "transfer": false,
-      "name": "Fall Prone",
-      "_id": "mcK5wtESB9K68eFR",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"prone\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "prone"
-      ],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "hdjd6xbw3vgoojfw"
+	"folder": null,
+	"name": "Partner Fall",
+	"type": "maneuver",
+	"img": "icons/consumables/fruit/tomato-ripe-red.webp",
+	"system": {
+		"actions": {
+			"XPZWqOjb6arOZoWg": {
+				"name": "Partner Fall",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "A creature no more than one size category larger than you uses a basic combat maneuver against you or targets you with a melee attack"
+				},
+				"consumers": {
+					"NxhOftgCBCRIIeyV": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"Gt7K6ek5542CVkt0": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"label": "With Disadvantage"
+					},
+					"hzd9cBO1VX4tqXgB": {
+						"type": "effect",
+						"default": true,
+						"effectId": "mcK5wtESB9K68eFR"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>The art of the pratfall is to make the dive to the floor spectacular, and nothing impresses like taking somebody down with you.</p><p>When a creature no more than one size category larger than you uses a basic combat maneuver against you or targets you with a melee attack, you can use your reaction to fall prone</span> and force the creature to make a Dexterity saving throw with <span>disadvantage or also fall prone.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg19",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 3,
+		"exertionCost": 2,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "comedicJabs",
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		}
+	},
+	"effects": [
+		{
+			"icon": "icons/consumables/fruit/tomato-ripe-red.webp",
+			"origin": "Item.hdjd6xbw3vgoojfw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "XPZWqOjb6arOZoWg"
+				}
+			},
+			"transfer": false,
+			"name": "Fall Prone",
+			"_id": "mcK5wtESB9K68eFR",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"_id": "hdjd6xbw3vgoojfw",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

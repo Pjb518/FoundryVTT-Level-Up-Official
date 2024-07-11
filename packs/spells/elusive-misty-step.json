@@ -1,137 +1,147 @@
 {
-  "name": "Elusive Misty Step",
-  "type": "spell",
-  "img": "icons/skills/movement/ball-spinning-blue.webp",
-  "effects": [
-    {
-      "icon": "icons/skills/movement/ball-spinning-blue.webp",
-      "origin": "Item.adt98iyadb78wi5w",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "vXZn3iWPurUWz9QK",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Elusive",
-      "_id": "ArzCD02x2nil24o9",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": 1,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Until the start of your next turn, attack rolls against you are made with disadvantage.</p>",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "vXZn3iWPurUWz9QK": {
-        "name": "Misty Step",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": ""
-        },
-        "ranges": {
-          "IRVdWzXtFPJ5Ijps": {
-            "range": "short"
-          }
-        },
-        "target": {
-          "quantity": "",
-          "type": "self"
-        },
-        "consumers": {
-          "79g12iyPPibSJozT": {
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3,
-            "type": "spell"
-          }
-        },
-        "prompts": {
-          "0M6hGL9sSjRYHa4c": {
-            "type": "effect",
-            "default": true,
-            "effectId": "ArzCD02x2nil24o9"
-          }
-        }
-      }
-    },
-    "description": "<p>You teleport to an unoccupied space that you can see, disappearing and reappearing in a swirl of shimmering mist.</p><p><em><strong>Rare:&nbsp;</strong></em><strong>Elusive Misty Step.&nbsp;</strong>Until the start&nbsp;of your next turn, attack rolls against you are made&nbsp;with disadvantage.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "",
-        "threshold": 0
-      }
-    },
-    "classes": [
-      "artificer",
-      "elementalistAir",
-      "sorcerer",
-      "warlock",
-      "wielder",
-      "witch",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": false,
-      "material": false
-    },
-    "concentration": false,
-    "level": 2,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": true,
-    "ritual": false,
-    "schools": {
-      "primary": "conjuration",
-      "secondary": [
-        "arcane",
-        "chaos",
-        "movement",
-        "teleportation"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "folder": null,
-  "_id": "adt98iyadb78wi5w"
+	"name": "Elusive Misty Step",
+	"type": "spell",
+	"img": "icons/skills/movement/ball-spinning-blue.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/movement/ball-spinning-blue.webp",
+			"origin": "Item.adt98iyadb78wi5w",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vXZn3iWPurUWz9QK",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Elusive",
+			"_id": "ArzCD02x2nil24o9",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the start of your next turn, attack rolls against you are made with disadvantage.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"vXZn3iWPurUWz9QK": {
+				"name": "Misty Step",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"IRVdWzXtFPJ5Ijps": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"consumers": {
+					"79g12iyPPibSJozT": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"0M6hGL9sSjRYHa4c": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ArzCD02x2nil24o9"
+					}
+				}
+			}
+		},
+		"description": "<p>You teleport to an unoccupied space that you can see, disappearing and reappearing in a swirl of shimmering mist.</p><p><em><strong>Rare:&nbsp;</strong></em><strong>Elusive Misty Step.&nbsp;</strong>Until the start&nbsp;of your next turn, attack rolls against you are made&nbsp;with disadvantage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"artificer",
+			"elementalistAir",
+			"sorcerer",
+			"warlock",
+			"wielder",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"arcane",
+				"chaos",
+				"movement",
+				"teleportation"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"folder": null,
+	"_id": "adt98iyadb78wi5w",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

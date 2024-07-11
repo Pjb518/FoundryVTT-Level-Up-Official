@@ -1,194 +1,199 @@
 {
-  "folder": null,
-  "name": "Grease Fire",
-  "type": "spell",
-  "img": "icons/magic/fire/flame-burning-campfire-rocks.webp",
-  "system": {
-    "actions": {
-      "vNsufiYXAHPArVZ0": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "jlIi76BjhZz1kL5N": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 5,
-            "points": 7
-          }
-        },
-        "rolls": {
-          "cb3GJmUBnXDyP8SB": {
-            "type": "damage",
-            "default": true,
-            "formula": "5d8",
-            "damageType": "fire",
-            "canCrit": false
-          }
-        },
-        "prompts": {
-          "yka3uxoUMG1koRpB": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "Half damage"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "special"
-        },
-        "ranges": {
-          "RdAGW3kPrIJ6Vbu4": {
-            "range": "long"
-          }
-        },
-        "area": {
-          "shape": "sphere",
-          "quantity": 1,
-          "radius": 15
-        }
-      },
-      "x1V72Jt8z9JiSHDA": {
-        "name": "Start of Turn",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "jW4yiVyzV2mRjO67": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "3d4",
-            "damageType": "fire"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "descriptionOutputs": []
-      },
-      "QT8ENVmFSiYlOA1S": {
-        "name": "Add Water and Explode",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "qGhJ7X14k6T6So64": {
-            "type": "damage",
-            "default": true,
-            "formula": "2d8",
-            "canCrit": false,
-            "damageType": "fire"
-          },
-          "qOATUbXZrVDuwp39": {
-            "type": "damage",
-            "default": true,
-            "formula": "2d8",
-            "damageType": "force",
-            "canCrit": false
-          }
-        },
-        "prompts": {
-          "SgAHtj40wHUxSIeG": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "Half damage and not knocked prone"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p id=\"docs-internal-guid-1f3f2dd5-7fff-f474-a168-963bc2e8983a\" dir=\"ltr\">This fire cannot be extinguished through the use of water, and if water is applied to this fire in any way (such as in create or destroy water), it instead causes a fiery explosion in the area grease fire is currently affecting. All creatures within the spell&rsquo;s area of effect must make an additional Dexterity saving throw. On a failure, the affected creatures take 2d8 fire damage and 2d8 force damage and are knocked prone from the blast. Creatures who succeed talk half damage and are not knocked prone.</p>"
-      }
-    },
-    "description": "<p id=\"docs-internal-guid-00825ea7-7fff-2259-b64f-01b90b52842c\" dir=\"ltr\">You summon forth a flood of grease into the specified area, which immediately ignites upon casting. Creatures in the affected area must make a Dexterity saving throw versus your spell save DC, taking [[/r 5d8]] fire damage on a failure or half as much on a success.&nbsp; The area flooded by this fiery grease is considered difficult terrain for the duration of the spell and any creatures who remain in the grease automatically take [[/r 3d4]] fire damage at the start of their turn.</p><p dir=\"ltr\">This fire cannot be extinguished through the use of water, and if water is applied to this fire in any way (such as in create or destroy water), it instead causes a fiery explosion in the area grease fire is currently affecting. All creatures within the spell&rsquo;s area of effect must make an additional Dexterity saving throw. On a failure, the affected creatures take [[/r 2d8]] fire damage and [[/r 2d8]] force damage and are knocked prone from the blast. Creatures who succeed take half damage and are not knocked prone.</p><p dir=\"ltr\">This fire persists for 10 rounds and does not require concentration. After 10 rounds have passed, the fire quenches itself and disappears.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "toilAndTrouble",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "witch"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 5,
-    "materials": "a bottle of grease",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "fire",
-        "hearth"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "r43swpyy3rj9gpun"
+	"folder": null,
+	"name": "Grease Fire",
+	"type": "spell",
+	"img": "icons/magic/fire/flame-burning-campfire-rocks.webp",
+	"system": {
+		"actions": {
+			"vNsufiYXAHPArVZ0": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"jlIi76BjhZz1kL5N": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7
+					}
+				},
+				"rolls": {
+					"cb3GJmUBnXDyP8SB": {
+						"type": "damage",
+						"default": true,
+						"formula": "5d8",
+						"damageType": "fire",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"yka3uxoUMG1koRpB": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "special"
+				},
+				"ranges": {
+					"RdAGW3kPrIJ6Vbu4": {
+						"range": "long"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 15
+				}
+			},
+			"x1V72Jt8z9JiSHDA": {
+				"name": "Start of Turn",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"jW4yiVyzV2mRjO67": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d4",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": []
+			},
+			"QT8ENVmFSiYlOA1S": {
+				"name": "Add Water and Explode",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"qGhJ7X14k6T6So64": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d8",
+						"canCrit": false,
+						"damageType": "fire"
+					},
+					"qOATUbXZrVDuwp39": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d8",
+						"damageType": "force",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"SgAHtj40wHUxSIeG": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage and not knocked prone"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p id=\"docs-internal-guid-1f3f2dd5-7fff-f474-a168-963bc2e8983a\" dir=\"ltr\">This fire cannot be extinguished through the use of water, and if water is applied to this fire in any way (such as in create or destroy water), it instead causes a fiery explosion in the area grease fire is currently affecting. All creatures within the spell&rsquo;s area of effect must make an additional Dexterity saving throw. On a failure, the affected creatures take 2d8 fire damage and 2d8 force damage and are knocked prone from the blast. Creatures who succeed talk half damage and are not knocked prone.</p>"
+			}
+		},
+		"description": "<p id=\"docs-internal-guid-00825ea7-7fff-2259-b64f-01b90b52842c\" dir=\"ltr\">You summon forth a flood of grease into the specified area, which immediately ignites upon casting. Creatures in the affected area must make a Dexterity saving throw versus your spell save DC, taking [[/r 5d8]] fire damage on a failure or half as much on a success.&nbsp; The area flooded by this fiery grease is considered difficult terrain for the duration of the spell and any creatures who remain in the grease automatically take [[/r 3d4]] fire damage at the start of their turn.</p><p dir=\"ltr\">This fire cannot be extinguished through the use of water, and if water is applied to this fire in any way (such as in create or destroy water), it instead causes a fiery explosion in the area grease fire is currently affecting. All creatures within the spell&rsquo;s area of effect must make an additional Dexterity saving throw. On a failure, the affected creatures take [[/r 2d8]] fire damage and [[/r 2d8]] force damage and are knocked prone from the blast. Creatures who succeed take half damage and are not knocked prone.</p><p dir=\"ltr\">This fire persists for 10 rounds and does not require concentration. After 10 rounds have passed, the fire quenches itself and disappears.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "toilAndTrouble",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 5,
+		"materials": "a bottle of grease",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"fire",
+				"hearth"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "r43swpyy3rj9gpun",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

@@ -1,157 +1,162 @@
 {
-  "name": "Grasping Gauntlet",
-  "type": "maneuver",
-  "img": "icons/magic/symbols/cog-shield-white-blue.webp",
-  "system": {
-    "actions": {
-      "V4DvDEVYTK3vbqR7": {
-        "name": "Grasping Gauntlet Initial",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "duration": {
-          "unit": "special"
-        },
-        "ranges": {
-          "AsBXxxT9SUsAadNK": {
-            "range": "short"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "prompts": {
-          "b6MrFrZOoEPfqLkP": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "str",
-            "saveDC": {
-              "type": "maneuver"
-            },
-            "onSave": "no damage and not grappled",
-            "label": "Strength"
-          },
-          "6zYnSJrbURSBFPJP": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "maneuver"
-            },
-            "label": "Dexterity",
-            "onSave": "no damage and not grappled"
-          }
-        },
-        "rolls": {
-          "PPBgWteRzXMP1npt": {
-            "type": "damage",
-            "default": true,
-            "label": "Basic",
-            "formula": "1+@str.mod",
-            "damageType": "bludgeoning",
-            "canCrit": false
-          }
-        },
-        "consumers": {
-          "pGLHvh3XF3sebVxk": {
-            "type": "resource",
-            "resource": "exertion",
-            "quantity": 3
-          },
-          "YVi050sOSrUu7Viu": {
-            "quantity": 3,
-            "resource": "exertion",
-            "type": "resource"
-          }
-        }
-      },
-      "WYSu66C9SS01i0K7": {
-        "name": "Grasping Gauntlet Subsequent",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "duration": {
-          "unit": "special"
-        },
-        "ranges": {
-          "AsBXxxT9SUsAadNK": {
-            "range": "short"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "prompts": {
-          "b6MrFrZOoEPfqLkP": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "str",
-            "saveDC": {
-              "type": "maneuver"
-            },
-            "onSave": "grapple end",
-            "label": "Strength"
-          },
-          "6zYnSJrbURSBFPJP": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "maneuver"
-            },
-            "label": "Dexterity",
-            "onSave": "grapple ends"
-          }
-        },
-        "rolls": {
-          "PPBgWteRzXMP1npt": {
-            "type": "damage",
-            "default": true,
-            "label": "Basic",
-            "formula": "1+@str.mod",
-            "damageType": "bludgeoning",
-            "canCrit": false
-          }
-        },
-        "consumers": {}
-      }
-    },
-    "description": "<p>Balling your hand into a fist, you speak a word of power and conjure a large, translucent gauntlet that seizes up your enemy.</p><p>Choose a creature of no more than one size category larger than you that is within 30 feet. The target must then make a Strength or Dexterity saving throw. On a failure, you deal basic melee damage and the target becomes grappled by a gauntleted hand made of force. This effect requires concentration as though it were a spell.</p><p>You may use your bonus action each turn to maintain the grapple for up to a number of rounds equal to half your level. When you maintain a grapple, the target takes basic melee damage on your turn. A creature that becomes grappled while in the air remains in its current square, even though its flight speed becomes 0, though at the Narrator&rsquo;s discretion it may have to make a saving throw or fall once it is no longer grappled.</p><p>At the beginning of each of its turns, a creature grappled by this maneuver can make a Strength saving throw, ending the effect on itself on a success. This effect also ends early if you target another creature with the gauntlet or if you move more than 45 feet from the target. </p>",
-    "favorite": false,
-    "secretDescription": "<p><em>Source: Gate Pass Gazette #9</em></p>",
-    "source": "gpg9",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": true,
-    "degree": 4,
-    "exertionCost": 3,
-    "isStance": false,
-    "prerequisite": "",
-    "tradition": "arcaneKnight",
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    }
-  },
-  "effects": [],
-  "flags": {},
-  "folder": null,
-  "_id": "tt2ofdl5zzf2jivt"
+	"name": "Grasping Gauntlet",
+	"type": "maneuver",
+	"img": "icons/magic/symbols/cog-shield-white-blue.webp",
+	"system": {
+		"actions": {
+			"V4DvDEVYTK3vbqR7": {
+				"name": "Grasping Gauntlet Initial",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"duration": {
+					"unit": "special"
+				},
+				"ranges": {
+					"AsBXxxT9SUsAadNK": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"prompts": {
+					"b6MrFrZOoEPfqLkP": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"onSave": "no damage and not grappled",
+						"label": "Strength"
+					},
+					"6zYnSJrbURSBFPJP": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"label": "Dexterity",
+						"onSave": "no damage and not grappled"
+					}
+				},
+				"rolls": {
+					"PPBgWteRzXMP1npt": {
+						"type": "damage",
+						"default": true,
+						"label": "Basic",
+						"formula": "1+@str.mod",
+						"damageType": "bludgeoning",
+						"canCrit": false
+					}
+				},
+				"consumers": {
+					"pGLHvh3XF3sebVxk": {
+						"type": "resource",
+						"resource": "exertion",
+						"quantity": 3
+					},
+					"YVi050sOSrUu7Viu": {
+						"quantity": 3,
+						"resource": "exertion",
+						"type": "resource"
+					}
+				}
+			},
+			"WYSu66C9SS01i0K7": {
+				"name": "Grasping Gauntlet Subsequent",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"duration": {
+					"unit": "special"
+				},
+				"ranges": {
+					"AsBXxxT9SUsAadNK": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"prompts": {
+					"b6MrFrZOoEPfqLkP": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"onSave": "grapple end",
+						"label": "Strength"
+					},
+					"6zYnSJrbURSBFPJP": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"label": "Dexterity",
+						"onSave": "grapple ends"
+					}
+				},
+				"rolls": {
+					"PPBgWteRzXMP1npt": {
+						"type": "damage",
+						"default": true,
+						"label": "Basic",
+						"formula": "1+@str.mod",
+						"damageType": "bludgeoning",
+						"canCrit": false
+					}
+				},
+				"consumers": {}
+			}
+		},
+		"description": "<p>Balling your hand into a fist, you speak a word of power and conjure a large, translucent gauntlet that seizes up your enemy.</p><p>Choose a creature of no more than one size category larger than you that is within 30 feet. The target must then make a Strength or Dexterity saving throw. On a failure, you deal basic melee damage and the target becomes grappled by a gauntleted hand made of force. This effect requires concentration as though it were a spell.</p><p>You may use your bonus action each turn to maintain the grapple for up to a number of rounds equal to half your level. When you maintain a grapple, the target takes basic melee damage on your turn. A creature that becomes grappled while in the air remains in its current square, even though its flight speed becomes 0, though at the Narrator&rsquo;s discretion it may have to make a saving throw or fall once it is no longer grappled.</p><p>At the beginning of each of its turns, a creature grappled by this maneuver can make a Strength saving throw, ending the effect on itself on a success. This effect also ends early if you target another creature with the gauntlet or if you move more than 45 feet from the target. </p>",
+		"favorite": false,
+		"secretDescription": "<p><em>Source: Gate Pass Gazette #9</em></p>",
+		"source": "gpg9",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": true,
+		"degree": 4,
+		"exertionCost": 3,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "arcaneKnight",
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "tt2ofdl5zzf2jivt",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

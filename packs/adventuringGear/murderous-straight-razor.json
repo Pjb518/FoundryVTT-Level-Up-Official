@@ -1,216 +1,226 @@
 {
-  "folder": null,
-  "name": "Murderous Straight Razor",
-  "type": "object",
-  "img": "icons/sundries/survival/razor.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "TJtzIWdcq6DiSD7B": {
-        "name": "Straight Razor",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "ux47nWAacolKBPZc": {
-            "type": "attack",
-            "default": true,
-            "attackType": "meleeWeaponAttack",
-            "proficient": true,
-            "ability": "default",
-            "bonus": "2"
-          },
-          "rkr0l6LYrODiJaCM": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d4 + @finesse.mod + 2",
-            "damageType": "slashing"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "ranges": {},
-        "target": {
-          "type": "",
-          "quantity": 1
-        }
-      },
-      "xhXVRTpv9xkSvIWO": {
-        "name": "Channel Hatred",
-        "activation": {},
-        "consumers": {
-          "BMPAEi5BsARKYKvN": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "eJWojFg3Yc13Q0ni": {
-            "type": "damage",
-            "default": true,
-            "formula": "2d6",
-            "damageType": "necrotic"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      },
-      "MHcgZQQaO19S5uV2": {
-        "name": "Attune",
-        "activation": {},
-        "consumers": {
-          "6UrvpNliV9FkWCTw": {
-            "type": "itemUses",
-            "default": true,
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "xLeYf8WYrkNPud8L": {
-            "type": "effect",
-            "default": true,
-            "effectId": "gOR0FfIeVFMUMMUr"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "img": "icons/sundries/survival/razor.webp"
-      }
-    },
-    "description": "<p>This otherwise gleaming implement has dark stains that cannot be polished or scrubbed off. You gain a +2 bonus to attack and damage rolls made with this razor. A number of times per day equal to half your proficiency bonus, when you hit with a melee attack you can use a bonus action to channel the inherent hatred of the razor, dealing 2d6 necrotic damage.</p><p><strong>Curse.</strong> Once attuned to this weapon, you are cursed until you are targeted by @UUID[Compendium.a5e.a5e-spells.Item.l16wg9h1z9s16exb]{Remove Curse} or similar magic. Your appearance and manner have a hint of murderous rage at all times, giving you disadvantage on Charisma checks and making beasts hostile towards you. Additionally, you have disadvantage on attack rolls with any other weapon and must make a DC 14 Wisdom saving throw to willingly part with the razor, even temporarily.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "gpg2",
-    "uses": {
-      "value": 0,
-      "max": "@prof/2",
-      "per": "day",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "A vial of blood taken by force from an innocent",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "3,500 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "rare",
-    "requiresAttunement": true,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "simple",
-      "finesse"
-    ],
-    "weight": 0.5,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "breakerProperties": [],
-    "defensiveProperties": "",
-    "flaws": [],
-    "versatile": "",
-    "mounted": []
-  },
-  "effects": [
-    {
-      "icon": "icons/sundries/survival/razor.webp",
-      "origin": "Item.bs33uvd26vazepaf",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "MHcgZQQaO19S5uV2",
-          "applyToSelf": true
-        }
-      },
-      "transfer": false,
-      "name": "Murderous Rage",
-      "_id": "gOR0FfIeVFMUMMUr",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilityCheck.cha",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "bs33uvd26vazepaf"
+	"folder": null,
+	"name": "Murderous Straight Razor",
+	"type": "object",
+	"img": "icons/sundries/survival/razor.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"TJtzIWdcq6DiSD7B": {
+				"name": "Straight Razor",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"ux47nWAacolKBPZc": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "2"
+					},
+					"rkr0l6LYrODiJaCM": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @finesse.mod + 2",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {},
+				"target": {
+					"type": "",
+					"quantity": 1
+				}
+			},
+			"xhXVRTpv9xkSvIWO": {
+				"name": "Channel Hatred",
+				"activation": {},
+				"consumers": {
+					"BMPAEi5BsARKYKvN": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"eJWojFg3Yc13Q0ni": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"MHcgZQQaO19S5uV2": {
+				"name": "Attune",
+				"activation": {},
+				"consumers": {
+					"6UrvpNliV9FkWCTw": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"xLeYf8WYrkNPud8L": {
+						"type": "effect",
+						"default": true,
+						"effectId": "gOR0FfIeVFMUMMUr"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/sundries/survival/razor.webp"
+			}
+		},
+		"description": "<p>This otherwise gleaming implement has dark stains that cannot be polished or scrubbed off. You gain a +2 bonus to attack and damage rolls made with this razor. A number of times per day equal to half your proficiency bonus, when you hit with a melee attack you can use a bonus action to channel the inherent hatred of the razor, dealing 2d6 necrotic damage.</p><p><strong>Curse.</strong> Once attuned to this weapon, you are cursed until you are targeted by @UUID[Compendium.a5e.a5e-spells.Item.l16wg9h1z9s16exb]{Remove Curse} or similar magic. Your appearance and manner have a hint of murderous rage at all times, giving you disadvantage on Charisma checks and making beasts hostile towards you. Additionally, you have disadvantage on attack rolls with any other weapon and must make a DC 14 Wisdom saving throw to willingly part with the razor, even temporarily.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg2",
+		"uses": {
+			"value": 0,
+			"max": "@prof/2",
+			"per": "day",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "A vial of blood taken by force from an innocent",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "3,500 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"simple",
+			"finesse"
+		],
+		"weight": 0.5,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"breakerProperties": [],
+		"defensiveProperties": "",
+		"flaws": [],
+		"versatile": "",
+		"mounted": []
+	},
+	"effects": [
+		{
+			"icon": "icons/sundries/survival/razor.webp",
+			"origin": "Item.bs33uvd26vazepaf",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "MHcgZQQaO19S5uV2",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Murderous Rage",
+			"_id": "gOR0FfIeVFMUMMUr",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.cha",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"_id": "bs33uvd26vazepaf",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

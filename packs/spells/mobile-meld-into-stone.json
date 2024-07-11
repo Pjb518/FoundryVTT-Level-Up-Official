@@ -1,315 +1,330 @@
 {
-  "name": "Mobile Meld Into Stone",
-  "type": "spell",
-  "img": "icons/magic/earth/strike-fist-stone-gray.webp",
-  "effects": [
-    {
-      "icon": "icons/magic/earth/strike-fist-stone-gray.webp",
-      "origin": "Item.5p3iv6a5edhrh9n0",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "GyXrtn6LABpFuWhu",
-          "applyToSelf": true,
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Meld Into Stone",
-      "_id": "htVmTfcczNtoGlkv",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"invisible\"]",
-          "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.skillCheck.prc",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "system.attributes.movement.burrow.distance",
-          "value": "10",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 28800,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "invisible"
-      ],
-      "tint": "#ffffff",
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/earth/strike-fist-stone-gray.webp",
-      "origin": "Item.5p3iv6a5edhrh9n0",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "n5bzFIkX7AeMRwgM",
-          "applyToSelf": true,
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Meld Into Stone",
-      "_id": "tcfKQGFVAzfz3pr8",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"invisible\"]",
-          "mode": 0,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.skillCheck.prc",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.attack.meleeSpellAttack",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.attack.rangedSpellAttack",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.attack.rangedWeaponAttack",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "system.attributes.movement.burrow.distance",
-          "value": "10",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 28800,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "invisible"
-      ],
-      "tint": "#ffffff",
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "GyXrtn6LABpFuWhu": {
-        "name": "Meld Into Stone",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "hour",
-          "value": "8"
-        },
-        "ranges": {
-          "YTMubszKCekLtHhg": {
-            "range": "touch"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": "object"
-        },
-        "consumers": {
-          "BBd1OFQH5yG4IY3t": {
-            "mode": "variable",
-            "spellLevel": 3,
-            "points": 5,
-            "type": "spell"
-          }
-        },
-        "prompts": {
-          "iaJlntGmHcyzU3J0": {
-            "type": "effect",
-            "default": true,
-            "effectId": "htVmTfcczNtoGlkv"
-          }
-        },
-        "rolls": {
-          "BavCmd3xlQP5pxyo": {
-            "type": "damage",
-            "default": false,
-            "canCrit": false,
-            "label": "Target is Damaged",
-            "formula": "6d6",
-            "damageType": "bludgeoning"
-          },
-          "VPr2M8PVKPFpD9i6": {
-            "type": "damage",
-            "default": false,
-            "canCrit": false,
-            "label": "Target is Destroyed or Transmuted",
-            "formula": "50",
-            "damageType": "bludgeoning"
-          }
-        }
-      },
-      "n5bzFIkX7AeMRwgM": {
-        "name": "Meld Into Stone (5th-Level)",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "hour",
-          "value": "8"
-        },
-        "ranges": {
-          "YTMubszKCekLtHhg": {
-            "range": "touch"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": "object"
-        },
-        "consumers": {
-          "BBd1OFQH5yG4IY3t": {
-            "mode": "variable",
-            "spellLevel": 5,
-            "points": 5,
-            "type": "spell"
-          }
-        },
-        "prompts": {
-          "iaJlntGmHcyzU3J0": {
-            "type": "effect",
-            "default": true,
-            "effectId": "htVmTfcczNtoGlkv"
-          },
-          "OhOdLdG68R5GkXvu": {
-            "type": "effect",
-            "default": true,
-            "effectId": "tcfKQGFVAzfz3pr8"
-          }
-        },
-        "rolls": {
-          "BavCmd3xlQP5pxyo": {
-            "type": "damage",
-            "default": false,
-            "canCrit": false,
-            "label": "Target is Damaged",
-            "formula": "6d6",
-            "damageType": "bludgeoning"
-          },
-          "VPr2M8PVKPFpD9i6": {
-            "type": "damage",
-            "default": false,
-            "canCrit": false,
-            "label": "Target is Destroyed or Transmuted",
-            "formula": "50",
-            "damageType": "bludgeoning"
-          }
-        }
-      }
-    },
-    "description": "<p>Until the spell ends, you meld yourself and your carried equipment into the target stone. Using your movement, you may enter the stone from any point you can touch. No trace of your presence is visible or detectable by nonmagical senses.</p><p>Within the stone, you can't see outside it and have disadvantage on Perception checks made to hear beyond it. You are aware of time passing, and may cast spells upon yourself. You may use your movement only to step out of the target where you entered it, ending the spell.</p><p>If the target is damaged such that its shape changes and you no longer fit within it, you are expelled and take 6d6 bludgeoning damage. Complete destruction of the target, or its transmutation into another substance, expels you and you take 50 bludgeoning damage. When expelled you fall prone into the closest unoccupied space near your entrance point.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 5th-level spell slot, you may reach out of the target to make spell attacks or ranged weapon attacks without ending the spell. You make these attacks with disadvantage.</p><p><em><strong>Rare:</strong></em><strong>&nbsp;</strong><strong>Mobile Meld Into Stone.</strong> Until the&nbsp;spell ends, you gain a burrow speed of 10 feet.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "",
-        "threshold": 0
-      }
-    },
-    "classes": [
-      "druid",
-      "elementalistEarth"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 3,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": true,
-    "ritual": false,
-    "schools": {
-      "primary": "transmutation",
-      "secondary": [
-        "nature",
-        "obscurement",
-        "shapechanging",
-        "transformation"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "folder": null,
-  "_id": "5p3iv6a5edhrh9n0"
+	"name": "Mobile Meld Into Stone",
+	"type": "spell",
+	"img": "icons/magic/earth/strike-fist-stone-gray.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/earth/strike-fist-stone-gray.webp",
+			"origin": "Item.5p3iv6a5edhrh9n0",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "GyXrtn6LABpFuWhu",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Meld Into Stone",
+			"_id": "htVmTfcczNtoGlkv",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.burrow.distance",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"invisible"
+			],
+			"tint": "#ffffff",
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/magic/earth/strike-fist-stone-gray.webp",
+			"origin": "Item.5p3iv6a5edhrh9n0",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "n5bzFIkX7AeMRwgM",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Meld Into Stone",
+			"_id": "tcfKQGFVAzfz3pr8",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.attack.meleeSpellAttack",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.attack.rangedSpellAttack",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.attack.rangedWeaponAttack",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.burrow.distance",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"invisible"
+			],
+			"tint": "#ffffff",
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"GyXrtn6LABpFuWhu": {
+				"name": "Meld Into Stone",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "8"
+				},
+				"ranges": {
+					"YTMubszKCekLtHhg": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "object"
+				},
+				"consumers": {
+					"BBd1OFQH5yG4IY3t": {
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"iaJlntGmHcyzU3J0": {
+						"type": "effect",
+						"default": true,
+						"effectId": "htVmTfcczNtoGlkv"
+					}
+				},
+				"rolls": {
+					"BavCmd3xlQP5pxyo": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Target is Damaged",
+						"formula": "6d6",
+						"damageType": "bludgeoning"
+					},
+					"VPr2M8PVKPFpD9i6": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Target is Destroyed or Transmuted",
+						"formula": "50",
+						"damageType": "bludgeoning"
+					}
+				}
+			},
+			"n5bzFIkX7AeMRwgM": {
+				"name": "Meld Into Stone (5th-Level)",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "8"
+				},
+				"ranges": {
+					"YTMubszKCekLtHhg": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "object"
+				},
+				"consumers": {
+					"BBd1OFQH5yG4IY3t": {
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 5,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"iaJlntGmHcyzU3J0": {
+						"type": "effect",
+						"default": true,
+						"effectId": "htVmTfcczNtoGlkv"
+					},
+					"OhOdLdG68R5GkXvu": {
+						"type": "effect",
+						"default": true,
+						"effectId": "tcfKQGFVAzfz3pr8"
+					}
+				},
+				"rolls": {
+					"BavCmd3xlQP5pxyo": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Target is Damaged",
+						"formula": "6d6",
+						"damageType": "bludgeoning"
+					},
+					"VPr2M8PVKPFpD9i6": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"label": "Target is Destroyed or Transmuted",
+						"formula": "50",
+						"damageType": "bludgeoning"
+					}
+				}
+			}
+		},
+		"description": "<p>Until the spell ends, you meld yourself and your carried equipment into the target stone. Using your movement, you may enter the stone from any point you can touch. No trace of your presence is visible or detectable by nonmagical senses.</p><p>Within the stone, you can't see outside it and have disadvantage on Perception checks made to hear beyond it. You are aware of time passing, and may cast spells upon yourself. You may use your movement only to step out of the target where you entered it, ending the spell.</p><p>If the target is damaged such that its shape changes and you no longer fit within it, you are expelled and take 6d6 bludgeoning damage. Complete destruction of the target, or its transmutation into another substance, expels you and you take 50 bludgeoning damage. When expelled you fall prone into the closest unoccupied space near your entrance point.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 5th-level spell slot, you may reach out of the target to make spell attacks or ranged weapon attacks without ending the spell. You make these attacks with disadvantage.</p><p><em><strong>Rare:</strong></em><strong>&nbsp;</strong><strong>Mobile Meld Into Stone.</strong> Until the&nbsp;spell ends, you gain a burrow speed of 10 feet.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"druid",
+			"elementalistEarth"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 3,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"nature",
+				"obscurement",
+				"shapechanging",
+				"transformation"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"folder": null,
+	"_id": "5p3iv6a5edhrh9n0",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

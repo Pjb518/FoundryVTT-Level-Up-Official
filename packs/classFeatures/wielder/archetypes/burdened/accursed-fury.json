@@ -1,179 +1,194 @@
 {
-  "folder": null,
-  "name": "Accursed Fury",
-  "type": "feature",
-  "img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "jSWdEMrKWxdwsuav": {
-        "name": "Accursed Fury",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "2jiu3eMPRI76vN5S": {
-            "type": "effect",
-            "default": true,
-            "effectId": "tZ8CIck7vZsJNkek"
-          },
-          "aCZ5G761xxqPijwr": {
-            "type": "effect",
-            "default": true,
-            "effectId": "Fafh6SrJsgP8WbyV"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      },
-      "jdJJ8HCqf4orzCvc": {
-        "name": "Psychic Damage",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "hRrp0u0AcI4rKK03": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "(floor(@prof/2))d6",
-            "damageType": "psychic"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>Also at 6th level you can strain your mind to wring additional power from your artifact. As a bonus action, you suffer a level of strife&nbsp; and for the next minute, the first attack you hit with on each of your turns deals a number of additional d6s of psychic damage equal to half your proficiency bonus. The level of strife persists after the duration ends and must be removed normally. You can&rsquo;t use this ability if you already have 3 or more levels of strife</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "thematicToolkitCarryTheDarkness",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/unholy/strike-body-life-soul-purple.webp",
-      "origin": "Item.ve5xc72ik6twvlzb",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "jSWdEMrKWxdwsuav",
-          "applyToSelf": true
-        }
-      },
-      "transfer": false,
-      "name": "Strife",
-      "_id": "tZ8CIck7vZsJNkek",
-      "changes": [
-        {
-          "key": "system.attributes.strife",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/unholy/strike-body-life-soul-purple.webp",
-      "origin": "Item.ve5xc72ik6twvlzb",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "jSWdEMrKWxdwsuav",
-          "applyToSelf": true,
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Accursed Fury",
-      "_id": "Fafh6SrJsgP8WbyV",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "ve5xc72ik6twvlzb"
+	"folder": null,
+	"name": "Accursed Fury",
+	"type": "feature",
+	"img": "icons/magic/unholy/strike-body-life-soul-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"jSWdEMrKWxdwsuav": {
+				"name": "Accursed Fury",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"2jiu3eMPRI76vN5S": {
+						"type": "effect",
+						"default": true,
+						"effectId": "tZ8CIck7vZsJNkek"
+					},
+					"aCZ5G761xxqPijwr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Fafh6SrJsgP8WbyV"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"jdJJ8HCqf4orzCvc": {
+				"name": "Psychic Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"hRrp0u0AcI4rKK03": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "(floor(@prof/2))d6",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Also at 6th level you can strain your mind to wring additional power from your artifact. As a bonus action, you suffer a level of strife&nbsp; and for the next minute, the first attack you hit with on each of your turns deals a number of additional d6s of psychic damage equal to half your proficiency bonus. The level of strife persists after the duration ends and must be removed normally. You can&rsquo;t use this ability if you already have 3 or more levels of strife</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitCarryTheDarkness",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/unholy/strike-body-life-soul-purple.webp",
+			"origin": "Item.ve5xc72ik6twvlzb",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jSWdEMrKWxdwsuav",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Strife",
+			"_id": "tZ8CIck7vZsJNkek",
+			"changes": [
+				{
+					"key": "system.attributes.strife",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/magic/unholy/strike-body-life-soul-purple.webp",
+			"origin": "Item.ve5xc72ik6twvlzb",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jSWdEMrKWxdwsuav",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Accursed Fury",
+			"_id": "Fafh6SrJsgP8WbyV",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"_id": "ve5xc72ik6twvlzb",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

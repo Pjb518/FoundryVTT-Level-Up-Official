@@ -1,149 +1,159 @@
 {
-  "name": "Keep Them Busy",
-  "type": "spell",
-  "img": "icons/magic/movement/chevrons-down-yellow.webp",
-  "system": {
-    "actions": {
-      "bVhdG4rPZ3ZVP2R2": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "n02WmSuaENBIGtpa": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "ZXSyi9N3XlabiULj": {
-            "type": "effect",
-            "default": true,
-            "effectId": "v3BqgcbZNfaXeXcS"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "QoQbvrTl5tO6xJM5": {
-            "range": "self"
-          }
-        }
-      }
-    },
-    "description": "<p><em><strong>Association:&nbsp;</strong>Marshal class</em></p><p>You can instruct your allies to hamper your enemies.&nbsp;While this spell is active, whenever an ally affected by your&nbsp;@UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} feature hits a creature with an attack, that creature&rsquo;s speeds are reduced by 5 feet until the end of its next turn.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "bard",
-      "druid",
-      "warlock",
-      "witch"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 1,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "Commanding Presence class feature",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "transmutation",
-      "secondary": [
-        "attack",
-        "divine",
-        "movement",
-        "multiclass"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/movement/chevrons-down-yellow.webp",
-      "origin": "Item.assxcej9n2hwxjhl",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "bVhdG4rPZ3ZVP2R2",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Reduce Speed",
-      "_id": "v3BqgcbZNfaXeXcS",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.movement.allDistances",
-          "value": "5",
-          "mode": 3,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "folder": null,
-  "_id": "assxcej9n2hwxjhl"
+	"name": "Keep Them Busy",
+	"type": "spell",
+	"img": "icons/magic/movement/chevrons-down-yellow.webp",
+	"system": {
+		"actions": {
+			"bVhdG4rPZ3ZVP2R2": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"n02WmSuaENBIGtpa": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"ZXSyi9N3XlabiULj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "v3BqgcbZNfaXeXcS"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"QoQbvrTl5tO6xJM5": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:&nbsp;</strong>Marshal class</em></p><p>You can instruct your allies to hamper your enemies.&nbsp;While this spell is active, whenever an ally affected by your&nbsp;@UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} feature hits a creature with an attack, that creature&rsquo;s speeds are reduced by 5 feet until the end of its next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"bard",
+			"druid",
+			"warlock",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Commanding Presence class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"attack",
+				"divine",
+				"movement",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/movement/chevrons-down-yellow.webp",
+			"origin": "Item.assxcej9n2hwxjhl",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "bVhdG4rPZ3ZVP2R2",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Reduce Speed",
+			"_id": "v3BqgcbZNfaXeXcS",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.movement.allDistances",
+					"value": "5",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "assxcej9n2hwxjhl",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

@@ -1,202 +1,212 @@
 {
-  "name": "Draining Staff of Parrying",
-  "type": "spell",
-  "img": "icons/weapons/staves/staff-ornate.webp",
-  "effects": [
-    {
-      "icon": "icons/weapons/staves/staff-ornate.webp",
-      "origin": "Item.ksfyrlkyx0lpika8",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "vkbQdk2lBUnbRZrT"
-        }
-      },
-      "transfer": false,
-      "name": "Draining Staff of Parrying",
-      "_id": "mGH2vH74Y2RH7Hfc",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>A black magical quarterstaff appears in your hands, lasting for the duration of the spell. It counts as a simple melee weapon with which you are proficient, and it has the <strong>Two-Handed</strong> and <strong>Parrying</strong> property. It disappears if you drop it, but you can use a bonus action to recall it.</p><p>You can also use this weapon normally as you would use any weapon, such as taking the attack action, use any eligible combat maneuver you would know, or use your reaction to make an opportunity attack.</p>",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "vkbQdk2lBUnbRZrT": {
-        "name": "Cast Spell",
-        "activation": {
-          "cost": 1,
-          "type": "bonusAction",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "eQhDWcEVWYo5TkEn": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": "none"
-        },
-        "rolls": {},
-        "consumers": {
-          "N3uOhPjYZm30u02f": {
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3,
-            "type": "spell"
-          }
-        },
-        "prompts": {
-          "4GuFJEDoPIkqtNis": {
-            "type": "effect",
-            "default": true,
-            "effectId": "mGH2vH74Y2RH7Hfc"
-          }
-        }
-      },
-      "sf2o4ZDWg8e2Njyg": {
-        "name": "Melee Spell Attack",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": "1"
-        },
-        "ranges": {
-          "eQhDWcEVWYo5TkEn": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "rolls": {
-          "8G7Rl7ypS8R3BNB8": {
-            "bonus": "",
-            "critThreshold": 20,
-            "type": "attack",
-            "attackType": "meleeSpellAttack",
-            "ability": "spellcasting"
-          },
-          "q0j37C12kiVk1nzk": {
-            "type": "damage",
-            "default": true,
-            "formula": "2d6",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6",
-              "step": 2
-            },
-            "damageType": "necrotic"
-          }
-        },
-        "consumers": {
-          "s7YAbR4NT5iavumw": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3
-          }
-        },
-        "prompts": {
-          "APhIBBPrPrdbfPHt": {
-            "type": "effect",
-            "default": true
-          }
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>You can use an action to make a melee spell attack within the staff's reach. On a hit, you deal 2d6 necrotic damage, and you gain half as many temporary hit points as the damage dealt.</p><p><em><strong>Cast at Higher Levels. </strong></em>The damage increases by 1d6 for every two slot levels above 2nd.</p>"
-      }
-    },
-    "description": "<p>A black magical quarterstaff appears in your hands, lasting for the duration of the spell. It counts as a simple melee weapon with which you are proficient, and it has the <strong>Two-Handed</strong> property. It disappears if you drop it, but you can use a bonus action to recall it.</p><p>You can also use this weapon normally as you would use any weapon, such as taking the attack action, use any eligible combat maneuver you would know, or use your reaction to make an opportunity attack.</p><p>You can use an action to make a melee spell attack within the staff's reach. On a hit, you deal 2d6 necrotic damage, and you gain half as many temporary hit points as the damage dealt.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for every two slot levels above 2nd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Draining Staff of Parrying.</strong> The conjured quarterstaff gains the <strong>Parrying</strong> property</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "hakansPamphlet",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "",
-        "threshold": 0
-      }
-    },
-    "classes": [
-      "druid",
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": false,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 2,
-    "materials": "a twig coated with the spellcaster's blood",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": true,
-    "ritual": false,
-    "schools": {
-      "primary": "conjuration",
-      "secondary": [
-        "attack",
-        "weaponry",
-        "necrotic"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "folder": null,
-  "_id": "ksfyrlkyx0lpika8"
+	"name": "Draining Staff of Parrying",
+	"type": "spell",
+	"img": "icons/weapons/staves/staff-ornate.webp",
+	"effects": [
+		{
+			"icon": "icons/weapons/staves/staff-ornate.webp",
+			"origin": "Item.ksfyrlkyx0lpika8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vkbQdk2lBUnbRZrT"
+				}
+			},
+			"transfer": false,
+			"name": "Draining Staff of Parrying",
+			"_id": "mGH2vH74Y2RH7Hfc",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A black magical quarterstaff appears in your hands, lasting for the duration of the spell. It counts as a simple melee weapon with which you are proficient, and it has the <strong>Two-Handed</strong> and <strong>Parrying</strong> property. It disappears if you drop it, but you can use a bonus action to recall it.</p><p>You can also use this weapon normally as you would use any weapon, such as taking the attack action, use any eligible combat maneuver you would know, or use your reaction to make an opportunity attack.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"vkbQdk2lBUnbRZrT": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"eQhDWcEVWYo5TkEn": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "none"
+				},
+				"rolls": {},
+				"consumers": {
+					"N3uOhPjYZm30u02f": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"4GuFJEDoPIkqtNis": {
+						"type": "effect",
+						"default": true,
+						"effectId": "mGH2vH74Y2RH7Hfc"
+					}
+				}
+			},
+			"sf2o4ZDWg8e2Njyg": {
+				"name": "Melee Spell Attack",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "1"
+				},
+				"ranges": {
+					"eQhDWcEVWYo5TkEn": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"rolls": {
+					"8G7Rl7ypS8R3BNB8": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "meleeSpellAttack",
+						"ability": "spellcasting"
+					},
+					"q0j37C12kiVk1nzk": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6",
+							"step": 2
+						},
+						"damageType": "necrotic"
+					}
+				},
+				"consumers": {
+					"s7YAbR4NT5iavumw": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"prompts": {
+					"APhIBBPrPrdbfPHt": {
+						"type": "effect",
+						"default": true
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>You can use an action to make a melee spell attack within the staff's reach. On a hit, you deal 2d6 necrotic damage, and you gain half as many temporary hit points as the damage dealt.</p><p><em><strong>Cast at Higher Levels. </strong></em>The damage increases by 1d6 for every two slot levels above 2nd.</p>"
+			}
+		},
+		"description": "<p>A black magical quarterstaff appears in your hands, lasting for the duration of the spell. It counts as a simple melee weapon with which you are proficient, and it has the <strong>Two-Handed</strong> property. It disappears if you drop it, but you can use a bonus action to recall it.</p><p>You can also use this weapon normally as you would use any weapon, such as taking the attack action, use any eligible combat maneuver you would know, or use your reaction to make an opportunity attack.</p><p>You can use an action to make a melee spell attack within the staff's reach. On a hit, you deal 2d6 necrotic damage, and you gain half as many temporary hit points as the damage dealt.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for every two slot levels above 2nd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Draining Staff of Parrying.</strong> The conjured quarterstaff gains the <strong>Parrying</strong> property</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hakansPamphlet",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"druid",
+			"sorcerer",
+			"warlock",
+			"wizard"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 2,
+		"materials": "a twig coated with the spellcaster's blood",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"attack",
+				"weaponry",
+				"necrotic"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"folder": null,
+	"_id": "ksfyrlkyx0lpika8",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

@@ -1,142 +1,152 @@
 {
-  "name": "Zealous Assault",
-  "type": "spell",
-  "img": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
-  "system": {
-    "actions": {
-      "usVfFEiwfCmIeKDP": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "BLNo8o1eYlIUBT3m": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "YjSohehEWCZKrQvt": {
-            "type": "effect",
-            "default": true,
-            "effectId": "jSa2IsdzyiMesi6O"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "Ifc2HO5x0iENy7fn": {
-            "range": "self"
-          }
-        }
-      }
-    },
-    "description": "<p><em><strong>Association:&nbsp;</strong>Marshal class</em></p><p>You can call upon a higher power to assist your allies.</p><p>While this spell is active, when a creature is affected by your&nbsp;@UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} feature, it can change the damage dealt by its attack and spell to your choice of radiant or necrotic damage. The amount of damage dealt does not change, only the type.</p><p>If the creature is wielding a ranged weapon, this attack conjures a single shot of ammunition made from the selected energy type and does not consume a piece of ammunition.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "cleric",
-      "herald",
-      "warlock",
-      "witch"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 1,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "Commanding Presence class feature",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "conjuration",
-      "secondary": [
-        "divine",
-        "radiant",
-        "necrotic",
-        "weaponry",
-        "multiclass"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
-      "origin": "Item.nku35dd8nkrio5k8",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "usVfFEiwfCmIeKDP",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Zealous Assault",
-      "_id": "jSa2IsdzyiMesi6O",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Can change the damage dealt by attack and spell to your choice of radiant or necrotic damage. The amount of damage dealt does not change, only the type.</p><p>If wielding a ranged weapon, this attack conjures a single shot of ammunition made from the selected energy type and does not consume a piece of ammunition.</p>",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "folder": null,
-  "_id": "nku35dd8nkrio5k8"
+	"name": "Zealous Assault",
+	"type": "spell",
+	"img": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
+	"system": {
+		"actions": {
+			"usVfFEiwfCmIeKDP": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"BLNo8o1eYlIUBT3m": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"YjSohehEWCZKrQvt": {
+						"type": "effect",
+						"default": true,
+						"effectId": "jSa2IsdzyiMesi6O"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"Ifc2HO5x0iENy7fn": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:&nbsp;</strong>Marshal class</em></p><p>You can call upon a higher power to assist your allies.</p><p>While this spell is active, when a creature is affected by your&nbsp;@UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} feature, it can change the damage dealt by its attack and spell to your choice of radiant or necrotic damage. The amount of damage dealt does not change, only the type.</p><p>If the creature is wielding a ranged weapon, this attack conjures a single shot of ammunition made from the selected energy type and does not consume a piece of ammunition.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric",
+			"herald",
+			"warlock",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Commanding Presence class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"divine",
+				"radiant",
+				"necrotic",
+				"weaponry",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
+			"origin": "Item.nku35dd8nkrio5k8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "usVfFEiwfCmIeKDP",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Zealous Assault",
+			"_id": "jSa2IsdzyiMesi6O",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Can change the damage dealt by attack and spell to your choice of radiant or necrotic damage. The amount of damage dealt does not change, only the type.</p><p>If wielding a ranged weapon, this attack conjures a single shot of ammunition made from the selected energy type and does not consume a piece of ammunition.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "nku35dd8nkrio5k8",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

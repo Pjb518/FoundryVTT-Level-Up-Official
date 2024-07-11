@@ -1,275 +1,300 @@
 {
-  "name": "Imprecating Strike",
-  "type": "spell",
-  "img": "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
-  "system": {
-    "actions": {
-      "QW2FzHzwqjSzaIfp": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "qFibEh9UOJ8Z5YIB": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "Lu9UnyWeVrdwc47C": {
-            "type": "effect",
-            "default": true,
-            "effectId": "1IpzzQmek2YHy9Uw"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "ranges": {
-          "AzGvaxTXvjZbKLU7": {
-            "range": "self"
-          }
-        }
-      }
-    },
-    "description": "<p><em><strong>Association:</strong> Rogue class</em></p><p>You infuse your attack with the power of the heavens, debilitating your target.</p><p>When you deal @UUID[Compendium.a5e.a5e-class-features.Item.4727pnvz5nwn3h23]{Sneak Attack} damage with a melee attack, you may cast this spell as part of the Sneak Attack, transforming the bonus damage from your Sneak Attack into radiant damage. In addition, depending on the spell slot level used to cast this spell, you inflict one of the following sets of conditions on the target until the end of its next turn:</p><p><strong>1st-level: </strong>Rattled.</p><p><strong>2nd-level:</strong> Blinded.</p><p><strong>3rd-level: </strong>Blinded and rattled.</p><p><strong>4th-level or higher: </strong>Blinded, rattled, and stunned.</p><p>For the purposes of determining spells cast in a round, this spell counts as having a casting time of one action.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "cleric",
-      "herald"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "Sneak Attack class feature",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "attack",
-        "weaponry",
-        "divine",
-        "radiant",
-        "multiclass"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
-      "origin": "Item.yi64w9t49wefk30m",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "QW2FzHzwqjSzaIfp",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Rattled",
-      "_id": "1IpzzQmek2YHy9Uw",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"rattled\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "rattled"
-      ],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
-      "origin": "Item.yi64w9t49wefk30m",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "QW2FzHzwqjSzaIfp",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Blinded",
-      "_id": "KHLdo08NTTlEGVDn",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"blinded\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "blinded"
-      ],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
-      "origin": "Item.yi64w9t49wefk30m",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "QW2FzHzwqjSzaIfp",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Blinded and Rattled",
-      "_id": "xNJshZj1kl9Iamsd",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"blinded\",\"rattled\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "blinded",
-        "rattled"
-      ],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
-      "origin": "Item.yi64w9t49wefk30m",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "QW2FzHzwqjSzaIfp",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Blinded, Rattled, and Stunned",
-      "_id": "3LLAO7TTSIhFjuTD",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"blinded\",\"rattled\",\"stunned\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "blinded",
-        "rattled",
-        "stunned"
-      ],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "folder": null,
-  "_id": "yi64w9t49wefk30m"
+	"name": "Imprecating Strike",
+	"type": "spell",
+	"img": "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
+	"system": {
+		"actions": {
+			"QW2FzHzwqjSzaIfp": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"qFibEh9UOJ8Z5YIB": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"Lu9UnyWeVrdwc47C": {
+						"type": "effect",
+						"default": true,
+						"effectId": "1IpzzQmek2YHy9Uw"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"AzGvaxTXvjZbKLU7": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:</strong> Rogue class</em></p><p>You infuse your attack with the power of the heavens, debilitating your target.</p><p>When you deal @UUID[Compendium.a5e.a5e-class-features.Item.4727pnvz5nwn3h23]{Sneak Attack} damage with a melee attack, you may cast this spell as part of the Sneak Attack, transforming the bonus damage from your Sneak Attack into radiant damage. In addition, depending on the spell slot level used to cast this spell, you inflict one of the following sets of conditions on the target until the end of its next turn:</p><p><strong>1st-level: </strong>Rattled.</p><p><strong>2nd-level:</strong> Blinded.</p><p><strong>3rd-level: </strong>Blinded and rattled.</p><p><strong>4th-level or higher: </strong>Blinded, rattled, and stunned.</p><p>For the purposes of determining spells cast in a round, this spell counts as having a casting time of one action.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric",
+			"herald"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Sneak Attack class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"attack",
+				"weaponry",
+				"divine",
+				"radiant",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
+			"origin": "Item.yi64w9t49wefk30m",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "QW2FzHzwqjSzaIfp",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"_id": "1IpzzQmek2YHy9Uw",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"rattled"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
+			"origin": "Item.yi64w9t49wefk30m",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "QW2FzHzwqjSzaIfp",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"_id": "KHLdo08NTTlEGVDn",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
+			"origin": "Item.yi64w9t49wefk30m",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "QW2FzHzwqjSzaIfp",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded and Rattled",
+			"_id": "xNJshZj1kl9Iamsd",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\",\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded",
+				"rattled"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/magic/fire/dagger-rune-enchant-flame-blue-yellow.webp",
+			"origin": "Item.yi64w9t49wefk30m",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "QW2FzHzwqjSzaIfp",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded, Rattled, and Stunned",
+			"_id": "3LLAO7TTSIhFjuTD",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\",\"rattled\",\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded",
+				"rattled",
+				"stunned"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "yi64w9t49wefk30m",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

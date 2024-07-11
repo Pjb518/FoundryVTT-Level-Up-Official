@@ -1,636 +1,671 @@
 {
-  "name": "Vosrath's Pestilent Flail",
-  "type": "spell",
-  "img": "icons/magic/death/projectile-skull-fire-green.webp",
-  "system": {
-    "actions": {
-      "NKePrV4GBUVVsO6r": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "SEsCn6JhUMZWjgEw": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 4,
-            "points": 6
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "RWNL85zlcIxJz27R": {
-            "type": "effect",
-            "default": true,
-            "effectId": "UT9B4cu7E2R7HhQA"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "CbieT1uWCIpcAeYj": {
-            "range": "self"
-          }
-        }
-      },
-      "qIiGMP0BD4qxruS0": {
-        "name": "Melee Weapon Attack",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "P87hwVyc2BCqoDgL": {
-            "type": "attack",
-            "default": true,
-            "attackType": "meleeSpellAttack",
-            "proficient": true,
-            "ability": "spellcasting"
-          },
-          "YECn3hdKrZT8H82S": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d8 + @spellcasting.mod",
-            "damageType": "bludgeoning"
-          },
-          "E6lVO15ROPd31uWh": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d6",
-            "damageType": "necrotic"
-          },
-          "NYaxQe1Wwc7qZKiq": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d6",
-            "damageType": "poison"
-          }
-        },
-        "prompts": {
-          "rViUSTlsCXJq1qkm": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "cha",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          },
-          "YJ9ybLHyMCm7QJHF": {
-            "type": "effect",
-            "default": true,
-            "effectId": "tt7BlB84R9v0Xr0O"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "PKC7CoemZnJVGm8p": {
-            "range": 15,
-            "unit": "feet"
-          }
-        },
-        "target": {
-          "type": "creatureObject",
-          "quantity": 1
-        }
-      },
-      "i4NUisRkAOwIWJtZ": {
-        "name": "Whirl Overhead",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "FacrDqvwbqbhBzSI": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "cha",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          },
-          "xjJBIG5n31BFJeEe": {
-            "type": "effect",
-            "default": true,
-            "effectId": "5yI2IBvHYhSFI90g"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "sHv3INFOjAcKI9J3": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "circle",
-          "quantity": 1,
-          "radius": 30,
-          "placeTemplate": true
-        }
-      },
-      "c4B5g6YkbGwbAGZ1": {
-        "name": "Bite",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {
-          "B0MLvBjHCIEm4VXz": {
-            "type": "attack",
-            "default": true,
-            "attackType": "meleeSpellAttack",
-            "proficient": true,
-            "ability": "spellcasting"
-          },
-          "4DpyU2OyYMzwBHtO": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d8 + @spellcasting.mod",
-            "damageType": "bludgeoning"
-          },
-          "tRcOCfdzjzatTLCD": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d6",
-            "damageType": "necrotic"
-          },
-          "kko4tYJPFpngTODl": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d6",
-            "damageType": "poison"
-          }
-        },
-        "prompts": {
-          "t5A1nmRISQjosYvZ": {
-            "type": "effect",
-            "default": true,
-            "effectId": "LRs7l81317XB2N5n"
-          },
-          "BC3OKhnJTOOTtDmW": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "cha",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          },
-          "gWqpUrmLpXimWwVP": {
-            "type": "effect",
-            "default": true,
-            "effectId": "qGd1twaGk37FufPP"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "ffhksHRbDwRqFbrj": {
-            "range": 15,
-            "unit": "feet"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        }
-      },
-      "bR6aQ0Bq1eN0smWF": {
-        "name": "Pull Grappled Creature",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      },
-      "cXBXQ57wiUX4jrnE": {
-        "name": "Throw Flail",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "pdBPPHYjvVAB3Zgg": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 4,
-            "points": 6
-          }
-        },
-        "rolls": {
-          "RXhuJYK6xmsuvVOE": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "2d6",
-            "damageType": "necrotic"
-          },
-          "Qu423dRKd2QpYMNN": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "2d6",
-            "damageType": "poison"
-          }
-        },
-        "prompts": {
-          "gdu7nxLKsBrSXlnn": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "cha",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          },
-          "d7ZHuA6d6VxkdWEU": {
-            "type": "effect",
-            "default": true,
-            "effectId": "Fkaz4P4USbEnGTe3"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "f9ZujQ3AYutD5EmU": {
-            "range": 40,
-            "unit": "feet"
-          }
-        },
-        "area": {
-          "shape": "sphere",
-          "quantity": 1,
-          "radius": 10,
-          "placeTemplate": true
-        }
-      }
-    },
-    "description": "<p>When you cast this spell, the skull you hold forms into the head of a horrible flail shrouded in eldritch energies.&nbsp;As long as you hold the flail, the light level within 10 feet of you drops one step.</p><p>Bright light becomes dim light, dim light becomes darkness, darkness becomes magical darkness.</p><p>You can see through the darkness created by this spell as if it were bright light.</p><hr class=\"a5e-rule u-my-md\"><p>The flail is a one-handed weapon with a reach of 15 feet, and the <em>finesse</em>, <em>flamboyant</em>, and <em>parrying immunity</em> properties.</p><p>You can attack with the flail using your spell attack bonus. On a hit, the flail deals 1d8 + your spellcasting ability modifier <em>bludgeoning</em> damage + 1d6 <em>necrotic</em> damage + 1d6 <em>psychic</em> damage.</p><p>In addition, while the flail persists, you can use an action to whirl it over your head. The skull emits a horrible, unearthly shriek, forcing all creatures within 30 feet to make a Charisma saving throw or be frightened of you for 1 minute. At the end of each of its turns, a frightened creature can repeat the saving throw, ending the effect on itself on a success.</p><p>You can use an action to command the skull to bite a creature within 15 feet. Make a melee weapon attack against the creature. On a hit, the creature takes the flail's damage and is grappled. You can use a bonus action to pull a creature grappled this way 10 feet toward you. The escape DC from the grapple is equal to your spell save DC.</p><p>Finally, you can use an action to end the spell and throw the flail at a space within 40 feet. The flail detonates, dealing 2d6 <em>necrotic</em> and 2d6 <em>psychic</em> damage to creatures in a 10-foot radius (no save).</p><p><strong>Rare Variants. <em>Vosrath&rsquo;s Pestilent Flail:</em></strong> The flail does poison damage instead of psychic, and creatures that take poison damage from the flail must make a saving throw against your spell save DC or be poisoned for one minute.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 4,
-    "materials": "the skull of a humanoid",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": true,
-    "ritual": false,
-    "schools": {
-      "primary": "necromancy",
-      "secondary": [
-        "arcane",
-        "necrotic",
-        "weaponry",
-        "psychic"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/death/projectile-skull-flaming-green.webp",
-      "origin": "Item.opvatwpboqmqplsa",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "NKePrV4GBUVVsO6r",
-          "applyToSelf": true,
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Flamboyant",
-      "_id": "UT9B4cu7E2R7HhQA",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.skillCheck.itm",
-          "value": "1",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.skillCheck.prf",
-          "value": "1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/death/projectile-skull-flaming-green.webp",
-      "origin": "Item.opvatwpboqmqplsa",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "i4NUisRkAOwIWJtZ",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Frightened",
-      "_id": "5yI2IBvHYhSFI90g",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"frightened\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "frightened"
-      ],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/death/projectile-skull-flaming-green.webp",
-      "origin": "Item.opvatwpboqmqplsa",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "c4B5g6YkbGwbAGZ1"
-        }
-      },
-      "transfer": false,
-      "name": "Grappled",
-      "_id": "LRs7l81317XB2N5n",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"grappled\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "grappled"
-      ],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/death/projectile-skull-fire-green.webp",
-      "origin": "Item.opvatwpboqmqplsa",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "qIiGMP0BD4qxruS0",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Poisoned",
-      "_id": "tt7BlB84R9v0Xr0O",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"poisoned\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "poisoned"
-      ],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/death/projectile-skull-fire-green.webp",
-      "origin": "Item.opvatwpboqmqplsa",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "c4B5g6YkbGwbAGZ1",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Poisoned",
-      "_id": "qGd1twaGk37FufPP",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"poisoned\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "poisoned"
-      ],
-      "folder": null
-    },
-    {
-      "icon": "icons/magic/death/projectile-skull-fire-green.webp",
-      "origin": "Item.opvatwpboqmqplsa",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "cXBXQ57wiUX4jrnE",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Poisoned",
-      "_id": "Fkaz4P4USbEnGTe3",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"poisoned\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "poisoned"
-      ],
-      "folder": null
-    }
-  ],
-  "flags": {
-    "a5e": {
-      "placeTemplate": false
-    }
-  },
-  "folder": null,
-  "_id": "opvatwpboqmqplsa"
+	"name": "Vosrath's Pestilent Flail",
+	"type": "spell",
+	"img": "icons/magic/death/projectile-skull-fire-green.webp",
+	"system": {
+		"actions": {
+			"NKePrV4GBUVVsO6r": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"SEsCn6JhUMZWjgEw": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"RWNL85zlcIxJz27R": {
+						"type": "effect",
+						"default": true,
+						"effectId": "UT9B4cu7E2R7HhQA"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"CbieT1uWCIpcAeYj": {
+						"range": "self"
+					}
+				}
+			},
+			"qIiGMP0BD4qxruS0": {
+				"name": "Melee Weapon Attack",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"P87hwVyc2BCqoDgL": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"YECn3hdKrZT8H82S": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8 + @spellcasting.mod",
+						"damageType": "bludgeoning"
+					},
+					"E6lVO15ROPd31uWh": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "necrotic"
+					},
+					"NYaxQe1Wwc7qZKiq": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"rViUSTlsCXJq1qkm": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"YJ9ybLHyMCm7QJHF": {
+						"type": "effect",
+						"default": true,
+						"effectId": "tt7BlB84R9v0Xr0O"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"PKC7CoemZnJVGm8p": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"i4NUisRkAOwIWJtZ": {
+				"name": "Whirl Overhead",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"FacrDqvwbqbhBzSI": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"xjJBIG5n31BFJeEe": {
+						"type": "effect",
+						"default": true,
+						"effectId": "5yI2IBvHYhSFI90g"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"sHv3INFOjAcKI9J3": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				}
+			},
+			"c4B5g6YkbGwbAGZ1": {
+				"name": "Bite",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"B0MLvBjHCIEm4VXz": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"4DpyU2OyYMzwBHtO": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8 + @spellcasting.mod",
+						"damageType": "bludgeoning"
+					},
+					"tRcOCfdzjzatTLCD": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "necrotic"
+					},
+					"kko4tYJPFpngTODl": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"t5A1nmRISQjosYvZ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "LRs7l81317XB2N5n"
+					},
+					"BC3OKhnJTOOTtDmW": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"gWqpUrmLpXimWwVP": {
+						"type": "effect",
+						"default": true,
+						"effectId": "qGd1twaGk37FufPP"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"ffhksHRbDwRqFbrj": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"bR6aQ0Bq1eN0smWF": {
+				"name": "Pull Grappled Creature",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"cXBXQ57wiUX4jrnE": {
+				"name": "Throw Flail",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"pdBPPHYjvVAB3Zgg": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6
+					}
+				},
+				"rolls": {
+					"RXhuJYK6xmsuvVOE": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6",
+						"damageType": "necrotic"
+					},
+					"Qu423dRKd2QpYMNN": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"gdu7nxLKsBrSXlnn": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"d7ZHuA6d6VxkdWEU": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Fkaz4P4USbEnGTe3"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"f9ZujQ3AYutD5EmU": {
+						"range": 40,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>When you cast this spell, the skull you hold forms into the head of a horrible flail shrouded in eldritch energies.&nbsp;As long as you hold the flail, the light level within 10 feet of you drops one step.</p><p>Bright light becomes dim light, dim light becomes darkness, darkness becomes magical darkness.</p><p>You can see through the darkness created by this spell as if it were bright light.</p><hr class=\"a5e-rule u-my-md\"><p>The flail is a one-handed weapon with a reach of 15 feet, and the <em>finesse</em>, <em>flamboyant</em>, and <em>parrying immunity</em> properties.</p><p>You can attack with the flail using your spell attack bonus. On a hit, the flail deals 1d8 + your spellcasting ability modifier <em>bludgeoning</em> damage + 1d6 <em>necrotic</em> damage + 1d6 <em>psychic</em> damage.</p><p>In addition, while the flail persists, you can use an action to whirl it over your head. The skull emits a horrible, unearthly shriek, forcing all creatures within 30 feet to make a Charisma saving throw or be frightened of you for 1 minute. At the end of each of its turns, a frightened creature can repeat the saving throw, ending the effect on itself on a success.</p><p>You can use an action to command the skull to bite a creature within 15 feet. Make a melee weapon attack against the creature. On a hit, the creature takes the flail's damage and is grappled. You can use a bonus action to pull a creature grappled this way 10 feet toward you. The escape DC from the grapple is equal to your spell save DC.</p><p>Finally, you can use an action to end the spell and throw the flail at a space within 40 feet. The flail detonates, dealing 2d6 <em>necrotic</em> and 2d6 <em>psychic</em> damage to creatures in a 10-foot radius (no save).</p><p><strong>Rare Variants. <em>Vosrath&rsquo;s Pestilent Flail:</em></strong> The flail does poison damage instead of psychic, and creatures that take poison damage from the flail must make a saving throw against your spell save DC or be poisoned for one minute.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"warlock",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 4,
+		"materials": "the skull of a humanoid",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "necromancy",
+			"secondary": [
+				"arcane",
+				"necrotic",
+				"weaponry",
+				"psychic"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/death/projectile-skull-flaming-green.webp",
+			"origin": "Item.opvatwpboqmqplsa",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "NKePrV4GBUVVsO6r",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Flamboyant",
+			"_id": "UT9B4cu7E2R7HhQA",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.itm",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.prf",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/magic/death/projectile-skull-flaming-green.webp",
+			"origin": "Item.opvatwpboqmqplsa",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "i4NUisRkAOwIWJtZ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"_id": "5yI2IBvHYhSFI90g",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"frightened"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/magic/death/projectile-skull-flaming-green.webp",
+			"origin": "Item.opvatwpboqmqplsa",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "c4B5g6YkbGwbAGZ1"
+				}
+			},
+			"transfer": false,
+			"name": "Grappled",
+			"_id": "LRs7l81317XB2N5n",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"grappled"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/magic/death/projectile-skull-fire-green.webp",
+			"origin": "Item.opvatwpboqmqplsa",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qIiGMP0BD4qxruS0",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"_id": "tt7BlB84R9v0Xr0O",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/magic/death/projectile-skull-fire-green.webp",
+			"origin": "Item.opvatwpboqmqplsa",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "c4B5g6YkbGwbAGZ1",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"_id": "qGd1twaGk37FufPP",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/magic/death/projectile-skull-fire-green.webp",
+			"origin": "Item.opvatwpboqmqplsa",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "cXBXQ57wiUX4jrnE",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"_id": "Fkaz4P4USbEnGTe3",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {
+		"a5e": {
+			"placeTemplate": false
+		}
+	},
+	"folder": null,
+	"_id": "opvatwpboqmqplsa",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

@@ -1,161 +1,171 @@
 {
-  "name": "Wild Irresistible Dance",
-  "type": "spell",
-  "img": "icons/skills/trades/music-notes-sound-blue.webp",
-  "effects": [
-    {
-      "icon": "icons/skills/trades/music-notes-sound-blue.webp",
-      "origin": "Item.gitnhp5bf3rcee0b",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "ymYutl44wa5JBERC",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Irresistible Dance",
-      "_id": "T0e2N19TSqmvLOQi",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.attack.all",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.abilitySave.all",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>At the start of each of its turns, the dancing target must use all of its movement to dance in its space, and it has disadvantage on attack rolls and saving throws. Attacks made against the target have advantage. On each of its turns, the target can use an action to repeat the saving throw, ending the spell on a successful save.</p>",
-      "statuses": [],
-      "tint": "#ffffff",
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "ymYutl44wa5JBERC": {
-        "name": "Irresistible Dance",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "AlpEuWazjYW3uorr": {
-            "range": "short"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature",
-          "scaling": {
-            "mode": "spellLevel",
-            "formula": "1"
-          }
-        },
-        "prompts": {
-          "Es6RbSo2QvYTdQRU": {
-            "ability": "wis",
-            "onSave": "Negates effect",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          },
-          "9TUCL0ALEGHosxFt": {
-            "type": "effect",
-            "default": true,
-            "effectId": "T0e2N19TSqmvLOQi"
-          }
-        },
-        "consumers": {
-          "XZYhyihhn7fAX3Ft": {
-            "mode": "variable",
-            "spellLevel": 6,
-            "points": 9,
-            "type": "spell"
-          }
-        }
-      }
-    },
-    "description": "<p>You murmur a tune that takes root in the target's mind until the spell ends, forcing it to caper, dance, and shuffle. At the start of each of its turns, the dancing target must use all of its movement to dance in its space, and it has disadvantage on attack rolls and saving throws. Attacks made against the target have advantage. On each of its turns, the target can use an action to repeat the saving throw, ending the spell on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature within 30 feet for each slot level above 6th.</p><p><strong>Rare: <em>Wild Irresistible Dance.&nbsp;</em></strong>The target&nbsp;is forced to dance with such vigor that it suffers&nbsp;a level of fatigue when the spell ends.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "",
-        "threshold": 0
-      }
-    },
-    "classes": [
-      "bard",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": false,
-      "material": false
-    },
-    "concentration": true,
-    "level": 6,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": true,
-    "ritual": false,
-    "schools": {
-      "primary": "enchantment",
-      "secondary": [
-        "arcane",
-        "compulsion"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "folder": null,
-  "_id": "gitnhp5bf3rcee0b"
+	"name": "Wild Irresistible Dance",
+	"type": "spell",
+	"img": "icons/skills/trades/music-notes-sound-blue.webp",
+	"effects": [
+		{
+			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
+			"origin": "Item.gitnhp5bf3rcee0b",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ymYutl44wa5JBERC",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Irresistible Dance",
+			"_id": "T0e2N19TSqmvLOQi",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>At the start of each of its turns, the dancing target must use all of its movement to dance in its space, and it has disadvantage on attack rolls and saving throws. Attacks made against the target have advantage. On each of its turns, the target can use an action to repeat the saving throw, ending the spell on a successful save.</p>",
+			"statuses": [],
+			"tint": "#ffffff",
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"ymYutl44wa5JBERC": {
+				"name": "Irresistible Dance",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"AlpEuWazjYW3uorr": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
+				},
+				"prompts": {
+					"Es6RbSo2QvYTdQRU": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"9TUCL0ALEGHosxFt": {
+						"type": "effect",
+						"default": true,
+						"effectId": "T0e2N19TSqmvLOQi"
+					}
+				},
+				"consumers": {
+					"XZYhyihhn7fAX3Ft": {
+						"mode": "variable",
+						"spellLevel": 6,
+						"points": 9,
+						"type": "spell"
+					}
+				}
+			}
+		},
+		"description": "<p>You murmur a tune that takes root in the target's mind until the spell ends, forcing it to caper, dance, and shuffle. At the start of each of its turns, the dancing target must use all of its movement to dance in its space, and it has disadvantage on attack rolls and saving throws. Attacks made against the target have advantage. On each of its turns, the target can use an action to repeat the saving throw, ending the spell on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature within 30 feet for each slot level above 6th.</p><p><strong>Rare: <em>Wild Irresistible Dance.&nbsp;</em></strong>The target&nbsp;is forced to dance with such vigor that it suffers&nbsp;a level of fatigue when the spell ends.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"bard",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": false
+		},
+		"concentration": true,
+		"level": 6,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "enchantment",
+			"secondary": [
+				"arcane",
+				"compulsion"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"folder": null,
+	"_id": "gitnhp5bf3rcee0b",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

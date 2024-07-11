@@ -1,230 +1,240 @@
 {
-  "folder": null,
-  "name": "Pyrotechnics",
-  "type": "spell",
-  "img": "icons/magic/fire/explosion-fireball-medium-orange.webp",
-  "system": {
-    "actions": {
-      "37bdY0h31qiGck4d": {
-        "name": "Fireworks",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "KCNIVEiR0mMofued": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3
-          }
-        },
-        "rolls": {
-          "ukd4AybihCZA7PGo": {
-            "type": "damage",
-            "default": true,
-            "label": "",
-            "damageType": "fire",
-            "formula": "2d4"
-          }
-        },
-        "prompts": {
-          "YAP4MgLygkEAInu8": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "con",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "no effect"
-          },
-          "sDuNCezXK5B7OPAF": {
-            "type": "effect",
-            "default": true,
-            "effectId": "dwuTkupqw9j0KijO"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>The fire bursts with a bright audible display of colors. Creatures within 10 feet of the fire must make a Constitution saving throw or suffer 2d4 fire damage and be blinded until the end of your next turn.</p>",
-        "ranges": {
-          "5eOcQwRSrxopGrpk": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "cube",
-          "quantity": 1,
-          "width": 10,
-          "placeTemplate": true
-        },
-        "target": {
-          "type": "other",
-          "quantity": 1
-        }
-      },
-      "m0AIhikAbp6shPDD": {
-        "name": "Smoke Cloud",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "f06IimVP20G2KYXB": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3
-          }
-        },
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>The fire is extinguished and thick dark smoke fills a 20-ft-radius sphere from the fire, moving around corners, heavily obscuring the area. The smoke lingers for 1 minute, unless a strong wind disperses it.</p>",
-        "ranges": {
-          "tyDu1d1gdOnrbmgV": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "sphere",
-          "quantity": 1,
-          "radius": 20,
-          "placeTemplate": true
-        },
-        "target": {
-          "type": "other",
-          "quantity": 1
-        }
-      }
-    },
-    "description": "<p>You target a nonmagical flame that you can see within range, or a 5-ft cube portion of a nonmagical flame for larger fires. The flame, or that portion of the fire, is extinguished, creating either blinding fireworks or a cloud of smoke.</p><p><strong>Fireworks</strong>: The fire bursts with a bright audible display of colors. Creatures within 10 feet of the fire must make a Constitution saving throw or suffer 2d4 fire damage and be blinded until the end of your next turn.</p><p><strong>Smoke Cloud</strong>: The fire is extinguished and thick dark smoke fills a 20-ft-radius sphere from the fire, moving around corners, heavily obscuring the area. The smoke lingers for 1 minute, unless a strong wind disperses it.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "artificer",
-      "bard",
-      "elementalistFire",
-      "sorcerer",
-      "witch",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 2,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "transmutation",
-      "secondary": [
-        "arcane",
-        "fire",
-        "obscurement"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/fire/explosion-fireball-medium-orange.webp",
-      "origin": "Item.dv6uvxkwkckg1tjp",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "37bdY0h31qiGck4d",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Blinded",
-      "_id": "dwuTkupqw9j0KijO",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"blinded\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "blinded"
-      ],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "dv6uvxkwkckg1tjp"
+	"folder": null,
+	"name": "Pyrotechnics",
+	"type": "spell",
+	"img": "icons/magic/fire/explosion-fireball-medium-orange.webp",
+	"system": {
+		"actions": {
+			"37bdY0h31qiGck4d": {
+				"name": "Fireworks",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"KCNIVEiR0mMofued": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {
+					"ukd4AybihCZA7PGo": {
+						"type": "damage",
+						"default": true,
+						"label": "",
+						"damageType": "fire",
+						"formula": "2d4"
+					}
+				},
+				"prompts": {
+					"YAP4MgLygkEAInu8": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "no effect"
+					},
+					"sDuNCezXK5B7OPAF": {
+						"type": "effect",
+						"default": true,
+						"effectId": "dwuTkupqw9j0KijO"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>The fire bursts with a bright audible display of colors. Creatures within 10 feet of the fire must make a Constitution saving throw or suffer 2d4 fire damage and be blinded until the end of your next turn.</p>",
+				"ranges": {
+					"5eOcQwRSrxopGrpk": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "cube",
+					"quantity": 1,
+					"width": 10,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "other",
+					"quantity": 1
+				}
+			},
+			"m0AIhikAbp6shPDD": {
+				"name": "Smoke Cloud",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"f06IimVP20G2KYXB": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>The fire is extinguished and thick dark smoke fills a 20-ft-radius sphere from the fire, moving around corners, heavily obscuring the area. The smoke lingers for 1 minute, unless a strong wind disperses it.</p>",
+				"ranges": {
+					"tyDu1d1gdOnrbmgV": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 20,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "other",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>You target a nonmagical flame that you can see within range, or a 5-ft cube portion of a nonmagical flame for larger fires. The flame, or that portion of the fire, is extinguished, creating either blinding fireworks or a cloud of smoke.</p><p><strong>Fireworks</strong>: The fire bursts with a bright audible display of colors. Creatures within 10 feet of the fire must make a Constitution saving throw or suffer 2d4 fire damage and be blinded until the end of your next turn.</p><p><strong>Smoke Cloud</strong>: The fire is extinguished and thick dark smoke fills a 20-ft-radius sphere from the fire, moving around corners, heavily obscuring the area. The smoke lingers for 1 minute, unless a strong wind disperses it.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"artificer",
+			"bard",
+			"elementalistFire",
+			"sorcerer",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"arcane",
+				"fire",
+				"obscurement"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/fire/explosion-fireball-medium-orange.webp",
+			"origin": "Item.dv6uvxkwkckg1tjp",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "37bdY0h31qiGck4d",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"_id": "dwuTkupqw9j0KijO",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"_id": "dv6uvxkwkckg1tjp",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

@@ -1,265 +1,275 @@
 {
-  "name": "Parrying Daggers",
-  "type": "spell",
-  "img": "icons/weapons/daggers/dagger-blue.webp",
-  "effects": [
-    {
-      "icon": "icons/weapons/daggers/dagger-blue.webp",
-      "origin": "Item.btw11f0pg7do5g5o",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "vkbQdk2lBUnbRZrT"
-        }
-      },
-      "transfer": false,
-      "name": "Conjured Daggers",
-      "_id": "mGH2vH74Y2RH7Hfc",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>You conjure a trio of ethereal daggers that float around you. On your turn, you can throw the daggers at one or multiple targets within 60ft of you, making a ranged spell attack for each dagger.</p><p>You can use an action to throw two daggers. You can use a bonus action to throw one dagger. The daggers disappear after they are thrown.</p><p>As long as you are concentrating on the spell, the daggers rematerialize floating around you at the beginning of your turn.</p><p><strong>Rare: Parrying Daggers.</strong> The ethereal daggers gain the <strong>Parrying</strong> property. As long as you have one dagger hovering and you are not wielding any other weapon, you can use its Parrying property as if you were wielding it. Dagger used this way disappear as if they were thrown.</p>",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "vkbQdk2lBUnbRZrT": {
-        "name": "Cast Spell",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "minute",
-          "value": "1"
-        },
-        "ranges": {
-          "eQhDWcEVWYo5TkEn": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": "none"
-        },
-        "rolls": {},
-        "consumers": {
-          "N3uOhPjYZm30u02f": {
-            "mode": "variable",
-            "spellLevel": 3,
-            "points": 3,
-            "type": "spell"
-          }
-        },
-        "prompts": {
-          "4GuFJEDoPIkqtNis": {
-            "type": "effect",
-            "default": true,
-            "effectId": "mGH2vH74Y2RH7Hfc"
-          }
-        }
-      },
-      "sf2o4ZDWg8e2Njyg": {
-        "name": "Throw one of two Daggers",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "instantaneous",
-          "value": "1"
-        },
-        "ranges": {
-          "eQhDWcEVWYo5TkEn": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature"
-        },
-        "rolls": {
-          "8G7Rl7ypS8R3BNB8": {
-            "bonus": "",
-            "critThreshold": 20,
-            "type": "attack",
-            "attackType": "rangedWeaponAttack",
-            "ability": "spellcasting"
-          },
-          "q0j37C12kiVk1nzk": {
-            "type": "damage",
-            "default": true,
-            "formula": "2d4",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d4",
-              "step": 2
-            },
-            "damageType": "piercing"
-          }
-        },
-        "consumers": {
-          "s7YAbR4NT5iavumw": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 3,
-            "points": 3
-          }
-        },
-        "prompts": {
-          "APhIBBPrPrdbfPHt": {
-            "type": "effect",
-            "default": true
-          }
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>You can use an action to throw two daggers at one or multiple creatures within 60 ft of you, making a ranged spell attack for each dagger. On a hit, a target takes 2d4 magical piercing damage. The daggers disappear after they are thrown.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d4 for every two slot levels above 3rd.</p>"
-      },
-      "o2DvCVRF8rE7hw0H": {
-        "name": "Throw Dagger",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {
-          "Z84B2DOyg8WDKata": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 3,
-            "points": 5
-          }
-        },
-        "rolls": {
-          "ifPFoDNHHXGDX4Kh": {
-            "type": "attack",
-            "default": true,
-            "attackType": "rangedSpellAttack",
-            "proficient": true,
-            "ability": "spellcasting"
-          },
-          "tchkgLe0q2KV417n": {
-            "type": "damage",
-            "default": true,
-            "formula": "2d4",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d4",
-              "step": 2
-            },
-            "damageType": "piercing"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "ranges": {
-          "rcd9j8VPne6EQew6": {
-            "range": "medium"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "descriptionOutputs": [
-          "action"
-        ],
-        "description": "<p>You can use a bonus action to throw one dagger at one creature within 60 ft of you, making a ranged spell attack. On a hit, the target takes 2d4 magical piercing damage. The dagger disappear after it is thrown.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d4 for every two slot levels above 3rd.</p>"
-      }
-    },
-    "description": "<p>You conjure a trio of ethereal daggers that float around you. On your turn, you can throw the daggers at one or multiple targets within 60 ft of you, making a ranged spell attack for each dagger. On a hit, a target takes 2d4 magical piercing damage.</p><p>You can use an action to throw two daggers. You can use a bonus action to throw one dagger. The daggers disappear after they are thrown.</p><p>As long as you are concentrating on the spell, the daggers rematerialize floating around you at the beginning of your turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d4 for every two slot levels above 3rd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Parrying Daggers.</strong> The ethereal daggers gain the <strong>Parrying</strong> property. As long as you have one dagger hovering and you are not wielding any other weapon, you can use its Parrying property as if you were wielding it. Dagger used this way disappear as if they were thrown.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "hakansPamphlet",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "",
-        "threshold": 0
-      }
-    },
-    "classes": [
-      "sorcerer",
-      "warlock",
-      "wizard",
-      "bard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": false,
-      "material": true
-    },
-    "concentration": true,
-    "level": 3,
-    "materials": "a small bundle of pine needles",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": true,
-    "ritual": false,
-    "schools": {
-      "primary": "conjuration",
-      "secondary": [
-        "attack",
-        "weaponry"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "folder": null,
-  "_id": "btw11f0pg7do5g5o"
+	"name": "Parrying Daggers",
+	"type": "spell",
+	"img": "icons/weapons/daggers/dagger-blue.webp",
+	"effects": [
+		{
+			"icon": "icons/weapons/daggers/dagger-blue.webp",
+			"origin": "Item.btw11f0pg7do5g5o",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vkbQdk2lBUnbRZrT"
+				}
+			},
+			"transfer": false,
+			"name": "Conjured Daggers",
+			"_id": "mGH2vH74Y2RH7Hfc",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You conjure a trio of ethereal daggers that float around you. On your turn, you can throw the daggers at one or multiple targets within 60ft of you, making a ranged spell attack for each dagger.</p><p>You can use an action to throw two daggers. You can use a bonus action to throw one dagger. The daggers disappear after they are thrown.</p><p>As long as you are concentrating on the spell, the daggers rematerialize floating around you at the beginning of your turn.</p><p><strong>Rare: Parrying Daggers.</strong> The ethereal daggers gain the <strong>Parrying</strong> property. As long as you have one dagger hovering and you are not wielding any other weapon, you can use its Parrying property as if you were wielding it. Dagger used this way disappear as if they were thrown.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"vkbQdk2lBUnbRZrT": {
+				"name": "Cast Spell",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"eQhDWcEVWYo5TkEn": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "none"
+				},
+				"rolls": {},
+				"consumers": {
+					"N3uOhPjYZm30u02f": {
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 3,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"4GuFJEDoPIkqtNis": {
+						"type": "effect",
+						"default": true,
+						"effectId": "mGH2vH74Y2RH7Hfc"
+					}
+				}
+			},
+			"sf2o4ZDWg8e2Njyg": {
+				"name": "Throw one of two Daggers",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": "1"
+				},
+				"ranges": {
+					"eQhDWcEVWYo5TkEn": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"rolls": {
+					"8G7Rl7ypS8R3BNB8": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "spellcasting"
+					},
+					"q0j37C12kiVk1nzk": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d4",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d4",
+							"step": 2
+						},
+						"damageType": "piercing"
+					}
+				},
+				"consumers": {
+					"s7YAbR4NT5iavumw": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 3
+					}
+				},
+				"prompts": {
+					"APhIBBPrPrdbfPHt": {
+						"type": "effect",
+						"default": true
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>You can use an action to throw two daggers at one or multiple creatures within 60 ft of you, making a ranged spell attack for each dagger. On a hit, a target takes 2d4 magical piercing damage. The daggers disappear after they are thrown.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d4 for every two slot levels above 3rd.</p>"
+			},
+			"o2DvCVRF8rE7hw0H": {
+				"name": "Throw Dagger",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"Z84B2DOyg8WDKata": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5
+					}
+				},
+				"rolls": {
+					"ifPFoDNHHXGDX4Kh": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"tchkgLe0q2KV417n": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d4",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d4",
+							"step": 2
+						},
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"rcd9j8VPne6EQew6": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>You can use a bonus action to throw one dagger at one creature within 60 ft of you, making a ranged spell attack. On a hit, the target takes 2d4 magical piercing damage. The dagger disappear after it is thrown.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d4 for every two slot levels above 3rd.</p>"
+			}
+		},
+		"description": "<p>You conjure a trio of ethereal daggers that float around you. On your turn, you can throw the daggers at one or multiple targets within 60 ft of you, making a ranged spell attack for each dagger. On a hit, a target takes 2d4 magical piercing damage.</p><p>You can use an action to throw two daggers. You can use a bonus action to throw one dagger. The daggers disappear after they are thrown.</p><p>As long as you are concentrating on the spell, the daggers rematerialize floating around you at the beginning of your turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d4 for every two slot levels above 3rd.</p><hr class=\"a5e-rule u-my-md\"><p><strong>Rare: Parrying Daggers.</strong> The ethereal daggers gain the <strong>Parrying</strong> property. As long as you have one dagger hovering and you are not wielding any other weapon, you can use its Parrying property as if you were wielding it. Dagger used this way disappear as if they were thrown.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "hakansPamphlet",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"warlock",
+			"wizard",
+			"bard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": true
+		},
+		"concentration": true,
+		"level": 3,
+		"materials": "a small bundle of pine needles",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"attack",
+				"weaponry"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"folder": null,
+	"_id": "btw11f0pg7do5g5o",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }
