@@ -441,7 +441,10 @@ export default class RollPreparationManager {
 
   #applyCantripScaling(roll) {
     const actorData = this.#actor.system;
-    const casterLevel = actorData.details.level ?? actorData.attributes.casterLevel;
+    const casterLevel = this.#actor?.levels?.character
+      ?? actorData.details.level
+      ?? actorData.attributes.casterLevel;
+
     const baseRoll = roll.formula;
 
     if (casterLevel < 5) return baseRoll;
