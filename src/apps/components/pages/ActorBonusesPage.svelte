@@ -38,29 +38,22 @@
     // }
 
     function getBonusSectionHeader(bonusType) {
-        return localize(
-            CONFIG.A5E.bonusLabels[bonusType]?.sectionHeader ?? bonusType,
-        );
+        return localize(CONFIG.A5E.bonusLabels[bonusType]?.sectionHeader ?? bonusType);
     }
 
     function getAddButtonLabelForBonus(bonusType) {
-        return localize(
-            CONFIG.A5E.bonusLabels[bonusType]?.addButton ?? bonusType,
-        );
+        return localize(CONFIG.A5E.bonusLabels[bonusType]?.addButton ?? bonusType);
     }
 
     function getDefaultBonusName(bonusType) {
-        return localize(
-            CONFIG.A5E.bonusLabels[bonusType]?.defaultName ?? bonusType,
-        );
+        return localize(CONFIG.A5E.bonusLabels[bonusType]?.defaultName ?? bonusType);
     }
 
     const actor = getContext("actor");
 
     const bonusCategories = Object.keys(CONFIG.A5E.bonusTypes);
 
-    let rightClickConfigure =
-        game.settings.get("a5e", "itemRightClickConfigure") ?? true;
+    let rightClickConfigure = game.settings.get("a5e", "itemRightClickConfigure") ?? true;
 
     $: disableManeuverDC = determineIfPropertyModifiedByEffect(
         $actor,
@@ -96,11 +89,7 @@
                     value={$actor.system.bonuses.maneuverDC}
                     disabled={disableManeuverDC}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value,
-                        )}
+                        updateDocumentDataFromField($actor, target.name, target.value)}
                 />
             </FieldWrapper>
 
@@ -116,11 +105,7 @@
                     value={$actor.system.bonuses.spellDC}
                     disabled={disableSpellDC}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            target.value,
-                        )}
+                        updateDocumentDataFromField($actor, target.name, target.value)}
                 />
             </FieldWrapper>
         </div>
@@ -128,8 +113,7 @@
 
     {#each bonusCategories as bonusType}
         <Section
-            headerClasses={Object.values($actor.system.bonuses[bonusType] ?? {})
-                .length
+            headerClasses={Object.values($actor.system.bonuses[bonusType] ?? {}).length
                 ? "a5e-section-header--flat-bottom"
                 : ""}
             heading={getBonusSectionHeader(bonusType)}
@@ -170,10 +154,7 @@
                                         data-tooltip="A5E.ButtonToolTipConfigure"
                                         data-tooltip-direction="UP"
                                         on:click|stopPropagation={() =>
-                                            $actor.configureBonus(
-                                                id,
-                                                bonusType,
-                                            )}
+                                            $actor.configureBonus(id, bonusType)}
                                     />
                                 </li>
 
@@ -184,10 +165,7 @@
                                         data-tooltip="A5E.ButtonToolTipDuplicate"
                                         data-tooltip-direction="UP"
                                         on:click|stopPropagation={() =>
-                                            $actor.duplicateBonus(
-                                                id,
-                                                bonusType,
-                                            )}
+                                            $actor.duplicateBonus(id, bonusType)}
                                     />
                                 </li>
 
@@ -238,7 +216,7 @@
     }
 
     .delete-button:hover {
-        color: $color-secondary;
+        color: var(--a5e-color-error);
     }
 
     .bonus-buttons {

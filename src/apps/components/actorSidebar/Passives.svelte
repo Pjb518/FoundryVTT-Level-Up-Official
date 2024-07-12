@@ -40,7 +40,7 @@
         flex: 1;
         padding: 0.125rem 0;
         font-family: $font-primary;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
         border: 1px solid #ccc;
         border-radius: 4px;
         background-color: $color-light-background;
@@ -48,13 +48,13 @@
     }
 
     .passive-label {
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
     }
 
     .passive-value {
         color: black;
         text-align: center;
         padding-inline: 0.25rem;
-        font-size: $font-size-md;
+        font-size: var(--a5e-text-size-md);
     }
 </style>

@@ -55,10 +55,7 @@
             return onUpdateFilters(inclusiveFilters, []);
         }
 
-        const inclusiveFilters = new Set([
-            ...filters,
-            ...activeFilters?.inclusive,
-        ]);
+        const inclusiveFilters = new Set([...filters, ...activeFilters?.inclusive]);
 
         return onUpdateFilters([...inclusiveFilters], []);
     }
@@ -71,10 +68,7 @@
 
     $: numInclusiveFilters = activeFilters?.inclusive?.length ?? 0;
     $: numExclusiveFilters = activeFilters?.exclusive?.length ?? 0;
-    $: filterTooltip = getFilterTooltip(
-        numInclusiveFilters,
-        numExclusiveFilters,
-    );
+    $: filterTooltip = getFilterTooltip(numInclusiveFilters, numExclusiveFilters);
 
     updateFilters(reducer, reducerType, activeFilters);
 </script>
@@ -95,7 +89,7 @@
         --tjs-icon-button-background-selected="none"
         --tjs-icon-button-text-shadow-hover="none"
         --tjs-icon-button-text-shadow-focus="none"
-        --tjs-icon-button-transition="all 0.15s ease-in-out"
+        --tjs-icon-button-transition="var(--a5e-transition-standard)"
         --tjs-icon-button-diameter="1.1rem"
         --tjs-icon-button-border-radius="0"
     >
@@ -110,8 +104,7 @@
 
                             <button
                                 class=" filter-button u-text-xs"
-                                on:click|stopPropagation={() =>
-                                    toggleAll(filters)}
+                                on:click|stopPropagation={() => toggleAll(filters)}
                             >
                                 {localize("A5E.ButtonToggleAll")}
                             </button>
@@ -134,8 +127,7 @@
                 {/each}
 
                 <div class="hint">
-                    Hint: Right-click a filter to quickly remove it from the
-                    selection.
+                    Hint: Right-click a filter to quickly remove it from the selection.
                 </div>
             </article>
         </TJSMenu>
@@ -180,18 +172,18 @@
     }
 
     .hint {
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
     }
 
     .filter-hints {
         position: relative;
 
         &--green {
-            color: $color-primary;
+            color: var(--a5e-color-primary);
         }
 
         &--red {
-            color: $color-secondary;
+            color: var(--a5e-color-error);
         }
     }
 </style>

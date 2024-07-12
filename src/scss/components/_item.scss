@@ -12,10 +12,10 @@
   border: solid transparent;
   border-width: 0 0 1px;
   border-image: linear-gradient(
-    90deg,
-    var(--item-border-color-start, transparent) 0%,
-    var(--item-border-color-end, #d5cac1) 55%
-  )
+      90deg,
+      var(--item-border-color-start, transparent) 0%,
+      var(--item-border-color-end, #d5cac1) 55%
+    )
     1 repeat;
   border-radius: 0;
   background: linear-gradient(90deg, transparent, var(--item-background, transparent) 70%);
@@ -27,7 +27,7 @@
   }
 
   &--action-config,
-  &--effect-config  {
+  &--effect-config {
     display: flex;
     flex-direction: column;
     flex-shrink: 0;
@@ -49,7 +49,8 @@
   }
 
   &--compendium-spell-document {
-    grid-template-areas: "img name components import delete"
+    grid-template-areas:
+      "img name components import delete"
       "img details components import delete";
     grid-template-columns: max-content 1fr max-content min-content min-content;
   }
@@ -114,7 +115,7 @@
     grid-area: details;
     line-height: 1;
     color: #666;
-    font-size: 0.694rem;
+    font-size: var(--a5e-text-size-xs);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -172,7 +173,7 @@
     padding: 0;
     margin: 0;
     background: transparent;
-    border-radius: $border-radius-standard;
+    border-radius: var(--a5e-border-radius-standard);
 
     &:hover {
       box-shadow: none;
@@ -189,13 +190,13 @@
     }
 
     &--shift:hover {
-      filter: brightness(0) saturate(100%) invert(58%) sepia(10%)
-        saturate(2832%) hue-rotate(73deg) brightness(88%) contrast(76%);
+      filter: brightness(0) saturate(100%) invert(58%) sepia(10%) saturate(2832%) hue-rotate(73deg) brightness(88%)
+        contrast(76%);
     }
 
     &--ctrl:hover {
-      filter: brightness(0) saturate(100%) invert(18%) sepia(80%)
-        saturate(5142%) hue-rotate(348deg) brightness(74%) contrast(94%);
+      filter: brightness(0) saturate(100%) invert(18%) sepia(80%) saturate(5142%) hue-rotate(348deg) brightness(74%)
+        contrast(94%);
     }
   }
 
@@ -207,7 +208,7 @@
     background: rgba(0 0 0 / 0.05);
     border: 1px solid #ccc;
     color: #000;
-    border-radius: 3px;
+    border-radius: var(--a5e-border-radius-standard);
     text-decoration: none;
 
     &:hover,

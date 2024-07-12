@@ -278,7 +278,7 @@
         border: 1px solid #bbb;
         height: 1.125rem;
         width: 7ch;
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
         text-align: center;
 
         &:hover {

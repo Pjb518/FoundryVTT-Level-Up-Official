@@ -41,8 +41,7 @@
         {#each options as [value, label]}
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <Tag
-                active={selected === value ||
-                    selected?.toString() === value?.toString()}
+                active={selected === value || selected?.toString() === value?.toString()}
                 {label}
                 {optionStyles}
                 {value}
@@ -62,7 +61,7 @@
         width: var(--radio-group-width, 100%);
         margin: 0;
         padding: 0;
-        font-size: 0.694rem;
+        font-size: var(--a5e-text-size-xs);
         list-style: none;
     }
 </style>

@@ -38,18 +38,13 @@
     }
 
     $: spellResources = $actor.system.spellResources;
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
     $: maxSpellSlots = getMaxSpellSlots(spellResources, sheetIsLocked);
 </script>
 
 {#if level && level !== "0"}
-    <div
-        class="spell-slot-wrapper"
-        class:spell-slot-wrapper--locked={sheetIsLocked}
-    >
+    <div class="spell-slot-wrapper" class:spell-slot-wrapper--locked={sheetIsLocked}>
         {#if sheetIsLocked}
             {#each Array.from({ length: maxSpellSlots }, (_, i) => i + 1) as slot}
                 {@const slotExpended =
@@ -87,8 +82,7 @@
                 value={maxSpellSlots}
                 placeholder="0"
                 min="0"
-                on:change={({ target }) =>
-                    updateSpellSlotMax(Number(target.value))}
+                on:change={({ target }) => updateSpellSlotMax(Number(target.value))}
             />
         {/if}
     </div>
@@ -146,7 +140,7 @@
         background: rgba(255, 255, 255, 0.15);
         border: 1px solid rgba(255, 255, 255, 0.1);
         text-align: center;
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
 
         &:active,
         &:focus {
@@ -157,7 +151,7 @@
     .spell-slot-wrapper {
         display: flex;
         gap: 0.25rem;
-        color: #f6f2eb;
+        color: var(--a5e-color-text-light);
 
         &--locked {
             gap: 0.5rem;

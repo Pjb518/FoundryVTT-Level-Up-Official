@@ -26,19 +26,19 @@
 <style lang="scss">
     .nav {
         &-icon {
-            font-size: $font-size-sm;
+            font-size: var(--a5e-text-size-sm);
         }
 
         &-item {
             margin: 0;
             font-family: inherit;
             color: inherit;
-            font-size: $font-size-sm;
+            font-size: var(--a5e-text-size-sm);
             line-height: unset;
             background: transparent;
             border: none;
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &:focus,
             &:hover {

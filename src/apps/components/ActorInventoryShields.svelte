@@ -37,9 +37,7 @@
         return bulkyCount;
     }, 0);
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
 
     $: attunement = $actor.system.attributes.attunement;
     $: bulkyTooltip = getBulkyTooltip($actor);
@@ -56,9 +54,7 @@
                 {localize("A5E.Attunement")}
             </h3>
 
-            <span
-                class="a5e-footer-group__value a5e-footer-group__value--attunement"
-            >
+            <span class="a5e-footer-group__value a5e-footer-group__value--attunement">
                 {attunement.current}
             </span>
             /
@@ -197,7 +193,7 @@
     .footer-shield-header {
         flex: 0 0 100%;
         text-align: center;
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
         font-weight: bold;
     }
 

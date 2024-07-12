@@ -5,7 +5,7 @@ $die-sizes: 4, 6, 8, 10, 12, 20;
   background-repeat: no-repeat;
   background-size: 1.5rem 1.5rem;
   color: #000;
-  font-size: $font-size-md;
+  font-size: var(--a5e-text-size-md);
   font-weight: bold;
   line-height: 1.5rem;
   text-align: center;
@@ -26,7 +26,7 @@ $die-sizes: 4, 6, 8, 10, 12, 20;
 
   @each $size in $die-sizes {
     &--#{$size} {
-      background-image: url('/icons/svg/d#{$size}-grey.svg');
+      background-image: url("/icons/svg/d#{$size}-grey.svg");
     }
   }
 }

@@ -10,13 +10,15 @@
   height: 1.3125rem; // 21px
   margin-block: 0.5rem;
   padding-inline: 0.5rem;
-  color: #f6f2eb;
+  color: var(--a5e-color-text-light);
   font-family: var(--a5e-font-serif);
-  font-size: 1rem;
-  background: #425f65;
+  font-size: var(--a5e-text-size-md);
+  background: var(--a5e-color-primary);
   border: 1px solid #3e4240;
-  box-shadow: 0 0 10px #2e4246 inset, 0 3px 5px rgba(0, 0, 0, 0.4);
-  border-radius: 3px;
+  box-shadow:
+    0 0 10px #2e4246 inset,
+    0 3px 5px rgba(0, 0, 0, 0.4);
+  border-radius: var(--a5e-border-radius-standard);
 
   &--flat-bottom {
     border-radius: 3px 3px 0 0;
@@ -25,7 +27,7 @@
   &__current-tab-label {
     grid-area: current;
     opacity: 0;
-    font-size: 0.833rem;
+    font-size: var(--a5e-text-size-sm);
 
     &--active {
       opacity: 1;
@@ -49,10 +51,13 @@
   justify-content: center;
   height: 1.5rem;
   width: 1.5rem;
-  font-size: 0.833rem;
+  font-size: var(--a5e-text-size-sm);
   background: hsl(150, 3%, 25%);
   border-radius: 50%;
-  box-shadow: 0 0 0 1px #e9d7a1, 0 0 0 2px #956d58, 0 3px 5px rgba(0, 0, 0, 0.4);
+  box-shadow:
+    0 0 0 1px #e9d7a1,
+    0 0 0 2px #956d58,
+    0 3px 5px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(5px);
   cursor: pointer;
 

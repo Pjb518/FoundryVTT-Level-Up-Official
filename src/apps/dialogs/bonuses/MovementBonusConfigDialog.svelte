@@ -108,16 +108,12 @@
         </div>
     </header>
 
-    <Section
-        --a5e-section-body-direction="row"
-        --a5e-section-margin="0.25rem 0"
-    >
+    <Section --a5e-section-body-direction="row" --a5e-section-margin="0.25rem 0">
         <FieldWrapper heading="A5E.Formula" --a5e-field-wrapper-grow="1">
             <input
                 type="text"
                 value={movementBonus.formula ?? ""}
-                on:change={({ target }) =>
-                    onUpdateValue("formula", target.value)}
+                on:change={({ target }) => onUpdateValue("formula", target.value)}
             />
         </FieldWrapper>
 
@@ -200,7 +196,7 @@
     .bonus-name,
     .bonus-name[type="text"] {
         font-family: $font-primary;
-        font-size: $font-size-xxl;
+        font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;
         text-overflow: ellipsis;

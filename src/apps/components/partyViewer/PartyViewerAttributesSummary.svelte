@@ -19,9 +19,7 @@
             data-tooltip-direction="UP"
         >
             <span>
-                {replaceHyphenWithMinusSign(
-                    attribute?.check?.deterministicBonus,
-                )}
+                {replaceHyphenWithMinusSign(attribute?.check?.deterministicBonus)}
             </span>
         </div>
 
@@ -34,9 +32,7 @@
             data-tooltip-direction="UP"
         >
             <span>
-                {replaceHyphenWithMinusSign(
-                    attribute?.save?.deterministicBonus,
-                )}
+                {replaceHyphenWithMinusSign(attribute?.save?.deterministicBonus)}
             </span>
         </div>
     </div>
@@ -86,7 +82,7 @@
                 top: 50%;
                 left: 50%;
                 font: var(--fa-font-solid);
-                font-size: 1.44rem;
+                font-size: var(--a5e-text-size-xl);
                 transform: translate(-50%, -50%);
                 color: #e7e5db;
                 z-index: 0;
@@ -104,10 +100,10 @@
             }
 
             &--proficient {
-                color: $color-light-text;
+                color: var(--a5e-color-text-light);
 
                 &::before {
-                    color: $color-primary;
+                    color: var(--a5e-color-primary);
                 }
             }
         }

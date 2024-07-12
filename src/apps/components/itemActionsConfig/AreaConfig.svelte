@@ -104,10 +104,7 @@
 
     {#if action.area?.shape}
         <div class="u-flex u-gap-md u-w-full">
-            <FieldWrapper
-                heading="A5E.ItemQuantity"
-                --a5e-field-wrapper-width="7.5rem"
-            >
+            <FieldWrapper heading="A5E.ItemQuantity" --a5e-field-wrapper-width="7.5rem">
                 <input
                     id="{actionId}-area-quantity"
                     type="number"
@@ -122,10 +119,7 @@
             </FieldWrapper>
 
             {#if getShapeProperties(action.area.shape).includes("radius")}
-                <FieldWrapper
-                    heading="Radius"
-                    --a5e-field-wrapper-width="7.5rem"
-                >
+                <FieldWrapper heading="Radius" --a5e-field-wrapper-width="7.5rem">
                     <input
                         id="{actionId}-area-radius"
                         type="number"
@@ -262,14 +256,13 @@
             display: none;
 
             &:checked + .area-shape-label {
-                background: $color-primary;
-                border-color: darken($color: $color-primary, $amount: 5);
-                box-shadow: 0 0 10px darken($color: $color-primary, $amount: 10)
-                    inset;
-                color: $color-light-text;
+                background: var(--a5e-color-primary);
+                border-color: darken-color(var(--a5e-color-primary), 5);
+                box-shadow: 0 0 10px darken-color(var(--a5e-color-primary), 10) inset;
+                color: var(--a5e-color-text-light);
 
                 &:hover {
-                    background: $color-primary;
+                    background: var(--a5e-color-primary);
                 }
             }
         }
@@ -279,12 +272,12 @@
             align-items: center;
             flex-grow: 1;
             gap: 0.5rem;
-            border-radius: $border-radius-standard;
+            border-radius: var(--a5e-border-radius-standard);
             border: 1px solid #bbb;
-            font-size: $font-size-sm;
+            font-size: var(--a5e-text-size-sm);
             padding: 0.375rem 0.5rem;
             cursor: pointer;
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &:hover {
                 background-color: rgba(0, 0, 0, 0.1);
@@ -308,14 +301,14 @@
         width: 1.625rem;
         padding: 0;
         margin: 0;
-        font-size: $font-size-md;
+        font-size: var(--a5e-text-size-md);
         background: transparent;
         color: #999;
         border: 1px solid #7a7971;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         i {
             margin: 0;

@@ -3,10 +3,7 @@
 
     const actor = getContext("actor");
 
-    let replaceFatigueAndStrife = game.settings.get(
-        "a5e",
-        "replaceFatigueAndStrife",
-    );
+    let replaceFatigueAndStrife = game.settings.get("a5e", "replaceFatigueAndStrife");
 </script>
 
 <div
@@ -61,17 +58,17 @@
             box-shadow: 0 0 10px #ccc inset;
             color: rgba(0 0 0 / 0.2);
             cursor: pointer;
-            font-size: $font-size-lg;
+            font-size: var(--a5e-text-size-lg);
             transform: translateX(-1px);
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
         }
 
         &:hover {
             background-color: darken(#dddace, 2.5%);
 
             .rest__icon {
-                color: lighten($color-dark-text, 35%);
+                color: lighten-color(var(--a5e-color-text-dark), 35);
             }
         }
     }

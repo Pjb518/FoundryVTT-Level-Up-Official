@@ -27,9 +27,9 @@
 
     function getHoverColor(pressedKeysStore) {
         if (pressedKeysStore.Shift) return "#2b6537";
-        if (pressedKeysStore.Control) return "$color-secondary";
+        if (pressedKeysStore.Control) return "var(--a5e-color-error)";
 
-        return "$color-dark-text";
+        return "var(--a5e-color-text-dark)";
     }
 
     function prepareRollColor(rollData) {

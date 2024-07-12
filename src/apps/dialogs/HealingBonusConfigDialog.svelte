@@ -104,24 +104,19 @@
         </div>
     </header>
 
-    <Section
-        --a5e-section-body-direction="row"
-        --a5e-section-margin="0.25rem 0"
-    >
+    <Section --a5e-section-body-direction="row" --a5e-section-margin="0.25rem 0">
         <FieldWrapper heading="A5E.HealingFormula" --a5e-field-wrapper-grow="1">
             <input
                 type="text"
                 value={healingBonus.formula ?? ""}
-                on:change={({ target }) =>
-                    onUpdateValue("formula", target.value)}
+                on:change={({ target }) => onUpdateValue("formula", target.value)}
             />
         </FieldWrapper>
 
         <FieldWrapper heading="A5E.HealingType">
             <select
                 class="u-w-fit healing-type-select"
-                on:change={({ target }) =>
-                    onUpdateValue("healingType", target.value)}
+                on:change={({ target }) => onUpdateValue("healingType", target.value)}
             >
                 <option
                     value={null}
@@ -132,10 +127,7 @@
                 </option>
 
                 {#each Object.entries(healingTypes) as [key, name] (key)}
-                    <option
-                        value={key}
-                        selected={healingBonus.healingType === key}
-                    >
+                    <option value={key} selected={healingBonus.healingType === key}>
                         {localize(name)}
                     </option>
                 {/each}
@@ -191,7 +183,7 @@
     .bonus-name,
     .bonus-name[type="text"] {
         font-family: $font-primary;
-        font-size: $font-size-xxl;
+        font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;
         text-overflow: ellipsis;

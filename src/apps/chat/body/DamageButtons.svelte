@@ -120,7 +120,7 @@
         padding: 0;
         list-style: none;
         border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
 
         &__item {
             display: flex;
@@ -131,12 +131,12 @@
             padding: 0.125rem 0.5rem;
             white-space: nowrap;
             background: #e1ddd5;
-            color: #7e7960;
+            color: var(--a5e-color-text-medium);
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &:hover {
-                color: $color-dark-text;
+                color: var(--a5e-color-text-dark);
             }
         }
     }
@@ -154,15 +154,15 @@
             margin: 0;
             padding: 0.25rem 0.375rem;
             line-height: 1;
-            color: #7e7960;
+            color: var(--a5e-color-text-medium);
             background: rgba(0, 0, 0, 0.05);
             border: 1px solid #ccc;
-            border-radius: $border-radius-standard;
+            border-radius: var(--a5e-border-radius-standard);
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &:hover {
-                color: $color-dark-text;
+                color: var(--a5e-color-text-dark);
                 box-shadow: none;
             }
         }
@@ -175,15 +175,15 @@
         margin-left: auto;
         padding: 0.25rem 0.375rem;
         line-height: 1;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
-            color: $color-dark-text;
+            color: var(--a5e-color-text-dark);
             box-shadow: none;
         }
     }

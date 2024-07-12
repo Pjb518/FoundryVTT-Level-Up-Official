@@ -87,7 +87,7 @@
         gap: 0.275rem;
     }
     .section-title {
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
         font-family: $font-secondary;
         font-weight: bold;
         margin-bottom: 0.125rem;

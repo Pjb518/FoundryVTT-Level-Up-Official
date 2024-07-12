@@ -11,8 +11,7 @@
     import GrantConfig from "./GrantConfig.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
-    export let { document, grantId, grantType } =
-        getContext("#external").application;
+    export let { document, grantId, grantType } = getContext("#external").application;
 
     function updateImage() {
         const current = grant?.img;
@@ -71,10 +70,7 @@
         </div>
     </header>
 
-    <Section
-        heading="Exertion Bonus Configuration"
-        --a5e-section-body-gap="0.75rem"
-    >
+    <Section heading="Exertion Bonus Configuration" --a5e-section-body-gap="0.75rem">
         <RadioGroup
             heading="Exertion Bonus Mode"
             options={[
@@ -83,8 +79,7 @@
             ]}
             selected={exertionType}
             allowDeselect={false}
-            on:updateSelection={({ detail }) =>
-                onUpdateValue("exertionType", detail)}
+            on:updateSelection={({ detail }) => onUpdateValue("exertionType", detail)}
         />
 
         {#if exertionType === "pool"}
@@ -93,16 +88,14 @@
                 options={Object.entries(exertionPoolTypes)}
                 selected={grant.poolType}
                 allowDeselect={false}
-                on:updateSelection={({ detail }) =>
-                    onUpdateValue("poolType", detail)}
+                on:updateSelection={({ detail }) => onUpdateValue("poolType", detail)}
             />
         {:else}
             <FieldWrapper heading="A5E.Formula">
                 <input
                     type="text"
                     value={grant.bonus ?? ""}
-                    on:change={({ target }) =>
-                        onUpdateValue("bonus", target.value)}
+                    on:change={({ target }) => onUpdateValue("bonus", target.value)}
                 />
             </FieldWrapper>
         {/if}
@@ -124,7 +117,7 @@
     .grant-name,
     .grant-name[type="text"] {
         font-family: $font-primary;
-        font-size: $font-size-xxl;
+        font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;
         text-overflow: ellipsis;

@@ -144,7 +144,7 @@
         padding: 0.75rem;
         position: relative;
         margin-bottom: 1rem;
-        background-color: #f6f2eb;
+        background-color: var(--a5e-color-background-light);
     }
 
     .a5e-class-resource-delete-button {
@@ -158,13 +158,13 @@
         width: fit-content;
         height: fit-content;
         color: rgba(0 0 0 / 0.2);
-        transition: all 0.15s ease-in-out;
+        transition: var(--a5e-transition-standard);
 
         &:hover,
         &:focus {
             box-shadow: none;
             transform: scale(1.2);
-            color: #8b2525;
+            color: var(--a5e-color-error);
         }
     }
 
@@ -192,7 +192,7 @@
         width: fit-content;
         height: fit-content;
         color: rgba(0 0 0 / 0.2);
-        transition: all 0.15s ease-in-out;
+        transition: var(--a5e-transition-standard);
 
         &:hover,
         &:focus {

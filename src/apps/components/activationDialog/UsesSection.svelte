@@ -40,10 +40,7 @@
 
     $: actionUses = $item.actions[actionId].uses ?? {};
     $: itemUses = $item.system.uses;
-    $: itemMaxUses = getDeterministicBonus(
-        itemUses.max,
-        $actor.getRollData($item),
-    );
+    $: itemMaxUses = getDeterministicBonus(itemUses.max, $actor.getRollData($item));
 
     $: actionMaxUses = getDeterministicBonus(
         actionUses?.max ?? 0,
@@ -107,7 +104,7 @@
         border: 1px solid #bbb;
         height: 1.125rem;
         width: 7ch;
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
         text-align: center;
 
         &:hover {

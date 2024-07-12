@@ -57,10 +57,7 @@
             return skillBonus;
         } else {
             const checkBonus = getDeterministicBonus(
-                $actor.BonusesManager.getAbilityBonusesFormula(
-                    skill.ability,
-                    "check",
-                ),
+                $actor.BonusesManager.getAbilityBonusesFormula(skill.ability, "check"),
                 $actor.getRollData(),
             );
             return skillBonus - checkBonus;
@@ -74,16 +71,13 @@
     let showDeterministicBonus =
         $actor.flags?.a5e?.includeAbilityModifiersForSkills ?? true;
 
-    $: abilityBonus =
-        $actor.system.abilities[skill.ability].check.deterministicBonus;
+    $: abilityBonus = $actor.system.abilities[skill.ability].check.deterministicBonus;
 
     $: skillBonus = getSkillBonus($actor, showDeterministicBonus);
     $: proficiencyLevel = getProficiencyLevel($actor, skill);
     $: proficiencyTooltip = getProficiencyTooltip(proficiencyLevel);
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 <li class="skill" class:skill--column-flow={columnFlow}>
@@ -91,11 +85,9 @@
         class="skill__proficiency-icon"
         class:fa-solid={proficiencyLevel}
         class:fa-regular={!proficiencyLevel}
-        class:skill__proficiency-icon--expertise={proficiencyLevel ===
-            "expertise"}
+        class:skill__proficiency-icon--expertise={proficiencyLevel === "expertise"}
         class:skill__proficiency-icon--jack={proficiencyLevel === "jack"}
-        class:skill__proficiency-icon--proficient={proficiencyLevel ===
-            "proficient"}
+        class:skill__proficiency-icon--proficient={proficiencyLevel === "proficient"}
         class:skill__proficiency-icon--locked={sheetIsLocked}
         class:fa-award={proficiencyLevel === "expertise"}
         class:fa-star-half-stroke={proficiencyLevel === "jack"}
@@ -116,10 +108,7 @@
     <h3
         class="skill__name"
         class:disable-pointer-events={!$actor.isOwner}
-        on:click={$actor.rollSkillCheck(
-            key,
-            getKeyPressAsOptions($pressedKeysStore),
-        )}
+        on:click={$actor.rollSkillCheck(key, getKeyPressAsOptions($pressedKeysStore))}
     >
         {skills[key]}
 
@@ -232,7 +221,7 @@
             background: transparent;
             color: rgba(0, 0, 0, 0.25);
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &:focus,
             &:hover {
@@ -276,7 +265,7 @@
 
             &--expertise,
             &--proficient {
-                color: $color-primary;
+                color: var(--a5e-color-primary);
             }
 
             &--locked {
@@ -305,7 +294,7 @@
         &__roll-icon {
             display: none;
             color: #555;
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &--ctrl {
                 color: #ffb63b;

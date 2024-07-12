@@ -541,9 +541,9 @@
         height: 5rem;
         padding: 1rem;
         margin: 1rem;
-        font-size: 1rem;
+        font-size: var(--a5e-text-size-md);
         border: 2px solid #ccc;
-        border-radius: 3px;
+        border-radius: var(--a5e-border-radius-standard);
     }
 
     .sheet-lock {
@@ -567,7 +567,7 @@
         transition: var(--a5e-transition-standard);
 
         &--locked {
-            color: $color-primary;
+            color: var(--a5e-color-primary);
         }
 
         &:focus,

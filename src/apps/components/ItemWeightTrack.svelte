@@ -9,10 +9,7 @@
 
     $: inventoryWeight = calculateInventoryWeight($actor);
     $: carryCapacity = calculateCarryCapacity($actor);
-    $: encumbrancePercentage = Math.min(
-        (inventoryWeight / carryCapacity) * 100,
-        100
-    );
+    $: encumbrancePercentage = Math.min((inventoryWeight / carryCapacity) * 100, 100);
 </script>
 
 <div
@@ -32,7 +29,7 @@
         class="u-h-full u-rounded"
         style="color: #eee; text-shadow: 0 0 2px #000"
         style:background-color={encumbrancePercentage === 100
-            ? "$color-secondary"
+            ? "var(--a5e-color-error)"
             : "#0b5a2f"}
         style:width={`${Math.min(encumbrancePercentage, 100)}%`}
     >

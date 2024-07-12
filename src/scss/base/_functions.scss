@@ -1,0 +1,9 @@
+@function lighten-color($color, $amount) {
+  $converted: hsl(from #{$color} h s calc(l + $amount));
+  @return $converted;
+}
+
+@function darken-color($color, $amount) {
+  $converted: hsl(from #{$color} h s calc(l - $amount));
+  @return $converted;
+}

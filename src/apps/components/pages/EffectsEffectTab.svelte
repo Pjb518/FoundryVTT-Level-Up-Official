@@ -55,7 +55,7 @@
                 <div class="button-wrapper">
                     <button
                         class="a5e-button a5e-button--delete fas fa-trash"
-                        style="font-size: $font-size-md;"
+                        style="font-size: var(--a5e-text-size-md);"
                         on:click={() => deleteChange(idx)}
                     />
                 </div>
@@ -65,12 +65,10 @@
                         {idx}
                         {key}
                         {optionsList}
-                        on:changeKey={({ detail }) =>
-                            updateChange(idx, "key", detail)}
+                        on:changeKey={({ detail }) => updateChange(idx, "key", detail)}
                         on:changePriority={({ detail }) =>
                             updateChange(idx, "priority", detail)}
-                        on:changeMode={({ detail }) =>
-                            updateChange(idx, "mode", detail)}
+                        on:changeMode={({ detail }) => updateChange(idx, "mode", detail)}
                     />
                 </div>
 
@@ -79,8 +77,7 @@
                     {value}
                     {mode}
                     {optionsList}
-                    on:change={({ detail }) =>
-                        updateChange(idx, "value", detail)}
+                    on:change={({ detail }) => updateChange(idx, "value", detail)}
                 />
             </li>
         {/each}
@@ -98,7 +95,7 @@
         --tjs-icon-button-background-selected="none"
         --tjs-icon-button-text-shadow-hover="none"
         --tjs-icon-button-text-shadow-focus="none"
-        --tjs-icon-button-transition="$standard-transition"
+        --tjs-icon-button-transition="var(--a5e-transition-standard)"
         --tjs-icon-button-diameter="1rem"
         --tjs-icon-button-border-radius="0"
     />
@@ -113,7 +110,7 @@
         top: 0.75rem;
         right: 0.75rem;
         color: #999;
-        font-size: $font-size-md;
+        font-size: var(--a5e-text-size-md);
     }
 
     .row {

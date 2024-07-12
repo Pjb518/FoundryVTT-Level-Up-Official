@@ -128,7 +128,7 @@
         gap: 0.75rem;
         padding: 0.75rem;
         padding-bottom: 0.5rem;
-        font-size: 1.2rem;
+        font-size: var(--a5e-text-size-lg);
         line-height: 1.2rem;
         text-align: left;
         width: max-content;
@@ -154,13 +154,13 @@
         position: relative;
         background-color: transparent;
         gap: 0.5rem;
-        font-size: 1rem;
+        font-size: var(--a5e-text-size-md);
         align-items: center;
         margin-block: 0.125rem;
         border: none;
         color: rgb(204 204 204);
         cursor: pointer;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover,
         &:focus {
@@ -174,7 +174,7 @@
             h3 {
                 cursor: not-allowed;
                 font-weight: bold;
-                color: lighten($color: $color-warning, $amount: 15);
+                color: lighten-color(var(--a5e-color-warning), 15);
                 // filter: invert(11%) sepia(42%) saturate(7092%)
                 //     hue-rotate(352deg) brightness(94%) contrast(81%);
             }
@@ -202,7 +202,7 @@
                 width: 1.25rem;
                 aspect-ratio: 1/1;
                 color: white;
-                font-size: 0.833rem;
+                font-size: var(--a5e-text-size-sm);
 
                 position: absolute;
                 top: -0.75rem;
@@ -220,7 +220,7 @@
             h3::before {
                 content: var(--fatigue);
                 font-family: $font-secondary;
-                font-size: 1rem;
+                font-size: var(--a5e-text-size-md);
                 background-color: var(--fatigue-col);
             }
         }
@@ -229,7 +229,7 @@
             h3::before {
                 content: var(--strife);
                 font-family: $font-secondary;
-                font-size: 1rem;
+                font-size: var(--a5e-text-size-md);
                 background-color: var(--strife-col);
             }
         }
@@ -289,10 +289,10 @@
         background-color: black;
         font-size: 1.25rem;
         cursor: pointer;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
-            color: lighten($color-secondary, 15);
+            color: lighten-color(var(--a5e-color-error), 15);
             box-shadow: none;
         }
     }

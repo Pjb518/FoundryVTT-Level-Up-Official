@@ -13,8 +13,7 @@
         const { level, schools } = spell.system;
         const spellLevel = spellLevels[level] ?? "";
 
-        const primarySchool =
-            spellSchools.primary[schools.primary] ?? schools.primary;
+        const primarySchool = spellSchools.primary[schools.primary] ?? schools.primary;
 
         const secondarySchools = schools.secondary.map(
             (school) => spellSchools.secondary[school] ?? school,
@@ -22,9 +21,7 @@
 
         secondarySchools.sort((a, b) => a.localeCompare(b));
 
-        const spellSchoolsLabel = [primarySchool, ...secondarySchools].join(
-            ", ",
-        );
+        const spellSchoolsLabel = [primarySchool, ...secondarySchools].join(", ");
 
         if (spellSchoolsLabel) return `${spellLevel} (${spellSchoolsLabel})`;
         return spellLevel;
@@ -59,8 +56,7 @@
     draggable="true"
     on:click={async () => {
         const doc =
-            collection.get(document._id) ??
-            (await collection.getDocument(document._id));
+            collection.get(document._id) ?? (await collection.getDocument(document._id));
         doc.sheet?.render(true);
     }}
     on:dragstart={onDragStart}
@@ -166,7 +162,7 @@
         justify-content: center;
         height: 1rem;
         width: 1rem;
-        border-radius: 3px;
+        border-radius: var(--a5e-border-radius-standard);
         font-size: var(--a5e-text-size-xxs);
         background: #c6c5bc;
     }

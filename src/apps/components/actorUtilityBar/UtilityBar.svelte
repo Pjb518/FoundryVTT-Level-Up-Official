@@ -13,14 +13,13 @@
         justify-content: space-between;
         gap: 0.75rem;
         padding-right: 0.25rem;
-        font-size: $font-size-md;
+        font-size: var(--a5e-text-size-md);
         color: rgba(0 0 0 / 0.2);
     }
 
     :global {
         .tjs-menu {
-            --tjs-menu-background: url("/ui/denim075.png") repeat,
-                rgba(0 0 0 / 0.15);
+            --tjs-menu-background: url("/ui/denim075.png") repeat, rgba(0 0 0 / 0.15);
             --tjs-menu-primary-color: #deddd3;
             --tjs-menu-border: 1px solid #555;
         }

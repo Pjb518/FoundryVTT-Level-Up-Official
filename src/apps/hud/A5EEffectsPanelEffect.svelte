@@ -35,8 +35,7 @@
         }
         totalDuration ??= 0;
 
-        const remainingDuration =
-            startTime + totalDuration - game.time.worldTime ?? 0;
+        const remainingDuration = startTime + totalDuration - game.time.worldTime ?? 0;
 
         if (remainingDuration <= 0 && !turns) {
             return '<p class="a5e-tag a5e-tag--red a5e-tag--tight">Expired</p>';
@@ -53,8 +52,7 @@
     }
 
     function getEffectNotes() {
-        let notes =
-            '<div class="u-flex u-flex-row-reverse u-gap-md u-text-xs">';
+        let notes = '<div class="u-flex u-flex-row-reverse u-gap-md u-text-xs">';
 
         notes += duration;
 
@@ -233,7 +231,7 @@
             width: 1rem;
             padding: 1px;
             font: var(--fa-font-solid);
-            font-size: $font-size-xs;
+            font-size: var(--a5e-text-size-xs);
             font-weight: 400;
             color: white;
             background-color: rgba(20, 20, 20, 0.6);
@@ -249,14 +247,14 @@
     .fatigue-counter::after {
         content: var(--fatigue);
         font-family: $font-secondary;
-        font-size: 0.833rem;
+        font-size: var(--a5e-text-size-sm);
         background-color: var(--fatigue-col);
     }
 
     .strife-counter::after {
         content: var(--strife);
         font-family: $font-secondary;
-        font-size: 0.833rem;
+        font-size: var(--a5e-text-size-sm);
         background-color: var(--strife-col);
     }
 </style>

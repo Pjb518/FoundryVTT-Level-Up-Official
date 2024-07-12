@@ -37,7 +37,7 @@
             $item,
             `system.actions.${actionId}.area.shape`,
             target.value,
-            `system.actions.${actionId}.area.quantity`
+            `system.actions.${actionId}.area.quantity`,
         );
     }}
 />
@@ -56,14 +56,13 @@
             display: none;
 
             &:checked + .area-shape__label {
-                background: $color-primary;
-                border-color: darken($color: $color-primary, $amount: 5);
-                box-shadow: 0 0 10px darken($color: $color-primary, $amount: 10)
-                    inset;
-                color: $color-light-text;
+                background: var(--a5e-color-primary);
+                border-color: darken-color(var(--a5e-color-primary), 5);
+                box-shadow: 0 0 10px darken-color(var(--a5e-color-primary), 10) inset;
+                color: var(--a5e-color-text-light);
 
                 &:hover {
-                    background: $color-primary;
+                    background: var(--a5e-color-primary);
                 }
             }
         }
@@ -73,12 +72,12 @@
             align-items: center;
             flex-grow: 1;
             gap: 0.5rem;
-            border-radius: $border-radius-standard;
+            border-radius: var(--a5e-border-radius-standard);
             border: 1px solid #bbb;
-            font-size: $font-size-sm;
+            font-size: var(--a5e-text-size-sm);
             padding: 0.375rem 0.5rem;
             cursor: pointer;
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &:hover {
                 background-color: rgba(0, 0, 0, 0.1);

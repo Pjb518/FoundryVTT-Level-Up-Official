@@ -17,9 +17,7 @@
 
         if (!d20Roll) return false;
 
-        return d20Roll.results.some(
-            ({ result, active }) => active && result === 1,
-        );
+        return d20Roll.results.some(({ result, active }) => active && result === 1);
     }
 
     function determineIfCriticalSuccess(roll) {
@@ -28,8 +26,7 @@
         if (!d20Roll) return false;
 
         return d20Roll.results.some(
-            ({ result, active }) =>
-                active && result >= (rollData.critThreshold ?? 20),
+            ({ result, active }) => active && result >= (rollData.critThreshold ?? 20),
         );
     }
 
@@ -37,9 +34,7 @@
         if (!rollMode) return null;
 
         return localize(
-            rollMode === 1
-                ? "A5E.RollModeAdvantage"
-                : "A5E.RollModeDisadvantage",
+            rollMode === 1 ? "A5E.RollModeAdvantage" : "A5E.RollModeDisadvantage",
         );
     }
 
@@ -53,9 +48,7 @@
 
     async function rollOnSkillTable(skillKey, resultType) {
         const tableKey =
-            resultType === "critical"
-                ? "skillCriticalTables"
-                : "skillFumbleTables";
+            resultType === "critical" ? "skillCriticalTables" : "skillFumbleTables";
 
         const critTableUUID = CONFIG.A5E[tableKey]?.[skillKey];
         const critTable = await fromUuid(critTableUUID);
@@ -81,10 +74,7 @@
             content: "<article></article>",
         };
 
-        ChatMessage.applyRollMode(
-            chatData,
-            game.settings.get("core", "rollMode"),
-        );
+        ChatMessage.applyRollMode(chatData, game.settings.get("core", "rollMode"));
 
         return ChatMessage.create(chatData);
     }
@@ -102,10 +92,7 @@
         }
     }
 
-    let hideSkillCriticalPrompt = game.settings.get(
-        "a5e",
-        "hideSkillCriticalPrompt",
-    );
+    let hideSkillCriticalPrompt = game.settings.get("a5e", "hideSkillCriticalPrompt");
 
     let showRollConfig = false;
 
@@ -173,9 +160,7 @@
 
 {#if !hideSkillCriticalPrompt && rollData.type === "skillCheck" && rollData.skillKey}
     {#if isCriticalSuccess}
-        <button
-            on:click={() => rollOnSkillTable(rollData.skillKey, "critical")}
-        >
+        <button on:click={() => rollOnSkillTable(rollData.skillKey, "critical")}>
             <i class="fa-solid fa-dice-d20"></i>
             Roll on the skill critical success table
         </button>
@@ -190,11 +175,7 @@
 {/if}
 
 {#if showRollConfig}
-    <RollConfigurationOptions
-        {rollData}
-        on:toggleRollMode
-        on:toggleExpertiseDice
-    />
+    <RollConfigurationOptions {rollData} on:toggleRollMode on:toggleExpertiseDice />
 {/if}
 
 <style lang="scss">
@@ -209,7 +190,7 @@
         font-size: var(--a5e-text-size-lg);
         font-weight: 700;
         border: 0.5px solid var(--a5e-roll-color, #ccc);
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
 
         &::after {
@@ -270,16 +251,16 @@
         padding: 0.25rem 0.375rem;
         font-size: var(--a5e-text-size-sm);
         line-height: 1;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
         background: rgba(0, 0, 0, 0.05);
         border: 1px solid #ccc;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover,
         &:focus {
-            color: $color-dark-text;
+            color: var(--a5e-color-text-dark);
             box-shadow: none;
         }
     }
@@ -293,21 +274,21 @@
         font-size: var(--a5e-text-size-xs);
         line-height: 1;
         color: white;
-        background: $color-primary;
-        border: 1px solid $color-primary;
-        border-radius: $border-radius-standard;
+        background: var(--a5e-color-primary);
+        border: 1px solid var(--a5e-color-primary);
+        border-radius: var(--a5e-border-radius-standard);
     }
 
     .roll-mode--disadvantage {
         border-color: #772020;
-        background: $color-secondary;
+        background: var(--a5e-color-error);
     }
 
     .roll-sublabel {
         width: 100%;
         font-size: var(--a5e-text-size-xs);
         line-height: 1;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
     }
 
     .subtitle-wrapper {

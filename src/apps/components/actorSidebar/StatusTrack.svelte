@@ -10,19 +10,12 @@
     export let selectedOption;
 
     function handleStatusEffectChange(value) {
-        updateDocumentDataFromField(
-            $actor,
-            `system.attributes.${trackProperty}`,
-            value,
-        );
+        updateDocumentDataFromField($actor, `system.attributes.${trackProperty}`, value);
     }
 
     const actor = getContext("actor");
 
-    let replaceFatigueAndStrife = game.settings.get(
-        "a5e",
-        "replaceFatigueAndStrife",
-    );
+    let replaceFatigueAndStrife = game.settings.get("a5e", "replaceFatigueAndStrife");
 </script>
 
 <div
@@ -55,7 +48,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.25rem;
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
         text-align: left;
     }
 
@@ -99,10 +92,10 @@
             box-shadow: 0 0 10px #ccc inset;
             color: rgba(0, 0, 0, 0.2);
             cursor: pointer;
-            font-size: $font-size-lg;
+            font-size: var(--a5e-text-size-lg);
             transform: translateX(-1px);
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             @each $level, $color in $colors {
                 &-level-#{$level} {
@@ -121,7 +114,7 @@
             background: transparent;
             border-radius: 0;
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &:focus,
             &:hover {
@@ -148,7 +141,7 @@
             opacity: 0;
             transform: translateX(-1rem);
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
         }
 
         &--fatigue {
@@ -174,7 +167,7 @@
             }
 
             .track-icon {
-                color: lighten($color-dark-text, 35%);
+                color: lighten-color(var(--a5e-color-text-dark), 35);
 
                 @each $level, $color in $colors {
                     &-level-#{$level} {

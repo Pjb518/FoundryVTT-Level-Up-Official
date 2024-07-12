@@ -65,7 +65,7 @@
 
     .drop-icon {
         color: #888;
-        font-size: $font-size-xl;
+        font-size: var(--a5e-text-size-xl);
         font-style: normal;
     }
 
@@ -76,21 +76,21 @@
         gap: 0.5rem;
         padding: 0.25rem;
         padding-right: 0.5rem;
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
         background: $color-light-background;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         border: 1px solid #ccc;
 
         h3 {
             flex: 1;
-            font-size: $font-size-sm;
+            font-size: var(--a5e-text-size-sm);
         }
     }
 
     .document-image {
         height: 2rem;
         width: 2rem;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
     }
 
     .delete-button {

@@ -56,9 +56,7 @@
 
     const actor = getContext("actor");
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
 </script>
 
 {#if sheetIsLocked}
@@ -119,7 +117,7 @@
         // 17.5 pixels: the width of the largest icon we have
         min-width: 1.09375rem;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             color: var(--icon-color-active, #555);
@@ -133,7 +131,7 @@
     }
 
     .delete-button:hover {
-        color: $color-secondary;
+        color: var(--a5e-color-error);
     }
 
     .track {
@@ -158,17 +156,17 @@
             flex-shrink: 0;
             align-items: center;
             justify-content: center;
-            font-size: $font-size-sm;
+            font-size: var(--a5e-text-size-sm);
             color: var(--icon-color, inherit);
             border: 1px solid var(--track-border-color, #ccc);
             background: var(--track-background, #ebe9e0);
             border-radius: 50%;
             cursor: pointer;
             transform: translateX(-1px);
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
 
             &--description-button {
-                font-size: 0.833rem;
+                font-size: var(--a5e-text-size-sm);
             }
         }
 
@@ -188,7 +186,7 @@
             opacity: 0;
             transform: translateX(calc(-100% - 1rem));
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
         }
 
         &:hover {

@@ -173,7 +173,7 @@
 
         column-gap: 0.75rem;
         row-gap: 0.25rem;
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
         padding: 0.5rem;
         margin-top: 0.25rem;
     }

@@ -126,11 +126,11 @@
 
 <style lang="scss">
     .check {
-        color: $color-primary;
+        color: var(--a5e-color-primary);
     }
 
     .cross {
-        color: #aaa;
+        color: var(--a5e-color-disabled);
     }
 
     .field {

@@ -37,13 +37,13 @@
         flex-grow: 0;
         margin: 0.25rem 0;
         padding: 0.375rem 0.75rem;
-        background: $color-primary;
-        color: $color-light-text;
+        background: var(--a5e-color-primary);
+        color: var(--a5e-color-text-light);
         font-family: $font-primary;
-        font-size: $font-size-md;
-        border-radius: $border-radius-standard;
+        font-size: var(--a5e-text-size-md);
+        border-radius: var(--a5e-border-radius-standard);
         text-transform: lowercase;
-        box-shadow: 0 0 10px darken($color: $color-primary, $amount: 10) inset;
+        box-shadow: 0 0 10px darken-color(var(--a5e-color-primary), 10) inset;
     }
 
     .nav-list {

@@ -6,13 +6,10 @@
     async function deactivateIncompatibleModules() {
         const modules = game.settings.get("core", "moduleConfiguration");
 
-        const moduleUpdates = activeIncompatibleModules.reduce(
-            (updates, [key]) => {
-                updates[key] = false;
-                return updates;
-            },
-            {},
-        );
+        const moduleUpdates = activeIncompatibleModules.reduce((updates, [key]) => {
+            updates[key] = false;
+            return updates;
+        }, {});
 
         await game.settings.set(
             "core",
@@ -45,16 +42,13 @@
         }
     }
 
-    export let { activeIncompatibleModules } =
-        getContext("#external").application;
+    export let { activeIncompatibleModules } = getContext("#external").application;
 
-    $: modules = activeIncompatibleModules.map(
-        ([module, { reason, priority }]) => [
-            game.modules.get(module)?.title,
-            reason,
-            priority,
-        ],
-    );
+    $: modules = activeIncompatibleModules.map(([module, { reason, priority }]) => [
+        game.modules.get(module)?.title,
+        reason,
+        priority,
+    ]);
 </script>
 
 <article class="main-announcement-container">
@@ -76,9 +70,7 @@
         {/each}
     </ul>
 
-    <button on:click={() => deactivateIncompatibleModules()}>
-        Deactivate All
-    </button>
+    <button on:click={() => deactivateIncompatibleModules()}> Deactivate All </button>
 </article>
 
 <style lang="scss">
@@ -113,7 +105,7 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            font-size: 0.833rem;
+            font-size: var(--a5e-text-size-sm);
         }
 
         &__priority-icon {

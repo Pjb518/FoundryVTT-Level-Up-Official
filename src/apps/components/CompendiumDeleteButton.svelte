@@ -45,7 +45,7 @@
         transition: var(--a5e-transition-standard);
 
         &:hover {
-            color: #8b2525;
+            color: var(--a5e-color-error);
             transform: scale(1.2);
             box-shadow: none;
         }

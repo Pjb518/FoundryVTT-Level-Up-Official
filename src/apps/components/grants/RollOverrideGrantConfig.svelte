@@ -12,8 +12,7 @@
     import RadioGroup from "../RadioGroup.svelte";
     import prepareExpertiseDiceOptions from "../../dataPreparationHelpers/prepareExpertiseDiceOptions";
 
-    export let { document, grantId, grantType } =
-        getContext("#external").application;
+    export let { document, grantId, grantType } = getContext("#external").application;
 
     function updateImage() {
         const current = grant?.img;
@@ -31,11 +30,11 @@
 
     function onUpdateValue(key, value) {
         if (key === "expertiseType") {
-            updateDocumentDataFromField(
-                $item,
-                `system.grants.${grantId}.keys`,
-                { base: [], options: [], total: 0 },
-            );
+            updateDocumentDataFromField($item, `system.grants.${grantId}.keys`, {
+                base: [],
+                options: [],
+                total: 0,
+            });
         }
 
         key = `system.grants.${grantId}.${key}`;
@@ -78,12 +77,10 @@
         },
     };
 
-    const rollModes = Object.entries(CONFIG.A5E.rollModes ?? {}).map(
-        ([key, value]) => [
-            CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-            localize(value),
-        ],
-    );
+    const rollModes = Object.entries(CONFIG.A5E.rollModes ?? {}).map(([key, value]) => [
+        CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
+        localize(value),
+    ]);
 
     $: grant = $item.system.grants[grantId];
     $: rollOverrideType = grant?.rollOverrideType || "ability";
@@ -116,16 +113,10 @@
         </div>
     </header>
 
-    <Section
-        heading="Roll Override Configuration"
-        --a5e-section-body-gap="0.75rem"
-    >
+    <Section heading="Roll Override Configuration" --a5e-section-body-gap="0.75rem">
         <RadioGroup
             heading="Override Type"
-            options={Object.entries(configObject).map(([key, { label }]) => [
-                key,
-                label,
-            ])}
+            options={Object.entries(configObject).map(([key, { label }]) => [key, label])}
             selected={rollOverrideType}
             on:updateSelection={({ detail }) => {
                 onUpdateValue("rollOverrideType", detail);
@@ -191,7 +182,7 @@
     .grant-name,
     .grant-name[type="text"] {
         font-family: $font-primary;
-        font-size: $font-size-xxl;
+        font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;
         text-overflow: ellipsis;

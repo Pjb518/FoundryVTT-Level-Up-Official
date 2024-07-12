@@ -146,12 +146,12 @@
 
     label {
         font-weight: bold;
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
     }
 
     input {
         height: 2rem;
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
     }
 
     .a5e-field-group--spell-level {

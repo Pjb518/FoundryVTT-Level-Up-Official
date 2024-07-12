@@ -15,8 +15,7 @@
     }
 
     function getCharacterLevel() {
-        if (!Object.keys($actor.classes ?? {}).length)
-            return $actor.system.details.level;
+        if (!Object.keys($actor.classes ?? {}).length) return $actor.system.details.level;
 
         return $actor.levels.character;
     }
@@ -71,11 +70,7 @@
             min="0"
             disabled={levelIsLocked}
             on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    target.name,
-                    Number(target.value),
-                )}
+                updateDocumentDataFromField($actor, target.name, Number(target.value))}
             on:click={({ target }) => target.select()}
         />
     </div>
@@ -96,9 +91,7 @@
 
     {#if $actor.flags?.a5e?.showXP ?? true}
         <div class="xp-box">
-            <label class="xp-label" for="{$actor.id}-current-xp">
-                Current XP
-            </label>
+            <label class="xp-label" for="{$actor.id}-current-xp"> Current XP </label>
 
             <input
                 id="{$actor.id}-current-xp"
@@ -120,9 +113,7 @@
         </div>
 
         <div class="xp-box">
-            <label class="xp-label" for="{$actor.id}-required-xp">
-                Required XP
-            </label>
+            <label class="xp-label" for="{$actor.id}-required-xp"> Required XP </label>
 
             <input
                 id="{$actor.id}-required-xp"
@@ -155,7 +146,7 @@
         justify-content: center;
         width: 4rem;
         padding: 0.125rem 0;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
         border: 1px solid #ccc;
         border-radius: 4px;
         background: $color-light-background;
@@ -177,7 +168,7 @@
         border: 0;
         background: transparent;
         padding-inline: 0.125rem;
-        font-size: $font-size-md;
+        font-size: var(--a5e-text-size-md);
 
         &:active,
         &:focus {
@@ -187,15 +178,15 @@
     }
 
     .xp-label {
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
     }
 
     .shield-inspiration {
-        font-size: $font-size-md;
+        font-size: var(--a5e-text-size-md);
         color: #bbbaba;
         border: 0;
         padding: 0.125rem;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
         cursor: pointer;
 
         &:hover {

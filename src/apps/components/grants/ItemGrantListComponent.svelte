@@ -115,7 +115,7 @@
         padding: 0;
         margin: 0;
         background: transparent;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         grid-area: icon;
 
         &:hover {
@@ -139,7 +139,7 @@
     }
 
     .name {
-        font-size: $font-size-sm;
+        font-size: var(--a5e-text-size-sm);
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -163,7 +163,7 @@
         // 17.5 pixels: the width of the largest icon we have
         min-width: 1.09375rem;
 
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             color: #555;
@@ -177,7 +177,7 @@
     }
 
     .delete-button:hover {
-        color: $color-secondary;
+        color: var(--a5e-color-error);
     }
 
     .track {
@@ -206,10 +206,10 @@
             background: #ebe9e0;
             border-radius: 50%;
             cursor: pointer;
-            font-size: $font-size-md;
+            font-size: var(--a5e-text-size-md);
             transform: translateX(-1px);
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
         }
 
         &-items {
@@ -228,7 +228,7 @@
             opacity: 0;
             transform: translateX(calc(-100% - 1rem));
 
-            transition: $standard-transition;
+            transition: var(--a5e-transition-standard);
         }
 
         &:hover {

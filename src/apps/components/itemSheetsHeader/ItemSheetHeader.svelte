@@ -6,9 +6,7 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     async function fulfilDestiny() {
-        const fulfillmentFeature = await fromUuid(
-            $item.system.fulfillmentFeature,
-        );
+        const fulfillmentFeature = await fromUuid($item.system.fulfillmentFeature);
         if (!fulfillmentFeature || !$item.actor) return;
         if ($item.actor.getFlag("a5e", "destinyFulfilled") ?? false) return;
 
@@ -93,11 +91,7 @@
                     class="prerequisite-input"
                     placeholder={localize("A5E.None")}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            target.name,
-                            target.value,
-                        )}
+                        updateDocumentDataFromField($item, target.name, target.value)}
                 />
             </div>
         {/if}
@@ -135,16 +129,13 @@
 
             <button
                 class="header-button fas"
-                class:fa-heart={$item.system.damagedState ===
-                    DAMAGED_STATES.INTACT}
+                class:fa-heart={$item.system.damagedState === DAMAGED_STATES.INTACT}
                 class:fa-heart-crack={$item.system.damagedState ===
                     DAMAGED_STATES.DAMAGED}
-                class:fa-heart-pulse={$item.system.damagedState ===
-                    DAMAGED_STATES.BROKEN}
-                class:active={[
-                    DAMAGED_STATES.DAMAGED,
-                    DAMAGED_STATES.BROKEN,
-                ].includes($item.system.damagedState)}
+                class:fa-heart-pulse={$item.system.damagedState === DAMAGED_STATES.BROKEN}
+                class:active={[DAMAGED_STATES.DAMAGED, DAMAGED_STATES.BROKEN].includes(
+                    $item.system.damagedState,
+                )}
                 data-tooltip={damagedStates[$item.system.damagedState ?? 0]}
                 data-tooltip-direction="UP"
                 on:click|stopPropagation={() => $item.toggleDamagedState()}
@@ -188,7 +179,7 @@
     .header-button {
         display: flex;
         font-size: 2.25rem;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
         padding: 0;
         background: none;
         color: #999;
@@ -206,10 +197,10 @@
     }
 
     .active {
-        color: $color-primary;
+        color: var(--a5e-color-primary);
 
         &:hover {
-            color: $color-primary;
+            color: var(--a5e-color-primary);
             box-shadow: none;
         }
     }
@@ -222,7 +213,7 @@
 
             &.active {
                 transform: none;
-                color: $color-primary;
+                color: var(--a5e-color-primary);
             }
         }
     }
@@ -308,10 +299,10 @@
         background: #82817d;
         color: white;
         width: max-content;
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
         padding-inline: 0.75rem;
         white-space: nowrap;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
 
         &:disabled {
             cursor: auto;
@@ -320,7 +311,7 @@
         &:hover:not(:disabled),
         &:focus:not(:disabled) {
             box-shadow: none;
-            background-color: $color-primary;
+            background-color: var(--a5e-color-primary);
         }
     }
 </style>

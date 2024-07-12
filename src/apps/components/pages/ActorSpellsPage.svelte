@@ -377,7 +377,7 @@
             line-height: 1;
             background: rgba(0 0 0 / 0.05);
             border: 1px solid #ccc;
-            border-radius: 3px;
+            border-radius: var(--a5e-border-radius-standard);
 
             &:focus,
             &:hover {
@@ -385,7 +385,7 @@
             }
 
             &--active {
-                background-color: hsl(190, 21%, 33%);
+                background-color: var(--a5e-color-primary);
                 border-color: hsl(190, 21%, 28%);
                 color: hsl(190, 21%, 100%);
             }
@@ -401,7 +401,7 @@
     .a5e-control-button {
         margin: 0;
         padding: 0;
-        transition: all 0.15s ease-in-out;
+        transition: var(--a5e-transition-standard);
 
         &:hover {
             transform: scale(1.2);

@@ -184,14 +184,14 @@
         justify-content: center;
         height: 1.625rem;
         width: 3rem;
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         background: rgba(0, 0, 0, 0.05);
 
         &--invalid {
             background: rgba(139, 37, 37, 0.25);
             border: 1px solid rgba(139, 37, 37, 0.25);
             color: rgba(139, 37, 37, 0.85);
-            font-size: $font-size-md;
+            font-size: var(--a5e-text-size-md);
         }
     }
 </style>

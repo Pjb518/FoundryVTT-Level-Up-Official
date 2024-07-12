@@ -19,7 +19,7 @@
             updateDocumentDataFromField(
                 $actor,
                 "system.attributes.death.success",
-                death.success + 1
+                death.success + 1,
             )}
     >
         <i class="fas fa-check" />
@@ -36,23 +36,17 @@
             data-tooltip-direction="UP"
             value={death.success}
             on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    target.name,
-                    Number(target.value)
-                )}
+                updateDocumentDataFromField($actor, target.name, Number(target.value))}
         />
     {/if}
 
-    <div
-        class="death-saves__icon u-align-center u-flex u-flex-col u-pos-relative"
-    >
+    <div class="death-saves__icon u-align-center u-flex u-flex-col u-pos-relative">
         <button
             class="death-saves__button"
             data-tooltip="A5E.DeathSavingThrowRoll"
             data-tooltip-direction="UP"
             on:click={$actor.rollDeathSavingThrow(
-                getKeyPressAsOptions($pressedKeysStore)
+                getKeyPressAsOptions($pressedKeysStore),
             )}
         >
             <i class="fas fa-skull a5e-js-roll-death-saving-throw" />
@@ -71,11 +65,7 @@
             data-tooltip-direction="UP"
             value={isBlind ? "?" : death.failure}
             on:change={({ target }) =>
-                updateDocumentDataFromField(
-                    $actor,
-                    target.name,
-                    Number(target.value)
-                )}
+                updateDocumentDataFromField($actor, target.name, Number(target.value))}
         />
     {/if}
 
@@ -85,7 +75,7 @@
             updateDocumentDataFromField(
                 $actor,
                 "system.attributes.death.failure",
-                death.failure + 1
+                death.failure + 1,
             )}
     >
         <i class="fas fa-times" />
@@ -113,8 +103,8 @@
 
         &__icon {
             cursor: pointer;
-            font-size: $font-size-lg;
-            transition: $standard-transition;
+            font-size: var(--a5e-text-size-lg);
+            transition: var(--a5e-transition-standard);
 
             &:hover {
                 color: #fff;
@@ -137,7 +127,7 @@
             border: 0;
             background: transparent;
             color: inherit;
-            font-size: $font-size-md;
+            font-size: var(--a5e-text-size-md);
             text-align: center;
             padding: 0;
 

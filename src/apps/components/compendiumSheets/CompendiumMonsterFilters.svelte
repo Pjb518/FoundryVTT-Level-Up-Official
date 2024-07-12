@@ -75,10 +75,10 @@
     --a5e-field-wrapper-header-width="100%"
 >
     <RangeSlider
-        --range-handle="#425f65"
-        --range-handle-focus="#425f65"
-        --range-handle-inactive="#425f65"
-        --range-pip="#7e7960"
+        --range-handle="var(--a5e-color-primary)"
+        --range-handle-focus="var(--a5e-color-primary)"
+        --range-handle-inactive="var(--a5e-color-primary)"
+        --range-pip="var(--a5e-color-text-medium)"
         --range-slider="#c8c6be"
         first={"label"}
         last={"label"}

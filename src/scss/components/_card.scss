@@ -26,25 +26,25 @@
     height: 2rem;
     width: 2rem;
     margin-left: auto;
-    font-size: 1rem;
-    color: #7e7960;
+    font-size: var(--a5e-text-size-md);
+    color: var(--a5e-color-text-medium);
     background: rgba(0, 0, 0, 0.05);
     border: 1px solid #ccc;
-    border-radius: 3px;
+    border-radius: var(--a5e-border-radius-standard);
     transition: var(--a5e-transition-standard);
 
     &:hover {
-      color: #191813;
+      color: var(--a5e-color-text-dark);
       box-shadow: none;
     }
 
     &--crit {
-      border-color: darken($color-secondary, 5%);
-      background: $color-secondary;
-      color: lighten($color-secondary, 95%);
+      border-color: darken-color(var(--a5e-color-error), 5);
+      background: var(--a5e-color-error);
+      color: lighten-color(var(--a5e-color-error), 95);
 
       &:hover {
-          color: #fedd9e;
+        color: #fedd9e;
       }
     }
   }
@@ -60,7 +60,7 @@
 
   &__subtitle {
     font-size: var(--a5e-text-size-sm);
-    color: #7e7960;
+    color: var(--a5e-color-text-medium);
     grid-area: subtitle;
   }
 

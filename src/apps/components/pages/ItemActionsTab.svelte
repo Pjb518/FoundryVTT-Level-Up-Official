@@ -30,10 +30,7 @@
             type: "Action",
         };
 
-        return event.dataTransfer.setData(
-            "text/plain",
-            JSON.stringify(dragData),
-        );
+        return event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
     }
 </script>
 
@@ -60,9 +57,7 @@
                 >
                     <img
                         class="a5e-item__image a5e-item__image--action"
-                        src={action?.img ??
-                            $item.img ??
-                            "icons/svg/item-bag.svg"}
+                        src={action?.img ?? $item.img ?? "icons/svg/item-bag.svg"}
                         alt=""
                     />
 
@@ -101,7 +96,7 @@
         padding: 0.25rem;
         background: none;
         border: 0;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
         color: #999;
 
         &:hover,
@@ -121,6 +116,6 @@
     }
 
     .delete-button:hover {
-        color: $color-secondary;
+        color: var(--a5e-color-error);
     }
 </style>

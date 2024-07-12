@@ -60,7 +60,7 @@
     .a5efc-filter-heading {
         flex-shrink: 0;
         margin: 0;
-        font-size: 0.833rem;
+        font-size: var(--a5e-text-size-sm);
         font-weight: bold;
         border-bottom: 0;
     }
@@ -77,7 +77,7 @@
         width: fit-content;
         margin: 0;
         padding: 0.125rem 0.5rem;
-        font-size: 0.694rem;
+        font-size: var(--a5e-text-size-xs);
         font-weight: bold;
         line-height: 1;
         background: transparent;
@@ -88,13 +88,13 @@
         }
 
         &--exclusive {
-            color: #8b2525;
+            color: var(--a5e-color-error);
             border-left: 0;
             border-radius: 0 3px 3px 0;
         }
 
         &--inclusive {
-            color: #425f65;
+            color: var(--a5e-color-primary);
             border-right: 1px solid #b5b3a4;
             border-radius: 3px 0 0 3px;
         }

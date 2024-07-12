@@ -1,11 +1,7 @@
 <script>
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
-    import {
-        TJSMenu,
-        TJSIconButton,
-        TJSToggleIconButton,
-    } from "#standard/component";
+    import { TJSMenu, TJSIconButton, TJSToggleIconButton } from "#standard/component";
     import { createEventDispatcher } from "svelte";
 
     import createItem from "../../../utils/createItem";
@@ -29,8 +25,7 @@
         if (documentName === "Item" && $document.documentName === "Actor")
             return createItem($document, reducerType.slice(0, -1), entityType);
 
-        if (documentName === "ActiveEffect")
-            return createEffect($document, options);
+        if (documentName === "ActiveEffect") return createEffect($document, options);
     }
 
     const document = getContext("actor") ?? getContext("item");
@@ -52,16 +47,14 @@
         --tjs-icon-button-background-selected="none"
         --tjs-icon-button-text-shadow-hover="none"
         --tjs-icon-button-text-shadow-focus="none"
-        --tjs-icon-button-transition="all 0.15s ease-in-out"
+        --tjs-icon-button-transition="var(--a5e-transition-standard)"
         --tjs-icon-button-diameter="1.1rem"
         --tjs-icon-button-border-radius="0"
     >
         <TJSMenu {offset}>
             <article>
                 {#each menuList as [type, heading]}
-                    <button
-                        on:click|preventDefault={() => createDocument(type)}
-                    >
+                    <button on:click|preventDefault={() => createDocument(type)}>
                         {localize(heading)}
                     </button>
                 {/each}
@@ -79,7 +72,7 @@
         --tjs-icon-button-background-selected="none"
         --tjs-icon-button-text-shadow-hover="none"
         --tjs-icon-button-text-shadow-focus="none"
-        --tjs-icon-button-transition="$standard-transition"
+        --tjs-icon-button-transition="var(--a5e-transition-standard)"
         --tjs-icon-button-diameter="1rem"
         --tjs-icon-button-border-radius="0"
     />
@@ -100,6 +93,6 @@
     button {
         background: transparent;
         color: white;
-        font-size: $font-size-xs;
+        font-size: var(--a5e-text-size-xs);
     }
 </style>

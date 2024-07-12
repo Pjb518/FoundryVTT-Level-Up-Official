@@ -10,10 +10,7 @@
 </script>
 
 <button class="save-prompt" on:click={() => dispatch("triggerPrompt")}>
-    <div
-        class="icon-wrapper"
-        class:icon-wrapper--effect={prompt.type === "effect"}
-    >
+    <div class="icon-wrapper" class:icon-wrapper--effect={prompt.type === "effect"}>
         {#if prompt.type === "effect"}
             <img class="effect-icon" src={icon} alt="title" />
         {:else}
@@ -39,9 +36,9 @@
         font-size: 2rem;
         padding: 0;
         margin: 0;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
         border: 0;
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
     }
 
     .icon-wrapper {
@@ -63,7 +60,7 @@
         height: 2rem;
         object-fit: cover;
         object-position: top;
-        border-radius: 3px;
+        border-radius: var(--a5e-border-radius-standard);
     }
 
     .save-prompt {
@@ -77,11 +74,11 @@
         box-shadow: none;
 
         &:hover .die {
-            color: var(--hover-color, $color-dark-text);
+            color: var(--hover-color, var(--a5e-color-text-dark));
         }
 
         &:hover .die--generic-prompt {
-            color: $color-dark-text;
+            color: var(--a5e-color-text-dark);
         }
     }
 
@@ -89,7 +86,7 @@
         width: 100%;
         font-size: var(--a5e-text-size-xs);
         line-height: 1;
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
     }
 
     .title {

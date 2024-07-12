@@ -16,8 +16,7 @@
     import SettingsRollTab from "./SettingsRollTab.svelte";
 
     export let elementRoot;
-    export let { appId, settings, dialog } =
-        getContext("#external").application;
+    export let { appId, settings, dialog } = getContext("#external").application;
 
     function onSubmit() {
         for (const [key, value] of updates) {
@@ -94,9 +93,7 @@
         return acc;
     }, new Set());
 
-    const playersCanAccessPartyViewer = settings.getStore(
-        "playersCanAccessPartyViewer",
-    );
+    const playersCanAccessPartyViewer = settings.getStore("playersCanAccessPartyViewer");
 
     setContext("appId", appId);
     setContext("gmSettings", gmSettings);
@@ -116,7 +113,7 @@
             {#if reload}
                 <i
                     class="fa-solid fa-circle-exclamation"
-                    style="color: $color-warning"
+                    style="color: var(--a5e-color-warning)"
                     data-tooltip={localize("A5E.settings.reload")}
                     data-tooltip-direction="UP"
                 />

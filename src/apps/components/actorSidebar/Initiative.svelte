@@ -77,7 +77,7 @@
         width: 2.5rem;
         margin: auto;
         font-size: var(--a5e-text-size-xl);
-        color: #7e7960;
+        color: var(--a5e-color-text-medium);
         background: transparent;
         border: 0;
         cursor: pointer;

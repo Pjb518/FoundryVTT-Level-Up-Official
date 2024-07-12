@@ -16,7 +16,7 @@ $die-sizes: 4, 6, 8, 10, 12, 20;
   justify-content: center;
   padding: 1rem;
   border: 1px solid #7a7971;
-  border-radius: $border-radius-standard;
+  border-radius: var(--a5e-border-radius-standard);
   font-family: $font-primary;
   text-transform: uppercase;
 
@@ -35,7 +35,7 @@ $die-sizes: 4, 6, 8, 10, 12, 20;
 
   @each $size in $die-sizes {
     &--d#{$size}::before {
-      background-image: url('/icons/svg/d#{$size}-grey.svg');
+      background-image: url("/icons/svg/d#{$size}-grey.svg");
     }
 
     &::before {
@@ -46,14 +46,14 @@ $die-sizes: 4, 6, 8, 10, 12, 20;
       background-position: center;
       background-repeat: no-repeat;
       background-size: 2rem 2rem;
-      content: '';
+      content: "";
       opacity: 0.5;
     }
   }
 
   &__label {
     z-index: 1;
-    font-size: $font-size-lg;
+    font-size: var(--a5e-text-size-lg);
   }
 
   &__input-container {
@@ -63,7 +63,7 @@ $die-sizes: 4, 6, 8, 10, 12, 20;
   }
 
   &__quantity,
-  &__quantity[type=number] {
+  &__quantity[type="number"] {
     display: flex;
     width: 2rem;
     height: 1.5rem;
@@ -71,8 +71,8 @@ $die-sizes: 4, 6, 8, 10, 12, 20;
     justify-content: center;
     border: 0;
     background: rgba(0, 0, 0, 0.05);
-    border-radius: $border-radius-standard;
-    font-size: $font-size-sm;
+    border-radius: var(--a5e-border-radius-standard);
+    font-size: var(--a5e-text-size-sm);
     text-align: center;
   }
 }

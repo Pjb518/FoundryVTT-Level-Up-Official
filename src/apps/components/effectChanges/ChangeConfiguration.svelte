@@ -38,11 +38,11 @@
         --padding="0 3px"
         --item-padding="0.25rem"
         --group-item-padding-left="1rem"
-        --border-radius="3px"
-        --font-size="0.833rem"
+        --border-radius="var(--a5e-border-radius-standard)"
+        --font-size="var(--a5e-text-size-sm)"
         --font-family="inherit"
         --input-color="black"
-        --group-title-font-size="0.833rem"
+        --group-title-font-size="var(--a5e-text-size-sm)"
         --group-title-font-weight="bold"
         --text-overflow="ellipsis"
     />
@@ -59,8 +59,7 @@
         type="number"
         name=""
         value={$effect.changes[idx]?.priority ?? 0}
-        on:change={({ target }) =>
-            dispatch("changePriority", Number(target.value))}
+        on:change={({ target }) => dispatch("changePriority", Number(target.value))}
     />
 </div>
 

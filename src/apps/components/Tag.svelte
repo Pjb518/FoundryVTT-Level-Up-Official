@@ -17,9 +17,9 @@
         if (color === "red") {
             return `
                 --tag-font-color: hsl(0, 58%, 100%);
-                --tag-background-color: hsl(0, 58%, 35%);
+                --tag-background-color: var(--a5e-color-error);
                 --tag-border-color: hsl(0, 58%, 28%);
-                --tag-hover-background-color: hsl(0, 58%, 35%);
+                --tag-hover-background-color: var(--a5e-color-error);
                 --tag-hover-font-color: var(--color-hover, hsl(0, 58%, 100%));
             `;
         }
@@ -27,9 +27,9 @@
         if (color === "orange") {
             return `
                 --tag-font-color: hsl(36, 58%, 100%);
-                --tag-background-color: hsl(36, 58%, 35%);
+                --tag-background-color: var(--a5e-color-warning);
                 --tag-border-color: hsl(36, 58%, 28%);
-                --tag-hover-background-color: hsl(36, 58%, 35%);
+                --tag-hover-background-color: var(--a5e-color-warning);
                 --tag-hover-font-color: var(--color-hover, hsl(36, 58%, 100%));
             `;
         }
@@ -37,9 +37,9 @@
         if (color === "green") {
             return `
                 --tag-font-color: hsl(190, 21%, 100%);
-                --tag-background-color: hsl(190, 21%, 33%);
+                --tag-background-color: var(--a5e-color-primary);
                 --tag-border-color: hsl(190, 21%, 28%);
-                --tag-hover-background-color: hsl(190, 21%, 33%);
+                --tag-hover-background-color: var(--a5e-color-primary);
                 --tag-hover-font-color: var(--color-hover, hsl(190, 21%, 100%));
             `;
         }
@@ -47,9 +47,9 @@
         if (color === "disabled") {
             return `
                 --tag-font-color: hsl(0, 0%, 100%);
-                --tag-background-color: hsl(0, 0%, 67%);
+                --tag-background-color: var(--a5e-color-disabled);
                 --tag-border-color: hsl(0, 0%, 60%);
-                --tag-hover-background-color: hsl(0, 0%, 67%);
+                --tag-hover-background-color: var(--a5e-color-disabled);
                 --tag-hover-font-color: var(--color-hover, hsl(0, 0%, 100%));
             `;
         }
@@ -101,9 +101,9 @@
         display: inline;
         padding: 0.15rem 0.4rem;
         border: 1px solid var(--tag-border-color);
-        border-radius: $border-radius-standard;
+        border-radius: var(--a5e-border-radius-standard);
         color: var(--tag-font-color, inherit);
-        transition: $standard-transition;
+        transition: var(--a5e-transition-standard);
         white-space: normal;
         cursor: pointer;
 

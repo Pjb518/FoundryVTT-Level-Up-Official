@@ -1,10 +1,10 @@
 .a5e-tag {
   padding: 0.15rem 0.4rem;
-  border: 1px solid darken(#7e7960, 5%);
+  border: 1px solid darken-color(var(--a5e-color-text-medium), 5);
   background: transparent;
-  border-radius: $border-radius-standard;
+  border-radius: var(--a5e-border-radius-standard);
   color: inherit;
-  transition: $standard-transition;
+  transition: var(--a5e-transition-standard);
   white-space: nowrap;
 
   &:hover {
@@ -12,22 +12,22 @@
   }
 
   &--active {
-    background: $color-primary;
-    border-color: $color-primary;
-    color: lighten($color-primary, 80%);
+    background: var(--a5e-color-primary);
+    border-color: var(--a5e-color-primary);
+    color: lighten-color(var(--a5e-color-primary), 80);
 
     &:hover {
-      background: $color-primary;
+      background: var(--a5e-color-primary);
     }
   }
 
   &--red {
-    border-color: darken($color-secondary, 5%);
-    background: $color-secondary;
-    color: lighten($color-secondary, 95%);
+    border-color: darken-color(var(--a5e-color-error), 5);
+    background: var(--a5e-color-error);
+    color: lighten-color(var(--a5e-color-error), 95);
 
     &:hover {
-      background: $color-secondary;
+      background: var(--a5e-color-error);
     }
   }
 
