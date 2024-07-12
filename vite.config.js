@@ -38,7 +38,10 @@ const config = {
     svelte({
       preprocess: preprocess({
         scss: {
-          prependData: '@import "src/scss//old/base/_variables.scss";'
+          prependData: `@import "src/scss//old/base/_variables.scss";
+                        @import "src/scss/base/_variables.scss";
+                        @import "src/scss/base/_functions.scss";
+                        `
         },
         typescript: {
           tsconfigFile: './tsconfig.json'
