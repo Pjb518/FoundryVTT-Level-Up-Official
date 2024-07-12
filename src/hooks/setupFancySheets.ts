@@ -38,7 +38,9 @@ const fancyPackData = {
 const autoMappingConfig = {
   npc: indexFunctions.createMonsterLikeIndex,
   spell: indexFunctions.createSpellLikeIndex,
-  object: indexFunctions.createObjectLikeIndex
+  object: indexFunctions.createObjectLikeIndex,
+  feature: indexFunctions.createClassFeatureLikeIndex,
+  archetype: indexFunctions.createArchetypeLikeIndex
 };
 
 export default function setupFancySheets() {

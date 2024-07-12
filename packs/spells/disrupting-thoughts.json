@@ -1,169 +1,179 @@
 {
-  "folder": null,
-  "name": "Disrupting Thoughts",
-  "type": "spell",
-  "img": "icons/skills/wounds/injury-face-impact-orange.webp",
-  "system": {
-    "actions": {
-      "SrZEL3U0AvKTjRFo": {
-        "name": "Disrupting Thoughts",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "CBpoFJkxl16ckFqg": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 0,
-            "points": 0
-          }
-        },
-        "rolls": {
-          "mwOr8BZwyAqT8KGZ": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "1d4",
-            "damageType": "psychic",
-            "scaling": {
-              "mode": "cantrip",
-              "formula": "1d4"
-            }
-          }
-        },
-        "prompts": {
-          "MC3lF46sNS9fyMaP": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "int",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          },
-          "ssK2ykydQKYsyrOt": {
-            "type": "effect",
-            "default": true,
-            "effectId": "kCjq3ggz1uOCo0ut"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "K8UluOAXeimaoirs": {
-            "range": "medium"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "duration": {
-          "unit": "instantaneous"
-        }
-      }
-    },
-    "description": "<p>You fill the mind of one creature you can see within&nbsp;range with parasitic psychic energy.</p><p>The target must succeed on an Intelligence saving throw or take 1d4 psychic damage. Additionally, it has disadvantage on the next saving throw it makes before the end of your next turn.</p><p>This spell's damage increases by 1d4 when you reach certain levels: 5th level (2d4), 11th level (3d4), and 17th level (4d4).</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "agentOfTheMagus",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "sorcerer",
-      "warlock"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": false,
-      "material": false
-    },
-    "concentration": false,
-    "level": 0,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "enchantment",
-      "secondary": [
-        "arcane",
-        "attack",
-        "psychic"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/skills/wounds/injury-face-impact-orange.webp",
-      "origin": "Item.kqcvsza188jaiom6",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "SrZEL3U0AvKTjRFo",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Disrupting Thoughts",
-      "_id": "kCjq3ggz1uOCo0ut",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.abilitySave.all",
-          "value": "-1",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": 1,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "kqcvsza188jaiom6"
+	"folder": null,
+	"name": "Disrupting Thoughts",
+	"type": "spell",
+	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+	"system": {
+		"actions": {
+			"SrZEL3U0AvKTjRFo": {
+				"name": "Disrupting Thoughts",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"CBpoFJkxl16ckFqg": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 0,
+						"points": 0
+					}
+				},
+				"rolls": {
+					"mwOr8BZwyAqT8KGZ": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d4",
+						"damageType": "psychic",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d4"
+						}
+					}
+				},
+				"prompts": {
+					"MC3lF46sNS9fyMaP": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "int",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"ssK2ykydQKYsyrOt": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kCjq3ggz1uOCo0ut"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"K8UluOAXeimaoirs": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
+		"description": "<p>You fill the mind of one creature you can see within&nbsp;range with parasitic psychic energy.</p><p>The target must succeed on an Intelligence saving throw or take 1d4 psychic damage. Additionally, it has disadvantage on the next saving throw it makes before the end of your next turn.</p><p>This spell's damage increases by 1d4 when you reach certain levels: 5th level (2d4), 11th level (3d4), and 17th level (4d4).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "agentOfTheMagus",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"warlock"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"level": 0,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "enchantment",
+			"secondary": [
+				"arcane",
+				"attack",
+				"psychic"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"origin": "Item.kqcvsza188jaiom6",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "SrZEL3U0AvKTjRFo",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Disrupting Thoughts",
+			"_id": "kCjq3ggz1uOCo0ut",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"_id": "kqcvsza188jaiom6",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

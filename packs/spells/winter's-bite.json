@@ -1,192 +1,202 @@
 {
-  "name": "Winter's Bite",
-  "type": "spell",
-  "img": "icons/skills/melee/strike-weapon-polearm-ice-blue.webp",
-  "system": {
-    "actions": {
-      "ky82cpccZI1Tr4l1": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {
-          "nqa5NpHbHyuq4kX1": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2
-          }
-        },
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "ky1JGoDLDjiBHvWq": {
-            "range": "self"
-          }
-        }
-      },
-      "PWtrtGOmx0EpnVkW": {
-        "name": "Strike",
-        "activation": {
-          "type": "none"
-        },
-        "consumers": {},
-        "rolls": {
-          "N7vNNeJjZXrnhDOT": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d6",
-            "damageType": "cold",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          }
-        },
-        "prompts": {
-          "dQaMptTuVCARUBwt": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "con",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "Constitution negates"
-          },
-          "y6cthZ3ylcjQ9wGr": {
-            "type": "effect",
-            "default": true,
-            "effectId": "7imwV82FiardIyO6"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "target": {
-          "type": "creatureObject",
-          "quantity": 1
-        }
-      }
-    },
-    "description": "<p dir=\"ltr\">The next time you hit a creature with a weapon attack during this spell&rsquo;s duration, your weapon encrusts with frost, and the attack deals an extra 1d6 cold damage to the target. The target must make a Constitution saving throw. On a failed save, its speed is reduced by half for the remainder of this spell&rsquo;s duration, or until it succeeds on a Constitution saving throw made at the start of each of its turns.</p><p dir=\"ltr\"><strong>Casting At Higher Levels:</strong> If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "druid",
-      "herald",
-      "warlock",
-      "wielder"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": false,
-      "material": false
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "cold",
-        "divine",
-        "nature",
-        "weaponry"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/skills/melee/strike-weapon-polearm-ice-blue.webp",
-      "origin": "Item.b3t1nu2d4iq635e4",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "PWtrtGOmx0EpnVkW",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Winter’s Bite",
-      "_id": "7imwV82FiardIyO6",
-      "changes": [
-        {
-          "key": "system.attributes.movement.walk.distance",
-          "value": "0.5",
-          "mode": 1,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "folder": null,
-  "_id": "b3t1nu2d4iq635e4"
+	"name": "Winter's Bite",
+	"type": "spell",
+	"img": "icons/skills/melee/strike-weapon-polearm-ice-blue.webp",
+	"system": {
+		"actions": {
+			"ky82cpccZI1Tr4l1": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"nqa5NpHbHyuq4kX1": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"ky1JGoDLDjiBHvWq": {
+						"range": "self"
+					}
+				}
+			},
+			"PWtrtGOmx0EpnVkW": {
+				"name": "Strike",
+				"activation": {
+					"type": "none"
+				},
+				"consumers": {},
+				"rolls": {
+					"N7vNNeJjZXrnhDOT": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "cold",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"dQaMptTuVCARUBwt": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Constitution negates"
+					},
+					"y6cthZ3ylcjQ9wGr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "7imwV82FiardIyO6"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">The next time you hit a creature with a weapon attack during this spell&rsquo;s duration, your weapon encrusts with frost, and the attack deals an extra 1d6 cold damage to the target. The target must make a Constitution saving throw. On a failed save, its speed is reduced by half for the remainder of this spell&rsquo;s duration, or until it succeeds on a Constitution saving throw made at the start of each of its turns.</p><p dir=\"ltr\"><strong>Casting At Higher Levels:</strong> If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid",
+			"herald",
+			"warlock",
+			"wielder"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"cold",
+				"divine",
+				"nature",
+				"weaponry"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/skills/melee/strike-weapon-polearm-ice-blue.webp",
+			"origin": "Item.b3t1nu2d4iq635e4",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PWtrtGOmx0EpnVkW",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Winter’s Bite",
+			"_id": "7imwV82FiardIyO6",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "0.5",
+					"mode": 1,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "b3t1nu2d4iq635e4",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

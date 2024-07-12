@@ -1,145 +1,155 @@
 {
-  "name": "Protection from Poison",
-  "type": "spell",
-  "img": "icons/magic/defensive/shield-barrier-flaming-diamond-acid.webp",
-  "effects": [
-    {
-      "icon": "icons/magic/defensive/shield-barrier-flaming-diamond-acid.webp",
-      "origin": "Item.vjye1ciunsmk099b",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "iFbgqidjfvqkmvUq",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Protection from Poison",
-      "_id": "qPau3CSpppzHRDbG",
-      "changes": [
-        {
-          "key": "system.traits.damageResistances",
-          "value": "[\"poison\"]",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>The target has advantage on saving throws against being poisoned and resistance to poison damage.</p><p>Additionally, if the target is poisoned, you negate one poison affecting it. If more than one poison affects the target, you negate one poison you know is present (otherwise you negate one at random).</p>",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "iFbgqidjfvqkmvUq": {
-        "name": "Protection from Poison",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "hour",
-          "value": "1"
-        },
-        "ranges": {
-          "048PTFRhI7KkvgkT": {
-            "range": "touch"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "consumers": {
-          "iGOb0A94E77w4cPf": {
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3,
-            "type": "spell"
-          }
-        },
-        "prompts": {
-          "x2mdx22Ap1tvjEt6": {
-            "type": "effect",
-            "default": true,
-            "effectId": "qPau3CSpppzHRDbG"
-          }
-        }
-      }
-    },
-    "description": "<p>The target has advantage on saving throws against being poisoned and resistance to poison damage.</p><p>Additionally, if the target is poisoned, you negate one poison affecting it. If more than one poison affects the target, you negate one poison you know is present (otherwise you negate one at random).</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "",
-        "threshold": 0
-      }
-    },
-    "classes": [
-      "druid",
-      "elementalistWater",
-      "herald",
-      "witch"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 2,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "abjuration",
-      "secondary": [
-        "divine",
-        "nature",
-        "negation",
-        "protection"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "folder": null,
-  "_id": "vjye1ciunsmk099b"
+	"name": "Protection from Poison",
+	"type": "spell",
+	"img": "icons/magic/defensive/shield-barrier-flaming-diamond-acid.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/shield-barrier-flaming-diamond-acid.webp",
+			"origin": "Item.vjye1ciunsmk099b",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "iFbgqidjfvqkmvUq",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Protection from Poison",
+			"_id": "qPau3CSpppzHRDbG",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"poison\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target has advantage on saving throws against being poisoned and resistance to poison damage.</p><p>Additionally, if the target is poisoned, you negate one poison affecting it. If more than one poison affects the target, you negate one poison you know is present (otherwise you negate one at random).</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"iFbgqidjfvqkmvUq": {
+				"name": "Protection from Poison",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"048PTFRhI7KkvgkT": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"consumers": {
+					"iGOb0A94E77w4cPf": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"x2mdx22Ap1tvjEt6": {
+						"type": "effect",
+						"default": true,
+						"effectId": "qPau3CSpppzHRDbG"
+					}
+				}
+			}
+		},
+		"description": "<p>The target has advantage on saving throws against being poisoned and resistance to poison damage.</p><p>Additionally, if the target is poisoned, you negate one poison affecting it. If more than one poison affects the target, you negate one poison you know is present (otherwise you negate one at random).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"druid",
+			"elementalistWater",
+			"herald",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 2,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"divine",
+				"nature",
+				"negation",
+				"protection"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"folder": null,
+	"_id": "vjye1ciunsmk099b",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

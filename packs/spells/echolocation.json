@@ -1,161 +1,171 @@
 {
-  "folder": null,
-  "name": "Echolocation",
-  "type": "spell",
-  "img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
-  "system": {
-    "actions": {
-      "tXFjK50qTw4HyXcD": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "lRVOqz6wbwax5Dzq": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 3,
-            "points": 5
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "5BU8IcVA8sISP4po": {
-            "type": "effect",
-            "default": true,
-            "effectId": "de64e5TCbflRpbdE"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "hour",
-          "value": 1
-        },
-        "ranges": {
-          "DQXQpoNWEysrxc13": {
-            "range": "long"
-          }
-        },
-        "target": {
-          "type": "self",
-          "quantity": 1
-        }
-      }
-    },
-    "description": "<p>You gain hearing so fine, it is as though you can see. The power of this spell simulates your environment inside your mind, based on the sounds that reach you&mdash;including those reflected off nearby surfaces. For the duration of the spell, you gain Blindsight (120 feet), and you gain advantage and an expertise die on Perception checks you make based on sound. This spell also permits you to hear supersonic frequencies within range. This spell ends early if you become deafened. Because this spell is reliant on sound, your Blindsight is blocked by objects and effects that block sound&mdash;such as soundproof glass and the silence spell. Your Blindsight does not detect creatures and objects with no physical presence, &mdash;such as spell effects, and creatures on the Ethereal Plane&mdash;but you do become aware of any sounds they emit.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "bard",
-      "druid",
-      "witch"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": false,
-    "level": 3,
-    "materials": "Dried bat wing",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "divination",
-      "secondary": [
-        "enhancement",
-        "senses",
-        "sound"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/sonic/explosion-shock-sound-wave.webp",
-      "origin": "Item.sanlgi4mmzg4cdo8",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "tXFjK50qTw4HyXcD",
-          "applyToSelf": true,
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Echolocation",
-      "_id": "de64e5TCbflRpbdE",
-      "changes": [
-        {
-          "key": "system.attributes.senses.blindsight.distance",
-          "value": "120",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.rollMode.skillCheck.prc",
-          "value": "1",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "system.skills.prc.expertiseDice",
-          "value": "1",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "sanlgi4mmzg4cdo8"
+	"folder": null,
+	"name": "Echolocation",
+	"type": "spell",
+	"img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
+	"system": {
+		"actions": {
+			"tXFjK50qTw4HyXcD": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"lRVOqz6wbwax5Dzq": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"5BU8IcVA8sISP4po": {
+						"type": "effect",
+						"default": true,
+						"effectId": "de64e5TCbflRpbdE"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"ranges": {
+					"DQXQpoNWEysrxc13": {
+						"range": "long"
+					}
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>You gain hearing so fine, it is as though you can see. The power of this spell simulates your environment inside your mind, based on the sounds that reach you&mdash;including those reflected off nearby surfaces. For the duration of the spell, you gain Blindsight (120 feet), and you gain advantage and an expertise die on Perception checks you make based on sound. This spell also permits you to hear supersonic frequencies within range. This spell ends early if you become deafened. Because this spell is reliant on sound, your Blindsight is blocked by objects and effects that block sound&mdash;such as soundproof glass and the silence spell. Your Blindsight does not detect creatures and objects with no physical presence, &mdash;such as spell effects, and creatures on the Ethereal Plane&mdash;but you do become aware of any sounds they emit.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"bard",
+			"druid",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": false,
+		"level": 3,
+		"materials": "Dried bat wing",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "divination",
+			"secondary": [
+				"enhancement",
+				"senses",
+				"sound"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/sonic/explosion-shock-sound-wave.webp",
+			"origin": "Item.sanlgi4mmzg4cdo8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "tXFjK50qTw4HyXcD",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Echolocation",
+			"_id": "de64e5TCbflRpbdE",
+			"changes": [
+				{
+					"key": "system.attributes.senses.blindsight.distance",
+					"value": "120",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.skills.prc.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"_id": "sanlgi4mmzg4cdo8",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

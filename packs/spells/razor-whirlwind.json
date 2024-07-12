@@ -1,172 +1,177 @@
 {
-  "folder": null,
-  "name": "Razor Whirlwind",
-  "type": "spell",
-  "img": "icons/magic/air/wind-tornado-funnel-blue-grey.webp",
-  "system": {
-    "actions": {
-      "Bxb4PNXa0MfjGvgz": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "hQeCQjq2R76VorZv": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3
-          }
-        },
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "NHqGvqISA7gORlB3": {
-            "range": "medium"
-          }
-        },
-        "description": "<p>No description available.</p>",
-        "area": {
-          "shape": "circle",
-          "quantity": 1,
-          "radius": 5,
-          "placeTemplate": true
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        }
-      },
-      "uP3PCZYL3vLxafS2": {
-        "name": "Move Whirlwind",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        }
-      },
-      "OC4Yv9mBaztvPnTR": {
-        "name": "Cause Damage",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "YLKuGpwdLxttaa4k": {
-            "type": "damage",
-            "default": true,
-            "formula": "2d6",
-            "damageType": "slashing",
-            "canCrit": false,
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          }
-        },
-        "prompts": {
-          "H1GvQahesfrCeTRi": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "Half damage"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "B1ekgwB5RR3Kznkr": {
-            "range": "fiveFeet"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        }
-      }
-    },
-    "description": "<p>A 5-foot-diameter whirlwind appears within range, lasting for the duration. It extinguishes nonmagical flames within 20 feet. It also picks up unattended objects within 10 feet weighing 20 pounds or less, and flings them 10 feet in a random direction. You can use a bonus action to move the whirlwind up to 30 feet. It can jump over pits 10 feet wide or obstacles 5 feet tall. If you move the whirlwind into a creature, the whirlwind ends its movement for that turn and the creature makes a Dexterity saving throw, taking 2d6 slashing damage on a failed save, or half as much on a successful one. A creature that ends its turn within 5 feet of the whirlwind makes a Dexterity saving throw against the whirlwind&rsquo;s damage.</p><p><strong>Cast at Higher Levels.</strong></p><p>The damage increases by 1d6 for each slot level above 2nd.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "druid",
-      "sorcerer"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 2,
-    "materials": "a balled vine of bramble",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "conjuration",
-      "secondary": [
-        "air",
-        "nature",
-        "storm",
-        "weather"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "s4iisga1i7gi3o8u"
+	"folder": null,
+	"name": "Razor Whirlwind",
+	"type": "spell",
+	"img": "icons/magic/air/wind-tornado-funnel-blue-grey.webp",
+	"system": {
+		"actions": {
+			"Bxb4PNXa0MfjGvgz": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"hQeCQjq2R76VorZv": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"NHqGvqISA7gORlB3": {
+						"range": "medium"
+					}
+				},
+				"description": "<p>No description available.</p>",
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 5,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			},
+			"uP3PCZYL3vLxafS2": {
+				"name": "Move Whirlwind",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"OC4Yv9mBaztvPnTR": {
+				"name": "Cause Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"YLKuGpwdLxttaa4k": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "slashing",
+						"canCrit": false,
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"H1GvQahesfrCeTRi": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"B1ekgwB5RR3Kznkr": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>A 5-foot-diameter whirlwind appears within range, lasting for the duration. It extinguishes nonmagical flames within 20 feet. It also picks up unattended objects within 10 feet weighing 20 pounds or less, and flings them 10 feet in a random direction. You can use a bonus action to move the whirlwind up to 30 feet. It can jump over pits 10 feet wide or obstacles 5 feet tall. If you move the whirlwind into a creature, the whirlwind ends its movement for that turn and the creature makes a Dexterity saving throw, taking 2d6 slashing damage on a failed save, or half as much on a successful one. A creature that ends its turn within 5 feet of the whirlwind makes a Dexterity saving throw against the whirlwind&rsquo;s damage.</p><p><strong>Cast at Higher Levels.</strong></p><p>The damage increases by 1d6 for each slot level above 2nd.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid",
+			"sorcerer"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 2,
+		"materials": "a balled vine of bramble",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"air",
+				"nature",
+				"storm",
+				"weather"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "s4iisga1i7gi3o8u",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

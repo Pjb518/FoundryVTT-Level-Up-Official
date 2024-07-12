@@ -1,347 +1,377 @@
 {
-  "name": "Lambert’s Illuminating Weapon",
-  "type": "spell",
-  "img": "icons/weapons/swords/sword-winged-pink.webp",
-  "system": {
-    "actions": {
-      "FFZ1OQvCcYqm4JFx": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "0uw9P4jAWtvLlUlm": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 5,
-            "points": 7
-          }
-        },
-        "rolls": {
-          "qE3biIem4mNw1KLI": {
-            "type": "attack",
-            "default": true,
-            "attackType": "rangedSpellAttack",
-            "proficient": true,
-            "ability": "default"
-          },
-          "rYzYDz0NJ3nn4VMn": {
-            "type": "damage",
-            "default": true,
-            "formula": "5d8",
-            "damageType": "radiant"
-          }
-        },
-        "prompts": {
-          "S5bJ1suS1rgcIBSq": {
-            "type": "effect",
-            "default": true,
-            "effectId": "VVJJhy2oVABJVNsK",
-            "label": "5th-level Spell"
-          },
-          "KiKBvVpJD6vnzOHj": {
-            "type": "effect",
-            "default": true,
-            "effectId": "H0tRvLZzRtXJZwSt",
-            "label": "6th-level Spell"
-          },
-          "0brxZbpMf2o4XDuE": {
-            "type": "effect",
-            "default": true,
-            "effectId": "3UIg6oOiQsxp7Cjd",
-            "label": "7th-level Spell"
-          },
-          "uLaK6iDs3bVdPF3s": {
-            "type": "effect",
-            "default": true,
-            "effectId": "1jDpb4KIXqplM8jY",
-            "label": "8th-level Spell"
-          },
-          "NHxgE2ZzohmexGvx": {
-            "type": "effect",
-            "default": true,
-            "effectId": "SnNah2xnoUyU6L49",
-            "label": "9th-level Spell"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "WSMwMJ0lS5XzFLsp": {
-            "range": "short"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        }
-      }
-    },
-    "description": "<p>You thrust your weapon skyward, calling down power from on high. Lightning strikes your weapon and then arcs out to strike your foes. As you cast the spell, make a ranged spell attack against a creature within 30 feet. On a hit, the creature takes 5d6 lightning damage.</p><p>For the remainder of the spell&rsquo;s duration, the weapon you provided as a material component deals an extra 1d6 lightning damage.</p><p><strong>Cast At Higher Levels:</strong> When you cast this spell using a spell slot of 6th level or higher, you may choose an additional target for the initial ranged spell attack, and the weapon's extra lightning damage increases by 1d6 for each slot level above 5th.</p><p><strong>Rare Version: <em>Lambert&rsquo;s Illuminating Weapon.&nbsp;</em></strong>The spell instead deals radiant damage, and the dice are increased to d8s.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "cleric",
-      "herald",
-      "sorcerer",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 5,
-    "materials": "a melee weapon",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": true,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "divine",
-        "lightning"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/weapons/swords/sword-winged-pink.webp",
-      "origin": "Item.mxmrq1eyimyqkn0c",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "FFZ1OQvCcYqm4JFx",
-          "applyToSelf": false,
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Lambert’s Illuminating Weapon (5th-Level Spell)",
-      "_id": "VVJJhy2oVABJVNsK",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.bonuses.damage",
-          "value": "{\"label\":\"Lambert’s Illuminating Weapon\",\"formula\":\"1d8\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/weapons/swords/sword-winged-pink.webp\"}",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Deals an extra 1d8 radiant damage.</p>",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/weapons/swords/sword-winged-pink.webp",
-      "origin": "Item.mxmrq1eyimyqkn0c",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "FFZ1OQvCcYqm4JFx",
-          "applyToSelf": false,
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Lambert’s Illuminating Weapon (6th-Level Spell)",
-      "_id": "H0tRvLZzRtXJZwSt",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.bonuses.damage",
-          "value": "{\"label\":\"Lambert’s Illuminating Weapon\",\"formula\":\"2d8\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/weapons/swords/sword-winged-pink.webp\"}",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Deals an extra 2d8 radiant damage.</p>",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/weapons/swords/sword-winged-pink.webp",
-      "origin": "Item.mxmrq1eyimyqkn0c",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "FFZ1OQvCcYqm4JFx",
-          "applyToSelf": false,
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Lambert’s Illuminating Weapon (7th-Level Spell)",
-      "_id": "3UIg6oOiQsxp7Cjd",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.bonuses.damage",
-          "value": "{\"label\":\"Lambert’s Illuminating Weapon\",\"formula\":\"3d8\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/weapons/swords/sword-winged-pink.webp\"}",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Deals an extra 3d8 radiant damage.</p>",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/weapons/swords/sword-winged-pink.webp",
-      "origin": "Item.mxmrq1eyimyqkn0c",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "FFZ1OQvCcYqm4JFx",
-          "applyToSelf": false,
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Lambert’s Illuminating Weapon (8th-Level Spell)",
-      "_id": "1jDpb4KIXqplM8jY",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.bonuses.damage",
-          "value": "{\"label\":\"Lambert’s Illuminating Weapon\",\"formula\":\"4d8\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/weapons/swords/sword-winged-pink.webp\"}",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Deals an extra 4d8 radiant damage.</p>",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/weapons/swords/sword-winged-pink.webp",
-      "origin": "Item.mxmrq1eyimyqkn0c",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "FFZ1OQvCcYqm4JFx",
-          "applyToSelf": false,
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Lambert’s Illuminating Weapon (9th-Level Spell)",
-      "_id": "SnNah2xnoUyU6L49",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.bonuses.damage",
-          "value": "{\"label\":\"Lambert’s Illuminating Weapon\",\"formula\":\"5d8\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/weapons/swords/sword-winged-pink.webp\"}",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Deals an extra 5d8 radiant damage.</p>",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "folder": null,
-  "_id": "mxmrq1eyimyqkn0c"
+	"name": "Lambert’s Illuminating Weapon",
+	"type": "spell",
+	"img": "icons/weapons/swords/sword-winged-pink.webp",
+	"system": {
+		"actions": {
+			"FFZ1OQvCcYqm4JFx": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"0uw9P4jAWtvLlUlm": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7
+					}
+				},
+				"rolls": {
+					"qE3biIem4mNw1KLI": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"rYzYDz0NJ3nn4VMn": {
+						"type": "damage",
+						"default": true,
+						"formula": "5d8",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {
+					"S5bJ1suS1rgcIBSq": {
+						"type": "effect",
+						"default": true,
+						"effectId": "VVJJhy2oVABJVNsK",
+						"label": "5th-level Spell"
+					},
+					"KiKBvVpJD6vnzOHj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "H0tRvLZzRtXJZwSt",
+						"label": "6th-level Spell"
+					},
+					"0brxZbpMf2o4XDuE": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3UIg6oOiQsxp7Cjd",
+						"label": "7th-level Spell"
+					},
+					"uLaK6iDs3bVdPF3s": {
+						"type": "effect",
+						"default": true,
+						"effectId": "1jDpb4KIXqplM8jY",
+						"label": "8th-level Spell"
+					},
+					"NHxgE2ZzohmexGvx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "SnNah2xnoUyU6L49",
+						"label": "9th-level Spell"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"WSMwMJ0lS5XzFLsp": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>You thrust your weapon skyward, calling down power from on high. Lightning strikes your weapon and then arcs out to strike your foes. As you cast the spell, make a ranged spell attack against a creature within 30 feet. On a hit, the creature takes 5d6 lightning damage.</p><p>For the remainder of the spell&rsquo;s duration, the weapon you provided as a material component deals an extra 1d6 lightning damage.</p><p><strong>Cast At Higher Levels:</strong> When you cast this spell using a spell slot of 6th level or higher, you may choose an additional target for the initial ranged spell attack, and the weapon's extra lightning damage increases by 1d6 for each slot level above 5th.</p><p><strong>Rare Version: <em>Lambert&rsquo;s Illuminating Weapon.&nbsp;</em></strong>The spell instead deals radiant damage, and the dice are increased to d8s.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"cleric",
+			"herald",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 5,
+		"materials": "a melee weapon",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"divine",
+				"lightning"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/weapons/swords/sword-winged-pink.webp",
+			"origin": "Item.mxmrq1eyimyqkn0c",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FFZ1OQvCcYqm4JFx",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lambert’s Illuminating Weapon (5th-Level Spell)",
+			"_id": "VVJJhy2oVABJVNsK",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Lambert’s Illuminating Weapon\",\"formula\":\"1d8\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/weapons/swords/sword-winged-pink.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an extra 1d8 radiant damage.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/weapons/swords/sword-winged-pink.webp",
+			"origin": "Item.mxmrq1eyimyqkn0c",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FFZ1OQvCcYqm4JFx",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lambert’s Illuminating Weapon (6th-Level Spell)",
+			"_id": "H0tRvLZzRtXJZwSt",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Lambert’s Illuminating Weapon\",\"formula\":\"2d8\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/weapons/swords/sword-winged-pink.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an extra 2d8 radiant damage.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/weapons/swords/sword-winged-pink.webp",
+			"origin": "Item.mxmrq1eyimyqkn0c",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FFZ1OQvCcYqm4JFx",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lambert’s Illuminating Weapon (7th-Level Spell)",
+			"_id": "3UIg6oOiQsxp7Cjd",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Lambert’s Illuminating Weapon\",\"formula\":\"3d8\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/weapons/swords/sword-winged-pink.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an extra 3d8 radiant damage.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/weapons/swords/sword-winged-pink.webp",
+			"origin": "Item.mxmrq1eyimyqkn0c",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FFZ1OQvCcYqm4JFx",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lambert’s Illuminating Weapon (8th-Level Spell)",
+			"_id": "1jDpb4KIXqplM8jY",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Lambert’s Illuminating Weapon\",\"formula\":\"4d8\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/weapons/swords/sword-winged-pink.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an extra 4d8 radiant damage.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/weapons/swords/sword-winged-pink.webp",
+			"origin": "Item.mxmrq1eyimyqkn0c",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "FFZ1OQvCcYqm4JFx",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lambert’s Illuminating Weapon (9th-Level Spell)",
+			"_id": "SnNah2xnoUyU6L49",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Lambert’s Illuminating Weapon\",\"formula\":\"5d8\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/weapons/swords/sword-winged-pink.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an extra 5d8 radiant damage.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "mxmrq1eyimyqkn0c",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

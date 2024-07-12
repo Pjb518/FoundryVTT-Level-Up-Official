@@ -1,172 +1,182 @@
 {
-  "folder": null,
-  "name": "Tremor",
-  "type": "spell",
-  "img": "icons/magic/earth/projectile-stone-landslide.webp",
-  "system": {
-    "actions": {
-      "QideSPrJmcnBN06K": {
-        "name": "Stomp",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "vCHL5LA4sExiRfrK": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2
-          }
-        },
-        "rolls": {
-          "Ho4NMTKPTrYDWaav": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d4",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d4"
-            },
-            "damageType": "bludgeoning"
-          }
-        },
-        "prompts": {
-          "rAkns9ZYQMAUt6wL": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "half damage, negates prone"
-          },
-          "vKyJSm9nJszyFPcc": {
-            "type": "effect",
-            "default": true,
-            "effectId": "puw57dYOC8gEe0mq"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "ranges": {
-          "NWFR8N0qcEqddqLU": {
-            "range": "self"
-          }
-        },
-        "area": {
-          "shape": "circle",
-          "quantity": 1,
-          "radius": 10,
-          "placeTemplate": true
-        }
-      }
-    },
-    "description": "<p>With a stomp, you send a tremor through the ground. Each target (other than you) in the area in contact with the ground that fails its save takes 1d4 bludgeoning damage and falls prone. The area becomes difficult terrain if it was stone or earth.</p><p><strong>Cast at Higher Levels.</strong> Increase the damage by 1d4 for every slot level above 1st.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "bard",
-      "druid",
-      "elementalistEarth",
-      "sorcerer",
-      "wielder",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": false,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "earth",
-        "nature",
-        "terrain"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/earth/projectile-stone-landslide.webp",
-      "origin": "Item.re9c8pp58ro7py37",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "QideSPrJmcnBN06K"
-        }
-      },
-      "transfer": false,
-      "name": "Prone",
-      "_id": "puw57dYOC8gEe0mq",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"prone\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "prone"
-      ],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "re9c8pp58ro7py37"
+	"folder": null,
+	"name": "Tremor",
+	"type": "spell",
+	"img": "icons/magic/earth/projectile-stone-landslide.webp",
+	"system": {
+		"actions": {
+			"QideSPrJmcnBN06K": {
+				"name": "Stomp",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"vCHL5LA4sExiRfrK": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {
+					"Ho4NMTKPTrYDWaav": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d4"
+						},
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {
+					"rAkns9ZYQMAUt6wL": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "half damage, negates prone"
+					},
+					"vKyJSm9nJszyFPcc": {
+						"type": "effect",
+						"default": true,
+						"effectId": "puw57dYOC8gEe0mq"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"NWFR8N0qcEqddqLU": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>With a stomp, you send a tremor through the ground. Each target (other than you) in the area in contact with the ground that fails its save takes 1d4 bludgeoning damage and falls prone. The area becomes difficult terrain if it was stone or earth.</p><p><strong>Cast at Higher Levels.</strong> Increase the damage by 1d4 for every slot level above 1st.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"bard",
+			"druid",
+			"elementalistEarth",
+			"sorcerer",
+			"wielder",
+			"wizard"
+		],
+		"components": {
+			"vocalized": false,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"earth",
+				"nature",
+				"terrain"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/earth/projectile-stone-landslide.webp",
+			"origin": "Item.re9c8pp58ro7py37",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "QideSPrJmcnBN06K"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"_id": "puw57dYOC8gEe0mq",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"prone"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"_id": "re9c8pp58ro7py37",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

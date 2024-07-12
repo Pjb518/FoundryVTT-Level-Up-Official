@@ -1,183 +1,188 @@
 {
-  "folder": null,
-  "name": "Honeyed Words and Silvered-Tongue",
-  "type": "feature",
-  "img": "icons/magic/control/mouth-smile-deception-purple.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "vhANhd66F82txn0o": {
-        "name": "Suggestion",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "consumers": {
-          "gUaEdOtTPTs7PaJz": {
-            "type": "hitDice",
-            "default": true,
-            "quantity": 1,
-            "defaultDie": ""
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "iZ04XZe1LejKYG9l": {
-            "ability": "wis",
-            "onSave": "Negates effect",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "hour",
-          "value": "8"
-        },
-        "ranges": {
-          "R8AfmhfWgZcrAOnB": {
-            "range": "short"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false,
-          "quantity": 1
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "img": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
-        "description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The target is magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the target to perform an action that is obviously harmful to it ends the spell.</p><p>The target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after the target has carried out the activity.</p><p>You may specify trigger conditions that cause the target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to the target by you or an ally ends the spell for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 4th-level spell slot, the duration is concentration, up to 24 hours. When using a 5th-level spell slot, the duration is 7 days. When using a 7th-level spell slot, the duration is 1 year. When using a 9th-level spell slot, the suggestion lasts until it is dispelled.</p><p>Any use of a 5th-level or higher spell slot grants a duration that doesn't require concentration.</p>",
-        "descriptionOutputs": [
-          "action"
-        ]
-      },
-      "F5yEn8BMaKwsX8vc": {
-        "name": "Mass Suggestion",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "consumers": {
-          "7PpHczsRqqjR5zku": {
-            "type": "hitDice",
-            "default": true,
-            "quantity": 1,
-            "defaultDie": ""
-          },
-          "WvGpbPnFnpnDQJVL": {
-            "type": "resource",
-            "default": true,
-            "resource": "inspiration",
-            "quantity": 1
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "p3dXxpsmMDZNfcz1": {
-            "ability": "wis",
-            "onSave": "Negates effect",
-            "saveDC": {
-              "type": "spellcasting",
-              "bonus": ""
-            },
-            "type": "savingThrow"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "hour",
-          "value": "24"
-        },
-        "ranges": {
-          "zoFV80PTj3vJHoK5": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": "",
-          "type": "creature"
-        },
-        "img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
-        "description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The targets are magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the targets to perform an action that is obviously harmful to them ends the spell.</p><p>A target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after a target has carried out the activity.</p><p>You may specify trigger conditions that cause a target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to a target by you or an ally ends the spell for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When cast using a 7th-level spell slot, the duration of the spell increases to 10 days. When cast using an 8th-level spell slot, the duration increases to 30 days. When cast using a 9th-level spell slot, the duration increases to a year and a day.</p>",
-        "descriptionOutputs": [
-          "action"
-        ]
-      }
-    },
-    "description": "<p>At 7th level you can replicate the effects of a @UUID[Compendium.a5e.a5e-spells.Item.ml9ls27u9ncms8ko]{Suggestion} spell on a creature that can understand you by expending a hit die. &nbsp;At 18th level you can instead replicate @UUID[Compendium.a5e.a5e-spells.Item.kk4zbky96t1rhkl1]{Mass Suggestion} by also spending inspiration along with the hit die.</p><p>You are more resistant to the manipulations of others, and have advantage on saving throws against charm effects.</p><p>Finally, you may also apply Social Savant to one of the other skills you did not choose at 3rd level.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "extraCreditAndDeeperMysteries",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "concentration": false,
-    "featureType": "class",
-    "grants": {},
-    "prerequisite": "",
-    "requiresBloodied": false,
-    "schemaVersion": {
-      "version": 0.019,
-      "lastMigration": {
-        "version": {
-          "schema": 0.018,
-          "foundry": "11.315",
-          "system": "0.18.11"
-        }
-      }
-    },
-    "classes": "scholar"
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "5sgrsj89d8f360zf"
+	"folder": null,
+	"name": "Honeyed Words and Silvered-Tongue",
+	"type": "feature",
+	"img": "icons/magic/control/mouth-smile-deception-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"vhANhd66F82txn0o": {
+				"name": "Suggestion",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"gUaEdOtTPTs7PaJz": {
+						"type": "hitDice",
+						"default": true,
+						"quantity": 1,
+						"defaultDie": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"iZ04XZe1LejKYG9l": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "8"
+				},
+				"ranges": {
+					"R8AfmhfWgZcrAOnB": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/control/hypnosis-mesmerism-pendulum.webp",
+				"description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The target is magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the target to perform an action that is obviously harmful to it ends the spell.</p><p>The target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after the target has carried out the activity.</p><p>You may specify trigger conditions that cause the target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to the target by you or an ally ends the spell for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 4th-level spell slot, the duration is concentration, up to 24 hours. When using a 5th-level spell slot, the duration is 7 days. When using a 7th-level spell slot, the duration is 1 year. When using a 9th-level spell slot, the suggestion lasts until it is dispelled.</p><p>Any use of a 5th-level or higher spell slot grants a duration that doesn't require concentration.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"F5yEn8BMaKwsX8vc": {
+				"name": "Mass Suggestion",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"7PpHczsRqqjR5zku": {
+						"type": "hitDice",
+						"default": true,
+						"quantity": 1,
+						"defaultDie": ""
+					},
+					"WvGpbPnFnpnDQJVL": {
+						"type": "resource",
+						"default": true,
+						"resource": "inspiration",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"p3dXxpsmMDZNfcz1": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "24"
+				},
+				"ranges": {
+					"zoFV80PTj3vJHoK5": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+				"description": "<p>Creatures that cannot be charmed are immune to this spell. Suggest an activity phrased in a sentence or two. The targets are magically influenced to follow that course of activity. The suggestion must be worded to sound reasonable. Asking the targets to perform an action that is obviously harmful to them ends the spell.</p><p>A target carries out the activity suggested by you as well as it can. The activity can last for the duration of the spell, and if it requires less time the spell ends after a target has carried out the activity.</p><p>You may specify trigger conditions that cause a target to perform a specific activity while the spell lasts. For example, you may suggest that the target takes off its clothes and dives the next time it sees a body of water. If the target does not see a body of water before the spell ends, the specific activity isn't performed.</p><p>Any damage done to a target by you or an ally ends the spell for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When cast using a 7th-level spell slot, the duration of the spell increases to 10 days. When cast using an 8th-level spell slot, the duration increases to 30 days. When cast using a 9th-level spell slot, the duration increases to a year and a day.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>At 7th level you can replicate the effects of a @UUID[Compendium.a5e.a5e-spells.Item.ml9ls27u9ncms8ko]{Suggestion} spell on a creature that can understand you by expending a hit die. &nbsp;At 18th level you can instead replicate @UUID[Compendium.a5e.a5e-spells.Item.kk4zbky96t1rhkl1]{Mass Suggestion} by also spending inspiration along with the hit die.</p><p>You are more resistant to the manipulations of others, and have advantage on saving throws against charm effects.</p><p>Finally, you may also apply Social Savant to one of the other skills you did not choose at 3rd level.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "extraCreditAndDeeperMysteries",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "scholar"
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "5sgrsj89d8f360zf",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

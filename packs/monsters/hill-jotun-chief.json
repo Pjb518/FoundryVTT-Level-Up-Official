@@ -1,2902 +1,2995 @@
 {
-  "name": "Hill Jotun Chief",
-  "type": "npc",
-  "img": "systems/a5e/assets/hill-giant.webp",
-  "items": [
-    {
-      "_id": "umZLP2ZnFHtax9xj",
-      "name": "Gullible",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [
-        {
-          "icon": "icons/svg/item-bag.svg",
-          "origin": "Actor.SDwavzrLR8ao9AQf.Item.umZLP2ZnFHtax9xj",
-          "flags": {
-            "a5e": {
-              "sort": 0,
-              "transferType": "passive"
-            }
-          },
-          "transfer": false,
-          "name": "Gullible",
-          "_id": "KRp3iKrC84nV4NOK",
-          "changes": [
-            {
-              "key": "flags.a5e.effects.rollMode.skillCheck.ins",
-              "value": "-1",
-              "mode": 6,
-              "priority": null
-            }
-          ],
-          "disabled": false,
-          "duration": {
-            "startTime": null,
-            "seconds": null,
-            "combat": null,
-            "rounds": null,
-            "turns": null,
-            "startRound": null,
-            "startTurn": null
-          },
-          "description": "<p>Makes Insight checks withdisadvantage.</p>",
-          "statuses": [],
-          "folder": null
-        }
-      ],
-      "folder": null,
-      "sort": 100000,
-      "flags": {},
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "grantsDisadvantage": false,
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {},
-        "description": "<p>The giant makes Insight checks with disadvantage.</p><p></p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "5elRJVHjymytKSeO",
-      "name": "Multiattack",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [],
-      "folder": null,
-      "sort": 200000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "grantsDisadvantage": false,
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "CYDGABCDXbxsheRU": {
-            "name": "Multiattack",
-            "activation": {
-              "type": "action",
-              "cost": 1
-            },
-            "consumers": {},
-            "rolls": {},
-            "prompts": {},
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "rechargeType": "custom",
-                "rechargeAmount": "1",
-                "threshold": 6
-              }
-            }
-          }
-        },
-        "description": "<p>The giant attacks twice with its greatclub.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "WuPWtWUdzlmToxwZ",
-      "name": "Greatclub Sweep",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [
-        {
-          "icon": "icons/svg/item-bag.svg",
-          "origin": "Actor.SDwavzrLR8ao9AQf.Item.WuPWtWUdzlmToxwZ",
-          "flags": {
-            "a5e": {
-              "sort": 0,
-              "transferType": "onUse",
-              "actionId": "igUD2K3gZ19401JB"
-            }
-          },
-          "transfer": false,
-          "name": "Prone",
-          "_id": "ZBgF16Z29u4M7tJb",
-          "changes": [
-            {
-              "key": "flags.a5e.effects.statusConditions",
-              "value": "[\"prone\"]",
-              "mode": 0,
-              "priority": null
-            }
-          ],
-          "disabled": false,
-          "duration": {
-            "startTime": null,
-            "seconds": null,
-            "combat": null,
-            "rounds": null,
-            "turns": null,
-            "startRound": null,
-            "startTurn": null
-          },
-          "description": "",
-          "statuses": [
-            "prone"
-          ],
-          "folder": null
-        }
-      ],
-      "folder": null,
-      "sort": 275000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "grantsDisadvantage": false,
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "igUD2K3gZ19401JB": {
-            "name": "Greatclub Sweep",
-            "activation": {
-              "type": "action",
-              "cost": 1
-            },
-            "consumers": {
-              "p929CXsir5Bajzkj": {
-                "type": "itemUses",
-                "default": true,
-                "quantity": 1
-              }
-            },
-            "rolls": {
-              "sJdBJp8lP5JQeD9g": {
-                "type": "damage",
-                "default": true,
-                "canCrit": false,
-                "formula": "3d8 + @str.mod",
-                "damageType": "bludgeoning"
-              }
-            },
-            "prompts": {
-              "BwMR0DolgWxAYDIg": {
-                "type": "savingThrow",
-                "default": true,
-                "ability": "dex",
-                "saveDC": {
-                  "type": "maneuver"
-                }
-              },
-              "lhcUCVFWPREBAk4E": {
-                "type": "effect",
-                "default": true,
-                "effectId": "ZBgF16Z29u4M7tJb"
-              }
-            },
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "rechargeType": "custom",
-                "rechargeAmount": "1",
-                "threshold": 6
-              }
-            },
-            "ranges": {
-              "9tkCKByxRSunWFqM": {
-                "range": "self"
-              }
-            },
-            "area": {
-              "shape": "emanation",
-              "quantity": 1,
-              "radius": 10,
-              "placeTemplate": true
-            }
-          }
-        },
-        "description": "<p>Each creature within 10 feet of the hill jotun makes a DC 16 Dexterity saving throw. On a failure, a creature takes 18 (3d8+5) bludgeoning, is pushed 10 feet away from the jotun, and falls prone.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 1,
-          "max": "1",
-          "per": "day",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": true,
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "cOT2A2leXxCKyUxo",
-      "name": "Grab",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [
-        {
-          "icon": "icons/svg/item-bag.svg",
-          "origin": "Actor.SDwavzrLR8ao9AQf.Item.cOT2A2leXxCKyUxo",
-          "flags": {
-            "a5e": {
-              "sort": 0,
-              "transferType": "onUse",
-              "actionId": "eFg4hKR2hBV6fZ9S"
-            }
-          },
-          "transfer": false,
-          "name": "Grappled",
-          "_id": "0x5gPZMx6AZPp9d8",
-          "changes": [
-            {
-              "key": "flags.a5e.effects.statusConditions",
-              "value": "[\"grappled\"]",
-              "mode": 0,
-              "priority": null
-            }
-          ],
-          "disabled": false,
-          "duration": {
-            "startTime": null,
-            "seconds": null,
-            "combat": null,
-            "rounds": null,
-            "turns": null,
-            "startRound": null,
-            "startTurn": null
-          },
-          "description": "",
-          "statuses": [
-            "grappled"
-          ],
-          "folder": null
-        }
-      ],
-      "folder": null,
-      "sort": 287500,
-      "flags": {
-        "core": {
-          "sourceId": "Item.i2cfGU9ofnKwr9OF"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "grantsDisadvantage": false,
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "eFg4hKR2hBV6fZ9S": {
-            "name": "Grab",
-            "activation": {
-              "type": "bonusAction",
-              "cost": 1
-            },
-            "consumers": {},
-            "rolls": {},
-            "prompts": {
-              "eLky4zTfiqRBFouj": {
-                "type": "savingThrow",
-                "default": true,
-                "ability": "dex",
-                "saveDC": {
-                  "type": "dex"
-                }
-              },
-              "CerGhyyvRxxzsLiK": {
-                "type": "effect",
-                "default": true,
-                "effectId": "0x5gPZMx6AZPp9d8"
-              }
-            },
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "rechargeType": "custom",
-                "rechargeAmount": "1",
-                "threshold": 6
-              }
-            }
-          }
-        },
-        "description": "<p>One creature within 5 feet makes a DC 10 Dexterity saving throw. On a failure, it is grappled (escape DC 16). Until this grapple ends, the giant can’t grab another target, and it makes greatclub attacks with advantage against the grappled target.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Elite Recovery",
-      "type": "feature",
-      "_id": "eAjzeFlgrh6lAnZ2",
-      "img": "icons/svg/item-bag.svg",
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "grantsDisadvantage": false,
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "n7UbZpAsVnhdfFGG": {
-            "name": "Elite Recovery",
-            "activation": {
-              "type": "bonusAction",
-              "cost": 1
-            },
-            "consumers": {},
-            "rolls": {},
-            "prompts": {},
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "rechargeType": "custom",
-                "rechargeAmount": "1",
-                "threshold": 6
-              }
-            }
-          }
-        },
-        "description": "<p>The jotun ends one negative effect currently affecting it. It can do so as long as it has at least 1 hit point, even while unconscious or incapacitated.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": true,
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      },
-      "flags": {}
-    },
-    {
-      "name": "Reflexive Swat",
-      "type": "feature",
-      "_id": "stMTDLsmBob1ZSPA",
-      "img": "icons/svg/item-bag.svg",
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "grantsDisadvantage": false,
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "gA231W9HuxmpSCzW": {
-            "name": "Reflexive Swat",
-            "activation": {
-              "type": "reaction",
-              "cost": 1,
-              "reactionTrigger": "A creature the hill jotun can see within 5 feet hits it with a melee attack"
-            },
-            "consumers": {},
-            "rolls": {},
-            "prompts": {},
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "rechargeType": "custom",
-                "rechargeAmount": "1",
-                "threshold": 6
-              }
-            }
-          }
-        },
-        "description": "<p>When a creature the hill jotun can see within 5 feet hits it with a melee attack, the hill jotun makes a greatclub attack against it.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": true,
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      },
-      "flags": {}
-    },
-    {
-      "name": "Grapple",
-      "type": "maneuver",
-      "img": "icons/skills/melee/unarmed-punch-fist.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
-        }
-      },
-      "system": {
-        "actions": {
-          "wOKLPnhKpnhU1kEj": {
-            "name": "Grapple",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "5nrDtksc3KPCbcJd": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "B9sbtgKAz5GLtsp3": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p><p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p><p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p><p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "_id": "uAHzzYR86pVRDO0S",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Grab On",
-      "type": "maneuver",
-      "img": "icons/skills/melee/hand-grip-staff-teal.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
-        }
-      },
-      "system": {
-        "actions": {
-          "dZElCBOd3yoRyDcB": {
-            "name": "Grab On",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "x479yGm9lUjVLHDy": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "duRNu9hfiRNwhtCq": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "_id": "rT3FEs8LUH0ASXuR",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Disarm",
-      "type": "maneuver",
-      "img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
-        }
-      },
-      "system": {
-        "actions": {
-          "xN5ZLHIjo9cHRWrK": {
-            "name": "Disarm",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "dFgwvnjjgmzR7vlN": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "FDMYIPcl2LveduMw": {
-                "canCrit": false,
-                "damageType": "",
-                "formula": "1 + @str.mod",
-                "name": "",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "xs1KlWtLXswqrVKY": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "_id": "zOPOkKL9k4Q6RjSV",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Knockdown",
-      "type": "maneuver",
-      "img": "icons/magic/control/silhouette-fall-slip-prone.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
-        }
-      },
-      "system": {
-        "actions": {
-          "wfzmnudl6tfhZk4v": {
-            "name": "Knockdown",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "NbOuce8AtLVjDeeL": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "L65ZmTO0KcmeQ2EQ": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "_id": "frzK23sPHK6IQRaf",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Overrun",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-damaged-broken-blue.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
-        }
-      },
-      "system": {
-        "actions": {
-          "kBUgwxtsHQqPa1DV": {
-            "name": "Overrun",
-            "activation": {
-              "cost": 1,
-              "type": "special",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "VAh3uPOJAaI5ShrA": {
-                "range": "touch"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": "",
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "prompts": {
-              "bvFJU6hHDstCwg1b": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "_id": "78BpRcjcxJSZwJrR",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Shove",
-      "type": "maneuver",
-      "img": "icons/skills/melee/shield-block-bash-yellow.webp",
-      "effects": [],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
-        }
-      },
-      "system": {
-        "actions": {
-          "uvkBwwL7OQopMMHB": {
-            "name": "Shove",
-            "activation": {
-              "cost": 1,
-              "type": "action",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "instantaneous",
-              "value": null
-            },
-            "ranges": {
-              "j7yuRUD8cu1y0Jia": {
-                "range": "fiveFeet"
-              }
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": null,
-              "type": "creature",
-              "shape": "",
-              "size": ""
-            },
-            "rolls": {
-              "TcI6WmWSAy0EAxg9": {
-                "canCrit": false,
-                "damageType": "bludgeoning",
-                "formula": "1 + @str.mod",
-                "name": "Default",
-                "type": "damage"
-              }
-            },
-            "prompts": {
-              "UVu9ZVC0beiWNgAV": {
-                "ability": "str",
-                "onSave": "",
-                "saveDC": {
-                  "type": "custom",
-                  "bonus": "@maneuverDC"
-                },
-                "type": "savingThrow"
-              }
-            },
-            "consumers": {}
-          }
-        },
-        "description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
-        "favorite": false,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "degree": 0,
-        "exertionCost": 0,
-        "isStance": false,
-        "prerequisite": "",
-        "tradition": "",
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "_id": "sAZ1HtV3r7VInxRK",
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Greatclub",
-      "type": "object",
-      "img": "icons/weapons/clubs/club-banded-barbed-black.webp",
-      "effects": [
-        {
-          "icon": "icons/weapons/clubs/club-banded-barbed-black.webp",
-          "origin": "Actor.SDwavzrLR8ao9AQf.Item.XSDtItB45S8tZug6",
-          "flags": {
-            "a5e": {
-              "sort": 0,
-              "transferType": "onUse",
-              "actionId": "TZ68p8QOlBxq5nAp"
-            }
-          },
-          "transfer": false,
-          "name": "Prone",
-          "_id": "TelcmHfd0JnvXcFH",
-          "changes": [
-            {
-              "key": "flags.a5e.effects.statusConditions",
-              "value": "[\"prone\"]",
-              "mode": 0,
-              "priority": null
-            }
-          ],
-          "disabled": false,
-          "duration": {
-            "startTime": null,
-            "seconds": null,
-            "combat": null,
-            "rounds": null,
-            "turns": null,
-            "startRound": null,
-            "startTurn": null
-          },
-          "description": "",
-          "statuses": [
-            "prone"
-          ],
-          "folder": null
-        }
-      ],
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.rj44twjfhjkahbk1"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "grantsDisadvantage": false,
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "TZ68p8QOlBxq5nAp": {
-            "name": "Greatclub",
-            "activation": {
-              "cost": "",
-              "type": "",
-              "reactionTrigger": ""
-            },
-            "duration": {
-              "unit": "",
-              "value": ""
-            },
-            "area": {
-              "shape": "",
-              "size": "",
-              "placeTemplate": false
-            },
-            "target": {
-              "quantity": 1,
-              "type": "creatureObject"
-            },
-            "rolls": {
-              "iCfqnFJbiMWsO2fo": {
-                "bonus": "",
-                "critThreshold": "20",
-                "type": "attack",
-                "attackType": "meleeWeaponAttack",
-                "ability": "default"
-              },
-              "hlVu0grEO6zrkk7w": {
-                "canCrit": true,
-                "damageType": "bludgeoning",
-                "formula": "3d8 + @str.mod",
-                "name": "Greatclub 1H",
-                "type": "damage",
-                "label": "",
-                "default": true
-              }
-            },
-            "consumers": {},
-            "ranges": {
-              "TyMjhAyEYFN8ixak": {
-                "range": 10,
-                "unit": "feet"
-              }
-            },
-            "prompts": {
-              "1VXaG8bnHlRq56Co": {
-                "type": "savingThrow",
-                "default": true,
-                "ability": "str",
-                "saveDC": {
-                  "type": "maneuver"
-                }
-              },
-              "CnNLLeJhM1frI6pb": {
-                "type": "effect",
-                "default": true,
-                "effectId": "TelcmHfd0JnvXcFH"
-              }
-            }
-          }
-        },
-        "description": "<p>If the target is a Medium or smaller creature, it makes a DC 16 Strength saving throw, falling prone on a failure.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "ammunitionProperties": [],
-        "armorCategory": "",
-        "armorProperties": [],
-        "attuned": false,
-        "bulky": false,
-        "craftingComponents": "",
-        "containerId": "",
-        "damagedState": 0,
-        "equippedState": 0,
-        "items": {},
-        "materialProperties": [],
-        "objectType": "weapon",
-        "plotItem": false,
-        "price": "5 sp",
-        "proficient": true,
-        "quantity": 1,
-        "rarity": "mundane",
-        "requiresAttunement": false,
-        "shieldCategory": "",
-        "shieldProperties": [],
-        "unidentified": false,
-        "unidentifiedDescription": "",
-        "unidentifiedName": "",
-        "weaponProperties": [
-          "versatile",
-          "simple"
-        ],
-        "weight": 10,
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        },
-        "breakerProperties": [],
-        "defensiveProperties": "",
-        "flaws": [],
-        "versatile": "d10",
-        "mounted": []
-      },
-      "folder": null,
-      "_id": "XSDtItB45S8tZug6",
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "UPEAzanHdxAqMie6",
-      "name": "Rock",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [
-        {
-          "icon": "icons/svg/item-bag.svg",
-          "origin": "Actor.SDwavzrLR8ao9AQf.Item.UPEAzanHdxAqMie6",
-          "flags": {
-            "a5e": {
-              "sort": 0,
-              "transferType": "onUse",
-              "actionId": "z30C9URE1zFgZSvj"
-            }
-          },
-          "transfer": false,
-          "name": "Prone",
-          "_id": "mWMlfADoaSi6lUyM",
-          "changes": [
-            {
-              "key": "flags.a5e.effects.statusConditions",
-              "value": "[\"prone\"]",
-              "mode": 0,
-              "priority": null
-            }
-          ],
-          "disabled": false,
-          "duration": {
-            "startTime": null,
-            "seconds": null,
-            "combat": null,
-            "rounds": null,
-            "turns": null,
-            "startRound": null,
-            "startTurn": null
-          },
-          "description": "",
-          "statuses": [
-            "prone"
-          ],
-          "folder": null
-        }
-      ],
-      "folder": null,
-      "sort": 250000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "grantsDisadvantage": false,
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "z30C9URE1zFgZSvj": {
-            "name": "Rock",
-            "activation": {
-              "type": "action",
-              "cost": 1
-            },
-            "consumers": {},
-            "rolls": {
-              "vPRbm2Un6BrtKESg": {
-                "type": "attack",
-                "default": true,
-                "attackType": "rangedWeaponAttack",
-                "proficient": true,
-                "ability": "default"
-              },
-              "l5t9yTCeU7Ep4LJJ": {
-                "type": "damage",
-                "default": true,
-                "formula": "6d6 + @str.mod",
-                "damageType": "bludgeoning"
-              }
-            },
-            "prompts": {
-              "UQLpuuISs3Iv9epZ": {
-                "type": "savingThrow",
-                "default": true,
-                "ability": "str",
-                "saveDC": {
-                  "type": "maneuver"
-                }
-              },
-              "ix7Hvop83iLVIE0E": {
-                "type": "effect",
-                "default": true,
-                "effectId": "mWMlfADoaSi6lUyM"
-              }
-            },
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "rechargeType": "custom",
-                "rechargeAmount": "1",
-                "threshold": 6
-              }
-            },
-            "ranges": {
-              "xmY83u1QYSe8ircE": {
-                "range": "medium"
-              },
-              "BoaAgIr7uHeHsmi0": {
-                "range": 240,
-                "unit": "feet"
-              }
-            },
-            "target": {
-              "type": "creatureObject",
-              "quantity": 1
-            }
-          }
-        },
-        "description": "<p>If the target is a Medium or smaller creature, it makes a DC 16 Strength saving throw, falling prone on a failure.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "rAPQ4bLVImXEyJoR",
-      "name": "Throw Creature",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [
-        {
-          "icon": "icons/svg/item-bag.svg",
-          "origin": "Actor.SDwavzrLR8ao9AQf.Item.rAPQ4bLVImXEyJoR",
-          "flags": {
-            "a5e": {
-              "sort": 0,
-              "transferType": "onUse",
-              "actionId": "z30C9URE1zFgZSvj"
-            }
-          },
-          "transfer": false,
-          "name": "Prone",
-          "_id": "mWMlfADoaSi6lUyM",
-          "changes": [
-            {
-              "key": "flags.a5e.effects.statusConditions",
-              "value": "[\"prone\"]",
-              "mode": 0,
-              "priority": null
-            }
-          ],
-          "disabled": false,
-          "duration": {
-            "startTime": null,
-            "seconds": null,
-            "combat": null,
-            "rounds": null,
-            "turns": null,
-            "startRound": null,
-            "startTurn": null
-          },
-          "description": "",
-          "statuses": [
-            "prone"
-          ],
-          "folder": null
-        }
-      ],
-      "folder": null,
-      "sort": 250000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.Hcp8zUrtUBaXFT4i"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "grantsDisadvantage": false,
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "z30C9URE1zFgZSvj": {
-            "name": "Throw Creature",
-            "activation": {
-              "type": "action",
-              "cost": 1
-            },
-            "consumers": {},
-            "rolls": {
-              "vPRbm2Un6BrtKESg": {
-                "type": "attack",
-                "default": true,
-                "attackType": "rangedWeaponAttack",
-                "proficient": true,
-                "ability": "default"
-              },
-              "l5t9yTCeU7Ep4LJJ": {
-                "type": "damage",
-                "default": true,
-                "formula": "3d6 + @str.mod",
-                "damageType": "bludgeoning"
-              }
-            },
-            "prompts": {
-              "ix7Hvop83iLVIE0E": {
-                "type": "effect",
-                "default": true,
-                "effectId": "mWMlfADoaSi6lUyM"
-              }
-            },
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "rechargeType": "custom",
-                "rechargeAmount": "1",
-                "threshold": 6
-              }
-            },
-            "ranges": {
-              "xmY83u1QYSe8ircE": {
-                "range": "short"
-              }
-            },
-            "target": {
-              "type": "creatureObject",
-              "quantity": 1
-            }
-          }
-        },
-        "description": "<p>In lieu of a rock, the giant can throw a grappled Medium or smaller creature up to 30 feet. On a hit, the target and the thrown creature both take 15 (3d6 + 5) bludgeoning damage. On a miss, only the thrown creature takes the damage. The thrown creature falls prone in an unoccupied space 5 feet from the target.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "name": "Bloodied Fighter",
-      "type": "feature",
-      "_id": "gFRhIQeNruSz7zqP",
-      "img": "icons/svg/item-bag.svg",
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "grantsDisadvantage": false,
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "uAwZ0nqVr3JkVkYY": {
-            "name": "Bloodied Fighter",
-            "activation": {},
-            "consumers": {
-              "XtqtwOoJLAbRwY5s": {
-                "type": "itemUses",
-                "default": true,
-                "quantity": 1
-              }
-            },
-            "rolls": {},
-            "prompts": {},
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "rechargeType": "custom",
-                "rechargeAmount": "1",
-                "threshold": 6
-              }
-            }
-          }
-        },
-        "description": "<p>When the hill jotun chief first becomes bloodied, it regains any expended 1/day abilities.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 1,
-          "max": "1",
-          "per": "longRest",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": true,
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "effects": [],
-      "folder": null,
-      "sort": 0,
-      "ownership": {
-        "default": 0
-      },
-      "flags": {
-        "core": {
-          "sourceId": "Compendium.a5e.a5e-monsters.Actor.cbx2z9stpror8xn8.Item.Y97fJCU92iaWrPST"
-        }
-      }
-    },
-    {
-      "_id": "cp9yc6zRg056vXHz",
-      "name": "Body Slam",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [
-        {
-          "icon": "icons/svg/item-bag.svg",
-          "origin": "Actor.AxWx5sfFwmPrTGFv.Item.cp9yc6zRg056vXHz",
-          "flags": {
-            "a5e": {
-              "sort": 0,
-              "transferType": "onUse",
-              "actionId": "MoBuegnY0YqNf0xB",
-              "applyToSelf": true
-            }
-          },
-          "transfer": false,
-          "name": "Prone",
-          "_id": "uumlv8jHEUJTIhld",
-          "changes": [
-            {
-              "key": "flags.a5e.effects.statusConditions",
-              "value": "[\"prone\"]",
-              "mode": 0,
-              "priority": null
-            }
-          ],
-          "disabled": false,
-          "duration": {
-            "startTime": null,
-            "seconds": null,
-            "combat": null,
-            "rounds": null,
-            "turns": null,
-            "startRound": null,
-            "startTurn": null
-          },
-          "description": "",
-          "statuses": [
-            "prone"
-          ],
-          "folder": null
-        }
-      ],
-      "folder": null,
-      "sort": 900000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.i2cfGU9ofnKwr9OF"
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "grantsDisadvantage": false,
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "MoBuegnY0YqNf0xB": {
-            "name": "Body Slam",
-            "activation": {
-              "type": "bonusAction",
-              "cost": 1
-            },
-            "consumers": {
-              "m2pFM6IhSdaRlzJ2": {
-                "type": "itemUses",
-                "default": true,
-                "quantity": 1
-              }
-            },
-            "rolls": {
-              "QGDMmnX62aibCA9k": {
-                "type": "damage",
-                "default": true,
-                "canCrit": false,
-                "formula": "3d8 + 6",
-                "damageType": "bludgeoning"
-              }
-            },
-            "prompts": {
-              "yu82gZFLekfk1h5T": {
-                "type": "effect",
-                "default": true,
-                "effectId": "uumlv8jHEUJTIhld"
-              },
-              "2jjO3RGND9n6fBXr": {
-                "type": "savingThrow",
-                "default": true,
-                "ability": "dex",
-                "saveDC": {
-                  "type": "con"
-                },
-                "onSave": "Half damage"
-              }
-            },
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "rechargeType": "custom",
-                "rechargeAmount": "1",
-                "threshold": 6
-              }
-            }
-          }
-        },
-        "description": "<p>The giant jumps up to 15 feet horizontally without provoking opportunity attacks and falls prone in a space containing one or more creatures. Each creature in its space when it lands makes a DC 15 Dexterity saving throw, taking 19 (3d8 + 6) bludgeoning damage and falling prone on a failure. On a success, the creature takes half damage and is pushed 5 feet to an unoccupied space of its choice. If that space is occupied, the creature falls prone.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 1,
-          "max": "1",
-          "per": "day",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "Z0wEsLMBozb7rFGP",
-      "name": "Muddy Ground",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [
-        {
-          "icon": "icons/svg/item-bag.svg",
-          "origin": "Actor.AxWx5sfFwmPrTGFv.Item.Z0wEsLMBozb7rFGP",
-          "flags": {
-            "a5e": {
-              "sort": 0,
-              "transferType": "onUse",
-              "actionId": "fOXIbg0j1rc1IUL3",
-              "duration": {
-                "unit": "minutes"
-              }
-            }
-          },
-          "transfer": false,
-          "name": "Stuck in the Mud",
-          "_id": "v8PiScKHBFKnD9EZ",
-          "changes": [
-            {
-              "key": "flags.a5e.effects.movement.allDistances",
-              "value": "9",
-              "mode": 6,
-              "priority": null
-            }
-          ],
-          "disabled": false,
-          "duration": {
-            "startTime": null,
-            "seconds": 60,
-            "combat": null,
-            "rounds": null,
-            "turns": null,
-            "startRound": null,
-            "startTurn": null
-          },
-          "description": "<p>Speed drops to 9.</p>",
-          "statuses": [],
-          "folder": null
-        }
-      ],
-      "folder": null,
-      "sort": 800000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.i2cfGU9ofnKwr9OF"
-        },
-        "a5e": {
-          "placeTemplate": true
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "grantsDisadvantage": false,
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "fOXIbg0j1rc1IUL3": {
-            "name": "Muddy Ground",
-            "activation": {
-              "type": "bonusAction",
-              "cost": 1
-            },
-            "consumers": {
-              "l2Mbcj1E3HgIQpNs": {
-                "type": "itemUses",
-                "default": true,
-                "quantity": 1
-              }
-            },
-            "rolls": {},
-            "prompts": {
-              "Akm9wzu9sSetTtM4": {
-                "type": "savingThrow",
-                "default": true,
-                "ability": "str",
-                "saveDC": {
-                  "type": "con"
-                }
-              },
-              "8oYyTTcpZ5RMBKl6": {
-                "type": "effect",
-                "default": true,
-                "effectId": "v8PiScKHBFKnD9EZ"
-              }
-            },
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "rechargeType": "custom",
-                "rechargeAmount": "1",
-                "threshold": 6
-              }
-            },
-            "ranges": {
-              "sKlT8rJaIZpk5l3S": {
-                "range": "self"
-              }
-            },
-            "area": {
-              "shape": "circle",
-              "quantity": 1,
-              "radius": 60,
-              "placeTemplate": true
-            },
-            "duration": {
-              "unit": "minute",
-              "value": 1
-            }
-          }
-        },
-        "description": "<p>Areas of unworked earth within 60 feet magically become swampy mud for 1 minute or until the giant dies. These areas become difficult terrain. Prone creatures in the area when the mud appears or that fall prone in the area make a DC 15 Strength saving throw. On a failure, the creature’s Speed drops to 0 as it becomes stuck in the mud. A creature can use its action to make a DC 15 Strength check, freeing itself on a success.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 1,
-          "max": "1",
-          "per": "day",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    },
-    {
-      "_id": "9MVx84safCZrOoSI",
-      "name": "Stomp",
-      "type": "feature",
-      "img": "icons/svg/item-bag.svg",
-      "effects": [
-        {
-          "icon": "icons/svg/item-bag.svg",
-          "origin": "Actor.AxWx5sfFwmPrTGFv.Item.9MVx84safCZrOoSI",
-          "flags": {
-            "a5e": {
-              "sort": 0,
-              "transferType": "onUse",
-              "actionId": "2LGsScWvIQmWTHev"
-            }
-          },
-          "transfer": false,
-          "name": "Prone",
-          "_id": "frDizbiQjuqwUsOi",
-          "changes": [
-            {
-              "key": "flags.a5e.effects.statusConditions",
-              "value": "[\"prone\"]",
-              "mode": 0,
-              "priority": null
-            }
-          ],
-          "disabled": false,
-          "duration": {
-            "startTime": null,
-            "seconds": null,
-            "combat": null,
-            "rounds": null,
-            "turns": null,
-            "startRound": null,
-            "startTurn": null
-          },
-          "description": "",
-          "statuses": [
-            "prone"
-          ],
-          "folder": null
-        }
-      ],
-      "folder": null,
-      "sort": 400000,
-      "flags": {
-        "core": {
-          "sourceId": "Item.i2cfGU9ofnKwr9OF"
-        },
-        "a5e": {
-          "placeTemplate": true
-        }
-      },
-      "system": {
-        "ac": {
-          "baseFormula": "",
-          "formula": "",
-          "grantsDisadvantage": false,
-          "maxDex": 0,
-          "minStr": 0,
-          "mode": 1,
-          "requiresNoShield": false,
-          "requiresUnarmored": false
-        },
-        "actions": {
-          "2LGsScWvIQmWTHev": {
-            "name": "Stomp",
-            "activation": {
-              "type": "bonusAction",
-              "cost": 1
-            },
-            "consumers": {
-              "RYLRJalwqA3GPIQa": {
-                "type": "itemUses",
-                "default": true,
-                "quantity": 1
-              }
-            },
-            "rolls": {},
-            "prompts": {
-              "jSyKhOomq6VpkZod": {
-                "type": "savingThrow",
-                "default": true,
-                "ability": "dex",
-                "saveDC": {
-                  "type": "con"
-                }
-              },
-              "9sCv0IZbJaCP06Rm": {
-                "type": "effect",
-                "default": true,
-                "effectId": "frDizbiQjuqwUsOi"
-              }
-            },
-            "uses": {
-              "value": 0,
-              "max": "",
-              "per": "",
-              "recharge": {
-                "formula": "1d6",
-                "rechargeType": "custom",
-                "rechargeAmount": "1",
-                "threshold": 6
-              }
-            },
-            "ranges": {
-              "SJRQ1uwvhw2wRXuW": {
-                "range": "self"
-              }
-            },
-            "area": {
-              "shape": "circle",
-              "quantity": 1,
-              "placeTemplate": true,
-              "radius": 60
-            }
-          }
-        },
-        "description": "<p>The giant stamps its foot, causing the ground to tremble. Each creature within 60 feet makes a DC 15 Dexterity saving throw. On a failure, it falls prone.</p>",
-        "favorite": true,
-        "secretDescription": "",
-        "source": "",
-        "uses": {
-          "value": 1,
-          "max": "1",
-          "per": "day",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "concentration": false,
-        "featureType": "",
-        "grants": {},
-        "prerequisite": "",
-        "requiresBloodied": false,
-        "schemaVersion": {
-          "version": 0.018,
-          "lastMigration": {
-            "version": {
-              "schema": 0.016,
-              "foundry": "11.315",
-              "system": "0.17.41"
-            }
-          }
-        }
-      },
-      "ownership": {
-        "default": 0
-      }
-    }
-  ],
-  "effects": [
-    {
-      "icon": "icons/svg/item-bag.svg",
-      "origin": "Actor.cbx2z9stpror8xn8.Item.umZLP2ZnFHtax9xj",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "passive"
-        }
-      },
-      "transfer": false,
-      "name": "Gullible",
-      "_id": "TfJ69FJtwOZ2VDGr",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.rollMode.skillCheck.ins",
-          "value": "-1",
-          "mode": 6,
-          "priority": 0
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": 0,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Makes Insight checks withdisadvantage.</p>",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {
-    "a5e": {
-      "sheetIsLocked": true,
-      "TrackInventoryWeight": true,
-      "carryCapacityMultiplier": 1,
-      "trackCurrencyWeight": true,
-      "HideEmptyTraits": true,
-      "IncludeAbilityModifiersForSkills": true,
-      "showManeuverTab": false,
-      "showSpellTab": false,
-      "sortMode": {},
-      "filters": {}
-    }
-  },
-  "system": {
-    "abilities": {
-      "str": {
-        "value": 20,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "dex": {
-        "value": 8,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "con": {
-        "value": 18,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": true,
-          "expertiseDice": 0,
-          "bonus": "",
-          "concentrationBonus": ""
-        }
-      },
-      "int": {
-        "value": 6,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "wis": {
-        "value": 10,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      },
-      "cha": {
-        "value": 6,
-        "check": {
-          "expertiseDice": 0,
-          "bonus": ""
-        },
-        "save": {
-          "proficient": false,
-          "expertiseDice": 0,
-          "bonus": ""
-        }
-      }
-    },
-    "skills": {
-      "acr": {
-        "ability": "dex",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ani": {
-        "ability": "wis",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "arc": {
-        "ability": "int",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ath": {
-        "ability": "str",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "cul": {
-        "ability": "int",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "dec": {
-        "ability": "cha",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "eng": {
-        "ability": "int",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "his": {
-        "ability": "int",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ins": {
-        "ability": "wis",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "itm": {
-        "ability": "cha",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "inv": {
-        "ability": "int",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "med": {
-        "ability": "wis",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "nat": {
-        "ability": "int",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prc": {
-        "ability": "wis",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "prf": {
-        "ability": "cha",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "per": {
-        "ability": "cha",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "rel": {
-        "ability": "int",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "slt": {
-        "ability": "dex",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "ste": {
-        "ability": "dex",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      },
-      "sur": {
-        "ability": "wis",
-        "proficient": 0,
-        "specialties": [],
-        "expertiseDice": 0,
-        "minRoll": 1,
-        "bonuses": {
-          "check": "",
-          "passive": 0
-        }
-      }
-    },
-    "spellResources": {
-      "slots": {
-        "1": {
-          "current": 0,
-          "max": 0
-        },
-        "2": {
-          "current": 0,
-          "max": 0
-        },
-        "3": {
-          "current": 0,
-          "max": 0
-        },
-        "4": {
-          "current": 0,
-          "max": 0
-        },
-        "5": {
-          "current": 0,
-          "max": 0
-        },
-        "6": {
-          "current": 0,
-          "max": 0
-        },
-        "7": {
-          "current": 0,
-          "max": 0
-        },
-        "8": {
-          "current": 0,
-          "max": 0
-        },
-        "9": {
-          "current": 0,
-          "max": 0
-        }
-      },
-      "points": {
-        "current": 0,
-        "max": 0
-      },
-      "artifactCharges": {
-        "current": 0,
-        "max": 0
-      },
-      "inventions": {
-        "current": 0,
-        "max": 0
-      }
-    },
-    "attributes": {
-      "ac": {
-        "value": 0,
-        "baseFormula": "13"
-      },
-      "death": {
-        "success": 0,
-        "failure": 0
-      },
-      "hp": {
-        "value": 252,
-        "baseMax": 252,
-        "temp": 0,
-        "bonus": null
-      },
-      "hitDice": {
-        "d6": {
-          "current": 0,
-          "total": 0
-        },
-        "d8": {
-          "current": 0,
-          "total": 0
-        },
-        "d10": {
-          "current": 0,
-          "total": 0
-        },
-        "d12": {
-          "current": 24,
-          "total": 24
-        },
-        "d4": {
-          "current": 0,
-          "total": 0
-        },
-        "d20": {
-          "current": 0,
-          "total": 0
-        }
-      },
-      "initiative": {
-        "bonus": "",
-        "expertiseDice": 0,
-        "ability": "dex"
-      },
-      "movement": {
-        "burrow": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "climb": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "fly": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "swim": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "walk": {
-          "distance": 40,
-          "unit": "feet"
-        },
-        "traits": {
-          "hover": false
-        }
-      },
-      "senses": {
-        "blindsight": {
-          "distance": 0,
-          "unit": "feet",
-          "otherwiseBlind": false
-        },
-        "darkvision": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "tremorsense": {
-          "distance": 0,
-          "unit": "feet"
-        },
-        "truesight": {
-          "distance": 0,
-          "unit": "feet"
-        }
-      },
-      "inspiration": false,
-      "fatigue": 0,
-      "strife": 0,
-      "spellcasting": "int",
-      "casterLevel": 0
-    },
-    "bonuses": {
-      "abilities": {},
-      "damage": {},
-      "healing": {},
-      "maneuverDC": "",
-      "meleeSpellAttack": "",
-      "meleeWeaponAttack": "",
-      "rangedSpellAttack": "",
-      "rangedWeaponAttack": "",
-      "spellDC": "",
-      "attacks": {},
-      "initiative": {},
-      "movement": {},
-      "senses": {},
-      "skills": {},
-      "exertion": {},
-      "hitPoint": {}
-    },
-    "currency": {
-      "pp": 0,
-      "gp": 0,
-      "ep": 0,
-      "sp": 0,
-      "cp": 0
-    },
-    "details": {
-      "bio": "",
-      "creatureTypes": [
-        "giant"
-      ],
-      "isSwarm": false,
-      "cr": 8,
-      "elite": true,
-      "privateNotes": "",
-      "notes": "",
-      "terrain": [
-        "forest",
-        "mountains",
-        "planeOfEarth",
-        "ruin",
-        "theDreaming"
-      ],
-      "isSquad": false
-    },
-    "proficiencies": {
-      "armor": [],
-      "languages": [
-        "giant"
-      ],
-      "tools": [],
-      "weapons": []
-    },
-    "resources": {
-      "primary": {
-        "label": "",
-        "value": 0,
-        "max": "0",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "secondary": {
-        "label": "",
-        "value": 0,
-        "max": "0",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "tertiary": {
-        "label": "",
-        "value": 0,
-        "max": "0",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      },
-      "quaternary": {
-        "label": "",
-        "value": 0,
-        "max": "",
-        "per": "",
-        "hideMax": false,
-        "recharge": {
-          "formula": "",
-          "threshold": 6
-        }
-      }
-    },
-    "source": "strangerSights",
-    "traits": {
-      "size": "huge",
-      "conditionImmunities": [],
-      "damageImmunities": [],
-      "damageResistances": [],
-      "damageVulnerabilities": [],
-      "alignment": []
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "grants": {},
-    "spellBooks": {
-      "hYi4ot6Dcuam9vOH": {
-        "_id": "hYi4ot6Dcuam9vOH",
-        "name": "New Spell Book",
-        "img": "icons/svg/book.svg",
-        "ability": "default",
-        "disableSpellConsumers": false,
-        "showSpellPoints": false,
-        "showSpellSlots": true
-      }
-    }
-  },
-  "prototypeToken": {
-    "name": "Hill Jotun",
-    "displayName": 0,
-    "actorLink": false,
-    "width": 3,
-    "height": 3,
-    "lockRotation": false,
-    "rotation": 0,
-    "alpha": 1,
-    "light": {
-      "alpha": 0.5,
-      "angle": 360,
-      "bright": 0,
-      "coloration": 1,
-      "dim": 0,
-      "luminosity": 0.5,
-      "saturation": 0,
-      "contrast": 0,
-      "shadows": 0,
-      "animation": {
-        "speed": 5,
-        "intensity": 5,
-        "reverse": false,
-        "type": null
-      },
-      "darkness": {
-        "min": 0,
-        "max": 1
-      },
-      "attenuation": 0.5,
-      "color": null
-    },
-    "disposition": -1,
-    "displayBars": 0,
-    "bar1": {
-      "attribute": "attributes.hp"
-    },
-    "bar2": {
-      "attribute": null
-    },
-    "flags": {},
-    "randomImg": false,
-    "texture": {
-      "src": "systems/a5e/assets/hill-giant.webp",
-      "scaleX": 1,
-      "scaleY": 1,
-      "offsetX": 0,
-      "offsetY": 0,
-      "rotation": 0,
-      "tint": null
-    },
-    "sight": {
-      "angle": 360,
-      "enabled": false,
-      "range": 0,
-      "brightness": 1,
-      "color": null,
-      "attenuation": 0.1,
-      "saturation": 0,
-      "contrast": 0,
-      "visionMode": "basic"
-    },
-    "detectionModes": [],
-    "appendNumber": false,
-    "prependAdjective": false
-  },
-  "folder": null,
-  "_id": "cbx2z9stpror8xn8"
+	"name": "Hill Jotun Chief",
+	"type": "npc",
+	"img": "systems/a5e/assets/hill-giant.webp",
+	"items": [
+		{
+			"_id": "umZLP2ZnFHtax9xj",
+			"name": "Gullible",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.SDwavzrLR8ao9AQf.Item.umZLP2ZnFHtax9xj",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "passive"
+						}
+					},
+					"transfer": false,
+					"name": "Gullible",
+					"_id": "KRp3iKrC84nV4NOK",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.rollMode.skillCheck.ins",
+							"value": "-1",
+							"mode": 6,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>Makes Insight checks withdisadvantage.</p>",
+					"statuses": [],
+					"folder": null,
+					"_stats": {
+						"coreVersion": "12",
+						"systemId": "a5e",
+						"systemVersion": "0.19.14"
+					}
+				}
+			],
+			"folder": null,
+			"sort": 100000,
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>The giant makes Insight checks with disadvantage.</p><p></p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"_id": "5elRJVHjymytKSeO",
+			"name": "Multiattack",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 200000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"CYDGABCDXbxsheRU": {
+						"name": "Multiattack",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The giant attacks twice with its greatclub.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"_id": "WuPWtWUdzlmToxwZ",
+			"name": "Greatclub Sweep",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.SDwavzrLR8ao9AQf.Item.WuPWtWUdzlmToxwZ",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "igUD2K3gZ19401JB"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "ZBgF16Z29u4M7tJb",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null,
+					"_stats": {
+						"coreVersion": "12",
+						"systemId": "a5e",
+						"systemVersion": "0.19.14"
+					}
+				}
+			],
+			"folder": null,
+			"sort": 275000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"igUD2K3gZ19401JB": {
+						"name": "Greatclub Sweep",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {
+							"p929CXsir5Bajzkj": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {
+							"sJdBJp8lP5JQeD9g": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "3d8 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"BwMR0DolgWxAYDIg": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "maneuver"
+								}
+							},
+							"lhcUCVFWPREBAk4E": {
+								"type": "effect",
+								"default": true,
+								"effectId": "ZBgF16Z29u4M7tJb"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"9tkCKByxRSunWFqM": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "emanation",
+							"quantity": 1,
+							"radius": 10,
+							"placeTemplate": true
+						}
+					}
+				},
+				"description": "<p>Each creature within 10 feet of the hill jotun makes a DC 16 Dexterity saving throw. On a failure, a creature takes 18 (3d8+5) bludgeoning, is pushed 10 feet away from the jotun, and falls prone.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": true,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"_id": "cOT2A2leXxCKyUxo",
+			"name": "Grab",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.SDwavzrLR8ao9AQf.Item.cOT2A2leXxCKyUxo",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "eFg4hKR2hBV6fZ9S"
+						}
+					},
+					"transfer": false,
+					"name": "Grappled",
+					"_id": "0x5gPZMx6AZPp9d8",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"grappled\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"grappled"
+					],
+					"folder": null,
+					"_stats": {
+						"coreVersion": "12",
+						"systemId": "a5e",
+						"systemVersion": "0.19.14"
+					}
+				}
+			],
+			"folder": null,
+			"sort": 287500,
+			"flags": {
+				"core": {
+					"sourceId": "Item.i2cfGU9ofnKwr9OF"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"eFg4hKR2hBV6fZ9S": {
+						"name": "Grab",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {
+							"eLky4zTfiqRBFouj": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "dex"
+								}
+							},
+							"CerGhyyvRxxzsLiK": {
+								"type": "effect",
+								"default": true,
+								"effectId": "0x5gPZMx6AZPp9d8"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>One creature within 5 feet makes a DC 10 Dexterity saving throw. On a failure, it is grappled (escape DC 16). Until this grapple ends, the giant can’t grab another target, and it makes greatclub attacks with advantage against the grappled target.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"name": "Elite Recovery",
+			"type": "feature",
+			"_id": "eAjzeFlgrh6lAnZ2",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"n7UbZpAsVnhdfFGG": {
+						"name": "Elite Recovery",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The jotun ends one negative effect currently affecting it. It can do so as long as it has at least 1 hit point, even while unconscious or incapacitated.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": true,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"name": "Reflexive Swat",
+			"type": "feature",
+			"_id": "stMTDLsmBob1ZSPA",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"gA231W9HuxmpSCzW": {
+						"name": "Reflexive Swat",
+						"activation": {
+							"type": "reaction",
+							"cost": 1,
+							"reactionTrigger": "A creature the hill jotun can see within 5 feet hits it with a melee attack"
+						},
+						"consumers": {},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>When a creature the hill jotun can see within 5 feet hits it with a melee attack, the hill jotun makes a greatclub attack against it.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": true,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"name": "Grapple",
+			"type": "maneuver",
+			"img": "icons/skills/melee/unarmed-punch-fist.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l"
+				}
+			},
+			"system": {
+				"actions": {
+					"wOKLPnhKpnhU1kEj": {
+						"name": "Grapple",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"5nrDtksc3KPCbcJd": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"B9sbtgKAz5GLtsp3": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p><p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p><p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p><p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_id": "uAHzzYR86pVRDO0S",
+			"folder": null,
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"name": "Grab On",
+			"type": "maneuver",
+			"img": "icons/skills/melee/hand-grip-staff-teal.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9"
+				}
+			},
+			"system": {
+				"actions": {
+					"dZElCBOd3yoRyDcB": {
+						"name": "Grab On",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"x479yGm9lUjVLHDy": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"duRNu9hfiRNwhtCq": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_id": "rT3FEs8LUH0ASXuR",
+			"folder": null,
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"name": "Disarm",
+			"type": "maneuver",
+			"img": "icons/skills/melee/sword-damaged-broken-glow-red.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp"
+				}
+			},
+			"system": {
+				"actions": {
+					"xN5ZLHIjo9cHRWrK": {
+						"name": "Disarm",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"dFgwvnjjgmzR7vlN": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"FDMYIPcl2LveduMw": {
+								"canCrit": false,
+								"damageType": "",
+								"formula": "1 + @str.mod",
+								"name": "",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"xs1KlWtLXswqrVKY": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_id": "zOPOkKL9k4Q6RjSV",
+			"folder": null,
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"name": "Knockdown",
+			"type": "maneuver",
+			"img": "icons/magic/control/silhouette-fall-slip-prone.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi"
+				}
+			},
+			"system": {
+				"actions": {
+					"wfzmnudl6tfhZk4v": {
+						"name": "Knockdown",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"NbOuce8AtLVjDeeL": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"L65ZmTO0KcmeQ2EQ": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_id": "frzK23sPHK6IQRaf",
+			"folder": null,
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"name": "Overrun",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-damaged-broken-blue.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20"
+				}
+			},
+			"system": {
+				"actions": {
+					"kBUgwxtsHQqPa1DV": {
+						"name": "Overrun",
+						"activation": {
+							"cost": 1,
+							"type": "special",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"VAh3uPOJAaI5ShrA": {
+								"range": "touch"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": "",
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"prompts": {
+							"bvFJU6hHDstCwg1b": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_id": "78BpRcjcxJSZwJrR",
+			"folder": null,
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"name": "Shove",
+			"type": "maneuver",
+			"img": "icons/skills/melee/shield-block-bash-yellow.webp",
+			"effects": [],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6"
+				}
+			},
+			"system": {
+				"actions": {
+					"uvkBwwL7OQopMMHB": {
+						"name": "Shove",
+						"activation": {
+							"cost": 1,
+							"type": "action",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "instantaneous",
+							"value": null
+						},
+						"ranges": {
+							"j7yuRUD8cu1y0Jia": {
+								"range": "fiveFeet"
+							}
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": null,
+							"type": "creature",
+							"shape": "",
+							"size": ""
+						},
+						"rolls": {
+							"TcI6WmWSAy0EAxg9": {
+								"canCrit": false,
+								"damageType": "bludgeoning",
+								"formula": "1 + @str.mod",
+								"name": "Default",
+								"type": "damage"
+							}
+						},
+						"prompts": {
+							"UVu9ZVC0beiWNgAV": {
+								"ability": "str",
+								"onSave": "",
+								"saveDC": {
+									"type": "custom",
+									"bonus": "@maneuverDC"
+								},
+								"type": "savingThrow"
+							}
+						},
+						"consumers": {}
+					}
+				},
+				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"degree": 0,
+				"exertionCost": 0,
+				"isStance": false,
+				"prerequisite": "",
+				"tradition": "",
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_id": "sAZ1HtV3r7VInxRK",
+			"folder": null,
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"name": "Greatclub",
+			"type": "object",
+			"img": "icons/weapons/clubs/club-banded-barbed-black.webp",
+			"effects": [
+				{
+					"icon": "icons/weapons/clubs/club-banded-barbed-black.webp",
+					"origin": "Actor.SDwavzrLR8ao9AQf.Item.XSDtItB45S8tZug6",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "TZ68p8QOlBxq5nAp"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "TelcmHfd0JnvXcFH",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null,
+					"_stats": {
+						"coreVersion": "12",
+						"systemId": "a5e",
+						"systemVersion": "0.19.14"
+					}
+				}
+			],
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-adventuring-gear.Item.rj44twjfhjkahbk1"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"TZ68p8QOlBxq5nAp": {
+						"name": "Greatclub",
+						"activation": {
+							"cost": "",
+							"type": "",
+							"reactionTrigger": ""
+						},
+						"duration": {
+							"unit": "",
+							"value": ""
+						},
+						"area": {
+							"shape": "",
+							"size": "",
+							"placeTemplate": false
+						},
+						"target": {
+							"quantity": 1,
+							"type": "creatureObject"
+						},
+						"rolls": {
+							"iCfqnFJbiMWsO2fo": {
+								"bonus": "",
+								"critThreshold": "20",
+								"type": "attack",
+								"attackType": "meleeWeaponAttack",
+								"ability": "default"
+							},
+							"hlVu0grEO6zrkk7w": {
+								"canCrit": true,
+								"damageType": "bludgeoning",
+								"formula": "3d8 + @str.mod",
+								"name": "Greatclub 1H",
+								"type": "damage",
+								"label": "",
+								"default": true
+							}
+						},
+						"consumers": {},
+						"ranges": {
+							"TyMjhAyEYFN8ixak": {
+								"range": 10,
+								"unit": "feet"
+							}
+						},
+						"prompts": {
+							"1VXaG8bnHlRq56Co": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "maneuver"
+								}
+							},
+							"CnNLLeJhM1frI6pb": {
+								"type": "effect",
+								"default": true,
+								"effectId": "TelcmHfd0JnvXcFH"
+							}
+						}
+					}
+				},
+				"description": "<p>If the target is a Medium or smaller creature, it makes a DC 16 Strength saving throw, falling prone on a failure.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 0,
+				"items": {},
+				"materialProperties": [],
+				"objectType": "weapon",
+				"plotItem": false,
+				"price": "5 sp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [
+					"versatile",
+					"simple"
+				],
+				"weight": 10,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "d10",
+				"mounted": []
+			},
+			"folder": null,
+			"_id": "XSDtItB45S8tZug6",
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"_id": "UPEAzanHdxAqMie6",
+			"name": "Rock",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.SDwavzrLR8ao9AQf.Item.UPEAzanHdxAqMie6",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "z30C9URE1zFgZSvj"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "mWMlfADoaSi6lUyM",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null,
+					"_stats": {
+						"coreVersion": "12",
+						"systemId": "a5e",
+						"systemVersion": "0.19.14"
+					}
+				}
+			],
+			"folder": null,
+			"sort": 250000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"z30C9URE1zFgZSvj": {
+						"name": "Rock",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"vPRbm2Un6BrtKESg": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"l5t9yTCeU7Ep4LJJ": {
+								"type": "damage",
+								"default": true,
+								"formula": "6d6 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"UQLpuuISs3Iv9epZ": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "maneuver"
+								}
+							},
+							"ix7Hvop83iLVIE0E": {
+								"type": "effect",
+								"default": true,
+								"effectId": "mWMlfADoaSi6lUyM"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"xmY83u1QYSe8ircE": {
+								"range": "medium"
+							},
+							"BoaAgIr7uHeHsmi0": {
+								"range": 240,
+								"unit": "feet"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>If the target is a Medium or smaller creature, it makes a DC 16 Strength saving throw, falling prone on a failure.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"_id": "rAPQ4bLVImXEyJoR",
+			"name": "Throw Creature",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.SDwavzrLR8ao9AQf.Item.rAPQ4bLVImXEyJoR",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "z30C9URE1zFgZSvj"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "mWMlfADoaSi6lUyM",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null,
+					"_stats": {
+						"coreVersion": "12",
+						"systemId": "a5e",
+						"systemVersion": "0.19.14"
+					}
+				}
+			],
+			"folder": null,
+			"sort": 250000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.Hcp8zUrtUBaXFT4i"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"z30C9URE1zFgZSvj": {
+						"name": "Throw Creature",
+						"activation": {
+							"type": "action",
+							"cost": 1
+						},
+						"consumers": {},
+						"rolls": {
+							"vPRbm2Un6BrtKESg": {
+								"type": "attack",
+								"default": true,
+								"attackType": "rangedWeaponAttack",
+								"proficient": true,
+								"ability": "default"
+							},
+							"l5t9yTCeU7Ep4LJJ": {
+								"type": "damage",
+								"default": true,
+								"formula": "3d6 + @str.mod",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"ix7Hvop83iLVIE0E": {
+								"type": "effect",
+								"default": true,
+								"effectId": "mWMlfADoaSi6lUyM"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"xmY83u1QYSe8ircE": {
+								"range": "short"
+							}
+						},
+						"target": {
+							"type": "creatureObject",
+							"quantity": 1
+						}
+					}
+				},
+				"description": "<p>In lieu of a rock, the giant can throw a grappled Medium or smaller creature up to 30 feet. On a hit, the target and the thrown creature both take 15 (3d6 + 5) bludgeoning damage. On a miss, only the thrown creature takes the damage. The thrown creature falls prone in an unoccupied space 5 feet from the target.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"name": "Bloodied Fighter",
+			"type": "feature",
+			"_id": "gFRhIQeNruSz7zqP",
+			"img": "icons/svg/item-bag.svg",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"uAwZ0nqVr3JkVkYY": {
+						"name": "Bloodied Fighter",
+						"activation": {},
+						"consumers": {
+							"XtqtwOoJLAbRwY5s": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>When the hill jotun chief first becomes bloodied, it regains any expended 1/day abilities.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": true,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {
+				"core": {
+					"sourceId": "Compendium.a5e.a5e-monsters.Actor.cbx2z9stpror8xn8.Item.Y97fJCU92iaWrPST"
+				}
+			},
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"_id": "cp9yc6zRg056vXHz",
+			"name": "Body Slam",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.AxWx5sfFwmPrTGFv.Item.cp9yc6zRg056vXHz",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "MoBuegnY0YqNf0xB",
+							"applyToSelf": true
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "uumlv8jHEUJTIhld",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null,
+					"_stats": {
+						"coreVersion": "12",
+						"systemId": "a5e",
+						"systemVersion": "0.19.14"
+					}
+				}
+			],
+			"folder": null,
+			"sort": 900000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.i2cfGU9ofnKwr9OF"
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"MoBuegnY0YqNf0xB": {
+						"name": "Body Slam",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {
+							"m2pFM6IhSdaRlzJ2": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {
+							"QGDMmnX62aibCA9k": {
+								"type": "damage",
+								"default": true,
+								"canCrit": false,
+								"formula": "3d8 + 6",
+								"damageType": "bludgeoning"
+							}
+						},
+						"prompts": {
+							"yu82gZFLekfk1h5T": {
+								"type": "effect",
+								"default": true,
+								"effectId": "uumlv8jHEUJTIhld"
+							},
+							"2jjO3RGND9n6fBXr": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "con"
+								},
+								"onSave": "Half damage"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						}
+					}
+				},
+				"description": "<p>The giant jumps up to 15 feet horizontally without provoking opportunity attacks and falls prone in a space containing one or more creatures. Each creature in its space when it lands makes a DC 15 Dexterity saving throw, taking 19 (3d8 + 6) bludgeoning damage and falling prone on a failure. On a success, the creature takes half damage and is pushed 5 feet to an unoccupied space of its choice. If that space is occupied, the creature falls prone.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"_id": "Z0wEsLMBozb7rFGP",
+			"name": "Muddy Ground",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.AxWx5sfFwmPrTGFv.Item.Z0wEsLMBozb7rFGP",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "fOXIbg0j1rc1IUL3",
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"transfer": false,
+					"name": "Stuck in the Mud",
+					"_id": "v8PiScKHBFKnD9EZ",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.movement.allDistances",
+							"value": "9",
+							"mode": 6,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "<p>Speed drops to 9.</p>",
+					"statuses": [],
+					"folder": null,
+					"_stats": {
+						"coreVersion": "12",
+						"systemId": "a5e",
+						"systemVersion": "0.19.14"
+					}
+				}
+			],
+			"folder": null,
+			"sort": 800000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.i2cfGU9ofnKwr9OF"
+				},
+				"a5e": {
+					"placeTemplate": true
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"fOXIbg0j1rc1IUL3": {
+						"name": "Muddy Ground",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {
+							"l2Mbcj1E3HgIQpNs": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {
+							"Akm9wzu9sSetTtM4": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "str",
+								"saveDC": {
+									"type": "con"
+								}
+							},
+							"8oYyTTcpZ5RMBKl6": {
+								"type": "effect",
+								"default": true,
+								"effectId": "v8PiScKHBFKnD9EZ"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"sKlT8rJaIZpk5l3S": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"radius": 60,
+							"placeTemplate": true
+						},
+						"duration": {
+							"unit": "minute",
+							"value": 1
+						}
+					}
+				},
+				"description": "<p>Areas of unworked earth within 60 feet magically become swampy mud for 1 minute or until the giant dies. These areas become difficult terrain. Prone creatures in the area when the mud appears or that fall prone in the area make a DC 15 Strength saving throw. On a failure, the creature’s Speed drops to 0 as it becomes stuck in the mud. A creature can use its action to make a DC 15 Strength check, freeing itself on a success.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"_id": "9MVx84safCZrOoSI",
+			"name": "Stomp",
+			"type": "feature",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [
+				{
+					"icon": "icons/svg/item-bag.svg",
+					"origin": "Actor.AxWx5sfFwmPrTGFv.Item.9MVx84safCZrOoSI",
+					"flags": {
+						"a5e": {
+							"sort": 0,
+							"transferType": "onUse",
+							"actionId": "2LGsScWvIQmWTHev"
+						}
+					},
+					"transfer": false,
+					"name": "Prone",
+					"_id": "frDizbiQjuqwUsOi",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"prone\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"statuses": [
+						"prone"
+					],
+					"folder": null,
+					"_stats": {
+						"coreVersion": "12",
+						"systemId": "a5e",
+						"systemVersion": "0.19.14"
+					}
+				}
+			],
+			"folder": null,
+			"sort": 400000,
+			"flags": {
+				"core": {
+					"sourceId": "Item.i2cfGU9ofnKwr9OF"
+				},
+				"a5e": {
+					"placeTemplate": true
+				}
+			},
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 1,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {
+					"2LGsScWvIQmWTHev": {
+						"name": "Stomp",
+						"activation": {
+							"type": "bonusAction",
+							"cost": 1
+						},
+						"consumers": {
+							"RYLRJalwqA3GPIQa": {
+								"type": "itemUses",
+								"default": true,
+								"quantity": 1
+							}
+						},
+						"rolls": {},
+						"prompts": {
+							"jSyKhOomq6VpkZod": {
+								"type": "savingThrow",
+								"default": true,
+								"ability": "dex",
+								"saveDC": {
+									"type": "con"
+								}
+							},
+							"9sCv0IZbJaCP06Rm": {
+								"type": "effect",
+								"default": true,
+								"effectId": "frDizbiQjuqwUsOi"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "1d6",
+								"rechargeType": "custom",
+								"rechargeAmount": "1",
+								"threshold": 6
+							}
+						},
+						"ranges": {
+							"SJRQ1uwvhw2wRXuW": {
+								"range": "self"
+							}
+						},
+						"area": {
+							"shape": "circle",
+							"quantity": 1,
+							"placeTemplate": true,
+							"radius": 60
+						}
+					}
+				},
+				"description": "<p>The giant stamps its foot, causing the ground to tremble. Each creature within 60 feet makes a DC 15 Dexterity saving throw. On a failure, it falls prone.</p>",
+				"favorite": true,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "day",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"concentration": false,
+				"featureType": "",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				}
+			},
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"effects": [
+		{
+			"icon": "icons/svg/item-bag.svg",
+			"origin": "Actor.cbx2z9stpror8xn8.Item.umZLP2ZnFHtax9xj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Gullible",
+			"_id": "TfJ69FJtwOZ2VDGr",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ins",
+					"value": "-1",
+					"mode": 6,
+					"priority": 0
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": 0,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Makes Insight checks withdisadvantage.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {
+		"a5e": {
+			"sheetIsLocked": true,
+			"TrackInventoryWeight": true,
+			"carryCapacityMultiplier": 1,
+			"trackCurrencyWeight": true,
+			"HideEmptyTraits": true,
+			"IncludeAbilityModifiersForSkills": true,
+			"showManeuverTab": false,
+			"showSpellTab": false,
+			"sortMode": {},
+			"filters": {}
+		}
+	},
+	"system": {
+		"abilities": {
+			"str": {
+				"value": 20,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"dex": {
+				"value": 8,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"con": {
+				"value": 18,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": true,
+					"expertiseDice": 0,
+					"bonus": "",
+					"concentrationBonus": ""
+				}
+			},
+			"int": {
+				"value": 6,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"wis": {
+				"value": 10,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			},
+			"cha": {
+				"value": 6,
+				"check": {
+					"expertiseDice": 0,
+					"bonus": ""
+				},
+				"save": {
+					"proficient": false,
+					"expertiseDice": 0,
+					"bonus": ""
+				}
+			}
+		},
+		"skills": {
+			"acr": {
+				"ability": "dex",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ani": {
+				"ability": "wis",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"arc": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ath": {
+				"ability": "str",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"cul": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"dec": {
+				"ability": "cha",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"eng": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"his": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ins": {
+				"ability": "wis",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"itm": {
+				"ability": "cha",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"inv": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"med": {
+				"ability": "wis",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"nat": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prc": {
+				"ability": "wis",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"prf": {
+				"ability": "cha",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"per": {
+				"ability": "cha",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"rel": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"slt": {
+				"ability": "dex",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"ste": {
+				"ability": "dex",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			},
+			"sur": {
+				"ability": "wis",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
+			}
+		},
+		"spellResources": {
+			"slots": {
+				"1": {
+					"current": 0,
+					"max": 0
+				},
+				"2": {
+					"current": 0,
+					"max": 0
+				},
+				"3": {
+					"current": 0,
+					"max": 0
+				},
+				"4": {
+					"current": 0,
+					"max": 0
+				},
+				"5": {
+					"current": 0,
+					"max": 0
+				},
+				"6": {
+					"current": 0,
+					"max": 0
+				},
+				"7": {
+					"current": 0,
+					"max": 0
+				},
+				"8": {
+					"current": 0,
+					"max": 0
+				},
+				"9": {
+					"current": 0,
+					"max": 0
+				}
+			},
+			"points": {
+				"current": 0,
+				"max": 0
+			},
+			"artifactCharges": {
+				"current": 0,
+				"max": 0
+			},
+			"inventions": {
+				"current": 0,
+				"max": 0
+			}
+		},
+		"attributes": {
+			"ac": {
+				"value": 0,
+				"baseFormula": "13"
+			},
+			"death": {
+				"success": 0,
+				"failure": 0
+			},
+			"hp": {
+				"value": 252,
+				"baseMax": 252,
+				"temp": 0,
+				"bonus": null
+			},
+			"hitDice": {
+				"d6": {
+					"current": 0,
+					"total": 0
+				},
+				"d8": {
+					"current": 0,
+					"total": 0
+				},
+				"d10": {
+					"current": 0,
+					"total": 0
+				},
+				"d12": {
+					"current": 24,
+					"total": 24
+				},
+				"d4": {
+					"current": 0,
+					"total": 0
+				},
+				"d20": {
+					"current": 0,
+					"total": 0
+				}
+			},
+			"initiative": {
+				"bonus": "",
+				"expertiseDice": 0,
+				"ability": "dex"
+			},
+			"movement": {
+				"burrow": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"climb": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"fly": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"swim": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"walk": {
+					"distance": 40,
+					"unit": "feet"
+				},
+				"traits": {
+					"hover": false
+				}
+			},
+			"senses": {
+				"blindsight": {
+					"distance": 0,
+					"unit": "feet",
+					"otherwiseBlind": false
+				},
+				"darkvision": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"tremorsense": {
+					"distance": 0,
+					"unit": "feet"
+				},
+				"truesight": {
+					"distance": 0,
+					"unit": "feet"
+				}
+			},
+			"inspiration": false,
+			"fatigue": 0,
+			"strife": 0,
+			"spellcasting": "int",
+			"casterLevel": 0
+		},
+		"bonuses": {
+			"abilities": {},
+			"damage": {},
+			"healing": {},
+			"maneuverDC": "",
+			"meleeSpellAttack": "",
+			"meleeWeaponAttack": "",
+			"rangedSpellAttack": "",
+			"rangedWeaponAttack": "",
+			"spellDC": "",
+			"attacks": {},
+			"initiative": {},
+			"movement": {},
+			"senses": {},
+			"skills": {},
+			"exertion": {},
+			"hitPoint": {}
+		},
+		"currency": {
+			"pp": 0,
+			"gp": 0,
+			"ep": 0,
+			"sp": 0,
+			"cp": 0
+		},
+		"details": {
+			"bio": "",
+			"creatureTypes": [
+				"giant"
+			],
+			"isSwarm": false,
+			"cr": 8,
+			"elite": true,
+			"privateNotes": "",
+			"notes": "",
+			"terrain": [
+				"forest",
+				"mountains",
+				"planeOfEarth",
+				"ruin",
+				"theDreaming"
+			],
+			"isSquad": false
+		},
+		"proficiencies": {
+			"armor": [],
+			"languages": [
+				"giant"
+			],
+			"tools": [],
+			"weapons": []
+		},
+		"resources": {
+			"primary": {
+				"label": "",
+				"value": 0,
+				"max": "0",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"secondary": {
+				"label": "",
+				"value": 0,
+				"max": "0",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"tertiary": {
+				"label": "",
+				"value": 0,
+				"max": "0",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			},
+			"quaternary": {
+				"label": "",
+				"value": 0,
+				"max": "",
+				"per": "",
+				"hideMax": false,
+				"recharge": {
+					"formula": "",
+					"threshold": 6
+				}
+			}
+		},
+		"source": "strangerSights",
+		"traits": {
+			"size": "huge",
+			"conditionImmunities": [],
+			"damageImmunities": [],
+			"damageResistances": [],
+			"damageVulnerabilities": [],
+			"alignment": []
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"grants": {},
+		"spellBooks": {
+			"hYi4ot6Dcuam9vOH": {
+				"_id": "hYi4ot6Dcuam9vOH",
+				"name": "New Spell Book",
+				"img": "icons/svg/book.svg",
+				"ability": "default",
+				"disableSpellConsumers": false,
+				"showSpellPoints": false,
+				"showSpellSlots": true
+			}
+		}
+	},
+	"prototypeToken": {
+		"name": "Hill Jotun",
+		"displayName": 0,
+		"actorLink": false,
+		"width": 3,
+		"height": 3,
+		"lockRotation": false,
+		"rotation": 0,
+		"alpha": 1,
+		"light": {
+			"alpha": 0.5,
+			"angle": 360,
+			"bright": 0,
+			"coloration": 1,
+			"dim": 0,
+			"luminosity": 0.5,
+			"saturation": 0,
+			"contrast": 0,
+			"shadows": 0,
+			"animation": {
+				"speed": 5,
+				"intensity": 5,
+				"reverse": false,
+				"type": null
+			},
+			"darkness": {
+				"min": 0,
+				"max": 1
+			},
+			"attenuation": 0.5,
+			"color": null
+		},
+		"disposition": -1,
+		"displayBars": 0,
+		"bar1": {
+			"attribute": "attributes.hp"
+		},
+		"bar2": {
+			"attribute": null
+		},
+		"flags": {},
+		"randomImg": false,
+		"texture": {
+			"src": "systems/a5e/assets/hill-giant.webp",
+			"scaleX": 1,
+			"scaleY": 1,
+			"offsetX": 0,
+			"offsetY": 0,
+			"rotation": 0,
+			"tint": null
+		},
+		"sight": {
+			"angle": 360,
+			"enabled": false,
+			"range": 0,
+			"brightness": 1,
+			"color": null,
+			"attenuation": 0.1,
+			"saturation": 0,
+			"contrast": 0,
+			"visionMode": "basic"
+		},
+		"detectionModes": [],
+		"appendNumber": false,
+		"prependAdjective": false
+	},
+	"folder": null,
+	"_id": "cbx2z9stpror8xn8",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

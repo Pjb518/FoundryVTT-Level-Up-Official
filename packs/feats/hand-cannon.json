@@ -1,213 +1,223 @@
 {
-  "folder": null,
-  "name": "Hand Cannon",
-  "type": "object",
-  "img": "icons/weapons/artillery/cannon-banded.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "Yg5CVu88frZe7m8I": {
-        "name": "Deploy",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "hfFI6dqkEgY6tKT1": {
-            "type": "effect",
-            "default": true,
-            "effectId": "Fl1SP8Ct1p2odQxF"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      },
-      "hCHu9NxNEDh9grUr": {
-        "name": "Stow",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      },
-      "RiSw0M7JOzQQD8wc": {
-        "name": "Attack",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "kA459lOWsQ9UurPg": {
-            "type": "ammunition",
-            "default": true,
-            "itemId": "",
-            "quantity": 1
-          }
-        },
-        "rolls": {
-          "eMv6GSsPl5D4jAT0": {
-            "type": "attack",
-            "default": true,
-            "attackType": "rangedWeaponAttack",
-            "proficient": true,
-            "ability": "default"
-          },
-          "aZPiyhCGcailgWU5": {
-            "type": "damage",
-            "default": true,
-            "formula": "2d12 + @dex.mod",
-            "damageType": "bludgeoning"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "2gIBNOPMnz0Bgz1p": {
-            "range": "long"
-          },
-          "wmNuhInMcyXi4loJ": {
-            "range": 360,
-            "unit": "feet"
-          }
-        },
-        "target": {
-          "type": "creatureObject",
-          "quantity": 1
-        }
-      }
-    },
-    "description": "",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "extraCreditAndDeeperMysteries",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": true,
-    "craftingComponents": "",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "weapon",
-    "plotItem": false,
-    "price": "0",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "mundane",
-    "requiresAttunement": false,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [
-      "loading",
-      "range"
-    ],
-    "weight": 50,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": null
-    },
-    "breakerProperties": [],
-    "defensiveProperties": "",
-    "flaws": [],
-    "mounted": [],
-    "versatile": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/weapons/artillery/cannon-banded.webp",
-      "origin": "Item.hNZrM4yOkuaxhUX2",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "Yg5CVu88frZe7m8I",
-          "applyToSelf": true
-        }
-      },
-      "transfer": false,
-      "name": "Deployed",
-      "_id": "Fl1SP8Ct1p2odQxF",
-      "changes": [
-        {
-          "key": "system.attributes.movement.walk.distance",
-          "value": "@original/2",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "75363zwdkzofemmd"
+	"folder": null,
+	"name": "Hand Cannon",
+	"type": "object",
+	"img": "icons/weapons/artillery/cannon-banded.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Yg5CVu88frZe7m8I": {
+				"name": "Deploy",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"hfFI6dqkEgY6tKT1": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Fl1SP8Ct1p2odQxF"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"hCHu9NxNEDh9grUr": {
+				"name": "Stow",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"RiSw0M7JOzQQD8wc": {
+				"name": "Attack",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"kA459lOWsQ9UurPg": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"eMv6GSsPl5D4jAT0": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"aZPiyhCGcailgWU5": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d12 + @dex.mod",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"2gIBNOPMnz0Bgz1p": {
+						"range": "long"
+					},
+					"wmNuhInMcyXi4loJ": {
+						"range": 360,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "extraCreditAndDeeperMysteries",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": true,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "0",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"loading",
+			"range"
+		],
+		"weight": 50,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"breakerProperties": [],
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/weapons/artillery/cannon-banded.webp",
+			"origin": "Item.hNZrM4yOkuaxhUX2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Yg5CVu88frZe7m8I",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Deployed",
+			"_id": "Fl1SP8Ct1p2odQxF",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "@original/2",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"_id": "75363zwdkzofemmd",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

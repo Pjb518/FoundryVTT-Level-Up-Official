@@ -1,270 +1,290 @@
 {
-  "folder": null,
-  "name": "Ring of Battered Courage",
-  "type": "object",
-  "img": "icons/equipment/finger/ring-band-notched-gold.webp",
-  "system": {
-    "ac": {
-      "baseFormula": "",
-      "formula": "",
-      "grantsDisadvantage": false,
-      "maxDex": 0,
-      "minStr": 0,
-      "mode": 2,
-      "requiresNoShield": false,
-      "requiresUnarmored": false
-    },
-    "actions": {
-      "NqHA504OrwuM98Zf": {
-        "name": "Melee Weapon Attack (While Bloodied)",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "whY12Tdnv57qQGnG": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d8"
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      },
-      "CaeJqhzgP3NZJLmB": {
-        "name": "Charge Into Danger (While Bloodied)",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "CaDAdRhmfevdFmt4": {
-            "type": "effect",
-            "default": true,
-            "effectId": "r15DlHQHD1WMQTQR"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      },
-      "QBC0iMSF1CAiYRo0": {
-        "name": "Coward's Bane",
-        "activation": {},
-        "consumers": {},
-        "rolls": {},
-        "prompts": {
-          "8i88u1QmNNjEVmwY": {
-            "type": "effect",
-            "default": true,
-            "effectId": "QJJ7ncCX9SEdqEjX"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>This jagged black ring made of volcanic rock is streaked with orange veins and uncomfortable to wear. While wearing this ring, you are immune to the frightened condition. Additionally, while you are bloodied, it grows hotter and grants the following benefits:</p><ul><li>Your AC increases by 1 for each hostile creature (squads and swarms count as single creatures for this purpose) within 5 feet of you, to a maximum of +5.</li><li>When you hit a creature with a melee weapon attack, roll 1d8. Add the result to the attack&rsquo;s damage and gain the same amount of temporary hit points.</li></ul><p><strong>Curse.</strong> You fail death saving throws on a roll of 12 or lower. Additionally, this ring despises what it sees as cowardice. If you don armor or use a shield defensively, you lose all benefits of this ring for 1 week.</p><p><strong>Escalation. </strong>When you show extraordinary courage in the face of certain death and emerge victorious, this ring&rsquo;s power can evolve, gaining one of the following features. For each power it gains, the threshold for successful death saving throws increases by 2.</p><p><em>Charge Into Danger.</em> As a bonus action while bloodied, you can move up to your movement speed toward a hostile creature.</p><p><em>Coward&rsquo;s Bane.</em> Creatures never gain advantage from being unseen on attack rolls against you and you always have resistance to poison damage.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "gpg3",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "ammunitionProperties": [],
-    "armorCategory": "",
-    "armorProperties": [],
-    "attuned": false,
-    "bulky": false,
-    "craftingComponents": "The heart of an azer forgemaster killed in battle, encased in obsidian",
-    "containerId": "",
-    "damagedState": 0,
-    "equippedState": 0,
-    "items": {},
-    "materialProperties": [],
-    "objectType": "jewelry",
-    "plotItem": false,
-    "price": "2,500 gp",
-    "proficient": true,
-    "quantity": 1,
-    "rarity": "rare",
-    "requiresAttunement": true,
-    "shieldCategory": "",
-    "shieldProperties": [],
-    "unidentified": false,
-    "unidentifiedDescription": "",
-    "unidentifiedName": "",
-    "weaponProperties": [],
-    "weight": 0,
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "breakerProperties": [],
-    "defensiveProperties": "",
-    "flaws": [],
-    "versatile": "",
-    "mounted": []
-  },
-  "effects": [
-    {
-      "icon": "icons/equipment/finger/ring-band-notched-gold.webp",
-      "origin": "Item.gkpu21shq1bhjc5e",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "passive"
-        }
-      },
-      "transfer": false,
-      "name": "Ring of Battered Courage",
-      "_id": "EHR8T5ZT2HN0Pvte",
-      "changes": [
-        {
-          "key": "system.traits.conditionImmunities",
-          "value": "[\"frightened\"]",
-          "mode": 2,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.deathSaveThreshold",
-          "value": "13",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/equipment/finger/ring-band-notched-gold.webp",
-      "origin": "Item.gkpu21shq1bhjc5e",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "QBC0iMSF1CAiYRo0",
-          "applyToSelf": true
-        }
-      },
-      "transfer": false,
-      "name": "Coward’s Bane",
-      "_id": "QJJ7ncCX9SEdqEjX",
-      "changes": [
-        {
-          "key": "system.traits.damageResistances",
-          "value": "[\"poison\"]",
-          "mode": 2,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.deathSaveThreshold",
-          "value": "2",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    },
-    {
-      "icon": "icons/equipment/finger/ring-band-notched-gold.webp",
-      "origin": "Item.gkpu21shq1bhjc5e",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "CaeJqhzgP3NZJLmB",
-          "applyToSelf": true
-        }
-      },
-      "transfer": false,
-      "name": "Charge Into Danger",
-      "_id": "r15DlHQHD1WMQTQR",
-      "changes": [
-        {
-          "key": "flags.a5e.deathSaveThreshold",
-          "value": "2",
-          "mode": 2,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "gkpu21shq1bhjc5e"
+	"folder": null,
+	"name": "Ring of Battered Courage",
+	"type": "object",
+	"img": "icons/equipment/finger/ring-band-notched-gold.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"NqHA504OrwuM98Zf": {
+				"name": "Melee Weapon Attack (While Bloodied)",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"whY12Tdnv57qQGnG": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"CaeJqhzgP3NZJLmB": {
+				"name": "Charge Into Danger (While Bloodied)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"CaDAdRhmfevdFmt4": {
+						"type": "effect",
+						"default": true,
+						"effectId": "r15DlHQHD1WMQTQR"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"QBC0iMSF1CAiYRo0": {
+				"name": "Coward's Bane",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"8i88u1QmNNjEVmwY": {
+						"type": "effect",
+						"default": true,
+						"effectId": "QJJ7ncCX9SEdqEjX"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>This jagged black ring made of volcanic rock is streaked with orange veins and uncomfortable to wear. While wearing this ring, you are immune to the frightened condition. Additionally, while you are bloodied, it grows hotter and grants the following benefits:</p><ul><li>Your AC increases by 1 for each hostile creature (squads and swarms count as single creatures for this purpose) within 5 feet of you, to a maximum of +5.</li><li>When you hit a creature with a melee weapon attack, roll 1d8. Add the result to the attack&rsquo;s damage and gain the same amount of temporary hit points.</li></ul><p><strong>Curse.</strong> You fail death saving throws on a roll of 12 or lower. Additionally, this ring despises what it sees as cowardice. If you don armor or use a shield defensively, you lose all benefits of this ring for 1 week.</p><p><strong>Escalation. </strong>When you show extraordinary courage in the face of certain death and emerge victorious, this ring&rsquo;s power can evolve, gaining one of the following features. For each power it gains, the threshold for successful death saving throws increases by 2.</p><p><em>Charge Into Danger.</em> As a bonus action while bloodied, you can move up to your movement speed toward a hostile creature.</p><p><em>Coward&rsquo;s Bane.</em> Creatures never gain advantage from being unseen on attack rolls against you and you always have resistance to poison damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "gpg3",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "The heart of an azer forgemaster killed in battle, encased in obsidian",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "jewelry",
+		"plotItem": false,
+		"price": "2,500 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "rare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"breakerProperties": [],
+		"defensiveProperties": "",
+		"flaws": [],
+		"versatile": "",
+		"mounted": []
+	},
+	"effects": [
+		{
+			"icon": "icons/equipment/finger/ring-band-notched-gold.webp",
+			"origin": "Item.gkpu21shq1bhjc5e",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Ring of Battered Courage",
+			"_id": "EHR8T5ZT2HN0Pvte",
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"frightened\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.deathSaveThreshold",
+					"value": "13",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/equipment/finger/ring-band-notched-gold.webp",
+			"origin": "Item.gkpu21shq1bhjc5e",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "QBC0iMSF1CAiYRo0",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Coward’s Bane",
+			"_id": "QJJ7ncCX9SEdqEjX",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"poison\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.deathSaveThreshold",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		},
+		{
+			"icon": "icons/equipment/finger/ring-band-notched-gold.webp",
+			"origin": "Item.gkpu21shq1bhjc5e",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CaeJqhzgP3NZJLmB",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Charge Into Danger",
+			"_id": "r15DlHQHD1WMQTQR",
+			"changes": [
+				{
+					"key": "flags.a5e.deathSaveThreshold",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"_id": "gkpu21shq1bhjc5e",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

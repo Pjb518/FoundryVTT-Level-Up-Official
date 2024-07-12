@@ -70,6 +70,10 @@ export default class Pack {
     source._stats = stats;
 
     // TODO: Update migration data
+
+    // Recurse for sub documents
+    if (Array.isArray(source?.effects)) source.effects.forEach((e) => this.#cleanDocument(e));
+    if (Array.isArray(source?.items)) source.items.forEach((i) => this.#cleanDocument(i));
   }
 
   async saveAsPack() {

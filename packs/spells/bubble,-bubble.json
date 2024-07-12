@@ -1,148 +1,153 @@
 {
-  "folder": null,
-  "name": "Bubble, Bubble",
-  "type": "spell",
-  "img": "icons/magic/water/orb-water-bubbles-blue.webp",
-  "system": {
-    "actions": {
-      "TWAgdq6xjB7ZVz7n": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "dMgQKj0YidNJawCf": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 3,
-            "points": 5
-          }
-        },
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "special"
-        }
-      },
-      "7L0vbCLHWBreh3B0": {
-        "name": "Fling Bubble",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "EdnuZiJp6ODuERQI": {
-            "type": "damage",
-            "default": true,
-            "label": "Primary Target",
-            "formula": "2d8",
-            "damageType": "acid",
-            "canCrit": false
-          },
-          "Qvv8X4VxNZwF7miZ": {
-            "type": "damage",
-            "default": true,
-            "label": "Adjacent Creatures",
-            "formula": "2d6",
-            "damageType": "acid",
-            "canCrit": false
-          }
-        },
-        "prompts": {
-          "B1neKHgfdHxnf0XT": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "Half damage"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "ranges": {
-          "5XfRT0UxiSB04QdE": {
-            "range": "medium"
-          }
-        },
-        "area": {
-          "shape": "sphere",
-          "quantity": 1,
-          "radius": 5
-        }
-      }
-    },
-    "description": "<p id=\"docs-internal-guid-89254b68-7fff-0d34-65f1-0fedfb115fb7\" dir=\"ltr\">You conjure forth three bubbles of boiling water that spin around your hand. These bubbles are harmless to you and move with you whenever you move. As a bonus action, you may flick your wrist to fling one of these bubbles towards a target within range. If the target is a creature, it must make a Dexterity saving throw versus your spell save DC, taking 2d8 acid damage on a failure or half as much on a success. Additionally, each creature within 5 feet of the target must also make a Dexterity saving throw as the bubble bursts and sprays boiling water in all directions, taking 2d6 acid damage on a failure or half as much on a success. If the target is an unoccupied square, all creatures within 5 feet of that square make the Dexterity saving throw and take the 2d6 damage as normal. These bubbles remain rotating around you until all of them are used, you lose concentration, or you choose to voluntarily end the spell, at which point they disappear.</p><p dir=\"ltr\"><strong>Cast at Higher Levels:</strong></p><p dir=\"ltr\">Add one additional bubble for each spell level above 3rd.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "toilAndTrouble",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "druid",
-      "witch"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 3,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "acid",
-        "hearth"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [],
-  "flags": {},
-  "_id": "8f64bohm1ekg9670"
+	"folder": null,
+	"name": "Bubble, Bubble",
+	"type": "spell",
+	"img": "icons/magic/water/orb-water-bubbles-blue.webp",
+	"system": {
+		"actions": {
+			"TWAgdq6xjB7ZVz7n": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"dMgQKj0YidNJawCf": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "special"
+				}
+			},
+			"7L0vbCLHWBreh3B0": {
+				"name": "Fling Bubble",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"EdnuZiJp6ODuERQI": {
+						"type": "damage",
+						"default": true,
+						"label": "Primary Target",
+						"formula": "2d8",
+						"damageType": "acid",
+						"canCrit": false
+					},
+					"Qvv8X4VxNZwF7miZ": {
+						"type": "damage",
+						"default": true,
+						"label": "Adjacent Creatures",
+						"formula": "2d6",
+						"damageType": "acid",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"B1neKHgfdHxnf0XT": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"5XfRT0UxiSB04QdE": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 5
+				}
+			}
+		},
+		"description": "<p id=\"docs-internal-guid-89254b68-7fff-0d34-65f1-0fedfb115fb7\" dir=\"ltr\">You conjure forth three bubbles of boiling water that spin around your hand. These bubbles are harmless to you and move with you whenever you move. As a bonus action, you may flick your wrist to fling one of these bubbles towards a target within range. If the target is a creature, it must make a Dexterity saving throw versus your spell save DC, taking 2d8 acid damage on a failure or half as much on a success. Additionally, each creature within 5 feet of the target must also make a Dexterity saving throw as the bubble bursts and sprays boiling water in all directions, taking 2d6 acid damage on a failure or half as much on a success. If the target is an unoccupied square, all creatures within 5 feet of that square make the Dexterity saving throw and take the 2d6 damage as normal. These bubbles remain rotating around you until all of them are used, you lose concentration, or you choose to voluntarily end the spell, at which point they disappear.</p><p dir=\"ltr\"><strong>Cast at Higher Levels:</strong></p><p dir=\"ltr\">Add one additional bubble for each spell level above 3rd.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "toilAndTrouble",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 3,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"acid",
+				"hearth"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_id": "8f64bohm1ekg9670",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

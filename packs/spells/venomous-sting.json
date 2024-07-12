@@ -1,164 +1,174 @@
 {
-  "name": "Venomous Sting",
-  "type": "spell",
-  "img": "icons/creatures/abilities/stinger-poison-green.webp",
-  "system": {
-    "actions": {
-      "llkIcK0GYiW5TBS2": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {},
-        "rolls": {
-          "XJXtVIwO9QQTNn7m": {
-            "type": "attack",
-            "default": true,
-            "attackType": "meleeSpellAttack",
-            "proficient": true,
-            "ability": "spellcasting"
-          },
-          "gvf1BJLin2DpZDat": {
-            "type": "damage",
-            "default": true,
-            "formula": "1d8",
-            "scaling": {
-              "mode": "cantrip",
-              "formula": "1d8"
-            },
-            "damageType": "poison"
-          }
-        },
-        "prompts": {
-          "MANLdxix8IhbsxzG": {
-            "type": "effect",
-            "default": true,
-            "effectId": "z6CnHw89qM6D9esI"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "round",
-          "value": 1
-        },
-        "ranges": {
-          "eNVk6udaWJkNGMnQ": {
-            "range": "touch"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        }
-      }
-    },
-    "description": "<p dir=\"ltr\">You lash out with poisoned barbs which flood the target&rsquo;s body with toxins. Make a melee spell attack. On a hit, you deal 1d8 poison damage, and the target is poisoned until the start of your next turn.&nbsp;</p><p dir=\"ltr\">This spell&rsquo;s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "druid",
-      "warlock",
-      "sorcerer",
-      "witch",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 0,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "conjuration",
-      "secondary": [
-        "affliction",
-        "arcane",
-        "nature",
-        "poison"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/creatures/abilities/stinger-poison-green.webp",
-      "origin": "Item.ne5fiqa3pojgbbhx",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "llkIcK0GYiW5TBS2",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Poisoned",
-      "_id": "z6CnHw89qM6D9esI",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"poisoned\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": 1,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "poisoned"
-      ],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "folder": null,
-  "_id": "ne5fiqa3pojgbbhx"
+	"name": "Venomous Sting",
+	"type": "spell",
+	"img": "icons/creatures/abilities/stinger-poison-green.webp",
+	"system": {
+		"actions": {
+			"llkIcK0GYiW5TBS2": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"XJXtVIwO9QQTNn7m": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"gvf1BJLin2DpZDat": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d8"
+						},
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"MANLdxix8IhbsxzG": {
+						"type": "effect",
+						"default": true,
+						"effectId": "z6CnHw89qM6D9esI"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"ranges": {
+					"eNVk6udaWJkNGMnQ": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You lash out with poisoned barbs which flood the target&rsquo;s body with toxins. Make a melee spell attack. On a hit, you deal 1d8 poison damage, and the target is poisoned until the start of your next turn.&nbsp;</p><p dir=\"ltr\">This spell&rsquo;s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid",
+			"warlock",
+			"sorcerer",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 0,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "conjuration",
+			"secondary": [
+				"affliction",
+				"arcane",
+				"nature",
+				"poison"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/creatures/abilities/stinger-poison-green.webp",
+			"origin": "Item.ne5fiqa3pojgbbhx",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "llkIcK0GYiW5TBS2",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"_id": "z6CnHw89qM6D9esI",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "ne5fiqa3pojgbbhx",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

@@ -1,149 +1,159 @@
 {
-  "folder": null,
-  "name": "Immovable Object",
-  "type": "spell",
-  "img": "icons/magic/defensive/armor-stone-skin.webp",
-  "system": {
-    "actions": {
-      "q7X0okO5tbym9qXn": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "dt7H8QK2L0begxYo": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "13xrzjsoq9TKmD9N": {
-            "type": "effect",
-            "default": true,
-            "effectId": "T2tTuCaOxeVuzGAA"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 10
-        }
-      }
-    },
-    "description": "<p><em><strong>Association:</strong> Adept class</em></p><p>You root yourself in place with supernatural power. Until the spell ends, your speed becomes 0, and you automatically fail Dexterity saving throws. You gain resistance to all damage.</p><p>Also, at the start of each of your turns, roll your Martial Arts die. You gain a bonus to AC equal to the result until the beginning of your next turn..</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "druid",
-      "sorcerer",
-      "witch",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 1,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "Martial Arts class feature",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "transmutation",
-      "secondary": [
-        "nature",
-        "protection",
-        "multiclass"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/defensive/armor-stone-skin.webp",
-      "origin": "Item.6y47bvfty8qcuaqe",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "q7X0okO5tbym9qXn",
-          "applyToSelf": true,
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Rooted",
-      "_id": "T2tTuCaOxeVuzGAA",
-      "changes": [
-        {
-          "key": "system.attributes.movement.walk.distance",
-          "value": "0",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.damageResistances.all",
-          "value": "",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Your speed becomes 0, and you automatically fail Dexterity saving throws. You gain resistance to all damage.</p><p>Also, at the start of each of your turns, roll your Martial Arts die. You gain a bonus to AC equal to the result until the beginning of your next turn.</p>",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "6y47bvfty8qcuaqe"
+	"folder": null,
+	"name": "Immovable Object",
+	"type": "spell",
+	"img": "icons/magic/defensive/armor-stone-skin.webp",
+	"system": {
+		"actions": {
+			"q7X0okO5tbym9qXn": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"dt7H8QK2L0begxYo": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"13xrzjsoq9TKmD9N": {
+						"type": "effect",
+						"default": true,
+						"effectId": "T2tTuCaOxeVuzGAA"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:</strong> Adept class</em></p><p>You root yourself in place with supernatural power. Until the spell ends, your speed becomes 0, and you automatically fail Dexterity saving throws. You gain resistance to all damage.</p><p>Also, at the start of each of your turns, roll your Martial Arts die. You gain a bonus to AC equal to the result until the beginning of your next turn..</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"druid",
+			"sorcerer",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Martial Arts class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "transmutation",
+			"secondary": [
+				"nature",
+				"protection",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/armor-stone-skin.webp",
+			"origin": "Item.6y47bvfty8qcuaqe",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "q7X0okO5tbym9qXn",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rooted",
+			"_id": "T2tTuCaOxeVuzGAA",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "0",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.damageResistances.all",
+					"value": "",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Your speed becomes 0, and you automatically fail Dexterity saving throws. You gain resistance to all damage.</p><p>Also, at the start of each of your turns, roll your Martial Arts die. You gain a bonus to AC equal to the result until the beginning of your next turn.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"_id": "6y47bvfty8qcuaqe",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

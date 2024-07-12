@@ -1,134 +1,139 @@
 {
-  "name": "Igniting Strike",
-  "type": "spell",
-  "img": "icons/magic/fire/dagger-rune-enchant-flame-red.webp",
-  "system": {
-    "actions": {
-      "hTf8Db4Vpsk7fjJZ": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "Pl17pBF4o9Q5V39m": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2
-          }
-        },
-        "rolls": {},
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "instantaneous"
-        },
-        "ranges": {
-          "PFP80Fo1p1io8Oxu": {
-            "range": "self"
-          }
-        }
-      },
-      "jmEu9uGPdbolazI1": {
-        "name": "Ongoing Damage",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "B7vxirQINv5dsu08": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "1d6",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        }
-      }
-    },
-    "description": "<p><em><strong>Association:</strong> Rogue class</em></p><p>Your weapons flashes with searing heat, setting your target ablaze.</p><p>When you deal @UUID[Compendium.a5e.a5e-class-features.Item.4727pnvz5nwn3h23]{Sneak Attack} damage with a melee attack, you may cast this spell as part of the Sneak Attack, transforming the bonus damage from your Sneak Attack into fire damage. You inflict ongoing fire damage to the attack's target, which has a duration of 1 minute or until the creature uses an action to extinguish the flames. The amount of ongoing damage improves if cast at a higher spell-level:</p><p><strong>1st-level: </strong>1d6 of ongoing fire damage .</p><p><strong>2nd-level:</strong> 2d6 of ongoing fire damage.</p><p><strong>3rd-level: </strong>3d6 of ongoing fire damage.</p><p><strong>4th-level or higher: </strong>4d6 of ongoing fire damage.</p><p>For the purposes of determining spells cast in a round, this spell counts as having a casting time of one action.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "sorcerer",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "Sneak Attack class feature",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "attack",
-        "arcane",
-        "fire",
-        "weaponry",
-        "multiclass"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [],
-  "flags": {},
-  "folder": null,
-  "_id": "djedtu5n7yu0g4uj"
+	"name": "Igniting Strike",
+	"type": "spell",
+	"img": "icons/magic/fire/dagger-rune-enchant-flame-red.webp",
+	"system": {
+		"actions": {
+			"hTf8Db4Vpsk7fjJZ": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"Pl17pBF4o9Q5V39m": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"PFP80Fo1p1io8Oxu": {
+						"range": "self"
+					}
+				}
+			},
+			"jmEu9uGPdbolazI1": {
+				"name": "Ongoing Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"B7vxirQINv5dsu08": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:</strong> Rogue class</em></p><p>Your weapons flashes with searing heat, setting your target ablaze.</p><p>When you deal @UUID[Compendium.a5e.a5e-class-features.Item.4727pnvz5nwn3h23]{Sneak Attack} damage with a melee attack, you may cast this spell as part of the Sneak Attack, transforming the bonus damage from your Sneak Attack into fire damage. You inflict ongoing fire damage to the attack's target, which has a duration of 1 minute or until the creature uses an action to extinguish the flames. The amount of ongoing damage improves if cast at a higher spell-level:</p><p><strong>1st-level: </strong>1d6 of ongoing fire damage .</p><p><strong>2nd-level:</strong> 2d6 of ongoing fire damage.</p><p><strong>3rd-level: </strong>3d6 of ongoing fire damage.</p><p><strong>4th-level or higher: </strong>4d6 of ongoing fire damage.</p><p>For the purposes of determining spells cast in a round, this spell counts as having a casting time of one action.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Sneak Attack class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"attack",
+				"arcane",
+				"fire",
+				"weaponry",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_id": "djedtu5n7yu0g4uj",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

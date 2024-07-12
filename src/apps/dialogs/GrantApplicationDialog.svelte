@@ -145,7 +145,7 @@
 
                 const uuids = pack.index.reduce((acc2: string[][], i) => {
                     if (i.type !== "archetype") return acc2;
-                    if (i.system.class !== classIdentifier) return acc2;
+                    if (i.system?.class !== classIdentifier) return acc2;
 
                     acc2.push([i.uuid, i.name || ""]);
                     return acc2;

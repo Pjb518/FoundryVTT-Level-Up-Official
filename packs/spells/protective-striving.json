@@ -1,140 +1,150 @@
 {
-  "name": "Protective Striving",
-  "type": "spell",
-  "img": "icons/magic/defensive/shield-barrier-flaming-diamond-purple-orange.webp",
-  "system": {
-    "actions": {
-      "SHYxLNnxD8KqSbPU": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {
-          "MHlKQ3qBJmPtlb4A": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "xrF2OxhxXzIZZFjC": {
-            "type": "effect",
-            "default": true,
-            "effectId": "0B6rfqx1GJhzIPG9"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "BbXX1ZKC2YA1qYzo": {
-            "range": "self"
-          }
-        }
-      }
-    },
-    "description": "<p><em><strong>Association:</strong> Fighter class</em></p><p>The harder you fight, the tougher it is to keep you down.</p><p>While this spell is active, keep a running total of the exertion you spend. Until the spell ends, the first death saving throw you make after falling unconscious&nbsp; gains a bonus equal to your total exertion spent. If the result of this death save is 20 or more, treat the result as if you had rolled a 20.&nbsp;</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "sorcerer",
-      "witch",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "Fighting Style class feature",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "abjuration",
-      "secondary": [
-        "arcane",
-        "protection",
-        "multiclass"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/defensive/shield-barrier-flaming-diamond-purple-orange.webp",
-      "origin": "Item.cz7nl13lkt7a0igl",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "SHYxLNnxD8KqSbPU",
-          "applyToSelf": true,
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Protective Striving",
-      "_id": "0B6rfqx1GJhzIPG9",
-      "changes": [],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "<p>Keep a running total of the exertion you spend. Until the spell ends, the first death saving throw you make after falling unconscious gains a bonus equal to your total exertion spent. If the result of this death save is 20 or more, treat the result as if you had rolled a 20.</p>",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "folder": null,
-  "_id": "cz7nl13lkt7a0igl"
+	"name": "Protective Striving",
+	"type": "spell",
+	"img": "icons/magic/defensive/shield-barrier-flaming-diamond-purple-orange.webp",
+	"system": {
+		"actions": {
+			"SHYxLNnxD8KqSbPU": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"MHlKQ3qBJmPtlb4A": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"xrF2OxhxXzIZZFjC": {
+						"type": "effect",
+						"default": true,
+						"effectId": "0B6rfqx1GJhzIPG9"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"BbXX1ZKC2YA1qYzo": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:</strong> Fighter class</em></p><p>The harder you fight, the tougher it is to keep you down.</p><p>While this spell is active, keep a running total of the exertion you spend. Until the spell ends, the first death saving throw you make after falling unconscious&nbsp; gains a bonus equal to your total exertion spent. If the result of this death save is 20 or more, treat the result as if you had rolled a 20.&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"sorcerer",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Fighting Style class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "abjuration",
+			"secondary": [
+				"arcane",
+				"protection",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/defensive/shield-barrier-flaming-diamond-purple-orange.webp",
+			"origin": "Item.cz7nl13lkt7a0igl",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "SHYxLNnxD8KqSbPU",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Protective Striving",
+			"_id": "0B6rfqx1GJhzIPG9",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Keep a running total of the exertion you spend. Until the spell ends, the first death saving throw you make after falling unconscious gains a bonus equal to your total exertion spent. If the result of this death save is 20 or more, treat the result as if you had rolled a 20.</p>",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "cz7nl13lkt7a0igl",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

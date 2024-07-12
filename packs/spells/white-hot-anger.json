@@ -1,192 +1,202 @@
 {
-  "folder": null,
-  "name": "White-Hot Anger",
-  "type": "spell",
-  "img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
-  "system": {
-    "actions": {
-      "43tCR2eGvzSDuxLk": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "lueEZB2ZFgEYBwGU": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2
-          }
-        },
-        "rolls": {},
-        "prompts": {
-          "izfQGX6TkMFhFSi9": {
-            "type": "effect",
-            "default": true,
-            "effectId": "d3XrFAZ9kpxR6Mlk"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "W5rCbiMzV0ZS6dmP": {
-            "range": "self"
-          }
-        }
-      },
-      "kDUaOFBB7KXeLqUv": {
-        "name": "Grapple Damage",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "A8R42rWdshqqKZsg": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "1d6",
-            "damageType": "fire",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p><em><strong>Association:</strong> Berserker class</em></p><p>You magically stoke your anger to the intensity of a crucible. The next time you @UUID[Compendium.a5e.a5e-class-features.Item.htgvror5v9twusgs]{Rage} while the spell is active, you glow from within from the heat of your fury. You shed bright light to a range of 10 feet and dim light a further 20 beyond that. Your melee weapon attacks deal an additional 1d6 fire damage, and any creature grappled by or grappling you at the start of its turn takes 1d6 fire damage.</p><p><strong>Cast at Higher Levels: </strong>The fire damage done by your melee weapon attacks and to creatures grappling or grappled by you increases by 1d6 for each slot level above 1st.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "bard",
-      "druid",
-      "sorcerer",
-      "warlock",
-      "witch"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "Rage class feature",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "fire",
-        "weaponry",
-        "multiclass"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/light/explosion-beam-impact-silhouette.webp",
-      "origin": "Item.nu0k9bjyx7geujjh",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "43tCR2eGvzSDuxLk",
-          "applyToSelf": true,
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "White-Hot Anger",
-      "_id": "d3XrFAZ9kpxR6Mlk",
-      "changes": [
-        {
-          "key": "@token.light.bright",
-          "value": "10",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "@token.light.dim",
-          "value": "30",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "flags.a5e.effects.bonuses.damage",
-          "value": "{\"label\":\"White-Hot Anger\",\"formula\":\"1d6\",\"damageType\":\"fire\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/light/explosion-beam-impact-silhouette.webp\"}",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "nu0k9bjyx7geujjh"
+	"folder": null,
+	"name": "White-Hot Anger",
+	"type": "spell",
+	"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+	"system": {
+		"actions": {
+			"43tCR2eGvzSDuxLk": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"lueEZB2ZFgEYBwGU": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"izfQGX6TkMFhFSi9": {
+						"type": "effect",
+						"default": true,
+						"effectId": "d3XrFAZ9kpxR6Mlk"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"W5rCbiMzV0ZS6dmP": {
+						"range": "self"
+					}
+				}
+			},
+			"kDUaOFBB7KXeLqUv": {
+				"name": "Grapple Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"A8R42rWdshqqKZsg": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6",
+						"damageType": "fire",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p><em><strong>Association:</strong> Berserker class</em></p><p>You magically stoke your anger to the intensity of a crucible. The next time you @UUID[Compendium.a5e.a5e-class-features.Item.htgvror5v9twusgs]{Rage} while the spell is active, you glow from within from the heat of your fury. You shed bright light to a range of 10 feet and dim light a further 20 beyond that. Your melee weapon attacks deal an additional 1d6 fire damage, and any creature grappled by or grappling you at the start of its turn takes 1d6 fire damage.</p><p><strong>Cast at Higher Levels: </strong>The fire damage done by your melee weapon attacks and to creatures grappling or grappled by you increases by 1d6 for each slot level above 1st.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"bard",
+			"druid",
+			"sorcerer",
+			"warlock",
+			"witch"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "Rage class feature",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"fire",
+				"weaponry",
+				"multiclass"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+			"origin": "Item.nu0k9bjyx7geujjh",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "43tCR2eGvzSDuxLk",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "White-Hot Anger",
+			"_id": "d3XrFAZ9kpxR6Mlk",
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "30",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"White-Hot Anger\",\"formula\":\"1d6\",\"damageType\":\"fire\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/light/explosion-beam-impact-silhouette.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"_id": "nu0k9bjyx7geujjh",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

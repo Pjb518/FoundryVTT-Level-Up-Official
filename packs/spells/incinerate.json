@@ -1,205 +1,215 @@
 {
-  "folder": null,
-  "name": "Incinerate",
-  "type": "spell",
-  "img": "icons/magic/fire/flame-burning-creature-skeleton.webp",
-  "system": {
-    "actions": {
-      "qtQg37r1zWmWRhhm": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "action",
-          "cost": 1
-        },
-        "consumers": {
-          "dQHHVhGAQEm8wjSx": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 5,
-            "points": 7
-          }
-        },
-        "rolls": {
-          "8opLu3Kf5ndgo3Ut": {
-            "type": "damage",
-            "default": true,
-            "formula": "8d6",
-            "damageType": "fire",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "2d6"
-            },
-            "label": "Initial Burn",
-            "canCrit": false
-          }
-        },
-        "prompts": {
-          "BTgRmCRwsWltxkwE": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "dex",
-            "saveDC": {
-              "type": "spellcasting"
-            },
-            "onSave": "half damage, doesn't catch fire"
-          },
-          "FavcJNNQKLjoW9Jx": {
-            "type": "effect",
-            "default": true,
-            "effectId": "NGtVvajPTIfjI7SL"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "B2t7VPezqSKKMjNb": {
-            "range": "long"
-          }
-        },
-        "target": {
-          "type": "creature",
-          "quantity": 1
-        }
-      },
-      "6ljQQpcUYI7Es8WF": {
-        "name": "Burning",
-        "activation": {},
-        "consumers": {},
-        "rolls": {
-          "syHGNNtbYbegDQVC": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "4d6",
-            "damageType": "fire",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          }
-        },
-        "prompts": {},
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        }
-      }
-    },
-    "description": "<p>The target creature bursts into flames, taking 8d6 fire damage. If it fails its save, it continues to burn for the spell&rsquo;s duration. At the end of each of its turns, a burning target repeats the save, taking 4d6 fire damage on a failure and ending the spell on a success. The flames shed bright light in a 30-foot radius and dim light in an additional 30-foot radius. If the target is reduced to 0 hp by this spell&rsquo;s damage, the target is reduced to ash, and can then only be raised from the dead by a @UUID[Compendium.a5e.a5e-spells.Item.d4gqwm4bxoklygp6]{True Resurrection} or a @UUID[Compendium.a5e.a5e-spells.Item.pe52jryde7ljobzq]{Wish} spell.</p><p><strong>Cast at Higher Levels.</strong> Increase the initial damage by 2d6 and the burning damage by 1d6 for every slot level above 5th.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "elementalistFire",
-      "sorcerer",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": false
-    },
-    "concentration": true,
-    "level": 5,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "arcane",
-        "fire"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/fire/flame-burning-creature-skeleton.webp",
-      "origin": "Item.bphper5g0s895tjv",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "qtQg37r1zWmWRhhm",
-          "duration": {
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Flames",
-      "_id": "NGtVvajPTIfjI7SL",
-      "changes": [
-        {
-          "key": "@token.light.bright",
-          "value": "30",
-          "mode": 6,
-          "priority": null
-        },
-        {
-          "key": "@token.light.dim",
-          "value": "60",
-          "mode": 6,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 60,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "_id": "bphper5g0s895tjv"
+	"folder": null,
+	"name": "Incinerate",
+	"type": "spell",
+	"img": "icons/magic/fire/flame-burning-creature-skeleton.webp",
+	"system": {
+		"actions": {
+			"qtQg37r1zWmWRhhm": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"dQHHVhGAQEm8wjSx": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 5,
+						"points": 7
+					}
+				},
+				"rolls": {
+					"8opLu3Kf5ndgo3Ut": {
+						"type": "damage",
+						"default": true,
+						"formula": "8d6",
+						"damageType": "fire",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d6"
+						},
+						"label": "Initial Burn",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"BTgRmCRwsWltxkwE": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "half damage, doesn't catch fire"
+					},
+					"FavcJNNQKLjoW9Jx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "NGtVvajPTIfjI7SL"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"B2t7VPezqSKKMjNb": {
+						"range": "long"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"6ljQQpcUYI7Es8WF": {
+				"name": "Burning",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"syHGNNtbYbegDQVC": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "4d6",
+						"damageType": "fire",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>The target creature bursts into flames, taking 8d6 fire damage. If it fails its save, it continues to burn for the spell&rsquo;s duration. At the end of each of its turns, a burning target repeats the save, taking 4d6 fire damage on a failure and ending the spell on a success. The flames shed bright light in a 30-foot radius and dim light in an additional 30-foot radius. If the target is reduced to 0 hp by this spell&rsquo;s damage, the target is reduced to ash, and can then only be raised from the dead by a @UUID[Compendium.a5e.a5e-spells.Item.d4gqwm4bxoklygp6]{True Resurrection} or a @UUID[Compendium.a5e.a5e-spells.Item.pe52jryde7ljobzq]{Wish} spell.</p><p><strong>Cast at Higher Levels.</strong> Increase the initial damage by 2d6 and the burning damage by 1d6 for every slot level above 5th.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"elementalistFire",
+			"sorcerer",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": false
+		},
+		"concentration": true,
+		"level": 5,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"arcane",
+				"fire"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/fire/flame-burning-creature-skeleton.webp",
+			"origin": "Item.bphper5g0s895tjv",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qtQg37r1zWmWRhhm",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Flames",
+			"_id": "NGtVvajPTIfjI7SL",
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "30",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"_id": "bphper5g0s895tjv",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

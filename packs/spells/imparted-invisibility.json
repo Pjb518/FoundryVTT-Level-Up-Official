@@ -1,153 +1,163 @@
 {
-  "name": "Imparted Invisibility",
-  "type": "spell",
-  "img": "icons/magic/light/explosion-star-glow-silhouette.webp",
-  "effects": [
-    {
-      "icon": "icons/magic/light/explosion-star-glow-silhouette.webp",
-      "origin": "Item.5vn1rl59pxadpk97",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "JmYFAmw4m4fpTJH3",
-          "duration": {
-            "unit": "hours"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Invisible",
-      "_id": "o1qvWrwid36w8yeW",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"invisible\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": 3600,
-        "combat": null,
-        "rounds": null,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "invisible"
-      ],
-      "tint": "#ffffff",
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "system": {
-    "actions": {
-      "JmYFAmw4m4fpTJH3": {
-        "name": "Invisibility",
-        "activation": {
-          "cost": 1,
-          "type": "action",
-          "reactionTrigger": ""
-        },
-        "duration": {
-          "unit": "hour",
-          "value": "1"
-        },
-        "ranges": {
-          "njg9gnRa30ArNRv0": {
-            "range": "touch"
-          }
-        },
-        "area": {
-          "shape": "",
-          "size": "",
-          "placeTemplate": false
-        },
-        "target": {
-          "quantity": 1,
-          "type": "creature",
-          "scaling": {
-            "mode": "spellLevel",
-            "formula": "1"
-          }
-        },
-        "consumers": {
-          "DRrTTB0zIu3uhw9q": {
-            "mode": "variable",
-            "spellLevel": 2,
-            "points": 3,
-            "type": "spell"
-          }
-        },
-        "prompts": {
-          "G31vUlozIW3a3sPx": {
-            "type": "effect",
-            "default": true,
-            "effectId": "o1qvWrwid36w8yeW"
-          }
-        }
-      }
-    },
-    "description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p><p><strong>Rare:&nbsp;<em>Imparted Invisibility.&nbsp;</em></strong>Until the&nbsp;spell ends, any object that the target picks up&nbsp;becomes invisible even after it is dropped.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "adventurersGuide",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "",
-        "threshold": 0
-      }
-    },
-    "classes": [
-      "artificer",
-      "bard",
-      "sorcerer",
-      "warlock",
-      "witch",
-      "wizard"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": true,
-      "material": true
-    },
-    "concentration": true,
-    "level": 2,
-    "materials": "piece of a veil",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": true,
-    "ritual": false,
-    "schools": {
-      "primary": "illusion",
-      "secondary": [
-        "arcane",
-        "obscurement",
-        "shadow"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "folder": null,
-  "_id": "5vn1rl59pxadpk97"
+	"name": "Imparted Invisibility",
+	"type": "spell",
+	"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+	"effects": [
+		{
+			"icon": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"origin": "Item.5vn1rl59pxadpk97",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "JmYFAmw4m4fpTJH3",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Invisible",
+			"_id": "o1qvWrwid36w8yeW",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"invisible"
+			],
+			"tint": "#ffffff",
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"system": {
+		"actions": {
+			"JmYFAmw4m4fpTJH3": {
+				"name": "Invisibility",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"njg9gnRa30ArNRv0": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
+				},
+				"consumers": {
+					"DRrTTB0zIu3uhw9q": {
+						"mode": "variable",
+						"spellLevel": 2,
+						"points": 3,
+						"type": "spell"
+					}
+				},
+				"prompts": {
+					"G31vUlozIW3a3sPx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "o1qvWrwid36w8yeW"
+					}
+				}
+			}
+		},
+		"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p><p><strong>Rare:&nbsp;<em>Imparted Invisibility.&nbsp;</em></strong>Until the&nbsp;spell ends, any object that the target picks up&nbsp;becomes invisible even after it is dropped.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"classes": [
+			"artificer",
+			"bard",
+			"sorcerer",
+			"warlock",
+			"witch",
+			"wizard"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": true,
+			"material": true
+		},
+		"concentration": true,
+		"level": 2,
+		"materials": "piece of a veil",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": true,
+		"ritual": false,
+		"schools": {
+			"primary": "illusion",
+			"secondary": [
+				"arcane",
+				"obscurement",
+				"shadow"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"folder": null,
+	"_id": "5vn1rl59pxadpk97",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }

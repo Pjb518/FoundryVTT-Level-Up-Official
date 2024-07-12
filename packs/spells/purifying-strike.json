@@ -1,167 +1,177 @@
 {
-  "name": "Purifying Strike",
-  "type": "spell",
-  "img": "icons/magic/holy/projectiles-blades-salvo-yellow.webp",
-  "system": {
-    "actions": {
-      "y36KDHtvfQKDOoki": {
-        "name": "Cast Spell",
-        "activation": {
-          "type": "bonusAction",
-          "cost": 1
-        },
-        "consumers": {
-          "yyALO9Ira5xee25s": {
-            "type": "spell",
-            "default": true,
-            "mode": "variable",
-            "spellLevel": 1,
-            "points": 2
-          }
-        },
-        "rolls": {
-          "kbbFGYJLy9j7bqRO": {
-            "type": "damage",
-            "default": true,
-            "canCrit": false,
-            "formula": "1d6",
-            "damageType": "radiant",
-            "scaling": {
-              "mode": "spellLevel",
-              "formula": "1d6"
-            }
-          }
-        },
-        "prompts": {
-          "vMuaheRdVD9F4f6g": {
-            "type": "savingThrow",
-            "default": true,
-            "ability": "wis",
-            "saveDC": {
-              "type": "spellcasting"
-            }
-          },
-          "2DadoyVAf9cbGD51": {
-            "type": "effect",
-            "default": true,
-            "effectId": "15RFTPq3qnvV4jTL"
-          }
-        },
-        "uses": {
-          "value": 0,
-          "max": "",
-          "per": "",
-          "recharge": {
-            "formula": "1d6",
-            "rechargeType": "custom",
-            "rechargeAmount": "1",
-            "threshold": 6
-          }
-        },
-        "duration": {
-          "unit": "minute",
-          "value": 1
-        },
-        "ranges": {
-          "VUOXA6BLMPKZ8sAG": {
-            "range": "self"
-          }
-        }
-      }
-    },
-    "description": "<p>The next time you hit a creature with a weapon attack during this spell&rsquo;s duration, your weapon glows with purifying light, and the attack deals an extra 1d6 radiant damage to the target. For the duration of the spell, creatures who make saving throws against ongoing negative effects originating from the target have advantage on those saving throws. Additionally, if the target is a Fiend or an Undead, it must make a Wisdom saving throw. On a failed save, it is restrained until the end of its next turn.</p><p><strong>Casting At Higher Levels:</strong> If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st. If you cast this spell using a spell slot of 4th level or higher, the target is also subject to your choice of either a&nbsp;<em>@UUID[Compendium.a5e.a5e-spells.Item.hms9kdl2qoqjjrs4]{Dispel Magic} </em>or a&nbsp;@UUID[Compendium.a5e.a5e-spells.Item.l16wg9h1z9s16exb]{Remove Curse} effect. This secondary effect replicates a spell slot one level lower than the one used to cast the spell. For example, when casting Purifying Strike with a 4th-level spell slot, the <em>remove curse</em> effect behaves as if it was cast with a 3rd-level spell slot.</p>",
-    "favorite": false,
-    "secretDescription": "",
-    "source": "moarComplete",
-    "uses": {
-      "value": 0,
-      "max": "",
-      "per": "",
-      "recharge": {
-        "formula": "1d6",
-        "threshold": 6
-      }
-    },
-    "classes": [
-      "herald"
-    ],
-    "components": {
-      "vocalized": true,
-      "seen": false,
-      "material": false
-    },
-    "concentration": false,
-    "level": 1,
-    "materials": "",
-    "materialsConsumed": false,
-    "prepared": 0,
-    "prerequisite": "",
-    "rare": false,
-    "ritual": false,
-    "schools": {
-      "primary": "evocation",
-      "secondary": [
-        "divine",
-        "negation",
-        "weaponry"
-      ]
-    },
-    "schemaVersion": {
-      "version": 0.018,
-      "lastMigration": {
-        "version": {
-          "schema": 0.016,
-          "foundry": "11.315",
-          "system": "0.17.41"
-        }
-      }
-    },
-    "spellBook": ""
-  },
-  "effects": [
-    {
-      "icon": "icons/magic/holy/projectiles-blades-salvo-yellow.webp",
-      "origin": "Item.dsp3b0iudb80rm96",
-      "flags": {
-        "a5e": {
-          "sort": 0,
-          "transferType": "onUse",
-          "actionId": "y36KDHtvfQKDOoki",
-          "duration": {
-            "type": "rounds",
-            "unit": "minutes"
-          }
-        }
-      },
-      "transfer": false,
-      "name": "Restrained",
-      "_id": "15RFTPq3qnvV4jTL",
-      "changes": [
-        {
-          "key": "flags.a5e.effects.statusConditions",
-          "value": "[\"restrained\"]",
-          "mode": 0,
-          "priority": null
-        }
-      ],
-      "disabled": false,
-      "duration": {
-        "startTime": null,
-        "seconds": null,
-        "combat": null,
-        "rounds": 1,
-        "turns": null,
-        "startRound": null,
-        "startTurn": null
-      },
-      "description": "",
-      "statuses": [
-        "restrained"
-      ],
-      "folder": null
-    }
-  ],
-  "flags": {},
-  "folder": null,
-  "_id": "dsp3b0iudb80rm96"
+	"name": "Purifying Strike",
+	"type": "spell",
+	"img": "icons/magic/holy/projectiles-blades-salvo-yellow.webp",
+	"system": {
+		"actions": {
+			"y36KDHtvfQKDOoki": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"yyALO9Ira5xee25s": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2
+					}
+				},
+				"rolls": {
+					"kbbFGYJLy9j7bqRO": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6",
+						"damageType": "radiant",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"vMuaheRdVD9F4f6g": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"2DadoyVAf9cbGD51": {
+						"type": "effect",
+						"default": true,
+						"effectId": "15RFTPq3qnvV4jTL"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"VUOXA6BLMPKZ8sAG": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p>The next time you hit a creature with a weapon attack during this spell&rsquo;s duration, your weapon glows with purifying light, and the attack deals an extra 1d6 radiant damage to the target. For the duration of the spell, creatures who make saving throws against ongoing negative effects originating from the target have advantage on those saving throws. Additionally, if the target is a Fiend or an Undead, it must make a Wisdom saving throw. On a failed save, it is restrained until the end of its next turn.</p><p><strong>Casting At Higher Levels:</strong> If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st. If you cast this spell using a spell slot of 4th level or higher, the target is also subject to your choice of either a&nbsp;<em>@UUID[Compendium.a5e.a5e-spells.Item.hms9kdl2qoqjjrs4]{Dispel Magic} </em>or a&nbsp;@UUID[Compendium.a5e.a5e-spells.Item.l16wg9h1z9s16exb]{Remove Curse} effect. This secondary effect replicates a spell slot one level lower than the one used to cast the spell. For example, when casting Purifying Strike with a 4th-level spell slot, the <em>remove curse</em> effect behaves as if it was cast with a 3rd-level spell slot.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"classes": [
+			"herald"
+		],
+		"components": {
+			"vocalized": true,
+			"seen": false,
+			"material": false
+		},
+		"concentration": false,
+		"level": 1,
+		"materials": "",
+		"materialsConsumed": false,
+		"prepared": 0,
+		"prerequisite": "",
+		"rare": false,
+		"ritual": false,
+		"schools": {
+			"primary": "evocation",
+			"secondary": [
+				"divine",
+				"negation",
+				"weaponry"
+			]
+		},
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": {
+				"version": {
+					"schema": 0.016,
+					"foundry": "11.315",
+					"system": "0.17.41"
+				}
+			}
+		},
+		"spellBook": ""
+	},
+	"effects": [
+		{
+			"icon": "icons/magic/holy/projectiles-blades-salvo-yellow.webp",
+			"origin": "Item.dsp3b0iudb80rm96",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "y36KDHtvfQKDOoki",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Restrained",
+			"_id": "15RFTPq3qnvV4jTL",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"restrained"
+			],
+			"folder": null,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			}
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_id": "dsp3b0iudb80rm96",
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	}
 }
