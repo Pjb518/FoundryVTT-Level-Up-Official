@@ -1,4 +1,5 @@
 import type ArchetypeItemA5e from './archetype';
+import type { A5EClassData } from '../../dataModels/item/ClassDataModel';
 import type { ClassCastingData } from './data';
 
 import OriginItemA5e from './origin';
@@ -15,6 +16,8 @@ export default class ClassItemA5e extends OriginItemA5e {
   };
 
   declare resources: ClassResourceManager;
+
+  declare system: InstanceType<typeof A5EClassData>;
 
   get associatedLevels() {
     const { levels } = this.system.hp;
@@ -197,7 +200,7 @@ export default class ClassItemA5e extends OriginItemA5e {
   }
 
   // eslint-disable-next-line consistent-return
-  async _preUpdate(changed, options, user) {
+  async _preUpdate(changed, options, user): Promise<false | void> {
     await super._preUpdate(changed, options, user);
 
     const keys = Object.keys(foundry.utils.flattenObject(changed));

@@ -5,20 +5,24 @@ const { fields } = foundry.data;
 const schema = {
   slug: new fields.StringField({ nullable: false, initial: '' }),
   archetypeLevel: new fields.NumberField({
-    nullable: false, initial: 3, min: 0, max: 20
+    required: true, nullable: false, initial: 3, min: 0, max: 20
   }),
   classLevels: new fields.NumberField({
-    nullable: false, initial: 0, min: 0, max: 20
+    required: true, nullable: false, initial: 0, min: 0, max: 20
   }),
   hp: new fields.SchemaField({
     hitDiceSize: new fields.NumberField({
-      nullable: false, initial: 6, min: 4, max: 20
+      required: true, nullable: false, initial: 6, min: 4, max: 20
     }),
-    hitDiceUsed: new fields.NumberField({ nullable: false, initial: 0, min: 0 }),
+    hitDiceUsed: new fields.NumberField({
+      required: true, nullable: false, initial: 0, min: 0
+    }),
     levels: new fields.SchemaField(
       Array.from({ length: 20 }, (_, i) => i + 1)
         .reduce((acc, level) => {
-          acc[level] = new fields.NumberField({ nullable: false, initial: 0, min: 0 });
+          acc[level] = new fields.NumberField({
+            required: true, nullable: false, initial: 0, min: 0
+          });
           return acc;
         }, {})
     )
