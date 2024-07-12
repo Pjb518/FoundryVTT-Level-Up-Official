@@ -68,7 +68,7 @@
             background-color: darken(#dddace, 2.5%);
 
             .rest__icon {
-                color: #lighten(var(--a5e-color-text-dark), 35%);
+                color: lighten-color(var(--a5e-color-text-dark), 35);
             }
         }
     }

@@ -43,7 +43,7 @@
         font-size: var(--a5e-text-size-md);
         border-radius: var(--a5e-border-radius-standard);
         text-transform: lowercase;
-        box-shadow: 0 0 10px #darken(var(--a5e-color-primary), 10) inset;
+        box-shadow: 0 0 10px darken-color(var(--a5e-color-primary), 10) inset;
     }
 
     .nav-list {

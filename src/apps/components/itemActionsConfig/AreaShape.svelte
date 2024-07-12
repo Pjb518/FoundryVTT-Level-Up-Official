@@ -57,8 +57,8 @@
 
             &:checked + .area-shape__label {
                 background: var(--a5e-color-primary);
-                border-color: #darken(var(--a5e-color-primary), 5);
-                box-shadow: 0 0 10px #darken(var(--a5e-color-primary), 10) inset;
+                border-color: darken-color(var(--a5e-color-primary), 5);
+                box-shadow: 0 0 10px darken-color(var(--a5e-color-primary), 10) inset;
                 color: var(--a5e-color-text-light);
 
                 &:hover {

@@ -167,7 +167,7 @@
             }
 
             .track-icon {
-                color: #lighten(var(--a5e-color-text-dark), 35%);
+                color: lighten-color(var(--a5e-color-text-dark), 35);
 
                 @each $level, $color in $colors {
                     &-level-#{$level} {
