@@ -30,7 +30,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -67,6 +68,32 @@
 					}
 				},
 				"consumers": {}
+			},
+			"fOu6dpJ0NFpazxVa": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/greatsword-guard.webp"
 			}
 		},
 		"description": "<p>When exposed to freezing temperatures the blade of this magic sword sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p>While you are attuned to the sword, attacks using it deal an extra 1d6 cold damage and you gain resistance to fire damage.</p><p>Once per hour, when you draw the sword you can choose to extinguish all nonmagical flames within 30 feet.</p>",
@@ -124,13 +151,18 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "d10",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"folder": null,
-	"_id": "f8mmeldpui6ri25t",
 	"_stats": {
 		"coreVersion": "12",
 		"systemId": "a5e",
 		"systemVersion": "0.19.14"
-	}
+	},
+	"_id": "f8mmeldpui6ri25t"
 }

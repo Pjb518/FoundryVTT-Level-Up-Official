@@ -30,7 +30,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -60,6 +61,32 @@
 					}
 				},
 				"consumers": {}
+			},
+			"TKARBsFn1CzkppJf": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/greatsword-guard.webp"
 			}
 		},
 		"description": "<p><em>Parrying, Versatile (1d10)</em></p><hr class=\"a5e-rule u-my-md\"><p>Objects hit with this sword take the maximum damage the weapon’s damage dice can deal.</p><p>When you use this sword to make an attack against a creature and roll a natural 20, the target takes an extra 4d6 slashing damage.</p><p>Then roll an additional d20, and on a natural 20 you chop off one of the target’s limbs (or a portion of its body if it has no limbs). The Narrator determines what effect (if any) the result of this severing off is.</p><p>You may also speak this sword’s command word to make the blade emit bright light in a 10-foot radius and dim light an additional 10 feet. Repeating the command word or sheathing the sword extinguishes the blade’s light.</p>",
@@ -117,13 +144,18 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "d10",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"folder": null,
-	"_id": "4a6jaeiopbbsishf",
 	"_stats": {
 		"coreVersion": "12",
 		"systemId": "a5e",
 		"systemVersion": "0.19.14"
-	}
+	},
+	"_id": "4a6jaeiopbbsishf"
 }

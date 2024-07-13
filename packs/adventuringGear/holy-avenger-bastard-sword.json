@@ -30,7 +30,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -68,6 +69,32 @@
 					}
 				},
 				"consumers": {}
+			},
+			"YZpLLONYospI9ZLw": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/greatsword-guard.webp"
 			}
 		},
 		"description": "<p><em>Parrying, Versatile (1d10)</em></p><p>You gain a +3 bonus to attack and damage rolls made with this magic sword. While you are attuned to the sword and use it to attack a fiend or undead, on a hit it deals an extra 2d10 radiant damage. In addition, while drawn the sword creates an aura in a 10-foot radius around you. You and friendly creatures in the aura gain&nbsp;advantage</span>&nbsp;on&nbsp;<span>saving throws&nbsp;against spells and other magical effects. If you have 17 or more levels in the herald class, the aura increases to a 30-foot radius.</p>",
@@ -125,13 +152,18 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "d10",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"folder": null,
-	"_id": "f4qgb43i2yc3h4u7",
 	"_stats": {
 		"coreVersion": "12",
 		"systemId": "a5e",
 		"systemVersion": "0.19.14"
-	}
+	},
+	"_id": "f4qgb43i2yc3h4u7"
 }

@@ -30,7 +30,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -67,6 +68,32 @@
 					}
 				},
 				"consumers": {}
+			},
+			"nlvMXcdEF9pv2WfA": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/greatsword-guard.webp"
 			}
 		},
 		"description": "<p><em>Parrying, Versatile (1d10)</em></p><hr class=\"a5e-rule u-my-md\"><p>Once per turn, when you use this sword to hit a creature with a melee weapon attack, in addition to dealing the attack damage you may inflict it with a wound.</p><p>A wounded creature takes 1d4 necrotic damage at the start of each of its turns for each wound you have inflicted this way. Whenever the creature is damaged by its wound, it can make a DC 15 Constitution saving throw, ending all wound effects it is suffering from on a success.</p><p>Alternatively, the wounds can be healed if the wounded creature (or a creature within 5 feet of it) uses an action to make a DC 15 Medicine check, ending all wound effects it is suffering from on a success.</p><p>Damage dealt by this sword can only be regained by taking a short or long rest— no other method, magical or otherwise, will restore the hit points.</p>",
@@ -124,13 +151,18 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "d10",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"folder": null,
-	"_id": "97y3yadgacwnfymi",
 	"_stats": {
 		"coreVersion": "12",
 		"systemId": "a5e",
 		"systemVersion": "0.19.14"
-	}
+	},
+	"_id": "97y3yadgacwnfymi"
 }
