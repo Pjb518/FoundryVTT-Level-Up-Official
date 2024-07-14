@@ -1,0 +1,563 @@
+{
+	"folder": null,
+	"name": "Folding Shield",
+	"type": "object",
+	"img": "icons/equipment/shield/buckler-wooden-boss.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "0",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"wIpxFGtm7rOiMjGx": {
+				"name": "Deploy Shield",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"sJuInvApF4M8jP5B": {
+						"type": "effect",
+						"default": true,
+						"effectId": "fR9mr4OE2zazqB8Z"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"cIEbXb6ULEolKb2m": {
+						"range": "self"
+					}
+				}
+			},
+			"jduqNLwsmfbkLvQz": {
+				"name": "Attack",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"tFenoUYFUlCECoM8": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "str",
+						"label": "Improvised Weapon"
+					},
+					"wxWij6knaFs6y2gk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				},
+				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp"
+			},
+			"77IEvTTZm9Brgzxt": {
+				"name": "Throw",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"tFenoUYFUlCECoM8": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": false,
+						"ability": "default",
+						"label": "Improvised Weapon"
+					},
+					"wxWij6knaFs6y2gk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6 + @finesse.mod",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				},
+				"ranges": {
+					"i0lPCxDpIBuasMGz": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"89mEG6ZMHApxBoon": {
+						"range": "medium"
+					}
+				},
+				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp"
+			},
+			"TKUVEiw7VRApNmdW": {
+				"name": "Attack (Defensive)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"tFenoUYFUlCECoM8": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": false,
+						"ability": "str",
+						"label": "Improvised Weapon"
+					},
+					"wxWij6knaFs6y2gk": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				},
+				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
+				"ranges": {
+					"EfMMyZTD32hz3WC7": {
+						"range": "fiveFeet"
+					}
+				}
+			},
+			"JapH59tzBavez9SR": {
+				"name": "Increase Armor Class (Defensive)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"1RmCVO4QKQ9DZpDM": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					},
+					"hhUcyCDWAO7SCqQg": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					},
+					"uoPg8EUOGKhSBNjo": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					},
+					"mMMkXo28jayZyoba": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"bZ9qqcaxSNoGUVmk": {
+						"range": "self"
+					}
+				},
+				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp"
+			},
+			"Vaa2JZkIiIkkvAYM": {
+				"name": "Retract Shield",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>This light shield folds into a special gauntlet and can be deployed as a bonus action or retracted as an action.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "shield",
+		"plotItem": false,
+		"price": "15 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "light",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 5,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.xy2bn4687azmkadw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jduqNLwsmfbkLvQz",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Defensive AC",
+			"_id": "i5ntAG8KWNyvHO1T",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
+			"type": "base",
+			"system": {},
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.xy2bn4687azmkadw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "77IEvTTZm9Brgzxt",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Defensive AC",
+			"_id": "7p4ghKAStja0WQh7",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
+			"type": "base",
+			"system": {},
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.xy2bn4687azmkadw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "TKUVEiw7VRApNmdW",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Defensive AC",
+			"_id": "Uaf1FJFxAkdqzTM4",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
+			"type": "base",
+			"system": {},
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.xy2bn4687azmkadw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "JapH59tzBavez9SR",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Defensive AC",
+			"_id": "yzAoLISBq7Kai1ji",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
+			"type": "base",
+			"system": {},
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.bjGtC0twBFWrTjqV",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "wIpxFGtm7rOiMjGx",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Light Shield",
+			"img": "icons/equipment/shield/buckler-wooden-boss.webp",
+			"_id": "fR9mr4OE2zazqB8Z",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "OrFUsavrtpUzz8cd"
+}

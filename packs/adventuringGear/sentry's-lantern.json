@@ -1,0 +1,162 @@
+{
+	"folder": null,
+	"name": "Sentry's Lantern",
+	"type": "object",
+	"img": "icons/sundries/lights/lantern-iron-lit-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"MC3DPOtqUy7koqvl": {
+				"name": "Raise Hood",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"9mE0de8DbSAgU3M9": {
+						"type": "effect",
+						"default": true,
+						"effectId": "4MKJ5RAQn6it2BY1"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>This heavy, tripod-mounted, hooded lantern ignites when the hood is raised as an action. It casts bright light to a range of 90 feet and dim light for a further 90 feet. When folded for transport it is a bulky item.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": true,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": "30 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 50,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.BaMpz3fFqIVJiE7l",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "MC3DPOtqUy7koqvl",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Light",
+			"img": "icons/sundries/lights/lantern-iron-lit-yellow.webp",
+			"_id": "4MKJ5RAQn6it2BY1",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "90",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "180",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "SleDpHOnQCk6qMkc"
+}
