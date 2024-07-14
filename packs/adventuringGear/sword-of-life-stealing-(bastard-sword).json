@@ -30,7 +30,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -67,6 +68,32 @@
 					}
 				},
 				"consumers": {}
+			},
+			"7lX2735kLgsYwaWL": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/greatsword-guard.webp"
 			}
 		},
 		"description": "<p><em>Parrying, Versatile (1d10)</em></p><hr class=\"a5e-rule u-my-md\"><p>When you use this weapon to make an attack against a creature that is not a construct or undead and roll a natural 20, the creature takes an extra 3d6 necrotic damage and you gain an amount of temporary hit points equal to the necrotic damage dealt.</p>",
@@ -124,13 +151,18 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "d10",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"folder": null,
-	"_id": "k817efm10u10nlh9",
 	"_stats": {
 		"coreVersion": "12",
 		"systemId": "a5e",
 		"systemVersion": "0.19.14"
-	}
+	},
+	"_id": "k817efm10u10nlh9"
 }

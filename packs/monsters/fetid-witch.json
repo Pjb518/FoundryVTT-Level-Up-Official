@@ -592,7 +592,11 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff"
+			"tint": "#ffffff",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"width": 1,
 		"height": 1,
@@ -628,10 +632,12 @@
 				"min": 0,
 				"max": 1
 			},
-			"color": null
+			"color": null,
+			"negative": false,
+			"priority": 0
 		},
 		"sight": {
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"angle": 360,
 			"visionMode": "basic",
@@ -643,7 +649,23 @@
 		},
 		"detectionModes": [],
 		"flags": {},
-		"randomImg": false
+		"randomImg": false,
+		"hexagonalShape": 0,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		}
 	},
 	"items": [
 		{
@@ -1270,7 +1292,9 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "8W8aiErbiSf3wPuw",
 			"img": "icons/svg/item-bag.svg",
@@ -1326,7 +1350,9 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "gWRtlpK7mpk2ZVqX",
 			"img": "icons/svg/item-bag.svg",
@@ -1472,7 +1498,12 @@
 				"defensiveProperties": "",
 				"flaws": [],
 				"mounted": [],
-				"versatile": ""
+				"versatile": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				}
 			},
 			"folder": null,
 			"_id": "M32zRa3Jv9K7OYVA",
@@ -2178,7 +2209,7 @@
 						}
 					}
 				},
-				"description": "<p>e corpse of a rat within 60 feet, causing it to explode. Creatures within 10 feet of the explosion make a DC 12 Constitution&nbsp;saving throw</span>&nbsp;. On a failed save, the target takes 7 (2d6) thunder damage and is&nbsp;<span>poisoned&nbsp;for 1 minute. On a success, the creature takes half damage and isn&rsquo;t poisoned. A poisoned creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
+				"description": "<p>The witch targets the corpse of a rat within 60 feet, causing it to explode. Creatures within 10 feet of the explosion make a DC 12 Constitution saving throw . On a failed save, the target takes 7 (2d6) thunder damage and is poisoned for 1 minute. On a success, the creature takes half damage and isn&rsquo;t poisoned. A poisoned creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
 				"favorite": true,
 				"secretDescription": "",
 				"source": "[object Object]",
@@ -2205,7 +2236,9 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "qRrrztmkAM3UcWob",
 			"img": "icons/svg/item-bag.svg",
@@ -2314,7 +2347,9 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_id": "w9BOsn1vAcfHgc6R",
 			"img": "icons/svg/item-bag.svg",
@@ -2337,10 +2372,10 @@
 			"filters": {}
 		}
 	},
-	"_id": "ooynzti2g5ao2r0q",
 	"_stats": {
 		"coreVersion": "12",
 		"systemId": "a5e",
 		"systemVersion": "0.19.14"
-	}
+	},
+	"_id": "ooynzti2g5ao2r0q"
 }

@@ -55,7 +55,9 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
 				"coreVersion": "12",
@@ -159,7 +161,9 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
 				"coreVersion": "12",
@@ -228,7 +232,7 @@
 							"dGqW6f8PCGyCjSBH": {
 								"canCrit": true,
 								"damageType": "slashing",
-								"formula": "2d6 + @str.mod",
+								"formula": "2d4 + @str.mod",
 								"name": "",
 								"type": "damage"
 							}
@@ -263,7 +267,9 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
 				"coreVersion": "12",
@@ -1453,7 +1459,9 @@
 				"max": 1
 			},
 			"attenuation": 0.5,
-			"color": null
+			"color": null,
+			"negative": false,
+			"priority": 0
 		},
 		"disposition": 0,
 		"displayBars": 0,
@@ -1472,11 +1480,15 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff"
+			"tint": "#ffffff",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"sight": {
 			"angle": 360,
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"brightness": 1,
 			"color": null,
@@ -1487,13 +1499,29 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false
+		"prependAdjective": false,
+		"hexagonalShape": 1,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		}
 	},
 	"folder": null,
-	"_id": "6il1no55zt5hfqfv",
 	"_stats": {
 		"coreVersion": "12",
 		"systemId": "a5e",
 		"systemVersion": "0.19.14"
-	}
+	},
+	"_id": "6il1no55zt5hfqfv"
 }
