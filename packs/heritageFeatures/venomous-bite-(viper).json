@@ -1,0 +1,95 @@
+{
+	"folder": null,
+	"name": "Venomous Bite (Viper)",
+	"type": "feature",
+	"img": "icons/creatures/abilities/fang-tooth-poison-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Z4rviWS4DAlv6BBA": {
+				"name": "Venomous Bite",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"NTRfmjzl0yCcZiBB": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"vOH93Q00X9EasX2c": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @finesse.mod",
+						"damageType": "piercing"
+					},
+					"ls3E973SsvIfcxdq": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @prof",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You have a venomous bite. As an action, you can attack with your bite (which is considered a finesse weapon) dealing piercing damage equal to 1d4 + ability modifier and poison damage equal to 1d4 + your proficiency bonus.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "JB2QPK5AvdhPGljr"
+}
