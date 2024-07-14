@@ -1,0 +1,87 @@
+{
+	"folder": null,
+	"name": "Turning Strike",
+	"type": "maneuver",
+	"img": "icons/weapons/swords/sword-winged-pink.webp",
+	"system": {
+		"actions": {
+			"uImZnpm81IuLS9mk": {
+				"name": "Execute",
+				"activation": {},
+				"consumers": {
+					"H022h12TY8iEfCn0": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"emsbu1AWV7Y67wLa": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "wis",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"label": "Maneuver DC (Use whichever is Higher)",
+						"onSave": "creature is not turned"
+					},
+					"Huh6FahZt1HBUyB5": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "creature is not turned",
+						"label": "Spell DC (Use whichever is Higher)"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\"><strong>Requirements:</strong> <em>ability to turn at least one creature type, a use of Channel Divinity available</em></p>\n<p dir=\"ltr\">Make a melee weapon attack against a creature. On a hit, it takes normal weapon damage and is also affected as if you had used @UUID[Compendium.a5e.a5e-class-features.Item.zhuf06durl8bnmh3]{Turn Undead} on it (forcing a save and the usual results from that save as normal, but using the higher of your maneuver or spell save DC). This does not expend your use of Channel Divinity, but it also does not affect any other creatures.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 2,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "sanctifiedSteel",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "Jv1b27aNUnVu8eHX"
+}

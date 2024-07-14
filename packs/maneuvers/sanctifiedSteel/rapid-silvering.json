@@ -1,0 +1,137 @@
+{
+	"name": "Rapid Silvering",
+	"type": "maneuver",
+	"img": "icons/weapons/swords/sword-winged-pink.webp",
+	"system": {
+		"actions": {
+			"PwKS0LNzFv4W8in4": {
+				"name": "Execute",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"edG3J9oOHtrFuOjv": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"XXXAXIXiXLSjpGO1": {
+						"type": "damage",
+						"default": false,
+						"label": "Additional Radiant Damage",
+						"formula": "1d6",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {
+					"ltH74h5MIQNe6lHR": {
+						"type": "effect",
+						"default": true,
+						"effectId": "eNHy3RLDQp2bKJpU"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\"><strong id=\"docs-internal-guid-2a041619-7fff-7fc1-ceb7-4deac2b0b488\">Requirements: </strong><em>a silver object no smaller than a coin, a weapon with a metal striking surface, a spell of the transmutation school prepared, and either an unused first-level or higher spell slot or 2 or more spell points or artifact charges</em></p>\n<p dir=\"ltr\">You quickly plate the weapon with silver and take the Attack action with it (including any additional attacks from the Extra Attack or similar features). It counts as a silvered weapon for this Attack action and until the beginning of your next turn, at which point the silver flakes off and is lost. While the weapon is silvered this way, creatures with damage immunity or resistance that can be bypassed by silver take an additional d6 points of radiant damage from attacks made with it.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 1,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "sanctifiedSteel",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.N63T59Km7XCavRxf",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PwKS0LNzFv4W8in4",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rapid Silvering",
+			"_id": "eNHy3RLDQp2bKJpU",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"\",\"formula\":\"1d6[Rapid Silvering]\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p dir=\"ltr\"> While the weapon is silvered this way, creatures with damage immunity or resistance that can be bypassed by silver take an additional d6 points of radiant damage from attacks made with it.</p>",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/weapons/swords/sword-winged-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "EWOcRmudplJoCTfT"
+}

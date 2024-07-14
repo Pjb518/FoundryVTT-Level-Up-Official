@@ -1,0 +1,646 @@
+{
+	"folder": null,
+	"name": "Radiant Warrior Stance",
+	"type": "maneuver",
+	"img": "icons/weapons/swords/sword-winged-pink.webp",
+	"system": {
+		"actions": {
+			"1OokiUxVFN4uxazR": {
+				"name": "Assume Stance",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"P2btV0d1r1YWk8lV": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"xfGPfl9nTl2FsxF3": {
+						"type": "effect",
+						"default": true,
+						"effectId": "CrKlJplkKIi2bAb9",
+						"label": "Cast Dim Light"
+					},
+					"hp9gmEV4TotxYmy8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6ouwqfc1LORGfUU6",
+						"label": "Weapon Damage Bonus"
+					},
+					"sXqoErJ9tEl7p15n": {
+						"type": "effect",
+						"default": true,
+						"effectId": "DJgMw1bWcpeKufkm",
+						"label": "+1 to Maneuver DC"
+					},
+					"WRAaqyOFWs9RkH6v": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XUD8HxD4JrLMlpi1",
+						"label": "+2 to Maneuver DC"
+					},
+					"PFEA3WI5SQx0FwSG": {
+						"type": "effect",
+						"default": true,
+						"effectId": "BESS0ADNk378gwAS",
+						"label": "+3 to Maneuver DC"
+					},
+					"FCEbMTfD2lwIRAxj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "wSY5p70ek0G3SxEi",
+						"label": "+4 to Maneuver DC"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"description": "<p>No description available.</p>",
+				"duration": {
+					"unit": "instantaneous"
+				}
+			},
+			"zTGouui8CRGEn972": {
+				"name": "Extend Light",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"uQX3apN89V496AZ7": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"8tSGEu49QQxAYCyL": {
+						"type": "effect",
+						"default": true,
+						"effectId": "QUM6ea8hIs2FkrEp",
+						"label": "Extend Light"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"description": "<p>As a bonus action, you can spend an additional point of exertion to increase the light you shed to 30 feet of bright light and a further 30 feet of dim light until the beginning of your next turn. The 30-foot radius of bright light counts as sunlight.</p>",
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"target": {
+					"type": "self",
+					"quantity": 1
+				}
+			},
+			"azhN79gZ3PJBfCNF": {
+				"name": "Damage from Creature",
+				"activation": {},
+				"consumers": {
+					"r1TWtLbBW0ctGBlj": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"pJ8iIHMUdrDZT8Ym": {
+						"type": "damage",
+						"default": true,
+						"formula": "1",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {
+					"5pVZe9egSaWiS10e": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"onSave": "not rattled"
+					},
+					"KEFf56aD0piCJwM4": {
+						"type": "effect",
+						"default": true,
+						"effectId": "lRyHDOwr3R9g7oEZ",
+						"label": "Apply Rattled"
+					},
+					"ySIhEOf7oEwng5ET": {
+						"type": "effect",
+						"default": true,
+						"effectId": "zK5YdOhqc5ccTV4R",
+						"label": "Apply Blinded"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"description": "<p dir=\"ltr\" role=\"presentation\">When a creature of the aberration, celestial, elemental, fey, fiend, or undead type damages you in melee, it takes a point of radiant damage and must make a Constitution save against your maneuver DC. On a failed save, it is rattled. If it fails by 5 points or more, it is also blinded. Both effects last until the end of its next turn.</p>"
+			}
+		},
+		"description": "<p dir=\"ltr\"><strong>Requirements: </strong><em>a spell that deals radiant damage prepared and sufficient resources to cast it. If you lose the ability to cast the spell (such as by spending the spell slot or sufficient points to make it unavailable for casting) this stance ends immediately</em></p>\n<p dir=\"ltr\">You tap into the latent radiant power of your magic. As long as you remain in this stance, you gain the following benefits:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You cast dim light to a range of 10 feet. As a bonus action, you can spend an additional point of exertion to increase the light you shed to 30 feet of bright light and a further 30 feet of dim light until the beginning of your next turn. The 30-foot radius of bright light counts as sunlight.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">When a creature of the aberration, celestial, elemental, fey, fiend, or undead type damages you in melee, it takes a point of radiant damage and must make a Constitution save against your maneuver DC. On a failed save, it is rattled. If it fails by 5 points or more, it is also blinded. Both effects last until the end of its next turn.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">Melee weapons you wield deal an extra point of radiant damage and always count as magical against aberrations, celestials, elementals, fey, fiends, and undead.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">If your wielded weapon has a permanent +1, +2, or +3 bonus to attack and damage rolls, you also increase your maneuver DC for Sanctified Steel maneuvers by that much.</p>\n</li>\n</ul>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 4,
+		"exertionCost": 2,
+		"isStance": true,
+		"prerequisite": "",
+		"tradition": "sanctifiedSteel",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.sLjQXXul7hYJOfSq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1OokiUxVFN4uxazR",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Radiant Warrior Stance: 10 ft. Dim Light",
+			"_id": "CrKlJplkKIi2bAb9",
+			"changes": [
+				{
+					"key": "@token.light.dim",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 0,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You cast dim light to a range of 10 feet.</p>",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/weapons/swords/sword-winged-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.sLjQXXul7hYJOfSq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "zTGouui8CRGEn972"
+				}
+			},
+			"transfer": false,
+			"name": "Extend Light",
+			"_id": "QUM6ea8hIs2FkrEp",
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "30",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/weapons/swords/sword-winged-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.sLjQXXul7hYJOfSq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "azhN79gZ3PJBfCNF"
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"_id": "lRyHDOwr3R9g7oEZ",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>On a failed save, it is rattled.</p>",
+			"statuses": [
+				"rattled"
+			],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/weapons/swords/sword-winged-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.sLjQXXul7hYJOfSq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "azhN79gZ3PJBfCNF"
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"_id": "zK5YdOhqc5ccTV4R",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p dir=\"ltr\">If it fails by 5 points or more, it is also blinded. Both effects last until the end of its next turn.</p>\n<p> </p>",
+			"statuses": [
+				"blinded"
+			],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/weapons/swords/sword-winged-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.sLjQXXul7hYJOfSq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1OokiUxVFN4uxazR",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Radiant Warrior Stance: Weapon Damage",
+			"_id": "6ouwqfc1LORGfUU6",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"\",\"formula\":\"1\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 0,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Melee weapons you wield deal an extra point of radiant damage and always count as magical against aberrations, celestials, elementals, fey, fiends, and undead.</p>",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/weapons/swords/sword-winged-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.sLjQXXul7hYJOfSq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1OokiUxVFN4uxazR",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes",
+						"type": "rounds"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "+1 to Maneuver DC",
+			"_id": "DJgMw1bWcpeKufkm",
+			"changes": [
+				{
+					"key": "system.bonuses.maneuverDC",
+					"value": "+1[Radiant Warrior Stance]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 0,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If your wielded weapon has a permanent +1, +2, or +3 bonus to attack and damage rolls, you also increase your maneuver DC for Sanctified Steel maneuvers by that much.</p>",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/weapons/swords/sword-winged-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.sLjQXXul7hYJOfSq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1OokiUxVFN4uxazR",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "+2 to Maneuver DC",
+			"_id": "XUD8HxD4JrLMlpi1",
+			"changes": [
+				{
+					"key": "system.bonuses.maneuverDC",
+					"value": "+2[Radiant Warrior Stance]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 0,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If your wielded weapon has a permanent +1, +2, or +3 bonus to attack and damage rolls, you also increase your maneuver DC for Sanctified Steel maneuvers by that much.</p>",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/weapons/swords/sword-winged-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.sLjQXXul7hYJOfSq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1OokiUxVFN4uxazR",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes",
+						"type": "rounds"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "+3 to Maneuver DC",
+			"_id": "BESS0ADNk378gwAS",
+			"changes": [
+				{
+					"key": "system.bonuses.maneuverDC",
+					"value": "+3[Radiant Warrior Stance]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 0,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If your wielded weapon has a permanent +1, +2, or +3 bonus to attack and damage rolls, you also increase your maneuver DC for Sanctified Steel maneuvers by that much.</p>",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/weapons/swords/sword-winged-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.sLjQXXul7hYJOfSq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1OokiUxVFN4uxazR",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "+4 to Maneuver DC",
+			"_id": "wSY5p70ek0G3SxEi",
+			"changes": [
+				{
+					"key": "system.bonuses.maneuverDC",
+					"value": "+4[Radiant Warrior Stance]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 0,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If your wielded weapon has a permanent +1, +2, or +3 bonus to attack and damage rolls, you also increase your maneuver DC for Sanctified Steel maneuvers by that much.</p>",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/weapons/swords/sword-winged-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "50CT7jUE8MVogNpE"
+}

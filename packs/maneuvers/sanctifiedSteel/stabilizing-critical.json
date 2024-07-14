@@ -1,0 +1,88 @@
+{
+	"folder": null,
+	"name": "Stabilizing Critical",
+	"type": "maneuver",
+	"img": "icons/weapons/swords/sword-winged-pink.webp",
+	"system": {
+		"actions": {
+			"1t908vh1l1JA3YyH": {
+				"name": "Execute",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "critical hit"
+				},
+				"consumers": {
+					"RqaCSqzXdMLG8IbV": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"HLywHzhJlV4nR95V": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d4[Stabilizing Critical] + @cha.mod[Charisma Modifier]"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"oIkdhHcFtJA6sznH": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\"><strong>Requirement: </strong><em>you must have a spell of the healing school prepared and sufficient resources to cast it.</em></p>\n<p dir=\"ltr\">When you score a critical hit, you may use your reaction to heal an unconscious creature making death saves within 30 feet of you a number of hit points equal to 1d4 + your Charisma modifier.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 2,
+		"exertionCost": 0,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "sanctifiedSteel",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "HYwUT0AcoIGGS5h1"
+}

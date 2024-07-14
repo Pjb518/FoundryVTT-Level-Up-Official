@@ -1,0 +1,72 @@
+{
+	"folder": null,
+	"name": "Battle Healers Stance",
+	"type": "maneuver",
+	"img": "icons/weapons/swords/sword-winged-pink.webp",
+	"system": {
+		"actions": {
+			"fOFZnNVgFmTRyKjO": {
+				"name": "Execute",
+				"activation": {},
+				"consumers": {
+					"Qu9hWljFhRLi8QOU": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 2
+					}
+				},
+				"rolls": {
+					"xAix3KXE4fNmg8r9": {
+						"type": "healing",
+						"default": true,
+						"formula": "floor(@prof/2)[Battle Healer Stance]"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\"><strong>Requirements:</strong><em><strong> </strong>a spell of the healing school of 1st level or higher prepared and a spell slot or sufficient resources available to cast it. If you lose the ability to cast the spell (such as by spending the spell slot or sufficient points to make it unavailable for casting) this stance ends immediately</em></p>\n<p dir=\"ltr\">The first time you deal damage with a melee weapon attack against a creature with a CR equal to half your character level or greater each turn, you or a conscious ally within 30 feet of you is healed a number of hit points equal to half your proficiency bonus.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 1,
+		"exertionCost": 2,
+		"isStance": true,
+		"prerequisite": "",
+		"tradition": "sanctifiedSteel",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "2SMLrqHsiE47Cxh2"
+}
