@@ -1,0 +1,109 @@
+{
+	"folder": null,
+	"name": "Consecrated Venom (Sinuous Paragon)",
+	"type": "feature",
+	"img": "icons/creatures/reptiles/snake-fangs-bite-green-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"viexkgN8kTLbKi32": {
+				"name": "Venomous Bite",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"NTRfmjzl0yCcZiBB": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"vOH93Q00X9EasX2c": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @finesse.mod",
+						"damageType": "piercing"
+					},
+					"ls3E973SsvIfcxdq": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @prof",
+						"damageType": "poison"
+					},
+					"utkhm4y1LYsacz6J": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d4",
+						"damageType": "radiant"
+					},
+					"JjkVG0uDhSJag9n2": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d8",
+						"damageType": "radiant",
+						"label": "Aberration, Fiend, or Undead"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/creatures/abilities/fang-tooth-poison-green.webp"
+			}
+		},
+		"description": "<p>Your venom has become infused with holy power. Your venomous bite attack now deals an additional 1d4 points of radiant damage on a hit, which increases to 1d8 against aberrations, fiends, and undead. In addition, you learn the @UUID[Compendium.a5e.a5e-spells.Item.l0xg2yboy5z633pr]{Venomous Succor} spell and can cast it once per long rest without using a spell slot.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "Viper heritage gift",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "uCFxfGOmdtEVxDFT"
+}

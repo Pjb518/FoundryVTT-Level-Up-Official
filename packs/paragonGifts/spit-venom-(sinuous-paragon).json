@@ -1,0 +1,164 @@
+{
+	"folder": null,
+	"name": "Spit Venom (Sinuous Paragon)",
+	"type": "feature",
+	"img": "icons/creatures/reptiles/snake-fangs-bite-green-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"pI4Y2mrrjMU8rWLT": {
+				"name": "Spit Venom",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"mKh4BpTGnkzQkysQ": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "dex"
+					},
+					"7g5Oas8TjUyNcqDG": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"gntjm91iF7sddhf0": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "con"
+						}
+					},
+					"R3sJ1Hxw5yAJQWME": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Ngd6OItglBWTjCKE"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"NApbJFiMAYsko227": {
+						"range": 40,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>You gain the ability to spit blinding venom at your foes. Your venom spit is a ranged weapon attack with a range of 40 feet. If you hit, the target suffers 2d6 points of poison damage and must make a Constitution save against a DC equal to 8 + your proficiency bonus + your Constitution modifier or be blinded for until the end of its next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "Viper heritage gift",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.FGbgA5dYc9aaNjgR",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "pI4Y2mrrjMU8rWLT",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"_id": "Ngd6OItglBWTjCKE",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/creatures/reptiles/snake-fangs-bite-green-yellow.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "Zvmn1TMNvKLY4mXQ"
+}
