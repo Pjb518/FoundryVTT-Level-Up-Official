@@ -26,7 +26,7 @@ export default class ArchetypeItemA5e extends OriginItemA5e {
     return this.system.slug || this.name.slugify({ strict: true });
   }
 
-  prepareBaseData(): void {
+  override prepareBaseData(): void {
     super.prepareBaseData();
 
     this.class = this.prepareClass();
@@ -96,7 +96,7 @@ export default class ArchetypeItemA5e extends OriginItemA5e {
     return data;
   }
 
-  getRollData() {
+  override getRollData() {
     const data: Record<string, any> = { ...super.getRollData() };
     const resources = this?.resources?.rollData ?? {};
 
@@ -108,23 +108,23 @@ export default class ArchetypeItemA5e extends OriginItemA5e {
     return data;
   }
 
-  _preCreate(data: any, options: any, user: any): void {
+  override async _preCreate(data: any, options: any, user: any) {
     super._preCreate(data, options, user);
   }
 
-  async _preUpdate(changed, options, user) {
+  override async _preUpdate(changed, options, user) {
     super._preUpdate(changed, options, user);
   }
 
-  async _onCreate(data, options, userId) {
+  override async _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
   }
 
-  async _onUpdate(data, options, userId) {
+  override _onUpdate(data, options, userId) {
     super._onUpdate(data, options, userId);
   }
 
-  async _onDelete(options, user) {
+  override async _onDelete(options, user) {
     super._onDelete(options, user);
   }
 }

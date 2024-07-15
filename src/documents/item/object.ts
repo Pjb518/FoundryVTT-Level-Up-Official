@@ -22,6 +22,7 @@ export default class ObjectItemA5e extends ItemA5e {
 
   get container() {
     if (!this.system.containerId) return null;
+    // @ts-expect-error
     if (this.isEmbedded) return this.actor.items.get(this.system.containerId);
     if (this.pack) return game.packs.get(this.pack)?.getDocument(this.system.containerId);
     return game.items.get(this.system.containerId);
@@ -41,7 +42,7 @@ export default class ObjectItemA5e extends ItemA5e {
     return this.containerItems?.items ?? [];
   }
 
-  prepareBaseData() {
+  override prepareBaseData() {
     super.prepareBaseData();
 
     if (this.system.objectType === 'container') {
@@ -49,15 +50,11 @@ export default class ObjectItemA5e extends ItemA5e {
     }
   }
 
-  prepareDerivedData() {
+  override prepareDerivedData() {
     super.prepareDerivedData();
   }
 
-  /**
-   * @override
-   * @returns
-   */
-  async duplicateItem() {
+  override async duplicateItem() {
     if (this.system.objectType !== 'container') return super.duplicateItem();
 
     if (!this.actor) return null;
@@ -73,6 +70,7 @@ export default class ObjectItemA5e extends ItemA5e {
 
   async toggleDamagedState() {
     const currentState = this.system.damagedState;
+    // @ts-expect-error
     const newState = (currentState + 1) % 3;
 
     await this.update({
@@ -84,13 +82,17 @@ export default class ObjectItemA5e extends ItemA5e {
     if (!this.actor) return;
 
     const currentState = this.system.equippedState;
+    // @ts-expect-error
     let newState = (currentState + 1) % 3;
 
     // Check if armor is already equipped
     if (newState === CONFIG.A5E.EQUIPPED_STATES.EQUIPPED && this.system.objectType === 'armor') {
-      const { hasArmor, hasUnderArmor } = this.parent.items.reduce((acc, item) => {
+      const { hasArmor, hasUnderArmor } = this.actor.items.reduce((acc, item) => {
+        // @ts-expect-error
         if (item.system.equippedState !== CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
+          // @ts-expect-error
           || item.system.objectType !== 'armor') return acc;
+        // @ts-expect-error
         const isUnderarmor = item.system.materialProperties.includes('underarmor');
         if (isUnderarmor) acc.hasUnderArmor = true;
         else acc.hasArmor = true;
@@ -103,17 +105,21 @@ export default class ObjectItemA5e extends ItemA5e {
 
       // Warn user
       if (newState === 0) {
+        // @ts-expect-error
         ui.notifications.warn(game.i18n.localize('A5E.armorClass.armorAlreadyEquipped'));
       }
     }
 
     // Check if 2 shields are already equipped
     if (newState === 2 && this.system.objectType === 'shield') {
-      const shields = this.parent.items.filter((i) => (
+      const shields = this.actor.items.filter((i) => (
+        // @ts-expect-error
         i.system.equippedState === CONFIG.A5E.EQUIPPED_STATES.EQUIPPED
+        // @ts-expect-error
         && i.system.objectType === 'shield'));
       if (shields.length >= 2) newState = 0;
       if (newState === 0) {
+        // @ts-expect-error
         ui.notifications.warn(game.i18n.localize('A5E.armorClass.shieldAlreadyEquipped'));
       }
     }
@@ -130,7 +136,7 @@ export default class ObjectItemA5e extends ItemA5e {
   }
 
   // TODO: Container Rework - Move to manager
-  async updateContainer(containerUuid) {
+  async updateContainer(containerUuid: string) {
     if (containerUuid === this.uuid) return;
 
     if (!containerUuid) {
@@ -158,15 +164,15 @@ export default class ObjectItemA5e extends ItemA5e {
 
     await this.update({ 'system.containerId': containerUuid });
     // TODO: Types - Fix this
+    // @ts-expect-error
     await container.containerItems?.add(this.uuid);
   }
 
-  /** @inheritdoc */
-  _preCreate(data, options, user) {
+  override async _preCreate(data, options, user) {
     super._preCreate(data, options, user);
   }
 
-  async _preUpdate(data, options, user) {
+  override async _preUpdate(data, options, user) {
     if (foundry.utils.getProperty(data, 'system.objectType')) await this._preUpdateObjectType();
 
     super._preUpdate(data, options, user);
@@ -191,7 +197,7 @@ export default class ObjectItemA5e extends ItemA5e {
     await this.update(updates);
   }
 
-  async _onCreate(data, options, userId) {
+  override async _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
     if (userId !== game.userId) return;
 
@@ -215,6 +221,7 @@ export default class ObjectItemA5e extends ItemA5e {
     actions.forEach(([actionId, action]) => {
       const consumers = Object.entries(action.consumers ?? {});
       consumers.forEach(([consumerId, consumer]) => {
+        // @ts-expect-error
         if (consumer.type !== 'quantity') return;
         updates[`system.actions.${actionId}.consumers.${consumerId}.itemId`] = this._id;
       });
@@ -223,7 +230,7 @@ export default class ObjectItemA5e extends ItemA5e {
     await this.update(updates);
   }
 
-  async _onDelete(options, user) {
+  override async _onDelete(options, user) {
     // Clean up container
     if (!this.parent) return;
     if (this.system.objectType === 'container') {

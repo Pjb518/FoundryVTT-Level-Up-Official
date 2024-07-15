@@ -40,6 +40,7 @@ export default class ClassItemA5e extends OriginItemA5e {
   get isStartingClass() {
     if (!this.isEmbedded) return false;
 
+    // @ts-expect-error
     return this.parent?.system.classes.startingClass === this.slug;
   }
 
@@ -67,7 +68,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     return this.classLevels;
   }
 
-  prepareBaseData() {
+  override prepareBaseData() {
     super.prepareBaseData();
 
     // Set up class resource manager
@@ -87,6 +88,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     const { levels } = this.system.hp;
 
     const actor = this.isEmbedded ? this.parent : null;
+    // @ts-expect-error
     const maxLevel = actor ? actor.levels.character : 20;
 
     return Object.entries(levels ?? {}).reduce((acc, [level, value]) => {
@@ -143,7 +145,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     return data;
   }
 
-  getRollData() {
+  override getRollData() {
     const data: Record<string, any> = { ...super.getRollData() };
     const resources = this?.resources?.rollData ?? {};
 
@@ -164,7 +166,8 @@ export default class ClassItemA5e extends OriginItemA5e {
     return data;
   }
 
-  _preCreate(data, options, user) {
+  // eslint-disable-next-line consistent-return
+  override async _preCreate(data, options, user): Promise<boolean | void> {
     foundry.utils.setProperty(data, 'system.classLevels', 1);
     foundry.utils.setProperty(data, 'system.hp.hitDiceUsed', 0);
 
@@ -175,10 +178,11 @@ export default class ClassItemA5e extends OriginItemA5e {
 
     if (this.parent?.documentName === 'Actor') {
       const actor = this.parent;
+      // @ts-expect-error
       const { classes } = actor;
 
       if (!Object.keys(classes).length) {
-        actor.update({ 'system.classes.startingClass': this.slug });
+        await actor.update({ 'system.classes.startingClass': this.slug });
 
         // Update starting hp
         const startingHp = this?.system?.hp?.hitDiceSize ?? 6;
@@ -196,12 +200,11 @@ export default class ClassItemA5e extends OriginItemA5e {
 
     this.updateSource(data);
 
-    super._preCreate(data, options, user);
-    return true;
+    await super._preCreate(data, options, user);
   }
 
   // eslint-disable-next-line consistent-return
-  async _preUpdate(changed, options, user): Promise<false | void> {
+  override async _preUpdate(changed, options, user): Promise<boolean | void> {
     await super._preUpdate(changed, options, user);
 
     const keys = Object.keys(foundry.utils.flattenObject(changed));
@@ -228,21 +231,22 @@ export default class ClassItemA5e extends OriginItemA5e {
       const actor = this.parent;
       const currentLevel = this.system.classLevels;
       const newLevel = foundry.utils.getProperty(changed, 'system.classLevels');
+      // @ts-expect-error
       const result = await actor.grants.createLeveledGrants(currentLevel, newLevel, this);
       if (!result) return false;
     }
   }
 
-  async _onCreate(data, options, userId) {
+  override async _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
   }
 
-  async _onUpdate(data, options, userId) {
+  override _onUpdate(data, options, userId) {
     super._onUpdate(data, options, userId);
   }
 
-  async _onDelete(options, user) {
-    super._onDelete(options, user);
+  override async _onDelete(options, user) {
+    await super._onDelete(options, user);
 
     if (this.isStartingClass && this.parent?.documentName === 'Actor') {
       const actor = this.parent;

@@ -9,16 +9,16 @@ export default class FeatureItemA5e extends ItemA5e {
 
   declare system: InstanceType<typeof A5EFeatureData>;
 
-  prepareBaseData() {
+  override prepareBaseData() {
     super.prepareBaseData();
 
     // Setup Grants system
     this.grants = new ItemGrantsManager(this);
   }
 
-  _preCreate(data, options, user) {
+  override async _preCreate(data, options, user) {
     if (user._id !== game.userId) {
-      super._preCreate(data, options, user);
+      await super._preCreate(data, options, user);
       return;
     }
 
@@ -27,22 +27,24 @@ export default class FeatureItemA5e extends ItemA5e {
       const actor = this.parent;
       // Keep id of the original document
       options.keepId = true;
+      // @ts-expect-error
       if (!options.noGrant) actor.grants.createInitialGrants(this, true);
     }
 
     super._preCreate(data, options, user);
   }
 
-  async _onCreate(data, options, userId) {
+  override _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
   }
 
-  async _onDelete(options, userId) {
+  override async _onDelete(options, userId) {
     super._onDelete(options, userId);
 
     if (!this.parent || this.parent?.documentName !== 'Actor') return;
 
     const actor = this.parent;
+    // @ts-expect-error
     await actor.grants.removeGrantsByItem(this.uuid);
   }
 }

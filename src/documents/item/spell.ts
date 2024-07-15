@@ -21,7 +21,7 @@ export default class SpellItemA5e extends ItemA5e {
   }
 
   // eslint-disable-next-line consistent-return
-  _preCreate(data, options, user) {
+  override async _preCreate(data, options, user): Promise<boolean | void> {
     if (!data.system?.spellBook && this.parent?.documentName === 'Actor') {
       ui.notifications?.error('You must select a spell book to create a spell.');
       return false;

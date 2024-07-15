@@ -137,7 +137,7 @@ class BaseItemA5e extends Item {
     await this.sheet?.render(true);
   }
 
-  async duplicateItem() {
+  duplicateItem() {
     const owningActor = this.actor;
     const newItem = foundry.utils.duplicate(this);
     newItem.name = `${newItem.name} (Copy)`;
@@ -237,7 +237,7 @@ class BaseItemA5e extends Item {
   }
 
   /** @inheritdoc */
-  override async _preCreate(data, options, user) {
+  override async _preCreate(data, options, user): Promise<boolean | void> {
     await super._preCreate(data, options, user);
 
     // Add schema version
@@ -261,11 +261,11 @@ class BaseItemA5e extends Item {
     }
   }
 
-  override async _preUpdate(data, options, user) {
+  override async _preUpdate(data, options, user): Promise<boolean | void> {
     super._preUpdate(data, options, user);
   }
 
-  override async _onCreate(data, options, userId) {
+  override _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
     if (userId !== game.userId) return;
 
@@ -276,7 +276,7 @@ class BaseItemA5e extends Item {
     this.updateEmbeddedDocuments('ActiveEffect', updateArr);
   }
 
-  override async _onDelete(options, user) {
+  override _onDelete(options, user) {
     super._onDelete(options, user);
   }
 

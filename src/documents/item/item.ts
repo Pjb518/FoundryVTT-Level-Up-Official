@@ -557,7 +557,7 @@ export default class ItemA5e extends BaseItemA5e {
   }
 
   /** @inheritdoc */
-  override async _preCreate(data, options, user) {
+  override async _preCreate(data, options, user): Promise<boolean | void> {
     await super._preCreate(data, options, user);
   }
 
@@ -565,11 +565,11 @@ export default class ItemA5e extends BaseItemA5e {
     super._preUpdate(data, options, user);
   }
 
-  override async _onCreate(data, options, userId) {
+  override _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
   }
 
-  override async _onDelete(options, user) {
+  override _onDelete(options, user) {
     super._onDelete(options, user);
   }
 }
