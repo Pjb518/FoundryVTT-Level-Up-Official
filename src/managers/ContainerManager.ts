@@ -277,7 +277,7 @@ export default class ContainerManager extends Map<string, SubObjectField> {
     return item;
   }
 
-  static async createContainerOnSidebar(item: any, folderId: string | null): Promise<any> {
+  static async createContainerOnSidebar(item: any, folderId: string | null = null): Promise<any> {
     folderId = folderId || item.folder._id || null;
 
     await item.containerItems?.clean();

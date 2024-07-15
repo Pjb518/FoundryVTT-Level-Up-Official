@@ -1,3 +1,5 @@
+import type { A5EObjectData } from '../../dataModels/item/ObjectDataModel';
+
 import ItemA5e from './item';
 
 import ContainerManager from '../../managers/ContainerManager';
@@ -5,9 +7,14 @@ import ContainerManager from '../../managers/ContainerManager';
 export default class ObjectItemA5e extends ItemA5e {
   declare containerItems: ContainerManager | null;
 
+  declare system: InstanceType<typeof A5EObjectData>;
+
   get weight() {
     if (this.system.objectType === 'container') {
-      return (this.containerItems?.weight ?? 0) + this.system.weight;
+      const w = this.containerItems?.weight ?? 0;
+      if (w instanceof Promise) return w.then((cw) => (cw ?? 0) + this.system.weight);
+
+      return w + this.system.weight;
     }
 
     return this.system.weight;
@@ -16,7 +23,7 @@ export default class ObjectItemA5e extends ItemA5e {
   get container() {
     if (!this.system.containerId) return null;
     if (this.isEmbedded) return this.actor.items.get(this.system.containerId);
-    if (this.pack) return game.packs.get(this.pack).getDocument(this.system.containerId);
+    if (this.pack) return game.packs.get(this.pack)?.getDocument(this.system.containerId);
     return game.items.get(this.system.containerId);
   }
 
@@ -127,25 +134,31 @@ export default class ObjectItemA5e extends ItemA5e {
     if (containerUuid === this.uuid) return;
 
     if (!containerUuid) {
-      const container = await fromUuid(this.system.containerId);
+      const container = await fromUuid(
+        this.system.containerId
+      ) as InstanceType<typeof ObjectItemA5e> | null;
       if (!container) return;
 
       await this.update({ 'system.containerId': '' });
-      await container.containerItems.remove(this.uuid);
+      await container.containerItems?.remove(this.uuid);
       return;
     }
 
     // Remove from old container
-    const oldContainer = await fromUuid(this.system.containerId);
-    if (oldContainer) await oldContainer.containerItems.remove(this.uuid);
+    const oldContainer = await fromUuid(
+      this.system.containerId
+    ) as InstanceType<typeof ObjectItemA5e> | null;
 
-    const container = await fromUuid(containerUuid);
+    if (oldContainer) await oldContainer.containerItems?.remove(this.uuid);
+
+    const container = await fromUuid(containerUuid) as InstanceType<typeof ObjectItemA5e> | null;
     if (!container
       || container?.system?.objectType !== 'container'
       || container?.parent?.id !== this.parent?.id) return;
 
     await this.update({ 'system.containerId': containerUuid });
-    await container.containerItems.add(this.uuid);
+    // TODO: Types - Fix this
+    await container.containerItems?.add(this.uuid);
   }
 
   /** @inheritdoc */
@@ -216,11 +229,14 @@ export default class ObjectItemA5e extends ItemA5e {
     if (this.system.objectType === 'container') {
       // eslint-disable-next-line no-undef
       const items = Object.values(this.system.items).map(({ uuid }) => fromUuidSync(uuid));
-      const updates = items.map((i) => ({ _id: i.id, 'system.containerId': '' }));
+      const updates = items.map((i) => ({ _id: i?.id, 'system.containerId': '' }));
       await this.parent?.updateEmbeddedDocuments('Item', updates);
     }
 
-    const container = await fromUuid(this.system.containerId);
+    const container = await fromUuid(
+      this.system.containerId
+    ) as InstanceType<typeof ObjectItemA5e> | null;
+
     if (container) await container?.containerItems?.delete(this.uuid);
 
     super._onDelete(data, options, user);
