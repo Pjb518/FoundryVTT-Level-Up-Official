@@ -22,13 +22,13 @@ interface DefaultApplyOptions {
 }
 
 export default class ActorGrantsManger extends Map<string, ActorGrant> {
-  private actor: typeof Actor;
+  private actor: Actor;
 
   private allowedTypes = ['feature', 'archetype', 'background', 'class', 'culture', 'heritage'];
 
   grantedFeatureDocuments = new Map<string, string[]>();
 
-  constructor(actor: typeof Actor) {
+  constructor(actor: Actor) {
     super();
 
     this.actor = actor;
@@ -480,6 +480,29 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         // Update default spellcasting
         if (this.actor.system.classes.startingClass === options.item.slug) {
           this.actor.update({ 'system.attributes.spellcasting': spellCastingAbility });
+        }
+
+        // Create or Update Spellbooks
+        const spellBook: Record<string, any> = {
+          ability: spellCastingAbility,
+          name: `${options.cls.name} Spell Book`,
+          showSpellSlots: false
+        };
+
+        const resourceType = options.cls?.casting?.resource || 'slots';
+        if (resourceType === 'slots') spellBook.showSpellSlots = true;
+        else if (resourceType === 'points') spellBook.showSpellPoints = true;
+        else if (resourceType === 'inventions') spellBook.showSpellInventions = true;
+        else if (resourceType === 'artifactCharges') spellBook.showArtifactCharges = true;
+        else spellBook.showSpellSlots = true;
+
+        if (Object.keys(this.actor.classes).length > 1) {
+          // Create New SpellBook
+          this.actor.spellBooks.add(spellBook);
+        } else {
+          // Update first spellbook
+          const spellBookId = this.actor.spellBooks.first()?._id;
+          this.actor.update({ [`system.spellBooks.${spellBookId}`]: spellBook });
         }
       }
     }
