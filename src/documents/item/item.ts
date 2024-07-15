@@ -1,5 +1,7 @@
 /* eslint-disable no-continue */
 /* eslint-disable no-unused-vars */
+import type { Action } from 'types/action';
+
 import { BaseItemA5e } from './base';
 
 import computeSaveDC from '../../utils/computeSaveDC';
@@ -31,7 +33,7 @@ export default class ItemA5e extends BaseItemA5e {
   }
 
   // *****************************************************************************************
-  prepareDerivedData() {
+  override prepareDerivedData() {
     super.prepareDerivedData();
     if (['object', 'feature'].includes(this.type)) this.prepareArmorData();
   }
@@ -40,6 +42,7 @@ export default class ItemA5e extends BaseItemA5e {
     const itemData = this.system;
 
     // Calculate AC formula
+    // @ts-expect-error
     const { baseFormula, maxDex } = itemData.ac ?? {};
     if (!baseFormula) return;
 
@@ -49,7 +52,9 @@ export default class ItemA5e extends BaseItemA5e {
         .replaceAll(/@dex\.mod|@abilities\.dex\.mod/gm, `min(@dex.mod, ${maxDex})`);
     }
 
+    // @ts-expect-error
     if (itemData?.damagedState === CONFIG.A5E.DAMAGED_STATES.BROKEN) {
+      // @ts-expect-error
       if (itemData.objectType === 'armor') {
         formula = `10 + max(floor((${formula} - 10) / 2), 1)`;
       } else formula = `max(floor((${formula}) / 2), 1)`;
@@ -67,12 +72,11 @@ export default class ItemA5e extends BaseItemA5e {
    *
   //  * This method accepts an options object to further customize the activation process.
    *
-   * @override
-   * @param {string} actionId
-   * @param {object options
+   * @param actionId - The action id
+   * @param options
    * @returns
    */
-  async activate(actionId, options = {}) {
+  override async activate(actionId: string, options = {}) {
     // Do not allow an item to activate if it not attached to an actor or if the user does
     // not have owner permissions for the actor.
     if (!this.actor || !this?.actor.isOwner) return;
@@ -101,7 +105,8 @@ export default class ItemA5e extends BaseItemA5e {
     }
   }
 
-  async showActionActivationDialog(actionId, action) {
+  // TODO: Find out where this is being used.
+  async showActionActivationDialog(actionId: string, action?: Action) {
     if (
       !foundry.utils.isEmpty(action?.rolls)
       || !foundry.utils.isEmpty(action?.prompts)
@@ -119,7 +124,7 @@ export default class ItemA5e extends BaseItemA5e {
     return false;
   }
 
-  async #activateAction(actionId, options) {
+  async #activateAction(actionId: string, options: Record<string, any> = {}) {
     let activationData;
     const action = this.actions[actionId];
 
@@ -158,6 +163,7 @@ export default class ItemA5e extends BaseItemA5e {
     }
 
     const resourceConsumptionManager = new ResourceConsumptionManager(
+      // @ts-expect-error
       this.actor,
       this,
       actionId,
@@ -169,16 +175,17 @@ export default class ItemA5e extends BaseItemA5e {
     const chatData = {
       author: game.user?.id,
       flavor: action.name ? `${this.name}: ${action.name}` : this.name,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       style: CONST.CHAT_MESSAGE_STYLES.OTHER,
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
       rollMode: activationData.visibilityMode ?? game.settings.get('core', 'rollMode'),
       flags: {
         a5e: {
-          actorId: this.actor.uuid,
+          actorId: this.actor?.uuid,
           itemId: this.uuid,
           cardType: 'item',
+          // @ts-expect-error
           castingLevel: activationData.consumers?.spell?.level ?? this.system.level ?? null,
           img: action.img ?? this.img ?? 'icons/svg/item-bag.svg',
           name: this.name,
@@ -187,6 +194,7 @@ export default class ItemA5e extends BaseItemA5e {
             ? await TextEditor.enrichHTML(action.description, {
               secrets: this.isOwner,
               relativeTo: this,
+              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
@@ -194,13 +202,16 @@ export default class ItemA5e extends BaseItemA5e {
             ? await TextEditor.enrichHTML(this.system.description, {
               secrets: this.isOwner,
               relativeTo: this,
+              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
           unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
+            // @ts-expect-error
             ? await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
               secrets: this.isOwner,
               relativeTo: this,
+              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
@@ -228,6 +239,7 @@ export default class ItemA5e extends BaseItemA5e {
       if (type === 'effect') {
         const effect = this.effects.get(effectId);
         if (!effect) return acc;
+        // @ts-expect-error
         if (!effect.flags?.a5e?.applyToSelf) return acc;
         acc.push(effect);
       }
@@ -287,14 +299,18 @@ export default class ItemA5e extends BaseItemA5e {
     if (!attack) return {};
 
     const { actor } = this;
+    if (!actor) return {};
+
     const attackRoll = attack[0][1];
     const attackAbility = getAttackAbility(actor, this, attackRoll);
 
+    // @ts-expect-error
     const expertiseDie = actor.RollOverrideManager?.getExpertiseDice(
       `attackTypes.${attackRoll.attackType}`,
       options.expertiseDie ?? 0
     );
 
+    // @ts-expect-error
     const rollMode = actor.RollOverrideManager?.getRollOverride(
       `attackTypes.${attackRoll.attackType}`,
       options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL
@@ -309,6 +325,7 @@ export default class ItemA5e extends BaseItemA5e {
       proficient: attackRoll?.proficient ?? true,
       rollMode,
       situationalMods: options.situationalMods,
+      // @ts-expect-error
       selectedAttackBonuses: this.parent?.BonusesManager?.getDefaultSelections(
         'attacks',
         { item: this, attackType: attackRoll?.attackType }
@@ -336,16 +353,16 @@ export default class ItemA5e extends BaseItemA5e {
     }
 
     // Prepare the default action uses data.
-    const actionUsesData = {};
-    const actionConsumer = this.#getConsumerFromPreparedConsumers(consumers, 'actionUses');
+    const actionUsesData: Record<string, any> = {};
+    const actionConsumer: any = this.#getConsumerFromPreparedConsumers(consumers, 'actionUses');
     if (!foundry.utils.isEmpty(actionConsumer)) {
       actionUsesData.quantity = actionConsumer?.quantity ?? 1;
       actionUsesData.baseUses = actionConsumer?.quantity ?? 1;
     }
 
     // Prepare the default hit-dice data.
-    const hitDiceData = {};
-    const hitDiceConsumer = this.#getConsumerFromPreparedConsumers(consumers, 'hitDice');
+    const hitDiceData: Record<string, any> = {};
+    const hitDiceConsumer: any = this.#getConsumerFromPreparedConsumers(consumers, 'hitDice');
     if (!foundry.utils.isEmpty(hitDiceConsumer)) {
       const availableHitDice = prepareHitDice(this.parent).reduce(
         (acc, { die, total }) => {
@@ -361,23 +378,27 @@ export default class ItemA5e extends BaseItemA5e {
     }
 
     // Prepare the default item uses data.
-    const itemUsesData = {};
-    const itemConsumer = this.#getConsumerFromPreparedConsumers(consumers, 'itemUses');
+    const itemUsesData: Record<string, any> = {};
+    const itemConsumer: any = this.#getConsumerFromPreparedConsumers(consumers, 'itemUses');
     if (!foundry.utils.isEmpty(itemConsumer)) {
       itemUsesData.quantity = itemConsumer?.quantity ?? 1;
       itemUsesData.baseUses = itemConsumer?.quantity ?? 1;
     }
 
     // Prepare the default action uses data.
-    const spellData = {};
-    const spellConsumer = Object.values(consumers.spell ?? {})?.[0]?.[1] ?? {};
+    const spellData: Record<string, any> = {};
+    const spellConsumer: any = Object.values(consumers.spell ?? {})?.[0]?.[1] ?? {};
     if (!foundry.utils.isEmpty(spellConsumer)) {
       const mode = spellConsumer.mode ?? 'variable';
+      // @ts-expect-error
       const availableCharges = actor.system.spellResources?.artifactCharges?.current ?? 0;
+      // @ts-expect-error
       const availablePoints = actor.system.spellResources?.points?.current ?? 0;
+      // @ts-expect-error
       const availableSpellSlots = Object.entries(actor.system.spellResources?.slots ?? {})
         .reduce(
           (acc, [level, slot]) => {
+            // @ts-expect-error
             if (slot.max > 0 && slot.current > 0) acc.push(level);
             return acc;
           },
@@ -392,10 +413,12 @@ export default class ItemA5e extends BaseItemA5e {
       else if (availableSpellSlots.length > 0) spellData.consume = 'spellSlot';
       else spellData.consume = 'spellPoint';
 
+      // @ts-expect-error
       if (this.system?.level === null || this.system?.level === undefined) {
         spellData.consume = 'noConsume';
       }
 
+      // @ts-expect-error
       const defaultLevel = spellConsumer.spellLevel ?? this.system?.level ?? 1;
       const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
       const spellLevel = spellData.consume === 'spellSlot'
@@ -410,6 +433,7 @@ export default class ItemA5e extends BaseItemA5e {
       spellData.points = spellPoints;
       spellData.level = spellLevel;
 
+      // @ts-expect-error
       const spellBook = this.parent?.spellBooks?.get(this.system.spellBook);
       if (spellBook?.disableSpellConsumers) spellData.consume = 'noConsume';
     }
@@ -443,7 +467,9 @@ export default class ItemA5e extends BaseItemA5e {
     const promptsByType = preparePrompts(prompts, this);
 
     return Object.entries(promptsByType).reduce((defaultPrompts, [promptType, promptGroup]) => {
+      // @ts-expect-error
       defaultPrompts.push(...promptGroup.reduce((acc, [, prompt]) => {
+        // @ts-expect-error
         if (promptType === 'savingThrow') prompt.dc = computeSaveDC(this.actor, this, prompt.saveDC);
 
         if (prompt.default ?? true) acc.push(prompt);
@@ -459,6 +485,7 @@ export default class ItemA5e extends BaseItemA5e {
     return Object.entries(rolls).reduce((defaultRolls, [rollType, rollGroup]) => {
       if (rollType === 'attack') return defaultRolls;
 
+      // @ts-expect-error
       defaultRolls.push(...rollGroup.reduce((acc, [, roll]) => {
         if (roll.default ?? true) acc.push(roll);
         return acc;
@@ -476,18 +503,25 @@ export default class ItemA5e extends BaseItemA5e {
 
   async recharge(actionId, state = false) {
     if (state || !this.actor) return;
-    let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData(this));
+    // @ts-expect-error
+    let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData(this)) ?? 0;
+    // @ts-expect-error
     let current = this.system.uses.value;
+    // @ts-expect-error
     let formula = this.system.uses.recharge.formula || '1d6';
+    // @ts-expect-error
     let threshold = this.system.uses.recharge.threshold ?? 6;
+    // @ts-expect-error
     let rechargeType = this.system.uses.recharge?.rechargeType || 'custom';
+    // @ts-expect-error
     let rechargeAmount = this.system.uses.recharge?.rechargeAmount || '1';
     let updatePath = 'system.uses.value';
 
     if (actionId) {
       const action = this.actions[actionId];
 
-      max = getDeterministicBonus(action.uses?.max ?? '', this.actor.getRollData(this));
+      // @ts-expect-error
+      max = getDeterministicBonus(action.uses?.max ?? '', this.actor.getRollData(this)) ?? 0;
       current = action.uses?.value ?? 0;
       formula = action.uses?.recharge?.formula || '1d6';
       threshold = action.uses?.recharge?.threshold ?? 6;
@@ -497,6 +531,7 @@ export default class ItemA5e extends BaseItemA5e {
     }
 
     // Recharge Roll
+    // @ts-expect-error
     const rechargeRoll = await new Roll(formula, this.actor.getRollData(this))
       .evaluate();
 
@@ -510,6 +545,7 @@ export default class ItemA5e extends BaseItemA5e {
     else {
       const rechargeAmountRoll = await new Roll(
         rechargeAmount,
+        // @ts-expect-error
         this.actor.getRollData(this)
       ).evaluate();
 
@@ -521,21 +557,19 @@ export default class ItemA5e extends BaseItemA5e {
   }
 
   /** @inheritdoc */
-  async _preCreate(data, options, user) {
+  override async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
-
-    // TODO: Move from Base to Item & Origin
   }
 
-  async _preUpdate(data, options, user) {
+  override async _preUpdate(data, options, user) {
     super._preUpdate(data, options, user);
   }
 
-  async _onCreate(data, options, userId) {
+  override async _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
   }
 
-  async _onDelete(options, user) {
+  override async _onDelete(options, user) {
     super._onDelete(options, user);
   }
 }

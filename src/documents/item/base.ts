@@ -1,6 +1,8 @@
 /* eslint-disable no-continue */
 /* eslint-disable no-unused-vars */
 
+import type { Action } from 'types/action';
+
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import getSummaryData from '../../utils/summaries/getSummaryData';
 
@@ -69,14 +71,15 @@ class BaseItemA5e extends Item {
    * @param {object options
    * @returns
    */
-  async activate() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  async activate(actionId: string, options: Record<string, any>) {
     // Do not allow an item to activate if it not attached to an actor or if the user does
     // not have owner permissions for the actor.
     if (!this.actor || !this?.actor.isOwner) return;
     this.shareItemDescription(null);
   }
 
-  async shareItemDescription(action) {
+  async shareItemDescription(action: Action | null = null) {
     const chatData = {
       author: (game as Game).user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),

@@ -55,7 +55,9 @@ interface UsesProperties {
 // +++++++++++++++++++++++++++++++++++++++++++++++++++
 export interface Action {
   name: string;
-  description?: string;
+  description: string;
+  descriptionOutputs: ('action' | 'item')[];
+  img: string;
   activation: ActivationProperties;
   area: CircleArea | ConeArea | CubeArea | CylinderArea | LineArea | SphereArea | undefined;
   duration: DurationProperties
