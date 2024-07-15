@@ -1,9 +1,10 @@
+import type ClassItemA5e from './class';
+import type { A5EArchetypeData } from '../../dataModels/item/ArchetypeDataModel';
 import type { ClassCastingData } from './data';
-import ClassResourceManager from '../../managers/ClassResourceManager';
 
 import OriginItemA5e from './origin';
 
-import type ClassItemA5e from './class';
+import ClassResourceManager from '../../managers/ClassResourceManager';
 
 export default class ArchetypeItemA5e extends OriginItemA5e {
   declare casting: ClassCastingData | null;
@@ -11,6 +12,8 @@ export default class ArchetypeItemA5e extends OriginItemA5e {
   declare class: ClassItemA5e | null;
 
   declare resources: ClassResourceManager;
+
+  declare system: InstanceType<typeof A5EArchetypeData>;
 
   get classLevels() {
     const cls = this.class;
@@ -40,6 +43,7 @@ export default class ArchetypeItemA5e extends OriginItemA5e {
 
     const slug = this.system.class;
     const cls: unknown | undefined = this.actor?.items
+      // @ts-expect-error
       .find((i) => i.type === 'class' && i.slug === slug);
 
     if (!cls) return null;
