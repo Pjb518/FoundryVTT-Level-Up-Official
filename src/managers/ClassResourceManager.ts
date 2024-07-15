@@ -27,6 +27,7 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
     classResourceData.forEach((data: ClassResource) => {
       const classResource = data;
       const slug = classResource.slug || classResource.name.slugify({ strict: true });
+      classResource.slug = slug;
 
       this.set(slug, classResource);
     });
@@ -34,6 +35,10 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
     // Prepare level based resources
     this.rollData = {};
     this.prepareResources();
+  }
+
+  get consumableResources() {
+    return [...this.values()].filter((r) => r.consumable);
   }
 
   prepareResources() {
