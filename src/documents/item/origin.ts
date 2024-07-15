@@ -1,4 +1,4 @@
-import BaseItemA5e from './base';
+import { BaseItemA5e } from './base';
 
 import ItemGrantsManager from '../../managers/ItemGrantsManager';
 
@@ -33,8 +33,8 @@ export default class OriginItemA5e extends BaseItemA5e {
     super._onCreate(data, options, userId);
   }
 
-  async _onDelete(data, options, userId) {
-    super._onDelete(data, options, userId);
+  async _onDelete(options, userId) {
+    super._onDelete(options, userId);
 
     if (!this.parent || this.parent?.documentName !== 'Actor') return;
 

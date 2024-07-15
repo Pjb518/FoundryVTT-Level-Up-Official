@@ -1,4 +1,4 @@
-import BaseItemA5e from './base';
+import { BaseItemA5e } from './base';
 import ItemA5e from './item';
 
 /** A `Proxy` to to get Foundry to construct `ItemA5E` subclasses */

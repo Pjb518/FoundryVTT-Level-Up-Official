@@ -124,7 +124,7 @@ export default class ArchetypeItemA5e extends OriginItemA5e {
     super._onUpdate(data, options, userId);
   }
 
-  async _onDelete(data, options, user) {
-    super._onDelete(data, options, user);
+  async _onDelete(options, user) {
+    super._onDelete(options, user);
   }
 }

@@ -4,11 +4,18 @@
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import getSummaryData from '../../utils/summaries/getSummaryData';
 
+type SystemItemTypes = Exclude<foundry.documents.BaseItem.TypeNames, 'base'>;
+
+interface BaseItemA5e<ItemType extends SystemItemTypes = SystemItemTypes> {
+  type: ItemType;
+  system: DataModelConfig['Item'][ItemType];
+}
+
 /**
  * Override and extend the basic Item implementation.
  * @extends {Item}
  */
-export default class BaseItemA5e extends Item {
+class BaseItemA5e extends Item {
   dialogs: {
     actions: Record<string, any>;
     areaScaling: Record<string, any>;
@@ -16,8 +23,8 @@ export default class BaseItemA5e extends Item {
     targetScaling: Record<string, any>;
   };
 
-  constructor(...args) {
-    super(...args);
+  constructor(data, context) {
+    super(data, context);
 
     this.dialogs ??= {
       actions: {},
@@ -28,17 +35,23 @@ export default class BaseItemA5e extends Item {
   }
 
   // *****************************************************************************************
+  isType<TypeName extends SystemItemTypes>(type: TypeName): this is BaseItemA5e<TypeName> {
+    return type === this.type as SystemItemTypes;
+  }
+
+  // *****************************************************************************************
   get sourceId(): string | null {
+    // @ts-expect-error
     return this._stats.compendiumSource?.id || this.flags.core?.sourceId || null;
   }
 
   // *****************************************************************************************
-  prepareBaseData() { }
+  override prepareBaseData() { }
 
-  prepareDerivedData() { }
+  override prepareDerivedData() { }
 
   /** @inheritdoc */
-  getRollData() {
+  override getRollData() {
     const data = { ...super.getRollData() };
 
     return data;
@@ -66,7 +79,7 @@ export default class BaseItemA5e extends Item {
   async shareItemDescription(action) {
     const chatData = {
       author: (game as Game).user?.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
       flags: {
         a5e: {
           actorId: this.actor?.uuid,
@@ -77,6 +90,7 @@ export default class BaseItemA5e extends Item {
             ? await TextEditor.enrichHTML(action.description, {
               secrets: this.isOwner,
               relativeTo: this,
+              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
@@ -84,13 +98,16 @@ export default class BaseItemA5e extends Item {
             ? await TextEditor.enrichHTML(this.system.description, {
               secrets: this.isOwner,
               relativeTo: this,
+              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
           unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
+            // @ts-expect-error
             ? await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
               secrets: this.isOwner,
               relativeTo: this,
+              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
@@ -114,7 +131,7 @@ export default class BaseItemA5e extends Item {
   }
 
   async configureItem() {
-    await this.sheet.render(true);
+    await this.sheet?.render(true);
   }
 
   async duplicateItem() {
@@ -123,6 +140,7 @@ export default class BaseItemA5e extends Item {
     newItem.name = `${newItem.name} (Copy)`;
 
     if (newItem.type === 'object') {
+      // @ts-expect-error
       newItem.system.containerId = null;
     }
 
@@ -161,7 +179,7 @@ export default class BaseItemA5e extends Item {
     options.notify ??= true;
 
     const currentData = this.toObject();
-    const compendiumData = (await fromUuid(sourceId))?.toObject();
+    const compendiumData = ((await fromUuid(sourceId)) as BaseItemA5e | null)?.toObject();
 
     if (!compendiumData) {
       if (options.notify !== false) ui.notifications?.error('Unable to find source.');
@@ -181,13 +199,14 @@ export default class BaseItemA5e extends Item {
 
     // TODO: Revitalize - Add support for grants
     // Don't update grants
+    // @ts-expect-error
     if (this.system?.grants) updates.system.grants = this.system.grants;
 
     // Ignore favorite state
     updates.system.favorite = this.system.favorite;
 
     // Don't update some properties for objects
-    if (this.type === 'object') {
+    if (this.isType('object')) {
       // Ignore container data
       updates.system.containerId = this.system.containerId;
       updates.system.items = this.system.items;
@@ -215,29 +234,35 @@ export default class BaseItemA5e extends Item {
   }
 
   /** @inheritdoc */
-  async _preCreate(data, options, user) {
+  override async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
 
     // Add schema version
+    // @ts-expect-error
     if (!this.system.schemaVersion?.version && !this.system.schema?.version) {
       let version = null;
+      // @ts-expect-error
       if (typeof this.system?.equipped === 'boolean') version = 0.003;
+      // @ts-expect-error
       else if (typeof this.system?.recharge === 'string') version = 0.002;
+      // @ts-expect-error
       else if (typeof this.system?.uses?.max === 'string') version = 0.001;
+      // @ts-expect-error
       else if (this.system?.actionOptions) version = null;
       else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
 
       this.updateSource({
+        // @ts-expect-error
         'this.system.schemaVersion.version': version
       });
     }
   }
 
-  async _preUpdate(data, options, user) {
+  override async _preUpdate(data, options, user) {
     super._preUpdate(data, options, user);
   }
 
-  async _onCreate(data, options, userId) {
+  override async _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
     if (userId !== game.userId) return;
 
@@ -248,16 +273,18 @@ export default class BaseItemA5e extends Item {
     this.updateEmbeddedDocuments('ActiveEffect', updateArr);
   }
 
-  async _onDelete(data, options, user) {
-    super._onDelete(data, options, user);
+  override async _onDelete(options, user) {
+    super._onDelete(options, user);
   }
 
   static async _onCreateOperation(documents, operation, user) {
-    if (game.user.id !== user.id) return Item._onCreateOperation(documents, operation, user);
+    // @ts-expect-error
+    if (game.user?.id !== user.id) return Item._onCreateOperation(documents, operation, user);
 
     // eslint-disable-next-line no-undef
     const parent = fromUuidSync(operation.parentUuid) ?? {};
     if (!(parent instanceof Actor)) {
+      // @ts-expect-error
       return Item._onCreateOperation(documents, operation, user);
     }
 
@@ -273,10 +300,15 @@ export default class BaseItemA5e extends Item {
       });
     });
 
+    // @ts-expect-error
     if (!toCreate.length) return Item._onCreateOperation(documents, operation, user);
     const cls = getDocumentClass('ActiveEffect');
     await cls.createDocuments(toCreate, operation);
 
+    // @ts-expect-error
     return Item._onCreateOperation(documents, operation, user);
   }
 }
+
+// eslint-disable-next-line import/prefer-default-export
+export { BaseItemA5e };

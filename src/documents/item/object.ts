@@ -223,7 +223,7 @@ export default class ObjectItemA5e extends ItemA5e {
     await this.update(updates);
   }
 
-  async _onDelete(data, options, user) {
+  async _onDelete(options, user) {
     // Clean up container
     if (!this.parent) return;
     if (this.system.objectType === 'container') {
@@ -239,6 +239,6 @@ export default class ObjectItemA5e extends ItemA5e {
 
     if (container) await container?.containerItems?.delete(this.uuid);
 
-    super._onDelete(data, options, user);
+    super._onDelete(options, user);
   }
 }

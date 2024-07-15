@@ -241,8 +241,8 @@ export default class ClassItemA5e extends OriginItemA5e {
     super._onUpdate(data, options, userId);
   }
 
-  async _onDelete(data, options, user) {
-    super._onDelete(data, options, user);
+  async _onDelete(options, user) {
+    super._onDelete(options, user);
 
     if (this.isStartingClass && this.parent?.documentName === 'Actor') {
       const actor = this.parent;

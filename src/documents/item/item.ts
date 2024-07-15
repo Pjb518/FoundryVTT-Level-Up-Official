@@ -1,6 +1,6 @@
 /* eslint-disable no-continue */
 /* eslint-disable no-unused-vars */
-import BaseItemA5e from './base';
+import { BaseItemA5e } from './base';
 
 import computeSaveDC from '../../utils/computeSaveDC';
 import getAttackAbility from '../../utils/getAttackAbility';
@@ -535,7 +535,7 @@ export default class ItemA5e extends BaseItemA5e {
     super._onCreate(data, options, userId);
   }
 
-  async _onDelete(data, options, user) {
-    super._onDelete(data, options, user);
+  async _onDelete(options, user) {
+    super._onDelete(options, user);
   }
 }

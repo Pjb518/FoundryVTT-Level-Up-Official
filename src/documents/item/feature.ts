@@ -37,8 +37,8 @@ export default class FeatureItemA5e extends ItemA5e {
     super._onCreate(data, options, userId);
   }
 
-  async _onDelete(data, options, userId) {
-    super._onDelete(data, options, userId);
+  async _onDelete(options, userId) {
+    super._onDelete(options, userId);
 
     if (!this.parent || this.parent?.documentName !== 'Actor') return;
 
