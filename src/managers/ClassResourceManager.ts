@@ -41,18 +41,18 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
     return [...this.values()].filter((r) => r.consumable);
   }
 
+  get level() {
+    if (this.item.isType('class')) return this.item.system.classLevels;
+
+    const cls = (this.item as ArchetypeItemA5e).class;
+    if (!cls) return null;
+
+    return cls.system.classLevels;
+  }
+
   prepareResources() {
-    let level: number;
-
-    if (this.item.type === 'class') {
-      // @ts-expect-error  This is correct just need to update this when the types are fixed
-      level = this.item.system.classLevels;
-    } else {
-      const cls = (this.item as ArchetypeItemA5e).class;
-      if (!cls) return;
-
-      level = cls.system.classLevels;
-    }
+    const { level } = this;
+    if (!level) return;
 
     [...this.entries()].forEach(([slug, resource]) => {
       const rawValue = resource.reference?.[level] || '';

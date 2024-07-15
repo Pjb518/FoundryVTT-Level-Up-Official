@@ -6,6 +6,7 @@ import { A5EArchetypeData } from '../../dataModels/item/ArchetypeDataModel';
 import OriginItemA5e from './origin';
 
 import ClassResourceManager from '../../managers/ClassResourceManager';
+import getDeterministicBonus from '../../dice/getDeterministicBonus';
 
 export default class ClassItemA5e extends OriginItemA5e {
   declare casting: ClassCastingData | null;
@@ -239,6 +240,19 @@ export default class ClassItemA5e extends OriginItemA5e {
 
   override async _onCreate(data, options, userId) {
     super._onCreate(data, options, userId);
+
+    // Update class resource values
+    if (this.isEmbedded) {
+      const clsLevel = this.resources.level ?? 1;
+      const resourceData = (this.resources.consumableResources).reduce((acc, r) => {
+        acc[r.slug] = getDeterministicBonus(r.reference[clsLevel], this.actor?.getRollData()) ?? 0;
+        return acc;
+      }, {});
+
+      this.actor?.update({
+        'system.resources.classResources': resourceData
+      });
+    }
   }
 
   override _onUpdate(data, options, userId) {
@@ -253,10 +267,18 @@ export default class ClassItemA5e extends OriginItemA5e {
       actor.update({ 'system.classes.startingClass': '' });
     }
 
-    if (this.parent?.documentName === 'Actor') {
+    if (this.isEmbedded) {
       // Delete associated archetype
       const { archetype } = this;
       if (archetype) archetype.delete();
+
+      // Delete actor resource data
+      const resourceData = (this.resources.consumableResources).reduce((acc, r) => {
+        acc[`-=${r.slug}`] = null;
+        return acc;
+      }, {});
+
+      this.actor?.update({ 'system.resources.classResources': resourceData });
     }
   }
 }
