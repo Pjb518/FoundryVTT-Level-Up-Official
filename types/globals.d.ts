@@ -3,6 +3,7 @@ import A5eGame from '../src/interfaces/A5eGame.interface';
 declare global {
   interface AssumeHookRan {
     init: never;
+    setup: never;
     ready: never;
   }
 
