@@ -1,9 +1,13 @@
+import type { A5EFeatureData } from '../../dataModels/item/FeatureDataModel';
+
 import ItemA5e from './item';
 
 import ItemGrantsManager from '../../managers/ItemGrantsManager';
 
 export default class FeatureItemA5e extends ItemA5e {
   declare grants: ItemGrantsManager;
+
+  declare system: InstanceType<typeof A5EFeatureData>;
 
   prepareBaseData() {
     super.prepareBaseData();
