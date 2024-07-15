@@ -79,6 +79,7 @@ export default function init() {
   CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
   CONFIG.Actor.documentClass = ActorProxy;
   CONFIG.Actor.trackableAttributes = trackableAttributes;
+  // @ts-expect-error
   CONFIG.Item.documentClass = ItemProxy;
   CONFIG.Token.documentClass = TokenDocumentA5e;
   CONFIG.Token.objectClass = TokenA5e;
@@ -90,7 +91,8 @@ export default function init() {
   CONFIG.MeasuredTemplate.defaults.angle = 60;
 
   // DataModels
-  const version = game.settings.storage.get('world').getItem('a5e.worldSchemaVersion') ?? 1.0;
+  // @ts-expect-error
+  const version = (game.settings.storage.get('world').getItem('a5e.worldSchemaVersion') ?? 1.0) as number;
 
   if (version > 0.008) {
     CONFIG.Actor.dataModels.character = CharacterData;
@@ -170,12 +172,14 @@ export default function init() {
 
   // Register sheet application classes
   Actors.unregisterSheet('core', ActorSheet);
+  // @ts-expect-error
   Actors.registerSheet('a5e', ActorSheetA5e, {
     types: ['character'],
     makeDefault: true,
     label: 'A5E.SheetClassCharacter'
   });
 
+  // @ts-expect-error
   Actors.registerSheet('a5e', ActorSheetA5e, {
     types: ['npc'],
     makeDefault: true,
@@ -183,6 +187,7 @@ export default function init() {
   });
 
   Items.unregisterSheet('core', ItemSheet);
+  // @ts-expect-error
   Items.registerSheet('a5e', ItemSheetA5e, {
     makeDefault: true,
     label: 'A5E.SheetClassItem'
@@ -194,13 +199,16 @@ export default function init() {
     label: 'A5E.SheetClassActiveEffectConfig'
   });
 
-  Combatant.prototype._getInitiativeFormula = getInitiativeFormula; // eslint-disable-line
+  // @ts-expect-error
+  Combatant.prototype._getInitiativeFormula = getInitiativeFormula;
   Combatant.prototype.getInitiativeRoll = getInitiativeRoll;
   Combatant.prototype.rollInitiative = rollCombatantInitiative;
 
   Combat.prototype.rollInitiative = rollInitiative;
 
+  // @ts-expect-error
   CombatTracker.prototype._onCombatantControl = _onCombatantControl;
+  // @ts-expect-error
   CombatTracker.prototype._onCombatControl = _onCombatControl;
 
   // Register detection modes
