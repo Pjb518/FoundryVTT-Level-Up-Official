@@ -1,19 +1,19 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-console */
+import type ObjectItemA5e from '../documents/item/object';
+
 import SubObjectField from '../dataModels/fields/SubObjectField';
 
 export default class ContainerManager extends Map<string, SubObjectField> {
-  #item: typeof Item;
+  #item: InstanceType<typeof ObjectItemA5e>;
 
-  constructor(item: typeof Item) {
+  constructor(item: InstanceType<typeof ObjectItemA5e>) {
     if (!item) {
-      console.error('Item is required to create a ContainerManager');
-      return;
+      throw Error('Item is required to create a ContainerManager');
     }
 
     if (item.system?.objectType !== 'container') {
-      console.error('Item must be a container to create a ContainerManager');
-      return;
+      throw Error('Item must be a container to create a ContainerManager');
     }
 
     super();
@@ -37,14 +37,17 @@ export default class ContainerManager extends Map<string, SubObjectField> {
     const docUuids = [...this.values()].map((e) => e.uuid);
 
     if (parent.isEmbedded) {
-      return docUuids.map((uuid) => fromUuidSync(uuid));
+      const docs: unknown[] = docUuids.map((uuid) => fromUuidSync(uuid));
+      return docs as (InstanceType<typeof ObjectItemA5e> | null)[];
     }
 
     if (parent.pack) {
-      return Promise.all(docUuids.map((uuid) => fromUuid(uuid)));
+      const p: Promise<(unknown | null)[]> = Promise.all(docUuids.map((uuid) => fromUuid(uuid)));
+      return p as Promise<(InstanceType<typeof ObjectItemA5e> | null)[]>;
     }
 
-    return docUuids.map((uuid) => fromUuidSync(uuid));
+    const docs: unknown[] = docUuids.map((uuid) => fromUuidSync(uuid));
+    return docs as (InstanceType<typeof ObjectItemA5e> | null)[];
   }
 
   /** ************************************************
@@ -72,7 +75,9 @@ export default class ContainerManager extends Map<string, SubObjectField> {
       all.push(i);
 
       if (i?.system?.objectType === 'container') {
-        all.push(...(i?.containerItems?.allItems ?? []));
+        const subItems = i.containerItems?.allItems;
+        if (subItems instanceof Promise) subItems.then((si) => all.push(...(si ?? [])));
+        else all.push(...(subItems ?? []));
       }
     });
 
