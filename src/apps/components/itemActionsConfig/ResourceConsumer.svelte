@@ -66,11 +66,24 @@
         </select>
     </FieldWrapper>
 
+    {#if selectedResource === "classResource"}
+        <FieldWrapper heading="Resource Identifier" --a5e-field-wrapper-width="16rem">
+            <input
+                class="a5e-input a5e-input--slim"
+                type="text"
+                value={consumer.classIdentifier ?? ""}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        `system.actions.${actionId}.consumers.${consumerId}.classIdentifier`,
+                        target.value,
+                    )}
+            />
+        </FieldWrapper>
+    {/if}
+
     {#if A5E.resourceConsumerConfig?.[selectedResource]?.type === "value"}
-        <FieldWrapper
-            heading="A5E.ConsumeValue"
-            --a5e-field-wrapper-width="7.5rem"
-        >
+        <FieldWrapper heading="A5E.ConsumeValue" --a5e-field-wrapper-width="7.5rem">
             <input
                 type="number"
                 d-type="Number"
