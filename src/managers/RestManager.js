@@ -86,11 +86,18 @@ export default class RestManager {
   }
 
   #restoreGenericResources() {
-    ['primary', 'secondary', 'tertiary', 'quaternary'].forEach((r) => {
-      const resource = this.#actor.system.resources[r];
-      if (!this.restTypes.includes(resource.per) || !resource.max) return;
+    const resources = ['primary', 'secondary', 'tertiary', 'quaternary'];
 
-      this.#updates.actor[`system.resources.${r}.value`] = getDeterministicBonus(resource.max, this.#actor.getRollData());
+    Object.entries(this.#actor.system.resources ?? {}).forEach(([slug, r]) => {
+      if (!this.restTypes.includes(r.per) || !r.max) return;
+
+      const max = getDeterministicBonus(r.max, this.#actor.getRollData());
+
+      if (resources.includes(slug)) {
+        this.#updates.actor[`system.resources.${slug}.value`] = max;
+      } else {
+        this.#updates.actor[`system.resources.classResources.${slug}`] = max;
+      }
     });
   }
 

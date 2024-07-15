@@ -5,6 +5,7 @@ import getDeterministicBonus from '../dice/getDeterministicBonus';
 
 interface ClassResource {
   name: string;
+  consumable: string;
   reference: { [level: number]: string };
   recovery: string;
   slug: string;
@@ -21,30 +22,37 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
     this.item = item;
 
     // Initialize the class resources
-    const classResourceData: ClassResource[] = this.item.system.resources ?? [];
+    const classResourceData = (this.item.system.resources as ClassResource[]) ?? [];
+
     classResourceData.forEach((data: ClassResource) => {
       const classResource = data;
       const slug = classResource.slug || classResource.name.slugify({ strict: true });
+      classResource.slug = slug;
 
       this.set(slug, classResource);
     });
 
     // Prepare level based resources
+    this.rollData = {};
     this.prepareResources();
   }
 
+  get consumableResources() {
+    return [...this.values()].filter((r) => r.consumable);
+  }
+
+  get level() {
+    if (this.item.isType('class')) return this.item.system.classLevels;
+
+    const cls = (this.item as ArchetypeItemA5e).class;
+    if (!cls) return null;
+
+    return cls.system.classLevels;
+  }
+
   prepareResources() {
-    let level: number;
-
-    if (this.item.type === 'class') {
-      // @ts-expect-error  This is correct just need to update this when the types are fixed
-      level = this.item.system.classLevels;
-    } else {
-      const cls = (this.item as ArchetypeItemA5e).class;
-      if (!cls) return;
-
-      level = cls.system.classLevels;
-    }
+    const { level } = this;
+    if (!level) return;
 
     [...this.entries()].forEach(([slug, resource]) => {
       const rawValue = resource.reference?.[level] || '';
@@ -95,7 +103,7 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
     await this.item.update({
       'system.resources': this.item.system.resources
         .filter((
-          resource: ClassResource
+          resource
         ) => resource.slug || resource.name.slugify({ strict: true }) !== slug)
     });
   }

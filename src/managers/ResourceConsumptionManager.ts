@@ -112,10 +112,23 @@ export default class ResourceConsumptionManager {
   }
 
   // @ts-ignore
-  #consumeResource({ quantity, resource, restore } = {}) {
+  #consumeResource({
+    quantity, resource, restore, classIdentifier
+  } = {}) {
     const config = CONFIG.A5E.resourceConsumerConfig?.[resource];
-
     if (!this.#actor || !resource || !config) return;
+
+    // Handle class resources
+    if (resource === 'classResource') {
+      const value = foundry.utils.getProperty(
+        this.#actor._source.system,
+        `resources.classResources.${classIdentifier}`
+      ) as number ?? 0;
+
+      this.#updates.actor[`system.resources.classResources.${classIdentifier}`] = Math.max(value - quantity, 0);
+
+      return;
+    }
 
     const { path, type } = config;
     const value = foundry.utils.getProperty(this.#actor.system, path) as number ?? 0;

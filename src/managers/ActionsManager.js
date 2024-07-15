@@ -356,6 +356,7 @@ export default class ActionsManager extends DataProxy {
     }
 
     if (type === 'resource') {
+      defaultData.classIdentifier = '';
       defaultData.resource = '';
       defaultData.quantity = 1;
     }

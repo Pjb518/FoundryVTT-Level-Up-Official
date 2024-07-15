@@ -4,6 +4,7 @@ export default function registerConsumerConfig(A5E) {
   ]);
 
   A5E.resourceConsumerConfig = {
+    classResource: { path: 'resources.classResources', label: 'Class Resource', type: 'value' },
     exertion: { path: 'attributes.exertion.current', label: 'A5E.Exertion', type: 'value' },
     hp: { path: 'attributes.hp.value', label: 'A5E.HitPoints', type: 'value' },
     inspiration: { path: 'attributes.inspiration', label: 'A5E.Inspiration', type: 'boolean' },

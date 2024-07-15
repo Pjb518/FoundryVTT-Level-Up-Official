@@ -31,6 +31,7 @@ interface QuantityConsumer extends BaseConsumer {
 }
 
 interface ResourceConsumer extends BaseConsumer {
+  classIdentifier: string;
   resource: string;
   quantity: number;
 }

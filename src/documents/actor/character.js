@@ -91,6 +91,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
 
     this.prepareHitPoints();
     this.prepareSpellResources();
+    this.prepareResources();
   }
 
   prepareMaxExertion() {
@@ -303,6 +304,42 @@ export default class CharacterActorA5E extends BaseActorA5e {
       acc[cls.slug] = maxLevel;
       return acc;
     }, {});
+  }
+
+  prepareResources() {
+    const source = this._source.system.resources;
+
+    const genericResources = foundry.utils.deepClone(source);
+    delete genericResources.classResources;
+
+    const classResourceData = source.classResources;
+
+    const classResources = this.items.reduce((acc, i) => {
+      if (!['class', 'archetype'].includes(i.type)) return acc;
+
+      const resources = foundry.utils.deepClone(i.resources.consumableResources);
+      const clsLevel = i.resources.level;
+
+      resources.forEach((r) => {
+        acc[r.slug] = {
+          label: r.name,
+          value: classResourceData[r.slug] ?? r.reference[clsLevel] ?? 0,
+          max: r.reference[clsLevel] ?? 0,
+          per: r.recovery,
+          hideMax: false,
+          recharge: {
+            formula: '1d6',
+            threshold: 6
+          }
+        };
+      });
+
+      return acc;
+    }, {});
+
+    const resources = { ...genericResources, ...classResources };
+
+    this.system.resources = resources;
   }
 
   /**

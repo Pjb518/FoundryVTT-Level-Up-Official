@@ -112,7 +112,8 @@ const schema = {
   }),
   resources: new fields.ArrayField(
     new fields.SchemaField({
-      name: new fields.StringField({ nullable: false, initial: 'New Resource' }),
+      name: new fields.StringField({ nullable: false, required: true, initial: 'New Resource' }),
+      consumable: new fields.BooleanField({ nullable: false, required: true, initial: false }),
       reference: new fields.SchemaField(
         Array.from({ length: 20 }, (_, i) => i + 1)
           .reduce((acc, level) => {
@@ -120,10 +121,10 @@ const schema = {
             return acc;
           }, {})
       ),
-      recovery: new fields.StringField({ nullable: false, initial: 'longRest' }),
-      slug: new fields.StringField({ nullable: false, initial: '' })
+      recovery: new fields.StringField({ nullable: false, required: true, initial: 'longRest' }),
+      slug: new fields.StringField({ nullable: false, required: true, initial: '' })
     }),
-    { nullable: false, initial: [] }
+    { nullable: false, required: true, initial: [] }
   ),
   spellcasting: new fields.SchemaField({
     ability: new fields.SchemaField({

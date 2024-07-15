@@ -235,8 +235,8 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
         tools: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] }),
         weapons: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] })
       }),
-      resources: new fields.SchemaField(
-        ['primary', 'secondary', 'tertiary', 'quaternary'].reduce((acc, res) => {
+      resources: new fields.SchemaField({
+        ...['primary', 'secondary', 'tertiary', 'quaternary'].reduce((acc, res) => {
           acc[res] = new fields.SchemaField({
             label: new fields.StringField({ required: true, initial: '' }),
             value: new fields.NumberField({ required: true, initial: 0, integer: true }),
@@ -250,8 +250,9 @@ export default class BaseActorData extends A5EDataModel.mixin(SchemaDataModel) {
           });
 
           return acc;
-        }, {})
-      ),
+        }, {}),
+        classResources: new fields.ObjectField({ required: true, nullable: false })
+      }, { required: true, nullable: false }),
       skills: new fields.SchemaField(
         Object.keys(CONFIG.A5E.skills ?? {}).reduce((acc, skill) => {
           acc[skill] = new fields.SchemaField({

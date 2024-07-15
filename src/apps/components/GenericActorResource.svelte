@@ -49,97 +49,120 @@
         );
     }
 
+    function updateResourceValue(value) {
+        if (isClassResource) {
+            updateDocumentDataFromField(
+                $actor,
+                `system.resources.classResources.${source}`,
+                Number(value),
+            );
+        } else {
+            updateDocumentDataFromField(
+                $actor,
+                `system.resources.${source}.value`,
+                Number(value),
+            );
+        }
+    }
+
+    function determineResourceVisibility(sheetIsLocked) {
+        if (!sheetIsLocked && !isClassResource) return true;
+        if (sheetIsLocked && max !== 0) return true;
+        return false;
+    }
+
     function canRecharge(_, sheetIsLocked) {
         if (!sheetIsLocked) return false;
         if (resource.per !== "recharge") return false;
         if (resource.hideMax) return true;
 
-        const max = getDeterministicBonus(resource.max, $actor.getRollData());
-
         // Return false if the resource has a max value and the current value equals the max value
         return resource.value < max;
     }
 
+    const genericResources = ["primary", "secondary", "tertiary", "quaternary"];
+
     $: resource = resource;
-
+    $: isClassResource = !genericResources.includes(source);
+    $: max = getDeterministicBonus(resource.max, $actor.getRollData());
     $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
-
     $: showRechargeButton = canRecharge($actor, sheetIsLocked);
+    $: showResource = determineResourceVisibility(sheetIsLocked);
 </script>
 
-<li class="resource">
-    <header class="resource-header">
-        <input
-            type="text"
-            name="system.resources.{source}.label"
-            value={resource.label}
-            class="a5e-input a5e-input--slim resource-label"
-            placeholder={localize(`A5E.Resources${source.capitalize()}`)}
-            disabled={sheetIsLocked}
-            on:change={({ target }) =>
-                updateDocumentDataFromField($actor, target.name, target.value)}
-        />
-
-        {#if !sheetIsLocked}
-            <button class="resource-setting" on:click={configureResource}>
-                <i class="fas fa-gear" />
-            </button>
-        {/if}
-
-        {#if showRechargeButton}
-            <button
-                class="resource-setting"
-                data-tooltip="Recharge Resource"
-                data-tooltip-direction="UP"
-                on:click={() => $actor.rechargeGenericResource(source)}
-            >
-                <i class="fas fa-dice" />
-            </button>
-        {/if}
-    </header>
-
-    <div class="resource-value-container">
-        {#if resource.hideMax}
-            <button
-                class="a5e-button resource-btn fas fa-minus"
-                type="button"
-                disabled={resource.value === 0}
-                on:click={decrementResource}
+{#if showResource}
+    <li class="resource">
+        <header class="resource-header">
+            <input
+                type="text"
+                name="system.resources.{source}.label"
+                value={resource.label}
+                class="a5e-input a5e-input--slim resource-label"
+                placeholder={localize(`A5E.Resources${source.capitalize()}`)}
+                disabled={sheetIsLocked}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField($actor, target.name, target.value)}
             />
-        {/if}
 
-        <input
-            class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
-            class:disable-pointer-events={!$actor.isOwner}
-            type="number"
-            name="system.resources.{source}.value"
-            value={resource.value}
-            placeholder="0"
-            min="0"
-            on:change={({ target }) =>
-                updateDocumentDataFromField($actor, target.name, Number(target.value))}
-        />
+            {#if !sheetIsLocked && !isClassResource}
+                <button class="resource-setting" on:click={configureResource}>
+                    <i class="fas fa-gear" />
+                </button>
+            {/if}
 
-        {#if resource.hideMax}
-            <button
-                class="a5e-button resource-btn fas fa-plus"
-                type="button"
-                on:click={incrementResource}
-            />
-        {:else}
-            <span class="resource-seperator"> / </span>
+            {#if showRechargeButton}
+                <button
+                    class="resource-setting"
+                    data-tooltip="Recharge Resource"
+                    data-tooltip-direction="UP"
+                    on:click={() => $actor.rechargeGenericResource(source)}
+                >
+                    <i class="fas fa-dice" />
+                </button>
+            {/if}
+        </header>
+
+        <div class="resource-value-container">
+            {#if resource.hideMax}
+                <button
+                    class="a5e-button resource-btn fas fa-minus"
+                    type="button"
+                    disabled={resource.value === 0}
+                    on:click={decrementResource}
+                />
+            {/if}
 
             <input
-                type="number"
-                name="system.resources.{source}.max"
-                value={getDeterministicBonus(resource.max ?? 0, $actor.getRollData())}
                 class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
+                class:disable-pointer-events={!$actor.isOwner}
+                type="number"
+                value={resource.value}
                 placeholder="0"
-                disabled
+                min="0"
+                on:change={({ target }) => updateResourceValue(target.value)}
             />
-        {/if}
-    </div>
-</li>
+
+            {#if resource.hideMax}
+                <button
+                    class="a5e-button resource-btn fas fa-plus"
+                    type="button"
+                    on:click={incrementResource}
+                />
+            {:else}
+                <span class="resource-seperator"> / </span>
+
+                <input
+                    type="number"
+                    name="system.resources.{source}.max"
+                    value={getDeterministicBonus(resource.max ?? 0, $actor.getRollData())}
+                    class="a5e-input a5e-input--inline-item a5e-input--small resource-number-input"
+                    placeholder="0"
+                    disabled
+                />
+            {/if}
+        </div>
+    </li>
+{/if}
 
 <style lang="scss">
     .disable-pointer-events {
