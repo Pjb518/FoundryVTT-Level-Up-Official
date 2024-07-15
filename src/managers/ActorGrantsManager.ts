@@ -474,6 +474,14 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
         [`system.hp.levels.${options.charLevel}`]: hp,
         'system.spellcasting.ability.value': spellCastingAbility
       });
+
+      // Update actor spell data and spellbook
+      if (spellCastingAbility !== 'none' && options.clsLevel === 1) {
+        // Update default spellcasting
+        if (this.actor.system.classes.startingClass === options.item.slug) {
+          this.actor.update({ 'system.attributes.spellcasting': spellCastingAbility });
+        }
+      }
     }
 
     // Update archetype data if available
