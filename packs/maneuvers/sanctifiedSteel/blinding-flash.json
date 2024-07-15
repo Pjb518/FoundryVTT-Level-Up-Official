@@ -1,0 +1,139 @@
+{
+	"folder": null,
+	"name": "Blinding Flash",
+	"type": "maneuver",
+	"img": "icons/weapons/swords/sword-winged-pink.webp",
+	"system": {
+		"actions": {
+			"DTZolv4PVgxaFL3t": {
+				"name": "Execute",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "targeted by a melee attack"
+				},
+				"consumers": {
+					"9hdmJDkrdHUPCFb8": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"FZwLwgboH5dvH77b": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"onSave": "not blinded"
+					},
+					"NYvXj7FOLkoYsMRr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "RIUDTdOiTI1szcT8"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\"><strong>Requirements:</strong><em> you must be wielding a silvered weapon or a shield polished to a reflective sheen and you must have a spell of the radiant school prepared and sufficient resources to cast it.</em></p>\n<p dir=\"ltr\">In response to being targeted by a melee attack, you can use your reaction to create a brilliant flash of light off your weapon or shield. The attacking creature must make a Constitution saving throw or be blinded until the end of its turn, which occurs swiftly enough to impose disadvantage on the triggering attack (possibly causing it to miss).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 3,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "sanctifiedSteel",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.pYbxRHc8dkGWIcaU",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "DTZolv4PVgxaFL3t",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinding Flash",
+			"_id": "RIUDTdOiTI1szcT8",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"blinded"
+			],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/weapons/swords/sword-winged-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "LHq10MyIDif92LsQ"
+}

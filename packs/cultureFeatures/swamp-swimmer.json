@@ -1,0 +1,110 @@
+{
+	"folder": null,
+	"name": "Swamp Swimmer",
+	"type": "feature",
+	"img": "icons/magic/nature/root-vines-silhouette-teal.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p>You gain a swim speed equal to your walking speed and you have advantage on stealth checks in water.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "culture",
+		"grants": {
+			"4LPd1whVUheauubt": {
+				"grantType": "movement",
+				"level": 0,
+				"optional": false,
+				"label": "Swimming Speed",
+				"bonus": "@attributes.movement.walk.distance",
+				"movementTypes": {
+					"base": [
+						"swim"
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.UsiO0J2tD3f76LtC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "In Water",
+			"_id": "OA5e81MX26yWaPBL",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/magic/nature/root-vines-silhouette-teal.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "HTSgEsBdh15jeNfy"
+}

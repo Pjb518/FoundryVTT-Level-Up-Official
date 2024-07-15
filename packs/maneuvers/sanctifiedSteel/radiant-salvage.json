@@ -1,0 +1,142 @@
+{
+	"name": "Radiant Salvage",
+	"type": "maneuver",
+	"img": "icons/weapons/swords/sword-winged-pink.webp",
+	"system": {
+		"actions": {
+			"PwKS0LNzFv4W8in4": {
+				"name": "Execute",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"edG3J9oOHtrFuOjv": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"OQTNgRBLoAgk5G8Y": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {
+					"1eoUlwciiXhrnn2Q": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kICRrLRUKWMzpL1y"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\"><strong>Requirements</strong>: <em>a vial of holy water and a weapon that deals bludgeoning damage</em></p>\n<p dir=\"ltr\">You toss the vial into the air and violently smash it with your weapon, creating a 15-foot cone of splashed holy water and shards of glass. Creatures in the cone must make a Dexterity saving throw or take 1d8 points of piercing damage and be affected by the splashed with holy water (taking 2d6 radiant damage if they are an undead or fiend) on a failed save. Creatures that succeed on their save take half damage from both the glass shards and holy water.&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 1,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "sanctifiedSteel",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.yoT993utoWc9XD6g",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PwKS0LNzFv4W8in4",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Radiant Salvage",
+			"_id": "kICRrLRUKWMzpL1y",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"\",\"formula\":\"1d4[Radiant Salvage]\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/weapons/swords/sword-winged-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "iSIYpsyW75C25mEB"
+}

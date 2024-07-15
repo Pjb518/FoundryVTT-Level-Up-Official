@@ -1,0 +1,165 @@
+{
+	"folder": null,
+	"name": "Temple Guardian",
+	"type": "background",
+	"img": "icons/environment/settlement/gazebo.webp",
+	"system": {
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": null
+		},
+		"description": "<p><strong>Ability Score Increases:</strong> +1 to Wisdom and one other ability score.</p>\n<p><strong>Skill Proficiencies:</strong> Religion, and either Perception or Persuasion</p>\n<p><strong>Tools:</strong> Herbalism Kit</p>\n<p><strong>Language:</strong> One chosen from Celestial, Infernal, or Draconic</p>\n<p><strong>Suggested Equipment (Cost 7 gold):</strong> Ceremonial uniform, block of incense, club</p>\n<p><em><strong>Feature: Ecumenical Reverence.</strong></em> Encounters with a variety of belief systems and philosophies has taught you to treat the beliefs and practices of others in a way that shows respect. You gain an expertise die on Religion checks to show proper respect or avoid causing offense.</p>\n<p><em><strong>Adventures and Advancement:</strong></em> The skill set of a temple guard often makes them valuable in other security roles such as those of a bodyguard. If you take on such roles, you may eventually gain a team of 2 @UUID[Compendium.a5e.a5e-monsters.Actor.iivzlj32apdfo6q5]{Acolytes} and 4 @UUID[Compendium.a5e.a5e-monsters.Actor.nxs4m2gpuza0vqgi]{Guards} who operate under your direction.</p>\n<h3><strong>Temple Guardian Connections</strong></h3>\n<p>1. The kindly religious official who ran the site you guarded.</p>\n<p>2. The stern priest who viewed the pilgrims who visited the site with contempt.</p>\n<p>3. The suspicious inquisitor who was constantly looking for some reason to accuse you of heresy.</p>\n<p>4. The enthusiastic pilgrim who took the time to meet everyone at the site.</p>\n<p>5. The potential desecrator of the site who you stopped.</p>\n<p>6. Another guard who you had a rivalry&mdash;perhaps friendly, perhaps not&mdash;with.</p>\n<p>7. The guide who brought pilgrims to the site.</p>\n<p>8. The builder who helped maintain the site.</p>\n<p>9. The young acolyte who you helped keep out of trouble.</p>\n<p>10. Your former commanding officer, now retired.</p>\n<h3><strong>Tomb Guardian Mementos</strong></h3>\n<p>1. An additional piece of clothing such as a stole or hat that you wore on specific holy days.</p>\n<p>2. A prayer book, well-thumbed.</p>\n<p>3. Your letter of acceptance into the ranks of the temple guards.</p>\n<p>4. A supposedly holy relic that was gifted to you by a mysterious pilgrim.</p>\n<p>5. A scroll containing guard routes and passwords for the site you guarded.</p>\n<p>6. A small, smooth stone that you used as a worry stone when things got stressful.</p>\n<p>7. A ceremonial incense burner that you know is sturdy enough to use as a flail.</p>\n<p>8. A meditation carpet embroidered with symbols tied to the site you guarded.</p>\n<p>9. A blasphemous text you confiscated from a would-be desecrator.</p>\n<p>10. A chintzy trinket sold to pilgrims to remember the site you guarded, stained with blood and resonating with a feeling of deep unease.</p>",
+		"grants": {
+			"T75oAEHdiJX9r7uh": {
+				"grantType": "ability",
+				"abilities": {
+					"options": [
+						"str",
+						"dex",
+						"con",
+						"int",
+						"cha"
+					],
+					"total": 1,
+					"base": [
+						"wis"
+					]
+				},
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"bonus": "1",
+				"label": "Default ASI",
+				"_id": "T75oAEHdiJX9r7uh",
+				"default": true,
+				"img": "",
+				"optional": false,
+				"level": 1,
+				"levelType": "character"
+			},
+			"9AJGpUKvXjMB5PJS": {
+				"grantType": "proficiency",
+				"keys": {
+					"total": 1,
+					"base": [
+						"rel"
+					],
+					"options": [
+						"prc",
+						"per"
+					]
+				},
+				"proficiencyType": "skill",
+				"label": "Skill Proficiencies",
+				"_id": "9AJGpUKvXjMB5PJS",
+				"default": true,
+				"img": "",
+				"optional": false,
+				"level": 1,
+				"levelType": "character",
+				"isExpertise": false
+			},
+			"9VppshPzHXolQvRl": {
+				"grantType": "feature",
+				"label": "Background Feature",
+				"_id": "9VppshPzHXolQvRl",
+				"default": true,
+				"img": "",
+				"optional": false,
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-background-features.Item.FPpc4g20nGj9kDeD",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					],
+					"options": [],
+					"total": 0
+				},
+				"level": 1,
+				"levelType": "character"
+			},
+			"jJU92jvXYUvIIAFZ": {
+				"grantType": "item",
+				"label": "Suggested Equipment",
+				"optional": true,
+				"_id": "jJU92jvXYUvIIAFZ",
+				"default": true,
+				"img": "",
+				"items": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.fs1g83t1y18hflen",
+							"quantityOverride": 0
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.kbj0f5ik1ai3v5jb",
+							"quantityOverride": 0
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-adventuring-gear.Item.8u3v0q3jr3ov8u6l",
+							"quantityOverride": 0
+						}
+					],
+					"options": [],
+					"total": 0
+				},
+				"level": 1,
+				"levelType": "character"
+			},
+			"QGyZ6u363jhlCYaI": {
+				"grantType": "trait",
+				"level": 1,
+				"optional": false,
+				"label": "Language",
+				"traits": {
+					"base": [],
+					"options": [
+						"celestial",
+						"infernal",
+						"draconic"
+					],
+					"total": 1,
+					"traitType": "languages"
+				},
+				"_id": "QGyZ6u363jhlCYaI",
+				"img": "",
+				"levelType": "character"
+			},
+			"zI0DCZt4lJ366pZd": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "zI0DCZt4lJ366pZd",
+				"label": "Tool Proficiencies",
+				"keys": {
+					"base": [
+						"herbalismKit"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "tool"
+			}
+		},
+		"source": "sinuousSentinels",
+		"favorite": false,
+		"secretDescription": ""
+	},
+	"effects": [],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "EYka7TF4cgbIAS0c"
+}

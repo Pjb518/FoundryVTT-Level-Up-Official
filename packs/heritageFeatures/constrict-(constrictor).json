@@ -1,0 +1,89 @@
+{
+	"folder": null,
+	"name": "Constrict (Constrictor)",
+	"type": "feature",
+	"img": "icons/magic/control/debuff-energy-hold-teal-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"P0iiq26mbxqYvzS5": {
+				"name": "Constrict",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"bVU2vWxuEvMYcPFT": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"GzytG1FzaQ2cp10R": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d4 + @str.mod",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>&nbsp;You gain an expertise die on checks to initiate or maintain a grapple on creatures of Medium size or smaller, which can be coiled around as part of the grapple. Once per turn as a bonus action, you can squeeze a grappled creature in your coils, dealing bludgeoning damage equal to 2d4 + your Strength modifier. In addition, your hands remain free when you are grappling another creature. You cannot use your climb speed from Sinuous Physiology while using this trait. You cannot coil around creatures of Large or larger size.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "turn",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": ""
+	},
+	"effects": [],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "o3Awx2pjMlmvZg6Z"
+}

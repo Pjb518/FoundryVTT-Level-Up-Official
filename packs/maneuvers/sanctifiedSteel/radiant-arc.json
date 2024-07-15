@@ -1,0 +1,90 @@
+{
+	"folder": null,
+	"name": "Radiant Arc",
+	"type": "maneuver",
+	"img": "icons/weapons/swords/sword-winged-pink.webp",
+	"system": {
+		"actions": {
+			"2tlCxkzKEveoTXET": {
+				"name": "Execute",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "deal radiant damage with a melee weapon attack"
+				},
+				"consumers": {
+					"wedSpYPjQ5FRdHei": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"AlBCFpOQUAjizyNG": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6[Radiant Arc]",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"qfzmDhQkDyPPaNuL": {
+						"range": "10",
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 2
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">When you deal radiant damage with a melee weapon attack, you can use your reaction to deal 1d6 points of radiant damage to 2 other targets within 10 feet of the original target.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"degree": 3,
+		"exertionCost": 1,
+		"isStance": false,
+		"prerequisite": "",
+		"tradition": "sanctifiedSteel",
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "tf5oRoPjZKXh3KZi"
+}

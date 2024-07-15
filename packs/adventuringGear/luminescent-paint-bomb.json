@@ -1,0 +1,192 @@
+{
+	"folder": null,
+	"name": "Luminescent Paint Bomb",
+	"type": "object",
+	"img": "icons/tools/cooking/mortar-black.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"6vfEWH8GjWJjc0L6": {
+				"name": "Throw",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"1Eju5JePzFXCoPcO": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"lMPB8LgeF0qOAolB": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "13"
+						},
+						"onSave": "negates",
+						"label": "Saving Throw"
+					},
+					"53tfnGyZ88K3L3Gs": {
+						"type": "effect",
+						"default": true,
+						"effectId": "uX9YtNgILm7pWh4f",
+						"label": "Luminescent Paint Bomb"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 5,
+					"placeTemplate": true
+				},
+				"ranges": {
+					"bFD4VqMQGknt4hjz": {
+						"range": 20,
+						"unit": "feet"
+					}
+				}
+			}
+		},
+		"description": "<p>You can use an action to throw this fragile clay pot up to 20 feet, where it shatters, splashing luminescent paint over a 5-foot radius. Creatures in the radius must make a DC 13 Dexterity saving throw or be unable to benefit from invisibility and suffer disadvantage on Stealth checks until 10 minutes is taken to scrub the paint off. Affected creatures also cast dim light in a 5-foot radius.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "60 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 3,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.FkgieOdqoRbuS9lj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "6vfEWH8GjWJjc0L6"
+				}
+			},
+			"transfer": false,
+			"name": "Luminescent Paint Bomb",
+			"_id": "uX9YtNgILm7pWh4f",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/tools/cooking/mortar-black.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "pWAzVYyVBWRnRwny"
+}

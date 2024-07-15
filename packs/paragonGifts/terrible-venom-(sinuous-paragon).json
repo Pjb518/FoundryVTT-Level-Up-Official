@@ -1,0 +1,161 @@
+{
+	"folder": null,
+	"name": "Terrible Venom (Sinuous Paragon)",
+	"type": "feature",
+	"img": "icons/creatures/reptiles/snake-fangs-bite-green-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"PoC8AB9f88OBXrf7": {
+				"name": "Venomous Bite",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"NTRfmjzl0yCcZiBB": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"vOH93Q00X9EasX2c": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @finesse.mod",
+						"damageType": "piercing"
+					},
+					"ls3E973SsvIfcxdq": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8 + @prof",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"drZGI3T071mq3UYZ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "con"
+						}
+					},
+					"tITfgZbypVqLV5jm": {
+						"type": "effect",
+						"default": true,
+						"effectId": "tdyXP7nz2UKL7rh7"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/creatures/abilities/fang-tooth-poison-green.webp"
+			}
+		},
+		"description": "<p>Your venom has become some truly nasty stuff. The poison damage of your venomous bite attack increases to 1d8 + your proficiency bonus and a creature taking this damage must make a Constitution save against a DC equal to 8 + your proficiency bonus + your Constitution modifier or be poisoned until the end of its next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "Viper heritage gift",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.sCD94FDGsEoEfPrA",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PoC8AB9f88OBXrf7",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"_id": "tdyXP7nz2UKL7rh7",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"poisoned"
+			],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.14"
+			},
+			"img": "icons/creatures/reptiles/snake-fangs-bite-green-yellow.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "YtNrWHYX5nAqy7zF"
+}

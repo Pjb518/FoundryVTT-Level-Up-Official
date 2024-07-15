@@ -1,0 +1,786 @@
+{
+	"name": "Staff of the Two Serpents (Incomplete)",
+	"type": "object",
+	"img": "icons/weapons/staves/staff-forest-spiral.webp",
+	"effects": [],
+	"flags": {
+		"core": {}
+	},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"YSYFmV30j7avFMgN": {
+				"name": "Attack",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"kIPu7GmdIzAicMJ7": {
+						"bonus": "+ 1[Staff of the Two Serpents]",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"pkL2dfIfjmcWiwlT": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d6 + @finesse.mod + 1[Staff of the Two Serpents]",
+						"name": "Quarterstaff",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"img": "icons/weapons/staves/staff-forest-spiral.webp"
+			},
+			"9YoHKWXn5fIm0m4F": {
+				"name": "Shillelagh",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"ePBGnuIuPNZoOgfu": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "spellcasting"
+					},
+					"vokgNklUsGjZre8E": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d8",
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"lLPdAAsl6DCYj67Q": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "object"
+				},
+				"img": "icons/weapons/staves/staff-vines-green.webp",
+				"description": "<p>You imbue the target with nature's magical energy. Until the spell ends, the target becomes a magical weapon (if it wasn't already), its damage becomes 1d8, and you can use your spellcasting ability instead of Strength for melee attack and damage rolls made using it. The spell ends if you cast it again or let go of the target.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"rGQIdF8t1HOA2Ver": {
+				"name": "Spare the Dying",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"sALHEG0ktMEBuOJH": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/life/heart-cross-green.webp",
+				"description": "<p>A jolt of healing energy flows through the target and it becomes stable.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"6UAkpdJXvCWd5m5N": {
+				"name": "Venomous Sting",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"XJXtVIwO9QQTNn7m": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"gvf1BJLin2DpZDat": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"scaling": {
+							"mode": "cantrip",
+							"formula": "1d8"
+						},
+						"damageType": "poison"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"ranges": {
+					"eNVk6udaWJkNGMnQ": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"img": "icons/creatures/abilities/stinger-poison-green.webp",
+				"description": "<p dir=\"ltr\">You lash out with poisoned barbs which flood the target&rsquo;s body with toxins. Make a melee spell attack. On a hit, you deal 1d8 poison damage, and the target is poisoned until the start of your next turn.&nbsp;</p>\n<p dir=\"ltr\">This spell&rsquo;s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"ahU3OpEItghLTr66": {
+				"name": "Corpse Explosion",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"QFvfFDQvH1b2NOXt": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"N6gYzvYp51SI7mG6": {
+						"canCrit": false,
+						"damageType": "thunder",
+						"formula": "3d6",
+						"name": "",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"rNeYeXz6s6Q4yf4m": {
+						"ability": "con",
+						"onSave": "Half damage and negates poisoned",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"J7RC2ynk4plJl8gJ": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1,
+					"radius": 10
+				},
+				"target": {
+					"quantity": "",
+					"type": "other"
+				},
+				"img": "icons/magic/unholy/strike-beam-blood-large-red-green.webp",
+				"description": "<p>A corpse explodes in a poisonous cloud. Each creature in a 10-foot radius of the corpse must make a Constitution saving throw. A creature takes 3d6 thunder damage and is poisoned for 1 minute on a failed save, or it takes half as much damage and is not poisoned on a successful one. A poisoned creature can repeat the saving throw at the end of each of its turns, ending the effect for itself on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> You target an additional corpse for every 2 slot levels above 1st.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"tS6J4AQYeunWheX7": {
+				"name": "Healing Word",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"W1sgwHhvmX2tSUgf": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"oGAxJKQGRi1goy4V": {
+						"defaultSelection": true,
+						"formula": "1d4 + @spellcasting.mod",
+						"healingType": "healing",
+						"name": "",
+						"type": "healing",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d4"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"8vJIPJilF3n07NAD": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/life/heart-cross-strong-green.webp",
+				"description": "<p>Healing energy washes over the target and it regains hit points equal to 1d4 + your spellcasting modifier.</p><p><strong><em>Cast at Higher Levels.</em></strong> The hit points regained increase by 1d4 for each slot level above 1st.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"9dK8SlpuIOPlYxzr": {
+				"name": "Swarm Strike",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"YwbExzCwvtGPk6jj": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"DO9dR7fGjhKCoagw": {
+						"type": "damage",
+						"default": false,
+						"formula": "1d6",
+						"damageType": "poison",
+						"label": "Ongoing Effect Damage",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"1xE5AnxlGqmodGG6": {
+						"type": "effect",
+						"default": true,
+						"effectId": "vPV1ezJfabOWXwND"
+					},
+					"ykO5DzaRmBW1lz2u": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "spell ends",
+						"label": "Ongoing Effect"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"dPm1oRadT7v8msts": {
+						"range": "self"
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1
+				},
+				"description": "<p>The next time you hit a creature with a weapon attack during the spell&rsquo;s duration, your weapon emits a strange buzzing sound, and the attack deals an extra 1d6 poison damage to the target as it is engulfed in a swarm of stinging insects.</p>\n<p>At the start of each of its turns until the spell ends, the target must make a Constitution saving throw. On a failed save, it takes 1d6 poison damage. On a successful save, the spell ends. The spell also ends early if the target or another creature within 5 feet of it uses an action to repel the swarm, or if some other effect repels the swarm (such as the target being submerged in water).</p>\n<p><strong>Cast At Higher Levels.</strong> If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st. The target is also Rattled for the</p>",
+				"img": "icons/creatures/invertebrates/wasp-swarm-attack.webp",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"navZ0FkOY0GHpK0N": {
+				"name": "Blindness/Deafness",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"rhKUXdt5avUlvjUN": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"2Uy4qFMQYTPJeGXX": {
+						"ability": "con",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"jfilEvms77itvFx1": {
+						"type": "effect",
+						"default": true,
+						"effectId": "tey9cUNf8o3CHPA6"
+					},
+					"qfwfaqBjsdJhptG8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "0lA7vqfoDvlNfBe1"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"0ED6qw7JTnK0eUXP": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/perception/eye-ringed-glow-angry-teal.webp",
+				"description": "<p>Until the spell ends, the target is blinded or deafened (your choice). At the end of each of its turns the target can repeat its saving throw, ending the spell on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> You target one additional creature for each slot level above 2nd.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"gJkOmPknqXPvCftK": {
+				"name": "Lesser Restoration",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"fY0NIQ15QZO5JBOC": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"hxsq198ncdX1d0Kw": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/life/heart-cross-strong-green.webp",
+				"description": "<p>Your glowing hand removes one disease or condition affecting the target. Choose from blinded, deafened, paralyzed, or poisoned. At the Narrator's discretion, some diseases might not be curable with this spell.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"9sWpkfnKr5wU7XqP": {
+				"name": "Cobra's Spit",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"NWwvW0g0VLm39PeO": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"SS16KncsAvM9ISw6": {
+						"bonus": "",
+						"critThreshold": 20,
+						"type": "attack",
+						"attackType": "rangedSpellAttack",
+						"ability": "spellcasting"
+					},
+					"DAXZ6D5XZzDqrh1l": {
+						"canCrit": true,
+						"damageType": "poison",
+						"formula": "4d8",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"W7c8Jzr9jim8880Q": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"img": "icons/creatures/reptiles/serpent-horned-green.webp",
+				"description": "<p>Until the spell ends, you can use an action to spit venom, making a ranged spell attack at a creature or object within 30 feet. On a hit, the venom deals 4d8 poison damage, and if the target is a creature it is poisoned until the end of its next turn.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d8 for each slot level above 3rd.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"OU7nvwcddVHZzoq7": {
+				"name": "Venomous Succor",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"gsl3znTVXFpJLAi6": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"7YMOmnzwecWTDklg": {
+						"canCrit": false,
+						"damageType": "poison",
+						"formula": "1d6",
+						"name": "",
+						"type": "damage",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					},
+					"ABwTISLvafjJeFvZ": {
+						"type": "healing",
+						"default": true,
+						"formula": "2d4",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d4"
+						}
+					}
+				},
+				"prompts": {
+					"ofooFTDaaihODif2": {
+						"ability": "con",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"fbLNOUvVVrNJaOxS": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/life/cross-beam-green.webp",
+				"description": "<p>You cause a searing poison to burn quickly through the target's wounds, dealing 1d6 poison damage. The target regains 2d4 hit points at the start of each of its turns for the next 1d4+1 rounds.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 2nd, the initial damage increases by 1d6 and target regains an additional 1d4 hit points.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p dir=\"ltr\">This staff depicts a naga and a couatl spiraled around a central pillar in the manner of a caduceus. Atop the staff is an empty setting the size of a human&rsquo;s skull. If the missing piece (the Skull of the Celestial Viper) is recovered, the value of the staff increases to 100,000 gp and it gains additional capabilities as indicated below.</p>\n<p dir=\"ltr\">You gain a +1 bonus to attack and damage rolls made with this magic staff. The staff has the finesse property.</p>\n<p dir=\"ltr\">While you are attuned to and wielding the staff, you have access to the following spells. You may cast the cantrips as normal. For the spells of first-level or higher, you can cast each one once per long rest without spending a spell slot. If you are a spellcaster and have the ability to cast spells of the spell&rsquo;s level, you may also cast them as if you knew the spells and had them prepared. They do not count against your spells known or prepared. You use the highest of your Intelligence, Wisdom, or Charisma modifier as your spellcasting ability for these spells.</p>\n<p dir=\"ltr\"><strong>Cantrips:&nbsp;</strong>@UUID[Compendium.a5e.a5e-spells.Item.zaeerhaj7ici4dtd]{Shillelagh} @UUID[Compendium.a5e.a5e-spells.Item.omvngnmoo75is54f]{Spare the Dying} @UUID[Compendium.a5e.a5e-spells.Item.ne5fiqa3pojgbbhx]{Venomous Sting}</p>\n<p dir=\"ltr\"><strong>1st-level:&nbsp;</strong>@UUID[Compendium.a5e.a5e-spells.Item.0tqlw209xugpzidv]{Corpse Explosion} @UUID[Compendium.a5e.a5e-spells.Item.zzv2xb2kvvcyci4i]{Healing Word} @UUID[Compendium.a5e.a5e-spells.Item.pt7w1als0wlajqek]{Swarm Strike}</p>\n<p dir=\"ltr\"><strong>2nd-level:&nbsp;</strong>@UUID[Compendium.a5e.a5e-spells.Item.6q34ttse78toj5x0]{Blindness/Deafness} @UUID[Compendium.a5e.a5e-spells.Item.sgiwn0n20mnf1ddx]{Lesser Restoration}</p>\n<p dir=\"ltr\"><strong>3rd-level:&nbsp;</strong>@UUID[Compendium.a5e.a5e-spells.Item.bfkoxk0m52fhckqi]{Cobra's Spit} @UUID[Compendium.a5e.a5e-spells.Item.l0xg2yboy5z633pr]{Venomous Succor}</p>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "sinuousSentinels",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "A feather from a couatl that served in the upper planes for at least a thousand years and a scale from a naga who journeyed to the upper planes and returned.",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 2,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "70,000 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "legendary",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"simple",
+			"parrying",
+			"twoHanded",
+			"finesse"
+		],
+		"weight": 4,
+		"schemaVersion": {
+			"version": 0.013,
+			"lastMigration": {
+				"version": {
+					"schema": 0.011,
+					"foundry": "11.315",
+					"system": "0.16.49"
+				}
+			}
+		},
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": ""
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.14"
+	},
+	"_id": "iPpDogWClJiLjMf0"
+}
