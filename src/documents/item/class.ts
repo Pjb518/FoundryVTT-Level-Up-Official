@@ -2,6 +2,7 @@ import type ArchetypeItemA5e from './archetype';
 import type { A5EClassData } from '../../dataModels/item/ClassDataModel';
 import type { ClassCastingData } from './data';
 
+import { A5EArchetypeData } from '../../dataModels/item/ArchetypeDataModel';
 import OriginItemA5e from './origin';
 
 import ClassResourceManager from '../../managers/ClassResourceManager';
@@ -52,7 +53,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     const { slug } = this;
 
     const cls: unknown | undefined = this.parent?.items
-      .find((i) => i.type === 'archetype' && i.system.class === slug);
+      .find((i) => i.system instanceof A5EArchetypeData && i.system.class === slug);
 
     if (!cls) return null;
     return cls as ArchetypeItemA5e;
@@ -90,7 +91,7 @@ export default class ClassItemA5e extends OriginItemA5e {
 
     return Object.entries(levels ?? {}).reduce((acc, [level, value]) => {
       if (!value || level > maxLevel) return acc;
-      return acc + value;
+      return acc + (value as number);
     }, 0);
   }
 
@@ -206,6 +207,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     const keys = Object.keys(foundry.utils.flattenObject(changed));
     if (keys.includes('system.hp.hitDiceSize') && (this.isStartingClass || !this.parent)) {
       const size = foundry.utils.getProperty(changed, 'system.hp.hitDiceSize');
+      // @ts-expect-error
       await this.updateSource({ 'system.hp.levels.1': size });
     }
 
@@ -218,6 +220,7 @@ export default class ClassItemA5e extends OriginItemA5e {
     if (keys.includes('system.hp.hitDiceUsed')) {
       const used = foundry.utils.getProperty(changed, 'system.hp.hitDiceUsed');
       const max = this.totalHitDice;
+      // @ts-expect-error
       await this.updateSource({ 'system.hp.hitDiceUsed': Math.clamp(used, 0, max) });
     }
 
