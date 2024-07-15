@@ -26,9 +26,9 @@ const config = {
     brotliSize: true,
     lib: {
       name: 'Level Up: Advanced 5e',
-      entry: path.resolve(__dirname, 'src/index.js'),
+      entry: path.resolve(__dirname, 'src/a5e.ts'),
       formats: ['es'],
-      fileName: () => 'index.js'
+      fileName: 'a5e'
     }
   },
   esbuild: {
