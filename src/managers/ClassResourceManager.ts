@@ -5,6 +5,7 @@ import getDeterministicBonus from '../dice/getDeterministicBonus';
 
 interface ClassResource {
   name: string;
+  consumable: string;
   reference: { [level: number]: string };
   recovery: string;
   slug: string;
@@ -21,7 +22,8 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
     this.item = item;
 
     // Initialize the class resources
-    const classResourceData: ClassResource[] = this.item.system.resources ?? [];
+    const classResourceData = (this.item.system.resources as ClassResource[]) ?? [];
+
     classResourceData.forEach((data: ClassResource) => {
       const classResource = data;
       const slug = classResource.slug || classResource.name.slugify({ strict: true });
@@ -30,6 +32,7 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
     });
 
     // Prepare level based resources
+    this.rollData = {};
     this.prepareResources();
   }
 
@@ -95,7 +98,7 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
     await this.item.update({
       'system.resources': this.item.system.resources
         .filter((
-          resource: ClassResource
+          resource
         ) => resource.slug || resource.name.slugify({ strict: true }) !== slug)
     });
   }

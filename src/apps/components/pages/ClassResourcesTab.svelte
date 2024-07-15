@@ -10,6 +10,7 @@
     import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import Section from "../Section.svelte";
+    import Checkbox from "../Checkbox.svelte";
 
     const item: any = getContext("item");
 
@@ -119,8 +120,18 @@
                 </div>
             </Section>
 
-            <Section heading="Recovery">
+            <Section heading="Consumable Data" --a5e-section-body-gap="0.75rem">
+                <FieldWrapper>
+                    <Checkbox
+                        checked={resource.consumable}
+                        label="Resource is consumable"
+                        on:updateSelection={({ detail }) =>
+                            updateResource(idx, "consumable", detail)}
+                    />
+                </FieldWrapper>
+
                 <RadioGroup
+                    heading="Recovery"
                     options={Object.entries(resourceRecoveryOptions)}
                     selected={resource.recovery || ""}
                     on:updateSelection={({ detail }) => {
@@ -140,7 +151,7 @@
     .a5e-class-resource {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 1rem;
         padding: 0.75rem;
         position: relative;
         margin-bottom: 1rem;
