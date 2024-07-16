@@ -11,6 +11,7 @@ import type {
   MovementBonus,
   SensesBonus
 } from 'types/bonuses';
+import type { BaseActorA5e } from '../documents/actor/base';
 
 import arraysAreEqual from '../utils/arraysAreEqual';
 
@@ -24,13 +25,13 @@ interface SelectionData {
 }
 
 export default class BonusesManager {
-  #actor: typeof Actor;
+  #actor: BaseActorA5e;
 
   #bonuses: Bonuses;
 
-  constructor(actor: typeof Actor) {
+  constructor(actor: BaseActorA5e) {
     this.#actor = actor;
-    this.#bonuses = this.#actor.system.bonuses ?? {};
+    this.#bonuses = (this.#actor.system.bonuses as Bonuses) ?? {};
   }
 
   // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

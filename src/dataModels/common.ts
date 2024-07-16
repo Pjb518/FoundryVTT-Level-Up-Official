@@ -6,6 +6,7 @@ const { fields } = foundry.data;
 export const schemaData = () => ({
   schemaVersion: new fields.SchemaField({
     version: new fields.NumberField({
+      required: true,
       nullable: true,
       initial: MigrationRunner.LATEST_SCHEMA_VERSION
     }),

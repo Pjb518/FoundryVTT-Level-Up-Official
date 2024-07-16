@@ -48,13 +48,21 @@ export const attributes = () => ({
     value: new fields.NumberField({ required: true, initial: 0, integer: true })
   }),
   death: new fields.SchemaField({
-    success: new fields.NumberField({ required: true, initial: 0, integer: true }),
-    failure: new fields.NumberField({ required: true, initial: 0, integer: true })
+    success: new fields.NumberField({
+      required: true, nullable: false, initial: 0, integer: true
+    }),
+    failure: new fields.NumberField({
+      required: true, nullable: false, initial: 0, integer: true
+    })
   }),
   hp: new fields.SchemaField({
-    value: new fields.NumberField({ required: true, initial: 10, integer: true }),
+    value: new fields.NumberField({
+      required: true, initial: 10, nullable: false, integer: true
+    }),
     baseMax: new fields.NumberField({ required: true, initial: 10, integer: true }),
-    temp: new fields.NumberField({ required: true, initial: 0, integer: true }),
+    temp: new fields.NumberField({
+      required: true, nullable: false, initial: 0, integer: true
+    }),
     bonus: new fields.NumberField({ required: true, initial: 0, integer: true })
   }),
   initiative: new fields.SchemaField({
@@ -66,31 +74,31 @@ export const attributes = () => ({
   movement: new fields.SchemaField({
     burrow: new fields.SchemaField({
       distance: new fields.NumberField({
-        required: true, initial: 0, integer: true, min: 0
+        required: true, nullable: false, initial: 0, integer: true, min: 0
       }),
       unit: new fields.StringField({ required: true, initial: 'feet' })
     }),
     climb: new fields.SchemaField({
       distance: new fields.NumberField({
-        required: true, initial: 0, integer: true, min: 0
+        required: true, nullable: false, initial: 0, integer: true, min: 0
       }),
       unit: new fields.StringField({ required: true, initial: 'feet' })
     }),
     fly: new fields.SchemaField({
       distance: new fields.NumberField({
-        required: true, initial: 0, integer: true, min: 0
+        required: true, nullable: false, initial: 0, integer: true, min: 0
       }),
       unit: new fields.StringField({ required: true, initial: 'feet' })
     }),
     swim: new fields.SchemaField({
       distance: new fields.NumberField({
-        required: true, initial: 0, integer: true, min: 0
+        required: true, nullable: false, initial: 0, integer: true, min: 0
       }),
       unit: new fields.StringField({ required: true, initial: 'feet' })
     }),
     walk: new fields.SchemaField({
       distance: new fields.NumberField({
-        required: true, initial: 0, integer: true, min: 0
+        required: true, nullable: false, initial: 0, integer: true, min: 0
       }),
       unit: new fields.StringField({ required: true, initial: 'feet' })
     }),
@@ -101,33 +109,37 @@ export const attributes = () => ({
   senses: new fields.SchemaField({
     blindsight: new fields.SchemaField({
       distance: new fields.NumberField({
-        required: true, initial: 0, integer: true, min: 0
+        required: true, nullable: false, initial: 0, integer: true, min: 0
       }),
       unit: new fields.StringField({ required: true, initial: 'feet' }),
       otherwiseBlind: new fields.BooleanField({ required: true, initial: false })
     }),
     darkvision: new fields.SchemaField({
       distance: new fields.NumberField({
-        required: true, initial: 0, integer: true, min: 0
+        required: true, nullable: false, initial: 0, integer: true, min: 0
       }),
       unit: new fields.StringField({ required: true, initial: 'feet' })
     }),
     tremorsense: new fields.SchemaField({
       distance: new fields.NumberField({
-        required: true, initial: 0, integer: true, min: 0
+        required: true, initial: 0, nullable: false, integer: true, min: 0
       }),
       unit: new fields.StringField({ required: true, initial: 'feet' })
     }),
     truesight: new fields.SchemaField({
       distance: new fields.NumberField({
-        required: true, initial: 0, integer: true, min: 0
+        required: true, initial: 0, nullable: false, integer: true, min: 0
       }),
       unit: new fields.StringField({ required: true, initial: 'feet' })
     })
   }),
   inspiration: new fields.BooleanField({ required: true, initial: false }),
-  fatigue: new fields.NumberField({ required: true, initial: 0, integer: true }),
-  strife: new fields.NumberField({ required: true, initial: 0, integer: true }),
+  fatigue: new fields.NumberField({
+    required: true, nullable: false, initial: 0, integer: true
+  }),
+  strife: new fields.NumberField({
+    required: true, nullable: false, initial: 0, integer: true
+  }),
   spellcasting: new fields.StringField({ required: true, initial: 'int' })
 });
 

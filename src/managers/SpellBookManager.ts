@@ -1,10 +1,12 @@
 import type { SpellBookData } from 'types/spellBook';
+import type { BaseActorA5e } from '../documents/actor/base';
+
 import SpellBook from '../dataModels/actor/SpellBook';
 
 export default class SpellBookManager extends Map<string, SpellBook> {
-  private actor: typeof Actor;
+  private actor: BaseActorA5e;
 
-  constructor(actor: typeof Actor) {
+  constructor(actor: BaseActorA5e) {
     super();
 
     this.actor = actor;

@@ -1,4 +1,4 @@
-import BaseActorA5e from './base';
+import { BaseActorA5e } from './base';
 
 import HitDiceManager from '../../managers/HitDiceManager';
 
