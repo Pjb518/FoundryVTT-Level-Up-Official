@@ -22,9 +22,7 @@ import MonsterCompendiumSheet from '../apps/MonsterCompendiumSheet';
 import SpellCompendiumSheet from '../apps/SpellCompendiumSheet';
 
 // DataModels
-import CharacterData from '../dataModels/actor/CharacterData';
-import NPCData from '../dataModels/actor/NPCData';
-
+import actorDataModels from '../dataModels/actor/actorDataModels';
 import itemDataModels from '../dataModels/item/itemDataModels';
 
 // Effects
@@ -79,7 +77,6 @@ export default function init() {
   CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
   CONFIG.Actor.documentClass = ActorProxy;
   CONFIG.Actor.trackableAttributes = trackableAttributes;
-  // @ts-expect-error
   CONFIG.Item.documentClass = ItemProxy;
   CONFIG.Token.documentClass = TokenDocumentA5e;
   CONFIG.Token.objectClass = TokenA5e;
@@ -95,8 +92,7 @@ export default function init() {
   const version = (game.settings.storage.get('world').getItem('a5e.worldSchemaVersion') ?? 1.0) as number;
 
   if (version > 0.008) {
-    CONFIG.Actor.dataModels.character = CharacterData;
-    CONFIG.Actor.dataModels.npc = NPCData;
+    CONFIG.Actor.dataModels = actorDataModels;
   }
 
   CONFIG.Item.dataModels = itemDataModels;

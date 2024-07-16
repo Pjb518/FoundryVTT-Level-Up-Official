@@ -23,3 +23,12 @@ export const schemaData = () => ({
 });
 
 export type SchemaData = ReturnType<typeof schemaData>;
+
+// -----------------------------------------
+// Source
+// -----------------------------------------
+export const source = () => ({
+  source: new fields.StringField({ required: true, initial: '' })
+});
+
+export type Source = ReturnType<typeof source>;
