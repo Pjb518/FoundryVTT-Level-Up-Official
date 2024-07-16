@@ -14,6 +14,7 @@
         {
             label: "A5E.SpellDC",
             value: $actor.system.attributes.spellDC,
+            tooltip: $actor.spellBooks.getSpellDCString(true),
         },
         {
             label: "Passive Percep.",
@@ -22,11 +23,15 @@
     ];
 </script>
 
-{#each passiveFields as { label, value }}
+{#each passiveFields as { label, value, tooltip }}
     <div class="passive-box">
         <h4 class="passive-label">{localize(label)}</h4>
 
-        <div class="passive-value">
+        <div
+            class="passive-value"
+            data-tooltip={tooltip ?? ""}
+            data-tooltip-direction="UP"
+        >
             {value}
         </div>
     </div>

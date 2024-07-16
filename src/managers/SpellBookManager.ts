@@ -47,4 +47,16 @@ export default class SpellBookManager extends Map<string, SpellBook> {
   first() {
     return this.values().next().value;
   }
+
+  getSpellDCString(returnIfSingle = false) {
+    if (this.size <= 1 && returnIfSingle) return '';
+
+    const spellBooks = [...this.values()];
+
+    return spellBooks.map((s) => {
+      const { dc, ability } = s.stats;
+
+      return `${s.name} ( ${dc} ${ability.capitalize()} )`;
+    }).join(', ');
+  }
 }
