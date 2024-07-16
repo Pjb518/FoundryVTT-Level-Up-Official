@@ -37,7 +37,13 @@
     }
 
     // TODO: Cleanup - Fix up this gross mess
-    function getActivationCostLabel(cost) {
+    function getActivationCostLabel(item, action, cost) {
+        let _action = action;
+
+        if (item.actions?.count === 1) {
+            _action = item.actions.values()[0];
+        }
+
         switch (cost) {
             case "A":
                 return "Action";
@@ -46,7 +52,9 @@
             case "L":
                 return "Legendary Action";
             case "R":
-                return "Reaction";
+                return _action?.activation?.reactionTrigger
+                    ? `Reaction (${_action.activation.reactionTrigger})`
+                    : "Reaction";
             default:
                 return "";
         }
@@ -198,7 +206,7 @@
         : item.system?.uses?.max == item.system?.uses?.value;
 
     $: activationCost = getActivationCost(item, action);
-    $: activationCostLabel = getActivationCostLabel(activationCost);
+    $: activationCostLabel = getActivationCostLabel(item, action, activationCost);
     $: containerCapacity = getCapacity(item);
     $: selectedAmmo = getSelectedAmmo(item, action);
 </script>
