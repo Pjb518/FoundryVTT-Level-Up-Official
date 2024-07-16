@@ -131,14 +131,16 @@ export const attributes = () => ({
   spellcasting: new fields.StringField({ required: true, initial: 'int' })
 });
 
-export const hitDice = () => ({
-  current: new fields.NumberField({
-    required: true, initial: 0, integer: true, min: 0
-  }),
-  total: new fields.NumberField({
-    required: true, initial: 0, integer: true, min: 0
+export const hitDice = () => (
+  new fields.SchemaField({
+    current: new fields.NumberField({
+      required: true, initial: 0, integer: true, min: 0
+    }),
+    total: new fields.NumberField({
+      required: true, initial: 0, integer: true, min: 0
+    })
   })
-});
+);
 
 export const bonuses = () => ({
   bonuses: new fields.SchemaField({
