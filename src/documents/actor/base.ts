@@ -105,7 +105,7 @@ class BaseActorA5e extends Actor {
 
   HitDiceManager: HitDiceManager | null;
 
-  grants: ActorGrantsManager | null;
+  grants!: ActorGrantsManager;
 
   spellBooks: SpellBookManager | null;
 
@@ -130,7 +130,6 @@ class BaseActorA5e extends Actor {
     // Assign managers
     this.BonusesManager = null;
     this.HitDiceManager = null;
-    this.grants = null;
     this.spellBooks = null;
     this.RollOverrideManager = null;
 
@@ -195,6 +194,7 @@ class BaseActorA5e extends Actor {
     // Set Managers
     this.BonusesManager = null;
     this.HitDiceManager = null;
+    // @ts-expect-error
     this.grants = null;
     this.spellBooks = null;
     this.RollOverrideManager = null;

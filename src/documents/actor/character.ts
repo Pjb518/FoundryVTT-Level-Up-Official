@@ -1,3 +1,6 @@
+import type { A5ECharacterData } from '../../dataModels/actor/CharacterDataModel';
+import type ClassItemA5e from '../item/class';
+
 import { BaseActorA5e } from './base';
 
 import HitDiceManager from '../../managers/HitDiceManager';
@@ -5,15 +8,15 @@ import HitDiceManager from '../../managers/HitDiceManager';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 
 export default class CharacterActorA5E extends BaseActorA5e {
-  /**
-   * @type {Record<string, ClassItemA5e>}
-   */
-  _classes;
+  declare system: A5ECharacterData;
 
-  /**
-   * @type {Record<string, any>}
-   */
-  classAutomationFlags;
+  automationAvailable!: boolean;
+
+  _classes: Record<string, ClassItemA5e> | undefined;
+
+  levels!: { character: number; classes: Record<string, number>; };
+
+  classAutomationFlags!: Record<string, boolean>;
 
   get classes() {
     if (this._classes !== undefined) return this._classes;
@@ -21,6 +24,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
     this._classes = this.items.reduce((acc, item) => {
       if (item.type !== 'class') return acc;
 
+      // @ts-expect-error
       acc[item.slug] = item;
       return acc;
     }, {});
@@ -33,9 +37,8 @@ export default class CharacterActorA5E extends BaseActorA5e {
   // -------------------------------------------------------------
   /**
    * Sets the order of when to prepare data.
-   * @override
    */
-  prepareData() {
+  override prepareData() {
     this._classes = undefined;
     this.classAutomationFlags = {};
     super.prepareData();
@@ -43,9 +46,8 @@ export default class CharacterActorA5E extends BaseActorA5e {
 
   /**
    * Prepare base data for the actor.
-   * @override
    */
-  prepareBaseData() {
+  override prepareBaseData() {
     super.prepareBaseData();
 
     // Setup automation flags
@@ -62,14 +64,14 @@ export default class CharacterActorA5E extends BaseActorA5e {
     this.prepareLevelData();
 
     // Calculate the proficiency bonus for the character with a minimum value of 2.
+    // @ts-expect-error
     this.system.attributes.prof = Math.max(2, Math.floor((this.levels.character + 7) / 4));
   }
 
   /**
    * Prepares derived data for the actor.
-   * @override
    */
-  prepareDerivedData() {
+  override prepareDerivedData() {
     this.HitDiceManager = new HitDiceManager(this, this.classAutomationFlags.hitDice);
 
     super.prepareDerivedData();
@@ -77,6 +79,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
     const actorData = this.system;
 
     actorData.attributes.attunement.current = this.items.reduce((acc, curr) => {
+      // @ts-expect-error
       const { requiresAttunement, attuned } = curr.system;
       return (requiresAttunement && attuned) ? acc + 1 : acc;
     }, 0);
@@ -101,20 +104,24 @@ export default class CharacterActorA5E extends BaseActorA5e {
     let max = 0;
 
     // Get best pool type from actor grants
-    const pools = this.grants.byType('exertion').reduce((acc, { exertionData }) => {
+    // @ts-expect-error
+    const pools = this.grants?.byType('exertion').reduce((acc, { exertionData }) => {
       if (!exertionData) return acc;
       if (exertionData.exertionType === 'pool') acc.push(exertionData.poolType);
       return acc;
-    }, []);
+    }, [] as string[]);
 
     if (pools.length === 0) max = baseMax;
+    // @ts-expect-error
     else if (pools.includes('doubleProf')) max = this.system.attributes.prof * 2;
+    // @ts-expect-error
     else if (pools.includes('prof')) max = this.system.attributes.prof;
     else max = baseMax;
 
     // Add bonuses
     const bonuses = getDeterministicBonus(
-      this.BonusesManager.getExertionBonusFormula(),
+      // @ts-expect-error
+      this.BonusesManager?.getExertionBonusFormula(),
       this.getRollData()
     ) ?? 0;
 
@@ -124,6 +131,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
   prepareHitPoints() {
     if (!this.classAutomationFlags.hitPoints) {
       const { baseMax: baseHP, bonus: bonusHP } = this.system.attributes.hp;
+      // @ts-expect-error
       this.system.attributes.hp.max = baseHP + bonusHP;
       this.prepareHitPointBonuses();
       return;
@@ -132,8 +140,10 @@ export default class CharacterActorA5E extends BaseActorA5e {
     const { classes } = this;
     const bonusHP = this.system.attributes.hp.bonus ?? 0;
     const maxHP = Object.values(classes ?? {}).reduce((acc, cls) => acc + cls.maxHP, 0);
+    // @ts-expect-error
     const conMod = (this.system.abilities.con.check.mod ?? 0) * this.levels.character;
 
+    // @ts-expect-error
     this.system.attributes.hp.max = maxHP + conMod + bonusHP;
     super.prepareHitPointBonuses();
   }
@@ -154,9 +164,11 @@ export default class CharacterActorA5E extends BaseActorA5e {
     }
 
     const levelData = Object.values(classes ?? {}).reduce((acc, cls) => {
+      // @ts-expect-error
       const level = cls.system.classLevels;
       if (!level) return acc;
 
+      // @ts-expect-error
       acc.classes[cls.system.slug || cls.name.slugify({ strict: true })] = level;
       acc.character += level;
       return acc;
@@ -172,12 +184,15 @@ export default class CharacterActorA5E extends BaseActorA5e {
 
     // Handle no automation option
     if (!this.classAutomationFlags.spellResources) {
+      // @ts-expect-error
       Object.entries(spellResources.slots).forEach(([level, { override }]) => {
         actorData.spellResources.slots[level].max = override || 0;
       });
 
       actorData.spellResources.points.max = spellResources.points.override || 0;
+      // @ts-expect-error
       actorData.spellResources.inventions.max = spellResources.inventions.override || 0;
+      // @ts-expect-error
       actorData.spellResources.artifactCharges.max = spellResources.artifactCharges.override || 0;
 
       return;
@@ -188,15 +203,17 @@ export default class CharacterActorA5E extends BaseActorA5e {
       actorData.spellResources.slots[level].max = 0;
     });
     actorData.spellResources.points.max = 0;
+    // @ts-expect-error
     actorData.spellResources.inventions.max = 0;
+    // @ts-expect-error
     actorData.spellResources.artifactCharges.max = 0;
 
     const grantedResources = {
-      slots: [],
-      additionalSlots: [],
-      points: [],
-      inventions: [],
-      artifactCharges: []
+      slots: [] as ClassItemA5e[],
+      additionalSlots: [] as ClassItemA5e[],
+      points: [] as ClassItemA5e[],
+      inventions: [] as ClassItemA5e[],
+      artifactCharges: [] as ClassItemA5e[]
     };
 
     Object.values(classes).forEach((cls) => {
@@ -213,9 +230,9 @@ export default class CharacterActorA5E extends BaseActorA5e {
     // Handle single typed classes
     if (grantedResources.slots.length === 1) {
       const cls = grantedResources.slots[0];
-      const { slots: classSlots } = cls.casting;
+      const { slots: classSlots } = cls.casting!;
 
-      Object.entries(classSlots).forEach(([level, slotCount]) => {
+      Object.entries(classSlots ?? {}).forEach(([level, slotCount]) => {
         const { max, override } = actorData.spellResources.slots[level];
         actorData.spellResources.slots[level].max = override || (max || 0) + (slotCount || 0);
       });
@@ -223,7 +240,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
 
     if (grantedResources.points.length === 1) {
       const cls = grantedResources.points[0];
-      const { points } = cls.casting;
+      const { points } = cls.casting!;
       const { max, override } = actorData.spellResources.points;
 
       actorData.spellResources.points.max = override || (max || 0) + (points || 0);
@@ -231,16 +248,20 @@ export default class CharacterActorA5E extends BaseActorA5e {
 
     if (grantedResources.inventions.length === 1) {
       const cls = grantedResources.inventions[0];
-      const { inventions } = cls.casting;
+      const { inventions } = cls.casting!;
+      // @ts-expect-error
       const { max, override } = actorData.spellResources.inventions;
 
+      // @ts-expect-error
       actorData.spellResources.inventions.max = override || (max || 0) + (inventions || 0);
     }
 
     if (grantedResources.artifactCharges.length === 1) {
       const cls = grantedResources.artifactCharges[0];
-      const { charges } = cls.casting;
+      const { charges } = cls.casting!;
+      // @ts-expect-error
       const { max, override } = actorData.spellResources.artifactCharges;
+      // @ts-expect-error
       actorData.spellResources.artifactCharges.max = override || (max || 0) + (charges || 0);
     }
 
@@ -249,7 +270,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
       const total = grantedResources.slots.reduce((acc, cls) => {
         const { classLevels } = cls;
 
-        const progressionConfig = CONFIG.A5E.casterProgression[cls.casting.casterType];
+        const progressionConfig = CONFIG.A5E.casterProgression[cls.casting!.casterType];
         if (!progressionConfig) return acc;
 
         let roundFunc = Math.floor;
@@ -270,8 +291,8 @@ export default class CharacterActorA5E extends BaseActorA5e {
       // Add mode handling
       grantedResources.points.forEach((cls) => {
         // TODO: Class Documents - Update to remove warlockA5E in the future
-        const { points, multiClassMode } = cls.casting;
-        if (multiClassMode !== 'ADD') return;
+        const { points, multiclassMode } = cls.casting!;
+        if (multiclassMode !== 'ADD') return;
 
         const { max, override } = actorData.spellResources.points;
         actorData.spellResources.points.max = override || (max || 0) + (points || 0);
@@ -280,23 +301,26 @@ export default class CharacterActorA5E extends BaseActorA5e {
 
     // Add additional spell slots
     grantedResources.additionalSlots.forEach((cls) => {
-      const { slots } = cls.casting;
+      const { slots } = cls.casting!;
 
-      Object.entries(slots).forEach(([level, slotCount]) => {
+      Object.entries(slots ?? {}).forEach(([level, slotCount]) => {
         const { max, override } = actorData.spellResources.slots[level];
         actorData.spellResources.slots[level].max = override || (max || 0) + (slotCount || 0);
       });
     });
 
     // Set max to 0 if not defined
-    Object.values(actorData.spellResources.slots).forEach((slot) => {
+    Object.values(actorData.spellResources.slots).forEach((slot: any) => {
       if (slot.max === undefined) slot.max = 0;
     });
 
     actorData.spellResources.points.max = spellResources.points.max ?? 0;
+    // @ts-expect-error
     actorData.spellResources.inventions.max = spellResources.inventions.max ?? 0;
+    // @ts-expect-error
     actorData.spellResources.artifactCharges.max = spellResources.artifactCharges.max ?? 0;
 
+    // @ts-expect-error
     actorData.spellResources.maxSpellLevel = Object.values(classes).reduce((acc, cls) => {
       const { maxLevel } = cls?.casting ?? {};
       if (!maxLevel) return acc;
@@ -307,6 +331,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
   }
 
   prepareResources() {
+    // @ts-expect-error
     const source = this._source.system.resources;
 
     const genericResources = foundry.utils.deepClone(source);
@@ -317,7 +342,9 @@ export default class CharacterActorA5E extends BaseActorA5e {
     const classResources = this.items.reduce((acc, i) => {
       if (!['class', 'archetype'].includes(i.type)) return acc;
 
+      // @ts-expect-error
       const resources = foundry.utils.deepClone(i.resources.consumableResources);
+      // @ts-expect-error
       const clsLevel = i.resources.level;
 
       resources.forEach((r) => {
@@ -345,7 +372,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
   /**
    * @inheritdoc
    */
-  getRollData(item = null) {
+  override getRollData(item = null) {
     const data = { ...super.getRollData(item) };
 
     data.level = this.levels?.character ?? data.level ?? this.system.details.level;
@@ -353,7 +380,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
     const resources = {};
 
     data.classes = Object.entries(this.classes ?? {}).reduce((acc, [slug, cls]) => {
-      const classData = (cls.getRollData(item) ?? {}).actorTransfer ?? {};
+      const classData = (cls.getRollData() ?? {}).actorTransfer ?? {};
       acc[slug] = classData;
 
       Object.assign(resources, classData.resources);
@@ -373,11 +400,14 @@ export default class CharacterActorA5E extends BaseActorA5e {
   async recoverExertionUsingHitDice() {
     const { current, max } = this.system.attributes.exertion;
 
-    const [lowestAvailableHitDie] = Object.entries(this.system.attributes.hitDice).find(
+    // @ts-expect-error
+    const [lowestAvailableHitDie] = Object.entries(this.system.attributes.hitDice ?? {}).find(
+      // @ts-expect-error
       ([, { current: c, total: t }]) => c > 0 && t > 0
     );
 
     if (!lowestAvailableHitDie) {
+      // @ts-expect-error
       ui.notifications.warn(`${this.name} has no hit dice remaining.`);
       return;
     }
@@ -386,7 +416,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
 
     // TODO: Chat Cards - Make the message prettier
     await roll.toMessage();
-    const newExertion = Math.min((current ?? 0) + roll.total, max);
+    const newExertion = Math.min((current ?? 0) + (roll.total ?? 0), max);
     const newHitDieCount = this.system.attributes.hitDice[lowestAvailableHitDie].current - 1;
 
     await this.update({
@@ -415,22 +445,22 @@ export default class CharacterActorA5E extends BaseActorA5e {
   // Document Update Hooks
   // -------------------------------------------------------------
   /** @inheritdoc */
-  async _preCreate(data, options, user) {
+  override async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
   }
 
   /** @inheritdoc */
-  async _preUpdate(changed, options, userId) {
+  override async _preUpdate(changed, options, userId) {
     await super._preUpdate(changed, options, userId);
   }
 
   /** @inheritdoc */
-  async _onCreate(data, options, userId) {
-    await super._onCreate(data, options, userId);
+  override _onCreate(data, options, userId) {
+    super._onCreate(data, options, userId);
   }
 
   /** @inheritdoc */
-  _onUpdate(changed, options, userId) {
+  override _onUpdate(changed, options, userId) {
     super._onUpdate(changed, options, userId);
   }
 }

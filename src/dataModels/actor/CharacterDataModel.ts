@@ -24,8 +24,12 @@ const characterSchema = () => ({
       max: new fields.NumberField({ required: true, initial: 3, integer: true })
     }),
     exertion: new fields.SchemaField({
-      current: new fields.NumberField({ required: true, initial: 0, integer: true }),
-      max: new fields.NumberField({ required: true, initial: 0, integer: true }),
+      current: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      }),
+      max: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      }),
       recoverOnRest: new fields.BooleanField({ required: true, initial: true })
     }),
     hitDice: new fields.SchemaField({
@@ -49,7 +53,9 @@ const characterSchema = () => ({
     hairColor: new fields.StringField({ required: true, initial: '' }),
     heritage: new fields.StringField({ required: true, initial: '' }),
     height: new fields.StringField({ required: true, initial: '' }),
-    level: new fields.NumberField({ required: true, initial: 1, integer: true }),
+    level: new fields.NumberField({
+      required: true, nullable: false, initial: 1, integer: true
+    }),
     notes: new fields.StringField({ required: true, initial: '' }),
     prestige: new fields.NumberField({ required: true, initial: 1, integer: true }),
     skinColor: new fields.StringField({ required: true, initial: '' }),
@@ -66,25 +72,45 @@ const characterSchema = () => ({
   }, { required: true, nullable: false }),
   spellResources: new fields.SchemaField({
     artifactCharges: new fields.SchemaField({
-      current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
-      override: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+      current: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      }),
+      override: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      })
     }),
     inventions: new fields.SchemaField({
-      current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
-      override: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+      current: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      }),
+      override: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      })
     }),
     points: new fields.SchemaField({
-      current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
-      max: new fields.NumberField({ nullable: true, initial: 0, min: 0 }),
-      override: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+      current: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      }),
+      max: new fields.NumberField({
+        required: true, nullable: true, initial: 0, min: 0
+      }),
+      override: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      })
     }),
     slots: new fields.SchemaField(
       Array.from({ length: 9 }, (_, i) => i + 1)
         .reduce((acc, level) => {
           acc[level] = new fields.SchemaField({
-            current: new fields.NumberField({ nullable: false, initial: 0, min: 0 }),
-            max: new fields.NumberField({ nullable: true, initial: 0, min: 0 }),
-            override: new fields.NumberField({ nullable: false, initial: 0, min: 0 })
+            current: new fields.NumberField({
+              required: true, nullable: false, initial: 0, min: 0
+            }),
+            max: new fields.NumberField({
+              required: true, nullable: true, initial: 0, min: 0
+            }),
+            override: new fields.NumberField({
+              required: true, nullable: false, initial: 0, min: 0
+            })
           });
           return acc;
         }, {})
