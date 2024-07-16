@@ -5,7 +5,6 @@ import {
   currency,
   details,
   grants,
-  hitDice,
   proficiencies,
   resources,
   skills,
@@ -22,14 +21,21 @@ const npcSchema = () => ({
     casterLevel: new fields.NumberField({ required: true, initial: 0, integer: true }),
     hitDice: new fields.SchemaField({
       ...['d4', 'd6', 'd8', 'd10', 'd12', 'd20'].reduce((acc, die) => {
-        acc[die] = hitDice();
+        acc[die] = new fields.SchemaField({
+          current: new fields.NumberField({
+            required: true, initial: 0, integer: true, min: 0
+          }),
+          total: new fields.NumberField({
+            required: true, initial: 0, integer: true, min: 0
+          })
+        });
         return acc;
       }, {})
     }),
     ...attributes()
   }),
   details: new fields.SchemaField({
-    cr: new fields.NumberField({ required: true, initial: 0 }),
+    cr: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
     elite: new fields.BooleanField({ required: true, initial: false }),
     isSquad: new fields.BooleanField({ required: true, initial: false }),
     isSwarm: new fields.BooleanField({ required: true, initial: false }),

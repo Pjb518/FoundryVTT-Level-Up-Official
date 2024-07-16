@@ -1,7 +1,8 @@
+import type { BaseActorA5e } from '../documents/actor/base';
 import { localize } from '#runtime/svelte/helper';
 
 export default class HitDiceManager {
-  #actor: typeof Actor;
+  #actor: BaseActorA5e;
 
   #automate: boolean;
 
@@ -11,7 +12,7 @@ export default class HitDiceManager {
 
   dieSizes = new Set<number>();
 
-  constructor(actor: typeof Actor, automate = true) {
+  constructor(actor: BaseActorA5e, automate = true) {
     this.#actor = actor;
     this.#automate = automate;
 

@@ -1,21 +1,23 @@
 import { BaseActorA5e } from './base';
 
 import HitDiceManager from '../../managers/HitDiceManager';
+import type { A5ENPCData } from '../../dataModels/actor/NPCDataModel';
 
 export default class NPCActorA5E extends BaseActorA5e {
+  declare system: InstanceType<typeof A5ENPCData>;
+
   // -------------------------------------------------------------
   // Data Preparation Methods
   // -------------------------------------------------------------
-  /**
-   * @returns {String} hitPointFormula
-   */
-  get hitPointFormula() {
+  get hitPointFormula(): string {
     const { hitDice } = this.system.attributes;
+    // @ts-expect-error
     const { mod } = this.system.abilities.con;
 
     let hitDiceCount = 0;
-    const parts = [];
+    const parts: string[] = [];
 
+    // @ts-expect-error
     Object.entries(hitDice).forEach(([dieSize, { total: diceQuantity }]) => {
       if (!diceQuantity) return;
 
@@ -23,31 +25,31 @@ export default class NPCActorA5E extends BaseActorA5e {
       hitDiceCount += diceQuantity;
     });
 
-    if (hitDiceCount === 0) return null;
+    if (hitDiceCount === 0) return '';
 
     return `${parts.join(' + ')} + ${hitDiceCount * mod}`;
   }
 
   /**
    * Prepare base data for the actor.
-   * @override
    */
-  prepareBaseData() {
+  override prepareBaseData() {
     super.prepareBaseData();
 
     // Calculate the proficiency bonus for the character with a minimum value of 2.
+    // @ts-expect-error
     this.system.attributes.prof = Math.max(2, Math.floor((this.system.details.cr + 7) / 4));
   }
 
   /**
    * Prepares derived data for the actor.
-   * @override
    */
-  prepareDerivedData() {
+  override prepareDerivedData() {
     this.HitDiceManager = new HitDiceManager(this, false);
     super.prepareDerivedData();
 
     const { baseMax: baseHP, bonus: bonusHP } = this.system.attributes.hp;
+    // @ts-expect-error
     this.system.attributes.hp.max = baseHP + bonusHP;
 
     super.prepareHitPointBonuses();
@@ -64,22 +66,22 @@ export default class NPCActorA5E extends BaseActorA5e {
   // Document Update Hooks
   // -------------------------------------------------------------
   /** @inheritdoc */
-  async _preCreate(data, options, user) {
+  override async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
   }
 
   /** @inheritdoc */
-  async _preUpdate(changed, options, userId) {
+  override async _preUpdate(changed, options, userId) {
     await super._preUpdate(changed, options, userId);
   }
 
   /** @inheritdoc */
-  async _onCreate(data, options, userId) {
-    await super._onCreate(data, options, userId);
+  override _onCreate(data, options, userId) {
+    super._onCreate(data, options, userId);
   }
 
   /** @inheritdoc */
-  _onUpdate(changed, options, userId) {
+  override _onUpdate(changed, options, userId) {
     super._onUpdate(changed, options, userId);
   }
 }

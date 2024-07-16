@@ -59,11 +59,15 @@ export const attributes = () => ({
     value: new fields.NumberField({
       required: true, initial: 10, nullable: false, integer: true
     }),
-    baseMax: new fields.NumberField({ required: true, initial: 10, integer: true }),
+    baseMax: new fields.NumberField({
+      required: true, nullable: false, initial: 10, integer: true
+    }),
     temp: new fields.NumberField({
       required: true, nullable: false, initial: 0, integer: true
     }),
-    bonus: new fields.NumberField({ required: true, initial: 0, integer: true })
+    bonus: new fields.NumberField({
+      required: true, nullable: false, initial: 0, integer: true
+    })
   }),
   initiative: new fields.SchemaField({
     ability: new fields.StringField({ required: true, initial: 'dex' }),
