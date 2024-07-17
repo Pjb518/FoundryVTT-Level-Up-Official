@@ -114,6 +114,7 @@ const schema = {
     new fields.SchemaField({
       name: new fields.StringField({ nullable: false, required: true, initial: 'New Resource' }),
       consumable: new fields.BooleanField({ nullable: false, required: true, initial: false }),
+      displayOnCore: new fields.BooleanField({ nullable: false, required: true, initial: true }),
       reference: new fields.SchemaField(
         Array.from({ length: 20 }, (_, i) => i + 1)
           .reduce((acc, level) => {

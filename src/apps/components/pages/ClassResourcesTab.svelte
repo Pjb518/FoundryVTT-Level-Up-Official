@@ -130,6 +130,15 @@
                     />
                 </FieldWrapper>
 
+                <FieldWrapper>
+                    <Checkbox
+                        checked={resource.displayOnCore}
+                        label="Show on Core Page"
+                        on:updateSelection={({ detail }) =>
+                            updateResource(idx, "displayOnCore", detail)}
+                    />
+                </FieldWrapper>
+
                 <RadioGroup
                     heading="Recovery"
                     options={Object.entries(resourceRecoveryOptions)}

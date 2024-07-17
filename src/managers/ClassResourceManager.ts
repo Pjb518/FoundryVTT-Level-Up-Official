@@ -5,7 +5,8 @@ import getDeterministicBonus from '../dice/getDeterministicBonus';
 
 interface ClassResource {
   name: string;
-  consumable: string;
+  consumable: boolean;
+  displayOnCore: boolean;
   reference: { [level: number]: string };
   recovery: string;
   slug: string;
