@@ -317,7 +317,9 @@ export default class CharacterActorA5E extends BaseActorA5e {
     const classResources = this.items.reduce((acc, i) => {
       if (!['class', 'archetype'].includes(i.type)) return acc;
 
-      const resources = foundry.utils.deepClone(i.resources.consumableResources);
+      const resources = foundry.utils.deepClone(i.resources.consumableResources)
+        .filter((r) => r.displayOnCore);
+
       const clsLevel = i.resources.level;
 
       resources.forEach((r) => {
