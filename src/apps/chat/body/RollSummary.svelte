@@ -110,7 +110,7 @@
         class:roll--max={isCriticalSuccess}
         class:roll--min={isCriticalFailure}
         class:roll--wide={!isAction}
-        data-tooltip={prepareRollTooltip(message, roll, rollData)}
+        data-tooltip={prepareRollTooltip($message, roll, rollData)}
         data-tooltip-class="a5e-tooltip a5e-tooltip--roll"
         data-tooltip-direction="LEFT"
     >
