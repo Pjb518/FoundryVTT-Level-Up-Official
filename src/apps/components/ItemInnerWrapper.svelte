@@ -2,6 +2,7 @@
     import { getContext, createEventDispatcher } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
+    import formulaIsClassResource from "../../utils/formulaIsClassResource";
     import getDeterministicBonus from "../../dice/getDeterministicBonus";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
@@ -130,6 +131,17 @@
         updateDocumentDataFromField(item, target.name, Number(target.value));
     }
 
+    function updateUsesValue(event) {
+        event.preventDefault();
+
+        const { target } = event;
+        if (isClassResource) {
+            updateDocumentDataFromField($actor, target.name, Number(target.value));
+        } else {
+            updateDocumentDataFromField(item, target.name, Number(target.value));
+        }
+    }
+
     function onConfigure() {
         if (!rightClickConfigure) return;
 
@@ -158,6 +170,60 @@
         return capacity?.percentage ?? 0;
     }
 
+    function generateUsesConfig() {
+        const uses = {
+            action: {
+                value: action ? action.uses?.value : 0,
+                max: action
+                    ? getDeterministicBonus(
+                          action.uses?.max ?? 0,
+                          $actor.getRollData(item),
+                      )
+                    : 0,
+                updatePath: `system.actions.${actionId}.uses`,
+            },
+            item: {
+                value: item.system?.uses?.value ?? 0,
+                max: getDeterministicBonus(
+                    item.system?.uses?.max ?? 0,
+                    $actor.getRollData(item),
+                ),
+                updatePath: "system.uses",
+            },
+        };
+
+        const maxFormula =
+            usesType === "action" && action
+                ? action.uses?.max ?? ""
+                : item.system.uses?.max ?? "";
+
+        if (!maxFormula) return uses;
+
+        isClassResource = formulaIsClassResource(maxFormula);
+
+        if (isClassResource) {
+            const reg = new RegExp(/@classResources.(\S+)/gm);
+            const slug = reg.exec(maxFormula)?.[1];
+
+            console.log(slug);
+
+            if (!slug) return uses;
+
+            const resource =
+                foundry.utils.getProperty(
+                    $actor._source,
+                    `system.resources.classResources.${slug}`,
+                ) ?? getDeterministicBonus(maxFormula, $actor.getRollData(item));
+
+            uses[usesType].value = resource;
+            uses[usesType].updatePath = `system.resources.classResources.${slug}`;
+        }
+
+        console.log(uses);
+
+        return uses;
+    }
+
     const actor = getContext("actor");
     const dispatch = createEventDispatcher();
 
@@ -178,23 +244,26 @@
 
     $: flags = $actor.flags;
 
-    $: uses = {
-        action: {
-            value: action ? action.uses?.value : 0,
-            max: action
-                ? getDeterministicBonus(action.uses?.max ?? 0, $actor.getRollData(item))
-                : 0,
-            updatePath: `system.actions.${actionId}.uses`,
-        },
-        item: {
-            value: item.system?.uses?.value ?? 0,
-            max: getDeterministicBonus(
-                item.system?.uses?.max ?? 0,
-                $actor.getRollData(item),
-            ),
-            updatePath: "system.uses",
-        },
-    };
+    $: isClassResource = false;
+    $: uses = generateUsesConfig($actor, item, action);
+
+    // $: uses = {
+    //     action: {
+    //         value: action ? action.uses?.value : 0,
+    //         max: action
+    //             ? getDeterministicBonus(action.uses?.max ?? 0, $actor.getRollData(item))
+    //             : 0,
+    //         updatePath: `system.actions.${actionId}.uses`,
+    //     },
+    //     item: {
+    //         value: item.system?.uses?.value ?? 0,
+    //         max: getDeterministicBonus(
+    //             item.system?.uses?.max ?? 0,
+    //             $actor.getRollData(item),
+    //         ),
+    //         updatePath: "system.uses",
+    //     },
+    // };
 
     $: ammunitionItems = $actor.items
         .filter((i) => i.type === "object" && i.system.objectType === "ammunition")
@@ -498,12 +567,14 @@
             class="number-input"
             id="{actor.id}-{item.id}-current-uses"
             type="number"
-            name="{uses[usesType].updatePath}.value"
+            name={isClassResource
+                ? `${uses[usesType].updatePath}`
+                : `${uses[usesType].updatePath}.value`}
             value={uses[usesType].value}
             min="0"
             max={uses[usesType].max}
             on:click|stopPropagation
-            on:change={updateField}
+            on:change={updateUsesValue}
         />
 
         <span> / </span>

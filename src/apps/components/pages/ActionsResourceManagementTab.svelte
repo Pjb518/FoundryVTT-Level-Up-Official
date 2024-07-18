@@ -15,6 +15,7 @@
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
 
+    import formulaIsClassResource from "../../../utils/formulaIsClassResource";
     import handleDeterministicInput from "../../../utils/handleDeterministicInput";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -71,13 +72,11 @@
     $: action = $item.actions[actionId];
     $: consumers = action.consumers ?? {};
     $: existingConsumers = new Set(Object.values(consumers).map((c) => c.type));
+    $: isClassResource = formulaIsClassResource(action.uses?.max ?? "");
 
     $: menuList = Object.entries(consumerTypes).reduce(
         (acc, [consumerType, { singleLabel }]) => {
-            if (
-                consumerType === "resource" ||
-                !existingConsumers.has(consumerType)
-            )
+            if (consumerType === "resource" || !existingConsumers.has(consumerType))
                 acc.push([consumerType, singleLabel]);
 
             return acc;
@@ -93,23 +92,22 @@
         --a5e-section-body-direction="row"
         --a5e-section-body-gap="0.5rem"
     >
-        <FieldWrapper
-            heading="A5E.UsesCurrent"
-            --a5e-field-wrapper-width="7.5rem"
-        >
-            <input
-                type="number"
-                d-type="Number"
-                name="system.actions.{actionId}.uses.value"
-                value={action.uses?.value ?? 0}
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        Number(target.value),
-                    )}
-            />
-        </FieldWrapper>
+        {#if !isClassResource}
+            <FieldWrapper heading="A5E.UsesCurrent" --a5e-field-wrapper-width="7.5rem">
+                <input
+                    type="number"
+                    d-type="Number"
+                    name="system.actions.{actionId}.uses.value"
+                    value={action.uses?.value ?? 0}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            target.name,
+                            Number(target.value),
+                        )}
+                />
+            </FieldWrapper>
+        {/if}
 
         <FieldWrapper heading="A5E.UsesMax" --a5e-field-wrapper-width="7.5rem">
             <input
@@ -118,11 +116,7 @@
                 value={action.uses?.max ?? ""}
                 on:change={({ target }) => {
                     handleDeterministicInput(target.value);
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        target.value,
-                    );
+                    updateDocumentDataFromField($item, target.name, target.value);
                 }}
             />
         </FieldWrapper>
@@ -132,20 +126,12 @@
                 class="u-w-40"
                 name="system.actions.{actionId}.uses.per"
                 on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        target.value,
-                    )}
+                    updateDocumentDataFromField($item, target.name, target.value)}
             >
                 <option value="" />
 
                 {#each Object.entries(A5E.resourceRecoveryOptions) as [key, name]}
-                    <option
-                        {key}
-                        value={key}
-                        selected={action.uses?.per === key}
-                    >
+                    <option {key} value={key} selected={action.uses?.per === key}>
                         {localize(name)}
                     </option>
                 {/each}
@@ -159,10 +145,7 @@
             --a5e-section-body-direction="row"
             --a5e-section-body-gap="0.5rem"
         >
-            <FieldWrapper
-                heading="A5E.ItemRechargeFormula"
-                --a5e-field-wrapper-grow="1"
-            >
+            <FieldWrapper heading="A5E.ItemRechargeFormula" --a5e-field-wrapper-grow="1">
                 <input
                     id="{actionId}-recharge-formula"
                     type="text"

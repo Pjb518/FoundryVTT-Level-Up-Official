@@ -4,6 +4,7 @@
 
     import getDeterministicBonus from "../../../dice/getDeterministicBonus";
     import handleDeterministicInput from "../../../utils/handleDeterministicInput";
+    import formulaIsClassResource from "../../../utils/formulaIsClassResource";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import FieldWrapper from "../FieldWrapper.svelte";
@@ -13,10 +14,7 @@
         const { uses } = item.system;
 
         const maxUses = item.actor
-            ? getDeterministicBonus(
-                  uses?.max ?? 0,
-                  item.actor?.getRollData(item) ?? {},
-              )
+            ? getDeterministicBonus(uses?.max ?? 0, item.actor?.getRollData(item) ?? {})
             : uses?.max;
 
         let summary;
@@ -41,6 +39,7 @@
     let editMode = false;
 
     $: usesSummary = prepareUsesSummary($item);
+    $: isClassResource = formulaIsClassResource($item.system.uses.max ?? "");
 </script>
 
 <Section
@@ -56,25 +55,24 @@
     --a5e-section-heading-template-columns="max-content max-content"
 >
     {#if editMode}
-        <Section
-            --a5e-section-body-direction="row"
-            --a5e-section-body-gap="0.5rem"
-        >
-            <FieldWrapper heading="A5E.UsesCurrent">
-                <input
-                    class="a5e-input"
-                    type="number"
-                    d-type="Number"
-                    name="system.uses.value"
-                    value={$item.system.uses.value}
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            target.name,
-                            Number(target.value),
-                        )}
-                />
-            </FieldWrapper>
+        <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.5rem">
+            {#if !isClassResource}
+                <FieldWrapper heading="A5E.UsesCurrent">
+                    <input
+                        class="a5e-input"
+                        type="number"
+                        d-type="Number"
+                        name="system.uses.value"
+                        value={$item.system.uses.value}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                target.name,
+                                Number(target.value),
+                            )}
+                    />
+                </FieldWrapper>
+            {/if}
 
             <FieldWrapper heading="A5E.UsesMax">
                 <input
@@ -84,11 +82,7 @@
                     value={$item.system.uses.max}
                     on:change={({ target }) => {
                         handleDeterministicInput(target.value);
-                        updateDocumentDataFromField(
-                            $item,
-                            target.name,
-                            target.value,
-                        );
+                        updateDocumentDataFromField($item, target.name, target.value);
                     }}
                 />
             </FieldWrapper>
@@ -98,11 +92,7 @@
                     class="u-h-8 u-w-40"
                     name="system.uses.per"
                     on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $item,
-                            target.name,
-                            target.value,
-                        )}
+                        updateDocumentDataFromField($item, target.name, target.value)}
                 >
                     <option value="" />
 
