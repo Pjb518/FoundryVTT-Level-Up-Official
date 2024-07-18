@@ -32,7 +32,7 @@ const ARMOR_MODES = {
 const CHARACTER_EXP_LEVELS = [
   0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000,
   165000, 195000, 225000, 265000, 305000, 355000
-];
+] as const;
 
 /**
  * XP granted for each challenge rating.
@@ -209,11 +209,13 @@ const actorSizes = {
 };
 
 const originItemTypes = [
+  'archetype',
   'background',
+  'class',
   'culture',
   'destiny',
   'heritage'
-];
+] as const;
 
 const alignments = {
   chaotic: 'Chaotic',
@@ -342,7 +344,7 @@ const chatCardTypes = [
   'rollTableOutput',
   'savingThrow',
   'skillCheck'
-];
+] as const;
 
 /**
  * The set of core conditions in the system.
@@ -519,7 +521,7 @@ const itemRarity = {
 };
 
 /**
- * // TODO: List of various item types.
+ * // List of various item types.
  * @enum {string}
  */
 const itemTypes = {
