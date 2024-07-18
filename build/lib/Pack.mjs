@@ -62,12 +62,12 @@ export default class Pack {
     if (source.ownership) delete source.ownership;
 
     // Update _stats data
-    const stats = {
-      coreVersion: systemJSON.compatibility.minimum,
-      systemId: systemJSON.id,
-      systemVersion: systemJSON.version
-    };
-    source._stats = stats;
+    // const stats = {
+    //   coreVersion: systemJSON.compatibility.minimum,
+    //   systemId: systemJSON.id,
+    //   systemVersion: systemJSON.version
+    // };
+    // source._stats = stats;
 
     // TODO: Update migration data
 
