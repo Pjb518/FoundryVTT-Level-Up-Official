@@ -1733,8 +1733,6 @@ const versatileOptions = {
   d12: 'd12'
 };
 
-// Build Complex Config Parts
-
 /* ------------------------------------------------- */
 /*                    Object                         */
 /* ------------------------------------------------- */
@@ -1853,7 +1851,6 @@ const A5E = {
   ...registerBonusesConfig(),
   ...registerCharacterClassesConfig(),
   ...registerConsumerConfig(),
-  // ...registerFilterConfig(A5E), // TODO: Update this
   ...registerEncounterElements(),
   ...registerEffectGroupConfig(),
   ...registerEffectLocalizationConfig(),
@@ -1864,5 +1861,8 @@ const A5E = {
   ...registerSettingsConfig(),
   PRELOCALIZED_KEYS
 };
+
+// These are too complex to be typed to they go after
+registerFilterConfig(A5E);
 
 export default A5E;
