@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 import type { Action } from 'types/action';
+import type { RevitalizeOptions } from './data';
 
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import getSummaryData from '../../utils/summaries/getSummaryData';
@@ -159,44 +160,62 @@ class BaseItemA5e extends Item {
     });
   }
 
-  async revitalize(options: Record<string, any> = {}): Promise<this | null> {
+  async revitalize(options: RevitalizeOptions = {}): Promise<this | null> {
+    options.notify ??= true;
+    options.update ??= true;
+    options.updateImg ??= true;
+    options.updateEffects ??= true;
+    options.updateName ??= true;
+
     const { sourceId } = this;
 
+    // TODO: Revitalize - Try to find source
+
     if (!sourceId) {
-      if (options.notify !== false) ui.notifications?.error('Cannot revitalize an item without a source ID.');
+      if (options.notify !== false) {
+        ui.notifications?.error('Cannot revitalize an item without a source ID.');
+      }
+
       return null;
     }
 
     if (this.uuid === sourceId) {
-      if (options.notify !== false) ui.notifications?.error('Cannot revitalize an item that is already the source.');
+      if (options.notify !== false) {
+        ui.notifications?.error('Cannot revitalize an item that is already the source.');
+      }
+
       return null;
     }
 
     if (!sourceId.startsWith('Compendium.')) {
-      if (options.notify !== false) ui.notifications?.error('Cannot revitalize an item that is not from a compendium.');
+      if (options.notify !== false) {
+        ui.notifications?.error('Cannot revitalize an item that is not from a compendium.');
+      }
+
       return null;
     }
-
-    options.name ??= true;
-    options.update ??= true;
-    options.notify ??= true;
 
     const currentData = this.toObject();
     const compendiumData = ((await fromUuid(sourceId)) as BaseItemA5e | null)?.toObject();
 
     if (!compendiumData) {
-      if (options.notify !== false) ui.notifications?.error('Unable to find source.');
+      if (options.notify !== false) {
+        ui.notifications?.error('Unable to find source.');
+      }
       return null;
     }
 
     if (currentData.type !== compendiumData.type) {
-      if (options.notify !== false) ui.notifications?.error('Cannot revitalize an item with a different type.');
+      if (options.notify !== false) {
+        ui.notifications?.error('Cannot revitalize an item with a different type.');
+      }
+
       return null;
     }
 
     const updates: Record<string, any> = {
-      name: options.name ? compendiumData.name : currentData.name,
-      img: compendiumData.img,
+      name: options.updateName ? compendiumData.name : currentData.name,
+      img: options.updateImg ? compendiumData.img : currentData.img,
       system: foundry.utils.deepClone(compendiumData.system)
     };
 
@@ -228,6 +247,15 @@ class BaseItemA5e extends Item {
       // Ignore current uses
       updates.system.uses.value = this.system.uses.value;
     }
+
+    // Don't update some properties for spells
+    if (this.isType('spell')) {
+      updates.system.spellBook = this.system.spellBook;
+    }
+
+    // TODO: Don't update some action properties
+
+    // TODO: Update effects
 
     if (options.update) await this.update(updates, { diff: false, recursive: false });
 

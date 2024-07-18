@@ -205,8 +205,6 @@
             const reg = new RegExp(/@classResources.(\S+)/gm);
             const slug = reg.exec(maxFormula)?.[1];
 
-            console.log(slug);
-
             if (!slug) return uses;
 
             const resource =
@@ -218,8 +216,6 @@
             uses[usesType].value = resource;
             uses[usesType].updatePath = `system.resources.classResources.${slug}`;
         }
-
-        console.log(uses);
 
         return uses;
     }
@@ -246,24 +242,6 @@
 
     $: isClassResource = false;
     $: uses = generateUsesConfig($actor, item, action);
-
-    // $: uses = {
-    //     action: {
-    //         value: action ? action.uses?.value : 0,
-    //         max: action
-    //             ? getDeterministicBonus(action.uses?.max ?? 0, $actor.getRollData(item))
-    //             : 0,
-    //         updatePath: `system.actions.${actionId}.uses`,
-    //     },
-    //     item: {
-    //         value: item.system?.uses?.value ?? 0,
-    //         max: getDeterministicBonus(
-    //             item.system?.uses?.max ?? 0,
-    //             $actor.getRollData(item),
-    //         ),
-    //         updatePath: "system.uses",
-    //     },
-    // };
 
     $: ammunitionItems = $actor.items
         .filter((i) => i.type === "object" && i.system.objectType === "ammunition")
