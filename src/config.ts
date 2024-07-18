@@ -10,33 +10,26 @@ import registerEffectLocalizationConfig from './config/registerEffectLocalizatio
 import registerFilterConfig from './config/registerFilterConfig';
 import registerGrantsConfig from './config/registerGrantsConfig';
 import registerModuleIncompatibilities from './config/registerModuleIncompatibilities';
-import registerPreLocalizationProperties from './config/registerPreLocalizationProperties';
+import PRELOCALIZED_KEYS from './config/registerPreLocalizationProperties';
 import registerPremiumContentConfig from './config/registerPremiumContentConfig';
 import registerPublisherConfig from './config/registerPublisherConfig';
 import registerReducerConfig from './config/registerReducerConfig';
 import registerSettingsConfig from './config/registerSettingsConfig';
 import registerClassesConfig from './config/registerClassesConfig';
 
-const A5E = {};
+/* ------------------------------------------------- */
+/*                    Constants                      */
+/* ------------------------------------------------- */
 
-A5E.DAMAGED_STATES = {
-  INTACT: 0,
-  DAMAGED: 1,
-  BROKEN: 2
-};
-
-A5E.DICE_ROLL_MODES = {
-  blindroll: 'A5E.diceRollModes.blind',
-  gmroll: 'A5E.diceRollModes.gm',
-  publicroll: 'A5E.diceRollModes.public',
-  selfroll: 'A5E.diceRollModes.self'
+const ARMOR_MODES = {
+  ADD: 1,
+  OVERRIDE: 2
 };
 
 /**
  * XP required to achieve each character level.
- * @type {number[]}
  */
-A5E.CHARACTER_EXP_LEVELS = [
+const CHARACTER_EXP_LEVELS = [
   0, 300, 900, 2700, 6500, 14000, 23000, 34000, 48000, 64000, 85000, 100000, 120000, 140000,
   165000, 195000, 225000, 265000, 305000, 355000
 ];
@@ -45,7 +38,7 @@ A5E.CHARACTER_EXP_LEVELS = [
  * XP granted for each challenge rating.
  * @enum {number}
  */
-A5E.CR_EXP_LEVELS = {
+const CR_EXP_LEVELS = {
   0: 10,
   '1/8': 25,
   '1/4': 50,
@@ -82,29 +75,61 @@ A5E.CR_EXP_LEVELS = {
   30: 155000
 };
 
-A5E.EQUIPPED_STATES = {
+/**
+ * Condition states for shields.
+ */
+const DAMAGED_STATES = {
+  INTACT: 0,
+  DAMAGED: 1,
+  BROKEN: 2
+};
+
+/**
+ * Supported dice roll modes
+ */
+const DICE_ROLL_MODES = {
+  blindroll: 'A5E.diceRollModes.blind',
+  gmroll: 'A5E.diceRollModes.gm',
+  publicroll: 'A5E.diceRollModes.public',
+  selfroll: 'A5E.diceRollModes.self'
+};
+
+/**
+ * Enum for object equipped state
+ */
+const EQUIPPED_STATES = {
   NOT_CARRIED: 0,
   CARRIED: 1,
   EQUIPPED: 2
 };
 
-A5E.PREPARED_STATES = {
+/**
+ * Enum for object prepared state
+ */
+const PREPARED_STATES = {
   UNPREPARED: 0,
   PREPARED: 1,
   ALWAYS_PREPARED: 2
 };
 
-A5E.ROLL_MODE = {
+/**
+ * Enum for supported d20 roll modes.
+ */
+const ROLL_MODE = {
   NORMAL: 0,
   ADVANTAGE: 1,
   DISADVANTAGE: -1
 };
 
+/* ------------------------------------------------- */
+/*                    Config
+/* ------------------------------------------------- */
+
 /**
  * The set of ability scores used within the system.
  * @enum {string}
  */
-A5E.abilities = {
+const abilities = {
   str: 'A5E.abilities.strength',
   dex: 'A5E.abilities.dexterity',
   con: 'A5E.abilities.constitution',
@@ -117,7 +142,7 @@ A5E.abilities = {
  * Localized abbreviations for ability scores.
  * @enum {string}
  */
-A5E.abilityAbbreviations = {
+const abilityAbbreviations = {
   str: 'A5E.abilities.abbreviations.strength',
   dex: 'A5E.abilities.abbreviations.dexterity',
   con: 'A5E.abilities.abbreviations.constitution',
@@ -130,7 +155,7 @@ A5E.abilityAbbreviations = {
  * Localized abbreviations for activation costs.
  * @enum {string}
  */
-A5E.abilityActivationTypes = {
+const abilityActivationTypes = {
   action: 'A5E.ActionActivationAction',
   bonusAction: 'A5E.ActionActivationBonusAction',
   day: 'A5E.DurationDay',
@@ -148,7 +173,7 @@ A5E.abilityActivationTypes = {
  * Localized abbreviations for plural activation costs.
  * @enum {string}
  */
-A5E.abilityActivationTypesPlural = {
+const abilityActivationTypesPlural = {
   action: 'A5E.ActionActivationActionPlural',
   bonusAction: 'A5E.ActionActivationBonusActionPlural',
   hour: 'A5E.DurationHourPlural',
@@ -161,7 +186,7 @@ A5E.abilityActivationTypesPlural = {
   special: 'A5E.ActionActivationSpecial'
 };
 
-A5E.actionOptions = {
+const actionOptions = {
   abilityCheck: 'A5E.ActionOptionAbilityCheck',
   attack: 'A5E.ActionOptionAttack',
   damage: 'A5E.ActionOptionDamage',
@@ -173,7 +198,7 @@ A5E.actionOptions = {
  * The set of possible creature sizes in the system.
  * @enum {string}
  */
-A5E.actorSizes = {
+const actorSizes = {
   tiny: 'A5E.SizeTiny',
   sm: 'A5E.SizeSmall',
   med: 'A5E.SizeMedium',
@@ -183,14 +208,14 @@ A5E.actorSizes = {
   titan: 'A5E.SizeTitanic'
 };
 
-A5E.originItemTypes = [
+const originItemTypes = [
   'background',
   'culture',
   'destiny',
   'heritage'
 ];
 
-A5E.alignments = {
+const alignments = {
   chaotic: 'Chaotic',
   evil: 'Evil',
   good: 'Good',
@@ -198,18 +223,18 @@ A5E.alignments = {
   neutral: 'Neutral'
 };
 
-A5E.ammunitionProperties = {
+const ammunitionProperties = {
   explosive: 'A5E.AmmunitionPropertyExplosive',
   flaming: 'A5E.AmmunitionPropertyFlaming',
   punching: 'A5E.AmmunitionPropertyPunching'
 };
 
-A5E.appliedArmorTypes = {
+const appliedArmorTypes = {
   armor: 'A5E.armorClass.appliedArmorTypes.armor',
   underarmor: 'A5E.armorClass.appliedArmorTypes.underarmor'
 };
 
-A5E.areaIcons = {
+const areaIcons = {
   circle: '<i class="fa-regular fa-circle"></i>',
   cone: '<i class="fa-solid fa-wifi"></i>',
   cube: '<i class="fa-solid fa-cube"></i>',
@@ -221,7 +246,7 @@ A5E.areaIcons = {
   wall: '<i class="fa-solid fa-road-spikes"></i>'
 };
 
-A5E.areaTypes = {
+const areaTypes = {
   circle: 'A5E.AreaCircle',
   cone: 'A5E.AreaCone',
   cube: 'A5E.AreaCube',
@@ -236,7 +261,7 @@ A5E.areaTypes = {
 /**
  * Maps the area types to template shapes
  */
-A5E.areaTemplates = {
+const areaTemplates = {
   circle: 'circle',
   cone: 'cone',
   cube: 'rect',
@@ -250,19 +275,14 @@ A5E.areaTemplates = {
  * The set of core armor types in the system.
  * @enum {string}
  */
-A5E.armor = {
+const armor = {
   light: 'A5E.ArmorLight',
   medium: 'A5E.ArmorMedium',
   heavy: 'A5E.ArmorHeavy',
   shield: 'A5E.ArmorShield'
 };
 
-A5E.ARMOR_MODES = {
-  ADD: 1,
-  OVERRIDE: 2
-};
-
-A5E.armorModes = {
+const armorModes = {
   1: 'A5E.armorClass.modes.add',
   2: 'A5E.armorClass.modes.override'
 };
@@ -271,7 +291,7 @@ A5E.armorModes = {
  * The set of core armor properties in the system.
  * @enum {string}
  */
-A5E.armorProperties = {
+const armorProperties = {
   camouflaged: 'A5E.ArmorPropertyCamouflaged',
   spiked: 'A5E.ArmorPropertySpiked',
   stealthy: 'A5E.objectProperties.stealthy',
@@ -282,21 +302,21 @@ A5E.armorProperties = {
  * The set of core armor types in the system in plural form.
  * @enum {string}
  */
-A5E.armorPlural = {
+const armorPlural = {
   light: 'A5E.ArmorLight',
   medium: 'A5E.ArmorMedium',
   heavy: 'A5E.ArmorHeavy',
   shield: 'A5E.ArmorShieldPlural'
 };
 
-A5E.attackTypes = {
+const attackTypes = {
   meleeWeaponAttack: 'A5E.AttackTypeMeleeWeapon',
   rangedWeaponAttack: 'A5E.AttackTypeRangedWeapon',
   meleeSpellAttack: 'A5E.AttackTypeMeleeSpell',
   rangedSpellAttack: 'A5E.AttackTypeRangedSpell'
 };
 
-A5E.carryCapacityMultiplier = {
+const carryCapacityMultiplier = {
   tiny: 0.5,
   sm: 1,
   med: 1,
@@ -306,7 +326,7 @@ A5E.carryCapacityMultiplier = {
   titan: 16
 };
 
-A5E.capacityTypes = {
+const capacityTypes = {
   bulk: 'A5E.CapacityTypeBulk',
   count: 'A5E.CapacityTypeCount',
   weight: 'A5E.CapacityTypeWeight'
@@ -315,7 +335,7 @@ A5E.capacityTypes = {
 /**
  *
  */
-A5E.chatCardTypes = [
+const chatCardTypes = [
   'abilityCheck',
   'hitDice',
   'item',
@@ -328,7 +348,7 @@ A5E.chatCardTypes = [
  * The set of core conditions in the system.
  * @enum {string}
  */
-A5E.conditions = {
+const conditions = {
   blinded: 'A5E.ConditionBlinded',
   bloodied: 'A5E.ConditionBloodied',
   charmed: 'A5E.ConditionCharmed',
@@ -357,7 +377,7 @@ A5E.conditions = {
  * The default creature types.
  * @enum {string}
  */
-A5E.creatureTypes = {
+const creatureTypes = {
   aberration: 'A5E.CreatureAberration',
   beast: 'A5E.CreatureBeast',
   celestial: 'A5E.CreatureCelestial',
@@ -374,13 +394,13 @@ A5E.creatureTypes = {
   undead: 'A5E.CreatureUndead'
 };
 
-A5E.damagedStates = {
+const damagedStates = {
   0: 'A5E.damagedState.intact',
   1: 'A5E.damagedState.damaged',
   2: 'A5E.damagedState.broken'
 };
 
-A5E.baseScalingModes = {
+const baseScalingModes = {
   cantrip: 'A5E.scaling.modes.cantrip',
   spellLevel: 'A5E.scaling.modes.spellLevel',
   spellPoints: 'A5E.scaling.modes.spellPoints',
@@ -389,7 +409,7 @@ A5E.baseScalingModes = {
   itemUses: 'A5E.scaling.modes.itemUses'
 };
 
-A5E.targetScalingModes = {
+const targetScalingModes = {
   cantrip: 'A5E.scaling.modes.cantrip',
   spellLevel: 'A5E.scaling.modes.spellLevel',
   spellPoints: 'A5E.scaling.modes.spellPoints',
@@ -402,7 +422,7 @@ A5E.targetScalingModes = {
  * The set of core damage types in the system.
  * @enum {string}
  */
-A5E.damageTypes = {
+const damageTypes = {
   acid: 'A5E.damageTypes.acid',
   bludgeoning: 'A5E.damageTypes.bludgeoning',
   cold: 'A5E.damageTypes.cold',
@@ -418,7 +438,7 @@ A5E.damageTypes = {
   thunder: 'A5E.damageTypes.thunder'
 };
 
-A5E.damageColors = {
+const damageColors = {
   acid: '#a9b920',
   bludgeoning: '#b9a137',
   cold: '#99d9d9',
@@ -434,19 +454,19 @@ A5E.damageColors = {
   thunder: '#e2c269'
 };
 
-A5E.defaultActorImportCompendia = {
+const defaultActorImportCompendia = {
   inventory: 'a5e.a5e-adventuring-gear',
   maneuvers: 'a5e.a5e-maneuvers',
   spells: 'a5e.a5e-spells'
 };
 
-A5E.equippedStates = {
+const equippedStates = {
   0: 'A5E.equippedState.notCarried',
   1: 'A5E.equippedState.carried',
   2: 'A5E.equippedState.equipped'
 };
 
-A5E.expertiseDiceSidesMap = {
+const expertiseDiceSidesMap = {
   0: 0,
   1: 4,
   2: 6,
@@ -456,7 +476,7 @@ A5E.expertiseDiceSidesMap = {
   6: 20
 };
 
-A5E.featureTypes = {
+const featureTypes = {
   background: 'A5E.FeatureBackground',
   boon: 'A5E.FeatureBoon',
   class: 'A5E.FeatureClass',
@@ -474,12 +494,12 @@ A5E.featureTypes = {
  * The set of core healing types in the system.
  * @enum {string}
  */
-A5E.healingTypes = {
+const healingTypes = {
   healing: 'A5E.Healing',
   temporaryHealing: 'A5E.HealingTemporary'
 };
 
-A5E.healingColors = {
+const healingColors = {
   healing: '#eeee9b',
   temporaryHealing: '#2fa6b1'
 };
@@ -488,7 +508,7 @@ A5E.healingColors = {
  * List of various item rarities.
  * @enum {string}
  */
-A5E.itemRarity = {
+const itemRarity = {
   mundane: 'A5E.itemRarities.mundane',
   common: 'A5E.itemRarities.common',
   uncommon: 'A5E.itemRarities.uncommon',
@@ -499,10 +519,10 @@ A5E.itemRarity = {
 };
 
 /**
- * List of various item types.
+ * // TODO: List of various item types.
  * @enum {string}
  */
-A5E.itemTypes = {
+const itemTypes = {
   background: 'TYPES.Item.background',
   culture: 'TYPES.Item.culture',
   destiny: 'TYPES.Item.destiny',
@@ -516,11 +536,11 @@ A5E.itemTypes = {
  * List of Inventory Filters
  * @enum {string}
  */
-A5E.inventoryFilters = {
+const inventoryFilters = {
   bulk: 'Bulk'
 };
 
-A5E.knackTypes = {
+const knackTypes = {
   adept: 'Practiced Technique',
   artificer: 'Field Discovery',
   bard: 'Adventuring Trick',
@@ -546,7 +566,7 @@ A5E.knackTypes = {
  * Languages a character can learn.
  * @enum {string}
  */
-A5E.languages = {
+const languages = {
   abyssal: 'A5E.languages.abyssal',
   aquan: 'A5E.languages.aquan',
   auran: 'A5E.languages.auran',
@@ -577,7 +597,7 @@ A5E.languages = {
   undercommon: 'A5E.languages.undercommon'
 };
 
-A5E.maneuverDegrees = {
+const maneuverDegrees = {
   0: 'A5E.ManeuverBasic',
   1: 'A5E.ManeuverDegree1',
   2: 'A5E.ManeuverDegree2',
@@ -586,7 +606,7 @@ A5E.maneuverDegrees = {
   5: 'A5E.ManeuverDegree5'
 };
 
-A5E.maneuverTraditions = {
+const maneuverTraditions = {
   adamantMountain: 'A5E.maneuverTraditions.adamantMountain',
   arcaneArtillery: 'A5E.maneuverTraditions.arcaneArtillery',
   arcaneKnight: 'A5E.maneuverTraditions.arcaneKnight',
@@ -612,7 +632,7 @@ A5E.maneuverTraditions = {
   vipersFangs: 'A5E.maneuverTraditions.vipersFangs'
 };
 
-A5E.materialProperties = {
+const materialProperties = {
   comfortable: 'A5E.MaterialPropertyComfortable',
   feybane: 'A5E.MaterialPropertyFeybane',
   flaw: 'A5E.MaterialPropertyFlaw',
@@ -628,7 +648,7 @@ A5E.materialProperties = {
   wild: 'A5E.MaterialPropertyWild'
 };
 
-A5E.flaws = {
+const flaws = {
   bludgeoning: 'A5E.damageTypes.bludgeoning',
   piercing: 'A5E.damageTypes.piercing',
   slashing: 'A5E.damageTypes.slashing'
@@ -638,7 +658,7 @@ A5E.flaws = {
  * The set of core movement types in the system.
  * @enum {string}
  */
-A5E.movement = {
+const movement = {
   walk: 'A5E.MovementWalkingSpeed',
   burrow: 'A5E.MovementBurrowingSpeed',
   climb: 'A5E.MovementClimbingSpeed',
@@ -650,7 +670,7 @@ A5E.movement = {
  * The set of core movement types in the system.
  * @enum {string}
  */
-A5E.movementAbbreviations = {
+const movementAbbreviations = {
   walk: 'A5E.MovementWalkingSpeedAbbr',
   burrow: 'A5E.MovementBurrowingSpeedAbbr',
   climb: 'A5E.MovementClimbingSpeedAbbr',
@@ -661,22 +681,22 @@ A5E.movementAbbreviations = {
 /**
  * @enum {string}
  */
-A5E.distanceUnits = {
+const distanceUnits = {
   feet: 'A5E.DistanceUnitFeet',
   miles: 'A5E.DistanceUnitMiles',
   meters: 'A5E.DistanceUnitMeters',
   kilometers: 'A5E.DistanceUnitKilometers'
 };
 
-A5E.distanceAbbreviations = {
+const distanceAbbreviations = {
   feet: 'A5E.DistanceFeetAbbr',
   miles: 'A5E.DistanceMilesAbbr',
   meters: 'A5E.DistanceMetersAbbr',
   kilometers: 'A5E.DistanceKilometersAbbr'
 };
 
-A5E.visionUnits = {
-  ...A5E.distanceUnits,
+const visionUnits = {
+  ...distanceUnits,
   unlimited: 'A5E.RangeUnlimited'
 };
 
@@ -684,7 +704,7 @@ A5E.visionUnits = {
  * The set of object subtypes available within the system.
  * @enum {string}
  */
-A5E.objectTypes = {
+const objectTypes = {
   armor: 'A5E.ObjectTypeArmor',
   ammunition: 'A5E.ObjectTypeAmmunition',
   clothing: 'A5E.ObjectTypeClothing',
@@ -702,7 +722,7 @@ A5E.objectTypes = {
  * The set of object subtypes available within the system.
  * @enum {string}
  */
-A5E.objectTypesPlural = {
+const objectTypesPlural = {
   armor: 'A5E.ObjectTypeArmorPlural',
   ammunition: 'A5E.ObjectTypeAmmunition',
   clothing: 'A5E.ObjectTypeClothing',
@@ -716,7 +736,7 @@ A5E.objectTypesPlural = {
   weapon: 'A5E.ObjectTypeWeaponPlural'
 };
 
-A5E.preparedStates = {
+const preparedStates = {
   0: 'A5E.preparedState.unprepared',
   1: 'A5E.preparedState.prepared',
   2: 'A5E.preparedState.alwaysPrepared'
@@ -726,7 +746,7 @@ A5E.preparedStates = {
  * The set of core range types in the system.
  * @enum {string}
  */
-A5E.rangeDescriptors = {
+const rangeDescriptors = {
   self: 'A5E.RangeSelf',
   touch: 'A5E.RangeTouch',
   fiveFeet: 'A5E.RangeFiveFeet',
@@ -736,7 +756,7 @@ A5E.rangeDescriptors = {
   other: 'A5E.RangeOther'
 };
 
-A5E.rangeValues = {
+const rangeValues = {
   self: 'A5E.RangeSelf',
   touch: 'A5E.RangeTouch',
   fiveFeet: 5,
@@ -745,7 +765,7 @@ A5E.rangeValues = {
   long: 120
 };
 
-A5E.resourceRecoveryOptions = {
+const resourceRecoveryOptions = {
   shortRest: 'A5E.RestShort',
   longRest: 'A5E.RestLong',
   recharge: 'A5E.ItemRecharge',
@@ -759,14 +779,14 @@ A5E.resourceRecoveryOptions = {
   year: 'A5E.DurationYear'
 };
 
-A5E.rollModes = {
+const rollModes = {
   normal: 'A5E.RollModeNormal',
   advantage: 'A5E.RollModeAdvantage',
   disadvantage: 'A5E.RollModeDisadvantage'
 };
 
 // TODO: Localization - Add localizations for these roll types.
-A5E.rollTypes = {
+const rollTypes = {
   abilityCheck: 'Ability Check',
   attack: 'Attack',
   damage: 'Damage',
@@ -777,10 +797,10 @@ A5E.rollTypes = {
   toolCheck: 'ToolCheck'
 };
 
-A5E.saveDCOptions = {
+const saveDCOptions = {
   spellcasting: 'A5E.SpellDC',
   maneuver: 'A5E.ManeuverDC',
-  ...A5E.abilities,
+  ...abilities,
   custom: 'A5E.Custom'
 };
 
@@ -788,14 +808,14 @@ A5E.saveDCOptions = {
  * The set of core special sense types in the system.
  * @enum {string}
  */
-A5E.senses = {
+const senses = {
   blindsight: 'A5E.SenseBlindsight',
   darkvision: 'A5E.SenseDarkvision',
   tremorsense: 'A5E.SenseTremorsense',
   truesight: 'A5E.SenseTruesight'
 };
 
-A5E.scrollData = {
+const scrollData = {
   0: {
     attackBonus: 5,
     cost: '10 gp',
@@ -868,7 +888,7 @@ A5E.scrollData = {
   }
 };
 
-A5E.shieldProperties = {
+const shieldProperties = {
   handsFree: 'A5E.shieldProperties.handsFree',
   mirrored: 'A5E.shieldProperties.mirrored',
   spikes: 'A5E.shieldProperties.spikes'
@@ -878,21 +898,21 @@ A5E.shieldProperties = {
  * The set of core shield types in the system.
  * @enum {string}
  */
-A5E.shieldTypes = {
+const shieldTypes = {
   light: 'A5E.ShieldTypeLight',
   medium: 'A5E.ShieldTypeMedium',
   heavy: 'A5E.ShieldTypeHeavy',
   tower: 'A5E.ShieldTypeTower'
 };
 
-A5E.shieldBaseACBonus = {
+const shieldBaseACBonus = {
   light: 1,
   medium: 2,
   heavy: 2,
   tower: 2
 };
 
-A5E.spellBookTypes = {
+const spellBookTypes = {
   innate: 'A5E.spellBook.types.innate',
   prepared: 'A5E.spellBook.types.prepared',
   pact: 'A5E.spellBook.types.pact',
@@ -900,13 +920,13 @@ A5E.spellBookTypes = {
   ritual: 'A5E.spellBook.types.ritual'
 };
 
-A5E.spellComponents = {
+const spellComponents = {
   vocalized: 'A5E.SpellComponentVocalized',
   seen: 'A5E.SpellComponentSeen',
   material: 'A5E.SpellComponentMaterial'
 };
 
-A5E.spellComponentAbbreviations = {
+const spellComponentAbbreviations = {
   vocalized: 'A5E.SpellComponentVocalizedAbbr',
   seen: 'A5E.SpellComponentSeenAbbr',
   material: 'A5E.SpellComponentMaterialAbbr'
@@ -916,7 +936,7 @@ A5E.spellComponentAbbreviations = {
  * Valid spell levels.
  * @enum {string}
  */
-A5E.spellLevels = {
+const spellLevels = {
   0: 'A5E.SpellLevel0',
   1: 'A5E.SpellLevel1',
   2: 'A5E.SpellLevel2',
@@ -929,7 +949,7 @@ A5E.spellLevels = {
   9: 'A5E.SpellLevel9'
 };
 
-A5E.spellLevelCost = {
+const spellLevelCost = {
   0: 0,
   1: 2,
   2: 3,
@@ -942,7 +962,7 @@ A5E.spellLevelCost = {
   9: 13
 };
 
-A5E.spellSchools = {
+const spellSchools = {
   primary: {
     abjuration: 'A5E.SpellSchoolAbjuration',
     conjuration: 'A5E.SpellSchoolConjuration',
@@ -1021,7 +1041,7 @@ A5E.spellSchools = {
  * The set of core skills used in the system.
  * @enum {string}
  */
-A5E.skills = {
+const skills = {
   acr: 'A5E.skills.acrobatics',
   ani: 'A5E.skills.animalHandling',
   arc: 'A5E.skills.arcana',
@@ -1044,7 +1064,7 @@ A5E.skills = {
   sur: 'A5E.skills.survival'
 };
 
-A5E.skillCriticalTables = {
+const skillCriticalTables = {
   acr: 'Compendium.a5e.a5e-roll-tables.RollTable.8q8hhm2qxxpzqety',
   ani: 'Compendium.a5e.a5e-roll-tables.RollTable.vmf9w8gtsdi2h45n',
   arc: 'Compendium.a5e.a5e-roll-tables.RollTable.27u8uhi0v7x4dxwz',
@@ -1067,7 +1087,7 @@ A5E.skillCriticalTables = {
   sur: 'Compendium.a5e.a5e-roll-tables.RollTable.27u8uhi0v7x4dxwz'
 };
 
-A5E.skillFumbleTables = {
+const skillFumbleTables = {
   acr: 'Compendium.a5e.a5e-roll-tables.RollTable.sckaut8fmaq8l120',
   ani: 'Compendium.a5e.a5e-roll-tables.RollTable.3m0vyh75nnlj42ja',
   arc: 'Compendium.a5e.a5e-roll-tables.RollTable.jbjp515vtjmolbng',
@@ -1090,7 +1110,7 @@ A5E.skillFumbleTables = {
   sur: 'Compendium.a5e.a5e-roll-tables.RollTable.jbjp515vtjmolbng'
 };
 
-A5E.skillDefaultAbilities = {
+const skillDefaultAbilities = {
   acr: 'dex',
   ani: 'wis',
   arc: 'int',
@@ -1116,7 +1136,7 @@ A5E.skillDefaultAbilities = {
 /**
  * The set of core skill specialties used in the system.
  */
-A5E.skillSpecialties = {
+const skillSpecialties = {
   acr: {
     balancing: 'A5E.skillSpecialties.balancing',
     escapeArtistry: 'A5E.skillSpecialties.escapeArtistry',
@@ -1277,7 +1297,7 @@ A5E.skillSpecialties = {
   }
 };
 
-A5E.targetTypes = {
+const targetTypes = {
   self: 'A5E.TargetSelf',
   creature: 'A5E.TargetCreature',
   object: 'A5E.TargetObject',
@@ -1285,7 +1305,7 @@ A5E.targetTypes = {
   other: 'A5E.TargetOther'
 };
 
-A5E.targetTypesPlural = {
+const targetTypesPlural = {
   self: 'A5E.TargetSelf',
   creature: 'A5E.TargetCreaturePlural',
   object: 'A5E.TargetObjectPlural',
@@ -1293,7 +1313,7 @@ A5E.targetTypesPlural = {
   other: 'A5E.TargetOther'
 };
 
-A5E.terrainTypes = {
+const terrainTypes = {
   abyss: 'A5E.terrainTypes.abyss',
   astralPlane: 'A5E.terrainTypes.astralPlane',
   caverns: 'A5E.terrainTypes.caverns',
@@ -1323,7 +1343,7 @@ A5E.terrainTypes = {
   water: 'A5E.terrainTypes.water'
 };
 
-A5E.timePeriods = {
+const timePeriods = {
   instantaneous: 'A5E.DurationInstantaneous',
   round: 'A5E.DurationRound',
   turn: 'A5E.DurationTurn',
@@ -1338,7 +1358,7 @@ A5E.timePeriods = {
   special: 'A5E.DurationSpecial'
 };
 
-A5E.timePeriodsPlural = {
+const timePeriodsPlural = {
   instantaneous: 'A5E.DurationInstantaneous',
   round: 'A5E.DurationRoundPlural',
   turn: 'A5E.DurationTurnPlural',
@@ -1353,7 +1373,7 @@ A5E.timePeriodsPlural = {
   special: 'A5E.DurationSpecial'
 };
 
-A5E.tokenDimensions = {
+const tokenDimensions = {
   tiny: 0.5,
   sm: 1,
   med: 1,
@@ -1367,13 +1387,13 @@ A5E.tokenDimensions = {
  * Colors used to visualize temporary and temporary maximum HP in token health bars.
  * @enum {number}
  */
-A5E.tokenHPColors = {
+const tokenHPColors = {
   damage: 0xFF0000,
   healing: 0x00FF00,
   temp: 0x66CCFF
 };
 
-A5E.toolCategories = {
+const toolCategories = {
   artisansTools: 'A5E.ToolsArtisanTools',
   gamingSets: 'A5E.ToolsGamingSets',
   musicalInstruments: 'A5E.MusicalInstruments',
@@ -1382,7 +1402,7 @@ A5E.toolCategories = {
   other: 'A5E.ToolsOther'
 };
 
-A5E.tools = {
+const tools = {
   artisansTools: {
     alchemistsSupplies: 'A5E.ToolAlchemistsSupplies',
     bookbindersKit: 'A5E.ToolBookbindersKit',
@@ -1443,7 +1463,7 @@ A5E.tools = {
   }
 };
 
-A5E.toolsPlural = {
+const toolsPlural = {
   artisansTools: {
     alchemistsSupplies: 'A5E.ToolAlchemistsSupplies',
     bookbindersKit: 'A5E.ToolBookbindersKitPlural',
@@ -1504,7 +1524,7 @@ A5E.toolsPlural = {
   }
 };
 
-A5E.weaponCategories = {
+const weaponCategories = {
   simple: 'A5E.WeaponsSimple',
   martial: 'A5E.WeaponsMartial',
   rare: 'A5E.WeaponsRare',
@@ -1514,7 +1534,7 @@ A5E.weaponCategories = {
 /**
  * The set of core weapons used in the system.
  */
-A5E.weapons = {
+const weapons = {
   simple: {
     blowgun: 'A5E.WeaponBlowgun',
     club: 'A5E.WeaponClub',
@@ -1587,7 +1607,7 @@ A5E.weapons = {
 /**
  * The set of core weapons used in the system in their plural form.
  */
-A5E.weaponsPlural = {
+const weaponsPlural = {
   simple: {
     blowgun: 'A5E.WeaponBlowgunPlural',
     club: 'A5E.WeaponClubPlural',
@@ -1661,7 +1681,7 @@ A5E.weaponsPlural = {
  * The set of core weapon propeties used in the system.
  * @enum {string}
  */
-A5E.weaponProperties = {
+const weaponProperties = {
   burn: 'A5E.weaponProperties.burn',
   breaker: 'A5E.weaponProperties.breaker',
   compounding: 'A5E.weaponProperties.compounding',
@@ -1695,18 +1715,18 @@ A5E.weaponProperties = {
   vicious: 'A5E.weaponProperties.vicious'
 };
 
-A5E.breakerProperties = {
+const breakerProperties = {
   wood: 'Wood',
   stone: 'Stone'
 };
 
-A5E.defensiveProperties = {
+const defensiveProperties = {
   light: 'Light',
   medium: 'Medium',
   heavy: 'Heavy'
 };
 
-A5E.versatileOptions = {
+const versatileOptions = {
   d6: 'd6',
   d8: 'd8',
   d10: 'd10',
@@ -1734,6 +1754,115 @@ registerPublisherConfig(A5E);
 registerReducerConfig(A5E);
 registerSettingsConfig(A5E);
 
-registerPreLocalizationProperties(A5E);
+/* ------------------------------------------------- */
+/*                    Object                         */
+/* ------------------------------------------------- */
+
+const A5E = {
+  // Constants
+  ARMOR_MODES,
+  CHARACTER_EXP_LEVELS,
+  CR_EXP_LEVELS,
+  DAMAGED_STATES,
+  DICE_ROLL_MODES,
+  EQUIPPED_STATES,
+  PREPARED_STATES,
+  ROLL_MODE,
+
+  // Config Objects
+  abilities,
+  abilityAbbreviations,
+  abilityActivationTypes,
+  abilityActivationTypesPlural,
+  actionOptions,
+  actorSizes,
+  originItemTypes,
+  alignments,
+  ammunitionProperties,
+  appliedArmorTypes,
+  areaIcons,
+  areaTypes,
+  areaTemplates,
+  armor,
+  armorModes,
+  armorProperties,
+  armorPlural,
+  attackTypes,
+  carryCapacityMultiplier,
+  capacityTypes,
+  chatCardTypes,
+  conditions,
+  creatureTypes,
+  damagedStates,
+  baseScalingModes,
+  targetScalingModes,
+  damageTypes,
+  damageColors,
+  defaultActorImportCompendia,
+  equippedStates,
+  expertiseDiceSidesMap,
+  featureTypes,
+  healingTypes,
+  healingColors,
+  itemRarity,
+  itemTypes,
+  inventoryFilters,
+  knackTypes,
+  languages,
+  maneuverDegrees,
+  maneuverTraditions,
+  materialProperties,
+  flaws,
+  movement,
+  movementAbbreviations,
+  distanceUnits,
+  distanceAbbreviations,
+  visionUnits,
+  objectTypes,
+  objectTypesPlural,
+  preparedStates,
+  rangeDescriptors,
+  rangeValues,
+  resourceRecoveryOptions,
+  rollModes,
+  rollTypes,
+  saveDCOptions,
+  senses,
+  scrollData,
+  shieldProperties,
+  shieldTypes,
+  shieldBaseACBonus,
+  spellBookTypes,
+  spellComponents,
+  spellComponentAbbreviations,
+  spellLevels,
+  spellLevelCost,
+  spellSchools,
+  skills,
+  skillCriticalTables,
+  skillFumbleTables,
+  skillDefaultAbilities,
+  skillSpecialties,
+  targetTypes,
+  targetTypesPlural,
+  terrainTypes,
+  timePeriods,
+  timePeriodsPlural,
+  tokenDimensions,
+  tokenHPColors,
+  toolCategories,
+  tools,
+  toolsPlural,
+  weaponCategories,
+  weapons,
+  weaponsPlural,
+  weaponProperties,
+  breakerProperties,
+  defensiveProperties,
+  versatileOptions,
+
+  // Function Properties
+  PRELOCALIZED_KEYS
+};
 
 export default A5E;
