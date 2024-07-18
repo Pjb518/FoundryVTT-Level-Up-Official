@@ -13,30 +13,39 @@
     import CompendiumItemList from "../components/compendiumSheets/CompendiumItemList.svelte";
     import ExportToRollTableDialog from "../dialogs/ExportToRollTableDialog.svelte";
 
-    import {
-        addSearchFilter,
-        removeSearchFilter,
-    } from "../handlers/handleSearchFilter";
+    import { addSearchFilter, removeSearchFilter } from "../handlers/handleSearchFilter";
     import constructReducerFilters from "../handlers/constructReducerFilters";
 
-    export let {
-        compendiumType,
-        customImporter,
-        document,
-        filterStore,
-        sheet,
-    } = getContext("#external").application;
+    export let { compendiumType, customImporter, document, filterStore, sheet } =
+        getContext("#external").application;
 
     export let elementRoot;
+
+    function showDescriptionToggle() {
+        return true;
+    }
+
+    function showGroupingToggle() {
+        if (["classFeature", "archetype"].includes(compendiumType)) return false;
+        return true;
+    }
+
+    function showRollTableToggle() {
+        if (["classFeature", "archetype"].includes(compendiumType)) return false;
+        return true;
+    }
+
+    function showFilterToggle() {
+        if (["classFeature"].includes(compendiumType)) return false;
+        return true;
+    }
 
     async function exportToActor() {
         const collection = document;
 
         const documents = (
             await Promise.all(
-                [...$reducer].map(async (doc) =>
-                    collection.getDocument(doc._id),
-                ),
+                [...$reducer].map(async (doc) => collection.getDocument(doc._id)),
             )
         ).map((doc) => doc.toObject());
 
@@ -45,10 +54,7 @@
 
     async function exportToRollTable() {
         // Create a dialog to fetch the name of the roll table
-        let dialog = new GenericDialog(
-            "Export to RollTable",
-            ExportToRollTableDialog,
-        );
+        let dialog = new GenericDialog("Export to RollTable", ExportToRollTableDialog);
 
         dialog.render(true);
         const { rollTableName } = (await dialog.promise) ?? {};
@@ -102,9 +108,7 @@
     setContext("reducer", reducer);
     setContext("sheet", sheet);
 
-    const reducerUnsubscribe = reducer.subscribe(
-        () => (visibleDocumentCount = 100),
-    );
+    const reducerUnsubscribe = reducer.subscribe(() => (visibleDocumentCount = 100));
 
     // Construct filters for the reducer
     let filterSelections = {};
@@ -112,13 +116,7 @@
         filterSelections = store;
     });
 
-    $: filterCount = constructReducerFilters(
-        reducer,
-        filterSelections,
-        compendiumType,
-    );
-
-    $: console.log(filterCount);
+    $: filterCount = constructReducerFilters(reducer, filterSelections, compendiumType);
 
     // On Destroy
     onDestroy(() => {
@@ -140,8 +138,8 @@
                 --tjs-input-text-width="100%"
             />
 
-            {#if compendiumType !== "classFeature"}
-                {#if tab === "items"}
+            {#if tab === "items"}
+                {#if showDescriptionToggle()}
                     <button
                         class="a5efc-filter-button"
                         class:a5efc-filter-button--active={includeDescriptions}
@@ -149,12 +147,13 @@
                             ? "Exclude item descriptions in search"
                             : "Include item descriptions in search"}
                         data-tooltip-direction="UP"
-                        on:click={() =>
-                            (includeDescriptions = !includeDescriptions)}
+                        on:click={() => (includeDescriptions = !includeDescriptions)}
                     >
                         <i class="a5efc-filter-button__icon fa-solid fa-book" />
                     </button>
+                {/if}
 
+                {#if showGroupingToggle()}
                     <button
                         class="a5efc-filter-button"
                         class:a5efc-filter-button--active={enableGrouping}
@@ -164,11 +163,12 @@
                         data-tooltip-direction="UP"
                         on:click={() => (enableGrouping = !enableGrouping)}
                     >
-                        <i
-                            class="a5efc-filter-button__icon fa-solid fa-bars-staggered"
-                        />
+                        <i class="a5efc-filter-button__icon fa-solid fa-bars-staggered" />
                     </button>
+                {/if}
 
+                <!-- TODO: Update this -->
+                {#if showRollTableToggle()}
                     {#if !customImporter && compendiumType !== "classFeature"}
                         <button
                             class="a5efc-filter-button"
@@ -177,9 +177,7 @@
                             data-tooltip-direction="UP"
                             on:click={() => exportToRollTable()}
                         >
-                            <i
-                                class="a5efc-filter-button__icon fa-solid fa-table-list"
-                            />
+                            <i class="a5efc-filter-button__icon fa-solid fa-table-list" />
                         </button>
                     {:else if compendiumType === "spell" || compendiumType === "maneuver"}
                         <button
@@ -189,13 +187,13 @@
                             data-tooltip-direction="UP"
                             on:click={() => exportToActor()}
                         >
-                            <i
-                                class="a5efc-filter-button__icon fa-solid fa-download"
-                            />
+                            <i class="a5efc-filter-button__icon fa-solid fa-download" />
                         </button>
                     {/if}
                 {/if}
+            {/if}
 
+            {#if showFilterToggle()}
                 <button
                     class="a5efc-filter-button"
                     class:a5efc-filter-button--active={tab === "filters" ||
