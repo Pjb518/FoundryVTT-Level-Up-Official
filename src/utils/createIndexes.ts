@@ -1,5 +1,6 @@
 import ClassFeatureCompendiumSheet from '../apps/ClassFeatureCompendiumSheet';
 import DND5ESpellCompendiumSheet from '../apps/DND5ESpellCompendiumSheet';
+import ArchetypeCompendiumSheet from '../apps/ArchetypeCompendiumSheet';
 import ItemCompendiumSheet from '../apps/ItemCompendiumSheet';
 import ManeuverCompendiumSheet from '../apps/ManeuverCompendiumSheet';
 import MonsterCompendiumSheet from '../apps/MonsterCompendiumSheet';
@@ -17,6 +18,8 @@ export async function createArchetypeLikeIndex(packId: string) {
       'system.source'
     ]
   });
+
+  pack.applicationClass = ArchetypeCompendiumSheet;
 }
 
 export async function createClassFeatureLikeIndex(packId: string) {

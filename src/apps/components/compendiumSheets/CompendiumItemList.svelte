@@ -8,6 +8,7 @@
     import CompendiumManeuverItem from "./CompendiumManeuverItem.svelte";
     import CompendiumMonsterItem from "./CompendiumMonsterItem.svelte";
     import CompendiumObjectItem from "./CompendiumObjectItem.svelte";
+    import CompendiumOriginItem from "./CompendiumOriginItem.svelte";
     import CompendiumSpellItem from "./CompendiumSpellItem.svelte";
     import CompendiumSubItemList from "./CompendiumSubItemList.svelte";
 
@@ -25,6 +26,8 @@
         monster: CompendiumMonsterItem,
         object: CompendiumObjectItem,
         spell: CompendiumSpellItem,
+
+        archetype: CompendiumOriginItem,
     };
 
     const groups = {
@@ -48,13 +51,7 @@
             "artifact",
         ],
         maneuver: [0, 1, 2, 3, 4, 5],
-        monster: [
-            0,
-            0.125,
-            0.25,
-            0.5,
-            ...Array.from(Array(30).keys(), (n) => n + 1),
-        ],
+        monster: [0, 0.125, 0.25, 0.5, ...Array.from(Array(30).keys(), (n) => n + 1)],
         object: [
             "mundane",
             "common",
@@ -83,8 +80,7 @@
         for (const filterValue of filters) {
             const dr = $reducer.derived.create(`${filterValue}`);
             dr.filters.add(
-                (doc) =>
-                    foundry.utils.getProperty(doc, property) == filterValue,
+                (doc) => foundry.utils.getProperty(doc, property) == filterValue,
             );
 
             dr.index.update(true);
@@ -123,8 +119,7 @@
     on:scroll={({ target }) =>
         dispatch(
             "listScrolled",
-            (target.scrollTop / (target.scrollHeight - target.clientHeight)) *
-                100,
+            (target.scrollTop / (target.scrollHeight - target.clientHeight)) * 100,
         )}
     on:drop={onDocumentDrop}
 >

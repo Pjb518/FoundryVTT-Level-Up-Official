@@ -147,13 +147,26 @@ const objectFilterConfig = {
   }
 };
 
+const archetypeFilterConfig = {
+  class: {
+    key: 'system.class',
+    type: 'value'
+  },
+  source: {
+    key: 'system.source',
+    type: 'value'
+  }
+};
+
 const typeMap = {
   '5eSpell': spellsFilterConfig,
   object: objectFilterConfig,
   magicItem: objectFilterConfig,
   maneuver: maneuverFilterConfig,
   monster: monstersFilterConfig,
-  spell: spellsFilterConfig
+  spell: spellsFilterConfig,
+
+  archetype: archetypeFilterConfig
 };
 
 function arrayFilter(key, value, mode) {

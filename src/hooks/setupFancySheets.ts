@@ -55,6 +55,7 @@ export default function setupFancySheets() {
   });
 
   // Setup undefined packs
+  // @ts-expect-error
   if (!game.settings.storage.get('world').getItem('a5e.autoApplyFancySheets')) return;
 
   for (const pack of game.packs) {
@@ -66,6 +67,7 @@ export default function setupFancySheets() {
     const documentType = pack.metadata.type;
     if (!documentType) continue;
 
+    // @ts-expect-error
     const indexTypes: string[] = [...pack.index].map((index) => index.type).filter(Boolean);
     if (!indexTypes.every((type: string) => indexTypes[0] === type)) continue;
 
