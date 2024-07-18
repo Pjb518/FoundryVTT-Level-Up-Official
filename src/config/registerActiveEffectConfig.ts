@@ -1,5 +1,5 @@
-export default function registerActiveEffectConfig(A5E) {
-  A5E.ACTIVE_EFFECT_MODES = {
+export default function registerActiveEffectConfig() {
+  const ACTIVE_EFFECT_MODES = {
     CUSTOM: 0,
     MULTIPLY: 1,
     ADD: 2,
@@ -10,7 +10,7 @@ export default function registerActiveEffectConfig(A5E) {
     CONDITIONAL: 7
   };
 
-  A5E.activeEffectTypes = {
+  const activeEffectTypes = {
     onUse: 'A5E.effects.types.plural.onUse',
     ongoing: 'A5E.effects.types.plural.ongoing',
     inactive: 'A5E.effects.types.plural.inactive',
@@ -18,7 +18,7 @@ export default function registerActiveEffectConfig(A5E) {
     temporary: 'A5E.effects.types.plural.temporary'
   };
 
-  A5E.conditionIconsDefault = {
+  const conditionIconsDefault = {
     blinded: 'icons/svg/blind.svg',
     bloodied: 'icons/svg/blood.svg',
     charmed: 'systems/a5e/assets/icons/charmed.svg',
@@ -44,41 +44,55 @@ export default function registerActiveEffectConfig(A5E) {
     stunned: 'icons/svg/daze.svg',
     unconscious: 'icons/svg/unconscious.svg'
   };
-  // eslint-disable-next-line no-return-assign
-  Array.from({ length: 10 }, (_, i) => (A5E.conditionIconsDefault[`generic${i + 1}`] = `systems/a5e/assets/icons/circle${i + 1}.svg`));
 
-  A5E.actionActiveEffectTypes = {
+  // eslint-disable-next-line no-return-assign
+  Array.from({ length: 10 }, (_, i) => (conditionIconsDefault[`generic${i + 1}`] = `systems/a5e/assets/icons/circle${i + 1}.svg`));
+
+  const actionActiveEffectTypes = {
     onUse: 'A5E.effects.types.singular.onUse'
   };
 
-  A5E.actionActiveEffectTypesPlural = {
+  const actionActiveEffectTypesPlural = {
     onUse: 'A5E.effects.types.plural.onUse'
   };
 
-  A5E.itemActiveEffectTypes = {
+  const itemActiveEffectTypes = {
     passive: 'A5E.effects.types.singular.passive'
   };
 
-  A5E.itemActiveEffectTypesPlural = {
+  const itemActiveEffectTypesPlural = {
     passive: 'A5E.effects.types.plural.passive'
   };
 
-  A5E.effectDurationTypes = {
+  const effectDurationTypes = {
     seconds: 'A5E.effects.durationTypes.plural.seconds',
     rounds: 'A5E.effects.durationTypes.plural.roundsAndTurns'
   };
 
-  A5E.effectDurationUnits = {
+  const effectDurationUnits = {
     seconds: 'A5E.effects.durationUnits.plural.seconds',
     minutes: 'A5E.effects.durationUnits.plural.minutes',
     hours: 'A5E.effects.durationUnits.plural.hours'
   };
 
-  A5E.EXPANDED_EFFECTS = new Set([
+  const EXPANDED_EFFECTS = new Set([
     'system.attributes.spellDC',
     'flags.a5e.effects.movement.allDistances',
     'flags.a5e.effects.movement.allUnits',
     'flags.a5e.effects.senses.allSenses',
     'flags.a5e.effects.senses.allUnits'
   ]);
+
+  return {
+    ACTIVE_EFFECT_MODES,
+    activeEffectTypes,
+    conditionIconsDefault,
+    actionActiveEffectTypes,
+    actionActiveEffectTypesPlural,
+    itemActiveEffectTypes,
+    itemActiveEffectTypesPlural,
+    effectDurationTypes,
+    effectDurationUnits,
+    EXPANDED_EFFECTS
+  };
 }

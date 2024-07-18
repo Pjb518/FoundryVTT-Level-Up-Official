@@ -2,8 +2,8 @@
  * A set of human-interpretable names that we should display for each active effect key.
  * @enum {String}
  */
-export default function registerEffectLocalizationConfig(A5E) {
-  A5E.effectsKeyLocalizations = {
+export default function registerEffectLocalizationConfig() {
+  const effectsKeyLocalizations = {
     'flags.a5e.deathSaveThreshold': 'A5E.effects.keys.flags.deathSaveThreshold',
     'flags.a5e.effects.bonuses.abilities': 'A5E.effects.keys.bonuses.ability',
     'flags.a5e.effects.bonuses.attacks': 'A5E.effects.keys.bonuses.attacks',
@@ -419,4 +419,6 @@ export default function registerEffectLocalizationConfig(A5E) {
     '@token.width': 'A5E.effects.keys.token.width',
     '@token.height': 'A5E.effects.keys.token.height'
   };
+
+  return { effectsKeyLocalizations };
 }

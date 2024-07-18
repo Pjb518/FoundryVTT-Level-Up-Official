@@ -1,5 +1,5 @@
-export default function registerBonusesConfig(A5E) {
-  A5E.bonusTypes = {
+export default function registerBonusesConfig() {
+  const bonusTypes = {
     abilities: 'A5E.Ability',
     attacks: 'A5E.Attack',
     damage: 'A5E.Damage',
@@ -12,7 +12,7 @@ export default function registerBonusesConfig(A5E) {
     skills: 'A5E.Skill'
   };
 
-  A5E.bonusDialogKeys = {
+  const bonusDialogKeys = {
     abilities: 'abilityBonus',
     attacks: 'attackBonus',
     damage: 'damageBonus',
@@ -25,7 +25,7 @@ export default function registerBonusesConfig(A5E) {
     skills: 'skillBonus'
   };
 
-  A5E.bonusLabels = {
+  const bonusLabels = {
     abilities: {
       addButton: 'A5E.bonuses.labels.abilities.addButton',
       sectionHeader: 'A5E.bonuses.labels.abilities.sectionHeader',
@@ -87,4 +87,6 @@ export default function registerBonusesConfig(A5E) {
       dialogName: 'A5E.bonuses.labels.skills.dialogName'
     }
   };
+
+  return { bonusTypes, bonusLabels, bonusDialogKeys };
 }

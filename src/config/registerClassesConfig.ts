@@ -1,5 +1,5 @@
-export default function registerClassesConfig(A5E) {
-  A5E.classes = {
+export default function registerClassesConfig() {
+  const classes = {
     adept: 'A5E.characterClasses.adept',
     artificer: 'A5E.characterClasses.artificer',
     artificerRevised: 'A5E.characterClasses.artificerRevised',
@@ -22,7 +22,7 @@ export default function registerClassesConfig(A5E) {
     wizard: 'A5E.characterClasses.wizard'
   };
 
-  A5E.classes5e = {
+  const classes5e = {
     dnd5eArtificer: 'A5E.characterClasses.artificer',
     dnd5eBarbarian: 'A5E.characterClasses.barbarian',
     dnd5eBard: 'A5E.characterClasses.bard',
@@ -38,18 +38,18 @@ export default function registerClassesConfig(A5E) {
     dnd5eWizard: 'A5E.characterClasses.wizard'
   };
 
-  A5E.classLevelTypes = {
+  const classLevelTypes = {
     character: 'A5E.classes.levelTypes.character',
     class: 'A5E.classes.levelTypes.class'
   };
 
-  A5E.classHPTypes = {
+  const classHPTypes = {
     average: 'A5E.classes.hpTypes.average',
     roll: 'A5E.classes.hpTypes.roll',
     custom: 'A5E.classes.hpTypes.custom'
   };
 
-  A5E.casterTypes = {
+  const casterTypes = {
     none: 'A5E.None',
     fullCaster: 'A5E.classes.casterTypes.fullCaster',
     halfCaster: 'A5E.classes.casterTypes.halfCaster',
@@ -64,7 +64,7 @@ export default function registerClassesConfig(A5E) {
     wielder: 'A5E.classes.casterTypes.wielder'
   };
 
-  A5E.exertionPoolTypes = {
+  const exertionPoolTypes = {
     none: 'A5E.classes.exertionPoolTypes.none',
     prof: 'A5E.classes.exertionPoolTypes.prof',
     doubleProf: 'A5E.classes.exertionPoolTypes.double'
@@ -73,7 +73,7 @@ export default function registerClassesConfig(A5E) {
   // ------------------------------------------------------------
   // Spell Casting Progression
   // ------------------------------------------------------------
-  A5E.SPELL_SLOT_TABLE = {
+  const SPELL_SLOT_TABLE = {
     1: [2],
     2: [3],
     3: [4, 2],
@@ -96,7 +96,7 @@ export default function registerClassesConfig(A5E) {
     20: [4, 3, 3, 3, 3, 2, 2, 1, 1]
   };
 
-  A5E.SPELL_POINTS_TABLE_ELEMENTALIST = {
+  const SPELL_POINTS_TABLE_ELEMENTALIST = {
     1: { points: 2, level: 1 },
     2: { points: 4, level: 1 },
     3: { points: 5, level: 1 },
@@ -119,7 +119,7 @@ export default function registerClassesConfig(A5E) {
     20: { points: 22, level: 5 }
   };
 
-  A5E.SPELL_POINTS_TABLE_WARLOCK = {
+  const SPELL_POINTS_TABLE_WARLOCK = {
     1: { points: 2, level: 1 },
     2: { points: 4, level: 1 },
     3: { points: 6, level: 2 },
@@ -142,7 +142,7 @@ export default function registerClassesConfig(A5E) {
     20: { points: 31, level: 5 }
   };
 
-  A5E.PACT_SLOT_TABLE = {
+  const PACT_SLOT_TABLE = {
     1: { slots: 1, level: 1 },
     2: { slots: 2, level: 1 },
     3: { slots: 2, level: 2 },
@@ -165,7 +165,7 @@ export default function registerClassesConfig(A5E) {
     20: { slots: 4, level: 5 }
   };
 
-  A5E.ARTIFICER_SPELL_INVENTIONS = {
+  const ARTIFICER_SPELL_INVENTIONS = {
     1: { count: 2, level: 1 },
     2: { count: 2, level: 1 },
     3: { count: 2, level: 1 },
@@ -188,7 +188,7 @@ export default function registerClassesConfig(A5E) {
     20: { count: 6, level: 5 }
   };
 
-  A5E.WIELDER_ARTIFACT_CHARGES = {
+  const WIELDER_ARTIFACT_CHARGES = {
     1: { charges: 2, level: 1 },
     2: { charges: 4, level: 1 },
     3: { charges: 5, level: 1 },
@@ -211,35 +211,35 @@ export default function registerClassesConfig(A5E) {
     20: { charges: 22, level: 5 }
   };
 
-  A5E.casterProgression = {
+  const casterProgression = {
     none: { type: null, config: null, reference: null },
     fullCaster: {
       type: 'multiplier',
-      config: A5E.SPELL_SLOT_TABLE,
+      config: SPELL_SLOT_TABLE,
       resource: 'slots',
       multiplier: 1
     },
     halfCaster: {
       type: 'multiplier',
-      config: A5E.SPELL_SLOT_TABLE,
+      config: SPELL_SLOT_TABLE,
       resource: 'slots',
       multiplier: 0.5
     },
     tertiaryCaster: {
       type: 'multiplier',
-      config: A5E.SPELL_SLOT_TABLE,
+      config: SPELL_SLOT_TABLE,
       resource: 'slots',
       multiplier: 0.33
     },
     quaternaryCaster: {
       type: 'multiplier',
-      config: A5E.SPELL_SLOT_TABLE,
+      config: SPELL_SLOT_TABLE,
       resource: 'slots',
       multiplier: 0.25
     },
     halfCasterWithFirstLevel: {
       type: 'multiplier',
-      config: A5E.SPELL_SLOT_TABLE,
+      config: SPELL_SLOT_TABLE,
       resource: 'slots',
       multiplier: 0.5,
       roundUp: true,
@@ -247,18 +247,18 @@ export default function registerClassesConfig(A5E) {
     },
     artificerA5e: {
       type: 'reference',
-      config: A5E.ARTIFICER_SPELL_INVENTIONS,
+      config: ARTIFICER_SPELL_INVENTIONS,
       resource: 'inventions'
     },
     elementalist: {
       type: 'reference',
-      config: A5E.SPELL_POINTS_TABLE_ELEMENTALIST,
+      config: SPELL_POINTS_TABLE_ELEMENTALIST,
       resource: 'points',
       multiclassMode: 'ADD'
     },
     herald: {
       type: 'multiplier',
-      config: A5E.SPELL_SLOT_TABLE,
+      config: SPELL_SLOT_TABLE,
       resource: 'slots',
       multiplier: 0.5,
       roundUp: true,
@@ -266,19 +266,35 @@ export default function registerClassesConfig(A5E) {
     },
     warlockA5e: {
       type: 'reference',
-      config: A5E.SPELL_POINTS_TABLE_WARLOCK,
+      config: SPELL_POINTS_TABLE_WARLOCK,
       resource: 'points',
       multiclassMode: 'ADD'
     },
     warlock5e: {
       type: 'reference',
-      config: A5E.PACT_SLOT_TABLE,
+      config: PACT_SLOT_TABLE,
       resource: 'slots'
     },
     wielder: {
       type: 'reference',
-      config: A5E.WIELDER_ARTIFACT_CHARGES,
+      config: WIELDER_ARTIFACT_CHARGES,
       resource: 'artifactCharges'
     }
+  };
+
+  return {
+    classes,
+    classes5e,
+    classLevelTypes,
+    classHPTypes,
+    casterTypes,
+    exertionPoolTypes,
+    SPELL_SLOT_TABLE,
+    SPELL_POINTS_TABLE_ELEMENTALIST,
+    SPELL_POINTS_TABLE_WARLOCK,
+    PACT_SLOT_TABLE,
+    ARTIFICER_SPELL_INVENTIONS,
+    WIELDER_ARTIFACT_CHARGES,
+    casterProgression
   };
 }

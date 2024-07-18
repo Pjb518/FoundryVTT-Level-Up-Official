@@ -1,5 +1,5 @@
-export default function registerEffectGroupConfig(A5E) {
-  A5E.effectKeyGroups = {
+export default function registerEffectGroupConfig() {
+  const effectKeyGroups = {
     abilityChecks: {
       label: 'A5E.effects.groups.abilityChecks',
       items: [
@@ -523,4 +523,6 @@ export default function registerEffectGroupConfig(A5E) {
       items: []
     }
   };
+
+  return { effectKeyGroups };
 }

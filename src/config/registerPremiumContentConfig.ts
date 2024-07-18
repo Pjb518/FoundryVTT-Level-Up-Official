@@ -1,5 +1,5 @@
-export default function registerPremiumContentConfig(A5E) {
-  A5E.premiumContent = {
+export default function registerPremiumContentConfig() {
+  const premiumContent = {
     acesAdventuringGuides: {
       name: "Ace's Adventuring Guides",
       releases: [{
@@ -143,7 +143,7 @@ export default function registerPremiumContentConfig(A5E) {
     }
   };
 
-  A5E.products = {
+  const products = {
     acesAdventuringGuideToNecromancy: {
       abbreviation: 'AAGtN',
       affiliate: true,
@@ -764,5 +764,10 @@ export default function registerPremiumContentConfig(A5E) {
       title: 'Venture Forth',
       url: 'https://bit.ly/49prJRm'
     }
+  };
+
+  return {
+    premiumContent,
+    products
   };
 }

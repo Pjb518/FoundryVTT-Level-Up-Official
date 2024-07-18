@@ -1,9 +1,9 @@
-export default function registerConsumerConfig(A5E) {
-  A5E.configurableConsumers = new Set([
+export default function registerConsumerConfig() {
+  const configurableConsumers = new Set([
     'actionUses', 'itemUses', 'hitDice', 'spell'
   ]);
 
-  A5E.resourceConsumerConfig = {
+  const resourceConsumerConfig = {
     classResource: { path: 'resources.classResources', label: 'Class Resource', type: 'value' },
     exertion: { path: 'attributes.exertion.current', label: 'A5E.Exertion', type: 'value' },
     hp: { path: 'attributes.hp.value', label: 'A5E.HitPoints', type: 'value' },
@@ -15,11 +15,17 @@ export default function registerConsumerConfig(A5E) {
 
   };
 
-  A5E.spellConsumerModes = {
+  const spellConsumerModes = {
     variable: 'A5E.ConsumerSpellModeVariable',
     chargesOnly: 'A5E.ConsumerSpellModeChargesOnly',
     inventionsOnly: 'A5E.ConsumerSpellModeInventionsOnly',
     pointsOnly: 'A5E.ConsumerSpellModePointsOnly',
     slotsOnly: 'A5E.ConsumerSpellModeSlotsOnly'
+  };
+
+  return {
+    configurableConsumers,
+    resourceConsumerConfig,
+    spellConsumerModes
   };
 }

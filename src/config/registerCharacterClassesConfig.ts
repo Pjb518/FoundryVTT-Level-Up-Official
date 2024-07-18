@@ -1,5 +1,5 @@
-export default function registerCharacterClassesConfig(A5E) {
-  A5E.classSpellLists = {
+export default function registerCharacterClassesConfig() {
+  const classSpellLists = {
     artificer: 'A5E.characterClasses.artificer',
     bard: 'A5E.characterClasses.bard',
     cleric: 'A5E.characterClasses.cleric',
@@ -16,7 +16,7 @@ export default function registerCharacterClassesConfig(A5E) {
     wizard: 'A5E.characterClasses.wizard'
   };
 
-  A5E.characterClasses = {
+  const characterClasses = {
     adept: 'A5E.characterClasses.adept',
     artificer: 'A5E.characterClasses.artificer',
     bard: 'A5E.characterClasses.bard',
@@ -38,4 +38,6 @@ export default function registerCharacterClassesConfig(A5E) {
     witch: 'A5E.characterClasses.witch',
     wizard: 'A5E.characterClasses.wizard'
   };
+
+  return { classSpellLists, characterClasses };
 }

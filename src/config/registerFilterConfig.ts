@@ -5,6 +5,7 @@
  */
 export default function registerFilterConfig(A5E) {
   const abilityActionFilters = {};
+
   Object.entries(A5E.abilityActivationTypes).forEach(([value, label]) => {
     abilityActionFilters[value] = {
       label, key: 'system.activation.type', type: 'action', truthValue: 'or'

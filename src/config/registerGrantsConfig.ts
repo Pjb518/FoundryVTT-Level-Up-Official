@@ -1,5 +1,5 @@
-export default function registerGrantsConfig(A5E) {
-  A5E.itemGrants = {
+export default function registerGrantsConfig() {
+  const itemGrants = {
     ability: 'A5E.grants.headings.ability',
     attack: 'A5E.grants.headings.attack',
     damage: 'A5E.grants.headings.damage',
@@ -17,5 +17,9 @@ export default function registerGrantsConfig(A5E) {
     skill: 'A5E.grants.headings.skill',
     skillSpecialty: 'A5E.grants.headings.skillSpecialty',
     trait: 'A5E.grants.headings.trait'
+  };
+
+  return {
+    itemGrants
   };
 }

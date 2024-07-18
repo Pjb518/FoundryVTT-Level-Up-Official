@@ -1,6 +1,7 @@
 import registerActiveEffectConfig from './config/registerActiveEffectConfig';
 import registerBonusesConfig from './config/registerBonusesConfig';
 import registerCharacterClassesConfig from './config/registerCharacterClassesConfig';
+import registerClassesConfig from './config/registerClassesConfig';
 import registerConsumerConfig from './config/registerConsumerConfig';
 import registerContextsConfig from './config/registerContextsConfig';
 import registerDocumentConfig from './config/registerDocumentConfig';
@@ -15,7 +16,6 @@ import registerPremiumContentConfig from './config/registerPremiumContentConfig'
 import registerPublisherConfig from './config/registerPublisherConfig';
 import registerReducerConfig from './config/registerReducerConfig';
 import registerSettingsConfig from './config/registerSettingsConfig';
-import registerClassesConfig from './config/registerClassesConfig';
 
 /* ------------------------------------------------- */
 /*                    Constants                      */
@@ -1734,25 +1734,6 @@ const versatileOptions = {
 };
 
 // Build Complex Config Parts
-// These are purposefully done first
-registerDocumentConfig(A5E);
-registerClassesConfig(A5E);
-registerContextsConfig(A5E);
-registerGrantsConfig(A5E);
-
-registerActiveEffectConfig(A5E);
-registerBonusesConfig(A5E);
-registerCharacterClassesConfig(A5E);
-registerConsumerConfig(A5E);
-registerFilterConfig(A5E);
-registerEncounterElements(A5E);
-registerEffectGroupConfig(A5E);
-registerEffectLocalizationConfig(A5E);
-registerModuleIncompatibilities(A5E);
-registerPremiumContentConfig(A5E);
-registerPublisherConfig(A5E);
-registerReducerConfig(A5E);
-registerSettingsConfig(A5E);
 
 /* ------------------------------------------------- */
 /*                    Object                         */
@@ -1862,6 +1843,25 @@ const A5E = {
   versatileOptions,
 
   // Function Properties
+  // These are purposefully done first
+  ...registerDocumentConfig(),
+  ...registerClassesConfig(),
+  ...registerContextsConfig(),
+  ...registerGrantsConfig(),
+
+  ...registerActiveEffectConfig(),
+  ...registerBonusesConfig(),
+  ...registerCharacterClassesConfig(),
+  ...registerConsumerConfig(),
+  // ...registerFilterConfig(A5E), // TODO: Update this
+  ...registerEncounterElements(),
+  ...registerEffectGroupConfig(),
+  ...registerEffectLocalizationConfig(),
+  ...registerModuleIncompatibilities(),
+  ...registerPremiumContentConfig(),
+  ...registerPublisherConfig(),
+  ...registerReducerConfig(),
+  ...registerSettingsConfig(),
   PRELOCALIZED_KEYS
 };
 
