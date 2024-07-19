@@ -227,6 +227,13 @@ class BaseItemA5e extends Item {
     // Ignore favorite state
     updates.system.favorite = this.system.favorite;
 
+    // Ignore current uses
+    // @ts-expect-error
+    if (this.system.uses?.max) {
+      // @ts-expect-error
+      updates.system.uses.value = this.system.uses.value;
+    }
+
     // Don't update some properties for objects
     if (this.isType('object')) {
       // Ignore container data
@@ -243,9 +250,6 @@ class BaseItemA5e extends Item {
 
       // Ignore quantity
       updates.system.quantity = this.system.quantity;
-
-      // Ignore current uses
-      updates.system.uses.value = this.system.uses.value;
     }
 
     // Don't update some properties for spells
@@ -254,6 +258,35 @@ class BaseItemA5e extends Item {
     }
 
     // TODO: Don't update some action properties
+    // @ts-expect-error
+    if (compendiumData.system.actions) {
+      // @ts-expect-error
+      const currentActions = this.system.actions;
+      // @ts-expect-error
+      const compendiaActions = compendiumData.system.actions;
+
+      const updatedActions = Object.entries(compendiaActions).reduce((acc, [actionId, action]) => {
+        const updatedAction = foundry.utils.deepClone(action) as Record<string, any>;
+
+        const existing = currentActions[actionId];
+
+        if (!existing) {
+          acc[actionId] = updatedAction;
+          return acc;
+        }
+
+        // Ignore current action uses
+        // @ts-expect-error
+        if (action.uses?.value) {
+          foundry.utils.setProperty(updatedAction, 'uses.value', existing.uses?.value);
+        }
+
+        acc[actionId] = updatedAction;
+        return acc;
+      }, {});
+
+      updates.system.actions = updatedActions;
+    }
 
     // Update effects
     if (options.updateEffects) {
