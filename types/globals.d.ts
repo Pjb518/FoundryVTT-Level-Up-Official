@@ -1,3 +1,5 @@
+import type { A5E } from '../src/config';
+
 import A5eGame from '../src/interfaces/A5eGame.interface';
 
 declare global {
@@ -8,7 +10,7 @@ declare global {
   }
 
   interface CONFIG {
-    A5E: any; // TODO: Types - Update this
+    A5E: typeof A5E
   }
 
   interface Game {
