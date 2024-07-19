@@ -101,15 +101,15 @@ class BaseActorA5e extends Actor {
   dialogs: ActorDialogs;
 
   // Managers
-  BonusesManager: BonusesManager | null;
+  BonusesManager!: BonusesManager;
 
-  HitDiceManager: HitDiceManager | null;
+  HitDiceManager!: HitDiceManager;
 
   grants!: ActorGrantsManager;
 
-  spellBooks: SpellBookManager | null;
+  spellBooks!: SpellBookManager;
 
-  RollOverrideManager: RollOverrideManager | null;
+  RollOverrideManager!: RollOverrideManager;
 
   // Custom
   effectPhases: { beforeDerived: any[], afterDerived: any[] };
@@ -126,12 +126,6 @@ class BaseActorA5e extends Actor {
       skills: {},
       notes: {}
     };
-
-    // Assign managers
-    this.BonusesManager = null;
-    this.HitDiceManager = null;
-    this.spellBooks = null;
-    this.RollOverrideManager = null;
 
     this.effectPhases = { beforeDerived: [], afterDerived: [] };
   }
@@ -192,11 +186,15 @@ class BaseActorA5e extends Actor {
    */
   override prepareData() {
     // Set Managers
+    // @ts-expect-error
     this.BonusesManager = null;
+    // @ts-expect-error
     this.HitDiceManager = null;
     // @ts-expect-error
     this.grants = null;
+    // @ts-expect-error
     this.spellBooks = null;
+    // @ts-expect-error
     this.RollOverrideManager = null;
 
     this.prepareBaseData();
@@ -209,8 +207,7 @@ class BaseActorA5e extends Actor {
     // @ts-expect-error
     if ((this.system.schemaVersion?.version ?? this.system.schema?.version) < 0.005) return;
     this.prepareArmorClass();
-    // @ts-expect-error
-    this.RollOverrideManager?.initialize();
+    this.RollOverrideManager.initialize();
 
     // Initialize the SpellBooks
     this.spellBooks = new SpellBookManager(this);
@@ -416,7 +413,6 @@ class BaseActorA5e extends Actor {
       const overrideChange = effectOverride?.apply(
         this,
         effectOverride?.changes.find((change) => change.key.includes('ac.value')),
-        // @ts-expect-error
         'afterDerived'
       ) as Record<string, any>; // TODO: Types - Update this
 
@@ -538,8 +534,7 @@ class BaseActorA5e extends Actor {
     const { max } = this.system.attributes.hp;
 
     const bonus = getDeterministicBonus(
-      // @ts-expect-error TODO: Types -Fix this type error
-      this.BonusesManager?.getHitPointsBonusFormula(),
+      this.BonusesManager.getHitPointsBonusFormula(),
       this.getRollData()
     );
 
