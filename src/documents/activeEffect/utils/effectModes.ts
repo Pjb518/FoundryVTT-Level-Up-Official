@@ -1,4 +1,4 @@
-import A5E from '../../../config';
+import { A5E } from '../../../config';
 
 const MODES: Record<string, number> = A5E.ACTIVE_EFFECT_MODES;
 const DEFAULT_MODES = Object.keys(MODES)

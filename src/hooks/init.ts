@@ -2,7 +2,7 @@ import ActorSheetA5e from '../apps/ActorSheet';
 import ActiveEffectConfigA5e from '../apps/ActiveEffectConfig';
 import ItemSheetA5e from '../apps/ItemSheet';
 
-import A5E from '../config';
+import { A5E } from '../config';
 import ActiveEffectA5e from '../documents/activeEffect/activeEffect';
 import D20Roll from '../dice/d20Roll';
 import TokenA5e from '../documents/token/token';

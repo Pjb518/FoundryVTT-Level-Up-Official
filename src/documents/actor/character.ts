@@ -120,7 +120,6 @@ export default class CharacterActorA5E extends BaseActorA5e {
 
     // Add bonuses
     const bonuses = getDeterministicBonus(
-      // @ts-expect-error
       this.BonusesManager?.getExertionBonusFormula(),
       this.getRollData()
     ) ?? 0;

@@ -1,6 +1,6 @@
 import MigrationBase from '../MigrationBase';
 
-import CONFIG from '../../config';
+import { A5E as CONFIG } from '../../config';
 
 export default class Migration010MigrateContexts extends MigrationBase {
   static version = 0.010;

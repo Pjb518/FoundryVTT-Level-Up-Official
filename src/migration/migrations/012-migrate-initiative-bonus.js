@@ -1,6 +1,6 @@
 import MigrationBase from '../MigrationBase';
 
-import A5E from '../../config';
+import { A5E } from '../../config';
 
 export default class Migration012MigrateInitiativeBonus extends MigrationBase {
   static version = 0.012;

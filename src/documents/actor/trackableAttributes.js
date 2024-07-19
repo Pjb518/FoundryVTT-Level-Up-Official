@@ -1,4 +1,4 @@
-import A5E from '../../config';
+import { A5E } from '../../config';
 
 const base = {
   bar: ['attributes.hp'],

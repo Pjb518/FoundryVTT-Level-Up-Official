@@ -5,7 +5,7 @@
     import FieldWrapper from "../components/FieldWrapper.svelte";
     import RadioGroup from "../components/RadioGroup.svelte";
     import Section from "../components/Section.svelte";
-    import A5E from "../../config";
+    import { A5E } from "../../config";
 
     export let reload;
 
@@ -26,16 +26,12 @@
     let blindDeathSaves = settings.getStore("blindDeathSaves");
     let hideActionList = settings.getStore("collapseActionList");
     let hideDeleteDialog = settings.getStore("hideDeleteConfirmation");
-    let hideCompendiumSelection = settings.getStore(
-        "hideActorCompendiumSelectionDialog",
-    );
+    let hideCompendiumSelection = settings.getStore("hideActorCompendiumSelectionDialog");
     let rightClickConfig = settings.getStore("itemRightClickConfigure");
     let reverseAlt = settings.getStore("reverseAltBehavior");
     let reverseInitAlt = settings.getStore("reverseInitiativeAltBehavior");
     let skillListFlowDirection = settings.getStore("skillListFlowDirection");
-    let useNPCPassive = settings.getStore(
-        "useNPCExpertisePassiveRulesForCharacters",
-    );
+    let useNPCPassive = settings.getStore("useNPCExpertisePassiveRulesForCharacters");
 
     let selectedSkillListFlowDirection =
         updates.get("skillListFlowDirection") ?? $skillListFlowDirection;
@@ -76,9 +72,7 @@
             <FieldWrapper hint="A5E.settings.hints.trackCurrencyWeight">
                 <Checkbox
                     label="A5E.settings.trackCurrencyWeight"
-                    checked={updates.get("currencyWeight") ??
-                        $trackCurrency ??
-                        false}
+                    checked={updates.get("currencyWeight") ?? $trackCurrency ?? false}
                     on:updateSelection={({ detail }) => {
                         updates.set("currencyWeight", detail);
                     }}
@@ -90,9 +84,7 @@
             <FieldWrapper hint="A5E.settings.hints.randomizeNPCHitPoints">
                 <Checkbox
                     label="A5E.settings.randomizeNPCHitPoints"
-                    checked={updates.get("randomizeNPCHitPoints") ??
-                        $randomHP ??
-                        false}
+                    checked={updates.get("randomizeNPCHitPoints") ?? $randomHP ?? false}
                     on:updateSelection={({ detail }) => {
                         updates.set("randomizeNPCHitPoints", detail);
                     }}
@@ -106,16 +98,11 @@
             >
                 <Checkbox
                     label="A5E.settings.useNPCExpertisePassiveRulesForCharacters"
-                    checked={updates.get(
-                        "useNPCExpertisePassiveRulesForCharacters",
-                    ) ??
+                    checked={updates.get("useNPCExpertisePassiveRulesForCharacters") ??
                         $useNPCPassive ??
                         false}
                     on:updateSelection={({ detail }) => {
-                        updates.set(
-                            "useNPCExpertisePassiveRulesForCharacters",
-                            detail,
-                        );
+                        updates.set("useNPCExpertisePassiveRulesForCharacters", detail);
                         reload = true;
                     }}
                 />
@@ -131,20 +118,15 @@
     <FieldWrapper hint="A5E.settings.hints.collapseActionList">
         <Checkbox
             label="A5E.settings.collapseActionList"
-            checked={updates.get("collapseActionList") ??
-                $hideActionList ??
-                false}
-            on:updateSelection={({ detail }) =>
-                updates.set("collapseActionList", detail)}
+            checked={updates.get("collapseActionList") ?? $hideActionList ?? false}
+            on:updateSelection={({ detail }) => updates.set("collapseActionList", detail)}
         />
     </FieldWrapper>
 
     <FieldWrapper hint="A5E.settings.hints.hideDeletionConfirmationDialog">
         <Checkbox
             label="A5E.settings.hideDeletionConfirmationDialog"
-            checked={updates.get("hideDeleteConfirmation") ??
-                $hideDeleteDialog ??
-                false}
+            checked={updates.get("hideDeleteConfirmation") ?? $hideDeleteDialog ?? false}
             on:updateSelection={({ detail }) =>
                 updates.set("hideDeleteConfirmation", detail)}
         />
@@ -164,9 +146,7 @@
     <FieldWrapper hint="A5E.settings.hints.itemRightClickConfigure">
         <Checkbox
             label="A5E.settings.itemRightClickConfigure"
-            checked={updates.get("itemRightClickConfigure") ??
-                $rightClickConfig ??
-                false}
+            checked={updates.get("itemRightClickConfigure") ?? $rightClickConfig ?? false}
             on:updateSelection={({ detail }) =>
                 updates.set("itemRightClickConfigure", detail)}
         />
@@ -176,8 +156,7 @@
         <Checkbox
             label="A5E.settings.reverseAltBehavior"
             checked={updates.get("reverseAltBehavior") ?? $reverseAlt ?? false}
-            on:updateSelection={({ detail }) =>
-                updates.set("reverseAltBehavior", detail)}
+            on:updateSelection={({ detail }) => updates.set("reverseAltBehavior", detail)}
         />
     </FieldWrapper>
 
