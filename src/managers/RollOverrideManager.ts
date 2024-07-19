@@ -1,4 +1,5 @@
 import type { ExpertiseDiceGrant, RollOverrideGrant } from '../../types/actorGrants';
+import type { BaseActorA5e } from '../documents/actor/base';
 
 type OverrideType = 'rollMode' | 'expertiseDice';
 
@@ -18,13 +19,13 @@ export interface RollOverride {
 }
 
 export default class RollOverrideManager {
-  actor: typeof Actor;
+  actor: BaseActorA5e;
 
   overrides: Map<string, RollOverride[]>;
 
   ready: boolean;
 
-  constructor(actor: typeof Actor) {
+  constructor(actor: BaseActorA5e) {
     this.actor = actor;
 
     // Setup override arrays
