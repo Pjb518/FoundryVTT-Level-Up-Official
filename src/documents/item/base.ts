@@ -45,7 +45,7 @@ class BaseItemA5e extends Item {
   // *****************************************************************************************
   get sourceId(): string | null {
     // @ts-expect-error
-    return this._stats.compendiumSource?.id || this.flags.core?.sourceId || null;
+    return this._stats.compendiumSource || this.flags.core?.sourceId || null;
   }
 
   // *****************************************************************************************
@@ -255,9 +255,34 @@ class BaseItemA5e extends Item {
 
     // TODO: Don't update some action properties
 
-    // TODO: Update effects
+    // Update effects
+    if (options.updateEffects) {
+      const currentEffects = [...this.effects];
+      // @ts-expect-error
+      const compendiaEffects = [...compendiumData.effects] as ActiveEffect[];
 
-    if (options.update) await this.update(updates, { diff: false, recursive: false });
+      const updatedEffects = compendiaEffects.reduce((acc, effect) => {
+        const updatedEffect = foundry.utils.deepClone(effect);
+
+        const existing = currentEffects.find((e) => e._id === effect._id);
+        if (!existing) {
+          acc.push(updatedEffect);
+          return acc;
+        }
+
+        // Ignore flags
+        updatedEffect.flags = existing.flags;
+
+        acc.push(updatedEffect);
+        return acc;
+      }, [] as ActiveEffect[]);
+
+      updates.effects = updatedEffects;
+    }
+
+    if (options.update) {
+      await this.update(updates, { diff: false, recursive: false });
+    }
 
     if (options.notify !== false) ui.notifications?.info('Item revitalized.');
 
