@@ -12,24 +12,25 @@
   "plugins": ["import", "svelte"],
   "ignorePatterns": ["dist/**/*"],
   "rules": {
-    "brace-style": "off",
-    "class-methods-use-this": "off",
-    "comma-dangle": ["error", "never"],
     "@typescript-eslint/brace-style": "off",
     "@typescript-eslint/comma-dangle": ["error", "never"],
     "@typescript-eslint/indent": "off",
     "@typescript-eslint/no-undef": "off",
+    "@typescript-eslint/no-use-before-define": ["error", { "functions": false, "classes": true }],
+    "brace-style": "off",
+    "class-methods-use-this": "off",
+    "comma-dangle": ["error", "never"],
     "no-constant-binary-expression": ["error"],
     "no-underscore-dangle": "off",
     "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": ["error", { "functions": false, "classes": true }],
     "no-param-reassign": [ "error", { "props": false }],
     "no-restricted-syntax": "off",
     "no-continue": "off",
     "import/no-unresolved": ["error", {
         "ignore": ["^#runtime/.+", "^#standard/.+"]
     }],
-    "import/extensions": ["error", "never"]
+    "import/extensions": ["error", "never"],
+    "import/prefer-default-export": "off"
   },
   "globals": {
     "$": "readonly",
