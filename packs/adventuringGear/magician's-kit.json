@@ -1,0 +1,243 @@
+{
+	"name": "Magician’s Kit",
+	"type": "object",
+	"img": "icons/weapons/wands/wand-star-white.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"9pBxhmqLDUEVqHX1": {
+				"name": "Fake Spell",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"gj8VPmGSyGpLlCTv": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "slt",
+						"ability": "dex"
+					}
+				},
+				"prompts": {
+					"tOWaKGWkEXz5FX7H": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "arc",
+						"label": "Arcana",
+						"ability": "int"
+					},
+					"b89KGgvFMwe2M4or": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "rel",
+						"label": "Religion",
+						"ability": "int"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"rK56fX3rJitTch8M": {
+				"name": "1st-level Spell",
+				"activation": {},
+				"consumers": {
+					"FoXY9oV3Soggz90l": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"1O0JXQc7f9epdMQ4": {
+				"name": "2nd-level Spell",
+				"activation": {},
+				"consumers": {
+					"FoXY9oV3Soggz90l": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"l7sTP6oIYD7nVH15": {
+				"name": "3rd-level Spell",
+				"activation": {},
+				"consumers": {
+					"FoXY9oV3Soggz90l": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"2XKX0Qn8DwJVJWPm": {
+				"name": "4th-level Spell",
+				"activation": {},
+				"consumers": {
+					"FoXY9oV3Soggz90l": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 4
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"6HD2p7AVbGjMl6fw": {
+				"name": "5th-level Spell",
+				"activation": {},
+				"consumers": {
+					"FoXY9oV3Soggz90l": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 5
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Has 10 charges (weighs 3 lbs. and costs 25 gp to fully restock, which can be done wherever you can purchase a component pouch or otherwise gather spell components), which you can use to fake the casting of up to 5th-level evocation spells with instantaneous effects and conjuration spells where you can provide what is being summoned (e.g. faking @UUID[Compendium.a5e.a5e-spells.Item.6l4bmc7ovgcn2c9k]{Find Familiar} to pull a rabbit out of a hat). To fake the casting of a spell you can use an action to make a Sleight of Hand check with a DC equal to 20 + twice the spell level and expend a number of charges from your magician&rsquo;s kit equal to the spell level (cantrips use no charges). People who disbelieve you can make an Arcana or Religion check opposed by your original roll. The faked spell has no effect beyond looking and sounding like the real spell. At the Narrator&rsquo;s discretion, you can attempt higher level spells or spells from other schools of magic, but they require additional preparation and cost to pull off.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "ventureForth",
+		"uses": {
+			"value": 10,
+			"max": "10",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "container",
+		"plotItem": false,
+		"price": "25 gp",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 3,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": ""
+	},
+	"effects": [],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.16"
+	},
+	"_id": "4DYPPIfbhHiqaN4a"
+}
