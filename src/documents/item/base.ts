@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 import type { Action } from 'types/action';
+import type { BaseActorA5e } from '../actor/base';
 import type { RevitalizeOptions } from './data';
 
 import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
@@ -12,6 +13,7 @@ type SystemItemTypes = Exclude<foundry.documents.BaseItem.TypeNames, 'base'>;
 interface BaseItemA5e<ItemType extends SystemItemTypes = SystemItemTypes> {
   type: ItemType;
   system: DataModelConfig['Item'][ItemType];
+  parent: BaseActorA5e
 }
 
 /**
@@ -94,7 +96,6 @@ class BaseItemA5e extends Item {
             ? await TextEditor.enrichHTML(action.description, {
               secrets: this.isOwner,
               relativeTo: this,
-              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
@@ -102,7 +103,6 @@ class BaseItemA5e extends Item {
             ? await TextEditor.enrichHTML(this.system.description, {
               secrets: this.isOwner,
               relativeTo: this,
-              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
@@ -111,7 +111,6 @@ class BaseItemA5e extends Item {
             ? await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
               secrets: this.isOwner,
               relativeTo: this,
-              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,

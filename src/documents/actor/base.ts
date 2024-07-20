@@ -59,6 +59,7 @@ type SystemActorTypes = Exclude<foundry.documents.BaseActor.TypeNames, 'base'>;
 interface BaseActorA5e<ActorType extends SystemActorTypes = SystemActorTypes> {
   type: ActorType;
   system: DataModelConfig['Actor'][ActorType];
+  items: foundry.abstract.EmbeddedCollection<BaseItemA5e, Actor.ConfiguredInstance>
 }
 
 // *****************************************************************************************
@@ -413,6 +414,7 @@ class BaseActorA5e extends Actor {
       const overrideChange = effectOverride?.apply(
         this,
         effectOverride?.changes.find((change) => change.key.includes('ac.value')),
+        // @ts-expect-error
         'afterDerived'
       ) as Record<string, any>; // TODO: Types - Update this
 
@@ -1867,6 +1869,7 @@ class BaseActorA5e extends Actor {
     if (['fatigue', 'exhaustion', 'strife'].includes(statusId)) {
       const delta = active ? 1 : -1;
       const currLevel = this.system.attributes[statusId];
+      // @ts-expect-error
       const maxLevel = CONFIG.A5E.multiLevelConditionsMaxLevel[statusId] ?? 7;
       if (delta === 1 && currLevel >= maxLevel) return undefined;
       if (delta === -1 && currLevel <= 0) return undefined;
@@ -1875,6 +1878,7 @@ class BaseActorA5e extends Actor {
         ? 'exhaustion'
         : statusId;
 
+      // @ts-expect-error
       const changes = Object.entries(CONFIG.A5E.multiLevelConditions[changeKey] ?? {})
         .reduce((acc, [level, change]) => {
           if (level > currLevel + delta) return acc;
