@@ -160,7 +160,7 @@ class BaseItemA5e extends Item {
     });
   }
 
-  async revitalize(options: RevitalizeOptions = {}): Promise<this | null> {
+  async revitalize(options: RevitalizeOptions = {}): Promise<Record<string, any> | null> {
     options.notify ??= true;
     options.update ??= true;
     options.updateImg ??= true;
@@ -232,6 +232,18 @@ class BaseItemA5e extends Item {
     if (this.system.uses?.max) {
       // @ts-expect-error
       updates.system.uses.value = this.system.uses.value;
+    }
+
+    // Don't update some properties for archetypes
+    if (this.isType('archetype')) {
+      updates.system.spellcasting.ability.base = this.system.spellcasting.ability.base;
+    }
+
+    // Don't update some properties for classes
+    if (this.isType('class')) {
+      updates.system.classLevels = this.system.classLevels;
+      updates.system.hp = this.system.hp;
+      updates.system.spellcasting.ability.base = this.system.spellcasting.ability.base;
     }
 
     // Don't update some properties for objects
@@ -319,7 +331,7 @@ class BaseItemA5e extends Item {
 
     if (options.notify !== false) ui.notifications?.info('Item revitalized.');
 
-    return this;
+    return updates;
   }
 
   /** @inheritdoc */
