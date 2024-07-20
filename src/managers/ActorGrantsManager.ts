@@ -389,6 +389,9 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
             const doc = (await fromUuid(uuid))?.toObject();
             if (!doc) return null;
 
+            // Update compendium source
+            doc._stats.compendiumSource = uuid;
+
             if (type === 'feature') return doc;
             if (!quantity) return doc;
 
