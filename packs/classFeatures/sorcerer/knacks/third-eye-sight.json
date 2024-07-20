@@ -1,0 +1,304 @@
+{
+	"folder": null,
+	"name": "Third-Eye Sight",
+	"type": "feature",
+	"img": "icons/magic/perception/third-eye-blue-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"4kyHFVwslRyr1yIJ": {
+				"name": "Third-Eye Sight",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"p2HIyksWscImuFde": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"cABOTBPpPTMNtKKO": {
+						"type": "effect",
+						"default": true,
+						"effectId": "qIp55BApEbiE3ZtG"
+					},
+					"FDixMTWfyxJ9pRvv": {
+						"type": "effect",
+						"default": true,
+						"effectId": "NnHBIceRitjc7k48"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 4
+				}
+			},
+			"TLXmHenFkBhm4E4Q": {
+				"name": "Dismiss Third-Eye Sight",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"DJMrbZeSHGKYrQKo": {
+				"name": "Dismiss Light",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"qE8ddsNiW5oVOUwi": {
+				"name": "Focus on Connection",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You use an action to trace the outline of an eye on your forehead with your finger. The outline glows faintly for 4 hours or until you dismiss it as a bonus action. Each time you use this feature choose one effect which lasts for the duration:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You have darkvision out to 60 feet.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You cast directional light: bright light out to a 30-foot cone and dim light out to a 90-foot cone. You can use a bonus action to turn the light off or on.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You touch the forehead of one willing creature that has eyes and connect with it for the duration. While connected, you can use an action to focus on the creature, becoming&nbsp; blind to your own surroundings and seeing through the creature&rsquo;s eyes instead, gaining any special, vision-based senses it has.&nbsp; You must use your action each turn to maintain this connection. If you or the creature travel more than 1 mile apart from one another, your connection breaks, ending this feature early.</p>\n</li>\n</ul>\n<p dir=\"ltr\">Once you use this feature, you cannot do so again until you complete a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "sorcerer"
+	},
+	"effects": [
+		{
+			"origin": "Item.OyF70GW7B6DYFxi2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "4kyHFVwslRyr1yIJ",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Darkvision",
+			"img": "icons/magic/perception/third-eye-blue-red.webp",
+			"_id": "qIp55BApEbiE3ZtG",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.darkvision.distance",
+					"value": "60",
+					"mode": 5,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 14400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.16"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.OyF70GW7B6DYFxi2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "4kyHFVwslRyr1yIJ",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Directional Light",
+			"img": "icons/magic/perception/third-eye-blue-red.webp",
+			"_id": "NnHBIceRitjc7k48",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "30",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "90",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.angle",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 14400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.16"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.OyF70GW7B6DYFxi2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "4kyHFVwslRyr1yIJ",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Connect",
+			"img": "icons/magic/perception/third-eye-blue-red.webp",
+			"_id": "8cli8aH9z5NSGVNN",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 14400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.16"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.16"
+	},
+	"_id": "imuPLwCdAvz4ID6O"
+}
