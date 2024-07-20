@@ -216,7 +216,8 @@ class BaseItemA5e extends Item {
     const updates: Record<string, any> = {
       name: options.updateName ? compendiumData.name : currentData.name,
       img: options.updateImg ? compendiumData.img : currentData.img,
-      system: foundry.utils.deepClone(compendiumData.system)
+      system: foundry.utils.deepClone(compendiumData.system),
+      _stats: { compendiumSource: sourceId }
     };
 
     // TODO: Revitalize - Add support for grants

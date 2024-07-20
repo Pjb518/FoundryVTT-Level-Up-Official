@@ -20,7 +20,12 @@ async function addBasicManuevers(actor, userId) {
   ];
 
   try {
-    const manuevers = await Promise.all(uuids.map((uuid) => fromUuid(uuid)));
+    const manuevers = await Promise.all(uuids.map(async (uuid) => {
+      const doc = await fromUuid(uuid);
+      doc._stats.compendiumSource = uuid;
+      return doc;
+    }));
+
     await actor.createEmbeddedDocuments('Item', manuevers);
     console.info(`Added Manuevers to ${actor.name}`);
   } catch (e) {
