@@ -1,0 +1,137 @@
+{
+	"folder": null,
+	"name": "Predatory Aura",
+	"type": "feature",
+	"img": "icons/creatures/abilities/mouth-teeth-human.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"DRKROF3oXBNKI8co": {
+				"name": "Predatory Aura",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"us4x61Q6QV8uS4Av": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Immune for 24 hours"
+					},
+					"ylEYb50o8Dy0uRxd": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6O5fksMbpExOHPm8"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You regard yourself as an apex predator sitting atop the natural world rather than living harmoniously with it, and creatures can sense your predatory intent. You gain an expertise die on all Intimidation checks regarding beasts and plants.</p>\n<p>In addition, whenever a beast or plant attempts to attack you, they must make a Wisdom saving throw with a DC equal to your spellcasting DC. On a failed save the creature is frightened of you for 1 minute. On a successful saving throw creatures are immune to this effect for 24 hours.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "ventureForth",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "druid"
+	},
+	"effects": [
+		{
+			"origin": "Item.12CeNNtRF2JO2uB7",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "DRKROF3oXBNKI8co",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"_id": "6O5fksMbpExOHPm8",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"frightened"
+			],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.16"
+			},
+			"img": "icons/creatures/abilities/wolf-howl-moon-purple.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {
+		"core": {}
+	},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.16"
+	},
+	"_id": "clHQYkBj2hk53nbF"
+}

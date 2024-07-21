@@ -1,0 +1,180 @@
+{
+	"folder": null,
+	"name": "Spiritual Communion",
+	"type": "feature",
+	"img": "icons/magic/control/silhouette-aura-energy.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"sgXQFuOoxtj9XYhL": {
+				"name": "Spiritual Communion",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"TM43zN8Do1B9mAkt": {
+						"type": "effect",
+						"default": true,
+						"effectId": "xYlRdOlpuSlFNBLB"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"FyN8omJs8DQKGTdv": {
+				"name": "Augury",
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"8LPqQbLOZMArF2Eo": {
+						"type": "resource",
+						"default": true,
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"yx16o4KTfoQobkxy": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"img": "icons/sundries/gaming/dice-runed-brown.webp",
+				"description": "<p>With the aid of a divining tool, you receive an omen from beyond the Material Plane about the results of a specific course of action that you intend to take within the next 30 minutes. The Narrator chooses from the following:</p><ul><li>Fortunate omen (good results)</li><li>Calamity omen (bad results)</li><li>Ambivalence omen (both good and bad results)</li><li>No omen (results that aren't especially good or bad)</li></ul><p>This omen does not account for possible circumstances that could change the outcome, such as making additional preparations.<p>When you cast this spell again before finishing a long rest, the chance of getting a random reading from the above options increases. The Narrator makes the following roll in secret: second casting&mdash;25%, third casting&mdash;50%, fourth casting&mdash;75%, fifth casting&mdash;100%.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>Your understanding of the world grows through contemplation. While in your meditative state, you gain 30 feet of tremorsense and blindsight (or increases by 30 if you already have either), and you may spend 1 exertion to cast the @UUID[Compendium.a5e.a5e-spells.Item.qsa7b22n3y1pbzf6]{Augury} spell without needing material components.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "ventureForth",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "5th Level, Meditation",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "adept"
+	},
+	"effects": [
+		{
+			"origin": "Item.rCZuQ99TamtFACah",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "sgXQFuOoxtj9XYhL",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Spiritual Communion",
+			"_id": "xYlRdOlpuSlFNBLB",
+			"changes": [
+				{
+					"key": "system.attributes.senses.tremorsense.distance",
+					"value": "30",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.senses.blindsight.distance",
+					"value": "30",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.16"
+			},
+			"img": "icons/magic/control/silhouette-aura-energy.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.16"
+	},
+	"_id": "Ju5eMdJyzr4ETYdX"
+}

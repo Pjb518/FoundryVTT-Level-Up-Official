@@ -1,0 +1,128 @@
+{
+	"folder": null,
+	"name": "Horseman's Word",
+	"type": "feature",
+	"img": "icons/environment/creatures/horse-brown.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"SyOv3mWK5aiGWDn0": {
+				"name": "Horseman's Word",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"5JFVpiKEcTwB0nJV": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					},
+					"1dEKwH7xpKtEvm38": {
+						"type": "effect",
+						"default": true,
+						"effectId": "t8FxcjiSOy6ZP03g"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>When an animal first encounters your might, you can cow them. When you grapple a creature with the beast creature type, you may spend a bonus action to whisper a threat into its ear. The creature understands the intent, if not the words, and must make a Wisdom saving throw against your maneuver DC. On a failure, the creature becomes docile and biddable for ten minutes, after which it reverts to its normal behavior. While the creature is affected in this way, it will not attack and will follow commands that do not counteract its nature. If it takes damage or is commanded to act against its nature (such as asking a cow to cross a cattle guard), it makes another Wisdom saving throw. On a success, the effect ends.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "ventureForth",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "3rd Level",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "berserker"
+	},
+	"effects": [
+		{
+			"origin": "Item.b7Y0nBRT1asueXeO",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "SyOv3mWK5aiGWDn0",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Docile and Biddable",
+			"img": "icons/environment/creatures/horse-brown.webp",
+			"_id": "t8FxcjiSOy6ZP03g",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Will not attack and will follow commands that do not counteract its nature.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.16"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.16"
+	},
+	"_id": "fpAdFtjTx6PQ5Lnn"
+}
