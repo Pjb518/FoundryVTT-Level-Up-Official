@@ -1,8 +1,8 @@
+import registerActionsConfig from './config/registerActionsConfig';
 import registerActiveEffectConfig from './config/registerActiveEffectConfig';
 import registerBonusesConfig from './config/registerBonusesConfig';
 import registerCharacterClassesConfig from './config/registerCharacterClassesConfig';
 import registerClassesConfig from './config/registerClassesConfig';
-import registerConsumerConfig from './config/registerConsumerConfig';
 import registerContextsConfig from './config/registerContextsConfig';
 import registerDocumentConfig from './config/registerDocumentConfig';
 import registerEncounterElements from './config/registerEncounterElements';
@@ -1849,10 +1849,10 @@ const A5E = {
   ...registerContextsConfig(),
   ...registerGrantsConfig(),
 
+  ...registerActionsConfig(),
   ...registerActiveEffectConfig(),
   ...registerBonusesConfig(),
   ...registerCharacterClassesConfig(),
-  ...registerConsumerConfig(),
   ...registerEncounterElements(),
   ...registerEffectGroupConfig(),
   ...registerEffectLocalizationConfig(),

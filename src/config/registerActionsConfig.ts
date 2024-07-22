@@ -1,4 +1,19 @@
-export default function registerConsumerConfig() {
+export default function registerActionsConfig() {
+  // =================================================
+  //  Consumers
+  // =================================================
+
+  // =================================================
+  //  Consumers
+  // =================================================
+  const ACTION_CONSUMER_TYPES = [
+    'actionUses', 'ammunition', 'hitDice', 'itemUses', 'quantity', 'resource', 'spell'
+  ] as const;
+
+  const SPELL_CONSUMER_MODES = [
+    'variable', 'chargesOnly', 'inventionsOnly', 'slotsOnly', 'pointsOnly'
+  ] as const;
+
   const configurableConsumers = new Set([
     'actionUses', 'itemUses', 'hitDice', 'spell'
   ]);
@@ -24,6 +39,11 @@ export default function registerConsumerConfig() {
   };
 
   return {
+    // Constants
+    ACTION_CONSUMER_TYPES,
+    SPELL_CONSUMER_MODES,
+
+    // Config
     configurableConsumers,
     resourceConsumerConfig,
     spellConsumerModes

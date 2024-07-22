@@ -1,5 +1,5 @@
 import RecordField from '../fields/RecordField';
-import { ActionRollField } from './actions/ActionFields';
+import { ActionConsumerField, ActionRollField } from './actions/ActionFields';
 
 const { fields } = foundry.data;
 
@@ -30,7 +30,13 @@ export const actions = () => ({
       }),
 
       // TODO: Types - Fix this
-      consumers: new fields.ObjectField({ required: true, nullable: false }),
+      // consumers: new fields.ObjectField({ required: true, nullable: false }),
+      consumers: new RecordField(
+        new fields.DocumentIdField({
+          required: true, nullable: false, initial: () => foundry.utils.randomID()
+        }),
+        new ActionConsumerField({ required: true, nullable: false })
+      ),
 
       // TODO: Types - Fix this
       prompts: new fields.ObjectField({ required: true, nullable: false }),
