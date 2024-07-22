@@ -4,7 +4,7 @@
 	"img": "icons/equipment/chest/breastplate-helmet-metal.webp",
 	"system": {
 		"ac": {
-			"baseFormula": "10 + @prof + @spellcasting.mod",
+			"baseFormula": "10 + @spellcasting.mod + 2 + ((@classes.wielder.level)-1)/4",
 			"formula": "",
 			"grantsDisadvantage": false,
 			"maxDex": 0,
@@ -14,7 +14,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>Your bonded artifact is a suit of armor, outfit, article of clothing, or an item that is otherwise worn. While wearing your bonded artifact you are magically protected and your armor class equals 10 + your spellcasting ability modifier + your proficiency bonus. You can use a shield and still gain this benefit. In addition, you add the spell @UUID[Compendium.a5e.a5e-spells.Item.nlto7z4j14ips45w]{Shield} to your list of known wielder spells.</p>",
+		"description": "<p>Your bonded artifact is a suit of armor, outfit, article of clothing, or an item that is otherwise worn. While wearing your bonded artifact you are magically protected and your armor class equals 10 + your spellcasting ability modifier + 2 and increases by +1 at levels 5, 9, 13, and 17. You can use a shield and still gain this benefit. In addition, you add the spell @UUID[Compendium.a5e.a5e-spells.Item.nlto7z4j14ips45w]{Shield} to your list of known wielder spells.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -55,14 +55,12 @@
 				"level": 20,
 				"levelType": "class",
 				"optional": false,
-				"_id": "e1uIqeMIGKpl8rmJ",
+				"_id": "wJt6drWiIQQ1RZDc",
 				"label": "Artifact Unleashed",
 				"features": {
 					"base": [
 						{
 							"uuid": "Compendium.a5e.a5e-class-features.Item.gehxgkq2prh131lg",
-							"name": "Unleashed Armor of Power",
-							"img": "icons/equipment/chest/breastplate-helmet-metal.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
@@ -80,15 +78,19 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "wielder"
+		"classes": "wielder",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "l97xnqcpxnc12jpo",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721639142374,
+		"modifiedTime": 1721639643752,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "l97xnqcpxnc12jpo"
 }
