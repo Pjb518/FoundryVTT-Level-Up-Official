@@ -1,6 +1,7 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable no-param-reassign */
-import * as ConsumerData from './ActionConsumersDataModels';
+import * as ConsumerData from './ActionConsumersDataModel';
+import * as PromptData from './ActionPromptsDataModel';
 import * as RollData from './ActionRollsDataModel';
 
 // ======================================================
@@ -65,6 +66,54 @@ class ActionConsumerField<
 // ======================================================
 //                      Prompts
 // ======================================================
+declare namespace ActionPromptField {
+  type PromptTypes = 'abilityCheck' | 'generic' | 'savingThrow' | 'skillCheck';
+}
+
+class ActionPromptField<
+  const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
+  const AssignmentType = foundry.data.fields.ObjectField.AssignmentType<Options>,
+  const InitializedType = foundry.data.fields.ObjectField.InitializedType<Options>,
+  const PersistedType extends object | null | undefined = foundry.data.fields
+  .ObjectField.InitializedType<Options>
+
+> extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
+  getModelForType(type: ActionPromptField.PromptTypes) {
+    if (type === 'abilityCheck') return PromptData.AbilityCheckPromptData;
+    if (type === 'generic') return PromptData.GenericPromptData;
+    if (type === 'savingThrow') return PromptData.SavingThrowPromptData;
+    if (type === 'skillCheck') return PromptData.SkillCheckPromptData;
+
+    return null;
+  }
+
+  // @ts-expect-error
+  override _cleanType(
+    value: InitializedType,
+    options?: foundry.data.fields.DataField.CleanOptions
+  ) {
+    if (!(typeof value === 'object')) value = {} as InitializedType;
+
+    // @ts-expect-error
+    const Cls = this.getModelForType(value?.type);
+    // @ts-expect-error
+    if (Cls) return Cls.cleanData(value, options);
+    return value;
+  }
+
+  // @ts-expect-error
+  override initialize(
+    value: PersistedType,
+    model: foundry.abstract.DataModel<DataSchema, any>,
+    options = {}
+  ) {
+    // @ts-expect-error
+    const Cls = this.getModelForType(value?.type);
+    // @ts-expect-error
+    if (Cls) return new Cls(value, { parent: model, ...options });
+    return foundry.utils.deepClone(value);
+  }
+}
 
 // ======================================================
 //                       Rolls
@@ -125,4 +174,4 @@ class ActionRollField<
 // ======================================================
 //                      Exports
 // ======================================================
-export { ActionConsumerField, ActionRollField };
+export { ActionConsumerField, ActionPromptField, ActionRollField };

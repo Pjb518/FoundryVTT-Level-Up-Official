@@ -1,5 +1,5 @@
 import RecordField from '../fields/RecordField';
-import { ActionConsumerField, ActionRollField } from './actions/ActionFields';
+import { ActionConsumerField, ActionPromptField, ActionRollField } from './actions/ActionFields';
 
 const { fields } = foundry.data;
 
@@ -39,7 +39,13 @@ export const actions = () => ({
       ),
 
       // TODO: Types - Fix this
-      prompts: new fields.ObjectField({ required: true, nullable: false }),
+      // prompts: new fields.ObjectField({ required: true, nullable: false }),
+      prompts: new RecordField(
+        new fields.DocumentIdField({
+          required: true, nullable: false, initial: () => foundry.utils.randomID()
+        }),
+        new ActionPromptField({ required: true, nullable: false })
+      ),
 
       // TODO: Types - Fix this
       ranges: new fields.ObjectField({ required: true, nullable: false }),
