@@ -411,5 +411,4 @@ class BaseItemA5e extends Item {
   }
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export { BaseItemA5e };

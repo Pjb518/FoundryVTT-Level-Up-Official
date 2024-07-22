@@ -16,6 +16,7 @@ import prepareRolls from '../../apps/dataPreparationHelpers/itemActivationRolls/
 import ActionActivationDialog from '../../apps/dialogs/initializers/ActionActivationDialog';
 import ActionSelectionDialog from '../../apps/dialogs/initializers/ActionSelectionDialog';
 
+// @ts-expect-error
 import ActionsManager from '../../managers/ActionsManager';
 import ResourceConsumptionManager from '../../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../../managers/RollPreparationManager';
@@ -23,11 +24,25 @@ import TemplatePreparationManager from '../../managers/TemplatePreparationManage
 
 import getSummaryData from '../../utils/summaries/getSummaryData';
 
+// *****************************************************************************************
+
+type SystemItemTypes = Exclude<
+  foundry.documents.BaseItem.TypeNames,
+  'base' | 'archetype' | 'background' | 'class' | 'culture' | 'destiny' | 'heritage'
+>;
+
+interface ItemA5e<ItemType extends SystemItemTypes = SystemItemTypes> {
+  type: ItemType,
+  system: DataModelConfig['Item'][ItemType],
+}
+
+// *****************************************************************************************
+
 /**
  * Override and extend the basic Item implementation.
  * @extends {Item}
  */
-export default class ItemA5e extends BaseItemA5e {
+class ItemA5e extends BaseItemA5e {
   get actions() {
     return new ActionsManager(this);
   }
@@ -194,7 +209,6 @@ export default class ItemA5e extends BaseItemA5e {
             ? await TextEditor.enrichHTML(action.description, {
               secrets: this.isOwner,
               relativeTo: this,
-              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
@@ -202,7 +216,6 @@ export default class ItemA5e extends BaseItemA5e {
             ? await TextEditor.enrichHTML(this.system.description, {
               secrets: this.isOwner,
               relativeTo: this,
-              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
@@ -211,7 +224,6 @@ export default class ItemA5e extends BaseItemA5e {
             ? await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
               secrets: this.isOwner,
               relativeTo: this,
-              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
@@ -304,13 +316,11 @@ export default class ItemA5e extends BaseItemA5e {
     const attackRoll = attack[0][1];
     const attackAbility = getAttackAbility(actor, this, attackRoll);
 
-    // @ts-expect-error
     const expertiseDie = actor.RollOverrideManager?.getExpertiseDice(
       `attackTypes.${attackRoll.attackType}`,
       options.expertiseDie ?? 0
     );
 
-    // @ts-expect-error
     const rollMode = actor.RollOverrideManager?.getRollOverride(
       `attackTypes.${attackRoll.attackType}`,
       options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL
@@ -325,9 +335,9 @@ export default class ItemA5e extends BaseItemA5e {
       proficient: attackRoll?.proficient ?? true,
       rollMode,
       situationalMods: options.situationalMods,
-      // @ts-expect-error
       selectedAttackBonuses: this.parent?.BonusesManager?.getDefaultSelections(
         'attacks',
+        // @ts-expect-error
         { item: this, attackType: attackRoll?.attackType }
       ),
       type: 'attack'
@@ -390,11 +400,8 @@ export default class ItemA5e extends BaseItemA5e {
     const spellConsumer: any = Object.values(consumers.spell ?? {})?.[0]?.[1] ?? {};
     if (!foundry.utils.isEmpty(spellConsumer)) {
       const mode = spellConsumer.mode ?? 'variable';
-      // @ts-expect-error
       const availableCharges = actor.system.spellResources?.artifactCharges?.current ?? 0;
-      // @ts-expect-error
       const availablePoints = actor.system.spellResources?.points?.current ?? 0;
-      // @ts-expect-error
       const availableSpellSlots = Object.entries(actor.system.spellResources?.slots ?? {})
         .reduce(
           (acc, [level, slot]) => {
@@ -503,13 +510,9 @@ export default class ItemA5e extends BaseItemA5e {
 
   async recharge(actionId, state = false) {
     if (state || !this.actor) return;
-    // @ts-expect-error
     let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData(this)) ?? 0;
-    // @ts-expect-error
     let current = this.system.uses.value;
-    // @ts-expect-error
     let formula = this.system.uses.recharge.formula || '1d6';
-    // @ts-expect-error
     let threshold = this.system.uses.recharge.threshold ?? 6;
     // @ts-expect-error
     let rechargeType = this.system.uses.recharge?.rechargeType || 'custom';
@@ -520,7 +523,6 @@ export default class ItemA5e extends BaseItemA5e {
     if (actionId) {
       const action = this.actions[actionId];
 
-      // @ts-expect-error
       max = getDeterministicBonus(action.uses?.max ?? '', this.actor.getRollData(this)) ?? 0;
       current = action.uses?.value ?? 0;
       formula = action.uses?.recharge?.formula || '1d6';
@@ -531,7 +533,6 @@ export default class ItemA5e extends BaseItemA5e {
     }
 
     // Recharge Roll
-    // @ts-expect-error
     const rechargeRoll = await new Roll(formula, this.actor.getRollData(this))
       .evaluate();
 
@@ -545,7 +546,6 @@ export default class ItemA5e extends BaseItemA5e {
     else {
       const rechargeAmountRoll = await new Roll(
         rechargeAmount,
-        // @ts-expect-error
         this.actor.getRollData(this)
       ).evaluate();
 
@@ -573,3 +573,5 @@ export default class ItemA5e extends BaseItemA5e {
     super._onDelete(options, user);
   }
 }
+
+export { ItemA5e };
