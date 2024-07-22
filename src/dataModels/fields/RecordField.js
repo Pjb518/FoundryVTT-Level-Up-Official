@@ -3,6 +3,8 @@
 export default class RecordField extends foundry.data.fields.ObjectField {
   static recursive = true;
 
+  // TODO: Add unknown keys
+
   constructor(keyField, valueField, options) {
     super(options);
 

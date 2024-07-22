@@ -1,5 +1,7 @@
 import RecordField from '../fields/RecordField';
-import { ActionConsumerField, ActionPromptField, ActionRollField } from './actions/ActionFields';
+import {
+  ActionAreaField, ActionConsumerField, ActionPromptField, ActionRollField
+} from './actions/ActionFields';
 
 const { fields } = foundry.data;
 
@@ -23,14 +25,21 @@ export const actions = () => ({
         type: new fields.StringField({ required: true, nullable: true, initial: '' }),
         reactionTrigger: new fields.StringField({ required: true, nullable: false, initial: '' })
       }),
+
+      // TODO: - Remove this
       area: new fields.ObjectField({ required: false, nullable: true, initial: () => undefined }),
+      areas: new RecordField(
+        new fields.DocumentIdField({
+          required: true, nullable: false, initial: () => foundry.utils.randomID()
+        }),
+        new ActionAreaField({ required: true, nullable: false })
+      ),
+
       duration: new fields.SchemaField({
         unit: new fields.StringField({ required: true, nullable: false, initial: '' }),
         value: new fields.NumberField({ required: true, nullable: true })
       }),
 
-      // TODO: Types - Fix this
-      // consumers: new fields.ObjectField({ required: true, nullable: false }),
       consumers: new RecordField(
         new fields.DocumentIdField({
           required: true, nullable: false, initial: () => foundry.utils.randomID()
@@ -38,8 +47,6 @@ export const actions = () => ({
         new ActionConsumerField({ required: true, nullable: false })
       ),
 
-      // TODO: Types - Fix this
-      // prompts: new fields.ObjectField({ required: true, nullable: false }),
       prompts: new RecordField(
         new fields.DocumentIdField({
           required: true, nullable: false, initial: () => foundry.utils.randomID()
@@ -47,11 +54,8 @@ export const actions = () => ({
         new ActionPromptField({ required: true, nullable: false })
       ),
 
-      // TODO: Types - Fix this
       ranges: new fields.ObjectField({ required: true, nullable: false }),
 
-      // TODO: Types - Fix this
-      // rolls: new fields.ObjectField({ required: true, nullable: false }),
       rolls: new RecordField(
         new fields.DocumentIdField({
           required: true, nullable: false, initial: () => foundry.utils.randomID()

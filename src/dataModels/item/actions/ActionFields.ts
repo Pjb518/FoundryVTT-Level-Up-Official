@@ -1,5 +1,6 @@
 /* eslint-disable max-classes-per-file */
 /* eslint-disable no-param-reassign */
+import * as AreaData from './ActionAreaDataModels';
 import * as ConsumerData from './ActionConsumersDataModel';
 import * as PromptData from './ActionPromptsDataModel';
 import * as RollData from './ActionRollsDataModel';
@@ -7,6 +8,59 @@ import * as RollData from './ActionRollsDataModel';
 // ======================================================
 //                       Areas
 // ======================================================
+declare namespace ActionAreaField {
+  type AreaShapes = 'circle' | 'cone' | 'cube' | 'cylinder' | 'emanation' | 'line' | 'sphere' | 'square' | 'wall';
+}
+
+class ActionAreaField<
+  const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
+  const AssignmentType = foundry.data.fields.ObjectField.AssignmentType<Options>,
+  const InitializedType = foundry.data.fields.ObjectField.InitializedType<Options>,
+  const PersistedType extends object | null | undefined = foundry.data.fields
+  .ObjectField.InitializedType<Options>
+
+> extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
+  getModelForType(type: ActionAreaField.AreaShapes) {
+    if (type === 'circle') return AreaData.CircleAreaData;
+    if (type === 'cone') return AreaData.ConeAreaData;
+    if (type === 'cube') return AreaData.CubeAreaData;
+    if (type === 'cylinder') return AreaData.CylinderAreaData;
+    if (type === 'emanation') return AreaData.EmanationAreaData;
+    if (type === 'line') return AreaData.LineAreaData;
+    if (type === 'sphere') return AreaData.SphereAreaData;
+    if (type === 'square') return AreaData.SquareAreaData;
+    if (type === 'wall') return AreaData.WallAreaData;
+
+    return null;
+  }
+
+  // @ts-expect-error
+  override _cleanType(
+    value: InitializedType,
+    options?: foundry.data.fields.DataField.CleanOptions
+  ) {
+    if (!(typeof value === 'object')) value = {} as InitializedType;
+
+    // @ts-expect-error
+    const Cls = this.getModelForType(value?.type);
+    // @ts-expect-error
+    if (Cls) return Cls.cleanData(value, options);
+    return value;
+  }
+
+  // @ts-expect-error
+  override initialize(
+    value: PersistedType,
+    model: foundry.abstract.DataModel<DataSchema, any>,
+    options = {}
+  ) {
+    // @ts-expect-error
+    const Cls = this.getModelForType(value?.type);
+    // @ts-expect-error
+    if (Cls) return new Cls(value, { parent: model, ...options });
+    return foundry.utils.deepClone(value);
+  }
+}
 
 // ======================================================
 //                      Consumers
@@ -174,4 +228,9 @@ class ActionRollField<
 // ======================================================
 //                      Exports
 // ======================================================
-export { ActionConsumerField, ActionPromptField, ActionRollField };
+export {
+  ActionAreaField,
+  ActionConsumerField,
+  ActionPromptField,
+  ActionRollField
+};
