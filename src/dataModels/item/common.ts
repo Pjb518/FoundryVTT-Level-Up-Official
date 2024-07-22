@@ -14,6 +14,7 @@ export const actions = () => ({
     new fields.DocumentIdField({ required: true, initial: () => foundry.utils.randomID() }),
     new fields.SchemaField({
       name: new fields.StringField({ required: true, nullable: false, initial: 'New Action' }),
+      default: new fields.BooleanField({ required: false, nullable: false }),
       description: new fields.StringField({ required: true, nullable: false, initial: '' }),
       descriptionOutputs: new fields.ArrayField(
         new fields.StringField({ required: true, nullable: false, choices: ['action', 'item'] }),
