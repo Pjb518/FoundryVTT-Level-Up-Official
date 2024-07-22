@@ -33,7 +33,6 @@ class ActionRollField<
   ) {
     if (!(typeof value === 'object')) value = {} as InitializedType;
 
-    // @ts-expect-error
     const Cls = this.getModelForType(value?.type);
     if (Cls) return Cls.cleanData(value, options);
     return value;

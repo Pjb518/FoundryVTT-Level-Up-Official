@@ -40,7 +40,12 @@ export const actions = () => ({
 
       // TODO: Types - Fix this
       // rolls: new fields.ObjectField({ required: true, nullable: false }),
-      rolls: new ActionRollField({ required: true, nullable: false }),
+      rolls: new RecordField(
+        new fields.DocumentIdField({
+          required: true, nullable: false, initial: () => foundry.utils.randomID()
+        }),
+        new ActionRollField({ required: true, nullable: false })
+      ),
 
       target: new fields.SchemaField({
         quantity: new fields.NumberField({ required: true, nullable: true }),
