@@ -145,7 +145,10 @@ class RecordField<
     return values;
   }
 
-  override _validateType(values, options = {}): boolean | void {
+  override _validateType(
+    values: InitializedType,
+    options: foundry.data.fields.DataField.ValidationOptions<foundry.data.fields.DataField.Any> = {}
+  ): boolean | void {
     if (!(values instanceof Object)) {
       return new foundry.data.validation.DataModelValidationFailure({ message: 'must be an Object' });
     }
@@ -155,14 +158,14 @@ class RecordField<
 
   protected override initialize(
     values: PersistedType,
-    model: foundry.abstract.DataModel<any, any>,
-    options: any
+    model: foundry.abstract.DataModel<any, any>
+    // options: any // TODO: Add this back
   ): InitializedType | (() => InitializedType | null) {
     if (!values) return {} as InitializedType;
     const data = {};
 
     for (const [key, value] of Object.entries(values)) {
-      data[key] = this.valueField.initialize(value, model, options);
+      data[key] = this.valueField.initialize(value, model, {}); // TODO: Change this back to options
     }
 
     return data as InitializedType;
