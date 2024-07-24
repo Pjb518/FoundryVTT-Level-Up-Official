@@ -5,40 +5,42 @@ import * as ConsumerData from './ActionConsumersDataModel';
 import * as PromptData from './ActionPromptsDataModel';
 import * as RollData from './ActionRollsDataModel';
 
+const areaShapesMap = {
+  circle: AreaData.CircleAreaData,
+  cone: AreaData.ConeAreaData,
+  cube: AreaData.CubeAreaData,
+  cylinder: AreaData.CylinderAreaData,
+  emanation: AreaData.EmanationAreaData,
+  line: AreaData.LineAreaData,
+  sphere: AreaData.SphereAreaData,
+  square: AreaData.SquareAreaData,
+  wall: AreaData.WallAreaData
+} as const;
+
 // ======================================================
 //                       Areas
 // ======================================================
 declare namespace ActionAreaField {
-  type AreaShapes = 'circle' | 'cone' | 'cube' | 'cylinder' | 'emanation' | 'line' | 'sphere' | 'square' | 'wall';
+  export type AreaShapesMap = typeof areaShapesMap;
+
+  export type AreaShapes = keyof AreaShapesMap;
 }
 
 class ActionAreaField<
   const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
-  const AssignmentType = foundry.data.fields.ObjectField.AssignmentType<Options>,
-  const InitializedType = foundry.data.fields.ObjectField.InitializedType<Options>,
-  const PersistedType extends object | null | undefined = foundry.data.fields
-  .ObjectField.InitializedType<Options>
-
+  const AreaType extends ActionAreaField.AreaShapes = ActionAreaField.AreaShapes,
+  const AssignmentType = { type: AreaType },
+  const InitializedType = ActionAreaField.AreaShapesMap[AreaType],
+  const PersistedType extends object | null | undefined = ActionAreaField.AreaShapesMap[AreaType]
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
   getModelForType(type: ActionAreaField.AreaShapes) {
-    if (type === 'circle') return AreaData.CircleAreaData;
-    if (type === 'cone') return AreaData.ConeAreaData;
-    if (type === 'cube') return AreaData.CubeAreaData;
-    if (type === 'cylinder') return AreaData.CylinderAreaData;
-    if (type === 'emanation') return AreaData.EmanationAreaData;
-    if (type === 'line') return AreaData.LineAreaData;
-    if (type === 'sphere') return AreaData.SphereAreaData;
-    if (type === 'square') return AreaData.SquareAreaData;
-    if (type === 'wall') return AreaData.WallAreaData;
-
-    return null;
+    return areaShapesMap[type];
   }
 
-  // @ts-expect-error
   override _cleanType(
     value: InitializedType,
     options?: foundry.data.fields.DataField.CleanOptions
-  ) {
+  ): InitializedType {
     if (!(typeof value === 'object')) value = {} as InitializedType;
 
     // @ts-expect-error
@@ -48,12 +50,11 @@ class ActionAreaField<
     return value;
   }
 
-  // @ts-expect-error
   override initialize(
     value: PersistedType,
     model: foundry.abstract.DataModel<DataSchema, any>,
     options = {}
-  ) {
+  ): InitializedType {
     // @ts-expect-error
     const Cls = this.getModelForType(value?.type);
     // @ts-expect-error
