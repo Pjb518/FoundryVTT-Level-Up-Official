@@ -137,7 +137,10 @@ class RecordField<
     }
   }
 
-  override _cleanType(values, options = {}): InitializedType {
+  override _cleanType(
+    values: InitializedType,
+    options?: foundry.data.fields.DataField.CleanOptions
+  ): InitializedType {
     for (const [key, value] of Object.entries(values)) {
       values[key] = this.valueField.clean(value, options);
     }
@@ -156,7 +159,7 @@ class RecordField<
     return this._validateValues(values, options);
   }
 
-  protected override initialize(
+  override initialize(
     values: PersistedType,
     model: foundry.abstract.DataModel<any, any>
     // options: any // TODO: Add this back
