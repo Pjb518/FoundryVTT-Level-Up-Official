@@ -26,7 +26,8 @@
 						"type": "damage",
 						"default": true,
 						"formula": "4d6",
-						"damageType": "psychic"
+						"damageType": "psychic",
+						"canCrit": false
 					}
 				},
 				"prompts": {
@@ -45,7 +46,7 @@
 						"ability": "con",
 						"saveDC": {
 							"type": "spellcasting",
-							"bonus": "Not stunned and no extra fatigue"
+							"bonus": ""
 						},
 						"label": "If save failed by 5 or more"
 					},
@@ -53,6 +54,11 @@
 						"type": "effect",
 						"default": true,
 						"effectId": "Ga5Su9qho0ehUMyX"
+					},
+					"7j0a3Tr2prjlaa7m": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3TNmbgs5NrsqToCl"
 					}
 				},
 				"uses": {
@@ -69,11 +75,17 @@
 				"area": {
 					"shape": "cone",
 					"quantity": 1,
-					"length": 15
+					"length": 15,
+					"placeTemplate": true
+				},
+				"ranges": {
+					"EveD1kJJByx4ofLH": {
+						"range": "self"
+					}
 				}
 			}
 		},
-		"description": "<p>At 14th level, you learn to emit a terrifying clamor that causes your opponents terrible distress. As an action, you may spend a use of your Bardic Inspiration to play a Dirge of Terror. Enemy creatures in a 15-foot cone must make a <strong>Wisdom save against your spell save DC or take 4d6 psychic damage, gain a level of strife and become frightened for one minute.</strong> Creatures that succeed on their Wisdom save take damage as normal, but are not frightened and do not gain levels of strife.</p><p>Creatures that fail by 5 or more suffer a mild heart attack. Such a creature must make a Constitution save against your spell save DC or acquire two levels of fatigue and are stunned until the end of their next turn.</p>",
+		"description": "<p>At 14th level, you learn to emit a terrifying clamor that causes your opponents terrible distress. As an action, you may spend a use of your Bardic Inspiration to play a Dirge of Terror. Enemy creatures in a 15-foot cone must make a Wisdom save against your spell save DC or take 4d6 psychic damage, suffer a level of strife and become frightened for one minute. Creatures that succeed on their Wisdom save take damage as normal, but are not frightened and do not suffer levels of strife. Creatures that fail by 5 or more suffer a mild heart attack. Such a creature must make a Constitution save against your spell save DC or suffer two levels of fatigue and are stunned until the end of their next turn.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -101,12 +113,12 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "druid",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/control/debuff-energy-hold-pink.webp",
-			"origin": "Item.35808ufj111xsvbs",
+			"origin": "Item.TMiufSI8YO3Q2VTi",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -126,6 +138,12 @@
 					"value": "[\"frightened\"]",
 					"mode": 0,
 					"priority": null
+				},
+				{
+					"key": "system.attributes.strife",
+					"value": "1",
+					"mode": 2,
+					"priority": null
 				}
 			],
 			"disabled": false,
@@ -142,12 +160,83 @@
 			"statuses": [
 				"frightened"
 			],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.329",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.18",
+				"createdTime": null,
+				"modifiedTime": 1721640057528,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/control/debuff-energy-hold-pink.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.TMiufSI8YO3Q2VTi",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Gl0M2lwfIcGJbdrn",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Heart Attack",
+			"img": "icons/magic/control/debuff-energy-hold-pink.webp",
+			"_id": "3TNmbgs5NrsqToCl",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.strife",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.329",
+				"systemId": "a5e",
+				"systemVersion": "0.19.18",
+				"createdTime": 1721640081321,
+				"modifiedTime": 1721640113059,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {
@@ -156,10 +245,13 @@
 		}
 	},
 	"folder": null,
-	"_id": "35808ufj111xsvbs",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721639990155,
+		"modifiedTime": 1721640081367,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "35808ufj111xsvbs"
 }
