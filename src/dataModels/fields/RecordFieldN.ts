@@ -161,14 +161,14 @@ class RecordField<
 
   override initialize(
     values: PersistedType,
-    model: foundry.abstract.DataModel<any, any>
-    // options: any // TODO: Add this back
+    model: foundry.abstract.DataModel<any, any>,
+    options?: Record<string, unknown>
   ): InitializedType | (() => InitializedType | null) {
     if (!values) return {} as InitializedType;
     const data = {};
 
     for (const [key, value] of Object.entries(values)) {
-      data[key] = this.valueField.initialize(value, model, {}); // TODO: Change this back to options
+      data[key] = this.valueField.initialize(value, model, options);
     }
 
     return data as InitializedType;
