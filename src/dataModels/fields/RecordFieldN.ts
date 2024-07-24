@@ -24,22 +24,22 @@ declare namespace RecordField {
   >;
 
   type AssignmentElementType<
-    ElementFieldType extends foundry.data.fields.DataField.Any
-  > = ElementFieldType extends foundry.data.fields.DataField<
+    IValueField extends foundry.data.fields.DataField.Any
+  > = IValueField extends foundry.data.fields.DataField<
     any, infer AssignType, any, any
-  > ? AssignType : any;
+  > ? AssignType : never;
 
   type InitializedElementType<
-    ElementFieldType extends foundry.data.fields.DataField.Any
-  > = ElementFieldType extends foundry.data.fields.DataField<
+    IValueField extends foundry.data.fields.DataField.Any
+  > = IValueField extends foundry.data.fields.DataField<
     any, any, infer InitType, any
-  > ? InitType : any;
+  > ? InitType : never;
 
   type PersistedElementType<
-    ElementFieldType extends foundry.data.fields.DataField.Any
-  > = ElementFieldType extends foundry.data.fields.DataField<
+    IValueField extends foundry.data.fields.DataField.Any
+  > = IValueField extends foundry.data.fields.DataField<
     any, any, any, infer PersistType
-  > ? PersistType : any;
+  > ? PersistType : never;
 
   type AssignmentType<
     AET,
@@ -137,7 +137,7 @@ class RecordField<
     }
   }
 
-  _cleanType(values, options = {}) {
+  override _cleanType(values, options = {}): InitializedType {
     for (const [key, value] of Object.entries(values)) {
       values[key] = this.valueField.clean(value, options);
     }
@@ -145,7 +145,7 @@ class RecordField<
     return values;
   }
 
-  _validateType(values, options = {}) {
+  override _validateType(values, options = {}): boolean | void {
     if (!(values instanceof Object)) {
       return new foundry.data.validation.DataModelValidationFailure({ message: 'must be an Object' });
     }
