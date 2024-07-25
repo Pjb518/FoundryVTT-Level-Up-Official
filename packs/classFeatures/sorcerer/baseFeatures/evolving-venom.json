@@ -1,7 +1,7 @@
 {
 	"name": "Evolving Venom",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/acid/dissolve-pool-bubbles.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -24,21 +24,18 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "minute",
+					"unit": "",
 					"value": 1
 				},
-				"ranges": {
-					"sZiiGfDcgK5tuNlz": {
-						"range": "Within sight"
-					}
-				},
+				"ranges": {},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
-					"quantity": 0,
+					"quantity": 1,
 					"type": "creature"
 				},
 				"rolls": {
@@ -50,10 +47,48 @@
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {
+					"fGzdEYzRQOLZEvJY": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				}
+			},
+			"4l2zwGGYBdcwKZ5F": {
+				"name": "Ongoing Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"li3WslBf4AgViUOT": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
 			}
 		},
-		"description": "<p>When you cast a spell that deals poison damage, you can spend 1 sorcery point and choose one creature you can see. If the target creature takes poison damage from the spell, it takes [[/r 2d6 #ongoing poison]] ongoing poison damage for 1 minute or until a creature uses an action to treat the victim (requiring a Medicine check against your spell save DC).</p>",
+		"description": "<p>When you cast a spell that deals poison damage, you can spend 1 sorcery point and choose one creature you can see. If the target creature takes poison damage from the spell, it takes 2d6 ongoing poison damage for 1 minute or until a creature uses an action to treat the victim (requiring a Medicine check against your spell save DC).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -81,13 +116,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "32j20t2dhaivos46",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721857655776,
+		"modifiedTime": 1721857754940,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "32j20t2dhaivos46"
 }

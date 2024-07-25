@@ -1,7 +1,7 @@
 {
 	"name": "Refracting Spell",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/control/energy-stream-link-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,34 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"VGmJC7XVLHsHCgFa": {
+				"name": "Refracting Spell",
+				"activation": {},
+				"consumers": {
+					"mDwzxh5R9Wsi0Dul": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>When you cast a spell that involves a spell attack roll and targets only a single creature, you can spend an additional 2 sorcery points. If the spell hits, a creature within 5 feet of the original target takes half the spell’s damage.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +71,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "9uk7rimf2oiyyuxt",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721856467989,
+		"modifiedTime": 1721856513542,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "9uk7rimf2oiyyuxt"
 }

@@ -1,7 +1,7 @@
 {
 	"name": "Evolving Corrosion",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/acid/dissolve-bone-white.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -35,25 +35,52 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
 					"type": ""
 				},
+				"rolls": {},
+				"consumers": {
+					"RZrr7XFzfJM2uD1y": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				}
+			},
+			"m1Yq7LPlNpdx3RH2": {
+				"name": "Pool of Acid",
+				"activation": {},
+				"consumers": {},
 				"rolls": {
-					"nM3vzxZxLBgAgw7j": {
+					"CJmM5MzGf0N9MPko": {
+						"type": "damage",
+						"default": true,
 						"canCrit": false,
-						"damageType": "acid",
 						"formula": "2d8",
-						"name": "Acid",
-						"type": "damage"
+						"damageType": "acid"
 					}
 				},
-				"consumers": {}
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
-		"description": "<p>When you cast a spell of 1st-level or higher that deals acid damage, you can spend 1 sorcery point to create a 10-foot radius pool of acid centered on either the target of the spell or the spell’s point of origin. The area is difficult terrain, and when a creature ends its turn in the area it takes [[/r 2d8 #acid]] acid damage. The pool remains for 1 minute or until you use a bonus action to dismiss it.</p>",
+		"description": "<p>When you cast a spell of 1st-level or higher that deals acid damage, you can spend 1 sorcery point to create a 10-foot radius pool of acid centered on either the target of the spell or the spell&rsquo;s point of origin. The area is difficult terrain, and when a creature ends its turn in the area it takes 2d8 acid damage. The pool remains for 1 minute or until you use a bonus action to dismiss it.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -81,13 +108,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "hyc3bjf8ppsa42ly",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721857358468,
+		"modifiedTime": 1721857449406,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "hyc3bjf8ppsa42ly"
 }

@@ -1,7 +1,7 @@
 {
 	"name": "Heightened Spell",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/movement/arrow-upward-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,34 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"TIbhas02VaYkEGUH": {
+				"name": "Heightened Spell",
+				"activation": {},
+				"consumers": {
+					"Cf0pE8rrnZTfJROq": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>When you cast a spell that forces a creature to make a saving throw to resist its effects, you can spend 3 sorcery points to give one target of the spell disadvantage on its first saving throw made against the spell.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +71,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "50iliqbu1t68ivv3",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721856300465,
+		"modifiedTime": 1721856358913,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "50iliqbu1t68ivv3"
 }
