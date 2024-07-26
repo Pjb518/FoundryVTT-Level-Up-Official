@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import ActionsManager from "../../../managers/ActionsManager";
+    import { ActionsManager } from "../../../managers/ActionsManager";
 
     import AbilityCheckRollConfig from "../itemActionsConfig/AbilityCheckRollConfig.svelte";
     import AttackRollConfig from "../itemActionsConfig/AttackRollConfig.svelte";

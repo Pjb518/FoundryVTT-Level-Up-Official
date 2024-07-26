@@ -16,7 +16,7 @@ import type activateItemMacro from '../macros/activateItemMacro';
 import type createMacro from '../macros/createMacro';
 
 // Managers
-import type ActionsManager from '../managers/ActionsManager';
+import type { ActionsManager } from '../managers/ActionsManager';
 import type ContainerManager from '../managers/ContainerManager';
 import type ForeignDocumentManager from '../managers/ForeignDocumentManager';
 import type HitDiceManager from '../managers/HitDiceManager';

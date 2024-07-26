@@ -2,7 +2,7 @@
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import ActionsManager from "../../../managers/ActionsManager";
+    import { ActionsManager } from "../../../managers/ActionsManager";
 
     import AbilityCheckPromptConfig from "../itemActionsConfig/AbilityCheckPromptConfig.svelte";
     import ActiveEffectPromptConfig from "../itemActionsConfig/ActiveEffectPromptConfig.svelte";
@@ -64,9 +64,10 @@
     $: action = $item.actions[actionId];
     $: prompts = action.prompts ?? {};
 
-    $: menuList = Object.entries(promptTypes).map(
-        ([promptType, { heading }]) => [promptType, heading],
-    );
+    $: menuList = Object.entries(promptTypes).map(([promptType, { heading }]) => [
+        promptType,
+        heading,
+    ]);
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">

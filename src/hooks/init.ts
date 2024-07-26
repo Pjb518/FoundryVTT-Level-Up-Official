@@ -47,7 +47,7 @@ import activateItemMacro from '../macros/activateItemMacro';
 import createMacro from '../macros/createMacro';
 
 // Managers
-import ActionsManager from '../managers/ActionsManager';
+import { ActionsManager } from '../managers/ActionsManager';
 import ContainerManager from '../managers/ContainerManager';
 import ForeignDocumentManager from '../managers/ForeignDocumentManager';
 import HitDiceManager from '../managers/HitDiceManager';

@@ -16,8 +16,7 @@ import prepareRolls from '../../apps/dataPreparationHelpers/itemActivationRolls/
 import ActionActivationDialog from '../../apps/dialogs/initializers/ActionActivationDialog';
 import ActionSelectionDialog from '../../apps/dialogs/initializers/ActionSelectionDialog';
 
-// @ts-expect-error
-import ActionsManager from '../../managers/ActionsManager';
+import { ActionsManager } from '../../managers/ActionsManager';
 import ResourceConsumptionManager from '../../managers/ResourceConsumptionManager';
 import RollPreparationManager from '../../managers/RollPreparationManager';
 import TemplatePreparationManager from '../../managers/TemplatePreparationManager';
