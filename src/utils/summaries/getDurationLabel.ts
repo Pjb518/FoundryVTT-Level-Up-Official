@@ -1,10 +1,13 @@
+import type { Action } from 'types/action';
+import type { ItemA5e } from '../../documents/item/item';
+
 import { localize } from '#runtime/svelte/helper';
 
-export default function getDurationLabel(item, action) {
-  const duration = action?.duration;
+export default function getDurationLabel(item: ItemA5e, action: Action) {
+  const { duration } = action;
   let durationLabel = '';
 
-  if (foundry.utils.isEmpty(duration) || !duration.unit) return null;
+  if (foundry.utils.isEmpty(duration) || !duration.unit) return '';
 
   if (['instantaneous', 'permanent', 'special'].includes(duration.unit)) {
     durationLabel = CONFIG.A5E.timePeriods[duration.unit];
@@ -14,7 +17,9 @@ export default function getDurationLabel(item, action) {
     durationLabel = `${duration.value ?? 1} ${CONFIG.A5E.timePeriods[duration.unit]}`;
   }
 
-  if (item?.system?.concentration) durationLabel += ` (${localize('A5E.SpellConcentration')})`;
+  if (item.isType('spell') && item?.system?.concentration) {
+    durationLabel += ` (${localize('A5E.SpellConcentration')})`;
+  }
 
   return durationLabel.trim();
 }

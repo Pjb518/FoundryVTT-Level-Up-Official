@@ -1,6 +1,8 @@
+import type ObjectItemA5e from '../../documents/item/object';
+
 import { localize } from '#runtime/svelte/helper';
 
-export default function getVersatileProperties(item) {
+export default function getVersatileProperties(item: ObjectItemA5e) {
   const { versatileOptions, weaponProperties } = CONFIG.A5E;
 
   if (item.system.versatile) {

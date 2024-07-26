@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable max-classes-per-file */
 /* eslint-disable no-param-reassign */
 import * as AreaData from './ActionAreaDataModels';
@@ -88,8 +89,7 @@ class ActionConsumerField<
   const ConsumerType extends ActionConsumerField.ConsumerTypes = ActionConsumerField.ConsumerTypes,
   const AssignmentType = { type: ConsumerType },
   const InitializedType = ActionConsumerField.ConsumerShapesMap[ConsumerType],
-  const PersistedType extends object | null | undefined = ActionConsumerField
-  .ConsumerShapesMap[ConsumerType]
+  const PersistedType extends object | null | undefined = ActionConsumerField.ConsumerShapesMap[ConsumerType]
 
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
   getModelForType(type: ActionConsumerField.ConsumerTypes) {
@@ -144,9 +144,7 @@ class ActionPromptField<
   const PromptType extends ActionPromptField.PromptTypes = ActionPromptField.PromptTypes,
   const AssignmentType = { type: PromptType },
   const InitializedType = ActionPromptField.PromptTypesMap[PromptType],
-  const PersistedType extends object | null | undefined = ActionPromptField
-  .PromptTypesMap[PromptType]
-
+  const PersistedType extends object | null | undefined = ActionPromptField.PromptTypesMap[PromptType]
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
   getModelForType(type: ActionPromptField.PromptTypes) {
     return promptTypesMap[type];

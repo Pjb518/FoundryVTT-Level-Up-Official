@@ -16,7 +16,7 @@ const actionSchema = () => ({
   ),
   img: new fields.StringField({ required: true, initial: '' }),
   activation: new fields.SchemaField({
-    cost: new fields.StringField({ required: true, nullable: false, initial: '' }),
+    cost: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
     type: new fields.StringField({ required: true, nullable: true, initial: '' }),
     reactionTrigger: new fields.StringField({ required: true, nullable: false, initial: '' })
   }),
@@ -32,7 +32,7 @@ const actionSchema = () => ({
 
   duration: new fields.SchemaField({
     unit: new fields.StringField({ required: true, nullable: false, initial: '' }),
-    value: new fields.NumberField({ required: true, nullable: true })
+    value: new fields.NumberField({ required: true, nullable: false, initial: 0 })
   }),
 
   consumers: new RecordField(
@@ -59,7 +59,7 @@ const actionSchema = () => ({
   ),
 
   target: new fields.SchemaField({
-    quantity: new fields.NumberField({ required: true, nullable: true }),
+    quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
     scaling: new fields.ObjectField({ required: true, nullable: false }),
     type: new fields.StringField({ required: true, nullable: false, initial: '' })
   }),
@@ -89,6 +89,12 @@ class A5EActionData extends foundry.abstract.DataModel<
     return {
       ...actionSchema()
     };
+  }
+
+  /** -------------Helpers---------------- */
+  rollsByType(type: ActionRollField.RollTypes) {
+    const rolls = Object.entries(this.rolls ?? {});
+    return rolls.filter(([, roll]) => roll.type === type);
   }
 }
 

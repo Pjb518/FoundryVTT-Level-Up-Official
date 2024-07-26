@@ -1,6 +1,8 @@
+import type ObjectItemA5e from '../../documents/item/object';
+
 import { localize } from '#runtime/svelte/helper';
 
-export default function getMountedProperties(item) {
+export default function getMountedProperties(item: ObjectItemA5e) {
   const { versatileOptions, weaponProperties } = CONFIG.A5E;
 
   const properties = item.system.mounted

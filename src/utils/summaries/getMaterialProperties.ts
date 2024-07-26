@@ -1,6 +1,8 @@
+import type ObjectItemA5e from '../../documents/item/object';
+
 import { localize } from '#runtime/svelte/helper';
 
-export default function getMaterialPropertiesSummary(item) {
+export default function getMaterialPropertiesSummary(item: ObjectItemA5e) {
   const { flaws, materialProperties } = CONFIG.A5E;
 
   return item.system.materialProperties.map((property) => {
@@ -19,5 +21,5 @@ export default function getMaterialPropertiesSummary(item) {
     }
 
     return materialProperties[property] ?? property;
-  });
+  }) as string[];
 }

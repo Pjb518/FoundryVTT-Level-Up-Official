@@ -1,9 +1,11 @@
+import type ObjectItemA5e from '../../documents/item/object';
+
 import getBreakerProperties from './getBreakerProperties';
 import getDefensiveProperties from './getDefensiveProperties';
 import getMountedProperties from './getMountedProperties';
 import getVersatileProperties from './getVersatileProperties';
 
-export default function getWeaponProperties(item) {
+export default function getWeaponProperties(item: ObjectItemA5e) {
   const { weaponProperties } = CONFIG.A5E;
 
   return item.system.weaponProperties
@@ -21,5 +23,5 @@ export default function getWeaponProperties(item) {
           return weaponProperties[property] ?? null;
       }
     })
-    .filter(Boolean);
+    .filter(Boolean) as string[];
 }

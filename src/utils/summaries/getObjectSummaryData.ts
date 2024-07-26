@@ -1,3 +1,5 @@
+import type ObjectItemA5e from '../../documents/item/object';
+
 import getArmorProperties from './getArmorProperties';
 import getCraftingComponentsLabel from './getCraftingComponentsLabel';
 import getMaterialProperties from './getMaterialProperties';
@@ -5,9 +7,15 @@ import getObjectMechanicsLabel from './getObjectMechanicsLabel';
 import getShieldProperties from './getShieldProperties';
 import getWeaponProperties from './getWeaponProperties';
 
-export default function getObjectSummaryData(item, options) {
-  const summaryData = {};
-  const { objectType } = item.system;
+export default function getObjectSummaryData(item: ObjectItemA5e, options: Record<string, any>) {
+  // @ts-expect-error
+  const summaryData: {
+    objectProperties: string,
+    craftingComponents?: string,
+    objectMechanics: string
+  } = {};
+
+  const { objectType } = (item).system;
 
   const objectProperties = getMaterialProperties(item);
 

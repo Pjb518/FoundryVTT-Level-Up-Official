@@ -1,9 +1,11 @@
+import type SpellItemA5e from '../../documents/item/spell';
+
 import { localize } from '#runtime/svelte/helper';
 
-export default function getClassesLabel(item) {
+export default function getClassesLabel(item: SpellItemA5e) {
   const { classSpellLists } = CONFIG.A5E;
   const classes = [...(item.system.classes ?? [])];
-  const elements = [];
+  const elements: string[] = [];
 
   const elementMap = [
     ['elementalistAir', 'Air'],

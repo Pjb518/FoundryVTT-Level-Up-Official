@@ -1,10 +1,8 @@
+import type { Action } from 'types/action';
 import type { ItemA5e } from '../documents/item/item';
-import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel';
 
 import GenericConfigDialog from '../apps/dialogs/initializers/GenericConfigDialog';
 import ActionConfigDialog from '../apps/dialogs/ActionConfigDialog.svelte';
-
-type Action = InstanceType<typeof A5EActionData>;
 
 class ActionsManager extends Map<string, Action> {
   #item: ItemA5e;

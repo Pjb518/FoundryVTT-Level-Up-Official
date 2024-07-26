@@ -1,12 +1,15 @@
+import type { Action } from 'types/action';
+import type { ItemA5e } from '../../documents/item/item';
+
 import { localize } from '#runtime/svelte/helper';
 
-export default function getActivationCostLabel(item, action) {
-  if (foundry.utils.isEmpty(action)) return null;
+export default function getActivationCostLabel(item: ItemA5e, action: Action) {
+  if (foundry.utils.isEmpty(action)) return '';
 
   const { activation } = action;
   let activationLabel = '';
 
-  if (foundry.utils.isEmpty(activation) || !activation.type) return null;
+  if (foundry.utils.isEmpty(activation) || !activation.type) return 'null';
 
   if (activation.type === 'reaction') {
     if (activation.reactionTrigger) {
@@ -22,7 +25,7 @@ export default function getActivationCostLabel(item, action) {
     activationLabel = `${activation.cost ?? 1} ${CONFIG.A5E.abilityActivationTypes[activation.type]}`;
   }
 
-  if (item?.system?.ritual) activationLabel += ' (Ritual)';
+  if (item.isType('spell') && item.system.ritual) activationLabel += ' (Ritual)';
 
   return activationLabel;
 }

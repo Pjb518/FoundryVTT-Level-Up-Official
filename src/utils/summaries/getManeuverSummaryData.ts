@@ -1,7 +1,13 @@
+import type { ItemA5e } from '../../documents/item/item';
+
 import { localize } from '#runtime/svelte/helper';
 
-export default function getManeuverSummaryData(item, options) {
-  const maneuverDegree = CONFIG.A5E.maneuverDegrees[parseInt(item.system.degree, 10)];
+export default function getManeuverSummaryData(item: ItemA5e, options: Record<string, any>) {
+  if (!item.isType('maneuver')) {
+    return { maneuverProperties: '' };
+  }
+
+  const maneuverDegree = CONFIG.A5E.maneuverDegrees[item.system.degree];
   const tradition = CONFIG.A5E.maneuverTraditions[item.system.tradition] ?? '';
   const stance = item.system.isStance ? 'Stance' : '';
 
