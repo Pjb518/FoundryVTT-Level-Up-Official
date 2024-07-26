@@ -1,7 +1,7 @@
 {
 	"name": "Consumptive Spell",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/death/mouth-bite-fangs-vampire.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,34 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"XlxeKbLrqrBbK9a7": {
+				"name": "Consumptive Spell",
+				"activation": {},
+				"consumers": {
+					"RtLcAfIwPKbMEYQi": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 4
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<h4>When you cast a spell that deals damage, you can spend 4 sorcery points. You, or a creature within 10 feet of you, regain hit points equal to half the damage roll for the spell. If you roll damage multiple times for a spell, you only restore hit points from the first roll.</h4>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +71,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "afjwzw273s4br3fi",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721920994131,
+		"modifiedTime": 1721921201670,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "afjwzw273s4br3fi"
 }

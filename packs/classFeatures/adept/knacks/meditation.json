@@ -1,0 +1,197 @@
+{
+	"folder": null,
+	"name": "Meditation",
+	"type": "feature",
+	"img": "icons/magic/control/silhouette-aura-energy.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"1CyKh4LpVkW4zdMI": {
+				"name": "1 Minute",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"sffb8XwBEcnbe9en": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kHidXPsotTBzBF7C"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"VywWhhYaZI1XZ6m2": {
+				"name": "10 Minutes",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"sffb8XwBEcnbe9en": {
+						"type": "effect",
+						"default": true,
+						"effectId": "7PBU71Ewu8aExdNY"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>If you remain stationary for 1 minute while out of combat, you can enter a meditative state that grants advantage on perception checks made to perceive with senses other than sight. Additionally, If you remain in this state for an additional 10 minutes, you can reduce your strife by up to one level for 4 hours. Moving from your space or entering combat ends the state.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "ventureForth",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "adept"
+	},
+	"effects": [
+		{
+			"origin": "Item.qxLhWjov48vVByon",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1CyKh4LpVkW4zdMI",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Meditative State",
+			"_id": "kHidXPsotTBzBF7C",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 0,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.16"
+			},
+			"img": "icons/magic/control/silhouette-aura-energy.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.qxLhWjov48vVByon",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "VywWhhYaZI1XZ6m2",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Deeper Meditative State",
+			"_id": "7PBU71Ewu8aExdNY",
+			"changes": [
+				{
+					"key": "system.attributes.strife",
+					"value": "1",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 14400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"coreVersion": "12",
+				"systemId": "a5e",
+				"systemVersion": "0.19.16"
+			},
+			"img": "icons/magic/control/silhouette-aura-energy.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12",
+		"systemId": "a5e",
+		"systemVersion": "0.19.16"
+	},
+	"_id": "sebAwqBAj0aQjDwd"
+}

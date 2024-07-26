@@ -1,7 +1,7 @@
 {
 	"name": "Contingent Spell",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/sundries/misc/lock-steel-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,60 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"LaF59Fj8DWwU3x0Y": {
+				"name": "Contingent Spell",
+				"activation": {
+					"type": "",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"MfPbgYhUMcmVwCOC": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 6
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"44w0cTV1j07iIlZs": {
+				"name": "Cast Spell",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "External condition"
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<h4>When you cast a spell, rather than have it go off immediately, you can spend 6 sorcery points and describe an external condition. When that condition occurs before you finish a long rest, you can use your reaction to cast the spell. You can only have one Contingent Spell at a time.</h4>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +97,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "p4pkdgwq7cez2qfl",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721921209570,
+		"modifiedTime": 1721921359861,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "p4pkdgwq7cez2qfl"
 }

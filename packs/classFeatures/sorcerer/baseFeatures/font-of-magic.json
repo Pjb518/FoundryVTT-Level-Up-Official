@@ -1,7 +1,7 @@
 {
 	"name": "Font of Magic",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/water/tendrils-ice-growth.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -21,11 +21,6 @@
 					"cost": 1
 				},
 				"consumers": {
-					"pM7WwM13C9f4Y9mk": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": -2
-					},
 					"sSex7fM1g2PM2Oi1": {
 						"type": "spell",
 						"default": true,
@@ -33,6 +28,13 @@
 						"charges": 1,
 						"spellLevel": 1,
 						"points": 1
+					},
+					"2C8U2ONhFv9McKor": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": -2
 					}
 				},
 				"rolls": {},
@@ -56,11 +58,6 @@
 					"cost": 1
 				},
 				"consumers": {
-					"pM7WwM13C9f4Y9mk": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": -3
-					},
 					"QuI7CFtvEEswkb7i": {
 						"type": "spell",
 						"default": true,
@@ -68,6 +65,13 @@
 						"charges": 1,
 						"spellLevel": 2,
 						"points": 1
+					},
+					"I65U34ktl90Y650J": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": -3
 					}
 				},
 				"rolls": {},
@@ -91,11 +95,6 @@
 					"cost": 1
 				},
 				"consumers": {
-					"pM7WwM13C9f4Y9mk": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": -5
-					},
 					"wKWbo9sQip4rq7B2": {
 						"type": "spell",
 						"default": true,
@@ -103,6 +102,13 @@
 						"charges": 1,
 						"spellLevel": 3,
 						"points": 1
+					},
+					"sHeV7fabLE1HkNTe": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": -5
 					}
 				},
 				"rolls": {},
@@ -126,11 +132,6 @@
 					"cost": 1
 				},
 				"consumers": {
-					"pM7WwM13C9f4Y9mk": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": -6
-					},
 					"wKWbo9sQip4rq7B2": {
 						"type": "spell",
 						"default": true,
@@ -138,6 +139,13 @@
 						"charges": 1,
 						"spellLevel": 4,
 						"points": 1
+					},
+					"34CrvH2NeFPAPcQj": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": -6
 					}
 				},
 				"rolls": {},
@@ -161,11 +169,6 @@
 					"cost": 1
 				},
 				"consumers": {
-					"pM7WwM13C9f4Y9mk": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": -7
-					},
 					"wKWbo9sQip4rq7B2": {
 						"type": "spell",
 						"default": true,
@@ -173,6 +176,13 @@
 						"charges": 1,
 						"spellLevel": 5,
 						"points": 1
+					},
+					"jd1xM1fYHTbOY02e": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": -7
 					}
 				},
 				"rolls": {},
@@ -190,12 +200,20 @@
 				}
 			},
 			"Eaj7aJt84NPZo4DR": {
-				"name": "Conversion (Expend Spell Points)",
+				"name": "Conversion (Expend Sorcery Point)",
 				"activation": {
 					"type": "bonusAction",
 					"cost": 1
 				},
-				"consumers": {},
+				"consumers": {
+					"ZBbPG3qRg0KUi4lY": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
 				"rolls": {},
 				"prompts": {},
 				"uses": {
@@ -217,8 +235,8 @@
 		"source": "adventurersGuide",
 		"uses": {
 			"value": 0,
-			"max": "@classes.sorcerer.level",
-			"per": "longRest",
+			"max": "",
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -239,15 +257,19 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "8lf349fflv8456yj",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721854666513,
+		"modifiedTime": 1721855092873,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "8lf349fflv8456yj"
 }
