@@ -5,6 +5,9 @@ import * as ConsumerData from './ActionConsumersDataModel';
 import * as PromptData from './ActionPromptsDataModel';
 import * as RollData from './ActionRollsDataModel';
 
+// ======================================================
+//                       Areas
+// ======================================================
 const areaShapesMap = {
   circle: AreaData.CircleAreaData,
   cone: AreaData.ConeAreaData,
@@ -17,9 +20,6 @@ const areaShapesMap = {
   wall: AreaData.WallAreaData
 } as const;
 
-// ======================================================
-//                       Areas
-// ======================================================
 declare namespace ActionAreaField {
   export type AreaShapesMap = typeof areaShapesMap;
 
@@ -59,6 +59,7 @@ class ActionAreaField<
     const Cls = this.getModelForType(value?.type);
     // @ts-expect-error
     if (Cls) return new Cls(value, { parent: model, ...options });
+    // @ts-expect-error
     return foundry.utils.deepClone(value);
   }
 }
@@ -66,35 +67,39 @@ class ActionAreaField<
 // ======================================================
 //                      Consumers
 // ======================================================
+const consumerShapesMap = {
+  actionUses: ConsumerData.ActionUsesConsumerData,
+  ammunition: ConsumerData.AmmunitionConsumerData,
+  hitDice: ConsumerData.HitDiceConsumerData,
+  itemUses: ConsumerData.ItemUsesConsumerData,
+  quantity: ConsumerData.QuantityConsumerData,
+  resource: ConsumerData.ResourceConsumerData,
+  spell: ConsumerData.SpellConsumerData
+} as const;
+
 declare namespace ActionConsumerField {
-  type ConsumerTypes = 'actionUses' | 'ammunition' | 'hitDice' | 'itemUses' | 'quantity' | 'resource' | 'spell';
+  export type ConsumerShapesMap = typeof consumerShapesMap;
+
+  export type ConsumerTypes = keyof ConsumerShapesMap;
 }
 
 class ActionConsumerField<
   const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
-  const AssignmentType = foundry.data.fields.ObjectField.AssignmentType<Options>,
-  const InitializedType = foundry.data.fields.ObjectField.InitializedType<Options>,
-  const PersistedType extends object | null | undefined = foundry.data.fields
-  .ObjectField.InitializedType<Options>
+  const ConsumerType extends ActionConsumerField.ConsumerTypes = ActionConsumerField.ConsumerTypes,
+  const AssignmentType = { type: ConsumerType },
+  const InitializedType = ActionConsumerField.ConsumerShapesMap[ConsumerType],
+  const PersistedType extends object | null | undefined = ActionConsumerField
+  .ConsumerShapesMap[ConsumerType]
 
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
   getModelForType(type: ActionConsumerField.ConsumerTypes) {
-    if (type === 'actionUses') return ConsumerData.ActionUsesConsumerData;
-    if (type === 'ammunition') return ConsumerData.AmmunitionConsumerData;
-    if (type === 'hitDice') return ConsumerData.HitDiceConsumerData;
-    if (type === 'itemUses') return ConsumerData.ItemUsesConsumerData;
-    if (type === 'quantity') return ConsumerData.QuantityConsumerData;
-    if (type === 'resource') return ConsumerData.ResourceConsumerData;
-    if (type === 'spell') return ConsumerData.SpellConsumerData;
-
-    return null;
+    return consumerShapesMap[type];
   }
 
-  // @ts-expect-error
   override _cleanType(
     value: InitializedType,
     options?: foundry.data.fields.DataField.CleanOptions
-  ) {
+  ): InitializedType {
     if (!(typeof value === 'object')) value = {} as InitializedType;
 
     // @ts-expect-error
@@ -104,16 +109,16 @@ class ActionConsumerField<
     return value;
   }
 
-  // @ts-expect-error
   override initialize(
     value: PersistedType,
     model: foundry.abstract.DataModel<DataSchema, any>,
     options = {}
-  ) {
+  ): InitializedType {
     // @ts-expect-error
     const Cls = this.getModelForType(value?.type);
     // @ts-expect-error
     if (Cls) return new Cls(value, { parent: model, ...options });
+    // @ts-expect-error
     return foundry.utils.deepClone(value);
   }
 }
@@ -121,32 +126,36 @@ class ActionConsumerField<
 // ======================================================
 //                      Prompts
 // ======================================================
+const promptTypesMap = {
+  abilityCheck: PromptData.AbilityCheckPromptData,
+  generic: PromptData.GenericPromptData,
+  savingThrow: PromptData.SavingThrowPromptData,
+  skillCheck: PromptData.SkillCheckPromptData
+} as const;
+
 declare namespace ActionPromptField {
-  type PromptTypes = 'abilityCheck' | 'generic' | 'savingThrow' | 'skillCheck';
+  export type PromptTypesMap = typeof promptTypesMap;
+
+  export type PromptTypes = keyof PromptTypesMap;
 }
 
 class ActionPromptField<
   const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
-  const AssignmentType = foundry.data.fields.ObjectField.AssignmentType<Options>,
-  const InitializedType = foundry.data.fields.ObjectField.InitializedType<Options>,
-  const PersistedType extends object | null | undefined = foundry.data.fields
-  .ObjectField.InitializedType<Options>
+  const PromptType extends ActionPromptField.PromptTypes = ActionPromptField.PromptTypes,
+  const AssignmentType = { type: PromptType },
+  const InitializedType = ActionPromptField.PromptTypesMap[PromptType],
+  const PersistedType extends object | null | undefined = ActionPromptField
+  .PromptTypesMap[PromptType]
 
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
   getModelForType(type: ActionPromptField.PromptTypes) {
-    if (type === 'abilityCheck') return PromptData.AbilityCheckPromptData;
-    if (type === 'generic') return PromptData.GenericPromptData;
-    if (type === 'savingThrow') return PromptData.SavingThrowPromptData;
-    if (type === 'skillCheck') return PromptData.SkillCheckPromptData;
-
-    return null;
+    return promptTypesMap[type];
   }
 
-  // @ts-expect-error
   override _cleanType(
     value: InitializedType,
     options?: foundry.data.fields.DataField.CleanOptions
-  ) {
+  ): InitializedType {
     if (!(typeof value === 'object')) value = {} as InitializedType;
 
     // @ts-expect-error
@@ -156,16 +165,16 @@ class ActionPromptField<
     return value;
   }
 
-  // @ts-expect-error
   override initialize(
     value: PersistedType,
     model: foundry.abstract.DataModel<DataSchema, any>,
     options = {}
-  ) {
+  ): InitializedType {
     // @ts-expect-error
     const Cls = this.getModelForType(value?.type);
     // @ts-expect-error
     if (Cls) return new Cls(value, { parent: model, ...options });
+    // @ts-expect-error
     return foundry.utils.deepClone(value);
   }
 }
@@ -173,36 +182,38 @@ class ActionPromptField<
 // ======================================================
 //                       Rolls
 // ======================================================
+const rollTypesMap = {
+  abilityCheck: RollData.AbilityCheckRollData,
+  attack: RollData.AttackRollData,
+  damage: RollData.DamageRollData,
+  generic: RollData.GenericRollData,
+  healing: RollData.HealingRollData,
+  savingThrow: RollData.SavingThrowRollData,
+  skillCheck: RollData.SkillCheckRollData,
+  toolCheck: RollData.ToolCheckRollData
+} as const;
+
 declare namespace ActionRollField {
-  type RollTypes = 'abilityCheck' | 'attack' | 'damage' | 'generic' | 'healing' | 'savingThrow' | 'skillCheck' | 'toolCheck';
+  export type RollTypesMap = typeof rollTypesMap;
+
+  export type RollTypes = keyof RollTypesMap;
 }
 
 class ActionRollField<
   const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
-  const AssignmentType = foundry.data.fields.ObjectField.AssignmentType<Options>,
-  const InitializedType = foundry.data.fields.ObjectField.InitializedType<Options>,
-  const PersistedType extends object | null | undefined = foundry.data.fields
-  .ObjectField.InitializedType<Options>
-
+  const RollType extends ActionRollField.RollTypes = ActionRollField.RollTypes,
+  const AssignmentType = { type: RollType },
+  const InitializedType = ActionRollField.RollTypesMap[RollType],
+  const PersistedType extends object | null | undefined = ActionRollField.RollTypesMap[RollType]
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
   getModelForType(type: ActionRollField.RollTypes) {
-    if (type === 'abilityCheck') return RollData.AbilityCheckRollData;
-    if (type === 'attack') return RollData.AttackRollData;
-    if (type === 'damage') return RollData.DamageRollData;
-    if (type === 'generic') return RollData.GenericRollData;
-    if (type === 'healing') return RollData.HealingRollData;
-    if (type === 'savingThrow') return RollData.SavingThrowRollData;
-    if (type === 'skillCheck') return RollData.SkillCheckRollData;
-    if (type === 'toolCheck') return RollData.ToolCheckRollData;
-
-    return null;
+    return rollTypesMap[type];
   }
 
-  // @ts-expect-error
   override _cleanType(
     value: InitializedType,
     options?: foundry.data.fields.DataField.CleanOptions
-  ) {
+  ): InitializedType {
     if (!(typeof value === 'object')) value = {} as InitializedType;
 
     // @ts-expect-error
@@ -212,16 +223,16 @@ class ActionRollField<
     return value;
   }
 
-  // @ts-expect-error
   override initialize(
     value: PersistedType,
     model: foundry.abstract.DataModel<DataSchema, any>,
     options = {}
-  ) {
+  ): InitializedType {
     // @ts-expect-error
     const Cls = this.getModelForType(value?.type);
     // @ts-expect-error
     if (Cls) return new Cls(value, { parent: model, ...options });
+    // @ts-expect-error
     return foundry.utils.deepClone(value);
   }
 }
