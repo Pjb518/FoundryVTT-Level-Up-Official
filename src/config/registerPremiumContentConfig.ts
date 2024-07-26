@@ -55,14 +55,14 @@ export default function registerPremiumContentConfig() {
     plantWitchPress: {
       name: 'Plant Witch Press',
       releases: [
-	{
-           title: 'Toil and Trouble',
-           url: 'https://bit.ly/3HE10VQ'
-	},
-	{
-           title: 'Hearth & Home',
-           url: 'https://legacy.drivethrurpg.com/product/488835/Hearth--Home-Cozy-Cottage-Origins?affiliate_id=1388381'
-	}
+        {
+          title: 'Toil and Trouble',
+          url: 'https://bit.ly/3HE10VQ'
+        },
+        {
+          title: 'Hearth & Home',
+          url: 'https://legacy.drivethrurpg.com/product/488835/Hearth--Home-Cozy-Cottage-Origins?affiliate_id=1388381'
+        }
       ]
     },
     purpleMartinGames: {
@@ -467,7 +467,7 @@ export default function registerPremiumContentConfig() {
       systems: ['a5e'],
       title: "Hakan's Pamphlet to Arcane Weaponry",
       url: 'https://ravine.itch.io/a5e-spells01-arcaneweapon'
-    }
+    },
     hearthAndHome: {
       abbreviation: 'HaH',
       affiliate: true,
