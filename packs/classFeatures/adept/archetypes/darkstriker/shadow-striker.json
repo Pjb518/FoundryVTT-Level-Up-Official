@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Shadow Striker (Darkstriker)",
+	"name": "Shadow Striker",
 	"type": "feature",
 	"img": "icons/magic/light/hand-sparks-smoke-teal.webp",
 	"system": {
@@ -18,9 +18,16 @@
 			"oVyo3ZkIGsxoPX9b": {
 				"name": "Unarmed Shadow Damage",
 				"activation": {
-					"type": "special"
+					"type": "",
+					"cost": 1
 				},
-				"consumers": {},
+				"consumers": {
+					"9UcLBhNWWBKJJomc": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {
 					"icZ9gnyYJMVmOwbk": {
 						"type": "damage",
@@ -53,9 +60,9 @@
 				},
 				"prompts": {},
 				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "round",
+					"value": 0,
+					"max": "",
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"rechargeType": "custom",
@@ -70,9 +77,9 @@
 		"secretDescription": "",
 		"source": "thematicToolkitBurningGloom",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "round",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -93,14 +100,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "adept",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "0ak46x7j04bd1ymv",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722029582442,
+		"modifiedTime": 1722029661450,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "0ak46x7j04bd1ymv"
 }
