@@ -26,6 +26,12 @@ class ActionsManager extends Map<string, Action> {
     return this.size;
   }
 
+  get first(): Action | null {
+    const action = this.values().next();
+    if (!action) return null;
+    return action.value;
+  }
+
   get activationTypes(): Set<string> {
     return [...this.values()].reduce((acc, action) => {
       if (action.activation.type) acc.add(action.activation.type);

@@ -1,8 +1,9 @@
 /* eslint-disable max-classes-per-file */
-import { RecordField } from '../../fields/RecordField';
+import type { A5EObjectData } from '../ObjectDataModel';
 import {
   ActionAreaField, ActionConsumerField, ActionPromptField, ActionRollField
 } from './ActionFields';
+import { RecordField } from '../../fields/RecordField';
 
 const { fields } = foundry.data;
 
@@ -83,7 +84,7 @@ declare namespace A5EActionData {
 }
 
 class A5EActionData extends foundry.abstract.DataModel<
-  A5EActionData.Schema, Item.ConfiguredInstance
+  A5EActionData.Schema, A5EObjectData
 > {
   static override defineSchema(): A5EActionData.Schema {
     return {
@@ -91,11 +92,24 @@ class A5EActionData extends foundry.abstract.DataModel<
     };
   }
 
+  protected override _initialize(options?: any): void {
+    super._initialize(options);
+
+    this.prepareBaseData();
+    this.prepareDerivedData();
+  }
+
   /** -------------Helpers---------------- */
   rollsByType(type: ActionRollField.RollTypes) {
     const rolls = Object.entries(this.rolls ?? {});
     return rolls.filter(([, roll]) => roll.type === type);
   }
+
+  prepareBaseData() {
+    this.img ||= this.parent.parent.img || '';
+  }
+
+  prepareDerivedData() { }
 }
 
 // ======================================================

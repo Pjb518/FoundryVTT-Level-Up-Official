@@ -22,7 +22,7 @@ export default function getSummaryData(
   if (!foundry.utils.isEmpty(action) || item.actions?.count === 1) {
     mergeObject(
       summaryData,
-      getBaseActionSummaryData(item, action ?? item.actions.values()[0])
+      getBaseActionSummaryData(item, action ?? item.actions.first!)
     );
   }
 
