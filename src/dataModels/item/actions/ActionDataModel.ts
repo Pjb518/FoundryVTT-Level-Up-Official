@@ -8,7 +8,7 @@ const { fields } = foundry.data;
 
 const actionSchema = () => ({
   name: new fields.StringField({ required: true, nullable: false, initial: 'New Action' }),
-  // default: new fields.BooleanField({ required: false, nullable: false }),
+  default: new fields.BooleanField({ required: false, nullable: false }),
   description: new fields.StringField({ required: true, nullable: false, initial: '' }),
   descriptionOutputs: new fields.ArrayField(
     new fields.StringField({ required: true, nullable: false, choices: ['action', 'item'] }),
@@ -106,7 +106,7 @@ class ActionField<
     value: InitializedType,
     options?: foundry.data.fields.DataField.CleanOptions
   ): InitializedType {
-    // @ts-expect-error
+    // eslint-disable-next-line no-param-reassign
     if (!(typeof value === 'object')) value = {} as InitializedType;
 
     // @ts-expect-error
