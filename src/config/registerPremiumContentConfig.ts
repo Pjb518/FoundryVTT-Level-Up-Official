@@ -61,7 +61,7 @@ export default function registerPremiumContentConfig() {
         },
         {
           title: 'Hearth & Home',
-          url: 'https://legacy.drivethrurpg.com/product/488835/Hearth--Home-Cozy-Cottage-Origins?affiliate_id=1388381'
+          url: 'https://www.drivethrurpg.com/en/product/488835/Hearth--Home-Cozy-Cottage-Origins?affiliate_id=1388381'
         }
       ]
     },
@@ -474,7 +474,7 @@ export default function registerPremiumContentConfig() {
       publisher: 'plantWitchPress',
       systems: ['a5e'],
       title: 'Hearth & Home',
-      url: 'https://legacy.drivethrurpg.com/product/488835/Hearth--Home-Cozy-Cottage-Origins?affiliate_id=1388381'
+      url: 'https://www.drivethrurpg.com/en/product/488835/Hearth--Home-Cozy-Cottage-Origins?affiliate_id=1388381'
     },
     heroesOldAndNew: {
       abbreviation: 'HOaN',
