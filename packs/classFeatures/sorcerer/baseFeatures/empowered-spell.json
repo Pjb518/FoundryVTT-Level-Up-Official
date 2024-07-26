@@ -1,7 +1,7 @@
 {
 	"name": "Empowered Spell",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/movement/arrows-up-trio-red.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,34 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"THmGAsm9km4UZM1K": {
+				"name": "Empowered Spell",
+				"activation": {},
+				"consumers": {
+					"9t26RxMpzQkE3Jcj": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>When you roll damage for a spell, you can spend 1 sorcery point to reroll a number of the damage dice up to your Charisma modifier (minimum of one). You must use the new rolls. You can use Empowered Spell even if you have already used a different Metamagic option during the casting of the spell.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +71,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "z6we2dji9zm24a3c",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721856252876,
+		"modifiedTime": 1721856282676,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "z6we2dji9zm24a3c"
 }

@@ -1,7 +1,7 @@
 {
 	"name": "Deep Font",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/water/wave-water-explosion.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,15 +15,85 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"OJFhIgr9JSBbJG1Y": {
+				"name": "1st Hit Die",
+				"activation": {},
+				"consumers": {
+					"SBMhZVFSVzAqAHzu": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"WkCdgYymbwzMgvgE": {
+						"type": "hitDice",
+						"default": true,
+						"quantity": 1,
+						"defaultDie": ""
+					},
+					"8pIrfdSBCFphEuw7": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": -2
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"bRAPC0f2EbrSuJ5R": {
+				"name": "Additional Hit Dice",
+				"activation": {},
+				"consumers": {
+					"WkCdgYymbwzMgvgE": {
+						"type": "hitDice",
+						"default": true,
+						"quantity": 1,
+						"defaultDie": ""
+					},
+					"8pIrfdSBCFphEuw7": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": -2
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>You can reach beyond your limits to draw more power from within. When you finish a short rest, you may expend a number of hit dice up to your Charisma modifier to regain some of your magic essence. For each hit die expended in this way, you regain 2 sorcery points. Once you have used this feature, you cannot do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -44,13 +114,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "ksqelz0npkhv9mzp",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721856734213,
+		"modifiedTime": 1721856853692,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ksqelz0npkhv9mzp"
 }

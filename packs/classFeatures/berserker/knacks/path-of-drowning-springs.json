@@ -1,5 +1,5 @@
 {
-	"name": "Talent: Path of Drowning Springs",
+	"name": "Path of Drowning Springs",
 	"type": "feature",
 	"img": "icons/magic/water/wave-water-rolling-blue.webp",
 	"effects": [],
@@ -15,7 +15,37 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"wFoI4Z4STHkbwQ5A": {
+				"name": "Path of Drowning Springs",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"zLZv4feidtc6nchr": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.rage",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p><em>Prerequisite: 5th level</em></p><p>The rains have taught you the ways of the overflowing rivers. You gain a swim speed equal to your Speed and can hold your breath for a number of minutes equal to 1 + twice your Constitution modifier.</p><p>In addition, while swimming you can use a bonus action and spend one use of Rage to move your swim speed in a straight line.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -31,10 +61,25 @@
 		},
 		"concentration": false,
 		"featureType": "knack",
-		"classes": "berserker",
-		"grants": {},
+		"grants": {
+			"Fe1TbrbDEM8Z8Qh2": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "Fe1TbrbDEM8Z8Qh2",
+				"label": "Path of Drowning Springs",
+				"bonus": "@attributes.movement.walk.distance",
+				"movementTypes": {
+					"base": [
+						"swim"
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
+		"classes": "berserker",
 		"schemaVersion": {
 			"version": 0.018,
 			"lastMigration": {
@@ -44,13 +89,17 @@
 					"system": "0.17.41"
 				}
 			}
-		}
+		},
+		"class": ""
 	},
 	"folder": null,
-	"_id": "lgdrllx550ovxes1",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721846999820,
+		"modifiedTime": 1721847079442,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "lgdrllx550ovxes1"
 }

@@ -1,7 +1,9 @@
 {
-	"name": "Infusion Recharge",
+	"name": "Expert Foraging",
 	"type": "feature",
-	"img": "icons/magic/time/arrows-circling-green.webp",
+	"img": "icons/environment/wilderness/terrain-forest-gray.webp",
+	"effects": [],
+	"flags": {},
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -14,29 +16,20 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"MQi4gvvacDNz933O": {
-				"name": "Infusion Recharge",
+			"BMZJIJKdmPLPMbfH": {
+				"name": "Expert Foraging",
 				"activation": {
-					"type": "bonusAction",
+					"type": "minute",
 					"cost": 1
 				},
 				"consumers": {
-					"7nubZdTUMp3146We": {
-						"type": "resource",
+					"GL0zGc1HrA4t7qx7": {
+						"type": "itemUses",
 						"default": true,
-						"classIdentifier": "@classresources.infusions",
-						"resource": "classResource",
 						"quantity": 1
 					}
 				},
-				"rolls": {
-					"x8PKFSKcAv9nnkwq": {
-						"type": "generic",
-						"default": true,
-						"label": "Restore Charges",
-						"formula": "1d6"
-					}
-				},
+				"rolls": {},
 				"prompts": {},
 				"uses": {
 					"value": 0,
@@ -51,47 +44,45 @@
 				}
 			}
 		},
-		"description": "<p>At 18th level you&rsquo;ve learned what makes magic items tick and how to charge them up on your own. While you are attuned to a magic item that uses charges, you can use a bonus action to expend one infusion use and restore up to 1d6 of that item&rsquo;s spent charges.</p>",
+		"description": "<p>Once between long rests, you can take 1 minute to collect a number of edible, non-poisonous plants and grubs equal to your proficiency bonus. A creature can use its action to eat up to 5 plants or grubs, each of which restores 1 hit point. The grubs die and spoil 1 hour after being collected.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "gpg0",
+		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
 			}
 		},
 		"concentration": false,
-		"featureType": "class",
+		"featureType": "knack",
 		"grants": {},
 		"prerequisite": "",
 		"requiresBloodied": false,
+		"classes": "ranger",
 		"schemaVersion": {
-			"version": 0.019,
+			"version": 0.018,
 			"lastMigration": {
 				"version": {
-					"schema": 0.018,
+					"schema": 0.016,
 					"foundry": "11.315",
-					"system": "0.18.11"
+					"system": "0.17.41"
 				}
 			}
 		},
-		"classes": "",
 		"class": ""
 	},
-	"effects": [],
-	"flags": {},
 	"folder": null,
 	"_stats": {
 		"coreVersion": "12.329",
 		"systemId": "a5e",
 		"systemVersion": "0.19.18",
-		"createdTime": 1721930833807,
-		"modifiedTime": 1721930925464,
+		"createdTime": 1721933779328,
+		"modifiedTime": 1721933838989,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "dwgw8mwutwau2fm6"
+	"_id": "h1gzucj3ubh8vu12"
 }

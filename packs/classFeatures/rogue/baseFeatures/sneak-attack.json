@@ -15,43 +15,7 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {
-			"XJUdagk6NDxqfbmK": {
-				"name": "Sneak Attack",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"rolls": {
-					"HPjbMupzlmTCoXyc": {
-						"canCrit": false,
-						"damageType": "",
-						"formula": "(round(@classes.rogue.level/2))d6",
-						"name": "Sneak Attack",
-						"type": "damage"
-					}
-				},
-				"consumers": {
-					"yBw08lUYD6XXkOnG": {
-						"type": "itemUses"
-					}
-				}
-			}
-		},
+		"actions": {},
 		"description": "<p>Beginning at 1st level, you fight with precision, taking advantage of momentary lapses in an opponent&rsquo;s concentration. Once per turn, you can deal extra weapon damage when you hit a creature with a finesse weapon or ranged weapon attack. The amount of extra damage is shown in the Sneak Attack column of the Rogue table.</p><p>In order to apply this damage, you must not have disadvantage on the attack and your target must be within 5 feet of another enemy of the target who is not incapacitated. Alternatively, you can apply sneak attack damage if you have advantage on the attack.</p><p><strong>TABLE: ROGUE</strong></p><table style=\"width: 33.0097%;\" border=\"1\"><colgroup><col style=\"width: 42.016%;\"><col style=\"width: 57.9939%;\"></colgroup><thead><tr style=\"text-align: center;\"><td style=\"text-align: center;\">LEVEL</td><td style=\"text-align: center;\"><p>SNEAK</p><p>ATTACK</p></td></tr></thead><tbody><tr><td style=\"text-align: center;\">1</td><td style=\"text-align: center;\">1d6</td></tr><tr><td style=\"text-align: center;\">2</td><td style=\"text-align: center;\">1d6</td></tr><tr><td style=\"text-align: center;\">3</td><td style=\"text-align: center;\">2d6</td></tr><tr><td style=\"text-align: center;\">4</td><td style=\"text-align: center;\">2d6</td></tr><tr><td style=\"text-align: center;\">5</td><td style=\"text-align: center;\">3d6</td></tr><tr><td style=\"text-align: center;\">6</td><td style=\"text-align: center;\">3d6</td></tr><tr><td style=\"text-align: center;\">7</td><td style=\"text-align: center;\">4d6</td></tr><tr><td style=\"text-align: center;\">8</td><td style=\"text-align: center;\">4d6</td></tr><tr><td style=\"text-align: center;\">9</td><td style=\"text-align: center;\">5d6</td></tr><tr><td style=\"text-align: center;\">10</td><td style=\"text-align: center;\">5d6</td></tr><tr><td style=\"text-align: center;\">11</td><td style=\"text-align: center;\">6d6</td></tr><tr><td style=\"text-align: center;\">12</td><td style=\"text-align: center;\">6d6</td></tr><tr><td style=\"text-align: center;\">13</td><td style=\"text-align: center;\">7d6</td></tr><tr><td style=\"text-align: center;\">14</td><td style=\"text-align: center;\">7d6</td></tr><tr><td style=\"text-align: center;\">15</td><td style=\"text-align: center;\">8d6</td></tr><tr><td style=\"text-align: center;\">16</td><td style=\"text-align: center;\">8d6</td></tr><tr><td style=\"text-align: center;\">17</td><td style=\"text-align: center;\">9d6</td></tr><tr><td style=\"text-align: center;\">18</td><td style=\"text-align: center;\">9d6</td></tr><tr><td style=\"text-align: center;\">19</td><td style=\"text-align: center;\">10d6</td></tr><tr><td style=\"text-align: center;\">20</td><td style=\"text-align: center;\">10d6</td></tr></tbody></table>",
 		"favorite": false,
 		"secretDescription": "",
@@ -67,7 +31,24 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"ZVmElXAl1huTcynb": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "ZVmElXAl1huTcynb",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"rangedWeaponAttack"
+					],
+					"default": false
+				},
+				"bonus": "@classresources.sneak-attack",
+				"label": "Sneak Attack"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -80,13 +61,17 @@
 				}
 			}
 		},
-		"classes": "rogue"
+		"classes": "rogue",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "4727pnvz5nwn3h23",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721853982503,
+		"modifiedTime": 1721854052458,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "4727pnvz5nwn3h23"
 }

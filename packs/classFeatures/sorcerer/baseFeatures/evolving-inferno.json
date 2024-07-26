@@ -1,7 +1,7 @@
 {
 	"name": "Evolving Inferno",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/fire/explosion-fireball-medium-orange.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -27,32 +27,78 @@
 					"unit": "minute",
 					"value": 1
 				},
-				"ranges": {
-					"jjtJIyhyuEqqcl4X": {
-						"range": "short"
-					}
-				},
+				"ranges": {},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": ""
 				},
+				"rolls": {},
+				"consumers": {
+					"EWsLdUBB9bFnrdH5": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				}
+			},
+			"C87OWJ7B8PMVDCnm": {
+				"name": "Throw",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
 				"rolls": {
-					"wEWUekgsLgz9ZI5J": {
-						"bonus": "",
-						"critThreshold": "20",
+					"PXQZTQmbbqHOsaGh": {
 						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
 						"ability": "spellcasting"
+					},
+					"NvbNHaEIFYDDh6uj": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d8"
+						},
+						"damageType": "fire"
 					}
 				},
-				"consumers": {}
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"LdpkH0fkGujrlVWh": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
 			}
 		},
-		"description": "<p>When you cast a spell of 1st-level or higher that deals fire damage, you can spend 1 sorcery point to store some of the energy of the spell as a flame you hold in one hand. You can use an action to throw this flame, making a ranged spell attack against a target you can see within 30 feet. On a hit, the creature takes [[/r 1d8 #fire]] fire damage per level of the spell cast to trigger this effect. The flame lasts for up to 1 minute or until it is&nbsp;thrown.</p>",
+		"description": "<p>When you cast a spell of 1st-level or higher that deals fire damage, you can spend 1 sorcery point to store some of the energy of the spell as a flame you hold in one hand. You can use an action to throw this flame, making a ranged spell attack against a target you can see within 30 feet. On a hit, the creature takes 1d8 fire damage per level of the spell cast to trigger this effect. The flame lasts for up to 1 minute or until it is thrown.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -80,13 +126,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "yvzk1tzuwtnioiiw",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721857529653,
+		"modifiedTime": 1721857653079,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "yvzk1tzuwtnioiiw"
 }

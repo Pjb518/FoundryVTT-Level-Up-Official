@@ -1,7 +1,7 @@
 {
 	"name": "Quickened Spell",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/movement/ball-spinning-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,34 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"gflBkdm9Lu5bKnI5": {
+				"name": "Quickened Spell",
+				"activation": {},
+				"consumers": {
+					"bYRap7Fosk3i8MwF": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>When you cast a spell that has a casting time of 1 action, you can spend 2 sorcery points to change the casting time to 1 bonus action for this casting.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +71,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "i2wi0y4fvrqjl6yj",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721856364705,
+		"modifiedTime": 1721856402845,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "i2wi0y4fvrqjl6yj"
 }
