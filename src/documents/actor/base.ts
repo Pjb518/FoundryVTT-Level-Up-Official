@@ -102,15 +102,15 @@ class BaseActorA5e extends Actor {
   dialogs: ActorDialogs;
 
   // Managers
-  BonusesManager!: BonusesManager;
+  declare BonusesManager: BonusesManager;
 
-  HitDiceManager!: HitDiceManager;
+  declare HitDiceManager: HitDiceManager;
 
-  grants!: ActorGrantsManager;
+  declare grants: ActorGrantsManager;
 
-  spellBooks!: SpellBookManager;
+  declare spellBooks: SpellBookManager;
 
-  RollOverrideManager!: RollOverrideManager;
+  declare RollOverrideManager: RollOverrideManager;
 
   // Custom
   effectPhases: { beforeDerived: any[], afterDerived: any[] };
