@@ -102,15 +102,15 @@ class BaseActorA5e extends Actor {
   dialogs: ActorDialogs;
 
   // Managers
-  BonusesManager!: BonusesManager;
+  declare BonusesManager: BonusesManager;
 
-  HitDiceManager!: HitDiceManager;
+  declare HitDiceManager: HitDiceManager;
 
-  grants!: ActorGrantsManager;
+  declare grants: ActorGrantsManager;
 
-  spellBooks!: SpellBookManager;
+  declare spellBooks: SpellBookManager;
 
-  RollOverrideManager!: RollOverrideManager;
+  declare RollOverrideManager: RollOverrideManager;
 
   // Custom
   effectPhases: { beforeDerived: any[], afterDerived: any[] };
@@ -823,7 +823,6 @@ class BaseActorA5e extends Actor {
     );
 
     if (tempTotal && tempTotal <= temp) {
-      // @ts-expect-error
       ui.notifications.warn('A5E.ActionWarningTempHpNotOverwritten', { localize: true });
       showCascadingTemp = false;
     } else {
@@ -876,7 +875,6 @@ class BaseActorA5e extends Actor {
 
     if (healingType === 'temporaryHealing') {
       if (healing <= temp) {
-        // @ts-expect-error
         ui.notifications.warn('A5E.ActionWarningTempHpNotOverwritten', { localize: true });
         return this;
       }
@@ -1108,7 +1106,7 @@ class BaseActorA5e extends Actor {
 
     const chatData = {
       author: game.user?.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
+      speaker: ChatMessage.getSpeaker({ actor: this as Actor }),
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
       rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
