@@ -1,0 +1,346 @@
+{
+	"name": "Stack the Deck",
+	"type": "feature",
+	"img": "icons/sundries/gaming/playing-cards-black.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"NZ0YIYPHS9AfWrEa": {
+				"name": "Stack the Deck",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"qiqdIoTOukZ9iPO7": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"4KyIrJewVtKSvjp3": {
+				"name": "Bless",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"jrhvBP8pIaNYvWNl": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.bardic-inspiration-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"Tb3HVK1MehunfQ4G": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"uiFBVrCcMFp5COv4": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 3,
+					"type": "creature",
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
+				},
+				"img": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp"
+			},
+			"9e8UAlx4vUCmHajU": {
+				"name": "Bane",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"tpuwbBBbxtnkKtJf": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.bardic-inspiration-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"mxfWYaTGE4nutxoN": {
+						"ability": "cha",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"ECjFqWzEWvzmljfy": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"34d8aJcqBpRTYFSo": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 3,
+					"type": "creature",
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
+				},
+				"img": "icons/magic/unholy/hand-light-green.webp"
+			}
+		},
+		"description": "<p>At 14th level, as a bonus action, you can increase all die sizes in one of your Battle Hymns by two steps (for example, from a d4 to a d8) for one minute to a maximum of a d12 for the duration of the battle hymn. Once you have used this feature, you can't do so again until you finish a short or long rest.</p>\n<p>Additionally, you can spend a use of bardic inspiration as a bonus action to cast @UUID[Compendium.a5e.a5e-spells.Item.xnm2hvlfzqp792tz]{Bless} or @UUID[Compendium.a5e.a5e-spells.Item.o94b50tj959v55mm]{Bane} without using a spell slot.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitMasterOfCeremonies",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "bard",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.xnm2hvlfzqp792tz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "4KyIrJewVtKSvjp3"
+				}
+			},
+			"transfer": false,
+			"name": "Bless",
+			"_id": "s1mMQj8QTzCLFChb",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.abilities",
+					"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"1d4[Bless]\",\"label\":\"Bless\",\"default\":true,\"img\":\"icons/magic/life/heart-cross-strong-flame-purple-orange.webp\"}",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\",\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"]},\"formula\":\"1d4[Bless]\",\"label\":\"Bless\",\"img\":\"icons/magic/life/heart-cross-strong-flame-purple-orange.webp\",\"default\":true}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The blessing you bestow upon the targets makes them more durable and competent. Until the spell ends, a d4 is added to attack rolls and saving throws made by a target.</p>",
+			"statuses": [],
+			"tint": "#ffffff",
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.19",
+				"createdTime": 1722117538965,
+				"modifiedTime": 1722117538965,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp",
+			"type": "base",
+			"system": {},
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.o94b50tj959v55mm",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "9e8UAlx4vUCmHajU"
+				}
+			},
+			"transfer": false,
+			"name": "Bane",
+			"_id": "TQqtV2SXcHJjd2qz",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.abilities",
+					"mode": 0,
+					"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"-1d4\",\"label\":\"Ability Bonus\",\"default\":true}",
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"mode": 0,
+					"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\"]},\"formula\":\"-1d4\",\"label\":\"Melee Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"mode": 0,
+					"value": "{\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"]},\"formula\":\"-1d4\",\"label\":\"Melee Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"mode": 0,
+					"value": "{\"context\":{\"attackTypes\":[\"rangedSpellAttack\"]},\"formula\":\"-1d4\",\"label\":\"Ranged Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"mode": 0,
+					"value": "{\"context\":{\"attackTypes\":[\"rangedWeaponAttack\"]},\"formula\":\"-1d4\",\"label\":\"Ranged Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.19",
+				"createdTime": 1722117572279,
+				"modifiedTime": 1722117572279,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/unholy/hand-light-green.webp",
+			"type": "base",
+			"system": {},
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.19",
+		"createdTime": 1722117436638,
+		"modifiedTime": 1722117624562,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "9lt2v1phxactwii4"
+}

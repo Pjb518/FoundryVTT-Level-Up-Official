@@ -1,0 +1,350 @@
+{
+	"name": "The Hand That Cuts",
+	"type": "feature",
+	"img": "icons/weapons/thrown/shuriken-double-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"FCa8IWRSMrcchXsb": {
+				"name": "Transform Deck",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"cbu2CahUnLkwyTzQ": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.bardic-inspiration-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				}
+			},
+			"FfYcvf9R62xpb86W": {
+				"name": "Dagger, Throwing",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"NhOLH98GeEo8NO8M": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + @finesse.mod",
+						"name": "Throwing Dagger",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
+					},
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"img": "icons/weapons/thrown/daggers-kunai-purple.webp"
+			},
+			"RGnNeopNW6AnUUdK": {
+				"name": "Dagger, Throwing (Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"NhOLH98GeEo8NO8M": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(@finesse.mod,0)",
+						"name": "Throwing Dagger",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
+					},
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"img": "icons/weapons/thrown/daggers-kunai-purple.webp"
+			},
+			"R3plbuQB4CLU460L": {
+				"name": "Dagger, Throwing (Throw)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"oOSgg4oiwIzpTiZg": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"NhOLH98GeEo8NO8M": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + @finesse.mod",
+						"name": "Throwing Dagger",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
+					},
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"img": "icons/weapons/thrown/daggers-kunai-purple.webp"
+			},
+			"930QIsSWxtkUVWP2": {
+				"name": "Dagger, Throwing (Throw, Off-Hand)",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"JWCCBfKjm0d9Mpbp": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"lyAyT0URSjDZIBiq": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "rangedWeaponAttack",
+						"ability": "default"
+					},
+					"NhOLH98GeEo8NO8M": {
+						"canCrit": true,
+						"damageType": "piercing",
+						"formula": "1d4 + min(@finesse.mod,0)",
+						"name": "Throwing Dagger",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"ZuUYJLAhjiO1GOiW": {
+						"range": "short"
+					},
+					"DJyRaY8KxorZKyHx": {
+						"range": 80,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"img": "icons/weapons/thrown/daggers-kunai-purple.webp"
+			}
+		},
+		"description": "<p>At 6th level, you can turn a deck of cards into razor- sharp throwing projectiles. To do so, spend a use of Bardic Inspiration as a bonus action to transform a deck of cards you are wielding or carrying into weapons for one hour. Any individual card from the deck wielded by you (and you only) has the game statistics of a throwing dagger. Damage from the thrown cards is magical. While this effect persists, you may spend a bonus action to make a ranged attack with a card when you take the Attack action or cast a cantrip.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitMasterOfCeremonies",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "bard",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.19",
+		"createdTime": 1722117014433,
+		"modifiedTime": 1722117304576,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "iivqr3jj4i5zvjv3"
+}
