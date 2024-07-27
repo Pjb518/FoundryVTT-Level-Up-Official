@@ -15,7 +15,7 @@
 		},
 		"actions": {
 			"KsWRx31yhoxbC1K3": {
-				"name": "Activate",
+				"name": "Secure Door",
 				"activation": {
 					"type": "minute",
 					"cost": 10
@@ -38,14 +38,150 @@
 						"threshold": 6
 					}
 				}
+			},
+			"p0sQLwmDDL2oTxGX": {
+				"name": "Proximity Mine (Thunder)",
+				"activation": {
+					"type": "minute",
+					"cost": 10
+				},
+				"consumers": {
+					"S2Z9nAVQjf9x6dex": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"AKQbn8tMwGw2fD6D": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d4 * (@classes.artificer.level/2)",
+						"damageType": "thunder"
+					}
+				},
+				"prompts": {
+					"bVZaKaZjvhZn68lT": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				}
+			},
+			"VAptozyzSUZGk2hG": {
+				"name": "Proximity Mine (Fire)",
+				"activation": {
+					"type": "minute",
+					"cost": 10
+				},
+				"consumers": {
+					"S2Z9nAVQjf9x6dex": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"AKQbn8tMwGw2fD6D": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d4 * (@classes.artificer.level/2)",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {
+					"bVZaKaZjvhZn68lT": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				}
+			},
+			"r8x8QwoGKvsUG3ey": {
+				"name": "Barricade",
+				"activation": {
+					"type": "minute",
+					"cost": 10
+				},
+				"consumers": {
+					"S2Z9nAVQjf9x6dex": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"MQuLhNxG5xpy6Oll": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"formula": "(@classes.artificer.level/2)",
+						"damageType": "piercing"
+					},
+					"FrHMeAl0ZYxg5yOX": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"formula": "(@classes.artificer.level/2)",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
 			}
 		},
-		"description": "<p>At 9th level, you learn to make quick fortifications and traps to facilitate your operations. You may spend 10 minutes to do any of the following:</p><ul><li><p>Secure a Door: You make a door especially durable and difficult to breach. The door gains additional hit points equal to your level, and the strength DC to force it open increases to match your spell save DC.&nbsp;</p></li><li><p>Proximity Mine: You rig up a quick technomagical explosive that goes off when a creature other than you approaches to within 10 feet of it. Creatures in the blast radius must make a Dexterity save against your spell save DC or take an amount of thunder or fire damage (choose when you make the mine) equal to 1d4 times half your artificer level. Once the mine is triggered, it is destroyed.&nbsp;</p></li><li><p>Barricade: You construct a fortified position 10 feet wide and 5 feet tall, topped with spikes, broken glass, or similar. It has hit points equal to 10 x your proficiency bonus, an AC equal to your spell save DC, and creatures attempting to cross it make their athletics checks to jump or climb over it with disadvantage, taking piercing or slashing damage equal to half your artificer level on a failed check. When standing behind the barricade, you either have 3/4ths cover or you can hunker down, forfeiting your ability to attack targets on the other side of the barricade and gaining full cover.</p></li></ul><p>You can use this feature a number of times equal to half your proficiency bonus. You regain all uses of this feature when you finish a short or long rest.</p>",
+		"description": "<p>At 9th level, you learn to make quick fortifications and traps to facilitate your operations. You may spend 10 minutes to do any of the following:</p>\n<ul>\n<li>\n<p><strong>Secure a Door:</strong> You make a door especially durable and difficult to breach. The door gains additional hit points equal to your level, and the strength DC to force it open increases to match your spell save DC.&nbsp;</p>\n</li>\n<li>\n<p><strong>Proximity Mine:</strong> You rig up a quick technomagical explosive that goes off when a creature other than you approaches to within 10 feet of it. Creatures in the blast radius must make a Dexterity save against your spell save DC or take an amount of thunder or fire damage (choose when you make the mine) equal to 1d4 times half your artificer level. Once the mine is triggered, it is destroyed.&nbsp;</p>\n</li>\n<li>\n<p><strong>Barricade:</strong> You construct a fortified position 10 feet wide and 5 feet tall, topped with spikes, broken glass, or similar. It has hit points equal to 10 x your proficiency bonus, an AC equal to your spell save DC, and creatures attempting to cross it make their athletics checks to jump or climb over it with disadvantage, taking piercing or slashing damage equal to half your artificer level on a failed check. When standing behind the barricade, you either have 3/4ths cover or you can hunker down, forfeiting your ability to attack targets on the other side of the barricade and gaining full cover.</p>\n</li>\n</ul>\n<p>You can use this feature a number of times equal to half your proficiency bonus. You regain all uses of this feature when you finish a short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "fieldEngineer",
 		"uses": {
-			"value": 1,
+			"value": 0,
 			"max": "floor(@prof / 2)",
 			"per": "shortRest",
 			"recharge": {
@@ -68,15 +204,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "artificer",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "ll1w01oea9exitwf",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722105999033,
+		"modifiedTime": 1722106301374,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ll1w01oea9exitwf"
 }
