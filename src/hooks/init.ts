@@ -47,6 +47,7 @@ import activateItemMacro from '../macros/activateItemMacro';
 import createMacro from '../macros/createMacro';
 
 // Managers
+import { A5eEnricherManager } from '../managers/A5eEnricherManager';
 import ActionsManager from '../managers/ActionsManager';
 import ContainerManager from '../managers/ContainerManager';
 import ForeignDocumentManager from '../managers/ForeignDocumentManager';
@@ -96,6 +97,9 @@ export default function init() {
   }
 
   CONFIG.Item.dataModels = itemDataModels;
+
+  const enricherManager = new A5eEnricherManager();
+  enricherManager.registerCustomEnrichers();
 
   // Initialize the game's A5E namespace
   game.a5e = {
