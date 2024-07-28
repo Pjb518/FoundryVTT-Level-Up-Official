@@ -4,8 +4,7 @@
 	"img": "icons/skills/wounds/blood-spurt-spray-red.webp",
 	"effects": [
 		{
-			"icon": "icons/skills/wounds/blood-spurt-spray-red.webp",
-			"origin": "Item.k306nv2auvpfdmbx",
+			"origin": "Item.Aj5mksOl2d0SjHrd",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -32,12 +31,22 @@
 			},
 			"description": "<p>You become the master of a precise, vicious cut in just the right place. Once per round, when you hit a creature with an attack using one of your Fencer’s Arsenal weapons, you may spend 2 exertion points to do ongoing damage to your target equal to your martial arts die, which lasts for 1 minute or until the target uses an action to stanch the wound. Constructs, Undead, and Oozes are not affected by this feature.</p>",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.19",
+				"createdTime": null,
+				"modifiedTime": 1722180143711,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/skills/wounds/blood-spurt-spray-red.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		}
 	],
 	"folder": null,
@@ -63,9 +72,21 @@
 						"default": true,
 						"resource": "exertion",
 						"quantity": 2
+					},
+					"njDG5NiuCn0zqLbc": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
 					}
 				},
-				"rolls": {},
+				"rolls": {
+					"KNS2SoJAtpMohYfS": {
+						"type": "damage",
+						"default": true,
+						"formula": "@classresources.martial-arts",
+						"canCrit": false
+					}
+				},
 				"prompts": {
 					"kWufKQGDLmDTrWPC": {
 						"type": "effect",
@@ -73,6 +94,35 @@
 						"effectId": "gbSJc9fhYI7sWoKZ"
 					}
 				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			},
+			"P31n2ihrEu04fZKP": {
+				"name": "Ongoing Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"AdPOoKPEXCZNXtZo": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "@classresources.martial-arts"
+					}
+				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -91,9 +141,9 @@
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "round",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -114,12 +164,16 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "adept",
+		"class": ""
 	},
-	"_id": "k306nv2auvpfdmbx",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722180143665,
+		"modifiedTime": 1722180252784,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "k306nv2auvpfdmbx"
 }
