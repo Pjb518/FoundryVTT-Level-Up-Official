@@ -13,14 +13,39 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"Vg4GPCKSm7ipctGu": {
+				"name": "Universal Memory",
+				"activation": {},
+				"consumers": {
+					"C2JRxL34v6LSJA3O": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 14th level, you learn to tap into the collective memories of all the mortals on the plane you occupy. As an action, you may do one of the following:</p><ul><li><p>Gain proficiency with a skill of your choice.</p></li><li><p>Learn a new spell you qualify to learn.</p></li><li><p>Gain proficiency with two weapons of your choice.</p></li><li><p>Gain proficiency with a saving throw of your choice that you are not already proficient in.</p></li><li><p>Gain proficiency with up a musical instrument or tool set of your choice.</p></li></ul><p>The new knowledge persists until you use this ability again or until you begin a long rest. Once you have used this ability a number of times equal to your Charisma modifier (minimum once), you can’t do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitStoryteller",
 		"uses": {
-			"value": 5,
-			"max": "5",
+			"value": 0,
+			"max": "max(@cha.mod,1)",
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
@@ -42,15 +67,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "bard",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "wkj440rfkvh5r2uk",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722134701914,
+		"modifiedTime": 1722134781587,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "wkj440rfkvh5r2uk"
 }
