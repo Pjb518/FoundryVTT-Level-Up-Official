@@ -1,7 +1,7 @@
 {
 	"name": "Delayed Spell",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/time/hourglass-tilted-gray.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,34 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"fASVGNDeuNxwsFGj": {
+				"name": "Delayed Spell",
+				"activation": {},
+				"consumers": {
+					"E75YItMNNTIVhErJ": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>When you ready a spell, you can spend 1 sorcery point. The spell can be held for up to 1 minute, instead of 1 turn.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +71,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "p6uqyvrtpc0n9c26",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721855802675,
+		"modifiedTime": 1721921123809,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "p6uqyvrtpc0n9c26"
 }

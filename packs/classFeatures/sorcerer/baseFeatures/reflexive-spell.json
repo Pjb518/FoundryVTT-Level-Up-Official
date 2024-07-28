@@ -1,7 +1,7 @@
 {
 	"name": "Reflexive Spell",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/light/beam-impact-deflect-teal.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,34 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"BSQWV6G1xrmPnyev": {
+				"name": "Reflexive Spell",
+				"activation": {},
+				"consumers": {
+					"1yB6y8cQGSfUILU3": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Immediately before rolling initiative, you can spend 2 sorcery points to cast a spell of up to 3rd-level that has a casting time of 1 action or 1 bonus action. The spell activates before any other actions in initiative, but doing so uses your action for your first turn in the combat.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +71,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "44k8jkv8hs86h58j",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721856421758,
+		"modifiedTime": 1721856451467,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "44k8jkv8hs86h58j"
 }

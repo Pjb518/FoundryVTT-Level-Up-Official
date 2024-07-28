@@ -55,26 +55,9 @@
 					"Xp3BWcwjkAjrYXhw": {
 						"type": "damage",
 						"default": false,
-						"formula": "1d4 + @dex.mod",
-						"canCrit": true
-					},
-					"uevRF6YsahEDrqNH": {
-						"type": "damage",
-						"default": false,
-						"formula": "1d6 + @dex.mod",
-						"canCrit": true
-					},
-					"actl4pkEponcOQde": {
-						"type": "damage",
-						"default": false,
-						"formula": "1d8 + @dex.mod",
-						"canCrit": true
-					},
-					"xwBeFC3QTQJACXjx": {
-						"type": "damage",
-						"default": false,
-						"formula": "1d10 + @dex.mod",
-						"canCrit": true
+						"formula": "@classresources.martial-arts + @finesse.mod",
+						"canCrit": true,
+						"damageType": "bludgeoning"
 					}
 				}
 			},
@@ -92,27 +75,9 @@
 				"rolls": {
 					"ljP1Ze41qque3I6y": {
 						"type": "healing",
-						"default": false,
+						"default": true,
 						"healingType": "temporaryHealing",
-						"formula": "1d4"
-					},
-					"RqqLCczRIhGGspJj": {
-						"type": "healing",
-						"default": false,
-						"healingType": "temporaryHealing",
-						"formula": "1d6"
-					},
-					"1UxzrWfJyHmVO19A": {
-						"type": "healing",
-						"default": false,
-						"healingType": "temporaryHealing",
-						"formula": "1d8"
-					},
-					"0xYps1Eiz7Sn11T3": {
-						"type": "healing",
-						"default": false,
-						"healingType": "temporaryHealing",
-						"formula": "1d10"
+						"formula": "@classresources.martial-arts"
 					}
 				},
 				"prompts": {},
@@ -157,13 +122,17 @@
 				}
 			}
 		},
-		"classes": "adept"
+		"classes": "adept",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "or5c7dkc3qsw5q06",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721839910107,
+		"modifiedTime": 1721839986609,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "or5c7dkc3qsw5q06"
 }

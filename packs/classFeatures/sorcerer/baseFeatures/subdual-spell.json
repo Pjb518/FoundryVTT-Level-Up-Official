@@ -1,7 +1,7 @@
 {
 	"name": "Subdual Spell",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/life/heart-area-circle-red-green.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,38 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"3XnfQ43TxDsMhgl3": {
+				"name": "Subdual Spell",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "One of your spells reduces one or more creatures to 0 hit points"
+				},
+				"consumers": {
+					"rLC4Tv0dAGDQPH2b": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>When damage from one of your spells reduces one or more creatures to 0 hit points, you can use your reaction and spend 1 sorcery point to stabilize one of the creatures knocked unconscious by it.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +75,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "ntogu4hl1lbga7gc",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721855982418,
+		"modifiedTime": 1721856068380,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ntogu4hl1lbga7gc"
 }

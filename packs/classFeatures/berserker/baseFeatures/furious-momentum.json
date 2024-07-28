@@ -1,5 +1,5 @@
 {
-	"name": "Critical: Furious Momentum",
+	"name": "Furious Momentum",
 	"type": "feature",
 	"img": "icons/skills/melee/strike-axe-blood-red.webp",
 	"effects": [],
@@ -30,15 +30,54 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
 					"type": ""
 				},
 				"consumers": {
-					"6pJpn6vBQj8cdcCF": {
-						"type": "itemUses"
+					"CJFyPu2k3LnBMKLh": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest"
+				}
+			},
+			"esyAgHbZg3pJZVjq": {
+				"name": "Furious Momentum (Rage)",
+				"activation": {
+					"cost": null,
+					"type": "special",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"consumers": {
+					"HbfjIdmCuyenpoH9": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.rage",
+						"resource": "classResource",
+						"quantity": 1
 					}
 				}
 			}
@@ -48,9 +87,9 @@
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": "shortRest",
+			"value": 0,
+			"max": "0",
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -71,13 +110,17 @@
 				}
 			}
 		},
-		"classes": "berserker"
+		"classes": "berserker",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "2osamyz9vwylbtw5",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721846543641,
+		"modifiedTime": 1721846630686,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "2osamyz9vwylbtw5"
 }

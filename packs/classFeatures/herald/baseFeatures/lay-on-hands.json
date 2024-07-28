@@ -17,7 +17,7 @@
 		},
 		"actions": {
 			"VUREKGdCAbFpzNNS": {
-				"name": "Lay on Hands",
+				"name": "Heal",
 				"activation": {
 					"cost": 1,
 					"type": "action",
@@ -35,7 +35,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
@@ -44,10 +45,61 @@
 					"size": ""
 				},
 				"consumers": {
-					"8jew21Xg8VQoHUBa": {
-						"type": "itemUses",
+					"FUytO9g647AZ5Fdo": {
+						"type": "resource",
 						"default": true,
+						"classIdentifier": "@classresources.lay-on-hands",
+						"resource": "classResource",
 						"quantity": 1
+					}
+				},
+				"rolls": {
+					"3RiMOHrDqbG3YcDV": {
+						"type": "healing",
+						"default": true,
+						"formula": "1",
+						"scaling": {
+							"mode": "itemUses",
+							"formula": "1"
+						}
+					}
+				}
+			},
+			"XTt5Wmr2ytyZtrLw": {
+				"name": "Cure",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"812HT9pyCLouxfKW": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"shape": "",
+					"size": ""
+				},
+				"consumers": {
+					"FUytO9g647AZ5Fdo": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.lay-on-hands",
+						"resource": "classResource",
+						"quantity": 5
 					}
 				},
 				"rolls": {
@@ -69,8 +121,8 @@
 		"source": "adventurersGuide",
 		"uses": {
 			"value": 0,
-			"max": "(@classes.herald.level)*5",
-			"per": "longRest",
+			"max": "",
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -91,13 +143,17 @@
 				}
 			}
 		},
-		"classes": "herald"
+		"classes": "herald",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "my42mip0qc35rcp2",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721852717089,
+		"modifiedTime": 1721853003510,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "my42mip0qc35rcp2"
 }

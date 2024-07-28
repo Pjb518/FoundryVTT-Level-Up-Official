@@ -1,7 +1,7 @@
 {
 	"name": "Evolving Blizzard",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/water/projectiles-ice-faceted-shard-salvo-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -30,25 +30,63 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
 					"type": ""
 				},
 				"rolls": {
-					"tqPxkKSHTLLzCPkx": {
-						"canCrit": false,
-						"damageType": "cold",
-						"formula": "1d10",
-						"name": "Cold",
-						"type": "damage"
+					"fp9962c4U4nd4UVm": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d6",
+						"healingType": "temporaryHealing",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
 					}
 				},
-				"consumers": {}
+				"consumers": {
+					"Bf1t1goIHfSyO3Sj": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				}
+			},
+			"w54anlHmLSNueGFd": {
+				"name": "Melee Attack",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"5ou5FJ4DTjHD4MlR": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d10",
+						"damageType": "cold"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
-		"description": "<p>When you cast a spell of 1st-level or higher that deals cold damage, you can spend 1 sorcery point to gain 1d6 temporary hit points per level of the spell cast. While you have these temporary hit points and a creature hits you with a melee weapon attack, the attacker takes [[/r 1d10 #cold]] cold damage. These temporary hit points last for 1 hour.</p>",
+		"description": "<p>When you cast a spell of 1st-level or higher that deals cold damage, you can spend 1 sorcery point to gain 1d6 temporary hit points per level of the spell cast. While you have these temporary hit points and a creature hits you with a melee weapon attack, the attacker takes 1d10 cold damage. These temporary hit points last for 1 hour.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -76,13 +114,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "pzs0gjz3n2dtiu4j",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721856993190,
+		"modifiedTime": 1721857346157,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "pzs0gjz3n2dtiu4j"
 }

@@ -1,7 +1,7 @@
 {
 	"name": "Reliable Spell",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/symbols/runes-triangle-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,34 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"lPHpXSD91I61Wbc2": {
+				"name": "Reliable Spell",
+				"activation": {},
+				"consumers": {
+					"nHNHah0EkKyrWQhh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>When you roll a 4 or lower on a spell attack, you can spend 1 sorcery point to reroll the attack. You can use Reliable Spell even if you have already used a different Metamagic option during the casting of the spell.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +71,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "xcinp371fc7xz18b",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.329",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.18",
+		"createdTime": 1721855933928,
+		"modifiedTime": 1721856036557,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "xcinp371fc7xz18b"
 }
