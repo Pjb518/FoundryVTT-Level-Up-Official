@@ -1,4 +1,7 @@
-<script>
+<script lang="ts">
+    import type { Writable } from "svelte/store";
+    import type { ItemA5e } from "../../../documents/item/item";
+
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
@@ -12,7 +15,7 @@
     import Section from "../Section.svelte";
     import SkillCheckPromptConfig from "../itemActionsConfig/SkillCheckPromptConfig.svelte";
 
-    function deletePrompt(actionId, promptId) {
+    function deletePrompt(actionId: string, promptId: string) {
         $item.update({
             [`system.actions.${actionId}.prompts`]: {
                 [`-=${promptId}`]: null,
@@ -20,7 +23,7 @@
         });
     }
 
-    function duplicatePrompt(actionId, prompt) {
+    function duplicatePrompt(actionId: string, prompt: any) {
         const newPrompt = foundry.utils.duplicate(prompt);
 
         $item.update({
@@ -30,8 +33,8 @@
         });
     }
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+    const item: Writable<ItemA5e> = getContext("item");
+    const actionId: string = getContext("actionId");
 
     const promptTypes = {
         savingThrow: {
@@ -54,6 +57,7 @@
             singleLabel: "A5E.Other",
             component: GenericPromptConfig,
         },
+        // TODO: v1 - Remove
         effect: {
             heading: "A5E.EffectPlural",
             singleLabel: "A5E.Effect",
@@ -61,7 +65,7 @@
         },
     };
 
-    $: action = $item.actions[actionId];
+    $: action = $item.actions.get(actionId)!;
     $: prompts = action.prompts ?? {};
 
     $: menuList = Object.entries(promptTypes).map(([promptType, { heading }]) => [

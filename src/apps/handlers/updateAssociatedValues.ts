@@ -2,11 +2,11 @@ import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField
 
 export default function updateAssociatedValues(
   document,
-  key,
-  value,
-  associatedKey,
-  excludeFilter = null,
-  associatedValue = 1
+  key: string,
+  value: any,
+  associatedKey: string,
+  excludeFilter: string[] | null = null,
+  associatedValue: any = 1
 ) {
   if (excludeFilter && !excludeFilter.includes(value)) {
     document.update({

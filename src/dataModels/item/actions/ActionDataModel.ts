@@ -13,7 +13,7 @@ const actionSchema = () => ({
   description: new fields.StringField({ required: true, nullable: false, initial: '' }),
   descriptionOutputs: new fields.ArrayField(
     new fields.StringField({ required: true, nullable: false, choices: ['action', 'item'] }),
-    { required: true, initial: ['item', 'action'] }
+    { required: true, nullable: false, initial: ['item', 'action'] }
   ),
   img: new fields.StringField({ required: true, initial: '' }),
   activation: new fields.SchemaField({
