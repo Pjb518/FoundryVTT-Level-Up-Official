@@ -1,8 +1,8 @@
 {
 	"folder": null,
-	"name": "Sinister Awareness",
+	"name": "Arcane Defense",
 	"type": "feature",
-	"img": "icons/magic/perception/silhouette-stealth-shadow.webp",
+	"img": "icons/equipment/shield/kite-wooden-oak-glow.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -15,23 +15,24 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"CbogaCUxUuyrsDB6": {
-				"name": "Sinister Awareness",
+			"rzfCv8eEmazkGXb0": {
+				"name": "Brutal Defense (Activate)",
 				"activation": {},
 				"consumers": {
-					"0iJSskps8nAbwzkH": {
+					"IULKCThdExyiYsl5": {
 						"type": "resource",
 						"default": true,
+						"classIdentifier": "",
 						"resource": "exertion",
-						"quantity": 4
+						"quantity": 2
 					}
 				},
 				"rolls": {},
 				"prompts": {
-					"RSzF3BNdhP7vYaLD": {
+					"Xiag26qw9nXjo5rh": {
 						"type": "effect",
 						"default": true,
-						"effectId": "32LU6FBQfvJ3AOfo"
+						"effectId": "oVQq73objA6q9jey"
 					}
 				},
 				"uses": {
@@ -46,19 +47,29 @@
 					}
 				}
 			},
-			"JtGlkcOhJh74iFrz": {
-				"name": "Necrotic Damage",
+			"G6PomklR2OGLoo9U": {
+				"name": "Brutal Defense (Damage)",
 				"activation": {},
 				"consumers": {},
 				"rolls": {
-					"yNpLYKydv9mbNiNW": {
+					"IVwG18FKAbSju8ZB": {
 						"type": "damage",
 						"default": true,
-						"formula": "@classresources.martial-arts",
-						"damageType": "necrotic"
+						"canCrit": false,
+						"damageType": "force",
+						"formula": "@classresources.martial-arts"
 					}
 				},
-				"prompts": {},
+				"prompts": {
+					"alK29q5gHsKSsiMV": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -72,7 +83,7 @@
 				}
 			}
 		},
-		"description": "<p>At 11th level, you learn to extend your supernatural abilities into your senses. You may spend 4 exertion points to gain Truesight with a range of 30 feet for one minute. While this ability is active, you may attack creatures on the Ethereal Plane (such as ghosts or creatures under an <em>etheralness </em>effect).</p><p>While this ability is active, you can use this awareness to perceive the flow of life force through creatures and disrupt it with your strikes. Attacks you make with adept weapons or your unarmed strikes do additional necrotic damage equal to your martial arts die.&nbsp;</p>",
+		"description": "<p>At 3rd level, your defensive abilities also improve with some help from your magical studies.</p>\n<p>If you have the @UUID[Compendium.a5e.a5e-class-features.Item.mcvhe4g4bv9jt22k]{Brutal Defense} feature, you can spend 2 exertion points to infuse your armor with crackling magical energy for a minute. While this ability is active, a creature that hits you with a melee attack must make a Constitution saving throw against your spell save DC. A creature that fails the save takes force damage equal to your martial arts die.</p>\n<p>If you have the @UUID[Compendium.a5e.a5e-class-features.Item.zh0pv154q6abroh6]{Agile Defense} ability, you instead may instead use Flurry of Blows, Long Step, or Patient Defense after casting a spell with a casting time of one action.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -105,12 +116,12 @@
 	},
 	"effects": [
 		{
-			"origin": "Item.egjKPDPBiWHwHhvj",
+			"origin": "Item.KbWiYzLv2JZluN2Z",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "CbogaCUxUuyrsDB6",
+					"actionId": "rzfCv8eEmazkGXb0",
 					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
@@ -118,16 +129,12 @@
 				}
 			},
 			"transfer": false,
-			"name": "Sinister Awareness",
-			"_id": "32LU6FBQfvJ3AOfo",
-			"changes": [
-				{
-					"key": "system.attributes.senses.truesight.distance",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				}
-			],
+			"name": "Magical Energy",
+			"img": "icons/equipment/shield/kite-wooden-oak-glow.webp",
+			"_id": "oVQq73objA6q9jey",
+			"type": "base",
+			"system": {},
+			"changes": [],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
@@ -138,23 +145,20 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "<p>You may spend 4 exertion points to gain Truesight with a range of 30 feet for one minute. While this ability is active, you may attack creatures on the Ethereal Plane (such as ghosts or creatures under an <em>etheralness </em>effect).</p><p>While this ability is active, you can use this awareness to perceive the flow of life force through creatures and disrupt it with your strikes. Attacks you make with adept weapons or your unarmed strikes do additional necrotic damage equal to your martial arts die. </p>",
+			"description": "<p>A creature that hits you with a melee attack must make a Constitution saving throw against your spell save DC. A creature that fails the save takes force damage equal to your martial arts die.</p>",
+			"tint": "#ffffff",
 			"statuses": [],
+			"sort": 0,
 			"_stats": {
 				"compendiumSource": null,
 				"duplicateSource": null,
 				"coreVersion": "12.330",
 				"systemId": "a5e",
 				"systemVersion": "0.19.19",
-				"createdTime": null,
-				"modifiedTime": 1722199056168,
+				"createdTime": 1722198823666,
+				"modifiedTime": 1722198856250,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
-			"img": "icons/magic/perception/silhouette-stealth-shadow.webp",
-			"type": "base",
-			"system": {},
-			"tint": "#ffffff",
-			"sort": 0,
 			"folder": null
 		}
 	],
@@ -163,9 +167,9 @@
 		"coreVersion": "12.330",
 		"systemId": "a5e",
 		"systemVersion": "0.19.19",
-		"createdTime": 1722199056138,
-		"modifiedTime": 1722199173874,
+		"createdTime": 1722198688478,
+		"modifiedTime": 1722198955323,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "hcgrmg9b6vc9zj5p"
+	"_id": "mm5dihabhmf01vr6"
 }
