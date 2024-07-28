@@ -9,15 +9,14 @@
         dialog.submit({ actionId: selectedAction });
     }
 
-    let selectedAction = item.actions.keys()[0];
+    // TODO: V1 - Update to use default action
+    let selectedAction = [...item.actions.keys()][0];
 </script>
 
 <form>
     <RadioGroup
         heading="Select an Action"
-        options={item.actions
-            .entries()
-            .map(([id, action]) => [id, action.name])}
+        options={[...item.actions.entries()].map(([id, action]) => [id, action.name])}
         selected={selectedAction}
         on:updateSelection={({ detail }) => (selectedAction = detail)}
     />
