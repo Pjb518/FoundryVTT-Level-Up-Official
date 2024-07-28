@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Inspirational Movement (Dancer)",
+	"name": "Inspirational Movement",
 	"type": "feature",
 	"img": "icons/magic/control/buff-flight-wings-purple.webp",
 	"system": {
@@ -14,7 +14,46 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"X6Ba13SuxKBxSVOl": {
+				"name": "Inspirational Movement",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"FgeORshNGJ5vZYEL": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classresources.bardic-inspiration-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"DaYbGewnpExtD200": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
 		"description": "<p>You can expend a use of bardic inspiration as an action to target a creature that can see you within 30 ft.<span style=\"mso-spacerun: yes;\">&nbsp; </span>If you do so, that creature can take two actions on their following turn, though only one of them can be used to cast a spell of 1st level or higher. Once a creature has benefited from this ability, they cannot do so again until they finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -31,7 +70,7 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": "Bard Level 14; Dancer Archetype",
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -43,14 +82,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "bard",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "d4ke36chth4g30at",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722178845394,
+		"modifiedTime": 1722179083493,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "d4ke36chth4g30at"
 }
