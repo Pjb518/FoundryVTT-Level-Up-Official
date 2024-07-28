@@ -31,7 +31,7 @@ class ActionAreaField<
   const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
   const AreaType extends ActionAreaField.AreaShapes = ActionAreaField.AreaShapes,
   const AssignmentType = { type: AreaType },
-  const InitializedType = ActionAreaField.AreaShapesMap[AreaType],
+  const InitializedType = ActionAreaField.AreaShapesMap[AreaType] & { type: AreaType },
   const PersistedType extends object | null | undefined = ActionAreaField.AreaShapesMap[AreaType]
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
   getModelForType(type: ActionAreaField.AreaShapes) {
@@ -88,7 +88,7 @@ class ActionConsumerField<
   const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
   const ConsumerType extends ActionConsumerField.ConsumerTypes = ActionConsumerField.ConsumerTypes,
   const AssignmentType = { type: ConsumerType },
-  const InitializedType = ActionConsumerField.ConsumerShapesMap[ConsumerType],
+  const InitializedType = ActionConsumerField.ConsumerShapesMap[ConsumerType] & { type: ConsumerType },
   const PersistedType extends object | null | undefined = ActionConsumerField.ConsumerShapesMap[ConsumerType]
 
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
@@ -143,7 +143,7 @@ class ActionPromptField<
   const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
   const PromptType extends ActionPromptField.PromptTypes = ActionPromptField.PromptTypes,
   const AssignmentType = { type: PromptType },
-  const InitializedType = ActionPromptField.PromptTypesMap[PromptType],
+  const InitializedType = ActionPromptField.PromptTypesMap[PromptType] & { type: PromptType },
   const PersistedType extends object | null | undefined = ActionPromptField.PromptTypesMap[PromptType]
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
   getModelForType(type: ActionPromptField.PromptTypes) {
@@ -201,7 +201,7 @@ class ActionRollField<
   const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
   const RollType extends ActionRollField.RollTypes = ActionRollField.RollTypes,
   const AssignmentType = { type: RollType },
-  const InitializedType = ActionRollField.RollTypesMap[RollType],
+  const InitializedType = ActionRollField.RollTypesMap[RollType] & { type: RollType },
   const PersistedType extends object | null | undefined = ActionRollField.RollTypesMap[RollType]
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
   getModelForType(type: ActionRollField.RollTypes) {

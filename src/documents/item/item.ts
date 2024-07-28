@@ -22,6 +22,7 @@ import RollPreparationManager from '../../managers/RollPreparationManager';
 import TemplatePreparationManager from '../../managers/TemplatePreparationManager';
 
 import getSummaryData from '../../utils/summaries/getSummaryData';
+import { SpellConsumerData } from '../../dataModels/item/actions/ActionConsumersDataModel';
 
 // *****************************************************************************************
 
@@ -43,6 +44,7 @@ interface ItemA5e<ItemType extends SystemItemTypes = SystemItemTypes> {
  */
 class ItemA5e extends BaseItemA5e {
   get actions() {
+    // TODO: Cache this builder
     return new ActionsManager(this);
   }
 
