@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Fortress of the Mind (Mentalist)",
+	"name": "Fortress of the Mind",
 	"type": "feature",
 	"img": "icons/magic/defensive/shield-barrier-flaming-diamond-orange.webp",
 	"system": {
@@ -15,7 +15,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>At 17th level you are under the permanent effect of a Mind Blank spell which cannot be dispelled, though it is suppressed by an antimagic field. Your exertion pool also increases by an amount equal to your intelligence modifier.</p>",
+		"description": "<p>At 17th level you are under the permanent effect of a @UUID[Compendium.a5e.a5e-spells.Item.wad0cgw4tcdbuvbr]{Mind Blank} spell which cannot be dispelled, though it is suppressed by an antimagic field. Your exertion pool also increases by an amount equal to your intelligence modifier.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "mysteriousAndMarvelousMiscellanea",
@@ -30,8 +30,18 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
-		"prerequisite": "Adept Level 17; Mentalist Archetype",
+		"grants": {
+			"Cfvl37cmvOrz8awy": {
+				"grantType": "exertion",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "Cfvl37cmvOrz8awy",
+				"label": "Exertion Bonus",
+				"bonus": "@int.mod"
+			}
+		},
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -43,14 +53,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "dagx65qwlkgejwji",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722151042464,
+		"modifiedTime": 1722151096963,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "dagx65qwlkgejwji"
 }
