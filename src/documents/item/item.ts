@@ -22,7 +22,6 @@ import RollPreparationManager from '../../managers/RollPreparationManager';
 import TemplatePreparationManager from '../../managers/TemplatePreparationManager';
 
 import getSummaryData from '../../utils/summaries/getSummaryData';
-import { SpellConsumerData } from '../../dataModels/item/actions/ActionConsumersDataModel';
 
 // *****************************************************************************************
 
@@ -131,7 +130,7 @@ class ItemA5e extends BaseItemA5e {
     // Check if consumers need a dialog
     const consumerTypes = new Set(
       Object.values(action?.consumers ?? {}).map((c) => c.type)
-    );
+    ) as Set<string>;
 
     if (consumerTypes.intersects(CONFIG.A5E.configurableConsumers)) {
       return true;

@@ -7,6 +7,8 @@ import ActionConfigDialog from '../apps/dialogs/ActionConfigDialog.svelte';
 class ActionsManager extends Map<string, Action> {
   #item: ItemA5e;
 
+  default: Action | null;
+
   constructor(item: ItemA5e) {
     super();
 
@@ -14,9 +16,19 @@ class ActionsManager extends Map<string, Action> {
 
     const { actions } = item.system;
     Object.entries(actions ?? {}).forEach(([actionId, action]) => {
-      // TODO: Add ._id to action data
+      action.id = actionId;
       this.set(actionId, action);
     });
+
+    // Set default action
+    const defaultAction = [...this.values()].find((a) => a.default);
+    if (defaultAction) {
+      this.default = defaultAction;
+    } else if (!defaultAction && this.size > 0) {
+      this.default = this.first!;
+    } else {
+      this.default = null;
+    }
   }
 
   /** ************************************************
@@ -80,6 +92,23 @@ class ActionsManager extends Map<string, Action> {
 
   getRolls(actionId: string) {
     return Object.entries(this.get(actionId)?.rolls ?? {});
+  }
+
+  /** ************************************************
+   * Helpers
+   * ************************************************ */
+  async setDefaultAction(actionId: string) {
+    const updates: Record<string, any> = {};
+
+    [...this.values()].forEach((action) => {
+      if (action.id === actionId) {
+        updates[`system.actions.${action.id}.default`] = true;
+      } else {
+        updates[`system.actions.${action.id}.default`] = false;
+      }
+    });
+
+    await this.#item.update(updates);
   }
 
   /** ************************************************

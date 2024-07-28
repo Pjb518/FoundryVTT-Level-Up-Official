@@ -9,8 +9,7 @@
         dialog.submit({ actionId: selectedAction });
     }
 
-    // TODO: V1 - Update to use default action
-    let selectedAction = [...item.actions.keys()][0];
+    let selectedAction = item.actions.default.id;
 </script>
 
 <form>

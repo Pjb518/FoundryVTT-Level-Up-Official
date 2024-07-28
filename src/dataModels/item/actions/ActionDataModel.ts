@@ -8,8 +8,9 @@ import { RecordField } from '../../fields/RecordField';
 const { fields } = foundry.data;
 
 const actionSchema = () => ({
+  id: new fields.StringField({ required: true, nullable: false, initial: '' }),
   name: new fields.StringField({ required: true, nullable: false, initial: 'New Action' }),
-  default: new fields.BooleanField({ required: false, nullable: false }),
+  default: new fields.BooleanField({ required: true, nullable: false, initial: false }),
   description: new fields.StringField({ required: true, nullable: false, initial: '' }),
   descriptionOutputs: new fields.ArrayField(
     new fields.StringField({ required: true, nullable: false, choices: ['action', 'item'] }),
