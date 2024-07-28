@@ -90,7 +90,7 @@ class ItemA5e extends BaseItemA5e {
    * @param options
    * @returns
    */
-  override async activate(actionId: string, options = {}) {
+  override async activate(actionId: string | null, options = {}) {
     // Do not allow an item to activate if it not attached to an actor or if the user does
     // not have owner permissions for the actor.
     if (!this.actor || !this?.actor.isOwner) return;

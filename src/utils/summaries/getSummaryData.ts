@@ -11,7 +11,7 @@ import getSpellSummaryData from './getSpellSummaryData';
 
 export default function getSummaryData(
   item: ItemA5e,
-  action?: Action,
+  action?: Action | null,
   options: Record<string, any> = {}
 ) {
   const summaryData = {};
