@@ -4,6 +4,7 @@ import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataM
 import type { BaseActorA5e } from '../documents/actor/base';
 import type { ItemA5e } from '../documents/item/item';
 import type { RollHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
+import type { PromptHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
 
 import getAttackAbility from '../utils/getAttackAbility';
 
@@ -113,6 +114,25 @@ class RollPreparationManager {
     return {
       invalidSelections,
       otherRolls
+    };
+  }
+
+  static preparePromptsData(prompts: PromptHandlerReturnType) {
+    const invalidSelections = Object.values(prompts)
+      .flat()
+      .reduce((acc, [key, value]) => {
+        if (
+          ['generic', 'healing', 'damage'].includes(value.type)
+          && !value.formula
+        ) {
+          acc.push(key);
+        }
+
+        return acc;
+      }, [] as string[]);
+
+    return {
+      invalidSelections
     };
   }
 

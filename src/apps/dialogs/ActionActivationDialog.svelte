@@ -15,6 +15,7 @@
 
     import AttackRollSection from "../components/activationDialog/AttackRollSection.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
+    import PromptsSection from "../components/activationDialog/PromptsSection.svelte";
     import RollsSection from "../components/activationDialog/RollsSection.svelte";
 
     export let { application } = getContext("#external") as { application: any };
@@ -121,7 +122,7 @@
 
     {#if showPrompts}
         <Section heading="Prompts Config" --a5e-section-body-gap="0.5rem">
-            <!--  -->
+            <PromptsSection {prompts} bind:selectedPrompts />
         </Section>
     {/if}
 
