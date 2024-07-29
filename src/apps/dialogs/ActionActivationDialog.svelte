@@ -10,6 +10,7 @@
     import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import Section from "../components/Section.svelte";
 
     import AttackRollSection from "../components/activationDialog/AttackRollSection.svelte";
@@ -42,6 +43,15 @@
 
     const attackRoll = rolls.attack?.length ? rolls.attack[0][1] : ({} as AttackRollData);
 
+    // Show Config
+    const showAttackRoll = !isEmpty(attackRoll);
+    const showAreaSection = false;
+    const showOtherRolls = !!Object.values(rolls).flat().length;
+    const showDamageBonuses = !!Object.values(damageBonuses).flat().length;
+    const showHealingBonuses = !!Object.values(healingBonuses).flat().length;
+    const showBonusesSection = showDamageBonuses || showHealingBonuses;
+    const showPrompts = !!Object.values(prompts).flat().length;
+
     let attackRollData = {};
     let actionUsesData = {};
     let hitDiceData = {};
@@ -67,19 +77,53 @@
 </script>
 
 <form>
-    <Section heading="Attack Roll Config" --a5e-section-body-gap="0.75rem">
-        <OutputVisibilitySection bind:visibilityMode />
+    {#if showAttackRoll}
+        <Section heading="Attack Roll Config" --a5e-section-body-gap="0.5rem">
+            <OutputVisibilitySection bind:visibilityMode />
 
-        {#if !isEmpty(attackRoll)}
             <AttackRollSection {attackRoll} {options} bind:attackRollData />
-        {/if}
-    </Section>
+        </Section>
+    {/if}
 
-    <Section heading="Rolls Config" --a5e-section-body-gap="0.75rem">
-        {#if Object.values(rolls).flat().length}
+    {#if showOtherRolls}
+        <Section heading="Rolls Config" --a5e-section-body-gap="0.5rem">
             <RollsSection {rolls} bind:selectedRolls />
-        {/if}
-    </Section>
+        </Section>
+    {/if}
+
+    {#if showBonusesSection}
+        <Section heading="Bonuses Config" --a5e-section-body-gap="0.5rem">
+            {#if showDamageBonuses}
+                <CheckboxGroup
+                    heading="Damage Bonuses"
+                    options={damageBonuses.map(([key, damageBonus]) => [
+                        key,
+                        damageBonus.label || damageBonus.defaultLabel || "",
+                    ])}
+                    selected={selectedDamageBonuses}
+                    on:updateSelection={({ detail }) => (selectedDamageBonuses = detail)}
+                />
+            {/if}
+
+            {#if showHealingBonuses}
+                <CheckboxGroup
+                    heading="Healing Bonuses"
+                    options={healingBonuses.map(([key, healingBonus]) => [
+                        key,
+                        healingBonus.label || healingBonus.defaultLabel || "",
+                    ])}
+                    selected={selectedHealingBonuses}
+                    on:updateSelection={({ detail }) => (selectedHealingBonuses = detail)}
+                />
+            {/if}
+        </Section>
+    {/if}
+
+    {#if showPrompts}
+        <Section heading="Prompts Config" --a5e-section-body-gap="0.5rem">
+            <!--  -->
+        </Section>
+    {/if}
 
     <!-- TODO: Template Areas and Placement options -->
 </form>
@@ -93,7 +137,7 @@
     form {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.75rem;
         padding: 0.75rem;
         max-height: 50rem;
         overflow-y: auto;

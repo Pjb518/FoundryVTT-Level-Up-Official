@@ -1,13 +1,15 @@
 // import { localize } from '#runtime/svelte/helper';
+import type { ActionActivationOptions } from '../documents/item/data';
+import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel';
 import type { BaseActorA5e } from '../documents/actor/base';
 import type { ItemA5e } from '../documents/item/item';
+import type { RollHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
+
+import getAttackAbility from '../utils/getAttackAbility';
 
 import _prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
 import _preparePrompts from '../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
-import _prepareRolls, { type RollHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
-import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel';
-import getAttackAbility from '../utils/getAttackAbility';
-import type { ActionActivationOptions } from '../documents/item/data';
+import _prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 
 class RollPreparationManager {
   #actor: BaseActorA5e;
