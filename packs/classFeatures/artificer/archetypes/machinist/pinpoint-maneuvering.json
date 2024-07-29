@@ -1,7 +1,7 @@
 {
 	"name": "Pinpoint Maneuvering",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/tools/fasteners/pin-spiked.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -13,7 +13,30 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"yP2izvuSlalVXnrx": {
+				"name": "Pinpoint Maneuvering",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "An attack hits a vehicle you’re driving or a collision occurs involving a vehicle you are driving"
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Starting at 5th level, your driving skills allow you to swerve around obstacles and through tight spaces where vehicles couldn’t normally function. While driving a vehicle, whenever an action would allow you to change the vehicle’s facing up to 90 degrees, you may change it up to 180 degrees instead.</p><p>In addition, whenever an attack hits a vehicle you’re driving or a collision occurs involving a vehicle you are driving, you can use your reaction to avoid the worst of it, reducing the damage your vehicle would take by the result of a vehicle check (air, land, or water as appropriate to the vehicle).</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -42,15 +65,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "artificer",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "uyqu2yy46hrf78qz",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722276100949,
+		"modifiedTime": 1722277085844,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "uyqu2yy46hrf78qz"
 }
