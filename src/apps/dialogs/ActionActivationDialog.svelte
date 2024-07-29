@@ -23,6 +23,7 @@
     import SpellSection from "../components/activationDialog/SpellSection.svelte";
     import UsesSection from "../components/activationDialog/UsesSection.svelte";
     import HitDiceSection from "../components/activationDialog/HitDiceSection.svelte";
+    import ConsumptionValidator from "../../utils/validators/ConsumptionValidator";
 
     export let { application } = getContext("#external") as { application: any };
     export let {
@@ -34,6 +35,40 @@
         actorDocument,
         itemDocument,
     }: { actorDocument: BaseActorA5e; itemDocument: ItemA5e } = application;
+
+    function onSubmit() {
+        dialog.submit({
+            attack: attackRollData,
+            consumers: {
+                actionUses: actionUsesData,
+                hitDice: hitDiceData,
+                itemUses: itemUsesData,
+                spell: spellData,
+            },
+            damageBonuses: RollPreparationManager.getSelectedBonuses(
+                $actor,
+                "damage",
+                selectedDamageBonuses,
+            ),
+            healingBonuses: RollPreparationManager.getSelectedBonuses(
+                $actor,
+                "healing",
+                selectedHealingBonuses,
+            ),
+            prompts: RollPreparationManager.getSelectedPrompts(
+                $actor,
+                $item,
+                actionId,
+                selectedPrompts,
+            ),
+            rolls: RollPreparationManager.getSelectedRolls(
+                $item,
+                actionId,
+                selectedRolls,
+            ),
+            visibilityMode,
+        });
+    }
 
     const actor = new TJSDocument(actorDocument);
     const item = new TJSDocument(itemDocument);
@@ -85,11 +120,27 @@
     });
     let selectedPrompts = BonusesManager.getDefaultSelectionsFromBonuses(prompts);
     let selectedRolls = BonusesManager.getDefaultSelectionsFromBonuses(rolls);
-    let visibilityMode = game.settings.get("core", "rollMode");
+    let visibilityMode = game.settings?.get("core", "rollMode")!;
 
     // TODO: Place Template
+    let placeTemplate =
+        (game.settings.get("a5e", "placeItemTemplateDefault") as boolean) ||
+        // @ts-expect-error
+        (action?.area?.placeTemplate as boolean) ||
+        false;
 
-    // TODO: Validator
+    // Validator
+    const validator = new ConsumptionValidator($actor, $item, action, consumers);
+    const preventActionRollOnWarning =
+        (game.settings?.get("a5e", "preventActionRollOnWarning") as boolean) ?? false;
+
+    $: consumerData = {
+        actionUses: actionUsesData,
+        hitDice: hitDiceData,
+        itemUses: itemUsesData,
+    };
+
+    $: warnings = validator.validateData(consumerData);
 
     setContext("actionId", actionId);
     setContext("actor", actor);
@@ -98,6 +149,17 @@
 </script>
 
 <form>
+    {#if warnings.length}
+        <section class="warning__wrapper">
+            {#each warnings as warning}
+                <p class="warning" style="color: var(--a5e-color-warning);">
+                    <i class="fa-solid fa-circle-exclamation" />
+                    {warning}
+                </p>
+            {/each}
+        </section>
+    {/if}
+
     {#if showAttackRoll}
         <Section heading="Attack Roll Config" --a5e-section-body-gap="0.5rem">
             <OutputVisibilitySection bind:visibilityMode />
@@ -163,6 +225,34 @@
     {/if}
 
     <!-- TODO: Template Areas and Placement options -->
+    <!-- {#if validateTemplateData($item.actions.get(actionId)?.area)}
+        <FieldWrapper>
+            <Checkbox
+                label="A5E.ItemPlaceTemplate"
+                checked={placeTemplate}
+                on:updateSelection={({ detail }) => {
+                    placeTemplate = detail;
+                }}
+            />
+        </FieldWrapper>
+    {/if} -->
+
+    <Section>
+        <button
+            disabled={preventActionRollOnWarning && !!warnings.length}
+            on:click|preventDefault={onSubmit}
+        >
+            {#if warnings.length}
+                <i
+                    class="fa-solid fa-circle-exclamation"
+                    style="color: var(--a5e-color-warning);"
+                />
+            {:else}
+                <i class="fa-solid fa-dice" />
+            {/if}
+            {localize("A5E.DialogSubmitRoll")}
+        </button>
+    </Section>
 </form>
 
 <style lang="scss">

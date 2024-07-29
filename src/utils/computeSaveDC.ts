@@ -1,9 +1,12 @@
+import type { BaseActorA5e } from '../documents/actor/base';
+import type { ItemA5e } from '../documents/item/item';
+
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getSpellBookDC from './getSpellBookDC';
 
 export default function computeSaveDC(
-  actor: typeof Actor,
-  item: typeof Item,
+  actor: BaseActorA5e,
+  item: ItemA5e,
   saveDC: any
 ): number | null {
   if (!actor) return null;

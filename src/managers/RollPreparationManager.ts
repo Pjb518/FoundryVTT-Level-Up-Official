@@ -6,6 +6,7 @@ import type { ItemA5e } from '../documents/item/item';
 import type { RollHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 import type { PromptHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
 
+import computeSaveDC from '../utils/computeSaveDC';
 import getAttackAbility from '../utils/getAttackAbility';
 
 import _prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
@@ -90,8 +91,8 @@ class RollPreparationManager {
     };
   }
 
-  static prepareOtherRollData(rolls: RollHandlerReturnType) {
-    const invalidSelections = Object.values(rolls)
+  static #getInvalidSelections(property: [string, any][]): string[] {
+    return Object.values(property)
       .flat()
       .reduce((acc, [key, value]) => {
         if (
@@ -103,6 +104,12 @@ class RollPreparationManager {
 
         return acc;
       }, [] as string[]);
+  }
+
+  static prepareOtherRollData(rolls: RollHandlerReturnType) {
+    const invalidSelections = this.#getInvalidSelections(
+      (rolls as unknown) as [string, any][]
+    );
 
     const otherRolls = Object.entries(rolls).reduce((acc, [rollType, rollGroup]) => {
       if (rollType === 'attack') return acc;
@@ -117,23 +124,62 @@ class RollPreparationManager {
     };
   }
 
-  static preparePromptsData(prompts: PromptHandlerReturnType) {
-    const invalidSelections = Object.values(prompts)
-      .flat()
-      .reduce((acc, [key, value]) => {
-        if (
-          ['generic', 'healing', 'damage'].includes(value.type)
-          && !value.formula
-        ) {
-          acc.push(key);
-        }
+  static getSelectedRolls(item: ItemA5e, actionId: string, selections: string[]) {
+    const action = item.actions.get(actionId)!;
+    const rolls = Object.entries(action.rolls ?? {});
+    // There to help with types
+    const temp = Object.values(action.rolls ?? {});
 
-        return acc;
-      }, [] as string[]);
+    return rolls.reduce((acc, [key, roll]) => {
+      if (selections.includes(key) && roll.type !== 'attack') acc.push(roll);
+      return acc;
+    }, [] as typeof temp);
+  }
+
+  static preparePromptsData(prompts: PromptHandlerReturnType) {
+    const invalidSelections = this.#getInvalidSelections(
+      (prompts as unknown) as [string, any][]
+    );
 
     return {
       invalidSelections
     };
+  }
+
+  static getSelectedPrompts(
+    actor: BaseActorA5e,
+    item: ItemA5e,
+    actionId: string,
+    selections: string[]
+  ) {
+    const action = item.actions.get(actionId)!;
+    const prompts = Object.entries(action.prompts ?? {});
+
+    // There to help with types
+    const temp = Object.values(action.prompts ?? {});
+
+    return prompts.reduce((acc, [key, prompt]) => {
+      if (selections.includes(key)) {
+        if (prompt.type === 'savingThrow') {
+          // @ts-expect-error
+          prompt.dc = computeSaveDC(actor, item, prompt.saveDC);
+        }
+
+        acc.push(prompt);
+      }
+
+      return acc;
+    }, [] as typeof temp);
+  }
+
+  static getSelectedBonuses(actor: BaseActorA5e, type: 'damage' | 'healing', selections: string[]) {
+    const bonuses = Object.entries(actor.system.bonuses[type]);
+
+    return bonuses.reduce((acc, [key, bonus]) => {
+      if (selections.includes(key)) acc.push(bonus);
+
+      return acc;
+    }, [] as any[]);
   }
 
   /** ******************************************* */

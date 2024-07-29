@@ -1,13 +1,21 @@
 import { localize } from '#runtime/svelte/helper';
+import type { A5EActionData } from '../../dataModels/item/actions/ActionDataModel';
+import type { BaseActorA5e } from '../../documents/actor/base';
+import type { ItemA5e } from '../../documents/item/item';
 
 export default class ConsumptionValidator {
-  #action;
+  #action: A5EActionData;
 
-  #actor;
+  #actor: BaseActorA5e;
 
-  #item;
+  #item: ItemA5e;
 
-  constructor(actor, item, action) {
+  availableConsumers: any;
+
+  warnings: string[];
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  constructor(actor: BaseActorA5e, item: ItemA5e, action: A5EActionData, ...args: any[]) {
     this.#action = action;
     this.#actor = actor;
     this.#item = item;
@@ -62,7 +70,7 @@ export default class ConsumptionValidator {
   #validateItemQuantity(_, consumer) {
     const item = this.#actor.items.get(consumer.itemId);
     if (item) {
-      const quantity = item.system.quantity ?? 0;
+      const quantity = (item.isType('object') ? item.system.quantity : 0) ?? 0;
       if (quantity >= consumer.quantity) return;
     }
 
