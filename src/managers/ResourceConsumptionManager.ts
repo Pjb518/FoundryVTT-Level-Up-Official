@@ -9,6 +9,7 @@ import type SpellItemA5e from '../documents/item/spell';
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getActionScalingModes from '../utils/getActionScalingModes';
 import type * as ConsumerDataModels from '../dataModels/item/actions/ActionConsumersDataModel';
+import prepareHitDice from '../apps/dataPreparationHelpers/prepareHitDice';
 
 class ResourceConsumptionManager {
   #actor: BaseActorA5e;
@@ -169,6 +170,33 @@ class ResourceConsumptionManager {
   /** ****************************************************
    *  Static Methods
    **************************************************** */
+  static #getConsumerType(consumers: ConsumerHandlerReturnType, type: string) {
+    if (foundry.utils.isEmpty(consumers[type])) return {};
+    const [, consumer] = Object.values(consumers[type]);
+    return consumer;
+  }
+
+  static prepareHitDiceData(actor: BaseActorA5e, consumers: ConsumerHandlerReturnType) {
+    const consumer = this.#getConsumerType(consumers, 'hitDice') as ConsumerDataModels.HitDiceConsumerData;
+    const hitDiceData = {} as ResourceConsumptionManager.HitDiceConsumerData;
+
+    const availableHitDice = prepareHitDice(actor).reduce((acc, { die, total }) => {
+      if (total > 0) acc.push(die);
+      return acc;
+    }, [] as string[]);
+
+    hitDiceData.selected = Object.fromEntries(
+      availableHitDice.map((hd, idx) => [hd, idx === 0 ? 1 : 0])
+    );
+
+    hitDiceData.quantity = consumer.quantity ?? 1;
+
+    return {
+      availableHitDice,
+      hitDiceData
+    };
+  }
+
   static prepareSpellData(
     actor: BaseActorA5e,
     item: SpellItemA5e,
@@ -265,12 +293,6 @@ class ResourceConsumptionManager {
     };
   }
 
-  static #getConsumerType(consumers: ConsumerHandlerReturnType, type: string) {
-    if (foundry.utils.isEmpty(consumers[type])) return {};
-    const [, consumer] = Object.values(consumers[type]);
-    return consumer;
-  }
-
   static prepareUsesData(
     actor: BaseActorA5e,
     item: ItemA5e,
@@ -313,7 +335,8 @@ class ResourceConsumptionManager {
 
 declare namespace ResourceConsumptionManager {
   interface HitDiceConsumerData {
-
+    selected: { [die: string]: number };
+    quantity: number;
   }
 
   interface SpellConsumerData {

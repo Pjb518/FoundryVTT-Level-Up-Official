@@ -22,6 +22,7 @@
     import RollsSection from "../components/activationDialog/RollsSection.svelte";
     import SpellSection from "../components/activationDialog/SpellSection.svelte";
     import UsesSection from "../components/activationDialog/UsesSection.svelte";
+    import HitDiceSection from "../components/activationDialog/HitDiceSection.svelte";
 
     export let { application } = getContext("#external") as { application: any };
     export let {
@@ -153,6 +154,10 @@
 
             {#if showUsesSection}
                 <UsesSection {consumers} bind:actionUsesData bind:itemUsesData />
+            {/if}
+
+            {#if showHitDiceSection}
+                <HitDiceSection {consumers} bind:hitDiceData />
             {/if}
         </Section>
     {/if}

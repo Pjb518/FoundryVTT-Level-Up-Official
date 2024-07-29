@@ -1,4 +1,6 @@
-export default function prepareHitDice(actor) {
+import type { BaseActorA5e } from '../../documents/actor/base';
+
+export default function prepareHitDice(actor: BaseActorA5e) {
   const actorType = actor.type;
   const hitDice = ['d6', 'd8', 'd10', 'd12'];
 
