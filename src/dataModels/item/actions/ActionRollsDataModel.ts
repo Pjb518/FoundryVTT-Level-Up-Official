@@ -17,7 +17,18 @@ const abilityCheckSchema = () => ({
 
 const attackRollSchema = () => ({
   ability: new fields.StringField({ required: true, nullable: false, initial: '' }), // TODO: Action - Set to proper
-  attackType: new fields.StringField({ required: true, nullable: false, initial: '' }),
+  attackType: new fields.StringField({
+    required: true,
+    nullable: false,
+    initial: '',
+    choices: [
+      'meleeWeaponAttack',
+      'rangedWeaponAttack',
+      'meleeSpellAttack',
+      'rangedSpellAttack']
+  }),
+  bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
+  criticalThreshold: new fields.NumberField({ required: true, nullable: false, initial: 20 }),
   proficient: new fields.BooleanField({ required: true, nullable: false, initial: true }),
   ...baseSchema()
 });
