@@ -1,6 +1,8 @@
 import type { ToolCheckRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
 
-export default function prepareToolChecks(rolls: [string, ToolCheckRollData][]) {
+export default function prepareToolChecks(
+  rolls: [string, ToolCheckRollData][]
+): [string, ToolCheckRollData][] {
   const counts: Record<string, number> = {};
 
   // Flatten the tools config object and extract just the inner tools keys

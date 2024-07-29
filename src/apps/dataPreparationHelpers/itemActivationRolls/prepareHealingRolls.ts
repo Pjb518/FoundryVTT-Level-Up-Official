@@ -1,6 +1,8 @@
 import type { HealingRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
 
-export default function prepareHealingRolls(rolls: [string, HealingRollData][]) {
+export default function prepareHealingRolls(
+  rolls: [string, HealingRollData][]
+): [string, HealingRollData][] {
   const counts: Record<string, number> = {};
 
   if (!rolls.length) return [];

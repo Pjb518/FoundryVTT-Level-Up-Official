@@ -1,4 +1,8 @@
-export default function prepareGenericRollPrompts(prompts) {
+import type { GenericPromptData } from '../../../dataModels/item/actions/ActionPromptsDataModel';
+
+export default function prepareGenericRollPrompts(
+  prompts: [string, GenericPromptData][]
+): [string, GenericPromptData][] {
   let count = 0;
 
   if (!prompts.length) return [];
@@ -8,6 +12,7 @@ export default function prepareGenericRollPrompts(prompts) {
       const label = game.i18n.localize('A5E.Other');
       count += 1;
 
+      // @ts-expect-error
       prompt.defaultLabel = `${label} #${count}`;
     }
 

@@ -1,6 +1,8 @@
 import type { SavingThrowRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
 
-export default function prepareSavingThrows(rolls: [string, SavingThrowRollData][]) {
+export default function prepareSavingThrows(
+  rolls: [string, SavingThrowRollData][]
+): [string, SavingThrowRollData][] {
   const counts: Record<string, number> = {};
 
   if (!rolls.length) return [];

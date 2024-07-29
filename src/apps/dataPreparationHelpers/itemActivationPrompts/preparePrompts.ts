@@ -1,3 +1,5 @@
+import type { ItemA5e } from '../../../documents/item/item';
+
 import prepareAbilityCheckPrompts from './prepareAbilityCheckPrompts';
 import prepareActiveEffectPrompts from './prepareActiveEffectPrompts';
 import prepareGenericRollPrompts from './prepareGenericRollPrompts';
@@ -10,9 +12,23 @@ const promptHandlerMap = {
   savingThrow: prepareSavingThrowPrompts,
   skillCheck: prepareSkillCheckPrompt,
   generic: prepareGenericRollPrompts
-};
+} as const;
 
-export default function preparePrompts(prompts, item) {
+export type PromptHandlerMap = typeof promptHandlerMap;
+
+export type PromptHandlerTypes = keyof PromptHandlerMap;
+
+export interface PromptHandlerReturnType {
+  abilityCheck: ReturnType<typeof prepareAbilityCheckPrompts>;
+  effect: ReturnType<typeof prepareActiveEffectPrompts>;
+  savingThrow: ReturnType<typeof prepareSavingThrowPrompts>;
+  skillCheck: ReturnType<typeof prepareSkillCheckPrompt>;
+  generic: ReturnType<typeof prepareGenericRollPrompts>;
+}
+
+export default function preparePrompts(item: ItemA5e, actionId: string): PromptHandlerReturnType {
+  const { prompts } = (item.actions.get(actionId)!);
+
   const promptsByType = Object.entries(prompts ?? {}).reduce((acc, [key, prompt]) => {
     acc[prompt.type] ??= [];
     acc[prompt.type].push([key, prompt]);
@@ -26,5 +42,5 @@ export default function preparePrompts(prompts, item) {
     }
 
     return acc;
-  }, {});
+  }, {} as PromptHandlerReturnType);
 }

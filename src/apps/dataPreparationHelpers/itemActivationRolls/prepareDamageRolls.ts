@@ -1,6 +1,8 @@
 import type { DamageRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
 
-export default function prepareDamageRolls(rolls: [string, DamageRollData][]) {
+export default function prepareDamageRolls(
+  rolls: [string, DamageRollData][]
+): [string, DamageRollData][] {
   const counts: Record<string, number> = {};
 
   if (!rolls.length) return [];

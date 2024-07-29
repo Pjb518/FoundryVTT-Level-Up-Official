@@ -17,7 +17,7 @@ import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import SpellBookManager from '../../managers/SpellBookManager';
 import RestManager from '../../managers/RestManager';
 import RollOverrideManager from '../../managers/RollOverrideManager';
-import RollPreparationManager from '../../managers/RollPreparationManager';
+import RollPreparationManager from '../../managers/RollPreparationManagerOld';
 
 import AbilityBonusConfigDialog from '../../apps/dialogs/AbilityBonusConfigDialog.svelte';
 import AbilityCheckConfigDialog from '../../apps/dialogs/ActorAbilityConfigDialog.svelte';

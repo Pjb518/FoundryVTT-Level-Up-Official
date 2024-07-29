@@ -1,6 +1,8 @@
 import type { GenericRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
 
-export default function prepareGenericRolls(rolls: [string, GenericRollData][]) {
+export default function prepareGenericRolls(
+  rolls: [string, GenericRollData][]
+): [string, GenericRollData][] {
   let count = 0;
 
   if (!rolls.length) return [];

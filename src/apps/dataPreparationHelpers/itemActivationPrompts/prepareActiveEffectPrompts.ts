@@ -1,4 +1,9 @@
-export default function prepareActiveEffectPrompts(prompts, item) {
+import type { ItemA5e } from '../../../documents/item/item';
+
+export default function prepareActiveEffectPrompts(
+  prompts: [string, any][],
+  item: ItemA5e
+): [string, any][] {
   let counts = 0;
 
   if (!prompts.length) return [];
@@ -15,5 +20,5 @@ export default function prepareActiveEffectPrompts(prompts, item) {
 
     acc.push([key, prompt]);
     return acc;
-  }, []);
+  }, [] as any[]);
 }

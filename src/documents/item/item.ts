@@ -1,6 +1,7 @@
 /* eslint-disable no-continue */
 /* eslint-disable no-unused-vars */
 import type { Action } from 'types/action';
+import type { ActionActivationOptions } from './data';
 
 import { BaseItemA5e } from './base';
 
@@ -18,7 +19,7 @@ import ActionSelectionDialog from '../../apps/dialogs/initializers/ActionSelecti
 
 import { ActionsManager } from '../../managers/ActionsManager';
 import ResourceConsumptionManager from '../../managers/ResourceConsumptionManager';
-import RollPreparationManager from '../../managers/RollPreparationManager';
+import { RollPreparationManager } from '../../managers/RollPreparationManager.ts';
 import TemplatePreparationManager from '../../managers/TemplatePreparationManager';
 
 import getSummaryData from '../../utils/summaries/getSummaryData';
@@ -42,12 +43,15 @@ interface ItemA5e<ItemType extends SystemItemTypes = SystemItemTypes> {
  * @extends {Item}
  */
 class ItemA5e extends BaseItemA5e {
-  get actions() {
-    // TODO: Cache this builder
-    return new ActionsManager(this);
-  }
+  declare actions: ActionsManager;
 
   // *****************************************************************************************
+
+  override prepareBaseData() {
+    // Set up managers TODO: Null these in initialize
+    this.actions = new ActionsManager(this);
+  }
+
   override prepareDerivedData() {
     super.prepareDerivedData();
     if (['object', 'feature'].includes(this.type)) this.prepareArmorData();
@@ -91,7 +95,7 @@ class ItemA5e extends BaseItemA5e {
    * @param options
    * @returns
    */
-  override async activate(actionId: string | null, options = {}) {
+  override async activate(actionId: string | null, options: ActionActivationOptions = {}) {
     // Do not allow an item to activate if it not attached to an actor or if the user does
     // not have owner permissions for the actor.
     if (!this.actor || !this?.actor.isOwner) return;
@@ -101,7 +105,7 @@ class ItemA5e extends BaseItemA5e {
       this.shareItemDescription();
     } else if (this.actions.count === 1) {
       // If there is a single defined action, use that action.
-      this.#activateAction(this.actions.keys()[0], options);
+      this.#activateAction(this.actions.first!.id, options);
     } else if (actionId) {
       // If an action is provided, use the provided action
       this.#activateAction(actionId, options);
@@ -139,9 +143,9 @@ class ItemA5e extends BaseItemA5e {
     return false;
   }
 
-  async #activateAction(actionId: string, options: Record<string, any> = {}) {
+  async #activateAction(actionId: string, options: ActionActivationOptions = {}) {
     let activationData;
-    const action = this.actions[actionId];
+    const action = this.actions.get(actionId)!;
 
     if (options.skipRollDialog) {
       activationData = this.#getDefaultActionActivationData(actionId, options);
@@ -268,7 +272,7 @@ class ItemA5e extends BaseItemA5e {
     return chatCard;
   }
 
-  async #showActionActivationPrompt(actionId, options) {
+  async #showActionActivationPrompt(actionId: string, options: ActionActivationOptions) {
     const dialog = new ActionActivationDialog({
       actionId,
       options,

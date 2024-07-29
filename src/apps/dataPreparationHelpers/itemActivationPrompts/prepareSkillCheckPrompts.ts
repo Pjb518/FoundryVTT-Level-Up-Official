@@ -1,5 +1,9 @@
-export default function prepareSkillCheckPrompts(prompts) {
-  const counts = {};
+import type { SkillCheckPromptData } from '../../../dataModels/item/actions/ActionPromptsDataModel';
+
+export default function prepareSkillCheckPrompts(
+  prompts: [string, SkillCheckPromptData][]
+): [string, SkillCheckPromptData][] {
+  const counts: Record<string, number> = {};
 
   if (!prompts.length) return [];
 
@@ -14,6 +18,7 @@ export default function prepareSkillCheckPrompts(prompts) {
       counts[prompt.skill] ??= 0;
       counts[prompt.skill] += 1;
 
+      // @ts-expect-error
       prompt.defaultLabel = `${label} #${counts[prompt.skill]}`;
     }
 

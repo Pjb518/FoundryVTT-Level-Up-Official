@@ -18,3 +18,10 @@ export interface RevitalizeOptions {
   updateImg?: boolean;
   updateName?: boolean;
 }
+
+/** --------------------------------------- */
+/** Roll Interfaces                         */
+/** --------------------------------------- */
+export interface ActionActivationOptions {
+  skipRollDialog?: boolean;
+}

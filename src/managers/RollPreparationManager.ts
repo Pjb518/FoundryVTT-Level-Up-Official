@@ -2,6 +2,8 @@
 import type { BaseActorA5e } from '../documents/actor/base';
 import type { ItemA5e } from '../documents/item/item';
 
+import _prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
+import _preparePrompts from '../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
 import _prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 
 class RollPreparationManager {
@@ -35,6 +37,14 @@ class RollPreparationManager {
   /** ****************************************************
    *  Static Methods
    **************************************************** */
+  static prepareConsumers(item: ItemA5e, actionId: string) {
+    return _prepareConsumers(item, actionId);
+  }
+
+  static preparePrompts(item: ItemA5e, actionId: string) {
+    return _preparePrompts(item, actionId);
+  }
+
   static prepareRolls(item: ItemA5e, actionId: string) {
     return _prepareRolls(item, actionId);
   }

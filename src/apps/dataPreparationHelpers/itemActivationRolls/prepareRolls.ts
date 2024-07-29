@@ -24,18 +24,18 @@ export type RollHandlerMap = typeof rollHandlerMap;
 
 export type RollHandlerTypes = keyof RollHandlerMap;
 
-export type RollHandlerReturnType = {
-  abilityCheck?: ReturnType<typeof prepareAbilityChecks>
-  attack?: ReturnType<typeof prepareAttackRolls>,
-  damage?: ReturnType<typeof prepareDamageRolls>,
-  generic?: ReturnType<typeof prepareGenericRolls>,
-  healing?: ReturnType<typeof prepareHealingRolls>,
-  savingThrow?: ReturnType<typeof prepareSavingThrows>,
-  skillCheck?: ReturnType<typeof prepareSkillChecks>,
+export interface RollHandlerReturnType {
+  abilityCheck?: ReturnType<typeof prepareAbilityChecks>;
+  attack?: ReturnType<typeof prepareAttackRolls>;
+  damage?: ReturnType<typeof prepareDamageRolls>;
+  generic?: ReturnType<typeof prepareGenericRolls>;
+  healing?: ReturnType<typeof prepareHealingRolls>;
+  savingThrow?: ReturnType<typeof prepareSavingThrows>;
+  skillCheck?: ReturnType<typeof prepareSkillChecks>;
   toolCheck?: ReturnType<typeof prepareToolChecks>
-};
+}
 
-export default function prepareRolls(item: ItemA5e, actionId: string) {
+export default function prepareRolls(item: ItemA5e, actionId: string): RollHandlerReturnType {
   const { rolls } = (item.actions.get(actionId)!);
 
   const rollsByType = Object.entries(rolls ?? {}).reduce((acc, [key, roll]) => {
@@ -53,5 +53,5 @@ export default function prepareRolls(item: ItemA5e, actionId: string) {
       }
 
       return acc;
-    }, {} as RollHandlerReturnType); // TODO: Make these properties optional
+    }, {} as RollHandlerReturnType);
 }

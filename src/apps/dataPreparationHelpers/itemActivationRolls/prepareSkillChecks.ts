@@ -1,6 +1,8 @@
 import type { SkillCheckRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
 
-export default function prepareSkillChecks(rolls: [string, SkillCheckRollData][]) {
+export default function prepareSkillChecks(
+  rolls: [string, SkillCheckRollData][]
+): [string, SkillCheckRollData][] {
   const counts: Record<string, number> = {};
 
   if (!rolls.length) return [];
