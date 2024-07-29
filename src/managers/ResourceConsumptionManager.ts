@@ -8,6 +8,7 @@ import type SpellItemA5e from '../documents/item/spell';
 
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getActionScalingModes from '../utils/getActionScalingModes';
+import type * as ConsumerDataModels from '../dataModels/item/actions/ActionConsumersDataModel';
 
 class ResourceConsumptionManager {
   #actor: BaseActorA5e;
@@ -174,7 +175,7 @@ class ResourceConsumptionManager {
     consumers: ConsumerHandlerReturnType,
     actionId: string
   ) {
-    const action = item.actions.get(actionId);
+    const action = item.actions.get(actionId)!;
     const { A5E } = CONFIG;
     const spellLevels = Object.entries(A5E.spellLevels).slice(1);
     const spellBook = actor.spellBooks.get(item.system.spellBook);
@@ -196,7 +197,10 @@ class ResourceConsumptionManager {
     // @ts-expect-error
     const spellData: ResourceConsumptionManager.SpellConsumerData = {};
 
-    const consumer = Object.values(consumers.spell ?? {})?.[0]?.[1] ?? {};
+    const consumer = Object.values(
+      consumers.spell ?? {}
+    )?.[1] as ConsumerDataModels.SpellConsumerData ?? {};
+
     let mode = consumer.mode ?? 'variable';
 
     spellData.basePoints = consumer.points ?? 1;
@@ -260,9 +264,58 @@ class ResourceConsumptionManager {
       spellResources
     };
   }
+
+  static #getConsumerType(consumers: ConsumerHandlerReturnType, type: string) {
+    if (foundry.utils.isEmpty(consumers[type])) return {};
+    const [, consumer] = Object.values(consumers[type]);
+    return consumer;
+  }
+
+  static prepareUsesData(
+    actor: BaseActorA5e,
+    item: ItemA5e,
+    consumers: ConsumerHandlerReturnType,
+    actionId: string
+  ) {
+    const action = item.actions.get(actionId)!;
+    const actionConsumer = this.#getConsumerType(
+      consumers,
+      'actionUses'
+    ) as ConsumerDataModels.ActionUsesConsumerData;
+    const itemConsumer = this.#getConsumerType(
+      consumers,
+      'itemUses'
+    ) as ConsumerDataModels.ItemUsesConsumerData;
+
+    const actionUsesData = {} as ResourceConsumptionManager.UsesConsumerData;
+    const itemUsesData = {} as ResourceConsumptionManager.UsesConsumerData;
+
+    actionUsesData.baseUses = actionConsumer?.quantity ?? 1;
+    actionUsesData.quantity = actionConsumer?.quantity ?? 1;
+    itemUsesData.baseUses = itemConsumer?.quantity ?? 1;
+    itemUsesData.quantity = itemConsumer?.quantity ?? 1;
+
+    const actionUses = action?.uses ?? {};
+    const itemUses = item.system.uses;
+    const itemMaxUses = getDeterministicBonus(itemUses.max, actor.getRollData(item));
+    const actionMaxUses = getDeterministicBonus(actionUses.max ?? 0, actor.getRollData(item));
+
+    return {
+      actionMaxUses,
+      actionUses,
+      actionUsesData,
+      itemMaxUses,
+      itemUses,
+      itemUsesData
+    };
+  }
 }
 
 declare namespace ResourceConsumptionManager {
+  interface HitDiceConsumerData {
+
+  }
+
   interface SpellConsumerData {
     basePoints: number;
     baseCharges: number;
@@ -271,6 +324,11 @@ declare namespace ResourceConsumptionManager {
     level: number;
     points: number;
     consume: 'artifactCharge' | 'noConsume' | 'spellPoint' | 'spellSlot'
+  }
+
+  interface UsesConsumerData {
+    quantity: number;
+    baseUses: number;
   }
 }
 

@@ -4,14 +4,14 @@ import type {
 import type { ItemA5e } from '../../../documents/item/item';
 
 export interface ConsumerHandlerReturnType {
-  actionUses: [string, ActionUsesConsumerData][],
-  hitDice: [string, HitDiceConsumerData][],
-  itemUses: [string, ItemUsesConsumerData][],
-  spell: [string, SpellConsumerData][]
+  actionUses?: [string, ActionUsesConsumerData],
+  hitDice?: [string, HitDiceConsumerData],
+  itemUses?: [string, ItemUsesConsumerData],
+  spell?: [string, SpellConsumerData]
 }
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
-function _prepareConsumers(consumers: [string, any][]): [string, any][] {
+function _prepareConsumers(consumers: [string, any][]): any[] {
   if (!consumers.length) return [];
 
   const [key, consumer] = consumers[0];

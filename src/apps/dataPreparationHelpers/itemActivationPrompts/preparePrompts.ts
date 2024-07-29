@@ -19,11 +19,11 @@ export type PromptHandlerMap = typeof promptHandlerMap;
 export type PromptHandlerTypes = keyof PromptHandlerMap;
 
 export interface PromptHandlerReturnType {
-  abilityCheck: ReturnType<typeof prepareAbilityCheckPrompts>;
-  effect: ReturnType<typeof prepareActiveEffectPrompts>;
-  savingThrow: ReturnType<typeof prepareSavingThrowPrompts>;
-  skillCheck: ReturnType<typeof prepareSkillCheckPrompt>;
-  generic: ReturnType<typeof prepareGenericRollPrompts>;
+  abilityCheck?: ReturnType<typeof prepareAbilityCheckPrompts>;
+  effect?: ReturnType<typeof prepareActiveEffectPrompts>;
+  savingThrow?: ReturnType<typeof prepareSavingThrowPrompts>;
+  skillCheck?: ReturnType<typeof prepareSkillCheckPrompt>;
+  generic?: ReturnType<typeof prepareGenericRollPrompts>;
 }
 
 export default function preparePrompts(item: ItemA5e, actionId: string): PromptHandlerReturnType {

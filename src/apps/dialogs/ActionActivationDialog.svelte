@@ -3,12 +3,15 @@
     import type { AttackRollData } from "../../dataModels/item/actions/ActionRollsDataModel";
     import type { BaseActorA5e } from "../../documents/actor/base";
     import type { ItemA5e } from "../../documents/item/item";
+    import type { ResourceConsumptionManager } from "../../managers/ResourceConsumptionManager";
 
     import { RollPreparationManager } from "../../managers/RollPreparationManager";
 
     import { getContext, setContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+
+    import showActivationDialogSection from "../../utils/showActivationDialogSection";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import Section from "../components/Section.svelte";
@@ -18,6 +21,7 @@
     import PromptsSection from "../components/activationDialog/PromptsSection.svelte";
     import RollsSection from "../components/activationDialog/RollsSection.svelte";
     import SpellSection from "../components/activationDialog/SpellSection.svelte";
+    import UsesSection from "../components/activationDialog/UsesSection.svelte";
 
     export let { application } = getContext("#external") as { application: any };
     export let {
@@ -32,7 +36,7 @@
 
     const actor = new TJSDocument(actorDocument);
     const item = new TJSDocument(itemDocument);
-    const action = $item.actions.get(actionId);
+    const action = $item.actions.get(actionId)!;
     const { BonusesManager } = $actor;
     const { isEmpty } = foundry.utils;
 
@@ -53,11 +57,25 @@
     const showHealingBonuses = !!Object.values(healingBonuses).flat().length;
     const showBonusesSection = showDamageBonuses || showHealingBonuses;
     const showPrompts = !!Object.values(prompts).flat().length;
+    const showSpellSection = showActivationDialogSection(
+        action,
+        ["spell"],
+        ["spellLevel", "spellPoints"],
+    );
+    const showUsesSection = showActivationDialogSection(
+        action,
+        ["actionUses", "itemUses"],
+        ["actionUses", "itemUses"],
+    );
+    const showHitDiceSection = !!Object.values(consumers.hitDice ?? {}).flat().length;
+    const showConsumersSection =
+        showSpellSection || showUsesSection || showHitDiceSection;
 
     let attackRollData = {};
-    let actionUsesData = {};
-    let hitDiceData = {};
-    let spellData = {};
+    let actionUsesData = {} as ResourceConsumptionManager.UsesConsumerData;
+    let hitDiceData = {} as ResourceConsumptionManager.HitDiceConsumerData;
+    let itemUsesData = {} as ResourceConsumptionManager.UsesConsumerData;
+    let spellData = {} as ResourceConsumptionManager.SpellConsumerData;
     let selectedDamageBonuses = BonusesManager.getDefaultSelectionsFromBonuses({
         damageBonuses,
     });
@@ -127,7 +145,17 @@
         </Section>
     {/if}
 
-    <SpellSection {consumers} bind:spellData />
+    {#if showConsumersSection}
+        <Section heading="Consumers Config" --a5e-section-body-gap="0.5rem">
+            {#if showSpellSection}
+                <SpellSection {consumers} bind:spellData />
+            {/if}
+
+            {#if showUsesSection}
+                <UsesSection {consumers} bind:actionUsesData bind:itemUsesData />
+            {/if}
+        </Section>
+    {/if}
 
     <!-- TODO: Template Areas and Placement options -->
 </form>

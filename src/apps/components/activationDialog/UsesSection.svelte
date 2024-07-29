@@ -1,51 +1,43 @@
-<script>
+<script lang="ts">
+    import type { BaseActorA5e } from "../../../documents/actor/base";
+    import type { ConsumerHandlerReturnType } from "../../dataPreparationHelpers/itemActivationConsumers/prepareConsumers";
+    import type { ItemA5e } from "../../../documents/item/item";
+    import type { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+
     import { localize } from "#runtime/svelte/helper";
     import { getContext } from "svelte";
 
+    import { ResourceConsumptionManager } from "../../../managers/ResourceConsumptionManager";
+
     import FieldWrapper from "../FieldWrapper.svelte";
 
-    import getDeterministicBonus from "../../../dice/getDeterministicBonus";
     import showActivationDialogSection from "../../../utils/showActivationDialogSection";
 
-    export let consumers;
-    export let actionUsesData;
-    export let itemUsesData;
+    export let consumers: ConsumerHandlerReturnType;
+    export let actionUsesData: ResourceConsumptionManager.UsesConsumerData;
+    export let itemUsesData: ResourceConsumptionManager.UsesConsumerData;
 
-    function getActionConsumer(consumers) {
-        if (foundry.utils.isEmpty(consumers.actionUses)) return null;
-        const [_, consumer] = Object.values(consumers.actionUses);
-        return consumer;
-    }
+    const actor: TJSDocument<BaseActorA5e> = getContext("actor");
+    const item: TJSDocument<ItemA5e> = getContext("item");
+    const actionId: string = getContext("actionId");
+    const action = $item.actions.get(actionId)!;
 
-    function getItemConsumer(consumers) {
-        if (foundry.utils.isEmpty(consumers.itemUses)) return null;
-        const [_, consumer] = Object.values(consumers.itemUses);
-        return consumer;
-    }
-
-    const actor = getContext("actor");
-    const actionId = getContext("actionId");
-    const item = getContext("item");
-    const action = $item.actions[actionId];
+    let parts = ResourceConsumptionManager.prepareUsesData(
+        $actor,
+        $item,
+        consumers,
+        actionId,
+    );
 
     // =======================================================
     // Consumer data
-    const actionConsumer = getActionConsumer(consumers);
-    const itemConsumer = getItemConsumer(consumers);
+    actionUsesData = parts.actionUsesData;
+    itemUsesData = parts.itemUsesData;
 
-    actionUsesData.quantity = actionConsumer?.quantity ?? 1;
-    actionUsesData.baseUses = actionConsumer?.quantity ?? 1;
-    itemUsesData.quantity = itemConsumer?.quantity ?? 1;
-    itemUsesData.baseUses = itemConsumer?.quantity ?? 1;
-
-    $: actionUses = $item.actions[actionId].uses ?? {};
-    $: itemUses = $item.system.uses;
-    $: itemMaxUses = getDeterministicBonus(itemUses.max, $actor.getRollData($item));
-
-    $: actionMaxUses = getDeterministicBonus(
-        actionUses?.max ?? 0,
-        $actor.getRollData($item),
-    );
+    $: actionUses = parts.actionUses;
+    $: actionMaxUses = parts.actionMaxUses;
+    $: itemUses = parts.itemUses;
+    $: itemMaxUses = parts.itemMaxUses;
 </script>
 
 <div class="side-by-side">
