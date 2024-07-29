@@ -10,8 +10,11 @@
     import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
+    import Section from "../components/Section.svelte";
+
     import AttackRollSection from "../components/activationDialog/AttackRollSection.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
+    import RollsSection from "../components/activationDialog/RollsSection.svelte";
 
     export let { application } = getContext("#external") as { application: any };
     export let {
@@ -64,9 +67,21 @@
 </script>
 
 <form>
-    <OutputVisibilitySection bind:visibilityMode />
+    <Section heading="Attack Roll Config" --a5e-section-body-gap="0.75rem">
+        <OutputVisibilitySection bind:visibilityMode />
 
-    <AttackRollSection {attackRoll} {options} bind:attackRollData />
+        {#if !isEmpty(attackRoll)}
+            <AttackRollSection {attackRoll} {options} bind:attackRollData />
+        {/if}
+    </Section>
+
+    <Section heading="Rolls Config" --a5e-section-body-gap="0.75rem">
+        {#if Object.values(rolls).flat().length}
+            <RollsSection {rolls} bind:selectedRolls />
+        {/if}
+    </Section>
+
+    <!-- TODO: Template Areas and Placement options -->
 </form>
 
 <style lang="scss">

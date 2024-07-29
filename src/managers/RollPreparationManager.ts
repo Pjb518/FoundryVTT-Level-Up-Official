@@ -4,7 +4,7 @@ import type { ItemA5e } from '../documents/item/item';
 
 import _prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
 import _preparePrompts from '../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
-import _prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
+import _prepareRolls, { type RollHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel';
 import getAttackAbility from '../utils/getAttackAbility';
 import type { ActionActivationOptions } from '../documents/item/data';
@@ -84,6 +84,33 @@ class RollPreparationManager {
       rollMode,
       rollModeSource,
       selectedAttackBonuses
+    };
+  }
+
+  static prepareOtherRollData(rolls: RollHandlerReturnType) {
+    const invalidSelections = Object.values(rolls)
+      .flat()
+      .reduce((acc, [key, value]) => {
+        if (
+          ['generic', 'healing', 'damage'].includes(value.type)
+          && !value.formula
+        ) {
+          acc.push(key);
+        }
+
+        return acc;
+      }, [] as string[]);
+
+    const otherRolls = Object.entries(rolls).reduce((acc, [rollType, rollGroup]) => {
+      if (rollType === 'attack') return acc;
+      acc[rollType] = rollGroup;
+
+      return acc;
+    }, {} as Omit<RollHandlerReturnType, 'attack'>);
+
+    return {
+      invalidSelections,
+      otherRolls
     };
   }
 
