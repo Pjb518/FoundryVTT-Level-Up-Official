@@ -10,6 +10,9 @@
     import { localize } from "#runtime/svelte/helper";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
+    import AttackRollSection from "../components/activationDialog/AttackRollSection.svelte";
+    import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
+
     export let { application } = getContext("#external") as { application: any };
     export let {
         actionId,
@@ -24,15 +27,47 @@
     const actor = new TJSDocument(actorDocument);
     const item = new TJSDocument(itemDocument);
     const action = $item.actions.get(actionId);
+    const { BonusesManager } = $actor;
+    const { isEmpty } = foundry.utils;
 
     const consumers = RollPreparationManager.prepareConsumers($item, actionId);
+    // TODO: Add support for effects
     const prompts = RollPreparationManager.preparePrompts($item, actionId);
     const rolls = RollPreparationManager.prepareRolls($item, actionId);
+    const damageBonuses = BonusesManager.prepareGlobalDamageBonuses($item, rolls);
+    const healingBonuses = BonusesManager.prepareGlobalHealingBonuses($item, rolls);
 
     const attackRoll = rolls.attack?.length ? rolls.attack[0][1] : ({} as AttackRollData);
+
+    let attackRollData = {};
+    let actionUsesData = {};
+    let hitDiceData = {};
+    let spellData = {};
+    let selectedDamageBonuses = BonusesManager.getDefaultSelectionsFromBonuses({
+        damageBonuses,
+    });
+    let selectedHealingBonuses = BonusesManager.getDefaultSelectionsFromBonuses({
+        healingBonuses,
+    });
+    let selectedPrompts = BonusesManager.getDefaultSelectionsFromBonuses(prompts);
+    let selectedRolls = BonusesManager.getDefaultSelectionsFromBonuses(rolls);
+    let visibilityMode = game.settings.get("core", "rollMode");
+
+    // TODO: Place Template
+
+    // TODO: Validator
+
+    setContext("actionId", actionId);
+    setContext("actor", actor);
+    setContext("dialog", dialog);
+    setContext("item", item);
 </script>
 
-<form></form>
+<form>
+    <OutputVisibilitySection bind:visibilityMode />
+
+    <AttackRollSection {attackRoll} {options} bind:attackRollData />
+</form>
 
 <style lang="scss">
     :global(.a5e-activation-dialog .window-content) {
