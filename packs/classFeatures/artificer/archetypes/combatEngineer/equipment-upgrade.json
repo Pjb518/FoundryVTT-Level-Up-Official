@@ -15,7 +15,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p dir=\"ltr\">Also at 5th level, you upgrade one of your pieces of gear. Choose one of the following options:</p><h3 dir=\"ltr\">Upgraded Armor</h3><p dir=\"ltr\">You improve your armor. Its AC increases by +1 and you gain an additional ability based on the variety of armor it is.</p><ul><li dir=\"ltr\" style=\"font-weight: bold;\"><strong>Upgraded Light Armor</strong></li><li dir=\"ltr\" style=\"font-weight: bold;\"><strong>Upgraded Medium Armor</strong></li><li dir=\"ltr\" style=\"font-weight: bold;\"><strong>Upgraded Heavy Armor</strong></li></ul><h3 id=\"docs-internal-guid-84f45ada-7fff-77df-b4dc-be164403abc8\" dir=\"ltr\">Upgraded Weapon</h3><p dir=\"ltr\">You gain the following option:</p><ul><li><strong>Upgraded Weapon:</strong> your custom weapon deals an additional 1d4 of damage (for a total of 2d4 if it is heavy).</li></ul><h3 id=\"docs-internal-guid-0d1af251-7fff-ebe6-c404-fc90bea3596a\" dir=\"ltr\">Upgraded Automaton</h3><p dir=\"ltr\">You improve your automaton. Its armor class increases to 14, its hit points increase to 35, and you choose one of the following upgrades.</p><ul><li dir=\"ltr\"><strong>Upgraded Medic</strong></li><li dir=\"ltr\"><strong>Upgraded Weapon</strong></li><li dir=\"ltr\"><strong>Upgraded Scanner</strong></li></ul><h3 id=\"docs-internal-guid-2579c43c-7fff-d35d-9c07-a22224df9110\" dir=\"ltr\">Additional Automaton Function</h3><p dir=\"ltr\">Your automaton gains a second set of capabilities. For example, if you had selected the Autonomous Weapon option at level 5, you could select the Autonomous Medic option now.</p>",
+		"description": "<p>Also at 5th level, you upgrade one of your pieces of gear.</p>\n<p>Choose one of the following options:</p>\n<h2>Upgraded Armor</h2>\n<p>You improve your armor. Its AC increases by +1 and you gain an additional ability based on the variety of armor it is.</p>\n<p><strong>Upgraded Light Armor: </strong>Your armor is outfitted with a stealth system. As a bonus action, you can cause yourself to fade from sight, becoming lightly obscured for one minute. Once you have used this ability a number of times equal to your proficiency bonus, you can&rsquo;t do so again until you finish a long rest.</p>\n<p><strong>Upgraded Medium Armor: </strong>Your armor is outfitted with a movement enhancement system. Your walking speed increases by 10 feet while wearing your armor.</p>\n<p><strong>Upgraded Heavy Armor: </strong>Your armor is equipped with an automatic medical system and stabilizers. The armor now automatically ends ongoing damage on you after it has triggered once and you have advantage on saving throws to avoid being moved against your will or knocked prone.</p>\n<h2>Upgraded Weapon</h2>\n<p>You gain the following option:</p>\n<p><strong>Upgraded Weapon: </strong>your custom weapon deals an additional 1d4 of damage (for a total of 2d4 if it is heavy).</p>\n<h2>Upgraded Automaton</h2>\n<p>You improve your automaton. Its armor class increases to 14, its hit points increase to 35, and you choose one of the following upgrades. You can only upgrade a function your automaton already possesses.</p>\n<p><strong>Upgraded Medic:</strong> If your automaton has the Autonomous Medic option, it now heals for 2d8 + your Intelligence modifier.</p>\n<p><strong>Upgraded Weapon:</strong> If your automaton has the Autonomous Weapon option, it now deals damage equal to 2d8 + your Intelligence modifier and its range increases to 150/600.</p>\n<p><strong>Upgraded Scanner:</strong> If your automaton has the Autonomous Scanner option, it now performs the Search action automatically on your turn, not requiring an action from you. You must still specify what it&rsquo;s looking for.</p>\n<p><strong>Additional Automaton Function:</strong> Your automaton gains a second set of capabilities. For example, if you had selected the Autonomous Weapon option at level 5, you could select the Autonomous Medic option now.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -30,7 +30,40 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"hGqAhyGsP9VUJQV9": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "hGqAhyGsP9VUJQV9",
+				"label": "Equipment Upgrade",
+				"features": {
+					"total": 1,
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.AujLZOvYULxDrJ8D",
+							"name": "Upgraded Armor",
+							"img": "icons/skills/movement/arrow-upward-blue.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.OOJ4INOMAINO9soC",
+							"name": "Upgraded Weapon",
+							"img": "icons/skills/melee/blade-tips-triple-steel.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.El67fHsJioBzRBwR",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -43,14 +76,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "artificer",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "gfutpv0q8ewuu7zf",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722204329400,
+		"modifiedTime": 1722223835347,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "gfutpv0q8ewuu7zf"
 }

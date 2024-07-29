@@ -1,0 +1,130 @@
+{
+	"folder": null,
+	"name": "Cutting-Edge Light Armor",
+	"type": "feature",
+	"img": "icons/equipment/chest/vest-leather-brown.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p>You gain a Climb speed equal to your walking speed and you are permanently under a @UUID[Compendium.a5e.a5e-spells.Item.kz3xe6ems34f2ubo]{Spider Climb} effect while you are wearing it.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"prSDp0o7aXyZlLwf": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "prSDp0o7aXyZlLwf",
+				"label": "Cutting-Edge Light Armor",
+				"movementTypes": {
+					"base": [
+						"climb"
+					]
+				},
+				"bonus": "@attributes.movement.walk.distance"
+			}
+		},
+		"prerequisite": "Advanced Armor",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "artificer",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.tB0tbORP0UB4wy4v",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Cutting-Edge Light Armor (Cutting-Edge Equipment)",
+			"_id": "IS0ekHFjR6rn0gwB",
+			"changes": [
+				{
+					"key": "system.attributes.ac",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"mode": 5,
+					"value": "@movement.walk.distance",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.19",
+				"createdTime": null,
+				"modifiedTime": 1722222442725,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.19",
+		"createdTime": 1722222442690,
+		"modifiedTime": 1722222870419,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "hlcpabqbsluxs7zw"
+}

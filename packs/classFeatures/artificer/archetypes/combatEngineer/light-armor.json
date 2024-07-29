@@ -1,0 +1,148 @@
+{
+	"folder": null,
+	"name": "Light Armor",
+	"type": "feature",
+	"img": "icons/equipment/chest/vest-leather-brown.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "12 + @dex.mod",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": true
+		},
+		"actions": {},
+		"description": "<p>Your armor provides you an AC of 12 + your Dexterity modifier. It is designed for stealth and mobility, giving you an expertise die on Acrobatics, Athletics, and Stealth checks.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"9hExxNOViOwkrmVx": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "9hExxNOViOwkrmVx",
+				"label": "Light Armor",
+				"keys": {
+					"base": [
+						"acr",
+						"ath",
+						"ste"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill",
+				"img": "",
+				"expertiseCount": 1
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "artificer",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.kAFoCkrFDGb3zR4d",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Light Armor (Combat Engineer’s Loadout)",
+			"_id": "QMzEA8fh8Jpdq3pO",
+			"changes": [
+				{
+					"key": "system.attributes.ac",
+					"value": "12+@dex.mod",
+					"mode": 5,
+					"priority": null
+				},
+				{
+					"key": "system.skills.acr.expertiseDice",
+					"mode": 2,
+					"value": "1",
+					"priority": null
+				},
+				{
+					"key": "system.skills.ath.expertiseDice",
+					"mode": 2,
+					"value": "1",
+					"priority": null
+				},
+				{
+					"key": "system.skills.ste.expertiseDice",
+					"mode": 2,
+					"value": "1",
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.19",
+				"createdTime": null,
+				"modifiedTime": 1722200344345,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.19",
+		"createdTime": 1722200344290,
+		"modifiedTime": 1722222870419,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "zl2novk9rho7mk99"
+}

@@ -1,0 +1,134 @@
+{
+	"folder": null,
+	"name": "Medium Armor",
+	"type": "feature",
+	"img": "icons/equipment/chest/breastplate-sculpted-grey.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "14 + @dex.mod",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 2,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": true
+		},
+		"actions": {
+			"J31EEL39EBqE92OA": {
+				"name": "Draw or Stow",
+				"activation": {},
+				"consumers": {
+					"Qu0xgiI5LfWkKuIj": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\" role=\"presentation\">Your armor provides you an AC of 14 + your Dexterity modifier (maximum 2). It is designed for versatility, and allows you to draw or stow any one-handed weapon or spell focus you have on your person without using an action once per turn.&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "turn",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "adept",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.4XXJHdWSzTHcubDC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Medium Armor (Combat Engineer’s Loadout)",
+			"_id": "ojS637fItRy4djHQ",
+			"changes": [
+				{
+					"key": "system.attributes.ac",
+					"value": "14+min(@dex.mod,2)",
+					"mode": 5,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.19",
+				"createdTime": null,
+				"modifiedTime": 1722200458786,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.19",
+		"createdTime": 1722200458755,
+		"modifiedTime": 1722222870419,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "g96i3n8xoxrt3lt5"
+}

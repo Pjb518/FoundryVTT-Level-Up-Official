@@ -1,8 +1,8 @@
 {
 	"folder": null,
-	"name": "Autonomous Scanner",
+	"name": "Upgraded Medic",
 	"type": "feature",
-	"img": "icons/tools/scribal/magnifying-glass.webp",
+	"img": "icons/magic/life/heart-glowing-red.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -15,14 +15,26 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"8BjOMxzata6d1hS4": {
-				"name": "Autonomous Scanner",
+			"NdfUUCXe3KqNr4JT": {
+				"name": "Autonomous Medic",
 				"activation": {
 					"type": "bonusAction",
 					"cost": 1
 				},
-				"consumers": {},
-				"rolls": {},
+				"consumers": {
+					"EXA0JE5KsCdeuAdR": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"tTWR3YcLwIYSvFbF": {
+						"type": "healing",
+						"default": true,
+						"formula": "2d8 + @int.mod"
+					}
+				},
 				"prompts": {},
 				"uses": {
 					"value": 0,
@@ -34,17 +46,27 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"ranges": {
+					"1LkvaL7uPL6Ie3DY": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"img": "icons/magic/life/heart-glowing-red.webp"
 			}
 		},
-		"description": "<p dir=\"ltr\" role=\"presentation\">You can use a bonus action to have your automaton take the Search action on your behalf.</p>",
+		"description": "<p>If your automaton has the @UUID[Compendium.a5e.a5e-class-features.Item.x5btl1jkw8e2a4l6]{Autonomous Medic} option, it now heals for 2d8 + your Intelligence modifier.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "@prof",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -65,14 +87,18 @@
 				}
 			}
 		},
-		"classes": "artificer"
+		"classes": "artificer",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "xg5olfw5vlmc5jwc",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722219912940,
+		"modifiedTime": 1722222870419,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "rwpvk8seuu6sirgr"
 }
