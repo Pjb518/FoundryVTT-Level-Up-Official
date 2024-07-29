@@ -1,7 +1,7 @@
 {
 	"name": "Explosives Specialist",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/weapons/thrown/bomb-pressure-black.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -14,7 +14,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>Also at 3rd level you gain the Engineering skill specialty explosives. If you already have this specialty you instead gain a different Engineering skill specialty of your choice.</p>",
+		"description": "<p>Also at 3rd level you gain the Engineering skill specialty <em>explosives</em>. If you already have this specialty you instead gain a different Engineering skill specialty of your choice.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "gpg0",
@@ -29,7 +29,24 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"JCzqSVS2CaDtSzMe": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "JCzqSVS2CaDtSzMe",
+				"label": "Explosives Specialist",
+				"specialties": {
+					"base": [
+						"explosives"
+					],
+					"options": [],
+					"total": 0
+				},
+				"skill": "eng"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -42,15 +59,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "artificer",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "rckh886f4ncv44nj",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722274631040,
+		"modifiedTime": 1722274673692,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "rckh886f4ncv44nj"
 }
