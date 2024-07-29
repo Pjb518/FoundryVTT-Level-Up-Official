@@ -37,7 +37,7 @@ const spellSchema = () => ({
   mode: new fields.StringField({
     required: true,
     nullable: false,
-    initial: '',
+    initial: 'variable',
     choices: [...CONFIG.A5E.SPELL_CONSUMER_MODES]
   }),
   charges: new fields.NumberField({ required: true, nullable: false, initial: 0 }),

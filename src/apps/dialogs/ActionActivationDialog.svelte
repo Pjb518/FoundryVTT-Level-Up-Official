@@ -17,6 +17,7 @@
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import PromptsSection from "../components/activationDialog/PromptsSection.svelte";
     import RollsSection from "../components/activationDialog/RollsSection.svelte";
+    import SpellSection from "../components/activationDialog/SpellSection.svelte";
 
     export let { application } = getContext("#external") as { application: any };
     export let {
@@ -125,6 +126,8 @@
             <PromptsSection {prompts} bind:selectedPrompts />
         </Section>
     {/if}
+
+    <SpellSection {consumers} bind:spellData />
 
     <!-- TODO: Template Areas and Placement options -->
 </form>

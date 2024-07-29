@@ -949,7 +949,7 @@ const spellLevels = {
   7: 'A5E.SpellLevel7',
   8: 'A5E.SpellLevel8',
   9: 'A5E.SpellLevel9'
-};
+} as const;
 
 const spellLevelCost = {
   0: 0,

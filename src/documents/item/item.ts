@@ -18,8 +18,8 @@ import ActionActivationDialog from '../../apps/dialogs/initializers/ActionActiva
 import ActionSelectionDialog from '../../apps/dialogs/initializers/ActionSelectionDialog';
 
 import { ActionsManager } from '../../managers/ActionsManager';
-import ResourceConsumptionManager from '../../managers/ResourceConsumptionManager';
-import { RollPreparationManager } from '../../managers/RollPreparationManager.ts';
+import { ResourceConsumptionManager } from '../../managers/ResourceConsumptionManager';
+import { RollPreparationManager } from '../../managers/RollPreparationManager';
 import TemplatePreparationManager from '../../managers/TemplatePreparationManager';
 
 import getSummaryData from '../../utils/summaries/getSummaryData';

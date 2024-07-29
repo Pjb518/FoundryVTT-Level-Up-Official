@@ -53,7 +53,7 @@ import ForeignDocumentManager from '../managers/ForeignDocumentManager';
 import HitDiceManager from '../managers/HitDiceManager';
 import ItemGrantsManager from '../managers/ItemGrantsManager';
 import ModifierManager from '../managers/ModifierManager';
-import ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
+import { ResourceConsumptionManager } from '../managers/ResourceConsumptionManager';
 import RestManager from '../managers/RestManager';
 import { RollPreparationManager } from '../managers/RollPreparationManager';
 import TemplatePreparationManager from '../managers/TemplatePreparationManager';
