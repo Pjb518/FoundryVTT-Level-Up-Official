@@ -1,5 +1,7 @@
-export default function prepareSkillChecks(rolls) {
-  const counts = {};
+import type { SkillCheckRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
+
+export default function prepareSkillChecks(rolls: [string, SkillCheckRollData][]) {
+  const counts: Record<string, number> = {};
 
   if (!rolls.length) return [];
 
@@ -14,6 +16,7 @@ export default function prepareSkillChecks(rolls) {
       counts[roll.skill] ??= 0;
       counts[roll.skill] += 1;
 
+      // @ts-expect-error
       roll.defaultLabel = `${label} #${counts[roll.skill]}`;
     }
 

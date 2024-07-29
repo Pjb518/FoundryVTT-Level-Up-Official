@@ -1,5 +1,7 @@
-export default function prepareHealingRolls(rolls) {
-  const counts = {};
+import type { HealingRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
+
+export default function prepareHealingRolls(rolls: [string, HealingRollData][]) {
+  const counts: Record<string, number> = {};
 
   if (!rolls.length) return [];
 
@@ -12,6 +14,7 @@ export default function prepareHealingRolls(rolls) {
       counts[roll.healingType] ??= 0;
       counts[roll.healingType] += 1;
 
+      // @ts-expect-error
       roll.defaultLabel = `${label} #${counts[roll.healingType]}`;
     }
     return [key, roll];

@@ -1,5 +1,7 @@
-export default function prepareDamageRolls(rolls) {
-  const counts = {};
+import type { DamageRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
+
+export default function prepareDamageRolls(rolls: [string, DamageRollData][]) {
+  const counts: Record<string, number> = {};
 
   if (!rolls.length) return [];
 
@@ -12,6 +14,7 @@ export default function prepareDamageRolls(rolls) {
       counts[roll.damageType] ??= 0;
       counts[roll.damageType] += 1;
 
+      // @ts-expect-error
       roll.defaultLabel = `${label} #${counts[roll.damageType]}`;
     }
 

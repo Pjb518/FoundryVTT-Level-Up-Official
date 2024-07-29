@@ -1,5 +1,7 @@
-export default function prepareToolChecks(rolls) {
-  const counts = {};
+import type { ToolCheckRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
+
+export default function prepareToolChecks(rolls: [string, ToolCheckRollData][]) {
+  const counts: Record<string, number> = {};
 
   // Flatten the tools config object and extract just the inner tools keys
   const tools = Object.values(CONFIG.A5E.tools).reduce((acc, curr) => ({ ...acc, ...curr }), {});
@@ -17,6 +19,7 @@ export default function prepareToolChecks(rolls) {
       counts[roll.tool] ??= 0;
       counts[roll.tool] += 1;
 
+      // @ts-expect-error
       roll.defaultLabel = `${label} #${counts[roll.tool]}`;
     }
 

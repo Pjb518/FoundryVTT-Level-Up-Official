@@ -1,4 +1,6 @@
-export default function prepareGenericRolls(rolls) {
+import type { GenericRollData } from '../../../dataModels/item/actions/ActionRollsDataModel';
+
+export default function prepareGenericRolls(rolls: [string, GenericRollData][]) {
   let count = 0;
 
   if (!rolls.length) return [];
@@ -8,6 +10,7 @@ export default function prepareGenericRolls(rolls) {
       const label = game.i18n.localize('A5E.Other');
       count += 1;
 
+      // @ts-expect-error
       roll.defaultLabel = `${label} #${count}`;
     }
 
