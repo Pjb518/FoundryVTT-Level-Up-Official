@@ -13,8 +13,197 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At level 14, your Graven Armor is not merely dead—it is undead. The reanimated armor provides you with the following benefits while you have temporary hit points from it:</p><p><br></p><ul><li><p><strong><em>Bone Weapon. </em></strong>You can shape weapons made from bone out of the armor. While you are raging, as a bonus action, you may spend 2 Graven Armor temporary hit points to manifest a bone weapon. Choose a melee weapon you are proficient with. A weapon of that type made from bone appears in your hand. Attacks made with this weapon deal an additional die of damage when used with your Deadly Strikes. The weapon lasts until you let go of it or until your rage ends.</p></li><li><p><strong><em>Morbid Terror. </em></strong>Your Death Mask becomes more powerful. Creatures that fail their saves now become Frightened, and creatures that fail by more than 5 now suffer a mild heart attack. A creature that suffers a mild heart attack must immediately make a Constitution save against your maneuver DC or acquire 2 levels of fatigue and be stunned until the end of its next turn, then becomes frightened for the remaining duration. A creature that succeeds on this save suffers no fatigue, but is still stunned.</p></li><li><p><strong><em>Rotted Wings. </em></strong>You can spend 5 Graven Armor temporary hit points to manifest a ghastly pair of leathery wings as a bonus action, which grants you a flying speed equal to your walking speed. The wings persist until you reabsorb them as a bonus action (which increases your remaining Graven Armor temporary hit points by 5), or you take enough damage to end your Graven Armor or dismiss it.</p></li></ul><p><br></p><p>If you do not have enough Graven Armor temporary hit points to spend on Bone Weapon or Rotted Wings, you may not use them.</p><p><br></p>",
+		"actions": {
+			"myEpTokSobYeMcRS": {
+				"name": "Bone Weapon",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"14oB5SzgIycdoVdH": {
+						"type": "damage",
+						"default": true,
+						"formula": "2",
+						"label": "Temporary Hit Points Cost",
+						"canCrit": false
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>You can shape weapons made from bone out of the armor. While you are raging, as a bonus action, you may spend 2 Graven Armor temporary hit points to manifest a bone weapon. Choose a melee weapon you are proficient with. A weapon of that type made from bone appears in your hand. Attacks made with this weapon deal an additional die of damage when used with your Deadly Strikes. The weapon lasts until you let go of it or until your rage ends.</p>"
+			},
+			"WOeR3Ss4tqxXDLZ9": {
+				"name": "Morbid Terror",
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"m1fj4GNzk4zTSw2m": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"onSave": "",
+						"label": "Death Mask Saving Throw"
+					},
+					"QeJMnsmHmyGvEjOq": {
+						"type": "effect",
+						"default": true,
+						"effectId": "LOGklESoeclRRWby",
+						"label": "Frightened"
+					},
+					"ju2dKxEsoTad9Dqx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "vRyzDRG5Jt8wcCmf",
+						"label": "Mild Heart Attack Failure"
+					},
+					"Pvw7JxuS19YpycHU": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver"
+						},
+						"label": "Mild Heart Attack",
+						"onSave": ""
+					},
+					"HieqSJPbDNUSCJYE": {
+						"type": "effect",
+						"default": true,
+						"effectId": "dROBjLnk8SdllBru",
+						"label": "Mild Heart Attack Success"
+					},
+					"DUuFX6Hd5mGfc2qs": {
+						"type": "effect",
+						"default": true,
+						"effectId": "JENxpmJxzToXHjYl",
+						"label": "Immune to Death Mask"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "",
+					"quantity": 1
+				},
+				"img": "icons/equipment/head/helm-barbute-evil-green.webp",
+				"description": "<p>Your Death Mask becomes more powerful. Creatures that fail their saves now become Frightened, and creatures that fail by more than 5 now suffer a mild heart attack. A creature that suffers a mild heart attack must immediately make a Constitution save against your maneuver DC or suffer 2 levels of fatigue and be stunned until the end of its next turn, then becomes frightened for the remaining duration. A creature that succeeds on this save suffers no fatigue, but is still stunned.</p>",
+				"descriptionOutputs": [
+					"action"
+				],
+				"ranges": {
+					"S6Q0g5fgkOE6DMe1": {
+						"range": "self"
+					}
+				}
+			},
+			"Qd6Lko9YCkgmOL09": {
+				"name": "Rotted Wings",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"Q7tBzbMl0Yz9lBTA": {
+						"type": "damage",
+						"default": false,
+						"formula": "5",
+						"label": "Temporary Hit Points Cost",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"Ixk4snUh33Zo1D04": {
+						"type": "effect",
+						"default": true,
+						"effectId": "FaPefx8sMVBnqq9t",
+						"label": "Rotted Wings"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>You can spend 5 Graven Armor temporary hit points to manifest a ghastly pair of leathery wings as a bonus action, which grants you a flying speed equal to your walking speed. The wings persist until you reabsorb them as a bonus action (which increases your remaining Graven Armor temporary hit points by 5), or you take enough damage to end your Graven Armor or dismiss it.</p>"
+			},
+			"Cg8S5vK5Bsi3UQyc": {
+				"name": "Reabsorb Rotted Wings",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"F3vLunUqfT0zhNay": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"label": "Temporary Hit Points Return",
+						"formula": "5"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At level 14, your Graven Armor is not merely dead&mdash;it is undead. The reanimated armor provides you with the following benefits while you have temporary hit points from it:</p>\n<ul>\n<li>\n<p><strong><em>Bone Weapon. </em></strong>You can shape weapons made from bone out of the armor. While you are raging, as a bonus action, you may spend 2 Graven Armor temporary hit points to manifest a bone weapon. Choose a melee weapon you are proficient with. A weapon of that type made from bone appears in your hand. Attacks made with this weapon deal an additional die of damage when used with your Deadly Strikes. The weapon lasts until you let go of it or until your rage ends.</p>\n</li>\n<li>\n<p><strong><em>Morbid Terror. </em></strong>Your Death Mask becomes more powerful. Creatures that fail their saves now become Frightened, and creatures that fail by more than 5 now suffer a mild heart attack. A creature that suffers a mild heart attack must immediately make a Constitution save against your maneuver DC or acquire 2 levels of fatigue and be stunned until the end of its next turn, then becomes frightened for the remaining duration. A creature that succeeds on this save suffers no fatigue, but is still stunned.</p>\n</li>\n<li>\n<p><strong><em>Rotted Wings. </em></strong>You can spend 5 Graven Armor temporary hit points to manifest a ghastly pair of leathery wings as a bonus action, which grants you a flying speed equal to your walking speed. The wings persist until you reabsorb them as a bonus action (which increases your remaining Graven Armor temporary hit points by 5), or you take enough damage to end your Graven Armor or dismiss it.</p>\n</li>\n</ul>\n<p>If you do not have enough Graven Armor temporary hit points to spend on Bone Weapon or Rotted Wings, you may not use them.</p>\n<p><strong>Foundry Note:</strong> This is a complicated ability, these notes should guide you in their expected use in the system.</p>\n<ul>\n<li>\n<blockquote><em>Bone Weapon:</em> Since there is no way for us to know what type of weapon a character will create with this ability nor can we automate the damage since it is based on the weapons damage, not the creatures Deadly Strikes damage. The player will have to add a weaapon of the type they want to make and then updated the damage on that weapon to be doubled. Also make sure to add the weapon properties for Bone since the weapon is made out of that material:&nbsp;<em>Flaw</em> and <em>Lightweight</em>. Upon activation of the Create Bone Weapon Action you will need to apply the damage to the character in order to remove the 2 temp hp required to activate the ability.</blockquote>\n</li>\n<li>\n<blockquote><em>Morbid Terror:&nbsp;</em>Once you reach this level you will use the Use Morbid Terror Action to activate your Death Masks feature instead of the Death Mask feature itself. It is set to roll both the Wisdom Saving Throw for Death Masks and the Constitution Saving Throw added by Morbid Terror. Do not use the Constitution Saving Throw unless they fail their Wisdom Saving Throw by 5 or more and then apply the effects accordingly.</blockquote>\n</li>\n<li>\n<blockquote><em>Rotted Wings:</em> If you already have a Flying Speed greater than your walking speed the effect for this ability will not be applied since it isn't an additional speed on top of whatever you have. In addition, when activating the feature you will need to apply the damage rolled to remove the Temp HP that this feature requires. When you use the Absorb Armor Action the wings they will roll Temp HP of the same amount as the cost so you can reapply that to your character if your Armor is still intact.</blockquote>\n</li>\n</ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -42,17 +231,291 @@
 				}
 			}
 		},
-		"classes": [
-			"berserker"
-		]
+		"classes": "berserker",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.UNznQygMTZudPLpo",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "WOeR3Ss4tqxXDLZ9",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened (Death Mask)",
+			"img": "icons/equipment/head/helm-barbute-evil-green.webp",
+			"_id": "LOGklESoeclRRWby",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li aria-level=\"1\">A frightened creature has <span class=\"freelinking-link\">disadvantage</span> on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li aria-level=\"1\">A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>\n<p>An affected creature can repeat the save at the end of each of its turns. </p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": null,
+				"modifiedTime": 1722345243993,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.UNznQygMTZudPLpo",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "WOeR3Ss4tqxXDLZ9",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mild Heart Attack Failed Save (Death Mask)",
+			"img": "icons/equipment/head/helm-barbute-evil-green.webp",
+			"_id": "vRyzDRG5Jt8wcCmf",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.fatigue",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Creature is stunned until the end of its next turn, then becomes frightened for the remaining duration and suffers 2 points of Fatigue.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": null,
+				"modifiedTime": 1722346565423,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.UNznQygMTZudPLpo",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "WOeR3Ss4tqxXDLZ9",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mild Heart Attack Succesful Save (Death Mask)",
+			"img": "icons/equipment/head/helm-barbute-evil-green.webp",
+			"_id": "dROBjLnk8SdllBru",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A creature that succeeds on this save suffers no fatigue, but is still stunned.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": null,
+				"modifiedTime": 1722346573925,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.UNznQygMTZudPLpo",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "WOeR3Ss4tqxXDLZ9",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Immune to Death Mask",
+			"img": "icons/equipment/head/helm-barbute-evil-green.webp",
+			"_id": "JENxpmJxzToXHjYl",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Once a creature succeeds on its initial save against Death Mask or recovers from it, that creature is immune to it for 24 hours.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": null,
+				"modifiedTime": 1722345243993,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.UNznQygMTZudPLpo",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Qd6Lko9YCkgmOL09",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Rotted Wings",
+			"img": "icons/equipment/head/helm-barbute-evil-green.webp",
+			"_id": "FaPefx8sMVBnqq9t",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "{\"comparisonOperator\":\">=\",\"comparisonValue\":\"@attributes.movement.walk.distance\",\"positiveValue\":\"@original\",\"negativeValue\":\"@attributes.movement.walk.distance\"}",
+					"mode": 7,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.fly.unit",
+					"value": "feet",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A ghastly pair of leathery wings as a bonus action, which grants you a fly speed equal to your walking speed.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": null,
+				"modifiedTime": 1722345243993,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "0i1rxcpjwwj4xv3u",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.20",
+		"createdTime": 1722345243814,
+		"modifiedTime": 1722346966816,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "0i1rxcpjwwj4xv3u"
 }
