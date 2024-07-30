@@ -111,7 +111,7 @@
         }
 
         const [consumerId] = Object.entries(
-            item.actions[_actionId]?.consumers ?? {},
+            item.actions.get(_actionId || "")?.consumers ?? {},
         ).find(([_, consumer]) => consumer?.type === "ammunition");
 
         if (!consumerId) return;

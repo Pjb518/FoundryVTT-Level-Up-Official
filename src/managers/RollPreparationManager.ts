@@ -17,6 +17,7 @@ import simplifyDiceTerms from '../dice/simplifyDiceTerms';
 
 import computeSaveDC from '../utils/computeSaveDC';
 import getAttackAbility from '../utils/getAttackAbility';
+import getRollFormula from '../utils/getRollFormula';
 
 import _prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
 import _preparePrompts from '../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
@@ -42,7 +43,7 @@ class RollPreparationManager {
     this.#consumers = consumers!;
     this.#damageBonuses = damageBonuses!;
     this.#healingBonuses = healingBonuses!;
-    this.#item = item;
+    this.#item = item!;
     this.#rolls = rolls;
   }
 
@@ -595,12 +596,12 @@ class RollPreparationManager {
 
     const expertiseDie = actor.RollOverrideManager.getExpertiseDice(
       `attackTypes.${attackType}`,
-      options.expertiseDice ?? 0
+      options.expertiseDie ?? 0
     );
 
     const expertiseDieSource = actor.RollOverrideManager.getExpertiseDiceSource(
       `attackTypes.${attackType}`,
-      options.expertiseDice ?? 0
+      options.expertiseDie ?? 0
     );
 
     const rollMode = actor.RollOverrideManager.getRollOverride(
@@ -618,11 +619,25 @@ class RollPreparationManager {
       { item, attackType }
     );
 
+    const formula: string = getRollFormula(actor, {
+      ability: attackAbility,
+      attackBonus: attackRoll?.bonus,
+      attackType: attackRoll?.attackType,
+      expertiseDie,
+      item: this,
+      proficient: attackRoll?.proficient ?? true,
+      rollMode,
+      situationalMods: options.situationalMods,
+      selectedAttackBonuses,
+      type: 'attack'
+    });
+
     return {
       attackBonuses,
       attackAbility,
       expertiseDie,
       expertiseDieSource,
+      formula,
       rollMode,
       rollModeSource,
       selectedAttackBonuses
@@ -738,7 +753,7 @@ class RollPreparationManager {
 declare namespace RollPreparationManager {
   interface ConstructorOptions {
     actor: BaseActorA5e;
-    item: ItemA5e;
+    item?: ItemA5e;
     consumers?: ResourceConsumptionManager.ConsumptionData;
     damageBonuses?: DamageBonus[];
     healingBonuses?: HealingBonus[];

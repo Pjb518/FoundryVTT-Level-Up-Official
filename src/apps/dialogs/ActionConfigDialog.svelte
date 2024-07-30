@@ -15,8 +15,7 @@
     import editDocumentImage from "../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { document, actionId, dialog } =
-        getContext("#external").application;
+    export let { document, actionId, dialog } = getContext("#external").application;
 
     const item = document;
 
@@ -73,7 +72,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
         <img
             class="item-image"
-            src={$item?.actions[actionId]?.img ?? $item.img}
+            src={$item?.actions(actionId)?.img ?? $item.img}
             alt="{$item.name} image"
             on:click={() => editDocumentImage($item, { actionId, dialog })}
         />

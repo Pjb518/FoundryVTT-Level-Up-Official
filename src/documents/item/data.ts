@@ -23,7 +23,8 @@ export interface RevitalizeOptions {
 /** Roll Interfaces                         */
 /** --------------------------------------- */
 export interface ActionActivationOptions {
-  expertiseDice?: number;
-  rollMode?: number;
-  skipRollDialog?: boolean;
+  expertiseDie?: number | undefined;
+  rollMode?: number | undefined;
+  situationalMods?: string | undefined
+  skipRollDialog?: boolean | undefined;
 }

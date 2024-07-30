@@ -118,10 +118,9 @@ class ResourceConsumptionManager {
     );
   }
 
-  // @ts-ignore
   #consumeResource({
     quantity, resource, restore, classIdentifier
-  }: ConsumerData.ResourceConsumerData = {}) {
+  }: ConsumerData.ResourceConsumerData = ({} as ConsumerData.ResourceConsumerData)) {
     const config = CONFIG.A5E.resourceConsumerConfig?.[resource];
     if (!this.#actor || !resource || !config) return;
 
@@ -221,8 +220,7 @@ class ResourceConsumptionManager {
     );
 
     // Consumer Data
-    // @ts-expect-error
-    const spellData: ResourceConsumptionManager.SpellConsumerData = {};
+    const spellData = {} as ResourceConsumptionManager.SpellConsumerData;
 
     const consumer = Object.values(
       consumers.spell ?? {}
