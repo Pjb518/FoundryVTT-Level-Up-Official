@@ -17,7 +17,7 @@ import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import SpellBookManager from '../../managers/SpellBookManager';
 import RestManager from '../../managers/RestManager';
 import RollOverrideManager from '../../managers/RollOverrideManager';
-import RollPreparationManager from '../../managers/RollPreparationManagerOld';
+import { RollPreparationManager } from '../../managers/RollPreparationManager';
 
 import AbilityBonusConfigDialog from '../../apps/dialogs/AbilityBonusConfigDialog.svelte';
 import AbilityCheckConfigDialog from '../../apps/dialogs/ActorAbilityConfigDialog.svelte';
@@ -1159,7 +1159,9 @@ class BaseActorA5e extends Actor {
       type: 'abilityCheck'
     });
 
-    return { expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null };
+    return {
+      expertiseDie, rollFormula, rollMode, visibilityMode: options.visibilityMode ?? null
+    };
   }
 
   async #showAbilityCheckPrompt(abilityKey, rollOptions = {}, dialogOptions = {}) {
@@ -1286,7 +1288,9 @@ class BaseActorA5e extends Actor {
       type: 'savingThrow'
     });
 
-    return { expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null };
+    return {
+      expertiseDie, rollMode, rollFormula, visibilityMode: options.visibilityMode ?? null
+    };
   }
 
   async #showSavingThrowPrompt(
@@ -1424,7 +1428,11 @@ class BaseActorA5e extends Actor {
     });
 
     return {
-      abilityKey, expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null
+      abilityKey,
+      rollMode,
+      expertiseDie,
+      rollFormula,
+      visibilityMode: options.visibilityMode ?? null
     };
   }
 

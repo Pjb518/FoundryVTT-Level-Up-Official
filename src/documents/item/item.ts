@@ -182,7 +182,6 @@ class ItemA5e extends BaseItemA5e {
     }
 
     const resourceConsumptionManager = new ResourceConsumptionManager(
-      // @ts-expect-error
       this.actor,
       this,
       actionId,

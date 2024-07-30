@@ -12,6 +12,7 @@ const baseSchema = () => ({
 
 const abilityCheckSchema = () => ({
   ability: new fields.StringField({ required: true, nullable: false, initial: '' }), // TODO: Action - Set to proper
+  bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
   ...baseSchema()
 });
 
@@ -28,7 +29,7 @@ const attackRollSchema = () => ({
       'rangedSpellAttack']
   }),
   bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
-  criticalThreshold: new fields.NumberField({ required: true, nullable: false, initial: 20 }),
+  critThreshold: new fields.NumberField({ required: true, nullable: false, initial: 20 }),
   proficient: new fields.BooleanField({ required: true, nullable: false, initial: true }),
   ...baseSchema()
 });
@@ -56,18 +57,21 @@ const healingRollSchema = () => ({
 
 const savingThrowSchema = () => ({
   ability: new fields.StringField({ required: true, nullable: false, initial: '' }), // TODO: Action - Set to proper
+  bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
   ...baseSchema()
 });
 
 const skillCheckRollSchema = () => ({
   ability: new fields.StringField({ required: true, nullable: false, initial: '' }),
   skill: new fields.StringField({ required: true, nullable: false, initial: '' }),
+  bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
   ...baseSchema()
 });
 
 const toolCheckRollSchema = () => ({
   ability: new fields.StringField({ required: true, nullable: false, initial: '' }),
   tool: new fields.StringField({ required: true, nullable: false, initial: '' }),
+  bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
   ...baseSchema()
 });
 
@@ -196,6 +200,20 @@ class ToolCheckRollData extends foundry.abstract.DataModel<
     };
   }
 }
+
+export type A5eActionRolls = ((AbilityCheckRollData
+  | AttackRollData
+  | DamageRollData
+  | GenericRollData
+  | HealingRollData
+  | SavingThrowRollData
+  | SkillCheckRollData
+  | ToolCheckRollData)
+  & {
+    type: 'abilityCheck' | 'attack' | 'damage'
+    | 'generic' | 'healing' | 'savingThrow'
+    | 'skillCheck' | 'toolCheck'
+  })[];
 
 export {
   AbilityCheckRollData,

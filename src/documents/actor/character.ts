@@ -10,13 +10,13 @@ import getDeterministicBonus from '../../dice/getDeterministicBonus';
 export default class CharacterActorA5E extends BaseActorA5e {
   declare system: A5ECharacterData;
 
-  automationAvailable!: boolean;
+  declare automationAvailable: boolean;
 
-  _classes: Record<string, ClassItemA5e> | undefined;
+  declare _classes: Record<string, ClassItemA5e> | undefined;
 
-  levels!: { character: number; classes: Record<string, number>; };
+  declare levels: { character: number; classes: Record<string, number>; };
 
-  classAutomationFlags!: Record<string, boolean>;
+  declare classAutomationFlags: Record<string, boolean>;
 
   get classes() {
     if (this._classes !== undefined) return this._classes;
@@ -330,7 +330,6 @@ export default class CharacterActorA5E extends BaseActorA5e {
   }
 
   prepareResources() {
-    // @ts-expect-error
     const source = this._source.system.resources;
 
     const genericResources = foundry.utils.deepClone(source);
@@ -408,7 +407,6 @@ export default class CharacterActorA5E extends BaseActorA5e {
     );
 
     if (!lowestAvailableHitDie) {
-      // @ts-expect-error
       ui.notifications.warn(`${this.name} has no hit dice remaining.`);
       return;
     }

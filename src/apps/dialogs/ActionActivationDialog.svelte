@@ -125,7 +125,6 @@
     // TODO: Place Template
     let placeTemplate =
         (game.settings.get("a5e", "placeItemTemplateDefault") as boolean) ||
-        // @ts-expect-error
         (action?.area?.placeTemplate as boolean) ||
         false;
 
