@@ -28,8 +28,9 @@ const hitDiceSchema = () => ({
 
 const resourceSchema = () => ({
   classIdentifier: new fields.StringField({ required: true, nullable: false, initial: '' }),
-  resource: new fields.StringField({ required: true, nullable: false, initial: '' }),
   quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+  resource: new fields.StringField({ required: true, nullable: false, initial: '' }),
+  restore: new fields.BooleanField({ required: true, nullable: false, initial: false }),
   ...baseSchema()
 });
 

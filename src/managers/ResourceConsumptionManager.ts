@@ -1,10 +1,8 @@
-import type { Action } from 'types/action';
-
 import type { BaseActorA5e } from '../documents/actor/base';
 import type { ItemA5e } from '../documents/item/item';
 import type { ConsumerHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
 import type SpellItemA5e from '../documents/item/spell';
-import type * as ConsumerDataModels from '../dataModels/item/actions/ActionConsumersDataModel';
+import type * as ConsumerData from '../dataModels/item/actions/ActionConsumersDataModel';
 
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getActionScalingModes from '../utils/getActionScalingModes';
@@ -38,8 +36,8 @@ class ResourceConsumptionManager {
     };
   }
 
-  get action(): Action | undefined {
-    return this.#item.actions.get(this.#actionId);
+  get action() {
+    return this.#item.actions.get(this.#actionId)!;
   }
 
   async consumeResources() {
@@ -58,7 +56,9 @@ class ResourceConsumptionManager {
       else if (consumerType === 'hitDice') this.#consumeHitDice(hitDice);
       else if (consumerType === 'itemUses') this.#consumeItemUses(itemUses);
       else if (consumerType === 'spell') this.#consumeSpellResource(spell);
+      // @ts-expect-error
       else if (consumerType === 'resource') this.#consumeResource(consumer);
+      // @ts-expect-error
       else if (['ammunition', 'quantity'].includes(consumerType)) this.#consumeQuantity(consumer);
     });
 
@@ -108,7 +108,7 @@ class ResourceConsumptionManager {
     if (!this.#actor || itemId === '') return;
 
     const item = this.#actor.items.get(itemId);
-    if (!item) return;
+    if (!item || !item.isType('object')) return;
 
     const newQuantity = Math.max((item.system.quantity ?? 0) - quantity, 0);
 
@@ -121,7 +121,7 @@ class ResourceConsumptionManager {
   // @ts-ignore
   #consumeResource({
     quantity, resource, restore, classIdentifier
-  } = {}) {
+  }: ConsumerData.ResourceConsumerData = {}) {
     const config = CONFIG.A5E.resourceConsumerConfig?.[resource];
     if (!this.#actor || !resource || !config) return;
 
@@ -147,7 +147,7 @@ class ResourceConsumptionManager {
     }
   }
 
-  #consumeSpellResource(consumptionData: ConsumptionData['spell']) {
+  #consumeSpellResource(consumptionData: ResourceConsumptionManager.ConsumptionData['spell']) {
     if (!consumptionData || !this.#actor) return;
 
     const {
@@ -176,7 +176,7 @@ class ResourceConsumptionManager {
   }
 
   static prepareHitDiceData(actor: BaseActorA5e, consumers: ConsumerHandlerReturnType) {
-    const consumer = this.#getConsumerType(consumers, 'hitDice') as ConsumerDataModels.HitDiceConsumerData;
+    const consumer = this.#getConsumerType(consumers, 'hitDice') as ConsumerData.HitDiceConsumerData;
     const hitDiceData = {} as ResourceConsumptionManager.HitDiceConsumerData;
 
     const availableHitDice = prepareHitDice(actor).reduce((acc, { die, total }) => {
@@ -226,7 +226,7 @@ class ResourceConsumptionManager {
 
     const consumer = Object.values(
       consumers.spell ?? {}
-    )?.[1] as ConsumerDataModels.SpellConsumerData ?? {};
+    )?.[1] as ConsumerData.SpellConsumerData ?? {};
 
     let mode = consumer.mode ?? 'variable';
 
@@ -302,11 +302,11 @@ class ResourceConsumptionManager {
     const actionConsumer = this.#getConsumerType(
       consumers,
       'actionUses'
-    ) as ConsumerDataModels.ActionUsesConsumerData;
+    ) as ConsumerData.ActionUsesConsumerData;
     const itemConsumer = this.#getConsumerType(
       consumers,
       'itemUses'
-    ) as ConsumerDataModels.ItemUsesConsumerData;
+    ) as ConsumerData.ItemUsesConsumerData;
 
     const actionUsesData = {} as ResourceConsumptionManager.UsesConsumerData;
     const itemUsesData = {} as ResourceConsumptionManager.UsesConsumerData;
