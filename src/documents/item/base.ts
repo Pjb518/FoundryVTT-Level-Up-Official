@@ -160,6 +160,16 @@ class BaseItemA5e extends Item {
   }
 
   async revitalize(options: RevitalizeOptions = {}): Promise<Record<string, any> | null> {
+    // Confirmation Dialog
+    const confirm = await foundry.applications.api.DialogV2.confirm({
+      // @ts-expect-error
+      window: { title: `Confirm Revitalize - ${this.name}` },
+      content: '<p>Confirm updating item from compendium source?</p>',
+      modal: true
+    });
+
+    if (!confirm) return null;
+
     options.notify ??= true;
     options.update ??= true;
     options.updateImg ??= true;
