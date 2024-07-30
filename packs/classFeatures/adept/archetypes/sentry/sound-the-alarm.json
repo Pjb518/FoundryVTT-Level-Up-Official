@@ -12,7 +12,30 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"osLWKAHs6DSR5Tkr": {
+				"name": "Shout For Aid",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Seeing something that you deem suspicious or being attacked"
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Finally, at 3rd level, you have been trained to keep a very watchful eye out and summon reinforcements at the drop of a hat. You gain an expertise die on Perception checks and you can shout for aid as a reaction to seeing something that you deem suspicious or being attacked. In particular, this makes it very hard to silence you via spell or violence before you can shout for aid.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -28,7 +51,24 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"0O0Qr0hFTGgGVzsT": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "0O0Qr0hFTGgGVzsT",
+				"label": "Sound the Alarm",
+				"keys": {
+					"base": [
+						"prc"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -41,16 +81,20 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "adept",
+		"class": ""
 	},
 	"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "llyoe58ro7uswh66",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722095376088,
+		"modifiedTime": 1722095454028,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "llyoe58ro7uswh66"
 }

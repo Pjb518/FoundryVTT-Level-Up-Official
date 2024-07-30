@@ -15,7 +15,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>You learn the tools of the archivist&rsquo;s trade, including some more esoteric ones.</p><p>You gain proficiency with <em>Bookbinder&rsquo;s Tools</em>, <em>Calligrapher&rsquo;s Supplies</em>, and <em>Battle Books</em>. You also gain proficiency with the Investigation skill or gain an expertise die if you are already proficient, and you learn the Research skill specialty for the Investigation skill.</p><p>In addition you learn the&nbsp;<em>G</em><em>uidance</em>,&nbsp;<em>Mage Hand</em>, and&nbsp;<em>M</em><em>essage</em> cantrips if you do not know them. If you already know one or more of them, you can select another cantrip you could learn in its place. These new cantrips do not count against your cantrips known.</p>",
+		"description": "<p>At level 3 when you take this archetype, you learn the tools of the archivist&rsquo;s trade, including some more esoteric ones. You gain proficiency with bookbinder&rsquo;s tools, calligrapher&rsquo;s supplies, and battle books. You also gain proficiency with the Investigation skill or gain an expertise die if you are already proficient, and you learn the Research skill specialty for the Investigation skill.</p>\n<p>In addition you learn the @UUID[Compendium.a5e.a5e-spells.Item.ljixftygfhi0sfsf]{Guidance}, @UUID[Compendium.a5e.a5e-spells.Item.mocigztrqyoks506]{Mage Hand}, and @UUID[Compendium.a5e.a5e-spells.Item.4gcxix2l4zvy9kdu]{Message} cantrips if you do not know them. If you already know one or more of them, you can select another cantrip you could learn in its place. These new cantrips do not count against your cantrips known.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitHazardousKnowledge",
@@ -30,7 +30,79 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"sSln8DSKt2SMT4gd": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "sSln8DSKt2SMT4gd",
+				"label": "Tool Proficiencies",
+				"keys": {
+					"base": [
+						"calligraphersSupplies",
+						"Bookbinder's Tools"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "tool",
+				"img": "",
+				"isExpertise": false
+			},
+			"DTM9Pg58r3l4dZg9": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "DTM9Pg58r3l4dZg9",
+				"label": "Weapon Proficiency",
+				"keys": {
+					"base": [
+						"battleBook"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "weapon",
+				"img": "",
+				"isExpertise": false
+			},
+			"3VQDf8OG6SRBUz3s": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "3VQDf8OG6SRBUz3s",
+				"label": "Skill Proficiency",
+				"keys": {
+					"base": [
+						"inv"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill",
+				"img": "",
+				"isExpertise": false
+			},
+			"aTraSWjp2xRBoUbT": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "aTraSWjp2xRBoUbT",
+				"label": "Bookmaker's Prowess",
+				"specialties": {
+					"base": [
+						"research"
+					],
+					"options": [],
+					"total": 0
+				},
+				"skill": "inv"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -43,14 +115,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "artificer",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "xz5v3x8ozge7i3sl",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722096186280,
+		"modifiedTime": 1722098486794,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "xz5v3x8ozge7i3sl"
 }

@@ -27,12 +27,12 @@
 						"default": true,
 						"attackType": "meleeWeaponAttack",
 						"proficient": false,
-						"ability": "str"
+						"ability": "default"
 					},
 					"k1ktgmHsKajT29mJ": {
 						"type": "damage",
 						"default": true,
-						"formula": "1 + @str.mod",
+						"formula": "@classResources.martial-arts + @finesse.mod",
 						"damageType": "bludgeoning"
 					}
 				},
@@ -47,7 +47,8 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				},
 				"target": {
 					"type": "creature",
@@ -60,7 +61,7 @@
 				}
 			},
 			"PXCrbDf2yNElLDmH": {
-				"name": "Throw Grappled Target at Another Creature",
+				"name": "Throw Grappled Target",
 				"activation": {},
 				"consumers": {
 					"TBCDovBfiJ4fwKjE": {
@@ -81,7 +82,7 @@
 					"6C2h3wroM8EuhWIT": {
 						"type": "damage",
 						"default": true,
-						"formula": "1 + @str.mod",
+						"formula": "@classResources.martial-arts + @str.mod",
 						"damageType": "bludgeoning"
 					}
 				},
@@ -96,7 +97,8 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				},
 				"target": {
 					"type": "creature",
@@ -108,56 +110,6 @@
 						"unit": "feet"
 					},
 					"tPvbDrXRvP0AUdQW": {
-						"range": 20,
-						"unit": "feet"
-					}
-				}
-			},
-			"C7HWcybpntbv1f6V": {
-				"name": "Throw Grappled Target",
-				"activation": {},
-				"consumers": {
-					"QeFHjEmPnRxGTm0W": {
-						"type": "resource",
-						"default": true,
-						"resource": "exertion",
-						"quantity": 1
-					}
-				},
-				"rolls": {
-					"eIaUrfOH8yr4T3tf": {
-						"type": "attack",
-						"default": true,
-						"attackType": "rangedWeaponAttack",
-						"proficient": false,
-						"ability": "str"
-					},
-					"tHLYzgujx9YtWJLs": {
-						"type": "damage",
-						"default": true,
-						"formula": "1 + @str.mod",
-						"damageType": "bludgeoning"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				},
-				"ranges": {
-					"ZpnOlROjxwD764kB": {
 						"range": 20,
 						"unit": "feet"
 					}
@@ -192,15 +144,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "adept",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "w3hakmlsnoouzdqj",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722149168436,
+		"modifiedTime": 1722149400926,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "w3hakmlsnoouzdqj"
 }

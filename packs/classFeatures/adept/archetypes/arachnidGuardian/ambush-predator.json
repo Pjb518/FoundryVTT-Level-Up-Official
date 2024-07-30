@@ -15,11 +15,25 @@
 		},
 		"actions": {
 			"QoRNYsdod59bxpOa": {
-				"name": "Use Feature",
+				"name": "Ambush Predator",
 				"activation": {
-					"type": "none"
+					"type": "",
+					"cost": 1
 				},
-				"consumers": {},
+				"consumers": {
+					"rb5homvg2Dul1sp4": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"8uG3qKirugOUPkQA": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
 				"rolls": {},
 				"prompts": {},
 				"uses": {
@@ -34,7 +48,49 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
+				}
+			},
+			"esWZre23IVgUdWbJ": {
+				"name": "Additional Damage",
+				"activation": {},
+				"consumers": {
+					"2z3HockbAPebEd0s": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					},
+					"9JySv9nXnlCRWFem": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"5DgoZQxIE2idCDPI": {
+						"type": "damage",
+						"default": true,
+						"formula": "@classResources.martial-arts",
+						"scaling": {
+							"mode": null,
+							"formula": ""
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "@prof",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
 				}
 			}
 		},
@@ -66,15 +122,19 @@
 				}
 			}
 		},
-		"classes": "adept"
+		"classes": "adept",
+		"class": ""
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
-	"_id": "bimndjkzw0l3qy0y",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722269360255,
+		"modifiedTime": 1722269533041,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "bimndjkzw0l3qy0y"
 }

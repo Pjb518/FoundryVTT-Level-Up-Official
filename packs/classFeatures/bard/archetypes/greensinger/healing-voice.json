@@ -16,7 +16,51 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"TamEnEwjm48KDHv0": {
+				"name": "Healing Voice",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"NZmy3rFyqOXnzrpm": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.bardic-inspiration-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"ranges": {
+					"KluX1SE2m96BvCwk": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 30
+				}
+			}
+		},
 		"description": "<p>Also at 6th level, you can sing a song that heals mundane maladies. You can begin this song as an action, spending a use of your Bardic Inspiration feature. For the next hour, all non-magical diseases in creatures and vegetation within 30 feet of you are immediately cured. In addition, any withered (but not altogether dead) vegetation  becomes healthy again, and creatures in the aura recover 1 level of fatigue (a creature may only receive this benefit once per day). To keep this power active, you must sing continuously, which requires concentration (per a spell) and precludes you from casting spells.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -30,7 +74,7 @@
 				"threshold": 6
 			}
 		},
-		"concentration": false,
+		"concentration": true,
 		"featureType": "class",
 		"grants": {},
 		"prerequisite": "",
@@ -45,12 +89,16 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "bard",
+		"class": ""
 	},
-	"_id": "p6cr4k0anj3h0hk4",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722260885412,
+		"modifiedTime": 1722260979687,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "p6cr4k0anj3h0hk4"
 }
