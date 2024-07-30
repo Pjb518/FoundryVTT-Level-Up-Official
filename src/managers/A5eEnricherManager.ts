@@ -14,9 +14,9 @@ class A5eEnricherManager {
     const enricherTypes = ['check', 'save'];
 
     CONFIG.TextEditor.enrichers.push({
-      // pattern: \[\[\/(?<type>\w+)(?<argString>( +\w+=([\w\d]+|"[\w\d ]+"))*)\]\]
+      // pattern: \[\[\/(?<enricherType>\w+)(?<argString>( +\w+=([\w\d]+|"[\w\d ]+"))*)\]\]
       // matches: [[/type arg1=val1 arg2=val2 arg3="val 3"]]
-      pattern: new RegExp(`\\[\\[\\/(?<type>${enricherTypes.join('|')})(?<argString>( +\\w+=([\\w\\d]+|"[\\w\\d ]+"))*)\\]\\]`, 'gi'),
+      pattern: new RegExp(`\\[\\[\\/(?<enricherType>${enricherTypes.join('|')})(?<argString>( +\\w+=([\\w\\d]+|"[\\w\\d ]+"))*)\\]\\]`, 'gi'),
       enricher: this.parseEnricherInput.bind(this)
     });
   }
@@ -29,14 +29,15 @@ class A5eEnricherManager {
    *                                       null to indicate that no replacement should be made.
   */
   parseEnricherInput(match, options) {
-    const { type, argString } = match.groups;
+    const { enricherType, argString } = match.groups;
 
     const args = this.parseArguments(argString);
+    args.enricherType = enricherType;
 
-    if (type.toLowerCase() === 'check') {
+    if (enricherType.toLowerCase() === 'check') {
       return this.enrichCheck(args, options);
     }
-    if (type.toLowerCase() === 'save') {
+    if (enricherType.toLowerCase() === 'save') {
       return this.enrichSave(args, options);
     }
     return null;
@@ -60,6 +61,7 @@ class A5eEnricherManager {
   }
 
   enrichCheck(args, options) {
+    let label = 'Check';
     if (!args.skill && !args.ability) {
       ui.notifications?.error('Enricher is missing both skill and ability.');
       return null;
@@ -74,14 +76,10 @@ class A5eEnricherManager {
         ui.notifications?.error('Invalid ability name.');
         return null;
       }
-      // If not using default ability
-      if (args.ability) {
-        return null;
-      }
-
-      // using default ability for skill
-      // TODO: Do Stuff
-      return null;
+      // skill check with or without default ability
+      label = `${CONFIG.A5E.skills[args.skill]} ${label}`;
+      if (args.dc) label = `DC ${args.dc} ${label}`;
+      return this.createButton(args, label);
     }
     // Check if the ability is proper
     if (!Object.keys(CONFIG.A5E.abilities).includes(args.ability)) {
@@ -89,12 +87,14 @@ class A5eEnricherManager {
       return null;
     }
 
-    // This means only the ability save is left.
-    // TODO: Do Stuff
-    return null;
+    // This means only the ability check is left.
+    label = `${CONFIG.A5E.abilities[args.ability]} ${label}`;
+    if (args.dc) label = `DC ${args.dc} ${label}`;
+    return this.createButton(args, label);
   }
 
   enrichSave(args, options) {
+    let label = 'Saving Throw';
     const saveTypes: string[] = ['death', 'concentration'];
 
     if (!args.type && !args.ability) {
@@ -111,8 +111,10 @@ class A5eEnricherManager {
       if (args.ability) {
         ui.notifications?.warn('Unnecessary ability argument provided.');
       }
-      // TODO: Do Stuff
-      return null;
+      // Converts the first char of the type to upper case and adds to label
+      label = `${args.type[0].toUpperCase()}${args.type.slice(1)} ${label}`;
+      if (args.dc) label = `DC ${args.dc} ${label}`;
+      return this.createButton(args, label);
     }
 
     // Check if the ability is proper
@@ -122,8 +124,30 @@ class A5eEnricherManager {
     }
 
     // This means only the ability save is left.
-    // TODO: Do Stuff
-    return null;
+    label = `${CONFIG.A5E.abilities[args.ability]} ${label}`;
+    if (args.dc) label = `DC ${args.dc} ${label}`;
+    return this.createButton(args, label);
+  }
+
+  addToDataset(element: HTMLElement, args: Record<string, string | number>) {
+    for (const [key, val] of Object.entries(args)) {
+      if (val) element.dataset[key] = val as string;
+    }
+  }
+
+  createButton(args, label) {
+    const span = document.createElement('span');
+    span.classList.add('rollButton');
+    this.addToDataset(span, args);
+
+    const button = document.createElement('a');
+    button.dataset.action = 'roll';
+    // TODO:
+    // button.innerHTML = `<i class="icon thingy"></i> ${label}`;
+    // remove next line
+    button.innerHTML = `${label}`;
+    span.insertAdjacentElement('afterbegin', button);
+    return span;
   }
 }
 
