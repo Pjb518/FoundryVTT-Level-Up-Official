@@ -275,10 +275,19 @@ export default class RollOverrideManager {
 
     // Add handling for all ability overrides
     if (key.includes('abilities')) {
-      this.overrides.get('abilityCheck.all')?.forEach((o) => {
-        if (o.overrideType !== overrideType) return;
-        overrides.push(o);
-      });
+      if (key.toLowerCase().includes('check')) {
+        this.overrides.get('abilityCheck.all')?.forEach((o) => {
+          if (o.overrideType !== overrideType) return;
+          overrides.push(o);
+        });
+      }
+
+      if (key.toLowerCase().includes('save')) {
+        this.overrides.get('abilitySave.all')?.forEach((o) => {
+          if (o.overrideType !== overrideType) return;
+          overrides.push(o);
+        });
+      }
     }
 
     // Add handling for all skill overrides as well as the ability overrides
