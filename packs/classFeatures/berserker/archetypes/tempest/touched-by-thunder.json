@@ -1,0 +1,225 @@
+{
+	"name": "Touched by Thunder",
+	"type": "feature",
+	"img": "icons/magic/sonic/explosion-impact-shock-wave.webp",
+	"effects": [
+		{
+			"origin": "Item.DIuLYyQIlIzyGQqL",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2c2KULBl3DHkFxrs",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Touched by Thunder (Lightning)",
+			"img": "icons/magic/sonic/explosion-impact-shock-wave.webp",
+			"_id": "gCWwg3nQHF3t6LIX",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Touched by Thunder (Lightning)\",\"formula\":\"@classResources.touched-by-thunder-damage\",\"damageType\":\"lightning\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/sonic/explosion-impact-shock-wave.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While you are raging, your attacks with the weapon deal an additional 1d6 lightning or thunder damage (choose the damage type when you begin the rage). This damage increases to 2d6 at 10th level, 3d6 at 15th level, and 4d6 at 20th level.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": 1722374243156,
+				"modifiedTime": 1722374400501,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.DIuLYyQIlIzyGQqL",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2c2KULBl3DHkFxrs",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Touched by Thunder (Thunder)",
+			"img": "icons/magic/sonic/explosion-impact-shock-wave.webp",
+			"_id": "3OphrW6fpvXZ3Z2j",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Touched by Thunder (Thunder)\",\"formula\":\"@classResources.touched-by-thunder-damage\",\"damageType\":\"thunder\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/sonic/explosion-impact-shock-wave.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While you are raging, your attacks with the weapon deal an additional 1d6 lightning or thunder damage (choose the damage type when you begin the rage). This damage increases to 2d6 at 10th level, 3d6 at 15th level, and 4d6 at 20th level.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": 1722374409462,
+				"modifiedTime": 1722374424949,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"2c2KULBl3DHkFxrs": {
+				"name": "Rage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"LejbAaC4qPRzUC7q": {
+						"type": "effect",
+						"default": true,
+						"effectId": "gCWwg3nQHF3t6LIX"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"BB8tqe3eEx7zMG2H": {
+				"name": "Transfer to Different Weapon",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Beginning at 3rd level, you can empower a melee weapon you touch. While you are raging, your attacks with the weapon deal an additional 1d6 lightning or thunder damage (choose the damage type when you begin the rage). This damage increases to 2d6 at 10th level, 3d6 at 15th level, and 4d6 at 20th level. You can empower only one weapon at a time, but you can use a bonus action to transfer the effect to a different weapon.</p>\n<p>In addition, you gain resistance to either lightning or thunder damage, chosen by you when you gain this feature.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"ONMlqW1CrgAp22kK": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "ONMlqW1CrgAp22kK",
+				"traits": {
+					"base": [],
+					"options": [
+						"lightning",
+						"thunder"
+					],
+					"total": 1,
+					"traitType": "damageResistances"
+				},
+				"label": "Touched by Thunder"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "berserker",
+		"class": ""
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.20",
+		"createdTime": 1722373880859,
+		"modifiedTime": 1722374452685,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "yna0872v2fpkz51j"
+}

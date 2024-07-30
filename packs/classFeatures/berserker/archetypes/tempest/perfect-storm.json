@@ -1,7 +1,7 @@
 {
-	"name": "Perfect Storm  (DC blank/with @level)",
+	"name": "Perfect Storm",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/air/wind-tornado-wall-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -17,7 +17,7 @@
 		},
 		"actions": {
 			"KPqQ0OYmiZCvvyrW": {
-				"name": "Perfect Storm  (DC blank/with @level)",
+				"name": "Perfect Storm",
 				"activation": {
 					"cost": "",
 					"type": "",
@@ -33,28 +33,31 @@
 					}
 				},
 				"area": {
-					"shape": "sphere",
-					"radius": 10,
-					"placeTemplate": false
+					"shape": "emanation",
+					"placeTemplate": true,
+					"quantity": 1,
+					"radius": 10
 				},
 				"target": {
-					"quantity": null,
-					"type": "creature"
+					"quantity": 1,
+					"type": ""
 				},
 				"rolls": {
 					"dvITI7VSPVGHLya3": {
 						"canCrit": false,
 						"damageType": "lightning",
-						"formula": "@level",
+						"formula": "@classes.berserker.level",
 						"name": "Lightning",
-						"type": "damage"
+						"type": "damage",
+						"default": false
 					},
 					"ndTDmbTBVlzq2eEb": {
 						"canCrit": false,
 						"damageType": "thunder",
-						"formula": "@level",
+						"formula": "@classes.berserker.level",
 						"name": "Thunder",
-						"type": "damage"
+						"type": "damage",
+						"default": false
 					}
 				},
 				"prompts": {
@@ -62,8 +65,8 @@
 						"ability": "con",
 						"onSave": "Half damage",
 						"saveDC": {
-							"type": "custom",
-							"bonus": "8 + @prof + @str.mod"
+							"type": "str",
+							"bonus": ""
 						},
 						"type": "savingThrow"
 					}
@@ -99,13 +102,17 @@
 				}
 			}
 		},
-		"classes": "berserker"
+		"classes": "berserker",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "nzo8gz0k1olfedm5",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.20",
+		"createdTime": 1722374782790,
+		"modifiedTime": 1722374889836,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "nzo8gz0k1olfedm5"
 }
