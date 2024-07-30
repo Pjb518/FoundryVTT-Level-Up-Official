@@ -1,14 +1,13 @@
 import type { Action } from 'types/action';
-import type { ConsumptionData } from 'types/consumers';
 
 import type { BaseActorA5e } from '../documents/actor/base';
 import type { ItemA5e } from '../documents/item/item';
 import type { ConsumerHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
 import type SpellItemA5e from '../documents/item/spell';
+import type * as ConsumerDataModels from '../dataModels/item/actions/ActionConsumersDataModel';
 
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getActionScalingModes from '../utils/getActionScalingModes';
-import type * as ConsumerDataModels from '../dataModels/item/actions/ActionConsumersDataModel';
 import prepareHitDice from '../apps/dataPreparationHelpers/prepareHitDice';
 
 class ResourceConsumptionManager {
@@ -18,7 +17,7 @@ class ResourceConsumptionManager {
 
   #actionId: string;
 
-  #consumptionData: ConsumptionData;
+  #consumptionData: ResourceConsumptionManager.ConsumptionData;
 
   #updates: { actor: Record<string, any>; item: Record<string, any> };
 
@@ -26,7 +25,7 @@ class ResourceConsumptionManager {
     actor: BaseActorA5e,
     item: ItemA5e,
     actionId: string,
-    consumptionData: ConsumptionData
+    consumptionData: ResourceConsumptionManager.ConsumptionData
   ) {
     this.#actor = actor;
     this.#item = item;
@@ -352,6 +351,13 @@ declare namespace ResourceConsumptionManager {
   interface UsesConsumerData {
     quantity: number;
     baseUses: number;
+  }
+
+  interface ConsumptionData {
+    actionUses: ResourceConsumptionManager.UsesConsumerData;
+    hitDice: ResourceConsumptionManager.HitDiceConsumerData;
+    itemUses: ResourceConsumptionManager.UsesConsumerData;
+    spell: ResourceConsumptionManager.SpellConsumerData
   }
 }
 
