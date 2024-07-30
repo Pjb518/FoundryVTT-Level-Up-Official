@@ -1,7 +1,7 @@
 {
 	"name": "Second Chorus",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/tools/instruments/harp-lap-brown.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -17,15 +17,15 @@
 		},
 		"actions": {
 			"KpuXW2Pg0ytFiiQ5": {
-				"name": "Second Chorus",
+				"name": "Second Chorus (Target Self)",
 				"activation": {
 					"cost": 1,
 					"type": "reaction",
-					"reactionTrigger": "When you see a spell cast on an ally within 30 feet."
+					"reactionTrigger": "When you see a spell cast on an ally within 30 feet"
 				},
 				"duration": {
-					"unit": "instantaneous",
-					"value": ""
+					"unit": "",
+					"value": 1
 				},
 				"ranges": {
 					"mTnWPRIl37BfHOae": {
@@ -35,13 +35,58 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creature"
+					"type": "self"
 				},
-				"consumers": {}
+				"consumers": {
+					"kGq2SHqAe2XKfHsi": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.bardic-inspiration-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				}
+			},
+			"kfLqloBykLcIieUZ": {
+				"name": "Second Chorus (Target Ally)",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "When you see a spell cast on an ally within 30 feet"
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"mTnWPRIl37BfHOae": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "self"
+				},
+				"consumers": {
+					"kGq2SHqAe2XKfHsi": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.bardic-inspiration-uses",
+						"resource": "classResource",
+						"quantity": 2
+					}
+				}
 			}
 		},
 		"description": "<p>Starting at 6th level, you can turn your inspiring talents to the multiplication of magic. When you see a spell cast on an ally within 30 feet, you can use your reaction and expend a use of Bardic Inspiration  to twin it. If the spell is of 3rd-level or lower, targets only that ally, and you are also within the spell’s range, you are also targeted by the spell. </p><p>When you reach 14th level in this class, you can expend two uses of Bardic Inspiration to twin a spell to target a different ally instead of you</p>",
@@ -72,13 +117,17 @@
 				}
 			}
 		},
-		"classes": "bard"
+		"classes": "bard",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "lmn4a7buo8a6193f",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722310701019,
+		"modifiedTime": 1722310840054,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "lmn4a7buo8a6193f"
 }
