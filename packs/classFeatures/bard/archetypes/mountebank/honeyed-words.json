@@ -1,7 +1,7 @@
 {
 	"name": "Honeyed Words",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/creatures/invertebrates/bee-simple-green.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,14 +15,39 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"1sfLyDWcHksaSVK1": {
+				"name": "Honeyed Words",
+				"activation": {},
+				"consumers": {
+					"Gxjyjt2u2wFujwlF": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Starting at 6th level, you learn to weave magic directly into your very words and gesticulations. When you cast a bard spell, you can replace any vocalized components with speech and any seen components with gestures. Any observers with a passive Insight score equal to or less than your passive Deception score or passive Persuasion score do not see or hear you cast the spell. If you are making a Deception, Intimidation, or Persuasion check as part of your speech or gestures, the effects of the spell occur before the check is made.</p><p>Once you have used this feature a number of times equal to your proficiency bonus, you cannot do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
 			"value": 0,
-			"max": "",
+			"max": "@prof",
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
@@ -44,13 +69,17 @@
 				}
 			}
 		},
-		"classes": "bard"
+		"classes": "bard",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "uo025358fhaq7pk5",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722310261727,
+		"modifiedTime": 1722310323996,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "uo025358fhaq7pk5"
 }

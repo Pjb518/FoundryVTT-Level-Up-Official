@@ -1,8 +1,64 @@
 {
 	"name": "Cunning Words",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/magic/control/mouth-smile-deception-purple.webp",
+	"effects": [
+		{
+			"origin": "Item.W3utkj73fBu7JNLI",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "6EwYo5q7viFtTl2U",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/magic/control/mouth-smile-deception-purple.webp",
+			"_id": "DO1gSdRPYX3BgjoH",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 0,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.19",
+				"createdTime": 1722288211550,
+				"modifiedTime": 1722288240083,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -21,7 +77,7 @@
 				"activation": {
 					"cost": 1,
 					"type": "reaction",
-					"reactionTrigger": "When a creature that you can see within 60 feet makes an ability check, attack roll, or damage roll."
+					"reactionTrigger": "When a creature that you can see within 60 feet makes an ability check, attack roll, or damage roll"
 				},
 				"duration": {
 					"unit": "instantaneous",
@@ -41,7 +97,29 @@
 					"quantity": 1,
 					"type": "creature"
 				},
-				"consumers": {}
+				"consumers": {
+					"U2mwAoPv1OU9UhY7": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.bardic-inspiration-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"XJj4oqlunEc1pOt9": {
+						"type": "generic",
+						"default": true,
+						"formula": "@classResources.bardic-inspiration-die"
+					}
+				},
+				"prompts": {
+					"1tVggmSDrpA8mKDo": {
+						"type": "effect",
+						"default": true,
+						"effectId": "DO1gSdRPYX3BgjoH"
+					}
+				}
 			}
 		},
 		"description": "<p>Also at 3rd level, you can use your cunning to detect, discourage, and distract others. When a creature that you can see within 60 feet makes an ability check, attack roll, or damage roll, you can use your reaction to expend a use of Bardic Inspiration, rolling a Bardic Inspiration die and subtracting the number rolled from the creature’s roll. When you roll the minimum or maximum result for your Bardic Inspiration die, the creature is rattled until the end of your next turn. </p><p>You can choose to use this feature after the creature makes its roll, but before the Narrator determines whether the attack roll or ability check succeeds or fails, or before damage is dealt. The creature is immune if it can’t hear you or if it’s immune to being charmed.</p>",
@@ -72,13 +150,17 @@
 				}
 			}
 		},
-		"classes": "bard"
+		"classes": "bard",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "xrdb2npz5mq1wnfu",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722288113769,
+		"modifiedTime": 1722288211593,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "xrdb2npz5mq1wnfu"
 }

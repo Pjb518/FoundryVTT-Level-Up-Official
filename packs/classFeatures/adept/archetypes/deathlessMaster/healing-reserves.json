@@ -17,13 +17,19 @@
 			"yD19AHjzaZ2PKbDJ": {
 				"name": "Healing Reserves",
 				"activation": {
-					"type": "special"
+					"type": "",
+					"cost": 1
 				},
 				"consumers": {
 					"rEXLuq4muYQEg9sv": {
 						"type": "resource",
 						"default": true,
 						"resource": "exertion",
+						"quantity": 1
+					},
+					"CmQcoSRA1ChxpFa7": {
+						"type": "itemUses",
+						"default": true,
 						"quantity": 1
 					}
 				},
@@ -39,13 +45,10 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				},
-				"ranges": {
-					"aQfG6vitPkVf5ZiM": {
-						"range": "self"
-					}
-				}
+				"ranges": {}
 			}
 		},
 		"description": "<p>Also at 3rd level, you may spend exertion points as part of a short rest to roll additional hit dice for healing. You roll one additional hit die per point of exertion spent, and may only spend a number of exertion points in this way equal to half your proficiency bonus.</p>",
@@ -54,8 +57,8 @@
 		"source": "heroesOldAndNew",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "@prof/2",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -76,15 +79,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "adept",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "0l53930nyybh7try",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722135794126,
+		"modifiedTime": 1722136211564,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "0l53930nyybh7try"
 }

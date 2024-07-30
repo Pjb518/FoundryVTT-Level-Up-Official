@@ -1590,6 +1590,7 @@ const weapons = {
   },
   rare: {
     assassinsGauntlet: 'A5E.WeaponAssassinsGauntlet',
+    battleBook: 'A5E.WeaponBattleBook',
     bootDagger: 'A5E.WeaponBootDagger',
     carbine: 'A5E.WeaponCarbine',
     doubleWeapon: 'A5E.WeaponDoubleWeapon',
@@ -1663,6 +1664,7 @@ const weaponsPlural = {
   },
   rare: {
     assassinsGauntlet: 'A5E.WeaponAssassinsGauntletPlural',
+    battleBook: 'A5E.WeaponBattleBookPlural',
     bootDagger: 'A5E.WeaponBootDaggerPlural',
     carbine: 'A5E.WeaponCarbinePlural',
     doubleWeapon: 'A5E.WeaponDoubleWeaponPlural',

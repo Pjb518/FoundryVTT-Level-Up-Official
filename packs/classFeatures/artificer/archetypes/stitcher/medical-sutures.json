@@ -1,7 +1,7 @@
 {
 	"name": "Medical Sutures",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/wounds/injury-stapled-flesh-tan.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -13,7 +13,29 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"7Mru13NJXrCUpwcT": {
+				"name": "Reattach Limb",
+				"activation": {
+					"type": "hour",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Starting at 5th level you’ve turned your arcanoscience expertise towards first aid. You can create the following additional items using Tactical Chemistry:</p><ul><li><p>@UUID[Compendium.a5e.a5e-adventuring-gear.989ahbuhi1cqvrmy]{Bandage}</p></li><li><p>@UUID[Compendium.a5e.a5e-adventuring-gear.067o6hjosd8nrjs8]{Healer's Satchel} (1 use)</p></li></ul><p>In addition, you can reattach a severed limb or body part. The limb or body part must be relatively intact and the injury must be no more than 8 hours old. The reattaching process takes 1 hour and requires a DC 14 leatherworker’s tools or sewing kit check. On a success the limb or body part is attached and functional with no further complications. On a failure the limb cannot be saved.</p><p>Alternatively, you can replace a lost limb or body part with a donor part. This donor part must be analogous to a missing part (an arm for an arm, a leg for a leg), and it must be from a humanoid creature of the same size. The reattaching process requires a DC 20 leatherworker’s tools or sewing kit check when performed in this way.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -42,15 +64,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "artificer",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "9r59e2hmjoddb4i0",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722278002498,
+		"modifiedTime": 1722278063957,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "9r59e2hmjoddb4i0"
 }

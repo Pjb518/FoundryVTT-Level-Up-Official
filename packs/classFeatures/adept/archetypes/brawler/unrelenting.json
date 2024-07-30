@@ -15,7 +15,46 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"g4zUeXXbw81zJSEV": {
+				"name": "Unrelenting",
+				"activation": {},
+				"consumers": {
+					"fFPkVZQo4Ukpt4vB": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"v7W7g5HD34eOXzlg": {
+						"type": "healing",
+						"default": false,
+						"formula": "@classResources. martial-arts",
+						"label": "Zero Hit Points"
+					},
+					"Q5iOsK49HcNOwgfn": {
+						"type": "damage",
+						"default": true,
+						"formula": "@classResources. martial-arts",
+						"canCrit": false,
+						"label": "Zero Exertion"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 17th level, when you drop to 0 hit points, you can roll your martial arts die. You regain that many hit points and lose that much exertion. Similarly, when your exertion pool reaches 0, you can roll your martial arts die. You regain that much exertion and lose that many hit points.</p><p>Once you have regained hit points or exertion from this feature, you can&rsquo;t use this feature again until you finish a rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +83,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "adept",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "ojfdp0drxxgo99io",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722285417048,
+		"modifiedTime": 1722286298305,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ojfdp0drxxgo99io"
 }

@@ -14,8 +14,63 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p id=\"docs-internal-guid-ef8ccc80-7fff-3d43-7517-433d876f3815\" dir=\"ltr\">Starting at 5th level you&rsquo;ve developed the habit of creating countless tiny little machines that scurry and hover about your person like little pets, sometimes they can even be helpful. As a bonus action, you can perform the Help action using a tiny tinkerbot that you found a use for. You can perform the Help action in this way a number of times equal to your proficiency bonus and you regain all spent uses whenever you finish a long rest.&nbsp;&nbsp;</p><p dir=\"ltr\">In addition, you can create mechanical versions of creatures with the Beast creature type of CR 0 using Tactical Chemistry by spending 10 gp worth of mechanical components in addition to a use of your Tactical Chemistry feature. Creatures you create in this way instead have the Construct creature type instead of any other creature types, and will follow the first order you give them upon their creation to the best of their abilities. After which they will behave normally as if they were real creatures. Mechanical creatures you create in this way power down and fall apart after 1 hour but otherwise remain until destroyed.</p>",
+		"actions": {
+			"0A6ROz5sF7zXgPcb": {
+				"name": "Help",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "@prof",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"xpug7mR61vPN6fX9": {
+				"name": "Create Creatures",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"pmcwGsdFKdmVKRpI": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "tactical-chemistry",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p id=\"docs-internal-guid-ef8ccc80-7fff-3d43-7517-433d876f3815\" dir=\"ltr\">Starting at 5th level you&rsquo;ve developed the habit of creating countless tiny little machines that scurry and hover about your person like little pets, sometimes they can even be helpful. As a bonus action, you can perform the Help action using a tiny tinkerbot that you found a use for. You can perform the Help action in this way a number of times equal to your proficiency bonus and you regain all spent uses whenever you finish a long rest.&nbsp;&nbsp;</p>\n<p dir=\"ltr\">In addition, you can create mechanical versions of creatures with the Beast creature type of CR 0 using @UUID[Compendium.a5e.a5e-class-features.Item.f2syblzgm6at7i7q]{Tactical Chemistry} by spending 10 gp worth of mechanical components in addition to a use of your Tactical Chemistry feature. Creatures you create in this way instead have the Construct creature type instead of any other creature types, and will follow the first order you give them upon their creation to the best of their abilities. After which they will behave normally as if they were real creatures. Mechanical creatures you create in this way power down and fall apart after 1 hour but otherwise remain until destroyed.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -43,14 +98,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "artificer",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "bdzuw4qdxwdj0oyl",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722259041695,
+		"modifiedTime": 1722259685476,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "bdzuw4qdxwdj0oyl"
 }

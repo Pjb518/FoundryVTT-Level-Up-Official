@@ -14,7 +14,103 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"XEr6YO9nSwP0tWR3": {
+				"name": "Create Ornithopter",
+				"activation": {
+					"type": "hour",
+					"cost": 1
+				},
+				"consumers": {
+					"0evnsnz0ZX3sUkaB": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "@prof",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"0x0ayjaFKEWEU3E1": {
+				"name": "Command Ornithopter (Single)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"gsoUfvwFsAfQFw4K": {
+				"name": "Command Ornithopter (Multiple)",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"Yt6A12iM6WT75I1b": {
+				"name": "Modify Ornithopter",
+				"activation": {},
+				"consumers": {
+					"g9JWbPGpoRLcdFHZ": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.infusions",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p id=\"docs-internal-guid-851563cf-7fff-c5cb-5bfa-9cb20fc2b84b\" dir=\"ltr\">At 3rd level you learn the mechanical secrets of flight and animation and gain the ability to create ornithopters.&nbsp;</p><p dir=\"ltr\">You can create an ornithopter by spending 1 hour of uninterrupted work with 10 gp worth of cogwork and metal scraps. Each ornithopter is unique, and its exact appearance is up to you.&nbsp; It follows you and is loyal to you, but it acts independently. In combat, all ornithopters under your control roll their own initiative and act together on their turn. Your ornithopters won&rsquo;t attack except as a reaction to being attacked, but they can take other actions as normal and make death saving throws. You can have up to a number of ornithopters constructed equal to your proficiency bonus, the oldest ornithopter you have constructed falls apart when you create an ornithopter past your limit.</p><p dir=\"ltr\">On your turn you can use a bonus action to order a specific ornithopter to perform an action, or as an action you can order multiple ornithopters to perform the same action (such as &ldquo;attack that bandit&rdquo;, or &ldquo;flee&rdquo;, or &ldquo;head that way&rdquo;).</p><p>Your ornithopters use the statistics of @UUID[Compendium.a5e.a5e-monsters.Actor.njd9pvcpzb8icli1]{Gear Spider} (page 53 in the Monstrous Menagerie) with the following improvements.</p><ul><li dir=\"ltr\" role=\"presentation\">Your ornithopters gain a fly speed of 30 feet.</li><li dir=\"ltr\" role=\"presentation\">Your ornithopters have additional hit points equal to your artificer level.</li><li dir=\"ltr\" role=\"presentation\">Your ornithopters add your proficiency bonus to their attack and damage rolls.</li><li dir=\"ltr\" role=\"presentation\">Your ornithopters regain all lost hit points at the end of a long rest so long as you can tend to them with tinker&rsquo;s tools.</li></ul><p id=\"docs-internal-guid-646f251b-7fff-dc4e-dc15-0922961f9b84\" dir=\"ltr\">Whenever you finish a long rest, you can tinker modifications onto your ornithopters at the cost of infusion uses. When you do so, you can apply the modifications to any or all of your currently crafted ornithopters. These modifications only remain functional due to your infusions, and you can maintain these modifications as if they were infused items. Any modifications you fail to maintain are removed whenever you finish a long rest. You can install any of the following modifications at the cost of 1 infusion each.</p><h3 id=\"docs-internal-guid-6110e79e-7fff-0671-f6db-6280e9b60f19\" dir=\"ltr\">Advanced Vision</h3><p dir=\"ltr\">You vastly improve the image recording devices of your ornithopters. Your ornithopters take colored images instead of black and white images, they can store up to 20 such images. Retrieving images requires only 1 action instead of 1 minute, and with improved image quality discerning details from a stored image requires only a DC 8 Investigation check.&nbsp;</p><p dir=\"ltr\">&nbsp;</p><h3 dir=\"ltr\">Aerodynamic Designs</h3><p dir=\"ltr\">Your ornithopters are optimized for easy lift and quick movements. The fly speed of your ornithopters improves to 60 feet.</p><p dir=\"ltr\">&nbsp;</p><h3 dir=\"ltr\">Durable Welds</h3><p dir=\"ltr\">You build your ornithopters to take a beating and keep on flapping. The Armor Class of your ornithopters increases by 2.</p><p dir=\"ltr\">&nbsp;</p><h3 dir=\"ltr\">Integrated Spell Invention</h3><p dir=\"ltr\">When you prepare your spell inventions and modifications to your ornithopters, you may choose to graft a spell invention into one of your ornithopters. You may order your ornithopter to cast a spell using its integrated spell invention, using your spell save DC and spell attack modifier. This uses the same type of action the spell invention would normally use. You must roll a fizzle die as normal. Any integrated spell inventions are destroyed if the ornithopter is destroyed. Spells you cast using an ornithopter are still considered spells you&rsquo;ve cast for the purposes of casting multiple spells a turn.</p><p dir=\"ltr\">&nbsp;</p><h3 dir=\"ltr\">Sharpened Needles</h3><p dir=\"ltr\">You use stronger and lighter metals that allow your ornithopters to strike with greater speed and strength. Your ornithopter&rsquo;s needle attack deals 1d4 additional piercing damage This damage increases by an additional 1d4 when you reach 11th level.&nbsp;</p><p dir=\"ltr\">&nbsp;</p><h3 dir=\"ltr\">Programed Helpfulness</h3><p dir=\"ltr\">You&rsquo;ve filled the limited artificial intelligence of your ornithopters with an instinctual helpfulness. On your ornithopter&rsquo;s turn in initiative, any ornithopters that were not given a specific order will use the Help action to aid the closest ally or to hinder the nearest enemy.</p><p dir=\"ltr\">&nbsp;</p><h3 id=\"docs-internal-guid-d25701b8-7fff-ba95-6437-eee4437822a1\" dir=\"ltr\">Surveyor Sensors</h3><p dir=\"ltr\">You integrate tiny sensors into your ornithopters that vastly improve their awareness of their surroundings. Your ornithopters gain a bonus to their Investigation and Perception checks equal to your Intelligence modifier.&nbsp;&nbsp;</p><p dir=\"ltr\">&nbsp;</p><h3 dir=\"ltr\">Watertight&nbsp;</h3><p dir=\"ltr\">Your ornithopters are rust-proof and sealed tight for aquatic travel. Your ornithopters gain a swim speed of 20 feet and can operate indefinitely underwater.&nbsp;</p><p dir=\"ltr\">&nbsp;</p><h3 dir=\"ltr\">Weapon Attachment</h3><p dir=\"ltr\">When you prepare your spell inventions and modifications to your ornithopters, you may choose to attach a ranged weapon along with an ammunition clip containing 10 pieces of ammunition appropriate to the weapon to any or all of your ornithopters. You must have the weapons and ammunition you wish to attach in this way. The ranged weapons cannot have the heavy property. Your ornithopters lose their needle attacks and gain an attack with the attached weapon, which they become proficient with. You may retrieve weapons attached in this way the next time you prepare modifications for your ornithopters by removing it, or from its remains if it is destroyed.</p><p dir=\"ltr\">&nbsp;</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -43,14 +139,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "artificer",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "fm8mnygczkeb6zto",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722258731877,
+		"modifiedTime": 1722258997364,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "fm8mnygczkeb6zto"
 }

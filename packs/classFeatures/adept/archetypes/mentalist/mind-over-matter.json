@@ -1,0 +1,183 @@
+{
+	"folder": null,
+	"name": "Mind over Matter",
+	"type": "feature",
+	"img": "icons/magic/control/debuff-energy-hold-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"KxUcUcoU6tgfT4cV": {
+				"name": "Flurry of Blows",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Dj75h09tPtQb77gN": {
+						"type": "damage",
+						"default": true,
+						"formula": "@int.mod",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"0m0gNDh3hhQJz8Gx": {
+				"name": "Long Step",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"vu05upDKw3rBMOmX": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3iEAW1asRFtPWTyH"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"4fvEhlkOtn8lvQV6": {
+				"name": "Patient Defense",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "When you would be hit by an attack"
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>When you select this archetype at 3rd level your mental discipline allows you to psionically enhance your physical prowess. Any time an adept feature makes reference to your Wisdom modifier, you can instead use your Intelligence modifier.<span style=\"mso-spacerun: yes;\">&nbsp; </span>You can also use your Intelligence modifier in place of your Strength or Dexterity modifier when calculating your maneuver DC.</p>\n<p>Lastly when you use the Flurry of Blows, Long Step, or Patient Defense abilities, you gain an additional benefit.</p>\n<h2>Flurry of Blows</h2>\n<p>You deal additional psychic damage equal to your Intelligence modifier with your Flurry of Blows attacks.</p>\n<h2>Long Step</h2>\n<p>You increase your total movement speed by an amount equal to 5 x your Intelligence modifier.<span style=\"mso-spacerun: yes;\">&nbsp; </span>This bonus is added after all other modifications to your movement speed and is not multiplied by dashing, the haste spell, or other similar effects.</p>\n<h2>Patient Defense</h2>\n<p>You can use your reaction when you would be hit by an attack to increase your AC against that attack by an amount equal to your Intelligence modifier.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "mysteriousAndMarvelousMiscellanea",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "adept",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.6rdJ7cK6ZHAamBls",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "0m0gNDh3hhQJz8Gx",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Long Step",
+			"img": "icons/magic/control/debuff-energy-hold-yellow.webp",
+			"_id": "3iEAW1asRFtPWTyH",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "5 * @int.mod",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.19",
+				"createdTime": 1722150679377,
+				"modifiedTime": 1722150705096,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.19",
+		"createdTime": 1722150515259,
+		"modifiedTime": 1722150754568,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "8il5rxgy2n496avf"
+}

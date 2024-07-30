@@ -21,7 +21,13 @@
 					"type": "action",
 					"cost": 1
 				},
-				"consumers": {},
+				"consumers": {
+					"tU97VQrfjWF06NNL": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {},
 				"prompts": {
 					"henCFwugu3xbSZGL": {
@@ -31,7 +37,12 @@
 						"saveDC": {
 							"type": "spellcasting"
 						},
-						"onSave": "not be deafened and lose concentration, instead mearly having disadvantage on perception"
+						"onSave": "Disadvantage on Perception checks relying on hearing"
+					},
+					"7Ir1dOTfyqYM55NM": {
+						"type": "effect",
+						"default": true,
+						"effectId": "bkxYdR2z67y7UTqh"
 					}
 				},
 				"uses": {
@@ -49,11 +60,12 @@
 					}
 				},
 				"area": {
-					"shape": "line",
-					"quantity": 1,
+					"shape": "wall",
+					"quantity": 20,
+					"placeTemplate": true,
+					"length": 5,
 					"width": 5,
-					"length": 100,
-					"placeTemplate": true
+					"height": 10
 				}
 			}
 		},
@@ -85,14 +97,73 @@
 				}
 			}
 		},
-		"classes": "bard"
+		"classes": "bard",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.2KQsnBHm9Ygk0ZQI",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "DRJgdzb5YGecf8OR",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Deafened",
+			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+			"_id": "bkxYdR2z67y7UTqh",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"deafened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.19",
+				"createdTime": 1722270438226,
+				"modifiedTime": 1722270457138,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "v2opp24tm3j6htte",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722270312588,
+		"modifiedTime": 1722270494772,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "v2opp24tm3j6htte"
 }

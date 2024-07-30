@@ -1,0 +1,208 @@
+{
+	"folder": null,
+	"name": "Power of the Mind",
+	"type": "feature",
+	"img": "icons/magic/control/debuff-energy-hold-levitate-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"BDbaWUDEndLYcTUJ": {
+				"name": "Flurry of Blows",
+				"activation": {},
+				"consumers": {
+					"Rp2zTuJPAJYL3Xle": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"6AAv5PjUTXCieGEn": {
+				"name": "Long Step",
+				"activation": {},
+				"consumers": {
+					"pfaCDDOk6D7BP7qC": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"bh0PsFgpzGVcbmfv": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6KfnTi9TILeoPHY6"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"9f4QF3NuuWfolaXj": {
+				"name": "Patient Defense",
+				"activation": {},
+				"consumers": {
+					"5XkmY0slyPDHFIbh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"j5LNULub30Ru7uBU": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"damageType": "force",
+						"formula": "@classResources.martial-arts + @int.mod"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 11th level when you use the Flurry of Blows, Long Step, or Patient Defense abilities you can spend an exertion point to gain an additional benefit.</p>\n<h2>Flurry of Blows</h2>\n<p>When you make a flurry of blows attack and miss, you can spend an exertion point to increase your attack bonus by an amount equal to your Intelligence modifier, potentially turning a miss into a hit.<span style=\"mso-spacerun: yes;\">&nbsp; </span>You can only use this ability once per attack.</p>\n<h2>Long Step</h2>\n<p>You can spend an exertion point to gain a fly speed equal to your walking speed until the end of your turn.</p>\n<h2>Patient Defense</h2>\n<p>When you use your reaction to increase your AC when hit by a melee attack as per Mind over Matter and this causes the attack to miss, you can spend an exertion point to deal force damage to the target equal to aroll of your martial arts die + your Intelligence modifier.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "mysteriousAndMarvelousMiscellanea",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.BNtJLKt3Kj076YA8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "6AAv5PjUTXCieGEn",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Long Step",
+			"img": "icons/magic/control/debuff-energy-hold-levitate-yellow.webp",
+			"_id": "6KfnTi9TILeoPHY6",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "@attributes.movement.walk.distance",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.19",
+				"createdTime": 1722150901875,
+				"modifiedTime": 1722150933663,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.19",
+		"createdTime": 1722150825227,
+		"modifiedTime": 1722151037691,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "vjvzb2tnbsfljttb"
+}

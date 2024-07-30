@@ -16,15 +16,40 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>You become a master at defending yourself against incoming attacks. While wielding one of your Fencer’s Arsenal weapons, when you use your reaction to perform a parry, opportunity attack, or a combat maneuver, you can use this feature to do so without expending your reaction, up to a number of times equal to your proficiency bonus each round. You pay exertion costs normally, and any of these actions after the first without an exertion cost instead costs 1 exertion.&nbsp;</p><p>If you use a reaction to perform any other task (such as casting a spell), you cannot use this feature until the beginning of your next turn; likewise, if you use this feature you cannot use your reaction other than to perform a parry, opportunity attack, or combat maneuver until the beginning of your next turn.</p>",
+		"actions": {
+			"PYK0SoZg6VBiuRMc": {
+				"name": "Wall of Steel",
+				"activation": {},
+				"consumers": {
+					"Oa8mabypZidsWA55": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Beginning at 11th level, you become a master at defending yourself against incoming attacks.</p>\n<p>You may use a Fencer&rsquo;s Arsenal weapon's parrying ability as a reaction with this feature, and when using this feature, the once per turn limitation of a parrying weapon is ignored.</p>\n<p>While wielding one of your Fencer&rsquo;s Arsenal weapons, when you would use your reaction to perform a parry, opportunity attack, or a combat maneuver, you can use this feature to do so without expending your reaction, up to a number of times equal to your proficiency bonus each round. You pay exertion costs normally, and any of these actions after the first without an exertion cost instead costs 1 exertion.</p>\n<p>If you use a reaction to perform any other task (such as casting a spell), you cannot use this feature until the beginning of your next turn; likewise, if you use this feature you cannot use your reaction other than to perform a parry, opportunity attack, or combat maneuver until the beginning of your next turn.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "@prof",
+			"per": "round",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -45,12 +70,16 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "adept",
+		"class": ""
 	},
-	"_id": "2nigtxlzkh3qk9rf",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722180338936,
+		"modifiedTime": 1722180490081,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "2nigtxlzkh3qk9rf"
 }

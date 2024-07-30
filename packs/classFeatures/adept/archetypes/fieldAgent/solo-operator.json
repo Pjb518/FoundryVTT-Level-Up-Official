@@ -17,23 +17,14 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"USolNLhkh6EAC31d": {
-				"name": "Solo Operator",
-				"activation": {},
-				"consumers": {
-					"hAiZDNiAKCykyA62": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
+			"d4VxBaHTbWuP6FAX": {
+				"name": "Change Appearance",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
 				},
-				"rolls": {
-					"BQPV5rmqVGIDFZFo": {
-						"type": "damage",
-						"default": true,
-						"formula": "2d8"
-					}
-				},
+				"consumers": {},
+				"rolls": {},
 				"prompts": {},
 				"uses": {
 					"value": 0,
@@ -48,14 +39,14 @@
 				}
 			}
 		},
-		"description": "<p>You become much more formidable than your unassuming appearance would suggest. You gain the following benefits:</p><ul><li><p>Improvised weapons you wield do 1d12 of base damage, but can only be used for 4 successful attacks before they break and become useless.</p></li><li><p>You learn the <em>Catch Your Breath</em> maneuver, which does not count against your maneuvers known.</p></li><li><p>If you are not being observed and have a disguise kit, you can change your appearance as a bonus action, by quickly changing clothing, throwing on a wig, or making some other fast, non-magical alteration to your appearance, imposing disadvantage on checks to recognize you based on your previous appearance.</p></li><li><p>Once per turn, you can deal extra weapon damage when you hit a creature with a weapon attack, dealing an extra 2d8 points of damage. In order to apply this damage, you must not have disadvantage on the attack and your target must be within 5 feet of another enemy of the target who is not incapacitated. Alternatively, you can apply this additional damage if you have advantage on the attack.</p></li></ul>",
+		"description": "<p>You become much more formidable than your unassuming appearance would suggest. You gain the following benefits:</p>\n<ul>\n<li>\n<p>Improvised weapons you wield do 1d12 of base damage, but can only be used for 4 successful attacks before they break and become useless.</p>\n</li>\n<li>\n<p>You learn the @UUID[Compendium.a5e.a5e-maneuvers.Item.b2vpnjt7cmqngkjd]{Catch Your Breath} maneuver, which does not count against your maneuvers known.</p>\n</li>\n<li>\n<p>If you are not being observed and have a disguise kit, you can change your appearance as a bonus action, by quickly changing clothing, throwing on a wig, or making some other fast, non-magical alteration to your appearance, imposing disadvantage on checks to recognize you based on your previous appearance.</p>\n</li>\n<li>\n<p>Once per turn, you can deal extra weapon damage when you hit a creature with a weapon attack, dealing an extra 2d8 points of damage. In order to apply this damage, you must not have disadvantage on the attack and your target must be within 5 feet of another enemy of the target who is not incapacitated. Alternatively, you can apply this additional damage if you have advantage on the attack.</p>\n</li>\n</ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": "turn",
+			"value": 0,
+			"max": "",
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -66,15 +57,37 @@
 		"grants": {
 			"BTihyMLozwWtkNCd": {
 				"grantType": "item",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"label": "Solo Operator",
 				"items": {
 					"base": [
 						{
-							"uuid": "Compendium.a5e.a5e-maneuvers.Item.b2vpnjt7cmqngkjd"
+							"uuid": "Compendium.a5e.a5e-maneuvers.Item.b2vpnjt7cmqngkjd",
+							"quantityOverride": 0
 						}
-					]
+					],
+					"options": [],
+					"total": 0
+				},
+				"_id": "BTihyMLozwWtkNCd",
+				"img": "",
+				"levelType": "character"
+			},
+			"hDnw2bwmWcE2qJK8": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "hDnw2bwmWcE2qJK8",
+				"label": "Solo Operator",
+				"bonus": "2d8",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"rangedWeaponAttack"
+					],
+					"default": false
 				}
 			}
 		},
@@ -90,12 +103,16 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "adept",
+		"class": ""
 	},
-	"_id": "py6pzjqaxfgv2qwj",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722198002652,
+		"modifiedTime": 1722198213329,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "py6pzjqaxfgv2qwj"
 }

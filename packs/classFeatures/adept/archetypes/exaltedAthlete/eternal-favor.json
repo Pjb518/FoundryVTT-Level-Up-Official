@@ -4,8 +4,7 @@
 	"img": "icons/commodities/treasure/medal-ribbon-gold-blue.webp",
 	"effects": [
 		{
-			"icon": "icons/commodities/treasure/medal-ribbon-gold-blue.webp",
-			"origin": "Item.wgzskw2o28mseo2v",
+			"origin": "Item.Q1iwnmmBqM9BL517",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -35,12 +34,22 @@
 			},
 			"description": "",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.19",
+				"createdTime": null,
+				"modifiedTime": 1722287177690,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/commodities/treasure/medal-ribbon-gold-blue.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		}
 	],
 	"flags": {},
@@ -55,8 +64,33 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 17th level, you gain a token from the gods. While you are wearing the token, you are immune to fatigue and the blinded, deafened, and poisoned conditions. In addition, you can spend 1 exertion to use your Blessed Prowess feature on any ability check, and you don&rsquo;t need to spend exertion to use Sacred Boons. Finally, when you roll initiative, you can roll your martial arts die and regain that much exertion.</p><p>If your Eternal Favor token is destroyed, the gods bestow another token upon you after you complete an arduous task to prove you are still worthy.</p>",
+		"actions": {
+			"G9CZWSYW4LcdFlMC": {
+				"name": "Regain Exertion",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"0QIuz182Sksntud4": {
+						"type": "generic",
+						"default": true,
+						"formula": "@classResources.martial-arts"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 17th level, you gain a token from the gods. While you are wearing the token, you are immune to fatigue and the blinded, deafened, and poisoned conditions. In addition, you can spend 1 exertion to use your @UUID[Compendium.a5e.a5e-class-features.Item.6akzshlvm3o5gggj]{Blessed Prowess} feature on any ability check, and you don&rsquo;t need to spend exertion to use @UUID[Compendium.a5e.a5e-class-features.Item.f4jzt1u42quvlwtx]{Sacred Boons}. Finally, when you roll initiative, you can roll your martial arts die and regain that much exertion.</p>\n<p>If your Eternal Favor token is destroyed, the gods bestow another token upon you after you complete an arduous task to prove you are still worthy.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -84,13 +118,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "adept",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "wgzskw2o28mseo2v",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.19",
+		"createdTime": 1722287177661,
+		"modifiedTime": 1722287293729,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "wgzskw2o28mseo2v"
 }
