@@ -1,8 +1,11 @@
+import type { BaseActorA5e } from '../documents/actor/base';
+import type SpellItemA5e from '../documents/item/spell';
+
 export default function getSpellBookAbility(
-  actor: typeof Actor,
-  item: typeof Item
+  actor: BaseActorA5e,
+  item: SpellItemA5e
 ): string {
-  let spellBook: any;
+  let spellBook: any; // TODO: Types - Update this
 
   const actorData: any = actor.system;
   const spellBookId = item.system.spellBook;
