@@ -5,10 +5,13 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "npm run build:compendia && vite build",
     "build:system": "vite build",
-    "build:compendia": "node ./build/buildCompendia.mjs"
+    "build:compendia": "node ./build/buildCompendia.mjs",
+    "dev": "vite",
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix .",
+    "eslint:report": "eslint --output-file eslint_report.json --format json .",
   },
   "imports": {
     "#runtime/*": "@typhonjs-fvtt/runtime/*",
