@@ -1,5 +1,5 @@
 ---
-name: pr-check
+name: checks
 
 on: # yamllint disable-line rule:truthy
   # - push
@@ -10,7 +10,7 @@ env:
 
 jobs:
   typecheck:
-    name: type check code base
+    name: Type Check
     runs-on: ubuntu-latest
     steps:
       - name: checkout code

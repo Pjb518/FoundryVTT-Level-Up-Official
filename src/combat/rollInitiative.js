@@ -37,10 +37,12 @@ export default async function rollInitiative(
     const combatant = this.combatants.get(id);
 
     // TODO: Look into where this results variable is supposed to be coming from.
+    // eslint-disable-next-line no-undef
     if (!combatant?.isOwner) return results;
 
     // Produce an initiative roll for the Combatant
     try {
+      // eslint-disable-next-line no-await-in-loop
       roll = await combatant.getInitiativeRoll(rollOptions);
     } catch {
       continue;

@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import type { A5EObjectData } from '../ObjectDataModel';
 import {
-  ActionAreaField, ActionConsumerField, ActionPromptField, ActionRollField
+  ActionConsumerField, ActionPromptField, ActionRollField
 } from './ActionFields';
 import { RecordField } from '../../fields/RecordField';
 

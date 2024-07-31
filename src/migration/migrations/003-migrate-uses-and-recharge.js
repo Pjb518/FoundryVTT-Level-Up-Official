@@ -10,13 +10,13 @@ export default class Migration003Uses extends MigrationBase {
   #updateActionUses(itemData) {
     const actions = Object.entries(itemData.system.actions ?? {});
     actions.forEach(([actionId, action]) => {
-      const actionConsumers = Object.entries(action.consumers ?? {}).filter(([_, c]) => c.type === 'actionUses');
-      const rechargeConsumers = Object.entries(action.consumers ?? {}).filter(([_, c]) => c.type === 'recharge');
+      const actionConsumers = Object.entries(action.consumers ?? {}).filter(([, c]) => c.type === 'actionUses');
+      const rechargeConsumers = Object.entries(action.consumers ?? {}).filter(([, c]) => c.type === 'recharge');
       const consumerIds = [];
 
       // Move action uses to proper place
       if (actionConsumers.length) {
-        actionConsumers.forEach(([id, consumer]) => {
+        actionConsumers.forEach(([, consumer]) => {
           const uses = {
             value: consumer.value ?? 0,
             max: consumer.max ?? '',

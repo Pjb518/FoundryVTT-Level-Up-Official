@@ -5,7 +5,8 @@ export default async function handleDocumentMigration(document) {
   if (!game.user.isGM) return;
 
   const legacyVersion = game.settings.get('a5e', 'systemMigrationVersion');
-  const legacyMigrate = foundry.utils.isNewerVersion('0.10.8', legacyVersion);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const legacyMigrate = foundry.utils.isNewerVersion('0.10.8', legacyVersion); // TODO: Migration - Fix where the goes
 
   const migrationRunner = new MigrationRunner(
     MigrationList.constructFromVersion(
