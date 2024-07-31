@@ -1,7 +1,11 @@
 /* eslint-disable no-restricted-syntax */
 import type { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
 import type {
-  AbilityCheckRollOptions, ActorDialogs, ActorRestOptions, SavingThrowRollOptions, SkillCheckRollOptions
+  AbilityCheckRollOptions,
+  ActorDialogs,
+  ActorRestOptions,
+  SavingThrowRollOptions,
+  SkillCheckRollOptions
 } from './data';
 import type { BaseItemA5e } from '../item/base';
 
