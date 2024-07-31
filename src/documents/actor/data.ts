@@ -12,3 +12,24 @@ export interface ActorRestOptions {
   recoverStrifeAndFatigue?: boolean;
   restType?: 'long' | 'short';
 }
+
+export interface ActorRollOptions {
+  expertiseDice?: number | undefined;
+  rollMode?: number | undefined;
+  situationalMods?: string | undefined;
+  skipRollDialog?: boolean | undefined;
+  visibilityMode?: string | undefined;
+}
+
+export interface AbilityCheckRollOptions extends ActorRollOptions {
+
+}
+
+export interface SavingThrowRollOptions extends ActorRollOptions {
+  saveType?: 'concentration' | 'death' | undefined;
+}
+
+export interface SkillCheckRollOptions extends ActorRollOptions {
+  abilityKey?: string | undefined;
+  minRoll?: number | undefined;
+}
