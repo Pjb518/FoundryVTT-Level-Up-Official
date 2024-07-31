@@ -17,7 +17,7 @@ const schema = {
   }),
   concentration: new fields.BooleanField({ required: true, initial: false }),
   level: new fields.NumberField({
-    required: true, initial: 0, integer: true, min: 0
+    required: true, nullable: false, initial: 0, integer: true, min: 0
   }),
   materials: new fields.StringField({ required: true, initial: '' }),
   materialsConsumed: new fields.BooleanField({ required: true, initial: false }),

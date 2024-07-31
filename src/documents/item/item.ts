@@ -1,38 +1,52 @@
 /* eslint-disable no-continue */
 /* eslint-disable no-unused-vars */
 import type { Action } from 'types/action';
+import type { ActionActivationOptions } from './data';
+import { type RollHandlerReturnType } from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 
 import { BaseItemA5e } from './base';
 
 import computeSaveDC from '../../utils/computeSaveDC';
-import getAttackAbility from '../../utils/getAttackAbility';
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
-import getRollFormula from '../../utils/getRollFormula';
-import prepareConsumers from '../../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
-import prepareHitDice from '../../apps/dataPreparationHelpers/prepareHitDice';
-import preparePrompts from '../../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
-import prepareRolls from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 
 import ActionActivationDialog from '../../apps/dialogs/initializers/ActionActivationDialog';
 import ActionSelectionDialog from '../../apps/dialogs/initializers/ActionSelectionDialog';
 
-import ActionsManager from '../../managers/ActionsManager';
-import ResourceConsumptionManager from '../../managers/ResourceConsumptionManager';
-import RollPreparationManager from '../../managers/RollPreparationManager';
+import { ActionsManager } from '../../managers/ActionsManager';
+import { ResourceConsumptionManager } from '../../managers/ResourceConsumptionManager';
+import { RollPreparationManager } from '../../managers/RollPreparationManager';
 import TemplatePreparationManager from '../../managers/TemplatePreparationManager';
 
 import getSummaryData from '../../utils/summaries/getSummaryData';
+
+// *****************************************************************************************
+
+type SystemItemTypes = Exclude<
+  foundry.documents.BaseItem.TypeNames,
+  'base' | 'archetype' | 'background' | 'class' | 'culture' | 'destiny' | 'heritage'
+>;
+
+interface ItemA5e<ItemType extends SystemItemTypes = SystemItemTypes> {
+  type: ItemType,
+  system: DataModelConfig['Item'][ItemType],
+}
+
+// *****************************************************************************************
 
 /**
  * Override and extend the basic Item implementation.
  * @extends {Item}
  */
-export default class ItemA5e extends BaseItemA5e {
-  get actions() {
-    return new ActionsManager(this);
-  }
+class ItemA5e extends BaseItemA5e {
+  declare actions: ActionsManager;
 
   // *****************************************************************************************
+
+  override prepareBaseData() {
+    // Set up managers TODO: Null these in initialize
+    this.actions = new ActionsManager(this);
+  }
+
   override prepareDerivedData() {
     super.prepareDerivedData();
     if (['object', 'feature'].includes(this.type)) this.prepareArmorData();
@@ -76,7 +90,7 @@ export default class ItemA5e extends BaseItemA5e {
    * @param options
    * @returns
    */
-  override async activate(actionId: string, options = {}) {
+  override async activate(actionId: string | null, options: ActionActivationOptions = {}) {
     // Do not allow an item to activate if it not attached to an actor or if the user does
     // not have owner permissions for the actor.
     if (!this.actor || !this?.actor.isOwner) return;
@@ -86,7 +100,7 @@ export default class ItemA5e extends BaseItemA5e {
       this.shareItemDescription();
     } else if (this.actions.count === 1) {
       // If there is a single defined action, use that action.
-      this.#activateAction(this.actions.keys()[0], options);
+      this.#activateAction(this.actions.first!.id, options);
     } else if (actionId) {
       // If an action is provided, use the provided action
       this.#activateAction(actionId, options);
@@ -115,7 +129,7 @@ export default class ItemA5e extends BaseItemA5e {
     // Check if consumers need a dialog
     const consumerTypes = new Set(
       Object.values(action?.consumers ?? {}).map((c) => c.type)
-    );
+    ) as Set<string>;
 
     if (consumerTypes.intersects(CONFIG.A5E.configurableConsumers)) {
       return true;
@@ -124,9 +138,9 @@ export default class ItemA5e extends BaseItemA5e {
     return false;
   }
 
-  async #activateAction(actionId: string, options: Record<string, any> = {}) {
+  async #activateAction(actionId: string, options: ActionActivationOptions = {}) {
     let activationData;
-    const action = this.actions[actionId];
+    const action = this.actions.get(actionId)!;
 
     if (options.skipRollDialog) {
       activationData = this.#getDefaultActionActivationData(actionId, options);
@@ -163,7 +177,6 @@ export default class ItemA5e extends BaseItemA5e {
     }
 
     const resourceConsumptionManager = new ResourceConsumptionManager(
-      // @ts-expect-error
       this.actor,
       this,
       actionId,
@@ -194,7 +207,6 @@ export default class ItemA5e extends BaseItemA5e {
             ? await TextEditor.enrichHTML(action.description, {
               secrets: this.isOwner,
               relativeTo: this,
-              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
@@ -202,7 +214,6 @@ export default class ItemA5e extends BaseItemA5e {
             ? await TextEditor.enrichHTML(this.system.description, {
               secrets: this.isOwner,
               relativeTo: this,
-              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
@@ -211,7 +222,6 @@ export default class ItemA5e extends BaseItemA5e {
             ? await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
               secrets: this.isOwner,
               relativeTo: this,
-              // @ts-expect-error
               rollData: this?.actor?.getRollData(this) ?? {}
             })
             : null,
@@ -239,7 +249,6 @@ export default class ItemA5e extends BaseItemA5e {
       if (type === 'effect') {
         const effect = this.effects.get(effectId);
         if (!effect) return acc;
-        // @ts-expect-error
         if (!effect.flags?.a5e?.applyToSelf) return acc;
         acc.push(effect);
       }
@@ -256,7 +265,7 @@ export default class ItemA5e extends BaseItemA5e {
     return chatCard;
   }
 
-  async #showActionActivationPrompt(actionId, options) {
+  async #showActionActivationPrompt(actionId: string, options: ActionActivationOptions) {
     const dialog = new ActionActivationDialog({
       actionId,
       options,
@@ -268,18 +277,19 @@ export default class ItemA5e extends BaseItemA5e {
     return dialog.promise;
   }
 
-  #getDefaultActionActivationData(actionId, options) {
-    const action = this.actions[actionId];
+  #getDefaultActionActivationData(actionId: string, options: ActionActivationOptions) {
+    const action = this.actions.get(actionId);
 
     if (!action) return null;
 
-    const rolls = prepareRolls(action.rolls);
-
+    const rolls = RollPreparationManager.prepareRolls(this, actionId);
     const attack = this.#getDefaultAttackRollData(rolls.attack, options);
-    const consumers = this.#getDefaultConsumerData(prepareConsumers(action.consumers));
+    const consumers = this.#getDefaultConsumerData(actionId);
     const { damageBonuses, healingBonuses } = this.#getDefaultBonuses(this.actor, rolls);
+
     const otherRolls = this.#getDefaultRollData(rolls);
-    const prompts = this.#getDefaultPrompts(action.prompts);
+
+    const prompts = this.#getDefaultPrompts(actionId);
     const placeTemplate = game.settings.get('a5e', 'placeItemTemplateDefault')
       || action?.area?.placeTemplate
       || false;
@@ -295,43 +305,22 @@ export default class ItemA5e extends BaseItemA5e {
     };
   }
 
-  #getDefaultAttackRollData(attack, options) {
+  #getDefaultAttackRollData(attack: any, options: ActionActivationOptions) {
     if (!attack) return {};
 
     const { actor } = this;
     if (!actor) return {};
 
     const attackRoll = attack[0][1];
-    const attackAbility = getAttackAbility(actor, this, attackRoll);
 
-    // @ts-expect-error
-    const expertiseDie = actor.RollOverrideManager?.getExpertiseDice(
-      `attackTypes.${attackRoll.attackType}`,
-      options.expertiseDie ?? 0
+    const parts = RollPreparationManager.prepareAttackRollData(
+      this.actor!,
+      this,
+      attackRoll,
+      options
     );
 
-    // @ts-expect-error
-    const rollMode = actor.RollOverrideManager?.getRollOverride(
-      `attackTypes.${attackRoll.attackType}`,
-      options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL
-    );
-
-    const formula = getRollFormula(actor, {
-      ability: attackAbility,
-      attackBonus: attackRoll?.bonus,
-      attackType: attackRoll?.attackType,
-      expertiseDie,
-      item: this,
-      proficient: attackRoll?.proficient ?? true,
-      rollMode,
-      situationalMods: options.situationalMods,
-      // @ts-expect-error
-      selectedAttackBonuses: this.parent?.BonusesManager?.getDefaultSelections(
-        'attacks',
-        { item: this, attackType: attackRoll?.attackType }
-      ),
-      type: 'attack'
-    });
+    const { attackAbility, rollMode, formula } = parts;
 
     return {
       bonus: attackRoll.bonus ?? '',
@@ -344,99 +333,19 @@ export default class ItemA5e extends BaseItemA5e {
     };
   }
 
-  #getDefaultConsumerData(consumers) {
-    const actor = this.parent;
-    if (!actor) {
-      return {
-        actionUses: {}, hitDice: {}, itemUses: {}, spell: {}
-      };
-    }
+  #getDefaultConsumerData(actionId: string) {
+    const consumers = RollPreparationManager.prepareConsumers(this, actionId);
 
-    // Prepare the default action uses data.
-    const actionUsesData: Record<string, any> = {};
-    const actionConsumer: any = this.#getConsumerFromPreparedConsumers(consumers, 'actionUses');
-    if (!foundry.utils.isEmpty(actionConsumer)) {
-      actionUsesData.quantity = actionConsumer?.quantity ?? 1;
-      actionUsesData.baseUses = actionConsumer?.quantity ?? 1;
-    }
+    const {
+      actionUsesData, itemUsesData
+    } = ResourceConsumptionManager.prepareUsesData(this.actor!, this, consumers, actionId);
 
-    // Prepare the default hit-dice data.
-    const hitDiceData: Record<string, any> = {};
-    const hitDiceConsumer: any = this.#getConsumerFromPreparedConsumers(consumers, 'hitDice');
-    if (!foundry.utils.isEmpty(hitDiceConsumer)) {
-      const availableHitDice = prepareHitDice(this.parent).reduce(
-        (acc, { die, total }) => {
-          if (total > 0) acc.push(die);
-          return acc;
-        },
-        []
-      );
-      hitDiceData.selected = Object.fromEntries(
-        availableHitDice.map((hd, idx) => [hd, idx === 0 ? 1 : 0])
-      );
-      hitDiceData.default = hitDiceConsumer.default;
-    }
+    const { hitDiceData } = ResourceConsumptionManager.prepareHitDiceData(this.actor!, consumers);
 
-    // Prepare the default item uses data.
-    const itemUsesData: Record<string, any> = {};
-    const itemConsumer: any = this.#getConsumerFromPreparedConsumers(consumers, 'itemUses');
-    if (!foundry.utils.isEmpty(itemConsumer)) {
-      itemUsesData.quantity = itemConsumer?.quantity ?? 1;
-      itemUsesData.baseUses = itemConsumer?.quantity ?? 1;
-    }
-
-    // Prepare the default action uses data.
-    const spellData: Record<string, any> = {};
-    const spellConsumer: any = Object.values(consumers.spell ?? {})?.[0]?.[1] ?? {};
-    if (!foundry.utils.isEmpty(spellConsumer)) {
-      const mode = spellConsumer.mode ?? 'variable';
+    const {
+      spellData
       // @ts-expect-error
-      const availableCharges = actor.system.spellResources?.artifactCharges?.current ?? 0;
-      // @ts-expect-error
-      const availablePoints = actor.system.spellResources?.points?.current ?? 0;
-      // @ts-expect-error
-      const availableSpellSlots = Object.entries(actor.system.spellResources?.slots ?? {})
-        .reduce(
-          (acc, [level, slot]) => {
-            // @ts-expect-error
-            if (slot.max > 0 && slot.current > 0) acc.push(level);
-            return acc;
-          },
-          []
-        );
-
-      if (mode === 'chargesOnly') spellData.consume = 'artifactCharge';
-      else if (mode === 'pointsOnly') spellData.consume = 'spellPoint';
-      else if (mode === 'slotsOnly') spellData.consume = 'spellSlot';
-      else if (availableCharges > 0) spellData.consume = 'artifactCharge';
-      else if (availablePoints > 0) spellData.consume = 'spellPoint';
-      else if (availableSpellSlots.length > 0) spellData.consume = 'spellSlot';
-      else spellData.consume = 'spellPoint';
-
-      // @ts-expect-error
-      if (this.system?.level === null || this.system?.level === undefined) {
-        spellData.consume = 'noConsume';
-      }
-
-      // @ts-expect-error
-      const defaultLevel = spellConsumer.spellLevel ?? this.system?.level ?? 1;
-      const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
-      const spellLevel = spellData.consume === 'spellSlot'
-        ? Math.max(defaultLevel, smallestAvailable)
-        : defaultLevel;
-      const spellPoints = spellConsumer.points ?? CONFIG.A5E.spellLevelCost[spellLevel] ?? 1;
-
-      spellData.baseCharges = spellLevel;
-      spellData.baseLevel = spellLevel;
-      spellData.basePoints = spellPoints;
-      spellData.charges = spellLevel;
-      spellData.points = spellPoints;
-      spellData.level = spellLevel;
-
-      // @ts-expect-error
-      const spellBook = this.parent?.spellBooks?.get(this.system.spellBook);
-      if (spellBook?.disableSpellConsumers) spellData.consume = 'noConsume';
-    }
+    } = ResourceConsumptionManager.prepareSpellData(this.actor!, this, consumers, actionId);
 
     return {
       actionUses: actionUsesData,
@@ -463,13 +372,12 @@ export default class ItemA5e extends BaseItemA5e {
     return { damageBonuses: defaultDamageBonuses, healingBonuses: defaultHealingBonuses };
   }
 
-  #getDefaultPrompts(prompts) {
-    const promptsByType = preparePrompts(prompts, this);
+  #getDefaultPrompts(actionId: string) {
+    const promptsByType = RollPreparationManager.preparePrompts(this, actionId);
 
     return Object.entries(promptsByType).reduce((defaultPrompts, [promptType, promptGroup]) => {
       // @ts-expect-error
       defaultPrompts.push(...promptGroup.reduce((acc, [, prompt]) => {
-        // @ts-expect-error
         if (promptType === 'savingThrow') prompt.dc = computeSaveDC(this.actor, this, prompt.saveDC);
 
         if (prompt.default ?? true) acc.push(prompt);
@@ -481,7 +389,7 @@ export default class ItemA5e extends BaseItemA5e {
     }, []);
   }
 
-  #getDefaultRollData(rolls) {
+  #getDefaultRollData(rolls: RollHandlerReturnType) {
     return Object.entries(rolls).reduce((defaultRolls, [rollType, rollGroup]) => {
       if (rollType === 'attack') return defaultRolls;
 
@@ -495,21 +403,11 @@ export default class ItemA5e extends BaseItemA5e {
     }, []);
   }
 
-  #getConsumerFromPreparedConsumers(consumers, type) {
-    if (foundry.utils.isEmpty(consumers?.[type])) return null;
-    const [, consumer] = Object.values(consumers[type]);
-    return consumer;
-  }
-
-  async recharge(actionId, state = false) {
+  async recharge(actionId: string, state = false) {
     if (state || !this.actor) return;
-    // @ts-expect-error
     let max = getDeterministicBonus(this.system.uses.max, this.actor.getRollData(this)) ?? 0;
-    // @ts-expect-error
     let current = this.system.uses.value;
-    // @ts-expect-error
     let formula = this.system.uses.recharge.formula || '1d6';
-    // @ts-expect-error
     let threshold = this.system.uses.recharge.threshold ?? 6;
     // @ts-expect-error
     let rechargeType = this.system.uses.recharge?.rechargeType || 'custom';
@@ -518,20 +416,20 @@ export default class ItemA5e extends BaseItemA5e {
     let updatePath = 'system.uses.value';
 
     if (actionId) {
-      const action = this.actions[actionId];
+      const action = this.actions.get(actionId);
 
+      max = getDeterministicBonus(action?.uses?.max ?? '', this.actor.getRollData(this)) ?? 0;
+      current = action?.uses?.value ?? 0;
+      formula = action?.uses?.recharge?.formula || '1d6';
+      threshold = action?.uses?.recharge?.threshold ?? 6;
       // @ts-expect-error
-      max = getDeterministicBonus(action.uses?.max ?? '', this.actor.getRollData(this)) ?? 0;
-      current = action.uses?.value ?? 0;
-      formula = action.uses?.recharge?.formula || '1d6';
-      threshold = action.uses?.recharge?.threshold ?? 6;
-      rechargeType = action.uses?.recharge?.rechargeType || 'custom';
-      rechargeAmount = action.uses?.recharge?.rechargeAmount || '1';
+      rechargeType = action?.uses?.recharge?.rechargeType || 'custom';
+      // @ts-expect-error
+      rechargeAmount = action?.uses?.recharge?.rechargeAmount || '1';
       updatePath = `system.actions.${actionId}.uses.value`;
     }
 
     // Recharge Roll
-    // @ts-expect-error
     const rechargeRoll = await new Roll(formula, this.actor.getRollData(this))
       .evaluate();
 
@@ -545,7 +443,6 @@ export default class ItemA5e extends BaseItemA5e {
     else {
       const rechargeAmountRoll = await new Roll(
         rechargeAmount,
-        // @ts-expect-error
         this.actor.getRollData(this)
       ).evaluate();
 
@@ -573,3 +470,5 @@ export default class ItemA5e extends BaseItemA5e {
     super._onDelete(options, user);
   }
 }
+
+export { ItemA5e };

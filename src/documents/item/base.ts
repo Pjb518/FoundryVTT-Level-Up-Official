@@ -280,11 +280,9 @@ class BaseItemA5e extends Item {
     }
 
     // TODO: Don't update some action properties
-    // @ts-expect-error
     if (compendiumData.system.actions) {
       // @ts-expect-error
       const currentActions = this.system.actions;
-      // @ts-expect-error
       const compendiaActions = compendiumData.system.actions;
 
       const updatedActions = Object.entries(compendiaActions).reduce((acc, [actionId, action]) => {
@@ -421,5 +419,4 @@ class BaseItemA5e extends Item {
   }
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export { BaseItemA5e };

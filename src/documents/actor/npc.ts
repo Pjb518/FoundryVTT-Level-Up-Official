@@ -3,6 +3,7 @@ import { BaseActorA5e } from './base';
 import HitDiceManager from '../../managers/HitDiceManager';
 import type { A5ENPCData } from '../../dataModels/actor/NPCDataModel';
 
+// @ts-ignore
 export default class NPCActorA5E extends BaseActorA5e {
   declare system: InstanceType<typeof A5ENPCData>;
 

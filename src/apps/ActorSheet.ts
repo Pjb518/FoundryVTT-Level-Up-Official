@@ -1,4 +1,5 @@
-/* eslint-disable no-continue */
+import type { BaseActorA5e } from '../documents/actor/base';
+
 import { SvelteApplication } from '#runtime/svelte/application';
 import { localize } from '#runtime/svelte/helper';
 
@@ -12,7 +13,7 @@ import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 import getDocumentSourceTooltip from '../utils/getDocumentSourceTooltip';
 
 export default class ActorSheet extends SvelteApplication {
-  public actor: any;
+  public actor: BaseActorA5e;
 
   declare public options: any;
 
@@ -21,12 +22,13 @@ export default class ActorSheet extends SvelteApplication {
   /**
    * @inheritDoc
    */
-  constructor(actor, options: any = {}) {
+  constructor(actor: BaseActorA5e, options: any = {}) {
     options.svelte ??= {};
 
     if ([
       CONST.DOCUMENT_OWNERSHIP_LEVELS.NONE,
       CONST.DOCUMENT_OWNERSHIP_LEVELS.LIMITED
+      // @ts-expect-error
     ].includes(actor.permission)) {
       options.classes = ['a5e-sheet', 'a5e-actor-sheet', 'a5e-actor-sheet--limited'];
       options.svelte.class = LimitedSheetComponent;
@@ -43,6 +45,7 @@ export default class ActorSheet extends SvelteApplication {
       options,
       {
         baseApplication: 'ActorSheet',
+        // @ts-expect-error
         id: `actor-sheet-${actor.isToken ? actor.parent?.id : actor.id}`,
         title: actor.name,
         token: null,
@@ -54,6 +57,7 @@ export default class ActorSheet extends SvelteApplication {
       }
     ));
 
+    // @ts-expect-error
     this.actor = actor.isToken ? actor.parent.actor : actor;
 
     this.options.svelte.props.document = new ActorDocument(
@@ -77,6 +81,7 @@ export default class ActorSheet extends SvelteApplication {
    * @see https://foundryvtt.com/api/interfaces/client.ApplicationOptions.html
    */
   static get defaultOptions(): any {
+    // @ts-expect-error
     return foundry.utils.mergeObject(super.defaultOptions, {
       baseApplication: 'ActorSheet',
       classes: ['a5e-sheet', 'a5e-actor-sheet'],
@@ -96,18 +101,19 @@ export default class ActorSheet extends SvelteApplication {
     return this.options?.token || this.actor.token || null;
   }
 
-  setPosition(pos: any, propagate = true): any {
+  override setPosition(pos: any, propagate = true): any {
     if (!propagate) return this.position.get();
     return super.setPosition(pos);
   }
 
   _getHeaderButtons() {
+    // @ts-expect-error
     const buttons: any[] = super._getHeaderButtons();
 
     const PERMS = {
-      isGM: game.user.isGM,
+      isGM: game.user?.isGM,
       isOwner: this.actor.isOwner,
-      canConfigure: game.user.can('TOKEN_CONFIGURE'),
+      canConfigure: game.user?.can('TOKEN_CONFIGURE'),
       isPack: this.actor.pack
     };
 
@@ -135,7 +141,7 @@ export default class ActorSheet extends SvelteApplication {
     if (warpGateActive && !PERMS.isPack && (PERMS.isGM || (PERMS.isOwner && PERMS.canConfigure))) {
       const shouldAddRevert = (token) => {
         if (!(token instanceof TokenDocument)) return false;
-        // eslint-disable-next-line no-undef
+        // @ts-expect-error
         const mutateStack = warpgate.mutationStack(token).stack;
         if (mutateStack.length === 0) return false;
         return true;
@@ -162,7 +168,7 @@ export default class ActorSheet extends SvelteApplication {
             if (showMenu) {
               const warpButtons = mutateStack
                 .map((mutation) => ({ label: mutation.name, value: mutation.name }));
-              // eslint-disable-next-line no-undef
+              // @ts-expect-error
               name = await warpgate.buttonDialog(
                 { warpButtons, title: localize('warpgate.display.revertDialogTitle') },
                 'column'
@@ -170,8 +176,9 @@ export default class ActorSheet extends SvelteApplication {
               if (name === false) return;
             }
 
-            // eslint-disable-next-line no-undef
+            // @ts-expect-error
             warpgate.revert(this.token);
+            // @ts-expect-error
             this?.render(false);
           }
         });
@@ -203,6 +210,7 @@ export default class ActorSheet extends SvelteApplication {
   _onImport(event) {
     if (event) event.preventDefault();
     return this.actor.collection
+      // @ts-expect-error
       .importFromCompendium(this.actor.compendium, this.actor.id);
   }
 
@@ -220,8 +228,8 @@ export default class ActorSheet extends SvelteApplication {
     sheetConfigDialog.render(true);
   }
 
-  async _onDrop(event, options: Record<string, any> = {}) {
-    const transferData = event.dataTransfer.getData('text/plain');
+  async _onDrop(event: DragEvent, options: Record<string, any> = {}) {
+    const transferData = event.dataTransfer?.getData('text/plain');
     if (!transferData) return;
 
     const dragData = JSON.parse(transferData);
@@ -240,7 +248,7 @@ export default class ActorSheet extends SvelteApplication {
 
     const { uuid, type } = dragData;
 
-    let document = null;
+    let document: foundry.abstract.Document.Any | null = null;
     if (type) {
       try {
         const cls = CONFIG[type]?.documentClass;
@@ -252,10 +260,11 @@ export default class ActorSheet extends SvelteApplication {
       document = await fromUuid(uuid);
     }
 
+    if (!document) return;
     this._onDropDocument(document, options);
   }
 
-  async _onDropDocument(document, options = {}) {
+  async _onDropDocument(document: foundry.abstract.Document.Any, options = {}) {
     if (document.documentName === 'Actor') this.#onDropActor(document);
     else if (document.documentName === 'Item') this.#onDropItem(document, options);
     else if (document.documentName === 'ActiveEffect') this.#onDropActiveEffect(document);
@@ -413,12 +422,15 @@ export default class ActorSheet extends SvelteApplication {
   /** @inheritdoc */
   async close(options) {
     this.options.token = null;
+    // @ts-expect-error
     return super.close(options);
   }
 
   async _render(force = false, options = {}) {
+    // @ts-expect-error
     await super._render(force, options);
 
+    // @ts-expect-error
     const sheet = this.element?.[0];
     if (!sheet) return;
 
@@ -454,6 +466,7 @@ export default class ActorSheet extends SvelteApplication {
 
     idLink.addEventListener('click', (event) => {
       event.preventDefault();
+      // @ts-expect-error
       game.clipboard.copyPlainText(documentID);
       ui.notifications.info(game.i18n.format(
         'DOCUMENT.IdCopiedClipboard',
@@ -463,6 +476,7 @@ export default class ActorSheet extends SvelteApplication {
 
     idLink.addEventListener('contextmenu', (event) => {
       event.preventDefault();
+      // @ts-expect-error
       game.clipboard.copyPlainText(documentUUID);
       ui.notifications.info(game.i18n.format(
         'DOCUMENT.IdCopiedClipboard',

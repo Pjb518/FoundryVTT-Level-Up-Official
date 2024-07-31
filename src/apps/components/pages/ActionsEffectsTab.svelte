@@ -1,4 +1,7 @@
-<script>
+<script lang="ts">
+    import type { Writable } from "svelte/store";
+    import type { ItemA5e } from "../../../documents/item/item";
+
     import { getContext, onDestroy } from "svelte";
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
@@ -7,8 +10,8 @@
     import Sort from "../actorUtilityBar/Sort.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+    const item: Writable<ItemA5e> = getContext("item");
+    const actionId: string = getContext("actionId");
     const { activeEffects } = item;
     const subTypes = CONFIG.A5E.actionActiveEffectTypesPlural;
     const reducerType = "activeEffects";
@@ -17,9 +20,6 @@
     activeEffects?.filters.add({
         id: "onUse-filter",
         filter: (effect) => {
-            console.log("flagId", effect.flags?.a5e?.actionId);
-            console.log("actionId", actionId);
-
             return (
                 effect.flags?.a5e?.actionId === actionId ||
                 !actionIds.has(effect.flags?.a5e?.actionId)

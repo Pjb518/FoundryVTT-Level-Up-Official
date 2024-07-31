@@ -1,12 +1,14 @@
+import type { Action } from 'types/action';
+
 import { localize } from '#runtime/svelte/helper';
 
 import validateTemplateData from '../measuredTemplates/validateTemplateData';
 
-export default function getAreaLabel(action) {
+export default function getAreaLabel(action: Action) {
   const area = action?.area;
   let areaLabel: string;
 
-  if (!validateTemplateData(action.area)) return null;
+  if (!validateTemplateData(action.area)) return '';
 
   if (area.shape === 'circle') {
     areaLabel = localize('A5E.AreaCircleSpecific', { radius: area.radius });
@@ -35,7 +37,7 @@ export default function getAreaLabel(action) {
   } else if (area.shape === 'wall') {
     areaLabel = localize('A5E.AreaWallSpecificNoWidthOrHeight', { length: area.length });
   } else {
-    return null;
+    return '';
   }
 
   if (area.quantity > 1) areaLabel += `(× ${area?.quantity})`;

@@ -1,7 +1,14 @@
-<script>
+<script lang="ts">
+    import type { BaseActorA5e } from "../../../documents/actor/base";
+    import type { ActionActivationOptions } from "../../../documents/item/data";
+    import type { AttackRollData } from "../../../dataModels/item/actions/ActionRollsDataModel";
+    import type { ItemA5e } from "../../../documents/item/item";
+    import type { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+
+    import { RollPreparationManager } from "../../../managers/RollPreparationManager";
+
     import { getContext } from "svelte";
 
-    import getAttackAbility from "../../../utils/getAttackAbility";
     import getRollFormula from "../../../utils/getRollFormula";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
@@ -10,16 +17,12 @@
     import RollModePicker from "../RollModePicker.svelte";
 
     export let attackRollData;
-    export let options;
-    export let attackRoll;
+    export let options: ActionActivationOptions;
+    export let attackRoll: AttackRollData;
 
-    const actor = getContext("actor");
-    const dialog = getContext("dialog");
-    const item = getContext("item");
-    const attackBonuses = $actor.BonusesManager.prepareAttackBonuses(
-        $item,
-        attackRoll?.attackType,
-    );
+    const actor: TJSDocument<BaseActorA5e> = getContext("actor");
+    const dialog: any = getContext("dialog");
+    const item: TJSDocument<ItemA5e> = getContext("item");
 
     function updateData() {
         attackRollData = {
@@ -30,39 +33,27 @@
         };
     }
 
-    const attackAbility = getAttackAbility($actor, $item, attackRoll);
-
     let situationalMods = "";
 
-    let expertiseDie = $actor.RollOverrideManager.getExpertiseDice(
-        `attackTypes.${attackRoll?.attackType}`,
-        options.expertiseDice ?? 0,
+    $: parts = RollPreparationManager.prepareAttackRollData(
+        $actor,
+        $item,
+        attackRoll,
+        options,
     );
 
-    let expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
-        `attackTypes.${attackRoll?.attackType}`,
-        options.expertiseDice ?? 0,
-    );
-
-    let rollMode = $actor.RollOverrideManager.getRollOverride(
-        `attackTypes.${attackRoll?.attackType}`,
-        options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL,
-    );
-
-    let rollModeString = $actor.RollOverrideManager.getRollOverridesSource(
-        `attackTypes.${attackRoll?.attackType}`,
-        rollMode,
-    );
-
-    $: selectedAttackBonuses = $actor.BonusesManager.getDefaultSelections("attacks", {
-        item: $item,
-        attackType: attackRoll?.attackType,
-    });
+    $: attackAbility = parts.attackAbility;
+    $: attackBonuses = parts.attackBonuses;
+    $: expertiseDie = parts.expertiseDie;
+    $: expertiseDieSource = parts.expertiseDieSource;
+    $: rollMode = parts.rollMode;
+    $: rollModeSource = parts.rollModeSource;
+    $: selectedAttackBonuses = parts.selectedAttackBonuses;
 
     $: rollFormula = getRollFormula($actor, {
         ability: attackAbility,
         attackBonus: attackRoll?.bonus,
-        attackType: attackRoll?.attackType,
+        attackType: attackRoll.attackType,
         expertiseDie,
         item: $item,
         proficient: attackRoll?.proficient ?? true,
@@ -78,8 +69,8 @@
 </script>
 
 <RollModePicker
-    selected={rollMode}
-    source={rollModeString}
+    selected={rollMode.toString()}
+    source={rollModeSource}
     on:updateSelection={({ detail }) => (rollMode = detail)}
 />
 
@@ -97,7 +88,7 @@
         heading="Attack Bonuses"
         options={attackBonuses.map(([key, attackBonus]) => [
             key,
-            attackBonus.label || attackBonus.defaultLabel,
+            attackBonus.label || attackBonus.defaultLabel || "",
         ])}
         selected={selectedAttackBonuses}
         on:updateSelection={({ detail }) => (selectedAttackBonuses = detail)}

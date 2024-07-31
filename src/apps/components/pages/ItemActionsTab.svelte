@@ -1,36 +1,39 @@
-<script>
+<script lang="ts">
+    import type { Writable } from "svelte/store";
+    import type { ItemA5e } from "../../../documents/item/item";
+
     import { getContext } from "svelte";
 
     import Section from "../Section.svelte";
 
-    const item = getContext("item");
+    const item: Writable<ItemA5e> = getContext("item");
 
     function addAction() {
         $item.actions.add();
     }
 
-    function duplicateAction(actionId) {
+    function duplicateAction(actionId: string) {
         $item.actions.duplicate(actionId);
     }
 
-    function configureAction(actionId) {
+    function configureAction(actionId: string) {
         $item.actions.configure(actionId);
     }
 
-    function deleteAction(actionId) {
+    function deleteAction(actionId: string) {
         $item.actions.remove(actionId);
     }
 
     // **********************************************
     // Drag Drop Handlers
-    async function _onDragStart(event, actionId) {
+    async function _onDragStart(event: DragEvent, actionId: string) {
         const dragData = {
             actionId,
             itemUuid: $item.uuid,
             type: "Action",
         };
 
-        return event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
     }
 </script>
 

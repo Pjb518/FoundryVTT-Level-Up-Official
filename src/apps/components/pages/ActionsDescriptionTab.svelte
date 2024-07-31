@@ -1,4 +1,7 @@
-<script>
+<script lang="ts">
+    import type { Writable } from "svelte/store";
+    import type { ItemA5e } from "../../../documents/item/item";
+
     import { getContext } from "svelte";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
@@ -10,8 +13,8 @@
 
     export let summaryData = {};
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+    const item: Writable<ItemA5e> = getContext("item");
+    const actionId: string = getContext("actionId");
 
     const descriptionOutputOptions = [
         ["action", "A5E.ActionActivationAction"],
@@ -19,8 +22,8 @@
     ];
 
     $: content = $item.system.actions[actionId]?.description;
-    $: descriptionOutputs = $item.system.actions[actionId]
-        ?.descriptionOutputs ?? ["item"];
+    $: descriptionOutputs = ($item.system.actions[actionId]
+        ?.descriptionOutputs as string[]) ?? ["item"];
 
     $: summaryData = getSummaryData($item, $item.actions.get(actionId));
 </script>

@@ -10,7 +10,7 @@ export default class ActionActivationDialog extends TJSDialog {
     actionId, actorDocument, itemDocument, options = {}
   }) {
     super({
-      title: `${actorDocument.name}: Activate ${itemDocument.actions[actionId].name}`,
+      title: `${actorDocument.name}: Activate ${itemDocument.actions.get(actionId).name}`,
       content: {
         class: ActionActivationDialogComponent,
         props: {

@@ -12,6 +12,7 @@ import type {
   SensesBonus
 } from 'types/bonuses';
 import type { BaseActorA5e } from '../documents/actor/base';
+import type { ItemA5e } from '../documents/item/item';
 
 import arraysAreEqual from '../utils/arraysAreEqual';
 
@@ -19,7 +20,7 @@ interface SelectionData {
   abilityKey?: string;
   abilityType?: 'base' | 'check' | 'save';
   attackType?: 'meleeWeaponAttack' | 'rangedWeaponAttack' | 'meleeSpellAttack' | 'rangedSpellAttack';
-  item?: typeof Item;
+  item?: ItemA5e;
   rolls?: any;
   skillKey?: string;
 }
@@ -107,6 +108,7 @@ export default class BonusesManager {
   ): string {
     const bonuses = this.prepareAbilityBonuses(abilityKey, type);
     const parts = bonuses.map(([, bonus]) => {
+      // @ts-expect-error
       const original: number = this.#actor._source.system.abilities[abilityKey]?.value ?? 0;
       const formula = bonus.formula.trim().replace('@original', original.toString());
 
@@ -134,7 +136,7 @@ export default class BonusesManager {
    * @returns
    */
   getAttackBonusFormula(
-    item: typeof Item,
+    item: ItemA5e,
     type: 'meleeWeaponAttack' | 'rangedWeaponAttack' | 'meleeSpellAttack' | 'rangedSpellAttack' = 'meleeWeaponAttack'
   ): string {
     const bonuses = this.prepareAttackBonuses(item, type);
@@ -197,6 +199,7 @@ export default class BonusesManager {
   getMovementBonusFormula(type: string): string {
     const bonuses = this.prepareMovementBonuses(type);
     const parts = bonuses.map(([, bonus]) => {
+      // @ts-expect-error
       const original: number = this.#actor._source.system.attributes.movement[type]?.distance ?? 0;
       const formula = bonus.formula.trim().replace('@original', original.toString());
 
@@ -211,6 +214,7 @@ export default class BonusesManager {
     let isUnlimited = false;
 
     const parts = bonuses.map(([, bonus]) => {
+      // @ts-expect-error
       const original: number = this.#actor._source.system.attributes.senses[type]?.distance ?? 0;
       if (bonus.unit === 'unlimited') isUnlimited = true;
       const formula = bonus.formula.trim().replace('@original', original.toString());
@@ -240,6 +244,7 @@ export default class BonusesManager {
   ): string {
     const bonuses = this.prepareSkillBonuses(skillKey, abilityKey, type, includeAbilityBonuses);
     const parts = bonuses.map(([, bonus]) => {
+      // @ts-expect-error
       const original: number = this.#actor._source.system.skills[skillKey]?.value ?? 0;
       const formula = bonus.formula.trim().replace('@original', original.toString());
 
@@ -249,6 +254,7 @@ export default class BonusesManager {
     // Expertise bonus addition for passive skills
     const skill = this.#actor.system.skills[skillKey];
     if (type === 'passive' && skill?.expertiseDice) {
+      // @ts-expect-error
       const useNPCExpertise = game.settings.storage
         .get('world')
         .getItem('a5e.useNPCExpertisePassiveRulesForCharacters') ?? false;
@@ -349,11 +355,11 @@ export default class BonusesManager {
   }
 
   prepareAttackBonuses(
-    item: typeof Item,
+    item: ItemA5e,
     type: 'meleeWeaponAttack' | 'rangedWeaponAttack' | 'meleeSpellAttack' | 'rangedSpellAttack' = 'meleeWeaponAttack'
   ): [string, AttackBonus][] {
     const bonuses = this.#bonuses.attacks;
-    const spellLevel = item.system.level ?? null;
+    const spellLevel = item.isType('spell') ? item.system.level : null;
     const counts = {};
 
     const parts = Object.entries(bonuses).filter(
@@ -402,12 +408,12 @@ export default class BonusesManager {
    * @returns
    */
   prepareGlobalDamageBonuses(
-    item: typeof Item,
+    item: ItemA5e,
     rolls: any
   ): [string, DamageBonus][] {
     const attackRoll: any[] = rolls.attack ?? [];
     const damageRoll: any[] = rolls.damage ?? [];
-    const spellLevel = item.system.level ?? null;
+    const spellLevel = item.isType('spell') ? item.system.level : null;
 
     if (!Array.isArray(attackRoll)) return [];
     if (!attackRoll.length) return [];
@@ -448,14 +454,14 @@ export default class BonusesManager {
   }
 
   prepareGlobalHealingBonuses(
-    item: typeof Item,
+    item: ItemA5e,
     rolls: any
   ): [string, HealingBonus][] {
     const bonuses = this.#bonuses.healing;
     const counts = {};
 
     const healingRolls = rolls.healing ?? [];
-    const spellLevel = item.system.level ?? null;
+    const spellLevel = item.isType('spell') ? item.system.level : null;
 
     if (!healingRolls.length) return [];
 
