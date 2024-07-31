@@ -2,6 +2,7 @@
 /* eslint-disable no-param-reassign */
 import type { ActorGrant, TraitGrant } from 'types/actorGrants';
 import type { Grant } from 'types/itemGrants';
+import type { BaseActorA5e } from '../documents/actor/base';
 
 import actorGrants from '../dataModels/actor/grants';
 
@@ -22,13 +23,13 @@ interface DefaultApplyOptions {
 }
 
 export default class ActorGrantsManger extends Map<string, ActorGrant> {
-  private actor: Actor;
+  private actor: BaseActorA5e;
 
   private allowedTypes = ['feature', 'archetype', 'background', 'class', 'culture', 'heritage'];
 
   grantedFeatureDocuments = new Map<string, string[]>();
 
-  constructor(actor: Actor) {
+  constructor(actor: BaseActorA5e) {
     super();
 
     this.actor = actor;

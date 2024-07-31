@@ -1,4 +1,7 @@
-<script>
+<script lang="ts">
+    import type { Writable } from "svelte/store";
+    import type { ItemA5e } from "../../../documents/item/item";
+
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
@@ -14,8 +17,8 @@
     import TargetRangeIncrement from "../itemActionsConfig/TargetRangeIncrement.svelte";
     import TargetScalingDialog from "../../dialogs/TargetScalingDialog.svelte";
 
-    const actionId = getContext("actionId");
-    const item = getContext("item");
+    const actionId: string = getContext("actionId");
+    const item: Writable<ItemA5e> = getContext("item");
     const { A5E } = CONFIG;
     const { isEmpty } = foundry.utils;
 
@@ -67,7 +70,7 @@
         }
     }
 
-    $: action = $item.actions[actionId];
+    $: action = $item.actions.get(actionId)!;
 </script>
 
 <section class="a5e-page-wrapper">
@@ -106,9 +109,13 @@
                             updateDocumentDataFromField(
                                 $item,
                                 `system.actions.${actionId}.target.quantity`,
+                                // @ts-expect-error
                                 Number(target.value || 0),
                             )}
-                        on:click={({ target }) => target.select()}
+                        on:click={({ target }) => {
+                            // @ts-expect-error
+                            target.select();
+                        }}
                     />
                 {/if}
 

@@ -101,7 +101,7 @@
     <FieldWrapper heading="A5E.AttackBonus" --a5e-field-wrapper-grow="1">
         <input
             type="text"
-            value={roll.bonus ?? 0}
+            value={roll.bonus || "0"}
             on:change={({ target }) =>
                 updateDocumentDataFromField(
                     $item,

@@ -8,7 +8,7 @@ const { fields } = foundry.data;
 const schema = {
   concentration: new fields.BooleanField({ required: true, initial: false }),
   degree: new fields.NumberField({
-    required: true, initial: 0, integer: true, min: 0
+    required: true, nullable: false, initial: 0, integer: true, min: 0
   }),
   exertionCost: new fields.NumberField({
     required: true, initial: 0, integer: true, min: 0

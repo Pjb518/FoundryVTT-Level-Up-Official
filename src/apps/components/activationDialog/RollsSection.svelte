@@ -1,24 +1,13 @@
-<script>
+<script lang="ts">
+    import type { RollHandlerReturnType } from "../../dataPreparationHelpers/itemActivationRolls/prepareRolls";
+
+    import { RollPreparationManager } from "../../../managers/RollPreparationManager";
+
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
 
-    export let selectedRolls;
-    export let rolls;
-
-    function getInvalidSelections(property) {
-        return Object.values(property ?? {})
-            .flat()
-            .reduce((acc, [key, value]) => {
-                if (
-                    ["generic", "healing", "damage"].includes(value.type) &&
-                    !value.formula
-                ) {
-                    acc.push(key);
-                }
-
-                return acc;
-            }, []);
-    }
+    export let selectedRolls: string[];
+    export let rolls: RollHandlerReturnType;
 
     const rollHeadingMap = {
         abilityCheck: "Ability Checks",
@@ -30,17 +19,8 @@
         toolCheck: "Tool Checks",
     };
 
-    const otherRolls = Object.entries(rolls).reduce(
-        (acc, [rollType, rolls]) => {
-            if (rollType === "attack") return acc;
-            acc[rollType] = rolls;
-
-            return acc;
-        },
-        {},
-    );
-
-    let disabledRolls = getInvalidSelections(rolls);
+    const { invalidSelections: disabledRolls, otherRolls } =
+        RollPreparationManager.prepareOtherRollData(rolls);
 </script>
 
 <FieldWrapper hint="A5E.RollsHint">
@@ -55,8 +35,7 @@
                     ])}
                     disabledOptions={disabledRolls}
                     selected={selectedRolls}
-                    on:updateSelection={(event) =>
-                        (selectedRolls = event.detail)}
+                    on:updateSelection={(event) => (selectedRolls = event.detail)}
                 />
             {/if}
         {/each}

@@ -1,8 +1,11 @@
-<script>
+<script lang="ts">
+    import type { Writable } from "svelte/store";
+    import type { ItemA5e } from "../../../documents/item/item";
+
     import { getContext } from "svelte";
     import { localize } from "#runtime/svelte/helper";
 
-    import ActionsManager from "../../../managers/ActionsManager";
+    import { ActionsManager } from "../../../managers/ActionsManager";
 
     import AmmoConsumer from "../itemActionsConfig/AmmoConsumer.svelte";
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
@@ -19,7 +22,7 @@
     import handleDeterministicInput from "../../../utils/handleDeterministicInput";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    function deleteConsumer(actionId, consumerId) {
+    function deleteConsumer(actionId: string, consumerId: string) {
         $item.update({
             [`system.actions.${actionId}.consumers`]: {
                 [`-=${consumerId}`]: null,
@@ -27,8 +30,8 @@
         });
     }
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+    const item: Writable<ItemA5e> = getContext("item");
+    const actionId: string = getContext("actionId");
     const { A5E } = CONFIG;
 
     const consumerTypes = {
@@ -69,7 +72,7 @@
         },
     };
 
-    $: action = $item.actions[actionId];
+    $: action = $item.actions.get(actionId)!;
     $: consumers = action.consumers ?? {};
     $: existingConsumers = new Set(Object.values(consumers).map((c) => c.type));
     $: isClassResource = formulaIsClassResource(action.uses?.max ?? "");
@@ -81,7 +84,7 @@
 
             return acc;
         },
-        [],
+        [] as string[][],
     );
 </script>
 
@@ -96,13 +99,14 @@
             <FieldWrapper heading="A5E.UsesCurrent" --a5e-field-wrapper-width="7.5rem">
                 <input
                     type="number"
-                    d-type="Number"
                     name="system.actions.{actionId}.uses.value"
                     value={action.uses?.value ?? 0}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $item,
+                            // @ts-expect-error
                             target.name,
+                            // @ts-expect-error
                             Number(target.value),
                         )}
                 />
@@ -115,7 +119,9 @@
                 name="system.actions.{actionId}.uses.max"
                 value={action.uses?.max ?? ""}
                 on:change={({ target }) => {
+                    // @ts-expect-error
                     handleDeterministicInput(target.value);
+                    // @ts-expect-error
                     updateDocumentDataFromField($item, target.name, target.value);
                 }}
             />
@@ -126,12 +132,13 @@
                 class="u-w-40"
                 name="system.actions.{actionId}.uses.per"
                 on:change={({ target }) =>
+                    // @ts-expect-error
                     updateDocumentDataFromField($item, target.name, target.value)}
             >
                 <option value="" />
 
                 {#each Object.entries(A5E.resourceRecoveryOptions) as [key, name]}
-                    <option {key} value={key} selected={action.uses?.per === key}>
+                    <option value={key} selected={action.uses?.per === key}>
                         {localize(name)}
                     </option>
                 {/each}
@@ -152,10 +159,12 @@
                     value={action.uses?.recharge?.formula ?? "1d6"}
                     placeholder="1d6"
                     on:change={({ target }) => {
+                        // @ts-expect-error
                         handleDeterministicInput(target.value);
                         updateDocumentDataFromField(
                             $item,
                             `system.actions.${actionId}.uses.recharge.formula`,
+                            // @ts-expect-error
                             target.value,
                         );
                     }}
@@ -172,6 +181,7 @@
                         updateDocumentDataFromField(
                             $item,
                             `system.actions.${actionId}.uses.recharge.threshold`,
+                            // @ts-expect-error
                             Number(target.value),
                         )}
                 />

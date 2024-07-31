@@ -1,6 +1,6 @@
 import type { A5EObjectData } from '../../dataModels/item/ObjectDataModel';
 
-import ItemA5e from './item';
+import { ItemA5e } from './item';
 
 import ContainerManager from '../../managers/ContainerManager';
 

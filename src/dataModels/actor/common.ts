@@ -1,4 +1,4 @@
-import RecordField from '../fields/RecordField';
+import { RecordField } from '../fields/RecordField';
 import UnchasteSchemaField from '../fields/UnchasteSchemaField';
 
 import {

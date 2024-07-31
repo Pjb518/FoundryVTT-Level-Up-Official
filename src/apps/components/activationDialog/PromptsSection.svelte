@@ -1,24 +1,13 @@
-<script>
+<script lang="ts">
+    import type { PromptHandlerReturnType } from "../../dataPreparationHelpers/itemActivationPrompts/preparePrompts";
+
+    import { RollPreparationManager } from "../../../managers/RollPreparationManager";
+
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
 
-    export let selectedPrompts;
-    export let prompts;
-
-    function getInvalidSelections(property) {
-        return Object.values(property ?? {})
-            .flat()
-            .reduce((acc, [key, value]) => {
-                if (
-                    ["generic", "healing", "damage"].includes(value.type) &&
-                    !value.formula
-                ) {
-                    acc.push(key);
-                }
-
-                return acc;
-            }, []);
-    }
+    export let selectedPrompts: string[];
+    export let prompts: PromptHandlerReturnType;
 
     const promptHeadingMap = {
         abilityCheck: "Ability Check Prompts",
@@ -28,7 +17,8 @@
         generic: "Generic Roll Prompts",
     };
 
-    let disabledPrompts = getInvalidSelections(prompts);
+    let disabledPrompts =
+        RollPreparationManager.preparePromptsData(prompts).invalidSelections;
 </script>
 
 <FieldWrapper hint="A5E.PromptsHint">
@@ -39,12 +29,11 @@
                     heading={promptHeadingMap[promptType]}
                     options={_prompts.map(([key, prompt]) => [
                         key,
-                        prompt.label || prompt.defaultLabel,
+                        prompt.label || prompt.defaultLabel || "",
                     ])}
                     disabledOptions={disabledPrompts}
                     selected={selectedPrompts}
-                    on:updateSelection={(event) =>
-                        (selectedPrompts = event.detail)}
+                    on:updateSelection={(event) => (selectedPrompts = event.detail)}
                 />
             {/if}
         {/each}

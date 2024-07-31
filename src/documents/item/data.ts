@@ -18,3 +18,13 @@ export interface RevitalizeOptions {
   updateImg?: boolean;
   updateName?: boolean;
 }
+
+/** --------------------------------------- */
+/** Roll Interfaces                         */
+/** --------------------------------------- */
+export interface ActionActivationOptions {
+  expertiseDie?: number | undefined;
+  rollMode?: number | undefined;
+  situationalMods?: string | undefined
+  skipRollDialog?: boolean | undefined;
+}

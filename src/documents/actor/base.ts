@@ -1,6 +1,8 @@
 /* eslint-disable no-restricted-syntax */
 import type { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
-import type { ActorDialogs, ActorRestOptions } from './data';
+import type {
+  AbilityCheckRollOptions, ActorDialogs, ActorRestOptions, SavingThrowRollOptions, SkillCheckRollOptions
+} from './data';
 import type { BaseItemA5e } from '../item/base';
 
 import type HitDiceManager from '../../managers/HitDiceManager';
@@ -17,7 +19,7 @@ import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
 import SpellBookManager from '../../managers/SpellBookManager';
 import RestManager from '../../managers/RestManager';
 import RollOverrideManager from '../../managers/RollOverrideManager';
-import RollPreparationManager from '../../managers/RollPreparationManager';
+import { RollPreparationManager } from '../../managers/RollPreparationManager';
 
 import AbilityBonusConfigDialog from '../../apps/dialogs/AbilityBonusConfigDialog.svelte';
 import AbilityCheckConfigDialog from '../../apps/dialogs/ActorAbilityConfigDialog.svelte';
@@ -158,7 +160,6 @@ class BaseActorA5e extends Actor {
     const effects: ActiveEffect[] = [];
 
     for (const effect of this.allApplicableEffects()) {
-      // @ts-expect-error
       if (effect.active && (effect.isTemporary || effect?.flags?.a5e?.transferType === 'onUse')) {
         effects.push(effect);
       }
@@ -554,7 +555,6 @@ class BaseActorA5e extends Actor {
     const actorData = this.system;
     // @ts-expect-error
     const proficiencyBonus = actorData.attributes.prof;
-    // @ts-expect-error
     const jackOfAllTrades = this.flags.a5e?.jackOfAllTrades;
 
     Object.values(actorData.skills).forEach((skill) => {
@@ -823,7 +823,6 @@ class BaseActorA5e extends Actor {
     );
 
     if (tempTotal && tempTotal <= temp) {
-      // @ts-expect-error
       ui.notifications.warn('A5E.ActionWarningTempHpNotOverwritten', { localize: true });
       showCascadingTemp = false;
     } else {
@@ -876,7 +875,6 @@ class BaseActorA5e extends Actor {
 
     if (healingType === 'temporaryHealing') {
       if (healing <= temp) {
-        // @ts-expect-error
         ui.notifications.warn('A5E.ActionWarningTempHpNotOverwritten', { localize: true });
         return this;
       }
@@ -1078,8 +1076,7 @@ class BaseActorA5e extends Actor {
    *
    * @param abilityKey - A key that can be used to reference a given ability score.
    */
-  // TODO: Types - Create an interface for options
-  async rollAbilityCheck(abilityKey: string, options: Record<string, any> = {}) {
+  async rollAbilityCheck(abilityKey: string, options: AbilityCheckRollOptions = {}) {
     let dialogData;
 
     if (options.skipRollDialog) dialogData = this.getDefaultAbilityCheckData(abilityKey, options);
@@ -1108,7 +1105,7 @@ class BaseActorA5e extends Actor {
 
     const chatData = {
       author: game.user?.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
+      speaker: ChatMessage.getSpeaker({ actor: this as Actor }),
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
       rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
@@ -1134,10 +1131,14 @@ class BaseActorA5e extends Actor {
     return chatCard;
   }
 
-  // TODO: Types - Create an interface for options
-  getDefaultAbilityCheckData(abilityKey: string, options: Record<string, any> = {}) {
+  getDefaultAbilityCheckData(
+    abilityKey: string,
+    options: AbilityCheckRollOptions = {}
+  ) {
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const defaultExpertiseDie = options.expertiseDice ?? 0;
+    const defaultExpertiseDie = options.expertiseDice
+      ?? this.system.abilities[abilityKey].check.expertiseDice
+      ?? 0;
 
     const expertiseDie = this.RollOverrideManager?.getExpertiseDice(
       `system.abilities.${abilityKey}.check`,
@@ -1161,10 +1162,16 @@ class BaseActorA5e extends Actor {
       type: 'abilityCheck'
     });
 
-    return { expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null };
+    return {
+      expertiseDie, rollFormula, rollMode, visibilityMode: options.visibilityMode ?? null
+    };
   }
 
-  async #showAbilityCheckPrompt(abilityKey, rollOptions = {}, dialogOptions = {}) {
+  async #showAbilityCheckPrompt(
+    abilityKey: string,
+    rollOptions: AbilityCheckRollOptions = {},
+    dialogOptions = {}
+  ) {
     const title = localize(
       'A5E.AbilityCheckPromptTitle',
       { name: this.name, ability: localize(CONFIG.A5E.abilities[abilityKey]) }
@@ -1185,8 +1192,7 @@ class BaseActorA5e extends Actor {
     return dialogData;
   }
 
-  // TODO: Types - Create an interface for options
-  async rollDeathSavingThrow(options: Record<string, any> = {}) {
+  async rollDeathSavingThrow(options: SavingThrowRollOptions = {}) {
     options.saveType = 'death';
     options.expertiseDice ??= 0;
     options.visibilityMode ??= 'gmroll';
@@ -1203,8 +1209,7 @@ class BaseActorA5e extends Actor {
     return chatCard;
   }
 
-  // TODO: Types - Create an interface for options
-  async rollSavingThrow(abilityKey: string | undefined, options: Record<string, any> = {}) {
+  async rollSavingThrow(abilityKey?: string, options: SavingThrowRollOptions = {}) {
     let dialogData;
 
     if (options.skipRollDialog) dialogData = this.getDefaultSavingThrowData(abilityKey, options);
@@ -1265,10 +1270,11 @@ class BaseActorA5e extends Actor {
     return chatCard;
   }
 
-  // TODO: Types - Create an interface for options
-  getDefaultSavingThrowData(abilityKey: string | undefined, options: Record<string, any> = {}) {
+  getDefaultSavingThrowData(abilityKey: string | undefined, options: SavingThrowRollOptions = {}) {
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const defaultExpertiseDice = options.expertiseDice ?? 0;
+    const defaultExpertiseDice = options.expertiseDice
+      ?? this.system.abilities?.[abilityKey || ''].save.expertiseDice
+      ?? 0;
 
     const rollOverrideKey = abilityKey ? `system.abilities.${abilityKey}.save` : 'deathSave';
     const rollMode = this.RollOverrideManager?.getRollOverride(rollOverrideKey, defaultRollMode);
@@ -1288,12 +1294,14 @@ class BaseActorA5e extends Actor {
       type: 'savingThrow'
     });
 
-    return { expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null };
+    return {
+      expertiseDie, rollMode, rollFormula, visibilityMode: options.visibilityMode ?? null
+    };
   }
 
   async #showSavingThrowPrompt(
     abilityKey: string | undefined,
-    rollOptions: Record<string, any> = {},
+    rollOptions: SavingThrowRollOptions = {},
     dialogOptions: Record<string, any> = {}
   ) {
     let title: string;
@@ -1337,7 +1345,7 @@ class BaseActorA5e extends Actor {
    *
    * @returns {Promise<undefined>}
    */
-  async rollSkillCheck(skillKey: string, options: Record<string, any> = {}) {
+  async rollSkillCheck(skillKey: string, options: SkillCheckRollOptions = {}) {
     let dialogData;
 
     options.expertiseDice ??= this.system.skills[skillKey].expertiseDice ?? 0;
@@ -1395,11 +1403,11 @@ class BaseActorA5e extends Actor {
     return chatCard;
   }
 
-  getDefaultSkillCheckData(skillKey: string, options: Record<string, any> = {}) {
+  getDefaultSkillCheckData(skillKey: string, options: SkillCheckRollOptions = {}) {
     const skill = this.system.skills[skillKey];
     const abilityKey = options?.abilityKey ?? skill.ability;
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const defaultExpertiseDie = options.expertiseDice ?? 0;
+    const defaultExpertiseDie = options?.expertiseDice ?? skill.expertiseDice ?? 0;
 
     const expertiseDie = this.RollOverrideManager
       ?.getExpertiseDice(`system.skills.${skillKey}`, defaultExpertiseDie, { ability: abilityKey });
@@ -1426,11 +1434,19 @@ class BaseActorA5e extends Actor {
     });
 
     return {
-      abilityKey, expertiseDie, rollFormula, visibilityMode: options.visibilityMode ?? null
+      abilityKey,
+      rollMode,
+      expertiseDie,
+      rollFormula,
+      visibilityMode: options.visibilityMode ?? null
     };
   }
 
-  async #showSkillCheckPrompt(skillKey, rollOptions = {}, dialogOptions = {}) {
+  async #showSkillCheckPrompt(
+    skillKey: string,
+    rollOptions: SkillCheckRollOptions = {},
+    dialogOptions = {}
+  ) {
     const title = localize(
       'A5E.SkillPromptTitle',
       { name: this.name, skill: localize(CONFIG.A5E.skills[skillKey]) }
@@ -1455,7 +1471,6 @@ class BaseActorA5e extends Actor {
   // Config Handlers
   // -------------------------------------------------------------
   addBonus(type = 'damage') {
-    // @ts-expect-error
     const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
 
     if (!Object.keys(CONFIG.A5E.bonusTypes)?.includes(type)) return;
@@ -1704,7 +1719,6 @@ class BaseActorA5e extends Actor {
 
   duplicateBonus(id: string, type = 'damage') {
     let defaultLabel;
-    // @ts-expect-error
     const bonuses = foundry.utils.duplicate(this._source.system.bonuses[type] ?? {});
 
     if (foundry.utils.isEmpty(bonuses)) return;
@@ -1801,7 +1815,6 @@ class BaseActorA5e extends Actor {
     }
 
     // Update prototype token sizes to reflect the actor's token size
-    // @ts-expect-error
     const automateTokenSize = this.flags?.a5e?.automatePrototypeTokenSize
       ?? game.settings.get('a5e', 'automatePrototypeTokenSize')
       ?? true;

@@ -52,23 +52,39 @@ const npcSchema = () => ({
   }, { required: true, nullable: false }),
   spellResources: new fields.SchemaField({
     artifactCharges: new fields.SchemaField({
-      current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
-      max: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+      current: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      }),
+      max: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      })
     }),
     inventions: new fields.SchemaField({
-      current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
-      max: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+      current: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      }),
+      max: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      })
     }),
     points: new fields.SchemaField({
-      current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
-      max: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+      current: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      }),
+      max: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      })
     }),
     slots: new fields.SchemaField(
       Array.from({ length: 9 }, (_, i) => i + 1)
         .reduce((acc, level) => {
           acc[level] = new fields.SchemaField({
-            current: new fields.NumberField({ nullable: false, initial: 0, min: 0 }),
-            max: new fields.NumberField({ nullable: false, initial: 0, min: 0 })
+            current: new fields.NumberField({
+              required: true, nullable: false, initial: 0, min: 0
+            }),
+            max: new fields.NumberField({
+              required: true, nullable: false, initial: 0, min: 0
+            })
           });
           return acc;
         }, {})
