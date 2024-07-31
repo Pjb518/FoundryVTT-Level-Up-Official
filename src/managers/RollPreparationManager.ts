@@ -624,7 +624,7 @@ class RollPreparationManager {
       attackBonus: attackRoll?.bonus,
       attackType: attackRoll?.attackType,
       expertiseDie,
-      item: this,
+      item,
       proficient: attackRoll?.proficient ?? true,
       rollMode,
       situationalMods: options.situationalMods,
