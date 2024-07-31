@@ -19,6 +19,7 @@ class A5eEnricherManager {
       pattern: new RegExp(`\\[\\[\\/(?<enricherType>${enricherTypes.join('|')})(?<argString>( +\\w+=([\\w\\d]+|"[\\w\\d ]+"))*)\\]\\]`, 'gi'),
       enricher: this.parseEnricherInput.bind(this)
     });
+    document.body.addEventListener('click', this.rollEvent);
   }
 
   /**
@@ -135,6 +136,22 @@ class A5eEnricherManager {
     }
   }
 
+  static datasetToRecord(element: HTMLElement) {
+    const optionsRecord: Record<string, any> = {};
+    for (const [key, val] of Object.entries(element.dataset)) {
+      if (key === 'ability') {
+        optionsRecord.abilityKey = val;
+      }
+      else if (key === 'type') {
+        optionsRecord.saveType = val;
+      }
+      else {
+        optionsRecord[key] = val;
+      }
+    }
+    return optionsRecord;
+  }
+
   createButton(args, label) {
     const span = document.createElement('span');
     span.classList.add('rollButton');
@@ -148,6 +165,41 @@ class A5eEnricherManager {
     button.innerHTML = `${label}`;
     span.insertAdjacentElement('afterbegin', button);
     return span;
+  }
+
+  async rollEvent(event) {
+    const target = event.target.closest('.rollButton');
+    if (!target) return null;
+    event.stopPropagation();
+    const rollOptions: Record<string, any> = A5eEnricherManager.datasetToRecord(target);
+    const selectedToken = canvas?.tokens?.controlled[0];
+
+    if (!selectedToken) {
+      ui.notifications?.error('No actor selected.');
+      return null;
+    }
+
+    // @ts-expect-error
+    const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+
+    if (rollOptions.enricherType === 'check') {
+      if (rollOptions.skill) {
+        return actor?.rollSkillCheck(rollOptions.skill, rollOptions);
+      }
+      // ability check
+      return actor?.rollAbilityCheck(rollOptions.abilityKey, rollOptions);
+    }
+
+    if (rollOptions.enricherType === 'save') {
+      if (rollOptions.saveType === 'death') {
+        return actor?.rollDeathSavingThrow(rollOptions);
+      }
+      if (rollOptions.saveType === 'concentration') {
+        return actor?.rollSavingThrow('con', rollOptions);
+      }
+      return actor?.rollSavingThrow(rollOptions.abilityKey, rollOptions);
+    }
+    return null;
   }
 }
 
