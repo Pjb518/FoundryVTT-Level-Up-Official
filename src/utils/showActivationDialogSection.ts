@@ -10,6 +10,7 @@ export default function showActivationDialogSection(
 
   const hasDamageScaling = Object.values(action.rolls ?? {})
     ?.filter((r) => ['damage', 'healing'].includes(r.type))
+    // @ts-expect-error
     ?.some((dr) => scalingModes.includes(dr.scaling?.mode));
 
   const hasTargetScaling = scalingModes.includes(action.target?.scaling?.mode);

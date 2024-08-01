@@ -1,3 +1,5 @@
+import type { BaseActorA5e } from '../documents/actor/base';
+
 import ImportCompendiumSelectionDialog from '../apps/dialogs/ImportCompendiumSelectionDialog.svelte';
 
 import GenericDialog from '../apps/dialogs/initializers/GenericDialog';
@@ -18,7 +20,7 @@ const TYPES = {
 };
 
 export default async function openCompendium(
-  actor: typeof Actor,
+  actor: BaseActorA5e,
   tab: 'inventory' | 'maneuvers' | 'spells',
   data: Record<string, any> = {}
 ) {

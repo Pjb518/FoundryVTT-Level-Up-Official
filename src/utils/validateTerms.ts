@@ -11,7 +11,7 @@ export default function validateTerms(terms: any[]): string[] {
   return terms.reduce((errors: string[], { value, message }: { value: any, message: string }) => {
     try {
       if (value && !Roll.validate(value.toString())) throw Error(message);
-    } catch (err) {
+    } catch (err: any) {
       errors.push(err.message);
     }
 

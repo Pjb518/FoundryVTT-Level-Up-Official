@@ -1,7 +1,8 @@
 import type { Grant } from 'types/itemGrants';
+import type CharacterActorA5E from '../documents/actor/character';
 
 export default function prepareApplyData(
-  actor: typeof Actor,
+  actor: CharacterActorA5E,
   grants: any[],
   applyData: Map<string, any>
 ): Record<string, any> {

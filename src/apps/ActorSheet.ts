@@ -217,6 +217,7 @@ export default class ActorSheet extends SvelteApplication {
   _onConfigureToken(event) {
     if (event) event.preventDefault();
     if (this.token) return this.token.sheet.render(true);
+    // @ts-expect-error TODO: Types - Look into why this is broken
     // eslint-disable-next-line new-cap
     return new CONFIG.Token.prototypeSheetClass(this.actor.prototypeToken).render(true);
   }

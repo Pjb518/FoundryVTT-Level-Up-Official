@@ -2,6 +2,7 @@ import type { ItemA5e } from '../../documents/item/item';
 
 import { localize } from '#runtime/svelte/helper';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function getManeuverSummaryData(item: ItemA5e, options: Record<string, any>) {
   if (!item.isType('maneuver')) {
     return { maneuverProperties: '' };

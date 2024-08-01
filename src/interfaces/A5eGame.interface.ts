@@ -22,7 +22,7 @@ import type ForeignDocumentManager from '../managers/ForeignDocumentManager';
 import type HitDiceManager from '../managers/HitDiceManager';
 import type ItemGrantsManager from '../managers/ItemGrantsManager';
 import type ModifierManager from '../managers/ModifierManager';
-import type ResourceConsumptionManager from '../managers/ResourceConsumptionManager';
+import type { ResourceConsumptionManager } from '../managers/ResourceConsumptionManager';
 import type RestManager from '../managers/RestManager';
 import type { RollPreparationManager } from '../managers/RollPreparationManager';
 import type TemplatePreparationManager from '../managers/TemplatePreparationManager';

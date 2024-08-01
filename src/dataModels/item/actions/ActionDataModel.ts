@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 import type { A5EObjectData } from '../ObjectDataModel';
 import {
-  ActionAreaField, ActionConsumerField, ActionPromptField, ActionRollField
+  ActionConsumerField, ActionPromptField, ActionRollField
 } from './ActionFields';
 import { RecordField } from '../../fields/RecordField';
 
@@ -23,14 +23,7 @@ const actionSchema = () => ({
     reactionTrigger: new fields.StringField({ required: true, nullable: false, initial: '' })
   }),
 
-  // TODO: - Remove this
   area: new fields.ObjectField({ required: false, nullable: true, initial: () => undefined }),
-  areas: new RecordField(
-    new fields.DocumentIdField({
-      required: true, nullable: false, initial: () => foundry.utils.randomID()
-    }),
-    new ActionAreaField({ required: true, nullable: false })
-  ),
 
   duration: new fields.SchemaField({
     unit: new fields.StringField({ required: true, nullable: false, initial: '' }),

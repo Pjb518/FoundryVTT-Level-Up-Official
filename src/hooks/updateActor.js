@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function updateActor(actor, changes, options, userId) {
   const keys = Object.keys(changes).filter((k) => k !== '_id');
   const changed = new Set(keys);

@@ -1,5 +1,5 @@
-/* eslint-disable no-empty-function */
-/* eslint-disable no-unused-vars */
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 export default class MigrationBase {
   static version;
 

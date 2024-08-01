@@ -8,7 +8,7 @@
     "moduleResolution": "Bundler",
     "moduleDetection": "force",
     "isolatedModules": true,
-    "lib": ["ES2023"],
+    "lib": ["DOM", "DOM.Iterable", "ES2023"],
     "target": "ES2022",
     "types": ["@league-of-foundry-developers/foundry-vtt-types"],
     "paths": {
@@ -16,7 +16,6 @@
         "./types/*"
       ]
     },
-
     /**
       Svelte Preprocess cannot figure out whether you have a value or a type, so tell TypeScript
       to enforce using `import type` instead of `import` for Types.

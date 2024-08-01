@@ -13,5 +13,6 @@ export default function hexToRGB(hex: string, opacity: number = 1): string {
     b = `0x${hex[5]}${hex[6]}`;
   }
 
+  // @ts-expect-error
   return `rgb(${+r}, ${+g}, ${+b}, ${opacity})`;
 }
