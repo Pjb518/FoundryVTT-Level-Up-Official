@@ -6,8 +6,7 @@ declare namespace A5eEnricherManager {
 
 class A5eEnricherManager {
   constructor() {
-    // TODO: Fill this out
-    const x = 1;
+    this.registerCustomEnrichers();
   }
 
   registerCustomEnrichers() {
@@ -90,7 +89,7 @@ class A5eEnricherManager {
 
     // This means only the ability check is left.
     label = `${CONFIG.A5E.abilities[args.ability]} ${label}`;
-    if (args.dc) label = `DC ${args.dc} ${label}`;
+    if (args.dc && Number.isNumeric(args.dc)) label = `DC ${args.dc} ${label}`;
     return this.createButton(args, label);
   }
 
@@ -126,7 +125,7 @@ class A5eEnricherManager {
 
     // This means only the ability save is left.
     label = `${CONFIG.A5E.abilities[args.ability]} ${label}`;
-    if (args.dc) label = `DC ${args.dc} ${label}`;
+    if (args.dc && Number.isNumeric(args.dc)) label = `DC ${args.dc} ${label}`;
     return this.createButton(args, label);
   }
 
@@ -143,7 +142,6 @@ class A5eEnricherManager {
 
     const button = document.createElement('a');
     button.dataset.action = 'roll';
-    // TODO:
     button.innerHTML = `<i class="fa-solid fa-dice-d20"></i> ${label}`;
     span.insertAdjacentElement('afterbegin', button);
     return span;
@@ -171,13 +169,7 @@ class A5eEnricherManager {
     const target = event.target.closest('.a5e-enricher--roll');
     if (!target) return null;
     event.stopPropagation();
-    const universalOptions: Record<string, string> = {
-      expertisedice: 'expertiseDice',
-      rollmode: 'rollMode',
-      situationalmods: 'situationalMods',
-      skiprolldialog: 'skipRollDialog',
-      visibilitymode: 'visibilityMode'
-    };
+
     // A5eEnricherManager.getOptions(target, rollOptions, universalOptions);
     const selectedToken = canvas?.tokens?.controlled[0];
 
@@ -189,13 +181,29 @@ class A5eEnricherManager {
     // @ts-expect-error
     const { actor }: { actor: BaseActorA5e | null } = selectedToken;
 
+    const universalOptions: Record<string, string> = {
+      dc: 'dc',
+      expertisedice: 'expertiseDice',
+      rollmode: 'rollMode',
+      situationalmods: 'situationalMods',
+      skiprolldialog: 'skipRollDialog',
+      visibilitymode: 'visibilityMode'
+    };
+    const skillOptions: Record<string, string> = {
+      ability: 'abilityKey',
+      minroll: 'minRoll',
+      ...universalOptions
+    };
+    const abilityOptions: Record<string, string> = {
+      ...universalOptions
+    };
+    const saveOptions: Record<string, string> = {
+      type: 'saveType',
+      ...universalOptions
+    };
+
     if (target.dataset.enricherType === 'check') {
       if (target.dataset.skill) {
-        const skillOptions: Record<string, string> = {
-          ability: 'abilityKey',
-          minroll: 'minRoll',
-          ...universalOptions
-        };
         const rollOptions: Record<string, any> = A5eEnricherManager.getOptions(
           target,
           undefined,
@@ -204,9 +212,7 @@ class A5eEnricherManager {
         return actor?.rollSkillCheck(target.dataset.skill, rollOptions);
       }
       // ability check
-      const abilityOptions: Record<string, string> = {
-        ...universalOptions
-      };
+
       const rollOptions: Record<string, any> = A5eEnricherManager.getOptions(
         target,
         undefined,
@@ -216,16 +222,11 @@ class A5eEnricherManager {
     }
 
     if (target.dataset.enricherType === 'save') {
-      const saveOptions: Record<string, string> = {
-        type: 'saveType',
-        ...universalOptions
-      };
       const rollOptions: Record<string, any> = A5eEnricherManager.getOptions(
         target,
         undefined,
         saveOptions
       );
-      console.log(rollOptions);
       if (target.dataset.type === 'death') {
         return actor?.rollDeathSavingThrow(rollOptions);
       }
