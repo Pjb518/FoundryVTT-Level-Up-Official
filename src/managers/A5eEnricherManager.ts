@@ -51,7 +51,7 @@ class A5eEnricherManager {
   */
   parseArguments(argString: string) {
     const args = argString.toLowerCase().split(' ').filter((item) => item);
-    const structured: Record<string, string | number> = {};
+    const structured: Record<string, any> = {};
 
     args.forEach((arg) => {
       const [key, value] = arg.split('=').map((a) => a.trim());
@@ -130,20 +130,35 @@ class A5eEnricherManager {
     return this.createButton(args, label);
   }
 
-  addToDataset(element: HTMLElement, args: Record<string, string | number>) {
+  static addToDataset(element: HTMLElement, args: Record<string, any>) {
     for (const [key, val] of Object.entries(args)) {
       if (val) element.dataset[key] = val as string;
     }
   }
 
-  static datasetToRecord(element: HTMLElement) {
-    const optionsRecord: Record<string, any> = {};
+  createButton(args, label) {
+    const span = document.createElement('span');
+    span.classList.add('a5e-enricher--roll');
+    A5eEnricherManager.addToDataset(span, args);
+
+    const button = document.createElement('a');
+    button.dataset.action = 'roll';
+    // TODO:
+    button.innerHTML = `<i class="fa-solid fa-dice-d20"></i> ${label}`;
+    span.insertAdjacentElement('afterbegin', button);
+    return span;
+  }
+
+  static getOptions(
+    element: HTMLElement,
+    optionsRecord: Record<string, any>,
+    validOptions?: Record<string, string>
+  ) {
     for (const [key, val] of Object.entries(element.dataset)) {
-      if (key === 'ability') {
-        optionsRecord.abilityKey = val;
-      }
-      else if (key === 'type') {
-        optionsRecord.saveType = val;
+      if (validOptions) {
+        if (key in validOptions) {
+          optionsRecord[validOptions[key]] = val;
+        }
       }
       else {
         optionsRecord[key] = val;
@@ -152,26 +167,19 @@ class A5eEnricherManager {
     return optionsRecord;
   }
 
-  createButton(args, label) {
-    const span = document.createElement('span');
-    span.classList.add('rollButton');
-    this.addToDataset(span, args);
-
-    const button = document.createElement('a');
-    button.dataset.action = 'roll';
-    // TODO:
-    // button.innerHTML = `<i class="icon thingy"></i> ${label}`;
-    // remove next line
-    button.innerHTML = `${label}`;
-    span.insertAdjacentElement('afterbegin', button);
-    return span;
-  }
-
   async rollEvent(event) {
-    const target = event.target.closest('.rollButton');
+    const target = event.target.closest('.a5e-enricher--roll');
     if (!target) return null;
     event.stopPropagation();
-    const rollOptions: Record<string, any> = A5eEnricherManager.datasetToRecord(target);
+    const rollOptions: Record<string, any> = {};
+    const universalOptions: Record<string, string> = {
+      expertisedice: 'expertiseDice',
+      rollmode: 'rollMode',
+      situationalmods: 'situationalMods',
+      skiprolldialog: 'skipRollDialog',
+      visibilitymode: 'visibilityMode'
+    };
+    A5eEnricherManager.getOptions(target, rollOptions, universalOptions);
     const selectedToken = canvas?.tokens?.controlled[0];
 
     if (!selectedToken) {
@@ -182,22 +190,31 @@ class A5eEnricherManager {
     // @ts-expect-error
     const { actor }: { actor: BaseActorA5e | null } = selectedToken;
 
-    if (rollOptions.enricherType === 'check') {
-      if (rollOptions.skill) {
-        return actor?.rollSkillCheck(rollOptions.skill, rollOptions);
+    if (target.dataset.enricherType === 'check') {
+      if (target.dataset.skill) {
+        const skillOptions: Record<string, string> = {
+          ability: 'abilityKey',
+          minroll: 'minRoll'
+        };
+        A5eEnricherManager.getOptions(target, rollOptions, skillOptions);
+        return actor?.rollSkillCheck(target.dataset.skill, rollOptions);
       }
       // ability check
-      return actor?.rollAbilityCheck(rollOptions.abilityKey, rollOptions);
+      return actor?.rollAbilityCheck(target.dataset.abilityKey, rollOptions);
     }
 
-    if (rollOptions.enricherType === 'save') {
-      if (rollOptions.saveType === 'death') {
+    if (target.dataset.enricherType === 'save') {
+      const saveOptions: Record<string, string> = {
+        type: 'saveType'
+      };
+      A5eEnricherManager.getOptions(target, rollOptions, saveOptions);
+      if (target.dataset.saveType === 'death') {
         return actor?.rollDeathSavingThrow(rollOptions);
       }
-      if (rollOptions.saveType === 'concentration') {
+      if (target.dataset.saveType === 'concentration') {
         return actor?.rollSavingThrow('con', rollOptions);
       }
-      return actor?.rollSavingThrow(rollOptions.abilityKey, rollOptions);
+      return actor?.rollSavingThrow(target.dataset.abilityKey, rollOptions);
     }
     return null;
   }
