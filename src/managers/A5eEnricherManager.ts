@@ -151,7 +151,7 @@ class A5eEnricherManager {
 
   static getOptions(
     element: HTMLElement,
-    optionsRecord: Record<string, any>,
+    optionsRecord: Record<string, any> = {},
     validOptions?: Record<string, string>
   ) {
     for (const [key, val] of Object.entries(element.dataset)) {
@@ -171,7 +171,6 @@ class A5eEnricherManager {
     const target = event.target.closest('.a5e-enricher--roll');
     if (!target) return null;
     event.stopPropagation();
-    const rollOptions: Record<string, any> = {};
     const universalOptions: Record<string, string> = {
       expertisedice: 'expertiseDice',
       rollmode: 'rollMode',
@@ -179,7 +178,7 @@ class A5eEnricherManager {
       skiprolldialog: 'skipRollDialog',
       visibilitymode: 'visibilityMode'
     };
-    A5eEnricherManager.getOptions(target, rollOptions, universalOptions);
+    // A5eEnricherManager.getOptions(target, rollOptions, universalOptions);
     const selectedToken = canvas?.tokens?.controlled[0];
 
     if (!selectedToken) {
@@ -194,20 +193,38 @@ class A5eEnricherManager {
       if (target.dataset.skill) {
         const skillOptions: Record<string, string> = {
           ability: 'abilityKey',
-          minroll: 'minRoll'
+          minroll: 'minRoll',
+          ...universalOptions
         };
-        A5eEnricherManager.getOptions(target, rollOptions, skillOptions);
+        const rollOptions: Record<string, any> = A5eEnricherManager.getOptions(
+          target,
+          undefined,
+          skillOptions
+        );
         return actor?.rollSkillCheck(target.dataset.skill, rollOptions);
       }
       // ability check
+      const abilityOptions: Record<string, string> = {
+        ...universalOptions
+      };
+      const rollOptions: Record<string, any> = A5eEnricherManager.getOptions(
+        target,
+        undefined,
+        abilityOptions
+      );
       return actor?.rollAbilityCheck(target.dataset.ability, rollOptions);
     }
 
     if (target.dataset.enricherType === 'save') {
       const saveOptions: Record<string, string> = {
-        type: 'saveType'
+        type: 'saveType',
+        ...universalOptions
       };
-      A5eEnricherManager.getOptions(target, rollOptions, saveOptions);
+      const rollOptions: Record<string, any> = A5eEnricherManager.getOptions(
+        target,
+        undefined,
+        saveOptions
+      );
       console.log(rollOptions);
       if (target.dataset.type === 'death') {
         return actor?.rollDeathSavingThrow(rollOptions);
