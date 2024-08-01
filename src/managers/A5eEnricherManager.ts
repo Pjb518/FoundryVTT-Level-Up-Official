@@ -200,7 +200,7 @@ class A5eEnricherManager {
         return actor?.rollSkillCheck(target.dataset.skill, rollOptions);
       }
       // ability check
-      return actor?.rollAbilityCheck(target.dataset.abilityKey, rollOptions);
+      return actor?.rollAbilityCheck(target.dataset.ability, rollOptions);
     }
 
     if (target.dataset.enricherType === 'save') {
@@ -208,13 +208,14 @@ class A5eEnricherManager {
         type: 'saveType'
       };
       A5eEnricherManager.getOptions(target, rollOptions, saveOptions);
-      if (target.dataset.saveType === 'death') {
+      console.log(rollOptions);
+      if (target.dataset.type === 'death') {
         return actor?.rollDeathSavingThrow(rollOptions);
       }
-      if (target.dataset.saveType === 'concentration') {
+      if (target.dataset.type === 'concentration') {
         return actor?.rollSavingThrow('con', rollOptions);
       }
-      return actor?.rollSavingThrow(target.dataset.abilityKey, rollOptions);
+      return actor?.rollSavingThrow(target.dataset.ability, rollOptions);
     }
     return null;
   }
