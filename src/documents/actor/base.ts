@@ -1271,7 +1271,7 @@ class BaseActorA5e extends Actor {
   getDefaultSavingThrowData(abilityKey: string | undefined, options: Record<string, any> = {}) {
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     const defaultExpertiseDice = options.expertiseDice
-      ?? this.system.abilities[abilityKey].save.expertiseDice
+      ?? this.system.abilities[abilityKey || '']?.save.expertiseDice
       ?? 0;
 
     const rollOverrideKey = abilityKey ? `system.abilities.${abilityKey}.save` : 'deathSave';

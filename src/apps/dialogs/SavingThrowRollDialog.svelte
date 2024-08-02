@@ -26,7 +26,7 @@
 
         return $actor.RollOverrideManager.getExpertiseDice(
             rollModeKey ?? "",
-            $actor.system.abilities[abilityKey].save.expertiseDice ??
+            $actor.system.abilities[abilityKey]?.save?.expertiseDice ??
                 options.expertiseDice ??
                 0,
         );
