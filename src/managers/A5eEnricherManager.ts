@@ -228,6 +228,7 @@ class A5eEnricherManager {
       const { name, type } = validOptions[key];
 
       if (type === 'number') optionsRecord[name] = parseInt(val, 10);
+      else if (type === 'boolean') optionsRecord[name] = Boolean(val);
       else optionsRecord[name] = val;
     });
 
@@ -267,7 +268,7 @@ class A5eEnricherManager {
       expertisedice: { name: 'expertiseDice', type: 'number' },
       rollmode: { name: 'rollMode', type: 'number' },
       situationalmods: { name: 'situationalMods', type: 'string' },
-      skiprolldialog: { name: 'skipRollDialog', type: 'string' },
+      skiprolldialog: { name: 'skipRollDialog', type: 'boolean' },
       visibilitymode: { name: 'visibilityMode', type: 'string' }
     } as Record<string, { name: string, type: string }>;
 
