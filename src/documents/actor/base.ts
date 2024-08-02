@@ -1137,7 +1137,9 @@ class BaseActorA5e extends Actor {
   // TODO: Types - Create an interface for options
   getDefaultAbilityCheckData(abilityKey: string, options: Record<string, any> = {}) {
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const defaultExpertiseDie = options.expertiseDice ?? 0;
+    const defaultExpertiseDie = options.expertiseDice
+      ?? this.system.abilities[abilityKey].check.expertiseDice
+      ?? 0;
 
     const expertiseDie = this.RollOverrideManager?.getExpertiseDice(
       `system.abilities.${abilityKey}.check`,
@@ -1268,7 +1270,9 @@ class BaseActorA5e extends Actor {
   // TODO: Types - Create an interface for options
   getDefaultSavingThrowData(abilityKey: string | undefined, options: Record<string, any> = {}) {
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const defaultExpertiseDice = options.expertiseDice ?? 0;
+    const defaultExpertiseDice = options.expertiseDice
+      ?? this.system.abilities[abilityKey].save.expertiseDice
+      ?? 0;
 
     const rollOverrideKey = abilityKey ? `system.abilities.${abilityKey}.save` : 'deathSave';
     const rollMode = this.RollOverrideManager?.getRollOverride(rollOverrideKey, defaultRollMode);
@@ -1399,7 +1403,9 @@ class BaseActorA5e extends Actor {
     const skill = this.system.skills[skillKey];
     const abilityKey = options?.abilityKey ?? skill.ability;
     const defaultRollMode = options?.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-    const defaultExpertiseDie = options.expertiseDice ?? 0;
+    const defaultExpertiseDie = options.expertiseDice
+      ?? this.system.skills[skillKey].expertiseDice
+      ?? 0;
 
     const expertiseDie = this.RollOverrideManager
       ?.getExpertiseDice(`system.skills.${skillKey}`, defaultExpertiseDie, { ability: abilityKey });
