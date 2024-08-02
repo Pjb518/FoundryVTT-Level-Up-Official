@@ -42,9 +42,8 @@
         updateDocumentDataFromField($item, "system.resources", resources);
     }
 
-    // @ts-ignore
-    const { resourceRecoveryOptions } = CONFIG.A5E;
-    delete resourceRecoveryOptions.recharge;
+    const recoveryOptions = foundry.utils.deepClone(CONFIG.A5E.resourceRecoveryOptions);
+    delete recoveryOptions.recharge;
 
     $: resources = [...($item.resources as ClassResourceManager)];
 </script>
@@ -141,7 +140,7 @@
 
                 <RadioGroup
                     heading="Recovery"
-                    options={Object.entries(resourceRecoveryOptions)}
+                    options={Object.entries(recoveryOptions)}
                     selected={resource.recovery || ""}
                     on:updateSelection={({ detail }) => {
                         updateResource(idx, "recovery", detail);
