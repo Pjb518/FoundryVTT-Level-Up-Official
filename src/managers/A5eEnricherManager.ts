@@ -5,10 +5,6 @@ declare namespace A5eEnricherManager {
 }
 
 class A5eEnricherManager {
-  constructor() {
-    this.registerCustomEnrichers();
-  }
-
   registerCustomEnrichers() {
     const enricherTypes = ['check', 'save'];
 
