@@ -98,9 +98,6 @@ export default function init() {
 
   CONFIG.Item.dataModels = itemDataModels;
 
-  const enricherManager = new A5eEnricherManager();
-  enricherManager.registerCustomEnrichers();
-
   // Initialize the game's A5E namespace
   game.a5e = {
     applications: {
@@ -224,6 +221,10 @@ export default function init() {
   });
 
   registerKeybindings();
+
+  // Add enricher
+  const enricherManager = new A5eEnricherManager();
+  enricherManager.registerCustomEnrichers();
 
   return preloadHandlebarsTemplates();
 }
