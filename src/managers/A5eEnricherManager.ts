@@ -37,7 +37,7 @@ class A5eEnricherManager {
   ): Promise<HTMLElement | null> {
     const { enricherType, argString } = match.groups as { enricherType: string, argString: string };
 
-    const args = A5eEnricherManager.parseArguments(argString);
+    const args = this.#parseArguments(argString);
     args.enricherType = enricherType.toLowerCase();
 
     if (enricherType === 'check') {
@@ -54,7 +54,7 @@ class A5eEnricherManager {
    * @param argString   The raw arguments string
    * @returns An indexed array of config item tuples [arg, val]
   */
-  static parseArguments(argString: string): Record<string, any> {
+  #parseArguments(argString: string): Record<string, any> {
     const args = argString.toLowerCase().split(' ').filter(Boolean);
     const structured: Record<string, any> = {};
 
