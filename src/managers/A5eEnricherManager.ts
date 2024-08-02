@@ -5,6 +5,9 @@ declare namespace A5eEnricherManager {
 }
 
 class A5eEnricherManager {
+  /**
+   * Pushes enrichers to config and adds
+  */
   registerCustomEnrichers() {
     const enricherTypes = ['check', 'save'];
 
@@ -12,6 +15,7 @@ class A5eEnricherManager {
       // pattern: \[\[\/(?<enricherType>\w+)(?<argString>( +\w+=([\w\d]+|"[\w\d ]+"))*)\]\]
       // matches: [[/type arg1=val1 arg2=val2 arg3="val 3"]]
       pattern: new RegExp(`\\[\\[\\/(?<enricherType>${enricherTypes.join('|')})(?<argString>( +\\w+=([\\w\\d]+|"[\\w\\d ]+"))*)\\]\\]`, 'gi'),
+      // @ts-expect-error
       enricher: this.parseEnricherInput.bind(this)
     });
     document.body.addEventListener('click', this.rollEvent);
@@ -19,21 +23,23 @@ class A5eEnricherManager {
 
   /**
    * Parse the enriched string and provide the appropriate content.
-   * @param {RegExpMatchArray} match       The regular expression match result.
-   * @param {EnrichmentOptions} options    Options provided to customize text enrichment.
-   * @returns {Promise<HTMLElement|null>}  An HTML element to insert in place of the matched text or
-   *                                       null to indicate that no replacement should be made.
+   * @param match      The regular expression match result.
+   * @param options    Options provided to customize text enrichment. Unused
+   * @returns an HTML element to insert in place of the matched text or
+   *          null to indicate that no replacement should be made.
   */
-  parseEnricherInput(match, options) {
+  async parseEnricherInput(match: RegExpMatchArray, options: TextEditor.EnrichmentOptions):
+    Promise<HTMLElement | null> {
+    // @ts-expect-error TODO: Types - Nek check this out
     const { enricherType, argString } = match.groups;
 
-    const args = this.parseArguments(argString);
-    args.enricherType = enricherType;
+    const args = A5eEnricherManager.parseArguments(argString);
+    args.enricherType = enricherType.toLowerCase();
 
-    if (enricherType.toLowerCase() === 'check') {
+    if (enricherType === 'check') {
       return this.enrichCheck(args, options);
     }
-    if (enricherType.toLowerCase() === 'save') {
+    if (enricherType === 'save') {
       return this.enrichSave(args, options);
     }
     return null;
@@ -41,10 +47,10 @@ class A5eEnricherManager {
 
   /**
    * Parses the arguments into record format and parses into int if possible.
-   * @param {string} argString       The raw arguments string
-   * @returns {Record}  An indexed array of config item tuples [arg, val]
+   * @param argString   The raw arguments string
+   * @returns an indexed array of config item tuples [arg, val]
   */
-  parseArguments(argString: string) {
+  static parseArguments(argString: string): Record<string, any> {
     const args = argString.toLowerCase().split(' ').filter((item) => item);
     const structured: Record<string, any> = {};
 
@@ -56,8 +62,15 @@ class A5eEnricherManager {
     return structured;
   }
 
+  /**
+   * Provides basic argument validation for checks and provides replacement for the enriched text.
+   * @param args      Record of arguments passed in.
+   * @param options   Options provided to customize text enrichment. Unused
+   * @returns an HTML element to insert in place of the matched text null
+   *          to indicate that no replacement should be made.
+  */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  enrichCheck(args, options) {
+  async enrichCheck(args: Record<string, any>, options): Promise<HTMLElement | null> {
     let label = 'Check';
     if (!args.skill && !args.ability) {
       ui.notifications?.error('Enricher is missing both skill and ability.');
@@ -88,8 +101,15 @@ class A5eEnricherManager {
     return this.createRollButton(args, label);
   }
 
+  /**
+   * Provides basic argument validation for saves and provides replacement for the enriched text.
+   * @param args      Record of arguments passed in.
+   * @param options   Options provided to customize text enrichment. Unused
+   * @returns an HTML element to insert in place of the matched text or
+   *          null to indicate that no replacement should be made.
+  */
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  enrichSave(args, options) {
+  async enrichSave(args, options): Promise<HTMLElement | null> {
     let label = 'Saving Throw';
     const saveTypes: string[] = ['death', 'concentration'];
 
@@ -108,7 +128,7 @@ class A5eEnricherManager {
         ui.notifications?.warn('Unnecessary ability argument provided.');
       }
       // Converts the first char of the type to upper case and adds to label
-      label = `${args.type[0].toUpperCase()}${args.type.slice(1)} ${label}`;
+      label = `${args.type.capitalize()} ${label}`;
       return this.createRollButton(args, label);
     }
 
@@ -124,18 +144,30 @@ class A5eEnricherManager {
     return this.createRollButton(args, label);
   }
 
+  /**
+   * Copies the entries of a record onto the dataset of an HTML element.
+   * @param element    HTML element to contain entries.
+   * @param args       Record of entries to be stored in element.
+  */
   static addToDataset(element: HTMLElement, args: Record<string, any>) {
     for (const [key, val] of Object.entries(args)) {
       if (val) element.dataset[key] = val as string;
     }
   }
 
-  createRollButton(args, label) {
+  /**
+   * Creates a roll button to replace enriched text.
+   * @param args    Record of arguments passed in and stored in element.
+   * @param label   The label for the output button
+   * @returns an HTML element to insert in place of the matched text or
+   *          null to indicate that no replacement should be made.
+  */
+  async createRollButton(args: Record<string, any>, label: string): Promise<HTMLElement | null> {
     const span = document.createElement('span');
     span.classList.add('a5e-enricher');
     span.classList.add('a5e-enricher--roll');
     A5eEnricherManager.addToDataset(span, args);
-    if (args.dc && Number.isNumeric(args.dc)) {
+    if (game.user?.isGM && args.dc && Number.isNumeric(args.dc)) {
       span.innerHTML = `<i class="fa-solid fa-dice-d20"></i><span class="a5e-enricher__dc"> DC ${args.dc}</span> ${label}`;
     }
     else {
@@ -144,11 +176,21 @@ class A5eEnricherManager {
     return span;
   }
 
+  /**
+   * Creates a record containing the entries of an HTML element's dataset.
+   * If validOptions is provided, only copies records listed in validOptions
+   * and maps to mapped keys.
+   * @param element        HTML element containing entries.
+   * @param validOptions   Optional record of valid options and key mappings.
+   *                       Key is key to search for in dataset.
+   *                       Value is what key in destination to map value to.
+   * @returns a record containing entries from element dataset.
+  */
   static getOptions(
     element: HTMLElement,
-    optionsRecord: Record<string, any> = {},
     validOptions?: Record<string, string>
-  ) {
+  ): Record<string, any> {
+    const optionsRecord: Record<string, any> = {};
     for (const [key, val] of Object.entries(element.dataset)) {
       if (validOptions) {
         if (key in validOptions) {
@@ -162,8 +204,12 @@ class A5eEnricherManager {
     return optionsRecord;
   }
 
-  async rollEvent(event) {
-    const target = event.target.closest('.a5e-enricher--roll');
+  /**
+   * Parses information based on button clicked and calls appropriate roll function.
+   * @param event   Triggering click event.
+  */
+  async rollEvent(event: MouseEvent) {
+    const target = (event.target as (HTMLElement | null))?.closest('.a5e-enricher--roll') as (HTMLElement | null);
     if (!target) return null;
     event.stopPropagation();
 
@@ -203,25 +249,22 @@ class A5eEnricherManager {
       if (target.dataset.skill) {
         const rollOptions: Record<string, any> = A5eEnricherManager.getOptions(
           target,
-          undefined,
           skillOptions
         );
         return actor?.rollSkillCheck(target.dataset.skill, rollOptions);
       }
-      // ability check
-
-      const rollOptions: Record<string, any> = A5eEnricherManager.getOptions(
-        target,
-        undefined,
-        abilityOptions
-      );
-      return actor?.rollAbilityCheck(target.dataset.ability, rollOptions);
+      if (target.dataset.ability) {
+        const rollOptions: Record<string, any> = A5eEnricherManager.getOptions(
+          target,
+          abilityOptions
+        );
+        return actor?.rollAbilityCheck(target.dataset.ability, rollOptions);
+      }
     }
 
     if (target.dataset.enricherType === 'save') {
       const rollOptions: Record<string, any> = A5eEnricherManager.getOptions(
         target,
-        undefined,
         saveOptions
       );
       if (target.dataset.type === 'death') {
@@ -230,7 +273,9 @@ class A5eEnricherManager {
       if (target.dataset.type === 'concentration') {
         return actor?.rollSavingThrow('con', rollOptions);
       }
-      return actor?.rollSavingThrow(target.dataset.ability, rollOptions);
+      if (target.dataset.ability) {
+        return actor?.rollSavingThrow(target.dataset.ability, rollOptions);
+      }
     }
     return null;
   }
