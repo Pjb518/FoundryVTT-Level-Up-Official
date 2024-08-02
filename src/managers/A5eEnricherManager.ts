@@ -60,6 +60,7 @@ class A5eEnricherManager {
     return structured;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   enrichCheck(args, options) {
     let label = 'Check';
     if (!args.skill && !args.ability) {
@@ -91,6 +92,7 @@ class A5eEnricherManager {
     return this.createRollButton(args, label);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   enrichSave(args, options) {
     let label = 'Saving Throw';
     const saveTypes: string[] = ['death', 'concentration'];
