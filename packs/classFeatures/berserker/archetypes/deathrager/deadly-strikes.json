@@ -14,16 +14,17 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"OzldlIE2l9gXPneQ": {
+			"RWVh1uIJZBIuAFmc": {
 				"name": "Deadly Strikes",
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
 				"prompts": {
-					"YqW0gqkU1xuA4b3K": {
+					"JHlIOiCOeLesEFRl": {
 						"type": "effect",
 						"default": true,
-						"effectId": "skk7dZegGcrGwspM"
+						"effectId": "ZFGXBb8fP6z9alzu",
+						"label": "Apply Deathrager"
 					}
 				},
 				"uses": {
@@ -36,7 +37,8 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"img": "icons/magic/unholy/projectile-spear-glow-pink.webp"
 			}
 		},
 		"description": "<p>Beginning at level 3, your rage infuses you with the power of death. While you are raging, you have resistance to necrotic damage and your weapon attacks deal an additional 1d6 necrotic damage. This increases to 1d8 at level 9 and 1d10 at level 15.</p>",
@@ -67,25 +69,29 @@
 				}
 			}
 		},
-		"classes": [
-			"berserker"
-		]
+		"classes": "berserker",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/unholy/projectile-spear-glow-pink.webp",
-			"origin": "Item.9TA2RuJCijDXZ809",
+			"origin": "Item.7E5S9dVFmCYAny67",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "OzldlIE2l9gXPneQ",
-					"applyToSelf": true
+					"actionId": "RWVh1uIJZBIuAFmc",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
 				}
 			},
 			"transfer": false,
-			"name": "Deadly Strikes",
-			"_id": "skk7dZegGcrGwspM",
+			"name": "Deathrager",
+			"img": "icons/magic/unholy/projectile-spear-glow-pink.webp",
+			"_id": "ZFGXBb8fP6z9alzu",
+			"type": "base",
+			"system": {},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",
@@ -95,7 +101,7 @@
 				},
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"Deadly Strikes\",\"formula\":\"1d6\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+					"value": "{\"label\":\"Deadly Strikes Damage\",\"formula\":\"@classResources.deadly-strikes\",\"damageType\":\"necrotic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/unholy/projectile-spear-glow-pink.webp\"}",
 					"mode": 0,
 					"priority": null
 				}
@@ -103,29 +109,39 @@
 			"disabled": false,
 			"duration": {
 				"startTime": null,
-				"seconds": null,
+				"seconds": 60,
 				"combat": null,
 				"rounds": null,
 				"turns": null,
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "<p>Beginning at level 3, your rage infuses you with the power of death. While you are raging, you have resistance to necrotic damage and your weapon attacks deal an additional 1d6 necrotic damage. This increases to 1d8 at level 9 and 1d10 at level 15.</p>",
+			"description": "<p>While you are raging, you have resistance to necrotic damage and your weapon attacks deal an additional 1d6 necrotic damage. This increases to 1d8 at level 9 and 1d10 at level 15. </p>",
+			"tint": "#ffffff",
 			"statuses": [],
-			"folder": null,
+			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.20",
+				"createdTime": null,
+				"modifiedTime": 1722345417277,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {},
 	"folder": null,
-	"_id": "euhgi1z3dp69tlvn",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.20",
+		"createdTime": 1722345243697,
+		"modifiedTime": 1722346966816,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "euhgi1z3dp69tlvn"
 }

@@ -1,7 +1,7 @@
 {
 	"name": "Forceful Gale",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/air/wind-tornado-spiral-brown.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,15 +15,49 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"4qHvOLSVS8yJJcZD": {
+				"name": "Forceful Gale",
+				"activation": {},
+				"consumers": {
+					"UJS9VwDB5d8JS5L8": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"Gas9ioP09AnEgdi1": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "str"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Starting at 10th level, the winds of your aura make it difficult for creatures to keep their feet. Once per turn while raging, when you damage a creature with a melee attack you can force the target to make a Strength saving throw (DC 8 + your proficiency bonus + your Strength modifier). On a failure the creature is pushed 10 feet away in a direction of your choosing. This distance stacks with any forced movement caused by a Furious Critical.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "turn",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -44,13 +78,17 @@
 				}
 			}
 		},
-		"classes": "berserker"
+		"classes": "berserker",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "whe3yk203mqvy174",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.20",
+		"createdTime": 1722374717298,
+		"modifiedTime": 1722374764956,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "whe3yk203mqvy174"
 }

@@ -9,7 +9,7 @@
 		},
 		"slug": "",
 		"class": "berserker",
-		"description": "<p><strong>Table: Tempest</strong></p>\n<table style=\"width: 100%; height: 83.9845px;\" border=\"1\"><colgroup><col style=\"width: 41.8738%;\"><col style=\"width: 58.1262%;\"></colgroup>\n<thead>\n<tr style=\"text-align: center; height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Level</td>\n<td style=\"height: 16.7969px;\">Features</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"text-align: center; height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">3rd</td>\n<td style=\"height: 16.7969px;\">@UUID[Compendium.a5e.a5e-class-features.Item.1wo1f3nhn25jr5b6]{Touched by Thunder (Lightning)}<br>@UUID[Compendium.a5e.a5e-class-features.Item.yna0872v2fpkz51j]{Touched by Thunder (Thunder)}</td>\n</tr>\n<tr style=\"text-align: center; height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">6th</td>\n<td style=\"height: 16.7969px;\">@UUID[Compendium.a5e.a5e-class-features.Item.f41mri24smndjesd]{Whirling Winds}</td>\n</tr>\n<tr style=\"text-align: center; height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">10th</td>\n<td style=\"height: 16.7969px;\">@UUID[Compendium.a5e.a5e-class-features.Item.whe3yk203mqvy174]{Forceful Gale}</td>\n</tr>\n<tr style=\"text-align: center; height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">14th</td>\n<td style=\"height: 16.7969px;\">@UUID[Compendium.a5e.a5e-class-features.Item.nzo8gz0k1olfedm5]{Perfect Storm (DC blank/with @level)}</td>\n</tr>\n</tbody>\n</table>",
+		"description": "<p><strong>Table: Tempest</strong></p>\n<table style=\"width: 100%; height: 83.9845px;\" border=\"1\"><colgroup><col style=\"width: 41.8738%;\"><col style=\"width: 58.1262%;\"></colgroup>\n<thead>\n<tr style=\"text-align: center; height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">Level</td>\n<td style=\"height: 16.7969px;\">Features</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"text-align: center; height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">3rd</td>\n<td style=\"height: 16.7969px;\">@UUID[Compendium.a5e.a5e-class-features.Item.yna0872v2fpkz51j]{Touched by Thunder}</td>\n</tr>\n<tr style=\"text-align: center; height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">6th</td>\n<td style=\"height: 16.7969px;\">@UUID[Compendium.a5e.a5e-class-features.Item.f41mri24smndjesd]{Whirling Winds}</td>\n</tr>\n<tr style=\"text-align: center; height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">10th</td>\n<td style=\"height: 16.7969px;\">@UUID[Compendium.a5e.a5e-class-features.Item.whe3yk203mqvy174]{Forceful Gale}</td>\n</tr>\n<tr style=\"text-align: center; height: 16.7969px;\">\n<td style=\"height: 16.7969px;\">14th</td>\n<td style=\"height: 16.7969px;\">@UUID[Compendium.a5e.a5e-class-features.Item.nzo8gz0k1olfedm5]{Perfect Storm}</td>\n</tr>\n</tbody>\n</table>",
 		"grants": {
 			"nkYlW0Tdnzn3hpEg": {
 				"grantType": "feature",
@@ -21,14 +21,9 @@
 				"features": {
 					"base": [
 						{
-							"uuid": "Compendium.a5e.a5e-class-features.Item.1wo1f3nhn25jr5b6",
-							"name": "Touched by Thunder (Lightning)",
-							"img": "icons/svg/item-bag.svg",
-							"limitedReselection": true,
-							"selectionLimit": 1
-						},
-						{
 							"uuid": "Compendium.a5e.a5e-class-features.Item.yna0872v2fpkz51j",
+							"name": "Touched by Thunder",
+							"img": "icons/magic/sonic/explosion-impact-shock-wave.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
@@ -102,7 +97,37 @@
 				"name": "undefined (Copy)"
 			}
 		},
-		"resources": [],
+		"resources": [
+			{
+				"name": "Touched by Thunder Damage",
+				"consumable": false,
+				"displayOnCore": false,
+				"reference": {
+					"1": "0",
+					"2": "0",
+					"3": "1d6",
+					"4": "1d6",
+					"5": "1d6",
+					"6": "1d6",
+					"7": "1d6",
+					"8": "1d6",
+					"9": "1d6",
+					"10": "2d6",
+					"11": "2d6",
+					"12": "2d6",
+					"13": "2d6",
+					"14": "2d6",
+					"15": "3d6",
+					"16": "3d6",
+					"17": "3d6",
+					"18": "3d6",
+					"19": "3d6",
+					"20": "4d6"
+				},
+				"recovery": "",
+				"slug": "touched-by-thunder-damage"
+			}
+		],
 		"source": "adventurersGuide",
 		"spellcasting": {
 			"ability": {
@@ -111,15 +136,20 @@
 				"value": "none"
 			},
 			"casterType": "none"
-		}
+		},
+		"favorite": false,
+		"secretDescription": ""
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
-	"_id": "728wx5bydcqswxtm",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.20",
+		"createdTime": 1722373893714,
+		"modifiedTime": 1722375840647,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "728wx5bydcqswxtm"
 }

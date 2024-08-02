@@ -15,29 +15,30 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"2cOyn3pcnAUChpyS": {
+			"zkbOqzjo57ioEoKR": {
 				"name": "Entangling Throw",
 				"activation": {},
 				"consumers": {
-					"Sp04bFlV8pBRfalO": {
+					"56h0AQCACfds3feF": {
 						"type": "itemUses",
 						"default": true,
 						"quantity": 1
 					},
-					"FNwkhd7bXPnk51OA": {
+					"jA5pHMtAdSJN5bph": {
 						"type": "resource",
 						"default": true,
+						"classIdentifier": "",
 						"resource": "exertion",
 						"quantity": 1
 					},
-					"n8u9xLoZwg0Sa38Q": {
+					"Ed2CJcN4Sw0wfs3j": {
 						"type": "actionUses",
 						"default": true,
 						"quantity": 1
 					}
 				},
 				"rolls": {
-					"yG7mipT4367eucsF": {
+					"SCuXzbNGVLOKpV7L": {
 						"type": "attack",
 						"default": true,
 						"attackType": "rangedWeaponAttack",
@@ -46,21 +47,21 @@
 					}
 				},
 				"prompts": {
-					"PeGQvqe099zdjgw1": {
+					"PfWqIPcvgKPtkTtA": {
 						"type": "abilityCheck",
 						"default": true,
 						"ability": "str"
 					},
-					"k1rKMmLJnFUJ9rO2": {
+					"NJ7kBTlbmBA42WCM": {
 						"type": "effect",
 						"default": true,
-						"effectId": "vLBRwP1lEqlFHqIB"
+						"effectId": "CiY4i0Xrp0P0yRml"
 					}
 				},
 				"uses": {
 					"value": 0,
 					"max": "@wis.mod",
-					"per": "shortRest",
+					"per": "longRest",
 					"recharge": {
 						"formula": "1d6",
 						"rechargeType": "custom",
@@ -68,15 +69,15 @@
 						"threshold": 6
 					}
 				},
-				"target": {
-					"type": "creatureObject",
-					"quantity": 1
-				},
 				"ranges": {
-					"p3EIeoN87spg9yc0": {
+					"xgASUsac5gNpJper": {
 						"range": 20,
 						"unit": "feet"
 					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
 				}
 			}
 		},
@@ -108,22 +109,25 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "adept",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/commodities/materials/material-woven.webp",
-			"origin": "Item.i5e0y6ge9scxtb7m",
+			"origin": "Item.TwJjNBf5Egkmaxxd",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "2cOyn3pcnAUChpyS"
+					"actionId": "zkbOqzjo57ioEoKR"
 				}
 			},
 			"transfer": false,
 			"name": "Grappled",
-			"_id": "vLBRwP1lEqlFHqIB",
+			"img": "icons/commodities/materials/material-woven.webp",
+			"_id": "CiY4i0Xrp0P0yRml",
+			"type": "base",
+			"system": {},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -142,23 +146,33 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<ul>\n<li>A grappled creature's Speed becomes 0, and it can't benefit from bonuses to movement speeds.</li>\n<li>If the grappler becomes incapacitated the condition ends.</li>\n<li>If an effect removes the grappled creature from the reach of the grappler or grappling effect (such as when a creature is shoved away by the Doubleteam combat maneuver) the condition ends.</li>\n</ul>",
+			"tint": "#ffffff",
 			"statuses": [
 				"grappled"
 			],
-			"folder": null,
+			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.20",
+				"createdTime": 1722395490457,
+				"modifiedTime": 1722395542087,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "i5e0y6ge9scxtb7m",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.20",
+		"createdTime": 1722395206331,
+		"modifiedTime": 1722395490500,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "i5e0y6ge9scxtb7m"
 }

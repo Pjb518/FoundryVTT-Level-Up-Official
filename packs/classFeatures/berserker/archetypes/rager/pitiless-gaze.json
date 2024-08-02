@@ -1,7 +1,7 @@
 {
 	"name": "Pitiless Gaze",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/perception/eye-ringed-glow-angry-large-teal.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,35 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Starting at 14th level, when a creature within 5 feet of you hits you with a melee attack while you are raging, the attacker takes [[/r 1d6 #psychic]] psychic damage as they quail before your raw fury.</p>",
+		"actions": {
+			"4fTkJxKfblzlRBI1": {
+				"name": "Pitiless Gaze",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Iaw0a3ecFmMxA4JF": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"canCrit": false,
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Starting at 14th level, when a creature within 5 feet of you hits you with a melee attack while you are raging, the attacker takes 1d6 psychic damage as they quail before your raw fury.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -44,13 +71,17 @@
 				}
 			}
 		},
-		"classes": "berserker"
+		"classes": "berserker",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "ccnna3raz7w9k2e0",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.20",
+		"createdTime": 1722363063676,
+		"modifiedTime": 1722363116863,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ccnna3raz7w9k2e0"
 }

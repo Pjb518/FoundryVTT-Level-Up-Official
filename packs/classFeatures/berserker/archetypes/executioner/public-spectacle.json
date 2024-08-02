@@ -12,8 +12,66 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 6th level, whenever you kill a creature with Headsman’s Cut, you may snatch up its head and hold it aloft as part of the attack, causing hostile creatures within 30 feet of you to make a Wisdom saving throw. Creatures that fail their saving throw take 2d6 psychic damage and are frightened of you for one minute. Creatures that succeed take half as much damage and are rattled until the beginning of your next turn. A frightened creature can repeat the save at the end of each of its turns, ending the frightened condition on a success. Once a creature has successfully saved against this feature, it has advantage on future saves against it for the rest of combat, and future successes avoid the damage entirely rather than halving it.</p>",
+		"actions": {
+			"ndWDr5md0fBfSYmI": {
+				"name": "Public Spectacle",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"we4QFbXb1kkLamQS": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {
+					"URBdhR2hGzgbOgTv": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "con"
+						},
+						"onSave": "Half damage and rattles"
+					},
+					"8ol57c6MY7crsC3H": {
+						"type": "effect",
+						"default": true,
+						"effectId": "lif8IhxrMIvMeWO9"
+					},
+					"I3RxKmGJy1uIiWfK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "bTfLyeqkJNLFmBD4"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"LRedEkunoWpDCOrI": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>At 6th level, whenever you kill a creature with @UUID[Compendium.a5e.a5e-class-features.Item.5u9ryymp8zndum2i]{Headsman&rsquo;s Cut}, you may snatch up its head and hold it aloft as part of the attack, causing hostile creatures within 30 feet of you to make a Wisdom saving throw. Creatures that fail their saving throw take 2d6 psychic damage and are frightened of you for one minute. Creatures that succeed take half as much damage and are rattled until the beginning of your next turn. A frightened creature can repeat the save at the end of each of its turns, ending the frightened condition on a success. Once a creature has successfully saved against this feature, it has advantage on future saves against it for the rest of combat, and future successes avoid the damage entirely rather than halving it.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitJudgeJuryAndExecutioner",
@@ -41,20 +99,134 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker",
+		"class": ""
 	},
 	"img": "icons/skills/social/intimidation-impressing.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.CsXen9WlueZ75CpJ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ndWDr5md0fBfSYmI",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/skills/social/intimidation-impressing.webp",
+			"_id": "lif8IhxrMIvMeWO9",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": 1722535094010,
+				"modifiedTime": 1722535131253,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.CsXen9WlueZ75CpJ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ndWDr5md0fBfSYmI",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/skills/social/intimidation-impressing.webp",
+			"_id": "bTfLyeqkJNLFmBD4",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": 1722535141652,
+				"modifiedTime": 1722535199280,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {
 		"a5e": {
 			"placeTemplate": true
 		}
 	},
 	"folder": null,
-	"_id": "dhbdn3wj7ejjcb9m",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.20",
+		"createdTime": 1722534855487,
+		"modifiedTime": 1722535141701,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "dhbdn3wj7ejjcb9m"
 }
