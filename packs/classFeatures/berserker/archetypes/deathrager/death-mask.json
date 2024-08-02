@@ -14,30 +14,41 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"msN1andWRfitsvkT": {
+			"01aVzZuEYTrjEVZe": {
 				"name": "Death Mask",
-				"activation": {},
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
 				"consumers": {},
 				"rolls": {},
 				"prompts": {
-					"pUQoP8A0pYMhXdLK": {
+					"m1fj4GNzk4zTSw2m": {
 						"type": "savingThrow",
 						"default": true,
 						"ability": "wis",
 						"saveDC": {
 							"type": "maneuver"
 						},
-						"onSave": "Not rattled"
+						"onSave": ""
 					},
-					"V6a0LO64PSUaIgF5": {
+					"wQHJlRLBCYr1obm5": {
 						"type": "effect",
 						"default": true,
-						"effectId": "42VmDMAOjWevwT7G"
+						"effectId": "31RfAy86gqrAeX76",
+						"label": "Rattled (Failed Save)"
 					},
-					"qgKnZp0Aq6CWagQD": {
+					"QeJMnsmHmyGvEjOq": {
 						"type": "effect",
 						"default": true,
-						"effectId": "CauS8ePzPMs3WD82"
+						"effectId": "BguH4FqB5p81wemu",
+						"label": "Frightened (Failed Save by 5 or More)"
+					},
+					"YS9xrmX7srslcdVJ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Bb0Pe1CQgjsvLjK5",
+						"label": "Immune to Death Mask"
 					}
 				},
 				"uses": {
@@ -49,6 +60,22 @@
 						"rechargeType": "custom",
 						"rechargeAmount": "1",
 						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "",
+					"quantity": 1
+				},
+				"img": "icons/equipment/head/mask-carved-wood-pink.webp",
+				"ranges": {
+					"Y2z00Kdckger6hb9": {
+						"range": "self"
 					}
 				}
 			}
@@ -81,72 +108,28 @@
 				}
 			}
 		},
-		"classes": [
-			"berserker"
-		]
+		"classes": "berserker",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/equipment/head/mask-carved-wood-pink.webp",
-			"origin": "Item.zofN7O2dwM6a8EJj",
+			"origin": "Item.iTBQZ8ZX71CiXT0j",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "msN1andWRfitsvkT",
+					"actionId": "01aVzZuEYTrjEVZe",
 					"duration": {
 						"unit": "minutes"
 					}
 				}
 			},
 			"transfer": false,
-			"name": "Death Mask (Rattled)",
-			"_id": "42VmDMAOjWevwT7G",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.statusConditions",
-					"value": "[\"rattled\"]",
-					"mode": 0,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p>An affected creature can repeat the save at the end of each of its turns. On a success, a frightened creature becomes rattled, and a rattled creature ends the effect. Once a creature succeeds on its initial save against this effect or recovers from it, that creature is immune to it for 24 hours.</p>",
-			"statuses": [
-				"rattled"
-			],
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"icon": "icons/equipment/head/mask-carved-wood-pink.webp",
-			"origin": "Item.zofN7O2dwM6a8EJj",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "msN1andWRfitsvkT",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
-			},
-			"transfer": false,
-			"name": "Death Mask (Frightened)",
-			"_id": "CauS8ePzPMs3WD82",
+			"name": "Frightened (Death Mask)",
+			"img": "icons/equipment/head/mask-carved-wood-pink.webp",
+			"_id": "BguH4FqB5p81wemu",
+			"type": "base",
+			"system": {},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -165,16 +148,122 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "<p>An affected creature can repeat the save at the end of each of its turns. On a success, a frightened creature becomes rattled, and a rattled creature ends the effect. Once a creature succeeds on its initial save against this effect or recovers from it, that creature is immune to it for 24 hours.</p>",
+			"description": "<ul>\n<li aria-level=\"1\">A frightened creature has <span class=\"freelinking-link\">disadvantage</span> on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li aria-level=\"1\">A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>\n<p>An affected creature can repeat the save at the end of each of its turns. </p>",
+			"tint": "#ffffff",
 			"statuses": [
 				"frightened"
 			],
-			"folder": null,
+			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.20",
+				"createdTime": null,
+				"modifiedTime": 1722345243853,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.iTBQZ8ZX71CiXT0j",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "01aVzZuEYTrjEVZe",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled (Death Mask)",
+			"img": "icons/equipment/head/mask-carved-wood-pink.webp",
+			"_id": "31RfAy86gqrAeX76",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li aria-level=\"1\">A rattled creature cannot benefit from <span class=\"freelinking-link\">expertise dice</span>.</li>\n<li aria-level=\"1\">A creature that is immune to being stunned is immune to being rattled.</li>\n<li aria-level=\"1\">A rattled creature cannot take reactions.</li>\n</ul>\n<p>An affected creature can repeat the save at the end of each of its turns. </p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": null,
+				"modifiedTime": 1722345701248,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.iTBQZ8ZX71CiXT0j",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "01aVzZuEYTrjEVZe",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Immune to Death Mask",
+			"img": "icons/equipment/head/mask-carved-wood-pink.webp",
+			"_id": "Bb0Pe1CQgjsvLjK5",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Once a creature succeeds on its initial save against Death Mask or recovers from it, that creature is immune to it for 24 hours.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": null,
+				"modifiedTime": 1722345243853,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {
@@ -183,10 +272,13 @@
 		}
 	},
 	"folder": null,
-	"_id": "ia07k0stgnlt0z5b",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.20",
+		"createdTime": 1722345243731,
+		"modifiedTime": 1722346966816,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ia07k0stgnlt0z5b"
 }

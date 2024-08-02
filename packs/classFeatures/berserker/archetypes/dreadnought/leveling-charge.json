@@ -1,8 +1,60 @@
 {
 	"name": "Leveling Charge",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/magic/movement/trail-streak-pink.webp",
+	"effects": [
+		{
+			"origin": "Item.rl0UdhtnEIkBolMq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "4rHKJVOgK1K8rf5b"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"img": "icons/magic/movement/trail-streak-pink.webp",
+			"_id": "i9nmdgCcIQElsCLb",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": 1722362164733,
+				"modifiedTime": 1722362176998,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,7 +67,61 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"4rHKJVOgK1K8rf5b": {
+				"name": "Leveling Charge",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"8nZzcdIXC44kQX5t": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "con"
+						}
+					},
+					"v8inmzPYPmkuyD73": {
+						"type": "effect",
+						"default": true,
+						"effectId": "i9nmdgCcIQElsCLb"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"p6148yKbcMXuhUQC": {
+				"name": "Knock Down",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Starting at 3rd level, if you make a successful attack after moving at least 20 feet you can attempt to knock that creature to the ground. The target must make a Strength saving throw against your Furious Critical DC or fall prone.</p><p>At 10th level, you can use a bonus action to attempt to knock down a creature that is within your reach that you pass during your Leveling Charge.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +150,17 @@
 				}
 			}
 		},
-		"classes": "berserker"
+		"classes": "berserker",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "6bp4938ilp4rluou",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.20",
+		"createdTime": 1722362021838,
+		"modifiedTime": 1722362199237,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "6bp4938ilp4rluou"
 }

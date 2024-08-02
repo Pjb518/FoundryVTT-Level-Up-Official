@@ -9,7 +9,7 @@
 		},
 		"slug": "",
 		"class": "bard",
-		"description": "<p><strong>Table: Minstrel<br></strong></p>\n<table border=\"1\"><colgroup><col><col></colgroup>\n<thead>\n<tr style=\"text-align: center;\">\n<td>Level</td>\n<td>Features</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"text-align: center;\">\n<td>3rd</td>\n<td>@UUID[Compendium.a5e.a5e-class-features.Item.ipnfxa4mvszcp5my]{Bonus Proficiency and Specialties (Minstrel)} &nbsp;@UUID[Compendium.a5e.a5e-class-features.Item.981uwmytiyqn10ts]{Better Bardic Inspiration}</td>\n</tr>\n<tr style=\"text-align: center;\">\n<td>6th</td>\n<td>@UUID[Compendium.a5e.a5e-class-features.Item.z4e04sbwshoarh1t]{Endless Legends}</td>\n</tr>\n<tr style=\"text-align: center;\">\n<td>14th</td>\n<td>@UUID[Compendium.a5e.a5e-class-features.Item.iveorul038inzciv]{Act of Unison}</td>\n</tr>\n</tbody>\n</table>",
+		"description": "<p><strong>Table: Minstrel<br></strong></p>\n<table border=\"1\"><colgroup><col><col></colgroup>\n<thead>\n<tr style=\"text-align: center;\">\n<td>Level</td>\n<td>Features</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"text-align: center;\">\n<td>3rd</td>\n<td>@UUID[Compendium.a5e.a5e-class-features.Item.4evbExIeNkkzb278]{Bonus Proficiency and Specialties} &nbsp;@UUID[Compendium.a5e.a5e-class-features.Item.981uwmytiyqn10ts]{Better Bardic Inspiration}</td>\n</tr>\n<tr style=\"text-align: center;\">\n<td>6th</td>\n<td>@UUID[Compendium.a5e.a5e-class-features.Item.z4e04sbwshoarh1t]{Endless Legends}</td>\n</tr>\n<tr style=\"text-align: center;\">\n<td>14th</td>\n<td>@UUID[Compendium.a5e.a5e-class-features.Item.iveorul038inzciv]{Act of Unison}</td>\n</tr>\n</tbody>\n</table>",
 		"grants": {
 			"nkYlW0Tdnzn3hpEg": {
 				"grantType": "feature",
@@ -21,14 +21,14 @@
 				"features": {
 					"base": [
 						{
-							"uuid": "Compendium.a5e.a5e-class-features.Item.ipnfxa4mvszcp5my",
-							"name": "Bonus Proficiency and Specialties (Minstrel)",
-							"img": "icons/svg/item-bag.svg",
+							"uuid": "Compendium.a5e.a5e-class-features.Item.981uwmytiyqn10ts",
+							"name": "Better Bardic Inspiration",
+							"img": "icons/skills/trades/music-singing-voice-blue.webp",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						},
 						{
-							"uuid": "Compendium.a5e.a5e-class-features.Item.981uwmytiyqn10ts",
+							"uuid": "Compendium.a5e.a5e-class-features.Item.4evbExIeNkkzb278",
 							"limitedReselection": true,
 							"selectionLimit": 1
 						}
@@ -56,8 +56,7 @@
 					"options": [],
 					"total": 0
 				},
-				"img": "",
-				"name": "undefined (Copy)"
+				"img": ""
 			},
 			"x9agwGjHyAni2XfY": {
 				"grantType": "feature",
@@ -77,11 +76,69 @@
 					"options": [],
 					"total": 0
 				},
-				"img": "",
-				"name": "undefined (Copy)"
+				"img": ""
 			}
 		},
-		"resources": [],
+		"resources": [
+			{
+				"name": "Inspiration Uses",
+				"consumable": true,
+				"displayOnCore": true,
+				"reference": {
+					"1": "max(@cha.mod,1)",
+					"2": "max(@cha.mod,1)",
+					"3": "max(@cha.mod,1)",
+					"4": "max(@cha.mod,1)",
+					"5": "max(@cha.mod,1)",
+					"6": "max(@cha.mod,1) + @wis.mod",
+					"7": "max(@cha.mod,1) + @wis.mod",
+					"8": "max(@cha.mod,1) + @wis.mod",
+					"9": "max(@cha.mod,1) + @wis.mod",
+					"10": "max(@cha.mod,1) + @wis.mod",
+					"11": "max(@cha.mod,1) + @wis.mod",
+					"12": "max(@cha.mod,1) + @wis.mod",
+					"13": "max(@cha.mod,1) + @wis.mod",
+					"14": "max(@cha.mod,1) + @wis.mod",
+					"15": "max(@cha.mod,1) + @wis.mod",
+					"16": "max(@cha.mod,1) + @wis.mod",
+					"17": "max(@cha.mod,1) + @wis.mod",
+					"18": "max(@cha.mod,1) + @wis.mod",
+					"19": "max(@cha.mod,1) + @wis.mod",
+					"20": "max(@cha.mod,1) + @wis.mod"
+				},
+				"recovery": "longRest",
+				"slug": "bardic-inspiration-uses"
+			},
+			{
+				"name": "Inspiration Die",
+				"consumable": false,
+				"displayOnCore": false,
+				"reference": {
+					"1": "1d6",
+					"2": "1d6",
+					"3": "1d6",
+					"4": "1d6",
+					"5": "1d8",
+					"6": "1d8 + @wis.mod",
+					"7": "1d8 + @wis.mod",
+					"8": "1d8 + @wis.mod",
+					"9": "1d8 + @wis.mod",
+					"10": "1d10 + @wis.mod",
+					"11": "1d10 + @wis.mod",
+					"12": "1d10 + @wis.mod",
+					"13": "1d10 + @wis.mod",
+					"14": "1d10 + @wis.mod",
+					"15": "1d15 + @wis.mod",
+					"16": "1d15 + @wis.mod",
+					"17": "1d15 + @wis.mod",
+					"18": "1d15 + @wis.mod",
+					"19": "1d15 + @wis.mod",
+					"20": "1d15 + @wis.mod"
+				},
+				"recovery": "",
+				"slug": "bardic-inspiration-die"
+			}
+		],
 		"source": "adventurersGuide",
 		"spellcasting": {
 			"ability": {
@@ -90,15 +147,20 @@
 				"value": "none"
 			},
 			"casterType": "fullCaster"
-		}
+		},
+		"favorite": false,
+		"secretDescription": ""
 	},
 	"effects": [],
 	"folder": null,
 	"flags": {},
-	"_id": "kl2lt0yq03bn3ke5",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.20",
+		"createdTime": 1722309038228,
+		"modifiedTime": 1722345158459,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "kl2lt0yq03bn3ke5"
 }

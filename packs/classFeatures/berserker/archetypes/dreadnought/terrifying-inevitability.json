@@ -1,8 +1,109 @@
 {
 	"name": "Terrifying Inevitability",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/magic/movement/portal-vortex-orange.webp",
+	"effects": [
+		{
+			"origin": "Item.POaFvSBtOffmSxTB",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "rhrTzpdzny8tS8os",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/magic/movement/portal-vortex-orange.webp",
+			"_id": "JR9j92wp76ipZX8d",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": 1722362474083,
+				"modifiedTime": 1722362540419,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.POaFvSBtOffmSxTB",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "rhrTzpdzny8tS8os",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Immue to Terrifying Inevitability",
+			"img": "icons/magic/movement/portal-vortex-orange.webp",
+			"_id": "moKS53eKJJnzYmwv",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 86400,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": 1722362558652,
+				"modifiedTime": 1722362581164,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -28,9 +129,11 @@
 					"value": ""
 				},
 				"area": {
-					"shape": "",
+					"shape": "emanation",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": true,
+					"quantity": 1,
+					"radius": 10
 				},
 				"target": {
 					"quantity": "",
@@ -47,7 +150,62 @@
 						"type": "savingThrow"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"ranges": {
+					"8YJBSgALOFy9DTHb": {
+						"range": "self"
+					}
+				}
+			},
+			"rhrTzpdzny8tS8os": {
+				"name": "Focus Will",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"i8uiTx0zqJV8kCW7": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "cha"
+						}
+					},
+					"FcDKEA9nRZyMnxhV": {
+						"type": "effect",
+						"default": true,
+						"effectId": "JR9j92wp76ipZX8d"
+					},
+					"7BpJzAuvI9EbIrei": {
+						"type": "effect",
+						"default": true,
+						"effectId": "moKS53eKJJnzYmwv"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"Vlg2g9R2pPaKPa0Y": {
+						"range": 10,
+						"unit": "feet"
+					}
+				}
 			}
 		},
 		"description": "<p>Beginning at 10th level, your rage exudes such an intense feeling of determination that it fills nearby foes with dread. This aura extends 10 feet from you in every direction, but not through total cover. While raging you can use a bonus action to choose one creature you can see in your aura and focus your will on it. If the creature can see or hear you, it must succeed on a Wisdom saving throw (DC equal to 8 + your proficiency bonus + your Charisma modifier) or be frightened of you until the end of your next turn. On subsequent turns, you can use your bonus action to extend the duration of this effect on the frightened creature until the end of your next turn. This effect ends if the creature ends its turn out of line of sight or more than 60 feet away from you.</p><p>A creature that successfully resists your Terrifying Inevitability is immune to its effects for 24 hours.</p>",
@@ -78,13 +236,17 @@
 				}
 			}
 		},
-		"classes": "berserker"
+		"classes": "berserker",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "rk41gjwta4k08q3x",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.20",
+		"createdTime": 1722362366284,
+		"modifiedTime": 1722362558697,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "rk41gjwta4k08q3x"
 }

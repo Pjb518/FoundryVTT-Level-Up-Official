@@ -12,7 +12,37 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"HgeOdgFKQUG1UlCC": {
+				"name": "Headsman’s Cut",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"NUSMp4CmVO4go3kV": {
+						"type": "effect",
+						"default": true,
+						"effectId": "SJDLr0sSd1ofncPC"
+					},
+					"nOgO4altm3dSZlFu": {
+						"type": "effect",
+						"default": true,
+						"effectId": "PXjW8iqg3jBOtQOY"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Also at 3rd level, you learn to use the traditional implements of an executioner to greater effect. When you enter a rage, choose a greataxe or greatsword you are wielding. The chosen weapon does additional slashing damage equal to your proficiency bonus until your rage ends. If you reduce a creature to 0 hit points while wielding one of these weapons, you may decapitate it if it has a head. If the creature can’t survive with its head removed, it dies. This effect does not apply if the target is too big for its head to be removed by the weapon (determined at the discretion of the Narrator), or it can survive the loss of its head. If the creature has multiple heads, you can choose which one to sever.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -41,16 +71,120 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker",
+		"class": ""
 	},
 	"img": "icons/skills/melee/strike-axe-blood-red.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.pIE0zfRoR9nzjDFu",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "HgeOdgFKQUG1UlCC",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Headsman’s Cut",
+			"img": "icons/skills/melee/strike-axe-blood-red.webp",
+			"_id": "SJDLr0sSd1ofncPC",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Headsman’s Cut\",\"formula\":\"@prof\",\"damageType\":\"slashing\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/skills/melee/strike-axe-blood-red.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When you enter a rage, choose a greataxe or greatsword you are wielding. The chosen weapon does additional slashing damage equal to your proficiency bonus until your rage ends.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": 1722534724411,
+				"modifiedTime": 1722534818329,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.pIE0zfRoR9nzjDFu",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "HgeOdgFKQUG1UlCC"
+				}
+			},
+			"transfer": false,
+			"name": "Cut Down",
+			"img": "icons/skills/melee/hand-grip-axe-strike-orange.webp",
+			"_id": "PXjW8iqg3jBOtQOY",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Cut Down\",\"formula\":\"1d6\",\"damageType\":\"necrotic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/skills/melee/hand-grip-axe-strike-orange.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The bonus damage from Headsman’s Cut now applies whether you are raging or not, and while you are raging, you deal an additional 1d6 points of necrotic damage with a single weapon associated with the Headsman’s Cut feature.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.20",
+				"createdTime": 1722541030269,
+				"modifiedTime": 1722541089182,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "5u9ryymp8zndum2i",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.20",
+		"createdTime": 1722534440881,
+		"modifiedTime": 1722541030304,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "5u9ryymp8zndum2i"
 }

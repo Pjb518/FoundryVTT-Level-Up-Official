@@ -12,8 +12,82 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 10th level, you become better with the implements of death and can add additional options to your repertoire. You can use Headsman’s Cut with a battle axe or bastard sword as well as a greataxe or greatsword. You can still only apply the bonus damage to a single weapon. If you have a shield or weapon in your other hand, you quickly skewer the severed head on your weapon, which cannot be wielded normally until you spend a bonus action to knock the head off (treat it as a club while the head is attached). The bonus damage from Headsman’s Cut now applies whether you are raging or not, and while you are raging, you deal an additional 1d6 points of necrotic damage with a single weapon associated with the Headsman’s Cut feature.</p>",
+		"actions": {
+			"9x9FfIeEFblJvuLp": {
+				"name": "Club",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"4loQUAEZaCc8RC8h": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"3DTZ2lWFlQONwpTn": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d4 + @str.mod",
+						"name": "Club",
+						"type": "damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"img": "icons/weapons/clubs/club-simple-black.webp"
+			},
+			"r31SVRpMKQsHFX5O": {
+				"name": "Knock Head Off",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 10th level, you become better with the implements of death and can add additional options to your repertoire. You can use @UUID[Compendium.a5e.a5e-class-features.Item.5u9ryymp8zndum2i]{Headsman&rsquo;s Cut} with a battle axe or bastard sword as well as a greataxe or greatsword. You can still only apply the bonus damage to a single weapon. If you have a shield or weapon in your other hand, you quickly skewer the severed head on your weapon, which cannot be wielded normally until you spend a bonus action to knock the head off (treat it as a club while the head is attached). The bonus damage from Headsman&rsquo;s Cut now applies whether you are raging or not, and while you are raging, you deal an additional 1d6 points of necrotic damage with a single weapon associated with the Headsman&rsquo;s Cut feature.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitJudgeJuryAndExecutioner",
@@ -41,16 +115,20 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker",
+		"class": ""
 	},
 	"img": "icons/skills/melee/hand-grip-axe-strike-orange.webp",
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "hk8hvy3pz3kuxnva",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.20",
+		"createdTime": 1722535211192,
+		"modifiedTime": 1722540982679,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "hk8hvy3pz3kuxnva"
 }
