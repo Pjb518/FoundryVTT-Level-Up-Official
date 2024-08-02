@@ -191,9 +191,9 @@ class A5eEnricherManager {
     this.#addToDataset(span, args);
 
     if (game.user?.isGM && args.dc && Number.isNumeric(args.dc)) {
-      span.innerHTML = `<i class="fa-solid fa-dice-d20"></i><span class="a5e-enricher__dc"> DC ${args.dc}</span> ${label}`;
+      span.innerHTML = `<i class="fa-solid fa-dice-d20"></i><span class="a5e-enricher__dc">DC ${args.dc}</span>${label}`;
     } else {
-      span.innerHTML = `<i class="fa-solid fa-dice-d20"></i> ${label}`;
+      span.innerHTML = `<i class="fa-solid fa-dice-d20"></i>${label}`;
     }
 
     return span;
