@@ -78,8 +78,7 @@ class A5eEnricherManager {
       }
       // skill check with or without default ability
       label = `${CONFIG.A5E.skills[args.skill]} ${label}`;
-      if (args.dc) label = `DC ${args.dc} ${label}`;
-      return this.createButton(args, label);
+      return this.createRollButton(args, label);
     }
     // Check if the ability is proper
     if (!Object.keys(CONFIG.A5E.abilities).includes(args.ability)) {
@@ -89,8 +88,7 @@ class A5eEnricherManager {
 
     // This means only the ability check is left.
     label = `${CONFIG.A5E.abilities[args.ability]} ${label}`;
-    if (args.dc && Number.isNumeric(args.dc)) label = `DC ${args.dc} ${label}`;
-    return this.createButton(args, label);
+    return this.createRollButton(args, label);
   }
 
   enrichSave(args, options) {
@@ -113,8 +111,7 @@ class A5eEnricherManager {
       }
       // Converts the first char of the type to upper case and adds to label
       label = `${args.type[0].toUpperCase()}${args.type.slice(1)} ${label}`;
-      if (args.dc) label = `DC ${args.dc} ${label}`;
-      return this.createButton(args, label);
+      return this.createRollButton(args, label);
     }
 
     // Check if the ability is proper
@@ -125,8 +122,8 @@ class A5eEnricherManager {
 
     // This means only the ability save is left.
     label = `${CONFIG.A5E.abilities[args.ability]} ${label}`;
-    if (args.dc && Number.isNumeric(args.dc)) label = `DC ${args.dc} ${label}`;
-    return this.createButton(args, label);
+
+    return this.createRollButton(args, label);
   }
 
   static addToDataset(element: HTMLElement, args: Record<string, any>) {
@@ -135,15 +132,17 @@ class A5eEnricherManager {
     }
   }
 
-  createButton(args, label) {
+  createRollButton(args, label) {
     const span = document.createElement('span');
+    span.classList.add('a5e-enricher');
     span.classList.add('a5e-enricher--roll');
     A5eEnricherManager.addToDataset(span, args);
-
-    const button = document.createElement('a');
-    button.dataset.action = 'roll';
-    button.innerHTML = `<i class="fa-solid fa-dice-d20"></i> ${label}`;
-    span.insertAdjacentElement('afterbegin', button);
+    if (args.dc && Number.isNumeric(args.dc)) {
+      span.innerHTML = `<i class="fa-solid fa-dice-d20"></i><span class="a5e-enricher__dc"> DC ${args.dc}</span> ${label}`;
+    }
+    else {
+      span.innerHTML = `<i class="fa-solid fa-dice-d20"></i> ${label}`;
+    }
     return span;
   }
 
