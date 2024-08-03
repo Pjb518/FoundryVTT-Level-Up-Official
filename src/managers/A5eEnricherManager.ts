@@ -259,16 +259,9 @@ class A5eEnricherManager {
     if (!target) return;
     event.stopPropagation();
 
-    const selectedToken = canvas?.tokens?.controlled[0];
-    if (!selectedToken) {
-      ui.notifications?.error('No token selected.');
-      return;
-    }
-
-    // @ts-expect-error
-    const { actor }: { actor: BaseActorA5e | null } = selectedToken;
-    if (!actor) {
-      ui.notifications?.error('No actor found on given token.');
+    const selectedTokens = canvas?.tokens?.controlled;
+    if (!selectedTokens || selectedTokens.length === 0) {
+      ui.notifications?.error('No tokens selected.');
       return;
     }
 
@@ -292,13 +285,29 @@ class A5eEnricherManager {
         } as Record<string, { name: string, type: string }>;
 
         const rollOptions = this.#getOptions(target, skillOptions);
-        actor.rollSkillCheck(dataset.skill, rollOptions);
-        return;
-      }
 
-      if (dataset.ability) {
+        for (const selectedToken of selectedTokens) {
+          // @ts-expect-error
+          const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+          if (!actor) {
+            ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
+            continue;
+          }
+          actor.rollSkillCheck(dataset.skill, rollOptions);
+        }
+      }
+      else if (dataset.ability) {
         const rollOptions = this.#getOptions(target, universalOptions);
-        actor.rollAbilityCheck(dataset.ability, rollOptions);
+        for (const selectedToken of selectedTokens) {
+          // @ts-expect-error
+          const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+          if (!actor) {
+            ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
+            continue;
+          }
+          actor.rollAbilityCheck(dataset.ability, rollOptions);
+        }
+
         return;
       }
     }
@@ -312,17 +321,43 @@ class A5eEnricherManager {
       const rollOptions = this.#getOptions(target, saveOptions);
 
       if (dataset.type === 'death') {
-        actor.rollDeathSavingThrow(rollOptions);
+        for (const selectedToken of selectedTokens) {
+          // @ts-expect-error
+          const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+          if (!actor) {
+            ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
+            continue;
+          }
+          actor.rollDeathSavingThrow(rollOptions);
+        }
+
         return;
       }
 
       if (dataset.type === 'concentration') {
-        actor.rollSavingThrow('con', rollOptions);
+        for (const selectedToken of selectedTokens) {
+          // @ts-expect-error
+          const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+          if (!actor) {
+            ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
+            continue;
+          }
+          actor.rollSavingThrow('con', rollOptions);
+        }
+
         return;
       }
 
       if (dataset.ability) {
-        actor.rollSavingThrow(dataset.ability, rollOptions);
+        for (const selectedToken of selectedTokens) {
+          // @ts-expect-error
+          const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+          if (!actor) {
+            ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
+            continue;
+          }
+          actor.rollSavingThrow(dataset.ability, rollOptions);
+        }
       }
     }
   }
@@ -392,16 +427,9 @@ class A5eEnricherManager {
     if (!target) return;
     event.stopPropagation();
 
-    const selectedToken = canvas?.tokens?.controlled[0];
-    if (!selectedToken) {
-      ui.notifications?.error('No token selected.');
-      return;
-    }
-
-    // @ts-expect-error
-    const { actor }: { actor: BaseActorA5e | null } = selectedToken;
-    if (!actor) {
-      ui.notifications?.error('No actor found on given token.');
+    const selectedTokens = canvas?.tokens?.controlled;
+    if (!selectedTokens || selectedTokens.length === 0) {
+      ui.notifications?.error('No tokens selected.');
       return;
     }
 
@@ -413,7 +441,15 @@ class A5eEnricherManager {
       };
       const { id } = this.#getOptions(target, conditionOptions);
 
-      actor.toggleStatusEffect(id);
+      for (const selectedToken of selectedTokens) {
+        // @ts-expect-error
+        const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+        if (!actor) {
+          ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
+          continue;
+        }
+        actor.toggleStatusEffect(id);
+      }
     }
   }
 }
