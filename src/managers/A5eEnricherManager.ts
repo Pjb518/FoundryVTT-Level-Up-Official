@@ -348,10 +348,12 @@ class A5eEnricherManager {
       ui.notifications?.error('Enricher is missing condition id.');
       return null;
     }
+
     if (!Object.keys(CONFIG.A5E.conditions).includes(id)) {
       ui.notifications?.error(`Invalid condition ${id}`);
       return null;
     }
+
     const label = CONFIG.A5E.conditions[id] as string;
     return this.#createEffectButton(args, label);
   }
@@ -410,6 +412,7 @@ class A5eEnricherManager {
         id: { name: 'id', type: 'string' }
       };
       const { id } = this.#getOptions(target, conditionOptions);
+
       actor.toggleStatusEffect(id);
     }
   }
