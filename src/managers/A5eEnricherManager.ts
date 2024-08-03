@@ -295,8 +295,9 @@ class A5eEnricherManager {
           }
           actor.rollSkillCheck(dataset.skill, rollOptions);
         }
+        return;
       }
-      else if (dataset.ability) {
+      if (dataset.ability) {
         const rollOptions = this.#getOptions(target, universalOptions);
         for (const selectedToken of selectedTokens) {
           // @ts-expect-error
