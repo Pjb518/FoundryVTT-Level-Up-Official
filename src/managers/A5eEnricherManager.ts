@@ -9,7 +9,7 @@ class A5eEnricherManager {
    * Pushes enrichers to config and adds
   */
   registerCustomEnrichers() {
-    const enricherTypes = ['check', 'save'];
+    const enricherTypes = ['check', 'save', 'condition'];
 
     CONFIG.TextEditor.enrichers.push({
       /**
@@ -22,6 +22,7 @@ class A5eEnricherManager {
 
     // FIXME: This is inefficient
     document.body.addEventListener('click', this.onRoll.bind(this));
+    document.body.addEventListener('click', this.onEffect.bind(this));
   }
 
   /**
@@ -37,24 +38,30 @@ class A5eEnricherManager {
   ): Promise<HTMLElement | null> {
     const { enricherType, argString } = match.groups as { enricherType: string, argString: string };
 
-    const args = A5eEnricherManager.parseArguments(argString);
+    const args = this.#parseArguments(argString);
     args.enricherType = enricherType.toLowerCase();
 
     if (enricherType === 'check') {
       return this.#enrichCheck(args, options);
     } if (enricherType === 'save') {
       return this.#enrichSave(args, options);
+    } if (enricherType === 'condition') {
+      return this.#enrichCondition(args, options);
     }
 
     return null;
   }
+
+  /* -------------------------------------------- */
+  /*  Helpers                                     */
+  /* -------------------------------------------- */
 
   /**
    * Parses the arguments into record format and parses into int if possible.
    * @param argString   The raw arguments string
    * @returns An indexed array of config item tuples [arg, val]
   */
-  static parseArguments(argString: string): Record<string, any> {
+  #parseArguments(argString: string): Record<string, any> {
     const args = argString.toLowerCase().split(' ').filter(Boolean);
     const structured: Record<string, any> = {};
 
@@ -65,6 +72,57 @@ class A5eEnricherManager {
 
     return structured;
   }
+
+  /**
+   * Copies the entries of a record onto the dataset of an HTML element.
+   * @param element    HTML element to contain entries.
+   * @param args       Record of entries to be stored in element.
+  */
+  #addToDataset(element: HTMLElement, args: Record<string, any>) {
+    for (const [key, val] of Object.entries(args)) {
+      if (val) element.dataset[key] = val as string;
+    }
+  }
+
+  /**
+   * Creates a record containing the entries of an HTML element's dataset.
+   * If validOptions is provided, only copies records listed in validOptions
+   * and maps to mapped keys.
+   * @param element        HTML element containing entries.
+   * @param validOptions   Optional record of valid options and key mappings.
+   *                       Key is key to search for in dataset.
+   *                       Value is what key in destination to map value to.
+   * @returns A record containing entries from element dataset.
+  */
+  #getOptions(
+    element: HTMLElement,
+    validOptions?: Record<string, { name: string, type: string }>
+  ): Record<string, any> {
+    const optionsRecord: Record<string, any> = {};
+
+    Object.entries(element.dataset).forEach(([key, val]) => {
+      if (!val) return;
+
+      if (!validOptions) {
+        optionsRecord[key] = val;
+        return;
+      }
+
+      if (!(key in validOptions)) return;
+
+      const { name, type } = validOptions[key];
+
+      if (type === 'number') optionsRecord[name] = parseInt(val, 10);
+      else if (type === 'boolean') optionsRecord[name] = Boolean(val);
+      else optionsRecord[name] = val;
+    });
+
+    return optionsRecord;
+  }
+
+  /* -------------------------------------------- */
+  /*  Rolling Enrichers: Save + Check             */
+  /* -------------------------------------------- */
 
   /**
    * Provides basic argument validation for checks and provides replacement for the enriched text.
@@ -166,17 +224,6 @@ class A5eEnricherManager {
   }
 
   /**
-   * Copies the entries of a record onto the dataset of an HTML element.
-   * @param element    HTML element to contain entries.
-   * @param args       Record of entries to be stored in element.
-  */
-  #addToDataset(element: HTMLElement, args: Record<string, any>) {
-    for (const [key, val] of Object.entries(args)) {
-      if (val) element.dataset[key] = val as string;
-    }
-  }
-
-  /**
    * Creates a roll button to replace enriched text.
    * @param args    Record of arguments passed in and stored in element.
    * @param label   The label for the output button
@@ -197,41 +244,6 @@ class A5eEnricherManager {
     }
 
     return span;
-  }
-
-  /**
-   * Creates a record containing the entries of an HTML element's dataset.
-   * If validOptions is provided, only copies records listed in validOptions
-   * and maps to mapped keys.
-   * @param element        HTML element containing entries.
-   * @param validOptions   Optional record of valid options and key mappings.
-   *                       Key is key to search for in dataset.
-   *                       Value is what key in destination to map value to.
-   * @returns A record containing entries from element dataset.
-  */
-  #getOptions(
-    element: HTMLElement,
-    validOptions?: Record<string, { name: string, type: string }>
-  ): Record<string, any> {
-    const optionsRecord: Record<string, any> = {};
-
-    Object.entries(element.dataset).forEach(([key, val]) => {
-      if (!val) return;
-
-      if (!validOptions) {
-        optionsRecord[key] = val;
-        return;
-      }
-
-      if (!(key in validOptions)) return;
-
-      const { name, type } = validOptions[key];
-
-      if (type === 'number') optionsRecord[name] = parseInt(val, 10);
-      else optionsRecord[name] = val;
-    });
-
-    return optionsRecord;
   }
 
   /**
@@ -267,7 +279,7 @@ class A5eEnricherManager {
       expertisedice: { name: 'expertiseDice', type: 'number' },
       rollmode: { name: 'rollMode', type: 'number' },
       situationalmods: { name: 'situationalMods', type: 'string' },
-      skiprolldialog: { name: 'skipRollDialog', type: 'string' },
+      skiprolldialog: { name: 'skipRollDialog', type: 'boolean' },
       visibilitymode: { name: 'visibilityMode', type: 'string' }
     } as Record<string, { name: string, type: string }>;
 
@@ -312,6 +324,96 @@ class A5eEnricherManager {
       if (dataset.ability) {
         actor.rollSavingThrow(dataset.ability, rollOptions);
       }
+    }
+  }
+
+  /* -------------------------------------------- */
+  /*  Effect Enrichers: Condition                 */
+  /* -------------------------------------------- */
+
+  /**
+   * Provides basic argument validation for saves and provides replacement for the enriched text.
+   * @param args      Record of arguments passed in.
+   * @param options   Options provided to customize text enrichment. Unused
+   * @returns An HTML element to insert in place of the matched text or
+   *          null to indicate that no replacement should be made.
+  */
+  async #enrichCondition(
+    args: Record<string, any>,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    options?: TextEditor.EnrichmentOptions
+  ): Promise<HTMLElement | null> {
+    const { id }: { id?: string } = args;
+    if (!id) {
+      ui.notifications?.error('Enricher is missing condition id.');
+      return null;
+    }
+
+    if (!Object.keys(CONFIG.A5E.conditions).includes(id)) {
+      ui.notifications?.error(`Invalid condition ${id}`);
+      return null;
+    }
+
+    const label = CONFIG.A5E.conditions[id] as string;
+    return this.#createEffectButton(args, label);
+  }
+
+  /**
+   * Creates a effect button to replace enriched text.
+   * @param args    Record of arguments passed in and stored in element.
+   * @param label   The label for the output button
+   * @returns An HTML element to insert in place of the matched text or
+   *          null to indicate that no replacement should be made.
+  */
+  async #createEffectButton(args: Record<string, any>, label: string): Promise<HTMLElement | null> {
+    const span = document.createElement('span');
+    span.classList.add('a5e-enricher');
+    span.classList.add('a5e-enricher--effect');
+
+    this.#addToDataset(span, args);
+
+    // @ts-expect-error
+    const icon = CONFIG.statusEffects.find((s) => s.id === args.id)?.img;
+
+    span.innerHTML = `<img src="${icon}"></i>${label}`;
+    return span;
+  }
+
+  /**
+   * Parses information based on button clicked and calls appropriate effect function.
+   * @param event   Triggering click event.
+  */
+  onEffect(event: MouseEvent): void {
+    // FIXME: Try not doing a closest search.
+    const target = (
+      event.target as (HTMLElement | null)
+    )?.closest('.a5e-enricher--effect') as (HTMLElement | null);
+
+    if (!target) return;
+    event.stopPropagation();
+
+    const selectedToken = canvas?.tokens?.controlled[0];
+    if (!selectedToken) {
+      ui.notifications?.error('No token selected.');
+      return;
+    }
+
+    // @ts-expect-error
+    const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+    if (!actor) {
+      ui.notifications?.error('No actor found on given token.');
+      return;
+    }
+
+    const { dataset } = target;
+
+    if (dataset.enricherType === 'condition') {
+      const conditionOptions = {
+        id: { name: 'id', type: 'string' }
+      };
+      const { id } = this.#getOptions(target, conditionOptions);
+
+      actor.toggleStatusEffect(id);
     }
   }
 }
