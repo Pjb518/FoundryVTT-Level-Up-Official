@@ -22,6 +22,7 @@ class A5eEnricherManager {
 
     // FIXME: This is inefficient
     document.body.addEventListener('click', this.onRoll.bind(this));
+    document.body.addEventListener('click', this.onEffect.bind(this));
   }
 
   /**
@@ -374,6 +375,43 @@ class A5eEnricherManager {
 
     span.innerHTML = `<img src="${icon}"></i>${label}`;
     return span;
+  }
+
+  /**
+   * Parses information based on button clicked and calls appropriate effect function.
+   * @param event   Triggering click event.
+  */
+  onEffect(event: MouseEvent): void {
+    // FIXME: Try not doing a closest search.
+    const target = (
+      event.target as (HTMLElement | null)
+    )?.closest('.a5e-enricher--effect') as (HTMLElement | null);
+
+    if (!target) return;
+    event.stopPropagation();
+
+    const selectedToken = canvas?.tokens?.controlled[0];
+    if (!selectedToken) {
+      ui.notifications?.error('No token selected.');
+      return;
+    }
+
+    // @ts-expect-error
+    const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+    if (!actor) {
+      ui.notifications?.error('No actor found on given token.');
+      return;
+    }
+
+    const { dataset } = target;
+
+    if (dataset.enricherType === 'condition') {
+      const conditionOptions = {
+        id: { name: 'id', type: 'string' }
+      };
+      const { id } = this.#getOptions(target, conditionOptions);
+      actor.toggleStatusEffect(id);
+    }
   }
 }
 
