@@ -183,6 +183,13 @@ export default function init() {
     label: 'A5E.SheetClassNPC'
   });
 
+  // @ts-expect-error
+  Actors.registerSheet('a5e', ActorSheetA5e, {
+    types: ['narrator'],
+    makeDefault: true,
+    label: 'A5E.SheetClassNarrator'
+  });
+
   Items.unregisterSheet('core', ItemSheet);
   // @ts-expect-error
   Items.registerSheet('a5e', ItemSheetA5e, {

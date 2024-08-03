@@ -34,14 +34,18 @@
             <section>
                 <CharacterShields />
             </section>
-        {:else}
+        {:else if $actor.type === "npc"}
             <section>
                 <NpcShields />
             </section>
         {/if}
     </section>
 
-    <AbilityScores />
+	{#if $actor.type !== "narrator"}
+            <section>
+                   <AbilityScores />
+            </section>
+	{/if}
 </header>
 
 <style>

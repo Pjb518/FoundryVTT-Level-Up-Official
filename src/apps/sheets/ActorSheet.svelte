@@ -77,6 +77,7 @@
                 label: "A5E.TabInventory",
                 icon: "fa-solid fa-box-open",
                 component: ActorInventoryPage,
+		display: actor.type !== "narrator",
             },
             {
                 name: "features",

@@ -1,5 +1,6 @@
 import CharacterActorA5E from '../documents/actor/character';
 import NPCActorA5E from '../documents/actor/npc';
+import NarratorActorA5E from '../documents/actor/narrator';
 
 import ArchetypeItemA5e from '../documents/item/archetype';
 import ClassItemA5e from '../documents/item/class';
@@ -13,7 +14,8 @@ export default function registerDocumentConfig() {
     Actor: {
       documentClasses: {
         character: CharacterActorA5E,
-        npc: NPCActorA5E
+        npc: NPCActorA5E,
+	narrator: NarratorActorA5E
       }
     },
 
