@@ -8,7 +8,7 @@ export default class ActorRollOverrideGrant extends ActorBaseGrant {
     rollMode: number;
   };
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {

@@ -11,7 +11,7 @@ export default class SettingsShim extends FormApplication {
     //
   }
 
-  render(): void {
+  override render(): void {
     this.close();
   }
 }

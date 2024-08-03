@@ -19,7 +19,7 @@ export default class SchemaDataModel extends foundry.abstract.TypeDataModel<
   SchemaSchema
   , Item.ConfiguredInstance
 > {
-  static defineSchema(): SchemaSchema {
+  static override defineSchema(): SchemaSchema {
     return {
       schemaVersion: new foundry.data.fields.SchemaField({
         version: new foundry.data.fields.NumberField({

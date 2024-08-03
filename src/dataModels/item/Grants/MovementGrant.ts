@@ -12,7 +12,7 @@ export default class MovementGrant extends BaseGrant {
 
   #type = 'movement';
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -35,7 +35,7 @@ export default class MovementGrant extends BaseGrant {
     });
   }
 
-  getApplyData(actor: any, data: any) {
+  override getApplyData(actor: any, data: any) {
     if (!actor) return {};
 
     const bonusId = foundry.utils.randomID();
@@ -68,11 +68,11 @@ export default class MovementGrant extends BaseGrant {
     };
   }
 
-  getSelectionComponent() {
+  override getSelectionComponent() {
     return this.#component;
   }
 
-  getSelectionComponentProps(data: Record<string, any>) {
+  override getSelectionComponentProps(data: Record<string, any>) {
     return {
       base: this.movementTypes.base ?? [],
       bonus: this.bonus,
@@ -85,7 +85,7 @@ export default class MovementGrant extends BaseGrant {
     };
   }
 
-  requiresConfig() {
+  override requiresConfig() {
     return this.movementTypes.options.length;
   }
 

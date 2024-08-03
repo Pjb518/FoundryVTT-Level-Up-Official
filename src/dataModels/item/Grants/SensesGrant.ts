@@ -12,7 +12,7 @@ export default class SensesGrant extends BaseGrant {
 
   #type = 'senses';
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -35,7 +35,7 @@ export default class SensesGrant extends BaseGrant {
     });
   }
 
-  getApplyData(actor: any, data: any) {
+  override getApplyData(actor: any, data: any) {
     if (!actor) return {};
 
     const bonusId = foundry.utils.randomID();
@@ -68,11 +68,11 @@ export default class SensesGrant extends BaseGrant {
     };
   }
 
-  getSelectionComponent() {
+  override getSelectionComponent() {
     return this.#component;
   }
 
-  getSelectionComponentProps(data: Record<string, any>) {
+  override getSelectionComponentProps(data: Record<string, any>) {
     return {
       base: this.senses.base ?? [],
       bonus: this.bonus,
@@ -85,7 +85,7 @@ export default class SensesGrant extends BaseGrant {
     };
   }
 
-  requiresConfig() {
+  override requiresConfig() {
     return this.senses.options.length;
   }
 

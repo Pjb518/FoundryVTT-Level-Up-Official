@@ -9,7 +9,7 @@ export default class InitiativeGrant extends BaseGrant {
 
   #type = 'initiative';
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -20,7 +20,7 @@ export default class InitiativeGrant extends BaseGrant {
     });
   }
 
-  getApplyData(actor: any): any {
+  override getApplyData(actor: any): any {
     if (!actor) return {};
 
     // Construct bonus
@@ -53,11 +53,11 @@ export default class InitiativeGrant extends BaseGrant {
     };
   }
 
-  getSelectionComponent() { return null; }
+  override getSelectionComponent() { return null; }
 
-  getSelectionComponentProps() { return null; }
+  override getSelectionComponentProps() { return null; }
 
-  requiresConfig() { return false; }
+  override requiresConfig() { return false; }
 
   override async configureGrant() {
     const dialogData = {
