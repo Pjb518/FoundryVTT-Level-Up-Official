@@ -2,7 +2,63 @@
 	"name": "Mounted Wrath",
 	"type": "feature",
 	"img": "icons/environment/creatures/horse-tan.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.KRPpVFcruuDFkDYk",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "8r0RtYev2f6yZLzm"
+				}
+			},
+			"transfer": false,
+			"name": "Mounted Wrath",
+			"img": "icons/environment/creatures/horse-tan.webp",
+			"_id": "eceGtCoIUc1h2oGO",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"bludgeoning\",\"piercing\",\"slashing\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "10",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While you are raging, your mount also gains resistance to bludgeoning, piercing, and slashing damage and its speed increases by 10 feet.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722712088589,
+				"modifiedTime": 1722712123521,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,7 +71,32 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"8r0RtYev2f6yZLzm": {
+				"name": "Mounted Wrath",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"mME6RokhYeSZcRti": {
+						"type": "effect",
+						"default": true,
+						"effectId": "eceGtCoIUc1h2oGO"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Also at 3rd level, you gain access to the Spirited Steed combat tradition and you may select a Spirited Steed maneuver that you qualify for. It does not count against your maneuvers known.</p><p>Additionally, while you are raging, your mount also gains resistance to bludgeoning, piercing, and slashing damage and its speed increases by 10 feet.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -31,7 +112,24 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"H4V11jFATsmndG7R": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "H4V11jFATsmndG7R",
+				"keys": {
+					"base": [
+						"spiritedSteed"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "tradition",
+				"label": "Mounted Wrath"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -44,13 +142,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "ik427pttg98uj2mt",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722712026406,
+		"modifiedTime": 1722712088630,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ik427pttg98uj2mt"
 }
