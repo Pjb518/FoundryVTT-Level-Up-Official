@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Regular Sacrifice (Sacrificial Ritemaster)",
+	"name": "Regular Sacrifice",
 	"type": "feature",
 	"img": "icons/magic/fire/flame-burning-campfire-red.webp",
 	"system": {
@@ -14,7 +14,34 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"31LfYBVDNlv0U5wJ": {
+				"name": "Regular Sacrifice",
+				"activation": {},
+				"consumers": {
+					"35xgy3NGPGYgOlp3": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.wild-shape",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 10th level you can expend a use of wildshape to mark a creature for sacrifice, in addition to your normal uses.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -31,7 +58,7 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": "Druid Level 10; Sacrificial Ritemaster Archetype",
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -43,14 +70,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "druid",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "64ngp9sfs9gb20u4",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722893358894,
+		"modifiedTime": 1722893396450,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "64ngp9sfs9gb20u4"
 }
