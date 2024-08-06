@@ -14,15 +14,68 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"zvceLoeSaAXSixeu": {
+				"name": "Field Salter",
+				"activation": {
+					"type": "hour",
+					"cost": 8
+				},
+				"consumers": {
+					"2QwwPd051iuxZDDR": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"PnuJxczontU2Wxer": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ZOojgYOMxSRXfMGj"
+					},
+					"2qPyn9K9l94H02Ac": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"blM428p4cpjr3E8u": {
+						"type": "effect",
+						"default": true,
+						"effectId": "l5nNnjfKkei941xn"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"9hepcDDPxf2wkwag": {
+						"range": 5,
+						"unit": "miles"
+					}
+				}
+			}
+		},
 		"description": "<p>At 10th level, your connection to undeath allows you to forcibly tear the life from the earth. Once a month, you can perform a special ritual requiring you to take 2 levels of fatigue and 2 levels of strife and 8 hours of uninterrupted work to blight a wide swath of territory. Upon the successful completion of the ritual, all of the vegetation and creatures weighing less than 5 pounds within a 5-mile radius immediately die and begin decomposing into putrid, toxic ichor. Creatures weighing more than 5 pounds must make a Constitution save against your spell save DC or gain a level of fatigue. Nothing will grow in this area again for a year unless it is ritually purified, which takes a 100gp of reagents and a month of 8-hour days of ritual work from trained spellcasters per affected square mile. At the Narrator&rsquo;s discretion, other methods such as divine intervention, the @UUID[Compendium.a5e.a5e-spells.Item.r6eshb9jaeqc70mp]{Hallow}<em>&nbsp;</em>spell, or similar means may also be able to end the curse.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "month",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -43,16 +96,124 @@
 				}
 			}
 		},
-		"classes": [
-			"druid"
-		]
+		"classes": "druid",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.4QohnohmfxG7gObG",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "zvceLoeSaAXSixeu",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Field Salter (Self)",
+			"img": "icons/magic/death/grave-tombstone-glow-teal.webp",
+			"_id": "ZOojgYOMxSRXfMGj",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.strife",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Yyou to take 2 levels of fatigue and 2 levels of strife.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722965553040,
+				"modifiedTime": 1722965630909,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.4QohnohmfxG7gObG",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "zvceLoeSaAXSixeu"
+				}
+			},
+			"transfer": false,
+			"name": "Field Salter",
+			"img": "icons/magic/death/grave-tombstone-glow-teal.webp",
+			"_id": "l5nNnjfKkei941xn",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722965635359,
+				"modifiedTime": 1722965652867,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "0348y1c2cz7qxjqy",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722965528762,
+		"modifiedTime": 1722965678466,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "0348y1c2cz7qxjqy"
 }
