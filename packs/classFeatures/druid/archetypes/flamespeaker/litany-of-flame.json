@@ -14,57 +14,27 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"8TO90JjMWS05nylJ": {
-				"name": "Litany of Flame (Ignite)",
+			"QhKJUVORrEsMbVy7": {
+				"name": "Use Feature",
 				"activation": {
 					"type": "action",
 					"cost": 1
 				},
-				"consumers": {},
-				"rolls": {
-					"9MQyEo948bUY4hcC": {
-						"type": "damage",
+				"consumers": {
+					"Y9ZpyRDHWA1oVoWS": {
+						"type": "resource",
 						"default": true,
-						"formula": "3d6",
-						"damageType": "fire"
+						"classIdentifier": "@classResources.wild-shape",
+						"resource": "classResource",
+						"quantity": 1
 					}
 				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"description": "<p dir=\"ltr\" role=\"presentation\">As an action you may cause a creature within 30 feet of you to ignite, taking 3d6 fire damage and 1d6 ongoing fire damage. A creature may spend an action to put the fire out, ending the ongoing damage.</p>",
-				"duration": {
-					"unit": "",
-					"value": 1
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				},
-				"descriptionOutputs": [
-					"action"
-				]
-			},
-			"nQfkCKwOMIAhPEea": {
-				"name": "Litany of Flame (Activate)",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {},
 				"rolls": {},
 				"prompts": {
-					"oFamn6SLCPnXoIbM": {
+					"cHRBsGlF9ozgXKvD": {
 						"type": "effect",
 						"default": true,
-						"effectId": "OfSaNtMP2N2UAEon"
+						"effectId": "qlqImJQ3XX79Q60F"
 					}
 				},
 				"uses": {
@@ -79,16 +49,142 @@
 					}
 				},
 				"duration": {
-					"unit": "",
-					"value": 1
+					"unit": "minute",
+					"value": 10
+				}
+			},
+			"6Lxch7c6jRaRuAFQ": {
+				"name": "Ignite Creature",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"40bjw9q7fTK7HKG3": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d6",
+						"damageType": "fire",
+						"canCrit": false
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"5HxP66Ol18f0trAI": {
+						"range": "short"
+					}
 				},
 				"target": {
-					"type": "self",
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"7UmMJp5IQCp5V69q": {
+				"name": "Ignite Creature (Ongoing Damage)",
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"40bjw9q7fTK7HKG3": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "fire",
+						"canCrit": false
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {}
+			},
+			"r5fB6K0Z37Q7dHGy": {
+				"name": "Ignite Area",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "square",
+					"quantity": 1,
+					"width": 10,
+					"placeTemplate": true
+				},
+				"ranges": {
+					"EsusZvzSEKXMAk4x": {
+						"range": "short"
+					}
+				}
+			},
+			"JEtKjSg3L220WhMk": {
+				"name": "Ghostly Flames",
+				"activation": {
+					"type": "reaction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"nURFblV5jRy3LIWD": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
 					"quantity": 1
 				}
 			}
 		},
-		"description": "<p dir=\"ltr\">At 14th level, you learn the Litany of Flame. To use it, you must spend a use of your Wild Shape and an action. Once it has begun, you must concentrate on it like a spell, and you may keep it active for up to 10 minutes. While the Litany of Flame is active you gain the following effects:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You continuously chant the Litany, precluding you from casting spells.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain immunity to fire damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You shed bright light in a 50-foot radius around you and dim light a further 50 feet beyond that. The light is considered daylight.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain unlimited use of Brand of Flame.&nbsp;</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain the benefits of Eyes of Flame.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">As an action you may cause a creature within 30 feet of you to ignite, taking 3d6 fire damage and 1d6 ongoing fire damage. A creature may spend an action to put the fire out, ending the ongoing damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">As a bonus action, you may ignite a 10-foot square into flames. It is affected as per the Fire encounter element.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">As a reaction, you may cause a creature within 60 feet of you whose presence you are aware of to be outlined in ghostly flames as if it were affected by @UUID[Compendium.a5e.a5e-spells.Item.z7r6plq6vyesck07]{Faerie Fire}. If you stop chanting or lose concentration, the effect ends.</p>\n</li>\n</ul>\n<p>&nbsp;</p>",
+		"description": "<p dir=\"ltr\">At 14th level, you learn the Litany of Flame. To use it, you must spend a use of your Wild Shape and an action. Once it has begun, you must concentrate on it like a spell, and you may keep it active for up to 10 minutes. While the Litany of Flame is active you gain the following effects:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You continuously chant the Litany, precluding you from casting spells.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain immunity to fire damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You shed bright light in a 50-foot radius around you and dim light a further 50 feet beyond that. The light is considered daylight.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain unlimited use of @UUID[Compendium.a5e.a5e-class-features.Item.brs5ieevwfasrb6u]{Brand of Flame}.&nbsp;</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain the benefits of @UUID[Compendium.a5e.a5e-class-features.Item.hm481xz98jml7nbb]{Eyes of Piercing Flame}.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">As an action you may cause a creature within 30 feet of you to ignite, taking 3d6 fire damage and 1d6 ongoing fire damage. A creature may spend an action to put the fire out, ending the ongoing damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">As a bonus action, you may ignite a 10-foot square into flames, within 30 feet of you. It is affected as per the Fire encounter element.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">As a reaction, you may cause a creature within 60 feet of you whose presence you are aware of to be outlined in ghostly flames as if it were affected by @UUID[Compendium.a5e.a5e-spells.Item.z7r6plq6vyesck07]{Faerie Fire}. If you stop chanting or lose concentration, the effect ends.</p>\n</li>\n</ul>\n<p>&nbsp;</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -101,7 +197,7 @@
 				"threshold": 6
 			}
 		},
-		"concentration": false,
+		"concentration": true,
 		"featureType": "class",
 		"grants": {},
 		"prerequisite": "",
@@ -116,19 +212,17 @@
 				}
 			}
 		},
-		"classes": [
-			"druid"
-		]
+		"classes": "druid",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/fire/beam-jet-stream-yellow.webp",
-			"origin": "Item.fkSQjgx4zBZ00yXK",
+			"origin": "Item.m7HPL4XWhqyyLmha",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "nQfkCKwOMIAhPEea",
+					"actionId": "QhKJUVORrEsMbVy7",
 					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
@@ -137,7 +231,10 @@
 			},
 			"transfer": false,
 			"name": "Litany of Flame",
-			"_id": "OfSaNtMP2N2UAEon",
+			"img": "icons/magic/fire/beam-jet-stream-yellow.webp",
+			"_id": "qlqImJQ3XX79Q60F",
+			"type": "base",
+			"system": {},
 			"changes": [
 				{
 					"key": "system.traits.damageImmunities",
@@ -153,8 +250,20 @@
 				},
 				{
 					"key": "@token.light.dim",
-					"value": "50",
+					"value": "100",
 					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"invisible\"]",
+					"mode": 2,
 					"priority": null
 				}
 			],
@@ -168,22 +277,32 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "<p dir=\"ltr\">Once it has begun, you must concentrate on it like a spell, and you may keep it active for up to 10 minutes. While the Litany of Flame is active you gain the following effects:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You continuously chant the Litany, precluding you from casting spells.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You gain immunity to fire damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You shed bright light in a 50-foot radius around you and dim light a further 50 feet beyond that. The light is considered daylight.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You gain unlimited use of Brand of Flame. </p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">You gain the benefits of Eyes of Flame.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">As an action you may cause a creature within 30 feet of you to ignite, taking 3d6 fire damage and 1d6 ongoing fire damage. A creature may spend an action to put the fire out, ending the ongoing damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">As a bonus action, you may ignite a 10-foot square into flames. It is affected as per the Fire encounter element.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\">As a reaction, you may cause a creature within 60 feet of you whose presence you are aware of to be outlined in ghostly flames as if it were affected by faerie fire.If you stop chanting or lose concentration, the effect ends.</p>\n</li>\n</ul>",
+			"description": "<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You continuously chant the Litany, precluding you from casting spells.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain immunity to fire damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You shed bright light in a 50-foot radius around you and dim light a further 50 feet beyond that. The light is considered daylight.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain unlimited use of Brand of Flame. </p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain the benefits of Eyes of Piercing Flame.</p>\n</li>\n</ul>",
+			"tint": "#ffffff",
 			"statuses": [],
-			"folder": null,
+			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.21",
+				"createdTime": 1722963725177,
+				"modifiedTime": 1722964845165,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {},
 	"folder": null,
-	"_id": "n4rr9bnmlurkisw0",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722963636381,
+		"modifiedTime": 1722964949173,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "n4rr9bnmlurkisw0"
 }
