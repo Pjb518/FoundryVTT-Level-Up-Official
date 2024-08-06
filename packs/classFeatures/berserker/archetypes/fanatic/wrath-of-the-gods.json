@@ -13,7 +13,32 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"Hfy3ba6x5LbzqSCC": {
+				"name": "Wrath of the Gods",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"01Rv6lqbBh11wlgT": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XUh3SgoOTvAyTmTZ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 14th level, you gain the benefits of a @UUID[Compendium.a5e.a5e-spells.xnm2hvlfzqp792tz]{Bless} spell whenever you enter a rage. This version of the spell counts as 7th level, does not require concentration, and lasts for the duration of the rage or until dispelled.</p><p>In addition, if you chose radiant as your damage type you gain your choice of the Lawful, Good, or Lawful and Good alignment traits. If you chose necrotic damage you gain your choice of the Evil, Chaotic, or Chaotic and Evil alignment traits.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -29,7 +54,45 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"xT5l5ZPcL83TFj3M": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "xT5l5ZPcL83TFj3M",
+				"traits": {
+					"base": [],
+					"options": [
+						"lawful",
+						"good"
+					],
+					"total": 2,
+					"traitType": "alignment"
+				},
+				"label": "Radiant",
+				"img": ""
+			},
+			"c2lNqRItn1mkkc4u": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "xT5l5ZPcL83TFj3M",
+				"traits": {
+					"base": [],
+					"options": [
+						"evil",
+						"chaotic"
+					],
+					"total": 2,
+					"traitType": "alignment"
+				},
+				"label": "Necrotic",
+				"img": "",
+				"name": "undefined (Copy)"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -42,15 +105,70 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.tAH9Kb1ZS7Ofx91W",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Hfy3ba6x5LbzqSCC",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Wrath of the Gods",
+			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+			"_id": "XUh3SgoOTvAyTmTZ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"value": "{\"label\":\"Wrath of the Gods\",\"formula\":\"1d4\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"meleeSpellAttack\",\"rangedSpellAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/magic/light/explosion-beam-impact-silhouette.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You gain the benefits of a bless spell whenever you enter a rage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722945131816,
+				"modifiedTime": 1722945214111,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "kftl6gpngac5i260",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722944202452,
+		"modifiedTime": 1722945131868,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "kftl6gpngac5i260"
 }
