@@ -4,8 +4,7 @@
 	"img": "icons/magic/lightning/projectile-orb-blue.webp",
 	"effects": [
 		{
-			"icon": "icons/magic/lightning/projectile-orb-blue.webp",
-			"origin": "Item.f0fn9QM1uGIBwXzS",
+			"origin": "Item.IzUPQwJCX2WnJkZA",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -43,12 +42,22 @@
 			},
 			"description": "<p>Beginning at 10th level, your mastery over the power of storms allows you to ride them. While you are outdoors and able to see the clouds or sky, you gain a fly speed of 50 feet and may hover. The benefits from this ability only apply while you are in your natural form or while in a Wild Shape with a fly speed.</p>\n<p>While you are at least 50 feet off the ground, you also gain a thunderbolt attack. This is a ranged spell attack dealing 1d8 lightning damage and 1d8 + your Wisdom modifier of thunder damage. It has a range of 150/600 feet (per a ranged weapon) and the damage can be modified by your Thunderstruck ability. At 15th level, the lightning damage increases to 2d8.</p>\n<p>While you are at least 50 feet off the ground, you may expend a use of your Wild Shape ability as an action to cause the area within 300 feet of you to be affected by the Heavy Precipitation encounter element (your choice of rain or snow). This effect lasts for 10 minutes or until you end the effect as a bonus action. The weather clears after the effect ends, but the precipitation that falls is real and behaves normally.</p>",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.21",
+				"createdTime": null,
+				"modifiedTime": 1722971841172,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/lightning/projectile-orb-blue.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		}
 	],
 	"folder": null,
@@ -85,7 +94,9 @@
 					"ClQiQqaRPIdKOb7b": {
 						"type": "damage",
 						"default": true,
-						"label": "1d8 + @wis.mod"
+						"label": "",
+						"formula": "1d8 + @wis.mod",
+						"damageType": "thunder"
 					},
 					"0ivuWaPSKHkpLSu5": {
 						"type": "attack",
@@ -145,9 +156,69 @@
 						"threshold": 6
 					}
 				}
+			},
+			"RhLlINRkrp2n2Yfu": {
+				"name": "Heavy Precipitation",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"HJw0mddugyOL66IR": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.wild-shape",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"4bpKg2LBaV7VqmP0": {
+						"range": 300,
+						"unit": "feet"
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				}
+			},
+			"SPF28MrKRUpmrEpj": {
+				"name": "End Heavy Precipitation",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
-		"description": "<p>Beginning at 10th level, your mastery over the power of storms allows you to ride them. While you are outdoors and able to see the clouds or sky, you gain a fly speed of 50 feet and may hover. The benefits from this ability only apply while you are in your natural form or while in a Wild Shape with a fly speed. </p><p>While you are at least 50 feet off the ground, you also gain a thunderbolt attack. This is a ranged spell attack dealing 1d8 lightning damage and 1d8 + your Wisdom modifier of thunder damage. It has a range of 150/600 feet (per a ranged weapon) and the damage can be modified by your Thunderstruck ability. At 15th level, the lightning damage increases to 2d8.</p><p>While you are at least 50 feet off the ground, you may expend a use of your Wild Shape ability as an action to cause the area within 300 feet of you to be affected by the Heavy Precipitation encounter element (your choice of rain or snow). This effect lasts for 10 minutes or until you end the effect as a bonus action. The weather clears after the effect ends, but the precipitation that falls is real and behaves normally.</p>",
+		"description": "<p>Beginning at 10th level, your mastery over the power of storms allows you to ride them. While you are outdoors and able to see the clouds or sky, you gain a fly speed of 50 feet and may hover. The benefits from this ability only apply while you are in your natural form or while in a Wild Shape with a fly speed.</p>\n<p>While you are at least 50 feet off the ground, you also gain a thunderbolt attack. This is a ranged spell attack dealing 1d8 lightning damage and 1d8 + your Wisdom modifier of thunder damage. It has a range of 150/600 feet (per a ranged weapon) and the damage can be modified by your @UUID[Compendium.a5e.a5e-class-features.Item.vczh34c0ujrodr1g]{Thunderstruck} ability. At 15th level, the lightning damage increases to 2d8.</p>\n<p>While you are at least 50 feet off the ground, you may expend a use of your Wild Shape ability as an action to cause the area within 300 feet of you to be affected by the Heavy Precipitation encounter element (your choice of rain or snow). This effect lasts for 10 minutes or until you end the effect as a bonus action. The weather clears after the effect ends, but the precipitation that falls is real and behaves normally.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -175,14 +246,16 @@
 				}
 			}
 		},
-		"classes": [
-			"druid"
-		]
+		"classes": "druid",
+		"class": ""
 	},
-	"_id": "n0cdulcve2q0fbzh",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722971841094,
+		"modifiedTime": 1722972061788,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "n0cdulcve2q0fbzh"
 }
