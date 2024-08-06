@@ -1,5 +1,5 @@
 {
-	"name": "Channel Divinity: Trickster's Guile (Trickster Priest)",
+	"name": "Channel Divinity: Trickster's Guile",
 	"type": "feature",
 	"img": "icons/creatures/unholy/demon-fanged-horned-yellow.webp",
 	"system": {
@@ -13,7 +13,34 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"R3ABGc2jJDMn2n3q": {
+				"name": "Channel Divinity: Trickster's Guile",
+				"activation": {},
+				"consumers": {
+					"8sLAjKgHv5rtHIz2": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 2nd level you may expend your Channel Divinity when you fail an ability check. You may re-roll that check and gain an expertise die on the re-roll. You must take the new result.</p><p>Alternatively, at 2nd level you may choose a channel divinity option from another cleric archetype that is granted at 2nd level in place of the above option. You gain that channel divinity option instead. Once this choice has been made it cannot be changed.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -42,15 +69,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "cleric",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "qzzus6qf73nowrwt",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722946302416,
+		"modifiedTime": 1722946413791,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "qzzus6qf73nowrwt"
 }
