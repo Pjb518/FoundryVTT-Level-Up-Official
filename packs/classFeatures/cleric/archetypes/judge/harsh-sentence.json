@@ -2,7 +2,120 @@
 	"name": "Harsh Sentence",
 	"type": "feature",
 	"img": "icons/skills/melee/strike-axe-energy-pink.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.1On3sX3t540D5UXj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ww9W7RwpBp0SJhZW",
+					"duration": {
+						"type": ""
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Harsh Sentence",
+			"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+			"_id": "t0BXbjYGLufPmJPN",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "floor(@attributes.movement.walk.distance/2)",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Movement speed is halved.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722959827595,
+				"modifiedTime": 1722960094750,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.1On3sX3t540D5UXj",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ww9W7RwpBp0SJhZW",
+					"duration": {
+						"type": ""
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Harsh Sentence (14th Level)",
+			"img": "icons/skills/melee/strike-axe-energy-pink.webp",
+			"_id": "eCiuQDC9HisyADtG",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "floor(@attributes.movement.walk.distance/2)",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Movement speed is halved and the creature is also rattled.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722960032150,
+				"modifiedTime": 1722960090352,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"folder": null,
 	"flags": {},
 	"system": {
@@ -20,16 +133,40 @@
 			"ww9W7RwpBp0SJhZW": {
 				"name": "Harsh Sentence",
 				"activation": {},
-				"consumers": {},
+				"consumers": {
+					"CgxjGklTJ6qfBnem": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {
 					"OYsxR09EMW1eUMRF": {
 						"type": "damage",
 						"default": true,
 						"formula": "1d6",
 						"damageType": "psychic"
+					},
+					"CGO0hQSQS833eTfZ": {
+						"type": "damage",
+						"default": false,
+						"formula": "2d6",
+						"damageType": "psychic",
+						"label": "14th Level"
 					}
 				},
-				"prompts": {},
+				"prompts": {
+					"rzW17Zv3DDIxhTyy": {
+						"type": "effect",
+						"default": true,
+						"effectId": "t0BXbjYGLufPmJPN"
+					},
+					"3WO0sEMdL1avC6Hs": {
+						"type": "effect",
+						"default": true,
+						"effectId": "eCiuQDC9HisyADtG"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -48,9 +185,9 @@
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "turn",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -71,14 +208,16 @@
 				}
 			}
 		},
-		"classes": [
-			"cleric"
-		]
+		"classes": "cleric",
+		"class": ""
 	},
-	"_id": "bqcv2iyk5cpz1l7q",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722959728291,
+		"modifiedTime": 1722960112599,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "bqcv2iyk5cpz1l7q"
 }
