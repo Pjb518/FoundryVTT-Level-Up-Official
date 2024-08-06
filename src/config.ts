@@ -1167,6 +1167,7 @@ const skillSpecialties = {
   },
   ath: {
     climbing: 'A5E.skillSpecialties.climbing',
+    diving: 'A5E.skillSpecialties.diving',
     jumping: 'A5E.skillSpecialties.jumping',
     lifting: 'A5E.skillSpecialties.lifting',
     martialArts: 'A5E.skillSpecialties.martialArts',
