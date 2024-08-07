@@ -176,6 +176,7 @@ const abilityActivationTypes = {
 const abilityActivationTypesPlural = {
   action: 'A5E.ActionActivationActionPlural',
   bonusAction: 'A5E.ActionActivationBonusActionPlural',
+  day: 'A5E.DurationDayPlural',
   hour: 'A5E.DurationHourPlural',
   lairAction: 'A5E.ActionActivationLairActionPlural',
   legendaryAction: 'A5E.ActionActivationLegendaryActionPlural',
