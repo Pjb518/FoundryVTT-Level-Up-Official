@@ -55,8 +55,8 @@ export default class Pack {
       if (Object.keys(flag).length === 0) delete source.flags[flag];
     });
 
-    // Empty document folder data
-    source.folder = null;
+    // TODO: Make this more robust in the future
+    if (this.documentType !== 'RollTable') source.folder = null;
 
     // Reset ownership data
     if (source.ownership) delete source.ownership;

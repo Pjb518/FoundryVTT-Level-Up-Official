@@ -13,7 +13,66 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"pzHNSV4aZsemVdZC": {
+				"name": "Ignite Flammable Materials",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"LjpXNw00rd4VH9Di": {
+						"range": "touch"
+					}
+				}
+			},
+			"zT6WfFjmXAaUNpvo": {
+				"name": "Extinguish Fire",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"EYELa5fFVhfw0ydJ": {
+						"range": "fiveFeet"
+					}
+				},
+				"area": {
+					"shape": "square",
+					"quantity": 1,
+					"width": 15,
+					"placeTemplate": true
+				}
+			}
+		},
 		"description": "<p dir=\"ltr\">Also at 2nd level, you gain control over fire with a touch. You learn @UUID[Compendium.a5e.a5e-spells.Item.c1qq11be32b3s1qr]{Fire Bolt} as a bonus cantrip, and you gain resistance to fire damage.</p>\n<p dir=\"ltr\">You can also ignite flammable materials by touching them as a bonus action. You may also extinguish up to a 15-foot square of non-magical fire by spending an action to do so. You must be within 5 feet&nbsp; of the fire in order to do this. The area you can extinguish grows to 25-foot square at 8th level and 50-foot square at 14th level.</p>\n<p>&nbsp;</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -30,25 +89,6 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {
-			"jQpAxxdFDEc3wPGa": {
-				"grantType": "item",
-				"level": 1,
-				"levelType": "character",
-				"optional": false,
-				"label": "Hands of Flame",
-				"items": {
-					"base": [
-						{
-							"uuid": "Compendium.a5e.a5e-spells.Item.c1qq11be32b3s1qr",
-							"quantityOverride": 0
-						}
-					],
-					"options": [],
-					"total": 0
-				},
-				"_id": "jQpAxxdFDEc3wPGa",
-				"img": ""
-			},
 			"jZU7WhuUjb8q5rrA": {
 				"grantType": "trait",
 				"level": 1,
@@ -77,17 +117,19 @@
 				}
 			}
 		},
-		"classes": [
-			"druid"
-		]
+		"classes": "druid",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "ax61hhkljgaobvai",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722963133663,
+		"modifiedTime": 1722963247404,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ax61hhkljgaobvai"
 }

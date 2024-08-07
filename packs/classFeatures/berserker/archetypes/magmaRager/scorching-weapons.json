@@ -13,7 +13,32 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"aRE79C74w6QJJtfv": {
+				"name": "Scorching Weapons",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"48wNzMzjLnph6sgz": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6nR2XUfgVx6fGFj7"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Beginning at 3rd level when you choose this archetype, you can infuse a melee weapon with lava-like heat. When you rage, for the duration of your rage, as long as you are holding it the weapon deals an extra 1d6 fire damage. The damage increases to 2d6 at 10th level, 3d6 at 15th level, and 4d6 at 20th level. Only one weapon can be infused at a time, though you can use a bonus action to transfer the effect to a different weapon.&nbsp;</p><p>In addition, you gain resistance to fire damage.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -29,7 +54,24 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"2dI5DbPzCil4KHCM": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "2dI5DbPzCil4KHCM",
+				"label": "Scorching Weapons",
+				"traits": {
+					"base": [
+						"fire"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -42,15 +84,70 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.LNrsRxNErABPogYZ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "aRE79C74w6QJJtfv",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Scorching Weapons",
+			"img": "icons/magic/fire/dagger-rune-enchant-flame-strong-red.webp",
+			"_id": "6nR2XUfgVx6fGFj7",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Scorching Weapons\",\"formula\":\"@classResources.scorching-weapons\",\"damageType\":\"fire\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/fire/dagger-rune-enchant-flame-strong-red.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When you rage, for the duration of your rage, as long as you are holding it the weapon deals an extra 1d6 fire damage. The damage increases to 2d6 at 10th level, 3d6 at 15th level, and 4d6 at 20th level. Only one weapon can be infused at a time, though you can use a bonus action to transfer the effect to a different weapon.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722790985442,
+				"modifiedTime": 1722791156340,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "vfyn5z9ofc80fvlu",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722790957966,
+		"modifiedTime": 1722791181247,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "vfyn5z9ofc80fvlu"
 }

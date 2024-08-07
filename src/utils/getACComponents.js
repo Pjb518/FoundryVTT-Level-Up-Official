@@ -62,12 +62,18 @@ export default function getACComponents(actor) {
     const formula = simplifyOperatorTerms(formulaTerms ?? []).reduce((acc, term) => {
       if (term instanceof foundry.dice.terms.OperatorTerm) return `${acc} ${term.operator} `;
       acc += `${term.total}`;
-      if (term.options?.flavor) acc += `[${term.options.flavor}]`;
+      if (term.options?.flavor) {
+        acc += `[${term.options.flavor.replaceAll('[', '(').replaceAll(']', ')')}]`;
+      }
       return acc;
     }, '');
 
     components.unshift(formula);
-  } else components.unshift(`${baseChanges.override.value}[${baseChanges.override.name}]`);
+  } else {
+    components.unshift(
+      `${baseChanges.override.value}[${baseChanges.override.name.replaceAll('[', '(').replaceAll(']', ')')}]`
+    );
+  }
 
   // Finalize the formula string
   const acFormula = simplifyOperatorTerms(

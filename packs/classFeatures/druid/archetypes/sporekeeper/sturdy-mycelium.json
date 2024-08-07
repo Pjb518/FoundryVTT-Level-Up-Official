@@ -16,7 +16,46 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"PTQMw9TlFafbOGLK": {
+				"name": "Sturdy Mycelium",
+				"activation": {},
+				"consumers": {
+					"xDO0qyO7JZgXLXz2": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"e33EPhjZMBMBSguX": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "2*@wis.mod"
+					},
+					"17AUe0MYCmOgH8B6": {
+						"type": "healing",
+						"default": false,
+						"healingType": "temporaryHealing",
+						"formula": "@abilities.wis.value",
+						"label": "15th Level"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Beginning at 6th level, you can reshape mycelium around yourself to form armor. When you finish a short or long rest, you gain temporary hit points equal to twice your Wisdom modifier. When you reach level 15, you instead gain temporary hit points equal to your Wisdom score.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -45,14 +84,16 @@
 				}
 			}
 		},
-		"classes": [
-			"druid"
-		]
+		"classes": "druid",
+		"class": ""
 	},
-	"_id": "sfwtixpedao4i94l",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722966263371,
+		"modifiedTime": 1722966431560,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "sfwtixpedao4i94l"
 }

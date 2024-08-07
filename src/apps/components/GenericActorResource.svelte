@@ -66,8 +66,15 @@
     }
 
     function determineResourceVisibility(sheetIsLocked) {
+        // Add class resources when sheet is locked
         if (!sheetIsLocked && !isClassResource) return true;
+
+        // Add resource is Hide Max is set
+        if (sheetIsLocked && resource.hideMax) return true;
+
+        // Add resource is max is not 0
         if (sheetIsLocked && max !== 0) return true;
+
         return false;
     }
 

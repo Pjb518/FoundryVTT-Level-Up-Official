@@ -14,7 +14,46 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"bqw5LYgWGIxwKhYi": {
+				"name": "Channel Divinity: Forge Ahead",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"0vVJVYqmbvzHxM9y": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"EUNbzY8f3OdtcuXo": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
 		"description": "<p>Starting at 2nd level, you can use your Channel Divinity to remove afflictions from creatures you can see. As an action, you present your holy symbol and call out for guidance that removes the&nbsp;blinded</span>,&nbsp;charmed</span>,&nbsp;deafened</span>, and&nbsp;<span>frightened&nbsp;conditions, or one level of&nbsp;<span>fatigue&nbsp;or&nbsp;<span>strife, from one creature you choose within 30 feet of you.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -43,54 +82,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "cleric",
+		"class": ""
 	},
-	"effects": [
-		{
-			"icon": "icons/environment/wilderness/cave-entrance-mountain-blue.webp",
-			"origin": "Item.nnddjvhuiymynebk",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
-			},
-			"transfer": false,
-			"name": "Speed Boost",
-			"_id": "e6uWrkA5iMBBmUd1",
-			"changes": [
-				{
-					"key": "system.attributes.movement.walk.distance",
-					"value": "10",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		}
-	],
+	"effects": [],
 	"flags": {},
-	"_id": "nnddjvhuiymynebk",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722951415249,
+		"modifiedTime": 1722951470419,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "nnddjvhuiymynebk"
 }

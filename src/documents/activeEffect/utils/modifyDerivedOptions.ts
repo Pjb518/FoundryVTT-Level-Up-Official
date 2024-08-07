@@ -20,7 +20,7 @@ export default function modifyDerivedOptions(options: Object) {
 
   Object.keys(CONFIG.A5E.senses)
     .forEach((s) => {
-      options[`system.attributes.movement.${s}.distance`] = [0, MODES.DEFAULT_MODES];
+      options[`system.attributes.senses.${s}.distance`] = [0, MODES.DEFAULT_MODES];
       options[`system.attributes.senses.${s}.unit`] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.visionUnits), 'RADIO'];
       options['flags.a5e.effects.senses.allDistances'] = [0, MODES.DEFAULT_MODES];
       options['flags.a5e.effects.senses.allUnits'] = ['', MODES.OVERRIDE_ONLY, Object.entries(CONFIG.A5E.visionUnits), 'RADIO'];

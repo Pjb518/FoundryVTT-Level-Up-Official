@@ -17,7 +17,10 @@
 		"actions": {
 			"xjNpjwGaVNDmjLiA": {
 				"name": "Unseen Pathways",
-				"activation": {},
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
 				"consumers": {
 					"QqwjQ2skwkMv6vB8": {
 						"type": "itemUses",
@@ -37,7 +40,8 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"ranges": {}
 			}
 		},
 		"description": "<p>At level 8, you gain the ability to teleport short distances. As an action, you can teleport up to your walking speed. Once you have used this feature a number of times equal to your Wisdom modifier (minimum once) you can&rsquo;t do so again until you finish a long rest.</p>",
@@ -46,7 +50,7 @@
 		"source": "moarComplete",
 		"uses": {
 			"value": 0,
-			"max": "@wis.mod",
+			"max": "max(@wis.mod,1)",
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
@@ -68,16 +72,18 @@
 				}
 			}
 		},
-		"classes": [
-			"cleric"
-		]
+		"classes": "cleric",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "8ctgo0bmk4sccu0f",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722961289773,
+		"modifiedTime": 1722961361838,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "8ctgo0bmk4sccu0f"
 }

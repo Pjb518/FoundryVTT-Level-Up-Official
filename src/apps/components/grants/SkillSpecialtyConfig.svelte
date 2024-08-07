@@ -7,6 +7,7 @@
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
     import CheckboxGroup from "../CheckboxGroup.svelte";
+    import CustomTagGroup from "../CustomTagGroup.svelte";
     import GrantConfig from "./GrantConfig.svelte";
     import RadioGroup from "../RadioGroup.svelte";
 
@@ -94,7 +95,7 @@
 
     <!-- Keep this else it breaks when switching from tools to weapons -->
     {#key skill}
-        <CheckboxGroup
+        <CustomTagGroup
             heading="Base Options"
             options={Object.entries(specialties)}
             selected={grant?.specialties?.base}
@@ -105,7 +106,7 @@
             }}
         />
 
-        <CheckboxGroup
+        <CustomTagGroup
             heading="Optional Choices"
             options={Object.entries(specialties)}
             selected={grant?.specialties?.options}

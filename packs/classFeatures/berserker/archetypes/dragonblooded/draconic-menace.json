@@ -31,6 +31,11 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
+					},
+					"16iTTxZEKamfU33F": {
+						"type": "effect",
+						"default": true,
+						"effectId": "cf4yPw3nhjRWpfR9"
 					}
 				},
 				"uses": {
@@ -44,8 +49,14 @@
 				},
 				"ranges": {
 					"FdXQqLJ42nK3qnfe": {
-						"range": "10 ft."
+						"range": "self"
 					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
 				}
 			}
 		},
@@ -77,16 +88,180 @@
 				}
 			}
 		},
-		"classes": [
-			"berserker"
-		]
+		"classes": "berserker",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.wEZG1NSugKwNugQn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CMDFH69L5cAz1qyH"
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/creatures/eyes/lizard-single-slit-pink.webp",
+			"_id": "cf4yPw3nhjRWpfR9",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722955464770,
+				"modifiedTime": 1722955513979,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.wEZG1NSugKwNugQn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CMDFH69L5cAz1qyH"
+				}
+			},
+			"transfer": false,
+			"name": "Fails By 5 or More",
+			"img": "icons/creatures/eyes/lizard-single-slit-pink.webp",
+			"_id": "ACaFXaYMzuZsIf05",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\",\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<h2>Frightened</h2>\n<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>\n<h2>Rattled</h2>\n<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled",
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722955516674,
+				"modifiedTime": 1722955706345,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.wEZG1NSugKwNugQn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CMDFH69L5cAz1qyH"
+				}
+			},
+			"transfer": false,
+			"name": "Fails By 10 or More",
+			"img": "icons/creatures/eyes/lizard-single-slit-pink.webp",
+			"_id": "AQtgaenst3i06u4N",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\",\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.strife",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<h2>Frightened</h2>\n<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>\n<h2>Rattled</h2>\n<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled",
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722955708661,
+				"modifiedTime": 1722955722352,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "nhqhwjkt0ianbtbi",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722955311465,
+		"modifiedTime": 1722955464826,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "nhqhwjkt0ianbtbi"
 }
