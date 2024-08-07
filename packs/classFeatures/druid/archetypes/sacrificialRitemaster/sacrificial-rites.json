@@ -1,0 +1,197 @@
+{
+	"folder": null,
+	"name": "Sacrificial Rites",
+	"type": "feature",
+	"img": "icons/magic/fire/flame-burning-skeleton-explosion.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"3EheHTUMk6QVaGCw": {
+				"name": "Mark For Sacrifice",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"GAeGmarIfUz7EbO1": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"GmCCRqZUlmMqeqS3": {
+				"name": "Gain Burning Boon",
+				"activation": {},
+				"consumers": {
+					"6M0LJHu7ZWztQRy0": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.burning-boon",
+						"resource": "classResource",
+						"quantity": -1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"cqkIwFfyL8l0mDqd": {
+				"name": "Bless",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"ohoU2tFMvDuSO4jm": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.burning-boon",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"Tb3HVK1MehunfQ4G": {
+						"type": "effect",
+						"default": true,
+						"effectId": "BVzQZTrd5DWfDSRB"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"uiFBVrCcMFp5COv4": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 3,
+					"type": "creature",
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
+				},
+				"img": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp",
+				"description": "<p>The blessing you bestow upon the targets makes them more durable and competent. Until the spell ends, a d4 is added to attack rolls and saving throws made by a target.</p><p><strong><em>Cast at Higher Levels.</em></strong> You target one additional creature for each slot level above 1st.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>When you select this archetype at 2nd level, you can use a bonus action to mark a creature for sacrifice.<span style=\"mso-spacerun: yes;\">&nbsp; </span></p>\n<p>Once on your turn, when you deal damage to this creature, it takes additional fire damage equal to your wisdom modifier.<span style=\"mso-spacerun: yes;\">&nbsp; </span>When it dies, if the creature had a CR no lower than half your level, you gain a Burning Boon charge. You can only have a number of Burning Boon charges at a time equal to your proficiency bonus.</p>\n<p>You can expend a Burning Boon charge as an action to cast the @UUID[Compendium.a5e.a5e-spells.Item.xnm2hvlfzqp792tz]{Bless} spell at 1st level without expending a spell slot, and can expend additional charges to increase the effective spell slot level of <em>bless</em> by 1 per charge.<span style=\"mso-spacerun: yes;\">&nbsp; </span></p>\n<p>You can only mark a creature in this way once per short rest, and lose any Burning Boon charges when you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "mysteriousAndMarvelousMiscellanea",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"tzKnUaJfwvQCmPhf": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "tzKnUaJfwvQCmPhf",
+				"label": "Sacrificial Rites",
+				"bonus": "@wis.mod",
+				"damageType": "fire",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"default": false
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "druid",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.21",
+		"createdTime": 1722891213016,
+		"modifiedTime": 1722891691461,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "7nuo27mcaz8rsvsq"
+}

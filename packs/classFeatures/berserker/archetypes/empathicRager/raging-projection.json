@@ -1,0 +1,102 @@
+{
+	"folder": null,
+	"name": "Raging Projection",
+	"type": "feature",
+	"img": "icons/magic/movement/portal-vortex-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"KMM1lnrMxJUCkkq1": {
+				"name": "Raging Projection",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Gain rage hit points"
+				},
+				"consumers": {},
+				"rolls": {
+					"eYfkpuRQeeWSjLPy": {
+						"type": "healing",
+						"default": false,
+						"healingType": "temporaryHealing",
+						"formula": "@classResources.rage-hit-points"
+					},
+					"x1lfEKBa2FB6vZnv": {
+						"type": "damage",
+						"default": true,
+						"formula": "@classResources.rage-hit-points",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"Fs1gm8qSfFMNe2t9": {
+						"range": 20,
+						"unit": "feet"
+					}
+				}
+			}
+		},
+		"description": "<p>When you select this archetype at 3rd level, you have developed the unique psionic ability to render your emotions, particularly your fury, contagious, and to project them onto others.<span style=\"mso-spacerun: yes;\">&nbsp; </span></p><p>Whenever you gain rage hit points, you can use your reaction to project your rage at another creature within 20 feet.<span style=\"mso-spacerun: yes;\">&nbsp; </span>They either gain temporary hit points equal the number of rage hit points you just gained, or take psychic damage equal to that amount.<span style=\"mso-spacerun: yes;\">&nbsp; </span></p><p>At 6th level the range of this ability increases to 30 feet, at 10th level it increases to 40ft, and at 14th level it increases to 50ft.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "mysteriousAndMarvelousMiscellanea",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "berserker",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.21",
+		"createdTime": 1722890449812,
+		"modifiedTime": 1722890560886,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "g9pecyre1ld6mu4q"
+}

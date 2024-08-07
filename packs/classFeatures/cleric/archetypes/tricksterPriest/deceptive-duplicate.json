@@ -13,15 +13,99 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"qpb0pXKSohN8dI2m": {
+				"name": "Create",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"BP3wcMOjKSFqAv45": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"RdcKC10ofPdAiQX4": {
+						"range": "short"
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			},
+			"KJwGqs02f8XqSePv": {
+				"name": "Move",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"qFyQm39Kf3p6FyBA": {
+						"range": "short"
+					}
+				}
+			},
+			"3bdGj8G7U3xdXiPr": {
+				"name": "Swap",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 6th level you can summon an identical duplicate of yourself within 30 feet. This duplicate lasts for 1 minute. You can cast spells as if they originated from the duplicate's space, though you must still see the target if necessary. As a bonus action you can move the duplicate up to 30 feet, and as an action you can swap places with the duplicate. Once you have used this ability you cannot do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "heroesOldAndNew",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -42,15 +126,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "cleric",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "su44imos3mfpgehm",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722946455973,
+		"modifiedTime": 1722946551794,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "su44imos3mfpgehm"
 }

@@ -13,15 +13,70 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Also at 1st level, you are charged with transitioning those whose time has come. You gain proficiency with martial weapons. You learn <em>@UUID[Compendium.a5e.a5e-spells.Item.bpkked98u8mb2q3w]{Chill Touch} </em>and <em>@UUID[Compendium.a5e.a5e-spells.Item.omvngnmoo75is54f]{Spare the Dying}</em>&nbsp;as bonus cantrips. Once between long rests, when you cast <em>@UUID[Compendium.a5e.a5e-spells.Item.bq5bki8n1gfhrqz1]{Ceremony} </em>to perform a funeral or to guide the passing, you can do so without providing material components.</p>",
+		"actions": {
+			"hXDGbMz3yaC4zSea": {
+				"name": "Ceremony",
+				"activation": {
+					"cost": 1,
+					"type": "hour",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"eMwZZlceSbL9vZGr": {
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2,
+						"type": "spell"
+					},
+					"cQR9uIj6Q0SWoMPo": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"w9OTwZI36lonAMVy": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"img": "icons/commodities/treasure/token-gold-cross.webp"
+			}
+		},
+		"description": "<p>Also at 1st level, you are charged with transitioning those whose time has come. You gain proficiency with martial weapons. You learn @UUID[Compendium.a5e.a5e-spells.Item.bpkked98u8mb2q3w]{Chill Touch} and @UUID[Compendium.a5e.a5e-spells.Item.omvngnmoo75is54f]{Spare the Dying}&nbsp;as bonus cantrips. Once between long rests, when you cast @UUID[Compendium.a5e.a5e-spells.Item.bq5bki8n1gfhrqz1]{Ceremony} to perform a funeral or to guide the passing, you can do so without providing material components.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -30,29 +85,6 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {
-			"OE3ni9cZZYRhZt9Q": {
-				"grantType": "item",
-				"level": 1,
-				"levelType": "character",
-				"optional": false,
-				"label": "Witness to the End",
-				"items": {
-					"base": [
-						{
-							"uuid": "Compendium.a5e.a5e-spells.Item.bpkked98u8mb2q3w",
-							"quantityOverride": 0
-						},
-						{
-							"uuid": "Compendium.a5e.a5e-spells.Item.omvngnmoo75is54f",
-							"quantityOverride": 0
-						}
-					],
-					"options": [],
-					"total": 0
-				},
-				"_id": "OE3ni9cZZYRhZt9Q",
-				"img": ""
-			},
 			"pZ6rV14i4o6jIvNX": {
 				"grantType": "proficiency",
 				"level": 1,
@@ -61,9 +93,46 @@
 				"label": "Witness to the End",
 				"keys": {
 					"base": [
-						"heavy"
-					]
-				}
+						"bastardSword",
+						"battleaxe",
+						"brassKnuckles",
+						"compositeBow",
+						"dart",
+						"duelingDagger",
+						"flail",
+						"garotte",
+						"glaive",
+						"greataxe",
+						"greatsword",
+						"halberd",
+						"handCrossbow",
+						"javelin",
+						"lance",
+						"lightHammer",
+						"longbow",
+						"longsword",
+						"maul",
+						"morningstar",
+						"net",
+						"pike",
+						"punchingDagger",
+						"rapier",
+						"saber",
+						"scimitar",
+						"scythe",
+						"shortbow",
+						"shortsword",
+						"spearThrower",
+						"throwingDagger",
+						"trident",
+						"warhammer",
+						"warPick",
+						"whip"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "weapon"
 			}
 		},
 		"prerequisite": "",
@@ -78,17 +147,19 @@
 				}
 			}
 		},
-		"classes": [
-			"cleric"
-		]
+		"classes": "cleric",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "7gmg83ltp0u35b0n",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722962300389,
+		"modifiedTime": 1722962396285,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "7gmg83ltp0u35b0n"
 }

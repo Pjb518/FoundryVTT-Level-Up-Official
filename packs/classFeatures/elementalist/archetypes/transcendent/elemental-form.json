@@ -14,30 +14,66 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"zY9nIMjXeamVIAdc": {
-				"name": "Elemental Form",
-				"activation": {},
+			"GgG3WKWz3jUvR0oh": {
+				"name": "Polymorph",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
 				"consumers": {
-					"HCtIx6HMz6puOAUd": {
+					"iWkSYyzWFrvaWG8W": {
 						"type": "itemUses",
 						"default": true,
 						"quantity": 1
 					}
 				},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"ja7HMh8mtrZHfQOc": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"9fpVoXabfdjZD1de": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/nature/symbol-moon-stars-white.webp"
 			}
 		},
-		"description": "<p dir=\"ltr\">At 7th level, you learn how to temporarily take on the form of an elemental. You can cast @UUID[Compendium.a5e.a5e-spells.Item.95tar7xr3hdp0o92]{Polymorph} on yourself without expending any spell points, except only to turn into an air, earth, fire, or water elemental, matching your element. Once you use this ability, you must complete a long rest before you can use it again. While transformed this way, you can only cast spells matching the element whose form you have taken, and you can use your <em>elemental blast</em> and <em>command elements</em> abilities.</p>\n<p dir=\"ltr\">At 15th level, you can instead turn into a giant air, earth, fire, or water elemental.</p>",
+		"description": "<p dir=\"ltr\">At 7th level, you learn how to temporarily take on the form of an elemental. You can cast @UUID[Compendium.a5e.a5e-spells.Item.95tar7xr3hdp0o92]{Polymorph} on yourself without expending any spell points, except only to turn into an air, earth, fire, or water elemental, matching your element. Once you use this ability, you must complete a long rest before you can use it again. While transformed this way, you can only cast spells matching the element whose form you have taken, and you can use your&nbsp;@UUID[Compendium.a5e.a5e-class-features.Item.uit7l3mc64l5h8h1]{Elemental Blast} and @UUID[Compendium.a5e.a5e-class-features.Item.rosj8xvi8bstdegy]{Control Elements} abilities.</p>\n<p dir=\"ltr\">At 15th level, you can instead turn into a giant air, earth, fire, or water elemental.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -65,15 +101,19 @@
 				}
 			}
 		},
-		"classes": "elementalist"
+		"classes": "elementalist",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "1w9sn0llo6bkrl88",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722974429422,
+		"modifiedTime": 1722974529319,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "1w9sn0llo6bkrl88"
 }

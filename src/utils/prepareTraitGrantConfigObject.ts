@@ -1,5 +1,10 @@
 export default function prepareTraitGrantConfigObject() {
   return {
+    alignment: {
+      label: 'A5E.Alignment',
+      config: Object.entries(CONFIG.A5E.alignments),
+      propertyKey: 'system.traits.alignment'
+    },
     conditionImmunities: {
       label: 'A5E.ConditionImmunities',
       config: Object.entries(CONFIG.A5E.conditions),

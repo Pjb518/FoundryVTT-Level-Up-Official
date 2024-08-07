@@ -13,7 +13,37 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"yMYZKiOXddCFVXC0": {
+				"name": "Unwavering Devotion",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"2PegWdnVES8Ptla0": {
+						"type": "effect",
+						"default": true,
+						"effectId": "5zOuBvuNTVcix858"
+					},
+					"RS8xN3UK5Xmq3SG1": {
+						"type": "effect",
+						"default": true,
+						"effectId": "aV0cjgWaTL6YQHxK"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 10th level you gain an expertise die on saving throws against charm or fear effects. In addition, while raging you are resistant to your chosen damage type.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -42,15 +72,118 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.0Z0HCRg9oBMyoOqk",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "yMYZKiOXddCFVXC0"
+				}
+			},
+			"transfer": false,
+			"name": "Unwavering Devotion (Radiant)",
+			"img": "icons/magic/holy/prayer-hands-glowing-yellow-white.webp",
+			"_id": "5zOuBvuNTVcix858",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"radiant\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While raging you are resistant to your chosen damage type.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722944140908,
+				"modifiedTime": 1722944169605,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.0Z0HCRg9oBMyoOqk",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "yMYZKiOXddCFVXC0"
+				}
+			},
+			"transfer": false,
+			"name": "Unwavering Devotion (Necrotic)",
+			"img": "icons/magic/holy/prayer-hands-glowing-yellow-white.webp",
+			"_id": "aV0cjgWaTL6YQHxK",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"necrotic\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While raging you are resistant to your chosen damage type.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722944172912,
+				"modifiedTime": 1722944182483,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "w8ighldqg68c2qf8",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722943972426,
+		"modifiedTime": 1722944188291,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "w8ighldqg68c2qf8"
 }

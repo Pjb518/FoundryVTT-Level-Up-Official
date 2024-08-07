@@ -2,7 +2,130 @@
 	"name": "Cloud of Death",
 	"type": "feature",
 	"img": "icons/magic/unholy/hand-claw-fog-green.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.eWmSYh6u2wtvQwkE",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "YVsm8r0rSZ88kctN",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"_id": "vzDCLmX0cVBiyOGU",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.concentration",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Creatures other than you that begin their turn in the cloud must make a Constitution saving throw against your spell save DC or be poisoned for one minute. While poisoned this way, a creature experiences bizarre and sometimes frightening hallucinations. It treats all targets as lightly obscured, and it has disadvantage on checks to maintain concentration.</p>\n<p>Once a creature exits the cloud, they may repeat their save at the end of each of their turns, ending all effects on a success.</p>",
+			"statuses": [
+				"poisoned"
+			],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722966716111,
+				"modifiedTime": 1722966716111,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/air/fog-gas-smoke-dense-brown.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.eWmSYh6u2wtvQwkE",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "YVsm8r0rSZ88kctN",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Fails By 5 Or More",
+			"_id": "bUL22575cY6G8y2B",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\",\"frightened\",\"confused\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.concentration",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Creatures other than you that begin their turn in the cloud must make a Constitution saving throw against your spell save DC or be poisoned for one minute. While poisoned this way, a creature experiences bizarre and sometimes frightening hallucinations. It treats all targets as lightly obscured, and it has disadvantage on checks to maintain concentration. If the creature fails its save by 5 or more, it is also frightened until the end of its next turn.</p>\n<p>Once a creature exits the cloud, they may repeat their save at the end of each of their turns, ending all effects on a success.</p>",
+			"statuses": [
+				"poisoned",
+				"frightened",
+				"confused"
+			],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722966716111,
+				"modifiedTime": 1722966764778,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/air/fog-gas-smoke-dense-brown.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"folder": null,
 	"flags": {},
 	"system": {
@@ -16,8 +139,82 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 14th level, your Spore Cloud becomes much more potent. Its radius increases to 30 feet. Creatures that fail their save against the Spore Cloud take 2d4 necrotic damage and have their maximum hit points reduced by the same amount in addition to the other effects. Creatures that succeed on their save still take the damage but do not suffer the reduction to their hit point maximum. The cloud also lightly obscures everything inside it, though you can see through it as if it weren’t there. Creatures suffering from the hallucinations from the cloud treat this as heavily obscured instead. Finally, if a creature fails its save by 5 or more, it is also confused for one minute.</p>",
+		"actions": {
+			"YVsm8r0rSZ88kctN": {
+				"name": "Spore Cloud",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"20aJ2OtAeib5Fb3s": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.wild-shape",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"zu91JG5lsGtV84YU": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d4",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {
+					"QwUpMyJm22qNfjGh": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "No maximum reduction"
+					},
+					"b8QExU8pQaSjAKBZ": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					},
+					"1RxGA62e4HhXU71Q": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"ranges": {
+					"MI4B56Wq3F8bkQCl": {
+						"range": "self"
+					}
+				},
+				"img": "icons/magic/air/fog-gas-smoke-dense-brown.webp"
+			}
+		},
+		"description": "<p>At 14th level, your @UUID[Compendium.a5e.a5e-class-features.Item.5rc2abg8pu3zly8i]{Spore Cloud} becomes much more potent. Its radius increases to 30 feet. Creatures that fail their save against the Spore Cloud take 2d4 necrotic damage and have their maximum hit points reduced by the same amount in addition to the other effects. Creatures that succeed on their save still take the damage but do not suffer the reduction to their hit point maximum. The cloud also lightly obscures everything inside it, though you can see through it as if it weren&rsquo;t there. Creatures suffering from the hallucinations from the cloud treat this as heavily obscured instead. Finally, if a creature fails its save by 5 or more, it is also confused for one minute.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -45,14 +242,16 @@
 				}
 			}
 		},
-		"classes": [
-			"druid"
-		]
+		"classes": "druid",
+		"class": ""
 	},
-	"_id": "9gcuwr4dw0o1kn2f",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722966698755,
+		"modifiedTime": 1722966784363,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "9gcuwr4dw0o1kn2f"
 }

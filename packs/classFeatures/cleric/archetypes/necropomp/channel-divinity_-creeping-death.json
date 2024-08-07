@@ -1,0 +1,171 @@
+{
+	"name": "Channel Divinity: Creeping Death",
+	"type": "feature",
+	"img": "icons/magic/death/skull-horned-worn-fire-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"KZaTvsOTztftn3Z3": {
+				"name": "Channel Divinity: Creeping Death",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"kupvKX58mKwK2iEp": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"MEC7WVoAddR9J1mp": {
+						"type": "damage",
+						"default": true,
+						"label": "Necrotic Damage",
+						"formula": "@classResources.creeping-death",
+						"damageType": "necrotic",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"jnewE5p4ApMGcOz8": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": ""
+					},
+					"CQPTkIbqG9AxFDuY": {
+						"type": "effect",
+						"default": true,
+						"effectId": "55pPSWrYoK9GVSti"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"lgawIaBM0M4RCygY": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>At 2nd level you may use your Channel Divinity to mark a creature you can see within 30 feet for death. This mark lasts for 1 minute. The marked creature cannot regain hit points and dies if reduced to 0 hit points. At the start of each of their turns they must make a Constitution saving throw or take 2d4 necrotic damage. This damage increases to 2d6 at level 8 and 2d8 at level 17. If a creature dies while so marked, you may choose to have the mark jump to a new creature if your choice you can see within 30 feet of the creature that died. If you do so, increase the remaining duration by a number of rounds equal to your Wisdom modifier to a maximum of 1 minute. A @UUID[Compendium.a5e.a5e-spells.Item.2fn904xje78xc7de]{Greater Restoration}, @UUID[Compendium.a5e.a5e-spells.Item.i4869qu4aokvlvxr]{Heal}, @UUID[Compendium.a5e.a5e-spells.Item.rcodaq0qz6lz0vop]{Mass Heal}, or similar magic ends the effect on a creature.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "heroesOldAndNew",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "cleric",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.AGKPfuPnN0ydiIdi",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "KZaTvsOTztftn3Z3",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Marked",
+			"img": "icons/magic/death/skull-horned-worn-fire-blue.webp",
+			"_id": "55pPSWrYoK9GVSti",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The marked creature cannot regain hit points and dies if reduced to 0 hit points. At the start of each of their turns they must make a Constitution saving throw or take 2d4 necrotic damage. This damage increases to 2d6 at level 8 and 2d8 at level 17.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722945640439,
+				"modifiedTime": 1722945673475,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.21",
+		"createdTime": 1722945586186,
+		"modifiedTime": 1722945889805,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "q1gcnapev99jtwy1"
+}

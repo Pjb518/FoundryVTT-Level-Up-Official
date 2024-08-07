@@ -15,7 +15,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>At 6th level, your faith grants you boons suitable for an underground denizen. You gain darkvision to a range of 90 feet. Additionally, choose one of the following benefits:</p><h3 class=\"Indent1\">MINOTAUR&rsquo;S MEMORY</h3><p>You can perfectly recall any route you have traveled.</p><h3 class=\"Indent1\">SHADOW SUSTENANCE</h3><p>If you haven&rsquo;t been in an area of sunlight for 24 hours, your body begins to fade and you no longer need to eat. This benefit ends when you enter an area of sunlight.</p>",
+		"description": "<p>At 6th level, your faith grants you boons suitable for an underground denizen. You gain darkvision to a range of 90 feet. Additionally, choose one of the following benefits:</p>\n<h2 class=\"Indent1\">Minotaur's Memory</h2>\n<p>You can perfectly recall any route you have traveled.</p>\n<h2 class=\"Indent1\">Shadow Sustenance</h2>\n<p>If you haven&rsquo;t been in an area of sunlight for 24 hours, your body begins to fade and you no longer need to eat. This benefit ends when you enter an area of sunlight.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "dungeonDelversGuide",
@@ -30,7 +30,54 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"AJAyKm6tL99tOkue": {
+				"grantType": "senses",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "AJAyKm6tL99tOkue",
+				"label": "Blessed Exploration",
+				"bonus": "90",
+				"senses": {
+					"base": [
+						"darkvision"
+					],
+					"options": [],
+					"total": 0
+				},
+				"img": "",
+				"unit": "feet",
+				"context": {
+					"otherwiseBlind": false
+				}
+			},
+			"fTgvJwqQ2gR9CD45": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "fTgvJwqQ2gR9CD45",
+				"label": "Blessed Exploration",
+				"features": {
+					"total": 1,
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.uugflo871jijqark",
+							"name": "Minotaur's Memory (Blessed Exploration)",
+							"img": "icons/environment/wilderness/cave-entrance-mountain-blue.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.o4rakfmfngrqs0p3",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -43,54 +90,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "cleric",
+		"class": ""
 	},
-	"effects": [
-		{
-			"icon": "icons/environment/wilderness/cave-entrance-mountain-blue.webp",
-			"origin": "Item.94b4vaawsekbtsu9",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
-			},
-			"transfer": false,
-			"name": "DV",
-			"_id": "PtYYZZQjMxetZdXd",
-			"changes": [
-				{
-					"key": "system.attributes.senses.darkvision.distance",
-					"value": "90",
-					"mode": 2,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		}
-	],
+	"effects": [],
 	"flags": {},
-	"_id": "94b4vaawsekbtsu9",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722951902306,
+		"modifiedTime": 1722951987009,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "94b4vaawsekbtsu9"
 }
