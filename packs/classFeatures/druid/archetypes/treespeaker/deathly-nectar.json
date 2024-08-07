@@ -1,7 +1,7 @@
 {
-	"name": "Ingrained Vitality [Deathly Nectar]",
+	"name": "Deathly Nectar",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/acid/dissolve-drip-droplet-smoke.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -48,7 +48,7 @@
 				"consumers": {}
 			}
 		},
-		"description": "<p>At 10th level your own life force strengthens. Choose one of the following or gain an additional Primal Vitality feature you haven’t previously selected.</p><h3><strong>Deathly Nectar</strong></h3><p><em>Prerequisite: Insidious Nectar</em></p><p>The additional poison damage dealt by your Insidious Nectar feature improves to 1d8 from 1d6. In addition, spells you cast and attacks by you or creatures you’ve summoned ignore resistance to poison damage and treat immunity to poison damage as resistance instead.</p>",
+		"description": "<p>The additional poison damage dealt by your @UUID[Compendium.a5e.a5e-class-features.Item.7yeaqa92z9i4gx04]{Insidious Nectar} feature improves to 1d8 from 1d6. In addition, spells you cast and attacks by you or creatures you&rsquo;ve summoned ignore resistance to poison damage and treat immunity to poison damage as resistance instead.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -63,8 +63,43 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
-		"prerequisite": "",
+		"grants": {
+			"NcFxEGhcOkf2h2LB": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "NcFxEGhcOkf2h2LB",
+				"label": "Insidious Nectar",
+				"bonus": "1d8",
+				"damageType": "poison",
+				"context": {
+					"attackTypes": [
+						"meleeSpellAttack",
+						"rangedSpellAttack"
+					],
+					"damageTypes": [
+						"poison"
+					],
+					"spellLevels": [
+						"0",
+						"1",
+						"2",
+						"3",
+						"4",
+						"5",
+						"6",
+						"7",
+						"8",
+						"9"
+					],
+					"isCritBonus": false,
+					"default": true
+				},
+				"img": ""
+			}
+		},
+		"prerequisite": "Insidious Nectar",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -76,13 +111,17 @@
 				}
 			}
 		},
-		"classes": "druid"
+		"classes": "druid",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "65aoqyqzzq5lmnn4",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723063579428,
+		"modifiedTime": 1723063799486,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "65aoqyqzzq5lmnn4"
 }
