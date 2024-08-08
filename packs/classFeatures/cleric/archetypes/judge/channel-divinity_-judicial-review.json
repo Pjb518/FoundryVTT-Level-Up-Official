@@ -16,8 +16,42 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Your connection to the divine enables you to separate the worthwhile from the worthless in an investigation or court case.&nbsp;</p><p>As a bonus action, you may ask a single question and expend a use of your Channel Divinity. For one hour, anything that would lead you to the answer to this question is highlighted with a divine glow only you can see. Witnesses or those with relevant knowledge seem to glow faintly, text that contains clues to the question’s answer appears highlighted on the page, and you automatically notice clues that would help you answer the question you asked.</p><p>This feature merely shows you the location of evidence; securing it and interpreting it are still up to you.</p><p></p>",
+		"actions": {
+			"MkhepBHMwgEnFCDJ": {
+				"name": "Channel Divinity: Judicial Review",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"bfJNSzoFdTWzGzGO": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>Your connection to the divine enables you to separate the worthwhile from the worthless in an investigation or court case.&nbsp;</p>\n<p>As a bonus action, you may ask a single question and expend a use of your @UUID[Compendium.a5e.a5e-class-features.Item.s4iiatrup3e3virw]{Channel Divinity}. For one hour, anything that would lead you to the answer to this question is highlighted with a divine glow only you can see. Witnesses or those with relevant knowledge seem to glow faintly, text that contains clues to the question&rsquo;s answer appears highlighted on the page, and you automatically notice clues that would help you answer the question you asked.</p>\n<p>This feature merely shows you the location of evidence; securing it and interpreting it are still up to you.</p>\n<p>&nbsp;</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -45,14 +79,16 @@
 				}
 			}
 		},
-		"classes": [
-			"cleric"
-		]
+		"classes": "cleric",
+		"class": ""
 	},
-	"_id": "08qz96s48tf3tn0t",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722958760674,
+		"modifiedTime": 1722958845757,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "08qz96s48tf3tn0t"
 }

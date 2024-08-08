@@ -46,7 +46,7 @@
 				}
 			}
 		},
-		"description": "<p>Your weapon attacks deal extra damage equal to your Wisdom modifier. In addition, you can infuse divine power into a weapon attack to deal an extra 1d8 damage, the type of which is the same as you deal with Channel Divinity: Elemental Intervention. Once you have used this feature a number of times equal to your Wisdom modifier, you can&rsquo;t do so again until you finish a long rest.</p>",
+		"description": "<p>Your weapon attacks deal extra damage equal to your Wisdom modifier. In addition, you can infuse divine power into a weapon attack to deal an extra 1d8 damage, the type of which is the same as you deal with @UUID[Compendium.a5e.a5e-class-features.Item.h5hlqfswnlwyu3yn]{Channel Divinity: Elemental Intervention}. Once you have used this feature a number of times equal to your Wisdom modifier, you can&rsquo;t do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -61,21 +61,41 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"TlfPRRTYq5O7sN5s": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "TlfPRRTYq5O7sN5s",
+				"label": "Boon of Fury",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"rangedWeaponAttack"
+					]
+				},
+				"bonus": "@wis.mod"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.018,
 			"lastMigration": null
 		},
-		"classes": "cleric"
+		"classes": "cleric",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "d6loxdjfa2qr7wj0",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722957895249,
+		"modifiedTime": 1722958002195,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "d6loxdjfa2qr7wj0"
 }

@@ -14,8 +14,59 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Beginning at 2nd level, as an action you can use your Channel Divinity to shunt a single inanimate object that you are holding that weighs nor more than 1/4th of the amount you can carry into an extradimensional space. If the object is a food item, it instantly loses its nourishing qualities and if it is a body, it can never be restored to life. The object remains in the extradimensional space for a maximum number of hours equal to your proficiency bonus, after which it appears at your feet. At any time before then, you may use your reaction to retrieve the object in response to whatever you wish. It either appears at your feet or in your hands as you choose.</p>",
+		"actions": {
+			"xYqzYfjTgcPiFCAo": {
+				"name": "Channel Divinity: Up My Sleeve",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"cfMcqJOSqzNta5Ta": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"fXhvJcErvDtQt0jx": {
+				"name": "Retrieve Object",
+				"activation": {
+					"type": "reaction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Beginning at 2nd level, as an action you can use your @UUID[Compendium.a5e.a5e-class-features.Item.s4iiatrup3e3virw]{Channel Divinity} to shunt a single inanimate object that you are holding that weighs nor more than 1/4th of the amount you can carry into an extradimensional space. If the object is a food item, it instantly loses its nourishing qualities and if it is a body, it can never be restored to life. The object remains in the extradimensional space for a maximum number of hours equal to your proficiency bonus, after which it appears at your feet. At any time before then, you may use your reaction to retrieve the object in response to whatever you wish. It either appears at your feet or in your hands as you choose.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -43,16 +94,18 @@
 				}
 			}
 		},
-		"classes": [
-			"cleric"
-		]
+		"classes": "cleric",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "8oqvfxexi1ft5vhf",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722961154283,
+		"modifiedTime": 1722961249306,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "8oqvfxexi1ft5vhf"
 }

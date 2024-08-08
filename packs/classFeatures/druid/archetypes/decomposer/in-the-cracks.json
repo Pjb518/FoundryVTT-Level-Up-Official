@@ -17,30 +17,56 @@
 		"actions": {
 			"gqpNUdspRzjVZVfl": {
 				"name": "Wild Shape",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"cVXTMta1C2NeCcHf": {
-						"type": "damage",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"ynALWZ8u6vbpsc73": {
+						"type": "resource",
 						"default": true,
-						"damageType": "piercing",
-						"formula": "@level+@prof"
+						"classIdentifier": "@classResources.wild-shape",
+						"resource": "classResource",
+						"quantity": 1
 					}
 				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				}
+			},
+			"CkiK3r7hHGXwZOJe": {
+				"name": "Medium Swarm of Tiny Beasts",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
 				"prompts": {
-					"nmvpZbNeZWIONsW7": {
+					"OdIe0gNkGASww561": {
 						"type": "effect",
 						"default": true,
-						"effectId": "C5jyHxEghYGVhZdA"
+						"effectId": "PciANQCapTboCsn3"
 					},
-					"wtG3DLPJChU8aXZR": {
-						"type": "savingThrow",
+					"P8KhAQwQhRyuItjB": {
+						"type": "effect",
 						"default": true,
-						"ability": "dex",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "takes half damage"
+						"effectId": "9uwoz4oP1tweJJSH"
+					},
+					"dKTvNMTd61IXPsfy": {
+						"type": "effect",
+						"default": true,
+						"effectId": "tcqQZt4dcn1gK3P0"
+					},
+					"e4gBad5PhbrKiOik": {
+						"type": "effect",
+						"default": true,
+						"effectId": "5tzI8BY8DyzYoWjs"
 					}
 				},
 				"uses": {
@@ -49,6 +75,70 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"ldO3XKsQxwcx4rtk": {
+				"name": "Enters Space",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"7agfewH0P62kmbwM": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "@classes.druid.level + @wis.mod",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {
+					"uP3EDsK8lhWwTo2K": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"hHFzlqI7vyhhPRCi": {
+				"name": "Revert Before 1 Minute",
+				"activation": {},
+				"consumers": {
+					"iY2xrmFekyUmZYTl": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.wild-shape",
+						"resource": "classResource",
+						"quantity": -1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				}
@@ -82,149 +172,26 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "druid",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/death/skull-poison-green.webp",
-			"origin": "Item.uh3w20ghozle5px5",
+			"origin": "Item.F9cp7LvSSyHlab8v",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "gqpNUdspRzjVZVfl",
-					"applyToSelf": true,
-					"duration": {
-						"unit": "minutes"
-					}
+					"actionId": "CkiK3r7hHGXwZOJe",
+					"applyToSelf": false
 				}
 			},
 			"transfer": false,
-			"name": "Swarm Form",
-			"_id": "C5jyHxEghYGVhZdA",
-			"changes": [
-				{
-					"key": "system.details.creatureTypes",
-					"value": "[\"beast\"]",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "system.details.isSwarm",
-					"value": "true",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"icon": "icons/magic/death/skull-poison-green.webp",
-			"origin": "Item.uh3w20ghozle5px5",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
-			},
-			"transfer": false,
-			"name": "Climb Speed",
-			"_id": "b19854uwSqpdFIbJ",
-			"changes": [
-				{
-					"key": "system.attributes.movement.climb.distance",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"icon": "icons/magic/death/skull-poison-green.webp",
-			"origin": "Item.uh3w20ghozle5px5",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
-			},
-			"transfer": false,
-			"name": "Fly Speed",
-			"_id": "8slb01g9NylmrteJ",
-			"changes": [
-				{
-					"key": "system.attributes.movement.fly.distance",
-					"value": "30",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": null,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "",
-			"statuses": [],
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"icon": "icons/magic/death/skull-poison-green.webp",
-			"origin": "Item.uh3w20ghozle5px5",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
-			},
-			"transfer": false,
-			"name": "Damage Resistances",
-			"_id": "eE3KUQv8EJSpdxy6",
+			"name": "Resistance",
+			"img": "icons/magic/death/skull-poison-green.webp",
+			"_id": "PciANQCapTboCsn3",
+			"type": "base",
+			"system": {},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",
@@ -243,21 +210,171 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<p>You have resistance to bludgeoning, piercing, and slashing damage.</p>",
+			"tint": "#ffffff",
 			"statuses": [],
-			"folder": null,
+			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.21",
+				"createdTime": 1722952646914,
+				"modifiedTime": 1722952687768,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.F9cp7LvSSyHlab8v",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CkiK3r7hHGXwZOJe"
+				}
+			},
+			"transfer": false,
+			"name": "Opportunity Attacks",
+			"img": "icons/magic/death/skull-poison-green.webp",
+			"_id": "9uwoz4oP1tweJJSH",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You don’t provoke opportunity attacks when moving out of a creature’s reach.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722952703156,
+				"modifiedTime": 1722952722078,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.F9cp7LvSSyHlab8v",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CkiK3r7hHGXwZOJe"
+				}
+			},
+			"transfer": false,
+			"name": "Climb",
+			"img": "icons/magic/death/skull-poison-green.webp",
+			"_id": "tcqQZt4dcn1gK3P0",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "@attributes.movement.walk.distance",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You have a climb speed equal to your Speed, and you can walk on walls and upside down on ceilings.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722952736454,
+				"modifiedTime": 1722952783894,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.F9cp7LvSSyHlab8v",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CkiK3r7hHGXwZOJe"
+				}
+			},
+			"transfer": false,
+			"name": "Fly",
+			"img": "icons/magic/death/skull-poison-green.webp",
+			"_id": "5tzI8BY8DyzYoWjs",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "@attributes.movement.walk.distance",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You have a fly speed equal to your Speed.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722952766460,
+				"modifiedTime": 1722952799040,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "uh3w20ghozle5px5",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722952476354,
+		"modifiedTime": 1722953213834,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "uh3w20ghozle5px5"
 }

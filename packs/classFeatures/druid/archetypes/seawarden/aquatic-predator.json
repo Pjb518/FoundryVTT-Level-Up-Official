@@ -18,12 +18,18 @@
 			"I9SPWDdgNgByv5MP": {
 				"name": "Aquatic Predator",
 				"activation": {},
-				"consumers": {},
+				"consumers": {
+					"f1NNwWzZUmH54bik": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {
 					"Zp1tXRPZVMi7HaOt": {
 						"type": "damage",
 						"default": true,
-						"formula": "(@prof)d6"
+						"formula": "(floor(@prof/2))d6"
 					}
 				},
 				"prompts": {},
@@ -40,14 +46,14 @@
 				}
 			}
 		},
-		"description": "<p dir=\"ltr\">When you use your Wild Shape to transform into a creature with both a bite attack and a swim speed, you gain an expertise die on Stealth and Athletics checks while in the water.<br>In addition, once per turn, you can deal extra damage when you hit a creature with a bite attack. The amount of extra damage is a number of d6s equal to half your proficiency bonus.</p>\n<p dir=\"ltr\">In order to apply this damage, you must not have disadvantage on the attack and your target must be within 5 feet of another enemy of the target who is not incapacitated. Alternatively, you can apply this damage if you have advantage on the attack.</p>",
+		"description": "<p dir=\"ltr\">When you use your Wild Shape to transform into a creature with both a bite attack and a swim speed, you gain an expertise die on Stealth and Athletics checks while in the water.</p>\n<p dir=\"ltr\">In addition, once per turn, you can deal extra damage when you hit a creature with a bite attack. The amount of extra damage is a number of d6s equal to half your proficiency bonus.</p>\n<p dir=\"ltr\">In order to apply this damage, you must not have disadvantage on the attack and your target must be within 5 feet of another enemy of the target who is not incapacitated. Alternatively, you can apply this damage if you have advantage on the attack.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "turn",
 			"recharge": {
 				"formula": "",
 				"threshold": 0
@@ -62,16 +68,18 @@
 			"version": 0.018,
 			"lastMigration": null
 		},
-		"classes": [
-			"druid"
-		]
+		"classes": "druid",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "godyvmgtfst97q29",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722968440733,
+		"modifiedTime": 1722968533889,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "godyvmgtfst97q29"
 }

@@ -16,8 +16,50 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Also at 14th level, while you are under the effects of Carried Aloft and at least 50 feet off the ground, you may expend 2 uses of Wild Shape to surround yourself with a terrifying whirlwind made of razor-sharp shards. You are surrounded by simultaneous<em> @UUID[Compendium.a5e.a5e-spells.Item.u8e2yij8vcq0puxl]{Blade Barrier}</em>&nbsp;and <em>@UUID[Compendium.a5e.a5e-spells.Item.n7v09ab1hwk8cupe]{Wind Wall}</em>&nbsp;effects, each extending 5 feet out from your space. You must concentrate to maintain this effect (as per a spell), and it lasts for up to 10 minutes.</p>",
+		"actions": {
+			"lktYhW7fKSxGtvTx": {
+				"name": "Reaping Whirlwind",
+				"activation": {},
+				"consumers": {
+					"5hZTpNqSLrQzYlWw": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.wild-shape",
+						"resource": "classResource",
+						"quantity": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"4uLEb9PcG5nPbnYg": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 5,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				}
+			}
+		},
+		"description": "<p>Also at 14th level, while you are under the effects of @UUID[Compendium.a5e.a5e-class-features.Item.n0cdulcve2q0fbzh]{Carried Aloft} and at least 50 feet off the ground, you may expend 2 uses of Wild Shape to surround yourself with a terrifying whirlwind made of razor-sharp shards. You are surrounded by simultaneous @UUID[Compendium.a5e.a5e-spells.Item.u8e2yij8vcq0puxl]{Blade Barrier}&nbsp;and @UUID[Compendium.a5e.a5e-spells.Item.n7v09ab1hwk8cupe]{Wind Wall}&nbsp;effects, each extending 5 feet out from your space. You must concentrate to maintain this effect (as per a spell), and it lasts for up to 10 minutes.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -30,7 +72,7 @@
 				"threshold": 6
 			}
 		},
-		"concentration": false,
+		"concentration": true,
 		"featureType": "class",
 		"grants": {},
 		"prerequisite": "",
@@ -45,14 +87,16 @@
 				}
 			}
 		},
-		"classes": [
-			"druid"
-		]
+		"classes": "druid",
+		"class": ""
 	},
-	"_id": "lgmo135hl2a8pw5x",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722972088240,
+		"modifiedTime": 1722972200890,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "lgmo135hl2a8pw5x"
 }

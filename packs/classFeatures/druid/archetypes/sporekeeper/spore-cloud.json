@@ -4,8 +4,7 @@
 	"img": "icons/magic/air/fog-gas-smoke-dense-brown.webp",
 	"effects": [
 		{
-			"icon": "icons/magic/air/fog-gas-smoke-dense-brown.webp",
-			"origin": "Item.bkfFrUw0NKUxCoVY",
+			"origin": "Item.eWmSYh6u2wtvQwkE",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -25,6 +24,12 @@
 					"value": "[\"poisoned\"]",
 					"mode": 0,
 					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.concentration",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
 				}
 			],
 			"disabled": false,
@@ -41,12 +46,83 @@
 			"statuses": [
 				"poisoned"
 			],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.21",
+				"createdTime": null,
+				"modifiedTime": 1722966530549,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/air/fog-gas-smoke-dense-brown.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.eWmSYh6u2wtvQwkE",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "tYtleDVnvAdLqrkp",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Fails By 5 Or More",
+			"_id": "Na3CSeZbfwIbtjUw",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\",\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.concentration",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Creatures other than you that begin their turn in the cloud must make a Constitution saving throw against your spell save DC or be poisoned for one minute. While poisoned this way, a creature experiences bizarre and sometimes frightening hallucinations. It treats all targets as lightly obscured, and it has disadvantage on checks to maintain concentration. If the creature fails its save by 5 or more, it is also frightened until the end of its next turn.</p>\n<p>Once a creature exits the cloud, they may repeat their save at the end of each of their turns, ending all effects on a success.</p>",
+			"statuses": [
+				"poisoned",
+				"frightened"
+			],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722966536987,
+				"modifiedTime": 1722966577865,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/air/fog-gas-smoke-dense-brown.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		}
 	],
 	"folder": null,
@@ -69,7 +145,15 @@
 					"type": "action",
 					"cost": 1
 				},
-				"consumers": {},
+				"consumers": {
+					"20aJ2OtAeib5Fb3s": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.wild-shape",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
 				"rolls": {},
 				"prompts": {
 					"QwUpMyJm22qNfjGh": {
@@ -84,6 +168,11 @@
 						"type": "effect",
 						"default": true,
 						"effectId": "ma66zQVK2772nx59"
+					},
+					"1RxGA62e4HhXU71Q": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Na3CSeZbfwIbtjUw"
 					}
 				},
 				"uses": {
@@ -100,7 +189,17 @@
 				"area": {
 					"shape": "emanation",
 					"quantity": 1,
-					"radius": 10
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"ranges": {
+					"MI4B56Wq3F8bkQCl": {
+						"range": "self"
+					}
 				}
 			}
 		},
@@ -132,14 +231,16 @@
 				}
 			}
 		},
-		"classes": [
-			"druid"
-		]
+		"classes": "druid",
+		"class": ""
 	},
-	"_id": "5rc2abg8pu3zly8i",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722966451028,
+		"modifiedTime": 1722966598373,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "5rc2abg8pu3zly8i"
 }

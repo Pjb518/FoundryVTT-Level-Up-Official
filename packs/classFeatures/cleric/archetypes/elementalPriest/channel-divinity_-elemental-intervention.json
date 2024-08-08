@@ -17,12 +17,20 @@
 			"YcusQcsB59GR60z3": {
 				"name": "Elemental Intervention",
 				"activation": {},
-				"consumers": {},
+				"consumers": {
+					"W24ECIFbxTqp36Kz": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
 				"rolls": {
 					"BPpF8ypdumbYZ4pO": {
 						"type": "damage",
 						"default": true,
-						"formula": "2d10+@level"
+						"formula": "2d10 + @classes.cleric.level"
 					}
 				},
 				"prompts": {
@@ -32,7 +40,18 @@
 						"ability": "con",
 						"saveDC": {
 							"type": "spellcasting"
-						}
+						},
+						"onSave": "Half damage"
+					},
+					"RBrLe315APokwDrC": {
+						"type": "effect",
+						"default": true,
+						"effectId": "lhupNR4ipVxCmKvt"
+					},
+					"iF3a8HrztRUGPQhM": {
+						"type": "effect",
+						"default": true,
+						"effectId": "iJrfUWesFQCREAsL"
 					}
 				},
 				"uses": {
@@ -48,10 +67,10 @@
 					"unit": "instantaneous"
 				},
 				"area": {
-					"shape": "circle",
+					"shape": "emanation",
 					"quantity": 1,
-					"radius": 30,
-					"placeTemplate": true
+					"placeTemplate": true,
+					"radius": 30
 				},
 				"target": {
 					"type": "",
@@ -59,7 +78,12 @@
 				},
 				"descriptionOutputs": [
 					"action"
-				]
+				],
+				"ranges": {
+					"TzdPdY8qj4oBhrI6": {
+						"range": "self"
+					}
+				}
 			}
 		},
 		"description": "<p dir=\"ltr\">Beginning at 2nd level, you can clutch your holy symbol and emit a blast of elemental energy. Enemy creatures within 30 feet make a Constitution saving throw or take damage equal to 2d10 + your cleric level, or half damage on a success. The damage type varies based on your archetype spell list. This power also has an extra effect, likewise determined by your archetype spell list.</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>Fire Priest.</strong> Fire damage. Unattended flammable objects within 30 feet of you catch fire. Traps in the area are subject to the fire damage (they automatically fail the save), and magical effects whose spell-level + 10 is less than your spell save DC are dispelled.&nbsp;</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>Ice Priest.</strong> Cold damage. Ground within 30 feet of you is caked in frost, becoming difficult terrain for 1 minute. Nonmagical fires in the area are snuffed out.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>Plant Priest.</strong> Poison damage. Gnarled brambles burst through the ground within 30 feet of you (unless it is metal thicker than 3 inches or stone thicker than 1 foot), which becomes difficult terrain for 1 minute.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>Stone Priest.</strong> Force damage. Creatures who failed their saving throw are knocked prone. The ground becomes cracked and broken within 30 feet of you (unless it is metal thicker than 3 inches or stone thicker than 1 foot), becoming difficult terrain.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>Storm Priest.</strong> Lightning damage. Creatures wearing metal armor and creatures in trees or in the water have disadvantage on their save. Creatures who fail their save can&rsquo;t take reactions for 1 minute.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong id=\"docs-internal-guid-fdf55ee7-7fff-cb1f-0a8e-eabe50b1b299\">Water Priest</strong><strong>.</strong> Acid damage. Nonmagical fires within 30 feet of you are snuffed out. Traps in the area are subject to the acid damage (they automatically fail the save), and magical effects whose spell-level + 10 is less than your spell save DC are dispelled</p>\n</li>\n</ul>",
@@ -90,17 +114,116 @@
 				}
 			}
 		},
-		"classes": [
-			"cleric"
-		]
+		"classes": "cleric",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.pQtoT74uNlegQkn8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "YcusQcsB59GR60z3"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"img": "icons/magic/holy/projectiles-blades-salvo-yellow.webp",
+			"_id": "lhupNR4ipVxCmKvt",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722957677160,
+				"modifiedTime": 1722957686167,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.pQtoT74uNlegQkn8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "YcusQcsB59GR60z3",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "No Reactions",
+			"img": "icons/magic/holy/projectiles-blades-salvo-yellow.webp",
+			"_id": "iJrfUWesFQCREAsL",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p><strong>Storm Priest.</strong> Lightning damage. Creatures wearing metal armor and creatures in trees or in the water have disadvantage on their save. Creatures who fail their save can’t take reactions for 1 minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722957696231,
+				"modifiedTime": 1722957738107,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "h5hlqfswnlwyu3yn",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722957524093,
+		"modifiedTime": 1722957696267,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "h5hlqfswnlwyu3yn"
 }

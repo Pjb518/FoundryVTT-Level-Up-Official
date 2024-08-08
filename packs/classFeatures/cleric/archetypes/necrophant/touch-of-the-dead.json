@@ -15,7 +15,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>Also at 1st level, you have learned how best to harness certain necrotic energy and push its potential to the limits. You learn the Chill Touch Cantrip, which does not count against your number of known cantrips. Furthermore, you can add your wisdom modifier to the damage you deal by any spell of 1st level or higher that deals necrotic damage.</p>",
+		"description": "<p>Also at 1st level, you have learned how best to harness certain necrotic energy and push its potential to the limits. You learn the @UUID[Compendium.a5e.a5e-spells.Item.bpkked98u8mb2q3w]{Chill Touch} cantrip, which does not count against your number of known cantrips. Furthermore, you can add your wisdom modifier to the damage you deal by any spell of 1st level or higher that deals necrotic damage.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "acesAdventuringGuideToNecromancy",
@@ -30,7 +30,38 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"5r3Gp2QP5iT7BeuV": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "5r3Gp2QP5iT7BeuV",
+				"label": "Touch of the Dead",
+				"bonus": "@wis.mod",
+				"damageType": "necrotic",
+				"context": {
+					"attackTypes": [
+						"meleeSpellAttack",
+						"rangedSpellAttack"
+					],
+					"spellLevels": [
+						"1",
+						"2",
+						"3",
+						"4",
+						"5",
+						"6",
+						"7",
+						"8",
+						"9"
+					],
+					"damageTypes": [
+						"necrotic"
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -43,14 +74,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "cleric",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "qjnhf761cjrzf24x",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722976975846,
+		"modifiedTime": 1722977039756,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "qjnhf761cjrzf24x"
 }

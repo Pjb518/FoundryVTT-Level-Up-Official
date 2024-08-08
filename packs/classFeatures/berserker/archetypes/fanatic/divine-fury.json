@@ -15,9 +15,10 @@
 		},
 		"actions": {
 			"IdmUkvNoYE5xxCV3": {
-				"name": "Divine Fury Activation",
+				"name": "Divine Fury",
 				"activation": {
-					"type": "special"
+					"type": "",
+					"cost": 1
 				},
 				"consumers": {
 					"DP058J5B2prGeR4E": {
@@ -28,7 +29,18 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"cfCAo2pfq73jCMqx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "YJTADL6yxD9pdm4d"
+					},
+					"ZVDZlsIwDfaXvCVf": {
+						"type": "effect",
+						"default": true,
+						"effectId": "i1RrRND332zA4KY4"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -39,67 +51,10 @@
 					}
 				},
 				"duration": {
-					"unit": "special"
+					"unit": "",
+					"value": 1
 				},
-				"ranges": {
-					"KcPhfEDHhntukpmD": {
-						"range": "self"
-					}
-				}
-			},
-			"5Kpcws5ZUAFCNU9K": {
-				"name": "Radiant Damage",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"dJQu3W0mdh34JdLn": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d4",
-						"damageType": "radiant"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
-			"o22YLKZJ18UJU1Ma": {
-				"name": "Necrotic Damage",
-				"activation": {},
-				"consumers": {},
-				"rolls": {
-					"dJQu3W0mdh34JdLn": {
-						"type": "damage",
-						"default": true,
-						"formula": "1d4",
-						"damageType": "necrotic"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
+				"ranges": {}
 			}
 		},
 		"description": "<p>Choose radiant or necrotic damage. At 1st level whenever you enter a rage, you may spend a point of exertion as well. If you do so, you deal an additional 1d4 points of the chosen damage type with all weapon attacks for the duration of your rage.</p>",
@@ -130,15 +85,118 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "berserker",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.Hal38VTP4dNRRVqg",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "IdmUkvNoYE5xxCV3"
+				}
+			},
+			"transfer": false,
+			"name": "Divine Fury (Radiant)",
+			"img": "icons/magic/holy/yin-yang-balance-symbol.webp",
+			"_id": "YJTADL6yxD9pdm4d",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Divine Fury (Radiant)\",\"formula\":\"1d4\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/holy/yin-yang-balance-symbol.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Choose radiant or necrotic damage. At 1st level whenever you enter a rage, you may spend a point of exertion as well. If you do so, you deal an additional 1d4 points of the chosen damage type with all weapon attacks for the duration of your rage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722944039249,
+				"modifiedTime": 1722944074984,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.Hal38VTP4dNRRVqg",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "IdmUkvNoYE5xxCV3"
+				}
+			},
+			"transfer": false,
+			"name": "Divine Fury (Necrotic)",
+			"img": "icons/magic/holy/yin-yang-balance-symbol.webp",
+			"_id": "i1RrRND332zA4KY4",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Divine Fury (Necrotic)\",\"formula\":\"1d4\",\"damageType\":\"necrotic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/holy/yin-yang-balance-symbol.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Choose radiant or necrotic damage. At 1st level whenever you enter a rage, you may spend a point of exertion as well. If you do so, you deal an additional 1d4 points of the chosen damage type with all weapon attacks for the duration of your rage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722944080514,
+				"modifiedTime": 1722944095056,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "rfnksv0vykoi2oip",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722943486345,
+		"modifiedTime": 1722944118601,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "rfnksv0vykoi2oip"
 }

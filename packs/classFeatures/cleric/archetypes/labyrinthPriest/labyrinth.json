@@ -14,8 +14,59 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Starting at 17th level, you can expend one use of your Channel Divinity to cast the<em> @UUID[Compendium.a5e.a5e-spells.Item.k99eld0oyhiukqbt]{Maze} </em>spell.</p>",
+		"actions": {
+			"xaLcof9J0jWlrWeX": {
+				"name": "Maze",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"az7bPLtlGdbUf18e": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"6GwJKS4gSZThLQO2": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/control/silhouette-hold-beam-blue.webp"
+			}
+		},
+		"description": "<p>Starting at 17th level, you can expend one use of your Channel Divinity to cast the @UUID[Compendium.a5e.a5e-spells.Item.k99eld0oyhiukqbt]{Maze} spell.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "dungeonDelversGuide",
@@ -43,12 +94,12 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "cleric",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/environment/wilderness/cave-entrance-mountain-blue.webp",
-			"origin": "Item.uxpa4yb6kjjae1j1",
+			"origin": "Item.7yy5wdYubWlzXoXD",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -78,19 +129,32 @@
 			},
 			"description": "",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.21",
+				"createdTime": null,
+				"modifiedTime": 1722952128784,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/environment/wilderness/cave-entrance-mountain-blue.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "uxpa4yb6kjjae1j1",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722952128742,
+		"modifiedTime": 1722952198435,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "uxpa4yb6kjjae1j1"
 }

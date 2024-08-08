@@ -13,7 +13,69 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"0fbT1qXMTqYS60AI": {
+				"name": "Summon Constellation",
+				"activation": {},
+				"consumers": {
+					"Ky20YIm2RrocpQUq": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"wWUVfNzm2bnO9vhs": {
+				"name": "Wildshape",
+				"activation": {},
+				"consumers": {
+					"bIVzHoxwwwCwL9dG": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"dUbrFl8DSzmfMJiA": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.wild-shape",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"iKry4vhmcJLZTjyr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kklStiMRCwMfIbru"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 10th level, when you cast a spell that summons beasts or fey, you may instead summon a manifestation of a constellation instead. The creatures summoned have resistance to radiant damage and damage from non-magical weapons, Truesight, and their attacks all deal an additional 1d6 radiant damage. You may also gain the same benefits when you use a Wildshape. You may only apply these benefits once per short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -42,15 +104,76 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "druid",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.aRJi5tFSJmdEyqoq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "wWUVfNzm2bnO9vhs",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Channel Constellation",
+			"img": "icons/magic/light/orbs-smoke-pink.webp",
+			"_id": "kklStiMRCwMfIbru",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"radiant\",\"Non-magical Weapons\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Channel Constellation\",\"formula\":\"1d6\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"meleeSpellAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/light/orbs-smoke-pink.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You have resistance to radiant damage and damage from non-magical weapons, Truesight, and your attacks all deal an additional 1d6 radiant damage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.21",
+				"createdTime": 1722946975995,
+				"modifiedTime": 1722947066956,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "zd03yj0pm0q0r8qd",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.21",
+		"createdTime": 1722946892608,
+		"modifiedTime": 1722946976030,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "zd03yj0pm0q0r8qd"
 }
