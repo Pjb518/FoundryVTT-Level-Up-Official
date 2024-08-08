@@ -100,7 +100,7 @@ export default class TokenPreviewManager {
     token.destroy();
 
     this.events.resolve(
-      canvas.scene.createEmbeddedDocuments('Token', [token.document.toObject()])
+      canvas.scene?.createEmbeddedDocuments('Token', [token.document.toObject()])
     );
   }
 }

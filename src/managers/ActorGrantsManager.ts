@@ -179,7 +179,7 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
       const clsSlug = cls?.slug || '';
       if (clsLevel < 1) {
         await cls?.sheet?.close();
-        cls.delete();
+        cls?.delete();
         return true;
       }
 
