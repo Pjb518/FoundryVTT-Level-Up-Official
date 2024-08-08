@@ -260,7 +260,7 @@ class A5eEnricherManager {
     event.stopPropagation();
 
     const selectedTokens = canvas?.tokens?.controlled;
-    if (!(selectedToken?.length)) {
+    if (!(selectedTokens?.length)) {
       ui.notifications?.error('No tokens selected.');
       return;
     }
@@ -430,7 +430,7 @@ class A5eEnricherManager {
     event.stopPropagation();
 
     const selectedTokens = canvas?.tokens?.controlled;
-    if (!(selectedToken?.length)) {
+    if (!(selectedTokens?.length)) {
       ui.notifications?.error('No tokens selected.');
       return;
     }

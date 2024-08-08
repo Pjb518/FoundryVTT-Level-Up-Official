@@ -31,18 +31,22 @@ export default class TokenPreviewManager {
         reject
       };
 
-      canvas.stage.on('mousemove', this.events.move);
-      canvas.stage.on('mousedown', this.events.confirm);
-      canvas.app.view.oncontextmenu = this.events.cancel;
-      canvas.app.view.onwheel = this.events.rotate;
+      canvas.stage?.on('mousemove', this.events.move);
+      canvas.stage?.on('mousedown', this.events.confirm);
+      if (canvas.app) {
+        canvas.app.view.oncontextmenu = this.events.cancel;
+        canvas.app.view.onwheel = this.events.rotate;
+      }
     });
   }
 
   _cleanup() {
-    canvas.stage.off('mousemove', this.events.move);
-    canvas.stage.off('mousedown', this.events.confirm);
-    canvas.app.view.oncontextmenu = null;
-    canvas.app.view.onwheel = null;
+    canvas.stage?.off('mousemove', this.events.move);
+    canvas.stage?.off('mousedown', this.events.confirm);
+    if (canvas.app) {
+      canvas.app.view.oncontextmenu = null;
+      canvas.app.view.onwheel = null;
+    }
 
     // TODO: Revert to original layer
   }
@@ -55,12 +59,12 @@ export default class TokenPreviewManager {
     const center = e.data.getLocalPosition(this.token.layer);
 
     // Snap to grid
-    const hw = canvas.grid.w / 2;
-    const hh = canvas.grid.h / 2;
+    const hw = (canvas.grid?.w ?? 0) / 2;
+    const hh = (canvas.grid?.h ?? 0) / 2;
     const x = center.x - (this.token.document.width * hw);
     const y = center.y - (this.token.document.height * hh);
 
-    const destination = e.shiftKey ? { x, y } : canvas.grid.getSnappedPoint({ x, y });
+    const destination = e.shiftKey ? { x, y } : canvas.grid?.getSnappedPoint({ x, y });
 
     this.token.document.updateSource({ x: destination.x, y: destination.y });
     this.token.refresh();
@@ -91,9 +95,11 @@ export default class TokenPreviewManager {
     this._cleanup();
 
     const { token } = this;
-    const interval = canvas.grid.type === CONST.GRID_TYPES.GRIDLESS ? 0 : 2;
-    const destination = canvas.grid
-      .getSnappedPoint({ x: token.document.x, y: token.document.y }, { mode: interval });
+    const interval = canvas.grid?.type === CONST.GRID_TYPES.GRIDLESS ? 0 : 2;
+    const destination = canvas.grid?.getSnappedPoint(
+      { x: token.document.x, y: token.document.y },
+      { mode: interval }
+    );
 
     token.document.updateSource({ x: destination.x, y: destination.y });
     token.refresh();
