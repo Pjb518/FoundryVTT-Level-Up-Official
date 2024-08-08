@@ -1,19 +1,68 @@
 {
 	"name": "Quick-Witted Defense",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/skills/melee/shield-block-gray-orange.webp",
+	"effects": [
+		{
+			"origin": "Item.JNRyXshvIDJU1RSy",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Quick-Witted Defense",
+			"img": "icons/skills/melee/shield-block-gray-orange.webp",
+			"_id": "RgwIPAWQw5fpvmLz",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When you are wielding at least one weapon with the Defensive, Finesse, or Parrying quality, your Armor Class increases by 1.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723125254671,
+				"modifiedTime": 1723125280868,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
-			"baseFormula": "",
+			"baseFormula": "10 + @dex.mod + @cha.mod",
 			"formula": "",
 			"grantsDisadvantage": false,
 			"maxDex": 0,
 			"minStr": 0,
 			"mode": 2,
-			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresNoShield": true,
+			"requiresUnarmored": true
 		},
 		"actions": {},
 		"description": "<p>Also at 3rd level, while you are not wearing armor or wielding a shield your AC equals 10 + your Dexterity modifier + your Charisma modifier. In addition, when you are wielding at least one weapon with the Defensive, Finesse, or Parrying quality, your Armor Class increases by 1.</p>",
@@ -44,13 +93,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "fighter",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "qcn1ulvodwrbi32f",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723125174466,
+		"modifiedTime": 1723125229395,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "qcn1ulvodwrbi32f"
 }
