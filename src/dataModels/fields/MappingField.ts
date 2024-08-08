@@ -74,8 +74,7 @@ export default class MappingField extends foundry.data.fields.ObjectField {
 
   /* -------------------------------------------- */
 
-  /** @override */
-  _validateType(value, options = {}) {
+  override _validateType(value, options = {}) {
     if (foundry.utils.getType(value) !== 'Object') throw new Error('must be an Object');
     const errors = this._validateValues(value, options);
     if (!foundry.utils.isEmpty(errors)) throw new foundry.data.fields.ModelValidationError(errors);
@@ -100,8 +99,7 @@ export default class MappingField extends foundry.data.fields.ObjectField {
 
   /* -------------------------------------------- */
 
-  /** @override */
-  initialize(value, model, options = {}) {
+  override initialize(value, model, options = {}) {
     if (!value) return value;
     const obj = {};
     const initialKeys = (this.initialKeys instanceof Array) ? this.initialKeys : Object.keys(this.initialKeys ?? {});

@@ -6,7 +6,6 @@ export default class SettingsShim extends FormApplication {
     SystemSettings.show();
   }
 
-  /** @override */
   async updateObject(): void {
     //
   }
