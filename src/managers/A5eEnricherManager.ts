@@ -539,7 +539,6 @@ class A5eEnricherManager {
     const result = results[roll.total as number - 1];
 
     await roll.toMessage();
-    console.log(target.dataset);
     const messageData = {
       author: game.user?.id,
       // speaker: ChatMessage.getSpeaker(),
