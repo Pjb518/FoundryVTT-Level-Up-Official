@@ -14,15 +14,51 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p><span id=\"docs-internal-guid-6c5f694c-7fff-a2ba-2e40-74584f84e408\">At 20th level, the common love shared between you and your allies fuels your combat prowess. Whenever a creature takes the Help action within the range of your Sacred Aura after initiative is rolled, they add an additional [[/r 2d8]] to your next divine smite damage, up to a maximum number of bonus damage dice equal to twice your Charisma modifier (minimum of [[/r 2d8]]). You lose all of this bonus damage if you do not use it by the time combat ends.</span></p>",
+		"actions": {
+			"IeX33lDU6TPKuJn5": {
+				"name": "Omnia Vincit Amor",
+				"activation": {},
+				"consumers": {
+					"nYzIoG1R9oh5ZgUy": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"Zoiof6fqgxZCNkGW": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d8",
+						"scaling": {
+							"mode": "itemUses",
+							"formula": "2d8"
+						},
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p><span id=\"docs-internal-guid-6c5f694c-7fff-a2ba-2e40-74584f84e408\">At 20th level, the common love shared between you and your allies fuels your combat prowess. Whenever a creature takes the Help action within the range of your Sacred Aura after initiative is rolled, they add an additional 2d8 to your next divine smite damage, up to a maximum number of bonus damage dice equal to twice your Charisma modifier (minimum of 2d8). You lose all of this bonus damage if you do not use it by the time combat ends.</span></p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "secretsOfTheSelkies",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "max(2*@cha.mod,1)",
+			"per": "minute",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -37,14 +73,18 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "herald"
+		"classes": "herald",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "jq2bqlzxjh2u7bp8",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723137620760,
+		"modifiedTime": 1723137749426,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "jq2bqlzxjh2u7bp8"
 }

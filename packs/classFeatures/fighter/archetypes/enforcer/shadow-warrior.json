@@ -2,7 +2,117 @@
 	"name": "Shadow Warrior",
 	"type": "feature",
 	"img": "icons/magic/unholy/silhouette-robe-evil-power.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.PjtdYA1i4erK3Rln",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "OsOV4DLvB4T9Bgwo",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/magic/unholy/silhouette-robe-evil-power.webp",
+			"_id": "KiwHTJ6Hdv9dd69B",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dic. </li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723152091043,
+				"modifiedTime": 1723152197170,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.PjtdYA1i4erK3Rln",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "OsOV4DLvB4T9Bgwo",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"img": "icons/magic/unholy/silhouette-robe-evil-power.webp",
+			"_id": "oVvD41dtCrKdUnIU",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723152142131,
+				"modifiedTime": 1723152190412,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"folder": null,
 	"flags": {},
 	"system": {
@@ -36,6 +146,16 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
+					},
+					"4QU6Ke3fVPOuD4up": {
+						"type": "effect",
+						"default": true,
+						"effectId": "KiwHTJ6Hdv9dd69B"
+					},
+					"ww4vzlKv41Bd4bzC": {
+						"type": "effect",
+						"default": true,
+						"effectId": "oVvD41dtCrKdUnIU"
 					}
 				},
 				"uses": {
@@ -51,7 +171,7 @@
 				}
 			}
 		},
-		"description": "<p>Your blending of the martial and the clandestine reaches its apex. When you hit with a weapon attack against a creature that is unaware of your presence, you deal an additional 1d8 of damage. Your critical hit range for attacks against a creature unaware of your presence increases to 17-20.</p><p>A creature that suffers a critical hit from such an attack must make a Wisdom saving throw against your maneuver DC or become <em>rattled</em> for one minute. If they fail this save by more than 5, they are also <em>stunned</em> until the end of their next turn.</p>",
+		"description": "<p>Your blending of the martial and the clandestine reaches its apex. When you hit with a weapon attack against a creature that is unaware of your presence, you deal an additional 1d8 of damage. Your critical hit range for attacks against a creature unaware of your presence increases to 17-20.</p>\n<p>A creature that suffers a critical hit from such an attack must make a Wisdom saving throw against your maneuver DC or become rattled for one minute. If they fail this save by more than 5, they are also stunned until the end of their next turn.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -79,12 +199,16 @@
 				}
 			}
 		},
-		"classes": "fighter"
+		"classes": "fighter",
+		"class": ""
 	},
-	"_id": "013m434uabf3tl6j",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723152084189,
+		"modifiedTime": 1723152150568,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "013m434uabf3tl6j"
 }

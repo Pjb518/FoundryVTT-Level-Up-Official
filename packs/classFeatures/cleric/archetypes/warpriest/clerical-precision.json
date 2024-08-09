@@ -1,0 +1,142 @@
+{
+	"name": "Clerical Precision",
+	"type": "feature",
+	"img": "icons/skills/targeting/target-glowing-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"guSotVSeaSXozJn9": {
+				"name": "Clerical Precision",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"mSMtGboZc1o4oI0Q": {
+						"type": "effect",
+						"default": true,
+						"effectId": "xbDwBoerTGHbJlYH"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Starting at 6th level, whenever you miss with a melee weapon or melee spell attack, you gain advantage on your next melee weapon or melee spell attack.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "cleric",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.lBxOLgJBfxtVFSQE",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "guSotVSeaSXozJn9",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Clerical Precision",
+			"img": "icons/skills/targeting/target-glowing-yellow.webp",
+			"_id": "xbDwBoerTGHbJlYH",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.meleeSpellAttack",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.attack.meleeWeaponAttack",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Yyou gain advantage on your next melee weapon or melee spell attack.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723051817954,
+				"modifiedTime": 1723051850996,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723051788702,
+		"modifiedTime": 1723051817991,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "8v1xiqfirnw79e6c"
+}

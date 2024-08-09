@@ -1,0 +1,237 @@
+{
+	"name": "Flash Fight",
+	"type": "feature",
+	"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+	"effects": [
+		{
+			"origin": "Item.JN0ocSUD1ynCaG6s",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "hwPQzUhr9WB16zcd",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Gentle Illumination",
+			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"_id": "Sr1CJ2o77J16pVdK",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Advantage on attacks made against it before the start of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723047449449,
+				"modifiedTime": 1723047503613,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.JN0ocSUD1ynCaG6s",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "xS3mewJjDsCGosu2",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Coruscating Shimmer",
+			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
+			"_id": "voWl4aVoluQiLaH4",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Creatures have disadvantage on attack rolls against the touched ally.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723047548057,
+				"modifiedTime": 1723047568075,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"hwPQzUhr9WB16zcd": {
+				"name": "Gentle Illumination",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"uxvuknP0c8kaWnmR": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"consumers": {
+					"WYotdpfrGZrCfcYc": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"prompts": {
+					"6rdRLOkJhhOaFsMF": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Sr1CJ2o77J16pVdK"
+					}
+				}
+			},
+			"xS3mewJjDsCGosu2": {
+				"name": "Coruscating Shimmer",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"sVDAlvEYePo68X7R": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"fgowdkLTfNIxmBkt": {
+						"type": "effect",
+						"default": true,
+						"effectId": "voWl4aVoluQiLaH4"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"p8nE0oSPXPTG3smG": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>At 1st level, you learn that light is everything on the battlefield. You can use an action to touch a hostile creature within your reach, gently illuminating it with your divine will and granting advantage on attacks made against it before the start of your next turn.</p><p>Alternatively, you can use an action to touch an ally within reach, surrounding them with a coruscating shimmer of bright light. Until the start of your next turn, creatures have disadvantage on attack rolls against the touched ally.</p><p>Once you have used this feature a number of times equal to your Wisdom modifier, you cannot do so again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "@wis.mod",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "cleric",
+		"class": ""
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723047411501,
+		"modifiedTime": 1723047596297,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "es9jn8a9en6e5mih"
+}

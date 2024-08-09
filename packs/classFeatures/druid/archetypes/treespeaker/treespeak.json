@@ -1,7 +1,7 @@
 {
 	"name": "Treespeak",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/nature/tree-animated-smile.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -29,23 +29,36 @@
 				},
 				"ranges": {
 					"q6tgHOQ9TuJSy3pS": {
-						"range": 10,
+						"range": "self",
 						"unit": "feet"
 					}
 				},
 				"area": {
-					"shape": "",
+					"shape": "emanation",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": true,
+					"quantity": 1,
+					"radius": 10
 				},
 				"target": {
 					"quantity": "",
 					"type": ""
 				},
-				"consumers": {}
+				"consumers": {},
+				"rolls": {
+					"B5mOmsdlq2ZhLfO8": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d4",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d4"
+						}
+					}
+				}
 			}
 		},
-		"description": "<p>At 2nd level plants understand anything you verbally communicate in Druidic, and you can comprehend them in return. The knowledge and awareness of many plants is limited and most mundane plants have at best a vague understanding of the world around them, though creatures with the plant type can often give you information about nearby locations and monsters, including whatever they have perceived within the past day. At the Narrator’s discretion, you might be able to persuade a plant creature to perform a small favor for you. </p><p>In addition, your verdant magic causes those around you to flourish. Whenever you cast a spell of the plants school, <strong>roll a number of d4s equal to the spell’s level</strong>. You and allied creatures within 10 feet of you regain a number of hit points equal to the result.</p>",
+		"description": "<p>At 2nd level plants understand anything you verbally communicate in Druidic, and you can comprehend them in return. The knowledge and awareness of many plants is limited and most mundane plants have at best a vague understanding of the world around them, though creatures with the plant type can often give you information about nearby locations and monsters, including whatever they have perceived within the past day. At the Narrator&rsquo;s discretion, you might be able to persuade a plant creature to perform a small favor for you.</p>\n<p>In addition, your verdant magic causes those around you to flourish. Whenever you cast a spell of the <em>plants </em>school, roll a number of d4s equal to the spell&rsquo;s level. You and allied creatures within 10 feet of you regain a number of hit points equal to the result.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -73,13 +86,17 @@
 				}
 			}
 		},
-		"classes": "druid"
+		"classes": "druid",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "vcg1i3urrosxndy8",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723062149167,
+		"modifiedTime": 1723062334251,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "vcg1i3urrosxndy8"
 }

@@ -1,0 +1,297 @@
+{
+	"name": "Channel Divinity: Summon the Stars",
+	"type": "feature",
+	"img": "icons/skills/trades/academics-astronomy-navigation-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"PNnUEIE46eYKDdL7": {
+				"name": "Channel Divinity: Summon the Stars",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"dSY7gd26qBkD4LZL": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"rolls": {
+					"IPvKNdKS40GqVJ50": {
+						"canCrit": false,
+						"damageType": "radiant",
+						"formula": "12d6",
+						"name": "Radiance",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"zyoM4KwdlCnwSsxf": {
+						"ability": "con",
+						"onSave": "Half damage",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"hwaqpBBLsQW5O39N": {
+						"type": "effect",
+						"default": true,
+						"effectId": "QAApdw0ukepQLEtL"
+					},
+					"X1mllaegThenTuw1": {
+						"type": "effect",
+						"default": true,
+						"effectId": "y4tDjPlxcNhBgFk9"
+					},
+					"Ze816tdhm6VPuaiR": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ToNOWcMSk22aSyeN"
+					}
+				},
+				"consumers": {
+					"hokwwgDQLh8fTxcG": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>At 17th level, you are able to manipulate the burning brilliance of the stars themselves. Choose an object or creature within 60 feet. For 1 minute the target emits bright light in a 60-foot radius and dim light for an additional 30 feet. When a creature starts its turn within 30 feet of the target or first enters into a space within 30 feet of the target on its turn, it makes a Constitution saving throw or becomes blinded for 1 minute. A blinded creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p>The first time this feature is used per long rest, any creature within 30 feet of the target takes 12d6 radiant damage on a failed save, or half damage on a success. Magical auras within the light’s radius become visible for 1 hour, shedding dim light in a 5-foot radius for 1 hour. An invisible creature that fails its saving throw against the radiant damage is also revealed and it sheds dim light in a 5-foot radius for 1 hour. </p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "cleric",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.gBdtq0yhsrr9Lm2M",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PNnUEIE46eYKDdL7",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Burning Brilliance",
+			"img": "icons/skills/trades/academics-astronomy-navigation-purple.webp",
+			"_id": "QAApdw0ukepQLEtL",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "90",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For 1 minute the target emits bright light in a 60-foot radius and dim light for an additional 30 feet. When a creature starts its turn within 30 feet of the target or first enters into a space within 30 feet of the target on its turn, it makes a Constitution saving throw or becomes blinded for 1 minute. A blinded creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723049638026,
+				"modifiedTime": 1723049918845,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.gBdtq0yhsrr9Lm2M",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PNnUEIE46eYKDdL7",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"img": "icons/skills/trades/academics-astronomy-navigation-purple.webp",
+			"_id": "y4tDjPlxcNhBgFk9",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A blinded creature can't see and it automatically fails ability checks that require sight.</li>\n<li>Attack rolls against a blinded creature are made with advantage, and the creature's attack rolls are made with disadvantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"blinded"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723049967647,
+				"modifiedTime": 1723049993889,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.gBdtq0yhsrr9Lm2M",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PNnUEIE46eYKDdL7",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Aura",
+			"img": "icons/skills/trades/academics-astronomy-navigation-purple.webp",
+			"_id": "ToNOWcMSk22aSyeN",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.dim",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Magical auras within the light’s radius become visible for 1 hour, shedding dim light in a 5-foot radius for 1 hour. An invisible creature that fails its saving throw against the radiant damage is also revealed and it sheds dim light in a 5-foot radius for 1 hour. </p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723050016036,
+				"modifiedTime": 1723050048629,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723049499481,
+		"modifiedTime": 1723050016080,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "aw46huy0p1l12vra"
+}

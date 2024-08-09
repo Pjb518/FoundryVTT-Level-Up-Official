@@ -1,8 +1,63 @@
 {
 	"name": "Inspiring Charge",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/skills/melee/hand-grip-sword-orange.webp",
+	"effects": [
+		{
+			"origin": "Item.2RZoENUMoyWbXrP5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "RwzbVsQou5xWxOVz",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Inspiring Charge",
+			"img": "icons/skills/melee/hand-grip-sword-orange.webp",
+			"_id": "hqHVZYxhJkMz8yOm",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"value": "{\"label\":\"Inspiring Charge\",\"formula\":\"1d4\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"meleeSpellAttack\",\"rangedSpellAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/skills/melee/hand-grip-sword-orange.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the end of your next turn, attacks made by you or allies within 10 feet gain an expertise die.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723128497923,
+				"modifiedTime": 1723128606500,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -20,7 +75,7 @@
 				"name": "Inspiring Charge",
 				"activation": {
 					"cost": 1,
-					"type": "special",
+					"type": "action",
 					"reactionTrigger": ""
 				},
 				"duration": {
@@ -28,15 +83,37 @@
 					"value": ""
 				},
 				"area": {
-					"shape": "",
+					"shape": "emanation",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": true,
+					"quantity": 1,
+					"radius": 10
 				},
 				"target": {
 					"quantity": "",
 					"type": ""
 				},
-				"consumers": {}
+				"consumers": {
+					"yZXxKod8Sp1Mf1kw": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"ranges": {
+					"BHnIXZhJVt62eAvc": {
+						"range": "self"
+					}
+				},
+				"prompts": {
+					"lMxfEryu8hG9y6hk": {
+						"type": "effect",
+						"default": true,
+						"effectId": "hqHVZYxhJkMz8yOm"
+					}
+				}
 			}
 		},
 		"description": "<p>At 7th level, you embrace the role of the knightly vanguard and learn to lead others into the fray. You can use an action and spend 1 exertion point to perform an Inspiring Charge. Move up to your Speed (or your mount’s Speed) in a straight line and make a melee weapon attack. You gain an expertise die on this attack. Until the end of your next turn, attacks made by you or allies within 10 feet gain an expertise die.</p>",
@@ -67,13 +144,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "fighter",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "6ak9fbd9a9kt31lx",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723128428235,
+		"modifiedTime": 1723128497964,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "6ak9fbd9a9kt31lx"
 }

@@ -1,8 +1,63 @@
 {
 	"name": "Knight of Renown",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/skills/melee/hand-grip-sword-orange.webp",
+	"effects": [
+		{
+			"origin": "Item.2RZoENUMoyWbXrP5",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "3w9EclQFWlvX2stI",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Inspiring Charge",
+			"img": "icons/skills/melee/hand-grip-sword-orange.webp",
+			"_id": "DMqro3WOHliwGZ7t",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"value": "{\"label\":\"Inspiring Charge\",\"formula\":\"1d4\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"meleeSpellAttack\",\"rangedSpellAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/skills/melee/hand-grip-sword-orange.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the end of your next turn, attacks made by you or allies within 10 feet gain an expertise die.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723129367214,
+				"modifiedTime": 1723129367214,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +70,66 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 18th level, you have become a legendary knight,an almost mythical thing that is inspiring to see fighting alongside. The range of your Inspiring Charge is increased to 60 feet from 10 feet, and any of your allies that enter that area for the first time on their turn or begin their turn there gain inspiration. A creature can only gain inspiration in this way once between long rests.&nbsp;</p>",
+		"actions": {
+			"3w9EclQFWlvX2stI": {
+				"name": "Inspiring Charge",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"yZXxKod8Sp1Mf1kw": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"lMxfEryu8hG9y6hk": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "emanation",
+					"size": "",
+					"placeTemplate": true,
+					"quantity": 1,
+					"radius": 60
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"ranges": {
+					"BHnIXZhJVt62eAvc": {
+						"range": "self"
+					}
+				},
+				"img": "icons/skills/melee/hand-grip-sword-orange.webp"
+			}
+		},
+		"description": "<p>At 18th level, you have become a legendary knight,an almost mythical thing that is inspiring to see fighting alongside. The range of your @UUID[Compendium.a5e.a5e-class-features.Item.6ak9fbd9a9kt31lx]{Inspiring Charge} is increased to 60 feet from 10 feet, and any of your allies that enter that area for the first time on their turn or begin their turn there gain inspiration. A creature can only gain inspiration in this way once between long rests.&nbsp;</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -44,13 +157,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "fighter",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "ym2pwuw7ojrmcyu4",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723129329134,
+		"modifiedTime": 1723129379246,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ym2pwuw7ojrmcyu4"
 }

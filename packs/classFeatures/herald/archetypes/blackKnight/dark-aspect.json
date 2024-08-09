@@ -12,7 +12,44 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"JWccjrgyTxJUHGNP": {
+				"name": "Dark Aspect",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"hGhn6ZawiZmDSTC5": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"SEa1SsX1PDBXYdLu": {
+						"range": "short"
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				}
+			}
+		},
 		"description": "<p>Also at 15th level, you gain darkvision out to 60 feet. If you already have darkvision, its range extends by 60 feet instead. In addition to the normal benefits, you can see through magical darkness as if it were dim light.  Additionally, as an action, you may drop the light level within 30 feet of you by one step for up to 10 minutes. Bright light becomes dim light, dim light becomes darkness, and darkness becomes magical darkness. Once you have used this feature, you cannot do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -28,23 +65,42 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"J378HDie8zbRhzxI": {
+				"grantType": "senses",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "J378HDie8zbRhzxI",
+				"label": "Dark Aspect",
+				"bonus": "60",
+				"senses": {
+					"base": [
+						"darkvision"
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "herald"
+		"classes": "herald",
+		"class": ""
 	},
 	"img": "icons/magic/light/orb-lightbulb-gray.webp",
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "36sksjp2znrivvi6",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723216909449,
+		"modifiedTime": 1723216951324,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "36sksjp2znrivvi6"
 }

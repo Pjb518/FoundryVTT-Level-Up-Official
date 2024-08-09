@@ -21,7 +21,8 @@
 				"name": "Tireless Protector",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"C246AVeedRIvWee0": {
@@ -29,7 +30,9 @@
 						"default": true,
 						"classIdentifier": "",
 						"resource": "exertion",
-						"quantity": 1
+						"quantity": 1,
+						"restore": false,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -40,18 +43,30 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
 				"duration": {
 					"unit": "hour",
 					"value": 1
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
 				}
 			}
 		},
-		"description": "<p>You refine your existing training to better respond to threats. You gain the <em>@UUID[Compendium.a5e.a5e-class-features.Item.gps1jbpps9trpk1w]{Watchful Eye}</em>&nbsp;trait of the <em>@UUID[Compendium.a5e.a5e-class-features.Item.25vr449svc15tmv6]{Steely Mien}</em>&nbsp;feature. If you already have it, select a second option. You also gain proficiency in the Perception and Insight skills or if you are already proficient, you gain an expertise die.</p>\n<p>Furthermore, as an action you can spend a point of exertion to ignore a number of levels of fatigue equal to your proficiency bonus for 1 hour.</p>",
+		"description": "<p>You refine your existing training to better respond to threats. You gain the @UUID[Compendium.a5e.a5e-class-features.Item.gps1jbpps9trpk1w]{Watchful Eye}&nbsp;trait of the @UUID[Compendium.a5e.a5e-class-features.Item.25vr449svc15tmv6]{Steely Mien}&nbsp;feature. If you already have it, select a second option. You also gain proficiency in the Perception and Insight skills or if you are already proficient, you gain an expertise die.</p>\n<p>Furthermore, as an action you can spend a point of exertion to ignore a number of levels of fatigue equal to your proficiency bonus for 1 hour.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -122,9 +137,9 @@
 	"_stats": {
 		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.21",
-		"createdTime": 1722605594006,
-		"modifiedTime": 1722605659588,
+		"systemVersion": "0.19.22",
+		"createdTime": 1723212528993,
+		"modifiedTime": 1723212535120,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
 	"_id": "v0ebnmfp1y7bte6h"

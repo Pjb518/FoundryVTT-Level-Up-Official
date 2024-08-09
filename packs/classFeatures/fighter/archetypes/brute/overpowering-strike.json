@@ -1,8 +1,60 @@
 {
 	"name": "Overpowering Strike",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/skills/melee/strike-axe-blood-red.webp",
+	"effects": [
+		{
+			"origin": "Item.DsOodSeLpPYO3PZp",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "paf34Y9zK4P1MTpy"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"img": "icons/skills/melee/strike-axe-blood-red.webp",
+			"_id": "3BuGwimQZwBhiSOD",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723124420765,
+				"modifiedTime": 1723124431111,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,15 +67,54 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"paf34Y9zK4P1MTpy": {
+				"name": "Overpowering Strike",
+				"activation": {},
+				"consumers": {
+					"5HnP4fRrXQNW9DWM": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"FAhZj84rrXpsBVLT": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "str"
+						}
+					},
+					"FTWZN5wUfu358Lah": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3BuGwimQZwBhiSOD"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 10th level, your attacks literally blow your opponents away. Once per turn when you make a melee weapon attack, you may choose to have the target make a Strength saving throw (DC 8 + your proficiency bonus + your Strength modifier). On a failure, you choose whether it falls prone or is moved 5 feet away from you.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "turn",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -44,13 +135,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "fighter",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "5pckyib9mvw0u9ya",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723124136547,
+		"modifiedTime": 1723124420799,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "5pckyib9mvw0u9ya"
 }

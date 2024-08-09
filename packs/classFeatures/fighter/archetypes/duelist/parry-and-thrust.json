@@ -1,7 +1,7 @@
 {
 	"name": "Parry and Thrust",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/melee/strike-sword-slashing-red.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,34 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"1wWIL1Cs4hakU02A": {
+				"name": "Parry and Thrust",
+				"activation": {},
+				"consumers": {
+					"zOdEIGi8oqqUvk3r": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 7th level, you master the art of turning your opponent’s strikes against them. You treat any weapon with the Finesse property as if it also had the Parrying property. In addition, whenever you use your reaction to add an expertise die to your AC using a Parrying weapon and the triggering attack misses you, you may immediately spend an exertion point to make a melee weapon attack against the creature that attacked you.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +71,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "fighter",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "3g8z0lfqko61k8v6",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723125294347,
+		"modifiedTime": 1723125343264,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "3g8z0lfqko61k8v6"
 }

@@ -1,0 +1,208 @@
+{
+	"folder": null,
+	"name": "Channel Divinity",
+	"type": "feature",
+	"img": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"aSx5Arb9PlTrxEx3": {
+				"name": "Fidelity",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"rVs1yj9nCAzcQYJp": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"gWVg2r6NY1bMGTUq": {
+						"type": "effect",
+						"default": true,
+						"effectId": "LRVR1ZhyM6XXvIxB"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>As an action, you grant a creature you touch immunity to the charmed condition and spells of the compulsion school until the start of your next turn, ending any such effects. Being subject to any of the aforementioned effects cannot prevent you from using this Channel Divinity option.</p>",
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"BmOpZaHCx2qx2jCr": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"T8g6431AzAk4zr8O": {
+				"name": "Second Self",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "When you cast a spell that targets a creature or are targeted by such a spell"
+				},
+				"consumers": {
+					"N6ckkoenM7rVQZv5": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>When you cast a spell that targets a creature or are targeted by such a spell, you may use your reaction to also target an additional willing creature within 30 feet of you. Either the original or the additional target must be yourself, and all creatures targeted by the spell must be willing targets or the Channel Divinity fails.</p>",
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"eusQAXhiKdOqXZHI": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p id=\"docs-internal-guid-95240a5b-7fff-9e13-9d1d-17fa98924c02\" dir=\"ltr\">At 3rd level, you gain the following Channel Divinity options.</p>\n<p dir=\"ltr\"><strong>Fidelity.</strong> As an action, you grant a creature you touch immunity to the charmed condition and spells of the <em>compulsion </em>school until the start of your next turn, ending any such effects. Being subject to any of the aforementioned effects cannot prevent you from using this Channel Divinity option.</p>\n<p dir=\"ltr\"><strong>Second Self.</strong> When you cast a spell that targets a creature or are targeted by such a spell, you may use your reaction to also target an additional willing creature within 30 feet of you. Either the original or the additional target must be yourself, and all creatures targeted by the spell must be willing targets or the Channel Divinity fails.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "secretsOfTheSelkies",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "herald",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.8Ua2jWkLLErorMhE",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "aSx5Arb9PlTrxEx3",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Fidelity",
+			"img": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp",
+			"_id": "LRVR1ZhyM6XXvIxB",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"charmed\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Immunity to the charmed condition and spells of the compulsion school until the start of your next turn, ending any such effects.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723137408837,
+				"modifiedTime": 1723137439549,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723137281845,
+		"modifiedTime": 1723137483668,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "zdlzw4flbzzrpxdc"
+}

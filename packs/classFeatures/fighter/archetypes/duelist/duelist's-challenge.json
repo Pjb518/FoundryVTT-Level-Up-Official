@@ -1,8 +1,51 @@
 {
 	"name": "Duelist’s Challenge",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/skills/melee/maneuver-greatsword-yellow.webp",
+	"effects": [
+		{
+			"origin": "Item.qJdy24jQKQwp3MYo",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2JKzhWK6I5eFmBxr"
+				}
+			},
+			"transfer": false,
+			"name": "Challenged",
+			"img": "icons/skills/melee/maneuver-greatsword-yellow.webp",
+			"_id": "hZLbaG6dn3xhFlvh",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Once you challenge a creature in this way, you have disadvantage on attacks against creatures other than the challenged creature, and the challenged creature has disadvantage on attacks against creatures other than you. A creature remains challenged in this way until either you or the challenged creature are incapacitated, dies, or either ends their turn out of line of sight from the other. The challenge also ends if you use this feature again to challenge a different creature, or if a third creature challenges either you or your challenged creature.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723125603694,
+				"modifiedTime": 1723125657872,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -19,8 +62,8 @@
 			"2JKzhWK6I5eFmBxr": {
 				"name": "Duelist’s Challenge",
 				"activation": {
-					"cost": "",
-					"type": "",
+					"cost": 1,
+					"type": "bonusAction",
 					"reactionTrigger": ""
 				},
 				"duration": {
@@ -41,10 +84,25 @@
 					"quantity": 1,
 					"type": "creature"
 				},
-				"consumers": {}
+				"consumers": {
+					"qAU33Uo015VhH0J4": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.panache",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"prompts": {
+					"CSXbpcycL8ISF4vK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "hZLbaG6dn3xhFlvh"
+					}
+				}
 			}
 		},
-		"description": "<p>At 10th level, you’re confident enough to challenge even the most monstrous threats. You can use a bonus action to expend a use of Panache to challenge a creature within 30 feet to an honorable duel. Once you challenge a creature in this way, you have disadvantage on attacks against creatures other than the challenged creature, and the challenged creature has disadvantage on attacks against creatures other than you. A creature remains challenged in this way until either you or the challenged creature are incapacitated, dies, or either ends their turn out of line of sight from the other. The challenge also ends if you use this feature again to challenge a different creature, or if a third creature challenges either you or your challenged creature.</p>",
+		"description": "<p>At 10th level, you&rsquo;re confident enough to challenge even the most monstrous threats. You can use a bonus action to expend a use of @UUID[Compendium.a5e.a5e-class-features.Item.r27c0kzdujkn31w5]{Panache} to challenge a creature within 30 feet to an honorable duel. Once you challenge a creature in this way, you have disadvantage on attacks against creatures other than the challenged creature, and the challenged creature has disadvantage on attacks against creatures other than you. A creature remains challenged in this way until either you or the challenged creature are incapacitated, dies, or either ends their turn out of line of sight from the other. The challenge also ends if you use this feature again to challenge a different creature, or if a third creature challenges either you or your challenged creature.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -72,13 +130,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "fighter",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "z1cl9iuzdlqkgrdm",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723125358781,
+		"modifiedTime": 1723125603752,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "z1cl9iuzdlqkgrdm"
 }

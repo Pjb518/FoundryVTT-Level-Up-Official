@@ -1,8 +1,158 @@
 {
 	"name": "Focus Shot",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
+	"effects": [
+		{
+			"origin": "Item.7tPbsIWD98E3FX6t",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "oY1CzZ0CnioA6r5R"
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"img": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
+			"_id": "6br7b5eSHUwGqmI7",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A blinded creature can't see and it automatically fails ability checks that require sight.</li>\n<li>Attack rolls against a blinded creature are made with advantage, and the creature's attack rolls are made with disadvantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"blinded"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723129865749,
+				"modifiedTime": 1723129899948,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.7tPbsIWD98E3FX6t",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "wWLWF1vT7HyNGCW8"
+				}
+			},
+			"transfer": false,
+			"name": "Bring it Down",
+			"img": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
+			"_id": "KHXtuSkYboDI1lPm",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "floor(@attributes.movement.walk.distance/2)",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Speed is reduced by half.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723129950917,
+				"modifiedTime": 1723129989405,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.7tPbsIWD98E3FX6t",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "rFv9ekYhy6dvfql7"
+				}
+			},
+			"transfer": false,
+			"name": "Wing Clip",
+			"img": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
+			"_id": "d0e9YooOrh2Kuiju",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "floor(@attributes.movement.fly.distance/2)",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Flying speed is reduced by half until healed.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723130099770,
+				"modifiedTime": 1723130193751,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,15 +165,227 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 7th level, you’ve become precise enough that when given enough time to focus you can not only strike your target, but hit specific parts of your target to great effect. Once per turn, whenever you take the Attack action and are able to make multiple ranged attacks you may forgo one of those ranged attacks to turn one of your remaining attacks into a Focus Shot. When you make a Focus Shot choose one of the following options and make a ranged weapon attack. You gain an expertise die on the attack, and on a hit it does your chosen effect in addition to the weapon’s damage.</p><p><br><strong>&nbsp; &nbsp;Aim for the Eyes</strong></p><p><strong>&nbsp; &nbsp;Bring it Down</strong></p><p><strong>&nbsp; &nbsp;Center of Mass</strong></p><p><strong>&nbsp; &nbsp;Vein Slice</strong></p><p><strong>&nbsp; &nbsp;Wing Clip</strong></p><p><br>Creatures wounded by any of these effects make a Constitution saving throw against your maneuver DC at the end of each of their turns, recovering and ending the effect on itself on a success. Alternatively,&nbsp;the wounded creature (or a creature within 5 feet of it) can use an action to make a Medicine check against your maneuver DC, ending the effect on a success. Healing magically or from a trait (such as Regeneration) also ends the effect. You cannot choose effects that specifically target features a creature does not have.</p>",
+		"actions": {
+			"oY1CzZ0CnioA6r5R": {
+				"name": "Aim for the Eyes",
+				"activation": {},
+				"consumers": {
+					"YGLjxG2ULRdtSKdA": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"SJRNaWItUGR90bfU": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					},
+					"vJ1U8c0MjYG08Tih": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6br7b5eSHUwGqmI7"
+					},
+					"PA5HLkFi0taf3UPF": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"wWLWF1vT7HyNGCW8": {
+				"name": "Bring it Down",
+				"activation": {},
+				"consumers": {
+					"g7njhb3uNhhjLZvN": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"CIAlgD9TJYdu2UeN": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					},
+					"69f5YqMx3RWHb0ka": {
+						"type": "effect",
+						"default": true,
+						"effectId": "KHXtuSkYboDI1lPm"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"Kf5RnWRu32GjWIQK": {
+				"name": "Center of Mass",
+				"activation": {},
+				"consumers": {
+					"TP5FS23DLIVHjBZx": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"hyjqmwmmNW6F9Uj4": {
+				"name": "Vein Slice",
+				"activation": {},
+				"consumers": {
+					"v5UD8HrODdFTw1fq": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"oEgY9d9Vn1b2wltf": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6"
+					}
+				},
+				"prompts": {
+					"qSIIm3YOIGfEIZF8": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"OxwUHo358Xc3B0ff": {
+				"name": "Vein Slice - Ongoing Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"oEgY9d9Vn1b2wltf": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"rFv9ekYhy6dvfql7": {
+				"name": "Wing Clip",
+				"activation": {},
+				"consumers": {
+					"T64qjWYSmrilxjT5": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"qqMjdV0aNUkJMw2H": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					},
+					"SlK101ZrYVFhyyDF": {
+						"type": "effect",
+						"default": true,
+						"effectId": "d0e9YooOrh2Kuiju"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 7th level, you&rsquo;ve become precise enough that when given enough time to focus you can not only strike your target, but hit specific parts of your target to great effect. Once per turn, whenever you take the Attack action and are able to make multiple ranged attacks you may forgo one of those ranged attacks to turn one of your remaining attacks into a Focus Shot. When you make a Focus Shot choose one of the following options and make a ranged weapon attack. You gain an expertise die on the attack, and on a hit it does your chosen effect in addition to the weapon&rsquo;s damage.</p>\n<p><em><strong>Aim for the Eyes.</strong></em> You aim for the creature&rsquo;s weak and delicate eyes. The target makes a Dexterity saving throw against your maneuver DC or is blinded until it recovers.</p>\n<p><em><strong>Bring it Down. </strong></em>You aim for weak points on the creature&rsquo;s legs. The target makes a Constitution saving throw against your maneuver DC or its Speed is reduced by half until it recovers.</p>\n<p><em><strong>Center of Mass.</strong></em> You aim for the heart or its horrid equivalent. Your attack scores a critical hit on a roll of 19&ndash;20. If you already have a feature that increases the range of your critical hits, your critical hit range increases by 1 (maximum 17&ndash;20).</p>\n<p><em><strong>Vein Slice. </strong></em>You aim for a vital vein or artery to bleed your target out. The target makes a Constitution saving throw against your maneuver DC or it takes 1d6 ongoing damage until it recovers.</p>\n<p><em><strong>Wing Clip. </strong></em>You aim for your target&rsquo;s wings. The target makes a Dexterity saving throw against your maneuver DC. On a failure, its flying speed is reduced by half until healed. Creatures who are currently flying when this saving throw is failed immediately plummet 60 feet down and take falling damage as normal.</p>\n<p>Creatures wounded by any of these effects make a Constitution saving throw against your maneuver DC at the end of each of their turns, recovering and ending the effect on itself on a success. Alternatively, the wounded creature (or a creature within 5 feet of it) can use an action to make a Medicine check against your maneuver DC, ending the effect on a success. Healing magically or from a trait (such as Regeneration) also ends the effect. You cannot choose effects that specifically target features a creature does not have.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "turn",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -44,13 +406,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "fighter",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "9ata13hbjdn4rhnt",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723129714274,
+		"modifiedTime": 1723130128694,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "9ata13hbjdn4rhnt"
 }

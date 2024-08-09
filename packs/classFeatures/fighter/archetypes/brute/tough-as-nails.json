@@ -1,7 +1,7 @@
 {
 	"name": "Tough as Nails",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/tools/fasteners/nails-steel-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,15 +15,47 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"MWcZsB176llHnrHP": {
+				"name": "Tough as Nails",
+				"activation": {},
+				"consumers": {
+					"Bb2ArYvI6ZvYxG4S": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"Kf1slFqQ57TOwdxW": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "@classResources.tough-as-nails"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 7th level, your overbearing strength allows you to shrug off blows. Whenever you finish a short or long rest, you gain a number of temporary hit points equal to twice your Strength modifier. When you reach 15th level, you instead gain a number of temporary hit points equal to your Strength score.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -44,13 +76,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "fighter",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "uaiidjn2micayoci",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723123836334,
+		"modifiedTime": 1723124043285,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "uaiidjn2micayoci"
 }

@@ -1,0 +1,108 @@
+{
+	"name": "Boon of Fury",
+	"type": "feature",
+	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"suUM9jegDxu4ZNye": {
+				"name": "Boon of Fury",
+				"activation": {},
+				"consumers": {
+					"WLHEHt3KpNotG9ID": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"nbue7UsM9VN1FdmE": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Beginning at 8th level, your weapon attacks deal extra damage equal to your  Wisdom modifier. In addition, you can infuse divine power into a weapon attack to deal an extra 1d8 radiant damage. Once you have used this feature to infuse divine power a number of times equal to your Wisdom modifier, you can’t do so again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "@wis.mod",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"ou0ateUanQYVaRpN": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "ou0ateUanQYVaRpN",
+				"label": "Boon of Fury",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"rangedWeaponAttack"
+					]
+				},
+				"bonus": "@wis.mod"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "cleric",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723051874915,
+		"modifiedTime": 1723051999802,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "t2jwd2b3ekrsnnn0"
+}

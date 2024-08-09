@@ -1,0 +1,238 @@
+{
+	"name": "Channel Divinity",
+	"type": "feature",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"vJWDMZ2SxRKnkR1Y": {
+				"name": "Accursed Wound",
+				"activation": {},
+				"consumers": {
+					"Oh0O688u6taCJnMz": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"GviGGmAjRdw91a2y": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"formula": "1d8",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {
+					"KxlZx1cNiiqzBU1Q": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"h58GNUM23Bi9FMOd": {
+						"type": "effect",
+						"default": true,
+						"effectId": "vDShtcdPsVlDyuti"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"q8fuyu5XtgxdJfUw": {
+				"name": "Mark Armor/Weapons/Shield",
+				"activation": {
+					"type": "hour",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"1z3e690Cundg0wIZ": {
+				"name": "At a Moment’s Notice",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"FpghyRomP1CF0GTp": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 3rd level when you choose this archetype, you gain the following two Channel Divinity options.</p>\n<p><strong><em>Accursed Wound.</em></strong> When you hit with a melee weapon attack, you can use your channel divinity to curse the wound (no action required). The target of the attack takes an additional 1d8 necrotic damage and must make a Constitution saving throw against your spell save DC. If the target fails, it cannot regain hit points until it finishes a long rest. If it succeeds, its maximum hit points are reduced by an amount equal to the damage done by your attack until it finishes a long rest.</p>\n<p><strong><em>At a Moment&rsquo;s Notice.</em></strong> You may perform an hour-long ritual to mark a suit of armor, and either a pair of weapons or a weapon and a shield. Thereafter, you may use your channel divinity as a bonus action to summon the marked items onto your body. The armor appears on your body and any weapon or shield appears in your hands. If you are wearing different armor or are carrying other items, they appear in a neat pile at your feet. This effect works at any distance, provided your marked items are on the same plane as you.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "herald",
+		"class": ""
+	},
+	"img": "icons/magic/unholy/barrier-fire-pink.webp",
+	"effects": [
+		{
+			"origin": "Item.vAxE4OFoq0aCfORL",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vJWDMZ2SxRKnkR1Y"
+				}
+			},
+			"transfer": false,
+			"name": "Accursed Wound (Failure)",
+			"img": "icons/magic/unholy/barrier-fire-pink.webp",
+			"_id": "vDShtcdPsVlDyuti",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Cannot regain hit points until it finishes a long rest.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723214356275,
+				"modifiedTime": 1723214383082,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.vAxE4OFoq0aCfORL",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vJWDMZ2SxRKnkR1Y"
+				}
+			},
+			"transfer": false,
+			"name": "Accursed Wound (Success)",
+			"img": "icons/magic/unholy/barrier-fire-pink.webp",
+			"_id": "29ZUsiGvo0yDvkJd",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Cannot regain hit points until it finishes a long rest.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723214387838,
+				"modifiedTime": 1723214395443,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723213894262,
+		"modifiedTime": 1723215124630,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "t5cpc0516ai9pi1t"
+}

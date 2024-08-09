@@ -12,7 +12,55 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"Fmqos1f6gDfUZt6F": {
+				"name": "Menacing Countenance",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"Z1Y1OvXpPHB5sb8W": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.menacing-countenance",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"4RoneSYjQSkmvjPj": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"qw1bE6gDYlOLc0wg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "1DlqUq3UycsMMDBE"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			}
+		},
 		"description": "<p>At 7th level, you can exude fearsomeness in a way that unsettles even the courageous. As a bonus action, you can choose to exude menace. For the next minute, creatures that are not already friendly to you that see you must make a Wisdom save against your passive spell save DC. Creatures that fail this saving throw are daunted by your fearsome aspect.&nbsp;</p>\n<p>A daunted creature acts in various ways depending on the situation and the Narrator&rsquo;s discretion. Most non-hostile daunted creatures simply find somewhere else to be. Hostile daunted creatures might also excuse themselves (often making a show of bravado before doing so). A daunted creature that attacks you takes a -1d4 penalty to their attack rolls.&nbsp;</p>\n<p>A creature engaged in combat with you can re-attempt their save against this effect at the end of each of their turns, ending the effect on a success. Creatures not in combat with you can retry the save every hour. A creature that successfully saves against this effect gains immunity to it for 24 hours.</p>\n<p>Creatures that are immune to fear are also immune to your Menacing Countenance, as are creatures more than one size larger than you or creatures with a CR higher than half of your herald level. Once you have used this feature a number of times equal to your proficiency bonus, you can't do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -35,16 +83,63 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "herald"
+		"classes": "herald",
+		"class": ""
 	},
 	"img": "icons/magic/perception/eye-ringed-glow-angry-small-red.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.QDpX9H9P4zV8BwDr",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Fmqos1f6gDfUZt6F"
+				}
+			},
+			"transfer": false,
+			"name": "Daunted",
+			"img": "icons/magic/perception/eye-ringed-glow-angry-small-red.webp",
+			"_id": "1DlqUq3UycsMMDBE",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A daunted creature acts in various ways depending on the situation and the Narrator’s discretion. Most non-hostile daunted creatures simply find somewhere else to be. Hostile daunted creatures might also excuse themselves (often making a show of bravado before doing so). A daunted creature that attacks you takes a -1d4 penalty to their attack rolls. </p>\n<p>A creature engaged in combat with you can re-attempt their save against this effect at the end of each of their turns, ending the effect on a success. Creatures not in combat with you can retry the save every hour. A creature that successfully saves against this effect gains immunity to it for 24 hours.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723216650525,
+				"modifiedTime": 1723216745016,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "k25cbr3kk1rdtq3j",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723216504398,
+		"modifiedTime": 1723218753437,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "k25cbr3kk1rdtq3j"
 }

@@ -1,8 +1,60 @@
 {
 	"name": "Vine Whip",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/magic/nature/root-vine-wood-blue.webp",
+	"effects": [
+		{
+			"origin": "Item.wL14UzYMTZhO7jtw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ABViPBzBlIwINSp4"
+				}
+			},
+			"transfer": false,
+			"name": "Restrained",
+			"img": "icons/magic/nature/root-vine-wood-blue.webp",
+			"_id": "9GUhgZGSeLcsmpka",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A restrained creature's Speed becomes 0, and it can't benefit from bonuses to speed.</li>\n<li>Attack rolls against a restrained creature are made with advantage.</li>\n<li>A restrained creature makes attack rolls with disadvantage.</li>\n<li>The restrained creature has disadvantage on Dexterity saving throws.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"restrained"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723062546037,
+				"modifiedTime": 1723062611290,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -17,7 +69,7 @@
 		},
 		"actions": {
 			"ABViPBzBlIwINSp4": {
-				"name": "Vine Whip",
+				"name": "Create",
 				"activation": {
 					"cost": 1,
 					"type": "bonusAction",
@@ -36,7 +88,8 @@
 					"shape": "line",
 					"length": 10,
 					"width": 5,
-					"placeTemplate": false
+					"placeTemplate": true,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
@@ -47,20 +100,14 @@
 						"bonus": "",
 						"critThreshold": "20",
 						"type": "attack",
-						"ability": "spellcasting"
+						"ability": "spellcasting",
+						"attackType": "meleeSpellAttack"
 					},
 					"feBiuwpVFhsXzd4v": {
 						"canCrit": true,
 						"damageType": "force",
-						"formula": "1d6",
+						"formula": "@classResources.vine-whip",
 						"name": "Vine Whip (Base)",
-						"type": "damage"
-					},
-					"bmflYQLpzvenmFOW": {
-						"canCrit": true,
-						"damageType": "force",
-						"formula": "2d6",
-						"name": "Vine Whip (10+)",
 						"type": "damage"
 					}
 				},
@@ -69,16 +116,109 @@
 						"ability": "str",
 						"onSave": "",
 						"saveDC": {
-							"type": "custom",
-							"bonus": "8+@wis.mod+@prof"
+							"type": "spellcasting",
+							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"FGaJicB1hdCE0gD0": {
+						"type": "effect",
+						"default": true,
+						"effectId": "9GUhgZGSeLcsmpka"
 					}
 				},
 				"consumers": {}
+			},
+			"SKzMtxrXVSsD85DX": {
+				"name": "Dismiss",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"pYTZE3HLBgtUoGpc": {
+				"name": "Move Freely",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"fckcE9dcfF4clnpK": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"HGW9ROS7aufhAWvs": {
+						"type": "damage",
+						"default": true,
+						"formula": "@classResources.vine-whip",
+						"damageType": "force"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"ytQ3K6qI9sfZ2Y31": {
+						"range": "short"
+					}
+				}
+			},
+			"Qc28PVv4WxpzZlt0": {
+				"name": "Move Restrained",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"a3Qjc10nXDNmYgha": {
+						"range": 10,
+						"unit": "feet"
+					}
+				}
 			}
 		},
-		"description": "<p>At 2nd level you can magically summon a spiritual vine that can strike and grab your foes. As a bonus action, you create a 10-foot long vine at a point you can see within 60 feet. The vine lasts for 1 minute, until you dismiss it as a bonus action, or until you use this feature to create another vine. When you create the vine, you can make a melee spell attack against one target within 10 feet of it. On a hit the target takes 1d6 force damage, and it must make a Strength saving throw against your spell save DC. On a failure the target is restrained by the vine (escape DC equal to your spell save DC). </p><p>When you reach 10th level in this class, the damage increases to 2d6. </p><p>As a bonus action on your turn, you can move the vine up to 30 feet and repeat the attack, or if a creature is currently restrained by the vine you may move the vine and the restrained creature 10 feet in any direction.</p>",
+		"description": "<p>At 2nd level you can magically summon a spiritual vine that can strike and grab your foes. As a bonus action, you create a 10-foot long vine at a point you can see within 60 feet. The vine lasts for 1 minute, until you dismiss it as a bonus action, or until you use this feature to create another vine. When you create the vine, you can make a melee spell attack against one target within 10 feet of it. On a hit the target takes 1d6 force damage, and it must make a Strength saving throw against your spell save DC. On a failure the target is restrained by the vine (escape DC equal to your spell save DC).&nbsp;When you reach 10th level in this class, the damage increases to 2d6.</p>\n<p>As a bonus action on your turn, you can move the vine up to 30 feet and repeat the attack, or if a creature is currently restrained by the vine you may move the vine and the restrained creature 10 feet in any direction.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -106,13 +246,17 @@
 				}
 			}
 		},
-		"classes": "druid"
+		"classes": "druid",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "98chs30l0ma7i8ug",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723062425439,
+		"modifiedTime": 1723062861488,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "98chs30l0ma7i8ug"
 }
