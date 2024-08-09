@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import ClassFeatureCompendiumSheet from '../apps/ClassFeatureCompendiumSheet';
 import DND5ESpellCompendiumSheet from '../apps/DND5ESpellCompendiumSheet';
 import ArchetypeCompendiumSheet from '../apps/ArchetypeCompendiumSheet';

@@ -15,6 +15,7 @@ export default class PartyViewer extends TJSDialog {
       content: {
         class: PartyViewerComponent,
         props: {
+          // @ts-expect-error
           settings: gameSettings
         }
       },
@@ -25,11 +26,13 @@ export default class PartyViewer extends TJSDialog {
       width: 672
     });
 
+    // @ts-expect-error
     this.data.content.props.sheet = this;
   }
 
   close() {
     game.a5e.dialogs.partyViewer = null;
+    // @ts-expect-error
     super.close();
   }
 }

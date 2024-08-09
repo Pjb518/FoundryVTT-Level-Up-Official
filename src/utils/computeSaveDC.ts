@@ -15,10 +15,13 @@ export default function computeSaveDC(
   const terms: (string | number)[] = [];
 
   if (saveDC?.type === 'spellcasting') {
+    // @ts-expect-error
     terms.push(getSpellBookDC(actor, item));
   } else if (saveDC?.type === 'maneuver') {
+    // @ts-expect-error
     terms.push(actor.system.attributes.maneuverDC);
   } else if (Object.keys(CONFIG.A5E.abilities).includes(saveDC?.type)) {
+    // @ts-expect-error
     terms.push(8, actor.system.attributes.prof, actor.system.abilities[saveDC?.type].check.mod);
   }
 

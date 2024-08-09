@@ -5,6 +5,7 @@ export default function getActionScalingModes(action: A5EActionData): Set<string
     .filter((r: BaseRoll) => ['damage', 'healing'].includes(r.type));
 
   const scalingModes: Set<string> = scalableRolls.reduce((acc, r) => {
+    // @ts-expect-error
     if (r.scaling?.mode) acc.add(r.scaling?.mode);
     return acc;
   }, new Set<string>());

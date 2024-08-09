@@ -119,6 +119,7 @@ class RecordField<
 
     for (const [key, value] of Object.entries(values)) {
       // If this is a deletion key for a partial update, skip
+      // @ts-expect-error
       if (key.startsWith('-=') && options?.partial) continue;
 
       const keyFailure = this.keyField.validate(key, options);
@@ -141,6 +142,7 @@ class RecordField<
     values: InitializedType,
     options?: foundry.data.fields.DataField.CleanOptions
   ): InitializedType {
+    // @ts-expect-error
     for (const [key, value] of Object.entries(values)) {
       values[key] = this.valueField.clean(value, options);
     }
@@ -153,9 +155,11 @@ class RecordField<
     options: foundry.data.fields.DataField.ValidationOptions<foundry.data.fields.DataField.Any> = {}
   ): boolean | void {
     if (!(values instanceof Object)) {
+      // @ts-expect-error
       return new foundry.data.validation.DataModelValidationFailure({ message: 'must be an Object' });
     }
 
+    // @ts-expect-error
     return this._validateValues(values, options);
   }
 

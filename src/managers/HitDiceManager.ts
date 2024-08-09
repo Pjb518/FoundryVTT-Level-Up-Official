@@ -17,6 +17,7 @@ export default class HitDiceManager {
     this.#automate = automate;
 
     if (this.#actor.type === 'character' && automate) {
+      // @ts-expect-error
       Object.values(this.#actor.classes).forEach((cls: any) => {
         this.#max += cls.hitDice.total;
         this.#value += cls.hitDice.total - cls.hitDice.current;
@@ -53,6 +54,7 @@ export default class HitDiceManager {
 
   get bySize(): Record<string, { current: number, total: number }> {
     if (this.#actor.type === 'character' && this.#automate) {
+      // @ts-expect-error
       return Object.values(this.#actor.classes ?? {})
         .reduce((acc: Record<string, { current: number, total: number }>, cls: any) => {
           // eslint-disable-next-line max-len
@@ -75,6 +77,7 @@ export default class HitDiceManager {
     if (this.#actor.type === 'npc' || !this.#automate) {
       const { hitDice } = this.#actor.system.attributes;
 
+      // @ts-expect-error
       Object.entries(hitDice ?? {}).forEach(([die, { current }]) => {
         const consumeValue = consumeData[die] ?? 0;
         hitDice[die].current = Math.max(current - consumeValue, 0);
@@ -85,6 +88,7 @@ export default class HitDiceManager {
       });
     }
 
+    // @ts-expect-error
     const classes = this.#actor.classes ?? {} as any;
     const updates: any[] = [];
 
@@ -95,7 +99,9 @@ export default class HitDiceManager {
       if (!cls) return;
 
       updates.push({
+        // @ts-expect-error
         _id: cls.id,
+        // @ts-expect-error
         'system.hp.hitDiceUsed': Math.min(cls.system.hp.hitDiceUsed + quantity, cls.classLevels)
       });
     });
@@ -105,6 +111,7 @@ export default class HitDiceManager {
 
   async rollHitDice(dieSize: string | null = null, quantity: number = 1): Promise<any> {
     const actorData = this.#actor.system;
+    // @ts-expect-error
     const conMod = parseInt(actorData.abilities.con.check.mod, 10) || 0;
 
     if (this.#actor.type === 'npc' || !this.#automate) {
@@ -130,6 +137,7 @@ export default class HitDiceManager {
       return chatCard;
     }
 
+    // @ts-expect-error
     const classes = this.#actor.classes ?? {} as any;
     let cls: any;
 
@@ -182,7 +190,7 @@ export default class HitDiceManager {
       flags: {
         a5e: {
           actorId: this.#actor.uuid,
-          img: this.#actor.token?.img ?? this.#actor.img,
+          img: this.#actor.token?.texture.src ?? this.#actor.img,
           name: this.#actor.name,
           title
         }
@@ -190,6 +198,7 @@ export default class HitDiceManager {
     };
 
     const hpDelta = Math.max(roll.total, 0);
+    // @ts-expect-error
     const maxHP = attributes.hp.max;
 
     this.#actor.applyHealing(hpDelta);
@@ -217,6 +226,7 @@ export default class HitDiceManager {
       const updates: any[] = [];
       let recovered = 0;
 
+      // @ts-expect-error
       const classes = Object.values(this.#actor.classes ?? {}).sort((a: any, b: any) => {
         if (restoreLargest) return b.hitDice.size - a.hitDice.size;
         return a.hitDice.size - b.hitDice.size;

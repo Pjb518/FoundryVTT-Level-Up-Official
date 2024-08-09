@@ -36,8 +36,11 @@ const npcSchema = () => ({
   }),
   details: new fields.SchemaField({
     cr: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+    // @ts-expect-error
     elite: new fields.BooleanField({ required: true, initial: false }),
+    // @ts-expect-error
     isSquad: new fields.BooleanField({ required: true, initial: false }),
+    // @ts-expect-error
     isSwarm: new fields.BooleanField({ required: true, initial: false }),
     notes: new fields.HTMLField({ required: true, initial: '' }),
     privateNotes: new fields.HTMLField({ required: true, initial: '' }),
@@ -106,8 +109,12 @@ declare namespace A5ENPCData {
     & ReturnType<typeof npcSchema>
     & ReturnType<typeof schemaData>
     & ReturnType<typeof source>;
-  interface BaseData { }
-  interface DerivedData { }
+
+  interface BaseData extends Record<string, any> {
+    'attributes.prof': string;
+  }
+
+  interface DerivedData extends Record<string, any> { }
 }
 
 class A5ENPCData extends foundry.abstract.TypeDataModel<

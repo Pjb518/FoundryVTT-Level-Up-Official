@@ -1,26 +1,33 @@
 import type { SpellBookStats } from 'types/spellBook';
-import A5EDataModel from '../A5EDataModel';
+import type { BaseActorA5e } from '../../documents/actor/base';
+import type SpellItemA5e from '../../documents/item/spell';
 
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 
-export default class SpellBook extends A5EDataModel {
+const { fields } = foundry.data;
+
+const spellBookSchema = () => ({
+  name: new fields.StringField({ required: true, nullable: false, initial: 'New Spell Book' }),
+  img: new fields.StringField({ required: true, initial: 'icons/svg/book.svg' }),
+
+  ability: new fields.StringField({ required: true, initial: 'default' }),
+  // @ts-expect-error
+  disableSpellConsumers: new fields.BooleanField({ required: true, initial: false }),
+  // @ts-expect-error
+  showArtifactCharges: new fields.BooleanField({ required: true, initial: false }),
+  // @ts-expect-error
+  showSpellInventions: new fields.BooleanField({ required: true, initial: false }),
+  // @ts-expect-error
+  showSpellPoints: new fields.BooleanField({ required: true, initial: false }),
+  // @ts-expect-error
+  showSpellSlots: new fields.BooleanField({ required: true, initial: true })
+});
+
+export default class SpellBook extends foundry.abstract.DataModel<
+  DataSchema & ReturnType<typeof spellBookSchema>,
+  Actor.ConfiguredInstance
+> {
   declare _id: string;
-
-  declare name: string;
-
-  declare img: string;
-
-  declare ability: string;
-
-  declare disableSpellConsumers: boolean;
-
-  declare showArtifactCharges: boolean;
-
-  declare showSpellInventions: boolean;
-
-  declare showSpellPoints: boolean;
-
-  declare showSpellSlots: boolean;
 
   declare slug: string;
 
@@ -33,19 +40,9 @@ export default class SpellBook extends A5EDataModel {
     super(data, options);
   }
 
-  static defineSchema() {
-    const { fields } = foundry.data;
-
+  static override defineSchema() {
     return {
-      name: new fields.StringField({ required: true, initial: 'New Spell Book' }),
-      img: new fields.StringField({ required: true, initial: 'icons/svg/book.svg' }),
-
-      ability: new fields.StringField({ required: true, initial: 'default' }),
-      disableSpellConsumers: new fields.BooleanField({ required: true, initial: false }),
-      showArtifactCharges: new fields.BooleanField({ required: true, initial: false }),
-      showSpellInventions: new fields.BooleanField({ required: true, initial: false }),
-      showSpellPoints: new fields.BooleanField({ required: true, initial: false }),
-      showSpellSlots: new fields.BooleanField({ required: true, initial: true })
+      ...spellBookSchema()
     };
   }
 
@@ -54,23 +51,22 @@ export default class SpellBook extends A5EDataModel {
   // ======================================
 
   get spellIds(): string[] {
-    return this.spells.map((spell: typeof Item) => spell.id);
+    return this.spells.map((spell: SpellItemA5e) => spell.id!);
   }
 
   // ======================================
   // Data Preparation
   // ======================================
   prepareBaseData(): void {
-    super.prepareBaseData();
-    const actor = this.parent;
+    const actor = this.parent as BaseActorA5e;
     this.spells = new foundry.utils.Collection();
     if (!actor) return;
 
     for (const item of actor.items) {
-      if (item.type !== 'spell') continue;
+      if (!item.isType('spell')) continue;
 
       if (item.system.spellBook !== this._id) continue;
-      this.spells.set(item.id, item);
+      this.spells.set(item.id || '', item);
     }
 
     this.slug = `spellbook-${this.name}`.slugify({ strict: true });
@@ -78,7 +74,7 @@ export default class SpellBook extends A5EDataModel {
   }
 
   prepareSpellBookStats(): void {
-    const actor = this.parent;
+    const actor = this.parent as BaseActorA5e;
     if (!actor) return;
 
     let { ability } = this;
@@ -88,6 +84,7 @@ export default class SpellBook extends A5EDataModel {
 
     const spellDC = getDeterministicBonus([
       8,
+      // @ts-expect-error
       actor.system.attributes.prof,
       actor.system.bonuses.spellDC || 0,
       actor.system.abilities[ability].check.mod
@@ -108,7 +105,7 @@ export default class SpellBook extends A5EDataModel {
   // ======================================
   // API Methods
   // ======================================
-  addSpell(item: typeof Item) {
+  addSpell(item: SpellItemA5e) {
     const actor = this.parent;
     if (!actor) return;
 
@@ -117,7 +114,7 @@ export default class SpellBook extends A5EDataModel {
     actor.createEmbeddedDocuments('Item', [spell]);
   }
 
-  addSpells(items: typeof Item[]) {
+  addSpells(items: SpellItemA5e[]) {
     const actor = this.parent;
     if (!actor) return;
 
@@ -125,7 +122,7 @@ export default class SpellBook extends A5EDataModel {
     actor.createEmbeddedDocuments('Item', spells);
   }
 
-  #updateSpellData(item: typeof Item): any {
+  #updateSpellData(item: SpellItemA5e): any {
     const actor = this.parent;
     if (!actor) return null;
 

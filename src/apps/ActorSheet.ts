@@ -1,4 +1,9 @@
 import type { BaseActorA5e } from '../documents/actor/base';
+import type { BaseItemA5e } from '../documents/item/base';
+import type ObjectItemA5e from '../documents/item/object';
+import type OriginItemA5e from '../documents/item/origin';
+import type FeatureItemA5e from '../documents/item/feature';
+import type SpellItemA5e from '../documents/item/spell';
 
 import { SvelteApplication } from '#runtime/svelte/application';
 import { localize } from '#runtime/svelte/helper';
@@ -265,7 +270,7 @@ export default class ActorSheet extends SvelteApplication {
     this._onDropDocument(document, options);
   }
 
-  async _onDropDocument(document: foundry.abstract.Document.Any, options = {}) {
+  async _onDropDocument(document: any, options = {}) {
     if (document.documentName === 'Actor') this.#onDropActor(document);
     else if (document.documentName === 'Item') this.#onDropItem(document, options);
     else if (document.documentName === 'ActiveEffect') this.#onDropActiveEffect(document);
@@ -276,18 +281,20 @@ export default class ActorSheet extends SvelteApplication {
     //
   }
 
-  async #onDropActiveEffect(effect: typeof ActiveEffect) {
+  async #onDropActiveEffect(effect: ActiveEffect) {
     this.actor.createEmbeddedDocuments('ActiveEffect', [effect]);
   }
 
-  async #onDropItem(item: typeof Item, options: Record<string, any> = {}) {
-    if (item.type === 'destiny') this.#onDropDestiny(item);
-    else if (item.type === 'object') this.#onDropObject(item, options);
-    else if (item.type === 'spell') this.#onDropSpell(item, options);
+  async #onDropItem(item: BaseItemA5e, options: Record<string, any> = {}) {
+    if (item.isType('destiny')) this.#onDropDestiny(item as OriginItemA5e);
+    else if (item.isType('object')) this.#onDropObject(item as ObjectItemA5e, options);
+    else if (item.isType('spell')) this.#onDropSpell(item as SpellItemA5e, options);
     else this.actor.createEmbeddedDocuments('Item', [item]);
   }
 
-  async #onDropDestiny(item: typeof Item) {
+  async #onDropDestiny(item: OriginItemA5e) {
+    if (!item.isType('destiny')) return;
+
     if (this.actor.type !== 'character') {
       ui.notifications.warn('Destiny documents cannot be added to NPCs.');
       return;
@@ -299,7 +306,9 @@ export default class ActorSheet extends SvelteApplication {
       item.system.sourceOfInspiration,
       item.system.inspirationFeature
     ];
-    const features = (await Promise.all(uuids.map((uuid) => fromUuid(uuid)))).filter((f) => f);
+
+    const features = (
+      await Promise.all(uuids.map((uuid) => fromUuid(uuid)))).filter((f) => f) as FeatureItemA5e[];
 
     await this.actor.createEmbeddedDocuments('Item', [
       item,
@@ -307,7 +316,7 @@ export default class ActorSheet extends SvelteApplication {
     ]);
   }
 
-  async #onDropObject(item: typeof Item, options: Record<string, any>) {
+  async #onDropObject(item: ObjectItemA5e, options: Record<string, any>) {
     // Check if item is dropped is on the sheet already
     if (item?.parent?.id === this.actor.id) {
       item.updateContainer(options.containerUuid ?? '');
@@ -316,12 +325,12 @@ export default class ActorSheet extends SvelteApplication {
 
     const i = item.toObject();
     i.system.containerId = options.containerUuid ?? '';
-    (await this.actor.createEmbeddedDocuments('Item', [i]))
+    (await this.actor.createEmbeddedDocuments('Item', [i]) as ObjectItemA5e[])
       ?.[0]
       ?.updateContainer(options.containerUuid ?? '');
   }
 
-  async #onDropSpell(item: typeof Item, options: Record<string, any>) {
+  async #onDropSpell(item: SpellItemA5e, options: Record<string, any>) {
     const currentTab = this.tempSettings[this.actor.uuid]?.currentTab;
 
     if (currentTab !== 'inventory') {
@@ -357,7 +366,7 @@ export default class ActorSheet extends SvelteApplication {
       }
     };
 
-    scroll.system.actions = item.actions.values().reduce((actions, _action) => {
+    scroll.system.actions = [...item.actions.values()].reduce((actions, _action) => {
       const action = { ..._action };
 
       action.prompts = Object.entries(
@@ -396,6 +405,7 @@ export default class ActorSheet extends SvelteApplication {
 
       action.consumers = {
         [foundry.utils.randomID()]: {
+          // @ts-expect-error
           itemId: '',
           quantity: 1,
           type: 'quantity'
@@ -406,12 +416,13 @@ export default class ActorSheet extends SvelteApplication {
       return actions;
     }, {});
 
+    // @ts-expect-error
     const createdItem = (await this.actor.createEmbeddedDocuments('Item', [scroll]))?.[0];
     if (!createdItem) return;
 
     // Set itemId on consumer
     const updateData = {};
-    Object.entries(createdItem.system.actions).forEach(([actionId, action]) => {
+    Object.entries(createdItem.system.actions).forEach(([actionId, action]: [string, any]) => {
       Object.entries(action.consumers ?? {}).forEach(([consumerId]) => {
         updateData[`system.actions.${actionId}.consumers.${consumerId}.itemId`] = createdItem.id;
       });

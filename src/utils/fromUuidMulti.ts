@@ -11,13 +11,13 @@ export default async function fromUuidMulti(uuids: string[], options: Record<str
   } of parsedData) {
     if (collection instanceof CompendiumCollection) {
       if (documentType === 'Folder') {
-        folders.push(collection.folders.get(documentId));
+        folders.push(collection.folders.get(documentId!));
       } else {
         if (!collections.has(collection)) collections.set(collection, []);
         collections.get(collection)?.push(documentId);
       }
     } else {
-      documents.push(doc ?? collection?.get(documentId, { invalid }));
+      documents.push(doc ?? collection?.get(documentId!, { invalid }));
     }
   }
 

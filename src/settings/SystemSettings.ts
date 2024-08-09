@@ -24,12 +24,15 @@ export default class SystemSettings extends SvelteApplication {
       width: 600,
       height: 'auto',
       ...options
+      // @ts-expect-error
     }, { dialogData });
 
     // @ts-ignore
     this.options.svelte.props.dialog = this;
 
+    // @ts-expect-error
     this.promise = new Promise((resolve) => {
+      // @ts-expect-error
       this.resolve = resolve;
     });
   }
@@ -41,6 +44,7 @@ export default class SystemSettings extends SvelteApplication {
    * @see https://foundryvtt.com/api/interfaces/client.ApplicationOptions.html
    */
   static get defaultOptions() {
+    // @ts-expect-error
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ['a5e-sheet', 'a5e-settings-sheet'],
       minimizable: true,
@@ -58,10 +62,14 @@ export default class SystemSettings extends SvelteApplication {
 
   static async show(options = {}, dialogData = {}) {
     const app = this.getActiveApp();
+    // @ts-expect-error
     if (app) return app.render(false, { focus: true });
 
     return new Promise((resolve) => {
+      // @ts-expect-error
       options.resolve = resolve;
+
+      // @ts-expect-error
       new this(options, dialogData).render(true, { focus: true });
     });
   }
@@ -73,11 +81,13 @@ export default class SystemSettings extends SvelteApplication {
       foundry.utils.debounce(() => window.location.reload(), 250)();
     }
 
+    // @ts-expect-error
     return super.close();
   }
 
   #resolvePromise(data): void {
     if (this.resolve) {
+      // @ts-expect-error
       this.resolve(data);
     }
   }

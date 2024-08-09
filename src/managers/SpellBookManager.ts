@@ -12,6 +12,7 @@ export default class SpellBookManager extends Map<string, SpellBook> {
     this.actor = actor;
 
     // Initialize the spell books
+    // @ts-expect-error
     const spellBookData: SpellBookData = this.actor.system.spellBooks ?? {};
     Object.entries(spellBookData ?? {})
       .forEach(([id, data]: [string, SpellBookData]) => {

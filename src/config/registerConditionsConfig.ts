@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 function generateChanges(A5E) {
   const MODES = A5E.ACTIVE_EFFECT_MODES;
 

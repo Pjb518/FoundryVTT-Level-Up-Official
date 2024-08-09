@@ -6,7 +6,7 @@ export default class SettingsShim extends FormApplication {
     SystemSettings.show();
   }
 
-  async updateObject(): void {
+  async _updateObject(): Promise<void> {
     //
   }
 

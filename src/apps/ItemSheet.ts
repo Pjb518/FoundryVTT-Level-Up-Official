@@ -1,3 +1,5 @@
+import type { BaseItemA5e } from '../documents/item/base';
+
 import { SvelteApplication } from '#runtime/svelte/application';
 
 import ItemDocument from './ItemDocument';
@@ -12,9 +14,12 @@ import ItemSheetComponent from './sheets/ItemSheet.svelte';
 import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 
 import getDocumentSourceTooltip from '../utils/getDocumentSourceTooltip';
+import type { ItemA5e } from '../documents/item/item';
+import type FeatureItemA5e from '../documents/item/feature';
+import type SpellItemA5e from '../documents/item/spell';
 
 export default class ItemSheet extends SvelteApplication {
-  public item: any;
+  public item: BaseItemA5e;
 
   declare public options: any;
 
@@ -65,6 +70,7 @@ export default class ItemSheet extends SvelteApplication {
 
     this.options.svelte.props.document = new ItemDocument(
       this.item,
+      // @ts-expect-error
       { delete: this.close.bind(this) }
     );
 
@@ -78,6 +84,7 @@ export default class ItemSheet extends SvelteApplication {
    * @see https://foundryvtt.com/api/Application.html#options
    */
   static get defaultOptions(): any {
+    // @ts-expect-error
     return foundry.utils.mergeObject(super.defaultOptions, {
       baseApplication: 'ItemSheet',
       classes: ['a5e-sheet', 'a5e-item-sheet'],
@@ -93,6 +100,7 @@ export default class ItemSheet extends SvelteApplication {
   }
 
   _getHeaderButtons() {
+    // @ts-expect-error
     const buttons = super._getHeaderButtons();
 
     if (!this.item.pack) {
@@ -125,6 +133,7 @@ export default class ItemSheet extends SvelteApplication {
   _onImport(event) {
     if (event) event.preventDefault();
     return this.item.collection
+      // @ts-expect-error
       .importFromCompendium(this.item.compendium, this.item.id);
   }
 
@@ -150,14 +159,16 @@ export default class ItemSheet extends SvelteApplication {
     const { actionId, itemUuid } = dragData;
     if (!actionId || !itemUuid) return;
 
-    const document = await fromUuid(itemUuid);
+    const document = await fromUuid(itemUuid) as ItemA5e;
     const action = foundry.utils.duplicate(document?.actions.get(actionId));
     if (!action) return;
 
     // Change image
+    // @ts-expect-error
     action.img ??= document?.img;
 
-    const [newActionId] = await this.item.actions.add(action, true, true);
+    // @ts-expect-error
+    const [newActionId] = await (this.item as ItemA5e).actions.add(action, true, true);
     if (!newActionId) return;
 
     // Copy over effects from old item to new item
@@ -200,30 +211,32 @@ export default class ItemSheet extends SvelteApplication {
     const { grantId, itemUuid } = dragData;
     if (!grantId || !itemUuid) return;
 
-    const document = await fromUuid(itemUuid);
+    const document = await fromUuid(itemUuid) as FeatureItemA5e;
     const grant = foundry.utils.duplicate(document?.grants.get(grantId));
     if (!grant) return;
 
     // Change image
+    // @ts-expect-error
     grant.img ??= document?.img;
 
-    await this.item.grants.add(grant);
+    await (this.item as FeatureItemA5e).grants.add(grant);
   }
 
   async #onDropItem(dragData) {
     const { uuid } = dragData;
-    const document = await fromUuid(uuid);
+    const document = await fromUuid(uuid) as BaseItemA5e;
     if (!document) return;
 
-    if (document.type === 'spell') this.#onDropSpell(document);
+    if (document.isType('spell')) this.#onDropSpell(document as SpellItemA5e);
   }
 
-  async #onDropSpell(spell) {
+  async #onDropSpell(spell: SpellItemA5e) {
     // Get all actions from spell
-    const actions = spell.actions.values();
+    const actions = [...spell.actions.values()];
 
     // Create copies of all the actions.
     const data = actions.map((action) => {
+      // @ts-expect-error
       action.img ??= spell.img;
       action.description ??= spell.system.description;
       action.descriptionOutputs = ['action'];
@@ -231,6 +244,7 @@ export default class ItemSheet extends SvelteApplication {
     });
 
     data.forEach((a) => {
+      // @ts-expect-error
       this.item.actions.add(foundry.utils.duplicate(a));
     });
   }
@@ -246,8 +260,10 @@ export default class ItemSheet extends SvelteApplication {
   }
 
   async _render(force = false, options = {}) {
+    // @ts-expect-error
     await super._render(force, options);
 
+    // @ts-expect-error
     const sheet = this.element[0];
     const sheetTitle = sheet.querySelector('.window-header .window-title');
 
@@ -281,6 +297,7 @@ export default class ItemSheet extends SvelteApplication {
 
     idLink.addEventListener('click', (event) => {
       event.preventDefault();
+      // @ts-expect-error
       game.clipboard.copyPlainText(documentID);
       ui.notifications.info(game.i18n.format(
         'DOCUMENT.IdCopiedClipboard',
@@ -290,6 +307,7 @@ export default class ItemSheet extends SvelteApplication {
 
     idLink.addEventListener('contextmenu', (event) => {
       event.preventDefault();
+      // @ts-expect-error
       game.clipboard.copyPlainText(documentUUID);
       ui.notifications.info(game.i18n.format(
         'DOCUMENT.IdCopiedClipboard',

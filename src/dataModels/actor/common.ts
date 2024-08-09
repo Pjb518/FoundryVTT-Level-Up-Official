@@ -28,6 +28,7 @@ export const abilities = () => ({
           bonus: new fields.StringField({ required: true, initial: '' })
         }),
         save: new fields.SchemaField({
+          // @ts-expect-error
           proficient: new fields.BooleanField({ required: true, initial: false }),
           expertiseDice: new fields.NumberField({
             required: true, initial: 0, integer: true
@@ -107,6 +108,7 @@ export const attributes = () => ({
       unit: new fields.StringField({ required: true, initial: 'feet' })
     }),
     traits: new fields.SchemaField({
+      // @ts-expect-error
       hover: new fields.BooleanField({ required: true, initial: false })
     })
   }),
@@ -116,6 +118,7 @@ export const attributes = () => ({
         required: true, nullable: false, initial: 0, integer: true, min: 0
       }),
       unit: new fields.StringField({ required: true, initial: 'feet' }),
+      // @ts-expect-error
       otherwiseBlind: new fields.BooleanField({ required: true, initial: false })
     }),
     darkvision: new fields.SchemaField({
@@ -137,6 +140,7 @@ export const attributes = () => ({
       unit: new fields.StringField({ required: true, initial: 'feet' })
     })
   }),
+  // @ts-expect-error
   inspiration: new fields.BooleanField({ required: true, initial: false }),
   fatigue: new fields.NumberField({
     required: true, nullable: false, initial: 0, integer: true
@@ -252,6 +256,7 @@ export const resources = () => ({
       value: new fields.NumberField({ required: true, initial: 0, integer: true }),
       max: new fields.StringField({ required: true, initial: '' }),
       per: new fields.StringField({ required: true, initial: '' }),
+      // @ts-expect-error
       hideMax: new fields.BooleanField({ required: true, initial: false }),
       recharge: new fields.SchemaField({
         formula: new fields.StringField({ required: true, initial: '1d6' }),

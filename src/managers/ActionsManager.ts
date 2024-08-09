@@ -51,10 +51,6 @@ class ActionsManager extends Map<string, Action> {
     }, new Set<string>());
   }
 
-  get hasArea(): boolean {
-    return [...this.values()].some((action) => (!!Object.values(action.areas)?.length));
-  }
-
   get hasConsumer(): boolean {
     return [...this.values()].some((action) => (!!Object.values(action.consumers)?.length));
   }
@@ -76,10 +72,6 @@ class ActionsManager extends Map<string, Action> {
    * ************************************************ */
   getName(name: string): Action | undefined {
     return [...this.values()].find((action) => action.name === name);
-  }
-
-  getAreas(actionId: string) {
-    return Object.entries(this.get(actionId)?.areas ?? {});
   }
 
   getConsumers(actionId: string) {
@@ -152,10 +144,12 @@ class ActionsManager extends Map<string, Action> {
     // TODO: Remove support for this
     // Get effect prompts
     const prompts = Object.entries(newAction.prompts ?? {})
+      // @ts-expect-error
       .filter(([, prompt]) => prompt.type === 'effect');
 
     if (prompts.length) {
       for await (const [promptId, prompt] of prompts) {
+        // @ts-expect-error
         const effect = this.#item.effects.get(prompt.effectId);
         if (!effect) return;
 
@@ -163,6 +157,7 @@ class ActionsManager extends Map<string, Action> {
         const effectData = foundry.utils.duplicate(effect);
         foundry.utils.setProperty(effectData, 'flags.a5e.actionId', newActionId);
         const newEffect = await this.#item.createEmbeddedDocuments('ActiveEffect', [effectData]);
+        // @ts-expect-error
         newAction.prompts[promptId].effectId = newEffect[0].id;
       }
     }
@@ -194,6 +189,7 @@ class ActionsManager extends Map<string, Action> {
       (effect) => effect.flags.a5e.actionId === actionId
     );
 
+    // @ts-expect-error
     this.#item.deleteEmbeddedDocuments('ActiveEffect', effects.map((effect) => effect.id));
   }
 

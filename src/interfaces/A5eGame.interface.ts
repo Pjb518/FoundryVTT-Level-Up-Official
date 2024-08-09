@@ -61,6 +61,7 @@ export default interface A5eGame {
       healing: Record<string, any>;
       skills: Record<string, any>;
     };
+    partyViewer: any;
   };
   macros: {
     activateActionMacro: typeof activateActionMacro;

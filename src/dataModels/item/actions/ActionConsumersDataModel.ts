@@ -5,6 +5,7 @@ const { fields } = foundry.data;
 //                        Schemas
 // ======================================================
 const baseSchema = () => ({
+  // @ts-expect-error
   default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
   label: new fields.StringField({ required: true, nullable: false, initial: '' }),
   type: new fields.StringField({ required: true, nullable: false, initial: '' })
@@ -30,6 +31,7 @@ const resourceSchema = () => ({
   classIdentifier: new fields.StringField({ required: true, nullable: false, initial: '' }),
   quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
   resource: new fields.StringField({ required: true, nullable: false, initial: '' }),
+  // @ts-expect-error
   restore: new fields.BooleanField({ required: true, nullable: false, initial: false }),
   ...baseSchema()
 });
