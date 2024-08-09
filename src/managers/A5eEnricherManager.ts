@@ -1,4 +1,5 @@
 import type { BaseActorA5e } from '../documents/actor/base';
+import type { BaseItemA5e } from '../documents/item/base';
 
 declare namespace A5eEnricherManager {
   type EnricherTypes = 'check' | 'save';
@@ -488,15 +489,20 @@ class A5eEnricherManager {
     options?: TextEditor.EnrichmentOptions
   ): Promise<HTMLElement | null> {
     const results: string[] = [];
+    const icons: string[] = [];
 
     // weighting
     for (const arg of args) {
       let value = '';
       if (arg.groups?.type === 'uuid') {
         value = `@UUID[${arg.groups?.value}]`;
+        // eslint-disable-next-line no-await-in-loop
+        const item = await fromUuid(arg.groups?.value) as BaseItemA5e;
+        icons.push(item?.img as string);
       }
       else {
         value = `${arg.groups?.value}`;
+        icons.push('');
       }
       const weight = arg.groups?.weight ? parseInt(arg.groups.weight, 10) : 1;
       for (let i = 0; i < weight; i += 1) {
@@ -508,8 +514,8 @@ class A5eEnricherManager {
     span.classList.add('a5e-enricher');
     span.classList.add('a5e-enricher--choose');
     span.dataset.results = results.join('|');
+    span.dataset.icons = icons.join('|');
     span.innerHTML = `<i class="fas fa-th-list"></i>${label}`;
-    console.log(span.dataset);
     return span;
   }
 
@@ -524,31 +530,24 @@ class A5eEnricherManager {
     const { dataset } = target;
 
     const results = dataset.results?.split('|');
+    const icons = dataset.icons?.split('|');
     if (!results) return;
 
     const roll = new Roll(`1d${results.length}`);
     await roll.evaluate();
 
     const result = results[roll.total as number - 1];
-    console.log(roll.result);
-    console.log(result);
 
-    // const messageData = {
-    //   author: game.user?.id,
-    //   speaker: ChatMessage.getSpeaker(),
-    //   sound: CONFIG.sounds.dice,
-    //   rolls: [roll],
-    //   flags: {
-    //     a5e: {
-    //       actorId: this.uuid,
-    //       cardType: 'abilityCheck',
-    //       img: this.token?.texture.src ?? this.img,
-    //       name: this.name,
-    //       rollData: rolls.map(({ roll, ...rollData }) => rollData)
-    //     }
-    //   },
-    //   content: '<article></article>'
-    // };
+    await roll.toMessage();
+    console.log(target.dataset);
+    const messageData = {
+      author: game.user?.id,
+      // speaker: ChatMessage.getSpeaker(),
+      // sound: CONFIG.sounds.dice,
+      content: `${result}`
+    };
+
+    await ChatMessage.create(messageData);
   }
 }
 
