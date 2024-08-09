@@ -24,6 +24,7 @@ class A5eEnricherManager {
     // FIXME: This is inefficient
     document.body.addEventListener('click', this.onRoll.bind(this));
     document.body.addEventListener('click', this.onEffect.bind(this));
+    document.body.addEventListener('click', this.onChoose.bind(this));
   }
 
   /**
@@ -456,6 +457,10 @@ class A5eEnricherManager {
     }
   }
 
+  /* -------------------------------------------- */
+  /*  Choose Enrichers                            */
+  /* -------------------------------------------- */
+
   /**
    * Parse the enriched string and provide the appropriate content.
    * @param match      The regular expression match result.
@@ -506,6 +511,44 @@ class A5eEnricherManager {
     span.innerHTML = `<i class="fas fa-th-list"></i>${label}`;
     console.log(span.dataset);
     return span;
+  }
+
+  async onChoose(event: MouseEvent): Promise<void> {
+    const target = (
+      event.target as (HTMLElement | null)
+    )?.closest('.a5e-enricher--choose') as (HTMLElement | null);
+
+    if (!target) return;
+    event.stopPropagation();
+
+    const { dataset } = target;
+
+    const results = dataset.results?.split('|');
+    if (!results) return;
+
+    const roll = new Roll(`1d${results.length}`);
+    await roll.evaluate();
+
+    const result = results[roll.total as number - 1];
+    console.log(roll.result);
+    console.log(result);
+
+    // const messageData = {
+    //   author: game.user?.id,
+    //   speaker: ChatMessage.getSpeaker(),
+    //   sound: CONFIG.sounds.dice,
+    //   rolls: [roll],
+    //   flags: {
+    //     a5e: {
+    //       actorId: this.uuid,
+    //       cardType: 'abilityCheck',
+    //       img: this.token?.texture.src ?? this.img,
+    //       name: this.name,
+    //       rollData: rolls.map(({ roll, ...rollData }) => rollData)
+    //     }
+    //   },
+    //   content: '<article></article>'
+    // };
   }
 }
 
