@@ -530,6 +530,7 @@ class A5eEnricherManager {
     const { dataset } = target;
 
     const results = dataset.results?.split('|');
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const icons = dataset.icons?.split('|');
     if (!results) return;
 
