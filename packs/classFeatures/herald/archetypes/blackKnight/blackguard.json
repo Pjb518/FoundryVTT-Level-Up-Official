@@ -12,8 +12,141 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 20th level, you fully become a terrifying figure out of nightmare and legend. You gain the following abilities: </p><ul><li><p>Your fell physiology becomes incredibly durable. You gain immunity to ongoing damage, and you gain resistance to bludgeoning, slashing, and piercing damage from non-magical sources.</p></li><li><p>Your blood becomes a poisonous black ichor. You may inflict 2 points of necrotic damage to yourself to poison a weapon with your blood for one round. A creature struck by a weapon so poisoned takes 2d6 additional necrotic damage per hit and must make a constitution saving throw or gain the poisoned condition for one minute. Creatures must save against each hit separately. Creatures within 5 feet of you that deal more than 10 points of piercing or slashing damage to you must make a dexterity save against your maneuver DC or suffer 2d6 necrotic damage. Each applicable instance of damage triggers this effect separately.</p></li><li><p>Your Menacing Countenance becomes so terrible that it tears at the minds of those who witness you. Creatures that fail their save against your Menacing Countenance take 2d4 of psychic damage and are rattled until they can shake off the effects. Creatures that fail their saves by 10 or more instead become supernaturally terrified, and will flee from you at maximum speed by the most direct route possible, heedless of hazards along their path, until you are out of sight.</p></li></ul>",
+		"actions": {
+			"TOV1JlqS8vQhKTVg": {
+				"name": "Poison Weapon",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"5BCogZ4oMdT2ltWI": {
+						"type": "damage",
+						"default": true,
+						"formula": "2",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				}
+			},
+			"dvyDDBVnTiqTRB9S": {
+				"name": "Poison Attack",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"WqT9iG7d8JhMaDfz": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {
+					"5DoXSb3e3OCofQgH": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					},
+					"7eUeX4x6WhBSwEgc": {
+						"type": "effect",
+						"default": true,
+						"effectId": "gsBYPQ5LRk8F2wbT"
+					},
+					"v3tXRcLMYdMC4vFg": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"I5Dr9ifD5VjbwuIb": {
+				"name": "Menacing Countenance",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"q0PfkIYhYTuSldRF": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.menacing-countenance",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"oV1btROPlTyjjJAY": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d4",
+						"canCrit": false,
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {
+					"4RoneSYjQSkmvjPj": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"qw1bE6gDYlOLc0wg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "saDdfJ59hiTuWPdg"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"img": "icons/magic/perception/eye-ringed-glow-angry-small-red.webp"
+			}
+		},
+		"description": "<p>At 20th level, you fully become a terrifying figure out of nightmare and legend. You gain the following abilities:</p>\n<ul>\n<li>\n<p>Your fell physiology becomes incredibly durable. You gain immunity to ongoing damage, and you gain resistance to bludgeoning, slashing, and piercing damage from non-magical sources.</p>\n</li>\n<li>\n<p>Your blood becomes a poisonous black ichor. You may inflict 2 points of necrotic damage to yourself to poison a weapon with your blood for one round. A creature struck by a weapon so poisoned takes 2d6 additional necrotic damage per hit and must make a constitution saving throw or gain the poisoned condition for one minute. Creatures must save against each hit separately. Creatures within 5 feet of you that deal more than 10 points of piercing or slashing damage to you must make a dexterity save against your maneuver DC or suffer 2d6 necrotic damage. Each applicable instance of damage triggers this effect separately.</p>\n</li>\n<li>\n<p>Your @UUID[Compendium.a5e.a5e-class-features.Item.k25cbr3kk1rdtq3j]{Menacing Countenance} becomes so terrible that it tears at the minds of those who witness you. Creatures that fail their save against your Menacing Countenance take 2d4 of psychic damage and are rattled until they can shake off the effects. Creatures that fail their saves by 10 or more instead become supernaturally terrified, and will flee from you at maximum speed by the most direct route possible, heedless of hazards along their path, until you are out of sight.</p>\n</li>\n</ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -28,23 +161,150 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"OLK4zTlobrp8zK5y": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "OLK4zTlobrp8zK5y",
+				"label": "Blackguard",
+				"traits": {
+					"base": [
+						"Non-magical bludgeoning, slashing, and piercing"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageImmunities"
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "herald"
+		"classes": "herald",
+		"class": ""
 	},
 	"img": "icons/commodities/metal/clasp-skull-jeweled-red.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.C1SR1G3qJwg7cOIw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "dvyDDBVnTiqTRB9S",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"img": "icons/commodities/metal/clasp-skull-jeweled-red.webp",
+			"_id": "gsBYPQ5LRk8F2wbT",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A poisoned creature has disadvantage on attack rolls and ability checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"poisoned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723218553750,
+				"modifiedTime": 1723218581882,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.QDpX9H9P4zV8BwDr",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "I5Dr9ifD5VjbwuIb"
+				}
+			},
+			"transfer": false,
+			"name": "Daunted",
+			"img": "icons/magic/perception/eye-ringed-glow-angry-small-red.webp",
+			"_id": "saDdfJ59hiTuWPdg",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A daunted creature acts in various ways depending on the situation and the Narrator’s discretion. Most non-hostile daunted creatures simply find somewhere else to be. Hostile daunted creatures might also excuse themselves (often making a show of bravado before doing so). A daunted creature that attacks you takes a -1d4 penalty to their attack rolls. </p>\n<p>A creature engaged in combat with you can re-attempt their save against this effect at the end of each of their turns, ending the effect on a success. Creatures not in combat with you can retry the save every hour. A creature that successfully saves against this effect gains immunity to it for 24 hours.</p>\n<p>Your Menacing Countenance becomes so terrible that it tears at the minds of those who witness you. Creatures that fail their save against your Menacing Countenance take 2d4 of psychic damage and are rattled until they can shake off the effects. Creatures that fail their saves by 10 or more instead become supernaturally terrified, and will flee from you at maximum speed by the most direct route possible, heedless of hazards along their path, until you are out of sight.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723218632495,
+				"modifiedTime": 1723218887015,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "b0zyxqo04frsgewq",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723217018513,
+		"modifiedTime": 1723218811366,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "b0zyxqo04frsgewq"
 }
