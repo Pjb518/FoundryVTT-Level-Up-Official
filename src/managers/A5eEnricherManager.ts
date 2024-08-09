@@ -12,12 +12,13 @@ class A5eEnricherManager {
     const enricherTypes = ['check', 'save', 'condition'];
 
     CONFIG.TextEditor.enrichers.push({
-      /**
-       * pattern: \[\[\/(?<enricherType>\w+)(?<argString>( +\w+=([\w\d]+|"[\w\d ]+"))*)\]\]
-       * matches: [[/type arg1=val1 arg2=val2 arg3="val 3"]]
-       */
+
       pattern: new RegExp(`\\[\\[\\/(?<enricherType>${enricherTypes.join('|')})(?<argString>( +\\w+=([\\w\\d]+|"[\\w\\d ]+"))*)\\]\\]`, 'gi'),
       enricher: this.parseEnricherInput.bind(this)
+    }, {
+      // eslint-disable-next-line no-useless-escape
+      pattern: /\[\[\/choose label=(?<label>([\w\d]+|"[\w\d -\.,]+"))(?<argString>( +(\[\d+\])?(uuid=|text=)?([\d\w\-\.]+|"[\d\w\-\. ]+"))+) *\]\]/gi,
+      enricher: this.parseChooseInput.bind(this)
     });
 
     // FIXME: This is inefficient
@@ -260,7 +261,7 @@ class A5eEnricherManager {
     event.stopPropagation();
 
     const selectedTokens = canvas?.tokens?.controlled;
-    if (!(selectedToken?.length)) {
+    if (!(selectedTokens?.length)) {
       ui.notifications?.error('No tokens selected.');
       return;
     }
@@ -430,7 +431,7 @@ class A5eEnricherManager {
     event.stopPropagation();
 
     const selectedTokens = canvas?.tokens?.controlled;
-    if (!(selectedToken?.length)) {
+    if (!(selectedTokens?.length)) {
       ui.notifications?.error('No tokens selected.');
       return;
     }
@@ -453,6 +454,27 @@ class A5eEnricherManager {
         actor.toggleStatusEffect(id);
       }
     }
+  }
+
+  /**
+   * Parse the enriched string and provide the appropriate content.
+   * @param match      The regular expression match result.
+   * @param options    Options provided to customize text enrichment. Unused
+   * @returns An HTML element to insert in place of the matched text or
+   *          null to indicate that no replacement should be made.
+  */
+  async parseChooseInput(
+    match: RegExpMatchArray,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    options?: TextEditor.EnrichmentOptions
+  ): Promise<HTMLElement | null> {
+    const { label, argString } = match.groups as { label: string, argString: string };
+
+    // eslint-disable-next-line no-useless-escape
+    const argRegex = /(\[(?<weight>\d+)\])?(?<type>uuid=|text=)?(?<value>[\d\w\-\.]+|"[\d\w\-\. ]+")/gi;
+    const args = [...argString.matchAll(argRegex)];
+
+    return null;
   }
 }
 
