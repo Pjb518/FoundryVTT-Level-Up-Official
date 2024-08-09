@@ -23,6 +23,7 @@ import SpellCompendiumSheet from '../apps/SpellCompendiumSheet';
 
 // DataModels
 import actorDataModels from '../dataModels/actor/actorDataModels';
+import chatDataModels from '../dataModels/chat/chatCardDataModels';
 import itemDataModels from '../dataModels/item/itemDataModels';
 
 // Effects
@@ -76,6 +77,7 @@ import { gameSettings } from '../settings/SettingsStore';
 export default function init() {
   CONFIG.A5E = A5E;
   CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
+  // @ts-expect-error
   CONFIG.Actor.documentClass = ActorProxy;
   CONFIG.Actor.trackableAttributes = trackableAttributes;
   CONFIG.Item.documentClass = ItemProxy;
@@ -89,13 +91,9 @@ export default function init() {
   CONFIG.MeasuredTemplate.defaults.angle = 60;
 
   // DataModels
+  CONFIG.Actor.dataModels = actorDataModels;
   // @ts-expect-error
-  const version = (game.settings.storage.get('world').getItem('a5e.worldSchemaVersion') ?? 1.0) as number;
-
-  if (version > 0.008) {
-    CONFIG.Actor.dataModels = actorDataModels;
-  }
-
+  CONFIG.ChatMessage.dataModels = chatDataModels;
   CONFIG.Item.dataModels = itemDataModels;
 
   // Initialize the game's A5E namespace
@@ -132,7 +130,8 @@ export default function init() {
         damage: {},
         healing: {},
         skills: {}
-      }
+      },
+      partyViewer: null
     },
     macros: {
       activateActionMacro,

@@ -216,6 +216,7 @@ class BaseActorA5e extends Actor {
     this.RollOverrideManager.initialize();
 
     // Initialize the SpellBooks
+    // @ts-expect-error
     this.spellBooks = new SpellBookManager(this);
     this.spellBooks.forEach((spellBook) => spellBook.prepareBaseData());
   }
