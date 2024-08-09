@@ -12,7 +12,7 @@ export default class TraitGrant extends BaseGrant {
 
   #type = 'trait';
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -33,7 +33,7 @@ export default class TraitGrant extends BaseGrant {
     });
   }
 
-  getApplyData(actor: any, data: any) {
+  override getApplyData(actor: any, data: any) {
     if (!actor) return {};
     const selected: string[] = data?.selected ?? this.traits.base ?? [];
     const count: number = this.traits.total;
@@ -77,11 +77,11 @@ export default class TraitGrant extends BaseGrant {
     };
   }
 
-  getSelectionComponent() {
+  override getSelectionComponent() {
     return this.#component;
   }
 
-  getSelectionComponentProps(data: any) {
+  override getSelectionComponentProps(data: any) {
     return {
       base: this.traits.base ?? [],
       choices: this.traits.options,
@@ -91,7 +91,7 @@ export default class TraitGrant extends BaseGrant {
     };
   }
 
-  requiresConfig(): boolean {
+  override requiresConfig(): boolean {
     return this.traits.options.length;
   }
 

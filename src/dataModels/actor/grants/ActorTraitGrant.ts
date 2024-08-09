@@ -9,7 +9,7 @@ export default class ActorTraitGrant extends ActorBaseGrant {
     traitType: string;
   };
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {

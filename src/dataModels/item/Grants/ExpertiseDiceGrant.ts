@@ -10,7 +10,7 @@ export default class ExpertiseDiceGrant extends BaseGrant {
 
   #type = 'expertiseDice';
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -32,7 +32,7 @@ export default class ExpertiseDiceGrant extends BaseGrant {
     });
   }
 
-  getApplyData(actor: any, data: any) {
+  override getApplyData(actor: any, data: any) {
     if (!actor) return {};
     const selected: string[] = data?.selected ?? this.keys.base ?? [];
     const count: number = this.keys.total;
@@ -61,11 +61,11 @@ export default class ExpertiseDiceGrant extends BaseGrant {
     return updates;
   }
 
-  getSelectionComponent() {
+  override getSelectionComponent() {
     return this.#component;
   }
 
-  getSelectionComponentProps(data: any) {
+  override getSelectionComponentProps(data: any) {
     return {
       base: this.keys.base ?? [],
       choices: this.keys.options,
@@ -75,7 +75,7 @@ export default class ExpertiseDiceGrant extends BaseGrant {
     };
   }
 
-  requiresConfig() {
+  override requiresConfig() {
     return !!this.keys.options.length;
   }
 

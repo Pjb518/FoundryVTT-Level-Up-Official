@@ -9,7 +9,7 @@ export default class DamageGrant extends BaseGrant {
 
   #type = 'damage';
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -21,7 +21,7 @@ export default class DamageGrant extends BaseGrant {
     });
   }
 
-  getApplyData(actor: any): any {
+  override getApplyData(actor: any): any {
     if (!actor) return {};
 
     const bonusId = foundry.utils.randomID();
@@ -53,11 +53,11 @@ export default class DamageGrant extends BaseGrant {
     };
   }
 
-  getSelectionComponent() { return null; }
+  override getSelectionComponent() { return null; }
 
-  getSelectionComponentProps() { return null; }
+  override getSelectionComponentProps() { return null; }
 
-  requiresConfig() { return false; }
+  override requiresConfig() { return false; }
 
   override async configureGrant() {
     const dialogData = {

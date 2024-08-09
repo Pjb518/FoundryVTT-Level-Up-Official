@@ -8,7 +8,7 @@ export default class ActorProficiencyGrant extends ActorBaseGrant {
     proficiencyType: 'armor' | 'savingThrow' | 'skill' | 'tradition' | 'tool' | 'weapon';
   };
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {

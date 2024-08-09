@@ -18,7 +18,7 @@ export default class FeatureGrant extends BaseGrant {
     total: number;
   };
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -47,7 +47,7 @@ export default class FeatureGrant extends BaseGrant {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  getApplyData(actor: any, data: any): any {
+  override getApplyData(actor: any, data: any): any {
     if (!actor) return {};
 
     const grantData = {
@@ -65,11 +65,11 @@ export default class FeatureGrant extends BaseGrant {
     };
   }
 
-  getSelectionComponent() {
+  override getSelectionComponent() {
     return this.#component;
   }
 
-  getSelectionComponentProps(data: any) {
+  override getSelectionComponentProps(data: any) {
     return {
       base: this.features.base,
       choices: this.features.options,
@@ -78,7 +78,7 @@ export default class FeatureGrant extends BaseGrant {
     };
   }
 
-  requiresConfig(): boolean {
+  override requiresConfig(): boolean {
     return !!this.features.options.length;
   }
 

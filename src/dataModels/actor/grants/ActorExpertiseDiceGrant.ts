@@ -9,7 +9,7 @@ export default class ActorExpertiseDiceGrant extends ActorBaseGrant {
     expertiseType: 'abilityCheck' | 'abilitySave' | 'attack' | 'initiative' | 'skill';
   };
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {

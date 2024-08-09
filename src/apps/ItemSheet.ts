@@ -151,17 +151,17 @@ export default class ItemSheet extends SvelteApplication {
     if (!actionId || !itemUuid) return;
 
     const document = await fromUuid(itemUuid);
-    const action = foundry.utils.duplicate(document.actions.get(actionId));
+    const action = foundry.utils.duplicate(document?.actions.get(actionId));
     if (!action) return;
 
     // Change image
-    action.img ??= document.img;
+    action.img ??= document?.img;
 
     const [newActionId] = await this.item.actions.add(action, true, true);
     if (!newActionId) return;
 
     // Copy over effects from old item to new item
-    const effects = Array.from(document.effects)
+    const effects = Array.from(document?.effects)
       .filter((e: any) => e.flags?.a5e?.transferType === 'onUse' && e.flags?.a5e?.actionId);
 
     if (!effects.length) return;
@@ -201,11 +201,11 @@ export default class ItemSheet extends SvelteApplication {
     if (!grantId || !itemUuid) return;
 
     const document = await fromUuid(itemUuid);
-    const grant = foundry.utils.duplicate(document.grants.get(grantId));
+    const grant = foundry.utils.duplicate(document?.grants.get(grantId));
     if (!grant) return;
 
     // Change image
-    grant.img ??= document.img;
+    grant.img ??= document?.img;
 
     await this.item.grants.add(grant);
   }

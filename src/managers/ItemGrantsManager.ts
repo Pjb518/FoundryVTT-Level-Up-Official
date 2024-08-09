@@ -62,7 +62,7 @@ export default class ItemGrantsManager extends Map<string, Grant> {
   //   grant.configureDialog();
   // }
 
-  async clear() {
+  override async clear() {
     await this.#item.update({
       'system.-=grants': null
     });

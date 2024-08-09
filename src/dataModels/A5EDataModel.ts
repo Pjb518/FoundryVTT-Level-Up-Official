@@ -43,7 +43,7 @@ export default class A5EDataModel<
 
   static _immiscible: Set<string> = new Set(['length', 'mixed', 'name', 'prototype', 'migrateData', 'defineSchema']);
 
-  static defineSchema() {
+  static override defineSchema() {
     const schema = {};
     for (const template of this._schemaTemplates) {
       if (!template.defineSchema) throw new Error(`Invalid a5e template mixin ${template} defined on class ${this.constructor}`);
@@ -112,7 +112,7 @@ export default class A5EDataModel<
   }
 
   // eslint-disable-next-line generator-star-spacing
-  protected static * _initializationOrder(): Generator<[string, foundry.data.fields.DataField.Any]> {
+  protected static override * _initializationOrder(): Generator<[string, foundry.data.fields.DataField.Any]> {
     super._initializationOrder();
     for (const template of this._schemaTemplates) {
       for (const entry of template._initializationOrder()) {
@@ -211,13 +211,12 @@ export default class A5EDataModel<
     return keys;
   }
 
-  /** @override */
-  static migrateData(source) {
+  static override migrateData(source) {
     this._getMethods({ startingWith: 'migrate', notEndingWith: 'Data', prototype: false }).forEach((k) => this[k](source));
     return super.migrateData(source);
   }
 
-  prepareBaseData() {
+  override prepareBaseData() {
     A5EDataModel._getMethods({ startingWith: 'prepareBase', notEndingWith: 'Data' }).forEach((k) => this[k]());
   }
 
@@ -225,7 +224,7 @@ export default class A5EDataModel<
     A5EDataModel._getMethods({ startingWith: 'prepareEmbedded', notEndingWith: 'Data' }).forEach((k) => this[k]());
   }
 
-  prepareDerivedData() {
+  override prepareDerivedData() {
     A5EDataModel._getMethods({ startingWith: 'prepareDerived', notEndingWith: 'Data' }).forEach((k) => this[k]());
   }
 }

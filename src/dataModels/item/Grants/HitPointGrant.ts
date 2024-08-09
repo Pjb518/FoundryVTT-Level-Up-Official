@@ -9,7 +9,7 @@ export default class HitPointGrant extends BaseGrant {
 
   #type = 'hitPoint';
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -21,7 +21,7 @@ export default class HitPointGrant extends BaseGrant {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  getApplyData(actor: any, _data: any = {}) {
+  override getApplyData(actor: any, _data: any = {}) {
     if (!actor) return {};
 
     const bonusId = foundry.utils.randomID();
@@ -50,15 +50,15 @@ export default class HitPointGrant extends BaseGrant {
     };
   }
 
-  getSelectionComponent() {
+  override getSelectionComponent() {
     return null;
   }
 
-  getSelectionComponentProps() {
+  override getSelectionComponentProps() {
     return {};
   }
 
-  requiresConfig(): boolean {
+  override requiresConfig(): boolean {
     return false;
   }
 
