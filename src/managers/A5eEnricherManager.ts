@@ -17,7 +17,7 @@ class A5eEnricherManager {
       enricher: this.parseEnricherInput.bind(this)
     }, {
       // eslint-disable-next-line no-useless-escape
-      pattern: /\[\[\/choose label=(?<label>([\w\d]+|"[\w\d -\.,]+"))(?<argString>( +(\[\d+\])?(uuid=|text=)?([\d\w\-\.]+|"[\d\w\-\. ]+"))+) *\]\]/gi,
+      pattern: /\[\[\/choose label=((?<label>[\w\d]+)|"(?<label>[\w\d -\.,]+)")(?<argString>( +(\[\d+\])?(uuid|text)=([\d\w\-\.]+|"[\d\w\-\. ]+"))+) *\]\]/gi,
       enricher: this.parseChooseInput.bind(this)
     });
 
@@ -465,16 +465,47 @@ class A5eEnricherManager {
   */
   async parseChooseInput(
     match: RegExpMatchArray,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     options?: TextEditor.EnrichmentOptions
   ): Promise<HTMLElement | null> {
     const { label, argString } = match.groups as { label: string, argString: string };
 
     // eslint-disable-next-line no-useless-escape
-    const argRegex = /(\[(?<weight>\d+)\])?(?<type>uuid=|text=)?(?<value>[\d\w\-\.]+|"[\d\w\-\. ]+")/gi;
+    const argRegex = /(\[(?<weight>\d+)\])?(?<type>uuid|text)=((?<value>[\d\w\-\.]+)|"(?<value>[\d\w\-\. ]+)")/gi;
     const args = [...argString.matchAll(argRegex)];
 
-    return null;
+    return this.#enrichChoose(label, args, options);
+  }
+
+  async #enrichChoose(
+    label: string,
+    args: RegExpExecArray[],
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    options?: TextEditor.EnrichmentOptions
+  ): Promise<HTMLElement | null> {
+    const results: string[] = [];
+
+    // weighting
+    for (const arg of args) {
+      let value = '';
+      if (arg.groups?.type === 'uuid') {
+        value = `@UUID[${arg.groups?.value}]`;
+      }
+      else {
+        value = `${arg.groups?.value}`;
+      }
+      const weight = arg.groups?.weight ? parseInt(arg.groups.weight, 10) : 1;
+      for (let i = 0; i < weight; i += 1) {
+        results.push(value);
+      }
+    }
+
+    const span = document.createElement('span');
+    span.classList.add('a5e-enricher');
+    span.classList.add('a5e-enricher--choose');
+    span.dataset.results = results.join('|');
+    span.innerHTML = `<i class="fas fa-th-list"></i>${label}`;
+    console.log(span.dataset);
+    return span;
   }
 }
 
