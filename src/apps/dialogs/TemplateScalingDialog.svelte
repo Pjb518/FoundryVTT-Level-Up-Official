@@ -16,7 +16,7 @@
 
     const item = document;
 
-    $: action = $item.actions(actionId);
+    $: action = $item.actions.get(actionId);
     $: area = action.area ?? {};
     $: scalingMode = area?.scaling?.mode ?? null;
 
