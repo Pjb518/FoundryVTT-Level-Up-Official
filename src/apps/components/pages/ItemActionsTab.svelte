@@ -24,6 +24,10 @@
         $item.actions.remove(actionId);
     }
 
+    function setDefault(actionId: string) {
+        $item.actions.setDefaultAction(actionId);
+    }
+
     // **********************************************
     // Drag Drop Handlers
     async function _onDragStart(event: DragEvent, actionId: string) {
@@ -35,6 +39,8 @@
 
         return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
     }
+
+    $: defaultAction = $item.actions.default?.id;
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
@@ -67,6 +73,14 @@
                     {action?.name}
 
                     <div class="action-buttons">
+                        <button
+                            class="action-button fas fa-shield"
+                            class:default={id === defaultAction}
+                            data-tooltip="Set Default"
+                            data-tooltip-direction="UP"
+                            on:click={() => setDefault(id)}
+                        />
+
                         <button
                             class="action-button fas fa-cog"
                             data-tooltip="A5E.ButtonToolTipConfigure"
@@ -116,6 +130,15 @@
         gap: 0.5rem;
         color: #999;
         margin-left: auto;
+    }
+
+    .default {
+        color: var(--a5e-color-primary);
+
+        &:hover,
+        &:focus {
+            color: var(--a5e-color-primary);
+        }
     }
 
     .delete-button:hover {
