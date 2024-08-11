@@ -12,8 +12,38 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 11th level, you and creatures friendly to you within the area of your Commanding Presence do an additional 1d4 of necrotic damage with their weapon attacks, and any creature reduced to 0 hit points by an affected creature immediately accrues one failed death save.</p>\n<p>In addition, as long as you have at least two allied creatures in the area of your Commanding Presence, you all gain an expertise die on Intimidation checks.</p>\n<p>Finally, you and your allies within your Commanding Presence gain advantage on all attacks made against incapacitated creatures and noncombatants. If ayou or an ally would already have advantage on the attack, you deal an additional 1d4 of necrotic damage instead, which stack with the bonus damage above.</p>",
+		"actions": {
+			"hGZfPIR23HHBlPDk": {
+				"name": "Bloodthirsty",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"Kvn46wKyfooFUNz4": {
+						"type": "effect",
+						"default": true,
+						"effectId": "mlPAg4y5OFn8rb6T"
+					},
+					"EuFiNOTECDgFlNOs": {
+						"type": "effect",
+						"default": true,
+						"effectId": "4BvZzVu15qOHKlON"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 11th level, you and creatures friendly to you within the area of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} do an additional 1d4 of necrotic damage with their weapon attacks, and any creature reduced to 0 hit points by an affected creature immediately accrues one failed death save.</p>\n<p>In addition, as long as you have at least two allied creatures in the area of your Commanding Presence, you all gain an expertise die on Intimidation checks.</p>\n<p>Finally, you and your allies within your Commanding Presence gain advantage on all attacks made against incapacitated creatures and noncombatants. If ayou or an ally would already have advantage on the attack, you deal an additional 1d4 of necrotic damage instead, which stack with the bonus damage above.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -35,16 +65,120 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "marshal"
+		"classes": "marshal",
+		"class": ""
 	},
 	"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.FrS0cHWBu0oKRWWZ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "hGZfPIR23HHBlPDk",
+					"applyToSelf": false
+				}
+			},
+			"transfer": false,
+			"name": "Bloodthirsty",
+			"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
+			"_id": "mlPAg4y5OFn8rb6T",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Bloodthirsty\",\"formula\":\"1d4\",\"damageType\":\"necrotic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/skills/wounds/blood-drip-droplet-red.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You and creatures friendly to you within the area of your Commanding Presence do an additional 1d4 of necrotic damage with their weapon attacks, and any creature reduced to 0 hit points by an affected creature immediately accrues one failed death save.</p>\n<p>Finally, you and your allies within your Commanding Presence gain advantage on all attacks made against incapacitated creatures and noncombatants. If you or an ally would already have advantage on the attack, you deal an additional 1d4 of necrotic damage instead, which stack with the bonus damage above.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723400454957,
+				"modifiedTime": 1723400602424,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.FrS0cHWBu0oKRWWZ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "hGZfPIR23HHBlPDk"
+				}
+			},
+			"transfer": false,
+			"name": "Two Allied Creatures",
+			"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
+			"_id": "4BvZzVu15qOHKlON",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.skills.itm.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>In addition, as long as you have at least two allied creatures in the area of your Commanding Presence, you all gain an expertise die on Intimidation checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723400575627,
+				"modifiedTime": 1723400624239,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "lkx4scdvdkfsa8xx",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723400419024,
+		"modifiedTime": 1723400575660,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "lkx4scdvdkfsa8xx"
 }
