@@ -1242,20 +1242,18 @@ class BaseActorA5e extends Actor {
 
     const chatData = {
       author: game.user?.id,
-      speaker: ChatMessage.getSpeaker({ actor: this }),
+      speaker: ChatMessage.getSpeaker({ actor: this as Actor }),
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
       rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
-      flags: {
-        a5e: {
-          actorId: this.uuid,
-          cardType: 'savingThrow',
-          img: this.token?.texture.src ?? this.img,
-          name: this.name,
-          rollData: rolls.map(({ roll, ...rollData }) => rollData)
-        }
+      system: {
+        actorId: this.uuid,
+        actorName: this.name,
+        img: this.token?.texture.src ?? this.img,
+        rollData: rolls.map(({ roll, ...rollData }) => rollData),
+        rollType: 'savingThrow'
       },
-      content: '<article></article>'
+      type: 'check'
     };
 
     const hookData = {
@@ -1384,16 +1382,14 @@ class BaseActorA5e extends Actor {
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
       rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
-      flags: {
-        a5e: {
-          actorId: this.uuid,
-          cardType: 'skillCheck',
-          img: this.token?.texture.src ?? this.img,
-          name: this.name,
-          rollData: rolls.map(({ roll, ...rollData }) => rollData)
-        }
+      system: {
+        actorId: this.uuid,
+        actorName: this.name,
+        img: this.token?.texture.src ?? this.img,
+        rollData: rolls.map(({ roll, ...rollData }) => rollData),
+        rollType: 'skillCheck'
       },
-      content: '<article></article>'
+      type: 'check'
     };
 
     const hookData = {
