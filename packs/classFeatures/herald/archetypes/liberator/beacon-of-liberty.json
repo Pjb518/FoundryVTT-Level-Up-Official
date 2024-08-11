@@ -2,7 +2,126 @@
 	"name": "Beacon of Liberty",
 	"type": "feature",
 	"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.NStrr44Kij8AswLn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "EqTNUUS3h1fJ1ydC",
+					"duration": {
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Beacon of Liberty (Self)",
+			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+			"_id": "MAEAjWFLNQPvlo6O",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "100",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "200",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"stunned\",\"petrified\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For one minute, you emit bright light to 100 feet and dim light for 100 feet beyond that. All creatures in the radius of your bright light are under a continuous @UUID[Compendium.a5e.a5e-spells.Item.adbxdvi3uj851e70]{Freedom of Movement} effect and are immune to the stunned and petrified conditions, and if either of these conditions are present they immediately end. All restraints and imprisoning structures (even magical ones) in the area of your bright light immediately spring open. If a creature is blinded, deafened, paralyzed, or missing limbs (whether by injury or birth), those afflictions are immediately healed as if by a regenerate spell unless the creature does not wish for them to be. At the Narrator's discretion, other afflictions such as chronic pain, cancer, and so on are also healed.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723387961963,
+				"modifiedTime": 1723388076793,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.NStrr44Kij8AswLn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "EqTNUUS3h1fJ1ydC",
+					"duration": {
+						"unit": "minutes"
+					},
+					"applyToSelf": false
+				}
+			},
+			"transfer": false,
+			"name": "Beacon of Liberty",
+			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+			"_id": "T9aHpfUe3VowGdEV",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"stunned\",\"petrified\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For one minute, you emit bright light to 100 feet and dim light for 100 feet beyond that. All creatures in the radius of your bright light are under a continuous @UUID[Compendium.a5e.a5e-spells.Item.adbxdvi3uj851e70]{Freedom of Movement} effect and are immune to the stunned and petrified conditions, and if either of these conditions are present they immediately end. All restraints and imprisoning structures (even magical ones) in the area of your bright light immediately spring open. If a creature is blinded, deafened, paralyzed, or missing limbs (whether by injury or birth), those afflictions are immediately healed as if by a regenerate spell unless the creature does not wish for them to be. At the Narrator's discretion, other afflictions such as chronic pain, cancer, and so on are also healed.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723388090529,
+				"modifiedTime": 1723388098767,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"folder": null,
 	"flags": {},
 	"system": {
@@ -16,15 +135,49 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>You can use an action to shine the light of freedom so brightly that none can escape it. For one minute, you emit bright light to 100 feet and dim light for 100 feet beyond that. All creatures in the radius of your bright light are under a continuous <em>freedom of movement</em> effect and are immune to the stunned and petrified conditions, and if either of these conditions are present they immediately end. All restraints and imprisoning structures (even magical ones) in the area of your bright light immediately spring open. If a creature is blinded, deafened, paralyzed, or missing limbs (whether by injury or birth), those afflictions are immediately healed as if by a <em>regenerate</em> spell unless the creature does not wish for them to be. At the Narrator's discretion, other afflictions such as chronic pain, cancer, and so on are also healed.</p><p>Once you have used this feature, you cannot do so again until you finish a long rest.</p>",
+		"actions": {
+			"EqTNUUS3h1fJ1ydC": {
+				"name": "Beacon of Liberty",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"H5X976X2kEwOwFLc": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"QIOLmppv7VwGN6L1": {
+						"type": "effect",
+						"default": true,
+						"effectId": "MAEAjWFLNQPvlo6O"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You can use an action to shine the light of freedom so brightly that none can escape it. For one minute, you emit bright light to 100 feet and dim light for 100 feet beyond that. All creatures in the radius of your bright light are under a continuous @UUID[Compendium.a5e.a5e-spells.Item.adbxdvi3uj851e70]{Freedom of Movement} effect and are immune to the stunned and petrified conditions, and if either of these conditions are present they immediately end. All restraints and imprisoning structures (even magical ones) in the area of your bright light immediately spring open. If a creature is blinded, deafened, paralyzed, or missing limbs (whether by injury or birth), those afflictions are immediately healed as if by a regenerate spell unless the creature does not wish for them to be. At the Narrator's discretion, other afflictions such as chronic pain, cancer, and so on are also healed.</p>\n<p>Once you have used this feature, you cannot do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -39,12 +192,16 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "herald"
+		"classes": "herald",
+		"class": ""
 	},
-	"_id": "bi9urxlzagqpmlj7",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723387943126,
+		"modifiedTime": 1723388105214,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "bi9urxlzagqpmlj7"
 }
