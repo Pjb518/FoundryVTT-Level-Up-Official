@@ -2,6 +2,7 @@
 
 <script lang="ts">
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    import { setContext } from "svelte";
 
     import calculateHeaderTextColor from "../../utils/calculateHeaderTextColor";
     import prepareRolls from "../dataPreparationHelpers/cardRolls/prepareRolls";
@@ -19,6 +20,8 @@
 
     const { actorName, img } = system;
     const rolls = prepareRolls($message);
+
+    setContext("message", message);
 </script>
 
 <CardHeader {actorName} {img} messageDocument={$message} />

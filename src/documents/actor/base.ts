@@ -1121,7 +1121,7 @@ class BaseActorA5e extends Actor {
         rollData: rolls.map(({ roll, ...rollData }) => rollData),
         rollType: 'abilityCheck'
       },
-      type: 'check'
+      type: 'roll'
     };
 
     const hookData = {
@@ -1253,7 +1253,7 @@ class BaseActorA5e extends Actor {
         rollData: rolls.map(({ roll, ...rollData }) => rollData),
         rollType: 'savingThrow'
       },
-      type: 'check'
+      type: 'roll'
     };
 
     const hookData = {
@@ -1389,7 +1389,7 @@ class BaseActorA5e extends Actor {
         rollData: rolls.map(({ roll, ...rollData }) => rollData),
         rollType: 'skillCheck'
       },
-      type: 'check'
+      type: 'roll'
     };
 
     const hookData = {

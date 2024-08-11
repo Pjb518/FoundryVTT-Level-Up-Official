@@ -12,7 +12,7 @@ const checkCardSchema = () => ({
   })
 });
 
-declare namespace A5eCheckCardData {
+declare namespace A5eRollCardData {
   type Schema = DataSchema
     & ReturnType<typeof metadata>
     & ReturnType<typeof checkCardSchema>;
@@ -20,13 +20,13 @@ declare namespace A5eCheckCardData {
   interface DerivedData extends Record<string, unknown> { }
 }
 
-class A5eCheckCardData extends foundry.abstract.TypeDataModel<
-  A5eCheckCardData.Schema,
+class A5eRollCardData extends foundry.abstract.TypeDataModel<
+  A5eRollCardData.Schema,
   ChatMessage.ConfiguredInstance,
-  A5eCheckCardData.BaseData,
-  A5eCheckCardData.DerivedData
+  A5eRollCardData.BaseData,
+  A5eRollCardData.DerivedData
 > {
-  static override defineSchema(): A5eCheckCardData.Schema {
+  static override defineSchema(): A5eRollCardData.Schema {
     return {
       ...checkCardSchema(),
       ...metadata()
@@ -34,4 +34,4 @@ class A5eCheckCardData extends foundry.abstract.TypeDataModel<
   }
 }
 
-export { A5eCheckCardData };
+export { A5eRollCardData };

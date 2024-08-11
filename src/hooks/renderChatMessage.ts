@@ -10,7 +10,7 @@ export default function renderChatMessage(message, html) {
   if (!target) return;
 
   switch (message.type) {
-    case 'check':
+    case 'roll':
       Component = CheckCard;
       break;
     default:

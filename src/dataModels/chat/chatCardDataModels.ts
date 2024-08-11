@@ -1,7 +1,7 @@
-import { A5eCheckCardData } from './CheckCardDataModel';
+import { A5eRollCardData } from './RollCardDataModel';
 
 const chatDataModels = {
-  check: A5eCheckCardData
+  roll: A5eRollCardData
 };
 
 export default chatDataModels;
@@ -10,7 +10,7 @@ export default chatDataModels;
 declare global {
   interface DataModelConfig {
     ChatMessage: {
-      check: A5eCheckCardData
+      roll: A5eRollCardData
     }
   }
 }
