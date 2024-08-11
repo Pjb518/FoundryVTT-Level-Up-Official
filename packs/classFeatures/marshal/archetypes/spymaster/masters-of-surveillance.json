@@ -1,45 +1,51 @@
 {
-	"name": "Ambush Tactics",
+	"name": "Masters of Surveillance",
 	"type": "feature",
-	"img": "icons/skills/melee/strike-sword-blood-red.webp",
+	"img": "icons/magic/perception/eye-ringed-glow-angry-large-teal.webp",
 	"effects": [
 		{
-			"origin": "Item.Fym2XJ8XctIs5D98",
+			"origin": "Item.6LJMCxYoHsCPFtFa",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "8OfFxCKaUohz6rRN",
+					"actionId": "ue8a6eCTM4cThhlr",
 					"duration": {
-						"unit": "minutes"
+						"unit": "hours"
 					}
 				}
 			},
 			"transfer": false,
-			"name": "Ambush Tactics",
-			"img": "icons/skills/melee/strike-sword-blood-red.webp",
-			"_id": "TJr0c04k5G8P4cOb",
+			"name": "Masters of Surveillance",
+			"img": "icons/magic/perception/eye-ringed-glow-angry-large-teal.webp",
+			"_id": "6Z1sU9GTb2Jic3WX",
 			"type": "base",
 			"system": {},
 			"changes": [
 				{
-					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"Ambush Tactics\",\"formula\":\"1d6\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"meleeSpellAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/skills/melee/strike-sword-blood-red.webp\"}",
-					"mode": 0,
+					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.inv",
+					"value": "1",
+					"mode": 6,
 					"priority": null
 				}
 			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
-				"seconds": 60,
+				"seconds": 3600,
 				"combat": null,
 				"rounds": null,
 				"turns": null,
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "<p>Once per turn when an affected creature hits with an attack and has advantage on the attack roll, the attack deals an additional 1d6 damage.</p>",
+			"description": "<p>You and the creatures you designate gain advantage on Perception and Investigation checks for one hour.</p>",
 			"tint": "#ffffff",
 			"statuses": [],
 			"sort": 0,
@@ -49,8 +55,8 @@
 				"coreVersion": "12.330",
 				"systemId": "a5e",
 				"systemVersion": "0.19.22",
-				"createdTime": 1723404110224,
-				"modifiedTime": 1723404161978,
+				"createdTime": 1723403942154,
+				"modifiedTime": 1723403971687,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"folder": null
@@ -70,14 +76,14 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"8OfFxCKaUohz6rRN": {
-				"name": "Ambush Tactics",
+			"ue8a6eCTM4cThhlr": {
+				"name": "Masters of Surveillance",
 				"activation": {
 					"type": "action",
 					"cost": 1
 				},
 				"consumers": {
-					"pr9TdC5XlfcUyIkL": {
+					"Lf2l3sQTZuxBijDz": {
 						"type": "itemUses",
 						"default": true,
 						"quantity": 1
@@ -85,10 +91,10 @@
 				},
 				"rolls": {},
 				"prompts": {
-					"RjYrp9oV6wVkCZ30": {
+					"dJqgZ0pxOiK9oIfa": {
 						"type": "effect",
 						"default": true,
-						"effectId": "TJr0c04k5G8P4cOb"
+						"effectId": "6Z1sU9GTb2Jic3WX"
 					}
 				},
 				"uses": {
@@ -101,20 +107,16 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				},
-				"duration": {
-					"unit": "",
-					"value": 1
 				}
 			}
 		},
-		"description": "<p>As an action you may select a number of friendly creatures equal to your Charisma modifier within range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence}. Once per turn when an affected creature hits with an attack and has advantage on the attack roll, the attack deals an additional 1d6 damage. You may select a new batch of creatures by spending another action. The effect persists for one minute. Once you have used this ability a number of times equal to your proficiency bonus, you can&rsquo;t do so again until you finish a short or long rest.</p>",
+		"description": "<p>As an action, designate a number of creatures up to your proficiency bonus within range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence}. You and the creatures you designate gain advantage on Perception and Investigation checks for one hour. Once you have used this ability, you may not use it again until you finish a short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 0,
-			"max": "@prof",
+			"value": 1,
+			"max": "1",
 			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
@@ -137,9 +139,9 @@
 		"coreVersion": "12.330",
 		"systemId": "a5e",
 		"systemVersion": "0.19.22",
-		"createdTime": 1723404021236,
-		"modifiedTime": 1723404137049,
+		"createdTime": 1723403881317,
+		"modifiedTime": 1723403980799,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "iirtcdfoxz8xnool"
+	"_id": "9czujklvw098j2qf"
 }
