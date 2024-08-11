@@ -1,0 +1,158 @@
+{
+	"folder": null,
+	"name": "Grasp of Vengeance",
+	"type": "feature",
+	"img": "icons/magic/control/debuff-energy-hold-teal-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"h6tc6m6MBGT6zJKF": {
+				"name": "Grasp of Vengeance",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"IgPP0LYy5saalIJe": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 4
+					}
+				},
+				"rolls": {
+					"KyrW46c3HrB45rNQ": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					}
+				},
+				"prompts": {
+					"meHcMLV6DFivVGh7": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"HUMqbFwwgcYWoyJk": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3saTn5H8ZXuB1CZK"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"H0S9k8bVW6Vg5doh": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>If you chose Path of the Revenant, you can strangle your foes at range with the sheer power of your hate. As an action, you may spend 4 exertion points to make a ranged spell attack against a creature you can see within 30 feet. It must make a Constitution save against your spell save DC or begin suffocating. The target may repeat this save at the end of each of its turns, ending the effect on a success. The effect also ends if you are knocked unconscious or die or if the target has remove curse or similar magic cast on it. A creature that successfully saves against your Grasp of Vengeance is immune to it for 24 hours.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "herald"
+	},
+	"effects": [
+		{
+			"origin": "Item.3eglgLj6NMEceRQy",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "h6tc6m6MBGT6zJKF"
+				}
+			},
+			"transfer": false,
+			"name": "Suffocating",
+			"img": "icons/magic/control/debuff-energy-hold-teal-blue.webp",
+			"_id": "3saTn5H8ZXuB1CZK",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723334537723,
+				"modifiedTime": 1723334543640,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723334422399,
+		"modifiedTime": 1723334537771,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "DOFVp9JZkU4BBrAI"
+}

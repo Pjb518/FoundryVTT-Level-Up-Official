@@ -13,15 +13,55 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Beginning at 3rd level, your Lay on Hands ability no longer works as it did before. Your Lay on Hands ability can restore hit points to undead creatures (including yourself), but healing is now only half as efficient as it once was; you must spend 2 points to heal a point of damage, and you must spend 7 to cure a disease or neutralize a poison. However, you can now spend 5 points to deal an additional 1d8 points of necrotic damage when hit with a weapon attack. This may not be combined with Divine Smite, and you cannot spend more than 5 points per turn on this feature.</p>",
+		"actions": {
+			"PhqAWaGesr8xj963": {
+				"name": "Weapon Attack",
+				"activation": {},
+				"consumers": {
+					"EuGPlTrO39GdVH0L": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"y2A6wdSLGurqevgN": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.lay-on-hands",
+						"resource": "classResource",
+						"quantity": 5
+					}
+				},
+				"rolls": {
+					"ZDBSTUyNCVGFxVMU": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"formula": "1d8",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Beginning at 3rd level, your @UUID[Compendium.a5e.a5e-class-features.Item.my42mip0qc35rcp2]{Lay on Hands} ability no longer works as it did before. Your Lay on Hands ability can restore hit points to undead creatures (including yourself), but healing is now only half as efficient as it once was; you must spend 2 points to heal a point of damage, and you must spend 7 to cure a disease or neutralize a poison. However, you can now spend 5 points to deal an additional 1d8 points of necrotic damage when hit with a weapon attack. This may not be combined with @UUID[Compendium.a5e.a5e-class-features.Item.c6aiq8cd90fo3ry1]{Divine Smite}, and you cannot spend more than 5 points per turn on this feature.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "turn",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -36,15 +76,19 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "herald"
+		"classes": "herald",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "6n7xjmzhwnvo70gv",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723333728681,
+		"modifiedTime": 1723333858403,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "6n7xjmzhwnvo70gv"
 }
