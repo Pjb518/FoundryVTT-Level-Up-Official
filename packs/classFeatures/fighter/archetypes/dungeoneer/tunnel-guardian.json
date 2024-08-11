@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Tunnel Guardian (Close-Quarters Fighting)",
+	"name": "Tunnel Guardian",
 	"type": "feature",
 	"img": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
 	"system": {
@@ -16,11 +16,17 @@
 		},
 		"actions": {
 			"OIu5PQpeCkBOjD6v": {
-				"name": "Use Feature",
+				"name": "Tunnel Guardian",
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"NbrLaeMINKZwxKBj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "G7aS5misFxOHYnxW"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -60,21 +66,26 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
-			"origin": "Item.99nhzqkb0ww5wd4g",
+			"origin": "Item.Wm6lG7NOaj7tXuVl",
 			"flags": {
 				"a5e": {
 					"sort": 0,
-					"transferType": "passive"
+					"transferType": "onUse",
+					"actionId": "OIu5PQpeCkBOjD6v",
+					"applyToSelf": true
 				}
 			},
 			"transfer": false,
-			"name": "Tunnel AC",
-			"_id": "4HauugqSz9m2AA1D",
+			"name": "Tunnel Guardian",
+			"img": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
+			"_id": "G7aS5misFxOHYnxW",
+			"type": "base",
+			"system": {},
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",
@@ -93,21 +104,31 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<p>While within 5 feet of a solid wall, you gain +2 AC.</p>",
+			"tint": "#ffffff",
 			"statuses": [],
-			"folder": null,
+			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.22",
+				"createdTime": 1723417523058,
+				"modifiedTime": 1723417542373,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "99nhzqkb0ww5wd4g",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723417471320,
+		"modifiedTime": 1723417523091,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "99nhzqkb0ww5wd4g"
 }
