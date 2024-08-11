@@ -61,17 +61,14 @@
         const chatData = {
             author: game.user?.id,
             speaker: ChatMessage.getSpeaker({ actor }),
-            flags: {
-                a5e: {
-                    actorId: actor.uuid,
-                    cardType: "rollTableOutput",
-                    itemDescription: result?.text,
-                    img: critTable?.img,
-                    name: critTable?.name,
-                    actionName: result?.flags?.title,
-                },
+            system: {
+                actorId: actor.uuid,
+                itemDescription: result?.text,
+                img: critTable?.img,
+                name: critTable?.name,
+                actionName: result?.flags?.title,
             },
-            content: "<article></article>",
+            type: "rollTableOutput",
         };
 
         ChatMessage.applyRollMode(chatData, game.settings.get("core", "rollMode"));

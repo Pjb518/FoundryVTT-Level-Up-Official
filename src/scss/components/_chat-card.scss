@@ -1,0 +1,44 @@
+.a5e-chat-card {
+  padding: 0;
+  color: var(--a5e-color-text-dark);
+  border: 0;
+
+  &__body {
+    border: 1px solid var(--a5e-user-background-color);
+    border-top: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.25rem;
+    padding-inline: 0.25rem;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: 2rem 1fr max-content max-content;
+    align-items: center;
+    gap: 0.5rem;
+    width: 100%;
+    margin-bottom: 0;
+    background: url("/systems/pf2e/assets/sheet/background.webp");
+    background-size: cover;
+    background-color: var(--a5e-user-background-color);
+    background-blend-mode: multiply;
+    // padding: 0.25rem 0.5rem;
+    padding-left: 0.25rem;
+    padding-right: 0.5rem;
+    padding-block: 0.25rem;
+    font-size: var(--a5e-text-size-sm);
+    color: var(--a5e-user-text-color);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border: 1px solid var(--a5e-user-background-color);
+
+    &__img {
+      width: 2rem;
+      height: 2rem;
+      border: 0;
+      border-radius: 4px;
+    }
+  }
+}

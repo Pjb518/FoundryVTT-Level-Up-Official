@@ -1114,16 +1114,14 @@ class BaseActorA5e extends Actor {
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
       rollMode: visibilityMode ?? game.settings.get('core', 'rollMode'),
-      flags: {
-        a5e: {
-          actorId: this.uuid,
-          cardType: 'abilityCheck',
-          img: this.token?.texture.src ?? this.img,
-          name: this.name,
-          rollData: rolls.map(({ roll, ...rollData }) => rollData)
-        }
+      system: {
+        actorId: this.uuid,
+        actorName: this.name,
+        img: this.token?.texture.src ?? this.img,
+        rollData: rolls.map(({ roll, ...rollData }) => rollData),
+        rollType: 'abilityCheck'
       },
-      content: '<article></article>'
+      type: 'check'
     };
 
     const hookData = {
