@@ -1,0 +1,234 @@
+{
+	"name": "Channel Divinity",
+	"type": "feature",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"OwQsyQWZfp522lOQ": {
+				"name": "Take Confession",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"TpIMdXZrdw5FBDXe": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"MSDno09qRnvl1Lvk": {
+						"type": "effect",
+						"default": true,
+						"effectId": "VdteIDQ6H8NCuxo4"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"MWstWovUqwSCoUS2": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				}
+			},
+			"tHQ1a26jROfx6lv8": {
+				"name": "Selfless Sacrifice",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"TpIMdXZrdw5FBDXe": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"imAExwsC1EzwJp0W": {
+						"range": "short"
+					}
+				}
+			},
+			"7uGskYjO88G1EZWA": {
+				"name": "Calm Emotions",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"axeiGTkHDvOAur6e": {
+						"ability": "cha",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 8
+				},
+				"ranges": {
+					"aX1qnoFLNKgcwsAN": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"radius": "20",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/holy/meditation-chi-focus-blue.webp"
+			}
+		},
+		"description": "<p>At 3rd level when you choose this archetype, you gain the following two Channel Divinity options.</p>\n<p><strong><em>Take Confession.&nbsp;</em></strong>You can use an action to emit an aura of confession that extends 10 feet from you, which benefits you and one other willing creature within the aura. The aura lasts for an hour or until you decide to dismiss it (no action required). The effect also ends early if you or the target fall unconscious, make an attack roll, cast a spell other than those of the healing school, or make a Strength, Dexterity, or Constitution check.</p>\n<p>While the aura is active, any words uttered by you or the target are only audible to the two of you. Outside sound can enter the aura, but is muffled; you and the targeted creature have disadvantage on Perception checks that rely on hearing anything but each other while the field is active. Noise other than your conversation passes through the field normally and creatures outside the field can hear sounds on the far side of the area, as well as your footsteps, musical instruments, etc. at no penalty. Magical sensors and creatures besides you and the target inside the aura cannot hear the conversation but pick up other sounds normally.</p>\n<p>If you end the effect by dismissing it, you may choose to impart one of the following effects onto the other creature:</p>\n<ul>\n<li>A @UUID[Compendium.a5e.a5e-spells.Item.hnvt4tnuww6o4vvi]{Calm Emotions} effect that persists for 8 hours and requires no concentration.</li>\n<li>Heal up to 3 levels of strife from the creature.</li>\n</ul>\n<p><strong><em>Selfless Sacrifice .&nbsp;</em></strong>As a bonus action, you may choose to exchange hit point totals with another creature within 30 feet that is bloodied and has fewer hit points than you. If this drops you to 0 hit points, you fall unconscious and must make death saving throws as normal.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "herald",
+		"class": ""
+	},
+	"img": "icons/magic/holy/prayer-hands-glowing-yellow-green.webp",
+	"effects": [
+		{
+			"origin": "Item.ZFB4BXJZ5DUpGksr",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "OwQsyQWZfp522lOQ",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Take Confession",
+			"img": "icons/magic/holy/prayer-hands-glowing-yellow-green.webp",
+			"_id": "VdteIDQ6H8NCuxo4",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The aura lasts for an hour or until you decide to dismiss it (no action required). The effect also ends early if you or the target fall unconscious, make an attack roll, cast a spell other than those of the healing school, or make a Strength, Dexterity, or Constitution check.</p>\n<p>While the aura is active, any words uttered by you or the target are only audible to the two of you. Outside sound can enter the aura, but is muffled; you and the targeted creature have disadvantage on Perception checks that rely on hearing anything but each other while the field is active. Noise other than your conversation passes through the field normally and creatures outside the field can hear sounds on the far side of the area, as well as your footsteps, musical instruments, etc. at no penalty. Magical sensors and creatures besides you and the target inside the aura cannot hear the conversation but pick up other sounds normally.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723388562017,
+				"modifiedTime": 1723388589172,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723388319745,
+		"modifiedTime": 1723388654269,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "8mu9fvjgh1a6qqja"
+}

@@ -12,8 +12,79 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 15th level, your example compels even the wicked. As an action, or as a reaction when you become bloodied, you can open the eyes of every creature within 30 feet of you to their own moral failings. The effect ends after one hour if you are not bloodied. If you are bloodied, it ends as soon as you receive sufficient healing to no longer be bloodied or after an hour, whichever comes first. Creatures subject to this effect see the full extent of their own sin without the shield of their own justifications or excuses. Creatures with the Atonement destiny are immune to the effects of this feature, as are Celestials and Aberrations. Fiends, Undead, and creatures with the Monster destiny save automatically, but still suffer the reduced effects. </p><p>All other creatures with an Intelligence of 5 or greater that enter the area or start their turn in the area of this effect must make a Wisdom save against your spell save DC. A creature that fails its save is knocked prone and stunned, and at the Narrator’s option, may act in a manner that indicates its profound guilt as a result of this newfound clarity, such as sobbing or confessing its sins. It remains prone and stunned until it takes any damage, has to make another saving throw, or until you move further than 30 feet away from it. Creatures that succeed on their saving throw take 4d4 psychic damage and are rattled until the end of their next turn. Once you have used this feature, you can’t do so again until you finish a long rest.</p><p>You may also speak words of reassurance to an affected creature and help it to its feet (requiring an action), at which point the effect ends for it.</p>",
+		"actions": {
+			"IMxoXzBv8O1U0le9": {
+				"name": "Undeniable Remorse",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"5U8LCtKVPbWIJv3m": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"GomGpk6Rqpj2P4Fg": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "4d4",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {
+					"ec1GyhWXzyskJftb": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Psychic damage and rattled"
+					},
+					"TUB5FYYbXyfKEr6n": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ijqopDtWB5gSP1bB"
+					},
+					"9uRsWc6wQOiw8Xnx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kvUQNUSAUIYjSOdZ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"t9CK3MZruJ5iNvRu": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>At 15th level, your example compels even the wicked. As an action, or as a reaction when you become bloodied, you can open the eyes of every creature within 30 feet of you to their own moral failings. The effect ends after one hour if you are not bloodied. If you are bloodied, it ends as soon as you receive sufficient healing to no longer be bloodied or after an hour, whichever comes first. Creatures subject to this effect see the full extent of their own sin without the shield of their own justifications or excuses. Creatures with the @UUID[Compendium.a5e.a5e-destinies.Item.35clu7k24yeabt8b]{Atonement} destiny are immune to the effects of this feature, as are Celestials and Aberrations. Fiends, Undead, and creatures with the @UUID[Compendium.a5e.a5e-destinies.Item.asfn5b75vpx3ws9v]{Monster} destiny save automatically, but still suffer the reduced effects.</p>\n<p>All other creatures with an Intelligence of 5 or greater that enter the area or start their turn in the area of this effect must make a Wisdom save against your spell save DC. A creature that fails its save is knocked prone and stunned, and at the Narrator&rsquo;s option, may act in a manner that indicates its profound guilt as a result of this newfound clarity, such as sobbing or confessing its sins. It remains prone and stunned until it takes any damage, has to make another saving throw, or until you move further than 30 feet away from it. Creatures that succeed on their saving throw take 4d4 psychic damage and are rattled until the end of their next turn. Once you have used this feature, you can&rsquo;t do so again until you finish a long rest.</p>\n<p>You may also speak words of reassurance to an affected creature and help it to its feet (requiring an action), at which point the effect ends for it.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -35,20 +106,132 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "herald"
+		"classes": "herald",
+		"class": ""
 	},
 	"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.9Z9NDXuuZ8yf7JOd",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "IMxoXzBv8O1U0le9"
+				}
+			},
+			"transfer": false,
+			"name": "Undeniable Remorse",
+			"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+			"_id": "ijqopDtWB5gSP1bB",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\",\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<h2>Stunned</h2>\n<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone",
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723389045932,
+				"modifiedTime": 1723389225099,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.9Z9NDXuuZ8yf7JOd",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "IMxoXzBv8O1U0le9",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+			"_id": "kvUQNUSAUIYjSOdZ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723389255974,
+				"modifiedTime": 1723389329215,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {
 		"a5e": {
 			"placeTemplate": true
 		}
 	},
 	"folder": null,
-	"_id": "1xs77ic89toi4kul",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723388938145,
+		"modifiedTime": 1723389274581,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "1xs77ic89toi4kul"
 }
