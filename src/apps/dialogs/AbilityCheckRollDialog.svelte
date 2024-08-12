@@ -19,8 +19,8 @@
 
         return $actor.RollOverrideManager.getExpertiseDice(
             `system.abilities.${abilityKey}.check`,
-            $actor.system.abilities[abilityKey].check.expertiseDice ??
-                options.expertiseDice ??
+            $actor.system.abilities[abilityKey].check.expertiseDice ||
+                options.expertiseDice ||
                 0,
         );
     }
