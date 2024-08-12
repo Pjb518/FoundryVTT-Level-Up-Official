@@ -1,0 +1,165 @@
+{
+	"folder": null,
+	"name": "Binding Wrappings",
+	"type": "feature",
+	"img": "icons/commodities/cloth/ribbon-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"WpCTTKNKDLZdi9YX": {
+				"name": "Binding Wrappings",
+				"activation": {},
+				"consumers": {
+					"8ohZNcKRql6bqIhR": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"0vf2Ha1TgyMMmsnc": {
+						"type": "effect",
+						"default": true,
+						"effectId": "VOYGtoE8cYRqde0w"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"NLKfcXX8iNqm2e8S": {
+						"range": "short"
+					}
+				}
+			},
+			"ByJNYcgSAB4OtBkA": {
+				"name": "Drag Creature",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>If you chose Path of the Mummy, you may spend 2 exertion points to extend your wrappings out to snare a creature up to 1 size category larger than yourself you can see within 30 feet. Make a ranged weapon attack as an action. If you hit, the creature is grappled (escape DC equal to your maneuver DC). While the creature remains grappled this way, you may spend a bonus action to drag the creature 10 feet closer to you.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "herald"
+	},
+	"effects": [
+		{
+			"origin": "Item.t7yepz9HxbLHBCej",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "WpCTTKNKDLZdi9YX"
+				}
+			},
+			"transfer": false,
+			"name": "Grappled",
+			"img": "icons/commodities/cloth/ribbon-green.webp",
+			"_id": "VOYGtoE8cYRqde0w",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A grappled creature's Speed becomes 0, and it can't benefit from bonuses to movement speeds.</li>\n<li>If the grappler becomes incapacitated the condition ends.</li>\n<li>If an effect removes the grappled creature from the reach of the grappler or grappling effect (such as when a creature is shoved away by the Doubleteam combat maneuver) the condition ends.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"grappled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723334250936,
+				"modifiedTime": 1723334279155,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723334173545,
+		"modifiedTime": 1723334302607,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "v4e7xFgaGUPIjqYC"
+}

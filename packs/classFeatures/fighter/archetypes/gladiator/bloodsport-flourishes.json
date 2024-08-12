@@ -2,7 +2,118 @@
 	"name": "Bloodsport Flourishes",
 	"type": "feature",
 	"img": "icons/skills/melee/strike-axe-blood-red.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.S1FJOVFi3ejzmC0A",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vKXdF8VcFhmNDvZs",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/skills/melee/strike-axe-blood-red.webp",
+			"_id": "XswMK6CU7f6sJWWc",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723126425823,
+				"modifiedTime": 1723126467896,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.S1FJOVFi3ejzmC0A",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "QjYCrFA5Zsu6PIHG",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"img": "icons/skills/melee/strike-axe-blood-red.webp",
+			"_id": "vKmkd7zi8disrmzL",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A charmed creature can't take any hostile action against the charmer.</li>\n<li>Ability checks the charmer makes to socially interact with the charmed creature have advantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"charmed"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723126504585,
+				"modifiedTime": 1723126537706,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -16,35 +127,108 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"4q2lOEHMJMEpVlLE": {
-				"name": "Bloodsport Flourishes",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
+			"vKXdF8VcFhmNDvZs": {
+				"name": "Bloody Flourish",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"OuVP3s6Z2yuyc6fS": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "itm",
+						"ability": "cha"
+					}
 				},
-				"duration": {
-					"unit": "round",
-					"value": 1
+				"prompts": {
+					"jhF2Ci5Dwgii8uMK": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "custom"
+						}
+					},
+					"VRy0mUFfYDT054le": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XswMK6CU7f6sJWWc"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
 				},
 				"ranges": {
-					"kuuqpj4ltBG2I2FF": {
+					"WHdKUMKhn22xTdbW": {
 						"range": "self"
 					}
 				},
 				"area": {
-					"shape": "sphere",
+					"shape": "emanation",
+					"quantity": 1,
 					"radius": 20,
-					"placeTemplate": false
+					"placeTemplate": true
+				}
+			},
+			"QjYCrFA5Zsu6PIHG": {
+				"name": "Glorious Flourish",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"DXOCRPbEryOzSoJ1": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "prf",
+						"ability": "cha"
+					}
 				},
-				"target": {
-					"quantity": null,
-					"type": "creature"
+				"prompts": {
+					"HEu4h2U4eOyPJWka": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "custom"
+						}
+					},
+					"fxE8QmaNbATfZ22h": {
+						"type": "effect",
+						"default": true,
+						"effectId": "vKmkd7zi8disrmzL"
+					}
 				},
-				"consumers": {}
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"MhpSvy9Ekx2FUj6n": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 20,
+					"placeTemplate": true
+				}
 			}
 		},
-		"description": "<p>Also at 3rd level, you&rsquo;ve integrated your ability to please the crowd into ways to impress and intimidate your enemies. You treat any weapon you wield and any armor you wear as if it had the Flamboyant property. In addition, whenever you score a critical hit with a weapon attack you may choose to do a Bloody Flourish or Glorious Flourish.</p>",
+		"description": "<p>Also at 3rd level, you&rsquo;ve integrated your ability to please the crowd into ways to impress and intimidate your enemies. You treat any weapon you wield and any armor you wear as if it had the Flamboyant property. In addition, whenever you score a critical hit with a weapon attack you may choose to do a Bloody Flourish or Glorious Flourish.</p>\n<p><em><strong>Bloody Flourish. </strong></em>You make sure your strike is as bloody and gruesome as possible, making an Intimidation check. Each hostile creature within 20 feet of you makes a Wisdom saving throw against a DC equal to the result of your Intimidation check. On a failure, a creature becomes frightened of you until the end of your next turn.</p>\n<p><em><strong>Glorious Flourish. </strong></em>You and your weapons dance and shine with the glory of combat. Make a Performance check. Each hostile creature within 20 feet of you makes a Charisma saving throw against a DC equal to the result of your Performance check. On a failure, a creature becomes charmed by you until the end of your next turn.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -72,13 +256,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "fighter",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "hmpiwnkwfsl35mcf",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723126270250,
+		"modifiedTime": 1723126504614,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "hmpiwnkwfsl35mcf"
 }

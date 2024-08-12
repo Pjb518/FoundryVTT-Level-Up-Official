@@ -1,0 +1,163 @@
+{
+	"folder": null,
+	"name": "Channel Divinity",
+	"type": "feature",
+	"img": "icons/magic/death/skeleton-skull-soul-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Jmvr4MwA1Y3GVBq8": {
+				"name": "Enervating Field",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"GrHVdFnARARork9K": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"mjBV5MoYJA6ZBIOM": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"mRWliFqbXwwcTYEL": {
+						"type": "effect",
+						"default": true,
+						"effectId": "bOvK4OXsM1mBUuCW"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"E9W5pjoeVnFlpBwP": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"placeTemplate": true,
+					"radius": 30
+				}
+			}
+		},
+		"description": "<p>At 3rd level when you choose this archetype, you gain the following Channel Divinity option.</p>\n<p><em><strong>Enervating Field.</strong></em> As an action, you call upon your power to drain the life from the living around you. Each living creature within 30 feet of you must make a Constitution save against your spell save DC or have their movement Speed halved until the end of their next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "herald",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.uQzE1Plooo6hHflp",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Jmvr4MwA1Y3GVBq8",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Enervating Field",
+			"img": "icons/magic/death/skeleton-skull-soul-blue.webp",
+			"_id": "bOvK4OXsM1mBUuCW",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "0.5",
+					"mode": 1,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Movement Speed halved until the end of their next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": null,
+				"modifiedTime": 1723333661600,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723333472967,
+		"modifiedTime": 1723333637579,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "b5l66gzv1bcjdtsf"
+}

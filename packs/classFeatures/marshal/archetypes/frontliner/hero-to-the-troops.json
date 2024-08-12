@@ -16,8 +16,111 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>The mere sight of you fighting is enough to spur allies on. An allied creature inside the range of your <em>Commanding Presence</em> who can see you engaged in combat may spend a bonus action to immediately end one of the following conditions on themselves: <em>confused</em>, <em>frightened</em>, <em>incapacitated</em>, <em>poisoned</em>, or <em>rattled</em>.&nbsp;</p><p>You may also use your Rallying Surge feature a number of times equal to your proficiency bonus between rests, and your <em>Spur Ally</em> feature a number of times equal to half your proficiency bonus between rests.</p>",
+		"actions": {
+			"2qpsqHa9cxMMnHcj": {
+				"name": "Rallying Surge",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"l0wKeBLHKUiVmzc7": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"9CIjJTs3nvseqT2t": {
+						"formula": "1d8 + @classes.marshal.level",
+						"healingType": "healing",
+						"name": "Level",
+						"type": "healing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "@prof",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"nPc3P8PqmhoZaYBx": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"shape": "",
+					"size": ""
+				},
+				"img": "icons/svg/item-bag.svg"
+			},
+			"X7iCoOAHeMIrTn2k": {
+				"name": "Spur Ally",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "When an ally you can see who can hear or see you fails fails an ability check or saving throw"
+				},
+				"consumers": {
+					"VG1nAJMaiMX4JnQx": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "floor(@prof/2)",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "",
+					"shape": "",
+					"size": ""
+				},
+				"img": "icons/svg/item-bag.svg"
+			}
+		},
+		"description": "<p>The mere sight of you fighting is enough to spur allies on. An allied creature inside the range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} who can see you engaged in combat may spend a bonus action to immediately end one of the following conditions on themselves: confused, frightened, incapacitated, poisoned, or rattled.&nbsp;</p>\n<p>You may also use your @UUID[Compendium.a5e.a5e-class-features.Item.qc8h2qnq0of52qct]{Rallying Surge} feature a number of times equal to your proficiency bonus between rests, and your @UUID[Compendium.a5e.a5e-class-features.Item.sapxpqore3a2d8n2]{Spur Ally} feature a number of times equal to half your proficiency bonus between rests.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -39,12 +142,16 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "marshal"
+		"classes": "marshal",
+		"class": ""
 	},
-	"_id": "9dnzxmtslxdy3e9v",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723399781244,
+		"modifiedTime": 1723400044598,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "9dnzxmtslxdy3e9v"
 }

@@ -16,15 +16,53 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"b2vmny7hzM9YPe6J": {
+				"name": "Clockwork Efficiency",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"zHDf03qc4buo4FEZ": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 6
+				},
+				"ranges": {
+					"JsJiGnq00cgckPio": {
+						"range": 100,
+						"unit": "feet"
+					}
+				}
+			}
+		},
 		"description": "<p>You gain the ability to create singular moments of explosive coordination. As an action, select up to 6 friendly creatures (which may include you) within 100 feet. All of the creatures immediately take a single action, expending their reaction to do so. If the order of their actions matter, you may decide the sequence. Once you use this feature, you must finish a long rest before you can use it again.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -39,12 +77,16 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "marshal"
+		"classes": "marshal",
+		"class": ""
 	},
-	"_id": "yvxiz5ztvhkirvkw",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723404177672,
+		"modifiedTime": 1723404219807,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "yvxiz5ztvhkirvkw"
 }

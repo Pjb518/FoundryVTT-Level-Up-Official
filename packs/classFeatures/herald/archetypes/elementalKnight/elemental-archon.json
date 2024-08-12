@@ -16,7 +16,7 @@
 		},
 		"actions": {
 			"v0p2UyXf3B4a7fK8": {
-				"name": "Activate Archon Form",
+				"name": "Elemental Archon",
 				"activation": {
 					"type": "action",
 					"cost": 1
@@ -29,7 +29,13 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"JSYjrIp8mLAWAMrW": {
+						"type": "effect",
+						"default": true,
+						"effectId": "YTqDChN5TWSlqQum"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -44,13 +50,97 @@
 					"value": 1
 				},
 				"target": {
-					"type": "self",
+					"type": "",
 					"quantity": 1
 				},
 				"ranges": {
 					"qkRPPF5OlayZ5LyB": {
-						"range": 10,
+						"range": "self",
 						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				}
+			},
+			"fefXKOsoMT7HvK0b": {
+				"name": "Fire Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"SS7UsfSKdGJ2XQ11": {
+						"type": "damage",
+						"default": true,
+						"formula": "20",
+						"canCrit": false,
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"3nYk3W6pEjtOP03X": {
+				"name": "Cold Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"SS7UsfSKdGJ2XQ11": {
+						"type": "damage",
+						"default": true,
+						"formula": "20",
+						"canCrit": false,
+						"damageType": "cold"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"VkvDBl8qjtVl087q": {
+				"name": "Lightning Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"SS7UsfSKdGJ2XQ11": {
+						"type": "damage",
+						"default": true,
+						"formula": "20",
+						"canCrit": false,
+						"damageType": "lightning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
 					}
 				}
 			}
@@ -77,14 +167,229 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "herald"
+		"classes": "herald",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.o3dm4UmmhoBKMch8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "v0p2UyXf3B4a7fK8",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Elemental Archon (Fire)",
+			"img": "icons/magic/fire/elemental-fire-flying.webp",
+			"_id": "YTqDChN5TWSlqQum",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "25",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "50",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"fire\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"cold\",\"lightning\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>This elemental wreath lasts for 1 minute. It extends in a 10-foot radius, emanates bright light in a 25-foot radius, and dim light 25 feet beyond that. Whenever a creature starts its turn in the elemental wreath or enters it for the first time this turn, the creature takes 20 damage of the same type as your element.</p>\n<p>In addition, for the duration, you have immunity to your element, and resistance to the other two.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723330824402,
+				"modifiedTime": 1723330907367,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.o3dm4UmmhoBKMch8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "v0p2UyXf3B4a7fK8",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Elemental Archon (Cold)",
+			"img": "icons/magic/fire/elemental-fire-flying.webp",
+			"_id": "kkEhRqEewGazShOr",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "25",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "50",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"cold\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"lightning\",\"fire\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>This elemental wreath lasts for 1 minute. It extends in a 10-foot radius, emanates bright light in a 25-foot radius, and dim light 25 feet beyond that. Whenever a creature starts its turn in the elemental wreath or enters it for the first time this turn, the creature takes 20 damage of the same type as your element.</p>\n<p>In addition, for the duration, you have immunity to your element, and resistance to the other two.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723330910671,
+				"modifiedTime": 1723330926069,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.o3dm4UmmhoBKMch8",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "v0p2UyXf3B4a7fK8",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Elemental Archon (Lightning)",
+			"img": "icons/magic/fire/elemental-fire-flying.webp",
+			"_id": "Jo58UbVRku75gkuJ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "25",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "50",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"lightning\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"fire\",\"cold\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>This elemental wreath lasts for 1 minute. It extends in a 10-foot radius, emanates bright light in a 25-foot radius, and dim light 25 feet beyond that. Whenever a creature starts its turn in the elemental wreath or enters it for the first time this turn, the creature takes 20 damage of the same type as your element.</p>\n<p>In addition, for the duration, you have immunity to your element, and resistance to the other two.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723330928523,
+				"modifiedTime": 1723330942428,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "xydlr6t53ghtacxk",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723330781225,
+		"modifiedTime": 1723331034883,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "xydlr6t53ghtacxk"
 }

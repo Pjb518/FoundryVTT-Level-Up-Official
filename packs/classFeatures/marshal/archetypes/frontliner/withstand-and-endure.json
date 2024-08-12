@@ -16,7 +16,32 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"PKjYjEk7LqHOrMsd": {
+				"name": "Withstand and Endure",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"pIZRVBgN7UhLn0WM": {
+						"type": "healing",
+						"default": true,
+						"formula": "@cha.mod"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Your toughness is legendary. You gain proficiency with Constitution saving throws. Whenever you succeed on a Constitution saving throw, you regain hit points equal to your Charisma modifier.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -32,19 +57,40 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"NrVkCjaD5QIkkHes": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "NrVkCjaD5QIkkHes",
+				"label": "Withstand and Endure",
+				"keys": {
+					"base": [
+						"con"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "savingThrow"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "marshal"
+		"classes": "marshal",
+		"class": ""
 	},
-	"_id": "wurwbrq3wjo3svj4",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723399622752,
+		"modifiedTime": 1723399665755,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "wurwbrq3wjo3svj4"
 }

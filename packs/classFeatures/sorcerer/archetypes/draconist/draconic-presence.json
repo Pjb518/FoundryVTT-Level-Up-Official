@@ -1,8 +1,117 @@
 {
 	"name": "Draconic Presence",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+	"effects": [
+		{
+			"origin": "Item.AQnOW2u89wJQlUFI",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "47fPSLI7NAWqay5r",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+			"_id": "hGv4RcbkczOfgGTQ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A charmed creature can't take any hostile action against the charmer.</li>\n<li>Ability checks the charmer makes to socially interact with the charmed creature have advantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"charmed"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723332213510,
+				"modifiedTime": 1723332278368,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.AQnOW2u89wJQlUFI",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "47fPSLI7NAWqay5r",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+			"_id": "kqz0dBqDPsD9C8QQ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.<br /><br /></li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723332284947,
+				"modifiedTime": 1723332315016,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,7 +124,71 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"47fPSLI7NAWqay5r": {
+				"name": "Draconic Presence",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"O4SelKLbiMDEiwSe": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 5
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"tlcBWoaMFf4Rx0Tr": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"eQUqdvX086F5yZdl": {
+						"type": "effect",
+						"default": true,
+						"effectId": "hGv4RcbkczOfgGTQ"
+					},
+					"lC2QcPXcd9xK3cdV": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kqz0dBqDPsD9C8QQ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"h6rAwAM5Vpv4rpw7": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 60,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			}
+		},
 		"description": "<p>Starting at 18th level, you can draw upon your draconic nature to inspire awe and terror in those who see you. You can use an action and spend 5 sorcery points to exude an aura of awe or fear (your choice) to a distance of 60 feet. For 1 minute, when a hostile creature starts its turn in this aura it makes a Wisdom saving throw or becomes charmed (if&nbsp; you chose awe) or frightened (if you chose fear) until the aura ends. An affected creature can repeat the saving throw at the end of each of its turns, ending the effect on a success. A creature that succeeds on the saving throw is immune to your Draconic Presence for 24 hours.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +217,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "00qso3twi653x1vv",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723332124984,
+		"modifiedTime": 1723332321498,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "00qso3twi653x1vv"
 }

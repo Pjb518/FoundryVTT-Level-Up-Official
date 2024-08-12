@@ -16,9 +16,10 @@
 		},
 		"actions": {
 			"HWeJCwt0wSL5pvcp": {
-				"name": "Activate",
+				"name": "Elemental Piercing",
 				"activation": {
-					"type": "none"
+					"type": "",
+					"cost": 1
 				},
 				"consumers": {},
 				"rolls": {},
@@ -30,7 +31,12 @@
 						"saveDC": {
 							"type": "spellcasting"
 						},
-						"onSave": "Constitution negates"
+						"onSave": ""
+					},
+					"lnjZTCEwS4FLzq9m": {
+						"type": "effect",
+						"default": true,
+						"effectId": "t1wa2BbBjAxjtiOQ"
 					}
 				},
 				"uses": {
@@ -43,12 +49,12 @@
 					}
 				},
 				"duration": {
-					"unit": "minute",
+					"unit": "",
 					"value": 1
 				}
 			}
 		},
-		"description": "<p>Beginning at 15th level, when you use your Divine Smite or strike a creature with a smite spell, the target must succeed on a Constitution saving throw. On a failure, the target gains vulnerability to your element for one minute. If the target is resistant to that damage type, it instead loses that resistance. If the target is immune to that damage type, it instead becomes resistant.</p>",
+		"description": "<p>Beginning at 15th level, when you use your @UUID[Compendium.a5e.a5e-class-features.Item.c6aiq8cd90fo3ry1]{Divine Smite} or strike a creature with a smite spell, the target must succeed on a Constitution saving throw. On a failure, the target gains vulnerability to your element for one minute. If the target is resistant to that damage type, it instead loses that resistance. If the target is immune to that damage type, it instead becomes resistant.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -70,14 +76,175 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "herald"
+		"classes": "herald",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.bUiK4WiuDXQ6NzP9",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "HWeJCwt0wSL5pvcp",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Fire Vulnerability",
+			"img": "icons/magic/fire/projectile-wave-arrow.webp",
+			"_id": "t1wa2BbBjAxjtiOQ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageVulnerabilities",
+					"value": "[\"fire\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>On a failure, the target gains vulnerability to your element for one minute. If the target is resistant to that damage type, it instead loses that resistance. If the target is immune to that damage type, it instead becomes resistant.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723330646848,
+				"modifiedTime": 1723330729154,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.bUiK4WiuDXQ6NzP9",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "HWeJCwt0wSL5pvcp",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Cold Vulnerability",
+			"img": "icons/magic/fire/projectile-wave-arrow.webp",
+			"_id": "a7yngbuKBqbrKn4w",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageVulnerabilities",
+					"value": "[\"cold\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>On a failure, the target gains vulnerability to your element for one minute. If the target is resistant to that damage type, it instead loses that resistance. If the target is immune to that damage type, it instead becomes resistant.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723330738817,
+				"modifiedTime": 1723330747902,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.bUiK4WiuDXQ6NzP9",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "HWeJCwt0wSL5pvcp",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lightning Vulnerability",
+			"img": "icons/magic/fire/projectile-wave-arrow.webp",
+			"_id": "pqo1fMiZEi6daNlA",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageVulnerabilities",
+					"value": "[\"lightning\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>On a failure, the target gains vulnerability to your element for one minute. If the target is resistant to that damage type, it instead loses that resistance. If the target is immune to that damage type, it instead becomes resistant.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723330750612,
+				"modifiedTime": 1723330760457,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "tujjnhxiohzy5pr9",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723330601417,
+		"modifiedTime": 1723330692998,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "tujjnhxiohzy5pr9"
 }

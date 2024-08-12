@@ -21,7 +21,15 @@
 					"type": "action",
 					"cost": 1
 				},
-				"consumers": {},
+				"consumers": {
+					"kTRIUYqsGYWQF2Mg": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
 				"rolls": {},
 				"prompts": {
 					"QDuAWp7xecTXYQOB": {
@@ -42,7 +50,7 @@
 					}
 				},
 				"duration": {
-					"unit": "minute",
+					"unit": "",
 					"value": 1
 				}
 			},
@@ -71,9 +79,62 @@
 						"threshold": 6
 					}
 				}
+			},
+			"mZ3DwcEV8Jfx8pPf": {
+				"name": "Unbound Heroism",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Suffer damage"
+				},
+				"consumers": {
+					"RJIE4cfAhoFQNeON": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 1,
+						"spellLevel": 1,
+						"points": 1
+					}
+				},
+				"rolls": {
+					"NK6iC0XmMgkbLrck": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "2*@prof",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2*@prof"
+						}
+					}
+				},
+				"prompts": {
+					"IYONe8t3YGf4PCAr": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"img": "icons/magic/light/projectile-smoke-blue-light.webp"
 			}
 		},
-		"description": "<p>Starting at 15th level, you can use an action and expend one use of Channel Divinity to bathe yourself in holy light for 1 minute. For the duration, you gain the following benefits:</p><ul><li>You gain an expertise die on Insight, Intimidation and Perception checks.</li><li>When you miss a weapon attack, you deal radiant damage equal to your Charisma bonus.</li><li>When you spend spell slots with Unbound Heroism, you gain twice as many temporary hit points and your additional radiant damage becomes 1d12.</li><li>You score critical hits on a roll of 19&ndash;20.</li></ul>",
+		"description": "<p>Starting at 15th level, you can use an action and expend one use of Channel Divinity to bathe yourself in holy light for 1 minute. For the duration, you gain the following benefits:</p>\n<ul>\n<li>You gain an expertise die on Insight, Intimidation and Perception checks.</li>\n<li>When you miss a weapon attack, you deal radiant damage equal to your Charisma bonus.</li>\n<li>When you spend spell slots with @UUID[Compendium.a5e.a5e-class-features.Item.bquuq896rt8fg7l3]{Unbound Heroism}, you gain twice as many temporary hit points and your additional radiant damage becomes 1d12.</li>\n<li>You score critical hits on a roll of 19&ndash;20.</li>\n</ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "gpg1",
@@ -101,12 +162,12 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/skills/movement/arrows-up-trio-red.webp",
-			"origin": "Item.bs8wg2phuwwbe79s",
+			"origin": "Item.5sRqRAXAipXFRW73",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -133,6 +194,12 @@
 					"value": "1",
 					"mode": 2,
 					"priority": null
+				},
+				{
+					"key": "system.skills.ins.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
 				}
 			],
 			"disabled": false,
@@ -145,21 +212,87 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<p>For the duration, you gain the following benefits:</p>\n<ul>\n<li>You gain an expertise die on Insight, Intimidation and Perception checks.</li>\n<li>When you miss a weapon attack, you deal radiant damage equal to your Charisma bonus.</li>\n<li>When you spend spell slots with Unbound Heroism, you gain twice as many temporary hit points and your additional radiant damage becomes 1d12.</li>\n<li>You score critical hits on a roll of 19–20.</li>\n</ul>",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.22",
+				"createdTime": null,
+				"modifiedTime": 1723415694871,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/skills/movement/arrows-up-trio-red.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.gC9LRrAqzq7TKVpw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "mZ3DwcEV8Jfx8pPf",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Unbound Heroism",
+			"_id": "TzUhhXyfKi69rRgU",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Unbound Heroism\",\"formula\":\"1d12\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[\"radiant\"],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/light/projectile-smoke-blue-light.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>As long as you have these temporary hit points, your weapon attacks deal an additional 1d6 radiant damage. These temporary hit points last for 1 minute.</p>",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723415738614,
+				"modifiedTime": 1723415765518,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/light/projectile-smoke-blue-light.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "bs8wg2phuwwbe79s",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723415576879,
+		"modifiedTime": 1723415751663,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "bs8wg2phuwwbe79s"
 }

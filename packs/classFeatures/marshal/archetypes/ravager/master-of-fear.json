@@ -12,8 +12,70 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>You may now use Sower of Terror at will, and as a bonus action.</p>",
+		"actions": {
+			"4dRn2cgl1uyToBvC": {
+				"name": "Fear",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"nmBo0lsILtPH6Hon": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"T7cYGFpUAGxLg8kZ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "91XW2pNOHPU4ym4P"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"Q5tk4rFAShpFF8EY": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"length": "30",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": null,
+					"type": ""
+				},
+				"img": "icons/magic/death/projectile-skull-fire-purple.webp",
+				"description": "<p>You project a phantasmal image into the minds of each creature in the area showing them what they fear most. On a failed save, a creature becomes frightened until the spell ends and must drop whatever it is holding.</p><p>On each of its turns, a creature frightened by this spell uses its action to take the Dash action and move away from you by the safest available route. If there is nowhere it can move, it remains stationary. When the creature ends its turn in a location where it doesn't have line of sight to you, the creature can repeat the saving throw, ending the spell's effects on it on a successful save.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>You may now use @UUID[Compendium.a5e.a5e-class-features.Item.kqwqdj34qogbwhy8]{Sower of Terror} at will, and as a bonus action.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -35,16 +97,20 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "marshal"
+		"classes": "marshal",
+		"class": ""
 	},
 	"img": "icons/magic/control/fear-fright-monster-grin-red-orange.webp",
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "p85tce1z1tlhhlkg",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723400799934,
+		"modifiedTime": 1723401151418,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "p85tce1z1tlhhlkg"
 }
