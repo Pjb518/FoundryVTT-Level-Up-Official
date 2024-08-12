@@ -345,6 +345,8 @@
     const dispatch = createEventDispatcher();
     const hideDescription = false; // TODO: Update this
 
+    console.log(prompts);
+
     setContext("message", message);
 
     $: hoverColor = getHoverColor($pressedKeysStore);

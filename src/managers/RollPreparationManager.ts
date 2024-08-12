@@ -712,7 +712,11 @@ class RollPreparationManager {
     const temp = Object.values(action.prompts ?? {});
 
     return prompts.reduce((acc, [key, prompt]) => {
+      // eslint-disable-next-line no-param-reassign
+      prompt = foundry.utils.duplicate(prompt);
+
       if (selections.includes(key)) {
+        // @ts-expect-error
         if (prompt.type === 'savingThrow') {
           // @ts-expect-error
           prompt.dc = computeSaveDC(actor, item, prompt.saveDC);

@@ -186,6 +186,7 @@ class ActionsManager extends Map<string, Action> {
 
     // Remove any effects associated with the action
     const effects = this.#item.effects.filter(
+      // @ts-expect-error
       (effect) => effect.flags.a5e.actionId === actionId
     );
 

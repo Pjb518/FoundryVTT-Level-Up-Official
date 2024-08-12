@@ -5,12 +5,12 @@ import getDeterministicBonus from '../dice/getDeterministicBonus';
 import getSpellBookDC from './getSpellBookDC';
 
 export default function computeSaveDC(
-  actor: BaseActorA5e,
+  actor: BaseActorA5e | undefined,
   item: ItemA5e,
   saveDC: any
 ): number | null {
   if (!actor) return null;
-
+  // console.log(actor);
   const rollData: object = actor.getRollData(item);
   const terms: (string | number)[] = [];
 
