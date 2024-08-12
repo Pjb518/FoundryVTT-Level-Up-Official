@@ -13,7 +13,64 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"2vOt6GVp4pTtqgbh": {
+				"name": "Volcanic Weapon",
+				"activation": {
+					"type": "hour",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"9fO7QePwl0Z7EYGN": {
+						"type": "effect",
+						"default": true,
+						"effectId": "I8f7ehyV9dBvgagb"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"uOOhbN63EuOCZv0G": {
+				"name": "Ongoing Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"swBwj7p7SbKmIMde": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4",
+						"canCrit": false
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			}
+		},
 		"description": "<p>At 7th level, you have learned a potent ritual to enhance your weapons with the gifts of the volcano. You may perform this ritual, which takes an hour, on any piercing or slashing melee weapon. The weapon’s cutting edges become razor-sharp volcanic glass and the weapon seethes with the heat of a volcano. While you (and only you) wield the weapon, successful attacks from the weapon do 1d4 ongoing damage for one minute unless an action is spent to stop the bleeding. The weapon also deals an additional 1d6 points of fire damage.</p><p style=\"text-align: start\">If the weapon is already made with volcanic stone (such as an obsidian-edged macuahuitl or an obsidian dagger or spear) the damage from both sources increases by one step, to 1d6 and 1d8, respectively.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -42,15 +99,70 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.M7I0cSLfxzUgRUUJ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2vOt6GVp4pTtqgbh",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Volcanic Weapon",
+			"img": "icons/commodities/stone/stone-chunk-teal.webp",
+			"_id": "I8f7ehyV9dBvgagb",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Volcanic Weapon\",\"formula\":\"1d6\",\"damageType\":\"fire\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/commodities/stone/stone-chunk-teal.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The weapon also deals an additional 1d6 points of fire damage.</p>\n<p>If the weapon is already made with volcanic stone (such as an obsidian-edged macuahuitl or an obsidian dagger or spear) the damage from both sources increases by one step, to 1d6 and 1d8, respectively.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723494036494,
+				"modifiedTime": 1723494132550,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "3lxsgajkspcat6rw",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723493560865,
+		"modifiedTime": 1723494036546,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "3lxsgajkspcat6rw"
 }
