@@ -2,7 +2,7 @@ import { metadata } from './common';
 
 const { fields } = foundry.data;
 
-const checkCardSchema = () => ({
+const rollCardSchema = () => ({
   rollData: new fields.ArrayField(new fields.ObjectField({ required: true, nullable: false })),
   rollType: new fields.StringField({
     required: true,
@@ -15,7 +15,7 @@ const checkCardSchema = () => ({
 declare namespace A5eRollCardData {
   type Schema = DataSchema
     & ReturnType<typeof metadata>
-    & ReturnType<typeof checkCardSchema>;
+    & ReturnType<typeof rollCardSchema>;
   interface BaseData extends Record<string, unknown> { }
   interface DerivedData extends Record<string, unknown> { }
 }
@@ -28,7 +28,7 @@ class A5eRollCardData extends foundry.abstract.TypeDataModel<
 > {
   static override defineSchema(): A5eRollCardData.Schema {
     return {
-      ...checkCardSchema(),
+      ...rollCardSchema(),
       ...metadata()
     };
   }

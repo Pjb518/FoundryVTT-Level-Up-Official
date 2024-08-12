@@ -193,52 +193,49 @@ class ItemA5e extends BaseItemA5e {
       sound: CONFIG.sounds.dice,
       rolls: rolls.map(({ roll }) => roll),
       rollMode: activationData.visibilityMode ?? game.settings.get('core', 'rollMode'),
-      flags: {
-        a5e: {
-          actorId: this.actor?.uuid,
-          itemId: this.uuid,
-          cardType: 'item',
-          // @ts-expect-error
-          castingLevel: activationData.consumers?.spell?.level ?? this.system.level ?? null,
-          img: action.img ?? this.img ?? 'icons/svg/item-bag.svg',
-          name: this.name,
-          actionName: action.name,
-          actionDescription: action?.descriptionOutputs?.includes('action')
-            ? await TextEditor.enrichHTML(action.description, {
-              secrets: this.isOwner,
-              relativeTo: this,
-              rollData: this?.actor?.getRollData(this) ?? {}
-            })
-            : null,
-          itemDescription: action?.descriptionOutputs?.includes('item') ?? true
-            ? await TextEditor.enrichHTML(this.system.description, {
-              secrets: this.isOwner,
-              relativeTo: this,
-              rollData: this?.actor?.getRollData(this) ?? {}
-            })
-            : null,
-          unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
-            // @ts-expect-error
-            ? await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
-              secrets: this.isOwner,
-              relativeTo: this,
-              rollData: this?.actor?.getRollData(this) ?? {}
-            })
-            : null,
-          prompts: activationData.prompts,
-          rollData: rolls.map(({ roll, ...rollData }) => rollData),
-          summaryData: getSummaryData(this, action, {
-            hideAttunementData: true,
-            hideCraftingComponents: true,
-            hidePrice: true,
-            hideRarity: true,
-            hideSpellClasses: true,
-            hideSpellComponents: true,
-            hideSpellLevel: true
+      system: {
+        actionName: action.name,
+        actorName: this.name,
+        actorId: this.actor?.uuid,
+        img: action.img ?? this.img ?? 'icons/svg/item-bag.svg',
+        itemId: this.uuid,
+        // @ts-expect-error
+        castingLevel: activationData.consumers?.spell?.level ?? this.system.level ?? null,
+        actionDescription: action?.descriptionOutputs?.includes('action')
+          ? await TextEditor.enrichHTML(action.description, {
+            secrets: this.isOwner,
+            relativeTo: this,
+            rollData: this?.actor?.getRollData(this) ?? {}
           })
-        }
+          : null,
+        itemDescription: action?.descriptionOutputs?.includes('item') ?? true
+          ? await TextEditor.enrichHTML(this.system.description, {
+            secrets: this.isOwner,
+            relativeTo: this,
+            rollData: this?.actor?.getRollData(this) ?? {}
+          })
+          : null,
+        unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
+          // @ts-expect-error
+          ? await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
+            secrets: this.isOwner,
+            relativeTo: this,
+            rollData: this?.actor?.getRollData(this) ?? {}
+          })
+          : null,
+        prompts: activationData.prompts,
+        rollData: rolls.map(({ roll, ...rollData }) => rollData),
+        summaryData: getSummaryData(this, action, {
+          hideAttunementData: true,
+          hideCraftingComponents: true,
+          hidePrice: true,
+          hideRarity: true,
+          hideSpellClasses: true,
+          hideSpellComponents: true,
+          hideSpellLevel: true
+        })
       },
-      content: '<article></article>'
+      type: 'item'
     };
 
     ChatMessage.applyRollMode(chatData, activationData.visibilityMode ?? game.settings.get('core', 'rollMode'));

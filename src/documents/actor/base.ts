@@ -560,7 +560,7 @@ class BaseActorA5e extends Actor {
     const actorData = this.system;
     // @ts-expect-error
     const proficiencyBonus = actorData.attributes.prof;
-    const jackOfAllTrades = this.flags.a5e?.jackOfAllTrades;
+    const jackOfAllTrades = this.flags?.a5e?.jackOfAllTrades;
 
     Object.values(actorData.skills).forEach((skill) => {
       // @ts-expect-error
@@ -968,7 +968,7 @@ class BaseActorA5e extends Actor {
 
   override async modifyTokenAttribute(attribute: string, value, isDelta: boolean, isBar: boolean) {
     if (attribute === 'attributes.hp') {
-      const hp = getProperty(this.system, attribute);
+      const hp = foundry.utils.getProperty(this.system, attribute);
       const hpPool = hp.value + hp.temp;
       const delta = hpPool - value;
 
