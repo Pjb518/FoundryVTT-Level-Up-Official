@@ -14,15 +14,79 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"tqpSQsv9uRG1xFvs": {
+				"name": "Embrace the Dark",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"84Zlf3k1vH4eFhj6": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"5fEKWQhM6BQSz5CE": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				}
+			},
+			"yMIyVu9jYzTmmv0S": {
+				"name": "Dismiss",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Beginning at 7th level, you can enshroud yourself in darkness. As an action, you can activate your shroud of darkness. Your shroud remains active for 1 hour, until you fall&nbsp;unconscious</span>, or until you use a bonus action to deactivate it. While your shroud is active, light within 30 feet decreases from&nbsp;bright light to dim light, from dim light to darkness, or from darkness to magical darkness. You can use this feature a number of times equal to your proficiency bonus, regaining all uses when you finish a&nbsp;<span>long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "dungeonDelversGuide",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "@prof",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -43,14 +107,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "ranger",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "07w9jw608bmpps9o",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723492660033,
+		"modifiedTime": 1723492747265,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "07w9jw608bmpps9o"
 }

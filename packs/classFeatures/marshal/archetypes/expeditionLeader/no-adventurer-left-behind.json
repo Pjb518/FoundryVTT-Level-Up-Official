@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "No Adventurer Left behind",
+	"name": "No Adventurer Left Behind",
 	"type": "feature",
 	"img": "icons/tools/navigation/map-chart-tan.webp",
 	"system": {
@@ -14,8 +14,33 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Starting at 15th level, creatures you choose that stabilize while within the radius of your Commanding Presence also regain hit points equal to your&nbsp;marshal level.</p>",
+		"actions": {
+			"Doyv3U1xhdIjKLtt": {
+				"name": "No Adventurer Left Behind",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"7TB1BuexAByrmVuB": {
+						"type": "healing",
+						"default": true,
+						"formula": "@classes.marshal.level"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Starting at 15th level, creatures you choose that stabilize while within the radius of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} also regain hit points equal to your marshal level.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "dungeonDelversGuide",
@@ -43,14 +68,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "marshal",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "w121gy0yor68fg0z",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723458781103,
+		"modifiedTime": 1723458835104,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "w121gy0yor68fg0z"
 }

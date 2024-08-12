@@ -1,0 +1,140 @@
+{
+	"folder": null,
+	"name": "Speed Run",
+	"type": "feature",
+	"img": "icons/tools/navigation/map-chart-tan.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"BSArfUFwbDeX1Qp8": {
+				"name": "Speed Run",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"Yyr8VJpEXtO0ALVF": {
+						"type": "effect",
+						"default": true,
+						"effectId": "LoiCL8Hkc9T2IG0d"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>If an ally starts their turn within the radius of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence}, you and that ally increase your Speed by 10 feet until the end of your next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "dungeonDelversGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "marshal",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.I6nmQ19cyt0GYVnl",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "BSArfUFwbDeX1Qp8",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Speed Run",
+			"img": "icons/tools/navigation/map-chart-tan.webp",
+			"_id": "LoiCL8Hkc9T2IG0d",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "10",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Increase your Speed by 10 feet until the end of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723458733612,
+				"modifiedTime": 1723458762429,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723458703903,
+		"modifiedTime": 1723458733656,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "3sttmhjr1vy3a79n"
+}

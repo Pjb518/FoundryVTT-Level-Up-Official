@@ -1,7 +1,7 @@
 {
 	"name": "Nature's Champion",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/nature/tree-spirit-glow-black-yellow.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,54 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Also at 2nd level you are capable of taking on more strenuous forms than druids of other circles and find the change much easier. You may select wild shapes with a CR of 1 at 2nd level, and wild shapes with a CR no higher than 1/3 your druid level at later levels. In addition, you can use a bonus action to assume a wild shape.</p>",
+		"actions": {
+			"HMSOnwACWp1mxDL4": {
+				"name": "Wild Shape",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"OUO9zBZA9lKf9lYH": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.wild-shape",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/creatures/mammals/elk-moose-marked-green.webp"
+			}
+		},
+		"description": "<p>Also at 2nd level you are capable of taking on more strenuous forms than druids of other circles and find the change much easier. You may select wild shapes with a CR of 1 at 2nd level, and wild shapes with a CR no higher than 1/3 your druid level at later levels.</p>\n<p>In addition, you can use a bonus action to assume a wild shape.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -44,13 +90,17 @@
 				}
 			}
 		},
-		"classes": "druid"
+		"classes": "druid",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "q19pxuwcwlboc5ql",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723058530319,
+		"modifiedTime": 1723059539124,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "q19pxuwcwlboc5ql"
 }

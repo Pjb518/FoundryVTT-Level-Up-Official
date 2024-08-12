@@ -12,8 +12,163 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At level 15, you learn to call upon the forces of darkness to aid you in battle. Choose two spells from <em>create undead</em>, <em>conjure fey</em>, and <em>conjure fiend</em>. You can cast each once per long rest without components.</p>",
+		"actions": {
+			"mXCCmVTuIO08TVTy": {
+				"name": "Create Undead",
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"Tp0s1AAPlM0Jzo4l": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"ponBqFDob1vUIrV8": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "other"
+				},
+				"img": "icons/magic/death/skull-trio-badge-purple.webp",
+				"description": "<p>This spell cannot be cast in sunlight. You reanimate the targets as undead and transform them into ghouls under your control.</p><p>While it is within 120 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.</p><p>The undead is under your control for 24 hours, after which it stops obeying any commands. You must cast this spell on the undead before the spell ends to maintain control of it for another 24 hours. Casting the spell in this way reasserts control over up to 3 undead you have animated with this spell, rather than animating a new one.</p><p><strong><em>Cast at Higher Levels.</em></strong> You create or reassert control over one additional ghoul for each slot level above 6th. Alternatively, when using an 8th-level spell slot you create or reassert control over 2 ghasts or wights, or when using a 9th-level spell slot you create or reassert control over 3 ghasts or wights, or 2 mummies. When commanding more than 3 undead they make group attack rolls (see page 454 in Chapter 8: Combat).</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"anyqfGZ9nttKQ7X0": {
+				"name": "Conjure Fey",
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"07J7JVmGDYST1WqS": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"HiiLhb3A7y7WQGMq": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "none"
+				},
+				"img": "icons/magic/nature/elemental-plant-humanoid.webp",
+				"description": "<p>You summon a creature from The Dreaming.</p><p>This creature uses the statistics of a fey creature (detailed below) with certain traits determined by your choice of its type: hag, hound, or redcap.</p><p>The creature is friendly to you and your companions and takes its turn immediately after yours.</p><p>It obeys your verbal commands. Without such commands, the creature only defends itself.</p><p>The summoned creature disappears when reduced to 0 hit points. If your concentration is broken before the spell ends, you lose control of the summoned creature, which becomes hostile and might attack you and your companions. An uncontrolled creature disappears at the end of the spell's maximum duration.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 6th the fey creature's AC increases by 1, its hit points increase by 10, and when it deals damage with an attack it deals 1d4 extra damage.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"XUe6wpBSz4dxuYJR": {
+				"name": "Conjure Fiend",
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"JIGErTtoVLCazGfU": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"YOhr3VyudWkLO1Cx": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "none"
+				},
+				"img": "icons/creatures/unholy/demons-horned-glowing-pink.webp",
+				"description": "<p><strong>Classes: </strong>Cleric, Warlock, Wizard</p><hr><p>You summon a fiend from the lower planes not aligned with Hell or the Abyss. his creature uses the statistics of a <em>fiendish creature</em> with certain traits determined by your choice of its type: nightmare, malcubus, or shadow fiend.</p><p>When casting this spell, you must make a charisma saving throw with a DC of 10 + the spell slot level used to cast the spell or gain a level of strife, unless you have the Evil alignment trait. You have disadvantage on this save if you have the Good alignment trait.</p><p>The creature is friendly to you and your companions and takes its turn immediately after yours.</p><p>It obeys your verbal commands. Without such commands, the creature only defends itself.</p><p>The creature disappears when reduced to 0 hit points. If your concentration is broken before the spell ends, you lose control of the creature, which becomes hostile and might attack you and your companions. An uncontrolled creature disappears 1 hour after you summoned it.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 5th the <em>fiendish creature</em>'s AC increases by 1, its hit points increase by 10, and when it deals damage with an attack it deals 1d4 extra damage. This additional damage is fire for the nightmare's hoof attack.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>At level 15, you learn to call upon the forces of darkness to aid you in battle. Choose two spells from @UUID[Compendium.a5e.a5e-spells.Item.evhh5s6v0ctzop82]{Create Undead}, @UUID[Compendium.a5e.a5e-spells.Item.rkmcwdyfuhbjyimk]{Conjure Fey}, and @UUID[Compendium.a5e.a5e-spells.Item.92jkpmb5b1nl7tem]{Conjure Fiend}. You can cast each once per long rest without components.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -35,16 +190,20 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "marshal"
+		"classes": "marshal",
+		"class": ""
 	},
 	"img": "icons/magic/symbols/triangle-glow-purple.webp",
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "mtihijn0ukaf0xj8",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723400654662,
+		"modifiedTime": 1723400732202,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "mtihijn0ukaf0xj8"
 }

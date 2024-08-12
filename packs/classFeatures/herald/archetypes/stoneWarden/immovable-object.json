@@ -16,7 +16,7 @@
 		},
 		"actions": {
 			"6zZqN4cphsplVapo": {
-				"name": "Use Feature",
+				"name": "Immovable Object",
 				"activation": {
 					"type": "bonusAction",
 					"cost": 1
@@ -39,13 +39,9 @@
 						"threshold": 6
 					}
 				},
-				"ranges": {
-					"7ANt4VugjDHn2nAF": {
-						"range": "self"
-					}
-				},
+				"ranges": {},
 				"target": {
-					"type": "self",
+					"type": "",
 					"quantity": 1
 				}
 			}
@@ -78,12 +74,12 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/earth/barrier-stone-pillar-purple.webp",
-			"origin": "Item.m5uws9i6fxiq9b8f",
+			"origin": "Item.tjbMU6Ciq2YR56hU",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -96,13 +92,19 @@
 				}
 			},
 			"transfer": false,
-			"name": "Immovable",
+			"name": "Immovable Object",
 			"_id": "C8tDPgRTkNwQKWUG",
 			"changes": [
 				{
 					"key": "flags.a5e.effects.damageResistances.all",
 					"value": "",
 					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "5",
+					"mode": 6,
 					"priority": null
 				}
 			],
@@ -116,21 +118,34 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<ul>\n<li>You gain resistance to all damage.</li>\n<li>You can’t be moved unless you choose to be, even if targeted by an effect that would teleport you or if the surface you are standing on gives way. If this results in you standing in midair, you gain a fly speed of 5 feet until the effect ends. If you are still in the air when the effect ends, you fall normally.</li>\n</ul>",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.22",
+				"createdTime": null,
+				"modifiedTime": 1723457993280,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/earth/barrier-stone-pillar-purple.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "m5uws9i6fxiq9b8f",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723457918736,
+		"modifiedTime": 1723458001385,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "m5uws9i6fxiq9b8f"
 }

@@ -1,19 +1,19 @@
 {
 	"name": "Draconic Resilience",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/melee/shield-block-fire-orange.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
 		"ac": {
-			"baseFormula": "",
+			"baseFormula": "13 + @dex.mod",
 			"formula": "",
 			"grantsDisadvantage": false,
 			"maxDex": 0,
 			"minStr": 0,
 			"mode": 2,
 			"requiresNoShield": false,
-			"requiresUnarmored": false
+			"requiresUnarmored": true
 		},
 		"actions": {},
 		"description": "<p>The draconic magic that nestles within you has adapted your body to the harsh trials that lie&nbsp;between you and your destiny. Beginning at 1st level when you choose this archetype, your hit point maximum increases by 1, and increases by 1 again whenever you gain a level in this class. </p><p>In addition, when you aren’t wearing armor, your AC equals 13 + your Dexterity modifier. How exactly this fortitude manifests on your body can vary widely, but unless actively concealed it marks your connection to dragonkind.</p>",
@@ -31,7 +31,20 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"PbOmjBBliXsRiDS5": {
+				"grantType": "hitPoint",
+				"level": 1,
+				"levelType": "class",
+				"optional": false,
+				"_id": "PbOmjBBliXsRiDS5",
+				"label": "Draconic Resilience",
+				"bonus": "1",
+				"context": {
+					"perLevel": true
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -44,13 +57,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "l5l0q5quvyfzdq27",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723331832850,
+		"modifiedTime": 1723331896679,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "l5l0q5quvyfzdq27"
 }

@@ -22,8 +22,28 @@
 					"cost": 1,
 					"reactionTrigger": "Suffer damage"
 				},
-				"consumers": {},
-				"rolls": {},
+				"consumers": {
+					"RJIE4cfAhoFQNeON": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 1,
+						"spellLevel": 1,
+						"points": 1
+					}
+				},
+				"rolls": {
+					"NK6iC0XmMgkbLrck": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "@prof",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "@prof"
+						}
+					}
+				},
 				"prompts": {
 					"IYONe8t3YGf4PCAr": {
 						"type": "effect",
@@ -41,6 +61,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
 				}
 			}
 		},
@@ -72,12 +96,12 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/light/projectile-smoke-blue-light.webp",
-			"origin": "Item.bquuq896rt8fg7l3",
+			"origin": "Item.gC9LRrAqzq7TKVpw",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -95,7 +119,7 @@
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
-					"value": "{\"label\":\"Unbound Heroism\",\"formula\":\"1d6\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[\"radiant\"],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+					"value": "{\"label\":\"Unbound Heroism\",\"formula\":\"1d6\",\"damageType\":\"radiant\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[\"radiant\"],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/light/projectile-smoke-blue-light.webp\"}",
 					"mode": 0,
 					"priority": null
 				}
@@ -110,21 +134,34 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<p>As long as you have these temporary hit points, your weapon attacks deal an additional 1d6 radiant damage. These temporary hit points last for 1 minute.</p>",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.22",
+				"createdTime": null,
+				"modifiedTime": 1723405966222,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/light/projectile-smoke-blue-light.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "bquuq896rt8fg7l3",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723405847628,
+		"modifiedTime": 1723405969948,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "bquuq896rt8fg7l3"
 }

@@ -1,0 +1,177 @@
+{
+	"name": "Channel Divinity: Radiant Burst",
+	"type": "feature",
+	"img": "icons/magic/light/explosion-star-large-blue-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"hbQl6wJXUNx0X5Bt": {
+				"name": "Channel Divinity: Radiant Burst",
+				"activation": {
+					"cost": "1",
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"wRNU0EHmNFn3Ih8e": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"placeTemplate": true,
+					"quantity": 1,
+					"radius": 30
+				},
+				"target": {
+					"quantity": 1,
+					"type": ""
+				},
+				"rolls": {
+					"HBVTyLRGw5uxc76h": {
+						"canCrit": false,
+						"damageType": "radiant",
+						"formula": "2d10 + @classes.cleric.level",
+						"name": "Radiant Burst",
+						"type": "damage"
+					}
+				},
+				"prompts": {
+					"46vo3JGUK6Iuunxl": {
+						"ability": "con",
+						"onSave": "Not blinded or half damage",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"7FYd2zbzIkN3qk43": {
+						"type": "effect",
+						"default": true,
+						"effectId": "i6WKEBLfUbrBKAZW"
+					}
+				},
+				"consumers": {
+					"jxaaGc238lxjEQ8B": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				}
+			}
+		},
+		"description": "<p>Starting at 2nd level, you can use an action to clutch your holy symbol and emit a bright blast. In addition to dispelling any magical darkness within 30 feet, enemy creatures within 30 feet make a Constitution saving throw or are blinded by the light for 1 minute. A blinded creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p><p>Alternatively, you can choose to make the light more harmful. On a failed saving throw a creature takes radiant damage equal to 2d10 + your cleric level, or half damage on a success.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "cleric",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.sUbCkWvHCGBhDMjS",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "hbQl6wJXUNx0X5Bt",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"img": "icons/magic/light/explosion-star-large-blue-yellow.webp",
+			"_id": "i6WKEBLfUbrBKAZW",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A blinded creature can't see and it automatically fails ability checks that require sight.</li>\n<li>Attack rolls against a blinded creature are made with advantage, and the creature's attack rolls are made with disadvantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"blinded"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723047690399,
+				"modifiedTime": 1723047733385,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723047614568,
+		"modifiedTime": 1723047804471,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "vxxueocqy91i6tit"
+}

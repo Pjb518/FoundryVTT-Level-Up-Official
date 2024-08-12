@@ -23,6 +23,13 @@
 						"type": "itemUses",
 						"default": true,
 						"quantity": 1
+					},
+					"s1AoOpVBuMYnf1lo": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
 					}
 				},
 				"rolls": {},
@@ -32,6 +39,11 @@
 						"default": true,
 						"label": "Extra Damage",
 						"formula": "1d8"
+					},
+					"snX0GUCDHvCDnAyG": {
+						"type": "effect",
+						"default": true,
+						"effectId": "nZpi3RccV2d4JCt0"
 					}
 				},
 				"uses": {
@@ -52,6 +64,32 @@
 				"ranges": {
 					"glaRgPU3gkQ2mQnl": {
 						"range": "short"
+					}
+				}
+			},
+			"4kjKhZj2IQzc8Bzt": {
+				"name": "Additional Exertion",
+				"activation": {},
+				"consumers": {
+					"3gDXs5EwcDoHIs5g": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
 					}
 				}
 			}
@@ -84,14 +122,68 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "fighter",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.fBWYztPeT96RGlW2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "V5LycV1NfXttQwLX"
+				}
+			},
+			"transfer": false,
+			"name": "Prior Tactics",
+			"img": "icons/skills/social/diplomacy-unity-alliance.webp",
+			"_id": "nZpi3RccV2d4JCt0",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Prior Tactics\",\"formula\":\"1d8\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/skills/social/diplomacy-unity-alliance.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>On their next successful weapon attack, the chosen allies deal an extra 1d8 damage as they enact your recommended strategy.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723416533807,
+				"modifiedTime": 1723416574913,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "6kysmxmq2ey3pdtb",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723416441902,
+		"modifiedTime": 1723416533867,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "6kysmxmq2ey3pdtb"
 }

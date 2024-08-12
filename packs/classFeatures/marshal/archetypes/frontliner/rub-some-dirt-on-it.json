@@ -16,15 +16,71 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>You may use your <em>Rallying Surge</em> feature a number of times equal to half your proficiency bonus between rests.</p>",
+		"actions": {
+			"PzHFSeiWLWDO9GfU": {
+				"name": "Rallying Surge",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"1nfAXMDADcHENL8u": {
+						"type": "itemUses"
+					}
+				},
+				"rolls": {
+					"9CIjJTs3nvseqT2t": {
+						"formula": "1d8 + @classes.marshal.level",
+						"healingType": "healing",
+						"name": "Level",
+						"type": "healing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"nPc3P8PqmhoZaYBx": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"shape": "",
+					"size": ""
+				},
+				"img": "icons/svg/item-bag.svg"
+			}
+		},
+		"description": "<p>You may use your&nbsp;@UUID[Compendium.a5e.a5e-class-features.Item.qc8h2qnq0of52qct]{Rallying Surge} feature a number of times equal to half your proficiency bonus between rests.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "floor(@prof/2)",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -39,12 +95,16 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "marshal"
+		"classes": "marshal",
+		"class": ""
 	},
-	"_id": "xt9trm6zn2ahecrl",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723399500720,
+		"modifiedTime": 1723399597390,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "xt9trm6zn2ahecrl"
 }

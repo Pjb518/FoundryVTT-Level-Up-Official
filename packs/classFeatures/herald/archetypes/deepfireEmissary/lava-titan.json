@@ -15,7 +15,7 @@
 		},
 		"actions": {
 			"cLE0jSrXsWQfmLn7": {
-				"name": "Activate",
+				"name": "Lava Titan",
 				"activation": {
 					"type": "action",
 					"cost": 1
@@ -28,7 +28,13 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"AlpMx1uvdwzRZ8Tm": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ueGxdMfN2BTmVnT6"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -39,46 +45,19 @@
 					}
 				},
 				"duration": {
-					"unit": "minute",
+					"unit": "",
 					"value": 1
 				},
 				"target": {
-					"type": "self",
+					"type": "",
 					"quantity": 1
-				}
-			},
-			"TygEvFl3lbc9RbmM": {
-				"name": "Bonus Weapon Damage",
-				"activation": {
-					"type": "none"
-				},
-				"consumers": {},
-				"rolls": {
-					"76MfpF4OlP1aR42a": {
-						"type": "damage",
-						"default": true,
-						"formula": "3d6",
-						"damageType": "fire"
-					}
-				},
-				"prompts": {},
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "instantaneous"
 				}
 			},
 			"jBfJpQtcmyOeA9xe": {
 				"name": "Retaliatory Damage",
 				"activation": {
-					"type": "none"
+					"type": "",
+					"cost": 1
 				},
 				"consumers": {},
 				"rolls": {
@@ -96,9 +75,9 @@
 						"default": true,
 						"ability": "dex",
 						"saveDC": {
-							"type": "spellcasting"
+							"type": "maneuver"
 						},
-						"onSave": "Dexterity negates"
+						"onSave": ""
 					}
 				},
 				"uses": {
@@ -111,7 +90,8 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				}
 			},
 			"vjLc5pd2KeLDTUSn": {
@@ -156,7 +136,8 @@
 					"quantity": 1
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				}
 			}
 		},
@@ -188,15 +169,91 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.q1zVwahMFYoqrpwV",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "cLE0jSrXsWQfmLn7",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lava Titan",
+			"img": "icons/creatures/magical/construct-iron-stomping-yellow.webp",
+			"_id": "ueGxdMfN2BTmVnT6",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.size",
+					"value": "huge",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Lava Titan\",\"formula\":\"3d6\",\"damageType\":\"fire\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/creatures/magical/construct-iron-stomping-yellow.webp\"}",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"Non-magical bludgeoning, piercing, slashing\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.initiative",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>\n<p>If you would take fire damage from a source you did not create, you instead regain that many hit points. You may only regain up to 10 hit points this way per turn, with any excess being lost.</p>\n</li>\n<li>\n<p>You grow to large size. Your melee attacks reach an additional 5 feet further than normal, and your unarmed strikes and melee weapon attacks deal an additional 3d6 points of fire damage. A creature hitting you with a melee weapon attack must make a Dexterity saving throw against your maneuver DC or be splashed with lava for 2d6 fire damage. </p>\n</li>\n<li>\n<p>You gain resistance to nonmagical bludgeoning, piercing, and slashing damage.</p>\n</li>\n<li>\n<p>You gain advantage on Intimidate checks.</p>\n</li>\n<li>\n<p>You gain a lava splash attack that acts as a ranged weapon attack dealing 4d6 fire damage with a range of 30/60 feet.</p>\n</li>\n<li>\n<p>Creatures immune to fire are treated as resistant to fire for the purpose of your attacks.</p>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723494530416,
+				"modifiedTime": 1723494802817,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "lhwq8hrgm78w2kj7",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723494486370,
+		"modifiedTime": 1723494812912,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "lhwq8hrgm78w2kj7"
 }

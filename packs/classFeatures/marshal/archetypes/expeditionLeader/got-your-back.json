@@ -14,8 +14,33 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Starting at 7th level, when an ally falls&nbsp;unconscious</span>&nbsp;while within range of your Commanding Presence, that ally has&nbsp;advantage&nbsp;on the next&nbsp;<span>death saving throw they make (either as a result of taking damage or at the end of their next turn).</p>",
+		"actions": {
+			"CG2ujMJHuaT8uSXI": {
+				"name": "Got Your Back",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"xLtQT5x7eQGCSd5c": {
+						"type": "effect",
+						"default": true,
+						"effectId": "IQ9HbI2MLeQ3BudL"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Starting at 7th level, when an ally falls unconscious while within range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence}, that ally has advantage on the next death saving throw they make (either as a result of taking damage or at the end of their next turn).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "dungeonDelversGuide",
@@ -43,14 +68,68 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "marshal",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.28xS4sysMluHZoIB",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CG2ujMJHuaT8uSXI"
+				}
+			},
+			"transfer": false,
+			"name": "Got Your Back",
+			"img": "icons/tools/navigation/map-chart-tan.webp",
+			"_id": "IQ9HbI2MLeQ3BudL",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.deathSave",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Advantage on the next death saving throw they make (either as a result of taking damage or at the end of their next turn).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723458484986,
+				"modifiedTime": 1723458505329,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "qjjwh2ufevd6zidg",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723458441351,
+		"modifiedTime": 1723458485016,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "qjjwh2ufevd6zidg"
 }
