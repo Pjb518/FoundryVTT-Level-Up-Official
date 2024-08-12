@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Got Your Back",
+	"name": "Speed Run",
 	"type": "feature",
 	"img": "icons/tools/navigation/map-chart-tan.webp",
 	"system": {
@@ -15,16 +15,16 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"CG2ujMJHuaT8uSXI": {
-				"name": "Got Your Back",
+			"BSArfUFwbDeX1Qp8": {
+				"name": "Speed Run",
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
 				"prompts": {
-					"xLtQT5x7eQGCSd5c": {
+					"Yyr8VJpEXtO0ALVF": {
 						"type": "effect",
 						"default": true,
-						"effectId": "IQ9HbI2MLeQ3BudL"
+						"effectId": "LoiCL8Hkc9T2IG0d"
 					}
 				},
 				"uses": {
@@ -40,7 +40,7 @@
 				}
 			}
 		},
-		"description": "<p>Starting at 7th level, when an ally falls unconscious while within range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence}, that ally has advantage on the next death saving throw they make (either as a result of taking damage or at the end of their next turn).</p>",
+		"description": "<p>If an ally starts their turn within the radius of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence}, you and that ally increase your Speed by 10 feet until the end of your next turn.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "dungeonDelversGuide",
@@ -73,25 +73,30 @@
 	},
 	"effects": [
 		{
-			"origin": "Item.28xS4sysMluHZoIB",
+			"origin": "Item.I6nmQ19cyt0GYVnl",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "CG2ujMJHuaT8uSXI"
+					"actionId": "BSArfUFwbDeX1Qp8",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
 				}
 			},
 			"transfer": false,
-			"name": "Got Your Back",
+			"name": "Speed Run",
 			"img": "icons/tools/navigation/map-chart-tan.webp",
-			"_id": "IQ9HbI2MLeQ3BudL",
+			"_id": "LoiCL8Hkc9T2IG0d",
 			"type": "base",
 			"system": {},
 			"changes": [
 				{
-					"key": "flags.a5e.effects.rollMode.deathSave",
-					"value": "1",
-					"mode": 6,
+					"key": "system.attributes.movement.walk.distance",
+					"value": "10",
+					"mode": 2,
 					"priority": null
 				}
 			],
@@ -100,12 +105,12 @@
 				"startTime": null,
 				"seconds": null,
 				"combat": null,
-				"rounds": null,
-				"turns": null,
+				"rounds": 1,
+				"turns": 1,
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "<p>Advantage on the next death saving throw they make (either as a result of taking damage or at the end of their next turn).</p>",
+			"description": "<p>Increase your Speed by 10 feet until the end of your next turn.</p>",
 			"tint": "#ffffff",
 			"statuses": [],
 			"sort": 0,
@@ -115,8 +120,8 @@
 				"coreVersion": "12.330",
 				"systemId": "a5e",
 				"systemVersion": "0.19.22",
-				"createdTime": 1723458484986,
-				"modifiedTime": 1723458505329,
+				"createdTime": 1723458733612,
+				"modifiedTime": 1723458762429,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"folder": null
@@ -127,9 +132,9 @@
 		"coreVersion": "12.330",
 		"systemId": "a5e",
 		"systemVersion": "0.19.22",
-		"createdTime": 1723458441351,
-		"modifiedTime": 1723458485016,
+		"createdTime": 1723458703903,
+		"modifiedTime": 1723458733656,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "qjjwh2ufevd6zidg"
+	"_id": "3sttmhjr1vy3a79n"
 }

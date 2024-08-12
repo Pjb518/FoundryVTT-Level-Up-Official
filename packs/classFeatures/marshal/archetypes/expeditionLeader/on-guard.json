@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Got Your Back",
+	"name": "On Guard",
 	"type": "feature",
 	"img": "icons/tools/navigation/map-chart-tan.webp",
 	"system": {
@@ -15,16 +15,16 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"CG2ujMJHuaT8uSXI": {
-				"name": "Got Your Back",
+			"9nXtD2e9Lg5qjtvL": {
+				"name": "On Guard",
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
 				"prompts": {
-					"xLtQT5x7eQGCSd5c": {
+					"XQaOmcZ7EVm3SX66": {
 						"type": "effect",
 						"default": true,
-						"effectId": "IQ9HbI2MLeQ3BudL"
+						"effectId": "QLcdtcssUw6FlZpU"
 					}
 				},
 				"uses": {
@@ -40,7 +40,7 @@
 				}
 			}
 		},
-		"description": "<p>Starting at 7th level, when an ally falls unconscious while within range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence}, that ally has advantage on the next death saving throw they make (either as a result of taking damage or at the end of their next turn).</p>",
+		"description": "<p>When you use your @UUID[Compendium.a5e.a5e-class-features.Item.qc8h2qnq0of52qct]{Rallying Surge} to allow a creature to regain hit points, that creature also gains an expertise die on one saving throw it makes in the next minute. The creature chooses whether or not to use the expertise die before making the save, and the die is wasted if not used before the effect ends.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "dungeonDelversGuide",
@@ -73,39 +73,35 @@
 	},
 	"effects": [
 		{
-			"origin": "Item.28xS4sysMluHZoIB",
+			"origin": "Item.Whm3ysqLCYVTrpAr",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "CG2ujMJHuaT8uSXI"
+					"actionId": "9nXtD2e9Lg5qjtvL",
+					"duration": {
+						"unit": "minutes"
+					}
 				}
 			},
 			"transfer": false,
-			"name": "Got Your Back",
+			"name": "On Guard",
 			"img": "icons/tools/navigation/map-chart-tan.webp",
-			"_id": "IQ9HbI2MLeQ3BudL",
+			"_id": "QLcdtcssUw6FlZpU",
 			"type": "base",
 			"system": {},
-			"changes": [
-				{
-					"key": "flags.a5e.effects.rollMode.deathSave",
-					"value": "1",
-					"mode": 6,
-					"priority": null
-				}
-			],
+			"changes": [],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
-				"seconds": null,
+				"seconds": 60,
 				"combat": null,
 				"rounds": null,
 				"turns": null,
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "<p>Advantage on the next death saving throw they make (either as a result of taking damage or at the end of their next turn).</p>",
+			"description": "<p>Gains an expertise die on one saving throw it makes in the next minute. The creature chooses whether or not to use the expertise die before making the save, and the die is wasted if not used before the effect ends.</p>",
 			"tint": "#ffffff",
 			"statuses": [],
 			"sort": 0,
@@ -115,8 +111,8 @@
 				"coreVersion": "12.330",
 				"systemId": "a5e",
 				"systemVersion": "0.19.22",
-				"createdTime": 1723458484986,
-				"modifiedTime": 1723458505329,
+				"createdTime": 1723458321166,
+				"modifiedTime": 1723458341959,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"folder": null
@@ -127,9 +123,9 @@
 		"coreVersion": "12.330",
 		"systemId": "a5e",
 		"systemVersion": "0.19.22",
-		"createdTime": 1723458441351,
-		"modifiedTime": 1723458485016,
+		"createdTime": 1723458226601,
+		"modifiedTime": 1723458321203,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "qjjwh2ufevd6zidg"
+	"_id": "vse2hcsvj72o6pkp"
 }
