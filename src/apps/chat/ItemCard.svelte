@@ -1,9 +1,11 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    import { createEventDispatcher } from "svelte";
     import { setContext } from "svelte";
     import { slide } from "svelte/transition";
+
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import constructRollFormula from "../../dice/constructRollFormula";
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
@@ -241,18 +243,20 @@
             );
         }
 
-        // Update the formula and total information for the new roll and evaluate the roll
-        newRoll._formula = Roll.getFormula(newRoll.terms);
-        newRoll._total = newRoll._evaluateTotal();
-        await newRoll.evaluate();
-
+        // Replace the old roll with the new one in the message rolls array
         $message.rolls.splice(rollIndex, 1, newRoll);
-        rollData[rollIndex].expertiseDice = expertiseDice;
 
+        // Update the corresponding rollData object
+        $message.system.rollData[rollIndex].rollMode = rollMode;
+
+        // Permanently update the message with the new data
         await $message.update({
             rolls: $message.rolls,
-            "system.rollData": rollData,
+            "system.rollData": $message.system.rollData,
         });
+
+        // Use the new attack roll information to determine whether to display crit damage
+        if (originalRollData.type === "attack") dispatch("reevaluateCritMode");
     }
 
     async function triggerPrompt(prompt) {
@@ -338,6 +342,7 @@
     const rolls = prepareRolls($message);
     const hasRolls = rolls.length;
     const item = fromUuidSync($message.system.itemId ?? "");
+    const dispatch = createEventDispatcher();
     const hideDescription = false; // TODO: Update this
 
     setContext("message", message);
