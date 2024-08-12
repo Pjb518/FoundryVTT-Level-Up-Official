@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Channel Divinity: Rock Skin",
+	"name": "Shield of the Vulnerable",
 	"type": "feature",
 	"img": "icons/magic/earth/barrier-stone-pillar-purple.webp",
 	"system": {
@@ -15,19 +15,19 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"KXzFH8reKFbmAQG1": {
-				"name": "Use Feature",
+			"2Kvp4nisrjIAZ0pP": {
+				"name": "Shield of the Vulnerable",
 				"activation": {
-					"type": "action",
-					"cost": 1
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "A creature you can see damages you or a creature within 5 feet of you with a weapon or spell attack"
 				},
 				"consumers": {},
 				"rolls": {
-					"y6XKOkjlGGAjsP1s": {
+					"AfjG6EyShLdBGEpL": {
 						"type": "healing",
 						"default": true,
-						"healingType": "temporaryHealing",
-						"formula": "1 + @cha.mod"
+						"formula": "1d6 + floor(@classes.herald.level/2)"
 					}
 				},
 				"prompts": {},
@@ -37,21 +37,14 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
-					}
-				},
-				"target": {
-					"type": "self",
-					"quantity": 1
-				},
-				"ranges": {
-					"4i68PrzElQtDEs94": {
-						"range": "self"
 					}
 				}
 			}
 		},
-		"description": "<p>You can use an action to cover yourself in a magical layer of gray stone plates. You gain temporary hit points equal to your herald level + your Charisma modifier (minimum of 1). The temporary hit points last up to 1 hour. While the temporary hit points remain, critical hits against you are treated as normal hits.</p>",
+		"description": "<p>At 15th level, when a creature you can see damages you or a creature within 5 feet of you with a weapon or spell attack, you can use your reaction to reduce the damage by an amount equal to 1d6 + half your herald level (rounded down). You must be using a shield to use this feature.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "dungeonDelversGuide",
@@ -79,14 +72,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "jmvfwq08r2l92j0j",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723457783663,
+		"modifiedTime": 1723457895242,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "3xfsra0zsh3tz10v"
 }
