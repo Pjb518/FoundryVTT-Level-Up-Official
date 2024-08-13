@@ -10,25 +10,21 @@
 				"name": "Knockdown",
 				"activation": {
 					"cost": 1,
-					"type": "action",
+					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
 					"unit": "instantaneous",
 					"value": null
 				},
-				"ranges": {
-					"NbOuce8AtLVjDeeL": {
-						"range": "fiveFeet"
-					}
-				},
+				"ranges": {},
 				"area": {
 					"shape": "",
 					"size": "",
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": "",
+					"quantity": 1,
 					"type": "creature",
 					"shape": "",
 					"size": ""
@@ -36,12 +32,13 @@
 				"prompts": {
 					"L65ZmTO0KcmeQ2EQ": {
 						"ability": "str",
-						"onSave": "",
+						"onSave": "Creature is not knocked down",
 						"saveDC": {
-							"type": "custom",
-							"bonus": "@maneuverDC"
+							"type": "maneuver",
+							"bonus": ""
 						},
-						"type": "savingThrow"
+						"type": "savingThrow",
+						"label": "Strength Saving Throw"
 					}
 				},
 				"consumers": {},
@@ -87,10 +84,13 @@
 		}
 	},
 	"folder": null,
-	"_id": "zzg7j7cb0vkgctwi",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723387903898,
+		"modifiedTime": 1723392293800,
+		"lastModifiedBy": "SkNEzSES7ahAJz45"
+	},
+	"_id": "zzg7j7cb0vkgctwi"
 }
