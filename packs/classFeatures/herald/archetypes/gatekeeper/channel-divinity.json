@@ -1,5 +1,5 @@
 {
-	"name": "Channel Divinity (Herald: Gatekeeper)",
+	"name": "Channel Divinity",
 	"type": "feature",
 	"img": "icons/magic/symbols/triangle-glowing-green.webp",
 	"system": {
@@ -21,11 +21,12 @@
 					"cost": 1
 				},
 				"consumers": {
-					"LrONPtjmJFqPcpF3": {
-						"type": "itemUses",
+					"GPCDC8ZaU3y3YYJT": {
+						"type": "resource",
 						"default": true,
-						"quantity": 1,
-						"label": "Channel Divinity"
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
 					}
 				},
 				"rolls": {},
@@ -37,7 +38,12 @@
 						"saveDC": {
 							"type": "spellcasting"
 						},
-						"onSave": "Negates turned"
+						"onSave": ""
+					},
+					"FQB41cUCIfhfxqeV": {
+						"type": "effect",
+						"default": true,
+						"effectId": "D1c5oNSspNmfgW7R"
 					}
 				},
 				"uses": {
@@ -54,13 +60,19 @@
 				],
 				"description": "<p>As an action, you present your holy symbol and speak a divine word, rebuking the outsiders. Each fiend, celestial, aberration, or elemental creature or any creature with an alignment trait within 30 feet that can see or hear you must make a Wisdom saving throw. If the creature fails it is turned for 1 minute or until it takes damage from any source.</p><p>A turned creature must use its turns trying to move as far away from you as possible. It cannot willingly move to a space within 30 feet of you. It also cannot take reactions. On its action, it can use only the Dash action or try to escape any effect that prevents it from moving. If there&rsquo;s nowhere to move, the creature can use the Dodge action.</p><p>At your Narrator's discretion, depending on the cosmology of your setting you may also turn other creature types such as fey or undead.</p>",
 				"duration": {
-					"unit": "minute",
+					"unit": "",
 					"value": 1
 				},
 				"ranges": {
 					"5jU0zDZfrUEHDjkh": {
-						"range": "short"
+						"range": "self"
 					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
 				}
 			},
 			"kLvp4MeYKcK1qGRm": {
@@ -70,11 +82,12 @@
 					"cost": 1
 				},
 				"consumers": {
-					"NhDqjjF2AjHWx2vZ": {
-						"type": "itemUses",
+					"id96Rp1cYAEj4P5r": {
+						"type": "resource",
 						"default": true,
-						"quantity": 1,
-						"label": "Channel Divinity"
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
 					}
 				},
 				"rolls": {},
@@ -93,13 +106,20 @@
 					"action"
 				],
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				},
 				"ranges": {
 					"IaFCfvvkZe12sAWG": {
-						"range": "10",
+						"range": "self",
 						"unit": "feet"
 					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
 				}
 			}
 		},
@@ -108,9 +128,9 @@
 		"secretDescription": "",
 		"source": "heroesOldAndNew",
 		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": "shortRest",
+			"value": 0,
+			"max": "",
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -131,15 +151,65 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.XqO6FHlHfP1WioX2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "591kyZAu0MvfvsD2",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Turned",
+			"img": "icons/magic/symbols/triangle-glowing-green.webp",
+			"_id": "D1c5oNSspNmfgW7R",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If the creature fails it is turned for 1 minute or until it takes damage from any source. A turned creature must use its turns trying to move as far away from you as possible. It cannot willingly move to a space within 30 feet of you. It also cannot take reactions. On its action, it can use only the Dash action or try to escape any effect that prevents it from moving. If there’s nowhere to move, the creature can use the Dodge action.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723552905550,
+				"modifiedTime": 1723552936484,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "zc0qmj18n2qz22vj",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723552822423,
+		"modifiedTime": 1723552957699,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "zc0qmj18n2qz22vj"
 }
