@@ -1,0 +1,209 @@
+{
+	"name": "Crushing Presence",
+	"type": "feature",
+	"img": "icons/magic/control/voodoo-doll-pain-damage-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"XeJylLQsXc5M2VGY": {
+				"name": "Crushing Presence",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"LEktfYV3rUqE5Z2k": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"fDFA3KYH54P6tfwf": {
+						"type": "effect",
+						"default": true,
+						"effectId": "xX4WWIGDMe4KABMo"
+					},
+					"WiDlRTRiBfh8UqkA": {
+						"type": "effect",
+						"default": true,
+						"effectId": "oOFAuPYMoijsHIHp"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 18th level creatures affected by an Organizational effigy wielded by you must make a Wisdom saving throw when they enter the area of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} or start their turn there. On a failed save, an affected creature suffers the Slowed condition until the beginning of its next turn. Creatures affected by an Individual Effigy suffer the same effects, but suffer the Encumbered condition instead on a failed save and the Slowed condition on a successful one.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitMasterOfCeremonies",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "marshal",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.TyaL3SkiIEQvoZ62",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "XeJylLQsXc5M2VGY",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Slowed",
+			"img": "icons/magic/control/voodoo-doll-pain-damage-red.webp",
+			"_id": "xX4WWIGDMe4KABMo",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"slowed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A slowed creature's Speed is halved.</li>\n<li>A slowed creature takes a −2 penalty to AC and Dexterity saving throw.</li>\n<li>A slowed creature cannot take reactions.</li>\n<li>On its turn, a slowed creature can take either an action or a bonus action, not both. In addition, it can't make more than one melee or ranged attack during its turn.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"slowed"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723577232887,
+				"modifiedTime": 1723577350732,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.TyaL3SkiIEQvoZ62",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "XeJylLQsXc5M2VGY",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Encumbered",
+			"img": "icons/magic/control/voodoo-doll-pain-damage-red.webp",
+			"_id": "oOFAuPYMoijsHIHp",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"encumbered\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>An encumbered creature's Speed is reduced to 5 ft.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"encumbered"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723577317910,
+				"modifiedTime": 1723577362029,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723577181036,
+		"modifiedTime": 1723577317950,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "1bumweyhep19uamu"
+}
