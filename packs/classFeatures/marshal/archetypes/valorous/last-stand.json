@@ -2,7 +2,106 @@
 	"name": "Last Stand",
 	"type": "feature",
 	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.3r8hhPHEKnargtXM",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ApMyrcxwGxV3O1oP",
+					"duration": {
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Last Stand",
+			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"_id": "8w72llAGnrg0KuVS",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You can declare a last stand, which lasts for 10 minutes. While your Last Stand is active, for each allied creature within the range of your Commanding Presence ability that is at 0 hp, you and any friendly creatures within the same area gain a +1 bonus to damage with weapon attacks. These bonuses stack, but the maximum bonus you can receive is equal to your proficiency bonus. If one of the creatures is revived, the bonus to damage decreases, but you and allied creatures in the area gain temporary hp equal to your proficiency bonus.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723581436258,
+				"modifiedTime": 1723581560842,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.3r8hhPHEKnargtXM",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "tCe0b7jdIPok4sv6",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "0 HP",
+			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"_id": "NWosybErrtYz4O4u",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Last Stand\",\"formula\":\"1\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/skills/wounds/injury-face-impact-orange.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>+1 bonus to damage with weapon attacks.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723581535515,
+				"modifiedTime": 1723581605591,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -17,7 +116,7 @@
 		},
 		"actions": {
 			"ApMyrcxwGxV3O1oP": {
-				"name": "Declare Last Stand",
+				"name": "Last Stand",
 				"activation": {
 					"type": "bonusAction",
 					"cost": 1
@@ -30,7 +129,13 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"wV9q34b8TFQiJt8D": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8w72llAGnrg0KuVS"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -40,9 +145,58 @@
 						"threshold": 6
 					}
 				}
+			},
+			"tCe0b7jdIPok4sv6": {
+				"name": "0 HP",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"0HZCBtJ4XMZteTEg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "NWosybErrtYz4O4u"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"hEQBY3LVCquloxhE": {
+				"name": "Revived",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"1KuQQZ8eUhXMa6Rj": {
+						"type": "healing",
+						"default": true,
+						"formula": "@prof",
+						"healingType": "temporaryHealing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
-		"description": "<p>As a bonus action, you can declare a last stand, which lasts for 10 minutes. While your Last Stand is active, for each allied creature within the range of your Commanding Presence ability that is at 0 hp, you and any friendly creatures within the same area gain a +1 bonus to damage with weapon attacks. These bonuses stack, but the maximum bonus you can receive is equal to your proficiency bonus. If one of the creatures is revived, the bonus to damage decreases, but you and allied creatures in the area gain temporary hp equal to your proficiency bonus. Once you have used this ability, you can’t use it again until you finish a long rest.</p>",
+		"description": "<p>As a bonus action, you can declare a last stand, which lasts for 10 minutes. While your Last Stand is active, for each allied creature within the range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} ability that is at 0 hp, you and any friendly creatures within the same area gain a +1 bonus to damage with weapon attacks. These bonuses stack, but the maximum bonus you can receive is equal to your proficiency bonus. If one of the creatures is revived, the bonus to damage decreases, but you and allied creatures in the area gain temporary hp equal to your proficiency bonus. Once you have used this ability, you can&rsquo;t use it again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitThunderOfWar",
@@ -70,13 +224,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "peo92no3ogcc68ox",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723581276439,
+		"modifiedTime": 1723581668484,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "peo92no3ogcc68ox"
 }
