@@ -13,7 +13,32 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"9eONv8ymuSjXLNvV": {
+				"name": "No Guts, No Glory",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"jq6TBtafHHy04aP7": {
+						"type": "effect",
+						"default": true,
+						"effectId": "psBHO5LAba2h2K8c"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 15th level the thrill of danger drives you to new heights. While bloodied can grant yourself advantage on weapon attack rolls until the start of your next turn. If you do so, all attack rolls against you have advantage for the same duration. Also while bloodied your chance to critically hit with weapon attacks is 19-20. If you already critically hit on better than a natural 20 you instead increase your critical hit range by 1 to a maximum of 17-20.</p><p>In addition, if you die all allies within 60 feet that see you fall gain inspiration.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -31,7 +56,7 @@
 		"featureType": "class",
 		"grants": {},
 		"prerequisite": "",
-		"requiresBloodied": false,
+		"requiresBloodied": true,
 		"schemaVersion": {
 			"version": 0.019,
 			"lastMigration": {
@@ -42,15 +67,80 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.PglDPE9WjwBG7G8A",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "9eONv8ymuSjXLNvV",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "No Guts, No Glory",
+			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"_id": "psBHO5LAba2h2K8c",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.meleeWeaponAttack",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.attack.rangedWeaponAttack",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Advantage on weapon attack rolls until the start of your next turn. If you do so, all attack rolls against you have advantage for the same duration.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723574637497,
+				"modifiedTime": 1723574695874,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "wnkqnnd0kjdxr5e5",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723574579676,
+		"modifiedTime": 1723574637531,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "wnkqnnd0kjdxr5e5"
 }
