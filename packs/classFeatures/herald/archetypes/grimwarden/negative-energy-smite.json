@@ -15,10 +15,10 @@
 		},
 		"actions": {
 			"AJ0zyMPLfDHrtFaR": {
-				"name": "Negative Energy Smite",
+				"name": "Draining Smite",
 				"activation": {
-					"cost": "",
-					"type": "special",
+					"cost": 1,
+					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
@@ -32,10 +32,40 @@
 				"target": {
 					"quantity": "",
 					"type": ""
+				},
+				"consumers": {
+					"ZGZ8nJDuVps3rfs8": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.divine-smite-uses",
+						"resource": "classResource",
+						"quantity": 1
+					},
+					"I8b0Df5Om4AVTg5T": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.empowered-smite",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"swhtjNY6z9IxMRtI": {
+						"type": "damage",
+						"default": true,
+						"formula": "@classResources.divine-smite-damage",
+						"damageType": "necrotic"
+					},
+					"VMJ5ks9ctcNP5lKH": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "floor(@classes.herald.level/2)"
+					}
 				}
 			}
 		},
-		"description": "<p dir=\"ltr\">Also at 7th level, you gain this new empowered smite.</p><h3 dir=\"ltr\">Draining Smite</h3><p dir=\"ltr\">Your smite instead deals necrotic damage. You gain temporary hit points equal to half your paladin level.</p>",
+		"description": "<p dir=\"ltr\">Also at 7th level, you gain this new empowered smite.</p>\n<h2 dir=\"ltr\">Draining Smite</h2>\n<p dir=\"ltr\">Your smite instead deals necrotic damage. You gain temporary hit points equal to half your paladin level.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "acesAdventuringGuideToNecromancy",
@@ -63,15 +93,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "1stj7iwlj9g1uzqb",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723498311633,
+		"modifiedTime": 1723498791641,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "1stj7iwlj9g1uzqb"
 }
