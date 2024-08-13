@@ -1,7 +1,7 @@
 {
-	"name": "Bring Down the Quarry",
+	"name": "Innured Constitution",
 	"type": "feature",
-	"img": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
+	"img": "icons/magic/defensive/armor-stone-skin.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -14,7 +14,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>You gain a +1 bonus to damage against your @UUID[Compendium.a5e.a5e-class-features.Item.t7ujv9cc4us40fj9]{Studied Adversaries}. This increases to +2 at 11th level and +3 at 15th level.</p>",
+		"description": "<p>You are immune to&nbsp;poison damage and the poisoned condition. &nbsp;This has also bolstered your general constitution, granting an expertise die on all saving throws against disease.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "heroesOldAndNew",
@@ -30,22 +30,34 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {
-			"uZyGrAcE9T5jpIAi": {
-				"grantType": "damage",
+			"GO3jwJKmLzC1vBcD": {
+				"grantType": "trait",
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "uZyGrAcE9T5jpIAi",
-				"label": "Bring Down the Quarry",
-				"bonus": "floor((@classes.ranger.level-1)/5)",
-				"context": {
-					"attackTypes": [
-						"meleeWeaponAttack",
-						"meleeSpellAttack",
-						"rangedWeaponAttack",
-						"rangedSpellAttack"
+				"_id": "GO3jwJKmLzC1vBcD",
+				"label": "Damage Immunity",
+				"traits": {
+					"base": [
+						"poison"
 					],
-					"default": false
+					"options": [],
+					"total": 0,
+					"traitType": "damageImmunities"
+				},
+				"img": ""
+			},
+			"RKLYJ2aBiP1WTq1w": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "RKLYJ2aBiP1WTq1w",
+				"label": "Condition Immunity",
+				"traits": {
+					"base": [
+						"poisoned"
+					]
 				}
 			}
 		},
@@ -71,9 +83,9 @@
 		"coreVersion": "12.330",
 		"systemId": "a5e",
 		"systemVersion": "0.19.23",
-		"createdTime": 1723575193802,
-		"modifiedTime": 1723575442193,
+		"createdTime": 1723575770360,
+		"modifiedTime": 1723575826567,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "hw5u8q1rokdmftft"
+	"_id": "9r88apmpba4cfitf"
 }

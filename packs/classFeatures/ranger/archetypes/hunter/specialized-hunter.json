@@ -13,15 +13,40 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>You can gain two Studied Adversaries at the end of your long rest instead of one. When you finish a short rest you may swap one for another. Once you have done so you cannot do so again until you finish a long rest.</p>",
+		"actions": {
+			"NGqkwbB563qyDnUv": {
+				"name": "Specialized Hunter",
+				"activation": {},
+				"consumers": {
+					"Nfbqfyxv8CZWEZxe": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You can gain two @UUID[Compendium.a5e.a5e-class-features.Item.t7ujv9cc4us40fj9]{Studied Adversaries} at the end of your long rest instead of one. When you finish a short rest you may swap one for another. Once you have done so you cannot do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "heroesOldAndNew",
 		"uses": {
 			"value": 1,
-			"max": "",
-			"per": "shortRest",
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -30,7 +55,7 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": "Level 3 Hunter Ranger archetype",
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -42,15 +67,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "ranger",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "760p9h4is8q78fjh",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723575001432,
+		"modifiedTime": 1723575313111,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "760p9h4is8q78fjh"
 }
