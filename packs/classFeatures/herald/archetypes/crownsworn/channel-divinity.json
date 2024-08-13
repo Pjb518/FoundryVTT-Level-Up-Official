@@ -1,0 +1,265 @@
+{
+	"name": "Channel Divinity",
+	"type": "feature",
+	"img": "icons/commodities/treasure/crown-gold-satin-gems-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"1xVT0N2PdABfVLt2": {
+				"name": "Invoke the Crown",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"Y9YaOBGa6eJIAtD0": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"uA3IB9ZnHqSvBBA1": {
+						"type": "effect",
+						"default": true,
+						"effectId": "bZs22kxBpaXEaL4q"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>As an action, you invoke the authority of those you serve. For the next hour, you gain advantage and an expertise die on all charisma Checks made with those who recognize that authority.</p>",
+				"duration": {
+					"unit": "",
+					"value": 1
+				}
+			},
+			"CjwhchoQtj9rAXvc": {
+				"name": "Kneel",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"lYh2dNVnVmAmOHrk": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"STnfKuUzR5Lh6XMP": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": ""
+					},
+					"Dgjf6Pa3Z3hKNvTl": {
+						"type": "effect",
+						"default": true,
+						"effectId": "NqdWq1srpxGgOX33"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>As an action, you command others to kneel in respect. All creatures within 30 feet except constructs that can hear and understand you must make a Wisdom saving throw. On a failure they must spend their next turn going prone and taking no other action.</p>",
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"ranges": {
+					"9q01ndq3zCI8YhiL": {
+						"range": "self"
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>At 3rd level you gain the following channel divinity options:</p>\n<h2>Invoke the Crown</h2>\n<p>As an action, you invoke the authority of those you serve. For the next hour, you gain advantage and an expertise die on all charisma Checks made with those who recognize that authority.</p>\n<h2>Kneel</h2>\n<p>As an action, you command others to kneel in respect. All creatures within 30 feet except constructs that can hear and understand you must make a Wisdom saving throw. On a failure they must spend their next turn going prone and taking no other action.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "heroesOldAndNew",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "herald",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.1OZSUGOxbOAQI4Sn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1xVT0N2PdABfVLt2",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Invoke the Crown",
+			"img": "icons/commodities/treasure/crown-gold-satin-gems-red.webp",
+			"_id": "bZs22kxBpaXEaL4q",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For the next hour, you gain advantage and an expertise die on all charisma Checks made with those who recognize that authority.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723552268876,
+				"modifiedTime": 1723552289516,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.1OZSUGOxbOAQI4Sn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CjwhchoQtj9rAXvc"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"img": "icons/commodities/treasure/crown-gold-satin-gems-red.webp",
+			"_id": "NqdWq1srpxGgOX33",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723552321860,
+				"modifiedTime": 1723552330662,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723552200091,
+		"modifiedTime": 1723552321892,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "w41tk2ma0ndcesmu"
+}
