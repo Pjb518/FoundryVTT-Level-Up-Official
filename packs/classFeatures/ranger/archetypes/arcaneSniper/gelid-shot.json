@@ -1,7 +1,7 @@
 {
-	"name": "Mobile Sniper",
+	"name": "Gelid Shot",
 	"type": "feature",
-	"img": "icons/skills/movement/ball-spinning-blue.webp",
+	"img": "icons/magic/water/projectile-arrow-water-ice-blue.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -14,14 +14,18 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"b6be4Z2QzJH3gtnH": {
-				"name": "Mobile Sniper",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
+			"Ak5MFCBinHeLJhdE": {
+				"name": "Gelid Shot",
+				"activation": {},
 				"consumers": {},
-				"rolls": {},
+				"rolls": {
+					"YFpjYl4YbkazSayX": {
+						"type": "damage",
+						"default": true,
+						"formula": "(floor(@prof/2)d8)",
+						"damageType": "cold"
+					}
+				},
 				"prompts": {},
 				"uses": {
 					"value": 0,
@@ -33,10 +37,14 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
 				}
 			}
 		},
-		"description": "<p>Also at level 15, you have distilled the old sniper’s wisdom of “shoot, then relocate” into a specialized magical technique. As an action, you may make a single ranged weapon attack and cast a spell of the Movement school, provided you have one available and sufficient spell slots to cast it.</p>",
+		"description": "<p>The ammunition is sheathed in an aura of icy magical cold. Upon impact, it deals a number of d8s of cold damage equal to half your proficiency modifier to the target. It also freezes liquid solid in a radius equal to 5 feet x your Proficiency bonus (including any potions the target is carrying, rendering them unusable until thawed). The supernatural cold infuses the solidified liquid for one minute, then it begins thawing normally.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "arcaneSniper",
@@ -74,9 +82,9 @@
 		"coreVersion": "12.330",
 		"systemId": "a5e",
 		"systemVersion": "0.19.23",
-		"createdTime": 1723729416363,
-		"modifiedTime": 1723729438347,
+		"createdTime": 1723665413971,
+		"modifiedTime": 1723665902648,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "kswu0otmau9zgpj5"
+	"_id": "CNHDPYEPiNtPYuVV"
 }
