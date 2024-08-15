@@ -15,31 +15,8 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {
-			"33Qqy3HFHvdyQZGf": {
-				"name": "Aura of the Champion",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"area": {
-					"shape": "sphere",
-					"radius": 15,
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": "creature"
-				},
-				"consumers": {}
-			}
-		},
-		"description": "<p>Beginning at 7th level, you gain a third aura that is active alongside your @UUID[Compendium.a5e.a5e-class-features.xezwxikwrsfkzg4o]{Sacred Aura} and has the same range. Choose one of the following options.</p><p><strong>@UUID[Compendium.a5e.a5e-class-features.a9m3vhe9x3tho5o6]{Aura of the Champion: Aura of Darkness}</strong> After initiative is rolled, when a hostile creature starts its turn in your aura or first enters into it on a turn, it makes a Wisdom saving throw or becomes frightened of you for 1 minute. Once a creature has been frightened by this aura, it is immune to the aura&rsquo;s effects for 24 hours.</p><p><strong>@UUID[Compendium.a5e.a5e-class-features.cnwri456q5q5jqet]{Aura of the Champion: Aura of Light}</strong> An unconscious ally with 0 hit points that starts its turn in your aura automatically succeeds on one death saving throw each turn. Once a creature has succeeded on three death saving throws while in your aura, it cannot benefit from this effect until it has finished a long rest.</p>",
+		"actions": {},
+		"description": "<p>Beginning at 7th level, you gain a third aura that is active alongside your @UUID[Compendium.a5e.a5e-class-features.xezwxikwrsfkzg4o]{Sacred Aura} and has the same range. Choose one of the following options.</p>\n<p><em><strong>Aura of Darkness.</strong></em> After initiative is rolled, when a hostile creature starts its turn in your aura or first enters into it on a turn, it makes a Wisdom saving throw or becomes frightened of you for 1 minute. Once a creature has been frightened by this aura, it is immune to the aura&rsquo;s effects for 24 hours.</p>\n<p><em><strong>Aura of Light.</strong></em> An unconscious ally with 0 hit points that starts its turn in your aura automatically succeeds on one death saving throw each turn. Once a creature has succeeded on three death saving throws while in your aura, it cannot benefit from this effect until it has finished a long rest.</p>\n<p>&nbsp;</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -54,7 +31,33 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"FgbmHdXYpnq9NqUI": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "FgbmHdXYpnq9NqUI",
+				"label": "Aura of the Champion",
+				"features": {
+					"total": 1,
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.a9m3vhe9x3tho5o6",
+							"name": "Aura of the Champion: Aura of Darkness",
+							"img": "icons/magic/unholy/barrier-shield-glowing-pink.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.cnwri456q5q5jqet",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -67,13 +70,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "cy52x6gmy75gcpo1",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723729955925,
+		"modifiedTime": 1723730019657,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "cy52x6gmy75gcpo1"
 }

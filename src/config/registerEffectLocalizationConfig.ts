@@ -412,6 +412,7 @@ export default function registerEffectLocalizationConfig() {
     '@token.light.luminosity': 'A5E.effects.keys.token.light.luminosity',
     '@token.light.saturation': 'A5E.effects.keys.token.light.saturation',
     '@token.light.shadows': 'A5E.effects.keys.token.light.shadows',
+    '@token.light.negative': 'A5E.effects.keys.token.light.negative',
 
     '@token.texture.src': 'A5E.effects.keys.token.texture.src',
     '@token.texture.scaleX': 'A5E.effects.keys.token.texture.scaleX',
