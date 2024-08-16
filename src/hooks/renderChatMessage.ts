@@ -1,5 +1,6 @@
 import ItemCard from '../apps/chat/ItemCard.svelte';
-import CheckCard from '../apps/chat/RollCard.svelte';
+import RollCard from '../apps/chat/RollCard.svelte';
+import RollTableCard from '../apps/chat/RollTableCard.svelte';
 
 // import A5eChatCard from '../apps/chat/ChatCard.svelte';
 
@@ -15,7 +16,10 @@ export default function renderChatMessage(message, html) {
       Component = ItemCard;
       break;
     case 'roll':
-      Component = CheckCard;
+      Component = RollCard;
+      break;
+    case 'rollTableOutput':
+      Component = RollTableCard;
       break;
     default:
       return;

@@ -94,7 +94,7 @@
     let showRollConfig = false;
 
     const message = getContext("message");
-    const actor = fromUuidSync($message?.flags?.a5e?.actorId);
+    const actor = fromUuidSync($message?.system.actorId);
     const { user } = game;
 
     $: isCriticalFailure = determineIfCriticalFailure(roll);
