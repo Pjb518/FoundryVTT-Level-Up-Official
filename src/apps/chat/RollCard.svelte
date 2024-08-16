@@ -37,8 +37,7 @@
         // @ts-expect-error
         ChatMessage.applyRollMode(chatData, $message.rollMode);
         // @ts-expect-error
-        const chatCard = await ChatMessage.create(chatData);
-        return chatCard;
+        await ChatMessage.create(chatData);
     }
 
     function _toggleExpertiseDice(rollIndex, expertiseDice) {
@@ -58,12 +57,7 @@
     setContext("message", message);
 </script>
 
-<RollCardHeader
-    {actorName}
-    {img}
-    messageDocument={$message}
-    on:repeatCard={() => repeatRoll()}
-/>
+<RollCardHeader {actorName} {img} messageDocument={$message} on:repeatCard={repeatRoll} />
 
 <article class="a5e-chat-card__body">
     <section class="rolls">

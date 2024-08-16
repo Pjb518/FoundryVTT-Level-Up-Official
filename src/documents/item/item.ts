@@ -195,6 +195,7 @@ class ItemA5e extends BaseItemA5e {
       rollMode: activationData.visibilityMode ?? game.settings.get('core', 'rollMode'),
       system: {
         actionName: action.name,
+        actionId,
         actorName: this.name,
         actorId: this.actor?.uuid,
         img: action.img ?? this.img ?? 'icons/svg/item-bag.svg',
@@ -238,7 +239,9 @@ class ItemA5e extends BaseItemA5e {
       type: 'item'
     };
 
+    // @ts-expect-error
     ChatMessage.applyRollMode(chatData, activationData.visibilityMode ?? game.settings.get('core', 'rollMode'));
+    // @ts-expect-error
     const chatCard = await ChatMessage.create(chatData);
 
     // Apply onUse effects to self

@@ -4,6 +4,7 @@ const { fields } = foundry.data;
 
 const itemCardSchema = () => ({
   actionName: new fields.StringField({ required: true, nullable: false, initial: '' }),
+  actionId: new fields.StringField({ required: false, nullable: true }),
   actionDescription: new fields.HTMLField({ required: true, nullable: false, initial: '' }),
   castingLevel: new fields.NumberField({ required: true, nullable: true }),
   itemDescription: new fields.HTMLField({ required: true, nullable: false, initial: '' }),

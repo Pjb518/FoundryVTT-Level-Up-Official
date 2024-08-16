@@ -1,7 +1,6 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { createEventDispatcher } from "svelte";
     import { setContext } from "svelte";
     import { slide } from "svelte/transition";
 
@@ -179,6 +178,13 @@
         $message.update({ rolls });
     }
 
+    function repeatRoll() {
+        const item = fromUuidSync($message.system.itemId);
+        const actionId = $message.system.actionId ?? null;
+
+        item.activate(actionId);
+    }
+
     const message = new TJSDocument(messageDocument);
     const { system } = $message;
 
@@ -199,7 +205,6 @@
     const rolls = prepareRolls($message);
     const hasRolls = rolls.length;
     const item = fromUuidSync($message.system.itemId ?? "");
-    const dispatch = createEventDispatcher();
     let hideDescription =
         game.settings.get("a5e", "hideChatDescriptionsByDefault") ?? false;
 
@@ -214,7 +219,7 @@
     {img}
     messageDocument={$message}
     subtitle={getSubtitle(actorName, actionName)}
-    on:repeatCard={() => null}
+    on:repeatCard={repeatRoll}
     on:toggleDescription={() => (hideDescription = !hideDescription)}
     on:toggleCriticalDamage={toggleCriticalDamage}
 />
