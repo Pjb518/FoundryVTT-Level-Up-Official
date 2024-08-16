@@ -16,13 +16,22 @@
     import prepareRolls from "../dataPreparationHelpers/cardRolls/prepareRolls";
     import prepareSelectedTokenActors from "../dataPreparationHelpers/prepareSelectedTokenActors";
     import pressedKeysStore from "../../stores/pressedKeysStore";
-    import ItemSummary from "../components/itemSummaries/ItemSummary.svelte";
+    import zip from "../../utils/zip";
 
+    import ItemSummary from "../components/itemSummaries/ItemSummary.svelte";
+    import ItemCardHeader from "./ItemCardHeader.svelte";
     import PromptButton from "./body/PromptButton.svelte";
-    import CardHeader from "./RollCardHeader.svelte";
     import RollSummary from "./body/RollSummary.svelte";
 
     export let messageDocument;
+
+    function getSubtitle(name, actionName) {
+        console.log(name, actionName);
+        if (!actionName || typeof actionName !== "string") return null;
+        if (name.trim() === actionName.trim()) return null;
+
+        return actionName;
+    }
 
     // TODO: Update this
     function getEffectIcon(prompt) {
@@ -256,7 +265,7 @@
         });
 
         // Use the new attack roll information to determine whether to display crit damage
-        if (originalRollData.type === "attack") dispatch("reevaluateCritMode");
+        if (originalRollData.type === "attack") reevaluateCritMode();
     }
 
     async function triggerPrompt(prompt) {
@@ -375,7 +384,7 @@
         "effect",
     ];
 
-    const { actorName, img } = system;
+    const { actionName, actorName, img } = system;
     const { actionDescription, itemDescription, unidentifiedDescription } = system;
 
     const { isGM } = game.user;
@@ -394,7 +403,15 @@
     $: summaryData = $message.system.summaryData;
 </script>
 
-<CardHeader {actorName} {img} messageDocument={$message} />
+<ItemCardHeader
+    {actorName}
+    {img}
+    messageDocument={$message}
+    subtitle={getSubtitle(actorName, actionName)}
+    on:repeatCard={() => null}
+    on:toggleDescription={() => (hideDescription = !hideDescription)}
+    on:toggleCriticalDamage={toggleCriticalDamage}
+/>
 
 <article class="a5e-chat-card__body">
     {#if Object.values(summaryData ?? {}).some(Boolean)}

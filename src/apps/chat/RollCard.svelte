@@ -11,6 +11,8 @@
 
     export let messageDocument;
 
+    function repeatRoll() {}
+
     const message = new TJSDocument(messageDocument);
     const { system } = $message;
 
@@ -20,7 +22,12 @@
     setContext("message", message);
 </script>
 
-<RollCardHeader {actorName} {img} messageDocument={$message} />
+<RollCardHeader
+    {actorName}
+    {img}
+    messageDocument={$message}
+    on:repeatCard={() => repeatRoll()}
+/>
 
 <article class="a5e-chat-card__body">
     <section class="rolls">
