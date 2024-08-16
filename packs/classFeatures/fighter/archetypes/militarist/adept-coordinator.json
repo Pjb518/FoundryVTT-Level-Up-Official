@@ -14,15 +14,101 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 7th level, when using Prior Tactics the chosen allies gain an expertise die on their next spell or weapon attack.</p><p>In addition, damage dealt by an attack that benefits from your Pior Tactics counts as magical for the purposes of overcoming damage resistances and immunities.</p>",
+		"actions": {
+			"KQl2XzpuZPBA2pY3": {
+				"name": "Prior Tactics",
+				"activation": {},
+				"consumers": {
+					"86gkrtvtMen7RgGI": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"s1AoOpVBuMYnf1lo": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					},
+					"T2FV5QALSuqyx3Na": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"A6cKOaHgrTNo6RN5": {
+						"type": "generic",
+						"default": true,
+						"label": "Extra Damage",
+						"formula": "1d8"
+					},
+					"snX0GUCDHvCDnAyG": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1
+				},
+				"ranges": {
+					"glaRgPU3gkQ2mQnl": {
+						"range": "short"
+					}
+				},
+				"img": "icons/skills/social/diplomacy-unity-alliance.webp"
+			},
+			"7S61TbPpqknNb992": {
+				"name": "Additional Exertion",
+				"activation": {},
+				"consumers": {
+					"3gDXs5EwcDoHIs5g": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/skills/social/diplomacy-unity-alliance.webp"
+			}
+		},
+		"description": "<p>At 7th level, when using @UUID[Compendium.a5e.a5e-class-features.Item.6kysmxmq2ey3pdtb]{Prior Tactics} the chosen allies gain an expertise die on their next spell or weapon attack.</p>\n<p>In addition, damage dealt by an attack that benefits from your Pior Tactics counts as magical for the purposes of overcoming damage resistances and immunities.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "gpg3",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -43,14 +129,117 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "fighter",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.fBWYztPeT96RGlW2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "KQl2XzpuZPBA2pY3"
+				}
+			},
+			"transfer": false,
+			"name": "Prior Tactics",
+			"img": "icons/skills/social/diplomacy-unity-alliance.webp",
+			"_id": "SYF6HLFm48OCWeEY",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Prior Tactics\",\"formula\":\"1d8\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/skills/social/diplomacy-unity-alliance.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>On their next successful weapon attack, the chosen allies deal an extra 1d8 damage as they enact your recommended strategy. They also gain an expertise die on their next spell or weapon attack.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723416632325,
+				"modifiedTime": 1723416755909,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.fBWYztPeT96RGlW2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "7S61TbPpqknNb992"
+				}
+			},
+			"transfer": false,
+			"name": "Prior Tactics",
+			"img": "icons/skills/social/diplomacy-unity-alliance.webp",
+			"_id": "YCtU2i9ZxPqGY0IV",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Prior Tactics\",\"formula\":\"1d8\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/skills/social/diplomacy-unity-alliance.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>On their next successful weapon attack, the chosen allies deal an extra 1d8 damage as they enact your recommended strategy.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723416633324,
+				"modifiedTime": 1723416633324,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "5fkktriloy8q2uso",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723416591258,
+		"modifiedTime": 1723416638569,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "5fkktriloy8q2uso"
 }

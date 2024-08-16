@@ -12,7 +12,29 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"i5MzZ9k4M6RnBnfq": {
+				"name": "Menacing",
+				"activation": {
+					"type": "minute",
+					"cost": 10
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 3rd level, you begin to acquire a most fearsome reputation. You gain proficiency with Intimidation if you do not already have it, and you learn two Intimidation skill specialties.</p><p>Also, you can spend 10 minutes to customize any armor you wear, granting it either the Spiked or Stealthy property. You may only grant one such property to a specific suit of armor at a time.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -28,23 +50,66 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"neXeZ1DK0HYCG7bW": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "neXeZ1DK0HYCG7bW",
+				"label": "Menacing",
+				"keys": {
+					"base": [
+						"itm"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill",
+				"img": "",
+				"isExpertise": false
+			},
+			"K8PiMfYj0qVjqnOK": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "K8PiMfYj0qVjqnOK",
+				"label": "Menacing",
+				"specialties": {
+					"base": [],
+					"options": [
+						"authority",
+						"ferocity",
+						"interrogation",
+						"subtleThreats",
+						"weaponDisplays"
+					],
+					"total": 2
+				},
+				"skill": "itm"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "marshal"
+		"classes": "marshal",
+		"class": ""
 	},
 	"img": "icons/skills/social/intimidation-impressing.webp",
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "vmw5zfetjon3g712",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723400153047,
+		"modifiedTime": 1723400223056,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "vmw5zfetjon3g712"
 }

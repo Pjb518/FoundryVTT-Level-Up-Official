@@ -1,8 +1,57 @@
 {
 	"name": "Fluent Control",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/magic/control/mouth-smile-deception-purple.webp",
+	"effects": [
+		{
+			"origin": "Item.GkP7mLP3O4DVGGHF",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Fluent Control",
+			"img": "icons/magic/control/mouth-smile-deception-purple.webp",
+			"_id": "oPHx8PdaTprSAp5F",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.abilities.con.save.concentrationBonus",
+					"value": "@int.mod",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723332956742,
+				"modifiedTime": 1723332981341,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +64,54 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 10th level, you can use your Flexible Thinking feature as a bonus action (instead of an action). </p><p>In addition, you add your Intelligence modifier to Constitution saving throws made to maintain concentration on spells.</p>",
+		"actions": {
+			"JpxcETivnEpOkYrK": {
+				"name": "Flexible Thinking",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"r3tvPggKRo6p9DaE": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.flexible-thinking",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/movement/trail-streak-zigzag-yellow.webp"
+			}
+		},
+		"description": "<p>At 10th level, you can use your @UUID[Compendium.a5e.a5e-class-features.Item.v7ivxc03k9nwrw2n]{Flexible Thinking} feature as a bonus action (instead of an action).</p>\n<p>In addition, you add your Intelligence modifier to Constitution saving throws made to maintain concentration on spells.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -44,13 +139,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "wizard",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "f5y6oj6eq6sxz3ez",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723332695569,
+		"modifiedTime": 1723332951184,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "f5y6oj6eq6sxz3ez"
 }

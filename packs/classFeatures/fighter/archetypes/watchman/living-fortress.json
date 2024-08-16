@@ -16,8 +16,77 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>You become an almost impenetrable barrier for those you would keep from harm. As a bonus action, you may designate a number of creatures you can see equal to your Wisdom modifier (minimum 1) as your charges. Whenever one of those creatures is within 10 feet of you and is subject to an attack, you may spend 1 exertion to move adjacent to the creature and activate your <em>Get Behind Me</em> ability. You need not expend your reaction to use <em>Get Behind Me</em> when activated this way.</p>",
+		"actions": {
+			"Il8xqVPaCUX2Y8un": {
+				"name": "Living Fortress",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"IbKO3Z4OM43QhZiB": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": false
+				}
+			},
+			"9VO6ygnp2FXKMdRr": {
+				"name": "Get Behind Me",
+				"activation": {
+					"type": "",
+					"cost": 1,
+					"reactionTrigger": "A creature within 5 feet of you is targeted with an attack"
+				},
+				"consumers": {
+					"AuwMDvdLQPApwuUV": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {},
+				"target": {
+					"type": "",
+					"quantity": 1
+				},
+				"img": "icons/skills/melee/shield-block-fire-orange.webp"
+			}
+		},
+		"description": "<p>You become an almost impenetrable barrier for those you would keep from harm. As a bonus action, you may designate a number of creatures you can see equal to your Wisdom modifier (minimum 1) as your charges. Whenever one of those creatures is within 10 feet of you and is subject to an attack, you may spend 1 exertion to move adjacent to the creature and activate your @UUID[Compendium.a5e.a5e-class-features.Item.pewyecxyp78fg8y2]{Get Behind Me} ability. You need not expend your reaction to use Get Behind Me when activated this way.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -45,12 +114,16 @@
 				}
 			}
 		},
-		"classes": "fighter"
+		"classes": "fighter",
+		"class": ""
 	},
-	"_id": "9x9zdsno3lqstoft",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723213497663,
+		"modifiedTime": 1723213576886,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "9x9zdsno3lqstoft"
 }

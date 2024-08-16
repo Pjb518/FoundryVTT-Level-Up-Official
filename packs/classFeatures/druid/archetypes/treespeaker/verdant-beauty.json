@@ -1,0 +1,200 @@
+{
+	"name": "Verdant Beauty",
+	"type": "feature",
+	"img": "icons/magic/nature/lotus-glow-pink.webp",
+	"effects": [
+		{
+			"origin": "Item.zf1kpjwhg9fabe01",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"duration": {
+						"unit": "hours"
+					},
+					"actionId": "FbokOMtQutmrQHVq"
+				}
+			},
+			"transfer": false,
+			"name": "Charm Person",
+			"_id": "FS9HvP0Y3GV07azw",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723063268668,
+				"modifiedTime": 1723063268668,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/control/control-influence-puppet.webp",
+			"type": "base",
+			"system": {},
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"FbokOMtQutmrQHVq": {
+				"name": "Charm Person",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"lxWKhemdVoL2ALbs": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"pvX82eum3zUAY8rx": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"QThaA0QZtap4PR4N": {
+						"type": "effect",
+						"default": true,
+						"effectId": "",
+						"label": "Charm Person"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"D03zfzZhGAKBLTsK": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"img": "icons/magic/control/control-influence-puppet.webp",
+				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>Colorful patterns and petals grow across your body. You gain proficiency with Deception and Persuasion. If you already have proficiency with either of these skills, you instead gain an expertise die. In addition, you can use an action to emit charming spores at a target within 30 feet as per the spell @UUID[Compendium.a5e.a5e-spells.Item.zf1kpjwhg9fabe01]{Charm Person}. Creatures that are immune to the poisoned condition are unaffected by these spores.</p>\n<p>You may emit spores in this way number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"0n53xG7zg34Kzjf5": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "0n53xG7zg34Kzjf5",
+				"label": "Verdant Beauty",
+				"keys": {
+					"base": [
+						"dec",
+						"per"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "druid",
+		"class": ""
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723063136746,
+		"modifiedTime": 1723063297441,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "az7ljdetcqh8mgyr"
+}

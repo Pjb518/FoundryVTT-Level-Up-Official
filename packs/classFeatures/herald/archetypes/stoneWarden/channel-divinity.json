@@ -1,0 +1,184 @@
+{
+	"folder": null,
+	"name": "Channel Divinity",
+	"type": "feature",
+	"img": "icons/magic/earth/barrier-stone-pillar-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Tpk6QXQz0E31dIAp": {
+				"name": "Earthen Resolve",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Subjected to an effect that would alter your behavior or that would allow another creature to dictate your actions"
+				},
+				"consumers": {
+					"md0YraMx6NkiaIfV": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"QFI5s6KoI0lxnuhT": {
+				"name": "Rock Skin",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"md0YraMx6NkiaIfV": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"iUUs4zpjWlWZRtCF": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "@classes.herald.level + max(@cha.mod,1)"
+					}
+				},
+				"prompts": {
+					"7aJMyhJ9XBWMM2Kz": {
+						"type": "effect",
+						"default": true,
+						"effectId": "BDBqbbiaFfrxN10q"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>When you choose this archetype at 3rd level, you gain the following two Channel Divinity options.</p>\n<p><em><strong>Earthen Resolve. </strong></em>When you are subjected to an effect that would alter your behavior (such as becoming charmed, confused, or frightened) or that would allow another creature to dictate your actions (such as the @UUID[Compendium.a5e.a5e-spells.Item.bs1zn1s8ewwa4tfx]{Command} spell), you can use your reaction to negate that effect on you.</p>\n<p><em><strong>Rock Skin. </strong></em>You can use an action to cover yourself in a magical layer of gray stone plates. You gain temporary hit points equal to your herald level + your Charisma modifier (minimum of 1). The temporary hit points last up to 1 hour. While the temporary hit points remain, critical hits against you are treated as normal hits.</p>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "dungeonDelversGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "herald",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.W4IORJrx91VxTgjD",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "QFI5s6KoI0lxnuhT",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rock Skin",
+			"img": "icons/magic/earth/barrier-stone-pillar-purple.webp",
+			"_id": "BDBqbbiaFfrxN10q",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While the temporary hit points remain, critical hits against you are treated as normal hits.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723457551281,
+				"modifiedTime": 1723457568576,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723457217913,
+		"modifiedTime": 1723457573540,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "sljou1gszgtwew08"
+}

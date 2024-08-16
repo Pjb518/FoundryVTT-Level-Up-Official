@@ -1,0 +1,283 @@
+{
+	"folder": null,
+	"name": "Channel Divinity",
+	"type": "feature",
+	"img": "icons/magic/fire/flame-burning-fist-strike.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"DRjIfbNtApa30J5d": {
+				"name": "Elemental Weapon",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"FfGJFJQV47Dx4EMw": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"cUPP1cqXTpuO1MA6": {
+						"type": "effect",
+						"default": true,
+						"effectId": "UYvipW0umfuYElnf"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p dir=\"ltr\">As an action, you can imbue one weapon that you are holding with energy, using your Channel Divinity. For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (a minimum bonus of +1), changing the damage type the weapon deals to that of your element. The weapon emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration.</p>\n<p dir=\"ltr\">You can end this effect on your turn (no action required). If you are no longer holding or carrying this weapon, or if you fall unconscious, this effect ends.</p>",
+				"descriptionOutputs": [
+					"action"
+				],
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"target": {
+					"type": "object",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "DRjIfbNtApa30J5d",
+				"default": false,
+				"img": "icons/magic/fire/flame-burning-fist-strike.webp",
+				"ranges": {}
+			},
+			"F2EHq37rw0zBycfT": {
+				"name": "Rebuke Elementals",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"Px1b9rdutJlR3Ld2": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"YTVoMCPCPTx56OVQ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"ns3I9xp0AyBcMCEk": {
+						"type": "effect",
+						"default": true,
+						"effectId": "GmD4AoMs2CioOop1"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p dir=\"ltr\">As an action, you present your holy symbol and utter a word of elemental power, using your Channel Divinity.</p>\n<p dir=\"ltr\">Each Elemental within 30 feet of you that can see or hear you must make a successful Wisdom saving throw or be turned for 1 minute or until it takes damage.&nbsp;</p>\n<p dir=\"ltr\">Creatures who fail this save by 5 or more regard you as their master for the duration. While they are under this effect, you may use your action to issue simple commands (no more than a sentence or two) which they are compelled to obey. They will not take any action that is obviously harmful to them, and so will not leap from a great height, jump onto a sword, or purposefully self-inflict any damage. They follow the command until you issue a new one.</p>",
+				"descriptionOutputs": [
+					"action"
+				],
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"tc7I2TYsfgdQzuls": {
+						"range": "short"
+					}
+				},
+				"id": "F2EHq37rw0zBycfT",
+				"default": false,
+				"img": "icons/magic/fire/flame-burning-fist-strike.webp",
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">Also at 3rd level, you gain the following two Channel Divinity options.&nbsp;</p>\n<p dir=\"ltr\"><em><strong>Elemental Weapon.</strong></em> As an action, you can imbue one weapon that you are holding with energy, using your Channel Divinity. For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (a minimum bonus of +1), changing the damage type the weapon deals to that of your element. The weapon emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration.</p>\n<p dir=\"ltr\">You can end this effect on your turn (no action required). If you are no longer holding or carrying this weapon, or if you fall unconscious, this effect ends.</p>\n<p dir=\"ltr\"><em><strong>Rebuke Elementals.</strong></em> As an action, you present your holy symbol and utter a word of elemental power, using your Channel Divinity.</p>\n<p dir=\"ltr\">Each Elemental within 30 feet of you that can see or hear you must make a successful Wisdom saving throw or be turned for 1 minute or until it takes damage.&nbsp;</p>\n<p dir=\"ltr\">Creatures who fail this save by 5 or more regard you as their master for the duration. While they are under this effect, you may use your action to issue simple commands (no more than a sentence or two) which they are compelled to obey. They will not take any action that is obviously harmful to them, and so will not leap from a great height, jump onto a sword, or purposefully self-inflict any damage. They follow the command until you issue a new one.</p>\n<p>&nbsp;</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "herald",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.AgugJvkczKrhH1yf",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "DRjIfbNtApa30J5d",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Elemental Weapon",
+			"img": "icons/magic/fire/flame-burning-fist-strike.webp",
+			"_id": "UYvipW0umfuYElnf",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Elemental Weapon\",\"formula\":\"max(@cha.mod,1)\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/fire/flame-burning-fist-strike.webp\"}",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "@token.light.bright",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "40",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p dir=\"ltr\">For 1 minute, you add your Charisma modifier to attack rolls made with that weapon (a minimum bonus of +1), changing the damage type the weapon deals to that of your element. The weapon emits bright light in a 20-foot radius and dim light 20 feet beyond that. If the weapon is not already magical, it becomes magical for the duration.</p>\n<p dir=\"ltr\">You can end this effect on your turn (no action required). If you are no longer holding or carrying this weapon, or if you fall unconscious, this effect ends.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723237968153,
+				"modifiedTime": 1723238058698,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.AgugJvkczKrhH1yf",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "F2EHq37rw0zBycfT",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Turned",
+			"img": "icons/magic/fire/flame-burning-fist-strike.webp",
+			"_id": "GmD4AoMs2CioOop1",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Creatures who fail this save by 5 or more regard you as their master for the duration. While they are under this effect, you may use your action to issue simple commands (no more than a sentence or two) which they are compelled to obey. They will not take any action that is obviously harmful to them, and so will not leap from a great height, jump onto a sword, or purposefully self-inflict any damage. They follow the command until you issue a new one.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723238126018,
+				"modifiedTime": 1723238148144,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723237545461,
+		"modifiedTime": 1723238126059,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "2jd2dynshh5qyj7c"
+}

@@ -1,7 +1,7 @@
 {
 	"name": "Brute Strength",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,41 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"grb4VzLQ887FiAeB": {
+				"name": "Brute Strength",
+				"activation": {},
+				"consumers": {
+					"eQXEZFohLwGu59Gn": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"MJTwEF8fXLYX4Jiz": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 3rd level, you gain the ability to exert extra force into your swings. Whenever you hit a creature with a melee weapon attack, you can expend exertion points to deal an extra 1d8 bludgeoning damage per exertion point spent. The maximum amount of exertion points you can spend in this way on a single attack is equal to your proficiency bonus.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +78,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "fighter",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "tl5j3nbiorr6x612",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723123576839,
+		"modifiedTime": 1723123679165,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "tl5j3nbiorr6x612"
 }

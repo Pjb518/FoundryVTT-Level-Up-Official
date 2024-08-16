@@ -12,8 +12,44 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>The bonus damage of Bloodthirsty increases to 1d8 necrotic damage, and enemy creatures within your Commanding Presence have disadvantage on death saving throws.</p>",
+		"actions": {
+			"3UtQqIPKDK5nvD20": {
+				"name": "Bloodthirsty",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"Kvn46wKyfooFUNz4": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					},
+					"EuFiNOTECDgFlNOs": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					},
+					"84GcFpa2TrhzSre3": {
+						"type": "effect",
+						"default": true,
+						"effectId": "AzJlHGz2UqyXMJqk"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/skills/wounds/blood-drip-droplet-red.webp"
+			}
+		},
+		"description": "<p>The bonus damage of @UUID[Compendium.a5e.a5e-class-features.Item.lkx4scdvdkfsa8xx]{Bloodthirsty} increases to 1d8 necrotic damage, and enemy creatures within your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} have disadvantage on death saving throws.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -35,16 +71,169 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "marshal"
+		"classes": "marshal",
+		"class": ""
 	},
 	"img": "icons/magic/unholy/barrier-fire-pink.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.FrS0cHWBu0oKRWWZ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "3UtQqIPKDK5nvD20",
+					"applyToSelf": false
+				}
+			},
+			"transfer": false,
+			"name": "Bloodthirsty",
+			"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
+			"_id": "98qdj96VGwygsYgz",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Bloodthirsty\",\"formula\":\"1d8\",\"damageType\":\"necrotic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/skills/wounds/blood-drip-droplet-red.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You and creatures friendly to you within the area of your Commanding Presence do an additional 1d4 of necrotic damage with their weapon attacks, and any creature reduced to 0 hit points by an affected creature immediately accrues one failed death save.</p>\n<p>Finally, you and your allies within your Commanding Presence gain advantage on all attacks made against incapacitated creatures and noncombatants. If you or an ally would already have advantage on the attack, you deal an additional 1d4 of necrotic damage instead, which stack with the bonus damage above.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723401183581,
+				"modifiedTime": 1723401206556,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.FrS0cHWBu0oKRWWZ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "3UtQqIPKDK5nvD20"
+				}
+			},
+			"transfer": false,
+			"name": "Two Allied Creatures",
+			"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
+			"_id": "ZxcEx1vZQUS0XE9v",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.skills.itm.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>In addition, as long as you have at least two allied creatures in the area of your Commanding Presence, you all gain an expertise die on Intimidation checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723401183581,
+				"modifiedTime": 1723401183581,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.BeFSFPHmLMwu2FZm",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "3UtQqIPKDK5nvD20"
+				}
+			},
+			"transfer": false,
+			"name": "Enemies",
+			"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
+			"_id": "AzJlHGz2UqyXMJqk",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.deathSave",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Disadvantage on death saving throws.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723401209399,
+				"modifiedTime": 1723401229855,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "qyt7qazi1opfz39d",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723400808967,
+		"modifiedTime": 1723401209428,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "qyt7qazi1opfz39d"
 }
