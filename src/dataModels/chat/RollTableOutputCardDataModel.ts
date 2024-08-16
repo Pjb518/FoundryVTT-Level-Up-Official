@@ -4,7 +4,9 @@ const { fields } = foundry.data;
 
 const rollTableCardSchema = () => ({
   description: new fields.HTMLField({ required: true, nullable: false, initial: '' }),
-  title: new fields.StringField({ required: true, nullable: false, initial: '' })
+  resultTitle: new fields.StringField({ required: true, nullable: false, initial: '' }),
+  tableId: new fields.StringField({ required: false, nullable: true, initial: '' }),
+  tableName: new fields.StringField({ required: true, nullable: false, initial: '' })
 });
 
 declare namespace A5eRollTableOutputCardData {
