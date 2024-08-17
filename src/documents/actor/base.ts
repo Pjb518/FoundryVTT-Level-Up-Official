@@ -209,14 +209,10 @@ class BaseActorA5e extends Actor {
     this.prepareDerivedData();
     this.afterDerivedData();
 
-    // TODO: Deprecation - Remove support for this
-    // @ts-expect-error
-    if ((this.system.schemaVersion?.version ?? this.system.schema?.version) < 0.005) return;
     this.prepareArmorClass();
     this.RollOverrideManager.initialize();
 
     // Initialize the SpellBooks
-    // @ts-expect-error
     this.spellBooks = new SpellBookManager(this);
     this.spellBooks.forEach((spellBook) => spellBook.prepareBaseData());
   }
@@ -231,21 +227,10 @@ class BaseActorA5e extends Actor {
     this.grants = new ActorGrantsManager(this);
 
     // Add AC data to the actor.
-    // TODO: Deprecation
     // @ts-expect-error
-    if ((this.system.schemaVersion?.version ?? this.system.schema?.version) >= 0.005) {
-      if (typeof this.system.attributes.ac !== 'object') {
-        this.system.attributes.ac = {
-          baseFormula: `${this.system.attributes.ac}`,
-          value: 0
-        };
-      }
-
-      // @ts-expect-error
-      this.system.attributes.ac.changes = {
-        override: null, bonuses: { components: [], value: 0 }
-      };
-    }
+    this.system.attributes.ac.changes = {
+      override: null, bonuses: { components: [], value: 0 }
+    };
   }
 
   /**
@@ -388,9 +373,6 @@ class BaseActorA5e extends Actor {
     this.prepareMovement();
     this.prepareSenses();
 
-    // TODO: Deprecation warning
-    // @ts-expect-error
-    if ((this.system.schemaVersion?.version ?? this.system.schema?.version) < 0.005) return;
     foundry.utils.setProperty(this, 'system.attributes.ac.changes', this.prepareArmorChanges());
   }
 
@@ -1756,21 +1738,9 @@ class BaseActorA5e extends Actor {
   override async _preCreate(data, options, user) {
     await super._preCreate(data, options, user);
 
-    const items = [...this.items];
     // Add schema version
-    // @ts-expect-error
-    if (!this.system.schemaVersion?.version && !this.system.schema?.version) {
-      let version: number | null;
-      // @ts-expect-error
-      if (['number', 'string'].includes(typeof this.system.ac)) version = 0.004;
-      // @ts-expect-error
-      else if (items.some((i) => typeof i.system?.equipped === 'boolean')) version = 0.003;
-      // @ts-expect-error
-      else if (items.some((i) => typeof i.system?.recharge === 'string')) version = 0.002;
-      // @ts-expect-error
-      else if (items.some((i) => typeof i.system?.uses?.max === 'number')) version = 0.001;
-      else if (typeof this.system.attributes.movement?.walk?.unit !== 'string') version = null;
-      else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
+    if (!this.system.schemaVersion?.version) {
+      const version: number = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
 
       this.updateSource({
         // @ts-expect-error

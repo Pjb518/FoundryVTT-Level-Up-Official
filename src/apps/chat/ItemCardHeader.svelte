@@ -77,6 +77,8 @@
 
         <button
             class="a5e-chat-card__header__button--repeat fas fa-undo"
+            data-tooltip="Repeat Roll"
+            data-tooltip-direction="LEFT"
             on:click={() => dispatch("repeatCard")}
         />
 

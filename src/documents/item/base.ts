@@ -123,7 +123,9 @@ class BaseItemA5e extends Item {
       type: 'item'
     };
 
+    // @ts-expect-error
     ChatMessage.applyRollMode(chatData, game.settings.get('core', 'rollMode'));
+    // @ts-expect-error
     const chatCard = ChatMessage.create(chatData);
 
     Hooks.callAll('a5e.itemActivate', this, { action });
@@ -140,7 +142,6 @@ class BaseItemA5e extends Item {
     newItem.name = `${newItem.name} (Copy)`;
 
     if (newItem.type === 'object') {
-      // @ts-expect-error
       newItem.system.containerId = null;
     }
 
@@ -344,18 +345,8 @@ class BaseItemA5e extends Item {
     await super._preCreate(data, options, user);
 
     // Add schema version
-    // @ts-expect-error
-    if (!this.system.schemaVersion?.version && !this.system.schema?.version) {
-      let version = null;
-      // @ts-expect-error
-      if (typeof this.system?.equipped === 'boolean') version = 0.003;
-      // @ts-expect-error
-      else if (typeof this.system?.recharge === 'string') version = 0.002;
-      // @ts-expect-error
-      else if (typeof this.system?.uses?.max === 'string') version = 0.001;
-      // @ts-expect-error
-      else if (this.system?.actionOptions) version = null;
-      else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
+    if (!this.system.schemaVersion?.version) {
+      const version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
 
       this.updateSource({
         // @ts-expect-error
