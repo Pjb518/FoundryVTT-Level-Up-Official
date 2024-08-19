@@ -1,4 +1,5 @@
 import type { BaseActorA5e } from '../documents/actor/base';
+import type { BaseItemA5e } from '../documents/item/base';
 
 declare namespace A5eEnricherManager {
   type EnricherTypes = 'check' | 'save';
@@ -12,17 +13,19 @@ class A5eEnricherManager {
     const enricherTypes = ['check', 'save', 'condition'];
 
     CONFIG.TextEditor.enrichers.push({
-      /**
-       * pattern: \[\[\/(?<enricherType>\w+)(?<argString>( +\w+=([\w\d]+|"[\w\d ]+"))*)\]\]
-       * matches: [[/type arg1=val1 arg2=val2 arg3="val 3"]]
-       */
+
       pattern: new RegExp(`\\[\\[\\/(?<enricherType>${enricherTypes.join('|')})(?<argString>( +\\w+=([\\w\\d]+|"[\\w\\d ]+"))*)\\]\\]`, 'gi'),
       enricher: this.parseEnricherInput.bind(this)
+    }, {
+      // eslint-disable-next-line no-useless-escape
+      pattern: /\[\[\/choose label=((?<label>[\w\d]+)|"(?<label>[\w\d -\.,]+)")(?<argString>( +(\[\d+\])?(uuid|text)=([\d\w\-\.]+|"[\d\w\-\. ]+"))+) *\]\]/gi,
+      enricher: this.parseChooseInput.bind(this)
     });
 
     // FIXME: This is inefficient
     document.body.addEventListener('click', this.onRoll.bind(this));
     document.body.addEventListener('click', this.onEffect.bind(this));
+    document.body.addEventListener('click', this.onChoose.bind(this));
   }
 
   /**
@@ -453,6 +456,98 @@ class A5eEnricherManager {
         actor.toggleStatusEffect(id);
       }
     }
+  }
+
+  /* -------------------------------------------- */
+  /*  Choose Enrichers                            */
+  /* -------------------------------------------- */
+
+  /**
+   * Parse the enriched string and provide the appropriate content.
+   * @param match      The regular expression match result.
+   * @param options    Options provided to customize text enrichment. Unused
+   * @returns An HTML element to insert in place of the matched text or
+   *          null to indicate that no replacement should be made.
+  */
+  async parseChooseInput(
+    match: RegExpMatchArray,
+    options?: TextEditor.EnrichmentOptions
+  ): Promise<HTMLElement | null> {
+    const { label, argString } = match.groups as { label: string, argString: string };
+
+    // eslint-disable-next-line no-useless-escape
+    const argRegex = /(\[(?<weight>\d+)\])?(?<type>uuid|text)=((?<value>[\d\w\-\.]+)|"(?<value>[\d\w\-\. ]+)")/gi;
+    const args = [...argString.matchAll(argRegex)];
+
+    return this.#enrichChoose(label, args, options);
+  }
+
+  async #enrichChoose(
+    label: string,
+    args: RegExpExecArray[],
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    options?: TextEditor.EnrichmentOptions
+  ): Promise<HTMLElement | null> {
+    const results: string[] = [];
+    const icons: string[] = [];
+
+    // weighting
+    for (const arg of args) {
+      let value = '';
+      if (arg.groups?.type === 'uuid') {
+        value = `@UUID[${arg.groups?.value}]`;
+        // eslint-disable-next-line no-await-in-loop
+        const item = await fromUuid(arg.groups?.value) as BaseItemA5e;
+        icons.push(item?.img as string);
+      }
+      else {
+        value = `${arg.groups?.value}`;
+        icons.push('');
+      }
+      const weight = arg.groups?.weight ? parseInt(arg.groups.weight, 10) : 1;
+      for (let i = 0; i < weight; i += 1) {
+        results.push(value);
+      }
+    }
+
+    const span = document.createElement('span');
+    span.classList.add('a5e-enricher');
+    span.classList.add('a5e-enricher--choose');
+    span.dataset.results = results.join('|');
+    span.dataset.icons = icons.join('|');
+    span.innerHTML = `<i class="fas fa-th-list"></i>${label}`;
+    return span;
+  }
+
+  async onChoose(event: MouseEvent): Promise<void> {
+    const target = (
+      event.target as (HTMLElement | null)
+    )?.closest('.a5e-enricher--choose') as (HTMLElement | null);
+
+    if (!target) return;
+    event.stopPropagation();
+
+    const { dataset } = target;
+
+    const results = dataset.results?.split('|');
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const icons = dataset.icons?.split('|');
+    if (!results) return;
+
+    const roll = new Roll(`1d${results.length}`);
+    await roll.evaluate();
+
+    const result = results[roll.total as number - 1];
+
+    await roll.toMessage();
+    const messageData = {
+      author: game.user?.id,
+      // speaker: ChatMessage.getSpeaker(),
+      // sound: CONFIG.sounds.dice,
+      content: `${result}`
+    };
+
+    await ChatMessage.create(messageData);
   }
 }
 
