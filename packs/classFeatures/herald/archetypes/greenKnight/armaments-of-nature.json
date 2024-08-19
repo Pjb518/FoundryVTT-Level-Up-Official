@@ -2,7 +2,61 @@
 	"name": "Armaments of Nature",
 	"type": "feature",
 	"img": "icons/magic/nature/root-vine-fire-entangled-hand.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.NqU5g4Md1FdpkuRl",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "bjWbtcOIhp6coBwI",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Armaments of Nature",
+			"img": "icons/magic/nature/root-vine-fire-entangled-hand.webp",
+			"_id": "5bB9omgia50bxVPg",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.ac.baseFormula",
+					"value": "10 + @prof + @dex.mod + @cha.mod",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Cover yourself in bark, rock, soil, and vines for 1 hour.</p>\n<p>For the duration, your Armor Class equals 10 + your proficiency bonus + your Dexterity modifier + your Charisma modifier, and when a creature starts its turn and is grappling you, it takes 2d6 piercing damage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1724095934006,
+				"modifiedTime": 1724096004313,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -24,19 +78,114 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "hour",
+					"unit": "",
 					"value": 1
 				},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
 					"type": ""
 				},
-				"consumers": {}
+				"consumers": {
+					"lu4WSdEl9qHYl9s1": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"prompts": {
+					"uomo4iWYTBlhdziZ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "5bB9omgia50bxVPg"
+					}
+				}
+			},
+			"NqCtnsdTYLFMd4Sd": {
+				"name": "Grappled",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"v06Fgw7VZLgu2ujo": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"2mkUml8LQ54m5Fab": {
+				"name": "Grow Weapon",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"5danfnnqBvabRbvS": {
+				"name": "Attack",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"QFmvFoa3NRlUJNP2": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeSpellAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"wfRfeNKSUn2aRuIG": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d12 + @spellcasting.mod"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {}
 			}
 		},
 		"description": "<p>Starting at 15th level, you are able to call upon the wilderness to supply you with armor and weaponry. You can use an action and expend one use of&nbsp; @UUID[Compendium.a5e.a5e-class-features.s4iiatrup3e3virw]{Channel Divinity} to cover yourself in bark, rock, soil, and vines for 1 hour.</p><p>For the duration, your Armor Class equals 10 + your proficiency bonus + your Dexterity modifier + your Charisma modifier, and when a creature starts its turn and is grappling you, it takes 2d6 piercing damage.</p><p>In addition, you can use a bonus action to grow a melee weapon into your hands. You are proficient with the weapon and it deals 1d12 bludgeoning, piercing, or slashing damage (determined by the weapon&rsquo;s shape). While wielding the weapon, your reach increases by 5 feet. The weapon cannot be disarmed, but it can be damaged (AC equal to your herald spell save DC and hit points equal to your herald level).</p>",
@@ -67,13 +216,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "q9rnwamnbmdwvuir",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1724095877883,
+		"modifiedTime": 1724096144254,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "q9rnwamnbmdwvuir"
 }
