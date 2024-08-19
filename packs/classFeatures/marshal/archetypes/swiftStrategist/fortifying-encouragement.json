@@ -1,7 +1,7 @@
 {
-	"name": "Escape: Fortifying Encouragement",
+	"name": "Fortifying Encouragement",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/social/thumbsup-approval-like.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -16,40 +16,39 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"LdRdBv8BFtZPIvGq": {
-				"name": "Escape: Fortifying Encouragement",
-				"activation": {
-					"cost": null,
-					"type": "",
-					"reactionTrigger": ""
+			"cqoUyPQKIXGYkD3z": {
+				"name": "Fortifying Encouragement",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"CnGwJxE34cMWVPTy": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "5 + @cha.mod"
+					}
 				},
-				"duration": {
-					"unit": "",
-					"value": ""
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
 				},
 				"ranges": {
-					"tbWJqn7PtOzBzyiU": {
-						"range": "60 ft. Target must able to see or hear you."
+					"1tig9558szfsuCjs": {
+						"range": "medium"
 					}
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
 				},
 				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"rolls": {
-					"dcTzFYWWq6bGldoM": {
-						"formula": "5 + @cha.mod",
-						"healingType": "temporaryHealing",
-						"name": "Temp HP",
-						"type": "healing"
-					}
-				},
-				"consumers": {}
+					"type": "creature",
+					"quantity": 1
+				}
 			}
 		},
 		"description": "<h4>Whenever you succeed on a saving throw, you can choose one friendly creature within 60 feet of you. If the target can see or hear you, the target gains temporary hit points equal to 5 + your Charisma modifier.</h4>",
@@ -80,13 +79,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "marshal",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "hnx3daaesyc97byy",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1724102972536,
+		"modifiedTime": 1724103138886,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "hnx3daaesyc97byy"
 }
