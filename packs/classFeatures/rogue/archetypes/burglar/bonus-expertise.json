@@ -1,7 +1,7 @@
 {
-	"name": "Ambidextrous",
+	"name": "Bonus Expertise",
 	"type": "feature",
-	"img": "icons/equipment/hand/gloves-leather-tan.webp",
+	"img": "icons/magic/air/air-smoke-casting.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -16,7 +16,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"Unv2bZh33wEjdwIB": {
+			"jD1YYvfQtSgTJV1R": {
 				"name": "Cunning Action",
 				"activation": {
 					"type": "bonusAction",
@@ -31,7 +31,20 @@
 						"quantity": 1
 					}
 				},
-				"rolls": {},
+				"rolls": {
+					"it5a7JQfzrz14JSa": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "slt",
+						"ability": "none"
+					},
+					"QgZDaDbQQQ95PneP": {
+						"type": "toolCheck",
+						"default": true,
+						"tool": "thievesTools",
+						"ability": "dex"
+					}
+				},
 				"prompts": {},
 				"uses": {
 					"value": 0,
@@ -43,11 +56,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				},
-				"img": "icons/equipment/hand/gloves-leather-tan.webp"
+				}
 			}
 		},
-		"description": "<p>Starting at 9th level, you add your Dexterity modifier (minimum 1) to damage when making an attack using two weapon fighting. Additionally, you can use your @UUID[Compendium.a5e.a5e-class-features.d8k1x28y4vn6h3q5]{Cunning Action} to draw and throw, or pick up and throw, a weapon or improvised weapon.</p>",
+		"description": "<p>Also at 3rd level, you gain proficiency with Sleight of Hand, and you gain an expertise die on checks using it and when using thieves’ tools. For you, expertise dice in Sleight of Hand and thieves’ tools can be upgraded from d8 to d10, exceeding the usual limit on expertise dice. You can use your Cunning Action to make a Sleight of Hand check or to use thieves’ tools.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -63,21 +75,23 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {
-			"7DqSWq94j5ddk3mJ": {
-				"grantType": "damage",
+			"0yfDD59ucDLHq7wt": {
+				"grantType": "proficiency",
 				"level": 1,
 				"levelType": "character",
 				"optional": false,
-				"_id": "7DqSWq94j5ddk3mJ",
-				"label": "Ambidextrous",
-				"bonus": "max(@dex.mod,1)",
-				"context": {
-					"attackTypes": [
-						"meleeWeaponAttack",
-						"rangedWeaponAttack"
+				"_id": "0yfDD59ucDLHq7wt",
+				"label": "Bonus Expertise",
+				"keys": {
+					"base": [
+						"slt"
 					],
-					"default": false
-				}
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill",
+				"img": "",
+				"isExpertise": false
 			}
 		},
 		"prerequisite": "",
@@ -100,9 +114,9 @@
 		"coreVersion": "12.331",
 		"systemId": "a5e",
 		"systemVersion": "0.19.24",
-		"createdTime": 1724187575958,
-		"modifiedTime": 1724187648317,
+		"createdTime": 1724187386101,
+		"modifiedTime": 1724187524612,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "jovr49e2qdb7yq0q"
+	"_id": "amtnsfu00t5usj83"
 }
