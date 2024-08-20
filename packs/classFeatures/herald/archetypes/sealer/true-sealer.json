@@ -14,15 +14,74 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"9vqldXQMp0EqxxVv": {
+				"name": "Imprisonment",
+				"activation": {
+					"cost": 11,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"BPQQSOikyyGPOonZ": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"1Kkeuwk4ueELjgFr": {
+						"ability": "wis",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "permanent",
+					"value": ""
+				},
+				"ranges": {
+					"7zvcUJi8EctiJOCg": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/control/debuff-chains-ropes-net-red-orange.webp"
+			}
+		},
 		"description": "<p><span id=\"docs-internal-guid-12895066-7fff-1ec4-076f-c08df7bf1ffe\">At 20th level you learn the most powerful ability of the sealers: once per long rest you can cast @UUID[Compendium.a5e.a5e-spells.Item.tglbndo1acl9he78]{Imprisonment} </span>as a ritual.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "sinuousSentinels",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -45,9 +104,12 @@
 		"core": {}
 	},
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
+		"systemVersion": "0.19.23",
+		"createdTime": 1723551141142,
+		"modifiedTime": 1723551176511,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
 	"_id": "GnEzmTN6Z4fQ25BG"
 }

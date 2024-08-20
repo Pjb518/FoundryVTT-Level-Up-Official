@@ -10,25 +10,22 @@
 				"name": "Grab On",
 				"activation": {
 					"cost": 1,
-					"type": "action",
+					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
 					"unit": "instantaneous",
 					"value": null
 				},
-				"ranges": {
-					"x479yGm9lUjVLHDy": {
-						"range": "fiveFeet"
-					}
-				},
+				"ranges": {},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
-					"quantity": "",
+					"quantity": 1,
 					"type": "creature",
 					"shape": "",
 					"size": ""
@@ -36,12 +33,23 @@
 				"prompts": {
 					"duRNu9hfiRNwhtCq": {
 						"ability": "str",
-						"onSave": "",
+						"onSave": "Grab on is successful",
 						"saveDC": {
-							"type": "custom",
-							"bonus": "@maneuverDC"
+							"type": "maneuver",
+							"bonus": ""
 						},
-						"type": "savingThrow"
+						"type": "savingThrow",
+						"label": "Strength Saving Throw"
+					},
+					"bFLe45MCHPS4hKvj": {
+						"ability": "dex",
+						"onSave": "Grab on is successful",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"label": "Dexterity Saving Throw"
 					}
 				},
 				"consumers": {},
@@ -56,7 +64,7 @@
 				}
 			}
 		},
-		"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
+		"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p>\n<p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p>\n<p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>\n<p><strong>Foundry Note:</strong> When a creature attempts to initiate this Maneuver, do so from the creature that this is being used against since the check is made against the Maneuver DC of the creature you're using the Maneuver on.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -87,10 +95,13 @@
 		}
 	},
 	"folder": null,
-	"_id": "jewmp4pzrg9cdui9",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723387894015,
+		"modifiedTime": 1723392224865,
+		"lastModifiedBy": "SkNEzSES7ahAJz45"
+	},
+	"_id": "jewmp4pzrg9cdui9"
 }

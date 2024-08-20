@@ -1,0 +1,191 @@
+{
+	"name": "Channel Divinity",
+	"type": "feature",
+	"img": "icons/magic/sonic/explosion-impact-shock-wave.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Y3yh8kLqVhfsEeet": {
+				"name": "Negative Energy Flood",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"0FRNhMv6333Sq5Fd": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"j6WI9PKEovUYOb88": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"damageType": "necrotic",
+						"formula": "2d8"
+					}
+				},
+				"prompts": {
+					"xRigipA1uyq2pd9w": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "half damage and not pushed back",
+						"label": "Negative Energy Flood"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>As an action, you can&nbsp;use your Channel Divinity to unleash a flood of&nbsp;negative energy on your foes. Hostile creatures&nbsp;within 30 feet of you make a Constitution saving&nbsp;throw. On a failed save, a hostile creature takes&nbsp;2d8 necrotic damage and is pushed back 5 feet,&nbsp;or on a success it takes half damage and is not&nbsp;pushed back.</p>",
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "",
+					"quantity": 1
+				},
+				"ranges": {
+					"gyBTUHgSskp8QMvG": {
+						"range": "self"
+					}
+				}
+			},
+			"r6wjzCP92pFSzD4d": {
+				"name": "Positive Energy Flood",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"XXVNnACB1lku6nce": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"2QdqfrKRYRcBcjBy": {
+						"type": "healing",
+						"default": true,
+						"formula": "@prof + @cha.mod",
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>As a bonus action, you&nbsp;can use your Channel Divinity to send out a flood&nbsp;of positive energy to heal your allies. Friendly&nbsp;creatures (including yourself) within 30 feet regain&nbsp;hit points&nbsp; equal to your proficiency bonus + your Charisma modifier.</p>",
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				},
+				"target": {
+					"type": "",
+					"quantity": 1
+				},
+				"ranges": {
+					"XAYHvbCyt0GoYXEs": {
+						"range": "self"
+					}
+				}
+			}
+		},
+		"description": "<p>At 3rd level when you choose this archetype, you gain the following two Channel Divinity options.</p>\n<h2>Negative Energy Flood</h2>\n<p>As an action, you can use your Channel Divinity to unleash a flood of negative energy on your foes. Creatures you choose within 30 feet of you make a Constitution saving throw. On a failed save, a creature takes 2d8 necrotic damage and is pushed back 5 feet. On a success, it takes half damage and isn&rsquo;t pushed back.</p>\n<h2>Positive Energy Flood</h2>\n<p>As a bonus action, you can use your Channel Divinity to send out a flood of positive energy to heal your allies. Creatures you choose (including yourself) within 30 feet regain hit points equal to your proficiency bonus + your Charisma modifier.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "herald",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723728908571,
+		"modifiedTime": 1723729933579,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "luq6df70lxe1lift"
+}

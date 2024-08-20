@@ -1,0 +1,149 @@
+{
+	"name": "Desperate Avoidance",
+	"type": "feature",
+	"img": "icons/skills/movement/figure-running-gray.webp",
+	"effects": [
+		{
+			"origin": "Item.PzLchwYMKEBEhkBP",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jHdGyPxgN2XvCd0J",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Desperate Avoidance",
+			"img": "icons/skills/movement/figure-running-gray.webp",
+			"_id": "VFgBmpMSRk4uKxcD",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You make all attack rolls with disadvantage until the end of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1724097538364,
+				"modifiedTime": 1724097590210,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"jHdGyPxgN2XvCd0J": {
+				"name": "Desperate Avoidance",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"consumers": {
+					"RcJxYhX0flZDXUpY": {
+						"type": "itemUses"
+					}
+				},
+				"prompts": {
+					"RdL1i0YJ2RvleFOq": {
+						"type": "effect",
+						"default": true,
+						"effectId": "VFgBmpMSRk4uKxcD"
+					}
+				}
+			}
+		},
+		"description": "<p>When you make a saving throw you can choose to make the saving throw with advantage, but you make all attack rolls with disadvantage until the end of your next turn. Once you use this feature, you cannot do so again until you finish a short rest or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "marshal",
+		"class": ""
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1724097423546,
+		"modifiedTime": 1724097600481,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "5unvmjl435i077hx"
+}

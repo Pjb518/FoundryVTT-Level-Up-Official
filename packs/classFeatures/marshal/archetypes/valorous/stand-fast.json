@@ -2,7 +2,60 @@
 	"name": "Stand Fast",
 	"type": "feature",
 	"img": "icons/environment/people/infantry.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.OZRwzespP46B0JSw",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LkemIFM5aGaXpFsU",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stand Fast",
+			"img": "icons/environment/people/infantry.webp",
+			"_id": "TtLIQepAlA9gKizE",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Stand Fast\",\"formula\":\"1d6\",\"damageType\":\"psychic\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"meleeSpellAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/environment/people/infantry.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Attacks deal an additional 1d6 points of psychic damage to the source of the effect for the next 10 minutes.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723580549042,
+				"modifiedTime": 1723580597202,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +68,33 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Friendly creatures within range of your Commanding Presence make their saving throws against effects that would cause them to become confused, frightened or rattled with advantage. In addition, if a creature so affected makes such a saving throw and both dice would have been sufficient to make the save, their attacks deal an additional 1d6 points of psychic damage to the source of the effect for the next 10 minutes.</p>",
+		"actions": {
+			"LkemIFM5aGaXpFsU": {
+				"name": "Stand Fast",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"Yo13z69JVMQbarYH": {
+						"type": "effect",
+						"default": true,
+						"effectId": "TtLIQepAlA9gKizE"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Friendly creatures within range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} make their saving throws against effects that would cause them to become confused, frightened or rattled with advantage. In addition, if a creature so affected makes such a saving throw and both dice would have been sufficient to make the save, their attacks deal an additional 1d6 points of psychic damage to the source of the effect for the next 10 minutes.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitThunderOfWar",
@@ -44,13 +122,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "marshal",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "cmyyg0laeleep8dx",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723580493695,
+		"modifiedTime": 1723580549075,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "cmyyg0laeleep8dx"
 }

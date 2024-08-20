@@ -13,8 +13,50 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p dir=\"ltr\">You have not only learned to accept the powers of the undead, but also how to temporarily embrace it, calling on the shadow of death to envelop you. You can use a bonus action to become partially incorporeal, like a shadow, for 1 minute.&nbsp;</p><p dir=\"ltr\">While in this form you receive the following benefits:</p><ul><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">You gain immunity to the following conditions: grappled, paralyzed, petrified, poisoned, prone, and restrained.&nbsp;</p></li><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">You gain resistance to bludgeoning, slashing, and piercing damage from non-magical attacks, and immunity to necrotic damage.</p></li><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">You can pass through occupied spaces, and squeeze through gaps as small as 1 inch wide. If you end your turn in the space of another creature (or after one minute you are still squeezing through a gap too small for your regular form), you are shunted to the nearest unoccupied space, taking 1d10 damage.</p></li><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">All other creatures within 10ft of you cannot regain hit points, rage hit points, or temporary hit points via any means.</p></li><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">While in dim light or darkness, attacks against you have disadvantage.</p></li></ul><p dir=\"ltr\">Once you use this feature, you can&rsquo;t do so again until you finish a long rest.</p>",
+		"actions": {
+			"BQGZluv8VdR0ECTL": {
+				"name": "Death's Shadowy Embrace",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"HrTxRO8o2uMBgolH": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"5vqyeHgIS9Pta74q": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d10",
+						"damageType": "force"
+					}
+				},
+				"prompts": {
+					"w02ABxjWF4MSsW2M": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8IooJhldBZf1Acr0"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You have not only learned to accept the powers of the undead, but also how to temporarily embrace it, calling on the shadow of death to envelop you. You can use a bonus action to become partially incorporeal, like a @UUID[Compendium.a5e.a5e-monsters.Actor.3elv0z3gn27mznir]{Shadow}, for 1 minute.&nbsp;</p>\n<p dir=\"ltr\">While in this form you receive the following benefits:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain immunity to the following conditions: grappled, paralyzed, petrified, poisoned, prone, and restrained.&nbsp;</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain resistance to bludgeoning, slashing, and piercing damage from non-magical attacks, and immunity to necrotic damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You can pass through occupied spaces, and squeeze through gaps as small as 1 inch wide. If you end your turn in the space of another creature (or after one minute you are still squeezing through a gap too small for your regular form), you are shunted to the nearest unoccupied space, taking 1d10 damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">All other creatures within 10ft of you cannot regain hit points, rage hit points, or temporary hit points via any means.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">While in dim light or darkness, attacks against you have disadvantage.</p>\n</li>\n</ul>\n<p dir=\"ltr\">Once you use this feature, you can&rsquo;t do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "acesAdventuringGuideToNecromancy",
@@ -42,15 +84,85 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.1BhFbOi8EfdV00mC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "BQGZluv8VdR0ECTL",
+					"duration": {
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Death's Shadowy Embrace",
+			"img": "icons/magic/unholy/strike-body-explode-disintegrate.webp",
+			"_id": "8IooJhldBZf1Acr0",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"grappled\",\"paralyzed\",\"petrified\",\"poisoned\",\"prone\",\"restrained\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"Bludgeoning, slashing, and piercing damage from non-magical attacks\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"necrotic\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain immunity to the following conditions: grappled, paralyzed, petrified, poisoned, prone, and restrained. </p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain resistance to bludgeoning, slashing, and piercing damage from non-magical attacks, and immunity to necrotic damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You can pass through occupied spaces, and squeeze through gaps as small as 1 inch wide. If you end your turn in the space of another creature (or after one minute you are still squeezing through a gap too small for your regular form), you are shunted to the nearest unoccupied space, taking 1d10 damage.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">All other creatures within 10ft of you cannot regain hit points, rage hit points, or temporary hit points via any means.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">While in dim light or darkness, attacks against you have disadvantage.</p>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723499240749,
+				"modifiedTime": 1723499493005,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "hl5t8ifnuckpmnmo",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723499014055,
+		"modifiedTime": 1723499518183,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "hl5t8ifnuckpmnmo"
 }

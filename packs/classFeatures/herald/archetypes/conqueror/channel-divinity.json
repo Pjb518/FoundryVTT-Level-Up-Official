@@ -1,0 +1,264 @@
+{
+	"name": "Channel Divinity",
+	"type": "feature",
+	"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"gUB85rEIIFD7gUUG": {
+				"name": "Break the Will",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"Po8u1YDtYYK7Yz6W": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"YqAfoQUKsOBcll2k": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"v6apdWnOuoOXU0LO": {
+						"type": "effect",
+						"default": true,
+						"effectId": "WIB3VqkiYAvPQvpr"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>As an action you force creatures of your choice within 30 feet to make a Wisdom saving throw or be frightened of you until the end of their next turn.</p>",
+				"ranges": {
+					"8zEg1hYDWcFX6KVJ": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				}
+			},
+			"e76nMY4SzAKaHFAw": {
+				"name": "Break the Body",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"yRiml7YnSMkHiU3h": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"ZQhTxExgKVbUDorn": {
+						"type": "effect",
+						"default": true,
+						"effectId": "N7JEbdqN19hKnSaC"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>As a bonus action you can cause your weapon attacks to deal an amount of additional damage of the same type as the weapon normally deals equal to your proficiency bonus. This benefit lasts until the start of your next turn.</p>"
+			}
+		},
+		"description": "<p>At 3rd level you gain the following channel divinity options:</p>\n<h2>Break the Will</h2>\n<p>As an action you force creatures of your choice within 30 feet to make a Wisdom saving throw or be frightened of you until the end of their next turn.</p>\n<h2>Break the Body</h2>\n<p>As a bonus action you can cause your weapon attacks to deal an amount of additional damage of the same type as the weapon normally deals equal to your proficiency bonus. This benefit lasts until the start of your next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "heroesOldAndNew",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "herald",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.su2679UKYTG97vfZ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "gUB85rEIIFD7gUUG",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+			"_id": "WIB3VqkiYAvPQvpr",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723551509999,
+				"modifiedTime": 1723551570883,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.su2679UKYTG97vfZ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "e76nMY4SzAKaHFAw",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Break the Body",
+			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
+			"_id": "N7JEbdqN19hKnSaC",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Break the Body\",\"formula\":\"@prof\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/light/explosion-beam-impact-silhouette.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You can cause your weapon attacks to deal an amount of additional damage of the same type as the weapon normally deals equal to your proficiency bonus. This benefit lasts until the start of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723551588762,
+				"modifiedTime": 1723551641278,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723551402906,
+		"modifiedTime": 1723551588796,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "fa4ghyk91ula8z6f"
+}

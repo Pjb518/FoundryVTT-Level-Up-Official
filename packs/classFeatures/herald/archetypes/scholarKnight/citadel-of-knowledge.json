@@ -15,8 +15,55 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 20th level, your breadth and depth of knowledge seem infinite. You automatically succeed on all Intelligence checks and saving throws with a DC of 15 or less, you may cast tongues at will as a bonus action, you become immune to psychic damage, and you have truesight with a range of 30 feet.</p>",
+		"actions": {
+			"nGXjGgEcOIyKDXTA": {
+				"name": "Tongues",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"X063myeBU3khMzsY": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/symbols/runes-star-magenta.webp",
+				"description": "<p>The target understands any words it hears, and when the target speaks its words are understood by creatures that know at least one language.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>At 20th level, your breadth and depth of knowledge seem infinite. You automatically succeed on all Intelligence checks and saving throws with a DC of 15 or less, you may cast @UUID[Compendium.a5e.a5e-spells.Item.ef9fuzf8xcja2p7c]{Tongues} at will as a bonus action, you become immune to psychic damage, and you have truesight with a range of 30 feet.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitArcaneAvenger",
@@ -31,7 +78,45 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"nrE1QswRnXxuxCiL": {
+				"grantType": "senses",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "nrE1QswRnXxuxCiL",
+				"label": "Citadel of Knowledge",
+				"bonus": "30",
+				"senses": {
+					"base": [
+						"truesight"
+					],
+					"options": [],
+					"total": 0
+				},
+				"img": "",
+				"unit": "feet",
+				"context": {
+					"otherwiseBlind": false
+				}
+			},
+			"SETNWnNhOfPUGGnd": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "SETNWnNhOfPUGGnd",
+				"label": "Citadel of Knowledge",
+				"traits": {
+					"base": [
+						"psychic"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageImmunities"
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -44,13 +129,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "7lotlodzehna7a1d",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723549255753,
+		"modifiedTime": 1723549365433,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "7lotlodzehna7a1d"
 }
