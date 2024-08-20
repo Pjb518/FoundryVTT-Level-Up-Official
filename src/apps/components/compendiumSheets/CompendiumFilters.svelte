@@ -6,11 +6,13 @@
     import CompendiumObjectFilters from "./CompendiumObjectFilters.svelte";
     import CompendiumOriginFilters from "./CompendiumOriginFilters.svelte";
     import CompendiumSpellFilters from "./CompendiumSpellFilters.svelte";
+    import CompendiumClassFeatureFilters from "./CompendiumClassFeatureFilters.svelte";
 
     export let compendiumType;
 
     const compendiumItemComponents = {
         "5eSpell": CompendiumSpellFilters,
+        classFeature: CompendiumClassFeatureFilters,
         object: CompendiumObjectFilters,
         magicItem: CompendiumObjectFilters,
         maneuver: CompendiumManeuverFilters,
