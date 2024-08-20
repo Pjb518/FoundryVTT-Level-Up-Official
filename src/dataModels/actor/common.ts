@@ -245,6 +245,10 @@ export const proficiencies = () => ({
     armor: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] }),
     languages: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] }),
     tools: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] }),
+    traditions: new fields.ArrayField(
+      new fields.StringField({ required: true, nullable: false, initial: '' }),
+      { required: true, nullable: false }
+    ),
     weapons: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), { required: true, initial: [] })
   })
 });

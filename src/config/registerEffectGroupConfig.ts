@@ -506,6 +506,7 @@ export default function registerEffectGroupConfig() {
         '@token.light.darkness.max',
         '@token.light.dim',
         '@token.light.luminosity',
+	'@token.light.negative',
         '@token.light.saturation',
         '@token.light.shadows'
       ]

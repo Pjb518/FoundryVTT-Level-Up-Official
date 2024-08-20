@@ -10,25 +10,21 @@
 				"name": "Disarm",
 				"activation": {
 					"cost": 1,
-					"type": "action",
+					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
 					"unit": "instantaneous",
 					"value": null
 				},
-				"ranges": {
-					"dFgwvnjjgmzR7vlN": {
-						"range": "fiveFeet"
-					}
-				},
+				"ranges": {},
 				"area": {
 					"shape": "",
 					"size": "",
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": "",
+					"quantity": 1,
 					"type": "creature",
 					"shape": "",
 					"size": ""
@@ -36,9 +32,9 @@
 				"rolls": {
 					"FDMYIPcl2LveduMw": {
 						"canCrit": false,
-						"damageType": "",
-						"formula": "1 + @str.mod",
-						"label": "Basic Melee Damage",
+						"damageType": "bludgeoning",
+						"formula": "1+@str.mod",
+						"label": "",
 						"type": "damage"
 					}
 				},
@@ -47,10 +43,21 @@
 						"ability": "str",
 						"onSave": "",
 						"saveDC": {
-							"type": "custom",
-							"bonus": "@maneuverDC"
+							"type": "maneuver",
+							"bonus": ""
 						},
-						"type": "savingThrow"
+						"type": "savingThrow",
+						"label": "Strength Saving Throw"
+					},
+					"MNHfNfTq18nXRBVI": {
+						"ability": "dex",
+						"onSave": "",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"label": "Dexterity Saving Throw"
 					}
 				},
 				"consumers": {}
@@ -87,10 +94,13 @@
 		}
 	},
 	"folder": null,
-	"_id": "c0bv7fsy2akld5lp",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723387898939,
+		"modifiedTime": 1723392214125,
+		"lastModifiedBy": "SkNEzSES7ahAJz45"
+	},
+	"_id": "c0bv7fsy2akld5lp"
 }

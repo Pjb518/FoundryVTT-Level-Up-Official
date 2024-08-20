@@ -1,0 +1,241 @@
+{
+	"name": "Channel Divinity",
+	"type": "feature",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"IkNqs1dur0MKpVu3": {
+				"name": "Hear Evidence",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"ECHvMKgcekRNPWqS": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"sDHQnF4uA5p2tYOB": {
+						"type": "effect",
+						"default": true,
+						"effectId": "giTvWdga5d9dq08O"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"YuWn6DhA4TrinrOp": {
+				"name": "Render Verdict",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"ECHvMKgcekRNPWqS": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"8SDzby2tIAn4lkM2": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"N4BlsS9RlT4tYLyz": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2mdRxFfJOGxEkoLT"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"SrkWFjgOcyjTzptv": {
+						"range": 100,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>At 3rd level when you choose this archetype, you gain the following two Channel Divinity options.</p>\n<h2>Hear Evidence</h2>\n<p>As an action, you can sharpen your ability to sift worthwhile information from worthless. For the next hour, when you are asking questions about an injustice or its perpetrators, you gain advantage and an expertise die on all checks to distinguish truth from falsehood and to separate useful information from pointless details and red herrings.</p>\n<h2>Render Verdict</h2>\n<p>When you witness a grave injustice or atrocity yourself, you can condemn the perpetrator as a bonus action. To do so, you must be within 100 feet of the creature you deem most responsible for the wicked deed. Alternatively, you may choose a single creature you have a warrant for. Used this way, the creature saves with advantage, but the range is unlimited.</p>\n<p>A creature so condemned must make a Charisma saving throw against your spell save DC. A creature that fails its save can no longer hide from you. For the next week, its outline seems to glow even behind solid barriers or if it becomes invisible or enters the ethereal plane. If the creature is far enough from you that you could not see it, a glow on the horizon indicates its general direction to you. These effects are only visible to you, not your companions. In addition, the damage dice of your Divine Smite ability become D10s against the creature and you have advantage on saving throws imposed by any of its spells or effects. This effect ends early if you dismiss it (no action required) or you use this Channel Divinity option again.</p>\n<p>A creature that succeeds on its save instead has disadvantage on all checks to hide from you or put you off its trail for 24 hours.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitJudgeJuryAndExecutioner",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "herald",
+		"class": ""
+	},
+	"img": "icons/magic/symbols/rune-sigil-hook-white-red.webp",
+	"effects": [
+		{
+			"origin": "Item.iFR0eB2aelFEh0L6",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "IkNqs1dur0MKpVu3",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Hear Evidence",
+			"img": "icons/magic/symbols/rune-sigil-hook-white-red.webp",
+			"_id": "giTvWdga5d9dq08O",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For the next hour, when you are asking questions about an injustice or its perpetrators, you gain advantage and an expertise die on all checks to distinguish truth from falsehood and to separate useful information from pointless details and red herrings.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723549946168,
+				"modifiedTime": 1723549965973,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.iFR0eB2aelFEh0L6",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "YuWn6DhA4TrinrOp",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Condemned",
+			"img": "icons/magic/symbols/rune-sigil-hook-white-red.webp",
+			"_id": "2mdRxFfJOGxEkoLT",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 604800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A creature that fails its save can no longer hide from you. For the next week, its outline seems to glow even behind solid barriers or if it becomes invisible or enters the ethereal plane. If the creature is far enough from you that you could not see it, a glow on the horizon indicates its general direction to you. These effects are only visible to you, not your companions. In addition, the damage dice of your Divine Smite ability become D10s against the creature and you have advantage on saving throws imposed by any of its spells or effects. This effect ends early if you dismiss it (no action required) or you use this Channel Divinity option again.</p>\n<p>A creature that succeeds on its save instead has disadvantage on all checks to hide from you or put you off its trail for 24 hours.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723550014151,
+				"modifiedTime": 1723550073833,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723549757358,
+		"modifiedTime": 1723550014185,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "u33ion4hegkzztai"
+}

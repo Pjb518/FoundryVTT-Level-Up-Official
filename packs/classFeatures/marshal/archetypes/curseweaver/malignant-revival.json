@@ -1,0 +1,164 @@
+{
+	"name": "Malignant Revival",
+	"type": "feature",
+	"img": "icons/magic/death/undead-zombie-grave-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"98eqlsNAG7kJOaYo": {
+				"name": "Create Undead",
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"IsBhSUnBh3grunlK": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"ponBqFDob1vUIrV8": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "other"
+				},
+				"img": "icons/magic/death/skull-trio-badge-purple.webp",
+				"description": "<p>This spell cannot be cast in sunlight. You reanimate the targets as undead and transform them into ghouls under your control.</p><p>While it is within 120 feet you can use a bonus action to mentally command the undead. When you command multiple undead using this spell, you must give them all the same command. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself. The undead continues to follow a command until its task is complete.</p><p>The undead is under your control for 24 hours, after which it stops obeying any commands. You must cast this spell on the undead before the spell ends to maintain control of it for another 24 hours. Casting the spell in this way reasserts control over up to 3 undead you have animated with this spell, rather than animating a new one.</p><p><strong><em>Cast at Higher Levels.</em></strong> You create or reassert control over one additional ghoul for each slot level above 6th. Alternatively, when using an 8th-level spell slot you create or reassert control over 2 ghasts or wights, or when using a 9th-level spell slot you create or reassert control over 3 ghasts or wights, or 2 mummies. When commanding more than 3 undead they make group attack rolls (see page 454 in Chapter 8: Combat).</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			},
+			"1FrsEx5niLkHffvf": {
+				"name": "Raise Dead",
+				"activation": {
+					"cost": 1,
+					"type": "hour",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"SavRYV6EaKgYk1Zq": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "week",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"NPvpvnfXVTUunAHh": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/death/hand-dirt-undead-zombie.webp",
+				"description": "<p>You return the target to life, provided its soul is willing and able to return to its body. The creature returns to life with 1 hit point. The spell cannot return an undead creature to life.</p><p>The spell cures any poisons and nonmagical diseases that affected the creature at the time of death. It does not remove any magical diseases, curses, or other magical effects; these must be removed prior to the spell being cast, otherwise they immediately take effect when the creature returns to life.</p><p>The spell does not regrow limbs or organs, and it automatically fails if the target is missing any body parts necessary for life (like its heart or head).</p><p>Being raised from the dead takes a toll on the body, mind, and spirit. The target suffers 3 levels of fatigue and strife. At the conclusion of each long rest, the target removes one level of fatigue and strife until the target completely recovers.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>At 15th level, you can cast @UUID[Compendium.a5e.a5e-spells.Item.evhh5s6v0ctzop82]{Create Undead} without a spell slotor components. Once you have used this feature, you can't do so again until you finish a long rest.</p>\n<p>In addition, you can cast @UUID[Compendium.a5e.a5e-spells.Item.9zhsri19dkhm9mcf]{Raise Dead} once per week without components. However, when you do, the target returns to life with two additional levels each of fatigue and strife. At the Narrator's option, they may also \"come back wrong\" in other ways, such as bleached white hair, disconcerting black veins, inky black eyes, and so on.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitMasterOfCeremonies",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "marshal",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723577081747,
+		"modifiedTime": 1723577164906,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "9qgrk4zc6ho40jfx"
+}

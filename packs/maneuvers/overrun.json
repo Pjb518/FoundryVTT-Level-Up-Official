@@ -10,25 +10,22 @@
 				"name": "Overrun",
 				"activation": {
 					"cost": 1,
-					"type": "special",
+					"type": "action",
 					"reactionTrigger": ""
 				},
 				"duration": {
 					"unit": "instantaneous",
 					"value": null
 				},
-				"ranges": {
-					"VAh3uPOJAaI5ShrA": {
-						"range": "fiveFeet"
-					}
-				},
+				"ranges": {},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
-					"quantity": "",
+					"quantity": 1,
 					"type": "creature",
 					"shape": "",
 					"size": ""
@@ -36,12 +33,60 @@
 				"prompts": {
 					"bvFJU6hHDstCwg1b": {
 						"ability": "str",
-						"onSave": "",
+						"onSave": "Creature is overrun",
 						"saveDC": {
-							"type": "custom",
-							"bonus": "@maneuverDC"
+							"type": "maneuver",
+							"bonus": ""
 						},
-						"type": "savingThrow"
+						"type": "savingThrow",
+						"label": "Strength Saving Throw"
+					}
+				},
+				"consumers": {},
+				"rolls": {
+					"ezzGenCLYoqg37hI": {
+						"type": "damage",
+						"default": true,
+						"formula": "1 + @str.mod",
+						"label": "Basic Melee Damage",
+						"canCrit": false
+					}
+				}
+			},
+			"PJuxDVLucdaDypPT": {
+				"name": "Overrun",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": null
+				},
+				"ranges": {},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature",
+					"shape": "",
+					"size": ""
+				},
+				"prompts": {
+					"bvFJU6hHDstCwg1b": {
+						"ability": "str",
+						"onSave": "Creature is overrun",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"type": "savingThrow",
+						"label": "Strength Saving Throw"
 					}
 				},
 				"consumers": {},
@@ -56,7 +101,7 @@
 				}
 			}
 		},
-		"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
+		"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>\n<p><strong>Foundry Note:</strong> When a creature attempts to initiate this Maneuver, do so from the creature that this is being used against since the check is made against the Maneuver DC of the creature you're using the Maneuver on.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -87,10 +132,13 @@
 		}
 	},
 	"folder": null,
-	"_id": "210ihnnejao46r20",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723387909445,
+		"modifiedTime": 1723392265292,
+		"lastModifiedBy": "SkNEzSES7ahAJz45"
+	},
+	"_id": "210ihnnejao46r20"
 }

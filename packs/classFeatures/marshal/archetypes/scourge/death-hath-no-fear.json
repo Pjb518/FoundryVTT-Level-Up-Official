@@ -1,0 +1,216 @@
+{
+	"folder": null,
+	"name": "Death Hath no Fear",
+	"type": "feature",
+	"img": "icons/magic/death/skull-energy-light-white.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 1,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"nJqOe9Q6aPKyWfTt": {
+				"name": "Death Hath no Fear",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "An allied creature within your Commanding Presence that can see or hear you would be reduced to 0 hit points but not killed outright"
+				},
+				"consumers": {
+					"BlVSfGXP1HL0GvV9": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"Q1aKgsB9rAZSz6lD": {
+						"type": "healing",
+						"default": true,
+						"formula": "1"
+					}
+				},
+				"prompts": {
+					"928QMq2hgINt6CGv": {
+						"type": "effect",
+						"default": true,
+						"effectId": "J53beZqgaULpjCm4"
+					},
+					"TYJg5InMNxEGalIr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "1gCRHJ0UvPvfe7qL"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 18th level if an allied creature within your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} that can see or hear you would be reduced to 0 hit points but not killed outright, you can use your reaction to instill in them a fear greater than death. They instead drop to 1 hit point, they are immune to damage until the end of their next turn (though they must still make a Constitution saving throw or die if they would take massive damage without this immunity), and they have advantage on attack rolls until the end of their next turn.</p>\n<p>However, they are also frightened of you for the next minute. You cannot use any spell or ability to remove this frightened condition, though other creatures can, and if a targeted creature is normally immune to fear they lose that immunity for the duration. This also still counts as being reduced to 0 hit points for the purposes of gaining fatigue or strife at the end of combat.</p>\n<p>Once you have done so, you cannot do so again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "mysteriousAndMarvelousMiscellanea",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "marshal",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.ALhl5AcQlW9eDer0",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "nJqOe9Q6aPKyWfTt",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Death Hath no Fear",
+			"img": "icons/magic/death/skull-energy-light-white.webp",
+			"_id": "J53beZqgaULpjCm4",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.damageImmunities.all",
+					"value": "",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>They are immune to damage until the end of their next turn (though they must still make a Constitution saving throw or die if they would take massive damage without this immunity), and they have advantage on attack rolls until the end of their next turn. However, they are also frightened of you for the next minute. You cannot use any spell or ability to remove this frightened condition, though other creatures can, and if a targetted creature is normally immune to fear they lose that immunity for the duration. This also still counts as being reduced to 0 hit points for the purposes of gaining fatigue or strife at the end of combat.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723664671137,
+				"modifiedTime": 1723664748108,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.ALhl5AcQlW9eDer0",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "nJqOe9Q6aPKyWfTt",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/magic/death/skull-energy-light-white.webp",
+			"_id": "1gCRHJ0UvPvfe7qL",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723664751123,
+				"modifiedTime": 1723664783958,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723664568191,
+		"modifiedTime": 1723664751158,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "vtxohw9zjklueyf4"
+}

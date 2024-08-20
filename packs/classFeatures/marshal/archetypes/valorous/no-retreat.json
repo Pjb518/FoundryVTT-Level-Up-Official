@@ -1,0 +1,167 @@
+{
+	"name": "No Retreat",
+	"type": "feature",
+	"img": "icons/environment/people/charge.webp",
+	"effects": [
+		{
+			"origin": "Item.emBl1qUemWjYoqYh",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "M9DVbwllZvVFhIgG",
+					"duration": {
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "No Retreat",
+			"img": "icons/environment/people/charge.webp",
+			"_id": "w6kjfrSFdGTc99Xt",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"frightened\",\"confused\",\"stunned\",\"paralyzed\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You can declare No Retreat which lasts for 10 minutes. When you do, you and friendly creatures within the range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} become immune to the frightened, confused, stunned, and paralyzed conditions as long as one other friendly creature is conscious and within range. Your Commanding Presence range still applies if you fall unconscious or even die for the purposes of this ability only. If a creature becomes the last one of its allies standing from its group of allies while this feature is active, it is immediately healed to full hit points and loses immunity to the frightened, confused, stunned, and paralyzed conditions, but gains advantage on saving throws against them instead. If another creature is revived from the group, the condition immunity returns. If any additional creatures become the last one standing after the first, they are only healed to half hit points, not full.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723581700535,
+				"modifiedTime": 1723581786713,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"M9DVbwllZvVFhIgG": {
+				"name": "No Retreat",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"VKU5qt0Gr1B8QFap": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"h455TEfdmXBZomew": {
+						"type": "effect",
+						"default": true,
+						"effectId": "w6kjfrSFdGTc99Xt"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>As a bonus action, you can declare No Retreat which lasts for 10 minutes. When you do, you and friendly creatures within the range of your&nbsp;@UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} become immune to the frightened, confused, stunned, and paralyzed conditions as long as one other friendly creature is conscious and within range. Your Commanding Presence range still applies if you fall unconscious or even die for the purposes of this ability only. If a creature becomes the last one of its allies standing from its group of allies while this feature is active, it is immediately healed to full hit points and loses immunity to the frightened, confused, stunned, and paralyzed conditions, but gains advantage on saving throws against them instead. If another creature is revived from the group, the condition immunity returns. If any additional creatures become the last one standing after the first, they are only healed to half hit points, not full. Once you have used this ability, you can&rsquo;t use it again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitThunderOfWar",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"ROav0QO1mQv6bNfA": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "ROav0QO1mQv6bNfA",
+				"label": "Never Outnumbered",
+				"features": {
+					"total": 1,
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.peo92no3ogcc68ox",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "marshal",
+		"class": ""
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723581353937,
+		"modifiedTime": 1723581839420,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "YBnNIMlHOqgYa0Yw"
+}

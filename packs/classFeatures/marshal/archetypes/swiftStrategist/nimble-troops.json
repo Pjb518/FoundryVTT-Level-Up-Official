@@ -1,8 +1,51 @@
 {
 	"name": "Nimble Troops",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/environment/people/spearfighter.webp",
+	"effects": [
+		{
+			"origin": "Item.fxqoAkP8M6tzDLsB",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "dz9l8QADgCB87NWE"
+				}
+			},
+			"transfer": false,
+			"name": "Nimble Troops",
+			"img": "icons/environment/people/spearfighter.webp",
+			"_id": "hS6zT8HBtyJkXNMV",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Creatures within range of your Commanding Presence add your Charisma modifier to checks using the chosen skill.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1724099500929,
+				"modifiedTime": 1724099531909,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -16,35 +59,32 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"ehd0YsZPD4VNOB1F": {
+			"dz9l8QADgCB87NWE": {
 				"name": "Nimble Troops",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"ranges": {
-					"Yw1VQyKAQEZspiFW": {
-						"range": "Within Commanding Presence range"
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"QX3j8HOwW0N4itjN": {
+						"type": "effect",
+						"default": true,
+						"effectId": "hS6zT8HBtyJkXNMV"
 					}
 				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"consumers": {}
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
-		"description": "<p>At 7th level, choose either Acrobatics or Athletics. Creatures within range of your &nbsp;Commanding Presence add your Charisma modifier to checks using the chosen skill.</p>",
+		"description": "<p>At 7th level, choose either Acrobatics or Athletics. Creatures within range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} add your Charisma modifier to checks using the chosen skill.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -72,13 +112,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "marshal",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "bczst6vuvdttunnx",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1724099420352,
+		"modifiedTime": 1724099545993,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "bczst6vuvdttunnx"
 }

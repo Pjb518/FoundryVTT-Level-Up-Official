@@ -42,5 +42,8 @@ export default async function _onCombatantControl(event) {
 
     // Actively ping the Combatant
     case 'pingCombatant': return this._onPingCombatant(c);
+
+    // Pan view to combatant (Non-GM only)
+    case 'panToCombatant': return this._onPanToCombatant(c);
   }
 }

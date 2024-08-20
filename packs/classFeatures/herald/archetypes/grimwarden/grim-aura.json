@@ -45,7 +45,7 @@
 				}
 			}
 		},
-		"description": "<p>You gain a third aura that is active alongside your <em>Sacred Aura</em> and has the same range.</p><h3>Aura of Necrosis</h3><p>Any time a creature within your aura takes <em>necrotic</em> damage, you may choose to increase the <em>necrotic</em> damage dealt by an amount equal to your Charisma modifier.</p>",
+		"description": "<p>You gain a third aura that is active alongside your @UUID[Compendium.a5e.a5e-class-features.Item.xezwxikwrsfkzg4o]{Sacred Aura} and has the same range.</p>\n<h2>Aura of Necrosis</h2>\n<p>Any time a creature within your aura takes necrotic damage, you may choose to increase the necrotic damage dealt by an amount equal to your Charisma modifier.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "acesAdventuringGuideToNecromancy",
@@ -60,7 +60,24 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"UDU4xct2PSMxHXS6": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "UDU4xct2PSMxHXS6",
+				"label": "Aura of Necrosis",
+				"bonus": "@cha.mod",
+				"damageType": "necrotic",
+				"context": {
+					"damageTypes": [
+						"necrotic"
+					],
+					"default": false
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -73,15 +90,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "vs5ypmp0becbllov",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.22",
+		"createdTime": 1723497010442,
+		"modifiedTime": 1723497876501,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "vs5ypmp0becbllov"
 }

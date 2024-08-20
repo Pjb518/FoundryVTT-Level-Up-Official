@@ -2,7 +2,61 @@
 	"name": "Anatomical Expertise",
 	"type": "feature",
 	"img": "icons/skills/wounds/bone-broken-knee-beam.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.ltU0N033uY1be6Wh",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1XVYrU5VzchudLJN",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Analyze Creature",
+			"img": "icons/skills/wounds/bone-broken-knee-beam.webp",
+			"_id": "S3a3t7O2jkB5MJ5S",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Analyze Creature\",\"formula\":\"(floor(@classes.herald.level/3))d6\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"meleeSpellAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/skills/wounds/bone-broken-knee-beam.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Once per round, when you hit that creature with an attack, you deal an additional 2d6 points of damage. This damage increases to 3d6 at level 9, 4d6 at level 13, and 5d6 at level 17. Your focus lasts for an hour or until either you or the focused creature falls unconscious or dies, or until you dismiss your focus (no action required).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723549043835,
+				"modifiedTime": 1723549167548,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -24,7 +78,13 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"48cgBuOyOyjOXrc1": {
+						"type": "effect",
+						"default": true,
+						"effectId": "S3a3t7O2jkB5MJ5S"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -35,7 +95,7 @@
 					}
 				},
 				"duration": {
-					"unit": "hour",
+					"unit": "",
 					"value": 1
 				},
 				"target": {
@@ -43,37 +103,29 @@
 					"quantity": 1
 				}
 			},
-			"DE9wDJqdt17ShWit": {
-				"name": "Bonus Damage",
+			"WTUHfHXE2LGIu2tf": {
+				"name": "Change Focus",
 				"activation": {
-					"type": "none"
+					"type": "bonusAction",
+					"cost": 1
 				},
 				"consumers": {},
-				"rolls": {
-					"Qu2X9yqbGcW7gNTW": {
-						"type": "damage",
-						"default": true,
-						"canCrit": true,
-						"formula": "(@prof - 1)d6"
-					}
-				},
+				"rolls": {},
 				"prompts": {},
 				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "round",
+					"value": 0,
+					"max": "",
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
 				}
 			}
 		},
-		"description": "<p>Beginning at 7th level your knowledge of anatomy and physiology shows you where to strike. As a bonus action, you may make a skill check to recall knowledge of a creature’s physiology and focus on that creature (use the same skill that you would use for lore on the creature; Narrator’s call if not specified).</p><p>The DC is equal to the creature’s CR + 5 (creatures with a CR of less than 1 count as having a CR of 0 for the purposes of this ability).</p><p>If you succeed, once per round, when you hit that creature with an attack, you deal an additional 2d6 points of damage. This damage increases to 3d6 at level 9, 4d6 at level 13, and 5d6 at level 17.</p><p>Your focus lasts for an hour or until either you or the focused creature falls unconscious or dies, or until you dismiss your focus (no action required). You may switch your focus to another creature as a bonus action (making a new check to do so), and may only focus on one creature at a time.</p>",
+		"description": "<p>Beginning at 7th level your knowledge of anatomy and physiology shows you where to strike. As a bonus action, you may make a skill check to recall knowledge of a creature&rsquo;s physiology and focus on that creature (use the same skill that you would use for lore on the creature; Narrator&rsquo;s call if not specified).&nbsp;The DC is equal to the creature&rsquo;s CR + 5 (creatures with a CR of less than 1 count as having a CR of 0 for the purposes of this ability).&nbsp;If you succeed, once per round, when you hit that creature with an attack, you deal an additional 2d6 points of damage. This damage increases to 3d6 at level 9, 4d6 at level 13, and 5d6 at level 17.&nbsp;Your focus lasts for an hour or until either you or the focused creature falls unconscious or dies, or until you dismiss your focus (no action required). You may switch your focus to another creature as a bonus action (making a new check to do so), and may only focus on one creature at a time.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitArcaneAvenger",
@@ -101,13 +153,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "x8dfj29ryibwhcz6",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723548898911,
+		"modifiedTime": 1723549192955,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "x8dfj29ryibwhcz6"
 }
