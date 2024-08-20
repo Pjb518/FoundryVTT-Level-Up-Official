@@ -1,7 +1,7 @@
 {
-	"name": "Deceptive Mind",
+	"name": "Hidden Resources",
 	"type": "feature",
-	"img": "icons/commodities/biological/organ-brain-red.webp",
+	"img": "icons/containers/bags/coinpouch-gold-red.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,35 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Starting at 13th level, when you succeed on a saving throw against an effect that would read your mind, detect whether you are lying, or force you to tell the truth, you are aware of the magical intrusion and can present false thoughts or make a lie appear to be true.</p>",
+		"actions": {
+			"B7nUPNDQ0WySzUOt": {
+				"name": "Hidden Resources",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"ysRJadFAI0Np9DXh": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "slt",
+						"ability": "dex",
+						"label": "With Advantage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Starting at 9th level, when you hide a weapon or small object on your person, you make a Sleight of Hand check with advantage to set the DC for finding it.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -52,9 +79,9 @@
 		"coreVersion": "12.331",
 		"systemId": "a5e",
 		"systemVersion": "0.19.24",
-		"createdTime": 1724189384853,
-		"modifiedTime": 1724189393279,
+		"createdTime": 1724189314002,
+		"modifiedTime": 1724189374404,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "qxqeuw7beffy5rpi"
+	"_id": "hMuay8ucc2RktZw2"
 }

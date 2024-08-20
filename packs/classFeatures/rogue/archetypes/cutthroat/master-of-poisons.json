@@ -1,8 +1,109 @@
 {
 	"name": "Master of Poisons",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/consumables/potions/flask-ornate-skull-green.webp",
+	"effects": [
+		{
+			"origin": "Item.jkqNNkZXo3FXmzWT",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ahJUuMIOUhPrDswb",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Blackblade",
+			"img": "icons/consumables/potions/flask-ornate-skull-green.webp",
+			"_id": "QZAnxkB7JmrHsGFI",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Blackblade\",\"formula\":\"3d6\",\"damageType\":\"poison\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/consumables/potions/flask-ornate-skull-green.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The first time a poisoned weapon or ammunition deals damage, it deals an additional 3d6 poison damage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.24",
+				"createdTime": 1724189083521,
+				"modifiedTime": 1724189126359,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.jkqNNkZXo3FXmzWT",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "bR3aDb7oQZqk2FNU",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Blackblade",
+			"img": "icons/consumables/potions/flask-ornate-skull-green.webp",
+			"_id": "iWaa5By156k3mGCg",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Blackblade\",\"formula\":\"3d6\",\"damageType\":\"poison\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/consumables/potions/flask-ornate-skull-green.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The first time a poisoned weapon or ammunition deals damage, it deals an additional 3d6 poison damage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.24",
+				"createdTime": 1724189134850,
+				"modifiedTime": 1724189173514,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -16,46 +117,85 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"CVZEPQfOV04ulnAw": {
-				"name": "Master of Poisons",
-				"activation": {
-					"cost": "",
-					"type": "special",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "special",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"rolls": {
-					"GblWNFVHYnVUYsm9": {
-						"canCrit": false,
-						"damageType": "poison",
-						"formula": "3d6",
-						"name": "Master of Poisons",
-						"type": "damage"
+			"ahJUuMIOUhPrDswb": {
+				"name": "Apply Poison (Out of Combat)",
+				"activation": {},
+				"consumers": {
+					"ClJzvjI8yE3Ka76h": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
 					}
 				},
-				"consumers": {}
+				"rolls": {},
+				"prompts": {
+					"vlpFEFwfeqCRQeRo": {
+						"type": "effect",
+						"default": true,
+						"effectId": "QZAnxkB7JmrHsGFI"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"bR3aDb7oQZqk2FNU": {
+				"name": "Apply Poison (Cunning Action)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"ClJzvjI8yE3Ka76h": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"f05nsxsjktEFNBOB": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.cunning-action",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"5wPxzUPXQHLoohmm": {
+						"type": "effect",
+						"default": true,
+						"effectId": "iWaa5By156k3mGCg"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
-		"description": "<p>Starting at 3rd level, you learn the recipe for a special injury poison called Blackblade. During a short or long rest, you can use your poisoner’s kit to brew a number of doses of this poison equal to your proficiency bonus without spending money or resources doing so. These poisons lose their effectiveness at the start of your next short or long rest. </p><p>This poison can be applied to a weapon or piece of ammunition before combat or as a Cunning Action. The first time a poisoned weapon or ammunition deals damage, it deals an additional 3d6 poison damage.</p>",
+		"description": "<p>Starting at 3rd level, you learn the recipe for a special injury poison called Blackblade. During a short or long rest, you can use your @UUID[Compendium.a5e.a5e-adventuring-gear.Item.0egxwnp3fyh6lelv]{Poisoner's Kit} to brew a number of doses of this poison equal to your proficiency bonus without spending money or resources doing so. These poisons lose their effectiveness at the start of your next short or long rest.</p>\n<p>This poison can be applied to a weapon or piece of ammunition before combat or as a Cunning Action. The first time a poisoned weapon or ammunition deals damage, it deals an additional 3d6 poison damage.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "@prof",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -76,13 +216,17 @@
 				}
 			}
 		},
-		"classes": "rogue"
+		"classes": "rogue",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "i5qf2ufsz2nvei9t",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724188889282,
+		"modifiedTime": 1724189134883,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "i5qf2ufsz2nvei9t"
 }
