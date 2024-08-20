@@ -59,10 +59,6 @@ const characterSchema = () => ({
     notes: new fields.StringField({ required: true, initial: '' }),
     prestige: new fields.NumberField({ required: true, initial: 1, integer: true }),
     skinColor: new fields.StringField({ required: true, initial: '' }),
-    maneuverTraditions: new fields.ArrayField(
-      new fields.StringField({ required: true, nullable: false, initial: '' }),
-      { required: true, nullable: false }
-    ),
     weight: new fields.StringField({ required: true, initial: '' }),
     xp: new fields.NumberField({ required: true, initial: 0, integer: true }),
     ...details()
