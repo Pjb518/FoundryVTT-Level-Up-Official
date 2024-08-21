@@ -1,7 +1,7 @@
 {
 	"name": "Study Weakness",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/tools/scribal/lens-grey-brown.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,42 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Starting at 17th level, you can recognize a flaw in a creature’s defenses. As your Cunning Action, you can study a creature. You gain advantage on all attacks and contested ability checks against that creature. This benefit lasts for 24 hours or until you study a different creature.</p>",
+		"actions": {
+			"eiaIkyB5bleSzZ9U": {
+				"name": "Cunning Action",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"9cTC2Z3AE2irMGoQ": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.cunning-action",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 24
+				}
+			}
+		},
+		"description": "<p>Starting at 17th level, you can recognize a flaw in a creature&rsquo;s defenses. As your @UUID[Compendium.a5e.a5e-class-features.Item.d8k1x28y4vn6h3q5]{Cunning Action}, you can study a creature. You gain advantage on all attacks and contested ability checks against that creature. This benefit lasts for 24 hours or until you study a different creature.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -44,13 +78,17 @@
 				}
 			}
 		},
-		"classes": "rogue"
+		"classes": "rogue",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "bynyf5fjvuvww3ey",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724209423845,
+		"modifiedTime": 1724209526321,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "bynyf5fjvuvww3ey"
 }
