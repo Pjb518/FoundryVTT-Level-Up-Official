@@ -14,7 +14,69 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"PPS8MEVnzjDClHyo": {
+				"name": "Lead the Way",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"61oZF1gXEAPR1iTD": {
+						"type": "effect",
+						"default": true,
+						"effectId": "03y3RBzy0lIuscLx",
+						"label": "Strength Saving Throw"
+					},
+					"fvd6ak68w8RaSRna": {
+						"type": "effect",
+						"default": true,
+						"effectId": "N2jRxdJDoYTJT0EH",
+						"label": "Dexterity Saving Throw"
+					},
+					"anchTgELNO2ju7gB": {
+						"type": "effect",
+						"default": true,
+						"effectId": "yTOZphT5vwANOjAd",
+						"label": "Acrobatics Check"
+					},
+					"ApcCPHJJEY0NIv02": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XQhqK0HJG7nRy4Q7",
+						"label": "Animal Handling Check"
+					},
+					"rHHtjzOJpkREo9oW": {
+						"type": "effect",
+						"default": true,
+						"effectId": "cfwMUfsO2lb4YMfj",
+						"label": "Athletics Check"
+					},
+					"j7IGdI3AfRBymhwH": {
+						"type": "effect",
+						"default": true,
+						"effectId": "SQWbx6O0lgNqYQvO",
+						"label": "Stealth Check"
+					},
+					"UEYidjZFnPt9XkDO": {
+						"type": "effect",
+						"default": true,
+						"effectId": "szyuPdNTritFJtQH",
+						"label": "Survival Check"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p><span id=\"docs-internal-guid-f3a2ddf2-7fff-593c-4a3a-4bc90228e813\">At 15th level, others have learned to trust your example and confidently follow in your footsteps. Whenever you succeed on a Strength or Dexterity saving throw against an effect, any of your allies who observed you gain advantage on their next saving throw against the same effect in the next 10 minutes. Likewise, whenever you succeed on an Acrobatics, Animal Handling, Athletics, Stealth, or Survival check, any allies that observed you have advantage on their next check to perform the same activity using the same skill in the next 10 minutes. This ability applies even if your check or saving throw would otherwise be considered simultaneous with that of your ally, such as when making a group ability check, or if you and an ally are both targeted by the same spell. If the check or saving throw is simultaneous, you may also choose one ally to automatically succeed on the check or saving throw instead of gaining advantage.</span></p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -37,14 +99,383 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "ranger"
+		"classes": "ranger",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.BhNPyWTzkkFVkeNC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PPS8MEVnzjDClHyo",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lead the Way (Strength Saving Throw)",
+			"img": "icons/skills/movement/arrow-upward-blue.webp",
+			"_id": "03y3RBzy0lIuscLx",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.str",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Whenever you succeed on a Strength saving throw against an effect, any of your allies who observed you gain advantage on their next saving throw against the same effect in the next 10 minutes.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.24",
+				"createdTime": 1724588157084,
+				"modifiedTime": 1724588249551,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.BhNPyWTzkkFVkeNC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PPS8MEVnzjDClHyo",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lead the Way (Dexterity Saving Throw)",
+			"img": "icons/skills/movement/arrow-upward-blue.webp",
+			"_id": "N2jRxdJDoYTJT0EH",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Whenever you succeed on a <span id=\"docs-internal-guid-f3a2ddf2-7fff-593c-4a3a-4bc90228e813\">Dexterity </span>saving throw against an effect, any of your allies who observed you gain advantage on their next saving throw against the same effect in the next 10 minutes.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.24",
+				"createdTime": 1724588214972,
+				"modifiedTime": 1724588252362,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.BhNPyWTzkkFVkeNC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PPS8MEVnzjDClHyo",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lead the Way (Acrobatics Check)",
+			"img": "icons/skills/movement/arrow-upward-blue.webp",
+			"_id": "yTOZphT5vwANOjAd",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.acr",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Whenever you succeed on an Acrobatics check, any allies that observed you have advantage on their next check to perform the same activity using the same skill in the next 10 minutes.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.24",
+				"createdTime": 1724588254944,
+				"modifiedTime": 1724588297823,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.BhNPyWTzkkFVkeNC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PPS8MEVnzjDClHyo",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lead the Way (Animal Handling Check)",
+			"img": "icons/skills/movement/arrow-upward-blue.webp",
+			"_id": "XQhqK0HJG7nRy4Q7",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ani",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Whenever you succeed on an <span id=\"docs-internal-guid-f3a2ddf2-7fff-593c-4a3a-4bc90228e813\">Animal Handling</span> check, any allies that observed you have advantage on their next check to perform the same activity using the same skill in the next 10 minutes.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.24",
+				"createdTime": 1724588302250,
+				"modifiedTime": 1724588320145,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.BhNPyWTzkkFVkeNC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PPS8MEVnzjDClHyo",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lead the Way (Athletics Check)",
+			"img": "icons/skills/movement/arrow-upward-blue.webp",
+			"_id": "cfwMUfsO2lb4YMfj",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ath",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Whenever you succeed on an <span id=\"docs-internal-guid-f3a2ddf2-7fff-593c-4a3a-4bc90228e813\">Athletics</span> check, any allies that observed you have advantage on their next check to perform the same activity using the same skill in the next 10 minutes.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.24",
+				"createdTime": 1724588323796,
+				"modifiedTime": 1724588341316,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.BhNPyWTzkkFVkeNC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PPS8MEVnzjDClHyo",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lead the Way (Stealth Check)",
+			"img": "icons/skills/movement/arrow-upward-blue.webp",
+			"_id": "SQWbx6O0lgNqYQvO",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ste",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Whenever you succeed on an <span id=\"docs-internal-guid-f3a2ddf2-7fff-593c-4a3a-4bc90228e813\">Stealth</span> check, any allies that observed you have advantage on their next check to perform the same activity using the same skill in the next 10 minutes.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.24",
+				"createdTime": 1724588345811,
+				"modifiedTime": 1724588358590,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.BhNPyWTzkkFVkeNC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "PPS8MEVnzjDClHyo",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lead the Way (Survival Check)",
+			"img": "icons/skills/movement/arrow-upward-blue.webp",
+			"_id": "szyuPdNTritFJtQH",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.sur",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Whenever you succeed on an <span id=\"docs-internal-guid-f3a2ddf2-7fff-593c-4a3a-4bc90228e813\">Survival </span>check, any allies that observed you have advantage on their next check to perform the same activity using the same skill in the next 10 minutes.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.24",
+				"createdTime": 1724588363513,
+				"modifiedTime": 1724588375825,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "aymt6woffdb6h66u",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724588144548,
+		"modifiedTime": 1724588451276,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "aymt6woffdb6h66u"
 }
