@@ -13,8 +13,153 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 15th level you pick up a little magic to help you even the odds.</p><p>You learn the spells <em>alarm</em>, <em>forbiddance</em>, and <em>gentle repose</em> and may cast them as rituals.</p><p>You also can cast the spells <em>guards and wards</em>, <em>magic circle</em>, and <em>remove curse</em> once each per long rest without needing a spell slot.</p>",
+		"actions": {
+			"ShKsdrgEKTL2bt21": {
+				"name": "Guards and Wards",
+				"activation": {
+					"cost": 10,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"7CWMb6o3QTOichTC": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "24"
+				},
+				"ranges": {
+					"wxwDwquXe3RCxpYr": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/creatures/magical/construct-golem-stone-blue.webp"
+			},
+			"QuL2LrWvwGQnDIn6": {
+				"name": "Magic Circle",
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"DJfccUM9AZDGjqhd": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"bePypHrv0addlE0a": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "cylinder",
+					"radius": "10",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/symbols/runes-star-pentagon-orange-purple.webp"
+			},
+			"VPMgBpR6THkfalZT": {
+				"name": "Remove Curse",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"YNEBZdkT82UefCYE": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"lL7aWQlIyHignLSw": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"img": "icons/magic/symbols/star-inverted-yellow.webp"
+			}
+		},
+		"description": "<p>At 15th level you pick up a little magic to help you even the odds.</p>\n<p>You learn the spells @UUID[Compendium.a5e.a5e-spells.Item.begb5jdvo5i1zjtu]{Alarm}, @UUID[Compendium.a5e.a5e-spells.Item.j6k8ct3ih2drnfqg]{Forbiddance}, and&nbsp;@UUID[Compendium.a5e.a5e-spells.Item.724qyfqw7qcpe1ol]{Gentle Repose} and may cast them as rituals.</p>\n<p>You also can cast the spells @UUID[Compendium.a5e.a5e-spells.Item.dpo22k81lb6t9ot4]{Guards and Wards}, @UUID[Compendium.a5e.a5e-spells.Item.eylrruf1qarmqngq]{Magic Circle}, and @UUID[Compendium.a5e.a5e-spells.Item.l16wg9h1z9s16exb]{Remove Curse} once each per long rest without needing a spell slot.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -36,15 +181,19 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "ranger"
+		"classes": "ranger",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "p9992hzf9cgop9qv",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724615485361,
+		"modifiedTime": 1724615616823,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "p9992hzf9cgop9qv"
 }
