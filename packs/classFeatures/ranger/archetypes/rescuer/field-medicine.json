@@ -17,7 +17,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>At level 3, you receive specialized medical training that allows you to treat common injuries and ailments even in the heart of the wilds. You gain proficiency with the Medicine skill.</p><p>You also learn one of the following Exploration Knacks, and it does not count against your maximum Knacks known: Healing Salves, Herbal Bitters, or Poisons and Antidotes.</p>",
+		"description": "<p>At level 3, you receive specialized medical training that allows you to treat common injuries and ailments even in the heart of the wilds. You gain proficiency with the Medicine skill.</p>\n<p>You also learn one of the following Exploration Knacks, and it does not count against your maximum Knacks known: @UUID[Compendium.a5e.a5e-class-features.Item.mv2l8c514nj60krl]{Healing Salves}, @UUID[Compendium.a5e.a5e-class-features.Item.785ufl4m9omqp1kw]{Herbal Bitters}, or @UUID[Compendium.a5e.a5e-class-features.Item.weavxhkegoav0ihp]{Poisons and Antidotes}.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -32,19 +32,74 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"k5uFblvg4g14rqiD": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "k5uFblvg4g14rqiD",
+				"label": "Field Medicine",
+				"keys": {
+					"base": [
+						"med"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill",
+				"img": "",
+				"isExpertise": false
+			},
+			"SPzmwLcHszJ4QDnQ": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "SPzmwLcHszJ4QDnQ",
+				"label": "Field Medicine",
+				"features": {
+					"total": 1,
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.mv2l8c514nj60krl",
+							"name": "Knack: Healing Salves",
+							"img": "icons/commodities/materials/bowl-liquid-white.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.785ufl4m9omqp1kw",
+							"name": "Knack: Herbal Bitters",
+							"img": "icons/consumables/plants/basil-herb-green.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.weavxhkegoav0ihp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "ranger"
+		"classes": "ranger",
+		"class": ""
 	},
-	"_id": "dq88y5mn4uqrk5oq",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724616478712,
+		"modifiedTime": 1724616555154,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "dq88y5mn4uqrk5oq"
 }
