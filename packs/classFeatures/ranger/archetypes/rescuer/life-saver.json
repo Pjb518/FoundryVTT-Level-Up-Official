@@ -16,8 +16,60 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 15th level, if you can get to them in time, there’s virtually nobody you can’t save. You learn the <em>spare the dying</em> cantrip. Additionally, once per long rest, you may cast <em>revivify</em> without material components. If you have already used this feature, you may use it again a number of times equal to half your proficiency bonus, but you require one use of a healer’s kit to do so (it is consumed in the process).</p>",
+		"actions": {
+			"glSUBAqvfvYcvyxX": {
+				"name": "Revivify",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"WEQsrwmq0Lnw5Vqm": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"HW3TcVMHSocg6bP6": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/life/heart-cross-strong-green.webp",
+				"description": "<p>The target returns to life with 1 hit point. The spell does not restore any missing body parts and cannot return to life a creature that died of old age.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>At 15th level, if you can get to them in time, there&rsquo;s virtually nobody you can&rsquo;t save. You learn the @UUID[Compendium.a5e.a5e-spells.Item.omvngnmoo75is54f]{Spare the Dying} cantrip.</p>\n<p>Additionally, once per long rest, you may cast @UUID[Compendium.a5e.a5e-spells.Item.0k5zymq9q95l8jwa]{Revivify} without material components. If you have already used this feature, you may use it again a number of times equal to half your proficiency bonus, but you require one use of a healer&rsquo;s kit to do so (it is consumed in the process).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -39,12 +91,16 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "ranger"
+		"classes": "ranger",
+		"class": ""
 	},
-	"_id": "tbnw1nw2w6disxz7",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724616822075,
+		"modifiedTime": 1724616860289,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "tbnw1nw2w6disxz7"
 }
