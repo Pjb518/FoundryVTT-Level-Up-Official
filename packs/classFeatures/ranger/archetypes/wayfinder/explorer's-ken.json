@@ -15,7 +15,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p><span id=\"docs-internal-guid-0b75ad56-7fff-521c-1119-bf58689a9e77\">At 3rd level, you have become adept at guiding others across uncharted regions. You gain proficiency with navigator&rsquo;s tools, cartographer&rsquo;s tools, and one type of vehicle of your choice. If you are already proficient in any of these tools, you instead gain an expertise die. In addition, you gain the Guide exploration knack, or another exploration knack if you already have it. This does not count against your total exploration knacks known.</span></p>",
+		"description": "<p><span id=\"docs-internal-guid-0b75ad56-7fff-521c-1119-bf58689a9e77\">At 3rd level, you have become adept at guiding others across uncharted regions. You gain proficiency with navigator&rsquo;s tools, cartographer&rsquo;s tools, and one type of vehicle of your choice. If you are already proficient in any of these tools, you instead gain an expertise die. In addition, you gain the @UUID[Compendium.a5e.a5e-class-features.Item.oinc1czvbkl26rb5]{Guide} exploration knack, or another exploration knack if you already have it. This does not count against your total exploration knacks known.</span></p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "secretsOfTheSelkies",
@@ -30,21 +30,66 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"r7vu1MVv2Fej0SLT": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "r7vu1MVv2Fej0SLT",
+				"label": "Explorer’s Ken",
+				"keys": {
+					"base": [
+						"cartographersTools",
+						"navigatorsTools"
+					],
+					"options": [
+						"landVehicles",
+						"waterVehicles",
+						"airVehicles"
+					],
+					"total": 1
+				},
+				"proficiencyType": "tool",
+				"img": "",
+				"isExpertise": false
+			},
+			"MO9eYpTwM5cIW7de": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "MO9eYpTwM5cIW7de",
+				"label": "Explorer’s Ken",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.oinc1czvbkl26rb5",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "ranger"
+		"classes": "ranger",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "phhf1fhdw3rgbqy6",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724587113012,
+		"modifiedTime": 1724587186320,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "phhf1fhdw3rgbqy6"
 }

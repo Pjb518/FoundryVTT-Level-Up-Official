@@ -15,7 +15,38 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"Unv2bZh33wEjdwIB": {
+				"name": "Cunning Action",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"DuC4I5okBwKRS4GM": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.cunning-action",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/equipment/hand/gloves-leather-tan.webp"
+			}
+		},
 		"description": "<p>Starting at 9th level, you add your Dexterity modifier (minimum 1) to damage when making an attack using two weapon fighting. Additionally, you can use your @UUID[Compendium.a5e.a5e-class-features.d8k1x28y4vn6h3q5]{Cunning Action} to draw and throw, or pick up and throw, a weapon or improvised weapon.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -31,7 +62,24 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"7DqSWq94j5ddk3mJ": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "7DqSWq94j5ddk3mJ",
+				"label": "Ambidextrous",
+				"bonus": "max(@dex.mod,1)",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"rangedWeaponAttack"
+					],
+					"default": false
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -44,13 +92,17 @@
 				}
 			}
 		},
-		"classes": "rogue"
+		"classes": "rogue",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "jovr49e2qdb7yq0q",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724187575958,
+		"modifiedTime": 1724187648317,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "jovr49e2qdb7yq0q"
 }

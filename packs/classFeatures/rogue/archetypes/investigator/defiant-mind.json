@@ -1,7 +1,7 @@
 {
 	"name": "Defiant Mind",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/commodities/biological/organ-brain-pink-purple.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -16,27 +16,27 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"ggeMF2uXJTURBjC8": {
+			"ZqrRruCWWNBgcgXB": {
 				"name": "Defiant Mind",
 				"activation": {
-					"cost": 1,
 					"type": "reaction",
-					"reactionTrigger": ""
+					"cost": 1,
+					"reactionTrigger": "A creature targets you with a spell or attack that forces you to make a Wisdom or Intelligence saving throw, and you succeed"
 				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"consumers": {}
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p>Starting at 9th level, you have proficiency with Wisdom saving throws. When a creature targets you with a spell or attack that forces you to make a Wisdom or Intelligence saving throw, and you succeed, you can use your reaction to make a melee or ranged attack against that creature.</p>",
@@ -54,7 +54,24 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"2ZhBB7MGX4ECefwo": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "2ZhBB7MGX4ECefwo",
+				"label": "Defiant Mind",
+				"keys": {
+					"base": [
+						"wis"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "savingThrow"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -67,13 +84,17 @@
 				}
 			}
 		},
-		"classes": "rogue"
+		"classes": "rogue",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "6wq6iqkwvl0h1d0p",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724209289808,
+		"modifiedTime": 1724209344155,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "6wq6iqkwvl0h1d0p"
 }

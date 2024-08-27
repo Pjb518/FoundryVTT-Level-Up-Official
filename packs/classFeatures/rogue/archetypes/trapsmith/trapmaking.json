@@ -1,7 +1,7 @@
 {
 	"name": "Trapmaking",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/sundries/misc/pet-collar-spiked-yellow.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -19,13 +19,13 @@
 			"O3KrfDoofJeUoPxj": {
 				"name": "Trapmaking",
 				"activation": {
-					"cost": "",
-					"type": "special",
+					"cost": 10,
+					"type": "minute",
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "minute",
-					"value": 10
+					"unit": "",
+					"value": 1
 				},
 				"area": {
 					"shape": "",
@@ -40,12 +40,36 @@
 					"oc4AOc8NkuuYUY97": {
 						"canCrit": false,
 						"damageType": "",
-						"formula": "floor(@level / 2) * d6",
+						"formula": "@classResources.trapmaking-damage",
 						"name": "Trapmaking",
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {
+					"iqx2QoWEecLGlwXD": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.trapmaking-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"prompts": {
+					"EKSwuEs4HPEINQMW": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "prc",
+						"ability": "wis"
+					},
+					"oylqWQNhqFO2icJ0": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "dex"
+						}
+					}
+				}
 			}
 		},
 		"description": "<p>Beginning at 3rd level, with 10 minutes of work you can use your thieves’ tools to boobytrap a 5-footsquare area or a Large or smaller object. Your trap can be anything from a needle in a lock to a rockfall in a passageway. Describe the mechanics of your trap to the Narrator. Logic determines which traps can be built where; for instance, a swinging axe can’t be hidden in a jewelry box.</p><p>The trap’s DC is 8 + your Dexterity bonus + your proficiency bonus. A creature can spot the trap by making a Perception check against the trap’s DC. Creatures aware of the trap may avoid or disable it without a check. When a creature enters the trapped area or interacts with the trapped object it must succeed on a Dexterity saving throw against the trap’s DC. On a failure, the trap is triggered and the creature takes an amount of damage equal to 1d6 damage times half your rogue level. The type of damage dealt (bludgeoning, piercing, slashing, or poison) is determined by the nature of your trap. Once a trap has been triggered, it is disabled. </p><p>You can use this feature a number of times equal to your proficiency bonus. You regain all uses of this feature when you finish a short or long rest.</p>",
@@ -55,7 +79,7 @@
 		"uses": {
 			"value": 0,
 			"max": "",
-			"per": "shortRest",
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -76,13 +100,17 @@
 				}
 			}
 		},
-		"classes": "rogue"
+		"classes": "rogue",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "bybt1ezqk3lc9u34",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724210235289,
+		"modifiedTime": 1724211417640,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "bybt1ezqk3lc9u34"
 }

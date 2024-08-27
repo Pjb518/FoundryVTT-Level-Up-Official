@@ -36,7 +36,6 @@
     }
 
     function showFilterToggle() {
-        if (["classFeature"].includes(compendiumType)) return false;
         return true;
     }
 
@@ -169,7 +168,7 @@
 
                 <!-- TODO: Update this -->
                 {#if showRollTableToggle()}
-                    {#if !customImporter && compendiumType !== "classFeature"}
+                    {#if !customImporter}
                         <button
                             class="a5efc-filter-button"
                             data-tooltip="Export {[...$reducer]

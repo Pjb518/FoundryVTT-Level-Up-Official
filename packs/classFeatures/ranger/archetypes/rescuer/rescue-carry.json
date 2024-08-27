@@ -16,7 +16,79 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"aevmk9OCnFvEId51": {
+				"name": "Lift Creature",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"2aZgQ0p6Q6YXmhdX": {
+				"name": "Set Creature Down",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"0T4Khk6yoeQDlBeE": {
+				"name": "Drop Creature",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"yTdJtoZPzX2FiggD": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Starting at 3rd level, you learn to safely remove other humanoids from bad situations—conscious or not! As an action, you may lift another willing or unconscious Humanoid of your size category or smaller onto your shoulders. While you are carrying someone this way, you only have one hand free to use a weapon and you may move at your full movement speed, but may not Dash. The creature is considered grappled while you carry it this way, but has advantage on checks to free itself if it wants to.</p><p>You can climb while carrying someone this way, but your climbing speed is halved.</p><p>While swimming along the water’s surface, you can likewise hold another creature of your size category or smaller in such a way that its head remains above water and pull it along with you. While pulling a creature this way, your swim speed is halved. As above, such a creature is considered grappled, but has advantage on checks to free itself if it wants to do so.</p><p>In any of these cases, setting down the person you carry or pulling them onto dry land requires an action. Dropping them unceremoniously (dealing 1d6 of bludgeoning damage if onto a hard surface) can be done as a bonus action.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -39,12 +111,16 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "ranger"
+		"classes": "ranger",
+		"class": ""
 	},
-	"_id": "vddxi23gu5j9zwlc",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724616340325,
+		"modifiedTime": 1724616416968,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "vddxi23gu5j9zwlc"
 }

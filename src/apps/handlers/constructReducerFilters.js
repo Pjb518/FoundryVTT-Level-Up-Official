@@ -147,6 +147,15 @@ const objectFilterConfig = {
   }
 };
 
+const classFeatureConfig = {
+  classes: {
+    key: 'system.classes',
+    type: 'value'
+  },
+  source: 'system.source',
+  type: 'value'
+};
+
 const archetypeFilterConfig = {
   class: {
     key: 'system.class',
@@ -160,6 +169,7 @@ const archetypeFilterConfig = {
 
 const typeMap = {
   '5eSpell': spellsFilterConfig,
+  classFeature: classFeatureConfig,
   object: objectFilterConfig,
   magicItem: objectFilterConfig,
   maneuver: maneuverFilterConfig,
