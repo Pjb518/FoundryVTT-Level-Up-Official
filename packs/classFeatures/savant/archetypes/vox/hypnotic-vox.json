@@ -1,7 +1,7 @@
 {
 	"name": "Hypnotic Vox",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -22,44 +22,51 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "special",
+					"unit": "",
 					"value": 1
 				},
-				"ranges": {
-					"9KYUHp2qj4lxomqV": {
-						"range": "Creatures that can see you"
-					}
-				},
+				"ranges": {},
 				"area": {
 					"shape": "",
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": null,
-					"type": "creature"
+					"quantity": 1,
+					"type": ""
 				},
 				"prompts": {
 					"FjuMCaH2u6nsgHcY": {
 						"ability": "wis",
-						"onSave": "No effect",
+						"onSave": "",
 						"saveDC": {
-							"type": "custom",
-							"bonus": "8+@prof+@int.mod"
+							"type": "int",
+							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"EWFhXQK3Qj3c680p": {
+						"type": "effect",
+						"default": true,
+						"effectId": "qYZ0d6txC60apGX7"
 					}
 				},
-				"consumers": {}
+				"consumers": {
+					"dcRSXxwhyACWy2ss": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
 			}
 		},
-		"description": "<p>At 6th level, you are able to keep people and creatures’ attention focused on you. Spend an action to cause creatures of your choice that can perceive you to make a Wisdom saving throw against your trick save DC. Creatures that don’t understand your language have advantage on the saving throw. Creatures that cannot be charmed automatically succeed their saving throws, and if you or your companions are fighting a creature, it makes its saving throw with advantage .</p><p>On a failure, a creature is charmed by you for as long as you continue talking (with reasonable pauses, perhaps even conversation back and forth) and for the next hour after. While charmed by you, the creature has disadvantage on Wisdom (Perception) checks made to perceive creatures other than you.</p><p>The focus required for this mesmerism is mentally taxing. Once you use this feature, you must finish a short or long rest before you can use it again.</p>",
+		"description": "<p>At 6th level, you are able to keep people and creatures&rsquo; attention focused on you. Spend an action to cause creatures of your choice that can perceive you to make a Wisdom saving throw against your trick save DC. Creatures that don&rsquo;t understand your language have advantage on the saving throw. Creatures that cannot be charmed automatically succeed their saving throws, and if you or your companions are fighting a creature, it makes its saving throw with advantage.</p>\n<p>On a failure, a creature is charmed by you for as long as you continue talking (with reasonable pauses, perhaps even conversation back and forth) and for the next hour after. While charmed by you, the creature has disadvantage on Wisdom (Perception) checks made to perceive creatures other than you.</p>\n<p>The focus required for this mesmerism is mentally taxing. Once you use this feature, you must finish a short or long rest before you can use it again.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventuresInZeitgeist",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -80,15 +87,74 @@
 				}
 			}
 		},
-		"classes": "savant"
+		"classes": "savant",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.DBpQ0XAGwGBbrJBg",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2HWU0yniFqcbCSfi",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+			"_id": "qYZ0d6txC60apGX7",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A charmed creature can't take any hostile action against the charmer.</li>\n<li>Ability checks the charmer makes to socially interact with the charmed creature have advantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"charmed"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1725046767938,
+				"modifiedTime": 1725046805038,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "66qdm84hz3ye9wzt",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1725046698780,
+		"modifiedTime": 1725046822835,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "66qdm84hz3ye9wzt"
 }
