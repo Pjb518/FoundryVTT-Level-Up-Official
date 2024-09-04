@@ -22,7 +22,6 @@ export default class ObjectItemA5e extends ItemA5e {
 
   get container() {
     if (!this.system.containerId) return null;
-    // @ts-expect-error
     if (this.isEmbedded) return this.actor.items.get(this.system.containerId);
     if (this.pack) return game.packs.get(this.pack)?.getDocument(this.system.containerId);
     return game.items.get(this.system.containerId);
@@ -40,6 +39,17 @@ export default class ObjectItemA5e extends ItemA5e {
   get contents() {
     if (this.system.objectType !== 'container') return [];
     return this.containerItems?.items ?? [];
+  }
+
+  /** ------------------------------------------------------ */
+  /**                      Data Prep                         */
+  /** ------------------------------------------------------ */
+  protected override _initialize(options?: Record<string, unknown>) {
+    if (this.system.objectType === 'container') {
+      this.containerItems = null!;
+    }
+
+    super._initialize(options);
   }
 
   override prepareBaseData() {

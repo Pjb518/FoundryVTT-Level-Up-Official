@@ -118,6 +118,8 @@ class BaseActorA5e extends Actor {
 
   declare RollOverrideManager: RollOverrideManager;
 
+  declare initialized: boolean;
+
   // Custom
   effectPhases: { beforeDerived: any[], afterDerived: any[] };
 
@@ -187,21 +189,26 @@ class BaseActorA5e extends Actor {
   // -------------------------------------------------------------
   // Data Preparation Methods
   // -------------------------------------------------------------
+  protected override _initialize(options?: Record<string, unknown>) {
+    this.initialized = false;
+
+    // Unset Managers
+    this.BonusesManager = null!;
+    this.HitDiceManager = null!;
+    this.grants = null!;
+    this.spellBooks = null!;
+    this.RollOverrideManager = null!;
+
+    super._initialize(options);
+  }
+
   /**
    * Sets the order of when to prepare data.
    */
   override prepareData() {
-    // Set Managers
-    // @ts-expect-error
-    this.BonusesManager = null;
-    // @ts-expect-error
-    this.HitDiceManager = null;
-    // @ts-expect-error
-    this.grants = null;
-    // @ts-expect-error
-    this.spellBooks = null;
-    // @ts-expect-error
-    this.RollOverrideManager = null;
+    if (this.initialized) return;
+
+    this.initialized = true;
 
     this.prepareBaseData();
     super.prepareEmbeddedDocuments();

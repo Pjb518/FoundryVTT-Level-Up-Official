@@ -40,10 +40,17 @@ interface ItemA5e<ItemType extends SystemItemTypes = SystemItemTypes> {
 class ItemA5e extends BaseItemA5e {
   declare actions: ActionsManager;
 
-  // *****************************************************************************************
+  /** ------------------------------------------------------ */
+  /**                      Data Prep                         */
+  /** ------------------------------------------------------ */
+  protected override _initialize(options?: Record<string, unknown>) {
+    this.actions = null!;
+
+    super._initialize(options);
+  }
 
   override prepareBaseData() {
-    // Set up managers TODO: Null these in initialize
+    // Set up managers
     this.actions = new ActionsManager(this);
   }
 

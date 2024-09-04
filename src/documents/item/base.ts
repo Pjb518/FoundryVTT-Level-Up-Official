@@ -21,6 +21,8 @@ interface BaseItemA5e<ItemType extends SystemItemTypes = SystemItemTypes> {
  * @extends {Item}
  */
 class BaseItemA5e extends Item {
+  declare initialized: boolean;
+
   dialogs: {
     actions: Record<string, any>;
     areaScaling: Record<string, any>;
@@ -50,7 +52,23 @@ class BaseItemA5e extends Item {
     return this._stats.compendiumSource || this.flags.core?.sourceId || null;
   }
 
-  // *****************************************************************************************
+  /** ------------------------------------------------------ */
+  /**                      Data Prep                         */
+  /** ------------------------------------------------------ */
+  protected override _initialize(options?: Record<string, unknown>) {
+    this.initialized = false;
+
+    super._initialize(options);
+  }
+
+  override prepareData() {
+    if (this.initialized) return;
+    if (!this.parent || this.parent.initialized) {
+      this.initialized = true;
+      super.prepareData();
+    }
+  }
+
   override prepareBaseData() { }
 
   override prepareDerivedData() { }

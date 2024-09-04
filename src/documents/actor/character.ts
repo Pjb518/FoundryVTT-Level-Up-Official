@@ -35,12 +35,17 @@ export default class CharacterActorA5E extends BaseActorA5e {
   // -------------------------------------------------------------
   // Data Preparation Methods
   // -------------------------------------------------------------
+  protected override _initialize(options?: Record<string, unknown>) {
+    this._classes = undefined;
+    this.classAutomationFlags = {};
+
+    super._initialize(options);
+  }
+
   /**
    * Sets the order of when to prepare data.
    */
   override prepareData() {
-    this._classes = undefined;
-    this.classAutomationFlags = {};
     super.prepareData();
   }
 
