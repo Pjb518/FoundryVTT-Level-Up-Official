@@ -18,6 +18,10 @@
         return options.expertiseDice ?? $actor.system.attributes.initiative.expertiseDice;
     }
 
+    function getRollPrompt() {
+        return $actor.getFlag("a5e", "effects.prompts.initiative");
+    }
+
     const actor = new TJSDocument(document.actor);
     const appId = dialog.id;
     const abilities = CONFIG.A5E.abilities;
@@ -63,6 +67,8 @@
         { abilityKey },
     );
 
+    $: prompt = getRollPrompt();
+
     $: rollFormula = getRollFormula($actor, {
         ability: abilityKey,
         expertiseDie,
@@ -76,6 +82,7 @@
 
 <form>
     <RollModePicker
+        hint={prompt}
         selected={selectedRollMode}
         source={rollModeString}
         on:updateSelection={({ detail }) => (selectedRollMode = detail)}
