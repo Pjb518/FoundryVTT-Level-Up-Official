@@ -1,5 +1,5 @@
 {
-	"name": "Blessed Bargain: Light of Life",
+	"name": "Light of Life",
 	"type": "feature",
 	"img": "icons/magic/light/orbs-firefly-hand-yellow.webp",
 	"system": {
@@ -15,22 +15,28 @@
 		},
 		"actions": {
 			"JDj3tbYsbWUCSVQq": {
-				"name": "Light of Life",
+				"name": "Heal",
 				"activation": {},
-				"consumers": {},
+				"consumers": {
+					"tSy8ssOfNUcstRqs": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {
 					"17QQzCDfXn4QLrDd": {
 						"type": "healing",
 						"default": true,
-						"formula": "2d8 +@prof",
-						"label": "Healing"
+						"formula": "2d8 + @prof",
+						"label": ""
 					}
 				},
 				"prompts": {},
 				"uses": {
-					"value": 1,
+					"value": 0,
 					"max": "",
-					"per": "longRest",
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
@@ -49,6 +55,30 @@
 				"duration": {
 					"unit": "instantaneous"
 				}
+			},
+			"iOIsKK9QDf4iMeKv": {
+				"name": "Cure",
+				"activation": {},
+				"consumers": {
+					"gFF20m2f1JmePOT9": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p>You can touch a creature to heal it for 2d8 + you proficiency bonus hit points.<br>Alternatively you may end a disease or one of the following conditions: <em>blinded</em>, <em>deafened</em>, <em>paralyzed</em>, or <em>poisoned</em>. &nbsp;You can do so once per long rest for every two warlock levels you possess.</p>",
@@ -56,8 +86,8 @@
 		"secretDescription": "",
 		"source": "heroesOldAndNew",
 		"uses": {
-			"value": 1,
-			"max": "",
+			"value": 0,
+			"max": "@classes.warlock.level",
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
@@ -67,7 +97,7 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": "Level 1 Empyreal Sage archetype",
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -79,15 +109,19 @@
 				}
 			}
 		},
-		"classes": "warlock"
+		"classes": "warlock",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "ejsgrgno5xblopxb",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1726576196943,
+		"modifiedTime": 1726576347908,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ejsgrgno5xblopxb"
 }

@@ -14,7 +14,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"nuZkEzDbz84osiOM": {
+			"VMaZgzMF8qGlK1eM": {
 				"name": "Bless",
 				"activation": {
 					"cost": 1,
@@ -22,21 +22,28 @@
 					"reactionTrigger": ""
 				},
 				"consumers": {
-					"N1Esb0aF90OS0QGz": {
-						"mode": "variable",
-						"spellLevel": 1,
-						"points": 2,
-						"type": "spell"
+					"f3Ge40LAOTWhmSGI": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
 					}
 				},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"Tb3HVK1MehunfQ4G": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
 				"uses": {
-					"value": 1,
-					"max": "@prof",
-					"per": "longRest",
+					"value": 0,
+					"max": "",
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
@@ -52,25 +59,26 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
-					"quantity": 0,
-					"type": "creature"
+					"quantity": 1,
+					"type": "",
+					"scaling": {
+						"mode": null,
+						"formula": "1"
+					}
 				},
-				"img": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp",
-				"description": "<p>The blessing you bestow upon the targets makes them more durable and competent. Until the spell ends, a d4 is added to attack rolls and saving throws made by a target.</p><p>When cast it in this way, it affects a number of targets equal to your spellcasting ability modifer, has only a verbal component, and can only affect creatures that can hear and understand you. It counts as a first level spell.</p>",
-				"descriptionOutputs": [
-					"action"
-				]
+				"img": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp"
 			}
 		},
-		"description": "<p>You gain knowledge of the secret language of angels. You can speak, read, write, and sign <em>Celestial</em> if you couldn't already, and you know the <em>tongues</em> spell, it counts as a warlock spell, and it doesn't count against your number of spells known.</p><p>In addition, as an action you can use this knowledge to infuse your words with a semblance of divine authority when you call out. You may cast the <em>bless</em> spell a number of times equal to your proficiency bonus. When you cast the spell in this way, it affects a number of creatures equal to your spellcasting ability modifier, has only a verbal component, and can only affect creatures that can hear and understand you. It counts as a first level spell. You regain all expended uses when you finish a long rest.</p>",
+		"description": "<p>You gain knowledge of the secret language of angels. You can speak, read, write, and sign Celestial if you couldn't already, and you know the @UUID[Compendium.a5e.a5e-spells.Item.ef9fuzf8xcja2p7c]{Tongues} spell, it counts as a warlock spell, and it doesn't count against your number of spells known.</p>\n<p>In addition, as an action you can use this knowledge to infuse your words with a semblance of divine authority when you call out. You may cast the @UUID[Compendium.a5e.a5e-spells.Item.xnm2hvlfzqp792tz]{Bless} spell a number of times equal to your proficiency bonus. When you cast the spell in this way, it affects a number of creatures equal to your spellcasting ability modifier, has only a verbal component, and can only affect creatures that can hear and understand you. It counts as a first level spell. You regain all expended uses when you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "heroesOldAndNew",
 		"uses": {
-			"value": 1,
+			"value": 0,
 			"max": "@prof",
 			"per": "longRest",
 			"recharge": {
@@ -80,8 +88,25 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
-		"prerequisite": "Level 6 Empyreal Sage archetype",
+		"grants": {
+			"0du8txVdg2KrhqBu": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "0du8txVdg2KrhqBu",
+				"label": "Clarion Call",
+				"traits": {
+					"base": [
+						"celestial"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "languages"
+				}
+			}
+		},
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -93,15 +118,75 @@
 				}
 			}
 		},
-		"classes": "warlock"
+		"classes": "warlock",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.xnm2hvlfzqp792tz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "VMaZgzMF8qGlK1eM"
+				}
+			},
+			"transfer": false,
+			"name": "Bless",
+			"_id": "9hWrpHJOD0SGvOi8",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.abilities",
+					"value": "{\"context\":{\"abilities\":[\"str\",\"dex\",\"con\",\"int\",\"wis\",\"cha\"],\"types\":[\"save\"],\"requiresProficiency\":false},\"formula\":\"1d4[Bless]\",\"label\":\"Bless\",\"default\":true,\"img\":\"icons/magic/life/heart-cross-strong-flame-purple-orange.webp\"}",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\",\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"]},\"formula\":\"1d4[Bless]\",\"label\":\"Bless\",\"img\":\"icons/magic/life/heart-cross-strong-flame-purple-orange.webp\",\"default\":true}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The blessing you bestow upon the targets makes them more durable and competent. Until the spell ends, a d4 is added to attack rolls and saving throws made by a target.</p>",
+			"statuses": [],
+			"tint": "#ffffff",
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1726576512144,
+				"modifiedTime": 1726576512144,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/life/heart-cross-strong-flame-purple-orange.webp",
+			"type": "base",
+			"system": {},
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "ofc0b82kqnw1ydfj",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1726576447285,
+		"modifiedTime": 1726576585775,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ofc0b82kqnw1ydfj"
 }
