@@ -991,6 +991,7 @@ const spellSchools = {
     control: 'A5E.SpellSchoolControl',
     displacement: 'A5E.SpellSchoolDisplacement',
     divine: 'A5E.SpellSchoolDivine',
+    dragon: 'A5E.SpellSchoolDragon',
     earth: 'A5E.SpellSchoolEarth',
     enhancement: 'A5E.SpellSchoolEnhancement',
     evil: 'A5E.SpellSchoolEvil',

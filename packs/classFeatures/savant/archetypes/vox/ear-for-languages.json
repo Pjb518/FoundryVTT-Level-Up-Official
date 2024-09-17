@@ -1,7 +1,7 @@
 {
 	"name": "Ear for Languages",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/social/wave-halt-stop.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -17,13 +17,13 @@
 			"u9gpNqU2pjhPachS": {
 				"name": "Ear for Languages",
 				"activation": {
-					"cost": "",
-					"type": "special",
+					"cost": 1,
+					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "special",
-					"value": ""
+					"unit": "",
+					"value": 1
 				},
 				"area": {
 					"shape": "",
@@ -31,9 +31,15 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creature"
+					"type": ""
 				},
-				"consumers": {}
+				"consumers": {
+					"stWjqZGg4IcYmZAn": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
 			}
 		},
 		"description": "<p>At 2nd level you train your mind to pick up languages as needed. By spending a short or long rest in the presence of a speaker of any language, you can acquire a rudimentary understanding of that language, enough to have a basic conversation. Any abilities you have that rely on sharing a common language and require a saving throw can work, but the target has advantage on their save.</p><p>The cognitive effort to decode the unfamiliar tongue means that if you use this ability again, you lose access to any other language you learned through it.</p>",
@@ -41,9 +47,9 @@
 		"secretDescription": "",
 		"source": "adventuresInZeitgeist",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -64,15 +70,19 @@
 				}
 			}
 		},
-		"classes": "savant"
+		"classes": "savant",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "6l1kxtl583q9giub",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1725046385920,
+		"modifiedTime": 1725046442385,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "6l1kxtl583q9giub"
 }
