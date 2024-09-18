@@ -13,7 +13,56 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"2MvizbJiRYfPka7N": {
+				"name": "Detect Magic",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"zbyOB8j0Hvsw88s7": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"nGx2plWAcoII9obA": {
+						"range": "30-foot radius"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp"
+			}
+		},
 		"description": "<p>At 6th level, your knowledge of magic is such that you are particularly adept at recognizing its presence. You know @UUID[Compendium.a5e.a5e-spells.kaye34nheyrit487]{Detect Magic} and can cast it at level 1 without expending a spell slot.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -42,15 +91,66 @@
 				}
 			}
 		},
-		"classes": "scholar"
+		"classes": "scholar",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.1wgR5MTEl0gQ9dac",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "2MvizbJiRYfPka7N",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Detect Magic",
+			"_id": "Vj0wjHlVngbvZign",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, you automatically sense the presence of magic within range, and you can use an action to study the aura of a magic effect to learn its schools of magic (if any).</p>\n<p>The spell penetrates most barriers but is blocked by 3 feet of wood or dirt, 1 foot of stone, 1 inch of common metal, or a thin sheet of lead.</p>",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1726572317368,
+				"modifiedTime": 1726572317368,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "x9wlovlttjvogkx8",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1726572309588,
+		"modifiedTime": 1726572321736,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "x9wlovlttjvogkx8"
 }

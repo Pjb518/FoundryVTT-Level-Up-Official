@@ -15,12 +15,20 @@
 		},
 		"actions": {
 			"R7edNuhnroY1hxyC": {
-				"name": "Frightened",
+				"name": "Fear of the Dark",
 				"activation": {
 					"type": "action",
 					"cost": 1
 				},
-				"consumers": {},
+				"consumers": {
+					"nRqrrfuSdnLoOOqC": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 2
+					}
+				},
 				"rolls": {
 					"acNWiOz18tQIutup": {
 						"type": "damage",
@@ -37,6 +45,11 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
+					},
+					"r9xJwzlH7gWzDWWo": {
+						"type": "effect",
+						"default": true,
+						"effectId": "h7CdJzukDQJKRzKZ"
 					}
 				},
 				"uses": {
@@ -61,6 +74,32 @@
 					"type": "creature",
 					"quantity": 1
 				}
+			},
+			"EFKtJbqwc2IMjDlY": {
+				"name": "Blinded/Darkness Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"jOLdMbc6ZnlU9HNj": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p>You may spend 2 sorcery points as an action to target a creature you can see within 30 feet. They must make a Wisdom saving throw or be frightened of you for 1 minute. They may repeat the saving throw at the end of each of their turns, ending the effect on a success. If they start their turn <em>blinded</em> or unable to see as a result of darkness, they count as being able to see the source of their fear, and if they start their turn <em>blinded</em> or in darkness they cannot see through they take 2d6 psychic damage. You may only have one creature frightened in this way at a time.</p>",
@@ -79,7 +118,7 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": "Level 6 Shadowtouched Sorcerer archetype",
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -91,15 +130,74 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.Y0Tk70q1B8aGl81b",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "R7edNuhnroY1hxyC",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/magic/death/skull-energy-light-purple.webp",
+			"_id": "h7CdJzukDQJKRzKZ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1726574101675,
+				"modifiedTime": 1726574141271,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "n2pki0jcu9802mva",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1726574047846,
+		"modifiedTime": 1726574187287,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "n2pki0jcu9802mva"
 }

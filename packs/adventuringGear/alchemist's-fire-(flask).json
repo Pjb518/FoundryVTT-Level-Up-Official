@@ -2,7 +2,53 @@
 	"name": "Alchemist's Fire (flask)",
 	"type": "object",
 	"img": "icons/weapons/thrown/bomb-fuse-red-black.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.geMdjjn7UUF9eU0G",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "7VcjnDdvwUB5A3hk",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "On Fire",
+			"img": "icons/weapons/thrown/bomb-fuse-red-black.webp",
+			"_id": "ePvrZah28MBxrq8T",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Target takes 1d6 ongoing fire damage. This damage persists for 1 minute. A creature can end all ongoing damage being dealt by alchemist’s fires by using its action to either make a DC 14 Dexterity check to extinguish the flames or by dousing the target with at least 1 gallon of water.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1726569367902,
+				"modifiedTime": 1726569395243,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -19,8 +65,8 @@
 			"7VcjnDdvwUB5A3hk": {
 				"name": "Alchemist's Fire (flask)",
 				"activation": {
-					"cost": "",
-					"type": "",
+					"cost": 1,
+					"type": "action",
 					"reactionTrigger": ""
 				},
 				"duration": {
@@ -29,17 +75,19 @@
 				},
 				"ranges": {
 					"U4Jn8v1EHEpogDUb": {
-						"range": "up to 20 ft"
+						"range": 20,
+						"unit": "feet"
 					}
 				},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creatureObject"
+					"type": ""
 				},
 				"rolls": {
 					"xfoblPSBEgL5i3Kg": {
@@ -47,17 +95,67 @@
 						"critThreshold": "20",
 						"type": "attack",
 						"attackType": "rangedWeaponAttack",
-						"ability": "default"
+						"ability": "default",
+						"proficient": false
 					},
 					"DaGiovIKa3r6Q1Gn": {
-						"canCrit": true,
+						"canCrit": false,
 						"damageType": "fire",
 						"formula": "1d6",
 						"name": "ongoing fire damage (1 min)",
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {
+					"tuPzl1ILxMNsREjy": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"prompts": {
+					"VStBHijEvQ8AiQj4": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ePvrZah28MBxrq8T"
+					},
+					"r5WU2cXt481FEiMv": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "14"
+						}
+					}
+				}
+			},
+			"wNwm83FWeV4PFP1p": {
+				"name": "Ongoing Fire Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"W3nzxYMj9HdlbvKk": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p>This sticky, adhesive fluid ignites when exposed to air. You can use an action to throw this flask up to 20 feet where it shatters on impact. Make a ranged weapon attack against a creature or object, treating the alchemist’s fire as an improvised weapon. On a hit, the target takes 1d6 ongoing fire damage. This damage persists for 1 minute. A creature can end all ongoing damage being dealt by alchemist’s fires by using its action to either make a DC 14 Dexterity check to extinguish the flames or by dousing the target with at least 1 gallon of water.</p>",
@@ -114,13 +212,21 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"folder": null,
-	"_id": "4t0m2ttaca5hg2vi",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1726569259047,
+		"modifiedTime": 1726569411673,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "4t0m2ttaca5hg2vi"
 }
