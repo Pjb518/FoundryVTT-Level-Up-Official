@@ -1,0 +1,163 @@
+{
+	"name": "Elemental Ward (Efreet)",
+	"type": "feature",
+	"img": "icons/magic/defensive/shield-barrier-flaming-diamond-blue-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"18Pb2dVYZrpOir5T": {
+				"name": "Elemental Ward",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Take fire damage"
+				},
+				"consumers": {
+					"guMxBaWuF4EVOrfp": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"MBwfp0P0OLcYpkjY": {
+						"type": "effect",
+						"default": true,
+						"effectId": "z5QSy8TbAxbse3Rw"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You gain some of the resiliency of your patron, based on the type of genie you chose.</p>\n<ul>\n<li><strong>Efreet</strong>: You gain resistance to fire damage. You may use your reaction when taking fire damage to instead gain immunity. Once you have done so you cannot do so again until you finish a short or long rest.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "heroesOldAndNew",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"8frkqw2GEnxJY5cE": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "8frkqw2GEnxJY5cE",
+				"img": "",
+				"label": "Elemental Ward",
+				"traits": {
+					"base": [
+						"fire"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "warlock",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.KxJvRTUddq2Ho44R",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "18Pb2dVYZrpOir5T"
+				}
+			},
+			"transfer": false,
+			"name": "Elemental Ward",
+			"img": "icons/magic/defensive/shield-barrier-flaming-diamond-blue-yellow.webp",
+			"_id": "z5QSy8TbAxbse3Rw",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"fire\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain fire immunity.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726663201686,
+				"modifiedTime": 1726663296633,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.26",
+		"createdTime": 1726663107799,
+		"modifiedTime": 1726663736224,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "m23bwPnZgscCm2Lw"
+}

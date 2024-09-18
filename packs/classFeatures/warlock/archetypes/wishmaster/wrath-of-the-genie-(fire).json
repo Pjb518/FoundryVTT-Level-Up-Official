@@ -1,7 +1,7 @@
 {
-	"name": "Lesser Wish",
+	"name": "Wrath of the Genie (Fire)",
 	"type": "feature",
-	"img": "icons/equipment/finger/ring-band-gold.webp",
+	"img": "icons/creatures/magical/spirit-fear-energy-pink.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -14,25 +14,18 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"qGNlMcIhSXtNTjv0": {
-				"name": "Lesser Wish",
-				"activation": {
-					"type": "action",
-					"cost": 1
-				},
-				"consumers": {
-					"yRmhvpXs5U7O17O2": {
-						"type": "itemUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
+			"WI9ZATu00DpwwRLC": {
+				"name": "Fire",
+				"activation": {},
+				"consumers": {},
 				"rolls": {
-					"RTLFbklkoRiEdsNn": {
-						"type": "generic",
+					"AaooGmr6Hf0kobXY": {
+						"type": "damage",
 						"default": true,
-						"label": "Long Rests Needed",
-						"formula": "1d4 + 1"
+						"canCrit": false,
+						"formula": "1d6",
+						"label": "Ongoing Fire Damage",
+						"damageType": "fire"
 					}
 				},
 				"prompts": {},
@@ -46,19 +39,16 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				},
-				"duration": {
-					"unit": "instantaneous"
 				}
 			}
 		},
-		"description": "<p>You have gained the ability to conjure a lesser wish or be granted one by your patron. As an action you can speak your desire and cast any spell of 6th level or lower with no components required, and it takes effect immediately regardless of its normal casting time. The selected spell is cast as if it were using a 6th level slot. Once you have done so you cannot do so again until you have finished 1d4+1 long rests.</p><p>You also add @UUID[Compendium.a5e.a5e-spells.pe52jryde7ljobzq]{Wish} to the list of warlock spells available for the <em>Penultimate Arcanum</em> invocation.</p>",
+		"description": "<p>You can change the damage type of your @UUID[Compendium.a5e.a5e-class-features.Item.ulmcmf3ofmpzmgzf]{Eldritch Blast} to the damage type of the type of genie you chose. If you do so, it gains an additional effect.</p>\n<ul>\n<li><strong>Fire</strong>: The target is set alight and takes 1d6 ongoing fire damage. The environment or an action can put this fire out, ending the effect.</li>\n</ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "heroesOldAndNew",
 		"uses": {
-			"value": 1,
-			"max": "1",
+			"value": 0,
+			"max": "",
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
@@ -90,9 +80,9 @@
 		"coreVersion": "12.331",
 		"systemId": "a5e",
 		"systemVersion": "0.19.26",
-		"createdTime": 1726663352805,
+		"createdTime": 1726662885858,
 		"modifiedTime": 1726663736224,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "qd6ekv3da8c8tx1k"
+	"_id": "8MV7H9U9T4d5Ntce"
 }

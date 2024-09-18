@@ -1,0 +1,149 @@
+{
+	"name": "Wrath of the Genie (Cold)",
+	"type": "feature",
+	"img": "icons/creatures/magical/spirit-fear-energy-pink.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Ebm2MmUnEccPC7qT": {
+				"name": "Cold",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"WneRxM2ZmZOvHeqc": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"HRTjaz6amFuJwjlp": {
+						"type": "effect",
+						"default": true,
+						"effectId": "1e7VlenPtSCpzRmR"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You can change the damage type of your @UUID[Compendium.a5e.a5e-class-features.Item.ulmcmf3ofmpzmgzf]{Eldritch Blast} to the damage type of the type of genie you chose. If you do so, it gains an additional effect.</p>\n<ul>\n<li><strong>Cold</strong>: The target must make a Constitution saving throw against your spell save DC or be slowed until the end of its next turn.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "heroesOldAndNew",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "warlock",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.h9mGnE10ymMHzkge",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Ebm2MmUnEccPC7qT",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Slowed",
+			"img": "icons/creatures/magical/spirit-fear-energy-pink.webp",
+			"_id": "1e7VlenPtSCpzRmR",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"slowed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A slowed creature's Speed is halved.</li>\n<li>A slowed creature takes a −2 penalty to AC and Dexterity saving throws.</li>\n<li>A slowed creature cannot take reactions.</li>\n<li>On its turn, a slowed creature can take either an action or a bonus action, not both. In addition, it can't make more than one melee or ranged attack during its turn.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"slowed"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": 1726662862584,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.26",
+		"createdTime": 1726662862533,
+		"modifiedTime": 1726663736224,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "Lem6zORjnXqOeUsO"
+}
