@@ -1,7 +1,7 @@
 {
 	"name": "Mutated Carapace",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/earth/strike-fist-stone-light.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,14 +15,49 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"pZEcfiHlhxTMGVA6": {
+				"name": "Mutated Carapace",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Take damage, except for psychic damage"
+				},
+				"consumers": {
+					"QKMHF32T1BtrfDSv": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"E4I0GOYFFk0GiCeL": {
+						"type": "healing",
+						"default": true,
+						"formula": "@spellcasting.mod + @classes.warlock.level"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 6th level, your skin mutates and sheds, revealing armor-like patches of barnacles, chitinous plates, glowing crystals, scales, or the like. When you take damage, except for psychic damage, you can use your reaction to reduce the amount taken by your spellcasting ability modifier + your warlock level (minimum 1). Once you have used this feature a number of times equal to half your proficiency bonus, you can’t do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 1,
-			"max": "1",
+			"value": 0,
+			"max": "@prof",
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
@@ -44,13 +79,17 @@
 				}
 			}
 		},
-		"classes": "warlock"
+		"classes": "warlock",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "16gagaqt6boudfem",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726694658105,
+		"modifiedTime": 1726694785466,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "16gagaqt6boudfem"
 }
