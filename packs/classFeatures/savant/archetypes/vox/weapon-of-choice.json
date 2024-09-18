@@ -1,7 +1,7 @@
 {
 	"name": "Weapon of Choice",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -22,23 +22,23 @@
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "special",
-					"value": ""
+					"unit": "",
+					"value": 1
 				},
 				"area": {
 					"shape": "",
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": "",
-					"type": ""
+					"quantity": 1,
+					"type": "creature"
 				},
 				"rolls": {
 					"0ZXKoS3ynjCTMpnp": {
 						"canCrit": false,
 						"damageType": "psychic",
 						"defaultSelection": true,
-						"formula": "(floor((@details.level+1)/6)+1)d6",
+						"formula": "((floor((@details.level+1)/6)+1)d6)",
 						"name": "Force",
 						"type": "damage"
 					}
@@ -48,16 +48,26 @@
 						"ability": "wis",
 						"onSave": "",
 						"saveDC": {
-							"type": "custom",
-							"bonus": "8+@prof+@int.mod"
+							"type": "int",
+							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"7WEVOOTXGVo8FYFE": {
+						"type": "effect",
+						"default": true,
+						"effectId": "sMZSvQ9uImah2ux8"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"ranges": {
+					"9KejMjKpp1yrm4js": {
+						"range": "medium"
+					}
+				}
 			}
 		},
-		"description": "<p>Also at 2nd level, you can guide a foe to ruin with your words. You can use an action to insult a creature within 60 feet that can understand you, or undermine its confidence, goad it into exhausting itself, amuse it into giving up the fight, or similar verbal gambits. If the creature fails a Wisdom saving throw against your trick DC, it takes 1d6 psychic damage and its hit point maximum is reduced by an amount equal to the damage taken. The reduction lasts until the creature completes a short rest . A creature reduced to 0 hit points this way is not dying, but rather is conscious and incapacitated.</p><p><em>The damage increases to 2d6 and 5th level, 3d6 at 11th level, and 4d6 at 17th level.</em></p>",
+		"description": "<p>Also at 2nd level, you can guide a foe to ruin with your words. You can use an action to insult a creature within 60 feet that can understand you, or undermine its confidence, goad it into exhausting itself, amuse it into giving up the fight, or similar verbal gambits. If the creature fails a Wisdom saving throw against your trick DC, it takes 1d6 psychic damage and its hit point maximum is reduced by an amount equal to the damage taken. The reduction lasts until the creature completes a short rest . A creature reduced to 0 hit points this way is not dying, but rather is conscious and incapacitated.</p>\n<p>The damage increases to 2d6 and 5th level, 3d6 at 11th level, and 4d6 at 17th level.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventuresInZeitgeist",
@@ -85,15 +95,71 @@
 				}
 			}
 		},
-		"classes": "savant"
+		"classes": "savant",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.QDJtAlquNXGHDAhl",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "UVKKjYgZZBafGELK"
+				}
+			},
+			"transfer": false,
+			"name": "Weapon of Choice",
+			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+			"_id": "sMZSvQ9uImah2ux8",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"incapacitated\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A creature reduced to 0 hit points this way is not dying, but rather is conscious and incapacitated.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"incapacitated"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1725046553632,
+				"modifiedTime": 1725046575752,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "tde88mv3dbruvyti",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1725046455940,
+		"modifiedTime": 1725046553688,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "tde88mv3dbruvyti"
 }

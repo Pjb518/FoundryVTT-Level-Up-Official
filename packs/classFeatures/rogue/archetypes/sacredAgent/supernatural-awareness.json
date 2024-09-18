@@ -13,8 +13,117 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<blockquote><p>At level 13, you can use magic to enhance your senses.</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>As a bonus action, you can spend spell slots to gain any of the following effects for one minute:</p><ul><li><p>1st-level spell slot: You gain <em>darkvision</em> out to a range of 60 feet.</p><p>This darkvision treats magical darkness as non-magical darkness. If you already have darkvision, its range is extended by 60 feet, but you are still only able to see through magical darkness up to 60 feet. This effect may be activated multiple times, extending the range of both effects by 30 feet for each use after the first.</p><p></p></li><li><p>2nd-level spell slot: you gain <em>blindsense</em> in a 20-foot radius around you.</p><p></p></li><li><p>3rd-level spell slot: you gain <em>tremorsense</em> in a 40-foot radius around you.</p></li></ul><p></p>",
+		"actions": {
+			"RgU8gBS0bdAUePAo": {
+				"name": "Darkvision",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"dFS2rsjo49dC5eXd": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 1,
+						"spellLevel": 1,
+						"points": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"3POk9lsxP9lWumVS": {
+						"type": "effect",
+						"default": true,
+						"effectId": "rtmtm4naFVGq5nsc"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"yV5rG9gA0dwBojhq": {
+				"name": "Blindsense",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"dFS2rsjo49dC5eXd": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 1,
+						"spellLevel": 2,
+						"points": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"3POk9lsxP9lWumVS": {
+						"type": "effect",
+						"default": true,
+						"effectId": "I7azFttcVhlPpM2S"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"mBa185gEr9vTy1Tw": {
+				"name": "Tremorsense",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"dFS2rsjo49dC5eXd": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 1,
+						"spellLevel": 3,
+						"points": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"3POk9lsxP9lWumVS": {
+						"type": "effect",
+						"default": true,
+						"effectId": "cOoA6Z2xAo3pYfpJ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At level 13, you can use magic to enhance your senses. As a bonus action, you can spend spell slots to gain any of the following effects for one minute:</p>\n<ul>\n<li><strong>1st-level spell slot:</strong> You gain darkvision out to a range of 60 feet. This darkvision treats magical darkness as non- magical darkness. If you already have darkvision, its range is extended by 60 feet, but you are still only able to see through magical darkness up to 60 feet. This effect may be activated multiple times, extending the range of both effects by 30 feet for each use after the first.</li>\n<li><strong>2nd-level spell slot: </strong>you gain blindsense in a 20-foot radius around you.</li>\n<li><strong>3rd-level spell slot: </strong>you gain tremorsense in a 40-foot radius around you.</li>\n</ul>\n<p>You may use a higher-level spell slot for a lower-level effect if you wish. You may also have any number of these effects active at once, and may activate any number as part of the same bonus action, but you must pay for them all individually.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -36,15 +145,179 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "rogue"
+		"classes": "rogue",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.PweepZflAKBLBAIv",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "RgU8gBS0bdAUePAo",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Darkvision",
+			"img": "icons/magic/perception/third-eye-blue-red.webp",
+			"_id": "rtmtm4naFVGq5nsc",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.senses.darkvision.distance",
+					"value": "60",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You gain darkvision out to a range of 60 feet. This darkvision treats magical darkness as non- magical darkness. If you already have darkvision, its range is extended by 60 feet, but you are still only able to see through magical darkness up to 60 feet. This effect may be activated multiple times, extending the range of both effects by 30 feet for each use after the first.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1725032951529,
+				"modifiedTime": 1725032975788,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.PweepZflAKBLBAIv",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "yV5rG9gA0dwBojhq",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blindsense",
+			"img": "icons/magic/perception/third-eye-blue-red.webp",
+			"_id": "I7azFttcVhlPpM2S",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.senses.blindsight.distance",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You gain blindsense in a 20-foot radius around you.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1725032985526,
+				"modifiedTime": 1725033026272,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.PweepZflAKBLBAIv",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "mBa185gEr9vTy1Tw",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Tremorsense",
+			"img": "icons/magic/perception/third-eye-blue-red.webp",
+			"_id": "cOoA6Z2xAo3pYfpJ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.senses.tremorsense.distance",
+					"value": "40",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You gain tremorsense in a 40-foot radius around you.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1725033033234,
+				"modifiedTime": 1725033109961,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "e6mmjj4blzn3ebf3",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1725032819421,
+		"modifiedTime": 1725033043391,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "e6mmjj4blzn3ebf3"
 }

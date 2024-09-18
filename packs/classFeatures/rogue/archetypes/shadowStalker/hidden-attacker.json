@@ -14,15 +14,40 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"1IiHgfLtHdOF8qD5": {
+				"name": "Hidden Attacker",
+				"activation": {},
+				"consumers": {
+					"pnuTe66dflxuD50Q": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Starting at 3rd level, you excel at staying hidden from your enemy&rsquo;s sight even when on the attack. If you start your turn hidden from one or more creatures, you can activate this power to remain hidden from them until the start of your next turn. Attacking does not reveal your position, and you do not need&nbsp;cover</span>&nbsp;to remain hidden. You can use this ability a number of times equal to your proficiency bonus, regaining all uses when you finish a&nbsp;<span>short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "dungeonDelversGuide",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "@prof",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -43,14 +68,18 @@
 				}
 			}
 		},
-		"classes": "rogue"
+		"classes": "rogue",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "ensh6bamq1r6b4vk",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1725038768168,
+		"modifiedTime": 1725038789694,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ensh6bamq1r6b4vk"
 }
