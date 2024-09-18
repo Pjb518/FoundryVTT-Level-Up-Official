@@ -251,7 +251,7 @@ export default class BonusesManager {
     if (type === 'passive' && skill?.expertiseDice) {
       const useNPCExpertise = game.settings.storage
         .get('world')
-        .getItem('a5e.useNPCExpertisePassiveRulesForCharacters') ?? false;
+        ?.getItem('a5e.useNPCExpertisePassiveRulesForCharacters') ?? false;
 
       if (this.#actor.type === 'character' && !useNPCExpertise) {
         parts.push('3');
@@ -593,10 +593,11 @@ export default class BonusesManager {
     const parts = Object.entries(bonuses).filter(
       ([, { context, formula }]) => {
         if (!formula) return false;
-        const { skills, passiveOnly } = context ?? { skills: [], passiveOnly: false };
+        const { skills = [], passiveOnly = false, requiresProficiency = false } = context ?? {};
 
         if (!skills.includes(skillKey)) return false;
         if (type !== 'passive' && passiveOnly) return false;
+        if (requiresProficiency && skill.proficient === 0) return false;
 
         return true;
       }
