@@ -1,7 +1,7 @@
 {
-	"name": "Mobility: Fairy Dust",
+	"name": "Can’t Catch Me",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/control/energy-stream-link-teal.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -16,24 +16,16 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"QXMQN9Wq7XNSOkw8": {
-				"name": "Mobility: Fairy Dust",
+			"ugWq1PvOU4Fd3QFu": {
+				"name": "Can’t Catch Me",
 				"activation": {
 					"cost": 1,
-					"type": "bonusAction",
-					"reactionTrigger": ""
+					"type": "reaction",
+					"reactionTrigger": "When an attack misses you"
 				},
 				"duration": {
 					"unit": "",
 					"value": ""
-				},
-				"ranges": {
-					"HZakNzW7Oal1SVYh": {
-						"range": "self"
-					},
-					"BmFMKR42vokmAHqv": {
-						"range": "short"
-					}
 				},
 				"area": {
 					"shape": "",
@@ -44,16 +36,23 @@
 					"quantity": "",
 					"type": ""
 				},
-				"consumers": {}
+				"consumers": {
+					"LBl7H2fzpTjOEWjX": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"ranges": {}
 			}
 		},
-		"description": "<p>Your patron grants you a bag of fairy dust, which contains a number of uses equal to your proficiency bonus. You can use a bonus action to sprinkle this fairy dust on yourself or a creature within 15 feet. A creature benefiting from your fairy dust gains a fly speed of 30 feet (with the ability to hover) for 10 minutes.</p><p>A creature other than you attempting to use the fairy dust must succeed on an Arcana check equal to your spell save DC or it has no effect. When you finish a long rest, your previous bag of fairy dust disappears and you receive a new bag of fairy dust.</p>",
+		"description": "<p>When an attack misses you, you can use your reaction to teleport a distance up to your Speed. Once you have used this feature a number of times equal to your proficiency bonus, you can’t do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
 			"value": 0,
-			"max": "",
+			"max": "@prof",
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
@@ -75,13 +74,17 @@
 				}
 			}
 		},
-		"classes": "warlock"
+		"classes": "warlock",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "1gzbf4r77xlnup0d",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726746621539,
+		"modifiedTime": 1726746722783,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "9qonx8yy1ffoll5h"
 }

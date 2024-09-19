@@ -1,0 +1,161 @@
+{
+	"name": "Fairy Dust",
+	"type": "feature",
+	"img": "icons/consumables/plants/kelp-fern-glowing-green.webp",
+	"effects": [
+		{
+			"origin": "Item.W7085wDqD6lMG7p6",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "QXMQN9Wq7XNSOkw8",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Fairy Dust",
+			"img": "icons/consumables/plants/kelp-fern-glowing-green.webp",
+			"_id": "04RHARt8phGTTR9D",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.traits.hover",
+					"value": "true",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain a fly speed of 30 feet (with the ability to hover) for 10 minutes.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726746846916,
+				"modifiedTime": 1726746880867,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"QXMQN9Wq7XNSOkw8": {
+				"name": "Fairy Dust",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"ranges": {
+					"BmFMKR42vokmAHqv": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"consumers": {
+					"oA63dCAfzgV5qFun": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"prompts": {
+					"5R2ON6jDQv1dQer0": {
+						"type": "effect",
+						"default": true,
+						"effectId": "04RHARt8phGTTR9D"
+					}
+				}
+			}
+		},
+		"description": "<p>Your patron grants you a bag of fairy dust, which contains a number of uses equal to your proficiency bonus. You can use a bonus action to sprinkle this fairy dust on yourself or a creature within 15 feet. A creature benefiting from your fairy dust gains a fly speed of 30 feet (with the ability to hover) for 10 minutes.</p><p>A creature other than you attempting to use the fairy dust must succeed on an Arcana check equal to your spell save DC or it has no effect. When you finish a long rest, your previous bag of fairy dust disappears and you receive a new bag of fairy dust.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "warlock",
+		"class": ""
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.26",
+		"createdTime": 1726746628533,
+		"modifiedTime": 1726746900483,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "1gzbf4r77xlnup0d"
+}
