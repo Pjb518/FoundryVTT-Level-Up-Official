@@ -1,0 +1,218 @@
+{
+	"name": "Diabolical Curse",
+	"type": "feature",
+	"img": "icons/magic/symbols/runes-triangle-orange.webp",
+	"effects": [
+		{
+			"origin": "Item.MK4taNmOPpg5Fwch",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "TdXd11cen5Hbzb3n",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Diabolical Curse",
+			"img": "icons/magic/symbols/runes-triangle-orange.webp",
+			"_id": "0qm44clE9DicV7TW",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated. The curse has the following effects:</p>\n<ul>\n<li>\n<p>Choose fire damage or necrotic damage. When you deal damage against the cursed creature, it takes an additional 1d4 damage of the chosen type. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>\n</li>\n<li>\n<p>Your patron siphons the cursed creature’s life force and pays you a dividend. When the cursed creature dies, you regain hit points equal to your spellcasting ability modifier + your warlock level (minimum 1).</p>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726745413294,
+				"modifiedTime": 1726745459232,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"TdXd11cen5Hbzb3n": {
+				"name": "Diabolical Curse",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"vwJ2dK2SyS1dW8Uz": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"consumers": {
+					"0IJmuWpJz5TMB8rA": {
+						"type": "itemUses"
+					}
+				},
+				"prompts": {
+					"9Yr0X38x94MmxGXi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "0qm44clE9DicV7TW"
+					}
+				}
+			},
+			"F9nKhI5eo9kLosAj": {
+				"name": "Creature Dies",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"M639U1JOrwjtVU5Q": {
+						"type": "healing",
+						"default": true,
+						"formula": "max(@spellcasting.mod + @classes.warlock.level,1)"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You can use a bonus action to place a curse on a creature you can see within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated. The curse has the following effects:</p>\n<ul>\n<li>\n<p>Choose fire damage or necrotic damage. When you deal damage against the cursed creature, it takes an additional 1d4 damage of the chosen type. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>\n</li>\n<li>\n<p>Your patron siphons the cursed creature&rsquo;s life force and pays you a dividend. When the cursed creature dies, you regain hit points equal to your spellcasting ability modifier + your warlock level (minimum 1).</p>\n</li>\n</ul>\n<p>Once you have used this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"8c1d6n1g2nYr7ZDH": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "8c1d6n1g2nYr7ZDH",
+				"bonus": "@classResources.diabolical-curse-damage",
+				"label": "Diabolical Curse (Fire)",
+				"damageType": "fire",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"default": false,
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"img": ""
+			},
+			"bBBVzEGyZPsrSGFl": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "8c1d6n1g2nYr7ZDH",
+				"bonus": "@classResources.diabolical-curse-damage",
+				"label": "Diabolical Curse (Necrotic)",
+				"damageType": "necrotic",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"default": false,
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"img": "",
+				"name": "undefined (Copy)"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "warlock",
+		"class": ""
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.26",
+		"createdTime": 1726745025727,
+		"modifiedTime": 1726745520731,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "vwk7xlbwtbjul4kf"
+}

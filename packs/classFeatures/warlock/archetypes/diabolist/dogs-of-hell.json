@@ -1,7 +1,7 @@
 {
 	"name": "Dogs of Hell",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/creatures/mammals/wolf-shadow-black.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,42 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Starting at 6th level, when you kill a creature targeted by your Diabolical Curse or under the effects of one of your warlock spells, you can bid your patron conjure into your service either a death dog or a ghoul (your choice) into an unoccupied space within 30 feet. The creature rolls its own initiative, has its own turns, and obeys your verbal commands. The creature disappears after 1 minute, when you are knocked unconscious, or when it is reduced to 0 hit points.</p><p>At 15th level, you can have your patron conjure for you either a hell hound or a wight instead.</p><p>Once you have used this feature, you can’t use it again until you finish a short or long rest.</p>",
+		"actions": {
+			"Z4GWcXPQUqDOmsrz": {
+				"name": "Dogs of Hell",
+				"activation": {},
+				"consumers": {
+					"OVavJ7d7zpJLjTdP": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"hMyHy07Rj1LgGvt9": {
+						"range": "short"
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>Starting at 6th level, when you kill a creature targeted by your @UUID[Compendium.a5e.a5e-class-features.Item.vwk7xlbwtbjul4kf] or under the effects of one of your warlock spells, you can bid your patron conjure into your service either a @UUID[Compendium.a5e.a5e-monsters.Actor.8i2tpjis5pwr9j77]{Death Dog} or a @UUID[Compendium.a5e.a5e-monsters.Actor.dgfs5xu1ezk0b1cz]{Ghoul} (your choice) into an unoccupied space within 30 feet. The creature rolls its own initiative, has its own turns, and obeys your verbal commands. The creature disappears after 1 minute, when you are knocked unconscious, or when it is reduced to 0 hit points.</p>\n<p>At 15th level, you can have your patron conjure for you either a @UUID[Compendium.a5e.a5e-monsters.Actor.n20bhj9jrhhh0loy]{Hell Hound} or a @UUID[Compendium.a5e.a5e-monsters.Actor.2cj5cxfv2b57xfzs]{Wight} instead.</p>\n<p>Once you have used this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -44,13 +78,17 @@
 				}
 			}
 		},
-		"classes": "warlock"
+		"classes": "warlock",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "7p7274t4xzsvat1v",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726745544871,
+		"modifiedTime": 1726745674182,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "7p7274t4xzsvat1v"
 }
