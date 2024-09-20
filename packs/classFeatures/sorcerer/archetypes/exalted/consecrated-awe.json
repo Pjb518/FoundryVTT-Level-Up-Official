@@ -13,8 +13,60 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<blockquote><p>At 6th level, you clearly contain the essence of something beyond mortal ken, and it provokes awe and wonder in those who witness your magic.</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>Whenever you cast a spell from the divine school of 1st-level or higher, you are surrounded by an aura of awe that persists for a number of minutes equal to the spell level.</p><p>This aura may subtly provoke powerful feelings, or it could be overtly visible and fantastical; either way the effect is clearly magical.</p><ul><li><p>While this aura is active, you gain an expertise die on all <em>Persuasion </em>and <em>Intimidation </em>checks.</p></li><li><p>While this aura is active, you may choose to glow, shedding bright light in a 30-foot radius and dim light an additional 30 feet beyond that (beginning or ending the glow is a bonus action).</p></li></ul>",
+		"actions": {
+			"tyP8tIB6aaNSrLDL": {
+				"name": "Consecrated Awe",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"vPM5bCODEdZDOXMk": {
+						"type": "effect",
+						"default": true,
+						"effectId": "YLAYHQ1TnPHaCGio"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"TvYHEJiYchxaMN7S": {
+				"name": "Glow",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"lZ55cDaHMY18Maen": {
+						"type": "effect",
+						"default": true,
+						"effectId": "gvAzStVZKoC36kq3"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Beginning at 6th level, you clearly contain the essence of something beyond mortal ken, and it provokes awe and wonder in those who witness your magic. Whenever you cast a spell from the divine school of 1st-level or higher, you are surrounded by an aura of awe that persists for a number of minutes equal to the spell level. This aura may subtly provoke powerful feelings, or it could be overtly visible and fantastical; either way the effect is clearly magical. While this aura is active, you gain an expertise die on all Persuasion and Intimidation checks. While this aura is active, you may choose to glow, shedding bright light in a 30-foot radius and dim light an additional 30 feet beyond that (beginning or ending the glow is a bonus action).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -36,15 +88,132 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.JjQQMdjUwQFsqwLe",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "tyP8tIB6aaNSrLDL",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Aura of Awe",
+			"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+			"_id": "YLAYHQ1TnPHaCGio",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.skills.per.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.skills.itm.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While this aura is active, you gain an expertise die on all Persuasion and Intimidation checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726800120018,
+				"modifiedTime": 1726800163802,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.JjQQMdjUwQFsqwLe",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "TvYHEJiYchxaMN7S",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Glow",
+			"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
+			"_id": "gvAzStVZKoC36kq3",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "30",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While this aura is active, you may choose to glow, shedding bright light in a 30-foot radius and dim light an additional 30 feet beyond that (beginning or ending the glow is a bonus action).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726800190916,
+				"modifiedTime": 1726800224094,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "l7wexrn8yp57nw7v",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726800044108,
+		"modifiedTime": 1726800196278,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "l7wexrn8yp57nw7v"
 }
