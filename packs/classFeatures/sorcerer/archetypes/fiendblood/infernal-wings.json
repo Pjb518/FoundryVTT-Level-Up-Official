@@ -1,5 +1,5 @@
 {
-	"name": "Infernal Wings (Improved Hellish Physiology)",
+	"name": "Infernal Wings",
 	"type": "feature",
 	"img": "icons/creatures/unholy/demon-horned-winged-laughing.webp",
 	"system": {
@@ -26,7 +26,8 @@
 						"type": "damage",
 						"default": true,
 						"formula": "1d8",
-						"damageType": "fire"
+						"damageType": "fire",
+						"canCrit": false
 					}
 				},
 				"prompts": {},
@@ -40,7 +41,8 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				},
 				"ranges": {
 					"P2jYZxavo24nMWxu": {
@@ -53,7 +55,7 @@
 				}
 			}
 		},
-		"description": "<p>If you selected Dark Wings for Hellish Physiology, your fly speed increases to 60 feet. When you are flying, as an action you can cause burning embers to fall from your wings to a space below you. These embers deal 1d8 fire damage to any creatures in the space beneath you and ignite any unattended flammable objects or substances.</p>",
+		"description": "<p>If you selected @UUID[Compendium.a5e.a5e-class-features.Item.r7khy07xh2b7fwp7] for @UUID[Compendium.a5e.a5e-class-features.Item.2f6uk9bin71497vx]{Hellish Physiology}, your fly speed increases to 60 feet. When you are flying, as an action you can cause burning embers to fall from your wings to a space below you. These embers deal 1d8 fire damage to any creatures in the space beneath you and ignite any unattended flammable objects or substances.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -68,22 +70,41 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"bzyH7a47EwLh9yLF": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "bzyH7a47EwLh9yLF",
+				"label": "Infernal Wings",
+				"bonus": "30",
+				"movementTypes": {
+					"base": [
+						"fly"
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "dr3hqtnp6xqsfn65",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726850723664,
+		"modifiedTime": 1726850855006,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "dr3hqtnp6xqsfn65"
 }

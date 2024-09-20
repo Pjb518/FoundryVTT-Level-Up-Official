@@ -1,5 +1,5 @@
 {
-	"name": "Claws of Darkness (Hellish Physiology)",
+	"name": "Claws of Darkness",
 	"type": "feature",
 	"img": "icons/magic/unholy/hand-claw-glow-orange.webp",
 	"system": {
@@ -17,7 +17,7 @@
 			"8YwGXCoYV4B239XL": {
 				"name": "Claws of Darkness",
 				"activation": {
-					"type": "action",
+					"type": "",
 					"cost": 1
 				},
 				"consumers": {},
@@ -33,7 +33,7 @@
 					"TF3ilPN9e7hK9YWa": {
 						"type": "damage",
 						"default": true,
-						"formula": "1d8+@mod",
+						"formula": "1d8 + @finesse.mod",
 						"damageType": "slashing"
 					}
 				},
@@ -48,16 +48,17 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				},
 				"ranges": {
-					"igbybtVCk0iKtzuU": {
-						"range": "touch"
+					"D1i5QK08oEGjY1pi": {
+						"range": "fiveFeet"
 					}
 				},
 				"target": {
 					"type": "creatureObject",
-					"quantity": 1
+					"quantity": 2
 				}
 			}
 		},
@@ -76,22 +77,44 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"TvY4FUireQbplGhf": {
+				"grantType": "feature",
+				"level": 14,
+				"levelType": "class",
+				"optional": false,
+				"_id": "TvY4FUireQbplGhf",
+				"label": "Tenebrous Claws",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.3iw06s9x4vdrojh6",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "iv60pv3a0hmuzutb",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726850437814,
+		"modifiedTime": 1726850632284,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "iv60pv3a0hmuzutb"
 }
