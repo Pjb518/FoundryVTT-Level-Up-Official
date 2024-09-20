@@ -14,53 +14,6 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"N5CdIdVzu1SDz8iZ": {
-				"name": "Stone Eye",
-				"activation": {
-					"type": "bonusAction",
-					"cost": 1
-				},
-				"consumers": {
-					"j9Ad9JDzTKvazdqP": {
-						"type": "actionUses",
-						"default": true,
-						"quantity": 1
-					}
-				},
-				"rolls": {},
-				"prompts": {
-					"ofaHHpsgVgAPss3Z": {
-						"type": "savingThrow",
-						"default": true,
-						"ability": "con",
-						"saveDC": {
-							"type": "spellcasting"
-						},
-						"onSave": "Negates"
-					}
-				},
-				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "shortRest",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"duration": {
-					"unit": "special"
-				},
-				"ranges": {
-					"YS3Nb1isuALpXZBe": {
-						"range": "medium"
-					}
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
-				}
-			},
 			"VTZto45L4eSy28Of": {
 				"name": "Transmogrifier",
 				"activation": {
@@ -68,7 +21,7 @@
 					"cost": 1
 				},
 				"consumers": {
-					"xSoLii9Rj0YQ754m": {
+					"NJI2rlxM02NCS6vq": {
 						"type": "actionUses",
 						"default": true,
 						"quantity": 1
@@ -93,16 +46,83 @@
 						"range": "self"
 					}
 				}
+			},
+			"15wULsT58pwYa9jh": {
+				"name": "Shapeshifter",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"AvUUVWFG17VLdbdN": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "@prof",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"ranges": {
+					"hnSxbAcROdVqi2S6": {
+						"range": "self"
+					}
+				},
+				"img": "icons/magic/symbols/triangle-glow-purple.webp"
+			},
+			"Q3G8YUyyx0z4txhA": {
+				"name": "Recover Use",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"Syy7L4w4dtyQrvXT": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/magic/symbols/triangle-glow-purple.webp"
 			}
 		},
-		"description": "<p>At 6th level your power grows as your altered physiology adapts to the life you&rsquo;ve led up to this point. You may choose one of the following abilities and are not bound by your flesh and bone selection.</p>\n<p><strong>Transmogrifier</strong>: Once per short rest you may use your action to transform yourself into a tiny or smaller creature, or an animated object up to medium size as per the spell&rsquo;s functions though you retain your mental attributes and can still perform S components for spellcasting purposes you cannot vocalize. You gain a number of temporary HP equal to the animated object&rsquo;s HP. Once your temporary HP run out you revert to your normal form, though you can choose to end this effect at any time, otherwise it has no duration. Any objects you carry become a part of your new form and do not function.</p>\n<p>In addition, if you possess the shapeshifter bonded power you may use it a number of times per short rest equal to your proficiency bonus, but may still recover a use by expending a sorcery point as a bonus action.</p>",
+		"description": "<p>At 6th level your power grows as your altered physiology adapts to the life you&rsquo;ve led up to this point. You may choose one of the following abilities and are not bound by your flesh and bone selection.</p>\n<p><strong>Transmogrifier</strong>: Once per short rest you may use your action to transform yourself into a tiny or smaller creature, or an animated object up to medium size as per the spell&rsquo;s functions though you retain your mental attributes and can still perform S components for spellcasting purposes you cannot vocalize. You gain a number of temporary HP equal to the animated object&rsquo;s HP. Once your temporary HP run out you revert to your normal form, though you can choose to end this effect at any time, otherwise it has no duration. Any objects you carry become a part of your new form and do not function.</p>\n<p>In addition, if you possess the @UUID[Compendium.a5e.a5e-class-features.Item.uz6shdo0snfhzfzq]{Shapeshifter}bonded power you may use it a number of times per short rest equal to your proficiency bonus, but may still recover a use by expending a sorcery point as a bonus action.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -117,15 +137,130 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.MWtFxf6FjZVTvp4H",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "15wULsT58pwYa9jh",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"img": "icons/magic/symbols/triangle-glow-purple.webp",
+			"_id": "hrO7JriIqCk6O42F",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726854854800,
+				"modifiedTime": 1726854854800,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.MWtFxf6FjZVTvp4H",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Q3G8YUyyx0z4txhA",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"img": "icons/magic/symbols/triangle-glow-purple.webp",
+			"_id": "KEalUxqU1WxmoFM4",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726854855845,
+				"modifiedTime": 1726854855845,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "bq6z1c55sta64cu5",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726854332412,
+		"modifiedTime": 1726854906773,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "bq6z1c55sta64cu5"
 }

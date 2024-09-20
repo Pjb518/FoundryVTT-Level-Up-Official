@@ -13,15 +13,180 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 14th level your power grows by leaps and bounds. You gain one of the following abilities based on your choice of flesh and bone.</p>\n<p><strong>Bale Eye</strong>: Your bonded power grows significantly. You may now use your baleful gaze in a 30ft cone or a 15ft radius around yourself. In addition, creatures that roll a natural 1 on their saving throw against your bonded power become petrified for 1 minute.</p>",
+		"actions": {
+			"CHOvzdxzZSAxnDgv": {
+				"name": "Baleful Gaze (Cone)",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"BHb5gj3y7Tz0yHkL": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"oiKdb3JrCbpLCDFQ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": ""
+					},
+					"r1cZSX1IRp37e7HC": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Ualb9bgPWInoyqik"
+					},
+					"FXqSgmk43lLa857J": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XQ0PEEVOStsOPsj4"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "special"
+				},
+				"ranges": {
+					"xNmTCKhAOZPwbFIq": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"length": 30,
+					"placeTemplate": true
+				},
+				"img": "icons/magic/symbols/triangle-glow-purple.webp"
+			},
+			"IGoja2SPdb0xqa2L": {
+				"name": "Baleful Gaze (Radius)",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"BHb5gj3y7Tz0yHkL": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"oiKdb3JrCbpLCDFQ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": ""
+					},
+					"r1cZSX1IRp37e7HC": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Ualb9bgPWInoyqik"
+					},
+					"FXqSgmk43lLa857J": {
+						"type": "effect",
+						"default": true,
+						"effectId": "XQ0PEEVOStsOPsj4"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "special"
+				},
+				"ranges": {
+					"xNmTCKhAOZPwbFIq": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"placeTemplate": true,
+					"radius": 15
+				},
+				"img": "icons/magic/symbols/triangle-glow-purple.webp"
+			},
+			"6j8UEZBg5ZKPFdWs": {
+				"name": "Recover Use",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"oNDJktDGUnJerNRJ": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1
+					},
+					"Syy7L4w4dtyQrvXT": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					},
+					"zXFTFZdUBePZ73Ix": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/magic/symbols/triangle-glow-purple.webp"
+			}
+		},
+		"description": "<p>At 14th level your power grows by leaps and bounds. You gain one of the following abilities based on your choice of flesh and bone.</p>\n<p><strong>Bale Eye</strong>: Your bonded power grows significantly. You may now use your @UUID[Compendium.a5e.a5e-class-features.Item.kp2hj80bzmk9rmj6]{Baleful Gaze (Bonded Power)} in a 30ft cone or a 15ft radius around yourself. In addition, creatures that roll a natural 1 on their saving throw against your bonded power become petrified for 1 minute.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -36,15 +201,293 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.MWtFxf6FjZVTvp4H",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CHOvzdxzZSAxnDgv",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"img": "icons/magic/symbols/triangle-glow-purple.webp",
+			"_id": "Ualb9bgPWInoyqik",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726855036119,
+				"modifiedTime": 1726855036119,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.Os1ha2o8qwQW6G7t",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CHOvzdxzZSAxnDgv",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Petrified",
+			"img": "icons/magic/symbols/triangle-glow-purple.webp",
+			"_id": "XQ0PEEVOStsOPsj4",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"petrified\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A petrified creature (and all of its mundane possessions) is transformed into a solid inanimate substance (usually stone). </li>\n<li>A petrified creature’s weight is increased by a factor of ten and it ceases aging.</li>\n<li>A petrified creature is incapacitated, can't move or speak, and is unaware of its surroundings.</li>\n<li>A petrified creature automatically fails Strength and Dexterity saving throws.</li>\n<li>A petrified creature has resistance to all damage.</li>\n<li>A petrified creature is immune to poison and disease (time spent petrified does not affect the duration of a poison or disease already in its system).</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"petrified"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726855062396,
+				"modifiedTime": 1726855121090,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.MWtFxf6FjZVTvp4H",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "IGoja2SPdb0xqa2L",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"img": "icons/magic/symbols/triangle-glow-purple.webp",
+			"_id": "681QD072BAPerzQQ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726855203777,
+				"modifiedTime": 1726855203777,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.Os1ha2o8qwQW6G7t",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "IGoja2SPdb0xqa2L",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Petrified",
+			"img": "icons/magic/symbols/triangle-glow-purple.webp",
+			"_id": "deQHLWv3dp74tz1u",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"petrified\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A petrified creature (and all of its mundane possessions) is transformed into a solid inanimate substance (usually stone). </li>\n<li>A petrified creature’s weight is increased by a factor of ten and it ceases aging.</li>\n<li>A petrified creature is incapacitated, can't move or speak, and is unaware of its surroundings.</li>\n<li>A petrified creature automatically fails Strength and Dexterity saving throws.</li>\n<li>A petrified creature has resistance to all damage.</li>\n<li>A petrified creature is immune to poison and disease (time spent petrified does not affect the duration of a poison or disease already in its system).</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"petrified"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726855203777,
+				"modifiedTime": 1726855203777,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.MWtFxf6FjZVTvp4H",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "6j8UEZBg5ZKPFdWs",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"img": "icons/magic/symbols/triangle-glow-purple.webp",
+			"_id": "f1tHVwE3ECQRRtqZ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726855731544,
+				"modifiedTime": 1726855731544,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "ckun224p21qly6mj",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726854992593,
+		"modifiedTime": 1726855731502,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ckun224p21qly6mj"
 }
