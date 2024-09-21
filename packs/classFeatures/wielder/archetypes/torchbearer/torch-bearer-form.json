@@ -42,11 +42,20 @@
 				}
 			},
 			"CWfmtmHhlRh1MT8V": {
-				"name": "Continue Form (Start of Turn)",
+				"name": "Continue Form (Exterion Points)",
 				"activation": {
-					"type": "special"
+					"type": "",
+					"cost": 1
 				},
-				"consumers": {},
+				"consumers": {
+					"Cb1LyEXUiEIRHPJC": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 2
+					}
+				},
 				"rolls": {},
 				"prompts": {},
 				"uses": {
@@ -59,15 +68,85 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				},
-				"ranges": {
-					"Rj5nP2cipJibSrt6": {
-						"range": "self"
-					}
-				}
+				"ranges": {}
 			},
-			"wClkQmF9oBK1sHSm": {
+			"ftcRzUARBZ8xolnP": {
+				"name": "Continue Form (Artifact Charges)",
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
+				"consumers": {
+					"EhZiGzN54lb5nyGb": {
+						"type": "spell",
+						"default": true,
+						"mode": "chargesOnly",
+						"charges": 2,
+						"spellLevel": 1,
+						"points": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {}
+			},
+			"xKXHKD5HayXJc5N3": {
+				"name": "Continue Form (Exterion Point and Artifact Charge)",
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
+				"consumers": {
+					"Cb1LyEXUiEIRHPJC": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					},
+					"CqFVnKzNlY2dpI0w": {
+						"type": "spell",
+						"default": true,
+						"mode": "chargesOnly",
+						"charges": 1,
+						"spellLevel": 1,
+						"points": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {}
+			},
+			"nLAYrjOF5HAVawwH": {
 				"name": "End Transformation",
 				"activation": {
 					"type": "bonusAction",
@@ -85,13 +164,10 @@
 						"threshold": 6
 					}
 				},
-				"ranges": {
-					"w3tF8JYfOmWWWRzH": {
-						"range": "self"
-					}
-				},
+				"ranges": {},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				}
 			}
 		},
@@ -122,7 +198,7 @@
 	},
 	"effects": [
 		{
-			"origin": "Item.qAyGVq15IQjK7oyx",
+			"origin": "Item.zB6vk84fwDWmolYO",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -161,11 +237,11 @@
 			"_stats": {
 				"compendiumSource": null,
 				"duplicateSource": null,
-				"coreVersion": "12.329",
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.18",
+				"systemVersion": "0.19.26",
 				"createdTime": null,
-				"modifiedTime": 1721639825503,
+				"modifiedTime": 1726929728892,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"img": "icons/svg/aura.svg",
@@ -176,7 +252,7 @@
 			"folder": null
 		},
 		{
-			"origin": "Item.qAyGVq15IQjK7oyx",
+			"origin": "Item.zB6vk84fwDWmolYO",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -209,11 +285,11 @@
 			"_stats": {
 				"compendiumSource": null,
 				"duplicateSource": null,
-				"coreVersion": "12.329",
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.18",
+				"systemVersion": "0.19.26",
 				"createdTime": null,
-				"modifiedTime": 1721639825503,
+				"modifiedTime": 1726929728892,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"img": "icons/svg/aura.svg",
@@ -224,7 +300,7 @@
 			"folder": null
 		},
 		{
-			"origin": "Item.qAyGVq15IQjK7oyx",
+			"origin": "Item.zB6vk84fwDWmolYO",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -287,11 +363,11 @@
 			"_stats": {
 				"compendiumSource": null,
 				"duplicateSource": null,
-				"coreVersion": "12.329",
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.18",
+				"systemVersion": "0.19.26",
 				"createdTime": null,
-				"modifiedTime": 1721639825503,
+				"modifiedTime": 1726929728892,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"img": "icons/svg/aura.svg",
@@ -305,11 +381,11 @@
 	"flags": {},
 	"folder": null,
 	"_stats": {
-		"coreVersion": "12.329",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.18",
-		"createdTime": 1721639825446,
-		"modifiedTime": 1721639887908,
+		"systemVersion": "0.19.26",
+		"createdTime": 1726929728830,
+		"modifiedTime": 1726929812120,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
 	"_id": "ur9p3u29rbiubmbf"
