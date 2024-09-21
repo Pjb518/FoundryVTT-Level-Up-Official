@@ -21,15 +21,17 @@
 					"type": "bonusAction",
 					"cost": 1
 				},
-				"consumers": {},
-				"rolls": {
-					"uTtggWDZBqLVUQrR": {
-						"type": "generic",
+				"consumers": {
+					"ngL0MHVhyKayZErl": {
+						"type": "spell",
 						"default": true,
-						"formula": "1d8",
-						"label": "Wild Experiment"
+						"mode": "chargesOnly",
+						"charges": 2,
+						"spellLevel": 1,
+						"points": 1
 					}
 				},
+				"rolls": {},
 				"prompts": {},
 				"uses": {
 					"value": 0,
@@ -44,12 +46,161 @@
 					"item"
 				],
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				},
-				"description": "<p>Starting at 6th level, even if you don&rsquo;t know how to work your artifact you can still press a few buttons and see what happens. As a bonus action you can perform a wild experiment using your artifact, if you do, expend 2 charges and roll 1d8 on the following table to determine the results:</p>\n<p><strong>Table: Wild Experiment</strong></p>\n<table border=\"1\"><colgroup><col><col></colgroup>\n<tbody>\n<tr>\n<td>d8</td>\n<td>Result</td>\n</tr>\n<tr>\n<td>1</td>\n<td><strong>Cascade.</strong>&nbsp;Expend 2 more charges and immediately roll twice more on this table (ignore this result if there are fewer than 2 charges remaining). You may resolve each result in order.</td>\n</tr>\n<tr>\n<td>2</td>\n<td><strong>Overload.</strong>&nbsp;You and all creatures within 10 feet of you must make a Constitution saving throw and take a number of d6 force damage equal to your proficiency bonus on a failed save, and half as much on a successful one.</td>\n</tr>\n<tr>\n<td>3</td>\n<td><strong>Backfire.</strong>&nbsp;You are launched 30 feet in a random direction and you and any creature or object you impact take 3d6 bludgeoning damage.</td>\n</tr>\n<tr>\n<td>4</td>\n<td><strong>Dud.</strong>&nbsp;The combination you entered or the technique you tried yielded nothing other than wasting charges.</td>\n</tr>\n<tr>\n<td>5</td>\n<td><strong>Invigorating Power.</strong>&nbsp;You feel invigorated. For the next minute, the exertion point cost of any combat maneuvers you perform are reduced by 1 (minimum 1).</td>\n</tr>\n<tr>\n<td>6</td>\n<td><strong>Arcane Power.</strong>&nbsp;The artifact hums with power. For the next minute, the charge cost of any wielder spells you cast are reduced by 1 (minimum 1).</td>\n</tr>\n<tr>\n<td>7</td>\n<td><strong>Unexpected Result.</strong>&nbsp;Randomly choose a 1st level wielder spell from the wielder spell list and immediately cast it. You know this randomly chosen 1st level spell until you finish a short or long rest.</td>\n</tr>\n<tr>\n<td>8</td>\n<td><strong>Success!</strong>&nbsp;You may immediately cast a wielder spell you know of your choice at the highest level you have access to without expending any charges.</td>\n</tr>\n</tbody>\n</table>"
+				"description": "<p>No description available.</p>"
+			},
+			"Jcaog7HBiSVHs8vB": {
+				"name": "Cascade",
+				"activation": {},
+				"consumers": {
+					"33umRW06Vy7VGPTl": {
+						"type": "spell",
+						"default": true,
+						"mode": "chargesOnly",
+						"charges": 2,
+						"spellLevel": 1,
+						"points": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"b4m1Oj2XY45vg9TX": {
+				"name": "Overload",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"XLQVNl5b3lqY5qOi": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "((@prof)d6)",
+						"damageType": "force"
+					}
+				},
+				"prompts": {
+					"uXEbnzKurseVNXPp": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"4CRIARNc8ARPAkvg": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				}
+			},
+			"GYaW37GC2UplMEnk": {
+				"name": "Backfire",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"pqhATYEj5iZ8gxIQ": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d6",
+						"damageType": "bludgeoning"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"modU0w8hPky5eovt": {
+				"name": "Invigorating Power",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"tjTXPmKGUgF3tKby": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Tq3qJL2zEvilCjEW"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"wnijNGaJY36iQA57": {
+				"name": "Arcane Power",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"zjcSKYbCRyhmRJAu": {
+						"type": "effect",
+						"default": true,
+						"effectId": "fN6GN6LTm0i37aqh"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
-		"description": "<p>Starting at 6th level, even if you don&rsquo;t know how to work your artifact you can still press a few buttons and see what happens. As a bonus action you can perform a wild experiment using your artifact, if you do, expend 2 charges and roll 1d8 on the following table to determine the results:</p>\n<p><strong>Table: Wild Experiment</strong></p>\n<table style=\"width: 100%; border-width: 1px; border-color: #000000; border-style: solid;\" border=\"1\"><colgroup><col style=\"width: 7.35684%;\"><col style=\"width: 92.6432%;\"></colgroup>\n<tbody>\n<tr>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\">d8</td>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\">Result</td>\n</tr>\n<tr>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\">1</td>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\"><strong>Cascade.</strong> Expend 2 more charges and immediately roll twice more on this table (ignore this result if there are fewer than 2 charges remaining). You may resolve each result in order.</td>\n</tr>\n<tr>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\">2</td>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\"><strong>Overload.</strong> You and all creatures within 10 feet of you must make a Constitution saving throw and take a number of d6 force damage equal to your proficiency bonus on a failed save, and half as much on a successful one.</td>\n</tr>\n<tr>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\">3</td>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\"><strong>Backfire.</strong> You are launched 30 feet in a random direction and you and any creature or object you impact take 3d6 bludgeoning damage.</td>\n</tr>\n<tr>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\">4</td>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\"><strong>Dud.</strong> The combination you entered or the technique you tried yielded nothing other than wasting charges.</td>\n</tr>\n<tr>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\">5</td>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\"><strong>Invigorating Power.</strong> You feel invigorated. For the next minute, the exertion point cost of any combat maneuvers you perform are reduced by 1 (minimum 1).</td>\n</tr>\n<tr>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\">6</td>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\"><strong>Arcane Power.</strong> The artifact hums with power. For the next minute, the charge cost of any wielder spells you cast are reduced by 1 (minimum 1).</td>\n</tr>\n<tr>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\">7</td>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\"><strong>Unexpected Result.</strong> Randomly choose a 1st level wielder spell from the wielder spell list and immediately cast it. You know this randomly chosen 1st level spell until you finish a short or long rest.</td>\n</tr>\n<tr>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\">8</td>\n<td style=\"border-width: 1px; border-color: rgb(0, 0, 0);\"><strong>Success!</strong> You may immediately cast a wielder spell you know of your choice at the highest level you have access to without expending any charges.</td>\n</tr>\n</tbody>\n</table>",
+		"description": "<p>Starting at 6th level, even if you don&rsquo;t know how to work your artifact you can still press a few buttons and see what happens. As a bonus action you can perform a wild experiment using your artifact, if you do, expend 2 charges and roll 1d8 on the following table to determine the results:</p>\n<p>&nbsp;</p>\n<p><strong>Table: Wild Experiment</strong></p>\n<p>@Embed[Compendium.a5e.a5e-roll-tables.RollTable.Paq350DgQIHysKKU caption=false cite=false rollable=true]</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -71,14 +222,111 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "wielder"
+		"classes": "wielder",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.7YNwjONdQzuiH7Tm",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "modU0w8hPky5eovt",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Invigorating Power",
+			"img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
+			"_id": "Tq3qJL2zEvilCjEW",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For the next minute, the exertion point cost of any combat maneuvers you perform are reduced by 1 (minimum 1).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726928744276,
+				"modifiedTime": 1726928762807,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.7YNwjONdQzuiH7Tm",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "wnijNGaJY36iQA57",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Arcane Power",
+			"img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
+			"_id": "fN6GN6LTm0i37aqh",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For the next minute, the charge cost of any wielder spells you cast are reduced by 1 (minimum 1).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726928778233,
+				"modifiedTime": 1726928793040,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "re2fsc9zb95ucoi3",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726927974377,
+		"modifiedTime": 1726928778271,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "re2fsc9zb95ucoi3"
 }
