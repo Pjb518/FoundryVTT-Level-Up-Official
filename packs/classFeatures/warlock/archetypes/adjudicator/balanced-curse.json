@@ -12,14 +12,108 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"04mp0KdXTuQBjsOd": {
+				"name": "Balanced Curse",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"fw4IV6YuX8wD8K66": {
+						"type": "effect",
+						"default": true,
+						"effectId": "1IdArbw36eXV5LEh"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"qJlm6wMgi05Rp5ox": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"9z0IIHcSk6SuH6Gm": {
+				"name": "Add to Pool",
+				"activation": {},
+				"consumers": {
+					"eEAy4ZcFIQjVAD9b": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"QCt0BRA9tcC2cjZA": {
+				"name": "Use Pool",
+				"activation": {},
+				"consumers": {
+					"FewP8j7pNfol717H": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"ZsUflf5ZC5d7wxKo": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
 		"description": "<p>You can use a bonus action to place a curse on a creature you can see within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated. The curse has the following effects: </p><ul><li><p>When you deal damage against the cursed creature, it takes an additional 1d4 psychic damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p></li><li><p>You have a pool of balance dice, which begins empty. Whenever the cursed creature scores or suffers a critical hit, add a balance die to the pool. When you or another creature within 30 feet of you would roll a d20, you can spend a balance die to make the result of that roll 10 or 11 (your choice) instead of rolling. All other modifiers and die rolls attached to the roll (expertise, etc) are resolved normally. If the roll is at advantage or disadvantage, you may use two dice to influence both rolls, or you may spend one die to provide a single result and the second is rolled normally. The pool disappears when you finish a short or long rest.</p></li></ul><p>Once you have used this feature, you can’t use it again until you finish a short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitJudgeJuryAndExecutioner",
 		"uses": {
-			"value": 1,
-			"max": "1",
+			"value": 0,
+			"max": "",
 			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
@@ -28,7 +122,27 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"CuTjVrahd8f5g6rk": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "CuTjVrahd8f5g6rk",
+				"label": "Balanced Curse",
+				"bonus": "@classResources.balanced-curse-damage",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"default": false
+				},
+				"damageType": "psychic"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -41,16 +155,66 @@
 				}
 			}
 		},
-		"classes": "warlock"
+		"classes": "warlock",
+		"class": ""
 	},
 	"img": "icons/skills/social/trading-justice-scale-yellow.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.MXXPc0BHBPeirHhr",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "04mp0KdXTuQBjsOd",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Balanced Curse",
+			"img": "icons/skills/social/trading-justice-scale-yellow.webp",
+			"_id": "1IdArbw36eXV5LEh",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>\n<p>When you deal damage against the cursed creature, it takes an additional 1d4 psychic damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>\n</li>\n<li>\n<p>You have a pool of balance dice, which begins empty. Whenever the cursed creature scores or suffers a critical hit, add a balance die to the pool. When you or another creature within 30 feet of you would roll a d20, you can spend a balance die to make the result of that roll 10 or 11 (your choice) instead of rolling. All other modifiers and die rolls attached to the roll (expertise, etc) are resolved normally. If the roll is at advantage or disadvantage, you may use two dice to influence both rolls, or you may spend one die to provide a single result and the second is rolled normally. The pool disappears when you finish a short or long rest.</p>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726930339319,
+				"modifiedTime": 1726930354814,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "rommngjbxpsuxscl",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726930200487,
+		"modifiedTime": 1726930441791,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "rommngjbxpsuxscl"
 }
