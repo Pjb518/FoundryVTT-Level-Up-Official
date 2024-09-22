@@ -1,0 +1,229 @@
+{
+	"name": "Deathly Curse",
+	"type": "feature",
+	"img": "icons/magic/unholy/strike-body-life-soul-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Pt7rJ2p16GyopyL0": {
+				"name": "Deathly Curse",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"ranges": {
+					"GrgDKnyq3rCJfjc0": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"rolls": {},
+				"consumers": {
+					"9dE1rFXA8JVgch5L": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"prompts": {
+					"jfHLcrTBkuEiXzOI": {
+						"type": "effect",
+						"default": true,
+						"effectId": "OsLCzk6W3KoMJm3e"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest"
+				}
+			},
+			"J6QFBHPEEuioOuSn": {
+				"name": "Gain Necrosis Die",
+				"activation": {},
+				"consumers": {
+					"NZLR9k3c6ZdLI3g5": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"R1mklorcyxUSNs7X": {
+				"name": "Use Necrosis Die",
+				"activation": {},
+				"consumers": {
+					"NZLR9k3c6ZdLI3g5": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"ef5tCJVmjlakL2B1": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"formula": "1d4",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You can use a bonus action to place a curse on a creature you can see within 30ft. The curse lasts 1 minute, ending early if the creature dies, you die, or you become incapacitated.</p><ul><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">When you deal damage against the cursed creature, it takes an additional 1d4 Necrotic damage. This bonus increases by 1d4 at 10th level, and again at 15th and 19th level.</p></li><li dir=\"ltr\" aria-level=\"1\"><p dir=\"ltr\" role=\"presentation\">You gain a pool of necrosis dice, which begins empty. When the cursed creature fails a saving throw, add one necrosis die to this pool. You can spend a necrosis die whenever you deal damage with your Eldritch Blast, or a spell of 1st level or higher that deals necrotic damage, to deal an additional 1d4 necrotic damage. The pool disappears when you finish a short or long rest.</p></li></ul><p dir=\"ltr\">Once you have used this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "acesAdventuringGuideToNecromancy",
+		"uses": {
+			"value": 1,
+			"max": "",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"yFlHZ7qH6ZqwJcH1": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "yFlHZ7qH6ZqwJcH1",
+				"label": "Deathly Curse",
+				"bonus": "@classResources.deathly-curse-damage",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"default": false
+				},
+				"damageType": "necrotic"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "warlock",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.RFyeBm5GnOZKs8Bu",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Pt7rJ2p16GyopyL0",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Deathly Curse",
+			"img": "icons/magic/unholy/strike-body-life-soul-green.webp",
+			"_id": "OsLCzk6W3KoMJm3e",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p dir=\"ltr\">The curse lasts 1 minute, ending early if the creature dies, you die, or you become incapacitated.</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">When you deal damage against the cursed creature, it takes an additional 1d4 Necrotic damage. This bonus increases by 1d4 at 10th level, and again at 15th and 19th level.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain a pool of necrosis dice, which begins empty. When the cursed creature fails a saving throw, add one necrosis die to this pool. You can spend a necrosis die whenever you deal damage with your Eldritch Blast, or a spell of 1st level or higher that deals necrotic damage, to deal an additional 1d4 necrotic damage. The pool disappears when you finish a short or long rest.</p>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727018872070,
+				"modifiedTime": 1727018890801,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.26",
+		"createdTime": 1727018814140,
+		"modifiedTime": 1727019101040,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "oxd2xyqifqzt7wbr"
+}
