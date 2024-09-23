@@ -1,5 +1,5 @@
 {
-	"name": "Channeler (Spiritualist)",
+	"name": "Channeler",
 	"type": "feature",
 	"img": "icons/magic/unholy/projectile-fireball-agile-purple.webp",
 	"system": {
@@ -36,14 +36,15 @@
 			"XbrBgok9WIKfQXjZ": {
 				"name": "Expel Spirit",
 				"activation": {
-					"type": "none"
+					"type": "",
+					"cost": 1
 				},
 				"consumers": {},
 				"rolls": {
 					"xgRndYq7AhpX2l73": {
 						"type": "generic",
 						"default": true,
-						"formula": "1d20 + @prof + @spell.mod",
+						"formula": "1d20 + @prof + @spellcasting.mod",
 						"label": "Check to expel creature"
 					}
 				},
@@ -58,7 +59,8 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				}
 			}
 		},
@@ -90,15 +92,19 @@
 				}
 			}
 		},
-		"classes": "warlock"
+		"classes": "warlock",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "mnj8cdlmzznhrsv1",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727106461577,
+		"modifiedTime": 1727106657347,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "mnj8cdlmzznhrsv1"
 }
