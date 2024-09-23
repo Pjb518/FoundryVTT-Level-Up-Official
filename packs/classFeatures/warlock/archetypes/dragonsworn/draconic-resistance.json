@@ -1,6 +1,6 @@
 {
 	"folder": null,
-	"name": "Draconic Resistance (Dragonsworn)",
+	"name": "Draconic Resistance",
 	"type": "feature",
 	"img": "icons/magic/symbols/rune-sigil-horned-blue.webp",
 	"system": {
@@ -20,14 +20,20 @@
 				"activation": {
 					"type": "reaction",
 					"cost": 1,
-					"reactionTrigger": "fail a saving throw"
+					"reactionTrigger": "Fail a saving throw"
 				},
-				"consumers": {},
+				"consumers": {
+					"D3mRKpvQm0Qv1Tfi": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {
 					"IAlfGxphKOadhek0": {
 						"type": "generic",
 						"default": true,
-						"label": "Add to saving throw result",
+						"label": "",
 						"formula": "1d4"
 					}
 				},
@@ -35,25 +41,26 @@
 				"uses": {
 					"value": 0,
 					"max": "",
-					"per": "shortRest",
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				}
 			}
 		},
-		"description": "<p>At 6th level you gain resistance to your draconic damage type.</p><p>In addition, whenever you fail a saving throw, you can use your reaction to roll a d4 and add it to the result of the saving throw, potentially turning it into a success.<span style=\"mso-spacerun: yes;\">&nbsp; </span></p><p>You can do so a number of times equal to your proficiency bonus and regain all expended uses when you finish a short or long rest.</p>",
+		"description": "<p>At 6th level you gain resistance to your draconic damage type.&nbsp;In addition, whenever you fail a saving throw, you can use your reaction to roll a d4 and add it to the result of the saving throw, potentially turning it into a success.<span style=\"mso-spacerun: yes;\"> </span>You can do so a number of times equal to your proficiency bonus and regain all expended uses when you finish a short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "mysteriousAndMarvelousMiscellanea",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "@prof",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -62,7 +69,7 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": "Warlock Level 6; Dragonsworn Archetype",
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -74,14 +81,18 @@
 				}
 			}
 		},
-		"classes": "warlock"
+		"classes": "warlock",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "mxwgufwcrjs08z5k",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727117879944,
+		"modifiedTime": 1727117927895,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "mxwgufwcrjs08z5k"
 }
