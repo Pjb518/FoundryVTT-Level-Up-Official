@@ -13,7 +13,35 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"tOEZXbLc6SATXUcl": {
+				"name": "Tab with the Ferryman",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"RchGFnBuv6aPLomo": {
+						"type": "effect",
+						"default": true,
+						"effectId": "S4EBYSk6cMZndlYu"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Also at 10th level, you can more easily secure passage into and out of the afterlife. A creature casting a spell to return you to life such as (raise dead or reincarnate) does not need material components to do so. In addition, you may die as an action. Whenever you die (via this ability or by any other means), your soul is instantly set on the path to whatever final afterlife it is destined for and cannot be trapped or destroyed. Your body is on its own, however.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -42,15 +70,79 @@
 				}
 			}
 		},
-		"classes": "warlock"
+		"classes": "warlock",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.WsYksJutmz8iC5C2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "tOEZXbLc6SATXUcl",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Tab with the Ferryman",
+			"img": "icons/commodities/currency/coin-embossed-skull-gold.webp",
+			"_id": "S4EBYSk6cMZndlYu",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.hp.value",
+					"value": "0",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"unconscious\",\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Whenever you die (via this ability or by any other means), your soul is instantly set on the path to whatever final afterlife it is destined for and cannot be trapped or destroyed. Your body is on its own, however.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"unconscious",
+				"prone"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727100478861,
+				"modifiedTime": 1727100540433,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "ffx3rr4wkd1unwdc",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727100462190,
+		"modifiedTime": 1727100478922,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ffx3rr4wkd1unwdc"
 }
