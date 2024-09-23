@@ -1,0 +1,179 @@
+{
+	"name": "Come to my Aid",
+	"type": "feature",
+	"img": "icons/magic/life/heart-area-circle-red-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"zKYXLG4BGSFitqkA": {
+				"name": "Come to my Aid",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"X6CGyuGAstz4c29g": {
+						"type": "healing",
+						"default": true,
+						"label": "Bonus Temporary Hit Points",
+						"formula": "((@prof)d4)",
+						"healingType": "temporaryHealing"
+					}
+				},
+				"prompts": {
+					"FOR7jwptUe2yJz6X": {
+						"type": "effect",
+						"default": true,
+						"effectId": "k3MFxtLg2kFhc6BW"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 10th level whenever you cast a spell that summons a beast, plant, elemental, or fey, any creatures summoned gain temporary hit points equal to a roll of a number of d4s equal to your proficiency bonus. If multiple creatures are summoned by one spell, they all gain the same number of temporary hit points. They also gain an expertise die on saving throws and attack rolls.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "mysteriousAndMarvelousMiscellanea",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "witch",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.TvfoAM5c9kp2Z007",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "zKYXLG4BGSFitqkA"
+				}
+			},
+			"transfer": false,
+			"name": "Come to my Aid",
+			"img": "icons/magic/life/heart-area-circle-red-green.webp",
+			"_id": "k3MFxtLg2kFhc6BW",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.abilities.str.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.dex.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.con.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.int.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.wis.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.cha.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.bonuses.attacks",
+					"value": "{\"label\":\"Come to my Aid\",\"formula\":\"1d4\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\",\"meleeSpellAttack\",\"rangedSpellAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/svg/upgrade.svg\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain an expertise die on saving throws and attack rolls.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727125397278,
+				"modifiedTime": 1727125487704,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.26",
+		"createdTime": 1727125366011,
+		"modifiedTime": 1727125397320,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "u90spbmd1cswzj27"
+}
