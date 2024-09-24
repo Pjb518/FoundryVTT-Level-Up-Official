@@ -13,7 +13,32 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"i4Lz5RzAdtCTGIxV": {
+				"name": "Run Like the Wind",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"AdvmlFjBTc0nc3pb": {
+						"type": "effect",
+						"default": true,
+						"effectId": "BoQo05sjCnh4vxYw"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>When you select this archetype at 2nd level beneficial winds aid in your movement as you weave your magic. Whenever you cast a spell of 1st level or higher you movement speed is increased by 10 feet and attacks of opportunity have disadvantage against you until the end of your next turn. This ability does not function while in a vacuum, underwater, or otherwise not surrounded by air.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -42,15 +67,74 @@
 				}
 			}
 		},
-		"classes": "wizard"
+		"classes": "wizard",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.WJ8KVAshXCMSfr3z",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "i4Lz5RzAdtCTGIxV",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Run Like the Wind",
+			"img": "icons/skills/movement/feet-winged-boots-blue.webp",
+			"_id": "BoQo05sjCnh4vxYw",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "10",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Speed is increased by 10 feet and attacks of opportunity have disadvantage against you until the end of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727127765696,
+				"modifiedTime": 1727127795308,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "kiixbgnlj6fkrq5b",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727127749119,
+		"modifiedTime": 1727127765738,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "kiixbgnlj6fkrq5b"
 }
