@@ -14,8 +14,50 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>When you choose this archetype at level 2, your unarmed damage becomes necrotic damage, and you may use your Intelligence bonus instead of your Strength bonus when calculating your unarmed damage.</p><p>Additionally, you learn how to use the very life force of your victims. Whenever you deal necrotic damage to a living target with a CR of &frac14; or higher, you gain half the damage dealt as temporary hit points. You can never have more of these temporary hit points than twice your proficiency bonus, and you may not benefit from temporary hit points from more than one creature at a time.</p><p>Finally, all spells of the necromancy school become wizard spells for you (see the full list at the end of this archetype description).</p>",
+		"actions": {
+			"MzvjnEYinEkOPJAn": {
+				"name": "Unarmed Strike",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"aRLV5MvxJux8OhX9": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"ugtcFivHlM6DQ5pX": {
+						"type": "damage",
+						"default": true,
+						"formula": "1 + @int.mod",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"Svo4AJ4iiYknGinL": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>When you choose this archetype at level 2, your unarmed damage becomes necrotic damage, and you may use your Intelligence bonus instead of your Strength bonus when calculating your unarmed damage.</p>\n<p>Additionally, you learn how to use the very life force of your victims. Whenever you deal necrotic damage to a living target with a CR of &frac14; or higher, you gain half the damage dealt as temporary hit points. You can never have more of these temporary hit points than twice your proficiency bonus, and you may not benefit from temporary hit points from more than one creature at a time.</p>\n<p>Finally, all spells of the <em>necromancy </em>school become wizard spells for you (see the full list at the end of this archetype description).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -43,14 +85,18 @@
 				}
 			}
 		},
-		"classes": "wizard"
+		"classes": "wizard",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "khrk7ou2yaoel025",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727210910785,
+		"modifiedTime": 1727210977913,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "khrk7ou2yaoel025"
 }
