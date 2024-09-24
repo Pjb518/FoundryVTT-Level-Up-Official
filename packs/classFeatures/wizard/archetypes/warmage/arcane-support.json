@@ -56,7 +56,7 @@
 					}
 				},
 				"target": {
-					"type": "creature",
+					"type": "",
 					"quantity": 1
 				}
 			},
@@ -74,7 +74,13 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"4JAvbrTBGujmfrHM": {
+						"type": "effect",
+						"default": true,
+						"effectId": "lPANgx0IAn1fejBl"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -89,12 +95,12 @@
 					"value": 1
 				},
 				"target": {
-					"type": "creature",
+					"type": "",
 					"quantity": 1
 				}
 			}
 		},
-		"description": "<p>At level 14, you gain the ability to bolster your allies in battle. As a reaction you can do one of the following:</p><ul data-rte-list=\"default\"><li><p>Grant a number of allies within 100 feet equal to twice your proficiency bonus the benefits of your Arcane Shield for up to 10 minutes. This effect requires concentration to maintain.</p></li><li><p>Enchant the weapons of a number of allies equal to your proficiency bonus, giving them a +1 bonus to hit and damage, and changing their damage type to your choice of fire, cold, or lightning for up to 1 minute. This effect requires concentration to maintain.</p></li></ul><p>Once you have used this feature you cannot do so again until after you have taken a short rest.</p>",
+		"description": "<p>At level 14, you gain the ability to bolster your allies in battle. As a reaction you can do one of the following:</p>\n<ul data-rte-list=\"default\">\n<li>\n<p>Grant a number of allies within 100 feet equal to twice your proficiency bonus the benefits of your @UUID[Compendium.a5e.a5e-class-features.Item.yo6k8wq1dont2btr]{Arcane Shield} for up to 10 minutes. This effect requires concentration to maintain.</p>\n</li>\n<li>\n<p>Enchant the weapons of a number of allies equal to your proficiency bonus, giving them a +1 bonus to hit and damage, and changing their damage type to your choice of fire, cold, or lightning for up to 1 minute. This effect requires concentration to maintain.</p>\n</li>\n</ul>\n<p>Once you have used this feature you cannot do so again until after you have taken a short rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -122,12 +128,12 @@
 				}
 			}
 		},
-		"classes": "wizard"
+		"classes": "wizard",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/control/buff-strength-muscle-damage-red.webp",
-			"origin": "Item.yidk67ticifqe5q5",
+			"origin": "Item.SuB84uc7txlCOT2P",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -144,8 +150,8 @@
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "3",
 					"mode": 2,
-					"value": "1",
 					"priority": null
 				}
 			],
@@ -159,23 +165,32 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<p>Gain the benefits of a persistent arcane shield. This magical protective aura grants you a +3 bonus to your Armor Class.</p>",
 			"statuses": [],
 			"tint": "#ffffff",
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": 1727209295722,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/control/buff-strength-muscle-damage-red.webp",
+			"type": "base",
+			"system": {},
+			"sort": 0,
+			"folder": null
 		},
 		{
-			"icon": "icons/magic/control/buff-strength-muscle-damage-red.webp",
-			"origin": "Item.yidk67ticifqe5q5",
+			"origin": "Item.SuB84uc7txlCOT2P",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
+					"actionId": "bD3RxwzTaTgE7ecK",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -183,30 +198,21 @@
 			},
 			"transfer": false,
 			"name": "Enchant",
-			"_id": "CrlWLxb5hPhF9fmS",
+			"img": "icons/magic/control/buff-strength-muscle-damage-red.webp",
+			"_id": "lPANgx0IAn1fejBl",
+			"type": "base",
+			"system": {},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.attacks",
+					"value": "{\"label\":\"Arcane Support\",\"formula\":\"1\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"spellLevels\":[],\"requiresProficiency\":false},\"default\":true,\"img\":\"icons/magic/control/buff-strength-muscle-damage-red.webp\"}",
 					"mode": 0,
-					"value": "{\"context\":{\"attackTypes\":[\"meleeSpellAttack\"]},\"formula\":\"1\",\"label\":\"Melee Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
 					"priority": null
 				},
 				{
-					"key": "flags.a5e.effects.bonuses.attacks",
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Arcane Support\",\"formula\":\"1\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/control/buff-strength-muscle-damage-red.webp\"}",
 					"mode": 0,
-					"value": "{\"context\":{\"attackTypes\":[\"meleeWeaponAttack\"]},\"formula\":\"1\",\"label\":\"Melee Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.attacks",
-					"mode": 0,
-					"value": "{\"context\":{\"attackTypes\":[\"rangedSpellAttack\"]},\"formula\":\"1\",\"label\":\"Ranged Spell Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.bonuses.attacks",
-					"mode": 0,
-					"value": "{\"context\":{\"attackTypes\":[\"rangedWeaponAttack\"]},\"formula\":\"1\",\"label\":\"Ranged Weapon Attack\",\"img\":\"icons/svg/upgrade.svg\",\"default\":true}",
 					"priority": null
 				}
 			],
@@ -220,22 +226,31 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
-			"statuses": [],
+			"description": "<p>Enchant the weapons of a number of allies equal to your proficiency bonus, giving them a +1 bonus to hit and damage, and changing their damage type to your choice of fire, cold, or lightning for up to 1 minute.</p>",
 			"tint": "#ffffff",
-			"folder": null,
+			"statuses": [],
+			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.26",
+				"createdTime": 1727209354844,
+				"modifiedTime": 1727209417509,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "yidk67ticifqe5q5",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727209222448,
+		"modifiedTime": 1727209354898,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "yidk67ticifqe5q5"
 }
