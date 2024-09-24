@@ -1,7 +1,7 @@
 {
-	"name": "Refined Learning (War Magic)",
+	"name": "War Magic",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/fire/dagger-rune-enchant-flame-red.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -48,7 +48,7 @@
 				"consumers": {}
 			}
 		},
-		"description": "<p>At 6th level, you’ve developed an impressive expertise in spells of your chosen school. Choose one of the following benefits:</p><h3><strong>War Magic </strong></h3><p>When you deal damage with a wizard spell from your chosen school, you deal additional damage equal to your Intelligence modifier on the first damage roll for that spell.</p>",
+		"description": "<p>When you deal damage with a wizard spell from your chosen school, you deal additional damage equal to your Intelligence modifier on the first damage roll for that spell.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -63,7 +63,24 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"cl2uvjb6Vzn1kCzI": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "cl2uvjb6Vzn1kCzI",
+				"label": "War Magic",
+				"context": {
+					"default": false,
+					"attackTypes": [
+						"meleeSpellAttack",
+						"rangedSpellAttack"
+					]
+				},
+				"bonus": "@int.mod"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -76,13 +93,17 @@
 				}
 			}
 		},
-		"classes": "wizard"
+		"classes": "wizard",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "lhlugweic7nug7l0",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727199756677,
+		"modifiedTime": 1727199810304,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "lhlugweic7nug7l0"
 }
