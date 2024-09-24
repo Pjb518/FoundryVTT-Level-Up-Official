@@ -1,7 +1,7 @@
 {
 	"name": "Rituals of Fire",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/fire/barrier-wall-flame-ring-yellow.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -16,39 +16,158 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"cWKz63RAnZBV1zK1": {
-				"name": "Rituals of Fire",
+			"n8ByK8SX48D24nf3": {
+				"name": "Augury",
 				"activation": {
-					"cost": "",
-					"type": "special",
+					"cost": 10,
+					"type": "minute",
 					"reactionTrigger": ""
 				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
 				"duration": {
-					"unit": "minute",
-					"value": 10
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"yx16o4KTfoQobkxy": {
+						"range": "self"
+					}
 				},
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
-					"type": ""
+					"type": "self"
 				},
-				"rolls": {
-					"mlHp1RDLTz48bpA2": {
-						"canCrit": false,
-						"damageType": "psychic",
-						"formula": "4d6",
-						"name": "Fire snuffed while Dream",
-						"type": "damage"
+				"img": "icons/sundries/gaming/dice-runed-brown.webp"
+			},
+			"xwPHaiqPbKwQi2bA": {
+				"name": "Locate Creature",
+				"activation": {
+					"cost": 10,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
 					}
 				},
-				"consumers": {}
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"XYaYmgUkPdqguOR1": {
+						"range": "1,000-foot radius"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"img": "icons/magic/perception/orb-crystal-ball-scrying.webp"
+			},
+			"8q5vsQprj0As3kFZ": {
+				"name": "Dream",
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"V0iYUzaTvm6SEKPS": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"8QsxngPUuyHSomAF": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "4d6",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {
+					"iFywJby83mvq2sjJ": {
+						"ability": "wis",
+						"onSave": "Not terrorized",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@saveDC"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "8"
+				},
+				"ranges": {
+					"KqvdTLKqpjz9r2eL": {
+						"range": "Same plane"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/control/fear-fright-monster-grin-purple-blue.webp"
 			}
 		},
-		"description": "<p>Also at 2nd level, you can peer into flames to learn of what lies ahead. By spending 10 minutes meditating while staring into a flame that fills at least a 5-foot cube, you can cast augury without spending any spell slots. </p><p>At 6th level, by burning an object with a connection to a creature and spending 10 minutes in meditation, you can cast locate creature in this way. </p><p>At 10th level, by creating a fire large enough to fully immerse yourself in and stepping into it (taking no damage), you can cast dream, with yourself as the messenger. If the fire goes out before you end the spell, you take 4d6 psychic damage and the spell ends. After casting it in this way, you cannot do so again until you finish a short or long rest.</p>",
+		"description": "<p>Also at 2nd level, you can peer into flames to learn of what lies ahead. By spending 10 minutes meditating while staring into a flame that fills at least a 5-foot cube, you can cast @UUID[Compendium.a5e.a5e-spells.Item.qsa7b22n3y1pbzf6]{Augury} without spending any spell slots.</p>\n<p>At 6th level, by burning an object with a connection to a creature and spending 10 minutes in meditation, you can cast @UUID[Compendium.a5e.a5e-spells.Item.kk7n5fm5uz9xwrr2]{Locate Creature} in this way.</p>\n<p>At 10th level, by creating a fire large enough to fully immerse yourself in and stepping into it (taking no damage), you can cast @UUID[Compendium.a5e.a5e-spells.Item.jo2vztvypvhqxh5u]{Dream}, with yourself as the messenger. If the fire goes out before you end the spell, you take 4d6 psychic damage and the spell ends. After casting it in this way, you cannot do so again until you finish a short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -76,13 +195,17 @@
 				}
 			}
 		},
-		"classes": "wizard"
+		"classes": "wizard",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "e3txkqcder8mbjgr",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727205777079,
+		"modifiedTime": 1727206412844,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "e3txkqcder8mbjgr"
 }
