@@ -13,15 +13,53 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"qGNlMcIhSXtNTjv0": {
+				"name": "Lesser Wish",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"yRmhvpXs5U7O17O2": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"RTLFbklkoRiEdsNn": {
+						"type": "generic",
+						"default": true,
+						"label": "Long Rests Needed",
+						"formula": "1d4 + 1"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				}
+			}
+		},
 		"description": "<p>You have gained the ability to conjure a lesser wish or be granted one by your patron. As an action you can speak your desire and cast any spell of 6th level or lower with no components required, and it takes effect immediately regardless of its normal casting time. The selected spell is cast as if it were using a 6th level slot. Once you have done so you cannot do so again until you have finished 1d4+1 long rests.</p><p>You also add @UUID[Compendium.a5e.a5e-spells.pe52jryde7ljobzq]{Wish} to the list of warlock spells available for the <em>Penultimate Arcanum</em> invocation.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "heroesOldAndNew",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "longRest",
+			"value": 1,
+			"max": "1",
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -30,7 +68,7 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": "Level 14 Wishmaster archetype",
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -42,15 +80,19 @@
 				}
 			}
 		},
-		"classes": "warlock"
+		"classes": "warlock",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "qd6ekv3da8c8tx1k",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726663352805,
+		"modifiedTime": 1726663736224,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "qd6ekv3da8c8tx1k"
 }

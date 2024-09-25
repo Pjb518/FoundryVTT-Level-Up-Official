@@ -43,14 +43,37 @@
 					"unit": "round",
 					"value": 1
 				},
-				"ranges": {
-					"9xzK70mAcYXkuMt3": {
-						"range": "self"
+				"ranges": {},
+				"target": {
+					"type": "",
+					"quantity": 1
+				}
+			},
+			"cHbenuNUHil2CMFY": {
+				"name": "Petrify",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"lqgzuO69V4QP4306": {
+						"type": "effect",
+						"default": true,
+						"effectId": "yWB2PerwA8AutNMO"
 					}
 				},
-				"target": {
-					"type": "self",
-					"quantity": 1
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
 				}
 			}
 		},
@@ -69,7 +92,22 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"hp14BL24QvmlnNjP": {
+				"grantType": "senses",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "hp14BL24QvmlnNjP",
+				"label": "Heart of the Mountain",
+				"bonus": "60",
+				"senses": {
+					"base": [
+						"tremorsense"
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -82,12 +120,12 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/earth/barrier-stone-explosion-red.webp",
-			"origin": "Item.2goowfw0sbi5etp7",
+			"origin": "Item.CqeWQqhGOiF4kCpE",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -117,21 +155,35 @@
 			},
 			"description": "",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": 1726748421862,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/earth/barrier-stone-explosion-red.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		},
 		{
-			"icon": "icons/magic/earth/barrier-stone-explosion-red.webp",
-			"origin": "Item.2goowfw0sbi5etp7",
+			"origin": "Item.CqeWQqhGOiF4kCpE",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "A2GqDz0J2zORuPsL"
+					"actionId": "A2GqDz0J2zORuPsL",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					},
+					"applyToSelf": true
 				}
 			},
 			"transfer": false,
@@ -140,8 +192,61 @@
 			"changes": [
 				{
 					"key": "system.attributes.senses.tremorsense.distance",
-					"value": "440",
-					"mode": 2,
+					"value": "500",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": 1726748492697,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/earth/barrier-stone-explosion-red.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.CqeWQqhGOiF4kCpE",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "cHbenuNUHil2CMFY",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Petrified",
+			"img": "icons/magic/earth/barrier-stone-explosion-red.webp",
+			"_id": "yWB2PerwA8AutNMO",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"petrified\"]",
+					"mode": 0,
 					"priority": null
 				}
 			],
@@ -155,21 +260,33 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
-			"statuses": [],
-			"folder": null,
+			"description": "<p>While petrified in this way, you are aware of your surroundings and immune to all damage. You do not age, nor do you need to eat, sleep, or drink. While petrified in this way, you aren’t incapacitated, but you can’t take actions or reactions except to end this petrification as an action. You can’t be petrified by any other effect, unless you choose to be.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"petrified"
+			],
+			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.26",
+				"createdTime": 1726748530018,
+				"modifiedTime": 1726748565411,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "2goowfw0sbi5etp7",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726748421805,
+		"modifiedTime": 1726748556010,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "2goowfw0sbi5etp7"
 }

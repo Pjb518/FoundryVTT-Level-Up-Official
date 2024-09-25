@@ -2,7 +2,62 @@
 	"name": "Venomous Magic",
 	"type": "feature",
 	"img": "icons/magic/acid/dissolve-drip-droplet-smoke.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.WkLJ7vNpCdNY4YZA",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "7POsWtLXdxInrBOf",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"img": "icons/magic/acid/dissolve-drip-droplet-smoke.webp",
+			"_id": "zs7DOTUlnwVv1XGB",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A poisoned creature has disadvantage on attack rolls and ability checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"poisoned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727198498631,
+				"modifiedTime": 1727198523829,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,14 +70,62 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"7POsWtLXdxInrBOf": {
+				"name": "Venomous Magic",
+				"activation": {},
+				"consumers": {
+					"B6Y7UUSl8HcrQI2J": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"RYX2WCxNz2mRLGfB": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"fiRvYdPxdj9CDhnl": {
+						"type": "effect",
+						"default": true,
+						"effectId": "zs7DOTUlnwVv1XGB"
+					},
+					"9YYbzPMRBIOGazhB": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage, not poisoned"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 6th level, you learn to infuse your spells with poison. As part of casting a spell, you may poison the magic of the spell. This requires a dose of advanced poison as an additional material component. For a spell that requires a saving throw, if a creature fails its saving throw, it takes an additional 2d6 points of poison damage and is Poisoned for one minute. If the spell requires an attack roll, on a hit the target takes an additional 2d6 points of damage. If the spell transports you from one place to another, you leave a cloud of poisonous vapor that persists for one minute behind in your starting square. A creature that starts their turn in that space or enters it must make a Constitution save against your spell save DC, taking 2d6 points of poison damage and becoming Poisoned for a minute on a failed save. A creature that succeeds on its save takes half damage and is not Poisoned. A creature suffering the Poisoned condition from this ability may make a Constitution save against your spell save DC at the end of each of its turns, ending the condition on a success. Once you have used this ability a number of times equal to your proficiency bonus, you can’t do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitVenomousShadow",
 		"uses": {
 			"value": 0,
-			"max": "",
+			"max": "@prof",
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
@@ -31,7 +134,25 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"BjmCaJgYMBEHXtLZ": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "BjmCaJgYMBEHXtLZ",
+				"label": "Venomous Magic",
+				"bonus": "2d6",
+				"damageType": "poison",
+				"context": {
+					"attackTypes": [
+						"meleeSpellAttack",
+						"rangedSpellAttack"
+					],
+					"default": false
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -44,13 +165,17 @@
 				}
 			}
 		},
-		"classes": "wizard"
+		"classes": "wizard",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "hxdnsd5m6p62r8gu",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727198433416,
+		"modifiedTime": 1727198582248,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "hxdnsd5m6p62r8gu"
 }

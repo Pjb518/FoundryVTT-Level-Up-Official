@@ -1,7 +1,7 @@
 {
 	"name": "Reach Beyond",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/air/wind-stream-red.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,41 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"s2s03vkZLNLOfbr0": {
+				"name": "Reach Beyond",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"0aNdCSgwFQbROI5r": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"SvyXgyKq60uqybv9": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Also at 1st level, your mind opens to a broader spectrum of magic than most. You can use a bonus action to attempt to replace one of your archetype spells. Declare which spell you’re trying to replace and make a Charisma saving throw (DC 10 + the spell’s level). On a success, you replace the spell with another archetype spell of the same or lower level until you finish a long rest, at which point the original spell returns. This newly-gained spell can’t be replaced again.</p><p>On a failure, the spell you’re attempting to replace goes off, expending no spell slots but targeting a creature or point within range of the Narrator’s choice (possibly yourself). The spell is too wild to alter with metamagic, and if it requires concentration it lasts its full duration with no concentration required instead. The archetype spell you attempted to replace is then removed from your spell list until you finish a long rest, at which point it returns.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +78,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "lf4zseqkec7tg9hq",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726691870227,
+		"modifiedTime": 1726691921612,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "lf4zseqkec7tg9hq"
 }

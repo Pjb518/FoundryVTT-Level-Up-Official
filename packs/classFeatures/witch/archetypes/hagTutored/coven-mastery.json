@@ -14,8 +14,33 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 10th level you gain the Coven Casting ritual mastery option, or a different ritual mastery option if you already have it. &nbsp;Furthermore, by linking with two other creatures using this ability over a short rest each of the three creatures can regain a spell slot of 5th level or lower. &nbsp;Furthermore, any one of the linked creatures can expend a spell slot in order to allow a different linked creature to regain a spell slot of the same or lower level. &nbsp;Once you have used this benefit you cannot do so again until you finish a long rest. &nbsp;You must have exactly two allies with ritual casting that you can bond with for the full duration of the short rest to use this ability.</p>",
+		"actions": {
+			"LTIlGAOnL8IGJJPo": {
+				"name": "Coven Mastery",
+				"activation": {},
+				"consumers": {
+					"K7I3EEMQCGvUgYmF": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 10th level you gain the @UUID[Compendium.a5e.a5e-class-features.Item.g1sgof6ip5m4k4zi]{Coven Casting} ritual mastery option, or a different ritual mastery option if you already have it. &nbsp;Furthermore, by linking with two other creatures using this ability over a short rest each of the three creatures can regain a spell slot of 5th level or lower. &nbsp;Furthermore, any one of the linked creatures can expend a spell slot in order to allow a different linked creature to regain a spell slot of the same or lower level. &nbsp;Once you have used this benefit you cannot do so again until you finish a long rest. &nbsp;You must have exactly two allies with ritual casting that you can bond with for the full duration of the short rest to use this ability.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "extraCreditAndDeeperMysteries",
@@ -30,7 +55,25 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"T15s06C3MUiJT0kq": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "T15s06C3MUiJT0kq",
+				"label": "Coven Mastery",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.g1sgof6ip5m4k4zi",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -43,14 +86,18 @@
 				}
 			}
 		},
-		"classes": "witch"
+		"classes": "witch",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "596h3urtghyrac1h",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727180881232,
+		"modifiedTime": 1727180926306,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "596h3urtghyrac1h"
 }

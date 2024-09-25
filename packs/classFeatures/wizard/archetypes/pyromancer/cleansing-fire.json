@@ -1,7 +1,7 @@
 {
 	"name": "Cleansing Fire",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/fire/flame-burning-hand-white.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,36 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"XYpMCqEYZVZ1VlmV": {
+				"name": "Cleansing Fire",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"VEALXkrF2e7z88oh": {
+						"type": "healing",
+						"default": true,
+						"formula": "@prof",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>When you choose this archetype at 2nd level, you learn how to use flame to not just harm but heal. When you expend a spell slot to cast a spell of 1st-level or higher that deals fire damage, you can choose one creature that would take damage from the spell. Instead of taking damage from the spell, it is healed for a number of hit points equal to the spell’s level plus your proficiency bonus.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +73,17 @@
 				}
 			}
 		},
-		"classes": "wizard"
+		"classes": "wizard",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "dol3gtshpoc1zwts",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727205705142,
+		"modifiedTime": 1727205755538,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "dol3gtshpoc1zwts"
 }

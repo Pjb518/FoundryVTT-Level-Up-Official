@@ -40,7 +40,7 @@
 				}
 			}
 		},
-		"description": "<blockquote><p>The forces of darkness have learned to fear you.</p></blockquote><p>Damaging spells you cast deal an additional 2d8 points of radiant damage to fiends and aberrations.</p><p>You also learn the <em>Disrupting Charge</em> maneuver and your exertion pool increases by 2 points. If you already know it, you may choose another 2nd-, 3rd-, or 4th- degree maneuver from the <em>Tempered Iron</em> school or from another combat tradition that utilizes or nullifies magic.</p>",
+		"description": "<p>At 14th level, the forces of darkness have learned to fear you. Damaging spells you cast deal an additional 2d8 points of radiant damage to fiends and aberrations.</p>\n<p>You also learn the @UUID[Compendium.a5e.a5e-maneuvers.Item.1oatcc8pjyygv94g]{Disrupting Charge} maneuver and your exertion pool increases by 2 points. If you already know it, you may choose another 2nd-, 3rd-, or 4th- degree maneuver from the Tempered Iron school or from another combat tradition that utilizes or nullifies magic.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitHazardousKnowledge",
@@ -55,8 +55,58 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
-		"prerequisite": "Wizard level 14, Proscriber archetype",
+		"grants": {
+			"lalKjLkGyU0BeNLG": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "lalKjLkGyU0BeNLG",
+				"label": "Scourge of the Profane",
+				"context": {
+					"attackTypes": [
+						"meleeSpellAttack",
+						"rangedSpellAttack"
+					],
+					"default": false,
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"bonus": "2d8",
+				"damageType": "radiant",
+				"img": ""
+			},
+			"roNvZP8AgM7mJIpC": {
+				"grantType": "item",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "roNvZP8AgM7mJIpC",
+				"label": "Scourge of the Profane",
+				"items": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-maneuvers.Item.1oatcc8pjyygv94g",
+							"quantityOverride": 0
+						}
+					],
+					"options": [],
+					"total": 0
+				},
+				"img": ""
+			},
+			"LtCrY9ggQlV4oY8I": {
+				"grantType": "exertion",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "LtCrY9ggQlV4oY8I",
+				"label": "Scourge of the Profane",
+				"bonus": "2"
+			}
+		},
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -68,14 +118,18 @@
 				}
 			}
 		},
-		"classes": "wizard"
+		"classes": "wizard",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "9l6hvc0t6qn45iwh",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727198044680,
+		"modifiedTime": 1727198126011,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "9l6hvc0t6qn45iwh"
 }

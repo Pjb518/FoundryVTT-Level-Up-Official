@@ -28,37 +28,12 @@
 						"quantity": 1
 					}
 				},
-				"rolls": {
-					"XHkVsX6W8FHldfFE": {
-						"type": "damage",
-						"default": false,
-						"canCrit": false,
-						"label": "Cold Damage",
-						"formula": "1d4",
-						"damageType": "cold",
-						"scaling": {
-							"mode": null,
-							"formula": "1d4"
-						}
-					},
-					"mygNiVMkqKWG00eg": {
-						"type": "damage",
-						"default": false,
-						"canCrit": false,
-						"label": "Piercing Damage",
-						"formula": "1d4",
-						"damageType": "piercing",
-						"scaling": {
-							"mode": null,
-							"formula": "1d4"
-						}
-					}
-				},
+				"rolls": {},
 				"prompts": {
-					"IfeD3kO12R9zaeiI": {
+					"5e42yePNdAIgNefK": {
 						"type": "effect",
 						"default": true,
-						"effectId": "6EqQBQVIklKGdH2Z"
+						"effectId": "d5cuoojQXl6jDdq8"
 					}
 				},
 				"uses": {
@@ -80,6 +55,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
 				}
 			}
 		},
@@ -98,19 +77,67 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"IQ4LmJG2cpmLOh1z": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "IQ4LmJG2cpmLOh1z",
+				"label": "Drowner’s Curse  (Cold)",
+				"bonus": "@classResources.drowners-curse-damage",
+				"damageType": "cold",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"default": false,
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"img": ""
+			},
+			"nhfFmYjTv6Z9op6D": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "IQ4LmJG2cpmLOh1z",
+				"label": "Drowner’s Curse  (Piercing)",
+				"bonus": "@classResources.drowners-curse-damage",
+				"damageType": "piercing",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"default": false,
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"img": "",
+				"name": "undefined (Copy)"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.018,
 			"lastMigration": null
 		},
-		"classes": "warlock"
+		"classes": "warlock",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/water/projectile-water-rings.webp",
-			"origin": "Item.Tz1t0HFM1XlIXCYZ",
+			"origin": "Item.u8vpzzSVigVTYbL4",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -122,11 +149,14 @@
 				}
 			},
 			"transfer": false,
-			"name": "Drowner’s Curse (Cold)",
-			"_id": "6EqQBQVIklKGdH2Z",
+			"name": "Drowner’s Curse",
+			"img": "icons/magic/water/projectile-water-rings.webp",
+			"_id": "d5cuoojQXl6jDdq8",
+			"type": "base",
+			"system": {},
 			"changes": [
 				{
-					"key": "flags.a5e.effects.movement.allDistances",
+					"key": "system.attributes.movement.walk.distance",
 					"value": "0.5",
 					"mode": 1,
 					"priority": null
@@ -160,82 +190,31 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "<p>When the caster deals damage to the cursed creature, it takes an additional 1d4 cold damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>\n<p>Speed is reduced by half, and disadvantage on Strength, Dexterity, and Constitution checks. Halve the duration they can hold their breath and they double the rate at which they sink.</p>",
+			"description": "<p>When you deal damage against the cursed creature, it takes an additional 1d4 damage of the chosen type. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>\n<p>The cursed creature’s speed is reduced by half, and they have disadvantage on Strength, Dexterity, and Constitution checks. They halve the duration they can hold their breath and they double the rate at which they sink.</p>",
+			"tint": "#ffffff",
 			"statuses": [],
-			"folder": null,
+			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
-		{
-			"icon": "icons/magic/water/projectile-water-rings.webp",
-			"origin": "Item.Tz1t0HFM1XlIXCYZ",
-			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "afy665nn08yyIPAW",
-					"duration": {
-						"unit": "minutes"
-					}
-				}
+				"systemVersion": "0.19.26",
+				"createdTime": 1726868713371,
+				"modifiedTime": 1726868801279,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
-			"transfer": false,
-			"name": "Drowner’s Curse (Piercing)",
-			"_id": "HeCDj8Nb0pbA1Wqp",
-			"changes": [
-				{
-					"key": "flags.a5e.effects.movement.allDistances",
-					"value": "0.5",
-					"mode": 1,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.dex",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				},
-				{
-					"key": "flags.a5e.effects.rollMode.abilityCheck.con",
-					"value": "-1",
-					"mode": 6,
-					"priority": null
-				}
-			],
-			"disabled": false,
-			"duration": {
-				"startTime": null,
-				"seconds": 60,
-				"combat": null,
-				"rounds": null,
-				"turns": null,
-				"startRound": null,
-				"startTurn": null
-			},
-			"description": "<p>When the caster deals damage to the cursed creature, it takes an additional 1d4 piercing damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>\n<p>Speed is reduced by half, and disadvantage on Strength, Dexterity, and Constitution checks. Halve the duration they can hold their breath and they double the rate at which they sink.</p>",
-			"statuses": [],
-			"folder": null,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "xeym1rf3zutjljpo",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726868621717,
+		"modifiedTime": 1726868713407,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "xeym1rf3zutjljpo"
 }

@@ -1,7 +1,7 @@
 {
 	"name": "Touch the Void",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/unholy/orb-hands-pink.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,163 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 18th level, you can spend 1 hour in meditation to cast <em>astral projection</em>, <em>dream</em>, or <em>etherealness</em>. Each of these spells is slightly different when cast using this feature, as described below:</p><p><strong>&nbsp;&nbsp; <em>Astral Projection.</em></strong> The spell requires no material components, but only affects you.</p><p><strong>&nbsp;&nbsp; <em>Dream.</em></strong> You are the messenger in the dream, and while you are influencing the dream you are completely detached from your body.</p><p><strong>&nbsp;&nbsp; <em>Etherealness</em></strong><em>.</em> When the spell ends, you reappear in the space you were in when you originally cast the spell.</p><p>After using this feature, you cannot do so again until you finish a long rest.</p>",
+		"actions": {
+			"ZLWNa0K5wIOVZ4O9": {
+				"name": "Astral Projection",
+				"activation": {
+					"cost": 1,
+					"type": "hour",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"M6pR6272OUkpk6Hr": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "special",
+					"value": ""
+				},
+				"ranges": {
+					"uYtX2vZ6c7bTbb5L": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "other"
+				},
+				"img": "icons/magic/light/explosion-star-glow-silhouette.webp"
+			},
+			"Pq5UxHTV9Y0ACgMI": {
+				"name": "Dream",
+				"activation": {
+					"cost": 1,
+					"type": "hour",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"lFbqWWp0ZHx0tcaW": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"iFywJby83mvq2sjJ": {
+						"ability": "wis",
+						"onSave": "Not terrorized",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "@saveDC"
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "8"
+				},
+				"ranges": {
+					"KqvdTLKqpjz9r2eL": {
+						"range": "Same plane"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/control/fear-fright-monster-grin-purple-blue.webp"
+			},
+			"8AzbFs0BF7TJ3tqG": {
+				"name": "Etherealness",
+				"activation": {
+					"cost": 1,
+					"type": "hour",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"ibbZC7QpceQdM6gs": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "8"
+				},
+				"ranges": {
+					"UAnxXxfjxBsQ2xpp": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"img": "icons/magic/control/silhouette-hold-change-blue.webp"
+			}
+		},
+		"description": "<p>At 18th level, you can spend 1 hour in meditation to cast @UUID[Compendium.a5e.a5e-spells.Item.866qabcoi5rezr16]{Astral Projection}, @UUID[Compendium.a5e.a5e-spells.Item.jo2vztvypvhqxh5u]{Dream}, or @UUID[Compendium.a5e.a5e-spells.Item.kv7igcz0o825new0]{Etherealness}. Each of these spells is slightly different when cast using this feature, as described below:</p>\n<p><strong>&nbsp;&nbsp; <em>Astral Projection.</em></strong> The spell requires no material components, but only affects you.</p>\n<p><strong>&nbsp;&nbsp; <em>Dream.</em></strong> You are the messenger in the dream, and while you are influencing the dream you are completely detached from your body.</p>\n<p><strong>&nbsp;&nbsp; <em>Etherealness</em></strong><em>.</em> When the spell ends, you reappear in the space you were in when you originally cast the spell.</p>\n<p>After using this feature, you cannot do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -44,13 +199,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "rdtc1letbhyjgl95",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726693301660,
+		"modifiedTime": 1726693449382,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "rdtc1letbhyjgl95"
 }

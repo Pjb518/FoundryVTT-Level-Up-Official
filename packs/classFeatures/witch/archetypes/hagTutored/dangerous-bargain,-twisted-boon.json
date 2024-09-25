@@ -14,8 +14,95 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 6th level, you've mastered some of a hag's power of corrupted fey bargains. &nbsp;You gain the other option from A Blessing and a Curse that you did not already choose. &nbsp;Normal uses of the ability are shared between both. &nbsp;<br>You may also use either one without expending a use of the ability. &nbsp;If you do so to grant Witch's Blessing, then the next time after the affected roll that the affected creature succeeds on a roll of the same type (attack, check, or save), they are automatically affected by Witch's Curse. &nbsp;If you use it to impose a Witch's Curse, the next time after the affected roll that the affected creature fails a roll of the same type, they are automatically affected by a Witch's Blessing. &nbsp;Once you have used this ability on a particular creature for free, you cannot do so again on that creature until you finish a long rest.</p>",
+		"actions": {
+			"oOTZJJgLid0jiaaA": {
+				"name": "Witch’s Blessing (For Free)",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "A creature you can see fails an ability check, attack roll, or saving throw"
+				},
+				"consumers": {
+					"CdjUW3696HvGjUFh": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"3zW7e93QfJ7rHvYR": {
+						"type": "generic",
+						"default": true,
+						"label": "",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>When a creature you can see fails an ability check, attack roll, or saving throw, you may use your reaction to apply a bonus equal to 1d4 + your spellcasting ability modifier, potentially changing the result of the roll.</p>",
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"img": "icons/magic/unholy/projectiles-binary-pink.webp"
+			},
+			"IuZGk9Uu73j0O37K": {
+				"name": "Witch’s Curse (For Free)",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "A creature you can see succeeds on an ability check, attack roll, or saving throws"
+				},
+				"consumers": {
+					"jGnIxHgiWfZg1TAp": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"zfCAXLUeWc6d4Bxj": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d4",
+						"label": ""
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>When a creature you can see succeeds on an ability check, attack roll, or saving throws, you may use your reaction to apply a penalty equal to 1d4 + your spellcasting ability modifier.</p>",
+				"img": "icons/magic/unholy/projectiles-binary-pink.webp"
+			}
+		},
+		"description": "<p>At 6th level, you've mastered some of a hag's power of corrupted fey bargains. &nbsp;You gain the other option from @UUID[Compendium.a5e.a5e-class-features.Item.f3gqgjl29sdwvt7i]{A Blessing or a Curse} that you did not already choose. &nbsp;Normal uses of the ability are shared between both.&nbsp;</p>\n<p>You may also use either one without expending a use of the ability. &nbsp;If you do so to grant @UUID[Compendium.a5e.a5e-class-features.Item.8icd91l5z34orf66]{Witch's Blessing}, then the next time after the affected roll that the affected creature succeeds on a roll of the same type (attack, check, or save), they are automatically affected by @UUID[Compendium.a5e.a5e-class-features.Item.5xuo47w64m4cow6c]{Witch's Curse}. &nbsp;If you use it to impose a Witch's Curse, the next time after the affected roll that the affected creature fails a roll of the same type, they are automatically affected by a Witch's Blessing. &nbsp;Once you have used this ability on a particular creature for free, you cannot do so again on that creature until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "extraCreditAndDeeperMysteries",
@@ -30,7 +117,33 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"yNUOvo4O2tUGUxNS": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "yNUOvo4O2tUGUxNS",
+				"label": "Dangerous Bargain, Twisted Boon",
+				"features": {
+					"total": 1,
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.5xuo47w64m4cow6c",
+							"name": "Witch's Curse",
+							"img": "icons/magic/unholy/projectiles-binary-pink.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.8icd91l5z34orf66",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -43,14 +156,18 @@
 				}
 			}
 		},
-		"classes": "witch"
+		"classes": "witch",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "zxmz0t86gar854qx",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727180400876,
+		"modifiedTime": 1727180863785,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "zxmz0t86gar854qx"
 }

@@ -21,8 +21,8 @@
 					"cost": 1
 				},
 				"consumers": {
-					"NiWUgcy89uIiTcd8": {
-						"type": "actionUses",
+					"jTqOx7Lwmc00QQRW": {
+						"type": "itemUses",
 						"default": true,
 						"quantity": 1
 					}
@@ -36,20 +36,25 @@
 						"saveDC": {
 							"type": "spellcasting"
 						},
-						"onSave": "Negates"
+						"onSave": ""
+					},
+					"vHf7ZNI49l6hZ5pF": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6JFfGNJnUktiwmL9"
 					}
 				},
 				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "shortRest",
+					"value": 0,
+					"max": "",
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
 					}
 				},
 				"duration": {
-					"unit": "minute",
+					"unit": "",
 					"value": 1
 				},
 				"ranges": {
@@ -58,20 +63,115 @@
 					}
 				},
 				"area": {
-					"shape": "sphere",
+					"shape": "circle",
 					"quantity": 1,
-					"radius": 60
+					"radius": 300
 				}
+			},
+			"aLjD0Xr6CE7XujLb": {
+				"name": "Recover Use",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"xR76I5eb1yUVD9pe": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1
+					},
+					"kJADHnU2Uvvxl9gt": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"0SDNqkgeR1sYYfkY": {
+				"name": "Beastmantle (Bite)",
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
+				"consumers": {
+					"Gh9GXtlzMYJSOxZL": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"TC12cLZNFiaOr293": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "str"
+					},
+					"or0O1zY1RRuFSg3N": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6+ @str.mod",
+						"damageType": "piercing"
+					},
+					"cygJoaAlSOduzsYQ": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d8",
+						"damageType": "acid"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"N6KwNXCKp6tNzo9l": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				},
+				"img": "icons/magic/symbols/triangle-glow-purple.webp"
 			}
 		},
-		"description": "<p>At 14th level your power grows by leaps and bounds. You gain one of the following abilities based on your choice of flesh and bone.</p>\n<p><strong>King of Beasts</strong>: As an action you can throw your head back to unleash a terrifying roar that is audible up to 300ft away. All creatures within the area must make a Wisdom save against your spell save DC or become frightened for up to 1 minute. Affected creatures may make a Wisdom save at the end of each of their turns to end the effect, and any creature that has been affected by this ability becomes immune for 24 hours once they make a successful save. You may use this ability once per short rest, or spend a sorcery point as a bonus action to regain use of it.<br>In addition, your bite attack now deals 2d8 acid damage on a successful hit.</p>",
+		"description": "<p>At 14th level your power grows by leaps and bounds. You gain one of the following abilities based on your choice of flesh and bone.</p>\n<p><strong>King of Beasts</strong>: As an action you can throw your head back to unleash a terrifying roar that is audible up to 300ft away. All creatures within the area must make a Wisdom save against your spell save DC or become frightened for up to 1 minute. Affected creatures may make a Wisdom save at the end of each of their turns to end the effect, and any creature that has been affected by this ability becomes immune for 24 hours once they make a successful save. You may use this ability once per short rest, or spend a sorcery point as a bonus action to regain use of it. In addition, your bite attack now deals 2d8 acid damage on a successful hit.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -86,15 +186,74 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.o4WapEpKI0957ocH",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "KR9t6KbgWizQkxNO",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/magic/unholy/strike-body-life-soul-green.webp",
+			"_id": "6JFfGNJnUktiwmL9",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726855862952,
+				"modifiedTime": 1726855903131,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "8jpgaa7mbejc3qs3",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726855789001,
+		"modifiedTime": 1726856087965,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "8jpgaa7mbejc3qs3"
 }

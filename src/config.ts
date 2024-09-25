@@ -1210,6 +1210,7 @@ const skillSpecialties = {
     empires: 'A5E.skillSpecialties.empires',
     genealogy: 'A5E.skillSpecialties.genealogy',
     legends: 'A5E.skillSpecialties.legends',
+    militaryHistory: 'A5E.skillSpecialties.militaryHistory',
     wars: 'A5E.skillSpecialties.wars'
   },
   ins: {

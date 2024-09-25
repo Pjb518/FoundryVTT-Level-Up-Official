@@ -21,21 +21,25 @@
 					"type": "bonusAction",
 					"cost": 1
 				},
-				"consumers": {},
-				"rolls": {
-					"41I8K7b4dOZ6K09E": {
-						"type": "damage",
+				"consumers": {
+					"VpOYL7lfF46uxpxN": {
+						"type": "itemUses",
 						"default": true,
-						"formula": "1d4",
-						"label": "",
-						"damageType": "lightning"
+						"quantity": 1
 					}
 				},
-				"prompts": {},
+				"rolls": {},
+				"prompts": {
+					"ccHgU4YW0g3Bhbq1": {
+						"type": "effect",
+						"default": true,
+						"effectId": "QwJJ2y9or8aNTVeM"
+					}
+				},
 				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "shortRest",
+					"value": 0,
+					"max": "",
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
@@ -56,14 +60,14 @@
 				}
 			}
 		},
-		"description": "<p>When you select this archetype at 1st level, you gain a boon of draconic power.<span style=\"mso-spacerun: yes;\">&nbsp; </span>Choose a damage type as your draconic damage type: fire, cold, lightning, acid, or poison.<span style=\"mso-spacerun: yes;\">&nbsp; </span>Once chosen this cannot be changed.<span style=\"mso-spacerun: yes;\">&nbsp;</span></p><p>Select one of the following:</p><p><strong>Dragon Curse</strong></p><p>You can use a bonus action to curse a creature within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated. The curse has the following effects:</p><p>- When you deal damage against to cursed creature, it takes additional 1d4 damage of your draconic damage type. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p><p>- The cursed creature has disadvantage on saving throws against fear and the breath weapons of dragons.</p><p>Once you have used this feature, you can't use it again until you finish a short or long rest.</p><p><s><strong>Draconic Breath</strong></s></p>",
+		"description": "<p>You can use a bonus action to curse a creature within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated. The curse has the following effects:</p>\n<ul>\n<li>When you deal damage against to cursed creature, it takes additional 1d4 lightning damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</li>\n<li>The cursed creature has disadvantage on saving throws against fear and the breath weapons of dragons.</li>\n</ul>\n<p>Once you have used this ability, you cannot use it again until you finish a short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "mysteriousAndMarvelousMiscellanea",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -71,7 +75,47 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"3xVXGnWGczUmxPb0": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "3xVXGnWGczUmxPb0",
+				"damageType": "lightning",
+				"bonus": "@classResources.dragon-curse-damage",
+				"label": "Dragon Curse",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"default": false,
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"img": ""
+			},
+			"TZUjvKeJFzWNWOmI": {
+				"grantType": "trait",
+				"level": 6,
+				"levelType": "class",
+				"optional": false,
+				"_id": "TZUjvKeJFzWNWOmI",
+				"label": "Draconic Resistance",
+				"traits": {
+					"base": [
+						"lightning"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -87,12 +131,62 @@
 		"classes": "warlock",
 		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.RsC4zMUHOvbbhIET",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "fo6mK8nbh2Oyy0Fg",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Dragon Curse",
+			"img": "icons/magic/unholy/orb-swirling-teal.webp",
+			"_id": "QwJJ2y9or8aNTVeM",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated. The curse has the following effects:</p>\n<ul>\n<li>When you deal damage against to cursed creature, it takes additional 1d4 lightning damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</li>\n<li>The cursed creature has disadvantage on saving throws against fear and the breath weapons of dragons.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": 1727117199292,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "4b81wt4lhdlmn5gw",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727117169105,
+		"modifiedTime": 1727117880013,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "4b81wt4lhdlmn5gw"
 }

@@ -2,7 +2,7 @@
 	"folder": null,
 	"name": "Command Undead",
 	"type": "feature",
-	"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+	"img": "icons/magic/death/undead-ghost-scream-teal.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -15,7 +15,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"9XAmakasGQy32E8t": {
+			"JKyK6x71RKR0Y0sd": {
 				"name": "Command Undead",
 				"activation": {
 					"type": "bonusAction",
@@ -24,14 +24,18 @@
 				"consumers": {},
 				"rolls": {},
 				"prompts": {
-					"8y5yIUz3KJYOSoYq": {
+					"8pilFPV7OUPP6JfF": {
 						"type": "savingThrow",
 						"default": true,
 						"ability": "cha",
 						"saveDC": {
 							"type": "spellcasting"
-						},
-						"onSave": "charisma negates. Immune for 24hrs."
+						}
+					},
+					"CtusU01BZKDqzlFt": {
+						"type": "effect",
+						"default": true,
+						"effectId": "WjJoaV5ac4oVvh6J"
 					}
 				},
 				"uses": {
@@ -40,19 +44,14 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				},
-				"duration": {
-					"unit": "instantaneous"
-				},
-				"target": {
-					"type": "creature",
-					"quantity": 1
 				}
 			}
 		},
-		"description": "<p>At 14th level you become a true master of the undead. You may use a bonus action to command one undead creature which can hear you. The target must make a Charisma saving throw vs. your spell DC. On a failure, the undead creature becomes unable to attack you for one minute, and obeys your commands for the duration. The creature can make a new saving throw at the end of each of its turns, ending the effect on a success.&nbsp;</p><p>Once a creature succeeds in a saving throw against this feature, it becomes immune to the feature for 24 hours.</p>",
+		"description": "<p>At 14th level you become a true master of the undead. You may use a bonus action to command one undead creature which can hear you. The target must make a Charisma saving throw vs. your spell DC. On a failure, the undead creature becomes unable to attack you for one minute, and obeys your commands for the duration. The creature can make a new saving throw at the end of each of its turns, ending the effect on a success.</p>\n<p>Once a creature succeeds in a saving throw against this feature, it becomes immune to the feature for 24 hours.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "",
@@ -61,8 +60,8 @@
 			"max": "",
 			"per": "",
 			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
+				"formula": "",
+				"threshold": 0
 			}
 		},
 		"concentration": false,
@@ -71,22 +70,67 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
-		}
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "wizard"
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.XWG1ZfqR6tEA6mKF",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "JKyK6x71RKR0Y0sd",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Command Undead",
+			"img": "icons/magic/death/undead-ghost-scream-teal.webp",
+			"_id": "WjJoaV5ac4oVvh6J",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The undead creature becomes unable to attack you for one minute, and obeys your commands for the duration. The creature can make a new saving throw at the end of each of its turns, ending the effect on a success.</p>\n<p>Once a creature succeeds in a saving throw against this feature, it becomes immune to the feature for 24 hours.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727213916331,
+				"modifiedTime": 1727213939377,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "dtjtka3c3t73pycs",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727213847016,
+		"modifiedTime": 1727213916373,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "oK1uDZF3yA6R4SVY"
 }

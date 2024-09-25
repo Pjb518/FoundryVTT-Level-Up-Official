@@ -14,7 +14,50 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"abMBQe0J6AZSe2Ny": {
+				"name": "Liquid Form",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"hrULSlYf7xYnI6Uh": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"sGQYJlc3MLcTJsZJ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Lac3TkJjUst6oqMd"
+					},
+					"gA5OYJz10bkoRDDs": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3voqLfBFylf9SC3J"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			}
+		},
 		"description": "<p>At 10th level, you learn revolting arcane secrets that allow you to transform your body into slime. As a bonus action, you can adopt a liquid form. You revert to your normal form after 1 minute, if you are&nbsp;incapacitated</span>, or if you use another bonus action to end the effect early. Once you have used this ability, you must finish a&nbsp;short or long rest&nbsp;before you can do so again. In liquid form, your statistics are unchanged except for one of the following options, which you choose when you transform:</p><ul><li>You liquefy your bones, organs, and equipment to gain an amorphous form. While you are amorphous, you can pass through an opening as narrow as 1 inch wide without squeezing. While in this form, you can&rsquo;t use or gain any benefit from your equipment.</li><li>You liquefy your skin, causing your body and equipment to become covered with a viscous, sticky slime. While you are coated in this way, you leave slimy, wet prints on objects and surfaces you touch or walk upon. You gain a climb speed equal to your Speed and can walk on walls and upside down on ceilings.&nbsp; Additionally, when a creature within 5 feet hits you with a melee attack, it is covered with slime. The creature has&nbsp;<span>disadvantage on the next attack it makes before the end of its next turn.</li></ul>",
 		"favorite": false,
 		"secretDescription": "",
@@ -22,7 +65,7 @@
 		"uses": {
 			"value": 1,
 			"max": "1",
-			"per": "longRest",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -43,14 +86,125 @@
 				}
 			}
 		},
-		"classes": "wizard"
+		"classes": "wizard",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.ffU1LMo2W9vgT84m",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "abMBQe0J6AZSe2Ny",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Liquid Form",
+			"img": "icons/creatures/slimes/slime-movement-pseudopods-teal.webp",
+			"_id": "Lac3TkJjUst6oqMd",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "@attributes.movement.walk.distance",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<div class=\"editor svelte-19nbv61\">\n<div class=\"editor tinymce tjs-editor  svelte-1vyshng\" tabindex=\"0\" role=\"textbox\">\n<div class=\"editor-content tjs-editor-content svelte-1vyshng\">\n<ul>\n<li>You liquefy your bones, organs, and equipment to gain an amorphous form. While you are amorphous, you can pass through an opening as narrow as 1 inch wide without squeezing. While in this form, you can’t use or gain any benefit from your equipment.</li>\n<li>You liquefy your skin, causing your body and equipment to become covered with a viscous, sticky slime. While you are coated in this way, you leave slimy, wet prints on objects and surfaces you touch or walk upon. You gain a climb speed equal to your Speed and can walk on walls and upside down on ceilings.  Additionally, when a creature within 5 feet hits you with a melee attack, it is covered with slime. The creature has disadvantage on the next attack it makes before the end of its next turn.</li>\n</ul>\n</div>\n</div>\n</div>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727273858636,
+				"modifiedTime": 1727273893541,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.ffU1LMo2W9vgT84m",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "abMBQe0J6AZSe2Ny",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Slimed",
+			"img": "icons/creatures/slimes/slime-movement-pseudopods-teal.webp",
+			"_id": "3voqLfBFylf9SC3J",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The creature has disadvantage on the next attack it makes before the end of its next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727273904140,
+				"modifiedTime": 1727273939819,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "feupc9ssa1jr8sle",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727273804527,
+		"modifiedTime": 1727273904191,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "feupc9ssa1jr8sle"
 }

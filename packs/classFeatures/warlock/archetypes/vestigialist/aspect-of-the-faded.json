@@ -2,7 +2,581 @@
 	"name": "Aspect of the Faded",
 	"type": "feature",
 	"img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.21HMbwT7xMcsm1yn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "a3CPXYLu7fsTf8kQ",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Wings of Light",
+			"img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
+			"_id": "MhpaC38qOQKDt2If",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.bright",
+					"value": "50",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "100",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain a fly speed of 60 feet and you shed bright light in a 50-foot radius and dim light a further 50 feet beyond that.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727017093752,
+				"modifiedTime": 1727017139516,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.21HMbwT7xMcsm1yn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vuinsSpuaNN0Dwao",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Mesmerizing Scales",
+			"img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
+			"_id": "A4EgIJtsNwdP2Jtk",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.ac.value",
+					"value": "{\"comparisonOperator\":\"<\",\"comparisonValue\":\"17\",\"positiveValue\":\"17\",\"negativeValue\":\"@attributes.ac.value\"}",
+					"mode": 7,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>AC cannot be lower than 17. In addition, the first time a creature that can see you makes an attack roll against you each turn, it must make a Wisdom saving throw against your spell save DC or be charmed by you until the end of its next turn. A creature that becomes charmed cancels its attack. A creature that succeeds on this saving throw is immune to the charming effect of your scales for 24 hours.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727017165401,
+				"modifiedTime": 1727017316387,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.21HMbwT7xMcsm1yn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vuinsSpuaNN0Dwao",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
+			"_id": "rZkNCXmfBUYFmiRL",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A charmed creature can't take any hostile action against the charmer.</li>\n<li>Ability checks the charmer makes to socially interact with the charmed creature have advantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"charmed"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727017335650,
+				"modifiedTime": 1727017368430,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.21HMbwT7xMcsm1yn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "t0atjpvRNzKL0zFK",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Viscous Humors",
+			"img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
+			"_id": "7XlcpOF6PEJrczT9",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You gain immunity to ongoing damage and creatures that hit you with a melee weapon attack must make a Strength saving throw against your spell save DC or have their weapon become stuck to you, requiring an action to free it.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727017390989,
+				"modifiedTime": 1727017413580,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.21HMbwT7xMcsm1yn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "DZkVgOV5umwKEWAu"
+				}
+			},
+			"transfer": false,
+			"name": "Divine Essence",
+			"img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
+			"_id": "2RgMzQPZVi0HonMJ",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Your Eldritch Blast deals your choice of radiant, necrotic, or psychic damage and the damage die increases by one step. The first time each round that you successfully deal damage with Eldritch Blast, a creature other than you that you can see within 30 feet is healed for 2d8 hit points.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727017433525,
+				"modifiedTime": 1727017450598,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.21HMbwT7xMcsm1yn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ok4gSA2XOJcKMAS6",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Scuttling Passage",
+			"img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
+			"_id": "5L4CqTbyVzFNCM1Q",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "2*@attributes.movement.walk.distance",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "@attributes.movement.walk.distance",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Your walking speed doubles and you gain a climb speed equal to your walking speed. The sound of your passage is unnerving, requiring creatures within 30 feet that can hear you to make a Wisdom save against your spell save DC or become frightened of you until the end of their next turn. A creature that successfully saves becomes immune to the frightening effect of Scuttling Passage for 24 hours.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727017520883,
+				"modifiedTime": 1727017714538,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.21HMbwT7xMcsm1yn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ok4gSA2XOJcKMAS6",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
+			"_id": "NFyHEl5RTm1JAzfy",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727017783583,
+				"modifiedTime": 1727017818422,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.21HMbwT7xMcsm1yn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Tx0DgW1sXGc3o67w",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Eyes of Doom",
+			"img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
+			"_id": "5BVuZvODWgioTu2D",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.senses.truesight.distance",
+					"value": "30",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain Truesight with a range of 30 feet. In addition, any creature within this range that does not avert its eyes (making attacks against you at disadvantage) meets your gaze and must make a Charisma saving throw or gain a level of strife.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727017835009,
+				"modifiedTime": 1727017875523,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.21HMbwT7xMcsm1yn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Tx0DgW1sXGc3o67w"
+				}
+			},
+			"transfer": false,
+			"name": "Strife",
+			"img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
+			"_id": "QAf5GwJzKb7D2lqH",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.strife",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727017877877,
+				"modifiedTime": 1727017887724,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.21HMbwT7xMcsm1yn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "s4UvoY9BaJWIkRPl"
+				}
+			},
+			"transfer": false,
+			"name": "Voice of the Messenger",
+			"img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
+			"_id": "6FkoBYp5GqwzwHKs",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You cannot be silenced and your voice booms to a range of 300 feet. Whenever you speak or cast a spell with vocalized spell components, creatures within 30 feet of you must make a Constitution saving throw against your spell save DC or be deafened for 1 minute. The creature can repeat the save at the end of each of its turns, regaining its hearing and becoming immune to the deafening effect for 24 hours on a success.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727017909518,
+				"modifiedTime": 1727017924693,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.21HMbwT7xMcsm1yn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1Qr6yY7iTpXf7FiU",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Deafened",
+			"img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
+			"_id": "uKoyx6rXUON4zLkr",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A deafened creature can't hear and automatically fails ability checks that require hearing.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"deafened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727018078369,
+				"modifiedTime": 1727018099344,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -16,14 +590,14 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"7H2Fz64jf09ljQC5": {
-				"name": "Activate",
+			"Co0ggVq3heTCK5wV": {
+				"name": "Aspect of the Faded",
 				"activation": {
 					"type": "bonusAction",
 					"cost": 1
 				},
 				"consumers": {
-					"y352KIw90yAuf8QT": {
+					"AkrSf63pxAtMV2KD": {
 						"type": "itemUses",
 						"default": true,
 						"quantity": 1
@@ -37,17 +611,329 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"a3CPXYLu7fsTf8kQ": {
+				"name": "Wings of Light",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"XZXV5O0cXVeXlnBU": {
+						"type": "effect",
+						"default": true,
+						"effectId": "MhpaC38qOQKDt2If"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
 				"duration": {
 					"unit": "minute",
 					"value": 10
+				}
+			},
+			"vuinsSpuaNN0Dwao": {
+				"name": "Mesmerizing Scales",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"IVlzGFlUz8eR1BcB": {
+						"type": "effect",
+						"default": true,
+						"effectId": "A4EgIJtsNwdP2Jtk"
+					},
+					"Y9B7rGlMaS57sm1U": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"NjQKL9Q8cUr46aCs": {
+						"type": "effect",
+						"default": true,
+						"effectId": "rZkNCXmfBUYFmiRL"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				}
+			},
+			"t0atjpvRNzKL0zFK": {
+				"name": "Viscous Humors",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"SuJtr0v7sRDO3zlr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "7XlcpOF6PEJrczT9"
+					},
+					"ScR7v2QYNvWTJ9VJ": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				}
+			},
+			"DZkVgOV5umwKEWAu": {
+				"name": "Divine Essence",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"RovhCahJ1BQWQ5qI": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2RgMzQPZVi0HonMJ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				}
+			},
+			"ok4gSA2XOJcKMAS6": {
+				"name": "Scuttling Passage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"CZz5jIyKNgic3RKh": {
+						"type": "effect",
+						"default": true,
+						"effectId": "5L4CqTbyVzFNCM1Q"
+					},
+					"O9n8E2KUdQ5r0dPh": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"kxo4gE6sFGwVCgSa": {
+						"type": "effect",
+						"default": true,
+						"effectId": "NFyHEl5RTm1JAzfy"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				}
+			},
+			"Tx0DgW1sXGc3o67w": {
+				"name": "Eyes of Doom",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"5G5R5v3PNnx2hiJq": {
+						"type": "effect",
+						"default": true,
+						"effectId": "5BVuZvODWgioTu2D"
+					},
+					"q6qReQWueZhYe3eG": {
+						"type": "effect",
+						"default": true,
+						"effectId": "QAf5GwJzKb7D2lqH"
+					},
+					"H8KhTeIknCFA1fTo": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				}
+			},
+			"s4UvoY9BaJWIkRPl": {
+				"name": "Voice of the Messenger",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"UgRBqA46TgGZtV2P": {
+						"type": "effect",
+						"default": true,
+						"effectId": "6FkoBYp5GqwzwHKs"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				}
+			},
+			"vdGLxl1EJfjt3OJc": {
+				"name": "Divine Essence Healing",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"adIOklovuDALhcgm": {
+						"type": "healing",
+						"default": true,
+						"formula": "2d8"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
 				},
 				"ranges": {
-					"z0R3WevBxqsTACib": {
+					"xWtxjhHBxD0QdtAM": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"1Qr6yY7iTpXf7FiU": {
+				"name": "Voice of the Messenger Vocalization",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"PBdNzkTs8PKqfloV": {
+						"type": "effect",
+						"default": true,
+						"effectId": "uKoyx6rXUON4zLkr"
+					},
+					"uNEU7YUqEbYIbaUo": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"4XjXwEr54rYCiBL6": {
 						"range": "self"
 					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
 				}
 			}
 		},
@@ -79,13 +965,17 @@
 				}
 			}
 		},
-		"classes": "warlock"
+		"classes": "warlock",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "q4b3k2r3vfhuhztj",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727017015852,
+		"modifiedTime": 1727018128438,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "q4b3k2r3vfhuhztj"
 }

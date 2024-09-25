@@ -21,8 +21,8 @@
 					"cost": 1
 				},
 				"consumers": {
-					"Cs8icrYEc6X25rIa": {
-						"type": "actionUses",
+					"vVSAfcAPQNZb097R": {
+						"type": "itemUses",
 						"default": true,
 						"quantity": 1
 					}
@@ -30,9 +30,9 @@
 				"rolls": {},
 				"prompts": {},
 				"uses": {
-					"value": 1,
-					"max": "1",
-					"per": "shortRest",
+					"value": 0,
+					"max": "",
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
@@ -47,16 +47,56 @@
 						"range": "self"
 					}
 				}
+			},
+			"oGKDNyD8JOs8Kygb": {
+				"name": "Recover Use",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"oNDJktDGUnJerNRJ": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1
+					},
+					"Syy7L4w4dtyQrvXT": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					},
+					"UE0tUJF1tYEil6JG": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/magic/symbols/triangle-glow-purple.webp"
 			}
 		},
-		"description": "<p>Also at 1st level you gain a special ability tied to the experiments that were pressed upon you. Your bonded power must be of the same line as your flesh and bone selection.</p>\n<p><strong>Shapeshifter</strong>: You gain the ability to change your body significantly. As an action you may drastically alter your appearance, including height by up to a foot, weight by up to 50lbs, and heritage. If you attempt to mimic a specific creature you gain advantage on any performance or deception checks based on appearance. You may also choose to instead alter your body to gain a climb or swim speed equal to your normal speed. Any change requires an action and lasts up to an hour, though you may choose to end the effect normally. You may use this ability once per short rest, or expend a sorcery point as a bonus action to recover use of it. This ability does not trigger Detect Magic or similar effects.</p>",
+		"description": "<p>Also at 1st level you gain a special ability tied to the experiments that were pressed upon you. Your bonded power must be of the same line as your flesh and bone selection.</p>\n<p><strong>Shapeshifter</strong>: You gain the ability to change your body significantly. As an action you may drastically alter your appearance, including height by up to a foot, weight by up to 50lbs, and heritage. If you attempt to mimic a specific creature you gain advantage on any performance or deception checks based on appearance. You may also choose to instead alter your body to gain a climb or swim speed equal to your normal speed. Any change requires an action and lasts up to an hour, though you may choose to end the effect normally. You may use this ability once per short rest, or expend a sorcery point as a bonus action to recover use of it. This ability does not trigger @UUID[Compendium.a5e.a5e-spells.Item.kaye34nheyrit487]{Detect Magic} or similar effects.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -71,15 +111,75 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.MWtFxf6FjZVTvp4H",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "oGKDNyD8JOs8Kygb",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"img": "icons/magic/symbols/triangle-glow-purple.webp",
+			"_id": "Zf1CeU2nLF9JHcsK",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726852547729,
+				"modifiedTime": 1726852547729,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "uz6shdo0snfhzfzq",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726852491122,
+		"modifiedTime": 1726852574614,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "uz6shdo0snfhzfzq"
 }

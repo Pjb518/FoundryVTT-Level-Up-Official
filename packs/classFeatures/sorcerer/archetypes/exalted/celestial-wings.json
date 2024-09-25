@@ -13,8 +13,68 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<blockquote><p>At 14th level, you can manifest a set of celestial wings from your back.</p></blockquote><hr class=\"a5e-rule u-my-md\"><p>Your wings have an appearance of your choice, chosen when you gain this feature.</p><p>The wings are made of magical energy that harmlessly bypasses your armor and clothing.</p><ul><li><p>Manifesting your wings requires a bonus action and 3 sorcery points.</p><p></p></li><li><p>While they are manifest, you gain a fly speed of 50 feet and can hover.</p><p></p></li><li><p>At your option, the wings can emit bright light up to a range of 30 feet and dim light for an additional 30 feet (choose each time you use this feature).</p></li></ul><p></p><p>These wings remain manifested until you dismiss them as a bonus action. </p>",
+		"actions": {
+			"Yv7DvObWM2JorfLM": {
+				"name": "Manifest Wings",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"8ZSo0Gyop7YDrH2P": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"3iTCxC236DRNdm3c": {
+						"type": "effect",
+						"default": true,
+						"effectId": "7vN0U5AZhJRnNgv8"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"yvFKiHrdBBCMjsXR": {
+				"name": "Emit Light",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"TtXAcC5arG2eNKps": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Jb351in4dYx5Zt6d"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Starting at 14th level, you can manifest a set of celestial wings from your back. Your wings have an appearance of your choice, chosen when you gain this feature. The wings are made of magical energy that harmlessly bypasses your armor and clothing. Manifesting your wings requires a bonus action and 3 sorcery points. While they are manifest, you gain a fly speed of 50 feet and can hover. At your option, the wings can emit bright light up to a range of 30 feet and dim light for an additional 30 feet (choose each time you use this feature). These wings remain manifested until you dismiss them as a bonus action or until you begin a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -36,15 +96,132 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.G1lbUgCj1QBmN8c3",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Yv7DvObWM2JorfLM",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Celestial Wings",
+			"img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
+			"_id": "7vN0U5AZhJRnNgv8",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "50",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.traits.hover",
+					"value": "true",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain a fly speed of 50 feet and can hover.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726800394407,
+				"modifiedTime": 1726800443275,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.G1lbUgCj1QBmN8c3",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "yvFKiHrdBBCMjsXR",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Emit Light",
+			"img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
+			"_id": "Jb351in4dYx5Zt6d",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "30",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "60",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>At your option, the wings can emit bright light up to a range of 30 feet and dim light for an additional 30 feet (choose each time you use this feature).</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726800489769,
+				"modifiedTime": 1726800526656,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "mrprtdrc4mjtrubt",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726800304359,
+		"modifiedTime": 1726800489811,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "mrprtdrc4mjtrubt"
 }

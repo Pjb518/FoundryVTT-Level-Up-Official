@@ -1,0 +1,199 @@
+{
+	"name": "Alien Curse",
+	"type": "feature",
+	"img": "icons/magic/unholy/hand-light-green.webp",
+	"effects": [
+		{
+			"origin": "Item.UqTc7XLdrJYpulbG",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "HnCJ8pg5sVTWjtrm",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Alien Curse",
+			"img": "icons/magic/unholy/hand-light-green.webp",
+			"_id": "Ci7ERygSIcnJGU0G",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When you deal damage against the cursed creature, it takes an additional 1d4 psychic damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726693818043,
+				"modifiedTime": 1726693860700,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"HnCJ8pg5sVTWjtrm": {
+				"name": "Alien Curse",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"r8Tpd5Is2W3p67yc": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"hqZflTOyQ3ibet6z": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Ci7ERygSIcnJGU0G"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"vrgfgvYrD5h4UTO3": {
+						"range": "short"
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			},
+			"W4agxOnF1RhXMZHZ": {
+				"name": "Use Beyond Dice",
+				"activation": {},
+				"consumers": {
+					"pr5HCbULbbKtb3Ig": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"YdzPhplb9zBG0ad5": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You can use a bonus action to place a curse on a creature you can see within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated. The curse has the following effects:</p>\n<ul>\n<li>\n<p>When you deal damage against the cursed creature, it takes an additional 1d4 psychic damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>\n</li>\n<li>\n<p>You gain a pool of beyond dice, which begins empty. Each beyond die represents a sliver of the future revealed by the use of this gift from your patron. When the cursed creature fails a saving throw, add one beyond die to this pool. You can spend a beyond die when making a saving throw to gain a [[/r 1d4]] bonus. The pool disappears when you finish a short or long rest.</p>\n</li>\n</ul>\n<p>Once you have used this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"WBXg4E4YGBneQ0Sc": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "WBXg4E4YGBneQ0Sc",
+				"label": "Alien Curse",
+				"bonus": "@classResources.alien-curse-damage",
+				"damageType": "psychic",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"default": false
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "warlock",
+		"class": ""
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.26",
+		"createdTime": 1726693678273,
+		"modifiedTime": 1726694580006,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "n62qsuc1awn06o3h"
+}

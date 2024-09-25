@@ -14,15 +14,47 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"II8qxkH0KNC0TYto": {
+				"name": "Ooze Without",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"cwSTs1YPt1v54fS3": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				}
+			}
+		},
 		"description": "<p>Starting at 14th level, while you are&nbsp;bloodied</span>, you can use a bonus action to cause your viscous blood to coalesce into a&nbsp;@UUID[Compendium.a5e.a5e-monsters.Actor.h8p1eywvlv5zocrp]{Black Pudding}&nbsp;that appears in an unoccupied space within 5 feet of you. This ooze takes its turn immediately after yours and obeys your verbal commands. Without such commands, the ooze only defends itself. It disappears after 1 hour, when reduced to 0 hit points, or if it can&rsquo;t sense another creature at the end of its turn. Once you use this ability, you must finish a&nbsp;<span>long rest before you can do so again.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "dungeonDelversGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -32,7 +64,7 @@
 		"featureType": "class",
 		"grants": {},
 		"prerequisite": "",
-		"requiresBloodied": false,
+		"requiresBloodied": true,
 		"schemaVersion": {
 			"version": 0.019,
 			"lastMigration": {
@@ -43,14 +75,18 @@
 				}
 			}
 		},
-		"classes": "wizard"
+		"classes": "wizard",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "f0ur26l1dcs058yt",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727273966311,
+		"modifiedTime": 1727274002189,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "f0ur26l1dcs058yt"
 }

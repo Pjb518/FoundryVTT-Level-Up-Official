@@ -1,7 +1,7 @@
 {
 	"name": "Toadstool Sanctuary",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/consumables/mushrooms/mushroom-spotted-red.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -33,25 +33,32 @@
 					}
 				},
 				"area": {
-					"shape": "sphere",
-					"radius": 30,
-					"placeTemplate": false
+					"shape": "emanation",
+					"placeTemplate": true,
+					"quantity": 1,
+					"radius": 15
 				},
 				"target": {
 					"quantity": null,
 					"type": "creature"
 				},
-				"consumers": {}
+				"consumers": {
+					"h8uT9EvbDKyvZePc": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				}
 			}
 		},
-		"description": "<p>At 10th level, you gain the power to open a tiny fissure into the Dreaming which serves as a wellspring of revitalizing energy. When you are in a forest, woodlands, or other healthy greenspace, you can dance, sing, or chant for 1 minute to spring forth a circle of mushrooms in the unoccupied space around you. The mushroom circle can have a radius of up to 15 feet (minimum diameter 5 feet). Creatures resting in your toadstool sanctuary for 10 minutes gain the&nbsp; benefits of a short rest.</p><p>Your toadstool sanctuary lasts for 1 week, or until you use this feature again. Once you use this feature, you can’t use it again until you finish a long rest. Creatures who benefit from your toadstool sanctuary cannot do so again for 24 hours.</p>",
+		"description": "<p>At 10th level, you gain the power to open a tiny fissure into the Dreaming which serves as a wellspring of revitalizing energy. When you are in a forest, woodlands, or other healthy greenspace, you can dance, sing, or chant for 1 minute to spring forth a circle of mushrooms in the unoccupied space around you. The mushroom circle can have a radius of up to 15 feet (minimum diameter 5 feet). Creatures resting in your toadstool sanctuary for 10 minutes gain the benefits of a short rest.</p>\n<p>Your toadstool sanctuary lasts for 1 week, or until you use this feature again. Once you use this feature, you can&rsquo;t use it again until you finish a long rest. Creatures who benefit from your toadstool sanctuary cannot do so again for 24 hours.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -72,13 +79,17 @@
 				}
 			}
 		},
-		"classes": "warlock"
+		"classes": "warlock",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "lflyygu7v49zyv8r",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726746915340,
+		"modifiedTime": 1726746985543,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "lflyygu7v49zyv8r"
 }
