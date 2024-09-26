@@ -546,6 +546,7 @@ const inventoryFilters = {
 const knackTypes = {
   adept: 'Practiced Technique',
   artificer: 'Field Discovery',
+  artificerRevised: 'Field Discovery',
   bard: 'Adventuring Trick',
   berserker: 'Developed Talent',
   cleric: 'Sign of Faith',
