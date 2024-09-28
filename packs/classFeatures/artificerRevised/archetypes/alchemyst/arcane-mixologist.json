@@ -1,0 +1,556 @@
+{
+	"folder": null,
+	"name": "Arcane Mixologist",
+	"type": "feature",
+	"img": "icons/tools/laboratory/vial-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"nM7qDhKX1g9DZNFO": {
+				"name": "Brew Spell Potion",
+				"activation": {},
+				"consumers": {
+					"7lVD8k6vpI25cNeV": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"Zwj8TkOoi9SPj8Fb": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/tools/laboratory/vial-orange.webp"
+			},
+			"65kjlt6IvG4RMSzA": {
+				"name": "Alluring Vapors",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"dN3lIicgOV4cfFr0": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"BQ6ZHYUVSwpnwzDm": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"img": "icons/tools/laboratory/vial-orange.webp"
+			},
+			"XeDdy1oXZDHcHlop": {
+				"name": "Bracing Vitamins",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"IlHcVWJ8vHVaA4Js": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/tools/laboratory/vial-orange.webp"
+			},
+			"KnoPkqglWol4DYmG": {
+				"name": "Contact Intoxicants",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"LTjROtgdqgGS0ZVV": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"wL4WDbDofsmEZ1Fi": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"joaGrVvbAYdxND5v": {
+						"range": "medium"
+					}
+				},
+				"img": "icons/tools/laboratory/vial-orange.webp"
+			},
+			"8d2xr93wYqFWKCDu": {
+				"name": "Invigorating Stimulants",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Utc1W2gEzaEcHCi2": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "2d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/tools/laboratory/vial-orange.webp"
+			},
+			"DMhFW4dAmCDbvjDt": {
+				"name": "Concentrated Formula",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"xLf18S8NdcuRJ3qQ": {
+				"name": "Diluted Formula",
+				"activation": {},
+				"consumers": {
+					"qTUIi6XFzCOs9gQB": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 2,
+					"max": "2",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"e0FVs6bigmg3uOTj": {
+				"name": "Pristine Ingredients",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"zwTFf3W0dDaxGcxz": {
+				"name": "Pure Oil Medium",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Starting at 9th level you&rsquo;ve learned how to subtly mix and twist your magical ingredients to coax out further effects. Whenever you brew a spell potion, you may add one of the following alchemical mixes that modifies the potion&rsquo;s effects in addition to one of the alchemical mixes listed in your @UUID[Compendium.a5e.a5e-class-features.Item.gcxFL2KIZNgroulO]{Spell Potion Brewer} features.</p>\n<h2>Concentrated Formula</h2>\n<p>The potion can be drunk as a bonus action.</p>\n<h2>Diluted Formula</h2>\n<p>The potion contains enough for two doses and can be drunk twice for the same effects (or it can be contained as two separate doses in different containers). However, the spell effects are cast at one spell level lower than your maximum spell level rather than at your maximum spell level as normal.</p>\n<h2>Pristine Ingredients</h2>\n<p>If when the potion is drunk one or more dice are rolled as a part of the potion&rsquo;s effects, roll 1 additional die of the same type and add it to the results.</p>\n<h2>Pure Oil Medium</h2>\n<p>The duration of the spell potion&rsquo;s effects if any are doubled (this alchemical mixture has no effect on spell potions with a duration of instantaneous).</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "advancedArtificers",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "artificerRevised"
+	},
+	"effects": [
+		{
+			"origin": "Item.Mrrkm5qpwBwFOTro",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "nM7qDhKX1g9DZNFO",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Bracing Vitamins",
+			"img": "icons/tools/laboratory/vial-orange.webp",
+			"_id": "v5u46W8QQw3drvZQ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The potion also grants the drinker a +1 AC bonus for 1 minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727368032612,
+				"modifiedTime": 1727368032612,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.Mrrkm5qpwBwFOTro",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "65kjlt6IvG4RMSzA",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Bracing Vitamins",
+			"img": "icons/tools/laboratory/vial-orange.webp",
+			"_id": "UBXd9WfZDGNOOic8",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The potion also grants the drinker a +1 AC bonus for 1 minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727368033677,
+				"modifiedTime": 1727368033677,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.Mrrkm5qpwBwFOTro",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "XeDdy1oXZDHcHlop",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Bracing Vitamins",
+			"img": "icons/tools/laboratory/vial-orange.webp",
+			"_id": "Cf5bac8LGMgeFhtl",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The potion also grants the drinker a +1 AC bonus for 1 minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727368035738,
+				"modifiedTime": 1727368035738,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.Mrrkm5qpwBwFOTro",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "KnoPkqglWol4DYmG",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Bracing Vitamins",
+			"img": "icons/tools/laboratory/vial-orange.webp",
+			"_id": "9KOvOTukXJIyetL5",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The potion also grants the drinker a +1 AC bonus for 1 minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727368037587,
+				"modifiedTime": 1727368037587,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.Mrrkm5qpwBwFOTro",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "8d2xr93wYqFWKCDu",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Bracing Vitamins",
+			"img": "icons/tools/laboratory/vial-orange.webp",
+			"_id": "gsx6Vex5kQzcUVXy",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The potion also grants the drinker a +1 AC bonus for 1 minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727368039021,
+				"modifiedTime": 1727368039021,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.26",
+		"createdTime": 1727367922676,
+		"modifiedTime": 1727384078374,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "zmfav0bs9Atf96Sy"
+}

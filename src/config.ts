@@ -546,6 +546,7 @@ const inventoryFilters = {
 const knackTypes = {
   adept: 'Practiced Technique',
   artificer: 'Field Discovery',
+  artificerRevised: 'Field Discovery',
   bard: 'Adventuring Trick',
   berserker: 'Developed Talent',
   cleric: 'Sign of Faith',
@@ -1203,7 +1204,8 @@ const skillSpecialties = {
     mathematics: 'A5E.skillSpecialties.mathematics',
     mechanicalTraps: 'A5E.skillSpecialties.mechanicalTraps',
     plumbing: 'A5E.skillSpecialties.plumbing',
-    siegecraft: 'A5E.skillSpecialties.siegecraft'
+    siegecraft: 'A5E.skillSpecialties.siegecraft',
+    weaponry: 'A5E.skillSpecialties.weaponry'
   },
   his: {
     arts: 'A5E.skillSpecialties.arts',
