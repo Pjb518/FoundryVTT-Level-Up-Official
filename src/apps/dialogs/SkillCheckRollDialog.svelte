@@ -25,6 +25,12 @@
         );
     }
 
+    function getRollPrompt(skillKey) {
+        const all = $actor.getFlag("a5e", "effects.prompts.skillCheck.all");
+        if (all !== undefined) return all;
+        return $actor.getFlag("a5e", `effects.prompts.skillCheck.${skillKey}`);
+    }
+
     function onSubmit() {
         dialog.submit({
             expertiseDie,
@@ -89,6 +95,8 @@
         { ability: abilityKey },
     );
 
+    $: prompt = getRollPrompt(skillKey);
+
     $: rollFormula = getRollFormula($actor, {
         ability: abilityKey,
         expertiseDie,
@@ -106,6 +114,7 @@
     <OutputVisibilitySection bind:visibilityMode />
 
     <RollModePicker
+        hint={prompt}
         selected={rollMode}
         source={rollModeString}
         on:updateSelection={({ detail }) => (rollMode = detail)}
