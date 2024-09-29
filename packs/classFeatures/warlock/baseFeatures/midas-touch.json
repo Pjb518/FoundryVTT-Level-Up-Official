@@ -1,0 +1,118 @@
+{
+	"folder": null,
+	"name": "Midas Touch",
+	"type": "feature",
+	"img": "icons/equipment/hand/gauntlet-plate-gold.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ps97VtgK8UHMU5AF": {
+				"name": "Flesh to Stone",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"ULiCrBZqBo6v6326": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"CItmIm6C7FO4ZrMI": {
+						"ability": "con",
+						"onSave": "Special",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"KOPUKLm8dwaHronD": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/defensive/armor-stone-skin.webp",
+				"descriptionOutputs": [
+					"action",
+					"item"
+				],
+				"description": "<p>The target becomes restrained as it begins to turn to stone. On a successful saving throw, the target is instead slowed until the end of its next turn and the spell ends.</p>\n<p>A creature restrained by this spell makes a second saving throw at the end of its turn. On a success, the spell ends. On a failure, the target is petrified for the duration. If you maintain concentration for the maximum duration of the spell, this petrification is permanent.</p>\n<p>Any pieces removed from a petrified creature are missing when the petrification ends.</p>"
+			}
+		},
+		"description": "<p>Once per long rest, you can cast @UUID[Compendium.a5e.a5e-spells.Item.i130d76fifd75hv5]{Flesh to Stone} without using a spell slot, but the range is reduced to touch. However, if the target is permanently petrified, instead of being turned to mundane stone, it is shot through with gold ore. If the petrified creature is mined for the ore (which takes an hour and shatters the petrified creature to pieces, meaning that restoring requires life-restoring magic rather than just reversing the petrification), it is worth 20x the creature&rsquo;s CR in gold. Creatures with a CR of less than 1 yield gold worth 1 electrum piece&rsquo;s worth of gold ore.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "11th level, Avaricious Archetype",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "warlock",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727618625982,
+		"modifiedTime": 1727618661401,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "EufTXSFvWtLoHwfQ"
+}
