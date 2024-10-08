@@ -27,6 +27,8 @@ function generateChanges(A5E) {
 
     confused: [],
 
+    corruption: [],
+
     deafened: [],
 
     dead: [],
@@ -44,7 +46,11 @@ function generateChanges(A5E) {
         }))
     ],
 
+    enervated: [],
+
     fatigue: [],
+
+    fixated: [],
 
     frightened: [],
 
@@ -422,6 +428,14 @@ export default function registerConditionsConfig() {
       changes: changes.confused,
       duration: {}
     },
+    // Corruption
+    {
+      id: 'corruption',
+      name: 'A5E.ConditionCorruption',
+      img: 'systems/a5e/assets/icons/corruption.svg',
+      changes: changes.corruption,
+      duration: {}
+    },
     // Deafened
     {
       id: 'deafened',
@@ -458,6 +472,15 @@ export default function registerConditionsConfig() {
       changes: changes.encumbered,
       duration: {}
     },
+    // Enervated
+    {
+      id: 'enervated',
+      description: '<ul class="a5e-tooltip__list"><li>An enervated creature can\’t use psionic powers or features that require psionic points.</li><li>An enervated creature suffers a –2 penalty on all ability checks, saving throws, and attacks.</li></ul>',
+      name: 'A5E.ConditionEnervated',
+      img: 'systems/a5e/assets/icons/enervated.svg',
+      changes: changes.enervated,
+      duration: {}
+    },
     // Fatigue
     {
       id: 'fatigue',
@@ -465,6 +488,15 @@ export default function registerConditionsConfig() {
       name: 'A5E.ConditionFatigue',
       img: 'systems/a5e/assets/icons/fatigue.svg',
       changes: changes.fatigue,
+      duration: {}
+    },
+    // Fixated
+    {
+      id: 'fixated',
+      description: '<ul class="a5e-tooltip__list"><li>A fixated creature has disadvantage on Investigation and Perception checks to perceive or examine creatures or objects other than the source of its fixation.</li><li>A fixated creature must spend 2 feet of movement for every 1 foot of movement away from the source of its fixation.</li><li>A creature that is immune to being charmed is also immune to being fixated.</li></ul>',
+      name: 'A5E.ConditionFixated',
+      img: 'systems/a5e/assets/icons/fixated.svg',
+      changes: changes.fixated,
       duration: {}
     },
     // Frightened

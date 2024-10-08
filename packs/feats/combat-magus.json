@@ -1,0 +1,172 @@
+{
+	"folder": null,
+	"name": "Combat Magus",
+	"type": "feature",
+	"img": "icons/magic/fire/dagger-rune-enchant-flame-strong-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"KFcMY2J3O6dz7t5B": {
+				"name": "Reduce AC",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"p9llOUJb36nlEdTA": {
+						"type": "damage",
+						"default": true,
+						"formula": "floor(@prof/2)d6",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {
+					"RjUTNnGREDHXhfRZ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "wjBME1mBSsxfKy2L"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Everything you touch is a weapon. Your actual weapons, your spells, and the armor you wear can all be brought to bear in pursuit of bringing down your foes. You gain the following benefits:</p>\n<ul>\n<li>You gain proficiency with the Cutting Omen combat tradition and learn a single first-degree maneuver from it, which does not count against your maneuvers known.</li>\n<li>When you cast a spell that deals fire or thunder damage and has an area, you can reduce the AC of a suit of metal or stone armor you are wearing by 1 to have the spell deal an additional number of d6es of piercing damage equal to half your proficiency bonus as pieces of the armor are stripped off and converted to shrapnel. Once you have used this benefit a number of times as indicated below, the armor breaks and you can&rsquo;t use this benefit with that suit of armor until it is repaired. Because this strips material away from the armor, repairing this AC reduction costs 10 gp in materials for each point of AC reduced. At the Narrator&rsquo;s discretion, armor made from expensive materials like mithral or adamantine may cost more to repair.\n<ul>\n<li>1 use: chain shirt</li>\n<li>2 uses: breastplate, cuirass, or half plate</li>\n<li>3 uses: hauberk or splint</li>\n<li>4 uses: full plate</li>\n</ul>\n</li>\n<li>When you deal damage with a spell, choose a weapon you are wielding to become infused with a type of damage the spell dealt. The next time you hit with a melee attack using that weapon, it deals additional damage of the selected type equal to your proficiency bonus. If you begin a rest with a weapon infused with damage this way, it dissipates harmlessly and is lost.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"Xx5XesST4GQUQoHq": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Combat Magus",
+				"keys": {
+					"base": [
+						"cuttingOmen"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "tradition",
+				"_id": "Xx5XesST4GQUQoHq",
+				"img": "",
+				"isExpertise": false
+			},
+			"J4cuk0U8s8wP027s": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "J4cuk0U8s8wP027s",
+				"label": "Combat Magus",
+				"bonus": "@prof",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"rangedWeaponAttack"
+					],
+					"default": false
+				}
+			}
+		},
+		"prerequisite": "Mage Militant feat",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.ccEJhUcICJNkviy3",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "KFcMY2J3O6dz7t5B",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Reduce AC",
+			"_id": "wjBME1mBSsxfKy2L",
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			},
+			"img": "icons/magic/fire/dagger-rune-enchant-flame-strong-orange.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727703048025,
+		"modifiedTime": 1728052823886,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "VPgvU7MMgMhyuWsc"
+}

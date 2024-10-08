@@ -1,0 +1,106 @@
+{
+	"folder": null,
+	"name": "Underhand of the Divine",
+	"type": "feature",
+	"img": "icons/magic/holy/prayer-hands-glowing-yellow-white.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"9VFxGzWdDV5n77Uy": {
+				"name": "Regain Exertion",
+				"activation": {},
+				"consumers": {
+					"iszRz140BdSTu8a5": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"1MyjpfpL1N1Ge2oq": {
+						"type": "generic",
+						"default": true,
+						"label": "Exertion Points",
+						"formula": "max(@wis.mod,1)"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Your name is spoken of in whispers, but whether those are out of awe or terror depends on who is doing the whispering. You gain the following benefits:</p>\n<ul>\n<li>Your Dexterity or Wisdom score increases by 1, to a maximum of 20.</li>\n<li>When you score a critical hit and also deal @UUID[Compendium.a5e.a5e-class-features.Item.4727pnvz5nwn3h23]{Sneak Attack} damage, you can choose to convert the bonus damage from sneak attack to your choice of radiant or necrotic damage. This does not cost you any resources or count against your uses of the similar benefit from Hand of the Divine.</li>\n<li>When you cast a cleric spell, if once the spell resolves you have no spell slots remaining, you regain exertion equal to your Wisdom modifier (minimum 1). Once you have used this benefit, you can&rsquo;t do so again until you finish a long rest.</li>\n<li>Half your rogue levels count as cleric levels for the purpose of the @UUID[Compendium.a5e.a5e-class-features.Item.s4iiatrup3e3virw]{Channel Divinity} feature.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"awTdJVl2urov1Pp5": {
+				"grantType": "ability",
+				"level": 0,
+				"optional": false,
+				"label": "Underhand of the Divine",
+				"bonus": "1",
+				"context": {
+					"types": [
+						"base"
+					]
+				},
+				"abilities": {
+					"total": 1,
+					"options": [
+						"dex",
+						"wis"
+					]
+				}
+			}
+		},
+		"prerequisite": "Left Hand of the Divine feat",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		},
+		"classes": "",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727703048025,
+		"modifiedTime": 1728051534469,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "sijlJd79gjmW1yVj"
+}
