@@ -25,6 +25,7 @@ export default function registerActiveEffectConfig() {
     concentration: 'systems/a5e/assets/icons/concentration.svg',
     confused: 'systems/a5e/assets/icons/confused.svg',
     corruption: 'systems/a5e/assets/icons/corruption.svg',
+    dazzled: 'systems/a5e/assets/icons/dazzled.svg',
     deafened: 'icons/svg/deaf.svg',
     dead: 'icons/svg/skull.svg',
     doomed: 'systems/a5e/assets/icons/doomed.svg',

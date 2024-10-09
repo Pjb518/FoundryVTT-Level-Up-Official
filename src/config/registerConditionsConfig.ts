@@ -29,6 +29,8 @@ function generateChanges(A5E) {
 
     corruption: [],
 
+    dazzled: [],
+
     deafened: [],
 
     dead: [],
@@ -434,6 +436,15 @@ export default function registerConditionsConfig() {
       name: 'A5E.ConditionCorruption',
       img: 'systems/a5e/assets/icons/corruption.svg',
       changes: changes.corruption,
+      duration: {}
+    },
+    // Dazzled
+    {
+      id: 'dazzled',
+      description: '<ul class="a5e-tooltip__list"><li>A dazzled creature has disadvantage on ability checks that require sight.</li><li>A dazzled creature cannot take reactions.</li><li>Creatures that are immune to being blinded are immune to being dazzled.</li><li>If this condition is inflicted by nonmagical environmental means (such as initial exposure to sunlight after being underground for an extended period of time), it persists for 1 round before dissipating.</li></ul>',
+      name: 'A5E.ConditionDazzled',
+      img: 'systems/a5e/assets/icons/dazzled.svg',
+      changes: changes.dazzled,
       duration: {}
     },
     // Deafened

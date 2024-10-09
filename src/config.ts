@@ -357,6 +357,7 @@ const conditions = {
   charmed: 'A5E.ConditionCharmed',
   confused: 'A5E.ConditionConfused',
   corruption: 'A5E.ConditionCorruption',
+  dazzled: 'A5E.ConditionDazzled',
   deafened: 'A5E.ConditionDeafened',
   doomed: 'A5E.ConditionDoomed',
   encumbered: 'A5E.ConditionEncumbered',

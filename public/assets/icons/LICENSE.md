@@ -5,6 +5,7 @@ The following icons are sourced from [game-icons.net](https://game-icons.net/) a
 - [confused.svg](https://game-icons.net/1x1/skoll/knockout.html) (Created by Skoll)
 - [corruption.svg](https://game-icons.net/1x1/lorc/swallow.html) (Created by Lorc)
 - [d20.svg](https://game-icons.net/1x1/delapouite/dice-twenty-faces-twenty.html) (Created by Delapouite)
+- [dazzled.svg](https://game-icons.net/1x1/lorc/explosion-rays.html) (Created by Lorc)
 - [doomed.svg](https://game-icons.net/1x1/delapouite/icarus.html) (Created by Delapouite)
 - [encumbered.svg](https://game-icons.net/1x1/delapouite/weight.html) (Created by Delapouite)
 - [enervated.svg]https://game-icons.net/1x1/lorc/despair.html) (Created by Lorc)
