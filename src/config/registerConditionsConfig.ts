@@ -69,6 +69,8 @@ function generateChanges(A5E) {
 
     incapacitated: [],
 
+    inebriated: [],
+
     invisible: [
       {
         key: 'flags.a5e.effects.rollMode.attack.all',
@@ -535,6 +537,14 @@ export default function registerConditionsConfig() {
       name: 'A5E.ConditionIncapacitated',
       img: 'systems/a5e/assets/icons/incapacitated.svg',
       changes: changes.incapacitated,
+      duration: {}
+    },
+    // Inebriated
+    {
+      id: 'inebriated',
+      name: 'A5E.ConditionInebriated',
+      img: 'systems/a5e/assets/icons/inebriated.svg',
+      changes: changes.inebriated,
       duration: {}
     },
     // Invisible

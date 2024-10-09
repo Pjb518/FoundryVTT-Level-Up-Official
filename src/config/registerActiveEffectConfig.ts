@@ -36,6 +36,7 @@ export default function registerActiveEffectConfig() {
     frightened: 'icons/svg/terror.svg',
     grappled: 'systems/a5e/assets/icons/grappled.svg',
     incapacitated: 'systems/a5e/assets/icons/incapacitated.svg',
+    inebriated: 'systems/a5e/assets/icons/inebriated.svg',
     invisible: 'icons/svg/invisible.svg',
     paralyzed: 'icons/svg/paralysis.svg',
     petrified: 'systems/a5e/assets/icons/petrified.svg',

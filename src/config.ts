@@ -367,6 +367,7 @@ const conditions = {
   frightened: 'A5E.ConditionFrightened',
   grappled: 'A5E.ConditionGrappled',
   incapacitated: 'A5E.ConditionIncapacitated',
+  inebriated: 'A5E.ConditionInebriated',
   invisible: 'A5E.ConditionInvisible',
   paralyzed: 'A5E.ConditionParalyzed',
   petrified: 'A5E.ConditionPetrified',
