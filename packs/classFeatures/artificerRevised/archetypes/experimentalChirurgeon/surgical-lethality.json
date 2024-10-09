@@ -1,0 +1,329 @@
+{
+	"folder": null,
+	"name": "Surgical Lethality",
+	"type": "feature",
+	"img": "icons/skills/wounds/injury-eyes-blood-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ULdQ4giqmTzK4eYl": {
+				"name": "Surgical Lethality",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"GpQ8b1PycO8GbAH3": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d4"
+					}
+				},
+				"prompts": {
+					"5n2qsnClQC0VI552": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"TSkf1vzvwiLSiVbV": {
+						"type": "effect",
+						"default": true,
+						"effectId": "iDgJi4ZRLCIAaMu2"
+					},
+					"hmFiCTCN7mowA5ck": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2M2ZrFfTkNn2upPo"
+					},
+					"xFJ8NLzmadyj7e32": {
+						"type": "effect",
+						"default": true,
+						"effectId": "dENIzU5zi1CDd58X"
+					},
+					"bE4lKwMNEf00NAFe": {
+						"type": "effect",
+						"default": true,
+						"effectId": "SQRg8ppMY7bqq8EU"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 15th level, your knowledge of anatomical weak points reaches its apex. When you deal @UUID[Compendium.a5e.a5e-class-features.Item.iVCqHAs1zhXRATdT]{Hostile Anatomy} damage, the target must make a Constitution save against your spell save DC. If it fails, it suffers a condition until the end of its next turn. Roll on the following table to determine the condition inflicted:</p>\n<table style=\"width: 33.8432%;\" border=\"1\"><colgroup><col style=\"width: 23.0769%;\"><col style=\"width: 76.9231%;\"></colgroup>\n<thead>\n<tr style=\"text-align: center;\">\n<td style=\"text-align: center;\">1d4</td>\n<td style=\"text-align: center;\">CONDITION</td>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: center;\">1</td>\n<td style=\"text-align: center;\">Blinded</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">2</td>\n<td style=\"text-align: center;\">Deafened</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">3</td>\n<td style=\"text-align: center;\">Rattled</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">4</td>\n<td style=\"text-align: center;\">Poisoned</td>\n</tr>\n</tbody>\n</table>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "artificerRevised",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.3KGj8nM17IWotBs4",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ULdQ4giqmTzK4eYl",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"img": "icons/skills/wounds/injury-eyes-blood-red.webp",
+			"_id": "iDgJi4ZRLCIAaMu2",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A blinded creature can't see and it automatically fails ability checks that require sight.</li>\n<li>Attack rolls against a blinded creature are made with advantage, and the creature's attack rolls are made with disadvantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"blinded"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727696037184,
+				"modifiedTime": 1727696074264,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.3KGj8nM17IWotBs4",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ULdQ4giqmTzK4eYl",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Deafened",
+			"img": "icons/skills/wounds/injury-eyes-blood-red.webp",
+			"_id": "2M2ZrFfTkNn2upPo",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A deafened creature can't hear and automatically fails ability checks that require hearing.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"deafened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727696080449,
+				"modifiedTime": 1727696103046,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.3KGj8nM17IWotBs4",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ULdQ4giqmTzK4eYl",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/skills/wounds/injury-eyes-blood-red.webp",
+			"_id": "dENIzU5zi1CDd58X",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727696105996,
+				"modifiedTime": 1727696139801,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.3KGj8nM17IWotBs4",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ULdQ4giqmTzK4eYl",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"img": "icons/skills/wounds/injury-eyes-blood-red.webp",
+			"_id": "SQRg8ppMY7bqq8EU",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A poisoned creature has disadvantage on attack rolls and ability checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"poisoned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727696143508,
+				"modifiedTime": 1727696164080,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727695299657,
+		"modifiedTime": 1727696143538,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "BOJMvLiw3mGNptTn"
+}

@@ -1,0 +1,959 @@
+{
+	"folder": null,
+	"name": "Musket (ECaDM)",
+	"type": "object",
+	"img": "icons/weapons/guns/gun-blunderbuss-bronze.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"qvF0Du3wyCixe7YN": {
+				"name": "Musket",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"5IQOq3XeauidpeM1": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"cC2Xqu2aC02WEPfJ": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d8 + @dex.mod",
+						"damageType": "piercing"
+					},
+					"S7ktGGf2lzVqrq6P": {
+						"type": "generic",
+						"default": true,
+						"label": "Misfire On 1 or 2",
+						"formula": "1d20"
+					}
+				},
+				"prompts": {
+					"H7aDTRd1hEsNPNQ0": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "dex"
+						},
+						"label": "Ciritical Hit Only"
+					},
+					"XQLYe6pKu2hTyOGg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "pDy2HGiobgxF0KG4"
+					},
+					"7sYwHW0C5ruJQRc7": {
+						"type": "effect",
+						"default": true,
+						"effectId": "BMjuGuAyNx8aNxg3"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"5qndsqCzKsDbZVom": {
+						"range": "medium"
+					},
+					"MOS4YcSVsX7MywcS": {
+						"range": 180,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"LFMNInTn4PcmJNvh": {
+				"name": "Fire Into Air/Ground",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"0bRD1I8NFyvRxHuD": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/guns/gun-blunderbuss-bronze.webp"
+			},
+			"0Bne37kbODFNfknT": {
+				"name": "Black Powder Pyrotechnics",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"9PZEmyADDzuTeGAQ": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d20",
+						"label": "Misfire On 3 or Below"
+					}
+				},
+				"prompts": {
+					"51qX7KtbnRQTveBx": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "dex"
+						}
+					},
+					"nnsNDdClNQGWn17O": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					},
+					"5McGYtuRiR4xcHii": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"dcPLM8W4b7kg7P7g": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"length": 20,
+					"placeTemplate": true
+				},
+				"img": "icons/weapons/guns/gun-blunderbuss-bronze.webp"
+			},
+			"4occmrwi3MYXlMhe": {
+				"name": "Greatclub",
+				"activation": {
+					"cost": "",
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"iCfqnFJbiMWsO2fo": {
+						"bonus": "",
+						"critThreshold": "20",
+						"type": "attack",
+						"attackType": "meleeWeaponAttack",
+						"ability": "default"
+					},
+					"hlVu0grEO6zrkk7w": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d8 + @str.mod",
+						"name": "Greatclub 1H",
+						"type": "damage",
+						"label": "One-Handed",
+						"default": false
+					},
+					"En5kAommJfkAY9gy": {
+						"canCrit": true,
+						"damageType": "bludgeoning",
+						"formula": "1d10 + @str.mod",
+						"name": "Greatclub 2H",
+						"type": "damage",
+						"label": "Two-Handed",
+						"default": false
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": ""
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creatureObject"
+				},
+				"img": "icons/weapons/clubs/club-banded-barbed-black.webp"
+			}
+		},
+		"description": "<table style=\"width: 100%; height: 50.4px;\" border=\"1\"><colgroup><col style=\"width: 7.85331%;\"><col style=\"width: 92.1467%;\"></colgroup>\n<thead>\n<tr style=\"height: 16.8px;\">\n<td style=\"height: 16.8px;\">1d20</td>\n<td style=\"height: 16.8px;\">Misfire Result</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 16.8px;\">\n<td style=\"height: 16.8px;\">1</td>\n<td style=\"height: 16.8px;\">Blows up, becomes damaged, and deals base weapon damage dice to the user as half piercing half fire damage.</td>\n</tr>\n<tr style=\"height: 16.8px;\">\n<td style=\"height: 16.8px;\">2-5</td>\n<td style=\"height: 16.8px;\">Becomes broken, or blows up as a result of 1 if it was already damaged.</td>\n</tr>\n<tr>\n<td>6+</td>\n<td>Becomes damaged, or broken if it was already damaged.</td>\n</tr>\n</tbody>\n</table>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "extraCreditAndDeeperMysteries",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "700 gp",
+		"proficient": true,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"loading",
+			"twoHanded",
+			"heavy",
+			"range",
+			"menacing",
+			"punching",
+			"clubbing",
+			"blackPowderPyrotechnics",
+			"misfire"
+		],
+		"weight": 10,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"breakerProperties": [],
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"versatile": "",
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.qKgvNfgTa9Gv2R3j",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qvF0Du3wyCixe7YN",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/weapons/guns/gun-blunderbuss-bronze.webp",
+			"_id": "pDy2HGiobgxF0KG4",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727551248127,
+				"modifiedTime": 1727551282650,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.qKgvNfgTa9Gv2R3j",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qvF0Du3wyCixe7YN",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/weapons/guns/gun-blunderbuss-bronze.webp",
+			"_id": "BMjuGuAyNx8aNxg3",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727551285686,
+				"modifiedTime": 1727551314579,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.L8LVCv2yWHeOw6qn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LFMNInTn4PcmJNvh",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/weapons/guns/gun-pistol-brass.webp",
+			"_id": "U3E6cZyFvY9L2ocB",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727551326230,
+				"modifiedTime": 1727551326230,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.L8LVCv2yWHeOw6qn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LFMNInTn4PcmJNvh",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/weapons/guns/gun-pistol-brass.webp",
+			"_id": "S7VXQJ8Z9FexFsG1",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727551326230,
+				"modifiedTime": 1727551326230,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.L8LVCv2yWHeOw6qn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LFMNInTn4PcmJNvh",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Intimidate",
+			"img": "icons/weapons/guns/gun-pistol-brass.webp",
+			"_id": "Dw4EtdsgQArcLDav",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.skills.itm.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Once per social encounter you may also fire a loaded firearm into the air or the ground to give yourself an expertise die on an intimidation check.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727551326230,
+				"modifiedTime": 1727551326230,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.L8LVCv2yWHeOw6qn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LFMNInTn4PcmJNvh",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"img": "icons/weapons/guns/gun-pistol-brass.webp",
+			"_id": "FhyBGUQsgD5q6UhM",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A blinded creature can't see and it automatically fails ability checks that require sight.</li>\n<li>Attack rolls against a blinded creature are made with advantage, and the creature's attack rolls are made with disadvantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"blinded"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727551326230,
+				"modifiedTime": 1727551326230,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.L8LVCv2yWHeOw6qn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LFMNInTn4PcmJNvh",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Deafened",
+			"img": "icons/weapons/guns/gun-pistol-brass.webp",
+			"_id": "VWLAE92Dig2bXw6Q",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A deafened creature can't hear and automatically fails ability checks that require hearing.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"deafened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727551326230,
+				"modifiedTime": 1727551326230,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.L8LVCv2yWHeOw6qn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "0Bne37kbODFNfknT",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/weapons/guns/gun-pistol-brass.webp",
+			"_id": "MvbhvPyzfgAcKaRK",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727551340743,
+				"modifiedTime": 1727551340743,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.L8LVCv2yWHeOw6qn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "0Bne37kbODFNfknT",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Intimidate",
+			"img": "icons/weapons/guns/gun-pistol-brass.webp",
+			"_id": "W3aMGh6yWoCDKzr3",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.skills.itm.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Once per social encounter you may also fire a loaded firearm into the air or the ground to give yourself an expertise die on an intimidation check.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727551340743,
+				"modifiedTime": 1727551340743,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.L8LVCv2yWHeOw6qn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "0Bne37kbODFNfknT",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"img": "icons/weapons/guns/gun-pistol-brass.webp",
+			"_id": "ZCqBHAaklmHkqkAT",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A blinded creature can't see and it automatically fails ability checks that require sight.</li>\n<li>Attack rolls against a blinded creature are made with advantage, and the creature's attack rolls are made with disadvantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"blinded"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727551340743,
+				"modifiedTime": 1727551340743,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.L8LVCv2yWHeOw6qn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "0Bne37kbODFNfknT",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Deafened",
+			"img": "icons/weapons/guns/gun-pistol-brass.webp",
+			"_id": "WcpJuGq5hJCGol0N",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A deafened creature can't hear and automatically fails ability checks that require hearing.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"deafened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727551340743,
+				"modifiedTime": 1727551340743,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.L8LVCv2yWHeOw6qn",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "0Bne37kbODFNfknT",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/weapons/guns/gun-pistol-brass.webp",
+			"_id": "tqzuTN829IiyCqST",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727551340743,
+				"modifiedTime": 1727551340743,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727551078668,
+		"modifiedTime": 1727562981563,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "s0tMdz5QOAvCAIkv"
+}

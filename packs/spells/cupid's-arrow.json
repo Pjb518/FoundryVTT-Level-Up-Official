@@ -34,7 +34,17 @@
 						"saveDC": {
 							"type": "spellcasting"
 						},
-						"onSave": "Charisma negates"
+						"onSave": ""
+					},
+					"E2wT8NXUlN3Tc7si": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Nb2OMCmcKGHPmNav"
+					},
+					"IoadlUtqSVfhieaz": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Ksjul4eMgRBjCQy9"
 					}
 				},
 				"uses": {
@@ -63,7 +73,7 @@
 		"description": "<p>As part of the action used to cast this spell, make a ranged weapon attack against a target within range of the weapon you are wielding. If you hit, the target takes no damage, is instead healed for an amount of hit points equal to the weapon’s normal damage + 1d8, and must make a Charisma saving throw against your spell save DC. A creature that fails its save is charmed by you for one minute. A creature that succeeds on its save is still healed, but is not charmed.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.&nbsp;</p><p>If the target is already friendly toward you, it is not charmed and instead gains an expertise die on its next saving throw or ability check.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "arcaneSniper",
+		"source": "multiclassersManual",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -114,13 +124,188 @@
 		},
 		"spellBook": ""
 	},
-	"effects": [],
-	"flags": {},
+	"effects": [
+		{
+			"origin": "Item.g72MyeQVtt9vIzO2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "A3LAY4Xyso7fBlUK",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Charmed",
+			"img": "icons/magic/life/heart-shadow-red.webp",
+			"_id": "Nb2OMCmcKGHPmNav",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A charmed creature can't take any hostile action against the charmer.</li>\n<li>Ability checks the charmer makes to socially interact with the charmed creature have advantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"charmed"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727698236965,
+				"modifiedTime": 1727698282547,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.g72MyeQVtt9vIzO2",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "A3LAY4Xyso7fBlUK"
+				}
+			},
+			"transfer": false,
+			"name": "Expertise Die",
+			"img": "icons/magic/life/heart-shadow-red.webp",
+			"_id": "Ksjul4eMgRBjCQy9",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.abilities.str.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.dex.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.con.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.int.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.wis.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.cha.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.str.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.dex.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.con.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.int.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.wis.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.cha.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If the target is already friendly toward you, it is not charmed and instead gains an expertise die on its next saving throw or ability check.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727698292186,
+				"modifiedTime": 1727698450344,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {
+		"core": {}
+	},
 	"folder": null,
-	"_id": "mr3mrx2b8po8bh73",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.27",
+		"createdTime": 1727696801669,
+		"modifiedTime": 1727698456816,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "mr3mrx2b8po8bh73"
 }

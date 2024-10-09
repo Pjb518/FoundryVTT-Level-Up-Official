@@ -3,7 +3,9 @@
 	"type": "object",
 	"img": "icons/weapons/swords/greatsword-evil-green.webp",
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"core": {}
+	},
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -118,16 +120,42 @@
 					"type": "other"
 				},
 				"img": "icons/magic/death/skeleton-skull-soul-blue.webp",
-				"description": "<p>While wielding the sword, you may cast speak with dead at will without a spell slot or components and may target a headstone or other grave marker rather than a corpse. When cast on a grave marker, it brings forth a spectral image of the departed to speak with. The departed may decline to speak with you or even appear at its discretion.</p><hr><p>You call forth the target's memories, animating it enough to answer 5 questions. The corpse's knowledge is limited: it knows only what it knew in life and cannot learn new information or speak about anything that has occurred since its death. It speaks only in the languages it knew, and is under no compulsion to offer a truthful answer if it has reason not to. Answers might be brief, cryptic, or repetitive.</p><p>This spell does not return a departed soul, nor does it have any effect on an undead corpse, or one without a mouth.</p>",
+				"description": "<p>While wielding the sword, you may cast speak with dead at will without a spell slot or components and may target a headstone or other grave marker rather than a corpse. When cast on a grave marker, it brings forth a spectral image of the departed to speak with. The departed may decline to speak with you or even appear at its discretion.</p>\n<hr>\n<p>You call forth the target's memories, animating it enough to answer 5 questions. The corpse's knowledge is limited: it knows only what it knew in life and cannot learn new information or speak about anything that has occurred since its death. It speaks only in the languages it knew, and is under no compulsion to offer a truthful answer if it has reason not to. Answers might be brief, cryptic, or repetitive.</p>\n<p>This spell does not return a departed soul, nor does it have any effect on an undead corpse, or one without a mouth.</p>",
 				"descriptionOutputs": [
 					"action"
 				]
+			},
+			"C0nFmDze61lKdepU": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/greatsword-guard.webp"
 			}
 		},
-		"description": "<p><strong>Crafting Components:</strong> A chip from a headstone or other grave marker at least a thousand years old that is still visited by mourners and well-wishers</p><p>This +1 bastard sword deals an additional 1d4 points of necrotic damage on a hit. In addition, while wielding the sword, you may cast speak with dead at will without a spell slot or components and may target a headstone or other grave marker rather than a corpse. When cast on a grave marker, it brings forth a spectral image of the departed to speak with. The departed may decline to speak with you or even appear at its discretion. Finally, any creature slain by the sword is immediately subjected to a gentle repose effect.</p>",
+		"description": "<p><strong>Crafting Components:</strong> A chip from a headstone or other grave marker at least a thousand years old that is still visited by mourners and well-wishers</p>\n<p>This +1 bastard sword deals an additional 1d4 points of necrotic damage on a hit. In addition, while wielding the sword, you may cast @UUID[Compendium.a5e.a5e-spells.Item.6ia3gup3j0m6oigb]{Speak with Dead} at will without a spell slot or components and may target a headstone or other grave marker rather than a corpse. When cast on a grave marker, it brings forth a spectral image of the departed to speak with. The departed may decline to speak with you or even appear at its discretion. Finally, any creature slain by the sword is immediately subjected to a @UUID[Compendium.a5e.a5e-spells.Item.724qyfqw7qcpe1ol]{Gentle Repose} effect.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "mortalist",
+		"source": "multiclassersManual",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -179,13 +207,21 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"folder": null,
-	"_id": "yl02qb4mzyqui5pl",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.27",
+		"createdTime": 1727618990485,
+		"modifiedTime": 1727619082053,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "yl02qb4mzyqui5pl"
 }

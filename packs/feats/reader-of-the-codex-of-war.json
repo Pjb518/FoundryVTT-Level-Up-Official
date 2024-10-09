@@ -1,0 +1,134 @@
+{
+	"folder": null,
+	"name": "Reader of the Codex of War",
+	"type": "feature",
+	"img": "icons/sundries/books/book-open-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"EJKgCVwnyWMfwOUp": {
+				"name": "Switch Forms",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"DqTk0MB7dVcjfniD": {
+				"name": "Gain Battlefield Intuition Charge",
+				"activation": {},
+				"consumers": {
+					"6to17TN5aZJHS7eC": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"gZb2tyfNTdWg0SUY": {
+				"name": "Use Battlefield Intuition Charge",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Miss with a weapon attack"
+				},
+				"consumers": {
+					"6to17TN5aZJHS7eC": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"beK2k6p20mueTWEb": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You are an eldritch warrior-scholar, and your learnedness is reflected in your effectiveness on the battlefield. You gain the following benefits:</p>\n<ul>\n<li>Your Book of Shadows can transform from a regular book to a battle book. Switching between forms takes a bonus action. The contents are unaltered by the transformation.</li>\n<li>You can always use scrolls with spells from the <em>weaponry </em>school, regardless of whether you could normally cast the spell on them or not.</li>\n<li>Spells from the <em>weaponry </em>school require 1 fewer artifact charges or spell points to cast (cost cannot be reduced below a minimum of 1 point).</li>\n<li>You gain a pool of battlefield intuition charges, which begins empty. When you score a critical hit on an attack, you gain a battlefield intuition charge. If you miss with a weapon attack, you can use your reaction to spend a battlefield intuition charge to gain a bonus of 1d4 on the attack roll, potentially turning the miss into a hit. You can only have a number of intuition charges equal to your proficiency bonus at any given time, and your pool resets to zero when you begin a rest.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {},
+		"prerequisite": "Pactbound Custodian feat, Pact of the Tome, Bonded Artifact is a Weapon of Power",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727703048025,
+		"modifiedTime": 1728409266440,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "tZtnVmp3VTeGbm2E"
+}

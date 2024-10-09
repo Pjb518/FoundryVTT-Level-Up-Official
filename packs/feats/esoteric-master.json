@@ -1,0 +1,167 @@
+{
+	"folder": null,
+	"name": "Esoteric Master",
+	"type": "feature",
+	"img": "icons/magic/symbols/runes-star-pentagon-orange-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"u3p8V1LrqNBx19bg": {
+				"name": "Spellstrike",
+				"activation": {},
+				"consumers": {
+					"ufdIAqkxk1E5B4Hd": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"8Z1x9wtswxskqwL3": {
+						"type": "effect",
+						"default": true,
+						"effectId": "JyucDPPg3XxK6YbJ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You no longer merely flow smoothly between martial arts and magical power, you combine them into a unified whole. You gain the following benefits:</p>\n<ul>\n<li>Your Dexterity, Wisdom, or Charisma score increases by 1, to a maximum of 20.</li>\n<li>When you convert sorcery points to exertion, your next maneuver attack deals an additional [[/r 1d4]] points of one of the following damage types of your choice: acid, cold, fire, lightning, poison, or thunder.</li>\n<li>You learn the following new Manifestation. It does not count against your Manifestations learned.</li>\n</ul>\n<p>&nbsp;</p>\n<h3>Spellstrike</h3>\n<p>When you cast a spell that requires an unarmed or weapon attack, you can spend 1 sorcery point and choose one creature you can see. If that creature takes bludgeoning, piercing, or slashing damage from the spell or an attack you make as part of casting the spell, it is rattled and poisoned until the end of its next turn.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"YDgCQbP5eaN8PoAt": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "YDgCQbP5eaN8PoAt",
+				"label": "Esoteric Master",
+				"bonus": "1",
+				"abilities": {
+					"total": 1,
+					"options": [
+						"dex",
+						"wis",
+						"cha"
+					]
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				}
+			}
+		},
+		"prerequisite": "Eldritch Student feat",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.HaO02lIOdi3OakiZ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "u3p8V1LrqNBx19bg",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Spellstrike",
+			"img": "icons/magic/symbols/runes-star-pentagon-orange-purple.webp",
+			"_id": "JyucDPPg3XxK6YbJ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\",\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<h2>Poisoned</h2>\n<p>A poisoned creature has disadvantage on attack rolls and ability checks.</p>\n<p> </p>\n<h2>Rattled</h2>\n<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled",
+				"poisoned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1728059130306,
+				"modifiedTime": 1728059253459,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727703048025,
+		"modifiedTime": 1728059278131,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "19TMX6gMEm7oONx8"
+}

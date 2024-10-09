@@ -1,0 +1,131 @@
+{
+	"folder": null,
+	"name": "Sacred Armiger",
+	"type": "feature",
+	"img": "icons/weapons/swords/sword-gold-holy.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"zCykurGRzwmPEFym": {
+				"name": "Zero Exertion",
+				"activation": {},
+				"consumers": {
+					"RuAy0q06cvKXIca1": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": -1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You have learned to truly blend your access to divine power with your combat acumen. You gain the following benefits:</p>\n<ul>\n<li>When you spend exertion to use a maneuver, if you are left with zero exertion in your exertion pool, you can choose to regain a use of @UUID[Compendium.a5e.a5e-class-features.Item.s4iiatrup3e3virw]{Channel Divinity} (no additional action required).&nbsp;</li>\n<li>You gain proficiency with the Sanctified Steel combat tradition and learn a single first degree maneuver from it, which does not count against your maneuvers known.</li>\n<li>When you cast a cleric spell of at least first level with a casting time of one action that deals necrotic or radiant damage, until the end of your next turn, your next melee attack you make that hits gains a bonus to damage equal to your proficiency modifier. The bonus damage is the same type as the spell you cast. If the spell deals both radiant and necrotic damage, you choose the damage type, but do not gain both.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"RcNycqYkPqtGZQIh": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "RcNycqYkPqtGZQIh",
+				"label": "Sacred Armiger",
+				"keys": {
+					"base": [
+						"sanctifiedSteel"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "tradition",
+				"img": "",
+				"isExpertise": false
+			},
+			"pztU69SLWu8thpYx": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "pztU69SLWu8thpYx",
+				"label": "Sacred Armiger",
+				"context": {
+					"spellLevels": [
+						"1",
+						"2",
+						"3",
+						"4",
+						"5",
+						"6",
+						"7",
+						"8",
+						"9"
+					],
+					"default": false,
+					"damageTypes": [
+						"necrotic",
+						"radiant"
+					],
+					"attackTypes": [
+						"meleeSpellAttack",
+						"rangedSpellAttack"
+					]
+				},
+				"bonus": "@prof"
+			}
+		},
+		"prerequisite": "Holy Warrior feat",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.016,
+			"lastMigration": null
+		},
+		"classes": "",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727703048025,
+		"modifiedTime": 1727989408920,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "DDJPmAOc2PRUf20N"
+}

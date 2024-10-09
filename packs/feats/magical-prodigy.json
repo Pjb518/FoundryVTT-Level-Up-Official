@@ -1,0 +1,172 @@
+{
+	"folder": null,
+	"name": "Magical Prodigy",
+	"type": "feature",
+	"img": "icons/magic/symbols/star-rising-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p>You have some inherent magical talent, and you have also decided to study magical lore. Whether this is curiosity, ambition, or a desire to understand yourself better, only you can say. You gain the following benefits:</p>\n<ul>\n<li>Your Intelligence or Charisma score increases by 1, to a maximum of 20.</li>\n<li>When you would learn an @UUID[Compendium.a5e.a5e-class-features.Item.7jxnq4in81dmi93t]{Arcane Innovation} or @UUID[Compendium.a5e.a5e-class-features.Item.1u4hyjbgjmvl22js]{Elective Study}, you can choose freely from either list.</li>\n<li>You gain proficiency with the Arcana skill, or another skill from the sorcerer or wizard list if you are already proficient.</li>\n<li>You learn one of the following languages: draconic, sylvan, infernal, celestial, or primordial.</li>\n<li>While you are wielding an arcane spellcasting focus, you gain an expertise die on Intelligence and Charisma saves.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"wD6tbrrmgVhgpIVt": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Magical Prodigy",
+				"bonus": "1",
+				"abilities": {
+					"options": [
+						"int",
+						"cha"
+					],
+					"total": 1,
+					"base": []
+				},
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"_id": "wD6tbrrmgVhgpIVt",
+				"img": ""
+			},
+			"NJ1WKF0YmJeqJnRZ": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"label": "Skill Proficiencies",
+				"keys": {
+					"base": [
+						"arc"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill",
+				"_id": "NJ1WKF0YmJeqJnRZ",
+				"img": "",
+				"isExpertise": false
+			},
+			"OPS4cxGxNOSWZxsA": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"traits": {
+					"base": [],
+					"options": [
+						"draconic",
+						"sylvan",
+						"infernal",
+						"celestial",
+						"primordial"
+					],
+					"total": 1,
+					"traitType": "languages"
+				},
+				"label": "Language Proficiencies"
+			}
+		},
+		"prerequisite": "3 levels in sorcerer, 3 levels in wizard",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.9tvOc74VD45zhqSy",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Wielding Arcane Focus",
+			"img": "icons/magic/symbols/star-rising-purple.webp",
+			"_id": "iFEw3j7OU9VEaS3q",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.abilities.int.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.cha.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain an expertise die on Intelligence and Charisma saves.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1728405083565,
+				"modifiedTime": 1728405127313,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727703048025,
+		"modifiedTime": 1728405216755,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "lOCrbdEtJaueEmwL"
+}

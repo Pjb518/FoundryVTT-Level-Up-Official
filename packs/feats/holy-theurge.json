@@ -1,0 +1,132 @@
+{
+	"folder": null,
+	"name": "Holy Theurge",
+	"type": "feature",
+	"img": "icons/magic/unholy/hands-circle-light-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"KcuN3iQxzRkROMjW": {
+				"name": "Change Damage Type",
+				"activation": {},
+				"consumers": {
+					"6Ac8zegr52jLgJtR": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"97sQzqx4P5o0fJOY": {
+				"name": "Regain Hit Points",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"xVErGETKOHFHoLjW": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d8",
+						"label": "Arcane Recovery"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Your divinely-granted and academically-studied magic are starting to merge together, allowing you to do some things that more conventional spellcasters cannot. You gain the following benefits:</p>\n<ul>\n<li>Your Intelligence or Wisdom score increases by 1, to a maximum of 20.</li>\n<li>When you cast a wizard spell that deals damage, you can spend a use of @UUID[Compendium.a5e.a5e-class-features.Item.s4iiatrup3e3virw]{Channel Divinity} to change the damage type as follows:\n<ul>\n<li>Fire or lightning damage becomes radiant damage.</li>\n<li>Cold or poison damage becomes necrotic damage.</li>\n</ul>\n</li>\n<li>When you use @UUID[Compendium.a5e.a5e-class-features.Item.iqlgotutphoratct]{Arcane Recovery}, you regain hit points as if you had expended a cleric hit die. This does not consume a hit die. In addition, you can also swap out a number of prepared spells equal to half your proficiency bonus from your cleric list for different spells from your cleric list and a number of prepared spells equal to half your proficiency bonus from your wizard list for different spells from your wizard list.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"CNHaTrWjTAhvenoH": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Holy Theurge",
+				"bonus": "1",
+				"abilities": {
+					"options": [
+						"int",
+						"wis"
+					],
+					"total": 1,
+					"base": []
+				},
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"_id": "CNHaTrWjTAhvenoH",
+				"img": ""
+			}
+		},
+		"prerequisite": "Mystical Mage feat",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727703048025,
+		"modifiedTime": 1728051878881,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "OSjlVOkco2LoEYgo"
+}
