@@ -1,0 +1,359 @@
+{
+	"folder": null,
+	"name": "True Adventurer",
+	"type": "feature",
+	"img": "icons/containers/bags/pouch-leather-leaf-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ROwr36WLPzM4HFeY": {
+				"name": "Ready For Anything",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"ANZMIocMYrYdx0lw": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"ltd4gHEES48MfHdI": {
+				"name": "Critical Success",
+				"activation": {},
+				"consumers": {
+					"nFOYK6W5HG15GlYi": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.bardic-inspiration-uses",
+						"resource": "classResource",
+						"quantity": -1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You consider yourself to be ready for just about anything and pride yourself on the ability to rise to whatever challenges are set before you. You gain the following benefits:</p>\n<ul>\n<li>You are ready for just about anything. Once per long rest as an action you can produce a non-bulky mundane item with a maximum weight equal to your proficiency bonus in pounds and a maximum gp value equal to your (ranger level + your bard level) x 2. Equipment you produce this way is not magical and is used in the normal fashion. You cannot use this benefit to acquire items that you could not have purchased normally ahead of time such as keys to locked doors you encounter.</li>\n<li>You gain proficiency with a skill or musical instrument of your choice.</li>\n<li>When you roll a critical success on an ability check or saving throw, you regain a use of bardic inspiration.</li>\n<li>You gain a rogue skill trick.</li>\n<li>You treat critical failures as regular failures for the Busk, Chronicle, and Entertain journey activities.</li>\n<li>You learn the @UUID[Compendium.a5e.a5e-spells.Item.oztroltp7btnkrw4]{Tricks and Trades} cantrip if you do not already know it, or your choice of the @UUID[Compendium.a5e.a5e-spells.Item.uy8he1yquaiym6y8]{Prestidigitation}, @UUID[Compendium.a5e.a5e-spells.Item.5o1rvwzxmsh5ji9i]{Druidcraft}, or @UUID[Compendium.a5e.a5e-spells.Item.eiek2vbzwijd0qac]{Thaumaturgy} cantrips if you do.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"YF75IoEE6TPWepZa": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"label": "Skill Proficiency",
+				"keys": {
+					"base": [],
+					"options": [
+						"acr",
+						"ani",
+						"arc",
+						"ath",
+						"cul",
+						"dec",
+						"eng",
+						"his",
+						"ins",
+						"itm",
+						"inv",
+						"med",
+						"nat",
+						"prc",
+						"prf",
+						"per",
+						"rel",
+						"slt",
+						"ste",
+						"sur"
+					],
+					"total": 1
+				},
+				"proficiencyType": "skill",
+				"_id": "YF75IoEE6TPWepZa",
+				"img": "",
+				"isExpertise": false
+			},
+			"WKDiDdpUQROouWhw": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"label": "Musical Instrument Proficiency",
+				"keys": {
+					"base": [],
+					"options": [
+						"bagpipes",
+						"casaba",
+						"castanet",
+						"drum",
+						"dulcimer",
+						"flute",
+						"harp",
+						"horn",
+						"lute",
+						"lyre",
+						"maraca",
+						"ocarina",
+						"panFlute",
+						"trombone",
+						"violin",
+						"shawm",
+						"viol"
+					],
+					"total": 1
+				},
+				"proficiencyType": "tool",
+				"_id": "WKDiDdpUQROouWhw",
+				"img": "",
+				"isExpertise": false
+			},
+			"nEpZqCKHlGyyrtpX": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "nEpZqCKHlGyyrtpX",
+				"label": "True Adventurer",
+				"features": {
+					"total": 1,
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.ikn7x3hz5vnmt36r",
+							"name": "Trick: Agile Athlete",
+							"img": "icons/creatures/mammals/goat-horned-blue.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.61snyw6alvpwvx81",
+							"name": "Trick: Analysis",
+							"img": "icons/skills/toxins/poison-bottle-open-fire-purple.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.av3z7jitto9mhze0",
+							"name": "Trick: Boobytrapper",
+							"img": "icons/skills/social/wave-halt-stop.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.053x8effld16m9px",
+							"name": "Trick: Cat's Eyes",
+							"img": "icons/magic/perception/eye-slit-orange.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.529hrlabc43he0ut",
+							"name": "Trick: Delay Trap",
+							"img": "icons/commodities/tech/wire-red.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.5q44z6dgicdayr54",
+							"name": "Trick: Expertise Training",
+							"img": "icons/skills/trades/academics-merchant-scribe.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.rpherl7atqdofmrm",
+							"name": "Trick: Extra Skill Training",
+							"img": "icons/skills/trades/academics-investigation-puzzles.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.731moed2c1y1hfut",
+							"name": "Trick: Graceful Leap",
+							"img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.psk80m9us4m90hxi",
+							"name": "Trick: Hide in the Shadows",
+							"img": "icons/creatures/mammals/bats-movement-flying-black.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.vpjy24qtc7eydt4n",
+							"name": "Trick: Keen Eye",
+							"img": "icons/magic/perception/eye-ringed-glow-angry-small-teal.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.tyuy2n3hgkoouuc8",
+							"name": "Trick: Kip Up",
+							"img": "icons/skills/movement/arrow-upward-blue.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.3a1d88q5wa93a01f",
+							"name": "Trick: Locksmith",
+							"img": "icons/tools/hand/lockpicks-steel-grey.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.esd08zsbbeqk5ezf",
+							"name": "Trick: Loot Runner",
+							"img": "icons/containers/barrels/barrel-reinforced-cherry-brown.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.00lugck9mh8o95rl",
+							"name": "Trick: Observer",
+							"img": "icons/tools/navigation/spyglass-telescope-brass.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.kt130vvw9bj3zwua",
+							"name": "Trick: Poison Expert",
+							"img": "icons/creatures/invertebrates/spider-skull-green.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.zkrj7xq9p88ddnne",
+							"name": "Trick: Practiced Dash",
+							"img": "icons/magic/water/ice-snowman.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.19ngv3ym6jnanuvp",
+							"name": "Trick: Quick Scan",
+							"img": "icons/skills/trades/academics-investigation-study-blue.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.i7xiy1y332d7v23m",
+							"name": "Trick: Scout Leader",
+							"img": "icons/creatures/abilities/cougar-pounce-stalk-black.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.qfogs0bp2hisfr1n",
+							"name": "Trick: Sense Aura",
+							"img": "icons/magic/symbols/runes-triangle-magenta.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.xv4w7gg8nddpnowc",
+							"name": "Trick: Sense for Secrets",
+							"img": "icons/creatures/webs/web-spider-glowing-purple.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.d88src1dbg45kygw",
+							"name": "Trick: Shadow Skulk",
+							"img": "icons/creatures/reptiles/chameleon-camouflage-green-brown.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.9p0ktbpp3qse6ybh",
+							"name": "Trick: Skeleton Key",
+							"img": "icons/sundries/misc/key-ornate-iron-black.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.k32u2xdrqrbwmg0b",
+							"name": "Trick: Tuck and Roll",
+							"img": "icons/commodities/biological/wing-bird-white.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.3zu6qsua33gmhybe",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
+		"prerequisite": "Factotum feat",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727703048025,
+		"modifiedTime": 1728405216755,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "cLJK9eLqR6aoTxBs"
+}
