@@ -67,6 +67,23 @@ function generateChanges(A5E) {
         }))
     ],
 
+    hungover: [
+      {
+        key: 'system.abilities.con.save.bonus',
+        value: '-2',
+        mode: MODES.ADD,
+        priority: MODES.ADD * 10,
+        label: 'A5E.ConditionHungover'
+      },
+      {
+        key: 'flags.a5e.effects.rollMode.skillCheck.prc',
+        value: -1,
+        mode: MODES.OVERRIDE,
+        priority: MODES.OVERRIDE * 10,
+        label: 'A5E.ConditionHungover'
+      }
+    ],
+
     incapacitated: [],
 
     inebriated: [],
@@ -528,6 +545,15 @@ export default function registerConditionsConfig() {
       name: 'A5E.ConditionGrappled',
       img: 'systems/a5e/assets/icons/grappled.svg',
       changes: changes.grappled,
+      duration: {}
+    },
+    // Hungover
+    {
+      id: 'hungover',
+      description: '<ul class="a5e-tooltip__list"><li>Hungover creatures have a –2 penalty to Constitution saving throws until they complete a short or long rest.</li><li>A hungover creature cannot take reactions.</li><li>A hungover creature has disadvantage on Perception checks.</li><li>Creatures that are immune to poison or the poisoned condition cannot be hungover.</li></ul>',
+      name: 'A5E.ConditionHungover',
+      img: 'systems/a5e/assets/icons/hungover.svg',
+      changes: changes.hungover,
       duration: {}
     },
     // Incapacitated
