@@ -5,6 +5,7 @@ export default function registerClassesConfig() {
     artificerRevised: 'A5E.characterClasses.artificerRevised',
     bard: 'A5E.characterClasses.bard',
     berserker: 'A5E.characterClasses.berserker',
+    bloodblade: 'A5E.characterClasses.bloodblade',
     cleric: 'A5E.characterClasses.cleric',
     druid: 'A5E.characterClasses.druid',
     elementalist: 'A5E.characterClasses.elementalist',

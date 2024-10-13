@@ -555,6 +555,7 @@ const knackTypes = {
   artificerRevised: 'Field Discovery',
   bard: 'Adventuring Trick',
   berserker: 'Developed Talent',
+  bloodblade: 'Esoteric Arts',
   cleric: 'Sign of Faith',
   druid: 'Secret of Nature',
   elementalist: 'Elemental Adaptation',
@@ -639,6 +640,7 @@ const maneuverTraditions = {
   temperedIron: 'A5E.maneuverTraditions.temperedIron',
   toothAndClaw: 'A5E.maneuverTraditions.toothAndClaw',
   unendingWheel: 'A5E.maneuverTraditions.unendingWheel',
+  viciousVein: 'A5E.maneuverTraditions.viciousVein',
   vipersFangs: 'A5E.maneuverTraditions.vipersFangs'
 };
 
