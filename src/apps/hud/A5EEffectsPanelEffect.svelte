@@ -79,7 +79,11 @@
     function getEffectDescription(actor) {
         if (description) return description;
 
-        const { fatigue, strife } = actor.system.attributes;
+        const { corruption, fatigue, strife } = actor.system.attributes;
+
+        if (conditionId === "corruption") {
+            return localize(`A5E.tracks.corruption.hints.${corruption}`);
+        }
 
         if (name === localize("A5E.Exhaustion")) {
             return localize(`A5E.tracks.exhaustion.hints.${fatigue}`);
@@ -97,8 +101,9 @@
     }
 
     function getEffectName(actor) {
-        const { fatigue, strife } = actor.system.attributes;
+        const { corruption, fatigue, strife } = actor.system.attributes;
 
+        if (conditionId === "corruption") return `${name} (${corruption}) `;
         if (conditionId === "fatigue") return `${name} (${fatigue}) `;
         if (conditionId === "strife") return `${name} (${strife}) `;
 
@@ -108,7 +113,7 @@
     function getEffectRemovalNote() {
         if (linked) return "";
 
-        if (conditionId === "fatigue" || conditionId === "strife") {
+        if (conditionId === "corruption" || conditionId === "fatigue" || conditionId === "strife") {
             return `
                 <small class="a5e-tooltip__note">
                     Right click to remove a level of ${conditionId}.
@@ -146,6 +151,7 @@
 
     onDestroy(() => Hooks.off("updateWorldTime", durationHook));
 
+    $: corruption = actor?.system.attributes.corruption ?? 0;
     $: fatigue = actor?.system.attributes.fatigue ?? 0;
     $: strife = actor?.system.attributes.strife ?? 0;
 
@@ -159,11 +165,10 @@
 
 <div
     class:linked={!!linked}
+    class:corruption-counter={conditionId === "corruption"}
     class:fatigue-counter={conditionId === "fatigue"}
     class:strife-counter={conditionId === "strife"}
-    style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[
-        fatigue
-    ]}; --strife-col: {colors[strife]}"
+    style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[fatigue]}; --strife-col: {colors[strife]};  --corruption: '{corruption}'; --corruption-col: {colors[corruption]};"
 >
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
@@ -216,6 +221,7 @@
     }
 
     .linked,
+    .corruption-counter,
     .fatigue-counter,
     .strife-counter {
         position: relative;
@@ -242,6 +248,13 @@
             border-radius: 50%;
             aspect-ratio: 1/1;
         }
+    }
+
+    .corruption-counter::after {
+        content: var(--corruption);
+        font-family: $font-secondary;
+        font-size: var(--a5e-text-size-sm);
+        background-color: var(--corruption-col);
     }
 
     .fatigue-counter::after {

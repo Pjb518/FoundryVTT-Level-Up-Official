@@ -256,11 +256,75 @@ export default function registerConditionsConfig() {
   const changes = generateChanges(A5E);
 
   A5E.multiLevelConditionsMaxLevel = {
+    corruption: 7,
     fatigue: replaceFatigueAndStrife ? 6 : 7,
     strife: 7
   };
 
   A5E.multiLevelConditions = {
+    corruption: {
+      1: [],
+      2: [
+       {
+         key: 'system.abilities.str.check.bonus',
+         value: '-2',
+         mode: MODES.ADD,
+         priority: MODES.ADD * 10,
+         label: 'Corruption 2'
+       }
+      ],
+      3: [],
+      4: [
+        {
+          key: 'flags.a5e.effects.rollMode.abilitySave.con',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Corruption 4'
+        }
+      ],
+      5: [
+        {
+          key: 'flags.a5e.effects.rollMode.abilitySave.wis',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Corruption 5'
+        },
+      ],
+      6: [
+       {
+         key: 'system.abilities.cha.value',
+         value: '-2',
+         mode: MODES.ADD,
+         priority: MODES.ADD * 10,
+         label: 'Corruption 6'
+       },
+       {
+         key: 'system.traits.damageImmunities',
+         value: 'poison',
+         mode: MODES.ADD,
+         priority: MODES.ADD * 10,
+         label: 'Corruption 6'
+       },
+       {
+         key: 'system.traits.damageImmunities',
+         value: 'necrotic',
+         mode: MODES.ADD,
+         priority: MODES.ADD * 10,
+         label: 'Corruption 6'
+       }
+      ],
+      7: [
+       {
+         key: 'system.traits.alignment.0',
+         value: 'evil',
+         mode: MODES.ADD,
+         priority: MODES.ADD * 10,
+         label: 'Corruption 7'
+       }
+      ]
+    },
     fatigue: {
       1: [],
       2: [
@@ -452,6 +516,7 @@ export default function registerConditionsConfig() {
     // Corruption
     {
       id: 'corruption',
+      _id: 'corruption000000',
       name: 'A5E.ConditionCorruption',
       img: 'systems/a5e/assets/icons/corruption.svg',
       changes: changes.corruption,

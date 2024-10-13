@@ -18,6 +18,17 @@
 
     const actor = getContext("actor");
 
+    let corruptionOptions = [
+        { value: 0, hint: null },
+        { value: 1, hint: "A5E.tracks.corruption.hints.1" },
+        { value: 2, hint: "A5E.tracks.corruption.hints.2" },
+        { value: 3, hint: "A5E.tracks.corruption.hints.3" },
+        { value: 4, hint: "A5E.tracks.corruption.hints.4" },
+        { value: 5, hint: "A5E.tracks.corruption.hints.5" },
+        { value: 6, hint: "A5E.tracks.corruption.hints.6" },
+        { value: 7, hint: "A5E.tracks.corruption.hints.7" },
+    ];
+
     let fatigueOptions = [
         { value: 0, hint: null },
         { value: 1, hint: "A5E.tracks.fatigue.hints.1" },
@@ -84,6 +95,12 @@
             trackProperty="fatigue"
             options={fatigueOptions}
             selectedOption={$actor.system.attributes.fatigue}
+        />
+
+        <StatusTrack
+            trackProperty="corruption"
+            options={corruptionOptions}
+            selectedOption={$actor.system.attributes.corruption}
         />
 
         {#if !replaceFatigueAndStrife}

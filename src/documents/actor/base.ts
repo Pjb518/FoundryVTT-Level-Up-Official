@@ -1881,7 +1881,7 @@ class BaseActorA5e extends Actor {
     }
 
     // Handle multi-leveled effects
-    if (['fatigue', 'exhaustion', 'strife'].includes(statusId)) {
+    if (['corruption', 'fatigue', 'exhaustion', 'strife'].includes(statusId)) {
       const delta = active ? 1 : -1;
       const currLevel = this.system.attributes[statusId];
       // @ts-expect-error
