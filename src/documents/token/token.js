@@ -62,7 +62,7 @@ export default class TokenA5e extends Token {
   }
 
   _addStatusEffect({ id, src }, { overlay } = {}) {
-    if (['fatigue', 'exhaustion', 'strife'].includes(id)) {
+    if (['corruption', 'fatigue', 'exhaustion', 'strife'].includes(id)) {
       return this.actor.toggleStatusEffect(id, { active: true, overlay });
     }
 
@@ -73,7 +73,7 @@ export default class TokenA5e extends Token {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _removeStatusEffect({ id, src }, { overlay } = {}) {
-    if (['fatigue', 'exhaustion', 'strife'].includes(id)) {
+    if (['corruption', 'fatigue', 'exhaustion', 'strife'].includes(id)) {
       return this.actor.toggleStatusEffect(id, { active: false, overlay });
     }
 

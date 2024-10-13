@@ -112,6 +112,7 @@ export default function registerEffectLocalizationConfig() {
     'system.attributes.attunement.current': 'A5E.effects.keys.attunementCurrent',
     'system.attributes.attunement.max': 'A5E.effects.keys.attunementMax',
     'system.attributes.casterLevel': 'A5E.effects.keys.casterLevel',
+    'system.attributes.corruption': 'A5E.effects.keys.corruption',
     'system.attributes.death.failure': 'A5E.effects.keys.deathSaveFailures',
     'system.attributes.death.success': 'A5E.effects.keys.deathSaveSuccesses',
     'system.attributes.exertion.current': 'A5E.effects.keys.exertionCurrent',

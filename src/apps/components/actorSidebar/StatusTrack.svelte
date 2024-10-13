@@ -144,6 +144,11 @@
             transition: var(--a5e-transition-standard);
         }
 
+        &--corruption {
+            opacity: 0;
+	    display: none;
+        }
+
         &--fatigue {
             z-index: 3;
             top: 1rem;

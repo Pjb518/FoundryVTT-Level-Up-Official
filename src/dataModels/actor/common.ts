@@ -138,6 +138,9 @@ export const attributes = () => ({
     })
   }),
   inspiration: new fields.BooleanField({ required: true, initial: false }),
+  corruption: new fields.NumberField({
+    required: true, nullable: false, initial: 0, integer: true
+  }),
   fatigue: new fields.NumberField({
     required: true, nullable: false, initial: 0, integer: true
   }),
