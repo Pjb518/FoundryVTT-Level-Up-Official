@@ -136,6 +136,7 @@ export default function registerEffectLocalizationConfig() {
     'system.attributes.hp.value': 'A5E.effects.keys.hitPoints.current',
     'system.attributes.hp.max': 'A5E.effects.keys.hitPoints.max',
     'system.attributes.hp.temp': 'A5E.effects.keys.hitPoints.temp',
+    'system.attributes.inebriated': 'A5E.effects.keys.inebriated',
     'system.attributes.initiative.ability': 'A5E.effects.keys.initiativeAbility',
     'system.attributes.initiative.expertiseDice': 'A5E.effects.keys.initiativeExpertiseDice',
     'system.attributes.inspiration': 'A5E.effects.keys.inspiration',

@@ -63,6 +63,8 @@ export default class RestManager {
     const { haven, recoverStrifeAndFatigue } = this.#restData;
     const { strife, fatigue } = this.#actor.system.attributes;
 
+    this.#updates.actor['system.attributes.inebriated'] = 0;
+
     if (!recoverStrifeAndFatigue) {
       this.#updates.actor['system.attributes.fatigue'] = fatigue + 1;
     } else if (!haven) {

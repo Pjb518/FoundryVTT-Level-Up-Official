@@ -258,6 +258,7 @@ export default function registerConditionsConfig() {
   A5E.multiLevelConditionsMaxLevel = {
     corruption: 7,
     fatigue: replaceFatigueAndStrife ? 6 : 7,
+    inebriated: 5,
     strife: 7
   };
 
@@ -425,6 +426,29 @@ export default function registerConditionsConfig() {
         }))
       ],
       6: []
+    },
+    inebriated: {
+      1: [],
+      2: [],
+      3: [
+       {
+         key: 'system.abilities.dex.value',
+         value: '-2',
+         mode: MODES.ADD,
+         priority: MODES.ADD * 10,
+         label: 'Inebriated 3'
+       }
+      ],
+      4: [
+       {
+          key: 'flags.a5e.effects.rollMode.abilityCheck.cha',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Inebriated 4'
+       }
+      ],
+      5: []
     },
     strife: {
       1: [
@@ -633,6 +657,7 @@ export default function registerConditionsConfig() {
     // Inebriated
     {
       id: 'inebriated',
+      _id: 'inebriated000000',
       name: 'A5E.ConditionInebriated',
       img: 'systems/a5e/assets/icons/inebriated.svg',
       changes: changes.inebriated,

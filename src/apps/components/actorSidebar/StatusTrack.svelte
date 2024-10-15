@@ -145,7 +145,6 @@
         }
 
         &--corruption {
-            opacity: 0;
 	    display: none;
         }
 
@@ -153,6 +152,10 @@
             z-index: 3;
             top: 1rem;
             right: 0.625rem;
+        }
+
+        &--inebriated {
+	    display: none;
         }
 
         &--strife {

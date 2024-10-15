@@ -144,6 +144,9 @@ export const attributes = () => ({
   fatigue: new fields.NumberField({
     required: true, nullable: false, initial: 0, integer: true
   }),
+  inebriated: new fields.NumberField({
+    required: true, nullable: false, initial: 0, integer: true
+  }),
   strife: new fields.NumberField({
     required: true, nullable: false, initial: 0, integer: true
   }),

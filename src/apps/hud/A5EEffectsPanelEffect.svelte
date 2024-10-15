@@ -79,7 +79,7 @@
     function getEffectDescription(actor) {
         if (description) return description;
 
-        const { corruption, fatigue, strife } = actor.system.attributes;
+        const { corruption, fatigue, inebriated, strife } = actor.system.attributes;
 
         if (conditionId === "corruption") {
             return localize(`A5E.tracks.corruption.hints.${corruption}`);
@@ -93,6 +93,10 @@
             return localize(`A5E.tracks.fatigue.hints.${fatigue}`);
         }
 
+        if (conditionId === "inebriated") {
+            return localize(`A5E.tracks.inebriated.hints.${inebriated}`);
+        }
+
         if (conditionId === "strife") {
             return localize(`A5E.tracks.strife.hints.${strife}`);
         }
@@ -101,10 +105,11 @@
     }
 
     function getEffectName(actor) {
-        const { corruption, fatigue, strife } = actor.system.attributes;
+        const { corruption, fatigue, inebriated, strife } = actor.system.attributes;
 
         if (conditionId === "corruption") return `${name} (${corruption}) `;
         if (conditionId === "fatigue") return `${name} (${fatigue}) `;
+        if (conditionId === "inebriated") return `${name} (${inebriated}) `;
         if (conditionId === "strife") return `${name} (${strife}) `;
 
         return name;
@@ -113,7 +118,7 @@
     function getEffectRemovalNote() {
         if (linked) return "";
 
-        if (conditionId === "corruption" || conditionId === "fatigue" || conditionId === "strife") {
+        if (conditionId === "corruption" || conditionId === "fatigue" || conditionId === "inebriated" || conditionId === "strife") {
             return `
                 <small class="a5e-tooltip__note">
                     Right click to remove a level of ${conditionId}.
@@ -153,6 +158,7 @@
 
     $: corruption = actor?.system.attributes.corruption ?? 0;
     $: fatigue = actor?.system.attributes.fatigue ?? 0;
+    $: inebriated = actor?.system.attributes.inebriated ?? 0;
     $: strife = actor?.system.attributes.strife ?? 0;
 
     $: tooltip = `
@@ -167,8 +173,9 @@
     class:linked={!!linked}
     class:corruption-counter={conditionId === "corruption"}
     class:fatigue-counter={conditionId === "fatigue"}
+    class:inebriated-counter={conditionId === "inebriated"}
     class:strife-counter={conditionId === "strife"}
-    style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[fatigue]}; --strife-col: {colors[strife]};  --corruption: '{corruption}'; --corruption-col: {colors[corruption]};"
+    style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[fatigue]}; --strife-col: {colors[strife]};  --corruption: '{corruption}'; --corruption-col: {colors[corruption]};  --inebriated: '{inebriated}'; --inebriated-col: {colors[inebriated]};"
 >
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
@@ -223,6 +230,7 @@
     .linked,
     .corruption-counter,
     .fatigue-counter,
+    .inebriated-counter,
     .strife-counter {
         position: relative;
 
@@ -262,6 +270,13 @@
         font-family: $font-secondary;
         font-size: var(--a5e-text-size-sm);
         background-color: var(--fatigue-col);
+    }
+
+    .inebriated-counter::after {
+        content: var(--inebriated);
+        font-family: $font-secondary;
+        font-size: var(--a5e-text-size-sm);
+        background-color: var(--inebriated-col);
     }
 
     .strife-counter::after {

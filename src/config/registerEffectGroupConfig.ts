@@ -76,6 +76,7 @@ export default function registerEffectGroupConfig() {
         'flags.a5e.effects.statusConditions',
         'system.attributes.corruption',
         'system.attributes.fatigue',
+        'system.attributes.inebriated',
         'system.attributes.strife'
       ]
     },
