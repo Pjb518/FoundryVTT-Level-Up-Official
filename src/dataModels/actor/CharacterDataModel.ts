@@ -32,6 +32,14 @@ const characterSchema = () => ({
       }),
       recoverOnRest: new fields.BooleanField({ required: true, initial: true })
     }),
+    favorPoints: new fields.SchemaField({
+      current: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      }),
+      max: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      }),
+    }),
     hitDice: new fields.SchemaField({
       ...['d6', 'd8', 'd10', 'd12'].reduce((acc, die) => {
         acc[die] = hitDice();
