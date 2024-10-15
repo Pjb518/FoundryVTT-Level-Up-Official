@@ -1,0 +1,160 @@
+{
+	"folder": null,
+	"name": "Character Assassination",
+	"type": "feature",
+	"img": "icons/skills/social/trading-injustice-scale-gray.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"8qJT35ImiOMfgelZ": {
+				"name": "Character Assassination",
+				"activation": {
+					"type": "day",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"C8MjdaJ0AygvuSCR": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "dec",
+						"ability": "cha"
+					}
+				},
+				"prompts": {
+					"S4cly3zzmkhqVR4P": {
+						"type": "effect",
+						"default": true,
+						"effectId": "nL60M1aRKPn2eJR2"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 13th level, you can hit someone from the upper classes where it hurts most: their social standing. To do so, you must spend a day spreading salacious rumors about your target, who must be a noble, royalty, or another person of significant wealth and status. Make a Deception check against the target&rsquo;s CR + 10. If the check is successful, the target suffers two levels of strife from the stress and has disadvantage on all Persuasion, Insight, and Deception checks for the next week as they and their people do frantic damage control. If the rumor you spread is true, you have advantage on this check.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "rogue",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.GDCC180wuho9fLSK",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "8qJT35ImiOMfgelZ",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Character Assassination",
+			"_id": "nL60M1aRKPn2eJR2",
+			"changes": [
+				{
+					"key": "system.attributes.strife",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.per",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.ins",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.skillCheck.dec",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 604800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Suffers two levels of strife from the stress and has disadvantage on all Persuasion, Insight, and Deception checks for the next week.</p>",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			},
+			"img": "icons/skills/social/trading-injustice-scale-gray.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727692643499,
+		"modifiedTime": 1727692893495,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "LmVWtEAXCZhTPloc"
+}

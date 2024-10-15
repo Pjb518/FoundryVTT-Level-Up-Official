@@ -1,0 +1,167 @@
+{
+	"folder": null,
+	"name": "Larcenous Curse",
+	"type": "feature",
+	"img": "icons/commodities/currency/coin-inset-skull-copper.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"YNa8ig7ZJPxXa80A": {
+				"name": "Larcenous Curse",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"a7pb1ZCVmQaOcLlq": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"5z39PZFGfQxc5Uer": {
+						"type": "effect",
+						"default": true,
+						"effectId": "3XbYe74qI2PZH8AB"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"iE7vQO8F6nHHotnM": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>You can use a bonus action to place a curse on a creature you can see within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated . The curse has the following effects:</p>\n<ul>\n<li>When you deal damage against the cursed creature, it takes an additional 1d4 psychic damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</li>\n<li>Every time you damage the creature, you gain a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.QNaWbjmkXojSCeZj]{Non-Fungible Eldritch Token} (NFET). At 10th level, this increases to 2 NFETs, and at 15th level, it increases to 3. You can spend NFETs like electrum pieces at a 1:1 ratio, but you must receive some good or service from the transaction, and they cannot be given away.</li>\n</ul>\n<p>Once you have used this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"pzj2ty0CiU4wJhNl": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "pzj2ty0CiU4wJhNl",
+				"label": "Larcenous Curse",
+				"bonus": "@classResources.larcenous-curse-damage",
+				"damageType": "psychic",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"default": false
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "warlock",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.fZJHRThAojiHnriB",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "YNa8ig7ZJPxXa80A",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Larcenous Curse",
+			"_id": "3XbYe74qI2PZH8AB",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated . The curse has the following effects:</p>\n<ul>\n<li>When you deal damage against the cursed creature, it takes an additional 1d4 psychic damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</li>\n<li>Every time you damage the creature, you gain a Non-Fungible Eldritch Token (NFET). At 10th level, this increases to 2 NFETs, and at 5th level, it increases to 3. You can spend NFETs like electrum pieces at a 1:1 ratio, but you must receive some good or service from the transaction, and they cannot be given away.</li>\n</ul>",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			},
+			"img": "icons/commodities/currency/coin-inset-skull-copper.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727688422854,
+		"modifiedTime": 1727690340002,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "uzjhLXBZU2FNLupR"
+}

@@ -27,6 +27,10 @@ function generateChanges(A5E) {
 
     confused: [],
 
+    corruption: [],
+
+    dazzled: [],
+
     deafened: [],
 
     dead: [],
@@ -44,7 +48,11 @@ function generateChanges(A5E) {
         }))
     ],
 
+    enervated: [],
+
     fatigue: [],
+
+    fixated: [],
 
     frightened: [],
 
@@ -59,7 +67,26 @@ function generateChanges(A5E) {
         }))
     ],
 
+    hungover: [
+      {
+        key: 'system.abilities.con.save.bonus',
+        value: '-2',
+        mode: MODES.ADD,
+        priority: MODES.ADD * 10,
+        label: 'A5E.ConditionHungover'
+      },
+      {
+        key: 'flags.a5e.effects.rollMode.skillCheck.prc',
+        value: -1,
+        mode: MODES.OVERRIDE,
+        priority: MODES.OVERRIDE * 10,
+        label: 'A5E.ConditionHungover'
+      }
+    ],
+
     incapacitated: [],
+
+    inebriated: [],
 
     invisible: [
       {
@@ -229,11 +256,76 @@ export default function registerConditionsConfig() {
   const changes = generateChanges(A5E);
 
   A5E.multiLevelConditionsMaxLevel = {
+    corruption: 7,
     fatigue: replaceFatigueAndStrife ? 6 : 7,
+    inebriated: 5,
     strife: 7
   };
 
   A5E.multiLevelConditions = {
+    corruption: {
+      1: [],
+      2: [
+       {
+         key: 'system.abilities.str.check.bonus',
+         value: '-2',
+         mode: MODES.ADD,
+         priority: MODES.ADD * 10,
+         label: 'Corruption 2'
+       }
+      ],
+      3: [],
+      4: [
+        {
+          key: 'flags.a5e.effects.rollMode.abilitySave.con',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Corruption 4'
+        }
+      ],
+      5: [
+        {
+          key: 'flags.a5e.effects.rollMode.abilitySave.wis',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Corruption 5'
+        },
+      ],
+      6: [
+       {
+         key: 'system.abilities.cha.value',
+         value: '-2',
+         mode: MODES.ADD,
+         priority: MODES.ADD * 10,
+         label: 'Corruption 6'
+       },
+       {
+         key: 'system.traits.damageImmunities',
+         value: 'poison',
+         mode: MODES.ADD,
+         priority: MODES.ADD * 10,
+         label: 'Corruption 6'
+       },
+       {
+         key: 'system.traits.damageImmunities',
+         value: 'necrotic',
+         mode: MODES.ADD,
+         priority: MODES.ADD * 10,
+         label: 'Corruption 6'
+       }
+      ],
+      7: [
+       {
+         key: 'system.traits.alignment.0',
+         value: 'evil',
+         mode: MODES.ADD,
+         priority: MODES.ADD * 10,
+         label: 'Corruption 7'
+       }
+      ]
+    },
     fatigue: {
       1: [],
       2: [
@@ -335,6 +427,29 @@ export default function registerConditionsConfig() {
       ],
       6: []
     },
+    inebriated: {
+      1: [],
+      2: [],
+      3: [
+       {
+         key: 'system.abilities.dex.value',
+         value: '-2',
+         mode: MODES.ADD,
+         priority: MODES.ADD * 10,
+         label: 'Inebriated 3'
+       }
+      ],
+      4: [
+       {
+          key: 'flags.a5e.effects.rollMode.abilityCheck.cha',
+          value: '-1',
+          mode: MODES.OVERRIDE,
+          priority: MODES.OVERRIDE * 10,
+          label: 'Inebriated 4'
+       }
+      ],
+      5: []
+    },
     strife: {
       1: [
         {
@@ -422,6 +537,24 @@ export default function registerConditionsConfig() {
       changes: changes.confused,
       duration: {}
     },
+    // Corruption
+    {
+      id: 'corruption',
+      _id: 'corruption000000',
+      name: 'A5E.ConditionCorruption',
+      img: 'systems/a5e/assets/icons/corruption.svg',
+      changes: changes.corruption,
+      duration: {}
+    },
+    // Dazzled
+    {
+      id: 'dazzled',
+      description: '<ul class="a5e-tooltip__list"><li>A dazzled creature has disadvantage on ability checks that require sight.</li><li>A dazzled creature cannot take reactions.</li><li>Creatures that are immune to being blinded are immune to being dazzled.</li><li>If this condition is inflicted by nonmagical environmental means (such as initial exposure to sunlight after being underground for an extended period of time), it persists for 1 round before dissipating.</li></ul>',
+      name: 'A5E.ConditionDazzled',
+      img: 'systems/a5e/assets/icons/dazzled.svg',
+      changes: changes.dazzled,
+      duration: {}
+    },
     // Deafened
     {
       id: 'deafened',
@@ -458,6 +591,15 @@ export default function registerConditionsConfig() {
       changes: changes.encumbered,
       duration: {}
     },
+    // Enervated
+    {
+      id: 'enervated',
+      description: '<ul class="a5e-tooltip__list"><li>An enervated creature can\’t use psionic powers or features that require psionic points.</li><li>An enervated creature suffers a –2 penalty on all ability checks, saving throws, and attacks.</li></ul>',
+      name: 'A5E.ConditionEnervated',
+      img: 'systems/a5e/assets/icons/enervated.svg',
+      changes: changes.enervated,
+      duration: {}
+    },
     // Fatigue
     {
       id: 'fatigue',
@@ -465,6 +607,15 @@ export default function registerConditionsConfig() {
       name: 'A5E.ConditionFatigue',
       img: 'systems/a5e/assets/icons/fatigue.svg',
       changes: changes.fatigue,
+      duration: {}
+    },
+    // Fixated
+    {
+      id: 'fixated',
+      description: '<ul class="a5e-tooltip__list"><li>A fixated creature has disadvantage on Investigation and Perception checks to perceive or examine creatures or objects other than the source of its fixation.</li><li>A fixated creature must spend 2 feet of movement for every 1 foot of movement away from the source of its fixation.</li><li>A creature that is immune to being charmed is also immune to being fixated.</li></ul>',
+      name: 'A5E.ConditionFixated',
+      img: 'systems/a5e/assets/icons/fixated.svg',
+      changes: changes.fixated,
       duration: {}
     },
     // Frightened
@@ -485,6 +636,15 @@ export default function registerConditionsConfig() {
       changes: changes.grappled,
       duration: {}
     },
+    // Hungover
+    {
+      id: 'hungover',
+      description: '<ul class="a5e-tooltip__list"><li>Hungover creatures have a –2 penalty to Constitution saving throws until they complete a short or long rest.</li><li>A hungover creature cannot take reactions.</li><li>A hungover creature has disadvantage on Perception checks.</li><li>Creatures that are immune to poison or the poisoned condition cannot be hungover.</li></ul>',
+      name: 'A5E.ConditionHungover',
+      img: 'systems/a5e/assets/icons/hungover.svg',
+      changes: changes.hungover,
+      duration: {}
+    },
     // Incapacitated
     {
       id: 'incapacitated',
@@ -492,6 +652,15 @@ export default function registerConditionsConfig() {
       name: 'A5E.ConditionIncapacitated',
       img: 'systems/a5e/assets/icons/incapacitated.svg',
       changes: changes.incapacitated,
+      duration: {}
+    },
+    // Inebriated
+    {
+      id: 'inebriated',
+      _id: 'inebriated000000',
+      name: 'A5E.ConditionInebriated',
+      img: 'systems/a5e/assets/icons/inebriated.svg',
+      changes: changes.inebriated,
       duration: {}
     },
     // Invisible
