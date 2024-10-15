@@ -178,6 +178,49 @@ export default function registerEffectGroupConfig() {
         'system.proficiencies.weapons'
       ]
     },
+    prompts: {
+      label: 'A5E.effects.groups.prompts',
+      items: [
+        'flags.a5e.effects.prompts.abilityCheck.all',
+        'flags.a5e.effects.prompts.abilityCheck.str',
+        'flags.a5e.effects.prompts.abilityCheck.dex',
+        'flags.a5e.effects.prompts.abilityCheck.con',
+        'flags.a5e.effects.prompts.abilityCheck.wis',
+        'flags.a5e.effects.prompts.abilityCheck.int',
+        'flags.a5e.effects.prompts.abilityCheck.cha',
+        'flags.a5e.effects.prompts.abilitySave.all',
+        'flags.a5e.effects.prompts.abilitySave.str',
+        'flags.a5e.effects.prompts.abilitySave.dex',
+        'flags.a5e.effects.prompts.abilitySave.con',
+        'flags.a5e.effects.prompts.abilitySave.wis',
+        'flags.a5e.effects.prompts.abilitySave.int',
+        'flags.a5e.effects.prompts.abilitySave.cha',
+        'flags.a5e.effects.prompts.skillCheck.all',
+        'flags.a5e.effects.prompts.skillCheck.acr',
+        'flags.a5e.effects.prompts.skillCheck.ani',
+        'flags.a5e.effects.prompts.skillCheck.arc',
+        'flags.a5e.effects.prompts.skillCheck.ath',
+        'flags.a5e.effects.prompts.skillCheck.cul',
+        'flags.a5e.effects.prompts.skillCheck.dec',
+        'flags.a5e.effects.prompts.skillCheck.eng',
+        'flags.a5e.effects.prompts.skillCheck.his',
+        'flags.a5e.effects.prompts.skillCheck.ins',
+        'flags.a5e.effects.prompts.skillCheck.inv',
+        'flags.a5e.effects.prompts.skillCheck.itm',
+        'flags.a5e.effects.prompts.skillCheck.med',
+        'flags.a5e.effects.prompts.skillCheck.nat',
+        'flags.a5e.effects.prompts.skillCheck.per',
+        'flags.a5e.effects.prompts.skillCheck.prc',
+        'flags.a5e.effects.prompts.skillCheck.prf',
+        'flags.a5e.effects.prompts.skillCheck.rel',
+        'flags.a5e.effects.prompts.skillCheck.slt',
+        'flags.a5e.effects.prompts.skillCheck.ste',
+        'flags.a5e.effects.prompts.skillCheck.sur',
+        'flags.a5e.effects.prompts.concentration',
+        'flags.a5e.effects.prompts.deathSave',
+        'flags.a5e.effects.prompts.initiative'
+      ]
+    },
     resistancesVulnerabilitiesImmunities: {
       label: 'A5E.effects.groups.resistancesVulnerabilitiesImmunities',
       items: [
@@ -508,7 +551,7 @@ export default function registerEffectGroupConfig() {
         '@token.light.darkness.max',
         '@token.light.dim',
         '@token.light.luminosity',
-	'@token.light.negative',
+        '@token.light.negative',
         '@token.light.saturation',
         '@token.light.shadows'
       ]

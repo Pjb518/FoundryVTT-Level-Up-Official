@@ -5,10 +5,9 @@
 
     export let selected: string;
     export let source: string;
+    export let hint: string;
 
-    const rollModes: [string, string][] = Object.entries(
-        CONFIG.A5E.rollModes ?? {},
-    );
+    const rollModes: [string, string][] = Object.entries(CONFIG.A5E.rollModes ?? {});
 
     const options = rollModes.map(([key, value]) => [
         CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
@@ -22,6 +21,7 @@
 
 <RadioGroup
     heading="A5E.RollModeHeading"
+    {hint}
     {buttons}
     {options}
     {selected}

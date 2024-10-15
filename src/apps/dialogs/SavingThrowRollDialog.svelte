@@ -49,6 +49,18 @@
         }
     }
 
+    function getRollPrompt(saveType, abilityKey) {
+        if (saveType === "death") {
+            return $actor.getFlag("a5e", "effects.prompts.deathSave");
+        } else if (abilityKey === "con" && saveType === "concentration") {
+            return $actor.getFlag("a5e", "effects.prompts.concentration");
+        } else {
+            const all = $actor.getFlag("a5e", "effects.prompts.abilitySave.all");
+            if (all !== undefined) return all;
+            return $actor.getFlag("a5e", `effects.prompts.abilitySave.${abilityKey}`);
+        }
+    }
+
     const saveTypes = [
         ["standard", "A5E.SavingThrowNormal"],
         ["concentration", "A5E.ConcentrationCheck"],
@@ -105,6 +117,8 @@
 
     $: buttonText = getSubmitButtonText(saveType, abilityKey);
 
+    $: prompt = getRollPrompt(saveType, abilityKey);
+
     $: rollFormula = getRollFormula($actor, {
         ability: abilityKey,
         expertiseDie,
@@ -121,6 +135,7 @@
 
     {#key saveType}
         <RollModePicker
+            hint={prompt}
             selected={rollMode}
             source={rollModeString}
             on:updateSelection={({ detail }) => (rollMode = detail)}

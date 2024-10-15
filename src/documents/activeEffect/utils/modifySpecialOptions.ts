@@ -45,6 +45,21 @@ export default function modifySpecialOptions(options: object) {
 
   // TODO: Maybe add something to automatically fail?
 
+  // Add options for roll prompts
+  options['flags.a5e.effects.prompts.abilityCheck.all'] = ['', MODES.OVERRIDE_ONLY];
+  options['flags.a5e.effects.prompts.abilitySave.all'] = ['', MODES.OVERRIDE_ONLY];
+  Object.keys(CONFIG.A5E.abilities).forEach((a) => {
+    options[`flags.a5e.effects.prompts.abilityCheck.${a}`] = ['', MODES.OVERRIDE_ONLY];
+    options[`flags.a5e.effects.prompts.abilitySave.${a}`] = ['', MODES.OVERRIDE_ONLY];
+  });
+  options['flags.a5e.effects.prompts.skillCheck.all'] = ['', MODES.OVERRIDE_ONLY];
+  Object.keys(CONFIG.A5E.skills).forEach((s) => {
+    options[`flags.a5e.effects.prompts.skillCheck.${s}`] = ['', MODES.OVERRIDE_ONLY];
+  });
+  options['flags.a5e.effects.prompts.concentration'] = ['', MODES.OVERRIDE_ONLY];
+  options['flags.a5e.effects.prompts.deathSave'] = ['', MODES.OVERRIDE_ONLY];
+  options['flags.a5e.effects.prompts.initiative'] = ['', MODES.OVERRIDE_ONLY];
+
   // Token Effects
   options['@token.width'] = [1, MODES.OVERRIDE_ONLY];
   options['@token.height'] = [1, MODES.OVERRIDE_ONLY];
