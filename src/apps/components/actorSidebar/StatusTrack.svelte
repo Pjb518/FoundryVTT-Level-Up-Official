@@ -144,18 +144,10 @@
             transition: var(--a5e-transition-standard);
         }
 
-        &--corruption {
-	    display: none;
-        }
-
         &--fatigue {
             z-index: 3;
             top: 1rem;
             right: 0.625rem;
-        }
-
-        &--inebriated {
-	    display: none;
         }
 
         &--strife {
