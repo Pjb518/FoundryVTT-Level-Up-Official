@@ -91,6 +91,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
     );
 
     foundry.utils.setProperty(actorData, 'attributes.exertion.max', this.prepareMaxExertion());
+    foundry.utils.setProperty(actorData, 'attributes.favorPoints.max', this.prepareMaxFavorPoints());
 
     this.prepareHitPoints();
     this.prepareSpellResources();
@@ -125,6 +126,10 @@ export default class CharacterActorA5E extends BaseActorA5e {
     ) ?? 0;
 
     return max + bonuses;
+  }
+
+  prepareMaxFavorPoints() {
+    return this.system.abilities.cha.mod;
   }
 
   prepareHitPoints() {
