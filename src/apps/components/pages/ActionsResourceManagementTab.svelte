@@ -7,6 +7,7 @@
     import AmmoConsumer from "../itemActionsConfig/AmmoConsumer.svelte";
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import HitDiceConsumer from "../itemActionsConfig/HitDiceConsumer.svelte";
+    import QualityConsumer from "../itemActionsConfig/QualityConsumer.svelte";
     import QuantityConsumer from "../itemActionsConfig/QuantityConsumer.svelte";
     import ResourceConsumer from "../itemActionsConfig/ResourceConsumer.svelte";
     import SpellConsumer from "../itemActionsConfig/SpellConsumer.svelte";
@@ -41,6 +42,11 @@
             heading: "A5E.ConsumerHitDice",
             singleLabel: "A5E.HitDiceLabel",
             component: HitDiceConsumer,
+        },
+        quality: {
+            heading: "A5E.ConsumerQuality",
+            singleLabel: "A5E.ItemQuality",
+            component: QualityConsumer,
         },
         quantity: {
             heading: "A5E.ConsumerQuantity",

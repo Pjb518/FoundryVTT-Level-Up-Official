@@ -53,6 +53,7 @@ export default class ResourceConsumptionManager {
       else if (consumerType === 'spell') this.#consumeSpellResource(spell);
       else if (consumerType === 'resource') this.#consumeResource(consumer);
       else if (['ammunition', 'quantity'].includes(consumerType)) this.#consumeQuantity(consumer);
+      else if (consumerType === 'quality') this.#consumeQuality(consumer);
     });
 
     // Updates documents
@@ -94,6 +95,27 @@ export default class ResourceConsumptionManager {
 
     if (!max) return;
     this.#updates.item['system.uses.value'] = Math.clamp(value - quantity, 0, max);
+  }
+
+  // @ts-ignore
+  async #consumeQuality({ itemId, selectedQuality } = {}) {
+    if (!this.#actor || itemId === '') return;
+
+    const item = this.#actor.items.get(itemId);
+    if (!item) return;
+
+    let newQuality = 0;
+
+    if (selectedQuality === "1") {
+      newQuality = Math.min((item.system.damagedState ?? 0) + selectedQuality, 2);
+    } else {
+      newQuality = selectedQuality;
+    }
+
+    await this.#actor.updateEmbeddedDocuments(
+      'Item',
+      [{ _id: item.id, 'system.damagedState': newQuality }]
+    );
   }
 
   // @ts-ignore

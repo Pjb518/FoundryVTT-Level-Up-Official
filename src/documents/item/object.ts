@@ -222,7 +222,7 @@ export default class ObjectItemA5e extends ItemA5e {
       const consumers = Object.entries(action.consumers ?? {});
       consumers.forEach(([consumerId, consumer]) => {
         // @ts-expect-error
-        if (consumer.type !== 'quantity') return;
+        if (consumer.type !== 'quantity' && consumer.type !== 'quality') return;
         updates[`system.actions.${actionId}.consumers.${consumerId}.itemId`] = this._id;
       });
     });
