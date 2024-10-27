@@ -15,7 +15,7 @@
 		},
 		"actions": {
 			"5zAXKCZJZQ81Yswg": {
-				"name": "Wing Buffet (Chimeric)",
+				"name": "Wing Buffet",
 				"activation": {
 					"type": "action",
 					"cost": 1
@@ -25,8 +25,9 @@
 					"4ZUxQ8M9tnOWmDTp": {
 						"type": "damage",
 						"default": true,
-						"formula": "4d8+@str.mod",
-						"damageType": "bludgeoning"
+						"formula": "4d8 + @str.mod",
+						"damageType": "bludgeoning",
+						"canCrit": false
 					}
 				},
 				"prompts": {
@@ -38,6 +39,11 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Halves damage, negates prone, negates push"
+					},
+					"kkGPDmCSqLjrNXIh": {
+						"type": "effect",
+						"default": true,
+						"effectId": "lMslHwZngPamptJz"
 					}
 				},
 				"uses": {
@@ -50,7 +56,8 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				},
 				"ranges": {
 					"YmVRhDcNiG0ACDha": {
@@ -60,7 +67,7 @@
 				"area": {
 					"shape": "cone",
 					"quantity": 1,
-					"length": 4,
+					"length": 20,
 					"placeTemplate": true
 				}
 			}
@@ -80,19 +87,34 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"ibeousykXzQYFMLs": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "ibeousykXzQYFMLs",
+				"label": "Chimeric",
+				"bonus": "90",
+				"movementTypes": {
+					"base": [
+						"fly"
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Item.TBLdKazp7R1BQnVd",
+			"origin": "Item.mNfnHnlS6IqFVJVT",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -122,20 +144,84 @@
 			},
 			"description": "",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": 1726856297098,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.mNfnHnlS6IqFVJVT",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "5zAXKCZJZQ81Yswg"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"img": "icons/creatures/magical/humanoid-silhouette-glowing-pink.webp",
+			"_id": "lMslHwZngPamptJz",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726856379749,
+				"modifiedTime": 1726856392208,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {},
 	"folder": null,
-	"_id": "z5gr89rgp4raqwmp",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726856297042,
+		"modifiedTime": 1726856379782,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "z5gr89rgp4raqwmp"
 }

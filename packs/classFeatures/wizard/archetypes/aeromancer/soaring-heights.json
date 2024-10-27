@@ -13,7 +13,32 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"HfQT5w9Sybcrlpci": {
+				"name": "Soaring Heights",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"nf6Eunzn4nfitpBh": {
+						"type": "effect",
+						"default": true,
+						"effectId": "0uQc8UK3bCMSsSmD"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 14th level whenever you cast a spell of 1st level or higher, you gain a flying speed equal to your movement speed until the end of your next turn.</p><p>Finally, your insight into air magic deepens. If you can find a written record of it, you can copy any air, lightning, or thunder spell into your spellbook as if it were a wizard spell. Once you do, it is a wizard spell for you.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -42,15 +67,74 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "wizard",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.P4F2YcaSY5n7i8Mg",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "HfQT5w9Sybcrlpci",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Soaring Heights",
+			"img": "icons/creatures/abilities/wings-birdlike-blue.webp",
+			"_id": "0uQc8UK3bCMSsSmD",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "@attributes.movement.walk.distance",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain a flying speed equal to your movement speed until the end of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727128154674,
+				"modifiedTime": 1727128206008,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "gb8s2j8a69buyqjl",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727128145496,
+		"modifiedTime": 1727128154730,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "gb8s2j8a69buyqjl"
 }

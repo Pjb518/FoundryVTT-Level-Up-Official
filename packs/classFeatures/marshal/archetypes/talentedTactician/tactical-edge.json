@@ -1,7 +1,7 @@
 {
 	"name": "Tactical Edge",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/melee/blade-tips-double-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,15 +15,49 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"2J2KxEGisCegN9H9": {
+				"name": "Tactical Edge",
+				"activation": {},
+				"consumers": {
+					"CZ3TFWm171iPOm1p": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"AZSissCkqUPfrOX3": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
 		"description": "<p>Beginning at 3rd level when you choose this archetype, whenever you roll initiative, you gain a tactics die, which is a d4. While you have this die, any creature friendly to you within 60 feet of you that can hear or see you can roll the tactics die as a bonus die when making an attack roll. Once rolled, the tactics die is lost until you regain it at the start of your next turn. The tactics die disappears when the combat ends.</p><p>If you start your turn and no one has rolled the tactics die, you can trade out the die for a die of the next larger size, such that a d4 becomes a d6, a d6 becomes a d8, and so on up to a maximum of d12.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "round",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -44,13 +78,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "marshal",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "8vicw3x5ira30wdi",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1724103454713,
+		"modifiedTime": 1724104293313,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "8vicw3x5ira30wdi"
 }

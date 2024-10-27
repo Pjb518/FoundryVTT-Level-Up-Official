@@ -1,7 +1,7 @@
 {
 	"name": "Killing Word",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/death/skull-energy-light-white.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -25,11 +25,7 @@
 					"unit": "",
 					"value": ""
 				},
-				"ranges": {
-					"M0CULCnfsUUdIJPP": {
-						"range": "One creature that can hear and understand you"
-					}
-				},
+				"ranges": {},
 				"area": {
 					"shape": "",
 					"placeTemplate": false
@@ -41,12 +37,17 @@
 				"prompts": {
 					"R9EyqmRUHzLTu3s9": {
 						"ability": "cha",
-						"onSave": "No effect",
+						"onSave": "",
 						"saveDC": {
-							"type": "custom",
-							"bonus": "8+@prof+@int.mod"
+							"type": "int",
+							"bonus": ""
 						},
 						"type": "savingThrow"
+					},
+					"rL81fi5wQlgfLrFx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "E8mNfBmMZGdZHVEd"
 					}
 				},
 				"consumers": {
@@ -56,7 +57,7 @@
 				}
 			}
 		},
-		"description": "<p>At 17th level, you can spend an action to so utterly cut to the core of a person’s identity that for a moment they might lose the will to live. One creature that can understand you is stunned . At the end of each of its turns it must make a Charisma saving throw against your trick DC or else it gains a level of strife . The effect ends when it succeeds one of these saving throws, or when it has six levels of strife.</p><p>Once you use this feature, you must finish a short or long rest before you can use it again.</p>",
+		"description": "<p>At 17th level, you can spend an action to so utterly cut to the core of a person&rsquo;s identity that for a moment they might lose the will to live. One creature that can understand you is stunned. At the end of each of its turns it must make a Charisma saving throw against your trick DC or else it gains a level of strife . The effect ends when it succeeds one of these saving throws, or when it has six levels of strife.</p>\n<p>Once you use this feature, you must finish a short or long rest before you can use it again.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventuresInZeitgeist",
@@ -84,15 +85,71 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "savant",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.Qre8bUnGIKJjxxCF",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "7zxRdBk7uophynj7"
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"img": "icons/magic/death/skull-energy-light-white.webp",
+			"_id": "E8mNfBmMZGdZHVEd",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1725047135464,
+				"modifiedTime": 1725047179281,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "sdg624w6ms78lwss",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1725046995602,
+		"modifiedTime": 1725047203808,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "sdg624w6ms78lwss"
 }

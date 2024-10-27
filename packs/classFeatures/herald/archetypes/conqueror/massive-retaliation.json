@@ -14,20 +14,24 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"afnVxYwyGaI0U4NI": {
-				"name": "Massive Retaliation (Fear Effect)",
+			"quN5HnujHfGH2KlN": {
+				"name": "Smite or Critical Hit",
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
 				"prompts": {
-					"B8DdZEELbfbugRIc": {
+					"p3FzLXxURS0ALcKb": {
 						"type": "savingThrow",
 						"default": true,
 						"ability": "wis",
 						"saveDC": {
 							"type": "spellcasting"
-						},
-						"onSave": "Negates fear"
+						}
+					},
+					"EXq36RerriOi1dqg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "G8BKUJC6WTHS09SQ"
 					}
 				},
 				"uses": {
@@ -36,18 +40,69 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"mm1jxnS3bzJhwhtF": {
+				"name": "0 Hit Points",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"p3FzLXxURS0ALcKb": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"EXq36RerriOi1dqg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kvc9snFhmHN8bFgo"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
-				"descriptionOutputs": [
-					"action"
-				],
-				"description": "<p>At 15th level when you smite a target or critically hit them with a weapon attack they must make a Wisdom saving throw against your spell save DC or be frightened until the end of their next turn. Whenever you reduce a creature to 0 hit points all hostile creatures within 30ft of the creature you felled must make a Wisdom saving throw or be frightened until the end of their next turn.</p>"
+				"ranges": {
+					"IbpNSn1KAwyZhAuU": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				}
 			},
-			"f1XFTaoIzhn9V2qL": {
-				"name": "Massive Retaliation (Attack)",
-				"activation": {},
-				"consumers": {},
+			"38nlOqupmpetMn1w": {
+				"name": "Attack Back",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "A creature within 5ft of you hits you with an attack"
+				},
+				"consumers": {
+					"OS1YYoS3rlc3q800": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {},
 				"prompts": {},
 				"uses": {
@@ -56,13 +111,16 @@
 					"per": "longRest",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
 					}
 				},
-				"description": "<p>In addition, when a creature within 5ft of you hits you with an attack you may use your reaction to attack them back, critically hitting on a 17-20 when you do so. You may do so a number of times equal to your proficiency bonus and regain all expended uses when you finish a long rest.</p>",
-				"descriptionOutputs": [
-					"action"
-				]
+				"ranges": {
+					"ALO6rWUDOMrg4egb": {
+						"range": "fiveFeet"
+					}
+				}
 			}
 		},
 		"description": "<p>At 15th level when you smite a target or critically hit them with a weapon attack they must make a Wisdom saving throw against your spell save DC or be frightened until the end of their next turn. Whenever you reduce a creature to 0 hit points all hostile creatures within 30ft of the creature you felled must make a Wisdom saving throw or be frightened until the end of their next turn.</p><p>In addition, when a creature within 5ft of you hits you with an attack you may use your reaction to attack them back, critically hitting on a 17-20 when you do so. You may do so a number of times equal to your proficiency bonus and regain all expended uses when you finish a long rest.</p>",
@@ -93,15 +151,130 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.wy7ph4Srjw7hYWrg",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "quN5HnujHfGH2KlN",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/skills/melee/strike-axe-blood-red.webp",
+			"_id": "G8BKUJC6WTHS09SQ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723551799287,
+				"modifiedTime": 1723551852389,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.wy7ph4Srjw7hYWrg",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "mm1jxnS3bzJhwhtF",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/skills/melee/strike-axe-blood-red.webp",
+			"_id": "kvc9snFhmHN8bFgo",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723551889039,
+				"modifiedTime": 1723551889039,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "d8e9ifv78wbmy27d",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723551744668,
+		"modifiedTime": 1723551963256,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "d8e9ifv78wbmy27d"
 }

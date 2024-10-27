@@ -1,0 +1,125 @@
+{
+	"name": "Incinerating Shot",
+	"type": "feature",
+	"img": "icons/magic/fire/projectile-arrow-fire-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"C2RYZ88UUs4TL3HZ": {
+				"name": "Incinerating Shot",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"o4GjXOHL2M5YvFoW": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {
+					"EqWPie4Ob0zIGpuA": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"AMim10q35uMvjVsp": {
+				"name": "Ongoing Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"Bqa9tCv0ZqRJoNhK": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>The ammunition ignites any unattended flammable objects within 5 feet of its path to its target and deals an additional 1d6 points of fire damage. The target must make a Dexterity save against your spell save DC or catch fire, taking 1d6 ongoing fire damage every round for a minute or until an action is spent to extinguish the flames.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "ranger",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723671925442,
+		"modifiedTime": 1723672024125,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "eteUX3EPPvnCTj9g"
+}

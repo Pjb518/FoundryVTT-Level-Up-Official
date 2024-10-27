@@ -14,15 +14,43 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"xFjj9EGbMIAO6QZY": {
+				"name": "Step Through The Web",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"Lm59uPC6D8I2Lwu4": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>You can use a bonus action to teleport up to your speed to an unoccupied space you can see. You can use this ability a number of times equal to your proficiency bonus, regaining all uses when you finish a&nbsp;short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "dungeonDelversGuide",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "@prof",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -43,14 +71,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "warlock",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "2peibxq6iu5c1kkh",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726748780534,
+		"modifiedTime": 1726749063418,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "2peibxq6iu5c1kkh"
 }

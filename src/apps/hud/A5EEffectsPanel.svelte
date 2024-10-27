@@ -27,7 +27,7 @@
         const effect = $actor.effects.get(id);
         const statuses = effect.statuses;
 
-        if (statuses.size === 1 && ["fatigue", "strife"].includes(statuses.first())) {
+        if (statuses.size === 1 && ["corruption", "fatigue", "inebriated", "strife"].includes(statuses.first())) {
             const id = statuses.first();
             const src = effect.img;
             return token?.object?._addStatusEffect({ id, src });

@@ -1,0 +1,137 @@
+{
+	"name": "Baleful Stare",
+	"type": "feature",
+	"img": "icons/magic/perception/eye-ringed-glow-angry-large-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"MFJroLBAs6L7teQS": {
+				"name": "Eyebite",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"unKQW47LpFOndqfJ": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"r28JrD9gvM8sxIQ2": {
+						"ability": "wis",
+						"onSave": "Special",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"FFajMm8EEiLkmpdH": {
+						"type": "effect",
+						"default": true,
+						"effectId": "pSOsbe7N57UPfaq7"
+					},
+					"Sus6ihPLKdahjKyR": {
+						"type": "effect",
+						"default": true,
+						"effectId": "IJtyuBJKo12gnBV7"
+					},
+					"59K1ZSh6mLAYziP4": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Kh147bSZyAEvkvRY"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "1"
+				},
+				"ranges": {
+					"kjkdv7rG9KJtsGCS": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"img": "icons/magic/perception/hand-eye-pink.webp",
+				"description": "<p>Your eyes become an inky void imbued with fell power. One creature of your choice within 60 feet of you that you can see and that can see you must succeed on a Wisdom saving throw or be afflicted by one of the following effects for the duration. Until the spell ends, on each of your turns you can use an action to target a creature that has not already succeeded on a saving throw against this casting of <em>eyebite</em>.</p><ul><li><p><strong>Asleep:</strong> The target falls unconscious, waking if it takes any damage or another creature uses an action to rouse it.</p></li><li><p><strong>Panicked:</strong> The target is frightened of you. On each of its turns, the frightened creature uses its action to take the Dash action and move away from you by the safest and shortest available route unless there is nowhere for it to move. If the target moves to a place at least 60 feet away from you where it can no longer see you, this effect ends.</p></li><li><p><strong>Sickened:</strong> The target has disadvantage on attack rolls and ability checks. At the end of each of its turns, it can make another Wisdom saving throw, ending this effect on a successful save.</p></li></ul>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>At 11th level, you can cast @UUID[Compendium.a5e.a5e-spells.Item.uroaodb26zqe1qbh]{Eyebite} withouta spell slot or components. Once you have used this feature, you can't do so again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "thematicToolkitMasterOfCeremonies",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "marshal",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723577038163,
+		"modifiedTime": 1723577066319,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "8p8srlupa4o52fpy"
+}

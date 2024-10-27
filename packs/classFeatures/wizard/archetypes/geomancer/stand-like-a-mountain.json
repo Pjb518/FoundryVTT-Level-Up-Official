@@ -13,8 +13,69 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 10th level, you learn the @UUID[Compendium.a5e.a5e-spells.22rh6x031cqpcdwc]{Stoneskin} spell and add it to your spellbook if you do not already have it. You always have it prepared and it doesn't count against your number of spells prepared. You do not require concentration when casting stoneskin on yourself, and while under the effects of a stoneskin spell you cast you gain a +1 bonus to AC and an expertise die on Strength, Dexterity, and Constitution saving throws.</p>",
+		"actions": {
+			"J69KkusGKDOtJEmu": {
+				"name": "Stoneskin",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"KxjjVM0oW6b4qrDG": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"vBMw1efaZIYzhomN": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					},
+					"OOFBPhncYc1RJW9m": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"vFjA2l0SeS9A6twD": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/defensive/armor-stone-skin.webp"
+			}
+		},
+		"description": "<p>At 10th level, you learn the @UUID[Compendium.a5e.a5e-spells.22rh6x031cqpcdwc]{Stoneskin} spell and add it to your spellbook if you do not already have it. You always have it prepared and it doesn't count against your number of spells prepared. You do not require concentration when casting <em>stoneskin </em>on yourself, and while under the effects of a <em>stoneskin</em> spell you cast you gain a +1 bonus to AC and an expertise die on Strength, Dexterity, and Constitution saving throws.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "mysteriousAndMarvelousMiscellanea",
@@ -42,15 +103,278 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "wizard",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.22rh6x031cqpcdwc",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "J69KkusGKDOtJEmu",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stoneskin",
+			"_id": "aSLVYfwLjEdzVB5v",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"nonmagical bludgeoning, piercing, and slashing damage\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727177663861,
+				"modifiedTime": 1727177663861,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/defensive/armor-stone-skin.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.22rh6x031cqpcdwc",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "J69KkusGKDOtJEmu",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stoneskin (7th-level)",
+			"_id": "GUu3b6IgPCacKRQg",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"bludgeoning\",\"piercing\",\"slashing\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727177663861,
+				"modifiedTime": 1727177663861,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/defensive/armor-stone-skin.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.22rh6x031cqpcdwc",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "J69KkusGKDOtJEmu",
+					"duration": {
+						"unit": "hours"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Stoneskin On Self",
+			"_id": "ZQPfHGy0kp0ABNM0",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"nonmagical bludgeoning, piercing, and slashing damage\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.str.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.dex.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.con.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, the target's flesh becomes as hard as stone and it gains resistance to nonmagical bludgeoning, piercing, and slashing damage.</p>\n<p>Gain a +1 bonus to AC and an expertise die on Strength, Dexterity, and Constitution saving throws.</p>",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727177850220,
+				"modifiedTime": 1727177934502,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/defensive/armor-stone-skin.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.22rh6x031cqpcdwc",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "J69KkusGKDOtJEmu",
+					"duration": {
+						"unit": "hours"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Stoneskin On Self (7th-level)",
+			"_id": "0v4YBR4JpUBYCFKT",
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"bludgeoning\",\"piercing\",\"slashing\"]",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.str.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.dex.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.con.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Until the spell ends, the target's flesh becomes as hard as stone and it gains resistance to all bludgeoning, piercing, and slashing damage.</p>\n<p>Gain a +1 bonus to AC and an expertise die on Strength, Dexterity, and Constitution saving throws.</p>",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727177937925,
+				"modifiedTime": 1727177998176,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/defensive/armor-stone-skin.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "hgd7gxem1hleysme",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727177625263,
+		"modifiedTime": 1727177848446,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "hgd7gxem1hleysme"
 }

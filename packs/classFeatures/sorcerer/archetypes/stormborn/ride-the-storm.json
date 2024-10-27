@@ -29,8 +29,80 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
-		"prerequisite": "Level 18 Stormborn Sorcerer archetype",
+		"grants": {
+			"FsMidaUTz6GuwJTr": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "FsMidaUTz6GuwJTr",
+				"label": "Ride the Storm (Thunder)",
+				"bonus": "@cha.mod",
+				"context": {
+					"default": false,
+					"attackTypes": [
+						"meleeSpellAttack",
+						"rangedSpellAttack"
+					],
+					"damageTypes": [
+						"thunder"
+					],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"damageType": "thunder",
+				"img": ""
+			},
+			"LxV8dG9RS65pHjrH": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "LxV8dG9RS65pHjrH",
+				"label": "Ride the Storm (Lightning)",
+				"bonus": "@cha.mod",
+				"context": {
+					"default": false,
+					"attackTypes": [
+						"meleeSpellAttack",
+						"rangedSpellAttack"
+					],
+					"damageTypes": [
+						"lightning"
+					],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"damageType": "lightning",
+				"img": "",
+				"name": "undefined (Copy)"
+			},
+			"E3a7Vw51nBKV5JaB": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "LxV8dG9RS65pHjrH",
+				"label": "Ride the Storm (Cold)",
+				"bonus": "@cha.mod",
+				"context": {
+					"default": false,
+					"attackTypes": [
+						"meleeSpellAttack",
+						"rangedSpellAttack"
+					],
+					"damageTypes": [
+						"cold"
+					],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"damageType": "cold",
+				"img": "",
+				"name": "undefined (Copy)"
+			}
+		},
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -42,15 +114,68 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "sorcerer",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.TqNSwcWqr3bEGNaz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Outdoors",
+			"img": "icons/magic/lightning/bolt-strike-clouds-blue.webp",
+			"_id": "Pog7U02kPDJcQIlm",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.fly.distance",
+					"value": "80",
+					"mode": 5,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You gain a flying speed of 80 feet while outdoors.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1726575258757,
+				"modifiedTime": 1726575299387,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "3inqqhxg0y76kx0s",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1726575246710,
+		"modifiedTime": 1726575384823,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "3inqqhxg0y76kx0s"
 }

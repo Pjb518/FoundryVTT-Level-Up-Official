@@ -1,7 +1,7 @@
 {
 	"name": "Gather Lore",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/sundries/books/book-open-purple.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,29 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"6c5e3wSeDyUWjzfg": {
+				"name": "Gather Lore",
+				"activation": {
+					"type": "day",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Starting at 13th level, you can try to secretly gather information about a person or object. You can only do so in a settlement in which you have spent at least a week. You must spend a day and 100 gold or more in order to make this attempt. You may only make one such attempt per person or object. </p><p>If you are researching a person, you learn at least one location where they were seen within the last month (if any) and one secret about the person, as well as any notable allies, enemies, and current gossip. </p><p>If you are researching an object, you learn its last owner and one place it was seen within the last month or its last known approximate location. If the object is magical, you learn any powers it possesses. Unless the Narrator decides otherwise, you don’t learn curses and secrets.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +66,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "rogue",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "zp5xhn5hccs314rx",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724209359753,
+		"modifiedTime": 1724209395195,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "zp5xhn5hccs314rx"
 }

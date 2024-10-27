@@ -20,13 +20,25 @@
 					"type": "action",
 					"cost": 1
 				},
-				"consumers": {},
+				"consumers": {
+					"YgkHGe1OcPJipSO0": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"tjZSgxZQoZly36iS": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Wf1IH3JE1uX189JR"
+					}
+				},
 				"uses": {
-					"value": 1,
+					"value": 0,
 					"max": "",
-					"per": "longRest",
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
@@ -41,6 +53,32 @@
 					"quantity": 1
 				},
 				"ranges": {}
+			},
+			"rLVTonXeOdFat0Vv": {
+				"name": "Solid Object",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"t2Z1PfGGrtSuCSoe": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d10",
+						"damageType": "force",
+						"canCrit": false
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
 			}
 		},
 		"description": "<p>As an action you may become a living shadow for 1 minute. As long as you are in dim light or darkness you have resistance to all damage except force and radiant, can take the hide action as a bonus action even without cover, and can move through solid objects as difficult terrain. If you end your turn in a solid object you are shunted to the nearest unoccupied space and take 1d10 force damage. Once you have used this ability you cannot do so again until you finish a long rest.</p>",
@@ -49,7 +87,7 @@
 		"source": "heroesOldAndNew",
 		"uses": {
 			"value": 1,
-			"max": "",
+			"max": "1",
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
@@ -59,7 +97,7 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": "Level 18 Shadowtouched Sorcerer archetype",
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -71,15 +109,72 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "sorcerer",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.7tc6ApROV2h1wmwI",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "QnlrD9a9I8HGSef7",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Living Shadow",
+			"img": "icons/magic/perception/shadow-stealth-eyes-purple.webp",
+			"_id": "Wf1IH3JE1uX189JR",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"acid\",\"bludgeoning\",\"cold\",\"fire\",\"lightning\",\"necrotic\",\"piercing\",\"poison\",\"psychic\",\"slashing\",\"thunder\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>As long as you are in dim light or darkness you have resistance to all damage except force and radiant, can take the hide action as a bonus action even without cover, and can move through solid objects as difficult terrain. If you end your turn in a solid object you are shunted to the nearest unoccupied space and take 1d10 force damage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1726574277670,
+				"modifiedTime": 1726574321922,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "cb09003t5ynqlvxy",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1726574230257,
+		"modifiedTime": 1726574373717,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "cb09003t5ynqlvxy"
 }

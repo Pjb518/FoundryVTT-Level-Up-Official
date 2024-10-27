@@ -13,8 +13,199 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Also at third level your study of anatomy and biology grants an almost supernatural ability to heal. You have a number of doctor dice equal to your scholar level. The die is a d8. You may expend one of these as an action to heal a target for 1d8 + your Intelligence modifier, and a particular target may only be healed in this way once per short or long rest.</p><p>Alternatively, you may spend 10 minutes tending to, bandaging, and/or otherwise treating someone and heal them for 1d8 x your proficiency bonus + your Intelligence modifier, with no limit to how often you may do so beyond the time required and the number of doctor dice you possess. You may also expend both a doctor die and a hit die as an action to replicate the effects of a *lesser restoration* spell. You regain all expended doctor dice when you finish a long rest.</p><p>At level 10 your doctor dice increase to 1d10s and you may expend a doctor die and a hit die to replicate a *greater restoration* spell. A creature may only benefit from this greater restoration once per long rest.</p>",
+		"actions": {
+			"uCfUPXMiUyOMP8y6": {
+				"name": "Heal",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"k7qK9tquI3Shijhg": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.doctor-die-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"LZQ5hDnPHPPBS7D3": {
+						"type": "healing",
+						"default": true,
+						"formula": "@classResources.doctor-die-size + @int.mod"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"xY6N1MvjssrruiGo": {
+				"name": "Bandage",
+				"activation": {
+					"type": "minute",
+					"cost": 10
+				},
+				"consumers": {
+					"k7qK9tquI3Shijhg": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.doctor-die-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"LZQ5hDnPHPPBS7D3": {
+						"type": "healing",
+						"default": true,
+						"formula": "@classResources.doctor-die-size + @prof + @int.mod"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			},
+			"cJ8xyBBUx37OO9r9": {
+				"name": "Lesser Restoration",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"zxd1mdnYN2M14Xdl": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.doctor-die-uses",
+						"resource": "classResource",
+						"quantity": 1
+					},
+					"pWpY6ay5hsxzrgjS": {
+						"type": "hitDice",
+						"default": true,
+						"quantity": 1,
+						"defaultDie": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"hxsq198ncdX1d0Kw": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/life/heart-cross-strong-green.webp"
+			},
+			"heCMM3gXhUpE40Fa": {
+				"name": "Greater Restoration",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"q5HP4zUeWhuJzqDh": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.doctor-die-uses",
+						"resource": "classResource",
+						"quantity": 1
+					},
+					"cHqnHZMEYCUoDdHr": {
+						"type": "hitDice",
+						"default": true,
+						"quantity": 1,
+						"defaultDie": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"apS3wKvUP797ku1n": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/holy/chalice-glowing-yellow-blue.webp"
+			}
+		},
+		"description": "<p>Also at third level your study of anatomy and biology grants an almost supernatural ability to heal. You have a number of doctor dice equal to your scholar level. The die is a d8. You may expend one of these as an action to heal a target for 1d8 + your Intelligence modifier, and a particular target may only be healed in this way once per short or long rest.</p>\n<p>Alternatively, you may spend 10 minutes tending to, bandaging, and/or otherwise treating someone and heal them for 1d8 x your proficiency bonus + your Intelligence modifier, with no limit to how often you may do so beyond the time required and the number of doctor dice you possess. You may also expend both a doctor die and a hit die as an action to replicate the effects of a @UUID[Compendium.a5e.a5e-spells.Item.sgiwn0n20mnf1ddx]{Lesser Restoration} spell. You regain all expended doctor dice when you finish a long rest.</p>\n<p>At level 10 your doctor dice increase to 1d10s and you may expend a doctor die and a hit die to replicate a @UUID[Compendium.a5e.a5e-spells.Item.2fn904xje78xc7de]{Greater Restoration} spell. A creature may only benefit from this greater restoration once per long rest.</p>\n<p>At level 18 your doctor dice increase to 1d12s.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "heroesOldAndNew",
@@ -42,15 +233,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "scholar",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "ciax1oln0dgpq1vx",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1726572714164,
+		"modifiedTime": 1726573453852,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ciax1oln0dgpq1vx"
 }

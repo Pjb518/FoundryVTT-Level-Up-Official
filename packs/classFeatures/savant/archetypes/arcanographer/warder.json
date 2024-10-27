@@ -14,8 +14,216 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 2nd level, you learn some basic protective magic. You learn the protection from evil and good spell and can cast it without a spell slot once per long rest. At level 5, you learn the force of will spell and can cast it without a spell slot once per long rest. At level 9, you learn the magic circle spell and can cast it without a spell slot once per long rest. And at level 13, you learn the banishment spell and can cast it without a spell slot once per long rest.</p>",
+		"actions": {
+			"9Q6sjHFSI8ramlzV": {
+				"name": "Protection from Evil and Good",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"Hfo58cuYfiDT0Pcx": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"xxwwwkFxYvkiMFeh": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"llEiYrOKe30fJuIF": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/symbols/star-yellow.webp"
+			},
+			"o96TM33og9AnAof6": {
+				"name": "Force of Will",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "which you take in response to being damaged"
+				},
+				"consumers": {
+					"NYUlCwWYqWJ0swr9": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"q0rZWtocnG514pf4": {
+						"type": "generic",
+						"default": true,
+						"label": "Damage Reduction",
+						"formula": "2d10 + @spell.mod",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d10"
+						}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"w9J5ye7Z0rUK21Jx": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"img": "icons/magic/defensive/shield-barrier-deflect-gold.webp"
+			},
+			"eMRQXhOzOQLyqI17": {
+				"name": "Magic Circle",
+				"activation": {
+					"cost": 1,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"bePypHrv0addlE0a": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "cylinder",
+					"radius": "10",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": ""
+				},
+				"img": "icons/magic/symbols/runes-star-pentagon-orange-purple.webp"
+			},
+			"GRRFam8B8bkGCsQ7": {
+				"name": "Banishment",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"XVyQcns3gSgzOxhr": {
+						"ability": "cha",
+						"onSave": "Negates effect",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": "1d4+2"
+				},
+				"ranges": {
+					"gJgEju8JE849r6Gd": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/lightning/orb-ball-purple.webp"
+			}
+		},
+		"description": "<p>At 2nd level, you learn some basic protective magic. You learn the @UUID[Compendium.a5e.a5e-spells.Item.wa2nd43b9dvkh1yu]{Protection from Evil and Good} spell and can cast it without a spell slot once per long rest. At level 5, you learn the @UUID[Compendium.a5e.a5e-spells.Item.t4s0j5c67vswwq04]{Force of Will} spell and can cast it without a spell slot once per long rest. At level 9, you learn the @UUID[Compendium.a5e.a5e-spells.Item.eylrruf1qarmqngq]{Magic Circle} spell and can cast it without a spell slot once per long rest. And at level 13, you learn the @UUID[Compendium.a5e.a5e-spells.Item.8zkp58t1apo10fqk]{Banishment} spell and can cast it without a spell slot once per long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitHazardousKnowledge",
@@ -43,14 +251,64 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "savant",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.wa2nd43b9dvkh1yu",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "9Q6sjHFSI8ramlzV",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Protection from Evil and Good",
+			"_id": "i4YCCvrnhkkE1GOa",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target is protected against the following types of creatures: aberrations, celestials, elementals, fey, fiends, and undead. Creatures of those types have disadvantage on attack rolls against the target and are unable to charm, frighten, or possess the target.</p><p>If the target is already charmed, frightened, or possessed by such a creature, the target has advantage on any new saving throw against that effect.</p>",
+			"statuses": [],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1725040403476,
+				"modifiedTime": 1725040403476,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/symbols/star-yellow.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "w286uc6ye1nmgx6c",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1725040356398,
+		"modifiedTime": 1725040536319,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "w286uc6ye1nmgx6c"
 }

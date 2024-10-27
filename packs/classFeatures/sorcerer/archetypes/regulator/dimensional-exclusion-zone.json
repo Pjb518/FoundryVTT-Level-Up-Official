@@ -2,7 +2,54 @@
 	"name": "Dimensional Exclusion Zone",
 	"type": "feature",
 	"img": "icons/magic/defensive/barrier-shield-dome-deflect-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.YTI8CkE4NhuNQ2lr",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LRMo479xrSu8xSbA",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Dimensional Exclusion Zone",
+			"img": "icons/magic/defensive/barrier-shield-dome-deflect-blue.webp",
+			"_id": "kwzkBDYIvhzKLdGK",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Create a dimensional exclusion zone around yourself for 1 hour. The zone extends 60 feet from you. Nothing can teleport into or out of the zone, invisible creatures and objects instantly become visible upon entering the zone, and all creatures inside it are affected as if by a @UUID[Compendium.a5e.a5e-spells.Item.i0o4xqqd86vdkwwu]{Zone of Truth} spell.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726747661377,
+				"modifiedTime": 1726747714037,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +62,55 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 18th level, your ability to prevent the warping of reality reaches its apex. As a bonus action, you can spend 4 sorcery points and create a dimensional exclusion zone around yourself for 1 hour. The zone extends 60 feet from you. Nothing can teleport into or out of the zone, invisible creatures and objects instantly become visible upon entering the zone, and all creatures inside it are affected as if by a zone of truth spell.</p>",
+		"actions": {
+			"LRMo479xrSu8xSbA": {
+				"name": "Dimensional Exclusion Zone",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"F5zX3PW1fzkH3BLt": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 4
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"ORbmRgzsQjJDI7o6": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kwzkBDYIvhzKLdGK"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"daiaq0MlJAT6IoMQ": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 60,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>At 18th level, your ability to prevent the warping of reality reaches its apex. As a bonus action, you can spend 4 sorcery points and create a dimensional exclusion zone around yourself for 1 hour. The zone extends 60 feet from you. Nothing can teleport into or out of the zone, invisible creatures and objects instantly become visible upon entering the zone, and all creatures inside it are affected as if by a @UUID[Compendium.a5e.a5e-spells.Item.i0o4xqqd86vdkwwu]{Zone of Truth} spell.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitArcaneAvenger",
@@ -44,13 +138,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "eer57yvjypcwdilf",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726747612317,
+		"modifiedTime": 1726747727877,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "eer57yvjypcwdilf"
 }

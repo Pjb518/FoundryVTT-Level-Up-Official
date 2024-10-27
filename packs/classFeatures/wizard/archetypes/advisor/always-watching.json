@@ -16,8 +16,54 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>You may spend a bonus action to create an <em>arcane eye</em> effect with the following modifications:&nbsp;</p><ul><li><p>The eye does not require concentration and lasts indefinitely unless attacked or dismissed by you (requiring no action). If the eye is destroyed or dismissed, you may create another, requiring another bonus action.&nbsp;</p></li><li><p>The eye has normal hearing as well as sight.</p></li></ul><p>You can use this feature at will, but you can only create one of these effects at a time.</p>",
+		"actions": {
+			"IDrvFqGT4ysDIiFU": {
+				"name": "Arcane Eye",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"9pR9b1JbzD1aQYzF": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "none"
+				},
+				"img": "icons/magic/perception/eye-ringed-glow-angry-large-teal.webp",
+				"description": "<p>Until the spell ends, you create an invisible, floating magical eye that hovers in the air and sends you visual information. The eye has normal vision, darkvision to a range of 30 feet, and it can look in every direction.</p><p>You can use an action to move the eye up to 30 feet in any direction as long as it remains on the same plane of existence. The eye can pass through openings as small as 1 inch across but otherwise its movement is blocked by solid barriers.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>You may spend a bonus action to create an @UUID[Compendium.a5e.a5e-spells.Item.1sp8qzuofkjmunsd]{Arcane Eye} effect with the following modifications:&nbsp;</p>\n<ul>\n<li>\n<p>The eye does not require concentration and lasts indefinitely unless attacked or dismissed by you (requiring no action). If the eye is destroyed or dismissed, you may create another, requiring another bonus action.&nbsp;</p>\n</li>\n<li>\n<p>The eye has normal hearing as well as sight.</p>\n</li>\n</ul>\n<p>You can use this feature at will, but you can only create one of these effects at a time.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -39,12 +85,16 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "wizard"
+		"classes": "wizard",
+		"class": ""
 	},
-	"_id": "n3vlwevwdsgrsdf8",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727274277021,
+		"modifiedTime": 1727274329131,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "n3vlwevwdsgrsdf8"
 }

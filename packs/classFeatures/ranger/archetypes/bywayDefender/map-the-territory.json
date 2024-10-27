@@ -14,7 +14,36 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"ODN8ADH4Jm4S6Qi4": {
+				"name": "Map the Territory",
+				"activation": {
+					"type": "minute",
+					"cost": 10
+				},
+				"consumers": {},
+				"rolls": {
+					"ch3cn6u0EjhMUrqX": {
+						"type": "toolCheck",
+						"default": true,
+						"tool": "cartographersTools",
+						"ability": "int"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p dir=\"ltr\">At 3rd level, you learn the tools necessary to help others pass through the unknown territory you routinely traverse. You gain proficiency with Navigator&rsquo;s Tools and Cartographer&rsquo;s Tools.</p><p>In addition, you can draw a quick map in 10 minutes with a DC 15 Cartographer&rsquo;s Tools check. On a success, the map gives those navigating its area (which can be up to 10 miles by 10 miles) advantage on their Survival or Navigator&rsquo;s Tools checks to avoid major hazards, find food and shelter, and pass safely through without becoming lost. On a failed check, your map is an illegible mess and provides no benefit.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -30,8 +59,26 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
-		"prerequisite": "Byway Defender Archetype, Ranger 3",
+		"grants": {
+			"nnvfLXWUdR2d7hjk": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "nnvfLXWUdR2d7hjk",
+				"label": "Map the Territory",
+				"keys": {
+					"base": [
+						"cartographersTools",
+						"navigatorsTools"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "tool"
+			}
+		},
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -43,14 +90,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "ranger",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "ztc4rw1bmy0oj2qk",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724584303997,
+		"modifiedTime": 1724584366568,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ztc4rw1bmy0oj2qk"
 }

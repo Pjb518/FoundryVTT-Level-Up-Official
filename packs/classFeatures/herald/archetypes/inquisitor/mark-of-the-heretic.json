@@ -1,0 +1,277 @@
+{
+	"name": "Mark of the Heretic",
+	"type": "feature",
+	"img": "icons/skills/targeting/crosshair-arrowhead-blue.webp",
+	"effects": [
+		{
+			"origin": "Item.8FULxHl1GSAdrMsz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "zkD0Yh65AJmCbNtP",
+					"duration": {
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Mark of the Heretic (Self)",
+			"img": "icons/skills/targeting/crosshair-arrowhead-blue.webp",
+			"_id": "VLbOhYu44DC80WJM",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Mark of the Heretic\",\"formula\":\"@spellcasting.mod\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"meleeSpellAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/skills/targeting/crosshair-arrowhead-blue.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>Damage rolls you make against the creature deal extra damage equal to your spell attack modifier.</li>\n<li>Attacks made by you or your allies score critical hits against the creature on a roll of 19–20.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723751485829,
+				"modifiedTime": 1723751810895,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.8FULxHl1GSAdrMsz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "zkD0Yh65AJmCbNtP",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Nimbus of Light",
+			"img": "icons/skills/targeting/crosshair-arrowhead-blue.webp",
+			"_id": "Iv15MHBF8DY9E2mu",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"invisible\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>This nimbus of light negates the benefits of invisibility on the creature.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723751845533,
+				"modifiedTime": 1723751893412,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.8FULxHl1GSAdrMsz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "zkD0Yh65AJmCbNtP"
+				}
+			},
+			"transfer": false,
+			"name": "Not Killed or Captured",
+			"img": "icons/skills/targeting/crosshair-arrowhead-blue.webp",
+			"_id": "0hrt5gW15um0HQ62",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.meleeWeaponAttack",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Disadvantage on melee weapon attacks made against other creatures until you finish a short or long rest.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723751897129,
+				"modifiedTime": 1723751941943,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"zkD0Yh65AJmCbNtP": {
+				"name": "Mark of the Heretic",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"TZHURbNcQn2zZH8Z": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"prompts": {
+					"gIqQq256kndj8FhX": {
+						"ability": "dex",
+						"onSave": "",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": null
+						},
+						"type": "savingThrow"
+					},
+					"Tu6dHSTp0v4JRvsS": {
+						"type": "effect",
+						"default": true,
+						"effectId": "VLbOhYu44DC80WJM"
+					},
+					"0P0AGyG4fZabP1Pa": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Iv15MHBF8DY9E2mu"
+					},
+					"opVha59Fo75AeqAS": {
+						"type": "effect",
+						"default": true,
+						"effectId": "0hrt5gW15um0HQ62"
+					}
+				},
+				"consumers": {
+					"ZTdI1r89ffjSYzas": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.mark-of-the-heretic",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				}
+			}
+		},
+		"description": "<p>Beginning at 7th level, you gain the ability to mark your foes for judgment by speaking aloud their name and the crime they must answer for. As a bonus action, choose one creature you can see within 30 feet of you. The target is marked for 1 minute, or until either you or the target die. While the target is marked, you gain the following benefits:</p>\n<ul>\n<li>Damage rolls you make against the creature deal extra damage equal to your spell attack modifier.</li>\n<li>Attacks made by you or your allies score critical hits against the creature on a roll of 19&ndash;20.</li>\n<li>The creature makes a Dexterity saving throw or it becomes outlined in a nimbus of light (of a color chosen by you) for the duration. This nimbus of light negates the benefits of invisibility on the creature.</li>\n</ul>\n<p>If the marked target is not killed or captured within 1 hour, you have disadvantage on melee weapon attacks made against other creatures until you finish a short or long rest.</p>\n<p>You gain an additional use of this feature at 15th level. You regain all spent uses of this feature whenever you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "herald",
+		"class": ""
+	},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723751374483,
+		"modifiedTime": 1723751897162,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "1nmqu07hzwwd2ati"
+}

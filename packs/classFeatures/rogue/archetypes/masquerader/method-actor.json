@@ -14,15 +14,64 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"Y1SW40v4VK2tbIo3": {
+				"name": "Method Actor",
+				"activation": {},
+				"consumers": {
+					"292SFogS5dDYBOeS": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"InVr4n2DNd6S1q2y": {
+				"name": "Mental Exhaustion",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"fq0w0IIPjLsjF2Nn": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p id=\"docs-internal-guid-99333a8c-7fff-947c-4c9c-e9176174fafe\" dir=\"ltr\">At 17th level, when you don a disguise, you can do more than put on a costume: you can put on a second self. Whenever you complete a long rest, you may select a culture and background other than your own. At any point before the end of your next long rest, you may gain all of the features and languages of your chosen culture, as well as the skill proficiencies, tool proficiencies, language proficiencies, and background feature of your chosen background. These benefits last until the end of your next long rest unless you choose to end them early. Once you cease using this feature, you cannot use it again until you complete a long rest.</p>\n<p dir=\"ltr\">This degree of investment in your character is mentally exhausting. At the start of each hour you spend using this feature after the first, you must succeed on a Wisdom saving throw with a DC of 10 + the number of hours you have used this feature or gain a level of strife.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "secretsOfTheSelkies",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -37,14 +86,18 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "rogue"
+		"classes": "rogue",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "lec9xrhmi6hkcezl",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724588891851,
+		"modifiedTime": 1724588942478,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "lec9xrhmi6hkcezl"
 }

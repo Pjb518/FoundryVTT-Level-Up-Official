@@ -15,15 +15,40 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"WX9L0N5dBr6zM2jd": {
+				"name": "What Should Be",
+				"activation": {},
+				"consumers": {
+					"xgyGqiYKEFqVlCvW": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Also at 1st level, your magic becomes more effective against that which should not exist. Once per turn, you may have a damaging spell deal an additional 1d6 force damage to all aberrations and undead damaged by the spell. This damage increases to 1d8 at level 5, 1d10 at level 11, and 1d12 at level 17.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitArcaneAvenger",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "turn",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -31,7 +56,25 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"MonXOFD4S1YhcY1y": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "MonXOFD4S1YhcY1y",
+				"label": "What Should Be",
+				"bonus": "@classResources.what-should-be-die-size",
+				"damageType": "force",
+				"context": {
+					"attackTypes": [
+						"meleeSpellAttack",
+						"rangedSpellAttack"
+					],
+					"default": false
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -44,13 +87,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "fklux2g2jsawgtjt",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726747286440,
+		"modifiedTime": 1726747490791,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "fklux2g2jsawgtjt"
 }

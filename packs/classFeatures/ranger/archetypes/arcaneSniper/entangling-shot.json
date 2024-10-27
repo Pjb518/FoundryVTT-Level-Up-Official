@@ -1,0 +1,158 @@
+{
+	"name": "Entangling Shot",
+	"type": "feature",
+	"img": "icons/magic/nature/root-vine-entangled-hand.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"EZrszZT7nrair5RJ": {
+				"name": "Entangling Shot",
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"FdNFXKGHBQC2RGol": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"FI6o83drPUtiNn2g": {
+						"type": "effect",
+						"default": true,
+						"effectId": "gcg1yBBPwGw0bvOd"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"img": "icons/magic/nature/root-vine-entangled-hand.webp",
+				"description": "<p>When this ammunition impacts its target, the target takes weapon damage as normal and must make a Strength save against your spell save DC. A creature that fails is grappled for one minute. The escape DC is equal to your spell save DC. A creature that succeeds is not grappled.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>When this ammunition impacts its target, the target takes weapon damage as normal and must make a Strength save against your spell save DC. A creature that fails is grappled for one minute. The escape DC is equal to your spell save DC. A creature that succeeds is not grappled.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "ranger",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.wf5RDKOOiQr7QBTN",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "EZrszZT7nrair5RJ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Grappled",
+			"img": "icons/magic/nature/root-vine-entangled-hand.webp",
+			"_id": "gcg1yBBPwGw0bvOd",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"grappled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A grappled creature's Speed becomes 0, and it can't benefit from bonuses to movement speeds.</li>\n<li>If the grappler becomes incapacitated the condition ends.</li>\n<li>If an effect removes the grappled creature from the reach of the grappler or grappling effect (such as when a creature is shoved away by the Doubleteam combat maneuver) the condition ends.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"grappled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723666686160,
+				"modifiedTime": 1723666727666,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723666593564,
+		"modifiedTime": 1723666686191,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "nfu33zVIodYknhop"
+}

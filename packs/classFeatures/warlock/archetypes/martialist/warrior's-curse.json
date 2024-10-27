@@ -145,8 +145,8 @@
 		"source": "moarComplete",
 		"uses": {
 			"value": 0,
-			"max": "999",
-			"per": "",
+			"max": "",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "",
 				"threshold": 0
@@ -154,19 +154,91 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"ti7dVaNS4kB8JSc2": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "ti7dVaNS4kB8JSc2",
+				"label": "Warrior’s Curse (Magical Bludgeoning)",
+				"bonus": "@classResources.warriors-curse-damage",
+				"damageType": "bludgeoning",
+				"context": {
+					"default": false,
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"img": ""
+			},
+			"Gx4qNS8wEZ5PZkRf": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "Gx4qNS8wEZ5PZkRf",
+				"label": "Warrior’s Curse (Magical Piercing)",
+				"bonus": "@classResources.warriors-curse-damage",
+				"damageType": "piercing",
+				"context": {
+					"default": false,
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"img": "",
+				"name": "undefined (Copy)"
+			},
+			"dG8ZyztAhm1BcYvr": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "Gx4qNS8wEZ5PZkRf",
+				"label": "Warrior’s Curse (Magical Slashing)",
+				"bonus": "@classResources.warriors-curse-damage",
+				"damageType": "slashing",
+				"context": {
+					"default": false,
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"meleeSpellAttack",
+						"rangedWeaponAttack",
+						"rangedSpellAttack"
+					],
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"img": "",
+				"name": "undefined (Copy)"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.018,
 			"lastMigration": null
 		},
-		"classes": "warlock"
+		"classes": "warlock",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/skills/melee/shield-damaged-broken-orange.webp",
-			"origin": "Item.KTxiiGtIyy0JY4wT",
+			"origin": "Item.DuHylGbG84C5tsZi",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -193,16 +265,25 @@
 			},
 			"description": "<p>When the caster deals damage to the cursed creature, it takes an additional 1d4 magical bludgeoning damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": 1726863397463,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/skills/melee/shield-damaged-broken-orange.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		},
 		{
-			"icon": "icons/skills/melee/shield-damaged-broken-orange.webp",
-			"origin": "Item.KTxiiGtIyy0JY4wT",
+			"origin": "Item.DuHylGbG84C5tsZi",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -229,16 +310,25 @@
 			},
 			"description": "<p>When the caster deals damage to the cursed creature, it takes an additional 1d4 magical piercing damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": 1726863397463,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/skills/melee/shield-damaged-broken-orange.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		},
 		{
-			"icon": "icons/skills/melee/shield-damaged-broken-orange.webp",
-			"origin": "Item.KTxiiGtIyy0JY4wT",
+			"origin": "Item.DuHylGbG84C5tsZi",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -265,19 +355,32 @@
 			},
 			"description": "<p>When the caster deals damage to the cursed creature, it takes an additional 1d4 magical slashing damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": 1726863397463,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/skills/melee/shield-damaged-broken-orange.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "oqfygkxm0aa6uh0f",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726863397396,
+		"modifiedTime": 1726863689887,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "oqfygkxm0aa6uh0f"
 }

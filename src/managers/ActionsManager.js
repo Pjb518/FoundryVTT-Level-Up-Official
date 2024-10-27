@@ -257,9 +257,8 @@ export default class ActionsManager extends DataProxy {
     };
 
     if (type === 'attack') {
-      // TODO: Error System - Throw error on multiple attack rolls
-
-      if (Object.keys(action[1]?.rolls).length > 0) {
+      const attackRolls = Object.values(action[1]?.rolls ?? {}).filter((a) => a.type === 'attack');
+      if (attackRolls.length > 0) {
         ui.notifications?.error('Only one attack roll is allowed per action.');
         return null;
       }

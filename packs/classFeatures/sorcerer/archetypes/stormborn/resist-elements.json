@@ -13,15 +13,146 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"1cAjZ6A2GC6R0F1H": {
+				"name": "Lightning Resistance",
+				"activation": {},
+				"consumers": {
+					"Rvp5ONzFbofBjCDN": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"0OzvnnfGvcwl8ysu": {
+						"type": "effect",
+						"default": true,
+						"effectId": "H25DmEofeuhMwcPE"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"kP4XvyYTQhFTYHUd": {
+				"name": "Cold Resistance",
+				"activation": {},
+				"consumers": {
+					"Rvp5ONzFbofBjCDN": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"0OzvnnfGvcwl8ysu": {
+						"type": "effect",
+						"default": true,
+						"effectId": "YYfdLajqLF4tXMME"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"A0VNj334CnZJuHHk": {
+				"name": "Thunder Resistance",
+				"activation": {},
+				"consumers": {
+					"Rvp5ONzFbofBjCDN": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"0OzvnnfGvcwl8ysu": {
+						"type": "effect",
+						"default": true,
+						"effectId": "QbVKQc6BRFJsdpjN"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"jNzlE9nKk51hTWmd": {
+				"name": "Gain Temporary Resistance",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Take damage of one of the types you are not resistant to"
+				},
+				"consumers": {
+					"JLvZNvNyNq1jSCex": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"zUeYJEROzabgXkBc": {
+						"type": "effect",
+						"default": true,
+						"effectId": "iJlVRjzO8EwDZaBW"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				}
+			}
+		},
 		"description": "<p>You gain an expertise die on Strength and Constitution saving throws. You also gain resistance to your choice of <em>lightning</em>, <em>cold</em>, or <em>thunder</em> damage. You can change the damage type whenever you finish a long rest. If you would take damage of one of the types you are not resistant to, you may spend 2 sorcery points as a reaction to also gain resistance to that damage type until the start of your next turn.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "heroesOldAndNew",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -29,8 +160,26 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
-		"prerequisite": "Level 14 Stormborn Sorcerer archetype",
+		"grants": {
+			"7E4RGHJIPmIxLEoN": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "7E4RGHJIPmIxLEoN",
+				"label": "Resist Elements",
+				"keys": {
+					"base": [
+						"str",
+						"con"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "abilitySave"
+			}
+		},
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -42,15 +191,217 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "sorcerer",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.3QAtRdeIfjY60FEH",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "1cAjZ6A2GC6R0F1H",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Resist Elements",
+			"img": "icons/magic/defensive/shield-barrier-flaming-diamond-teal-purple.webp",
+			"_id": "H25DmEofeuhMwcPE",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"lightning\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain resistance to lightning.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1726574974093,
+				"modifiedTime": 1726575012025,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.3QAtRdeIfjY60FEH",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "kP4XvyYTQhFTYHUd",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Resist Elements",
+			"img": "icons/magic/defensive/shield-barrier-flaming-diamond-teal-purple.webp",
+			"_id": "YYfdLajqLF4tXMME",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"cold\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain resistance to cold.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1726575016652,
+				"modifiedTime": 1726575036282,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.3QAtRdeIfjY60FEH",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "A0VNj334CnZJuHHk",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Resist Elements",
+			"img": "icons/magic/defensive/shield-barrier-flaming-diamond-teal-purple.webp",
+			"_id": "QbVKQc6BRFJsdpjN",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"thunder\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain resistance to thunder.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1726575044818,
+				"modifiedTime": 1726575063995,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.3QAtRdeIfjY60FEH",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jNzlE9nKk51hTWmd",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Temporary Resistance",
+			"img": "icons/magic/defensive/shield-barrier-flaming-diamond-teal-purple.webp",
+			"_id": "iJlVRjzO8EwDZaBW",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If you would take damage of one of the types you are not resistant to, you may spend 2 sorcery points as a reaction to also gain resistance to that damage type until the start of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1726575187457,
+				"modifiedTime": 1726575212396,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "l750108fhmai2h81",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1726574902824,
+		"modifiedTime": 1726575187498,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "l750108fhmai2h81"
 }

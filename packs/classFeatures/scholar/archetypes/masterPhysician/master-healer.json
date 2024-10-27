@@ -14,31 +14,60 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"HWBnVh4ZL9ZaelO4": {
-				"name": "Master Healer",
-				"activation": {},
+			"N73gFwcnYy42UnaN": {
+				"name": "Bandage",
+				"activation": {
+					"type": "minute",
+					"cost": 10
+				},
 				"consumers": {
-					"OfYrVW7r7ZATVEto": {
+					"k7qK9tquI3Shijhg": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.doctor-die-uses",
+						"resource": "classResource",
+						"quantity": 1
+					},
+					"6ln6v6eLKhO6rnRU": {
 						"type": "hitDice",
 						"default": true,
 						"quantity": 1,
 						"defaultDie": ""
 					}
 				},
-				"rolls": {},
-				"prompts": {},
+				"rolls": {
+					"LZQ5hDnPHPPBS7D3": {
+						"type": "healing",
+						"default": true,
+						"formula": "12 + @prof + @int.mod"
+					}
+				},
+				"prompts": {
+					"D4vebEQ1XUtzThpr": {
+						"type": "effect",
+						"default": true,
+						"effectId": "JfNz5uu7fnysVwvc"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"img": "icons/magic/life/heart-cross-strong-blue.webp"
 			}
 		},
-		"description": "<p>At 18th level when spending 10 minutes to do more intensive treatment with Doctor&rsquo;s Hands, you may also expend a hit die to automatically roll max on the doctor dice. Doing so is taxing and grants a level of fatigue to the scholar, and a single creature cannot benefit from this intensive care more than once per long rest.</p>",
+		"description": "<p>At 18th level when spending 10 minutes to do more intensive treatment with @UUID[Compendium.a5e.a5e-class-features.Item.ciax1oln0dgpq1vx]{Doctor's Skill}, you may also expend a hit die to automatically roll max on the doctor dice. Doing so is taxing and grants a level of fatigue to the scholar, and a single creature cannot benefit from this intensive care more than once per long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "heroesOldAndNew",
@@ -66,15 +95,70 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "scholar",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.pS4c3xYSsa8TTc3R",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "N73gFwcnYy42UnaN",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Master Healer",
+			"img": "icons/magic/life/heart-cross-strong-blue.webp",
+			"_id": "JfNz5uu7fnysVwvc",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Grants a level of fatigue.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1726573623064,
+				"modifiedTime": 1726573645045,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "s85yqkx8fgnqktkh",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1726573542714,
+		"modifiedTime": 1726573653234,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "s85yqkx8fgnqktkh"
 }

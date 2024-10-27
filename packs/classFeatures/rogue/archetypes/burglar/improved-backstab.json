@@ -1,7 +1,7 @@
 {
 	"name": "Improved Backstab",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/melee/strike-dagger-white-orange.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -63,7 +63,49 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"c8mCE3KPL9PyN1G6": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "c8mCE3KPL9PyN1G6",
+				"label": "Backstab",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.o2hl0gsb7xg1zx8u",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					],
+					"options": [],
+					"total": 0
+				},
+				"img": ""
+			},
+			"OE5irku9yhs6s3Ga": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": true,
+				"_id": "OE5irku9yhs6s3Ga",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"rangedWeaponAttack"
+					],
+					"default": false,
+					"damageTypes": [],
+					"isCritBonus": false,
+					"spellLevels": []
+				},
+				"bonus": "((@classResources.sneak-attack)d10)",
+				"label": "Improved Backstab",
+				"img": "",
+				"damageType": ""
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -76,13 +118,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "rogue",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "i7qs93q7h6qf7872",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724187957283,
+		"modifiedTime": 1724188048929,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "i7qs93q7h6qf7872"
 }

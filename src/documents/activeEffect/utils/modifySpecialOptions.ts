@@ -68,6 +68,7 @@ export default function modifySpecialOptions(options: object) {
   options['@token.light.darkness.max'] = [1, MODES.OVERRIDE_ONLY];
   options['@token.light.dim'] = [0, MODES.OVERRIDE_ONLY];
   options['@token.light.luminosity'] = [0.5, MODES.OVERRIDE_ONLY];
+  options['@token.light.negative'] = [false, MODES.OVERRIDE_ONLY, [[true, 'Yes'], [false, "No"]], 'RADIO'];
   options['@token.light.saturation'] = [0, MODES.OVERRIDE_ONLY];
   options['@token.light.shadows'] = [0, MODES.OVERRIDE_ONLY];
 }

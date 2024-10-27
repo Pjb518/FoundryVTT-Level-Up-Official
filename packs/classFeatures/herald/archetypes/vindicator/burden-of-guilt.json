@@ -12,14 +12,69 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 15th level, you can cause the weight of a creature’s misdeeds to weigh on it—literally. As a bonus action, you can proclaim a creature’s crimes, which must be serious as per the Warrant Bearer feature. The creature must be one you have evidence of serious crimes against. It must make a Charisma saving throw against your spell save DC. A creature that fails is slowed for one minute. A creature that succeeds has its movement speeds reduced by 10 for the same duration. An affected creature can repeat the save at the end of each of its turns, ending the effect on a success.</p><p>If you attempt to use this ability on a creature that is truly innocent of the crimes you accuse it of, the creature is unaffected and you take 4d4 points of psychic damage from the backlash.  Once you have used this feature a number of times equal to your Charisma modifier (minimum once), you can’t do so again until you finish a long rest.</p>",
+		"actions": {
+			"wDVKFCAHJq9QttYJ": {
+				"name": "Burden of Guilt",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"x7fBQRaYYbTPlTgp": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"asjNr8OhQdh0F9EL": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "4d4",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {
+					"RRoCALyteWBBdxtP": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"dZiqFdw8biyKA8jK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "z6hpYaZgI67tLtE3"
+					},
+					"Vi7ctJK3MCDgZb9T": {
+						"type": "effect",
+						"default": true,
+						"effectId": "l8YnaHAPHR21MjPl"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 15th level, you can cause the weight of a creature&rsquo;s misdeeds to weigh on it&mdash;literally. As a bonus action, you can proclaim a creature&rsquo;s crimes, which must be serious as per the @UUID[Compendium.a5e.a5e-class-features.Item.cifl6rt7nj962c7a]{Warrant Bearer} feature. The creature must be one you have evidence of serious crimes against. It must make a Charisma saving throw against your spell save DC. A creature that fails is slowed for one minute. A creature that succeeds has its movement speeds reduced by 10 for the same duration. An affected creature can repeat the save at the end of each of its turns, ending the effect on a success.</p>\n<p>If you attempt to use this ability on a creature that is truly innocent of the crimes you accuse it of, the creature is unaffected and you take 4d4 points of psychic damage from the backlash. Once you have used this feature a number of times equal to your Charisma modifier (minimum once), you can&rsquo;t do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitJudgeJuryAndExecutioner",
 		"uses": {
-			"value": 1,
-			"max": "1",
+			"value": 0,
+			"max": "max(@cha.mod,1)",
 			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
@@ -41,16 +96,127 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"img": "icons/magic/control/debuff-chains-shackles-movement-purple.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.bWkWhXaF4Fa4DRlb",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "wDVKFCAHJq9QttYJ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Slowed",
+			"img": "icons/magic/control/debuff-chains-shackles-movement-purple.webp",
+			"_id": "z6hpYaZgI67tLtE3",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"slowed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A slowed creature's Speed is halved.</li>\n<li>A slowed creature takes a −2 penalty to AC and Dexterity saving throws.</li>\n<li>A slowed creature cannot take reactions.</li>\n<li>On its turn, a slowed creature can take either an action or a bonus action, not both. In addition, it can't make more than one melee or ranged attack during its turn.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"slowed"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723550370809,
+				"modifiedTime": 1723550422912,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.bWkWhXaF4Fa4DRlb",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "wDVKFCAHJq9QttYJ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Reduced Speed",
+			"img": "icons/magic/control/debuff-chains-shackles-movement-purple.webp",
+			"_id": "l8YnaHAPHR21MjPl",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "10",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Movement speeds reduced by 10.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723550434030,
+				"modifiedTime": 1723550466583,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "c7ux92j3sw9c8h9o",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723550320287,
+		"modifiedTime": 1723550501231,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "c7ux92j3sw9c8h9o"
 }

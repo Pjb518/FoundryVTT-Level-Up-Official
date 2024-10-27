@@ -1,7 +1,7 @@
 {
 	"name": "Trap Sense",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/perception/eye-slit-orange.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,38 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Also at 3rd level, you have advantage on saving throws made against traps. Ability checks made to detect and disarm traps are made with advantage and can be made using your Cunning Action.</p>",
+		"actions": {
+			"lgYAq66j8A8EytAZ": {
+				"name": "Cunning Action",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"0M06GbOYConu4SRU": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.cunning-action",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Also at 3rd level, you have advantage on saving throws made against traps. Ability checks made to detect and disarm traps are made with advantage and can be made using your @UUID[Compendium.a5e.a5e-class-features.Item.d8k1x28y4vn6h3q5]{Cunning Action}.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -44,13 +74,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "rogue",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "w63nzd79lgn5o3gt",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724210410108,
+		"modifiedTime": 1724210479165,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "w63nzd79lgn5o3gt"
 }

@@ -74,7 +74,9 @@ export default function registerEffectGroupConfig() {
       label: 'A5E.effects.groups.conditions',
       items: [
         'flags.a5e.effects.statusConditions',
+        'system.attributes.corruption',
         'system.attributes.fatigue',
+        'system.attributes.inebriated',
         'system.attributes.strife'
       ]
     },
@@ -506,6 +508,7 @@ export default function registerEffectGroupConfig() {
         '@token.light.darkness.max',
         '@token.light.dim',
         '@token.light.luminosity',
+	'@token.light.negative',
         '@token.light.saturation',
         '@token.light.shadows'
       ]

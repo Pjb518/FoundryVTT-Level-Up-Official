@@ -1,0 +1,231 @@
+{
+	"name": "Stunning Shot",
+	"type": "feature",
+	"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"CUzpcEhphJWpASkf": {
+				"name": "Stunning Shot",
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"LfaYWrS5YYOh1SYv": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d8",
+						"damageType": "thunder"
+					}
+				},
+				"prompts": {
+					"ITdGJ18LBaQ0jNmm": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Target is deafened but not stunned"
+					},
+					"jyphjB6a50vHx0s2": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8CPGsvduCZSJeMt3"
+					},
+					"62LMc9QkU0kMX9KT": {
+						"type": "effect",
+						"default": true,
+						"effectId": "qCbCIyYqzkj6iR2T"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>The ammunition reverberates with sonic energy. Upon impact, a creature struck by the ammunition takes normal damage + 1d8 thunder damage and must make a Constitution saving throw against your spell save DC. A creature that fails is stunned until the end of its next turn. A creature that succeeds is deafened until the end of its next turn, but is not stunned. The impact of this ammunition (hit or miss) can be heard up to 300 feet away.</p>",
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"target": {
+					"type": "",
+					"quantity": 1
+				},
+				"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>The ammunition reverberates with sonic energy. Upon impact, a creature struck by the ammunition takes normal damage + 1d8 thunder damage and must make a Constitution saving throw against your spell save DC. A creature that fails is stunned until the end of its next turn. A creature that succeeds is deafened until the end of its next turn, but is not stunned. The impact of this ammunition (hit or miss) can be heard up to 300 feet away.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "ranger",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.saa1f0Uwb3guqn56",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CUzpcEhphJWpASkf",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+			"_id": "8CPGsvduCZSJeMt3",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723666470918,
+				"modifiedTime": 1723666521948,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.saa1f0Uwb3guqn56",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "CUzpcEhphJWpASkf",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Deafened",
+			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+			"_id": "qCbCIyYqzkj6iR2T",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"deafened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A deafened creature can't hear and automatically fails ability checks that require hearing.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"deafened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723666524610,
+				"modifiedTime": 1723666565397,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723666343282,
+		"modifiedTime": 1723666644751,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "WrscCw2ryL2NSTeh"
+}

@@ -15,7 +15,42 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"VIp1DcoYfQBur07o": {
+				"name": "Unbreakable",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Reduced to 0 hit points and are not killed outright"
+				},
+				"consumers": {
+					"0tiUTFkJFKvQQYz8": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"Ye7rCP6YaFu8uOqx": {
+						"type": "healing",
+						"default": true,
+						"formula": "1"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>If you would be reduced to 0 hit points and are not killed outright, you instead drop to 1 hit point and may use your reaction to make a single weapon attack against the source of the damage that felled you. If this counterattack is a critical hit, you immediately heal to half of your maximum hit points. Once you have used this ability, you can’t do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +79,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "marshal",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "oa3921wa1rarege6",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723581886694,
+		"modifiedTime": 1723581952044,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "oa3921wa1rarege6"
 }

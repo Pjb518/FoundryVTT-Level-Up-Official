@@ -16,28 +16,30 @@
 		},
 		"actions": {
 			"iaRiMnzeQg23MXvZ": {
-				"name": "Teleport",
+				"name": "Hidden Paths",
 				"activation": {
 					"type": "bonusAction",
 					"cost": 1
 				},
-				"consumers": {},
+				"consumers": {
+					"ShLn0pIoVbPYAE2X": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {},
 				"prompts": {},
 				"uses": {
 					"value": 0,
-					"max": "@int.mod",
-					"per": "shortRest",
+					"max": "",
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
 					}
 				},
-				"ranges": {
-					"ZUz2NbiNvIIBOTT1": {
-						"range": "self"
-					}
-				}
+				"ranges": {}
 			}
 		},
 		"description": "<p>You can teleport a distance up to twice your movement speed to an unoccupied space you can see as a bonus action. Once you have done so a number of times equal to your Intelligence modifier (minimum once) you can&rsquo;t do so again until you finish a short or long rest.&nbsp;</p>",
@@ -46,8 +48,8 @@
 		"source": "thematicToolkitHazardousKnowledge",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "max(@int.mod,1)",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -68,14 +70,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "savant",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "yxetgw6xgyj08rzs",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1725041223692,
+		"modifiedTime": 1725041271067,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "yxetgw6xgyj08rzs"
 }

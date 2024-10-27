@@ -13,7 +13,157 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"QM6cjr5y9oJ28Hj9": {
+				"name": "Locate Object",
+				"activation": {
+					"cost": 10,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"3xJ3kiiR8FvWH3vK": {
+						"range": "1,000-foot radius"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp"
+			},
+			"hqNX4aGGoBehZc0E": {
+				"name": "Locate Creature",
+				"activation": {
+					"cost": 10,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"Ol2ManVAlPR0nqLv": {
+						"mode": "variable",
+						"spellLevel": 4,
+						"points": 6,
+						"type": "spell"
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "1"
+				},
+				"ranges": {
+					"XYaYmgUkPdqguOR1": {
+						"range": "1,000-foot radius"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "self"
+				},
+				"img": "icons/magic/perception/orb-crystal-ball-scrying.webp"
+			},
+			"lX0zs62jy0Rr0mCK": {
+				"name": "Scrying",
+				"activation": {
+					"cost": 10,
+					"type": "minute",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"FesGRPsh4oqGB9pj": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"EPTW9bO0k35sFNNt": {
+						"ability": "wis",
+						"onSave": "Negates effect for 24 hours",
+						"saveDC": {
+							"type": "custom",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": "10"
+				},
+				"ranges": {
+					"qOCRptUDIby1Pqv6": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "creature"
+				},
+				"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp"
+			}
+		},
 		"description": "<p>Also at 2nd level you can use the wind to uncover secret information. By spending 10 minutes concentrating outside, you may cast the @UUID[Compendium.a5e.a5e-spells.84xbuk6c7yo86ga7]{Locate Object} spell without expending a spell slot.</p><p>At 6th level you may instead cast @UUID[Compendium.a5e.a5e-spells.kk7n5fm5uz9xwrr2]{Locate Creature} in this way.</p><p>At 10th level you can cast @UUID[Compendium.a5e.a5e-spells.ppht0do531mq84uw]{Scrying} in this way. Once you do so you cannot do so again until you finish a short or long rest.</p><p>None of these spells function if the target is underwater, in a vacuum, in an airtight container, or otherwise does not have a path between you and it or them through the air, however small.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -42,15 +192,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "wizard",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "00rv4sskub3wkjee",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727127834784,
+		"modifiedTime": 1727127979587,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "00rv4sskub3wkjee"
 }

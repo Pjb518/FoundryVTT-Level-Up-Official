@@ -13,8 +13,157 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p dir=\"ltr\">Starting at 14th level, you have gained greater control over your ability to create and control Undead Servants. As such, you may now have a single Undead Servant of challenge rating 1 or lower, or two Undead Servants of challenge rating 1/4 or lower.</p><p dir=\"ltr\">If you have two Undead Servants, they both share the same initiative, and if you choose to use any upgrades, you must upgrade each separately (though both can have the same upgrades if you choose).</p><p dir=\"ltr\">You also add the following choices to your list of upgrades:</p><h3 dir=\"ltr\">Flying</h3><p dir=\"ltr\">If you use a spell slot while you have a prepared spell from the Movement school, your Undead Servant gains a fly speed equal to 10ft per level of the spell slot used. If the undead already has a fly speed, instead increase its fly speed by an amount equal to 5ft per level of the spell slot used.</p><h3 dir=\"ltr\">Elemental Attacks</h3><p dir=\"ltr\">If you use a spell slot while you have a prepared spell from the Acid, Cold, Fire, Lightning, poison, or Thunder school, your Undead Servant deals an additional 1d4 + the spell slot level damage of the type associated with the chosen school. You cannot have both Elemental Attacks and Necrotic Power active on the same Undead Servant at the same time.</p><h3 dir=\"ltr\">Explosive</h3><p dir=\"ltr\">If you use a spell slot while you have Corpse Explosion prepared, you can have your Undead Servant explode in a shower of bone and poison when it is reduced to 0 hit points, or if you use a bonus action to activate this feature.</p><p dir=\"ltr\">When your Undead Servant explodes, each creature in a 10-foot radius of it must make a Constitution saving throw. A creature takes 2d6 piercing and 2d6 poison damage, and is poisoned for 1 minute on a failed save, taking half as much damage and not being poisoned on a successful one. A poisoned creature can repeat the saving throw at the end of each of its turns, ending the effect for itself on a success.</p><p dir=\"ltr\">For each spell slot level above 1st, increase the poison damage by 1d6.</p>",
+		"actions": {
+			"SnUmbQHKckijzGKY": {
+				"name": "Flying",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"W7l6CXGJ2KPOOiKl": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 1,
+						"spellLevel": 1,
+						"points": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"PeJEKV7cXG8uRRSJ": {
+				"name": "Elemental Attacks",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"W7l6CXGJ2KPOOiKl": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 1,
+						"spellLevel": 1,
+						"points": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"DHpWGPLdVdGxfcCx": {
+				"name": "Explosive",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"W7l6CXGJ2KPOOiKl": {
+						"type": "spell",
+						"default": true,
+						"mode": "variable",
+						"charges": 1,
+						"spellLevel": 1,
+						"points": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"exfQKymk5U4ItKUE": {
+				"name": "Servant Explosion",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"cD1R7KY3cCGz1Wog": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"canCrit": false,
+						"damageType": "piercing"
+					},
+					"1ZjfN7m9GaIR76pZ": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"canCrit": false,
+						"damageType": "poison",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "1d6"
+						}
+					}
+				},
+				"prompts": {
+					"iNRCRLNqPbD5otdc": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage, not poisoned"
+					},
+					"vwCua2Ic9W8C7FQi": {
+						"type": "effect",
+						"default": true,
+						"effectId": "drJyAdJcmj08DYbA"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">Starting at 14th level, you have gained greater control over your ability to create and control @UUID[Compendium.a5e.a5e-class-features.Item.vbrdlgurs5vnqgki]{Undead Servants}. As such, you may now have a single Undead Servant of challenge rating 1 or lower, or two Undead Servants of challenge rating 1/4 or lower.</p>\n<p dir=\"ltr\">If you have two Undead Servants, they both share the same initiative, and if you choose to use any upgrades, you must upgrade each separately (though both can have the same upgrades if you choose).</p>\n<p dir=\"ltr\">You also add the following choices to your list of upgrades:</p>\n<h2 dir=\"ltr\">Flying</h2>\n<p dir=\"ltr\">If you use a spell slot while you have a prepared spell from the <em>movement </em>school, your Undead Servant gains a fly speed equal to 10ft per level of the spell slot used. If the undead already has a fly speed, instead increase its fly speed by an amount equal to 5ft per level of the spell slot used.</p>\n<h2 dir=\"ltr\">Elemental Attacks</h2>\n<p dir=\"ltr\">If you use a spell slot while you have a prepared spell from the <em>acid, cold, fire, lightning, poison, </em>or t<em>hunder</em> school, your Undead Servant deals an additional 1d4 + the spell slot level damage of the type associated with the chosen school. You cannot have both Elemental Attacks and Necrotic Power active on the same Undead Servant at the same time.</p>\n<h2 dir=\"ltr\">Explosive</h2>\n<p dir=\"ltr\">If you use a spell slot while you have @UUID[Compendium.a5e.a5e-spells.Item.0tqlw209xugpzidv]{Corpse Explosion} prepared, you can have your Undead Servant explode in a shower of bone and poison when it is reduced to 0 hit points, or if you use a bonus action to activate this feature.</p>\n<p dir=\"ltr\">When your Undead Servant explodes, each creature in a 10-foot radius of it must make a Constitution saving throw. A creature takes 2d6 piercing and 2d6 poison damage, and is poisoned for 1 minute on a failed save, taking half as much damage and not being poisoned on a successful one. A poisoned creature can repeat the saving throw at the end of each of its turns, ending the effect for itself on a success.</p>\n<p dir=\"ltr\">For each spell slot level above 1st, increase the poison damage by 1d6.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "acesAdventuringGuideToNecromancy",
@@ -42,15 +191,74 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "wizard",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.JZ8AH6rEXQ7kY4T9",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "exfQKymk5U4ItKUE",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Poisoned",
+			"img": "icons/magic/death/skull-humanoid-white-red.webp",
+			"_id": "drJyAdJcmj08DYbA",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>A poisoned creature has disadvantage on attack rolls and ability checks.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"poisoned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727191590263,
+				"modifiedTime": 1727191617757,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "zl45wj4i1t9qy2az",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727191177967,
+		"modifiedTime": 1727193124504,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "zl45wj4i1t9qy2az"
 }

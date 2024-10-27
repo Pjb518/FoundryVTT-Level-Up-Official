@@ -1,7 +1,7 @@
 {
 	"name": "Improvised Crafting",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/skills/trades/woodcutting-logging-saw.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,33 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Starting at 13th level, you can use your tinker’s tools to create a mundane item during a short or long rest. You can create one of the following items, which lasts until the beginning of the next long or short rest. </p><ul><li><p>A vial of alchemist’s fire or acid. </p></li><li><p>Any weapon, ammunition, or gear from Chapter 4: Equipment which costs 20 gold or less (or several identical items with a total cost not exceeding 20 gold). The item functions like the original object but may be made of different materials.</p></li></ul>",
+		"actions": {
+			"m5zbJdEepAn3XnJx": {
+				"name": "Improvised Crafting",
+				"activation": {},
+				"consumers": {
+					"8DtyDz32dwOIe2DZ": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Starting at 13th level, you can use your tinker&rsquo;s tools to create a mundane item during a short or long rest. You can create one of the following items, which lasts until the beginning of the next long or short rest.</p>\n<ul>\n<li>\n<p>A vial of @UUID[Compendium.a5e.a5e-adventuring-gear.Item.4t0m2ttaca5hg2vi]{Alchemist's Fire} or @UUID[Compendium.a5e.a5e-adventuring-gear.Item.b0z0yz39b3qy3hdo]{Acid}.</p>\n</li>\n<li>\n<p>Any weapon, ammunition, or gear from Chapter 4: Equipment which costs 20 gold or less (or several identical items with a total cost not exceeding 20 gold). The item functions like the original object but may be made of different materials.</p>\n</li>\n</ul>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -44,13 +69,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "rogue",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "27xccbqoijgsxwxt",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724210947121,
+		"modifiedTime": 1724211043762,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "27xccbqoijgsxwxt"
 }

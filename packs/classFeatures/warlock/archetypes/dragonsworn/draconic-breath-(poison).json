@@ -21,14 +21,21 @@
 					"type": "action",
 					"cost": 1
 				},
-				"consumers": {},
+				"consumers": {
+					"XAzbb6k8IPriFdoG": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {
 					"dKNzoSOZrJN88cwr": {
 						"type": "damage",
 						"default": true,
-						"formula": "2d6",
+						"formula": "@classResources.draconic-breath-damage",
 						"label": "",
-						"damageType": "poison"
+						"damageType": "poison",
+						"canCrit": false
 					}
 				},
 				"prompts": {
@@ -40,20 +47,21 @@
 							"type": "spellcasting"
 						},
 						"label": "",
-						"onSave": "half damage"
+						"onSave": "Half damage"
 					}
 				},
 				"uses": {
 					"value": 0,
 					"max": "",
-					"per": "shortRest",
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				},
 				"area": {
 					"shape": "cone",
@@ -62,20 +70,27 @@
 					"placeTemplate": true
 				}
 			},
-			"1Za3iZObT0ssGIz8": {
+			"Uwczw6Wuy8Mik40C": {
 				"name": " Draconic Breath - Line",
 				"activation": {
 					"type": "action",
 					"cost": 1
 				},
-				"consumers": {},
+				"consumers": {
+					"XAzbb6k8IPriFdoG": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {
 					"dKNzoSOZrJN88cwr": {
 						"type": "damage",
 						"default": true,
-						"formula": "2d6",
+						"formula": "@classResources.draconic-breath-damage",
 						"label": "",
-						"damageType": "poison"
+						"damageType": "poison",
+						"canCrit": false
 					}
 				},
 				"prompts": {
@@ -87,20 +102,21 @@
 							"type": "spellcasting"
 						},
 						"label": "",
-						"onSave": "half damage"
+						"onSave": "Half damage"
 					}
 				},
 				"uses": {
 					"value": 0,
 					"max": "",
-					"per": "shortRest",
+					"per": "",
 					"recharge": {
 						"formula": "1d6",
 						"threshold": 6
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				},
 				"area": {
 					"shape": "line",
@@ -111,14 +127,14 @@
 				}
 			}
 		},
-		"description": "<p>When you select this archetype at 1st level, you gain a boon of draconic power.<span style=\"mso-spacerun: yes;\">&nbsp; </span>Choose a damage type as your draconic damage type: fire, cold, lightning, acid, or poison.<span style=\"mso-spacerun: yes;\">&nbsp; </span>Once chosen this cannot be changed.<span style=\"mso-spacerun: yes;\">&nbsp; </span></p><p>Select one of the following:</p><p><strong><s>Dragon Curse</s></strong></p><p><strong>Draconic Breath</strong></p><p>You may use an action to breath out a 15 foot cone or 5 foot wide 30 long foot line.<span style=\"mso-spacerun: yes;\">&nbsp; </span>You choose the shape of this breath when you gain this ability and cannot change it. Creatures in the area must make a Dexterity saving throw against your warlock spell save DC or take 2d6 damage of your draconic damage type on a failure or half damage on a success. If your draconic damage type is cold or poison, they must instead make a Constitution saving throw.<span style=\"mso-spacerun: yes;\">&nbsp; </span></p><p>This damage increases by 1d6 at 10th level, and again at 15th and 20th level.<span style=\"mso-spacerun: yes;\">&nbsp; </span></p><p>At 14th level the area increases to a 30 foot cone or a 5 foot wide, 60 foot long line.<span style=\"mso-spacerun: yes;\">&nbsp; </span></p><p>You can use this attack a number of times equal to your proficiency bonus and regain all expended uses when you finish a short or long rest.</p>",
+		"description": "<p>You may use an action to breath out a 15 foot cone or 5 foot wide 30 long foot line.<span style=\"mso-spacerun: yes;\">&nbsp; </span>You choose the shape of this breath when you gain this ability and cannot change it. Creatures in the area must make a Dexterity saving throw against your warlock spell save DC or take 2d6 damage of your draconic damage type on a failure or half damage on a success. If your draconic damage type is cold or poison, they must instead make a Constitution saving throw.<span style=\"mso-spacerun: yes;\">&nbsp;</span>This damage increases by 1d6 at 10th level, and again at 15th and 20th level.<span style=\"mso-spacerun: yes;\"> </span>At 14th level the area increases to a 30 foot cone or a 5 foot wide, 60 foot long line.<span style=\"mso-spacerun: yes;\"> </span>You can use this attack a number of times equal to your proficiency bonus and regain all expended uses when you finish a short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "mysteriousAndMarvelousMiscellanea",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "@prof",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -126,7 +142,24 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"bbqJ4tXh4jpHuAyW": {
+				"grantType": "trait",
+				"level": 6,
+				"levelType": "class",
+				"optional": false,
+				"_id": "bbqJ4tXh4jpHuAyW",
+				"label": "Draconic Resistance",
+				"traits": {
+					"base": [
+						"poison"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -139,15 +172,18 @@
 				}
 			}
 		},
-		"classes": "",
+		"classes": "warlock",
 		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "1cab2h1fq8nxvlb9",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727117834953,
+		"modifiedTime": 1727117880013,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "1cab2h1fq8nxvlb9"
 }

@@ -144,6 +144,7 @@
     "bard": "Bard",
     "barbarian": "Barbarian",
     "berserker": "Berserker",
+    "bloodblade": "Bloodblade",
     "cleric": "Cleric",
     "druid": "Druid",
     "elementalist": "Elementalist",
@@ -816,6 +817,7 @@
           },
           "dim": "Dim Light Radius",
           "luminosity": "Light Luminosity",
+	  "negative": "Emit Darkness",
           "saturation": "Light Saturation",
           "shadows": "Light Shadows Coloration"
         },
@@ -847,11 +849,13 @@
       },
       "attunementCurrent": "Current Attunement Count",
       "attunementMax": "Maximum Attunement Count",
+      "corruption": "Corruption",
       "deathSaveFailures": "Failed Death Saving Throws",
       "deathSaveSuccesses": "Successful Death Saving Throws",
       "exertionCurrent": "Current Exertion",
       "exertionMax": "Max Exertion",
       "fatigue": "Fatigue",
+      "inebriated": "Inebriated",
       "initiativeAbility": "Initiative Ability",
       "initiativeExpertiseDice": "Initiative Expertise Dice",
       "inspiration": "Inspiration",
@@ -1007,6 +1011,7 @@
     "temperedIron": "Tempered Iron",
     "toothAndClaw": "Tooth and Claw",
     "unendingWheel": "Unending Wheel",
+    "viciousVein": "Vicious Vein",
     "vipersFangs": "Viper's Fangs"
   },
   "A5E.migration": {
@@ -1168,7 +1173,7 @@
       "replaceFatigueAndStrife": "When enabled, the Fatigue and Strife conditions will be replaced with the Exhaustion condition.",
       "reverseAltBehavior": "By default, holding the left alt key will skip the roll dialog for rolls. If this setting is checked, the roll dialog will be skipped unless the alt key is held when clicking the roll button.",
       "reverseInitiativeAltBehavior": "By default, holding the left alt key will skip the roll dialog for initiative rolls. If this setting is checked, the initiative roll dialog will be skipped unless the alt key is held when clicking the roll button. Note this settings is affected by the 'Reverse Alt Behavior' setting. If the 'Reverse Alt Behavior' setting is enabled, this setting will flip the alt behavior of initiative rolls.",
-      "showDescriptionOnLimitedPerms": "Show description on items when items have limited permissions. This will respected the identified state of the item.",
+      "showDescriptionOnLimitedPerms": "Show description on items when items have limited permissions. This will respect the identified state of the item.",
       "showEffectsPanel": "The effects panel shows a summary of the conditions and temporary effects for the selected token. You can find these icons on the right side of the screen, left of the chat window.",
       "simpleInitiative": "When enabled, initiative rolls will take the form of a simple ability check.",
       "simpleRests": "When enabled, long rests will automatically recover a level of Fatigue, Strife, and Exhaustion as applicable, and users will not be prompted as to whether they rested in a haven or consumed supply.",
@@ -1375,6 +1380,7 @@
     "mathematics": "Mathematics",
     "mechanicalTraps": "Mechanical Traps",
     "mentalHealth": "Mental Health",
+    "militaryHistory": "Military History",
     "mimicry": "Mimicry",
     "monstrosities": "Monstrosities",
     "morality": "Morality",
@@ -1412,6 +1418,7 @@
     "wars": "Wars",
     "wayfinding": "Wayfinding",
     "weaponDisplays": "Weapon Displays",
+    "weaponry": "Weaponry",
     "weather": "Weather",
     "writing": "Writing"
   },
@@ -1445,6 +1452,17 @@
     "water": "Water"
   },
   "A5E.tracks": {
+    "corruption": {
+      "hints": {
+        "1": "<ul class='a5e-tooltip__list'><li>You lose one skill, tool, or language proficiency gained from your background of the Narrator’s choosing. That proficiency is replaced with a different proficiency of the same type (a skill is replaced with a skill, a language with a language, etc.).</li></ul>",
+        "2": "<ul class='a5e-tooltip__list'><li>You lose one skill, tool, or language proficiency gained from your background of the Narrator’s choosing. That proficiency is replaced with a different proficiency of the same type (a skill is replaced with a skill, a language with a language, etc.).</li><li>You suffer a –2 penalty to Strength checks, but have advantage on checks made to escape the grappled or restrained conditions.</li></ul>",
+        "3": "<ul class='a5e-tooltip__list'><li>You lose one skill, tool, or language proficiency gained from your background of the Narrator’s choosing. That proficiency is replaced with a different proficiency of the same type (a skill is replaced with a skill, a language with a language, etc.).</li><li>You suffer a –2 penalty to Strength checks, but have advantage on checks made to escape the grappled or restrained conditions.</li><li>You must rest for a full 12 hours to achieve the benefits of a long rest (a regular 8-hour rest only counts as a short rest for you). However, you have advantage on either your first attack roll , ability check , or saving throw of the day.</li></ul>",
+        "4": "<ul class='a5e-tooltip__list'><li>You lose one skill, tool, or language proficiency gained from your background of the Narrator’s choosing. That proficiency is replaced with a different proficiency of the same type (a skill is replaced with a skill, a language with a language, etc.).</li><li>You suffer a –2 penalty to Strength checks, but have advantage on checks made to escape the grappled or restrained conditions.</li><li>You must rest for a full 12 hours to achieve the benefits of a long rest (a regular 8-hour rest only counts as a short rest for you). However, you have advantage on either your first attack roll , ability check , or saving throw of the day.</li><li>You have disadvantage on Constitution saving throws. Any time you are hit with a melee weapon attack, the attacker must make a Dexterity saving throw against your maneuver DC or take 2d4 acid damage. Any creature who consumes your blood (such as a vampire) automatically takes 4d4 acid damage.</li></ul>",
+        "5": "<ul class='a5e-tooltip__list'><li>You lose one skill, tool, or language proficiency gained from your background of the Narrator’s choosing. That proficiency is replaced with a different proficiency of the same type (a skill is replaced with a skill, a language with a language, etc.).</li><li>You suffer a –2 penalty to Strength checks, but have advantage on checks made to escape the grappled or restrained conditions.</li><li>You must rest for a full 12 hours to achieve the benefits of a long rest (a regular 8-hour rest only counts as a short rest for you). However, you have advantage on either your first attack roll , ability check , or saving throw of the day.</li><li>You have disadvantage on Constitution saving throws. Any time you are hit with a melee weapon attack, the attacker must make a Dexterity saving throw against your maneuver DC or take 2d4 acid damage. Any creature who consumes your blood (such as a vampire) automatically takes 4d4 acid damage.</li><li>You have disadvantage on Wisdom saving throws . Any creature who attempts to read your mind (as in the spell detect thoughts) must make a Wisdom saving throw (DC 12) or take 2d6 psychic damage.</li></ul>",
+        "6": "<ul class='a5e-tooltip__list'><li>You lose one skill, tool, or language proficiency gained from your background of the Narrator’s choosing. That proficiency is replaced with a different proficiency of the same type (a skill is replaced with a skill, a language with a language, etc.).</li><li>You suffer a –2 penalty to Strength checks, but have advantage on checks made to escape the grappled or restrained conditions.</li><li>You must rest for a full 12 hours to achieve the benefits of a long rest (a regular 8-hour rest only counts as a short rest for you). However, you have advantage on either your first attack roll , ability check , or saving throw of the day.</li><li>You have disadvantage on Constitution saving throws. Any time you are hit with a melee weapon attack, the attacker must make a Dexterity saving throw against your maneuver DC or take 2d4 acid damage. Any creature who consumes your blood (such as a vampire) automatically takes 4d4 acid damage.</li><li>You have disadvantage on Wisdom saving throws . Any creature who attempts to read your mind (as in the spell detect thoughts) must make a Wisdom saving throw (DC 12) or take 2d6 psychic damage.</li><li>Your Charisma score is reduced by 2, but you gain immunity to poison and necrotic damage.</li></ul>",
+        "7": "<ul class='a5e-tooltip__list'><li>You lose one skill, tool, or language proficiency gained from your background of the Narrator’s choosing. That proficiency is replaced with a different proficiency of the same type (a skill is replaced with a skill, a language with a language, etc.).</li><li>You suffer a –2 penalty to Strength checks, but have advantage on checks made to escape the grappled or restrained conditions.</li><li>You must rest for a full 12 hours to achieve the benefits of a long rest (a regular 8-hour rest only counts as a short rest for you). However, you have advantage on either your first attack roll , ability check , or saving throw of the day.</li><li>You have disadvantage on Constitution saving throws. Any time you are hit with a melee weapon attack, the attacker must make a Dexterity saving throw against your maneuver DC or take 2d4 acid damage. Any creature who consumes your blood (such as a vampire) automatically takes 4d4 acid damage.</li><li>You have disadvantage on Wisdom saving throws . Any creature who attempts to read your mind (as in the spell detect thoughts) must make a Wisdom saving throw (DC 12) or take 2d6 psychic damage.</li><li>Your Charisma score is reduced by 2, but you gain immunity to poison and necrotic damage.</li><li> You radiate an Evil aura, and good-aligned creatures (such as a solar or other celestial) react to your presence with hostility. Any time you attempt to enter a hallowed place dedicated to a good-aligned force, you must make a Wisdom saving throw (DC 15). On a failure, you cannot enter the area for 1d4 days, after which you may repeat the saving throw. However, you learn the vampiric touch spell. You can cast it once per day without expending a spell slot. When you cast it in this way, the spell is considered to have been cast using a 5th-level spell slot.</li></ul>"
+      }
+    },
     "fatigue": {
       "hints": {
         "1": "<ul class='a5e-tooltip__list'><li>Cannot Sprint or Dash</li></ul>",
@@ -1464,6 +1482,15 @@
         "4": "<ul class='a5e-tooltip__list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li><li>Hit point maximum halved</li></ul>",
         "5": "<ul class='a5e-tooltip__list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li><li>Hit point maximum halved</li><li>Speed reduced to 0</li></ul>",
         "6": "<ul class='a5e-tooltip__list'><li>Disadvantage on ability checks</li><li>Speed halved</li><li>Disadvantage on attack rolls and saving throws</li><li>Hit point maximum halved</li><li>Speed reduced to 0</li><li>Death</li></ul>"
+      }
+    },
+    "inebriated": {
+      "hints": {
+        "1": "<ul class='a5e-tooltip__list'><li><b>Buzzed (DC 10)</b> You feel pleasantly warm, and your inhibitions are lifted slightly. So long as you remain in the building or area where you are carousing, you gain an expertise die to checks to make friends with the locals or learn information.</li></ul>",
+        "2": "<ul class='a5e-tooltip__list'><li><b>Tipsy (DC 12)</b> You feel pleasantly warm, and your inhibitions are lifted slightly. So long as you remain in the building or area where you are carousing, you gain an expertise die to checks to make friends with the locals or learn information.</li><li>While you may be good at making friends, you’re not so great at keeping secrets. You have disadvantage on Deception checks made to conceal information or your intentions.</li></ul>",
+        "3": "<ul class='a5e-tooltip__list'><li><b>Drunk (DC 14)</b> You feel pleasantly warm, and your inhibitions are lifted slightly. So long as you remain in the building or area where you are carousing, you gain an expertise die to checks to make friends with the locals or learn information.</li><li>While you may be good at making friends, you’re not so great at keeping secrets. You have disadvantage on Deception checks made to conceal information or your intentions.</li><li>Even the most dexterous individuals start losing some of their edge after a few drinks. You gain a –2 penalty to your Dexterity score. Despite this, you still try to perform feats of dexterity to show off.</li></ul>",
+        "4": "<ul class='a5e-tooltip__list'><li><b>Slurred (DC 16)</b> You feel pleasantly warm, and your inhibitions are lifted slightly. So long as you remain in the building or area where you are carousing, you gain an expertise die to checks to make friends with the locals or learn information.</li><li>While you may be good at making friends, you’re not so great at keeping secrets. You have disadvantage on Deception checks made to conceal information or your intentions.</li><li>Even the most dexterous individuals start losing some of their edge after a few drinks. You gain a –2 penalty to your Dexterity score. Despite this, you still try to perform feats of dexterity to show off.</li><li>Your speech becomes slurred and difficult to understand. You have disadvantage on all Charisma-based checks.</li></ul>",
+        "5": "<ul class='a5e-tooltip__list'><li><b>Sloppy (DC 18)</b> You feel pleasantly warm, and your inhibitions are lifted slightly. So long as you remain in the building or area where you are carousing, you gain an expertise die to checks to make friends with the locals or learn information.</li><li>While you may be good at making friends, you’re not so great at keeping secrets. You have disadvantage on Deception checks made to conceal information or your intentions.</li><li>Even the most dexterous individuals start losing some of their edge after a few drinks. You gain a –2 penalty to your Dexterity score. Despite this, you still try to perform feats of dexterity to show off.</li><li>Your speech becomes slurred and difficult to understand. You have disadvantage on all Charisma-based checks.</li><li>You’ve gone just a little too far, and you’re probably going to feel this in the morning. You must succeed on a DC 18 Dexterity saving throw to move your normal Speed. If an ally is assisting you, roll the save at advantage.</li></ul>"
       }
     },
     "strife": {
@@ -1496,31 +1523,38 @@
     }
   },
   "A5E.weaponProperties": {
+    "blackPowderPyrotechnics": "Black Powder Pyrotechnics", 
     "burn": "Burn",
     "breaker": "Breaker",
     "breakerSpecific": "Breaker ({type})",
+    "clubbing": "Clubbing",
     "compounding": "Compounding",
     "defensive": "Defensive",
     "defensiveSpecific": "Defensive ({type})",
     "dualWielding": "Dual-Wielding",
     "finesse": "Finesse",
     "flamboyant": "Flamboyant",
+    "hailOfLead": "Hail of Lead",
     "handMounted": "Hand-Mounted",
     "heavy": "Heavy",
     "inaccurate": "Inaccurate",
     "loading": "Loading",
+    "menacing": "Menacing",
+    "misfire": "Misfire",
     "mounted": "Mounted",
     "mountedSpecific": "Mounted ({dice})",
     "muzzleLoading": "Muzzle-Loading",
     "parrying": "Parrying",
     "parryingImmunity": "Parrying Immunity",
     "quickdraw": "Quickdraw",
+    "punching": "Punching",
     "range": "Range",
     "reach": "Reach",
     "rifled": "Rifled",
     "scatter": "Scatter",
     "shock": "Shock",
     "simple": "Simple",
+    "surpriseShot": "Surprise Shot",
     "thrown": "Thrown",
     "triggerCharge": "Trigger-Charge",
     "trip": "Trip",
@@ -1715,12 +1749,16 @@
   "A5E.ConditionCharmed": "Charmed",
   "A5E.ConditionConcentration": "Concentration",
   "A5E.ConditionConfused": "Confused",
+  "A5E.ConditionCorruption": "Corruption",
+  "A5E.ConditionDazzled": "Dazzled",
   "A5E.ConditionDead": "Dead",
   "A5E.ConditionDeafened": "Deafened",
   "A5E.ConditionDefeated": "Defeated",
   "A5E.ConditionDoomed": "Doomed",
   "A5E.ConditionEncumbered": "Encumbered",
+  "A5E.ConditionEnervated": "Enervated",
   "A5E.ConditionFatigue": "Fatigue",
+  "A5E.ConditionFixated": "Fixated",
   "A5E.ConditionFrightened": "Frightened",
   "A5E.ConditionGeneric1": "Generic 1",
   "A5E.ConditionGeneric2": "Generic 2",
@@ -1728,7 +1766,9 @@
   "A5E.ConditionGeneric4": "Generic 4",
   "A5E.ConditionGeneric5": "Generic 5",
   "A5E.ConditionGrappled": "Grappled",
+  "A5E.ConditionHungover": "Hungover",
   "A5E.ConditionIncapacitated": "Incapacitated",
+  "A5E.ConditionInebriated": "Inebriated",
   "A5E.ConditionInvisible": "Invisible",
   "A5E.ConditionParalyzed": "Paralyzed",
   "A5E.ConditionPetrified": "Petrified",
@@ -1773,6 +1813,7 @@
   "A5E.ConsumerUsesItem": "Item Uses Consumer",
   "A5E.ConsumerUses": "Uses",
   "A5E.ConsumerUsesSource": "Uses Source",
+  "A5E.Corruption": "Corruption",
   "A5E.CraftingComponents": "Crafting Components",
   "A5E.CreatureTerrainsLabel": "Terrain",
   "A5E.CreatureTypesLabel": "Creature Types",
@@ -2344,6 +2385,7 @@
   "A5E.SpellSchoolDisplacement": "Displacement",
   "A5E.SpellSchoolDivination": "Divination",
   "A5E.SpellSchoolDivine": "Divine",
+  "A5E.SpellSchoolDragon": "Dragon",
   "A5E.SpellSchoolEarth": "Earth",
   "A5E.SpellSchoolEnchantment": "Enchantment",
   "A5E.SpellSchoolEnhancement": "Enhancement",

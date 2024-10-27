@@ -15,39 +15,7 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {
-			"6RAVeBsrLCDivetk": {
-				"name": "Carver",
-				"activation": {
-					"cost": "",
-					"type": "",
-					"reactionTrigger": ""
-				},
-				"duration": {
-					"unit": "",
-					"value": ""
-				},
-				"area": {
-					"shape": "",
-					"size": "",
-					"placeTemplate": false
-				},
-				"target": {
-					"quantity": "",
-					"type": ""
-				},
-				"rolls": {
-					"MlCG9IlvbNLXBHTm": {
-						"canCrit": true,
-						"damageType": "piercing",
-						"formula": "ceil(@classes.rogue.level/10)d6",
-						"name": "Extra Sneak",
-						"type": "damage"
-					}
-				},
-				"consumers": {}
-			}
-		},
+		"actions": {},
 		"description": "<p>When you deal sneak attack damage with a dagger, your attack deals an additional 1d6 damage. At 11th level, this additional damage becomes 2d6 damage.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -63,7 +31,28 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"Y6hZG3ZmlEbksKOH": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "Y6hZG3ZmlEbksKOH",
+				"label": "Carver",
+				"bonus": "((ceil(@level/10))d6",
+				"damageType": "piercing",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"rangedWeaponAttack"
+					],
+					"default": false,
+					"damageTypes": [
+						"piercing"
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -76,13 +65,17 @@
 				}
 			}
 		},
-		"classes": "rogue"
+		"classes": "rogue",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "qdmkvyr466mbvins",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.27",
+		"createdTime": 1727448740784,
+		"modifiedTime": 1727551073430,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "qdmkvyr466mbvins"
 }

@@ -16,7 +16,7 @@
 		},
 		"actions": {
 			"RlPPrE44scL6JBu5": {
-				"name": "Bonus Action",
+				"name": "Tenacity",
 				"activation": {
 					"type": "bonusAction",
 					"cost": 1
@@ -38,7 +38,7 @@
 					"AcZVLmkYGP5BPGs8": {
 						"type": "healing",
 						"default": true,
-						"formula": "1d10 + @level"
+						"formula": "1d10 +  @classes.ranger.level"
 					},
 					"oC9BoEzVDpf7ci17": {
 						"type": "generic",
@@ -62,12 +62,12 @@
 				],
 				"description": "<ul><li dir=\"ltr\">You regain exertion points equal to your Wisdom modifier (minimum 1).</li><li dir=\"ltr\">You heal hit points equal to&nbsp; 1d10 + your ranger level.&nbsp;</li><li dir=\"ltr\">You may attempt to recover a level of fatigue or strife. Roll a d20. If the result is 17 or greater, you remove a single level of fatigue or strife (your choice).</li></ul>",
 				"target": {
-					"type": "self",
+					"type": "",
 					"quantity": 1
 				}
 			}
 		},
-		"description": "<p dir=\"ltr\">At 15th level, your self-sufficiency and sheer toughness can help you get out of the toughest jams. Once per long rest as a bonus action, you can renew yourself. When you do, you gain the following benefits:</p><ul><li dir=\"ltr\">You regain exertion points equal to your Wisdom modifier (minimum 1).</li><li dir=\"ltr\">You heal hit points equal to&nbsp; 1d10 + your ranger level.&nbsp;</li><li dir=\"ltr\">You may attempt to recover a level of fatigue or strife. Roll a d20. If the result is 17 or greater, you remove a single level of fatigue or strife (your choice).</li></ul><p><em>! Foundry note, action consumers current set to -1 (regain 1 use), change this to the wisdom modifier since modifier mods aren't allowed at time of creation.</em></p>",
+		"description": "<p dir=\"ltr\">At 15th level, your self-sufficiency and sheer toughness can help you get out of the toughest jams. Once per long rest as a bonus action, you can renew yourself. When you do, you gain the following benefits:</p>\n<ul>\n<li dir=\"ltr\">You regain exertion points equal to your Wisdom modifier (minimum 1).</li>\n<li dir=\"ltr\">You heal hit points equal to&nbsp; 1d10 + your ranger level.&nbsp;</li>\n<li dir=\"ltr\">You may attempt to recover a level of fatigue or strife. Roll a d20. If the result is 17 or greater, you remove a single level of fatigue or strife (your choice).</li>\n</ul>\n<p><code><em>! Foundry note, action consumers current set to -1 (regain 1 use), change this to the wisdom modifier since modifier mods aren't allowed at time of creation.</em></code></p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitItinerant",
@@ -83,7 +83,7 @@
 		"concentration": false,
 		"featureType": "class",
 		"grants": {},
-		"prerequisite": "Byway Defender Archetype, Ranger 15",
+		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
@@ -95,14 +95,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "ranger",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "lxvj0mf2la66xarn",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724584604102,
+		"modifiedTime": 1724584705463,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "lxvj0mf2la66xarn"
 }

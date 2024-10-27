@@ -1,7 +1,7 @@
 {
 	"name": "Clinging Flames",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/fire/flame-burning-fist-strike.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,34 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"xeBgr1Sd5ZPk6zC1": {
+				"name": "Ongoing Fire Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"tYceJ9MVb5c8ZYcO": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "@int.mod",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 6th level, when you cast a spell that deals fire damage and forces a saving throw, creatures that fail their first saving throw against it suffer ongoing fire damage equal to your Intelligence modifier. At the start of each of its turns a creature repeats the saving throw, ending the ongoing fire damage on a success.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -44,13 +71,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "wizard",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "nkpqjpqg617gcnm8",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727206807118,
+		"modifiedTime": 1727206912863,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "nkpqjpqg617gcnm8"
 }

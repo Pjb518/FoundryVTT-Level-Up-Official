@@ -18,7 +18,13 @@
 			"SGqE90lJtfON0aYp": {
 				"name": "Point within 60 ft.",
 				"activation": {},
-				"consumers": {},
+				"consumers": {
+					"CNyIa010K6ZV3Ual": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {},
 				"prompts": {
 					"EBsJ8vjFtvxQo7ST": {
@@ -28,7 +34,12 @@
 						"saveDC": {
 							"type": "spellcasting"
 						},
-						"onSave": "not fall prone"
+						"onSave": ""
+					},
+					"x2wQvyFeGKmhsvu8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "KntUJ2EOhYTQLCmG"
 					}
 				},
 				"uses": {
@@ -55,7 +66,13 @@
 			"Pfd1RUfnXAOzkx2A": {
 				"name": "Around you in a 5-foot radius",
 				"activation": {},
-				"consumers": {},
+				"consumers": {
+					"fULiF9MNj6COgULz": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {},
 				"prompts": {},
 				"uses": {
@@ -72,10 +89,15 @@
 					"quantity": 1
 				},
 				"area": {
-					"shape": "circle",
+					"shape": "emanation",
 					"quantity": 1,
-					"radius": 5,
-					"placeTemplate": true
+					"placeTemplate": true,
+					"radius": 5
+				},
+				"ranges": {
+					"vJEJaSc1WBBDNJmU": {
+						"range": "self"
+					}
 				}
 			},
 			"u5uwmG5TIyeFKnvT": {
@@ -91,7 +113,12 @@
 						"saveDC": {
 							"type": "spellcasting"
 						},
-						"onSave": "not have speed reduced to 0 until start of your next turn."
+						"onSave": ""
+					},
+					"q7GvmBMAkv5ZZ9Wx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "StSgRtIWnP6HvZ3h"
 					}
 				},
 				"uses": {
@@ -102,6 +129,15 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"7wBvya8lMpqkYj5t": {
+						"range": "short"
+					}
 				}
 			}
 		},
@@ -110,7 +146,7 @@
 		"secretDescription": "",
 		"source": "dungeonDelversGuide",
 		"uses": {
-			"value": 2,
+			"value": 0,
 			"max": "@prof",
 			"per": "longRest",
 			"recharge": {
@@ -133,14 +169,123 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "sorcerer",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.u06bs8xXyosxphWc",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "SGqE90lJtfON0aYp"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"img": "icons/magic/earth/barrier-stone-explosion-red.webp",
+			"_id": "KntUJ2EOhYTQLCmG",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726748195052,
+				"modifiedTime": 1726748203218,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.u06bs8xXyosxphWc",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "u5uwmG5TIyeFKnvT",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Quake",
+			"img": "icons/magic/earth/barrier-stone-explosion-red.webp",
+			"_id": "StSgRtIWnP6HvZ3h",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "0",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Speed is reduced to 0 until the start of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726748260310,
+				"modifiedTime": 1726748288910,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "ds4bs0vzbf7h7ekt",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726748127237,
+		"modifiedTime": 1726748260347,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ds4bs0vzbf7h7ekt"
 }

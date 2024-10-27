@@ -1,0 +1,174 @@
+{
+	"name": "Shard Blast",
+	"type": "feature",
+	"img": "icons/skills/ranged/tracers-triple-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"SQpk6sUkHgKzU0Wz": {
+				"name": "Shard Blast",
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"7KXReU6Vgg0A4KfV": {
+						"type": "damage",
+						"default": true,
+						"formula": "(floor(@prof /2)d6)",
+						"damageType": "piercing",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"RJ5P5iRlRbytoBmM": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Half damage and not rattled"
+					},
+					"m3R4SnOodN2J3ONC": {
+						"type": "effect",
+						"default": true,
+						"effectId": "LM3sThY9UJ8Nhbsi"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>When you fire the ammunition, instead of making a weapon attack as normal, instead the ammunition explodes into a cone of lethal shards. Creatures in a 15-foot cone must make a Dexterity save against your spell save DC. Creatures that fail take piercing damage equal to the base damage of the weapon + a number of d6s of damage equal to half your proficiency bonus and are rattled. Creatures that save successfully take half damage and are not rattled.</p>",
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"length": 15,
+					"placeTemplate": true
+				},
+				"img": "icons/skills/ranged/tracers-triple-orange.webp"
+			}
+		},
+		"description": "<p>When you fire the ammunition, instead of making a weapon attack as normal, instead the ammunition explodes into a cone of lethal shards. Creatures in a 15-foot cone must make a Dexterity save against your spell save DC. Creatures that fail take piercing damage equal to the base damage of the weapon + a number of d6s of damage equal to half your proficiency bonus and are rattled until the end of their next turn. Creatures that save successfully take half damage and are not rattled.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "ranger",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.JigyfgTUjnFeXNMF",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "SQpk6sUkHgKzU0Wz",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/skills/ranged/tracers-triple-orange.webp",
+			"_id": "LM3sThY9UJ8Nhbsi",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723666139665,
+				"modifiedTime": 1723671880120,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723666001041,
+		"modifiedTime": 1723671904659,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "NURnCPodf6Ye3enj"
+}

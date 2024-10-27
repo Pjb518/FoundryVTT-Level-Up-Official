@@ -15,40 +15,83 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"BZ7vRhN00w5YoPRv": {
+			"zDMJzEv59kQyONGX": {
+				"name": "Extraplanar Defense",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Attacked by an aberration, celestial, fey, fiend, or undead"
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"una0u4RNTZozbobp": {
+						"type": "effect",
+						"default": true,
+						"effectId": "edm1n9GHdjW7wG4t"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"ErohtqiP5KtpvepR": {
 				"name": "Extraplanar Exclusion Zone",
 				"activation": {
 					"type": "action",
 					"cost": 1
 				},
-				"consumers": {},
-				"rolls": {
-					"cxH3KoBpJqV1Wx0K": {
-						"type": "savingThrow",
+				"consumers": {
+					"tzAcalDVvHqce0QO": {
+						"type": "actionUses",
 						"default": true,
-						"ability": "wis"
+						"quantity": 1
 					}
 				},
-				"prompts": {},
+				"rolls": {},
+				"prompts": {
+					"S9AIZfeDUpZ4lNvE": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "int"
+						}
+					}
+				},
 				"uses": {
 					"value": 1,
 					"max": "1",
 					"per": "shortRest",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 15,
+					"placeTemplate": true
+				},
+				"ranges": {
+					"7C7TPNBaCQnkQcPZ": {
+						"range": "self"
 					}
 				},
 				"duration": {
 					"unit": "minute",
 					"value": 10
-				},
-				"ranges": {},
-				"area": {
-					"shape": "sphere",
-					"quantity": 1,
-					"radius": 15,
-					"placeTemplate": true
 				}
 			}
 		},
@@ -80,26 +123,31 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "savant",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/defensive/shield-barrier-glowing-blue.webp",
-			"origin": "Item.dgx6o34a3l7oomi0",
+			"origin": "Item.OmA3OIwmPT53isaX",
 			"flags": {
 				"a5e": {
 					"sort": 0,
-					"transferType": "onUse"
+					"transferType": "onUse",
+					"actionId": "zDMJzEv59kQyONGX",
+					"applyToSelf": true
 				}
 			},
 			"transfer": false,
 			"name": "Extraplanar Defense",
-			"_id": "Xc6Rood7LeA2ptt1",
+			"img": "icons/magic/defensive/shield-barrier-glowing-triangle-magenta.webp",
+			"_id": "edm1n9GHdjW7wG4t",
+			"type": "base",
+			"system": {},
 			"changes": [
 				{
-					"key": "system.attributes.ac",
-					"mode": 2,
+					"key": "system.attributes.ac.changes.bonuses.value",
 					"value": "3",
+					"mode": 2,
 					"priority": null
 				}
 			],
@@ -113,21 +161,31 @@
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<p>When you are attacked by an aberration, celestial, fey, fiend, or undead, you may use your reaction to increase your AC by 3, potentially canceling the attack.</p>",
+			"tint": "#ffffff",
 			"statuses": [],
-			"folder": null,
+			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.25",
+				"createdTime": 1725040994683,
+				"modifiedTime": 1725041015036,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "dgx6o34a3l7oomi0",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1725040758304,
+		"modifiedTime": 1725041133579,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "dgx6o34a3l7oomi0"
 }

@@ -1,0 +1,159 @@
+{
+	"name": "Terrifying Shot",
+	"type": "feature",
+	"img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"5bHqoBhQRZuNzhDi": {
+				"name": "Terrifying Shot",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"H3nXgle4Gx7TUbwX": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"kSAjnTdUDw1usrpw": {
+						"type": "effect",
+						"default": true,
+						"effectId": "iZLa79efWO5oJhq3"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"fd1DxR9rQOR912Sx": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 30,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>When fired, this ammunition emits an unearthly, baleful shriek audible up to 300 feet away which chills the blood of those close to you. Creatures other than you within 30 feet of you when you fire the ammunition who are not deafened must make a Wisdom saving throw against your spell save DC or be frightened of you for one minute. An affected creature may repeat the save at the end of each of its turn, ending the effect on a success. Once a creature has succeeded on a save against your Terrifying Shot, it is immune to its effects for 24 hours.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "ranger",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.KQRhhN5pafSSG9Ph",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "5bHqoBhQRZuNzhDi",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
+			"_id": "iZLa79efWO5oJhq3",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"frightened\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"frightened"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723667020210,
+				"modifiedTime": 1723667059569,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.23",
+		"createdTime": 1723666924900,
+		"modifiedTime": 1723667020247,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "D1dzRovkurgY5sL3"
+}

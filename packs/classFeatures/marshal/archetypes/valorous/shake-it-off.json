@@ -15,8 +15,33 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>If a friendly creature within the range of your Commanding Presence feature deals damage to the source of an effect that has caused it to become confused, frightened, or rattled, it gains an additional free saving throw against the effect, ending it on a success. If the creature successfully saves, it also regains hit points equal to 1d4+your Charisma modifier.</p>",
+		"actions": {
+			"DhOS9SUmwzxkEisG": {
+				"name": "Shake It Off",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"GQUuZT1eU9WS6AJH": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d4 + @cha.mod"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>If a friendly creature within the range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} feature deals damage to the source of an effect that has caused it to become confused, frightened, or rattled, it gains an additional free saving throw against the effect, ending it on a success. If the creature successfully saves, it also regains hit points equal to 1d4 + your Charisma modifier.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitThunderOfWar",
@@ -44,13 +69,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "marshal",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "x6latr2glsx31hej",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723580504119,
+		"modifiedTime": 1723580652320,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "x6latr2glsx31hej"
 }

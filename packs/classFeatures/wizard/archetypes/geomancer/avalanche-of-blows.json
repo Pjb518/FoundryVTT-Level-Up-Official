@@ -14,7 +14,7 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>At 6th level when you deal damage with an attack or spell that benefits from your Crushing Boulder ability, you deal additional magical bludgeoning damage equal to your Intelligence modifier.</p>",
+		"description": "<p>At 6th level when you deal damage with an attack or spell that benefits from your @UUID[Compendium.a5e.a5e-class-features.Item.3rh8bdmg7yzz6hlv]{Crushing Boulder} ability, you deal additional magical bludgeoning damage equal to your Intelligence modifier.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "mysteriousAndMarvelousMiscellanea",
@@ -29,7 +29,25 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"8DnWkyWnTwMCH4j6": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "8DnWkyWnTwMCH4j6",
+				"label": "Avalanche of Blows",
+				"context": {
+					"attackTypes": [
+						"meleeSpellAttack",
+						"meleeWeaponAttack"
+					],
+					"default": false
+				},
+				"damageType": "bludgeoning",
+				"bonus": "@int.mod"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -42,15 +60,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "wizard",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "7qpsuvbfntvelwqy",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727177526745,
+		"modifiedTime": 1727177597446,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "7qpsuvbfntvelwqy"
 }

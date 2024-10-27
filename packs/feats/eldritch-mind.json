@@ -1,0 +1,170 @@
+{
+	"folder": null,
+	"name": "Eldritch Mind",
+	"type": "feature",
+	"img": "icons/magic/perception/third-eye-blue-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"8Igg3SZstivvoLVZ": {
+				"name": "Read Your Mind",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"HxW6vyzc13K1tgKx": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "(@int.mod)d8",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {
+					"VIWiW1jIONLgfLzm": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					},
+					"jkqBlGAO9RXERfgl": {
+						"type": "effect",
+						"default": true,
+						"effectId": "cvc0e6MXVdnr6QuT"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You have fully integrated the gifts of your mind and the gifts of your patron and can unleash devastating power at will. You gain the following benefits:</p>\n<ul>\n<li>Your Intelligence score increases by 1, to a maximum of 20.</li>\n<li>You can expend you psionic focus to reroll an attack roll or damage roll with your @UUID[Compendium.a5e.a5e-class-features.Item.ulmcmf3ofmpzmgzf]{Eldritch Blast} or to force a creature to reroll a save against your @UUID[Compendium.a5e.a5e-class-features.Item.gd79c49oej8xagdv]{Eldritch Disturbance}.</li>\n<li>When you would suffer a level of strife, you can instead opt to suffer a level of fatigue in its place.&nbsp;</li>\n<li>Creatures attempting to read your mind suffer a number of d8s of psychic damage equal to your Intelligence modifier (minimum 1) and must make a Charisma save against your spell save DC or be stunned until the end of their next turn. You are aware of the contact and can suppress this effect before it triggers (no action required), if desired.</li>\n<li>You gain a benefit based on your pact boon:\n<ul>\n<li>If you chose @UUID[Compendium.a5e.a5e-class-features.Item.6co2rqjh9npjg3eb]{Pact of the Blade}, your pact weapon deals an additional 1d6 points of psychic damage while you are psychically focused.</li>\n<li>If you chose @UUID[Compendium.a5e.a5e-class-features.Item.f2mfiz8spijbzs6h]{Pact of the Chain}, while you are psychically focused, you gain the benefits of the speak with animals spell, except it can affect monstrosities and aberrations as well as beasts.</li>\n<li>If you chose @UUID[Compendium.a5e.a5e-class-features.Item.2dp9b4a11fuxjwbc]{Pact of the Tome}, you choose two additional cantrips that deal psychic, lightning, or force damage and learn them. You also learn a new power of your choice. You must meet the prerequisites for the new power.</li>\n</ul>\n</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"rUCWgNsD4biElBfL": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Eldritch Mind",
+				"bonus": "1",
+				"abilities": {
+					"base": [
+						"int"
+					]
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				}
+			}
+		},
+		"prerequisite": "Mental Contract feat",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.M7VDXjeMcLrqxmNv",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "8Igg3SZstivvoLVZ",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"_id": "cvc0e6MXVdnr6QuT",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [
+				"stunned"
+			],
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			},
+			"img": "icons/magic/perception/third-eye-blue-red.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727703048025,
+		"modifiedTime": 1728405216755,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "OBUb129qs7Ld68HH"
+}

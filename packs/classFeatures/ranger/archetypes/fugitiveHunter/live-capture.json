@@ -16,8 +16,43 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>You learn to bring in your targets alive and safely.&nbsp;</p><p>As an action, as long as you have a coil of at least 10 feet of rope handy, you can hog-tie a creature that is <em>unconscious</em>, <em>incapacitated</em>, <em>paralyzed</em>, <em>stunned</em>, or that has surrendered (and therefore isn’t resisting). A hog-tied creature can free itself as if grappled; the DC for your hog-tie is your maneuver DC. However, escaping a hog-tie is much more taxing than escaping a grappling opponent. A creature that attempts to escape takes bludgeoning damage equal to 1d6 + the ability modifier it used to attempt to escape (success or failure), on a failed check gains a level of fatigue, and can’t attempt to escape again for an hour. Each repeated attempt comes with the same consequences, and a creature with 4 or more levels of fatigue can no longer attempt to escape the hog-tie. A creature reduced to 0 hit points by a hog-tie automatically stabilizes. A creature with a cutting implement can free a hog-tied creature as an action.</p><p>You also gain proficiency with the poisoner’s kit. When you make a poison&nbsp; that renders the victim unconscious but does not do poison damage (such as pseudodragon poison, oil of taggit, or couatl venom), you can craft that poison at half cost.&nbsp;</p><p>Finally, the escape DC of any nets you deploy match your maneuver DC. (Nets which miss their target, are escaped from, dropped, or remain undeployed after 10 minutes no longer benefit from this effect.).</p>",
+		"actions": {
+			"13GqdGbZBO91nOJt": {
+				"name": "Live Capture",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"Dt5TlvOMYatrnVjD": {
+						"type": "generic",
+						"default": false,
+						"label": "Strength Damage",
+						"formula": "1d6 + @str.mod"
+					},
+					"eelYK08IBCUwcnsO": {
+						"type": "generic",
+						"default": false,
+						"label": "Dexterity Damage",
+						"formula": "1d6 + @dex.mod"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You learn to bring in your targets alive and safely.&nbsp;</p>\n<p>As an action, as long as you have a coil of at least 10 feet of rope handy, you can hog-tie a creature that is unconscious, incapacitated, paralyzed, stunned, or that has surrendered (and therefore isn&rsquo;t resisting). A hog-tied creature can free itself as if grappled; the DC for your hog-tie is your maneuver DC. However, escaping a hog-tie is much more taxing than escaping a grappling opponent. A creature that attempts to escape takes bludgeoning damage equal to 1d6 + the ability modifier it used to attempt to escape (success or failure), on a failed check gains a level of fatigue, and can&rsquo;t attempt to escape again for an hour. Each repeated attempt comes with the same consequences, and a creature with 4 or more levels of fatigue can no longer attempt to escape the hog-tie. A creature reduced to 0 hit points by a hog-tie automatically stabilizes. A creature with a cutting implement can free a hog-tied creature as an action.</p>\n<p>You also gain proficiency with the poisoner&rsquo;s kit. When you make a poison&nbsp; that renders the victim unconscious but does not do poison damage (such as @UUID[Compendium.a5e.a5e-adventuring-gear.Item.9rnddpveoaaq90pq]{Pseudodragon Poison},@UUID[Compendium.a5e.a5e-adventuring-gear.Item.tycmy6jbdx4czdze]{Oil of Taggit}, or @UUID[Compendium.a5e.a5e-adventuring-gear.Item.f3kfkteycadsnlvf]{Couatl Venom}), you can craft that poison at half cost.&nbsp;</p>\n<p>Finally, the escape DC of any nets you deploy match your maneuver DC. (Nets which miss their target, are escaped from, dropped, or remain undeployed after 10 minutes no longer benefit from this effect.).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -32,19 +67,40 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"zmdFvhgLkFDP9BOl": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "zmdFvhgLkFDP9BOl",
+				"label": "Live Capture",
+				"keys": {
+					"base": [
+						"poisonersKit"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "tool"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "ranger"
+		"classes": "ranger",
+		"class": ""
 	},
-	"_id": "vxf08tpqoqaz02p7",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724615724072,
+		"modifiedTime": 1724615971506,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "vxf08tpqoqaz02p7"
 }

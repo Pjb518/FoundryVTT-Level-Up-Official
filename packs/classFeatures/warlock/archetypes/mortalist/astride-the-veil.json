@@ -14,10 +14,10 @@
 			"requiresUnarmored": false
 		},
 		"actions": {},
-		"description": "<p>When you take this archetype at 1st level, your special connection to life and death grants you some ability to manipulate the forces of both, as well as wielding death’s traditional arsenal. You gain proficiency with scythes, with the Religion skill and gain a Religion skill specialty in Mortality. Additionally, choose one of the following:</p><h3><strong>Mortal Coil</strong></h3><p>You have learned to draw strength from the sufferings of a mortal existence. You learn the spare the dying cantrip and it does not count against your cantrips known. Additionally, whenever you fail a saving throw and suffer a condition as a result, you gain temporary hit points equal to twice your proficiency bonus.</p><h3><strong>Vital Curse</strong></h3><p>You can use a bonus action to place a curse on a creature you can see within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated. The curse has the following effects:</p><ul><li><p>When you deal damage against the cursed creature, it takes an additional 1d4 necrotic damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p></li><li><p>You gain a pool of mortality dice, which begins empty. Each die represents a sliver of control over life and death. Whenever the cursed creature gains hit points, temporary hit points, rage hit points, or when a condition on it ends, add one mortality die to this pool. When a creature you can see regains hit points, you can roll a mortality die and add it to the hit points the creature regains.&nbsp;</p></li></ul><p>Once you have used this feature, you can’t use it again until you finish a short or long rest.</p>",
+		"description": "<p>When you take this archetype at 1st level, your special connection to life and death grants you some ability to manipulate the forces of both, as well as wielding death&rsquo;s traditional arsenal. You gain proficiency with scythes, with the Religion skill and gain a Religion skill specialty in Mortality. Additionally, choose one of the following:</p>\n<h2>Mortal Coil</h2>\n<p>You have learned to draw strength from the sufferings of a mortal existence. You learn the spare the dying cantrip and it does not count against your cantrips known. Additionally, whenever you fail a saving throw and suffer a condition as a result, you gain temporary hit points equal to twice your proficiency bonus.</p>\n<h2>Vital Curse</h2>\n<p>You can use a bonus action to place a curse on a creature you can see within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated. The curse has the following effects:</p>\n<ul>\n<li>\n<p>When you deal damage against the cursed creature, it takes an additional 1d4 necrotic damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>\n</li>\n<li>\n<p>You gain a pool of mortality dice, which begins empty. Each die represents a sliver of control over life and death. Whenever the cursed creature gains hit points, temporary hit points, rage hit points, or when a condition on it ends, add one mortality die to this pool. When a creature you can see regains hit points, you can roll a mortality die and add it to the hit points the creature regains.&nbsp;</p>\n</li>\n</ul>\n<p>Once you have used this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "mortalist",
+		"source": "multiclassersManual",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -29,7 +29,86 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"CevHSZUEMffIbwW0": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "CevHSZUEMffIbwW0",
+				"label": "Weapon Proficiency",
+				"keys": {
+					"base": [
+						"scythe"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "weapon",
+				"img": "",
+				"isExpertise": false
+			},
+			"WntBTzFUwVCsTYDs": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "WntBTzFUwVCsTYDs",
+				"label": "Skill Proficiency",
+				"keys": {
+					"base": [
+						"rel"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill",
+				"img": "",
+				"isExpertise": false
+			},
+			"Gl8Hx65dreAklpRd": {
+				"grantType": "skillSpecialty",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "Gl8Hx65dreAklpRd",
+				"label": "Astride the Veil",
+				"specialties": {
+					"base": [
+						"morality"
+					],
+					"options": [],
+					"total": 0
+				},
+				"skill": "rel",
+				"img": ""
+			},
+			"BiRKmq2NH8JjIIqA": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "BiRKmq2NH8JjIIqA",
+				"label": "Astride the Veil",
+				"features": {
+					"total": 1,
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.v74915sdd9gvcej7",
+							"name": "Mortal Coil",
+							"img": "icons/magic/death/skull-flames-white-blue.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.n0xie77fjyy8xhf1",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -42,15 +121,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "warlock",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "xcqjjyartm5oku9f",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727098096457,
+		"modifiedTime": 1727098187357,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "xcqjjyartm5oku9f"
 }

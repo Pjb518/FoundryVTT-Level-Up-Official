@@ -15,11 +15,64 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Beginning at level 9, your continued exposure to toxins and chemicals alters your physiology. You are resistant to poison damage and your blood becomes toxic to other creatures. Whenever another creature hits you with a bite attack, it takes 2d6 poison damage.  You can also use your own blood as a means to fuel your abilities. If you would use basic poison, you may spend your reaction to deal 1d6 points of necrotic damage to yourself, allowing you to use your own blood as a single dose of basic poison.</p>",
+		"actions": {
+			"NvJEN4D2KcRoapKs": {
+				"name": "Toxic Essence",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"lRP9naaIlicEGriE": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d6",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"TOqcydUy9bdbsCmt": {
+				"name": "Blood Poison",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"XUWF8rjmNKRr8Eun": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6",
+						"damageType": "necrotic"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Beginning at level 9, your continued exposure to toxins and chemicals alters your physiology. You are resistant to poison damage and your blood becomes toxic to other creatures. Whenever another creature hits you with a bite attack, it takes 2d6 poison damage. You can also use your own blood as a means to fuel your abilities. If you would use basic poison, you may spend your reaction to deal 1d6 points of necrotic damage to yourself, allowing you to use your own blood as a single dose of @UUID[Compendium.a5e.a5e-adventuring-gear.Item.31kqyuyw2vkmyd4l]{Basic Poison}.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "thematicToolkitVenomousShadow",
+		"source": "multiclassersManual",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -31,7 +84,24 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"UY8ieS9ATtErY39w": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "UY8ieS9ATtErY39w",
+				"label": "Toxic Essence",
+				"traits": {
+					"base": [
+						"poison"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -44,13 +114,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "rogue",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "jbanpoo5svzbc1me",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724585284231,
+		"modifiedTime": 1724585395388,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "jbanpoo5svzbc1me"
 }

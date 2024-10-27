@@ -12,14 +12,52 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"M1kwQs8jDRQgNm5B": {
+				"name": "Punish the Guilty",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"I0gxF2rqbwqe4Czo": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"OpcuHI0mOdWWkUHv": {
+						"type": "effect",
+						"default": true,
+						"effectId": "i2goo8mwhwByuUqD"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
 		"description": "<p>At 7th level, you become especially effective at bringing down the wicked. As a bonus action, you may designate a creature for which you have a warrant, that you have marked with your Render Verdict feature, that has an Evil alignment, and/or that is of the aberration, fey, fiend, or undead types. You have advantage on attacks against that creature and on ability checks to capture it for one minute. Once you have used this feature a number of times equal to your Charisma modifier (minimum once) you must finish a short or long rest before you can do so again.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitJudgeJuryAndExecutioner",
 		"uses": {
-			"value": 1,
-			"max": "1",
+			"value": 0,
+			"max": "max(@cha.mod,1)",
 			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
@@ -41,16 +79,67 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"img": "icons/magic/symbols/rune-sigil-red-orange.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.t5fmSODD7W82IiTc",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "M1kwQs8jDRQgNm5B",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Punish the Guilty",
+			"img": "icons/magic/symbols/rune-sigil-red-orange.webp",
+			"_id": "i2goo8mwhwByuUqD",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You may designate a creature for which you have a warrant, that you have marked with your Render Verdict feature, that has an Evil alignment, and/or that is of the aberration, fey, fiend, or undead types. You have advantage on attacks against that creature and on ability checks to capture it for one minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723550183814,
+				"modifiedTime": 1723550222000,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "dz3huv9u6fe1ekou",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723550149216,
+		"modifiedTime": 1723550242254,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "dz3huv9u6fe1ekou"
 }

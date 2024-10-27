@@ -14,16 +14,21 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"cHIk6LOSHL0Dhfhp": {
-				"name": "Smite the Unwelcome",
-				"activation": {
-					"type": "special"
-				},
+			"1k4sanhMyYzJreN6": {
+				"name": "Kill or Banish",
+				"activation": {},
 				"consumers": {
-					"hVPElPIlzXVK2ecX": {
+					"3pa49wqEphFcPg0G": {
 						"type": "itemUses",
 						"default": true,
 						"quantity": 1
+					},
+					"hqhJYtPFlP9Va8Jm": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.divine-smite-uses",
+						"resource": "classResource",
+						"quantity": -1
 					}
 				},
 				"rolls": {},
@@ -34,15 +39,14 @@
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				},
-				"duration": {
-					"unit": "instantaneous"
 				}
 			}
 		},
-		"description": "<p>At 7th level your divine smites deal an additional 1d8 damage against any creature turned by your Turn the Outsider ability. Whenever you kill or banish such a creature, you may regain a use of your divine smite. Once you have regained a number of divine smites in this fashion equal to your Charisma modifier you may not do so again until you finish a long rest.</p>",
+		"description": "<p>At 7th level your @UUID[Compendium.a5e.a5e-class-features.Item.c6aiq8cd90fo3ry1]{Divine Smites} deal an additional 1d8 damage against any creature turned by your Turn the Outsider ability. Whenever you kill or banish such a creature, you may regain a use of your divine smite. Once you have regained a number of divine smites in this fashion equal to your Charisma modifier you may not do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "heroesOldAndNew",
@@ -57,7 +61,25 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"l8iZaEDivESe3n9C": {
+				"grantType": "damage",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "l8iZaEDivESe3n9C",
+				"label": "Smite the Unwelcome",
+				"bonus": "1d8",
+				"damageType": "radiant",
+				"context": {
+					"attackTypes": [
+						"meleeWeaponAttack",
+						"rangedWeaponAttack"
+					],
+					"default": false
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -70,15 +92,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "i58jy3gg8yo4mtdl",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723552994247,
+		"modifiedTime": 1723553119917,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "i58jy3gg8yo4mtdl"
 }

@@ -1,0 +1,286 @@
+{
+	"name": "Channel Divinity",
+	"type": "feature",
+	"img": "icons/magic/control/debuff-energy-hold-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"MTgZyj7iIFxecOEy": {
+				"name": "Channel Divinity: Control Undead",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"CzcRA6smr7aPT4On": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"prompts": {
+					"hfwbUk09feVe6OLC": {
+						"ability": "cha",
+						"onSave": "",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"L6jF15w9cMfPL8JR": {
+						"type": "effect",
+						"default": true,
+						"effectId": "T4mBWeKaI1h0bYP9"
+					}
+				},
+				"consumers": {
+					"5Xkv4sD2oNqMKEe6": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				}
+			},
+			"6hRsp0nkCQdGRdL3": {
+				"name": "Channel Divinity: Unnatural Dread",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"ylyisM6pb7oRhAXg": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.channel-divinity",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"iFYZenbImSaEpwZH": {
+						"ability": "wis",
+						"onSave": "",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"type": "savingThrow"
+					},
+					"rXOpw3RWmdfEYq4u": {
+						"type": "effect",
+						"default": true,
+						"effectId": "gftdS11JkywGjAUX"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"nVcBtbf18WV1QywI": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"placeTemplate": true,
+					"quantity": 1,
+					"radius": 30
+				},
+				"target": {
+					"quantity": 1,
+					"type": ""
+				},
+				"img": "icons/magic/control/fear-fright-shadow-monster-green.webp"
+			},
+			"A1qdKJs2RsVikQSE": {
+				"name": "Command Undead",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 3rd level when you choose this archetype, you gain the following two Channel Divinity options.</p>\n<h2>Control Undead</h2>\n<p>You can use an action to attempt to assert your control over one undead creature you can see within 30 feet of you. The undead makes a Charisma saving throw, or finds itself loyal to you.</p>\n<p>It remains under your control for a number of rounds equal to your proficiency bonus, or until you use this feature again. The effect ends immediately if you or your friends cause it harm, or if you command it to perform obviously suicidal actions.</p>\n<p>The undead has its own turn, rolling its own initiative. While it is within 60 feet, you can use a bonus action to mentally command the undead. You may decide the action the undead takes and where it moves during its next turn, or you can issue a general command, such as guarding an area. If not given a command, the undead only defends itself.</p>\n<p>The undead continues to follow a command until its task is complete.</p>\n<p>An undead whose challenge rating is higher than your herald level automatically succeeds on its saving throw.</p>\n<h2>Unnatural Dead</h2>\n<p>As an action, you focus your energy on creating an aura around you that turns ones deepest fears into a reality.</p>\n<p>Each creature of your choice that can see you, and is within 30 feet of you must make a Wisdom saving throw.</p>\n<p>On a failed save, the target is frightened of you for 1 minute. If a creature frightened by this effect ends its turn more than 30 feet away from you, it can attempt another Wisdom saving throw to end the effect on it.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "acesAdventuringGuideToNecromancy",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "herald",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.V9v4sOMDXpVu8BA3",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "MTgZyj7iIFxecOEy"
+				}
+			},
+			"transfer": false,
+			"name": "Loyal",
+			"img": "icons/magic/control/debuff-energy-hold-green.webp",
+			"_id": "T4mBWeKaI1h0bYP9",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>It remains under your control for a number of rounds equal to your proficiency bonus, or until you use this feature again. The effect ends immediately if you or your friends cause it harm, or if you command it to perform obviously suicidal actions.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723496829263,
+				"modifiedTime": 1723496866055,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.V9v4sOMDXpVu8BA3",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "6hRsp0nkCQdGRdL3",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frightened",
+			"img": "icons/magic/control/fear-fright-shadow-monster-green.webp",
+			"_id": "gftdS11JkywGjAUX",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A frightened creature has disadvantage on ability checks and attack rolls while it is able to see the source of its fear.</li>\n<li>A frightened creature can't willingly move closer to the source of its fear.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.22",
+				"createdTime": 1723496954154,
+				"modifiedTime": 1723496986212,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.330",
+		"systemId": "a5e",
+		"systemVersion": "0.19.22",
+		"createdTime": 1723496573130,
+		"modifiedTime": 1723497804760,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "yi2dnz055jv34hfp"
+}

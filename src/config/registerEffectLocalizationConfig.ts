@@ -112,6 +112,7 @@ export default function registerEffectLocalizationConfig() {
     'system.attributes.attunement.current': 'A5E.effects.keys.attunementCurrent',
     'system.attributes.attunement.max': 'A5E.effects.keys.attunementMax',
     'system.attributes.casterLevel': 'A5E.effects.keys.casterLevel',
+    'system.attributes.corruption': 'A5E.effects.keys.corruption',
     'system.attributes.death.failure': 'A5E.effects.keys.deathSaveFailures',
     'system.attributes.death.success': 'A5E.effects.keys.deathSaveSuccesses',
     'system.attributes.exertion.current': 'A5E.effects.keys.exertionCurrent',
@@ -135,6 +136,7 @@ export default function registerEffectLocalizationConfig() {
     'system.attributes.hp.value': 'A5E.effects.keys.hitPoints.current',
     'system.attributes.hp.max': 'A5E.effects.keys.hitPoints.max',
     'system.attributes.hp.temp': 'A5E.effects.keys.hitPoints.temp',
+    'system.attributes.inebriated': 'A5E.effects.keys.inebriated',
     'system.attributes.initiative.ability': 'A5E.effects.keys.initiativeAbility',
     'system.attributes.initiative.expertiseDice': 'A5E.effects.keys.initiativeExpertiseDice',
     'system.attributes.inspiration': 'A5E.effects.keys.inspiration',
@@ -412,6 +414,7 @@ export default function registerEffectLocalizationConfig() {
     '@token.light.luminosity': 'A5E.effects.keys.token.light.luminosity',
     '@token.light.saturation': 'A5E.effects.keys.token.light.saturation',
     '@token.light.shadows': 'A5E.effects.keys.token.light.shadows',
+    '@token.light.negative': 'A5E.effects.keys.token.light.negative',
 
     '@token.texture.src': 'A5E.effects.keys.token.texture.src',
     '@token.texture.scaleX': 'A5E.effects.keys.token.texture.scaleX',

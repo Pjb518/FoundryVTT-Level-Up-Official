@@ -1,7 +1,7 @@
 {
 	"name": "Hurl Through Hell",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/movement/trail-streak-impact-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -19,13 +19,13 @@
 			"nYFaJCtdf9PyWHIr": {
 				"name": "Hurl Through Hell",
 				"activation": {
-					"cost": "",
-					"type": "special",
+					"cost": 1,
+					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
-					"unit": "instantaneous",
-					"value": ""
+					"unit": "",
+					"value": 1
 				},
 				"area": {
 					"shape": "",
@@ -42,21 +42,24 @@
 						"damageType": "psychic",
 						"formula": "10d10",
 						"name": "Psychic",
-						"type": "damage"
+						"type": "damage",
+						"default": false
 					},
 					"XpErWjnzaGrwwvUx": {
 						"canCrit": false,
 						"damageType": "fire",
 						"formula": "10d10",
 						"name": "Fire",
-						"type": "damage"
+						"type": "damage",
+						"default": false
 					},
 					"VRz9EzVLmoqHYraf": {
 						"canCrit": false,
 						"damageType": "cold",
 						"formula": "10d10",
 						"name": "Cold",
-						"type": "damage"
+						"type": "damage",
+						"default": false
 					}
 				},
 				"consumers": {
@@ -66,14 +69,14 @@
 				}
 			}
 		},
-		"description": "<p>At 14th level, you can condemn a creature to see Hell in all its infernal glory. When you hit a creature with an attack, you can use this feature to instantly fling it through the most horrific vistas of the multiverse. The creature disappears&nbsp; until the end of your next turn, reppearing in the space it previously occupied, or the nearest unoccupied space. If the creature is not a fiend, it takes [[/r 10d10]] psychic, fire, or cold damage (your choice). Once you have used this feature, you can’t do so again until you finish &nbsp;long rest.</p>",
+		"description": "<p>At 14th level, you can condemn a creature to see Hell in all its infernal glory. When you hit a creature with an attack, you can use this feature to instantly fling it through the most horrific vistas of the multiverse. The creature disappears&nbsp; until the end of your next turn, reppearing in the space it previously occupied, or the nearest unoccupied space. If the creature is not a fiend, it takes 10d10 psychic, fire, or cold damage (your choice). Once you have used this feature, you can&rsquo;t do so again until you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
 			"value": 1,
 			"max": "1",
-			"per": "shortRest",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -94,13 +97,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "warlock",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "2ohgi9lyab1iwb1e",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726745769223,
+		"modifiedTime": 1726745877607,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "2ohgi9lyab1iwb1e"
 }

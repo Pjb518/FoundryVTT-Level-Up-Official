@@ -1,0 +1,275 @@
+{
+	"folder": null,
+	"name": "Spell Potion Brewer",
+	"type": "feature",
+	"img": "icons/tools/laboratory/vial-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ZivNP7ev6uSj6ugs": {
+				"name": "Brew Spell Potion",
+				"activation": {},
+				"consumers": {
+					"7lVD8k6vpI25cNeV": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"89QCcZIiRNzlUSCx": {
+				"name": "Alluring Vapors",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"dN3lIicgOV4cfFr0": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"BQ6ZHYUVSwpnwzDm": {
+						"range": "self"
+					}
+				},
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				}
+			},
+			"WkgspibwhlcgHSeX": {
+				"name": "Bracing Vitamins",
+				"activation": {},
+				"consumers": {
+					"TgLlAeSUYLtPvpCf": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"IlHcVWJ8vHVaA4Js": {
+						"type": "effect",
+						"default": true,
+						"effectId": "apvESzUcv4dHjzLg"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"sE9KcdqSktQhuk3f": {
+				"name": "Contact Intoxicants",
+				"activation": {},
+				"consumers": {
+					"XBv7IPyyRLLXSKkH": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"LTjROtgdqgGS0ZVV": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"wL4WDbDofsmEZ1Fi": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"joaGrVvbAYdxND5v": {
+						"range": "medium"
+					}
+				}
+			},
+			"vqtpuHsjhccXOJ0P": {
+				"name": "Invigorating Stimulants",
+				"activation": {},
+				"consumers": {
+					"x0opnT9DklbbK05n": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"Utc1W2gEzaEcHCi2": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "2d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>When you select this archetype at 3rd level, you gain the ability to create spell potions. Whenever you finish a long rest, you may brew a number of spell potions equal to your proficiency bonus. Each spell potion you brew in this way distills the effects of an artificer spell you know of your choice into a potion magic item. When drunk, your spell potions have the effect of your chosen artificer spell as if you cast the spell targeting the drinker at your maximum artificer spell level. You can only brew spells that target a creature, that have a casting time of action or bonus action in this way. You make any choices required by the distilled spell when another creature drinks the spell potion. If your spell potions aren&rsquo;t drunk by the time you finish your next long rest, they decay into useless sludge.</p>\n<p>Whenever you brew a spell potion, you may add one of the following alchemical mixes that modifies the potion&rsquo;s effects.</p>\n<h2>Alluring Vapors</h2>\n<p>The stopper on this potion can be pulled as a bonus action. When pulled an overwhelming scent fills a 10-foot area around it and any creatures other than the brewer in that area must make a Wisdom saving throw. On a failed save creatures are magically compelled to attempt to acquire and drink the potion to the best of their abilities during their next turn. Creatures immune to the charmed condition are immune to this effect and the effect immediately ends if the potion is drunk by another creature.</p>\n<h2>Bracing Vitamins</h2>\n<p>The potion also grants the drinker a +1 AC bonus for 1 minute.</p>\n<h2>Contact Intoxicants</h2>\n<p>The potion can be used as a simple thrown weapon with a range of 20/60. Creatures hit by the potion are affected by it as if they drank the potion.</p>\n<h2>Invigorating Stimulants</h2>\n<p>The potion also provides the drinker with 2d4 temporary hit points.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "advancedArtificers",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "artificerRevised"
+	},
+	"effects": [
+		{
+			"origin": "Item.Mrrkm5qpwBwFOTro",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "WkgspibwhlcgHSeX",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Bracing Vitamins",
+			"img": "icons/tools/laboratory/vial-orange.webp",
+			"_id": "apvESzUcv4dHjzLg",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The potion also grants the drinker a +1 AC bonus for 1 minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727362923887,
+				"modifiedTime": 1727362941888,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.26",
+		"createdTime": 1727362486004,
+		"modifiedTime": 1727363011380,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "gcxFL2KIZNgroulO"
+}

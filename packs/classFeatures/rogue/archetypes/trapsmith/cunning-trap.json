@@ -1,7 +1,7 @@
 {
 	"name": "Cunning Trap",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/commodities/tech/metal-panel.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,8 +15,38 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Starting at 3rd level, you can use your Cunning Action to spread caltrops or ball bearings, or to throw a vial containing holy water, acid, or the like. Vials are simple weapons for you and have the thrown property (20/40 feet).</p>",
+		"actions": {
+			"DmZr73rjq0t2iiTH": {
+				"name": "Cunning Action",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"ClDtyn53skQu7WAI": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "classResources.cunning-action",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Starting at 3rd level, you can use your @UUID[Compendium.a5e.a5e-class-features.Item.d8k1x28y4vn6h3q5]{Cunning Action} to spread @UUID[Compendium.a5e.a5e-adventuring-gear.Item.txxm6r8vc8v7i81a]{Caltrops} or @UUID[Compendium.a5e.a5e-adventuring-gear.Item.g7kjz2fok0p8yzrh]{Ball Bearings}, or to throw a vial containing @UUID[Compendium.a5e.a5e-adventuring-gear.Item.sh0462lz1jwwm4rm]{Holy Water}, @UUID[Compendium.a5e.a5e-adventuring-gear.Item.b0z0yz39b3qy3hdo]{Acid}, or the like. Vials are simple weapons for you and have the thrown property (20/40 feet).</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -44,13 +74,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "rogue",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "7fdtmd5et7dih3ri",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.24",
+		"createdTime": 1724210077263,
+		"modifiedTime": 1724210197874,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "7fdtmd5et7dih3ri"
 }

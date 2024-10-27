@@ -16,18 +16,25 @@
 		},
 		"actions": {
 			"B7XP1K8e2FzW5rVI": {
-				"name": "Use Feature",
+				"name": "Overwhelming Visions",
 				"activation": {
 					"type": "action",
 					"cost": 1
 				},
-				"consumers": {},
+				"consumers": {
+					"YoWIZNaQIic91w3J": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
 				"rolls": {
 					"EiSCODSa8Yc5cyuI": {
 						"type": "damage",
 						"default": true,
 						"damageType": "psychic",
-						"formula": "8d8"
+						"formula": "8d8",
+						"canCrit": false
 					}
 				},
 				"prompts": {
@@ -59,6 +66,10 @@
 					"bdPuAfm6xDKaux2Q": {
 						"range": "medium"
 					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
 				}
 			}
 		},
@@ -67,9 +78,9 @@
 		"secretDescription": "",
 		"source": "dungeonDelversGuide",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -90,21 +101,25 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "warlock",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/magic/time/hourglass-tilted-glowing-gold.webp",
-			"origin": "Item.nkxu4gid9wknvoyx",
+			"origin": "Item.maBQwcglmahG9uqs",
 			"flags": {
 				"a5e": {
 					"sort": 0,
 					"transferType": "onUse",
-					"actionId": "B7XP1K8e2FzW5rVI"
+					"actionId": "B7XP1K8e2FzW5rVI",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
 				}
 			},
 			"transfer": false,
-			"name": "Stun",
+			"name": "Stunned",
 			"_id": "xDX1f3GBvG72O3mg",
 			"changes": [
 				{
@@ -119,28 +134,41 @@
 				"startTime": null,
 				"seconds": null,
 				"combat": null,
-				"rounds": null,
-				"turns": null,
+				"rounds": 1,
+				"turns": 1,
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
 			"statuses": [
 				"stunned"
 			],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": 1726749266947,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/time/hourglass-tilted-glowing-gold.webp",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		}
 	],
 	"flags": {},
-	"_id": "nkxu4gid9wknvoyx",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726749184879,
+		"modifiedTime": 1726749293032,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "nkxu4gid9wknvoyx"
 }

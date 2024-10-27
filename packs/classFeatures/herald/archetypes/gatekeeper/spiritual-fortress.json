@@ -13,7 +13,44 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"EibrjJttVQAO0oWe": {
+				"name": "Spiritual Fortress",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "When you succeed on an Intelligence, Wisdom, or Charisma saving throw"
+				},
+				"consumers": {
+					"qUZlpO42ykRxjj1F": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"KRj834cOVINSx89Z": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "@classResources.divine-smite-damage",
+						"damageType": "radiant"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 15th level you gain an expertise die on all Intelligence, Wisdom, and Charisma saving throws. When you succeed on such a saving throw, you may use your reaction to deal damage equal to your divine smite to the creature that forced you to make the saving throw. Once you have done so you cannot do so again until you finish a short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -29,7 +66,26 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"k1s8YJA7QTsaKIjB": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "k1s8YJA7QTsaKIjB",
+				"label": "Spiritual Fortress",
+				"keys": {
+					"base": [
+						"int",
+						"wis",
+						"cha"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "abilitySave"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -42,15 +98,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "wp5ia9ghvdg43lbe",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723553136881,
+		"modifiedTime": 1723555016509,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "wp5ia9ghvdg43lbe"
 }

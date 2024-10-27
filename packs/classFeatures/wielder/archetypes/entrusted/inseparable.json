@@ -13,15 +13,79 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"lhF5Gb8zLxxUCHbT": {
+				"name": "Negate Damage",
+				"activation": {},
+				"consumers": {
+					"xiJlpSn4vt3uAWKb": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"Lv21Z0VU8SG8VhJa": {
+						"type": "spell",
+						"default": true,
+						"mode": "chargesOnly",
+						"charges": 3,
+						"spellLevel": 1,
+						"points": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"FauXCe5Bk4obw8f7": {
+				"name": "Save Charge",
+				"activation": {},
+				"consumers": {
+					"6Z1BxNLPdcasjzLQ": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"bJzg6zSvb69m3cHl": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Starting at 18th level, your will and that of your artifact are inseparable as is your desire to keep each other safe. So long as you and your bonded artifact are not in conflict, whenever you would take damage you can spend three artifact charges to completely negate that damage. In addition, whenever your artifact is animated and would lose a charge due to taking damage, you may choose to spend a point of exertion instead. You can use this feature a number of times equal to your proficiency bonus, and regain all expended uses whenever you finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "@prof",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -36,15 +100,19 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "wielder"
+		"classes": "wielder",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "uz8vurnes5eu16o2",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726929435531,
+		"modifiedTime": 1726929512599,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "uz8vurnes5eu16o2"
 }

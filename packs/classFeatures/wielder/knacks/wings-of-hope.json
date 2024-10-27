@@ -1,0 +1,197 @@
+{
+	"folder": null,
+	"name": "Wings of Hope",
+	"type": "feature",
+	"img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Fv2AlqfcMwdIjrUv": {
+				"name": "Wings of Hope",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"Kw1wGkcCPH7CCVqY": {
+						"type": "effect",
+						"default": true,
+						"effectId": "PmKALlYrkvZe8nnd"
+					},
+					"TruDzzBFW9Qa6okk": {
+						"type": "effect",
+						"default": true,
+						"effectId": "agjSUsj49GH2gEhl"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>When you cast @UUID[Compendium.a5e.a5e-spells.Item.aedq05b8pz7t02wd]{Fly} on yourself, you can choose to sprout wings of an appearance of your choosing, which last until the end of the spell. Your wings grant you an expertise die on Intimidation and Persuasion checks while they are visible, and while they are manifested, any creature that you restore hit points to with a spell or feature gains additional hit points equal to your proficiency modifier.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "Reliquarian archetype, ability to cast the fly spell",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "wielder",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.CWqZpBVdIDNM7zdS",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Fv2AlqfcMwdIjrUv",
+					"applyToSelf": false,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Visible Wings",
+			"img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
+			"_id": "PmKALlYrkvZe8nnd",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.skills.itm.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.skills.per.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Your wings grant you an expertise die on Intimidation and Persuasion checks while they are visible.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727618416815,
+				"modifiedTime": 1727618536956,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.CWqZpBVdIDNM7zdS",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Fv2AlqfcMwdIjrUv",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Manifested Wings",
+			"img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
+			"_id": "agjSUsj49GH2gEhl",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.healing",
+					"value": "{\"label\":\"Wings of Hope\",\"formula\":\"@prof\",\"healingType\":\"healing\",\"context\":{\"healingTypes\":[\"healing\"],\"spellLevels\":[]},\"default\":true,\"img\":\"icons/magic/holy/angel-winged-humanoid-blue.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While they are manifested, any creature that you restore hit points to with a spell or feature gains additional hit points equal to your proficiency modifier.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727618508346,
+				"modifiedTime": 1727618565533,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727618402094,
+		"modifiedTime": 1727618508382,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "zhqWxYC8tsuTSpmt"
+}

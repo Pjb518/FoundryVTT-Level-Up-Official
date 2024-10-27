@@ -16,9 +16,9 @@
 		},
 		"actions": {
 			"mtqIwJJB6EETlOF1": {
-				"name": "Use Feature",
+				"name": "Hag Claws",
 				"activation": {
-					"type": "action",
+					"type": "",
 					"cost": 1
 				},
 				"consumers": {},
@@ -33,7 +33,8 @@
 					"uxuzohQSx0igJRjm": {
 						"type": "damage",
 						"default": true,
-						"formula": "1d4 + @spell.mod"
+						"formula": "@classResources.hag-claws-damage + @spell.mod",
+						"damageType": "slashing"
 					}
 				},
 				"prompts": {},
@@ -51,10 +52,72 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
+				},
+				"ranges": {
+					"TR7ZIgnguRwmjez5": {
+						"range": "fiveFeet"
+					}
+				}
+			},
+			"dhyqGtL9IVQaNWTR": {
+				"name": "Hag Claws with Spell",
+				"activation": {
+					"type": "",
+					"cost": 1
+				},
+				"consumers": {
+					"607bcmtiq6I5ko3e": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"vALAnNaYtNoPPE7o": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "spellcasting"
+					},
+					"uxuzohQSx0igJRjm": {
+						"type": "damage",
+						"default": true,
+						"formula": "@classResources.hag-claws-damage + @spell.mod",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {
+					"1kk0FYzYESXD0VEd": {
+						"type": "generic",
+						"default": true,
+						"label": "Saving Throw Penalty",
+						"formula": "1d4"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "@prof",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"TR7ZIgnguRwmjez5": {
+						"range": "fiveFeet"
+					}
 				}
 			}
 		},
-		"description": "<p>Also at 3rd level you manifest claws, which you may use to make unarmed strikes. These claws deal [[/r 1d4]] damage and you can use your spellcasting ability modifier for attack and damage rolls with them.<br>At 6th level the damage increases to [[/r 1d6]], at 10th level it increases to [[/r 1d8]], and at 14 it increases to [[/r 1d10]]. &nbsp;<br>Lastly, when delivering a touch range spell, you may choose to make a claws attack as part of the same action. &nbsp;If the spell requires an attack roll, it uses the same roll as the claws. If the spell does not require an attack roll, it only takes effect if the claws hit and expends a spell slot even if it misses, but the target has a [[/r -d4]] penalty on any saving throw against the spell if it hits. They may deliver touch spells in this way a number of times equal to their proficiency bonus and regain all expended uses when they finish a long rest.</p>",
+		"description": "<p>Also at 2nd level you manifest claws, which you may use to make unarmed strikes. These claws deal 1d4 damage and you can use your spellcasting ability modifier for attack and damage rolls with them.</p>\n<p>At 6th level the damage increases to 1d6, at 10th level it increases to 1d8, and at 14 it increases to 1d10.</p>\n<p>Lastly, when delivering a touch range spell, you may choose to make a claws attack as part of the same action. If the spell requires an attack roll, it uses the same roll as the claws. If the spell does not require an attack roll, it only takes effect if the claws hit and expends a spell slot even if it misses, but the target has a -1d4 penalty on any saving throw against the spell if it hits. They may deliver touch spells in this way a number of times equal to their proficiency bonus and regain all expended uses when they finish a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "extraCreditAndDeeperMysteries",
@@ -82,14 +145,18 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "witch",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "wqkxg8vw8ed8eh29",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727180053382,
+		"modifiedTime": 1727180375609,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "wqkxg8vw8ed8eh29"
 }

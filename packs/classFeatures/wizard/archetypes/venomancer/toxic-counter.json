@@ -15,11 +15,69 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 10th level, you learn to poison the magic of others, harming them and disrupting their spells. You learn counterspell if you do not already know it. When you cast counterspell, if you successfully disrupt a spell, you may also spend a dose of advanced poison as an optional material component to deal 3d6 poison damage to the creature whose spell you disrupted and it cannot attempt to cast a different spell. </p>",
+		"actions": {
+			"UU6CbFTgDEw4hNBK": {
+				"name": "Counterspell",
+				"activation": {
+					"cost": 1,
+					"type": "reaction",
+					"reactionTrigger": "which you take when you see a creature within range cast a spell"
+				},
+				"consumers": {
+					"jGJkEtvkLWLZtPXX": {
+						"mode": "variable",
+						"spellLevel": 3,
+						"points": 5,
+						"type": "spell"
+					}
+				},
+				"rolls": {
+					"3kw7117vRfPXOVxA": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "3d6",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"SjpH5ZDLfM8p0TpC": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": "",
+					"type": "other"
+				},
+				"img": "icons/magic/lightning/bolt-strike-explosion-blue.webp"
+			}
+		},
+		"description": "<p>At 10th level, you learn to poison the magic of others, harming them and disrupting their spells. You learn @UUID[Compendium.a5e.a5e-spells.Item.zc250942nlox9vyk]{Counterspell} if you do not already know it. When you cast <em>counterspell</em>, if you successfully disrupt a spell, you may also spend a dose of advanced poison as an optional material component to deal 3d6 poison damage to the creature whose spell you disrupted and it cannot attempt to cast a different spell.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "thematicToolkitVenomousShadow",
+		"source": "multiclassersManual",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -44,13 +102,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "wizard",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "o5v5h622f0jm2va1",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727198619970,
+		"modifiedTime": 1727198752714,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "o5v5h622f0jm2va1"
 }

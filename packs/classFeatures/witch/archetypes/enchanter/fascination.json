@@ -1,0 +1,167 @@
+{
+	"name": "Fascination",
+	"type": "feature",
+	"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"0YLg1RYST16AlxSU": {
+				"name": "Fascination",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"7BfjhaWJuu46aJxh": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"Kyax9qXoxWiEX3s5": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": ""
+					},
+					"EsWXJEyUx8nwQqet": {
+						"type": "effect",
+						"default": true,
+						"effectId": "wEC2rG1zLTwj0Afr"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>At 10th level you may use an action to cause any number of humanoids, giants, fey, or monstrosities to make a wisdom save against your spell save DC. On a failure, they are entranced by you until the start of your next turn. Their movement speed is 0 and they are incapacitated. This effect ends early if they take any damage, or if another creature uses their action to shake them out of it. At the start of your next turn if any creatures are still affected, you may expend an additional use of this ability to extend the effect. You may use this ability a number of times equal to your proficiency bonus and regain all expended uses when you finish a long rest. Monstrosities are only affected if they have an intelligence of 7 or higher.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "mysteriousAndMarvelousMiscellanea",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "witch",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.3EjiGT7rjSHHk7SC",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "0YLg1RYST16AlxSU",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Entranced",
+			"img": "icons/magic/control/debuff-energy-hold-levitate-pink.webp",
+			"_id": "wEC2rG1zLTwj0Afr",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "0",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"incapacitated\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Entranced by you until the start of your next turn. Their movement speed is 0 and they are incapacitated. This effect ends early if they take any damage, or if another creature uses their action to shake them out of it.</p>\n<p>An incapacitated creature can’t take actions, bonus actions, or reactions.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"incapacitated"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727123739275,
+				"modifiedTime": 1727123861979,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.26",
+		"createdTime": 1727123695934,
+		"modifiedTime": 1727123888321,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "4xj6y6xmihk3ubkj"
+}

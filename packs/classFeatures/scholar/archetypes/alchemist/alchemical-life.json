@@ -13,15 +13,61 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 10th level you gain the ability to create a homunculus. This requires 8 hours of work and 2000 gp of reagents. It also requires you to shed some of your blood, dealing between 2d4 and 12d4 piercing damage chosen in multiples of 2d4. This damage cannot be reduced by any means, and your maximum hit points are reduced by this amount until the homunculus is destroyed. The homunculous uses the stats from the Monstrous Menagerie except its maximum hit points are increased by the amount of damage you took creating it. You can only have one homunculus at a time.</p>",
+		"actions": {
+			"lH678HDwMv11ze7n": {
+				"name": "Alchemical Life",
+				"activation": {
+					"type": "hour",
+					"cost": 8
+				},
+				"consumers": {
+					"73nWMF648VVlMl2h": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"mkrbXdwLvSEwfaJ6": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d4",
+						"damageType": "piercing",
+						"scaling": {
+							"mode": "itemUses",
+							"formula": "2d4"
+						}
+					}
+				},
+				"prompts": {
+					"07SjoPGi2DB2oHvj": {
+						"type": "effect",
+						"default": true,
+						"effectId": "RhWV5oGWFpjw85LE"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 10th level you gain the ability to create a @UUID[Compendium.a5e.a5e-monsters.Actor.p7xxhobhmcbtyk1q]{Homunculus}. This requires 8 hours of work and 2000 gp of reagents. It also requires you to shed some of your blood, dealing between 2d4 and 12d4 piercing damage chosen in multiples of 2d4. This damage cannot be reduced by any means, and your maximum hit points are reduced by this amount until the homunculus is destroyed. The homunculous uses the stats from the Monstrous Menagerie except its maximum hit points are increased by the amount of damage you took creating it. You can only have one homunculus at a time.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "heroesOldAndNew",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 6,
+			"max": "6",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -42,15 +88,63 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "scholar",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.hKOfkqbxQetVfso7",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "lH678HDwMv11ze7n",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Alchemical Life",
+			"img": "icons/creatures/magical/construct-stone-earth-gray.webp",
+			"_id": "RhWV5oGWFpjw85LE",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You shed some of your blood, dealing between 2d4 and 12d4 piercing damage chosen in multiples of 2d4. This damage cannot be reduced by any means, and your maximum hit points are reduced by this amount until the homunculus is destroyed.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.25",
+				"createdTime": 1726571012356,
+				"modifiedTime": 1726571058568,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "qjuzvv3fbsb17gbj",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1726570852759,
+		"modifiedTime": 1726571012411,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "qjuzvv3fbsb17gbj"
 }

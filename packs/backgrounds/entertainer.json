@@ -17,7 +17,7 @@
 		"grants": {
 			"Gu9Qm78JfMLLLp7l": {
 				"grantType": "ability",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "Gu9Qm78JfMLLLp7l",
 				"default": true,
@@ -42,12 +42,14 @@
 					"types": [
 						"base"
 					],
-					"requiresProficiency": false
-				}
+					"requiresProficiency": false,
+					"default": true
+				},
+				"levelType": "character"
 			},
 			"5Ou0hRLNEm7wUpna": {
 				"grantType": "item",
-				"level": 0,
+				"level": 1,
 				"optional": true,
 				"_id": "5Ou0hRLNEm7wUpna",
 				"default": true,
@@ -118,20 +120,21 @@
 						},
 						{
 							"uuid": "Compendium.a5e.a5e-adventuring-gear.krj29v7tofmzee1a",
-							"quantity": 1
+							"quantityOverride": 0
 						}
 					],
 					"total": 2
-				}
+				},
+				"levelType": "character"
 			},
 			"0LeLrcHIuNAhHTZL": {
 				"grantType": "feature",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "0LeLrcHIuNAhHTZL",
 				"default": true,
 				"img": "",
-				"label": "Backgount Feature ",
+				"label": "Backgount Feature",
 				"features": {
 					"base": [
 						{
@@ -142,11 +145,12 @@
 					],
 					"options": [],
 					"total": 0
-				}
+				},
+				"levelType": "character"
 			},
 			"BhbQgudzA0MZNKLI": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"_id": "BhbQgudzA0MZNKLI",
 				"default": true,
@@ -163,11 +167,13 @@
 					],
 					"total": 1
 				},
-				"proficiencyType": "skill"
+				"proficiencyType": "skill",
+				"levelType": "character",
+				"isExpertise": false
 			},
 			"qIXdWxEwwsho8lbJ": {
 				"grantType": "proficiency",
-				"level": 0,
+				"level": 1,
 				"optional": false,
 				"traits": {
 					"base": [
@@ -194,12 +200,30 @@
 					"total": 0,
 					"traitType": "tools"
 				},
-				"label": "Tool Proficiencies",
+				"label": "Gaming Set Proficiency",
 				"keys": {
-					"base": [
+					"base": [],
+					"options": [
 						"diceSet",
 						"boardGameSet",
-						"playingCardSet",
+						"playingCardSet"
+					],
+					"total": 1
+				},
+				"proficiencyType": "tool",
+				"_id": "qIXdWxEwwsho8lbJ",
+				"img": "",
+				"levelType": "character",
+				"isExpertise": false
+			},
+			"fRTUL5ANBUH6HNln": {
+				"grantType": "proficiency",
+				"level": 1,
+				"optional": false,
+				"label": "Musical Instrument Proficiency",
+				"keys": {
+					"base": [],
+					"options": [
 						"bagpipes",
 						"casaba",
 						"castanet",
@@ -213,24 +237,35 @@
 						"maraca",
 						"ocarina",
 						"panFlute",
+						"shawm",
 						"trombone",
+						"viol",
 						"violin"
 					],
-					"options": [],
-					"total": 0
+					"total": 1
 				},
-				"proficiencyType": "tool"
+				"proficiencyType": "tool",
+				"_id": "qIXdWxEwwsho8lbJ",
+				"img": "",
+				"levelType": "character",
+				"isExpertise": false,
+				"name": "undefined (Copy)"
 			}
 		},
-		"source": "adventurersGuide"
+		"source": "adventurersGuide",
+		"favorite": false,
+		"secretDescription": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "bz1px38i50gq3koh",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.27",
+		"createdTime": 1728828273291,
+		"modifiedTime": 1728828448583,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "bz1px38i50gq3koh"
 }

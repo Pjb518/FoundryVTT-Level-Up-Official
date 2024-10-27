@@ -13,7 +13,40 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"k930dzoxhpfjPpMP": {
+				"name": "Resilient Spell",
+				"activation": {},
+				"consumers": {
+					"IiLkSI9iNT46NrWy": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 2
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"dxczb9VDDEvSUtJN": {
+						"type": "effect",
+						"default": true,
+						"effectId": "JsYurBUfYTKfoKRO"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>When you cast a spell that requires concentration, you may spend 2 sorcery points to grant yourself advantage on the first concentration check to maintain concentration on it.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -36,15 +69,70 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.QlmG4J3HunSdMEoc",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "k930dzoxhpfjPpMP",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Resilient Spell",
+			"img": "icons/magic/defensive/barrier-shield-dome-deflect-teal.webp",
+			"_id": "JsYurBUfYTKfoKRO",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.concentration",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Advantage on the first concentration check</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726857824026,
+				"modifiedTime": 1726857848690,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "mhowkp0l50bjo5b1",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726857696787,
+		"modifiedTime": 1726857824067,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "mhowkp0l50bjo5b1"
 }

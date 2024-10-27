@@ -1,8 +1,163 @@
 {
 	"name": "Divine Justice",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
-	"effects": [],
+	"img": "icons/skills/social/trading-justice-scale-yellow.webp",
+	"effects": [
+		{
+			"origin": "Item.8FULxHl1GSAdrMsz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "sYMsgo9ptIskqBHV",
+					"duration": {
+						"unit": "minutes"
+					},
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Mark of the Heretic (Self)",
+			"img": "icons/skills/targeting/crosshair-arrowhead-blue.webp",
+			"_id": "yVpuiuPtMEn2mCAU",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Mark of the Heretic\",\"formula\":\"@spellcasting.mod\",\"damageType\":\"\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"meleeSpellAttack\",\"rangedWeaponAttack\",\"rangedSpellAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/skills/targeting/crosshair-arrowhead-blue.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>Damage rolls you make against the creature deal extra damage equal to your spell attack modifier.</li>\n<li>Attacks made by you or your allies score critical hits against the creature on a roll of 19–20.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723757544820,
+				"modifiedTime": 1723757544820,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.8FULxHl1GSAdrMsz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "sYMsgo9ptIskqBHV"
+				}
+			},
+			"transfer": false,
+			"name": "Not Killed or Captured",
+			"img": "icons/skills/targeting/crosshair-arrowhead-blue.webp",
+			"_id": "T14bCAcw4VJ9B8RZ",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.meleeWeaponAttack",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Disadvantage on melee weapon attacks made against other creatures until you finish a short or long rest.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723757544820,
+				"modifiedTime": 1723757544820,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.8FULxHl1GSAdrMsz",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "sYMsgo9ptIskqBHV",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Nimbus of Light",
+			"img": "icons/skills/targeting/crosshair-arrowhead-blue.webp",
+			"_id": "pHPhe2Ipv7rJWlmO",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"invisible\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>This nimbus of light negates the benefits of invisibility on the creature.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.330",
+				"systemId": "a5e",
+				"systemVersion": "0.19.23",
+				"createdTime": 1723757544820,
+				"modifiedTime": 1723757544820,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -15,8 +170,76 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Starting at 15th level, your power is so great that you no longer need to know a heretic’s name or wrongdoing in order to bestow punishment—it’s as if you can read their soul. When you use Mark of the Heretic, you need only point at a creature to mark it. Additionally, when a creature marked by this feature dies, you can apply the mark to another creature you can see within 30 feet of you without expending another use of Mark of the Heretic.</p>",
+		"actions": {
+			"sYMsgo9ptIskqBHV": {
+				"name": "Mark of the Heretic",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"gIqQq256kndj8FhX": {
+						"ability": "dex",
+						"onSave": "",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": null
+						},
+						"type": "savingThrow"
+					},
+					"Tu6dHSTp0v4JRvsS": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					},
+					"0P0AGyG4fZabP1Pa": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					},
+					"opVha59Fo75AeqAS": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"TZHURbNcQn2zZH8Z": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "creature"
+				},
+				"img": "icons/skills/targeting/crosshair-arrowhead-blue.webp"
+			}
+		},
+		"description": "<p>Starting at 15th level, your power is so great that you no longer need to know a heretic&rsquo;s name or wrongdoing in order to bestow punishment&mdash;it&rsquo;s as if you can read their soul. When you use @UUID[Compendium.a5e.a5e-class-features.Item.1nmqu07hzwwd2ati], you need only point at a creature to mark it. Additionally, when a creature marked by this feature dies, you can apply the mark to another creature you can see within 30 feet of you without expending another use of Mark of the Heretic.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -44,13 +267,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "herald",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "p6zhih4xi1cvda1a",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723757397882,
+		"modifiedTime": 1723757547971,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "p6zhih4xi1cvda1a"
 }

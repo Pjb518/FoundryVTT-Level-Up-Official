@@ -15,8 +15,36 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>When you or a friendly creature in the range of your Commanding Presence ability takes the Attack action for the first time against a creature each turn, the target must make a Wisdom saving throw against a DC of 8 + your Charisma modifier + your proficiency bonus. If it fails, it must use its reaction to move at least half its movement speed away from its current position. This movement is considered a use of the Disengage action and as such does not normally provoke attacks of opportunity.</p>",
+		"actions": {
+			"v5FTj6pbuMKh4nHV": {
+				"name": "Flushing Wrath",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"7plHcd0ZoDEc176j": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "cha"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>When you or a friendly creature in the range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} ability takes the Attack action for the first time against a creature each turn, the target must make a Wisdom saving throw against a DC of 8 + your Charisma modifier + your proficiency bonus. If it fails, it must use its reaction to move at least half its movement speed away from its current position. This movement is considered a use of the Disengage action and as such does not normally provoke attacks of opportunity.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "thematicToolkitThunderOfWar",
@@ -44,13 +72,17 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "marshal",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "lrzhemyd6h7x8hzm",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.330",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.23",
+		"createdTime": 1723581106123,
+		"modifiedTime": 1723581159070,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "lrzhemyd6h7x8hzm"
 }

@@ -365,7 +365,7 @@
 				"value": 60,
 				"baseMax": 60,
 				"temp": 0,
-				"bonus": null
+				"bonus": 0
 			},
 			"hitDice": {
 				"d6": {
@@ -492,7 +492,8 @@
 				"common"
 			],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -545,9 +546,7 @@
 			"size": "med",
 			"conditionImmunities": [],
 			"damageImmunities": [
-				"bludgeoning from a non-magical, non-silvered weapon",
-				"Piercing from a non-magical, non-silvered weapon",
-				"Slashing  from a non-magical, non-silvered weapon"
+				"Bludgeoning, piercing, and slashing damage from non-magical, non-silvered weapons"
 			],
 			"damageResistances": [],
 			"damageVulnerabilities": [],
@@ -587,7 +586,11 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": null
+			"tint": "#ffffff",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"width": 1,
 		"height": 1,
@@ -623,7 +626,9 @@
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"negative": false,
+			"priority": 0
 		},
 		"sight": {
 			"enabled": false,
@@ -640,7 +645,23 @@
 		"flags": {},
 		"randomImg": false,
 		"appendNumber": false,
-		"prependAdjective": false
+		"prependAdjective": false,
+		"hexagonalShape": 0,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		}
 	},
 	"items": [
 		{
@@ -695,12 +716,19 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.i2cfGU9ofnKwr9OF",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -780,15 +808,25 @@
 				"defensiveProperties": "",
 				"flaws": [],
 				"mounted": [],
-				"versatile": ""
+				"versatile": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				}
 			},
 			"_id": "LzPVTvkHLv0AiwhY",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-adventuring-gear.rj44twjfhjkahbk1",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -843,12 +881,19 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Item.Hcp8zUrtUBaXFT4i",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -895,16 +940,23 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -951,16 +1003,23 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1050,9 +1109,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1142,9 +1206,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1243,9 +1312,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1335,9 +1409,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1427,9 +1506,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1497,7 +1581,7 @@
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "strangerSights",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1528,26 +1612,88 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		}
 	],
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Actor.9tisYjyW1tCxQ1yr",
+			"flags": {
+				"a5e": {
+					"sort": 0
+				}
+			},
+			"name": "Buffalo Form",
+			"img": "icons/svg/aura.svg",
+			"_id": "57PkPuklzBzqmL2Y",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.height",
+					"value": "2",
+					"mode": 6,
+					"priority": 0
+				},
+				{
+					"key": "@token.width",
+					"value": "2",
+					"mode": 6,
+					"priority": 0
+				}
+			],
+			"disabled": true,
+			"duration": {
+				"startTime": 0,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"transfer": false,
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727375527578,
+				"modifiedTime": 1727375559249,
+				"lastModifiedBy": "xSBVukcOBqLiYJfi"
+			},
+			"folder": null
+		}
+	],
 	"flags": {
 		"a5e": {
 			"availableSpellLevels": [],
-			"sheetIsLocked": true,
+			"sheetIsLocked": false,
 			"sortMode": {},
 			"filters": {}
 		}
 	},
 	"folder": null,
-	"_id": "m2aq7ii0d6b9o66n",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727374916733,
+		"modifiedTime": 1727375516646,
+		"lastModifiedBy": "xSBVukcOBqLiYJfi"
+	},
+	"_id": "m2aq7ii0d6b9o66n"
 }

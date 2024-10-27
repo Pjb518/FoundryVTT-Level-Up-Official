@@ -13,7 +13,29 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"iWjEUmWCfrMejT8Y": {
+				"name": "Poisoner's Kit",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>At 7th level you are proficient with poisoner's kits if you are not already. You have resistance to poison damage and advantage on saving throws against poison damage. You may also apply an injury poison to a piercing or slashing weapon as a bonus action rather than an action. In addition, poisons you craft can use either their normal DC or your scholar DC, whichever is higher.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -29,7 +51,42 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"MPgguR8gyBGjFUxM": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "MPgguR8gyBGjFUxM",
+				"label": "Poisoner's Kit",
+				"keys": {
+					"base": [
+						"poisonersKit"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "tool",
+				"img": "",
+				"isExpertise": false
+			},
+			"abNrUsGuCaJNRMX6": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "abNrUsGuCaJNRMX6",
+				"label": "Poisoner's Kit",
+				"traits": {
+					"base": [
+						"poison"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
@@ -42,15 +99,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "scholar",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "pv08ir34qmeb31ta",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.25",
+		"createdTime": 1726570740186,
+		"modifiedTime": 1726570833376,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "pv08ir34qmeb31ta"
 }
