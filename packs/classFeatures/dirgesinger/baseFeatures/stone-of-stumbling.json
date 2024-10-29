@@ -1,0 +1,155 @@
+{
+	"name": "Stone of Stumbling",
+	"type": "feature",
+	"img": "icons/skills/trades/music-singing-voice-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"qAz6zGYoFF1uzJp0": {
+				"name": "Stone of Stumbling",
+				"activation": {},
+				"consumers": {
+					"ch8xXhpxrm55mo1t": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "chant-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"r1IKAsYDYXqfYizC": {
+						"type": "effect",
+						"default": true,
+						"effectId": "8HgMRRs5KZk5kY0F"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"ZcJZugclGhrVmPxH": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You cause a creature to add an expertise die to its Armor Class against every attack for the next minute. During this time all of the creature&rsquo;s movement speeds are reduced to 0 and the creature may not willingly move. The target creature gains the ability to @UUID[Compendium.a5e.a5e-maneuvers.Item.zzg7j7cb0vkgctwi]{Knockdown} as a reaction when another creature enters or tries to leave its threatened area, but it must use its reaction to trip the first creature that triggers this effect.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "motifClasses",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "dirgesinger",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.aUw7f6pKcN8gZjdv",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "qAz6zGYoFF1uzJp0",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stone of Stumbling",
+			"img": "icons/skills/trades/music-singing-voice-blue.webp",
+			"_id": "8HgMRRs5KZk5kY0F",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.movement.allDistances",
+					"value": "0",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You cause a creature to add an expertise die to its Armor Class against every attack for the next minute. During this time all of the creature’s movement speeds are reduced to 0 and the creature may not willingly move. The target creature gains the ability to Knockdown as a reaction when another creature enters or tries to leave its threatened area, but it must use its reaction to trip the first creature that triggers this effect.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.28",
+				"createdTime": 1730207281183,
+				"modifiedTime": 1730207556853,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.28",
+		"createdTime": 1730207241852,
+		"modifiedTime": 1730207541101,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "4uexae01alqh08hd"
+}

@@ -24,7 +24,7 @@
         for (let i = 0; i < diff; i++) {
             if (sign === 1) {
                 await $item.update({
-                    "system.classLevels": $item.system.classLevels + 1,
+                    "system.classLevels": Math.min($item.system.classLevels + 1, $item.system.maxLevel),
                 });
             } else {
                 await $item.update({
@@ -144,12 +144,12 @@
     {/if}
 
     <!-- Add Class Level -->
-    {#if $item.type === "class" && $item.actor}
+    {#if $item.type === "class" && $item.actor && $item.slug}
         <input
             class="class-level-input"
             type="number"
             min="1"
-            max="20"
+	    max="20"
             value={$item.system.classLevels}
             on:change={({ target }) => updateClassLevel(target.value)}
         />
