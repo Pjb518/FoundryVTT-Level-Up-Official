@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-unresolved
-import { localize } from '@typhonjs-fvtt/runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 import getAbilityCheckPromptTitle from './getAbilityCheckPromptTitle';
 import getEffectPromptTitle from './getEffectPromptTitle';

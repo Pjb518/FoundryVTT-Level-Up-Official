@@ -1,6 +1,6 @@
 <script>
     import { localize } from "#runtime/util/i18n";
-    import { TJSTinyMCE, TinyMCEHelper } from "#standard/component";
+    import { TJSTinyMCE, TinyMCEHelper } from "#standard/component/fvtt/editor";
 
     export let document;
     export let content;
