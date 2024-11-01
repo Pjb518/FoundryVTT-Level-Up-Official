@@ -24,6 +24,7 @@
 
     let automateTokenSize = settings.getStore("automatePrototypeTokenSize");
     let blindDeathSaves = settings.getStore("blindDeathSaves");
+    let disableFavorPoints = settings.getStore("disableFavorPoints");
     let hideActionList = settings.getStore("collapseActionList");
     let hideDeleteDialog = settings.getStore("hideDeleteConfirmation");
     let hideCompendiumSelection = settings.getStore("hideActorCompendiumSelectionDialog");
@@ -62,6 +63,19 @@
                     checked={updates.get("blindDeathSaves") ?? $blindDeathSaves}
                     on:updateSelection={({ detail }) => {
                         updates.set("blindDeathSaves", detail);
+                        reload = true;
+                    }}
+                />
+            </FieldWrapper>
+        {/if}
+
+        {#if isGM}
+            <FieldWrapper hint="A5E.settings.hints.disableFavorPoints">
+                <Checkbox
+                    label="A5E.settings.disableFavorPoints"
+                    checked={updates.get("disableFavorPoints") ?? $disableFavorPoints}
+                    on:updateSelection={({ detail }) => {
+                        updates.set("disableFavorPoints", detail);
                         reload = true;
                     }}
                 />
