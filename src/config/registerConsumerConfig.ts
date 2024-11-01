@@ -6,6 +6,7 @@ export default function registerConsumerConfig() {
   const resourceConsumerConfig = {
     classResource: { path: 'resources.classResources', label: 'Class Resource', type: 'value' },
     exertion: { path: 'attributes.exertion.current', label: 'A5E.Exertion', type: 'value' },
+    favorPoints: { path: 'attributes.favorPoints.current', label: 'A5E.FavorPoints', type: 'value' },
     hp: { path: 'attributes.hp.value', label: 'A5E.HitPoints', type: 'value' },
     inspiration: { path: 'attributes.inspiration', label: 'A5E.Inspiration', type: 'boolean' },
     primaryResource: { path: 'resources.primary.value', label: 'A5E.ResourcesPrimary', type: 'value' },
