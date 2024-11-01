@@ -147,7 +147,7 @@
             img,
             h3 {
                 font-weight: bold;
-                color: $color-primary-light;
+                color: --a5e-color-primary-light;
                 // filter: invert(62%) sepia(32%) saturate(6599%)
                 //     hue-rotate(110deg) brightness(96%) contrast(83%);
             }
@@ -176,7 +176,7 @@
         &:focus {
             outline: none;
             box-shadow: none;
-            color: $color-primary-light;
+            color: --a5e-color-primary-light;
         }
 
         &:disabled {
@@ -231,7 +231,7 @@
         &.corruption-counter {
             h3::before {
                 content: var(--corruption);
-                font-family: $font-secondary;
+                font-family: --a5e-font-sans-serif;
                 font-size: var(--a5e-text-size-md);
                 background-color: var(--corruption-col);
             }
@@ -240,7 +240,7 @@
         &.fatigue-counter {
             h3::before {
                 content: var(--fatigue);
-                font-family: $font-secondary;
+                font-family: --a5e-font-sans-serif;
                 font-size: var(--a5e-text-size-md);
                 background-color: var(--fatigue-col);
             }
@@ -249,7 +249,7 @@
         &.inebriated-counter {
             h3::before {
                 content: var(--inebriated);
-                font-family: $font-secondary;
+                font-family: --a5e-font-sans-serif;
                 font-size: var(--a5e-text-size-md);
                 background-color: var(--inebriated-col);
             }
@@ -258,7 +258,7 @@
         &.strife-counter {
             h3::before {
                 content: var(--strife);
-                font-family: $font-secondary;
+                font-family: --a5e-font-sans-serif;
                 font-size: var(--a5e-text-size-md);
                 background-color: var(--strife-col);
             }

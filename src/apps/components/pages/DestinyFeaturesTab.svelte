@@ -88,7 +88,7 @@
     }
     .section-title {
         font-size: var(--a5e-text-size-sm);
-        font-family: $font-secondary;
+        font-family: --a5e-font-sans-serif;
         font-weight: bold;
         margin-bottom: 0.125rem;
     }

@@ -271,28 +271,28 @@
 
     .corruption-counter::after {
         content: var(--corruption);
-        font-family: $font-secondary;
+        font-family: --a5e-font-sans-serif;
         font-size: var(--a5e-text-size-sm);
         background-color: var(--corruption-col);
     }
 
     .fatigue-counter::after {
         content: var(--fatigue);
-        font-family: $font-secondary;
+        font-family: --a5e-font-sans-serif;
         font-size: var(--a5e-text-size-sm);
         background-color: var(--fatigue-col);
     }
 
     .inebriated-counter::after {
         content: var(--inebriated);
-        font-family: $font-secondary;
+        font-family: --a5e-font-sans-serif;
         font-size: var(--a5e-text-size-sm);
         background-color: var(--inebriated-col);
     }
 
     .strife-counter::after {
         content: var(--strife);
-        font-family: $font-secondary;
+        font-family: --a5e-font-sans-serif;
         font-size: var(--a5e-text-size-sm);
         background-color: var(--strife-col);
     }

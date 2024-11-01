@@ -156,12 +156,12 @@
         height: 100%;
         padding: var(--padding, 0.75rem);
         gap: 0.5rem;
-        background: var(--background, $color-sheet-background);
+        background: var(--background, --a5e-color-background-sheet);
     }
 
     .bonus-name,
     .bonus-name[type="text"] {
-        font-family: $font-primary;
+        font-family: --a5e-font-primary;
         font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;

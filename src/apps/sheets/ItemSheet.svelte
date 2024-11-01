@@ -47,8 +47,7 @@
             label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
             component: ItemUnidentifiedDescriptionTab,
             display:
-                $item.type === "object" &&
-                ($item.system.unidentified || game.user.isGM),
+                $item.type === "object" && ($item.system.unidentified || game.user.isGM),
         },
         {
             name: "gmNotes",
@@ -91,8 +90,7 @@
         },
     ];
 
-    let currentTab =
-        $item.system?.unidentified && !game.user.isGM ? tabs[1] : tabs[0];
+    let currentTab = $item.system?.unidentified && !game.user.isGM ? tabs[1] : tabs[0];
 
     setContext("item", item);
     setContext("appId", appId);
@@ -118,6 +116,6 @@
         padding: 0.75rem;
         gap: 0.5rem;
 
-        background: $color-sheet-background;
+        background: --a5e-color-background-sheet;
     }
 </style>

@@ -130,7 +130,7 @@
         padding: 0.25rem;
         padding-right: 0.5rem;
         font-size: var(--a5e-text-size-sm);
-        background: $color-light-background;
+        background: --a5e-color-background-light;
         border-radius: var(--a5e-border-radius-standard);
         border: 1px solid #ccc;
 

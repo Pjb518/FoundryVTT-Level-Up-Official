@@ -277,7 +277,7 @@
         padding-inline: 0.25rem;
 
         .warning {
-            font-family: $font-secondary;
+            font-family: --a5e-font-sans-serif;
             font-size: var(--a5e-text-size-xs);
         }
     }

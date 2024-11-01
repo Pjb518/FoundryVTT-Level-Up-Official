@@ -15,8 +15,7 @@
     import editDocumentImage from "../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-    export let { document, actionId, dialog } =
-        getContext("#external").application;
+    export let { document, actionId, dialog } = getContext("#external").application;
 
     const item = document;
 
@@ -105,7 +104,7 @@
         height: 100%;
         padding: 0.75rem;
         gap: 0.5rem;
-        background: $color-sheet-background;
+        background: --a5e-color-background-sheet;
     }
 
     .action-header {

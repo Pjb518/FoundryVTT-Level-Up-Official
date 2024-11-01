@@ -138,7 +138,7 @@
         padding: 0.75rem;
         gap: 0.5rem;
 
-        background: $color-sheet-background;
+        background: --a5e-color-background-sheet;
     }
 
     .submit {
