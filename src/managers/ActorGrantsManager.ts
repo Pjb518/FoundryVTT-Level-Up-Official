@@ -300,11 +300,24 @@ export default class ActorGrantsManger extends Map<string, ActorGrant> {
     if (grant.level > characterLevel) return [];
 
     const docIds: string[] = [...grant.features.base, ...grant.features.options].map((f) => f.uuid);
-    let docs = await fromUuidMulti(docIds, { parent: this.actor });
+    let docs;
+    try {
+      docs = await fromUuidMulti(docIds, { parent: this.actor });
+    } catch (e: any) {
+      // eslint-disable-next-line no-console
+      console.error(e);
+      // eslint-disable-next-line no-console
+      console.warn(`Possible causes: ${docIds.join(', ')}`);
+      ui.notifications?.error(`Grant ${grant.label} has an invalid document reference.`);
+      throw new Error(e);
+    }
 
     docs = docs.filter((d: any) => {
       if (!d) {
         ui.notifications?.error(`Grant ${grant.label} has an invalid document reference.`);
+
+        // eslint-disable-next-line no-console
+        console.warn(`Possible causes: ${docIds.join(', ')}`);
         return false;
       }
 

@@ -129,7 +129,6 @@ export default class ResourceConsumptionManager {
       ) as number ?? 0;
 
       this.#updates.actor[`system.resources.classResources.${classIdentifier}`] = Math.max(value - quantity, 0);
-      console.log(this.#updates.actor);
 
       return;
     }
