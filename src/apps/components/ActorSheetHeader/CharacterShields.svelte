@@ -129,6 +129,8 @@
 </div>
 
 <style lang="scss">
+    @use "sass:color";
+
     .character-shields__container {
         display: flex;
         align-items: center;
@@ -195,7 +197,7 @@
         }
 
         &--active {
-            color: darken(#2b6537, 10%);
+            color: color.adjust(#2b6537, $lightness: -10%);
 
             &:hover {
                 color: #2b6537;

@@ -23,6 +23,8 @@
 </div>
 
 <style lang="scss">
+    @use "sass:color";
+
     .disable-pointer-events {
         pointer-events: none;
     }
@@ -65,7 +67,7 @@
         }
 
         &:hover {
-            background-color: darken(#dddace, 2.5%);
+            background-color: color.adjust(#dddace, $lightness: -2.5%);
 
             .rest__icon {
                 color: lighten-color(var(--a5e-color-text-dark), 35);

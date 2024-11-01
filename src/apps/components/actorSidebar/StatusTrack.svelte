@@ -44,6 +44,8 @@
 </div>
 
 <style lang="scss">
+    @use "sass:color";
+
     :global(.tooltip-list) {
         display: flex;
         flex-direction: column;
@@ -118,12 +120,12 @@
 
             &:focus,
             &:hover {
-                background: darken(#dddace, 2.5%);
+                background: color.adjust(#dddace, $lightness: -2.5%);
                 box-shadow: none;
             }
 
             &-selected {
-                background: darken(#dddace, 2.5%);
+                background: color.adjust(#dddace, $lightness: -2.5%);
             }
         }
 
