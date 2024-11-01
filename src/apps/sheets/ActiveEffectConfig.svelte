@@ -2,7 +2,7 @@
 
 <script>
     import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/core";
+    import { ApplicationShell } from "#runtime/svelte/component/application";
 
     import EffectsDescriptionTab from "../components/pages/EffectsDescriptionTab.svelte";
     import EffectsEffectTab from "../components/pages/EffectsEffectTab.svelte";
@@ -19,10 +19,7 @@
         currentTab = tabs[event.detail];
     }
 
-    let effectType = foundry.utils.getProperty(
-        $effect,
-        "flags.a5e.transferType",
-    );
+    let effectType = foundry.utils.getProperty($effect, "flags.a5e.transferType");
 
     const tabs = [
         {

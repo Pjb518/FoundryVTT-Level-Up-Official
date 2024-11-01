@@ -2,7 +2,7 @@
 
 <script>
     import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/core";
+    import { ApplicationShell } from "#runtime/svelte/component/application";
 
     import ClassPropertiesTab from "../components/pages/ClassPropertiesTab.svelte";
     import ClassResourcesTab from "../components/pages/ClassResourcesTab.svelte";

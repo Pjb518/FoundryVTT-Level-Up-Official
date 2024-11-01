@@ -2,7 +2,7 @@
 
 <script>
     import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/core";
+    import { ApplicationShell } from "#runtime/svelte/component/application";
     import { localize } from "#runtime/util/i18n";
 
     import NavigationBar from "../components/navigation/NavigationBar.svelte";

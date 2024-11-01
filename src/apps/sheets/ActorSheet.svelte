@@ -1,14 +1,9 @@
 <svelte:options accessors={true} />
 
 <script lang="ts">
-    import {
-        getContext,
-        setContext,
-        type ComponentType,
-        onDestroy,
-    } from "svelte";
+    import { getContext, setContext, type ComponentType, onDestroy } from "svelte";
 
-    import { ApplicationShell } from "#runtime/svelte/component/core";
+    import { ApplicationShell } from "#runtime/svelte/component/application";
     import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
     import type { ActorSheetApplicationProps } from "../../../types/applicationProps";
 
@@ -28,8 +23,7 @@
 
     import ActorSheetTempSettingsStore from "../../stores/ActorSheetTempSettingsStore";
 
-    export const application: ActorSheetApplicationProps =
-        getContext("#external");
+    export const application: ActorSheetApplicationProps = getContext("#external");
 
     export let { document, sheet } = application;
     export let elementRoot;
@@ -150,9 +144,8 @@
     $: tabs = getTabs($actor);
 
     let currentTab =
-        tabs.find(
-            (tab) => tab.name === tempSettings[$actor?.uuid]?.currentTab,
-        ) ?? tabs[0];
+        tabs.find((tab) => tab.name === tempSettings[$actor?.uuid]?.currentTab) ??
+        tabs[0];
 
     setContext("actor", actor);
     setContext("sheet", sheet);
@@ -163,9 +156,7 @@
 </script>
 
 <ApplicationShell bind:elementRoot>
-    <main
-        on:drop|preventDefault|stopPropagation={(event) => sheet._onDrop(event)}
-    >
+    <main on:drop|preventDefault|stopPropagation={(event) => sheet._onDrop(event)}>
         <ActorSidebar />
 
         <section class="main-container">
