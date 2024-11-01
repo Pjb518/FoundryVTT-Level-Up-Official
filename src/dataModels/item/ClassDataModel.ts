@@ -10,6 +10,9 @@ const schema = {
   classLevels: new fields.NumberField({
     required: true, nullable: false, initial: 0, min: 0, max: 20
   }),
+  maxLevel: new fields.NumberField({
+    required: true, nullable: false, initial: 20, min: 0, max: 20
+  }),
   hp: new fields.SchemaField({
     hitDiceSize: new fields.NumberField({
       required: true, nullable: false, initial: 6, min: 4, max: 20

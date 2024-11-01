@@ -1,0 +1,315 @@
+{
+	"name": "Eldritch Chant",
+	"type": "feature",
+	"img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"powapQ266DInKunT": {
+				"name": "Eldritch Chant",
+				"descriptionOutputs": [
+					"item"
+				],
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"6Mb98i5dpSQXvScu": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {
+						"mode": "cantrip",
+						"formula": "1"
+					}
+				},
+				"rolls": {
+					"eOJXRd9aDQ4xYgm9": {
+						"type": "damage",
+						"default": true,
+						"label": "Force",
+						"formula": "@prof",
+						"damageType": "force",
+						"canCrit": false
+					}
+				},
+				"prompts": {
+					"Tc9sai0y5RtMfTH2": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "int",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"label": "Eldritch Chant",
+						"onSave": "No damage and rattled instead of Confused"
+					},
+					"RJCGOYI0RdtLiukJ": {
+						"type": "effect",
+						"default": true,
+						"effectId": "W1Xuza5mMfGJA8qK"
+					},
+					"0nYpUfz6wnYxeiok": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Fg5Gza7MteQhJWoi"
+					}
+				},
+				"consumers": {}
+			},
+			"9LrIZ5gO6BQNbc8x": {
+				"name": "Fail Save",
+				"activation": {},
+				"consumers": {
+					"K5HkgfclBguRpieE": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "chant-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"oWifu0Ovcc0fKWp0": {
+						"type": "effect",
+						"default": true,
+						"effectId": "EgatHdSkNAdQvuLx"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You can use an action to focus mind-melting chanting and wailing on a creature within 60 feet. The creature must succeed on an Intelligence saving throw or take force damage equal to your Proficiency Bonus and become Confused until the beginning of your next turn. Creatures that succeed on this save are Rattled instead and take no damage.</p><p dir=\"ltr\">You must be able to speak and the target creature must be able to hear you for this effect to work.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "motifClasses",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "dirgesinger",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.mDS5KUcr486qP05K",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "powapQ266DInKunT",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Confused",
+			"img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
+			"_id": "W1Xuza5mMfGJA8qK",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A confused creature can't take reactions.</li>\n<li>On its turn a confused creature rolls a [[/r 1d8]] to determine what it does. \n<ul>\n<li>On a 1 to 4, a confused creature does nothing. </li>\n<li>On a 5 or 6, a confused creature takes no action or bonus action and uses all its movement to move in a randomly determined direction. </li>\n<li>On a 7 or 8, a confused creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</li>\n</ul>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.28",
+				"createdTime": 1730225855946,
+				"modifiedTime": 1730228005534,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.mDS5KUcr486qP05K",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "powapQ266DInKunT",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
+			"_id": "Fg5Gza7MteQhJWoi",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.28",
+				"createdTime": 1730225920436,
+				"modifiedTime": 1730225954710,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.mDS5KUcr486qP05K",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "9LrIZ5gO6BQNbc8x"
+				}
+			},
+			"transfer": false,
+			"name": "Confused",
+			"img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
+			"_id": "EgatHdSkNAdQvuLx",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"confused\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A confused creature can't take reactions.</li>\n<li>On its turn a confused creature rolls a [[/r 1d8]] to determine what it does. \n<ul>\n<li>On a 1 to 4, a confused creature does nothing. </li>\n<li>On a 5 or 6, a confused creature takes no action or bonus action and uses all its movement to move in a randomly determined direction. </li>\n<li>On a 7 or 8, a confused creature makes a melee attack against a randomly determined creature within its reach or does nothing if it can't make such an attack.</li>\n</ul>\n</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"confused"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.28",
+				"createdTime": 1730227971947,
+				"modifiedTime": 1730228017477,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.28",
+		"createdTime": 1730225744256,
+		"modifiedTime": 1730227971973,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "62wvclk6khdj1nff"
+}

@@ -104,6 +104,25 @@
                     )}
             />
         </FieldWrapper>
+
+        <FieldWrapper
+            heading="Max Class Level"
+            --a5e-field-wrapper-header-gap="0.5rem"
+        >
+            <input
+                class="a5e-input a5e-input--slim a5e-input--small"
+                type="number"
+                min="0"
+                value={$item.system.maxLevel}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.maxLevel",
+                        Number(target.value),
+                    )}
+            />
+        </FieldWrapper>
+
     </Section>
 
     <Section heading="Hit Dice" --a5e-section-body-gap="0.75rem">

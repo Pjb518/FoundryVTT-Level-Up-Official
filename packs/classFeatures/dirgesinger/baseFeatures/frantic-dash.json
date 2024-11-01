@@ -1,0 +1,156 @@
+{
+	"name": "Frantic Dash",
+	"type": "feature",
+	"img": "icons/skills/trades/music-singing-voice-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"SquFHJhvb7PpFnpU": {
+				"name": "Frantic Dash",
+				"activation": {},
+				"consumers": {
+					"3O6OrTMlkZBugpet": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "chant-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"8LXVFA9hSRgN2c14": {
+						"type": "effect",
+						"default": true,
+						"effectId": "WKsExhBASQF8Ida8"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"ranges": {
+					"ONfApeFOm6FNnh7p": {
+						"range": "short"
+					}
+				}
+			}
+		},
+		"description": "<p>You cause the target creature&rsquo;s movement, jump height, and jump distance to be tripled for one turn and you cause attacks of opportunity against the creature to be at disadvantage. The creature&rsquo;s movement speed then becomes 0 for two turns and the creature loses 2 hit dice.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "motifClasses",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "dirgesinger",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.9bjnp7tjM5gE8i6w",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "SquFHJhvb7PpFnpU",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Frantic Dash",
+			"img": "icons/skills/trades/music-singing-voice-blue.webp",
+			"_id": "WKsExhBASQF8Ida8",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "3 * @attributes.movement.walk.distance",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target creature’s movement, jump height, and jump distance to be tripled for one turn and you cause attacks of opportunity against the creature to be at disadvantage. The creature’s movement speed then becomes 0 for two turns and the creature loses 2 hit dice.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.28",
+				"createdTime": 1730203447126,
+				"modifiedTime": 1730203505829,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.28",
+		"createdTime": 1730203339405,
+		"modifiedTime": 1730205147541,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "30200ui9xni4zv92"
+}
