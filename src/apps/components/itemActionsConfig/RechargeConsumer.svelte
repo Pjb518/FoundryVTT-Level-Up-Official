@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import handleDeterministicInput from "../../../utils/handleDeterministicInput";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -54,7 +54,7 @@
                 updateDocumentDataFromField(
                     $item,
                     `system.actions.${actionId}.consumers.${consumerId}.label`,
-                    target.value
+                    target.value,
                 )}
         />
     </div>
@@ -98,7 +98,7 @@
                         updateDocumentDataFromField(
                             $item,
                             `system.actions.${actionId}.consumers.${consumerId}.formula`,
-                            target.value
+                            target.value,
                         );
                     }}
                 />
@@ -119,7 +119,7 @@
                         updateDocumentDataFromField(
                             $item,
                             `system.actions.${actionId}.consumers.${consumerId}.threshold`,
-                            Number(target.value)
+                            Number(target.value),
                         )}
                 />
             </div>

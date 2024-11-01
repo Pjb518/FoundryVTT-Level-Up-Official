@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
     import { getContext } from "svelte";
 
     import getExpertiseDieSize from "../../../utils/getExpertiseDieSize";

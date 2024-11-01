@@ -1,6 +1,6 @@
 <script>
     import { createEventDispatcher, onDestroy } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import getFormattedTimeFromSeconds from "../../utils/getFormattedTimeFromSeconds";
 
@@ -118,7 +118,12 @@
     function getEffectRemovalNote() {
         if (linked) return "";
 
-        if (conditionId === "corruption" || conditionId === "fatigue" || conditionId === "inebriated" || conditionId === "strife") {
+        if (
+            conditionId === "corruption" ||
+            conditionId === "fatigue" ||
+            conditionId === "inebriated" ||
+            conditionId === "strife"
+        ) {
             return `
                 <small class="a5e-tooltip__note">
                     Right click to remove a level of ${conditionId}.
@@ -175,7 +180,13 @@
     class:fatigue-counter={conditionId === "fatigue"}
     class:inebriated-counter={conditionId === "inebriated"}
     class:strife-counter={conditionId === "strife"}
-    style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[fatigue]}; --strife-col: {colors[strife]};  --corruption: '{corruption}'; --corruption-col: {colors[corruption]};  --inebriated: '{inebriated}'; --inebriated-col: {colors[inebriated]};"
+    style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[
+        fatigue
+    ]}; --strife-col: {colors[
+        strife
+    ]};  --corruption: '{corruption}'; --corruption-col: {colors[
+        corruption
+    ]};  --inebriated: '{inebriated}'; --inebriated-col: {colors[inebriated]};"
 >
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->

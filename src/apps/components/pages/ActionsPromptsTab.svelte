@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import ActionsManager from "../../../managers/ActionsManager";
 
@@ -64,9 +64,10 @@
     $: action = $item.actions[actionId];
     $: prompts = action.prompts ?? {};
 
-    $: menuList = Object.entries(promptTypes).map(
-        ([promptType, { heading }]) => [promptType, heading],
-    );
+    $: menuList = Object.entries(promptTypes).map(([promptType, { heading }]) => [
+        promptType,
+        heading,
+    ]);
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">

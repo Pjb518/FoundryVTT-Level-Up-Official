@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
     import { getContext } from "svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -119,7 +119,9 @@
         return true;
     }).length;
 
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 
     $: spellBooks = $actor.spellBooks;
 

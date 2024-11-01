@@ -2,7 +2,7 @@
     import type ClassResourceManager from "../../../managers/ClassResourceManager";
 
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 

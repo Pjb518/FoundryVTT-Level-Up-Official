@@ -1,14 +1,12 @@
 <script lang="ts">
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import RadioGroup from "./RadioGroup.svelte";
 
     export let selected: string;
     export let source: string;
 
-    const rollModes: [string, string][] = Object.entries(
-        CONFIG.A5E.rollModes ?? {},
-    );
+    const rollModes: [string, string][] = Object.entries(CONFIG.A5E.rollModes ?? {});
 
     const options = rollModes.map(([key, value]) => [
         CONFIG.A5E.ROLL_MODE[key.toUpperCase()],

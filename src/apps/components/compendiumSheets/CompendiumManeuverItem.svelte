@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import ImportButton from "../ImportButton.svelte";
 
@@ -18,8 +18,7 @@
     }
 
     function getManeuverDetailsLabel(maneuver) {
-        const maneuverDegree =
-            maneuverDegrees[parseInt(maneuver.system.degree, 10)];
+        const maneuverDegree = maneuverDegrees[parseInt(maneuver.system.degree, 10)];
 
         const tradition = maneuverTraditions[maneuver.system.tradition] ?? "";
         const stance = maneuver.system.isStance ? "Stance" : "";
@@ -32,12 +31,7 @@
               )})`
             : "";
 
-        const maneuverProperties = [
-            maneuverDegree,
-            tradition,
-            stance,
-            exertionCost,
-        ]
+        const maneuverProperties = [maneuverDegree, tradition, stance, exertionCost]
             .filter(Boolean)
             .join(" ");
 
@@ -65,8 +59,7 @@
     draggable="true"
     on:click={async () => {
         const doc =
-            collection.get(document._id) ??
-            (await collection.getDocument(document._id));
+            collection.get(document._id) ?? (await collection.getDocument(document._id));
         doc.sheet?.render(true);
     }}
     on:dragstart={onDragStart}

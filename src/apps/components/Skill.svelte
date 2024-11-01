@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import pressedKeysStore from "../../stores/pressedKeysStore";
 
@@ -77,7 +77,9 @@
     $: proficiencyLevel = getProficiencyLevel($actor, skill);
     $: proficiencyTooltip = getProficiencyTooltip(proficiencyLevel);
 
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 <li class="skill" class:skill--column-flow={columnFlow}>

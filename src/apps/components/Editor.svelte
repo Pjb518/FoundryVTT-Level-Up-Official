@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
     import { TJSTinyMCE, TinyMCEHelper } from "#standard/component";
 
     export let document;

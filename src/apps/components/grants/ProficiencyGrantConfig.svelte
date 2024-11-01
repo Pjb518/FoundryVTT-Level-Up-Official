@@ -1,7 +1,7 @@
 <script>
     import { getContext, onDestroy, setContext } from "svelte";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import prepareProficiencyConfigObject from "../../../utils/prepareProficiencyConfigObject";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";

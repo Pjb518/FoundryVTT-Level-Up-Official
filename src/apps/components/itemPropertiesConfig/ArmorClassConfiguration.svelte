@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
@@ -40,11 +40,7 @@
                 id="{appId}-ac-base-formula"
                 value={$item.system.ac?.baseFormula ?? ""}
                 on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        target.name,
-                        target.value,
-                    )}
+                    updateDocumentDataFromField($item, target.name, target.value)}
             />
         </FieldWrapper>
 

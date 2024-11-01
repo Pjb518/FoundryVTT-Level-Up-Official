@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
     import { getContext, onDestroy } from "svelte";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -107,10 +107,10 @@
     {/if}
 </TabFooter>
 
+<footer class="features-footer" />
+
 <style lang="scss">
     .disable-pointer-events {
         pointer-events: none;
     }
 </style>
-
-<footer class="features-footer" />

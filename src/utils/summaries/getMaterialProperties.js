@@ -1,4 +1,4 @@
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 export default function getMaterialPropertiesSummary(item) {
   const { flaws, materialProperties } = CONFIG.A5E;

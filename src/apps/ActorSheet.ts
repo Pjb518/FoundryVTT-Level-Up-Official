@@ -1,6 +1,6 @@
 /* eslint-disable no-continue */
 import { SvelteApplication } from '#runtime/svelte/application';
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 import ActorDocument from './ActorDocument';
 

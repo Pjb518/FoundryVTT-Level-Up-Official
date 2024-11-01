@@ -1,7 +1,7 @@
 <script>
     import { createEventDispatcher, getContext } from "svelte";
     import { slide } from "svelte/transition";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import pressedKeysStore from "../../stores/pressedKeysStore";
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
@@ -93,7 +93,9 @@
         .then((data) => (description = data))
         .catch((err) => (description = err));
 
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
     $: showActionList = determineActionListVisibility(action, item, sheetIsLocked);
     $: showContainerItems =
         item.getFlag("a5e", "showContainer") ?? containerItems.length > 0;

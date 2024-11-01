@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import Checkbox from "../components/Checkbox.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
@@ -40,9 +40,7 @@
             consumeSupply: simpleRests ? false : consumeSupply,
             haven: simpleRests ? true : haven,
             restType,
-            recoverStrifeAndFatigue: simpleRests
-                ? true
-                : recoverStrifeAndFatigue,
+            recoverStrifeAndFatigue: simpleRests ? true : recoverStrifeAndFatigue,
         });
     }
 
@@ -58,10 +56,7 @@
     />
 
     {#if restType === "long" && !simpleRests}
-        <Section
-            --a5e-section-body-padding="0"
-            --a5e-section-body-gap="0.75rem"
-        >
+        <Section --a5e-section-body-padding="0" --a5e-section-body-gap="0.75rem">
             <FieldWrapper>
                 <Checkbox
                     label="A5E.HavenPrompt"

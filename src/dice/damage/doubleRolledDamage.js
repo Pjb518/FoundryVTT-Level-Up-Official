@@ -1,4 +1,4 @@
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 export default async function doubleRolledDamage(baseRoll) {
   const Terms = foundry.dice.terms;

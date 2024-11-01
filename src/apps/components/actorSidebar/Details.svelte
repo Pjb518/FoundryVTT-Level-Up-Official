@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import FieldWrapper from "../FieldWrapper.svelte";
     import Tag from "../Tag.svelte";
@@ -28,9 +28,7 @@
         if (!determineIfPropertyModifiedByEffect($actor, propertyKey))
             return $actor[dialogMethod]({ propertyKey });
 
-        ui.notifications.warn(
-            localize("A5E.validations.warnings.modifiedByEffect"),
-        );
+        ui.notifications.warn(localize("A5E.validations.warnings.modifiedByEffect"));
     }
 
     $: details = [
@@ -145,7 +143,7 @@
 
     $: sheetIsLocked = !$actor.isOwner
         ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 {#each details as { dialogMethod, display, heading, propertyKey, tooltip, values }}
@@ -154,8 +152,7 @@
             {heading}
             buttons={[
                 {
-                    classes:
-                        "fa-solid fa-gear a5e-field-wrapper__header-button--scale",
+                    classes: "fa-solid fa-gear a5e-field-wrapper__header-button--scale",
                     display: !sheetIsLocked,
                     handler: () => openConfig(dialogMethod, propertyKey),
                     tooltip,

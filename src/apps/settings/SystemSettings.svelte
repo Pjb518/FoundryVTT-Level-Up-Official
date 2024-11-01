@@ -3,7 +3,7 @@
 <script>
     import { getContext, setContext } from "svelte";
     import { ApplicationShell } from "#runtime/svelte/component/core";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import Settings5eTab from "./Settings5eTab.svelte";

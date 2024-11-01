@@ -1,4 +1,4 @@
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 import { TJSDialog } from '#runtime/svelte/application';
 
 import { gameSettings } from '../settings/SettingsStore';

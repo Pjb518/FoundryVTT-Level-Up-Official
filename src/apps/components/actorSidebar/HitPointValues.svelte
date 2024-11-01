@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -32,7 +32,9 @@
 
     const actor = getContext("actor");
 
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 {#if sheetIsLocked}

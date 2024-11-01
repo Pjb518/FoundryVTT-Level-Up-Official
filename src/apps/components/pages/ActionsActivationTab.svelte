@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import updateAssociatedValues from "../../handlers/updateAssociatedValues";
@@ -53,11 +53,7 @@
         >
             <option value="" />
             {#each Object.entries(A5E.abilityActivationTypes) as [value, label]}
-                <option
-                    key={value}
-                    {value}
-                    selected={action.activation?.type === value}
-                >
+                <option key={value} {value} selected={action.activation?.type === value}>
                     {localize(label)}
                 </option>
             {/each}

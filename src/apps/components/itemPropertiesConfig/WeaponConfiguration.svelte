@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import getWeaponProperties from "../../../utils/summaries/getWeaponProperties";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -11,18 +11,12 @@
 
     const item = getContext("item");
 
-    const {
-        breakerProperties,
-        defensiveProperties,
-        versatileOptions,
-        weaponProperties,
-    } = CONFIG.A5E;
+    const { breakerProperties, defensiveProperties, versatileOptions, weaponProperties } =
+        CONFIG.A5E;
 
     let editMode = false;
 
-    $: selectedWeaponProperties = getWeaponProperties($item)
-        .filter(Boolean)
-        .join(", ");
+    $: selectedWeaponProperties = getWeaponProperties($item).filter(Boolean).join(", ");
 </script>
 
 <Section
@@ -84,11 +78,7 @@
                 options={Object.entries(versatileOptions)}
                 selected={$item.system.mounted}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.mounted",
-                        event.detail,
-                    )}
+                    updateDocumentDataFromField($item, "system.mounted", event.detail)}
             />
         {/if}
 
@@ -98,11 +88,7 @@
                 options={Object.entries(versatileOptions)}
                 selected={$item.system.versatile}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.versatile",
-                        event.detail,
-                    )}
+                    updateDocumentDataFromField($item, "system.versatile", event.detail)}
             />
         {/if}
     {:else}

@@ -1,4 +1,4 @@
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 export default function getVersatileProperties(item) {
   const { versatileOptions, weaponProperties } = CONFIG.A5E;

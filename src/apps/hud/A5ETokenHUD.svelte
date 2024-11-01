@@ -1,7 +1,7 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     export let HUD;
 
@@ -87,7 +87,15 @@
             />
             <h3
                 class="condition-title"
-                style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[fatigue]}; --strife-col: {colors[strife]};  --corruption: '{corruption}'; --corruption-col: {colors[corruption]};  --inebriated: '{inebriated}'; --inebriated-col: {colors[inebriated]};"
+                style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[
+                    fatigue
+                ]}; --strife-col: {colors[
+                    strife
+                ]};  --corruption: '{corruption}'; --corruption-col: {colors[
+                    corruption
+                ]};  --inebriated: '{inebriated}'; --inebriated-col: {colors[
+                    inebriated
+                ]};"
             >
                 {effect.title}
             </h3>

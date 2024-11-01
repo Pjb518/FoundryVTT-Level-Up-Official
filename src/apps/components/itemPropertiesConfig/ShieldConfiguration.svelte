@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import localeSort from "../../../utils/localeSort";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -34,11 +34,7 @@
             options={Object.entries(shieldTypes)}
             selected={$item.system.shieldCategory}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.shieldCategory",
-                    event.detail,
-                )}
+                updateDocumentDataFromField($item, "system.shieldCategory", event.detail)}
         />
 
         <CheckboxGroup

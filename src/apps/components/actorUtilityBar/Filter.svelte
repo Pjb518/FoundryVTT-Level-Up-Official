@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
     import { TJSMenu, TJSToggleIconButton } from "#standard/component";
 
     import arraysAreEqual from "../../../utils/arraysAreEqual";

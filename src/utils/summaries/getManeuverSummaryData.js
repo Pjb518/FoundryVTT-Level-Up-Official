@@ -1,4 +1,4 @@
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 export default function getManeuverSummaryData(item, options) {
   const maneuverDegree = CONFIG.A5E.maneuverDegrees[parseInt(item.system.degree, 10)];
