@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $die-sizes: 4, 6, 8, 10, 12, 20;
 
 .a5e-hit-die-wrapper {
@@ -24,7 +26,7 @@ $die-sizes: 4, 6, 8, 10, 12, 20;
     cursor: pointer;
 
     &:hover {
-      background: darken(#dddace, 2.5%);
+      background: color.adjust(#dddace, $lightness: -2.5%);
     }
   }
 

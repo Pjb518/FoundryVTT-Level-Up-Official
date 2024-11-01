@@ -38,9 +38,8 @@ const config = {
     svelte({
       preprocess: sveltePreprocess({
         scss: {
-          prependData: `@import "src/scss//old/base/_variables.scss";
-                        @import "src/scss/base/_variables.scss";
-                        @import "src/scss/base/_functions.scss";
+          prependData: `@use "src/scss/base/_variables.scss";
+                        @use "src/scss/base/_functions.scss";
                         `
         },
         typescript: {

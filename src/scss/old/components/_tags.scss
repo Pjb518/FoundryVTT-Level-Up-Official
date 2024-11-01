@@ -1,3 +1,5 @@
+@use "sass:color";
+
 .a5e-tag {
   padding: 0.15rem 0.4rem;
   border: 1px solid darken-color(var(--a5e-color-text-medium), 5);
@@ -8,7 +10,7 @@
   white-space: nowrap;
 
   &:hover {
-    background: darken(#dddace, 2.5%);
+    background: color.adjust(#dddace, $lightness: -2.5%);
   }
 
   &--active {
