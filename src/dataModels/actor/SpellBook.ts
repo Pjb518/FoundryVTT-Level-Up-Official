@@ -41,11 +41,11 @@ export default class SpellBook extends A5EDataModel {
       img: new fields.StringField({ required: true, initial: 'icons/svg/book.svg' }),
 
       ability: new fields.StringField({ required: true, initial: 'default' }),
-      disableSpellConsumers: new fields.BooleanField({ required: true, initial: false }),
-      showArtifactCharges: new fields.BooleanField({ required: true, initial: false }),
-      showSpellInventions: new fields.BooleanField({ required: true, initial: false }),
-      showSpellPoints: new fields.BooleanField({ required: true, initial: false }),
-      showSpellSlots: new fields.BooleanField({ required: true, initial: true })
+      disableSpellConsumers: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+      showArtifactCharges: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+      showSpellInventions: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+      showSpellPoints: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+      showSpellSlots: new fields.BooleanField({ required: true, nullable: false, initial: true })
     };
   }
 
