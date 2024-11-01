@@ -120,12 +120,16 @@ export default class ResourceConsumptionManager {
 
     // Handle class resources
     if (resource === 'classResource') {
+      // eslint-disable-next-line no-param-reassign
+      classIdentifier = classIdentifier.replace('@classResources.', '');
+
       const value = foundry.utils.getProperty(
         this.#actor._source.system,
         `resources.classResources.${classIdentifier}`
       ) as number ?? 0;
 
       this.#updates.actor[`system.resources.classResources.${classIdentifier}`] = Math.max(value - quantity, 0);
+      console.log(this.#updates.actor);
 
       return;
     }
