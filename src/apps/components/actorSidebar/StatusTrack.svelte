@@ -89,7 +89,7 @@
             align-items: center;
             justify-content: center;
             border: 1px solid #ccc;
-            background: --a5e-color-background-light;
+            background: var(--a5e-color-background-light);
             border-radius: 50%;
             box-shadow: 0 0 10px #ccc inset;
             color: rgba(0, 0, 0, 0.2);
@@ -137,7 +137,7 @@
             border: 1px solid #ccc;
             border-left: 0;
             margin: 0;
-            background: --a5e-color-background-light;
+            background: var(--a5e-color-background-light);
             border-radius: 0 1rem 1rem 0;
             list-style: none;
             opacity: 0;

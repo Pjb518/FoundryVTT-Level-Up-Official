@@ -90,11 +90,11 @@
         justify-content: center;
         width: 3.5rem;
         padding: 0.125rem 0;
-        font-family: --a5e-font-primary;
+        font-family: var(--a5e-font-primary);
         color: var(--a5e-color-text-medium);
         border: 1px solid #ccc;
         border-radius: 4px;
-        background: --a5e-color-background-light;
+        background: var(--a5e-color-background-light);
         box-shadow: 0 0 5px #ccc inset;
         z-index: 4;
     }

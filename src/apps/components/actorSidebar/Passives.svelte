@@ -44,7 +44,7 @@
         align-items: center;
         flex: 1;
         padding: 0.125rem 0;
-        font-family: --a5e-font-primary;
+        font-family: var(--a5e-font-primary);
         color: var(--a5e-color-text-medium);
         border: 1px solid #ccc;
         border-radius: 4px;

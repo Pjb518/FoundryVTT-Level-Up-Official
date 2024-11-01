@@ -147,7 +147,7 @@
             img,
             h3 {
                 font-weight: bold;
-                color: --a5e-color-primary-light;
+                color: var(--a5e-color-primary-light);
                 // filter: invert(62%) sepia(32%) saturate(6599%)
                 //     hue-rotate(110deg) brightness(96%) contrast(83%);
             }
@@ -176,7 +176,7 @@
         &:focus {
             outline: none;
             box-shadow: none;
-            color: --a5e-color-primary-light;
+            color: var(--a5e-color-primary-light);
         }
 
         &:disabled {

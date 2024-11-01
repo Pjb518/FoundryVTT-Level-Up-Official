@@ -70,7 +70,7 @@
         height: 2.75rem;
         margin-inline: 0.5rem;
         border-radius: 4px;
-        font-family: --a5e-font-primary;
+        font-family: var(--a5e-font-primary);
     }
 
     main {

@@ -94,6 +94,6 @@
         padding: 0.75rem;
         gap: 1rem;
         overflow: auto;
-        background: --a5e-color-background-sheet;
+        background: var(--a5e-color-background-sheet);
     }
 </style>

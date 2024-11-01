@@ -137,14 +137,14 @@
         height: 100%;
         padding: var(--padding, 0.75rem);
         gap: 0.75rem;
-        background: var(--background, --a5e-color-background-sheet);
+        background: var(--background, var(--a5e-color-background-sheet));
         max-height: 70vh;
         overflow-y: auto;
     }
 
     .grant-name,
     .grant-name[type="text"] {
-        font-family: --a5e-font-primary;
+        font-family: var(--a5e-font-primary);
         font-size: var(--a5e-text-size-xxl);
         border: 0;
         background: transparent;

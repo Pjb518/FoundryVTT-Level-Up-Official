@@ -55,7 +55,7 @@
             align-items: center;
             justify-content: center;
             border: 1px solid #ccc;
-            background-color: --a5e-color-background-light;
+            background-color: var(--a5e-color-background-light);
             border-radius: 50%;
             box-shadow: 0 0 10px #ccc inset;
             color: rgba(0 0 0 / 0.2);

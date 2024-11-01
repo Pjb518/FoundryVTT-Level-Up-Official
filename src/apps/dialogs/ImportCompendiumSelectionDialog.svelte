@@ -38,6 +38,6 @@
         width: 100%;
         padding: 0.75rem;
         gap: 1rem;
-        background: --a5e-color-background-sheet;
+        background: var(--a5e-color-background-sheet);
     }
 </style>

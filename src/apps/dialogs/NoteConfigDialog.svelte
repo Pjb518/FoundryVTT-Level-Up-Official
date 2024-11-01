@@ -43,7 +43,7 @@
         padding: 0.75rem;
         gap: 0.5rem;
         overflow: auto;
-        background: --a5e-color-background-sheet;
+        background: var(--a5e-color-background-sheet);
     }
 
     .editor-wrapper {

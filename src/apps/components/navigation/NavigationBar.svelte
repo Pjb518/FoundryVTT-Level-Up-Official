@@ -39,7 +39,7 @@
         padding: 0.375rem 0.75rem;
         background: var(--a5e-color-primary);
         color: var(--a5e-color-text-light);
-        font-family: --a5e-font-primary;
+        font-family: var(--a5e-font-primary);
         font-size: var(--a5e-text-size-md);
         border-radius: var(--a5e-border-radius-standard);
         text-transform: lowercase;
