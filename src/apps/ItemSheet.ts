@@ -101,7 +101,7 @@ export default class ItemSheet extends SvelteApplication {
         class: 'configure-sheet',
         icon: 'fas fa-cog fa-fw',
         title: 'Configure Sheet',
-        onclick: (event) => this._onConfigureSheet(event)
+        onclick: ({ event }) => this._onConfigureSheet(event)
       });
 
       buttons.unshift({
@@ -116,7 +116,7 @@ export default class ItemSheet extends SvelteApplication {
         label: 'Import',
         class: 'import',
         icon: 'fas fa-download',
-        onclick: (event) => this._onImport(event)
+        onclick: ({ event }) => this._onImport(event)
       });
     }
     return buttons;

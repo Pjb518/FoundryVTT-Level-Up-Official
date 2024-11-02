@@ -105,7 +105,7 @@ export default class ActiveEffectConfigA5e extends SvelteApplication {
         class: 'configure-sheet',
         icon: 'fas fa-cog fa-fw',
         title: 'Configure Sheet',
-        onclick: (event) => this._onConfigureSheet(event)
+        onclick: ({ event }) => this._onConfigureSheet(event)
       });
     }
 
