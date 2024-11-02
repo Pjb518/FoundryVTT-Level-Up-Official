@@ -88,6 +88,10 @@ export default class ActorSheet extends SvelteApplication {
     });
   }
 
+  get document() {
+    return this.actor;
+  }
+
   get object() {
     return this.actor;
   }
