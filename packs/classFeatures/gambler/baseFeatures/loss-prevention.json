@@ -1,0 +1,150 @@
+{
+	"name": "Loss Prevention",
+	"type": "feature",
+	"img": "icons/skills/melee/swords-parry-block-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"2tSwOc04qU6aKVJc": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"KMPtLBJODFdkoJfc": {
+						"type": "generic",
+						"default": true,
+						"label": "",
+						"formula": "1d6"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"HKupV1f2BvUtfwg3": {
+				"name": "Risk Die (One)",
+				"activation": {},
+				"consumers": {
+					"mMAzAE09eyrQHopo": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "risk-dice-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"zVo02zgLaVvjre74": {
+						"type": "generic",
+						"default": true,
+						"formula": "@classResources.risk-dice-damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"prgTmqjpzq6EWjgr": {
+				"name": "Risk Die (Two)",
+				"activation": {},
+				"consumers": {
+					"mMAzAE09eyrQHopo": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "risk-dice-uses",
+						"resource": "classResource",
+						"quantity": 2
+					}
+				},
+				"rolls": {
+					"zVo02zgLaVvjre74": {
+						"type": "generic",
+						"default": true,
+						"formula": "@classResources.risk-dice-damage + @classResources.risk-dice-damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Also at 3rd level, your risk taking has taught you that sometimes taking a risk can really hurt. You gain expertise in Parrying and when you take the Parry reaction you can choose to roll one risk die. If the attack still hits you, reduce the damage you take by the amount you rolled on the risk die.</p>\n<p>At 5th level you may use Loss Prevention on behalf of an ally in your @UUID[Compendium.a5e.a5e-class-features.Item.4gduehpjfdrqo5dw]{Aura of Luck} who uses the parry reaction.</p>\n<p>At 7th level, your Loss Prevention allows you to roll 2 risk dice.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "motifClasses",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "gambler",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1730842946463,
+		"modifiedTime": 1730843437001,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "vfzpmcznpsi82d3k"
+}

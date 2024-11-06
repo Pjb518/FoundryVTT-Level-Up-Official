@@ -1,5 +1,5 @@
 {
-	"name": "Risk Pool (Gambler)",
+	"name": "Risk Pool",
 	"type": "feature",
 	"img": "icons/sundries/gaming/dice-runed-brown.webp",
 	"system": {
@@ -13,8 +13,46 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>As a Gambler you rely on luck even more than most adventurers.  You gain a pool of dice that represents the reservoir of your good fortune!</p><p>Once per round you may try to make a lucky strike on a target that you have advantage or expertise to hit.</p><p>This must be declared after the dice are rolled but before the narrator declares whether the attack was a hit or a miss.</p><ul><li><p>On a hit, add your risk dice to the damage dealt.</p></li><li><p>On a miss, your risk pool shrinks by 1 die until your next short rest.</p></li></ul><p>Your risk pool refills at the start of your next turn.</p>",
+		"actions": {
+			"AHonuXLPLDrhvoDh": {
+				"name": "Risk Pool",
+				"activation": {},
+				"consumers": {
+					"aSo7uZWfvLndtDeP": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					},
+					"ptZiH3cVfJEFFAzU": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "risk-dice-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"nJDXG83P7Ukrno4i": {
+						"type": "damage",
+						"default": true,
+						"formula": "@classResources.risk-dice-damage"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>As a Gambler you rely on luck even more than most adventurers. You gain a pool of dice that represents the reservoir of your good fortune! Once per round you may try to make a lucky strike on a target that you have advantage or expertise to hit, must be declared after the dice are rolled but before the narrator declares whether the attack was a hit or a miss. On a hit, add your risk dice to the damage dealt. Your risk pool refills at the start of your next turn.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "motifClasses",
@@ -42,15 +80,19 @@
 				}
 			}
 		},
-		"classes": ""
+		"classes": "gambler",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "6hys6sklkfl7qzw9",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.30",
+		"createdTime": 1730760027888,
+		"modifiedTime": 1730760272168,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "6hys6sklkfl7qzw9"
 }
