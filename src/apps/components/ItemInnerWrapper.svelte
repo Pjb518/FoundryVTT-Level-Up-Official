@@ -164,11 +164,12 @@
 
         const capacity = item.containerItems
             ?.capacity()
-            .then((c) => (containerCapacity = c.percentage))
+            .then((c) => (containerCapacity = c.value))
             .catch((e) => console.error(e));
 
-        return capacity?.percentage ?? 0;
+        return capacity?.value ?? 0;
     }
+
 
     function generateUsesConfig() {
         const uses = {
@@ -301,7 +302,14 @@
         {#if item?.system?.objectType === "container"}
             {#if containerCapacity}
                 <span data-tooltip="Capacity" data-tooltip-direction="UP">
-                    ({containerCapacity}%)
+                    (
+			{containerCapacity}
+		    /
+			{item.system.capacity.value}
+				{#if item.system.capacity.type === "weight"}
+					lbs.
+				{/if}
+		    )
                 </span>
             {/if}
 
@@ -568,6 +576,20 @@
     </div>
 {/if}
 
+{#if !actionId && item?.type === "object" && item?.system?.weight > 0}
+    <div class="weight-wrapper">
+        <input
+            class="number-input"
+            id="{actor.id}-{item.id}-weight"
+            type="number"
+            name="system.weight"
+            value={item.system.weight}
+            disabled={true}
+            on:click|stopPropagation
+        />
+    </div>
+{/if}
+
 <style lang="scss">
     .action-button {
         flex-grow: 0;
@@ -724,6 +746,7 @@
     }
 
     .quantity-wrapper,
+    .weight-wrapper,
     .uses-wrapper {
         display: flex;
         align-items: center;
@@ -737,5 +760,9 @@
 
     .quantity-wrapper {
         grid-area: quantity;
+    }
+
+    .weight-wrapper {
+        grid-area: weight;
     }
 </style>
