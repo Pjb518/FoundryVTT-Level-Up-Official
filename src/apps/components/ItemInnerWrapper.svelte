@@ -239,6 +239,8 @@
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
 
+    let showWeightColumnFlag = $actor.flags?.a5e?.showWeightColumn ?? true;
+
     $: flags = $actor.flags;
 
     $: isClassResource = false;
@@ -576,7 +578,7 @@
     </div>
 {/if}
 
-{#if !actionId && item?.type === "object" && item?.system?.weight > 0}
+{#if !actionId && item?.type === "object" && item?.system?.weight > 0 && showWeightColumnFlag}
     <div class="weight-wrapper">
         <input
             class="number-input"

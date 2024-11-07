@@ -29,7 +29,10 @@
     let showDescription = false;
     let showUses = usesRequired(objects);
     let showQuantity = quantityRequired(objects);
-    let showWeight = weightRequired(objects);
+
+    let showWeightColumnFlag = $actor.flags?.a5e?.showWeightColumn ?? true;
+
+    let showWeight = weightRequired(objects) && showWeightColumnFlag;
 
     $: menuList = Object.entries(subTypes);
     $: sortedObjects = Object.entries($objects._types).sort(
@@ -39,7 +42,7 @@
     const unsubscribe = objects.subscribe((_) => {
         showUses = usesRequired(objects);
         showQuantity = quantityRequired(objects);
-	showWeight = weightRequired(objects);
+	showWeight = weightRequired(objects) && showWeightColumnFlag;
     });
 
     onDestroy(() => {
