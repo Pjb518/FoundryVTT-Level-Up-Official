@@ -17,8 +17,13 @@
 
     function getRollModeKey(saveType, abilityKey) {
         if (!abilityKey) return "deathSave";
-        if (saveType === "concentration") return "concentration";
-        return `system.abilities.${abilityKey}.save`;
+        if (saveType === "concentration") {
+		minRoll = options.concentrationMinRoll ?? $actor.system.abilities[abilityKey].save.concentrationMinRoll;
+		return "concentration";
+	} else {
+		minRoll = options.minRoll ?? $actor.system.abilities[abilityKey].save;
+        	return `system.abilities.${abilityKey}.save`;
+	}
     }
 
     function getInitialExpertiseDieSelection() {
@@ -66,6 +71,7 @@
     function onSubmit() {
         dialog.submit({
             expertiseDie,
+	    minRoll,
             rollFormula,
             rollMode,
             saveType,
@@ -74,9 +80,10 @@
     }
 
     let visibilityMode = options.visibilityMode ?? game.settings.get("core", "rollMode");
-
     let saveType = options.saveType ?? "standard";
+    let { minRoll } = options.minRoll ?? $actor.system.abilities[abilityKey].save;
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
 
@@ -108,6 +115,7 @@
     $: rollFormula = getRollFormula($actor, {
         ability: abilityKey,
         expertiseDie,
+	minRoll,
         rollMode,
         saveType,
         situationalMods,

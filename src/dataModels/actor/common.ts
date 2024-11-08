@@ -25,7 +25,8 @@ export const abilities = () => ({
           expertiseDice: new fields.NumberField({
             required: true, initial: 0, integer: true
           }),
-          bonus: new fields.StringField({ required: true, initial: '' })
+          bonus: new fields.StringField({ required: true, initial: '' }),
+	  minRoll: new fields.NumberField({required: true, initial: 1, integer: true, min: 1, max: 20})
         }),
         save: new fields.SchemaField({
           proficient: new fields.BooleanField({ required: true, initial: false }),
@@ -33,8 +34,10 @@ export const abilities = () => ({
             required: true, initial: 0, integer: true
           }),
           bonus: new fields.StringField({ required: true, initial: '' }),
-          ...(abl === 'con' ? { concentrationBonus: new fields.StringField({ required: true, initial: '' }) } : {})
-        })
+          ...(abl === 'con' ? { concentrationBonus: new fields.StringField({ required: true, initial: '' }) } : {}),
+          ...(abl === 'con' ? { concentrationMinRoll: new fields.NumberField({required: true, initial: 1, integer: true, min: 1, max: 20}) } : {}),
+	  minRoll: new fields.NumberField({required: true, initial: 1, integer: true, min: 1, max: 20})
+        }),
       });
 
       return acc;

@@ -18,21 +18,38 @@
 
 <article>
     <!-- Ability Check Config -->
-    {#if !hideExpertiseDice}
-        <Section heading="Ability Check Configuration">
-            <ExpertiseDiePicker
-                selected={$actor._source.system.abilities[abilityKey]?.check
-                    ?.expertiseDice}
-                type={$actor.type}
-                on:updateSelection={({ detail }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        `system.abilities.${abilityKey}.check.expertiseDice`,
-                        detail,
-                    )}
-            />
+	<Section heading="Ability Check Configuration">
+    		{#if !hideExpertiseDice}
+           		 <ExpertiseDiePicker
+                		selected={$actor._source.system.abilities[abilityKey]?.check
+                    		?.expertiseDice}
+                		type={$actor.type}
+                		on:updateSelection={({ detail }) =>
+                    			updateDocumentDataFromField(
+                        			$actor,
+                        			`system.abilities.${abilityKey}.check.expertiseDice`,
+                        			detail,
+                    		)}
+           		/>
+		{/if}
+
+        	<FieldWrapper heading="A5E.MinimumD20Roll" --direction="column">
+            		<div class="u-w-20">
+                	<input
+                    		class="a5e-input"
+                    		type="number"
+                    		value={$actor._source.system.abilities[abilityKey]?.check?.minRoll}
+                    		min="0"
+                    		on:change={({ target }) =>
+                       			updateDocumentDataFromField(
+                            			$actor,
+                            			`system.abilities.${abilityKey}.check.minRoll`,
+                            			Number(target.value),
+                        		)}
+                	/>
+            		</div>
+        	</FieldWrapper>
         </Section>
-    {/if}
 
     <Section heading="Saving Throw Configuration" --a5e-section-body-gap="0.75rem">
         <FieldWrapper
@@ -65,6 +82,23 @@
             />
         {/if}
 
+        <FieldWrapper heading="A5E.MinimumD20Roll" --direction="column">
+            	<div class="u-w-20">
+                <input
+                    	class="a5e-input"
+                    	type="number"
+                    	value={$actor._source.system.abilities[abilityKey]?.save?.minRoll}
+                    	min="0"
+                    	on:change={({ target }) =>
+                       		updateDocumentDataFromField(
+                            		$actor,
+                            		`system.abilities.${abilityKey}.save.minRoll`,
+                            		Number(target.value),
+                        	)}
+                />
+            	</div>
+        </FieldWrapper>
+
         {#if abilityKey === "con"}
             <FieldWrapper
                 heading="A5E.ConcentrationCheckBonus"
@@ -82,6 +116,23 @@
                         )}
                 />
             </FieldWrapper>
+
+        	<FieldWrapper heading="A5E.MinimumD20Roll" --direction="column">
+            		<div class="u-w-20">
+                	<input
+                    		class="a5e-input"
+                    		type="number"
+                    		value={$actor._source.system.abilities[abilityKey]?.save?.concentrationMinRoll}
+                    		min="0"
+                    		on:change={({ target }) =>
+                       			updateDocumentDataFromField(
+                            			$actor,
+                            			`system.abilities.${abilityKey}.save.concentrationMinRoll`,
+                            			Number(target.value),
+                        		)}
+                	/>
+            		</div>
+        	</FieldWrapper>
         {/if}
     </Section>
 </article>

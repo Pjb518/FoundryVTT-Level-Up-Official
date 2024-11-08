@@ -62,6 +62,7 @@
 
     let visibilityMode = options.visibilityMode ?? game.settings.get("core", "rollMode");
 
+    let { minRoll } = options.minRoll ?? $actor.system.abilities[abilityKey].check;
     let rollFormula;
     let situationalMods = options.situationalMods ?? "";
 
@@ -73,6 +74,7 @@
     $: rollFormula = getRollFormula($actor, {
         ability: abilityKey,
         expertiseDie,
+	minRoll,
         rollMode,
         situationalMods,
         selectedAbilityBonuses,
