@@ -98,8 +98,10 @@
                 />
             	</div>
         </FieldWrapper>
+    </Section>
 
-        {#if abilityKey === "con"}
+	{#if abilityKey === "con"}
+	   <Section heading="Concentration Check Configuration" --a5e-section-body-gap="0.75rem">
             <FieldWrapper
                 heading="A5E.ConcentrationCheckBonus"
                 hint="This field accepts any values valid in roll formulae."
@@ -133,8 +135,8 @@
                 	/>
             		</div>
         	</FieldWrapper>
+    	   </Section>
         {/if}
-    </Section>
 </article>
 
 <style lang="scss">

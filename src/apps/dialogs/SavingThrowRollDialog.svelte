@@ -21,7 +21,7 @@
 		minRoll = options.concentrationMinRoll ?? $actor.system.abilities[abilityKey].save.concentrationMinRoll;
 		return "concentration";
 	} else {
-		minRoll = options.minRoll ?? $actor.system.abilities[abilityKey].save;
+		minRoll = options.saveMinRoll ?? $actor.system.abilities[abilityKey].save.minRoll;
         	return `system.abilities.${abilityKey}.save`;
 	}
     }
@@ -81,7 +81,7 @@
 
     let visibilityMode = options.visibilityMode ?? game.settings.get("core", "rollMode");
     let saveType = options.saveType ?? "standard";
-    let { minRoll } = options.minRoll ?? $actor.system.abilities[abilityKey].save;
+    let { minRoll } = options.saveMinRoll ?? $actor.system.abilities[abilityKey].save.minRoll;
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
     let rollFormula;
