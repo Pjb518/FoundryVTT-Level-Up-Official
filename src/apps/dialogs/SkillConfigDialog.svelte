@@ -13,16 +13,33 @@
 
     export let { document, appId, skillKey } = getContext("#external").application;
 
+    function getSkillSpecialties(skillKey) {
+	let skillSpecialties = CONFIG.A5E.skillSpecialties[skillKey];
+
+	if (!game.settings.get("a5e", "vrc")) {
+		if (skillKey == "eng") {
+			delete skillSpecialties.robotics;
+			delete skillSpecialties.starships;
+		}
+	}
+
+	return skillSpecialties;
+    }
+
     const actor = document;
     const abilityOptions = prepareAbilityOptions();
 
-    const specialtyOptions = Object.entries(CONFIG.A5E.skillSpecialties[skillKey]);
+    let specialtyOptions = Object.entries(CONFIG.A5E.skillSpecialties[skillKey]);
+    const skillSpecialties = getSkillSpecialties(skillKey);
 
     let dnd5eStyleExpertise = game.settings.get("a5e", "5eStyleExpertise");
 
     let hideSkillSpecialties = game.settings.get("a5e", "hideSkillSpecialties") ?? false;
 
+    let vrc = game.settings.get("a5e", "vrc");
+
     $: skill = $actor.system.skills[skillKey];
+    $: specialtyOptions = Object.entries(skillSpecialties);
 </script>
 
 <article>

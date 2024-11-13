@@ -19,6 +19,10 @@
             delete skills.eng;
         }
 
+	if(!game.settings.get("a5e", "vrc")) {
+		delete skills.sci;
+	}
+
         return skills;
     }
 

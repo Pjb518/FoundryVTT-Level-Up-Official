@@ -480,6 +480,7 @@
             "prc": "Perception Check Roll Mode",
             "prf": "Performance Check Roll Mode",
             "rel": "Religion Check Roll Mode",
+            "sci": "Science Check Roll Mode",
             "slt": "Sleight of Hand Check Roll Mode",
             "ste": "Stealth Check Roll Mode",
             "sur": "Survival Check Roll Mode"
@@ -743,6 +744,16 @@
           "specialties": "Religion Specialties",
           "value": "Religion Value"
         },
+        "sci": {
+          "checkBonus": "Science Check Bonus",
+          "defaultAbility": "Science Default Ability",
+          "expertiseDice": "Science Expertise Dice",
+          "minRoll": "Science Minimum d20 Roll",
+          "passiveBonus": "Science Passive Bonus",
+          "proficient": "Science Proficiency",
+          "specialties": "Science Specialties",
+          "value": "Science Value"
+        },
         "slt": {
           "checkBonus": "Sleight of Hand Check Bonus",
           "defaultAbility": "Sleight of Hand Default Ability",
@@ -982,6 +993,7 @@
     "halfling": "Halfling",
     "ignan": "Ignan",
     "infernal": "Infernal",
+    "machine": "Machine",
     "minotaur": "Minotaur",
     "mycelial": "Mycelial",
     "orc": "Orc",
@@ -1183,7 +1195,8 @@
       "skillListFlowDirection": "Setting this option to 'Row' causes the skills to flow alphabetically left to right, row by row. Setting this option 'Column' causes the skills to flow alphabetically top to bottom, column by column.",
       "terseRollFormulae": "The system provides detailed roll annotations in chat card roll formulae. Enabling this setting removes all roll annotations in this formula display, providing a cleaner aesthetic at the expense of clarity.",
       "trackCurrencyWeight": "Each coin will add 0.02lbs to the weight being carried.",
-      "useNPCExpertisePassiveRulesForCharacters": "When enabled, characters will use the NPC expertise passive rules for skills."
+      "useNPCExpertisePassiveRulesForCharacters": "When enabled, characters will use the NPC expertise passive rules for skills.",
+      "vrc": "When enabled, additonal skills, languages, and proficiencies will be available from the Voidrunner's Codex."
     },
     "navigation": {
       "actor": "Actor",
@@ -1192,6 +1205,7 @@
       "chat": "Chat Cards",
       "rolls": "Rolls",
       "5eSettings": "DND5E",
+      "vrcSettings": "VRC",
       "misc": "Misc."
     },
     "sectionHeader": {
@@ -1275,7 +1289,8 @@
     "terseRollFormulae": "Hide system roll annotations",
     "trackCurrencyWeight": "Track currency weight",
     "trackInventoryWeight": "Track inventory weight",
-    "useNPCExpertisePassiveRulesForCharacters": "Use NPC expertise passive rules for characters"
+    "useNPCExpertisePassiveRulesForCharacters": "Use NPC expertise passive rules for characters",
+    "vrc": "Enable Voidrunner's Codex"
   },
   "A5E.shieldProperties": {
     "handsFree": "Hands-Free",
@@ -1300,6 +1315,7 @@
     "performance": "Performance",
     "persuasion": "Persuasion",
     "religion": "Religion",
+    "science": "Science",
     "sleightOfHand": "Sleight of Hand",
     "stealth": "Stealth",
     "survival": "Survival"
@@ -1345,6 +1361,7 @@
     "driving": "Driving",
     "drugs": "Drugs",
     "dungeoneering": "Dungeoneering",
+    "earthScience": "Earth Science",
     "elementals": "Elementals",
     "empires": "Empires",
     "escapeArtistry": "Escape Artistry",
@@ -1390,6 +1407,7 @@
     "negotiation": "Negotiation",
     "oozes": "Oozes",
     "peacemaking": "Peacemaking",
+    "physics": "Physics",
     "pickpocketing": "Pickpocketing",
     "plantLore": "Plant Lore",
     "plumbing": "Plumbing",
@@ -1400,12 +1418,14 @@
     "relics": "Relics",
     "research": "Research",
     "riding": "Riding",
+    "robotics": "Robotics",
     "running": "Running",
     "scent": "Scent",
     "sensingMotives": "Sensing Motives",
     "siegecraft": "Siegecraft",
     "singing": "Singing",
     "speaking": "Speaking",
+    "starships": "Starships",
     "streetwise": "Streetwise",
     "subtleThreats": "Subtle Threats",
     "swimming": "Swimming",
@@ -2524,6 +2544,7 @@
   "A5E.ToolCarpentersTools": "Carpenter's Tools",
   "A5E.ToolCartographersTools": "Cartographer's Tools",
   "A5E.ToolCobblersTools": "Cobbler's Tools",
+  "A5E.ToolComputers": "Computers",
   "A5E.ToolCooksUtensils": "Cook's Utensils",
   "A5E.ToolDiceSet": "Dice Set",
   "A5E.ToolDiceSetPlural": "Dice Sets",
@@ -2568,6 +2589,8 @@
   "A5E.VehicleAirPlural": "Air Vehicles",
   "A5E.VehicleLand": "Land Vehicle",
   "A5E.VehicleLandPlural": "Land Vehicles",
+  "A5E.VehicleSpace": "Space Vehicle",
+  "A5E.VehicleSpacePlural": "Space Vehicles",
   "A5E.VehicleWater": "Water Vehicle",
   "A5E.VehicleWaterPlural": "Water Vehicles",
   "A5E.WeaponAdd": "Add Weapon",
@@ -2575,6 +2598,7 @@
   "A5E.WeaponsSimple": "Simple Weapons",
   "A5E.WeaponsMartial": "Martial Weapons",
   "A5E.WeaponsRare": "Rare Weapons",
+  "A5E.WeaponsMiscellaneous": "Miscellaneous Weapons",
   "A5E.WeaponsOther": "Other Weapons",
   "A5E.WeaponProficiencies": "Weapon Proficiencies",
   "A5E.WeaponProficienciesConfigurationPrompt": "{name}: Configure Weapon Proficiencies",
@@ -2626,6 +2650,8 @@
   "A5E.WeaponHandCrossbowPlural": "Hand Crossbows",
   "A5E.WeaponHeavyCrossbow": "Heavy Crossbow",
   "A5E.WeaponHeavyCrossbowPlural": "Heavy Crossbows",
+  "A5E.WeaponImprovised": "Improvised Weapon",
+  "A5E.WeaponImprovisedPlural": "Improvised Weapons",
   "A5E.WeaponGreatclub": "Greatclub",
   "A5E.WeaponGreatclubPlural": "Greatclubs",
   "A5E.WeaponJavelin": "Javelin",
@@ -2690,6 +2716,8 @@
   "A5E.WeaponSpearThrowerPlural": "Spear-Throwers",
   "A5E.WeaponSpikedChain": "Spiked Chain",
   "A5E.WeaponSpikedChainPlural": "Spiked Chains",
+  "A5E.WeaponStarship": "Starship Weapon",
+  "A5E.WeaponStarshipPlural": "Starship Weapons",
   "A5E.WeaponSwordPistol": "Sword Pistol",
   "A5E.WeaponSwordPistolPlural": "Sword Pistols",
   "A5E.WeaponThrowingDagger": "Throwing Dagger",

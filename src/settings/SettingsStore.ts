@@ -654,6 +654,18 @@ class A5eGameSettings extends TJSGameSettings {
           type: String
         }
       },
+      {
+        namespace,
+        key: 'vrc',
+        options: {
+          name: 'A5E.settings.vrc',
+          hint: 'A5E.settings.hints.vrc',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
       // Hidden system settings
       {
         namespace,

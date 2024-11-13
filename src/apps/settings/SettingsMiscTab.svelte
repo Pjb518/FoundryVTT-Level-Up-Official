@@ -42,6 +42,8 @@
 
     let selectedGamemasterTitle =
         updates.get("gamemasterTitle") ?? $gamemasterTitle;
+
+    let vrc = settings.getStore("vrc");
 </script>
 
 {#if isGM}
@@ -128,6 +130,19 @@
                         "gamemasterTitle",
                         target.value?.trim?.() ?? "",
                     );
+                    reload = true;
+                }}
+            />
+        </FieldWrapper>
+
+        <FieldWrapper hint="A5E.settings.hints.vrc">
+            <Checkbox
+                label="A5E.settings.vrc"
+                checked={updates.get("vrc") ??
+                    $vrc ??
+                    false}
+                on:updateSelection={({ detail }) => {
+                    updates.set("vrc", detail);
                     reload = true;
                 }}
             />

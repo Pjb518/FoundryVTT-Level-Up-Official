@@ -598,6 +598,7 @@ const languages = {
   halfling: 'A5E.languages.halfling',
   ignan: 'A5E.languages.ignan',
   infernal: 'A5E.languages.infernal',
+  machine: 'A5E.languages.machine',
   minotaur: 'A5E.languages.minotaur',
   mycelial: 'A5E.languages.mycelial',
   orc: 'A5E.languages.orc',
@@ -1072,6 +1073,7 @@ const skills = {
   prf: 'A5E.skills.performance',
   per: 'A5E.skills.persuasion',
   rel: 'A5E.skills.religion',
+  sci: 'A5E.skills.science',
   slt: 'A5E.skills.sleightOfHand',
   ste: 'A5E.skills.stealth',
   sur: 'A5E.skills.survival'
@@ -1212,7 +1214,9 @@ const skillSpecialties = {
     mathematics: 'A5E.skillSpecialties.mathematics',
     mechanicalTraps: 'A5E.skillSpecialties.mechanicalTraps',
     plumbing: 'A5E.skillSpecialties.plumbing',
+    robotics: 'A5E.skillSpecialties.robotics',
     siegecraft: 'A5E.skillSpecialties.siegecraft',
+    starships: 'A5E.skillSpecialties.starships',
     weaponry: 'A5E.skillSpecialties.weaponry'
   },
   his: {
@@ -1293,6 +1297,13 @@ const skillSpecialties = {
     prophecy: 'A5E.skillSpecialties.prophecy',
     relics: 'A5E.skillSpecialties.relics',
     undead: 'A5E.skillSpecialties.undead'
+  },
+  sci: {
+    astronomy: 'A5E.skillSpecialties.astronomy',
+    chemistry: 'A5E.skillSpecialties.chemistry',
+    earthScience: 'A5E.skillSpecialties.earthScience',
+    mathematics: 'A5E.skillSpecialties.mathematics',
+    physics: 'A5E.skillSpecialties.physics'
   },
   slt: {
     distraction: 'A5E.skillSpecialties.distraction',
@@ -1470,12 +1481,14 @@ const tools = {
     poisonersKit: 'A5E.ToolPoisonersKit',
     sewingKit: 'A5E.ToolSewingKit',
     smithsTools: 'A5E.ToolSmithsTools',
-    thievesTools: 'A5E.ToolThievesTools'
+    thievesTools: 'A5E.ToolThievesTools',
+    computers: 'A5E.ToolComputers'
   },
   vehicles: {
     landVehicles: 'A5E.VehicleLand',
     waterVehicles: 'A5E.VehicleWater',
-    airVehicles: 'A5E.VehicleAir'
+    airVehicles: 'A5E.VehicleAir',
+    spaceVehicles: 'A5E.VehicleSpace'
   }
 };
 
@@ -1536,7 +1549,8 @@ const toolsPlural = {
   vehicles: {
     landVehicles: 'A5E.VehicleLandPlural',
     waterVehicles: 'A5E.VehicleWaterPlural',
-    airVehicles: 'A5E.VehicleAirPlural'
+    airVehicles: 'A5E.VehicleAirPlural',
+    spaceVehicles: 'A5E.VehicleSpacePlural'
   }
 };
 
@@ -1544,6 +1558,7 @@ const weaponCategories = {
   simple: 'A5E.WeaponsSimple',
   martial: 'A5E.WeaponsMartial',
   rare: 'A5E.WeaponsRare',
+  miscellaneous: 'A5E.WeaponsMiscellaneous',
   other: 'A5E.WeaponsOther'
 };
 
@@ -1618,6 +1633,10 @@ const weapons = {
     shotgun: 'A5E.WeaponShotgun',
     spikedChain: 'A5E.WeaponSpikedChain',
     swordPistol: 'A5E.WeaponSwordPistol'
+  },
+  miscellaneous: {
+    improvised: 'A5E.WeaponImprovised',
+    starship: 'A5E.WeaponStarship'
   }
 };
 
@@ -1692,6 +1711,10 @@ const weaponsPlural = {
     shotgun: 'A5E.WeaponShotgunPlural',
     spikedChain: 'A5E.WeaponSpikedChainPlural',
     swordPistol: 'A5E.WeaponSwordPistolPlural'
+  },
+  miscellaneous: {
+    improvised: 'A5E.WeaponImprovisedPlural',
+    starship: 'A5E.WeaponStarshipPlural'
   }
 };
 
