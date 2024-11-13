@@ -654,15 +654,40 @@ class A5eGameSettings extends TJSGameSettings {
           type: String
         }
       },
+      // VRC Settings
       {
         namespace,
-        key: 'vrc',
+        key: 'hideVRCProficiencies',
         options: {
-          name: 'A5E.settings.vrc',
-          hint: 'A5E.settings.hints.vrc',
+          name: 'A5E.settings.hideVRCProficiencies',
+          hint: 'A5E.settings.hints.hideVRCProficiencies',
           scope: scope.world,
           config: true,
-          default: false,
+          default: true,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
+        key: 'hideVRCSpecialties',
+        options: {
+          name: 'A5E.settings.hideVRCSpecialties',
+          hint: 'A5E.settings.hints.hideVRCSpecialties',
+          scope: scope.world,
+          config: true,
+          default: true,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
+        key: 'hideVRCSkills',
+        options: {
+          name: 'A5E.settings.hideVRCSkills',
+          hint: 'A5E.settings.hints.hideVRCSkills',
+          scope: scope.world,
+          config: true,
+          default: true,
           type: Boolean
         }
       },

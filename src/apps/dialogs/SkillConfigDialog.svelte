@@ -16,7 +16,7 @@
     function getSkillSpecialties(skillKey) {
 	let skillSpecialties = CONFIG.A5E.skillSpecialties[skillKey];
 
-	if (!game.settings.get("a5e", "vrc")) {
+	if (game.settings.get("a5e", "hideVRCSpecialties")) {
 		if (skillKey == "eng") {
 			delete skillSpecialties.robotics;
 			delete skillSpecialties.starships;

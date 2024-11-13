@@ -1143,6 +1143,7 @@ const skillDefaultAbilities = {
   prf: 'cha',
   per: 'cha',
   rel: 'int',
+  sci: 'int',
   slt: 'dex',
   ste: 'dex',
   sur: 'wis'
