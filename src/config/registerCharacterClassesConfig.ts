@@ -28,6 +28,7 @@ export default function registerCharacterClassesConfig() {
     elementalist: 'A5E.characterClasses.elementalist',
     esper: 'A5E.characterClasses.esper',
     fighter: 'A5E.characterClasses.fighter',
+    gambler: 'A5E.characterClasses.gambler',
     herald: 'A5E.characterClasses.herald',
     marshal: 'A5E.characterClasses.marshal',
     ranger: 'A5E.characterClasses.ranger',

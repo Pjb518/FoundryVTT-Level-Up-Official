@@ -15,7 +15,33 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"czzhiXFn66WytuVD": {
+				"name": "Tuck and Roll",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"PabS15Pe5jhGuvmB": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "acr",
+						"ability": "dex"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>You gain an expertise die on Acrobatics checks. When you would take falling damage, make an Acrobatics check and reduce the damage by an amount equal to the result of the check.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -31,10 +57,27 @@
 		},
 		"concentration": false,
 		"featureType": "knack",
-		"classes": "rogue",
-		"grants": {},
+		"grants": {
+			"n0MY02ng8dqQgSc6": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "n0MY02ng8dqQgSc6",
+				"label": "Tuck and Roll",
+				"keys": {
+					"base": [
+						"acr"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill"
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
+		"classes": "rogue",
 		"schemaVersion": {
 			"version": 0.018,
 			"lastMigration": {
@@ -44,13 +87,17 @@
 					"system": "0.17.41"
 				}
 			}
-		}
+		},
+		"class": ""
 	},
 	"folder": null,
-	"_id": "k32u2xdrqrbwmg0b",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.30",
+		"createdTime": 1730759067621,
+		"modifiedTime": 1730759110076,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "k32u2xdrqrbwmg0b"
 }
