@@ -11,8 +11,8 @@
 
     function getClassSummary() {
         const parentClass = $item.system.classes;
-
-        return localize(classes[parentClass] ?? classes5e[parentClass]);
+	
+        return localize(classes[parentClass] ?? classes5e[parentClass]) || parentClass;
     }
 
     const item = getContext("item");
