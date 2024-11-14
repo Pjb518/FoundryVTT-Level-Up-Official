@@ -336,8 +336,7 @@
             border: 1px solid #7a7971;
   	    border-radius: var(--a5e-border-radius-standard);
 	    margin-bottom: 0.25rem;
-	    padding-left: 35%;
-	    padding-right: 35%;
+	    padding-inline: 1rem;
 	    text-align: center;
         }
 
