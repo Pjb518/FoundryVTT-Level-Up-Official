@@ -1177,7 +1177,10 @@ const skillSpecialties = {
     forbiddenKnowledge: 'A5E.skillSpecialties.forbiddenKnowledge',
     monstrosities: 'A5E.skillSpecialties.monstrosities',
     oozes: 'A5E.skillSpecialties.oozes',
-    thePlanes: 'A5E.skillSpecialties.thePlanes'
+    thePlanes: 'A5E.skillSpecialties.thePlanes',
+    psionics: 'A5E.skillSpecialties.psionics',
+    psionicItems: 'A5E.skillSpecialties.psionicItems',
+    psionicCreatures: 'A5E.skillSpecialties.psionicCreatures'
   },
   ath: {
     climbing: 'A5E.skillSpecialties.climbing',
@@ -1187,7 +1190,8 @@ const skillSpecialties = {
     martialArts: 'A5E.skillSpecialties.martialArts',
     running: 'A5E.skillSpecialties.running',
     swimming: 'A5E.skillSpecialties.swimming',
-    throwing: 'A5E.skillSpecialties.throwing'
+    throwing: 'A5E.skillSpecialties.throwing',
+    zeroG: 'A5E.skillSpecialties.zeroG'
   },
   cul: {
     courtlyManners: 'A5E.skillSpecialties.courtlyManners',
@@ -1218,6 +1222,8 @@ const skillSpecialties = {
     robotics: 'A5E.skillSpecialties.robotics',
     siegecraft: 'A5E.skillSpecialties.siegecraft',
     starships: 'A5E.skillSpecialties.starships',
+    starshipEngines: 'A5E.skillSpecialties.starshipEngines',
+    starshipShields: 'A5E.skillSpecialties.starshipShields',
     weaponry: 'A5E.skillSpecialties.weaponry'
   },
   his: {
@@ -1246,6 +1252,7 @@ const skillSpecialties = {
     forensics: 'A5E.skillSpecialties.forensics',
     gatheringRumors: 'A5E.skillSpecialties.gatheringRumors',
     research: 'A5E.skillSpecialties.research',
+    sensors: 'A5E.skillSpecialties.sensors',
     trapfinding: 'A5E.skillSpecialties.trapfinding'
   },
   med: {
@@ -1255,7 +1262,8 @@ const skillSpecialties = {
     drugs: 'A5E.skillSpecialties.drugs',
     herbalism: 'A5E.skillSpecialties.herbalism',
     mentalHealth: 'A5E.skillSpecialties.mentalHealth',
-    poisons: 'A5E.skillSpecialties.poisons'
+    poisons: 'A5E.skillSpecialties.poisons',
+    xenobiology: 'A5E.skillSpecialties.xenobiology'
   },
   nat: {
     astronomy: 'A5E.skillSpecialties.astronomy',
@@ -1304,7 +1312,8 @@ const skillSpecialties = {
     chemistry: 'A5E.skillSpecialties.chemistry',
     earthScience: 'A5E.skillSpecialties.earthScience',
     mathematics: 'A5E.skillSpecialties.mathematics',
-    physics: 'A5E.skillSpecialties.physics'
+    physics: 'A5E.skillSpecialties.physics',
+    technobabble: 'A5E.skillSpecialties.technobabble'
   },
   slt: {
     distraction: 'A5E.skillSpecialties.distraction',
@@ -1317,6 +1326,7 @@ const skillSpecialties = {
     casing: 'A5E.skillSpecialties.casing'
   },
   sur: {
+    astrogation: 'A5E.skillSpecialties.astrogation',    
     dungeoneering: 'A5E.skillSpecialties.dungeoneering',
     foraging: 'A5E.skillSpecialties.foraging',
     hunting: 'A5E.skillSpecialties.hunting',

@@ -17,9 +17,23 @@
 	let skillSpecialties = CONFIG.A5E.skillSpecialties[skillKey];
 
 	if (game.settings.get("a5e", "hideVRCSpecialties")) {
-		if (skillKey == "eng") {
+		if (skillKey == "arc") {
+			delete skillSpecialties.psionics;
+			delete skillSpecialties.psionicItems;
+			delete skillSpecialties.psionicCreatures;
+		} else if (skillKey == "ath") {
+			delete skillSpecialties.zeroG;
+		} else if (skillKey == "eng") {
 			delete skillSpecialties.robotics;
 			delete skillSpecialties.starships;
+			delete skillSpecialties.starshipEngines;
+			delete skillSpecialties.starshipShields;
+		} else if (skillKey == "inv") {
+			delete skillSpecialties.sensors;
+		} else if (skillKey == "med") {
+			delete skillSpecialties.xenobiology;
+		} else if (skillKey == "sur") {
+			delete skillSpecialties.astrogation;
 		}
 	}
 
