@@ -16,7 +16,7 @@
     function getSkillSpecialties(skillKey) {
 	let skillSpecialties = CONFIG.A5E.skillSpecialties[skillKey];
 
-	if (game.settings.get("a5e", "hideVRCSpecialties")) {
+	if (game.settings.get("a5e", "showVRCSpecialties")) {
 		if (skillKey == "arc") {
 			delete skillSpecialties.psionics;
 			delete skillSpecialties.psionicItems;

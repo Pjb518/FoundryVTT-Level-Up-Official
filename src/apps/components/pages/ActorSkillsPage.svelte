@@ -19,7 +19,7 @@
             delete skills.eng;
         }
 
-	if(game.settings.get("a5e", "hideVRCSkills")) {
+	if(game.settings.get("a5e", "showVRCSkills")) {
 		delete skills.sci;
 	}
 

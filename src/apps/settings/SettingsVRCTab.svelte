@@ -10,49 +10,49 @@
     const settings = getContext("settings");
     const updates = getContext("updates");
 
-    let hideVRCProficiencies = settings.getStore("hideVRCProficiencies");
-    let hideVRCSkills = settings.getStore("hideVRCSkills");
-    let hideVRCSpecialties = settings.getStore("hideVRCSpecialties");
+    let showVRCProficiencies = settings.getStore("showVRCProficiencies");
+    let showVRCSkills = settings.getStore("showVRCSkills");
+    let showVRCSpecialties = settings.getStore("showVRCSpecialties");
 </script>
 
 <Section
     heading="A5E.settings.sectionHeader.actorBehavior"
     --a5e-section-body-gap="0.5rem"
 >
-        <FieldWrapper hint="A5E.settings.hints.hideVRCProficiencies">
+        <FieldWrapper hint="A5E.settings.hints.showVRCProficiencies">
             <Checkbox
-                label="A5E.settings.hideVRCProficiencies"
-                checked={updates.get("hideVRCProficiencies") ??
-                    $hideVRCProficiencies ??
+                label="A5E.settings.showVRCProficiencies"
+                checked={updates.get("showVRCProficiencies") ??
+                    $showVRCProficiencies ??
                     true}
                 on:updateSelection={({ detail }) => {
-                    updates.set("hideVRCProficiencies", detail);
+                    updates.set("showVRCProficiencies", detail);
                     reload = true;
                 }}
             />
         </FieldWrapper>
 
-        <FieldWrapper hint="A5E.settings.hints.hideVRCSkills">
+        <FieldWrapper hint="A5E.settings.hints.showVRCSkills">
             <Checkbox
-                label="A5E.settings.hideVRCSkills"
-                checked={updates.get("hideVRCSkills") ??
-                    $hideVRCSkills ??
+                label="A5E.settings.showVRCSkills"
+                checked={updates.get("showVRCSkills") ??
+                    $showVRCSkills ??
                     true}
                 on:updateSelection={({ detail }) => {
-                    updates.set("hideVRCSkills", detail);
+                    updates.set("showVRCSkills", detail);
                     reload = true;
                 }}
             />
         </FieldWrapper>
 
-        <FieldWrapper hint="A5E.settings.hints.hideVRCSpecialties">
+        <FieldWrapper hint="A5E.settings.hints.showVRCSpecialties">
             <Checkbox
-                label="A5E.settings.hideVRCSpecialties"
-                checked={updates.get("hideVRCSpecialties") ??
-                    $hideVRCSpecialties ??
+                label="A5E.settings.showVRCSpecialties"
+                checked={updates.get("showVRCSpecialties") ??
+                    $showVRCSpecialties ??
                     true}
                 on:updateSelection={({ detail }) => {
-                    updates.set("hideVRCSpecialties", detail);
+                    updates.set("showVRCSpecialties", detail);
                     reload = true;
                 }}
             />

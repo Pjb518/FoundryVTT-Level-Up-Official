@@ -30,7 +30,7 @@
     function getOptions(configObject) {
 	let proficiencyOptions = configObject;
 
-	if (game.settings.get("a5e", "hideVRCProficiencies")) {
+	if (game.settings.get("a5e", "showVRCProficiencies")) {
 		if (type === "tools") {
 			delete proficiencyOptions.vehicles.spaceVehicles;
 			delete proficiencyOptions.miscellaneous.computers;

@@ -657,10 +657,10 @@ class A5eGameSettings extends TJSGameSettings {
       // VRC Settings
       {
         namespace,
-        key: 'hideVRCProficiencies',
+        key: 'showVRCProficiencies',
         options: {
-          name: 'A5E.settings.hideVRCProficiencies',
-          hint: 'A5E.settings.hints.hideVRCProficiencies',
+          name: 'A5E.settings.showVRCProficiencies',
+          hint: 'A5E.settings.hints.showVRCProficiencies',
           scope: scope.world,
           config: true,
           default: true,
@@ -669,10 +669,10 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
-        key: 'hideVRCSpecialties',
+        key: 'showVRCSpecialties',
         options: {
-          name: 'A5E.settings.hideVRCSpecialties',
-          hint: 'A5E.settings.hints.hideVRCSpecialties',
+          name: 'A5E.settings.showVRCSpecialties',
+          hint: 'A5E.settings.hints.showVRCSpecialties',
           scope: scope.world,
           config: true,
           default: true,
@@ -681,10 +681,10 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
-        key: 'hideVRCSkills',
+        key: 'showVRCSkills',
         options: {
-          name: 'A5E.settings.hideVRCSkills',
-          hint: 'A5E.settings.hints.hideVRCSkills',
+          name: 'A5E.settings.showVRCSkills',
+          hint: 'A5E.settings.hints.showVRCSkills',
           scope: scope.world,
           config: true,
           default: true,
