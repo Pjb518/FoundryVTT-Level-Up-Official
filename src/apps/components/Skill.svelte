@@ -123,9 +123,7 @@
 
     <div class="skill__mod-wrapper">
         <span class="skill__mod">
-            {replaceHyphenWithMinusSign(
-                showDeterministicBonus ? skillBonus + abilityBonus : skillBonus,
-            )}
+            {skillBonus}
         </span>
 
         {#if $actor.flags.a5e?.showPassiveScores ?? true}
