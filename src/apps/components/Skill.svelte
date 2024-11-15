@@ -123,7 +123,7 @@
 
     <div class="skill__mod-wrapper">
         <span class="skill__mod">
-            {skillBonus}
+            {replaceHyphenWithMinusSign(skillBonus)}
         </span>
 
         {#if $actor.flags.a5e?.showPassiveScores ?? true}
