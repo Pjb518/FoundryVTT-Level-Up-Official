@@ -16,7 +16,7 @@
 </script>
 
 <Section
-    heading="A5E.settings.sectionHeader.actorBehavior"
+    heading="A5E.settings.sectionHeader.vrc"
     --a5e-section-body-gap="0.5rem"
 >
         <FieldWrapper hint="A5E.settings.hints.showVRCProficiencies">

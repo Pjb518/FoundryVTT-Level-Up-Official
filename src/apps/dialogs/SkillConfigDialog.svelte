@@ -13,47 +13,16 @@
 
     export let { document, appId, skillKey } = getContext("#external").application;
 
-    function getSkillSpecialties(skillKey) {
-	let skillSpecialties = CONFIG.A5E.skillSpecialties[skillKey];
-
-	if (game.settings.get("a5e", "showVRCSpecialties")) {
-		if (skillKey == "arc") {
-			delete skillSpecialties.psionics;
-			delete skillSpecialties.psionicItems;
-			delete skillSpecialties.psionicCreatures;
-		} else if (skillKey == "ath") {
-			delete skillSpecialties.zeroG;
-		} else if (skillKey == "eng") {
-			delete skillSpecialties.robotics;
-			delete skillSpecialties.starships;
-			delete skillSpecialties.starshipEngines;
-			delete skillSpecialties.starshipShields;
-		} else if (skillKey == "inv") {
-			delete skillSpecialties.sensors;
-		} else if (skillKey == "med") {
-			delete skillSpecialties.xenobiology;
-		} else if (skillKey == "sur") {
-			delete skillSpecialties.astrogation;
-		}
-	}
-
-	return skillSpecialties;
-    }
-
     const actor = document;
     const abilityOptions = prepareAbilityOptions();
 
-    let specialtyOptions = Object.entries(CONFIG.A5E.skillSpecialties[skillKey]);
-    const skillSpecialties = getSkillSpecialties(skillKey);
+    const specialtyOptions = Object.entries(CONFIG.A5E.skillSpecialties[skillKey]);
 
     let dnd5eStyleExpertise = game.settings.get("a5e", "5eStyleExpertise");
 
     let hideSkillSpecialties = game.settings.get("a5e", "hideSkillSpecialties") ?? false;
 
-    let vrc = game.settings.get("a5e", "vrc");
-
     $: skill = $actor.system.skills[skillKey];
-    $: specialtyOptions = Object.entries(skillSpecialties);
 </script>
 
 <article>

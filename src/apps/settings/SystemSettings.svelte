@@ -14,7 +14,7 @@
     import SettingsMiscTab from "./SettingsMiscTab.svelte";
     import SettingsPartyViewerTab from "./SettingsPartyViewerTab.svelte";
     import SettingsRollTab from "./SettingsRollTab.svelte";
-    import SettingsVRCTab from "./SettingsVRCTab.svelte";
+    import SettingsExtraTab from "./SettingsExtraTab.svelte";
 
     export let elementRoot;
     export let { appId, settings, dialog } = getContext("#external").application;
@@ -76,9 +76,9 @@
             display: game.user.isGM,
         },
         {
-            name: "vrcSettings",
-            label: "A5E.settings.navigation.vrcSettings",
-            component: SettingsVRCTab,
+            name: "extraSettings",
+            label: "A5E.settings.navigation.extraSettings",
+            component: SettingsExtraTab,
             display: game.user.isGM,
         },
         {

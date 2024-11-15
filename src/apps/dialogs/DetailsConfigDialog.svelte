@@ -27,26 +27,9 @@
         return data;
     }
 
-    function getOptions(configObject) {
-	let proficiencyOptions = configObject;
-
-	if (game.settings.get("a5e", "showVRCProficiencies")) {
-		if (type === "tools") {
-			delete proficiencyOptions.vehicles.spaceVehicles;
-			delete proficiencyOptions.miscellaneous.computers;
-		} else if (type === "weapons") {
-			delete proficiencyOptions.miscellaneous.starship;
-		} else if (type === "languages") {
-			delete proficiencyOptions.machine;
-		}
-	}
-
-	return proficiencyOptions;
-    }
 
     const actor = document;
     let options = Object.entries(configObject);
-    configObject = getOptions(configObject);
     const isRadioGroup = ["size"].includes(type);
     const { weaponCategories, toolCategories } = CONFIG.A5E;
 
