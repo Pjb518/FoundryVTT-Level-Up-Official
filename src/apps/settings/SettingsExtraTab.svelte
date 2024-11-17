@@ -11,9 +11,11 @@
     const updates = getContext("updates");
 
     let showVRCProficiencies = settings.getStore("showVRCProficiencies");
+    let showVRCPsionicDisciplines = settings.getStore("showVRCPsionicDisciplines");
     let showVRCSkills = settings.getStore("showVRCSkills");
     let showVRCSpecialties = settings.getStore("showVRCSpecialties");
     let showVRCTechLevel = settings.getStore("showVRCTechLevel");
+    
 </script>
 
 <Section
@@ -28,6 +30,19 @@
                     true}
                 on:updateSelection={({ detail }) => {
                     updates.set("showVRCProficiencies", detail);
+                    reload = true;
+                }}
+            />
+        </FieldWrapper>
+
+        <FieldWrapper hint="A5E.settings.hints.showVRCPsionicDisciplines">
+            <Checkbox
+                label="A5E.settings.showVRCPsionicDisciplines"
+                checked={updates.get("showVRCPsionicDisciplines") ??
+                    $showVRCPsionicDisciplines ??
+                    true}
+                on:updateSelection={({ detail }) => {
+                    updates.set("showVRCPsionicDisciplines", detail);
                     reload = true;
                 }}
             />

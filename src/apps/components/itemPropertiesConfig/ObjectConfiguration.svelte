@@ -215,12 +215,14 @@
                 </dd>
             </div>
 
-            <div class="u-flex u-gap-md">
-                <dt class="u-text-bold">{localize("A5E.ItemTechnologyLevel")}:</dt>
-                <dd class="u-m-0 u-p-0">
-                    {localize(A5E.itemTechLevels[$item.system.techLevel] ?? $item.system.techLevel)}
-                </dd>
-            </div>
+            {#if !showVRCTechLevel}
+                <div class="u-flex u-gap-md">
+                    <dt class="u-text-bold">{localize("A5E.ItemTechnologyLevel")}:</dt>
+                    <dd class="u-m-0 u-p-0">
+                        {localize(A5E.itemTechLevels[$item.system.techLevel] ?? $item.system.techLevel)}
+                    </dd>
+                </div>
+            {/if}
 
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.Attunement")}:</dt>

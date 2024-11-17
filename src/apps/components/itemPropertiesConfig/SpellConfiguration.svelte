@@ -34,6 +34,7 @@
     const {
         PREPARED_STATES,
         classSpellLists,
+        psionicDisciplines,
         spellComponents,
         spellComponentAbbreviations,
         spellLevels,
@@ -41,6 +42,7 @@
     } = CONFIG.A5E;
 
     let editMode = false;
+    let showVRCPsionicDisciplines = game.settings.get("a5e", "showVRCPsionicDisciplines");
 
     $: selectedSpellComponents = prepareSpellComponents($item);
     $: selectedSecondarySpellSchools = prepareSecondarySpellSchools($item);
@@ -87,6 +89,20 @@
                     event.detail,
                 )}
         />
+
+        {#if !showVRCPsionicDisciplines}
+            <RadioGroup
+                heading="A5E.PsionicDiscipline"
+                options={Object.entries(psionicDisciplines)}
+                selected={$item.system.discipline}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.discipline",
+                        event.detail,
+                    )}
+            />
+        {/if}
 
         <CheckboxGroup
             heading="A5E.SpellSchoolSecondaryPlural"
@@ -218,7 +234,7 @@
                     </dt>
 
                     <dd class="summary-list__value">
-                        {spellSchools.primary[$item.system.schools.primary]}
+                        {spellSchools.primary[$item.system.schools.primary] || localize("A5E.None")}
                     </dd>
                 </div>
 
@@ -231,6 +247,18 @@
                         {selectedSecondarySpellSchools || localize("A5E.None")}
                     </dd>
                 </div>
+
+                {#if !showVRCPsionicDisciplines}
+                    <div class="summary-list__item">
+                        <dt class="summary-list__label">
+                            {localize("A5E.PsionicDiscipline")}:
+                        </dt>
+
+                        <dd class="summary-list__value">
+                            {localize(psionicDisciplines[$item.system.discipline]) || localize("A5E.None")}
+                        </dd>
+                    </div>
+                {/if}
 
                 <hr class="a5e-rule u-my-sm" />
 

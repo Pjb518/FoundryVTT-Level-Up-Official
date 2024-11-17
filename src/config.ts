@@ -567,6 +567,7 @@ const knackTypes = {
   fighter: 'Soldiering Knack',
   herald: 'Divine Lesson',
   marshal: 'Lesson of War',
+  psion: 'Cognitive Discoveries',
   ranger: 'Exploration Knack',
   rogue: 'Skill Trick',
   savant: 'Clever Scheme',
@@ -758,6 +759,13 @@ const preparedStates = {
   0: 'A5E.preparedState.unprepared',
   1: 'A5E.preparedState.prepared',
   2: 'A5E.preparedState.alwaysPrepared'
+};
+
+const psionicDisciplines = {
+  dynakinetic: 'A5E.PsionicDisciplineDynakinetic',
+  kinesthetic: 'A5E.PsionicDisciplineKinesthetic',
+  telekinetic: 'A5E.PsionicDisciplineTelekinetic',
+  telepathic: 'A5E.PsionicDisciplineTelepathic'
 };
 
 /**
@@ -1864,6 +1872,7 @@ const A5E = {
   objectTypes,
   objectTypesPlural,
   preparedStates,
+  psionicDisciplines,
   rangeDescriptors,
   rangeValues,
   resourceRecoveryOptions,
