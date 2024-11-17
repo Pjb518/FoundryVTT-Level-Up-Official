@@ -691,6 +691,18 @@ class A5eGameSettings extends TJSGameSettings {
           type: Boolean
         }
       },
+      {
+        namespace,
+        key: 'showVRCTechLevel',
+        options: {
+          name: 'A5E.settings.showVRCTechLevel',
+          hint: 'A5E.settings.hints.showVRCTechLevel',
+          scope: scope.world,
+          config: true,
+          default: true,
+          type: Boolean
+        }
+      },
       // Hidden system settings
       {
         namespace,

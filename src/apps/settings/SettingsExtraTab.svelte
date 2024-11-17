@@ -13,6 +13,7 @@
     let showVRCProficiencies = settings.getStore("showVRCProficiencies");
     let showVRCSkills = settings.getStore("showVRCSkills");
     let showVRCSpecialties = settings.getStore("showVRCSpecialties");
+    let showVRCTechLevel = settings.getStore("showVRCTechLevel");
 </script>
 
 <Section
@@ -53,6 +54,19 @@
                     true}
                 on:updateSelection={({ detail }) => {
                     updates.set("showVRCSpecialties", detail);
+                    reload = true;
+                }}
+            />
+        </FieldWrapper>
+
+        <FieldWrapper hint="A5E.settings.hints.showVRCTechLevel">
+            <Checkbox
+                label="A5E.settings.showVRCTechLevel"
+                checked={updates.get("showVRCTechLevel") ??
+                    $showVRCTechLevel ??
+                    true}
+                on:updateSelection={({ detail }) => {
+                    updates.set("showVRCTechLevel", detail);
                     reload = true;
                 }}
             />

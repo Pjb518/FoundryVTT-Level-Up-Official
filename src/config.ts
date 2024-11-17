@@ -527,6 +527,11 @@ const itemRarity = {
   artifact: 'A5E.itemRarities.artifact'
 };
 
+const itemTechLevels = {
+  standard: 'A5E.itemTechLevels.standard',
+  advanced: 'A5E.itemTechLevels.advanced'
+};
+
 /**
  * // List of various item types.
  * @enum {string}
@@ -1842,6 +1847,7 @@ const A5E = {
   healingTypes,
   healingColors,
   itemRarity,
+  itemTechLevels,
   itemTypes,
   inventoryFilters,
   knackTypes,
