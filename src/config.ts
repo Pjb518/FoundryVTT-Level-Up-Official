@@ -528,6 +528,7 @@ const itemRarity = {
 };
 
 const itemTechLevels = {
+  archaic: 'A5E.itemTechLevels.archaic',
   standard: 'A5E.itemTechLevels.standard',
   advanced: 'A5E.itemTechLevels.advanced'
 };
@@ -1506,7 +1507,8 @@ const tools = {
     sewingKit: 'A5E.ToolSewingKit',
     smithsTools: 'A5E.ToolSmithsTools',
     thievesTools: 'A5E.ToolThievesTools',
-    computers: 'A5E.ToolComputers'
+    computers: 'A5E.ToolComputers',
+    hackingTool: 'A5E.ToolHackingTool',
   },
   vehicles: {
     landVehicles: 'A5E.VehicleLand',
@@ -1568,7 +1570,8 @@ const toolsPlural = {
     poisonersKit: 'A5E.ToolPoisonersKitPlural',
     sewingKit: 'A5E.ToolSewingKitPlural',
     smithsTools: 'A5E.ToolSmithsToolsPlural',
-    thievesTools: 'A5E.ToolThievesToolsPlural'
+    thievesTools: 'A5E.ToolThievesToolsPlural',
+    hackingTool: 'A5E.ToolHackingToolPlural'
   },
   vehicles: {
     landVehicles: 'A5E.VehicleLandPlural',
@@ -1591,17 +1594,21 @@ const weaponCategories = {
  */
 const weapons = {
   simple: {
+    blaster: 'A5E.WeaponBlaster',
     blowgun: 'A5E.WeaponBlowgun',
     club: 'A5E.WeaponClub',
     dagger: 'A5E.WeaponDagger',
     handaxe: 'A5E.WeaponHandaxe',
     heavyCrossbow: 'A5E.WeaponHeavyCrossbow',
+    joltPistol: 'A5E.WeaponJoltPistol',
     greatclub: 'A5E.WeaponGreatclub',
+    laserPistol: 'A5E.WeaponLaserPistol',
     lightCrossbow: 'A5E.WeaponLightCrossbow',
     mace: 'A5E.WeaponMace',
     quarterstaff: 'A5E.WeaponQuarterstaff',
     sickle: 'A5E.WeaponSickle',
     sling: 'A5E.WeaponSling',
+    slugger: 'A5E.WeaponSlugger',
     spear: 'A5E.WeaponSpear'
   },
   martial: {
@@ -1618,6 +1625,7 @@ const weapons = {
     greatsword: 'A5E.WeaponGreatsword',
     halberd: 'A5E.WeaponHalberd',
     handCrossbow: 'A5E.WeaponHandCrossbow',
+    hypodermicPistol: 'A5E.WeaponHypodermicPistol',
     javelin: 'A5E.WeaponJavelin',
     lance: 'A5E.WeaponLance',
     lightHammer: 'A5E.WeaponLightHammer',
@@ -1627,6 +1635,7 @@ const weapons = {
     morningstar: 'A5E.WeaponMorningstar',
     net: 'A5E.WeaponNet',
     pike: 'A5E.WeaponPike',
+    pulseRifle: 'A5E.WeaponPulseRifle',
     punchingDagger: 'A5E.WeaponPunchingDagger',
     rapier: 'A5E.WeaponRapier',
     saber: 'A5E.WeaponSaber',
@@ -1634,6 +1643,8 @@ const weapons = {
     scythe: 'A5E.WeaponScythe',
     shortbow: 'A5E.WeaponShortbow',
     shortsword: 'A5E.WeaponShortsword',
+    slugRifle: 'A5E.WeaponSlugRifle',
+    sniperRifle: 'A5E.WeaponSniperRifle',
     spearThrower: 'A5E.WeaponSpearThrower',
     throwingDagger: 'A5E.WeaponThrowingDagger',
     trident: 'A5E.WeaponTrident',
