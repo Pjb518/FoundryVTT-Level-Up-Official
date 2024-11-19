@@ -36,7 +36,10 @@
     editorOptions.toolbar =
         "styles | fontfamily | table | bullist | numlist | image | superscript | subscript | hr | save | link | removeformat | code ";
 
-    const options = { mceConfig: editorOptions };
+    const options = {
+        editable: game.user.isGM || $document.isOwner || false,
+        mceConfig: editorOptions,
+    };
 
     $: (content = content || newLabel) || localize("A5E.NoDescription");
     $: enrichedContent = Promise.resolve(getEnrichedContent())
