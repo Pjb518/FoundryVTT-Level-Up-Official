@@ -11,6 +11,7 @@ export default function registerClassesConfig() {
     druid: 'A5E.characterClasses.druid',
     elementalist: 'A5E.characterClasses.elementalist',
     fighter: 'A5E.characterClasses.fighter',
+    gambler: 'A5E.characterClasses.gambler',
     herald: 'A5E.characterClasses.herald',
     marshal: 'A5E.characterClasses.marshal',
     psion: 'A5E.characterClasses.psion',
