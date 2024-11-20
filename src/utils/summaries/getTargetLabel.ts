@@ -1,6 +1,6 @@
 import type { Action } from 'types/action';
 
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 export default function getTargetLabel(action: Action) {
   const target = action?.target;

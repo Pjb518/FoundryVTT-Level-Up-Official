@@ -3,7 +3,7 @@
     import type { ItemA5e } from "../../documents/item/item";
 
     import { getContext, createEventDispatcher } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import formulaIsClassResource from "../../utils/formulaIsClassResource";
     import getDeterministicBonus from "../../dice/getDeterministicBonus";
@@ -199,8 +199,8 @@
 
         const maxFormula =
             usesType === "action" && action
-                ? action.uses?.max ?? ""
-                : item.system.uses?.max ?? "";
+                ? (action.uses?.max ?? "")
+                : (item.system.uses?.max ?? "");
 
         if (!maxFormula) return uses;
 

@@ -1,0 +1,120 @@
+{
+	"name": "Fiery Wings",
+	"type": "feature",
+	"img": "icons/creatures/magical/spirit-undead-winged-ghost.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"MJWOv1ohdAinKwLn": {
+				"name": "Fire Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"2PrtIELM5TKpDDE6": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d4",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You sprout a pair of wings (with an appearance chosen by you when you select this option). Your wings grant you a fly speed equal to your walking speed. Creatures grappling you take 1d4 points of fire damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "moarComplete",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"Zd3Z37tTxdOzcuq5": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "Zd3Z37tTxdOzcuq5",
+				"label": "Fiery Wings",
+				"bonus": "@attributes.movement.walk.distance",
+				"movementTypes": {
+					"base": [
+						"fly"
+					],
+					"options": [],
+					"total": 0
+				},
+				"img": "",
+				"unit": "feet",
+				"context": {
+					"isHover": false
+				}
+			},
+			"bnYn0MvnsoeOmhsi": {
+				"grantType": "feature",
+				"level": 14,
+				"levelType": "class",
+				"optional": false,
+				"_id": "bnYn0MvnsoeOmhsi",
+				"label": "Infernal Wings",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.dr3hqtnp6xqsfn65",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"classes": "sorcerer",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.26",
+		"createdTime": 1726850329750,
+		"modifiedTime": 1726850610439,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "r7khy07xh2b7fwp7"
+}

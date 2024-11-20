@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import getRequiredExperiencePoints from "../../../utils/getRequiredExperiencePoints";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -129,13 +129,15 @@
 </div>
 
 <style lang="scss">
+    @use "sass:color";
+
     .character-shields__container {
         display: flex;
         align-items: center;
         gap: 0.25rem;
         border-radius: 4px;
         height: 100%;
-        font-family: $font-primary;
+        font-family: var(--a5e-font-primary);
     }
 
     .character-shields__box,
@@ -149,7 +151,7 @@
         color: var(--a5e-color-text-medium);
         border: 1px solid #ccc;
         border-radius: 4px;
-        background: $color-light-background;
+        background: var(--a5e-color-background-light);
         box-shadow: 0 0 5px #ccc inset;
         z-index: 4;
     }
@@ -195,7 +197,7 @@
         }
 
         &--active {
-            color: darken(#2b6537, 10%);
+            color: color.adjust(#2b6537, $lightness: -10%);
 
             &:hover {
                 color: #2b6537;

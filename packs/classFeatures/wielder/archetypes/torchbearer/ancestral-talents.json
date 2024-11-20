@@ -13,7 +13,56 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"n9hlTcg6TfihcLEI": {
+				"name": "Combat Maneuvers",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"GR7T7WqBMLsfpRDk": {
+						"type": "effect",
+						"default": true,
+						"effectId": "7dvbX1HdnZQQTyzK"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"tkthMakFNeAUL4zf": {
+				"name": "Wielder Spells",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"PK5qswmOXKwjqdZM": {
+						"type": "effect",
+						"default": true,
+						"effectId": "blIpohTjBSCcCzfD"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Starting at 10th level, your artifact bestows your innate physical prowess and mental faculties with the talents of those that came before. Whenever you enter your torch bearer form, choose either your combat maneuvers or wielder spells. The DC of your selection is increased by 2 for as long as you remain in your torch bearer form.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -36,12 +85,12 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "wielder"
+		"classes": "wielder",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Item.sOrJ9PLJ4aSlcppa",
+			"origin": "Item.v6MG6jht4I5B64HN",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -71,16 +120,25 @@
 			},
 			"description": "",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": 1726929856218,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
 		},
 		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Item.sOrJ9PLJ4aSlcppa",
+			"origin": "Item.v6MG6jht4I5B64HN",
 			"flags": {
 				"a5e": {
 					"sort": 0,
@@ -110,20 +168,133 @@
 			},
 			"description": "",
 			"statuses": [],
-			"folder": null,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": 1726929856218,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/svg/aura.svg",
+			"type": "base",
+			"system": {},
+			"tint": "#ffffff",
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.v6MG6jht4I5B64HN",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "n9hlTcg6TfihcLEI",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Ancestral Talents",
+			"img": "icons/magic/light/swords-light-glowing-white.webp",
+			"_id": "7dvbX1HdnZQQTyzK",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.bonuses.maneuverDC",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The DC of your selection is increased by 2 for as long as you remain in your Torch Bearer form.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726929875377,
+				"modifiedTime": 1726929948542,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.v6MG6jht4I5B64HN",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "tkthMakFNeAUL4zf",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Ancestral Talents",
+			"img": "icons/magic/light/swords-light-glowing-white.webp",
+			"_id": "blIpohTjBSCcCzfD",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.bonuses.spellDC",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The DC of your selection is increased by 2 for as long as you remain in your Torch Bearer form.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1726929914158,
+				"modifiedTime": 1726929942385,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {},
 	"folder": null,
-	"_id": "5dlgk2hsd7t3dbq5",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726929856165,
+		"modifiedTime": 1726929914191,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "5dlgk2hsd7t3dbq5"
 }

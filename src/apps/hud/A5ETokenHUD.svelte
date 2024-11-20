@@ -1,7 +1,7 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     export let HUD;
 
@@ -43,7 +43,9 @@
 
     $: conditionsFlowDirection = game.settings.get("a5e", "conditionFlowDirection");
 
+    $: corruption = HUD?.object?.actor?.system?.attributes?.corruption ?? 0;
     $: fatigue = HUD?.object?.actor?.system?.attributes?.fatigue ?? 0;
+    $: inebriated = HUD?.object?.actor?.system?.attributes?.inebriated ?? 0;
     $: strife = HUD?.object?.actor?.system?.attributes?.strife ?? 0;
 </script>
 
@@ -60,7 +62,9 @@
             class="condition-container {effect.cssClass}"
             class:linked
             class:locked={conditionImmunities.includes(effect.id)}
+            class:corruption-counter={effect.id === "corruption" && corruption > 0}
             class:fatigue-counter={effect.id === "fatigue" && fatigue > 0}
+            class:inebriated-counter={effect.id === "inebriated" && inebriated > 0}
             class:strife-counter={effect.id === "strife" && strife > 0}
             title={effect.title ?? ""}
             data-status-id={effect.id}
@@ -85,7 +89,13 @@
                 class="condition-title"
                 style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[
                     fatigue
-                ]}; --strife-col: {colors[strife]}"
+                ]}; --strife-col: {colors[
+                    strife
+                ]};  --corruption: '{corruption}'; --corruption-col: {colors[
+                    corruption
+                ]};  --inebriated: '{inebriated}'; --inebriated-col: {colors[
+                    inebriated
+                ]};"
             >
                 {effect.title}
             </h3>
@@ -137,7 +147,7 @@
             img,
             h3 {
                 font-weight: bold;
-                color: $color-primary-light;
+                color: var(--a5e-color-primary-light);
                 // filter: invert(62%) sepia(32%) saturate(6599%)
                 //     hue-rotate(110deg) brightness(96%) contrast(83%);
             }
@@ -166,7 +176,7 @@
         &:focus {
             outline: none;
             box-shadow: none;
-            color: $color-primary-light;
+            color: var(--a5e-color-primary-light);
         }
 
         &:disabled {
@@ -186,7 +196,9 @@
 
         &.linked,
         &.locked,
+        &.corruption-counter,
         &.fatigue-counter,
+        &.inebriated-counter,
         &.strife-counter {
             h3::before {
                 content: "\f0c1";
@@ -216,19 +228,37 @@
             }
         }
 
+        &.corruption-counter {
+            h3::before {
+                content: var(--corruption);
+                font-family: --a5e-font-sans-serif;
+                font-size: var(--a5e-text-size-md);
+                background-color: var(--corruption-col);
+            }
+        }
+
         &.fatigue-counter {
             h3::before {
                 content: var(--fatigue);
-                font-family: $font-secondary;
+                font-family: --a5e-font-sans-serif;
                 font-size: var(--a5e-text-size-md);
                 background-color: var(--fatigue-col);
+            }
+        }
+
+        &.inebriated-counter {
+            h3::before {
+                content: var(--inebriated);
+                font-family: --a5e-font-sans-serif;
+                font-size: var(--a5e-text-size-md);
+                background-color: var(--inebriated-col);
             }
         }
 
         &.strife-counter {
             h3::before {
                 content: var(--strife);
-                font-family: $font-secondary;
+                font-family: --a5e-font-sans-serif;
                 font-size: var(--a5e-text-size-md);
                 background-color: var(--strife-col);
             }

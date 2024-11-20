@@ -14,7 +14,43 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"SndKbCfcjPHPWeBW": {
+				"name": "Issue Edicts",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"LkMuC2Fymt53zuug": {
+						"type": "generic",
+						"default": true,
+						"label": "Hit Point Total",
+						"formula": "2d10",
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "2d10"
+						}
+					}
+				},
+				"prompts": {
+					"P3adDmxWnezPUQRU": {
+						"type": "effect",
+						"default": true,
+						"effectId": "atyEHp1odKKrkMqv"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p id=\"docs-internal-guid-845983a7-7fff-b589-ff1d-a605bac4b3a6\" dir=\"ltr\">At 1st level, your relic empowers you to impose your will on others. You gain proficiency in Persuasion and Intimidation, or an expertise die if you are already proficient.&nbsp;</p>\n<p dir=\"ltr\">In addition, when you cast a wielder spell that requires an initial Intelligence, Wisdom, or Charisma saving throw before taking effect, you may choose to instead have the spell affect creatures whose current hit points total no more than 2d10 + 2d10 times the level of the spell.&nbsp;</p>\n<p dir=\"ltr\">If the spell can affect multiple creatures, creatures with the lowest number of hit points (excluding unconscious creatures) are affected first. As each creature is affected, subtract its hit points from the total before moving on to the next target.&nbsp;</p>\n<p dir=\"ltr\">A target&rsquo;s hit points must be equal to or less than the total remaining for the spell to have the effects associated with failing the saving throw. Otherwise, only effects that still occur when the saving throw is passed affect the target.</p>\n<p dir=\"ltr\">If the spell affects no creatures, the creature in the area with the lowest hit point total is rattled until the beginning of its next turn. In addition, it suffers any effects that would still occur after a successful saving throw.</p>\n<p dir=\"ltr\">This feature makes no change to the area or number of creatures a spell can affect or target, nor does it change whether creatures make subsequent saving throws after the first.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -53,14 +89,74 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "wielder"
+		"classes": "wielder",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.Ga8kIimMRCUse4VR",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "SndKbCfcjPHPWeBW",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/magic/control/encase-creature-humanoid-hold.webp",
+			"_id": "atyEHp1odKKrkMqv",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727178984783,
+				"modifiedTime": 1727179024279,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "42mhgw3fyzsul8bi",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727178906182,
+		"modifiedTime": 1727178984824,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "42mhgw3fyzsul8bi"
 }

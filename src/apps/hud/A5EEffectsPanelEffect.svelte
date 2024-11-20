@@ -1,6 +1,6 @@
 <script>
     import { createEventDispatcher, onDestroy } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import getFormattedTimeFromSeconds from "../../utils/getFormattedTimeFromSeconds";
 
@@ -79,7 +79,11 @@
     function getEffectDescription(actor) {
         if (description) return description;
 
-        const { fatigue, strife } = actor.system.attributes;
+        const { corruption, fatigue, inebriated, strife } = actor.system.attributes;
+
+        if (conditionId === "corruption") {
+            return localize(`A5E.tracks.corruption.hints.${corruption}`);
+        }
 
         if (name === localize("A5E.Exhaustion")) {
             return localize(`A5E.tracks.exhaustion.hints.${fatigue}`);
@@ -87,6 +91,10 @@
 
         if (conditionId === "fatigue") {
             return localize(`A5E.tracks.fatigue.hints.${fatigue}`);
+        }
+
+        if (conditionId === "inebriated") {
+            return localize(`A5E.tracks.inebriated.hints.${inebriated}`);
         }
 
         if (conditionId === "strife") {
@@ -97,9 +105,11 @@
     }
 
     function getEffectName(actor) {
-        const { fatigue, strife } = actor.system.attributes;
+        const { corruption, fatigue, inebriated, strife } = actor.system.attributes;
 
+        if (conditionId === "corruption") return `${name} (${corruption}) `;
         if (conditionId === "fatigue") return `${name} (${fatigue}) `;
+        if (conditionId === "inebriated") return `${name} (${inebriated}) `;
         if (conditionId === "strife") return `${name} (${strife}) `;
 
         return name;
@@ -108,7 +118,12 @@
     function getEffectRemovalNote() {
         if (linked) return "";
 
-        if (conditionId === "fatigue" || conditionId === "strife") {
+        if (
+            conditionId === "corruption" ||
+            conditionId === "fatigue" ||
+            conditionId === "inebriated" ||
+            conditionId === "strife"
+        ) {
             return `
                 <small class="a5e-tooltip__note">
                     Right click to remove a level of ${conditionId}.
@@ -146,7 +161,9 @@
 
     onDestroy(() => Hooks.off("updateWorldTime", durationHook));
 
+    $: corruption = actor?.system.attributes.corruption ?? 0;
     $: fatigue = actor?.system.attributes.fatigue ?? 0;
+    $: inebriated = actor?.system.attributes.inebriated ?? 0;
     $: strife = actor?.system.attributes.strife ?? 0;
 
     $: tooltip = `
@@ -159,11 +176,17 @@
 
 <div
     class:linked={!!linked}
+    class:corruption-counter={conditionId === "corruption"}
     class:fatigue-counter={conditionId === "fatigue"}
+    class:inebriated-counter={conditionId === "inebriated"}
     class:strife-counter={conditionId === "strife"}
     style="--strife: '{strife}'; --fatigue: '{fatigue}'; --fatigue-col: {colors[
         fatigue
-    ]}; --strife-col: {colors[strife]}"
+    ]}; --strife-col: {colors[
+        strife
+    ]};  --corruption: '{corruption}'; --corruption-col: {colors[
+        corruption
+    ]};  --inebriated: '{inebriated}'; --inebriated-col: {colors[inebriated]};"
 >
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <!-- svelte-ignore a11y-no-noninteractive-element-interactions -->
@@ -216,7 +239,9 @@
     }
 
     .linked,
+    .corruption-counter,
     .fatigue-counter,
+    .inebriated-counter,
     .strife-counter {
         position: relative;
 
@@ -244,16 +269,30 @@
         }
     }
 
+    .corruption-counter::after {
+        content: var(--corruption);
+        font-family: --a5e-font-sans-serif;
+        font-size: var(--a5e-text-size-sm);
+        background-color: var(--corruption-col);
+    }
+
     .fatigue-counter::after {
         content: var(--fatigue);
-        font-family: $font-secondary;
+        font-family: --a5e-font-sans-serif;
         font-size: var(--a5e-text-size-sm);
         background-color: var(--fatigue-col);
     }
 
+    .inebriated-counter::after {
+        content: var(--inebriated);
+        font-family: --a5e-font-sans-serif;
+        font-size: var(--a5e-text-size-sm);
+        background-color: var(--inebriated-col);
+    }
+
     .strife-counter::after {
         content: var(--strife);
-        font-family: $font-secondary;
+        font-family: --a5e-font-sans-serif;
         font-size: var(--a5e-text-size-sm);
         background-color: var(--strife-col);
     }

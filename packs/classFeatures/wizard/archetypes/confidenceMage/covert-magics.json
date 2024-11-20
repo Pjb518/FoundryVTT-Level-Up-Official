@@ -15,15 +15,72 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>Beginning at level 6, your subtle ways extend to your actual use of magic, rather than merely the activities around it. When you cast a spell from the Obscurement school, you may double its normal duration. You may use this ability a number of times equal to your Intelligence modifier, recovering all uses upon finishing a short or long rest.</p><p>Also, when given time, you can conceal your spellcasting altogether. When casting a spell, you may make a Deception check to conceal the spell’s origin. A creature attempting to determine where a spell came from must beat the result of this check with a Wisdom (Insight) check to know you cast the spell.</p>",
+		"actions": {
+			"RvgyoPIRLXTKpv1V": {
+				"name": "Obscurement Spell",
+				"activation": {},
+				"consumers": {
+					"JjH2W9ag4zg3CoMN": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"wyx2867UnRXvtBpE": {
+				"name": "Conceal Magic",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"fH3IdlQZAscSuIFF": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "dec",
+						"ability": "int"
+					}
+				},
+				"prompts": {
+					"Zkro4BM3gktfihJG": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "ins",
+						"ability": "wis"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Beginning at level 6, your subtle ways extend to your actual use of magic, rather than merely the activities around it. When you cast a spell from the <em>obscurement </em>school, you may double its normal duration. You may use this ability a number of times equal to your Intelligence modifier, recovering all uses upon finishing a short or long rest.</p>\n<p>Also, when given time, you can conceal your spellcasting altogether. When casting a spell, you may make a Deception check to conceal the spell&rsquo;s origin. A creature attempting to determine where a spell came from must beat the result of this check with a Wisdom (Insight) check to know you cast the spell.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "confidenceMage",
+		"source": "multiclassersManual",
 		"uses": {
 			"value": 0,
-			"max": "",
-			"per": "",
+			"max": "@int.mod",
+			"per": "shortRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -44,13 +101,17 @@
 				}
 			}
 		},
-		"classes": "wizard"
+		"classes": "wizard",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "mo4hpn1swbf56wlm",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727189169394,
+		"modifiedTime": 1727189324707,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "mo4hpn1swbf56wlm"
 }

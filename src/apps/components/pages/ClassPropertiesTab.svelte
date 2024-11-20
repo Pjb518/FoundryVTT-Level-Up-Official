@@ -104,6 +104,25 @@
                     )}
             />
         </FieldWrapper>
+
+        <FieldWrapper
+            heading="Max Class Level"
+            --a5e-field-wrapper-header-gap="0.5rem"
+        >
+            <input
+                class="a5e-input a5e-input--slim a5e-input--small"
+                type="number"
+                min="0"
+                value={$item.system.maxLevel}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.maxLevel",
+                        Number(target.value),
+                    )}
+            />
+        </FieldWrapper>
+
     </Section>
 
     <Section heading="Hit Dice" --a5e-section-body-gap="0.75rem">
@@ -154,7 +173,7 @@
                         </span>
 
                         <input
-                            class="a5e-class-hp-table__field"
+                            class="a5e-class-hp-table__field--input"
                             type="number"
                             value={hp ?? 0}
                             min="0"
@@ -311,6 +330,14 @@
             &:focus {
                 box-shadow: none;
             }
+        }
+
+        &__field--input {
+            border: 1px solid #7a7971;
+  	    border-radius: var(--a5e-border-radius-standard);
+	    margin-bottom: 0.25rem;
+	    padding-inline: 1rem;
+	    text-align: center;
         }
 
         &__field--total {

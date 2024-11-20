@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -11,8 +11,8 @@
 
     function getClassSummary() {
         const parentClass = $item.system.classes;
-
-        return localize(classes[parentClass] ?? classes5e[parentClass]);
+	
+        return localize(classes[parentClass] ?? classes5e[parentClass]) || parentClass;
     }
 
     const item = getContext("item");

@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -27,15 +27,9 @@
 
     $: ammunitionItems = $item.actor
         ? $item.actor.items
-              .filter(
-                  (i) =>
-                      i.type === "object" &&
-                      i.system.objectType === "ammunition",
-              )
+              .filter((i) => i.type === "object" && i.system.objectType === "ammunition")
               .map((i) => ({ name: i.name, id: i.id }))
-              .sort((a, b) =>
-                  a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
-              )
+              .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
         : [];
 </script>
 
@@ -88,10 +82,7 @@
     </FieldWrapper>
 
     {#if $item.actor}
-        <FieldWrapper
-            heading="A5E.ItemQuantity"
-            --a5e-field-wrapper-width="7.5rem"
-        >
+        <FieldWrapper heading="A5E.ItemQuantity" --a5e-field-wrapper-width="7.5rem">
             <input
                 type="number"
                 d-type="Number"

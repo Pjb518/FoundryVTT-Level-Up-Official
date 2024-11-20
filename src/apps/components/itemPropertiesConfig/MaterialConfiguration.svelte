@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import getMaterialProperties from "../../../utils/summaries/getMaterialProperties";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -49,11 +49,7 @@
                 options={Object.entries(flaws)}
                 selected={$item.system.flaws}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.flaws",
-                        event.detail,
-                    )}
+                    updateDocumentDataFromField($item, "system.flaws", event.detail)}
             />
         {/if}
     {:else}

@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
@@ -32,7 +32,9 @@
 
     const actor = getContext("actor");
 
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 {#if sheetIsLocked}
@@ -88,11 +90,11 @@
         justify-content: center;
         width: 3.5rem;
         padding: 0.125rem 0;
-        font-family: $font-primary;
+        font-family: var(--a5e-font-primary);
         color: var(--a5e-color-text-medium);
         border: 1px solid #ccc;
         border-radius: 4px;
-        background: $color-light-background;
+        background: var(--a5e-color-background-light);
         box-shadow: 0 0 5px #ccc inset;
         z-index: 4;
     }

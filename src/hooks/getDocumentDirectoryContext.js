@@ -1,4 +1,4 @@
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 import handleDocumentMigration from '../migration/handleDocumentMigration';
 import handlePackMigration from '../migration/handlePackMigration';

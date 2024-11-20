@@ -13,8 +13,81 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>When you select this archetype at 2nd level, you gain the mage armor spell if you do not already have it, it is always prepared, and it does not count against your number of spells prepared. When you cast mage armor, you gain a +1 bonus to your AC.</p>",
+		"actions": {
+			"JlaRs1V8DQB1m5cZ": {
+				"name": "Mage Armor",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"yFLNi2hzqu5g49ul": {
+						"mode": "variable",
+						"spellLevel": 1,
+						"points": 2,
+						"type": "spell"
+					}
+				},
+				"rolls": {
+					"qNZuHQR7kv2EL80j": {
+						"type": "healing",
+						"default": true,
+						"scaling": {
+							"mode": "spellLevel",
+							"formula": "5"
+						},
+						"healingType": "temporaryHealing",
+						"formula": "0"
+					}
+				},
+				"prompts": {
+					"MQ1SDdXebc3wsNbs": {
+						"type": "effect",
+						"default": true,
+						"effectId": "",
+						"label": "Mage Armor"
+					},
+					"Tzj6mSx1S2nuVxlV": {
+						"type": "effect",
+						"default": true,
+						"effectId": "VQuN5XTMbmVxKUv2"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": "8"
+				},
+				"ranges": {
+					"Xz9MmMUurHP9TxbZ": {
+						"range": "touch"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false,
+					"quantity": 1
+				},
+				"target": {
+					"quantity": 1,
+					"type": "other"
+				},
+				"img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp"
+			}
+		},
+		"description": "<p>When you select this archetype at 2nd level, you gain the @UUID[Compendium.a5e.a5e-spells.Item.ip8c3zrbrngrx1oe]{Mage Armor} spell if you do not already have it, it is always prepared, and it does not count against your number of spells prepared. When you cast <em>mage armor</em>, you gain a +1 bonus to your AC.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "mysteriousAndMarvelousMiscellanea",
@@ -42,15 +115,126 @@
 				}
 			}
 		},
-		"classes": "wizard"
+		"classes": "wizard",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.dC7iPbrxbq01V0uS",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "JlaRs1V8DQB1m5cZ",
+					"duration": {
+						"unit": "hours"
+					},
+					"applyToSelf": false
+				}
+			},
+			"transfer": false,
+			"name": "Mage Armor",
+			"_id": "WjRWQRJJFHle45YF",
+			"changes": [
+				{
+					"key": "system.attributes.ac.baseFormula",
+					"value": "13 + @dex.mod[Dexterity Modifier]",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"statuses": [],
+			"tint": "#ffffff",
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727177684262,
+				"modifiedTime": 1727177720849,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
+			"type": "base",
+			"system": {},
+			"sort": 0,
+			"folder": null
+		},
+		{
+			"origin": "Item.Zf0Zq0t5m962615d",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "JlaRs1V8DQB1m5cZ",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Armor of Earth",
+			"img": "icons/magic/defensive/shield-barrier-glowing-triangle-blue.webp",
+			"_id": "VQuN5XTMbmVxKUv2",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>When you cast @UUID[Compendium.a5e.a5e-spells.Item.ip8c3zrbrngrx1oe]{Mage Armor}, you gain a +1 bonus to your AC.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727177737053,
+				"modifiedTime": 1727177807430,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"folder": null,
-	"_id": "ddpqy650ml7abt9e",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727177453691,
+		"modifiedTime": 1727177752169,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ddpqy650ml7abt9e"
 }

@@ -49,6 +49,10 @@ export default function registerModuleIncompatibilities() {
         reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
         priority: 'low'
       },
+      'a5e-multiclassers-manual': {
+        reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
+        priority: 'low'
+      },
       'a5e-secrets-of-the-selkies': {
         reason: 'The content from this module is included in the core system packs, and the module is no longer necessary.',
         priority: 'low'

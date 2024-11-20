@@ -1,0 +1,95 @@
+{
+	"name": "Sporadic Genius",
+	"type": "feature",
+	"img": "icons/magic/light/orb-lightbulb-gray.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"FbOdNWUzYUFyac5k": {
+				"name": "Sporadic Genius",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "when you or another creature you can see within 30 feet of you makes an ability check or a saving throw"
+				},
+				"consumers": {
+					"BFNLoalQCSRb39YK": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"dowNZwVpKwBU5GJO": {
+						"type": "generic",
+						"default": true,
+						"formula": "@int.mod"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You&rsquo;re known for sudden bursts of insight and people listen to your fervorous insights. When you or another creature you can see within 30 feet of you makes an ability check or a saving throw, you can use your reaction to add your Intelligence modifier to the roll. You can use this feature a number of times equal to your Intelligence modifier (minimum of once). You regain all expended uses when you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "advancedArtificers",
+		"uses": {
+			"value": 0,
+			"max": "max(1, @int.mod)",
+			"per": "longRest",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "artificerRevised",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.26",
+		"createdTime": 1727297743047,
+		"modifiedTime": 1727297806112,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "C0UBydwxjl0gDomE"
+}

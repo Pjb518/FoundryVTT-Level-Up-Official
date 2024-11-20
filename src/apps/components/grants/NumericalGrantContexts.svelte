@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import getContextsMap from "../../../utils/getContextsMap";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -59,10 +59,7 @@
                     type="number"
                     value={getProperty(grant, context.selectedProperty) ?? 0}
                     on:change={({ target }) => {
-                        onUpdateValue(
-                            context.selectedProperty,
-                            Number(target.value),
-                        );
+                        onUpdateValue(context.selectedProperty, Number(target.value));
                     }}
                 />
             </FieldWrapper>

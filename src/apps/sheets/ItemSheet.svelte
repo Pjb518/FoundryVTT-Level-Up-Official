@@ -2,7 +2,7 @@
 
 <script>
     import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/core";
+    import { ApplicationShell } from "#runtime/svelte/component/application";
 
     import ItemActionsTab from "../components/pages/ItemActionsTab.svelte";
     import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
@@ -47,8 +47,7 @@
             label: "A5E.ItemSheetLabelUnidentifiedDescriptionTab",
             component: ItemUnidentifiedDescriptionTab,
             display:
-                $item.type === "object" &&
-                ($item.system.unidentified || game.user.isGM),
+                $item.type === "object" && ($item.system.unidentified || game.user.isGM),
         },
         {
             name: "gmNotes",
@@ -91,8 +90,7 @@
         },
     ];
 
-    let currentTab =
-        $item.system?.unidentified && !game.user.isGM ? tabs[1] : tabs[0];
+    let currentTab = $item.system?.unidentified && !game.user.isGM ? tabs[1] : tabs[0];
 
     setContext("item", item);
     setContext("appId", appId);
@@ -118,6 +116,6 @@
         padding: 0.75rem;
         gap: 0.5rem;
 
-        background: $color-sheet-background;
+        background: var(--a5e-color-background-sheet);
     }
 </style>

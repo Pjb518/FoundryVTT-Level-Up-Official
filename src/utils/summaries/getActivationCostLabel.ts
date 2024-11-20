@@ -1,7 +1,7 @@
 import type { Action } from 'types/action';
 import type { ItemA5e } from '../../documents/item/item';
 
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 export default function getActivationCostLabel(item: ItemA5e, action: Action) {
   if (foundry.utils.isEmpty(action)) return '';

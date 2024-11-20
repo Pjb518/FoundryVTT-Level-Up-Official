@@ -4,7 +4,7 @@
     import type { ItemA5e } from "../../../documents/item/item";
     import type { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
     import { getContext } from "svelte";
 
     import { ResourceConsumptionManager } from "../../../managers/ResourceConsumptionManager";

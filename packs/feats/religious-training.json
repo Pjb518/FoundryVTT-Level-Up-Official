@@ -1,0 +1,234 @@
+{
+	"folder": null,
+	"name": "Religious Training",
+	"type": "feature",
+	"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"r0J1r9t9FZPTAb0V": {
+				"name": "Ceremony",
+				"activation": {
+					"cost": 1,
+					"type": "hour",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"lxgZoHYcZ1X1wxzC": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous",
+					"value": ""
+				},
+				"ranges": {
+					"w9OTwZI36lonAMVy": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "creatureObject"
+				},
+				"img": "icons/commodities/treasure/token-gold-cross.webp",
+				"description": "<p>You perform a religious ceremony during the casting time of this spell. When you cast the spell, you choose one of the following effects, any targets of which must be within range during the entire casting.</p><ul><li><p><strong>Funeral:</strong> You bless one or more corpses, acknowledging their transition away from this world. For the next week, they cannot become undead by any means short of a wish spell. This benefit lasts indefinitely regarding undead of CR 1/4 or less. A corpse can only benefit from this effect once.</p></li><li><p><strong>Guide the Passing:</strong> You bless one or more creatures within range for their passage into the next life. For the next 7 days, their souls cannot be trapped or captured by any means short of a wish spell. Once a creature benefits from this effect, it can't do so again until it has been restored to life.</p></li><li><p><strong>Offering:</strong> The gifts of the faithful are offered to the benefit of the gods and the community. Choose one skill or tool proficiency and target a number of creatures equal to your proficiency bonus that are within range. When a target makes an ability check using the skill or tool within the next week, it can choose to use this benefit to gain an expertise die on the check. A creature can be targeted by this effect no more than once per week.</p></li><li><p><strong>Purification:</strong> A creature you touch is washed with your spiritual energy. Choose one disease or possession effect on the target. If the save DC for that effect is equal to or lower than your spell save DC, the effect ends.</p></li><li><p><strong>Rite of Passage:</strong> You shepherd one or more creatures into the next phase of life, such as in a child dedication, coming of age, marriage, or conversion ceremony. These creatures gain inspiration. A creature can benefit from this effect no more than once per year.</p></li></ul>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p dir=\"ltr\">You have spent time learning the ways of faith and the lessons have stuck. You gain the following benefits:</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain proficiency with the Religion skill, or gain an expertise die in it if you are already proficient.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You can cast the @UUID[Compendium.a5e.a5e-spells.Item.bq5bki8n1gfhrqz1]{Ceremony} spell without a spell slot once between long rests.</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\">You gain two Signs of Faith from the cleric class. You must meet any prerequisites a given sign has to select it.</p>\n</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"j8HLuCesftrE3UF9": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "j8HLuCesftrE3UF9",
+				"label": "Religious Training",
+				"keys": {
+					"base": [
+						"rel"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "skill",
+				"img": "",
+				"isExpertise": false
+			},
+			"Tq8O4v27EZT2RIZC": {
+				"grantType": "feature",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "Tq8O4v27EZT2RIZC",
+				"label": "Religious Training",
+				"features": {
+					"total": 2,
+					"options": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.6kzmg45wnogy6iou",
+							"name": "Sign: Ancestral Guidance",
+							"img": "icons/sundries/misc/tombstone.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.g6a1o4tbjveaozkp",
+							"name": "Sign: Compassionate Nurse",
+							"img": "icons/skills/wounds/bone-broken-marrow-red.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.xss4rkpb71f1smk7",
+							"name": "Sign: Faithful Historian",
+							"img": "icons/skills/trades/academics-study-reading-book.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.m3dahmy78vgo72dz",
+							"name": "Sign: Gentle Healer",
+							"img": "icons/skills/wounds/injury-stitched-flesh-red.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.ywgb4owso6p7kr4y",
+							"name": "Sign: Graceful Fall",
+							"img": "icons/creatures/birds/songbird-yellow-flying.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.tphbbbo1br3947s5",
+							"name": "Sign: Monastic Austerity",
+							"img": "icons/environment/settlement/tent.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.81n4z635runuqyj2",
+							"name": "Sign: Numinous Awareness",
+							"img": "icons/creatures/unholy/demons-horned-glowing-pink.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.p3kung5mqpo30nbi",
+							"name": "Sign: Premonition",
+							"img": "icons/magic/holy/meditation-chi-focus-blue.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.ebtoci79m9il4ch0",
+							"name": "Sign: Preservation",
+							"img": "icons/creatures/invertebrates/scorpion-yellow.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.e91o1vderqaxj3tv",
+							"name": "Sign: Righteous Path",
+							"img": "icons/environment/settlement/palast.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.qw1f9214fvizlpeq",
+							"name": "Sign: Soothing Words",
+							"img": "icons/skills/social/peace-luck-insult.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.m4jrv8tyamavztxn",
+							"name": "Sign: Supernal Intuition",
+							"img": "icons/skills/targeting/crosshair-pointed-orange.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.ynpjbhceiz2nzppw",
+							"name": "Sign: Theologian",
+							"img": "icons/skills/trades/academics-book-study-runes.webp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						},
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.pygn02ew91g1531z",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727703048025,
+		"modifiedTime": 1728492243311,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "YAAPMFx0AVuVzqB4"
+}

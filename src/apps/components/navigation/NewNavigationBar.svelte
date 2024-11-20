@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import toggleSheetLockedState from "../../handlers/toggleSheetLockedState";
 
@@ -15,7 +15,7 @@
 
     $: sheetIsLocked = !$actor.isOwner
         ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 <nav class="a5e-nav" class:a5e-nav--flat-bottom={currentTab.hasSubNavigation}>
@@ -32,13 +32,7 @@
     <ul class="a5e-nav-list">
         {#each tabs as { name, display, icon, label }}
             {#if display ?? true}
-                <NavigationItem
-                    on:tab-change
-                    {icon}
-                    {label}
-                    {name}
-                    {currentTab}
-                />
+                <NavigationItem on:tab-change {icon} {label} {name} {currentTab} />
             {/if}
         {/each}
 

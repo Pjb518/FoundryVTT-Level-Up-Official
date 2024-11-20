@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
     import { getContext } from "svelte";
 
     import FieldWrapper from "../FieldWrapper.svelte";
@@ -19,8 +19,7 @@
         const updates = {
             "flags.a5e.duration.unit": changedUnit ?? unit,
             "duration.seconds": null,
-            "duration.rounds":
-                key === "seconds" ? null : $effect.duration.rounds,
+            "duration.rounds": key === "seconds" ? null : $effect.duration.rounds,
             "duration.turns": key === "seconds" ? null : $effect.duration.turns,
         };
 
@@ -29,10 +28,7 @@
 
             if (changedUnit && unit !== changedUnit) {
                 updates["flags.a5e.duration.unit"] = changedUnit;
-                newValue = Math.max(
-                    0,
-                    parsedSecondsValue * durationMap[changedUnit],
-                );
+                newValue = Math.max(0, parsedSecondsValue * durationMap[changedUnit]);
             } else newValue = Math.max(0, value * durationMap[unit]);
 
             updates["duration.seconds"] = newValue;
@@ -61,10 +57,7 @@
             />
         </FieldWrapper>
 
-        <FieldWrapper
-            heading="Effect Duration"
-            --a5e-field-wrapper-gap="0.75rem"
-        >
+        <FieldWrapper heading="Effect Duration" --a5e-field-wrapper-gap="0.75rem">
             <RadioGroup
                 options={Object.entries(A5E.effectDurationTypes)}
                 selected={durationType}
@@ -81,10 +74,7 @@
                         type="number"
                         value={parsedSecondsValue}
                         on:change={({ target }) =>
-                            updateEffectDuration(
-                                durationType,
-                                Number(target.value),
-                            )}
+                            updateEffectDuration(durationType, Number(target.value))}
                     />
 
                     <select
@@ -97,10 +87,7 @@
                             )}
                     >
                         {#each Object.entries(A5E.effectDurationUnits) as [durationUnit, label]}
-                            <option
-                                value={durationUnit}
-                                selected={durationUnit === unit}
-                            >
+                            <option value={durationUnit} selected={durationUnit === unit}>
                                 {localize(label)}
                             </option>
                         {/each}
@@ -109,13 +96,8 @@
             {:else if durationType === "rounds"}
                 <div class="u-flex u-gap-xl">
                     <div class="u-flex u-flex-col u-gap-md">
-                        <label
-                            for="{$effect.id}-rounds"
-                            class="u-pointer u-text-bold"
-                        >
-                            {localize(
-                                "A5E.effects.durationTypes.plural.rounds",
-                            )}
+                        <label for="{$effect.id}-rounds" class="u-pointer u-text-bold">
+                            {localize("A5E.effects.durationTypes.plural.rounds")}
                         </label>
 
                         <input
@@ -124,18 +106,12 @@
                             id="{$effect.id}-rounds"
                             value={$effect.duration.rounds ?? 0}
                             on:change={({ target }) =>
-                                updateEffectDuration(
-                                    "rounds",
-                                    Number(target.value),
-                                )}
+                                updateEffectDuration("rounds", Number(target.value))}
                         />
                     </div>
 
                     <div class="u-flex u-flex-col u-gap-md">
-                        <label
-                            for="{$effect.id}-turns"
-                            class="u-pointer u-text-bold"
-                        >
+                        <label for="{$effect.id}-turns" class="u-pointer u-text-bold">
                             {localize("A5E.effects.durationTypes.plural.turns")}
                         </label>
 
@@ -146,10 +122,7 @@
                             id="{$effect.id}-turns"
                             value={$effect.duration.turns ?? 0}
                             on:change={({ target }) =>
-                                updateEffectDuration(
-                                    "turns",
-                                    Number(target.value),
-                                )}
+                                updateEffectDuration("turns", Number(target.value))}
                         />
                     </div>
                 </div>

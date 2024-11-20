@@ -11,16 +11,13 @@ const spellBookSchema = () => ({
   img: new fields.StringField({ required: true, initial: 'icons/svg/book.svg' }),
 
   ability: new fields.StringField({ required: true, initial: 'default' }),
-  // @ts-expect-error
-  disableSpellConsumers: new fields.BooleanField({ required: true, initial: false }),
-  // @ts-expect-error
-  showArtifactCharges: new fields.BooleanField({ required: true, initial: false }),
-  // @ts-expect-error
-  showSpellInventions: new fields.BooleanField({ required: true, initial: false }),
-  // @ts-expect-error
-  showSpellPoints: new fields.BooleanField({ required: true, initial: false }),
-  // @ts-expect-error
-  showSpellSlots: new fields.BooleanField({ required: true, initial: true })
+  disableSpellConsumers: new fields.BooleanField({
+    required: true, nullable: false, initial: false
+  }),
+  showArtifactCharges: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+  showSpellInventions: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+  showSpellPoints: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+  showSpellSlots: new fields.BooleanField({ required: true, nullable: false, initial: true })
 });
 
 export default class SpellBook extends foundry.abstract.DataModel<

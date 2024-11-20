@@ -160,7 +160,7 @@
         justify-content: space-evenly;
         align-items: center;
         gap: 0.5rem;
-        font-family: $font-primary;
+        font-family: var(--a5e-font-primary);
         padding: 0;
         list-style: none;
     }

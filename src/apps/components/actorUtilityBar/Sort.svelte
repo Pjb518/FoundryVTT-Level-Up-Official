@@ -1,6 +1,6 @@
 <script>
     import { getContext, onDestroy } from "svelte";
-    import { TJSIconButton } from "#standard/component";
+    import { TJSIconButton } from "#standard/component/button";
 
     import { sortAscending, sortDescending } from "../../handlers/sortingHandlers";
 

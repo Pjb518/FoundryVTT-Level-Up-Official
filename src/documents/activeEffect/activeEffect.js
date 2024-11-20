@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 import castType from '../../utils/castType';
 import evaluateConditional from './utils/evaluateConditional';

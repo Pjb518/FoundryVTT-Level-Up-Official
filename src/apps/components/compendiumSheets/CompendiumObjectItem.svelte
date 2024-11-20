@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import ImportButton from "../ImportButton.svelte";
 
@@ -21,8 +21,7 @@
         const rarity = getRarityLabel(item);
 
         if (rarity) {
-            if (price && attunement)
-                return `${rarity} (${attunement}; Cost ${price})`;
+            if (price && attunement) return `${rarity} (${attunement}; Cost ${price})`;
             if (price) return `${rarity} (Cost ${price})`;
             if (attunement) return `${rarity} (${attunement})`;
 
@@ -73,8 +72,7 @@
     draggable="true"
     on:click={async () => {
         const doc =
-            collection.get(document._id) ??
-            (await collection.getDocument(document._id));
+            collection.get(document._id) ?? (await collection.getDocument(document._id));
         doc.sheet?.render(true);
     }}
     on:dragstart={onDragStart}

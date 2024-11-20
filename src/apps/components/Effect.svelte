@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import DeletionConfirmationDialog from "../dialogs/initializers/DeletionConfirmationDialog";
 
@@ -77,7 +77,7 @@
         ? true
         : $doc.documentName === "Item"
           ? false
-          : $doc.flags?.a5e?.sheetIsLocked ?? true;
+          : ($doc.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 <li

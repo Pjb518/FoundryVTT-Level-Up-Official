@@ -1,5 +1,5 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
     import { getContext } from "svelte";
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
@@ -33,11 +33,13 @@
     }
 
     $: bulkyItems = $actor.items.reduce((bulkyCount, item) => {
-        if (item.system.bulky) bulkyCount += 1;
+        if (item.system.bulky && item.system.equippedState) bulkyCount += 1;
         return bulkyCount;
     }, 0);
 
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 
     $: attunement = $actor.system.attributes.attunement;
     $: bulkyTooltip = getBulkyTooltip($actor);

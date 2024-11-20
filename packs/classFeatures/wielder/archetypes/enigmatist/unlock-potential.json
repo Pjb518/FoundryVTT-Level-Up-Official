@@ -14,7 +14,67 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
+		"actions": {
+			"YyDB3v9cf3Z9Eom1": {
+				"name": "Unlock Potential (Exertion Points)",
+				"activation": {
+					"type": "minute",
+					"cost": 1
+				},
+				"consumers": {
+					"2Br6rZqDZHMD8ASP": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 3
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"w4v5ikjm3bjgajvu": {
+				"name": "Unlock Potential (Artifact Charges)",
+				"activation": {
+					"type": "minute",
+					"cost": 1
+				},
+				"consumers": {
+					"wuaSjwm2mdHLtCoI": {
+						"type": "spell",
+						"default": true,
+						"mode": "chargesOnly",
+						"charges": 3,
+						"spellLevel": 1,
+						"points": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
 		"description": "<p>Starting at 10th level, you can unlock a plethora of capabilities of your artifact, at least for a while. You may learn a relic art from the relic art list you don&rsquo;t currently know and meet the prerequisites for by spending 3 exertion points or artifact charges and 1 minute&rsquo;s work tinkering. You lose any relic arts you learn in this way whenever you finish a short or long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
@@ -37,14 +97,18 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "wielder"
+		"classes": "wielder",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "5inmxwgvm05c31vz",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726928866352,
+		"modifiedTime": 1726928922478,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "5inmxwgvm05c31vz"
 }

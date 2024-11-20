@@ -7,6 +7,7 @@ export default function registerPublisherConfig() {
       enPublishing: 'EN Publishing',
       joshGentry: 'Josh Gentry',
       koboldPress: 'Kobold Press',
+      loottheboss: "LootTheBoss",
       plantWitchPress: 'Plant Witch Press',
       purpleMartinGames: 'Purple Martin Games',
       ravine: 'Ravine',

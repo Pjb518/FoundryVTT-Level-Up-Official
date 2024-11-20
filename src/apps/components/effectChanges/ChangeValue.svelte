@@ -1,6 +1,6 @@
 <script>
     import { createEventDispatcher, getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import AbilityBonusConfigDialog from "../../dialogs/AbilityBonusConfigDialog.svelte";
     import DamageBonusConfigDialog from "../../dialogs/DamageBonusConfigDialog.svelte";

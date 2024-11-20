@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
     import Effect from "./Effect.svelte";
 
     export let label;
@@ -24,9 +24,8 @@
         ? true
         : $doc.documentName === "Item"
           ? false
-          : $doc.flags?.a5e?.sheetIsLocked ?? true;
-    $: effectTemplateConfiguration =
-        getEffectTemplateConfiguration(sheetIsLocked);
+          : ($doc.flags?.a5e?.sheetIsLocked ?? true);
+    $: effectTemplateConfiguration = getEffectTemplateConfiguration(sheetIsLocked);
 </script>
 
 <section>

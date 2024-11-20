@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import DropAreaSingular from "../dropAreas/DropAreaSingular.svelte";
 
@@ -88,7 +88,7 @@
     }
     .section-title {
         font-size: var(--a5e-text-size-sm);
-        font-family: $font-secondary;
+        font-family: --a5e-font-sans-serif;
         font-weight: bold;
         margin-bottom: 0.125rem;
     }

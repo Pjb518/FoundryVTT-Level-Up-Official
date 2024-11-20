@@ -8,7 +8,7 @@ import type { PromptHandlerReturnType } from '../apps/dataPreparationHelpers/ite
 import type { ResourceConsumptionManager } from './ResourceConsumptionManager';
 import * as RollData from '../dataModels/item/actions/ActionRollsDataModel';
 
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 import constructCritDamageRoll from '../dice/damage/constructCritDamageRoll';
 import constructD20RollFormula from '../dice/constructD20RollFormula';

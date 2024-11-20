@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import Item from "./Item.svelte";
     import SpellSlots from "./SpellSlots.svelte";
@@ -135,7 +135,7 @@
 
                 {#if type === "spellLevels" && showArtifactCharges}
                     {localize("A5E.ArtifactChargesCost", {
-                        cost: level,
+                        cost: A5E.WIELDER_ARTIFACT_CHARGES[level]?.charges ?? 0,
                     })}
                 {/if}
 

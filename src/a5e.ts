@@ -1,6 +1,6 @@
 import './scss/main.scss';
 
-import '#runtime/tinymce';
+// import '#runtime/tinymce';
 
 import canvasInit from './hooks/canvasInit';
 import canvasReady from './hooks/canvasReady';

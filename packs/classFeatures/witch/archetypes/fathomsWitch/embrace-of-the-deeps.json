@@ -14,8 +14,71 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 10th level you gain resistance to your choice of lightning, cold, or acid damage, and can change which type whenever you finish a short or long rest. &nbsp;In addition, whenever you finish a long rest you are surrounded by a thin shield of water that absorbs incoming damage, granting you temporary hit points equal to your witch level + your spellcasting ability modifier.<br>Finally, when you cast the free Amphibious alter self spell granted by Annointed by the Waves, it no longer requires concentration.</p>",
+		"actions": {
+			"ynkIORr2ZJ3xE9Md": {
+				"name": "Short Rest",
+				"activation": {},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"8ToVy5wJpha2wP59": {
+						"type": "effect",
+						"default": true,
+						"effectId": "tPO1CL3hpW5ft5SB",
+						"label": "Lightning"
+					},
+					"J1iy5OttKRyRg8U2": {
+						"type": "effect",
+						"default": true,
+						"effectId": "LLejRhB0e3MiDIG7",
+						"label": "Cold"
+					},
+					"kR4t89lLGIsjCwTg": {
+						"type": "effect",
+						"default": true,
+						"effectId": "4FLAABmyar4mKUPs",
+						"label": "Acid"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"Uphc0QD2SAUNxBHn": {
+				"name": "Long Rest",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"gIEkg6QV582RSSbn": {
+						"type": "healing",
+						"default": true,
+						"healingType": "temporaryHealing",
+						"formula": "@classes.witch.level + @spellcasting.mod"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>At 10th level you gain resistance to your choice of lightning, cold, or acid damage, and can change which type whenever you finish a short or long rest. &nbsp;In addition, whenever you finish a long rest you are surrounded by a thin shield of water that absorbs incoming damage, granting you temporary hit points equal to your witch level + your spellcasting ability modifier.</p>\n<p>Finally, when you cast the free Amphibious alter self spell granted by @UUID[Compendium.a5e.a5e-class-features.Item.di4r7ote4c5ucm5m]{Annointed by the Sea}, it no longer requires concentration.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "extraCreditAndDeeperMysteries",
@@ -43,14 +106,169 @@
 				}
 			}
 		},
-		"classes": "witch"
+		"classes": "witch",
+		"class": ""
 	},
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.lhFQbwTlnM0xF6U3",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ynkIORr2ZJ3xE9Md",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Embrace of the Deeps (Lightning)",
+			"img": "icons/magic/water/elemental-water.webp",
+			"_id": "tPO1CL3hpW5ft5SB",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"lightning\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain resistance to your choice of lightning, cold, or acid damage, and can change which type whenever you finish a short or long rest.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727179672310,
+				"modifiedTime": 1727179733819,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.lhFQbwTlnM0xF6U3",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ynkIORr2ZJ3xE9Md",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Embrace of the Deeps (Cold)",
+			"img": "icons/magic/water/elemental-water.webp",
+			"_id": "LLejRhB0e3MiDIG7",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"cold\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain resistance to your choice of lightning, cold, or acid damage, and can change which type whenever you finish a short or long rest.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727179751223,
+				"modifiedTime": 1727179759551,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.lhFQbwTlnM0xF6U3",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ynkIORr2ZJ3xE9Md",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Embrace of the Deeps (Acid)",
+			"img": "icons/magic/water/elemental-water.webp",
+			"_id": "4FLAABmyar4mKUPs",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.traits.damageResistances",
+					"value": "[\"acid\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain resistance to your choice of lightning, cold, or acid damage, and can change which type whenever you finish a short or long rest.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727179761629,
+				"modifiedTime": 1727179771489,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
-	"_id": "9yw2wgpsngf8k2dp",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727179620243,
+		"modifiedTime": 1727179874726,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "9yw2wgpsngf8k2dp"
 }

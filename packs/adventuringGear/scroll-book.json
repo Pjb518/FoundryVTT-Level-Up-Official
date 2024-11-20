@@ -13,14 +13,84 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>This unassuming book is often mistaken for a wizard's spellbook, but it has a different, if similar, purpose. Each of these books has a command word. When a magic scroll that has not been used is placed inside the pages and the command word is spoken, the scroll is resized and bound into the book as a page, protecting it (the book is waterproof and fireproof) and making it easy to access. The scroll may otherwise be used as normal, and crumbles away as normal. The book can hold up to 50 scrolls in this manner and can flip to any individual scroll as a bonus action when its spell name is spoken aloud. An individual scroll can be removed from the book by touching the page and speaking the book's command word again, which returns the scroll to its original form.</p>",
+		"actions": {
+			"5hSkfrRACKm2neGL": {
+				"name": "Add Scroll",
+				"activation": {},
+				"consumers": {
+					"DjNneD8bsJR1SqHS": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"m9cJHH2Dz4vVBPfM": {
+				"name": "Flip To Spell",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"f1kwfctQ2ZiVNEJC": {
+				"name": "Remove Scroll",
+				"activation": {},
+				"consumers": {
+					"7PlE1ooZv7w5yHbE": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p><strong>Crafting Components:</strong> A stack of at least 10 used magic scrolls</p>\n<p>This unassuming book is often mistaken for a wizard&rsquo;s spellbook, but it has a different, if similar, purpose. Each of these books has a command word. When a magic scroll that has not been used is placed inside the pages and the command word is spoken, the scroll is resized and bound into the book as a page, protecting it (the book is waterproof and fireproof) and making it easy to access. The scroll may otherwise be used as normal, and crumbles away as normal. The book can hold up to 50 scrolls in this manner and can flip to any individual scroll as a bonus action when its spell name is spoken aloud. An individual scroll can be removed from the book by touching the page and speaking the book&rsquo;s command word again, which returns the scroll to its original form.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "arcaneSniper",
+		"source": "multiclassersManual",
 		"uses": {
 			"value": 0,
-			"max": "",
+			"max": "50",
 			"per": "",
 			"recharge": {
 				"formula": "1d6",
@@ -32,7 +102,7 @@
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "A stack of at least 10 used magic scrolls",
+		"craftingComponents": "",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
@@ -66,15 +136,25 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"core": {}
+	},
 	"folder": null,
-	"_id": "0sgaa9zuuek3wvnc",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.27",
+		"createdTime": 1727618857992,
+		"modifiedTime": 1727618943238,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "0sgaa9zuuek3wvnc"
 }

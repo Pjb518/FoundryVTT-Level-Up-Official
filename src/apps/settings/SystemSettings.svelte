@@ -2,8 +2,8 @@
 
 <script>
     import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/core";
-    import { localize } from "#runtime/svelte/helper";
+    import { ApplicationShell } from "#runtime/svelte/component/application";
+    import { localize } from "#runtime/util/i18n";
 
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import Settings5eTab from "./Settings5eTab.svelte";
@@ -138,7 +138,7 @@
         padding: 0.75rem;
         gap: 0.5rem;
 
-        background: $color-sheet-background;
+        background: var(--a5e-color-background-sheet);
     }
 
     .submit {

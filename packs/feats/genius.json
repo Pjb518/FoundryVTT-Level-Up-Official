@@ -1,0 +1,129 @@
+{
+	"folder": null,
+	"name": "Genius",
+	"type": "feature",
+	"img": "icons/commodities/biological/organ-brain-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"4mgLLkkMU6vMGZ4r": {
+				"name": "Think Twice",
+				"activation": {},
+				"consumers": {
+					"Q1wCtrcX0B5mVGC1": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"FMlR2IhdjA4HpeU9": {
+				"name": "Think Twice (Heal)",
+				"activation": {},
+				"consumers": {
+					"Q1wCtrcX0B5mVGC1": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"rZhUqQZQc8rLLKQ8": {
+						"type": "healing",
+						"default": true,
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You think, therefore you are &hellip; and your problems&rsquo; days are numbered. You gain the following benefits:</p>\n<ul>\n<li>Your Intelligence score increases by 1, to a maximum of 20.</li>\n<li>You can always choose to use your Intelligence score instead of another ability score when calculating your weapon attack and damage bonuses. If you have the @UUID[Compendium.a5e.a5e-class-features.Item.bazelk1nkecht9lr]{Assess Vulnerability} trick, you can replace it with another trick of your choice when you take this feat. If you have the @UUID[Compendium.a5e.a5e-class-features.Item.v4pkjilh484jph6i]{Precision Strikes} feature, when using it, instead of it applying your Intelligence modifier on attack and damage rolls (redundantly with this feat) you gain an expertise die on the attack instead.</li>\n<li>You gain the following feature:</li>\n</ul>\n<h2>Think Twice</h2>\n<p>Whenever you make a Skill check using Intelligence, you can choose one of the following options:</p>\n<ul>\n<li>The stimulation of the mental challenge refreshes you. You are healed for 1d4 hit points.</li>\n<li>You can simultaneously make another skill check that also uses Intelligence as part of the same action.</li>\n<li>You can roll the check with advantage.</li>\n</ul>\n<p>Once you have used this feature a number of times equal to your Intelligence modifier (minimum 1), you can&rsquo;t do so again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "max(@int.mod,1)",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"jG09lHoDeHGdwrnk": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "jG09lHoDeHGdwrnk",
+				"label": "Genius",
+				"bonus": "1",
+				"abilities": {
+					"base": [
+						"int"
+					]
+				},
+				"context": {
+					"types": [
+						"base"
+					]
+				}
+			}
+		},
+		"prerequisite": "Ponderer feat",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1728494045204,
+		"modifiedTime": 1728495096747,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "1lTjrUJN2MNiwuNq"
+}

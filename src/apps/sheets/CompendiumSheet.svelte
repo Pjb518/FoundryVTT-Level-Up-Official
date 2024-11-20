@@ -3,9 +3,9 @@
 <script>
     import { getContext, onDestroy, setContext } from "svelte";
 
-    import { ApplicationShell } from "#runtime/svelte/component/core";
+    import { ApplicationShell } from "#runtime/svelte/component/application";
     import { DynMapReducer } from "#runtime/svelte/store/reducer";
-    import { TJSInput } from "#standard/component";
+    import { TJSInput } from "#standard/component/form";
 
     import GenericDialog from "../dialogs/initializers/GenericDialog";
 

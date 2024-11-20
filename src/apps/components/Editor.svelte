@@ -1,6 +1,6 @@
 <script>
-    import { localize } from "#runtime/svelte/helper";
-    import { TJSTinyMCE, TinyMCEHelper } from "#standard/component";
+    import { localize } from "#runtime/util/i18n";
+    import { TJSTinyMCE, TinyMCEHelper } from "#standard/component/fvtt/editor";
 
     export let document;
     export let content;
@@ -36,7 +36,10 @@
     editorOptions.toolbar =
         "styles | fontfamily | table | bullist | numlist | image | superscript | subscript | hr | save | link | removeformat | code ";
 
-    const options = { mceConfig: editorOptions };
+    const options = {
+        editable: game.user.isGM || $document.isOwner || false,
+        mceConfig: editorOptions,
+    };
 
     $: (content = content || newLabel) || localize("A5E.NoDescription");
     $: enrichedContent = Promise.resolve(getEnrichedContent())

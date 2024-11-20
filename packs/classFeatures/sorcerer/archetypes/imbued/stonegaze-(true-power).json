@@ -13,8 +13,65 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 18th level your transformation has finally reached its peak. You gain one of the following abilities based on what you chose for your twisted mutation.</p>\n<p><strong>Stonegaze</strong>: Your stone eye twisted mutation becomes a 60ft cone.</p>",
+		"actions": {
+			"KXXBRIiRu0KM4xuE": {
+				"name": "Stone Eye",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"j9Ad9JDzTKvazdqP": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"ofaHHpsgVgAPss3Z": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting"
+						},
+						"onSave": "Negates"
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "special"
+				},
+				"ranges": {
+					"YS3Nb1isuALpXZBe": {
+						"range": "self"
+					}
+				},
+				"target": {
+					"type": "",
+					"quantity": 1
+				},
+				"img": "icons/magic/control/silhouette-hold-change-green.webp",
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"length": 60,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>At 18th level your transformation has finally reached its peak. You gain one of the following abilities based on what you chose for your twisted mutation.</p>\n<p><strong>Stonegaze</strong>: Your @UUID[Compendium.a5e.a5e-class-features.Item.bliyf7yai9bemofh]{Stone Eye} twisted mutation becomes a 60ft cone.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -36,15 +93,19 @@
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"effects": [],
 	"flags": {},
 	"folder": null,
-	"_id": "u8ldkddxb1i1hygn",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726856224611,
+		"modifiedTime": 1726856281757,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "u8ldkddxb1i1hygn"
 }

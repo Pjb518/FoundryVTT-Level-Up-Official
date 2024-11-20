@@ -1,6 +1,6 @@
 import type { ItemA5e } from '../../documents/item/item';
 
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function getManeuverSummaryData(item: ItemA5e, options: Record<string, any>) {

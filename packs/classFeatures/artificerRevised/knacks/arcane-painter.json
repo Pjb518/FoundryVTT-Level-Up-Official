@@ -1,0 +1,155 @@
+{
+	"folder": null,
+	"name": "Arcane Painter",
+	"type": "feature",
+	"img": "icons/commodities/materials/bowl-liquid-white.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"zTjEqhaGJ0uX7QpI": {
+				"name": "Arcane Painter",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"QZXA9Xb8sCyZq3L1": {
+						"type": "effect",
+						"default": true,
+						"effectId": "IWq5DqoJiVjZU1a7"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Your emotion flows through your brush and your painterly accomplishments are undeniably magical. You gain proficiency with painter&rsquo;s supplies, or if you are already proficient you gain an expertise die instead. As an action you can use your painter&rsquo;s supplies to mark a willing adjacent creature with a magical body paint design. While painted in this way, creatures gain an expertise die on Charisma checks and saving throws. This magical paint remains for a number of minutes equal to your passive Intelligence painter&rsquo;s supplies score, after which it loses potency and reverts to non-magical paint. In addition, you have advantage on checks made to create schematics for painted, colorful, or prismatic items.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "advancedArtificers",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {
+			"7da6YAO8Buc1wsYE": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "7da6YAO8Buc1wsYE",
+				"label": "Arcane Painter",
+				"keys": {
+					"base": [
+						"paintersSupplies"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "tool"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "artificerRevised"
+	},
+	"effects": [
+		{
+			"origin": "Item.vXglcPuiA0PlNFrq",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "zTjEqhaGJ0uX7QpI"
+				}
+			},
+			"transfer": false,
+			"name": "Arcane Painter",
+			"img": "icons/commodities/materials/bowl-liquid-white.webp",
+			"_id": "IWq5DqoJiVjZU1a7",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.abilities.cha.check.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.abilities.cha.save.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Mark a willing adjacent creature with a magical body paint design. While painted in this way, creatures gain an expertise die on Charisma checks and saving throws. This magical paint remains for a number of minutes equal to your passive Intelligence painter’s supplies score, after which it loses potency and reverts to non-magical paint.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727340391832,
+				"modifiedTime": 1727340433249,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.26",
+		"createdTime": 1727340289656,
+		"modifiedTime": 1727341743920,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "zleexrHXqWxPjzfa"
+}

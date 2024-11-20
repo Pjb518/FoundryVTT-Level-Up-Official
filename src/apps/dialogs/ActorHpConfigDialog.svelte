@@ -120,6 +120,6 @@
         padding: 0.75rem;
         gap: 0.5rem;
         overflow: auto;
-        background: $color-sheet-background;
+        background: var(--a5e-color-background-sheet);
     }
 </style>

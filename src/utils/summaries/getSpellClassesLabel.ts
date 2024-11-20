@@ -1,6 +1,6 @@
 import type SpellItemA5e from '../../documents/item/spell';
 
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 export default function getClassesLabel(item: SpellItemA5e) {
   const { classSpellLists } = CONFIG.A5E;

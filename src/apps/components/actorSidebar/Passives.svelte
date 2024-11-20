@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     export let passiveFields;
 
@@ -44,11 +44,11 @@
         align-items: center;
         flex: 1;
         padding: 0.125rem 0;
-        font-family: $font-primary;
+        font-family: var(--a5e-font-primary);
         color: var(--a5e-color-text-medium);
         border: 1px solid #ccc;
         border-radius: 4px;
-        background-color: $color-light-background;
+        background-color: --a5e-color-background-light;
         box-shadow: 0 0 5px #ccc inset;
     }
 

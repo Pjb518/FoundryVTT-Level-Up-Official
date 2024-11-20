@@ -22,7 +22,7 @@
 				"rolls": {
 					"iOyjXaidbNLl4cHB": {
 						"type": "damage",
-						"default": true,
+						"default": false,
 						"formula": "2d6",
 						"damageType": "fire",
 						"canCrit": false
@@ -43,7 +43,12 @@
 						"saveDC": {
 							"type": "spellcasting"
 						},
-						"onSave": "Does not receive brand"
+						"onSave": ""
+					},
+					"1PrSWW2SF0ItabE3": {
+						"type": "effect",
+						"default": true,
+						"effectId": "4vJQrzoViU44Ncs7"
 					}
 				},
 				"uses": {
@@ -66,7 +71,11 @@
 				},
 				"target": {
 					"type": "creature",
-					"quantity": 1
+					"quantity": 1,
+					"scaling": {
+						"mode": "spellLevel",
+						"formula": "1"
+					}
 				}
 			},
 			"wrDa0IoIXvd8Rizd": {
@@ -106,13 +115,14 @@
 			"ZAjG9fXDCPHXLZ7A": {
 				"name": "Bonus Damage (Scaled)",
 				"activation": {
-					"type": "none"
+					"type": "",
+					"cost": 1
 				},
 				"consumers": {},
 				"rolls": {
 					"Mwc08pKcStkBJuaq": {
 						"type": "damage",
-						"default": true,
+						"default": false,
 						"formula": "1d4",
 						"damageType": "fire",
 						"scaling": {
@@ -122,7 +132,7 @@
 					},
 					"uizNLxFc2aHLn0uI": {
 						"type": "damage",
-						"default": true,
+						"default": false,
 						"formula": "1d4",
 						"damageType": "radiant",
 						"scaling": {
@@ -142,14 +152,15 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "",
+					"value": 1
 				}
 			}
 		},
-		"description": "<p><strong>Target:</strong> 1 creature that is affected by your Studied Adversary feature</p><p>You zero in on one particularly despised enemy. When you cast this spell, the target takes 2d6 points of fire or radiant damage (your choice) and must make a Wisdom save against your spell save DC. A target that fails its save is marked with a visible, glowing brand or sigil of your choice on a prominent part of its body (usually the forehead). The mark sheds bright light in a 5-foot radius and dim light in a 15-foot radius. While the mark persists, your weapon attacks deal an additional 1d4 fire or radiant damage (same as the initial damage) to the target, and it cannot benefit from invisibility or Stealth.&nbsp;</p><p><strong>Cast at Higher Levels.</strong> For each slot level above 1st, you may either select an additional target or you may increase the bonus damage against the target by 1d4. This is an either-or proposition and may not be mixed and matched.</p>",
+		"description": "<p><em><strong>Target:</strong> 1 creature that is affected by your Studied Adversary feature</em></p>\n<p>You zero in on one particularly despised enemy. When you cast this spell, the target takes 2d6 points of fire or radiant damage (your choice) and must make a Wisdom save against your spell save DC. A target that fails its save is marked with a visible, glowing brand or sigil of your choice on a prominent part of its body (usually the forehead). The mark sheds bright light in a 5-foot radius and dim light in a 15-foot radius. While the mark persists, your weapon attacks deal an additional 1d4 fire or radiant damage (same as the initial damage) to the target, and it cannot benefit from invisibility or Stealth.&nbsp;</p>\n<p><strong>Cast at Higher Levels.</strong> For each slot level above 1st, you may either select an additional target or you may increase the bonus damage against the target by 1d4. This is an either-or proposition and may not be mixed and matched.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "arcaneSniper",
+		"source": "multiclassersManual",
 		"uses": {
 			"value": 0,
 			"max": "",
@@ -197,13 +208,83 @@
 		},
 		"spellBook": ""
 	},
-	"effects": [],
-	"flags": {},
+	"effects": [
+		{
+			"origin": "Item.6DvCshIDiPiKF5ju",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "KmZVOWkm9HEtq8eB",
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Burning Animosity",
+			"img": "icons/skills/targeting/crosshair-triple-strike-orange.webp",
+			"_id": "4vJQrzoViU44Ncs7",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.conditionImmunities",
+					"value": "[\"invisible\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 28800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The mark sheds bright light in a 5-foot radius and dim light in a 15-foot radius. While the mark persists, your weapon attacks deal an additional 1d4 fire or radiant damage (same as the initial damage) to the target, and it cannot benefit from invisibility or Stealth. </p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.27",
+				"createdTime": 1727697081413,
+				"modifiedTime": 1727697194473,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {
+		"core": {}
+	},
 	"folder": null,
-	"_id": "kctuefxhzulvjxtd",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.27",
+		"createdTime": 1727696801669,
+		"modifiedTime": 1727702684611,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "kctuefxhzulvjxtd"
 }

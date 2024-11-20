@@ -1,3 +1,5 @@
+@use "sass:color";
+
 $die-sizes: 4, 6, 8, 10, 12, 20;
 
 .a5e-hit-die-wrapper {
@@ -17,14 +19,14 @@ $die-sizes: 4, 6, 8, 10, 12, 20;
   padding: 1rem;
   border: 1px solid #7a7971;
   border-radius: var(--a5e-border-radius-standard);
-  font-family: $font-primary;
+  font-family: var(--a5e-font-primary);
   text-transform: uppercase;
 
   &--rollable {
     cursor: pointer;
 
     &:hover {
-      background: darken(#dddace, 2.5%);
+      background: color.adjust(#dddace, $lightness: -2.5%);
     }
   }
 

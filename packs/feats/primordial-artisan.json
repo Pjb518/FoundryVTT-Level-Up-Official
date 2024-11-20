@@ -1,0 +1,184 @@
+{
+	"folder": null,
+	"name": "Primordial Artisan",
+	"type": "feature",
+	"img": "icons/skills/trades/construction-carpentry-hammer-gray.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"b8RIFRN7aCdyr6xX": {
+				"name": "Make Spell Grenade",
+				"activation": {
+					"type": "minute",
+					"cost": 10
+				},
+				"consumers": {
+					"chl98lwnpduLRg1E": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 8
+				}
+			},
+			"Z0gMha13LvN3Ufw6": {
+				"name": "Throw Spell Grenade",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"dmooIO3FzGUG7QTJ": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"5VXe1wg0OrlEE2iN": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6",
+						"damageType": "piercing"
+					},
+					"1DrqlsDu4ITWjh1S": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": false,
+						"ability": "default",
+						"label": "Improvised Thrown Weapon"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"8jmwVkPwolgwe93d": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"nAmav7RoS9mxChZ7": {
+						"range": "medium"
+					}
+				},
+				"area": {
+					"shape": "circle",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>Those who would think that one trained in artifice is diminished if left in the wilds should beware your ingenuity. You gain the following benefits:</p>\n<ul>\n<li>Your Intelligence or Wisdom score increases by 1, to a maximum of 20.</li>\n<li>While wearing wooden armor created with the benefits of the @UUID[Compendium.a5e.a5e-feats.Item.vyT4fTNAPXmyRo7R]{Sylvan Constructor} feat, if you wild shape into a plant shape, the armor molds around the new form and you either use the armor&rsquo;s AC bonus or the new form&rsquo;s whichever is greater.</li>\n<li>You gain proficiency with jeweler&rsquo;s tools.</li>\n<li>You can create spell grenades using semi-precious stones and jeweler's tools. Doing so requires a semi-precious stone with a value of 10 x the spell&rsquo;s level in gold pieces and 10 minutes to cast a druid spell with a circular, spherical, or cubic area into the stone. The stone remains imbued with the spell for 8 hours. During that time, you can throw the stone as an action. Upon striking a target or the ground, the stone detonates, destroying the stone, dealing 2d6 piercing damage in a 10-foot radius and casting the imbued spell at its point of impact.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {
+			"DlgRGPrca4nsnwEH": {
+				"grantType": "ability",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Primordial Artisan",
+				"bonus": "1",
+				"abilities": {
+					"options": [
+						"int",
+						"wis"
+					],
+					"total": 1,
+					"base": []
+				},
+				"context": {
+					"types": [
+						"base"
+					],
+					"requiresProficiency": false,
+					"default": true
+				},
+				"_id": "DlgRGPrca4nsnwEH",
+				"img": ""
+			},
+			"oiUE7xtbfpDqfbCb": {
+				"grantType": "proficiency",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"label": "Primordial Artisan",
+				"keys": {
+					"base": [
+						"jewelersTools"
+					],
+					"options": [],
+					"total": 0
+				},
+				"proficiencyType": "tool"
+			}
+		},
+		"prerequisite": "Sylvan Constructor feat",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727703048025,
+		"modifiedTime": 1728061511231,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "QlpNAECAHdHt0B1f"
+}

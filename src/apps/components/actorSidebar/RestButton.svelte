@@ -23,6 +23,8 @@
 </div>
 
 <style lang="scss">
+    @use "sass:color";
+
     .disable-pointer-events {
         pointer-events: none;
     }
@@ -53,7 +55,7 @@
             align-items: center;
             justify-content: center;
             border: 1px solid #ccc;
-            background-color: $color-light-background;
+            background-color: var(--a5e-color-background-light);
             border-radius: 50%;
             box-shadow: 0 0 10px #ccc inset;
             color: rgba(0 0 0 / 0.2);
@@ -65,7 +67,7 @@
         }
 
         &:hover {
-            background-color: darken(#dddace, 2.5%);
+            background-color: color.adjust(#dddace, $lightness: -2.5%);
 
             .rest__icon {
                 color: lighten-color(var(--a5e-color-text-dark), 35);

@@ -2,7 +2,64 @@
 	"name": "Now You See Me",
 	"type": "feature",
 	"img": "icons/magic/control/silhouette-hold-change-blue.webp",
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Item.4lxPeKQkqk95NGKR",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "vml8YzXvQBCookmn",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Invisible",
+			"img": "icons/magic/control/silhouette-hold-change-blue.webp",
+			"_id": "sIPMkussFsCugrrw",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>An invisible creature is impossible to see without the aid of magic or a special sense (it gains no benefits from this condition against creatures still able to see it).</li>\n<li>An invisible creature is heavily obscured for the purpose of hiding. </li>\n<li>An invisible creature's location can be detected by noises it makes or tracks it leaves.</li>\n<li>Attack rolls against an invisible creature are made with disadvantage.</li>\n<li>An invisible creature makes attack rolls with advantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"invisible"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727189392507,
+				"modifiedTime": 1727189437896,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
 	"flags": {},
 	"system": {
 		"ac": {
@@ -16,47 +73,45 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"X9pp2X9TVKHRfngz": {
-				"name": "Become Invisible",
-				"activation": {
-					"type": "special"
-				},
+			"vml8YzXvQBCookmn": {
+				"name": "Now You See Me",
+				"activation": {},
 				"consumers": {
-					"WiIygGhUI6O4MzwW": {
+					"zSecKHx19ygOBTbd": {
 						"type": "itemUses",
 						"default": true,
 						"quantity": 1
 					}
 				},
 				"rolls": {},
-				"prompts": {},
+				"prompts": {
+					"n4aaN4y3Cxh6okDI": {
+						"type": "effect",
+						"default": true,
+						"effectId": "sIPMkussFsCugrrw"
+					}
+				},
 				"uses": {
 					"value": 0,
 					"max": "",
 					"per": "",
 					"recharge": {
 						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				},
-				"duration": {
-					"unit": "round",
-					"value": 1
-				},
-				"target": {
-					"type": "self",
-					"quantity": 1
 				}
 			}
 		},
 		"description": "<p>Beginning at 10th level, your capacity for magical chicanery increases still further. When you cast a spell of at least 1st level, you can choose to become invisible until the beginning of your next turn. You may use this ability a number of times equal to your intelligence modifier, regaining all uses upon finishing a long rest.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "confidenceMage",
+		"source": "multiclassersManual",
 		"uses": {
-			"value": 1,
+			"value": 0,
 			"max": "@int.mod",
-			"per": "",
+			"per": "longRest",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -77,13 +132,17 @@
 				}
 			}
 		},
-		"classes": "wizard"
+		"classes": "wizard",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "o15087z95xirvtb1",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727189361012,
+		"modifiedTime": 1727189392552,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "o15087z95xirvtb1"
 }

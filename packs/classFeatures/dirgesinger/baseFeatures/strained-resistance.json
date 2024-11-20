@@ -1,0 +1,158 @@
+{
+	"name": "Strained Resistance",
+	"type": "feature",
+	"img": "icons/skills/trades/music-singing-voice-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Hcnwiz9chU0ROP8U": {
+				"name": "Strained Resistance",
+				"activation": {},
+				"consumers": {
+					"Hcor2PUeMGUTk2x4": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "chant-uses",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"QVhXC5tDvJ9q51HH": {
+						"type": "effect",
+						"default": true,
+						"effectId": "e6J9sF8OX7bRVfWH"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"KRoTqw3SUIbNJUH4": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p dir=\"ltr\">You cause a creature that failed a save to succeed instead, but gain a level of Fatigue and Strife.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "motifClasses",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "1d6",
+				"threshold": 6
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": {
+				"version": {
+					"schema": 0.018,
+					"foundry": "11.315",
+					"system": "0.18.11"
+				}
+			}
+		},
+		"classes": "dirgesinger",
+		"class": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.V79fQewFeGa66NCR",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "Hcnwiz9chU0ROP8U"
+				}
+			},
+			"transfer": false,
+			"name": "Strained Resistance",
+			"img": "icons/skills/trades/music-singing-voice-blue.webp",
+			"_id": "e6J9sF8OX7bRVfWH",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.strife",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain a level of Fatigue and Strife.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.28",
+				"createdTime": 1730205242302,
+				"modifiedTime": 1730205264441,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"folder": null,
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.28",
+		"createdTime": 1730205029231,
+		"modifiedTime": 1730205242331,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "80swvlztqp8o9v2w"
+}

@@ -1,6 +1,6 @@
 import type ObjectItemA5e from '../../documents/item/object';
 
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 export default function getBreakerProperties(item: ObjectItemA5e) {
   const { breakerProperties, weaponProperties } = CONFIG.A5E;

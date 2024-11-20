@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import GenericConfigDialog from "../dialogs/initializers/GenericConfigDialog";
 
@@ -92,7 +92,9 @@
     $: resource = resource;
     $: isClassResource = !genericResources.includes(source);
     $: max = getDeterministicBonus(resource.max, $actor.getRollData());
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
     $: showRechargeButton = canRecharge($actor, sheetIsLocked);
     $: showResource = determineResourceVisibility(sheetIsLocked);
 </script>

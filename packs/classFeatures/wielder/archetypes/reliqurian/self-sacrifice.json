@@ -1,0 +1,142 @@
+{
+	"folder": null,
+	"name": "Self-Sacrifice",
+	"type": "feature",
+	"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"RxSXwm0iuNFNPcVZ": {
+				"name": "Sacrificial Healing",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"7JJnNFlRyQvq8kWY": {
+						"type": "spell",
+						"default": true,
+						"mode": "chargesOnly",
+						"charges": 4,
+						"spellLevel": 1,
+						"points": 1
+					}
+				},
+				"rolls": {
+					"HvKVC0WR281zeLX3": {
+						"type": "damage",
+						"default": true,
+						"formula": "4d8",
+						"damageType": "necrotic",
+						"canCrit": false
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"CAqXTq7CsfcQotOs": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1
+				},
+				"img": "icons/skills/wounds/blood-drip-droplet-red.webp"
+			},
+			"Z6Xs4ZtfEalg0aeD": {
+				"name": "Hit Die",
+				"activation": {},
+				"consumers": {
+					"Vg0xHbFOy14Fvkc1": {
+						"type": "hitDice",
+						"default": true,
+						"quantity": 1,
+						"defaultDie": ""
+					}
+				},
+				"rolls": {
+					"x0c0sGPvV4FOOsCQ": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d8 + @con.mod"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"61qtmU0P4UG3TkL8": {
+						"range": "short"
+					}
+				}
+			}
+		},
+		"description": "<p>At 6th level, your relic&rsquo;s legacy of selflessness seeps into you. You can spend 4 artifact charges to cast @UUID[Compendium.a5e.a5e-spells.Item.evuupqn19e7rgg34]{Sacrificial Healing}.&nbsp;</p>\n<p>Additionally, when you take a short rest, you can choose when you spend one of your hit dice to heal another creature within 30 feet of you instead of yourself.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "wielder",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727694546645,
+		"modifiedTime": 1727694969216,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "O3oVGt2vUXt9x8Ju"
+}

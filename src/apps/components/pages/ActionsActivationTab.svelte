@@ -3,7 +3,7 @@
     import type { ItemA5e } from "../../../documents/item/item";
 
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
     import updateAssociatedValues from "../../handlers/updateAssociatedValues";

@@ -1,0 +1,141 @@
+{
+	"folder": null,
+	"name": "Pact Implement Keeper",
+	"type": "feature",
+	"img": "icons/weapons/axes/axe-double-gold.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"pfD1DmvgTOQjz1hz": {
+				"name": "Arrival",
+				"activation": {},
+				"consumers": {
+					"reQDZAA2NbqgwCWx": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"BJDl0sMazvkCzLnF": {
+						"type": "damage",
+						"default": true,
+						"formula": "3d8"
+					}
+				},
+				"prompts": {
+					"GU5VMQE95OD8e3ih": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "spellcasting"
+						}
+					}
+				},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>If you summon your pact weapon as an action, you can (but do not have to) choose to have it arrive with a blast of magical force. When you take this feat, choose radiant, necrotic, or psychic damage. Creatures other than you within 10 feet of you when you summon your weapon must make a Wisdom save against your spell save DC or take [[/r 3d8]] points of the selected damage type and be blinded and deafened until the end of their next turn. Creatures that succeed on their save take half damage and are not blinded or deafened. Once you have used this benefit, you can&rsquo;t do so again until you finish a short or long rest.</p>",
+				"area": {
+					"shape": "emanation",
+					"quantity": 1,
+					"radius": 10
+				}
+			},
+			"NoV7QnjGl8XCnrnm": {
+				"name": "Retribution",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "A creature deals damage to you"
+				},
+				"consumers": {
+					"Yc04mMhQf0dVlhVE": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"2XPArr2EVjymBofl": {
+						"type": "damage",
+						"default": true,
+						"formula": "d8"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "shortRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>As a reaction, you can use your pact weapon to make an attack against a creature within range that just dealt damage to you. If you hit, it takes an additional [[/r d8]] of damage as the same type you chose for the blast of magical force. Once you have used this benefit, you can&rsquo;t do so again until you finish a short rest.</p>"
+			}
+		},
+		"description": "<p>Your bonded weapon has been infused with further power from your patron and you have become a fearsome, magically-empowered warrior as a result. You gain the following benefits:</p>\n<ul>\n<li>Your bonded artifact is your pact weapon.</li>\n<li>Your warlock levels count as wielder levels for the purpose of the @UUID[Compendium.a5e.a5e-class-features.Item.i6yg9jmich8u6jjx]{Bonded Artifact} and @UUID[Compendium.a5e.a5e-class-features.Item.58m3opb9e064kx2g]{Artifact Incarnate} features, as well as any @UUID[Compendium.a5e.a5e-class-features.Item.2ir4lcwwkzxvq0iv]{Artifact Whispers} or @UUID[Compendium.a5e.a5e-class-features.Item.krwn0da3yjm9lh57]{Relic Arts} with weapon of power as a prerequisite.</li>\n<li>Your wielder levels count as warlock levels for the purpose of qualifying for @UUID[Compendium.a5e.a5e-class-features.Item.ccymzytvxost335r]{Invocations} with @UUID[Compendium.a5e.a5e-class-features.Item.6co2rqjh9npjg3eb]{Pact of the Blade} as a prerequisite.</li>\n<li>You can summon your pact weapon as a bonus action instead of an action.</li>\n<li>If you summon your pact weapon as an action, you can (but do not have to) choose to have it arrive with a blast of magical force. When you take this feat, choose radiant, necrotic, or psychic damage. Creatures other than you within 10 feet of you when you summon your weapon must make a Wisdom save against your spell save DC or take 3d8 points of the selected damage type and be blinded and deafened until the end of their next turn. Creatures that succeed on their save take half damage and are not blinded or deafened. Once you have used this benefit, you can&rsquo;t do so again until you finish a short or long rest.</li>\n<li>Your pact weapon has the Breaker and Vicious properties.</li>\n<li>As a reaction, you can use your pact weapon to make an attack against a creature within range that just dealt damage to you. If you hit, it takes an additional 1d8 of damage as the same type you chose for the blast of magical force. Once you have used this benefit, you can&rsquo;t do so again until you finish a short rest.</li>\n</ul>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "multiclassersManual",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "feat",
+		"grants": {},
+		"prerequisite": "Pactbound Custodian feat, Pact of the Blade, Bonded Artifact is a Weapon of Power",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.018,
+			"lastMigration": null
+		},
+		"classes": "",
+		"class": ""
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.27",
+		"createdTime": 1727703048025,
+		"modifiedTime": 1728405750407,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "qgh5V43oQz6tEUPQ"
+}

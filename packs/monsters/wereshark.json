@@ -365,7 +365,7 @@
 				"value": 65,
 				"baseMax": 65,
 				"temp": 0,
-				"bonus": null
+				"bonus": 0
 			},
 			"hitDice": {
 				"d6": {
@@ -416,7 +416,7 @@
 					"unit": "feet"
 				},
 				"walk": {
-					"distance": 0,
+					"distance": 30,
 					"unit": "feet"
 				},
 				"traits": {
@@ -492,7 +492,8 @@
 				"common"
 			],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -545,9 +546,7 @@
 			"size": "med",
 			"conditionImmunities": [],
 			"damageImmunities": [
-				"Bludgeoning (non-magical, non-silvered)",
-				"Piercing (non-magical, non-silvered)",
-				"Slashing (non-magical, non-silvered)"
+				"Bludgeoning, piercing, and slashing damage from non-magical, non-silvered weapons"
 			],
 			"damageResistances": [],
 			"damageVulnerabilities": [],
@@ -587,7 +586,11 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": null
+			"tint": "#ffffff",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"width": 1,
 		"height": 1,
@@ -623,7 +626,9 @@
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"negative": false,
+			"priority": 0
 		},
 		"sight": {
 			"enabled": false,
@@ -640,98 +645,25 @@
 		"flags": {},
 		"randomImg": false,
 		"appendNumber": false,
-		"prependAdjective": false
+		"prependAdjective": false,
+		"hexagonalShape": 0,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		}
 	},
 	"items": [
-		{
-			"name": "Cloth, Padded (humanoid form only)",
-			"type": "object",
-			"img": "icons/equipment/chest/robe-layered-white.webp",
-			"effects": [],
-			"flags": {
-				"core": {
-					"sourceId": "Compendium.a5e.a5e-adventuring-gear.9o0viv3phg60gqyb"
-				}
-			},
-			"system": {
-				"ac": {
-					"baseFormula": "",
-					"formula": "",
-					"grantsDisadvantage": false,
-					"maxDex": 0,
-					"minStr": 0,
-					"mode": 1,
-					"requiresNoShield": false,
-					"requiresUnarmored": false
-				},
-				"actions": {},
-				"description": "<p><em>Comfortable, Flaw(Piercing), Underarmor</em></p><p><strong>AC 11</strong></p>",
-				"favorite": true,
-				"secretDescription": "",
-				"source": "",
-				"uses": {
-					"value": 0,
-					"max": "",
-					"per": "",
-					"recharge": {
-						"formula": "1d6",
-						"threshold": 6
-					}
-				},
-				"ammunitionProperties": [],
-				"armorCategory": "light",
-				"armorProperties": [],
-				"attuned": false,
-				"bulky": false,
-				"craftingComponents": "",
-				"containerId": "",
-				"damagedState": 0,
-				"equippedState": 0,
-				"items": {},
-				"materialProperties": [
-					"flaw",
-					"comfortable",
-					"underarmor"
-				],
-				"objectType": "armor",
-				"plotItem": false,
-				"price": "5 gp",
-				"proficient": true,
-				"quantity": 1,
-				"rarity": "common",
-				"requiresAttunement": false,
-				"shieldCategory": "",
-				"shieldProperties": [],
-				"unidentified": false,
-				"unidentifiedDescription": "",
-				"unidentifiedName": "",
-				"weaponProperties": [],
-				"weight": 0,
-				"schemaVersion": {
-					"version": 0.018,
-					"lastMigration": {
-						"version": {
-							"schema": 0.016,
-							"foundry": "11.315",
-							"system": "0.17.41"
-						}
-					}
-				},
-				"breakerProperties": [],
-				"defensiveProperties": "",
-				"flaws": [],
-				"mounted": [],
-				"versatile": ""
-			},
-			"_id": "7ecwJdenFB0nRq3J",
-			"folder": null,
-			"sort": 0,
-			"_stats": {
-				"coreVersion": "12",
-				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
-		},
 		{
 			"name": "Amphibious",
 			"type": "feature",
@@ -776,16 +708,23 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -832,16 +771,23 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -888,16 +834,23 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -978,15 +931,25 @@
 				"defensiveProperties": "",
 				"flaws": [],
 				"mounted": [],
-				"versatile": ""
+				"versatile": "",
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				}
 			},
 			"_id": "6Q4RVzPY2Me7H4TI",
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-adventuring-gear.tpkjt4vrhlhhskdi",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1033,16 +996,23 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1089,16 +1059,23 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1188,9 +1165,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1280,9 +1262,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1350,7 +1337,7 @@
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
 				"favorite": false,
 				"secretDescription": "",
-				"source": "",
+				"source": "strangerSights",
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -1381,9 +1368,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1473,9 +1465,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1565,9 +1562,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1666,25 +1668,310 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
+			}
+		},
+		{
+			"name": "Cloth, Padded",
+			"type": "object",
+			"img": "icons/equipment/chest/robe-layered-white.webp",
+			"effects": [],
+			"flags": {},
+			"system": {
+				"ac": {
+					"baseFormula": "11 + @dex.mod",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "adventurersGuide",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ammunitionProperties": [],
+				"armorCategory": "light",
+				"armorProperties": [],
+				"attuned": false,
+				"bulky": false,
+				"craftingComponents": "",
+				"containerId": "",
+				"damagedState": 0,
+				"equippedState": 2,
+				"items": {},
+				"materialProperties": [
+					"flaw",
+					"comfortable",
+					"underarmor"
+				],
+				"objectType": "armor",
+				"plotItem": false,
+				"price": "5 gp",
+				"proficient": true,
+				"quantity": 1,
+				"rarity": "mundane",
+				"requiresAttunement": false,
+				"shieldCategory": "",
+				"shieldProperties": [],
+				"unidentified": false,
+				"unidentifiedDescription": "",
+				"unidentifiedName": "",
+				"weaponProperties": [],
+				"weight": 6,
+				"schemaVersion": {
+					"version": 0.018,
+					"lastMigration": {
+						"version": {
+							"schema": 0.016,
+							"foundry": "11.315",
+							"system": "0.17.41"
+						}
+					}
+				},
+				"breakerProperties": [],
+				"defensiveProperties": "",
+				"flaws": [],
+				"versatile": "",
+				"mounted": [],
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				}
+			},
+			"folder": null,
+			"_id": "FwbDwIC5Jf5mJaE6",
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727375366718,
+				"modifiedTime": 1727375369089,
+				"lastModifiedBy": "xSBVukcOBqLiYJfi"
+			},
+			"sort": 0
+		},
+		{
+			"name": "Blindsight Note",
+			"type": "feature",
+			"system": {
+				"ac": {
+					"baseFormula": "",
+					"formula": "",
+					"grantsDisadvantage": false,
+					"maxDex": 0,
+					"minStr": 0,
+					"mode": 2,
+					"requiresNoShield": false,
+					"requiresUnarmored": false
+				},
+				"actions": {},
+				"description": "<p>Can only use its blindsight in the water while in its hunter shark or hybrid form.</p>",
+				"favorite": false,
+				"secretDescription": "",
+				"source": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"concentration": false,
+				"featureType": "other",
+				"grants": {},
+				"prerequisite": "",
+				"requiresBloodied": false,
+				"schemaVersion": {
+					"version": 0.019,
+					"lastMigration": null
+				},
+				"class": "",
+				"classes": ""
+			},
+			"_id": "0Dqzt5nJ6SWsOt31",
+			"img": "icons/svg/item-bag.svg",
+			"effects": [],
+			"folder": null,
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727375458073,
+				"modifiedTime": 1727375478786,
+				"lastModifiedBy": "xSBVukcOBqLiYJfi"
 			}
 		}
 	],
-	"effects": [],
+	"effects": [
+		{
+			"origin": "Actor.yZRQDtfKAqTBJP4J",
+			"flags": {
+				"a5e": {
+					"sort": 0
+				}
+			},
+			"name": "Shark Form",
+			"img": "icons/svg/aura.svg",
+			"_id": "3jIGtmwhBF9Wd6fD",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "30",
+					"mode": 3,
+					"priority": 0
+				},
+				{
+					"key": "@token.height",
+					"value": "2",
+					"mode": 6,
+					"priority": 0
+				},
+				{
+					"key": "@token.width",
+					"value": "2",
+					"mode": 6,
+					"priority": 0
+				},
+				{
+					"key": "system.attributes.movement.swim.distance",
+					"value": "10",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": true,
+			"duration": {
+				"startTime": 0,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"transfer": false,
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": "Actor.yZRQDtfKAqTBJP4J.ActiveEffect.1Z58gGvH9CpJ7mFB",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727375187910,
+				"modifiedTime": 1727375398249,
+				"lastModifiedBy": "xSBVukcOBqLiYJfi"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Actor.boCsDDj2yYfiOFQw",
+			"flags": {
+				"a5e": {
+					"sort": 0
+				}
+			},
+			"name": "Hybrid-Shark Form",
+			"img": "icons/svg/aura.svg",
+			"_id": "uCJGDNu5OHgNrTiq",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.swim.distance",
+					"value": "30",
+					"mode": 2,
+					"priority": 0
+				},
+				{
+					"key": "system.attributes.ac.baseFormula",
+					"value": "11 + @dex.mod",
+					"mode": 6,
+					"priority": 0
+				},
+				{
+					"key": "system.attributes.senses.blindsight.distance",
+					"value": "30",
+					"mode": 2,
+					"priority": 0
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": 0,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"transfer": false,
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.26",
+				"createdTime": 1727375212063,
+				"modifiedTime": 1727375444580,
+				"lastModifiedBy": "xSBVukcOBqLiYJfi"
+			},
+			"folder": null
+		}
+	],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true,
+			"sheetIsLocked": false,
 			"sortMode": {},
 			"filters": {}
 		}
 	},
 	"folder": null,
-	"_id": "4dfur9ge8dt1m7pr",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727374918947,
+		"modifiedTime": 1727375232978,
+		"lastModifiedBy": "xSBVukcOBqLiYJfi"
+	},
+	"_id": "4dfur9ge8dt1m7pr"
 }

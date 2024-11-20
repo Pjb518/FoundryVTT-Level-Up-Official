@@ -1,6 +1,6 @@
 <script>
     import { getContext } from "svelte";
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     import editDocumentImage from "../../handlers/editDocumentImage";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
@@ -24,7 +24,10 @@
         for (let i = 0; i < diff; i++) {
             if (sign === 1) {
                 await $item.update({
-                    "system.classLevels": $item.system.classLevels + 1,
+                    "system.classLevels": Math.min(
+                        $item.system.classLevels + 1,
+                        $item.system.maxLevel,
+                    ),
                 });
             } else {
                 await $item.update({

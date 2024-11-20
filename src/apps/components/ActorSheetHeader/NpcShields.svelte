@@ -96,7 +96,7 @@
         gap: 0.25rem;
         border-radius: 4px;
         height: 100%;
-        font-family: $font-primary;
+        font-family: var(--a5e-font-primary);
     }
 
     .level-box {
@@ -110,7 +110,7 @@
         color: var(--a5e-color-text-medium);
         border: 1px solid #ccc;
         border-radius: 4px;
-        background: $color-light-background;
+        background: var(--a5e-color-background-light);
         box-shadow: 0 0 5px #ccc inset;
         z-index: 4;
     }

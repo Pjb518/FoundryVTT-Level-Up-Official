@@ -52,6 +52,13 @@ export default function registerPremiumContentConfig() {
 
       ]
     },
+    loottheboss: {
+      name: "LootTheBoss",
+      releases: [{
+        title: "Advanced Artificers",
+        url: 'https://www.drivethrurpg.com/en/product/459022/advanced-artificers?affiliate_id=1388381'
+      }]
+    },
     plantWitchPress: {
       name: 'Plant Witch Press',
       releases: [
@@ -165,6 +172,14 @@ export default function registerPremiumContentConfig() {
       systems: ['a5e'],
       title: "Ace's Adventuring Guide to Necromancy: A Supplement",
       url: 'https://bit.ly/3HQ17gV'
+    },
+   advancedArtificers: {
+      abbreviation: 'AA',
+      affiliate: true,
+      publisher: 'loottheboss',
+      systems: ['a5e'],
+      title: "Advanced Artificers",
+      url: 'https://www.drivethrurpg.com/en/product/459022/advanced-artificers?affiliate_id=1388381'
     },
     adventurersGuide: {
       abbreviation: 'AG',

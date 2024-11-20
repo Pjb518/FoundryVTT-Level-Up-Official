@@ -435,7 +435,7 @@
 			},
 			"senses": {
 				"blindsight": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet",
 					"otherwiseBlind": false
 				},
@@ -444,11 +444,11 @@
 					"unit": "feet"
 				},
 				"tremorsense": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet"
 				}
 			},
@@ -510,7 +510,8 @@
 				"common"
 			],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -558,7 +559,7 @@
 				}
 			}
 		},
-		"source": "gpg2",
+		"source": "gpg3",
 		"traits": {
 			"size": "lg",
 			"conditionImmunities": [],
@@ -591,7 +592,11 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff"
+			"tint": "#ffffff",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"width": 2,
 		"height": 2,
@@ -627,10 +632,12 @@
 			"darkness": {
 				"min": 0,
 				"max": 1
-			}
+			},
+			"negative": false,
+			"priority": 0
 		},
 		"sight": {
-			"enabled": false,
+			"enabled": true,
 			"range": 0,
 			"angle": 360,
 			"visionMode": "basic",
@@ -644,7 +651,23 @@
 		"flags": {},
 		"randomImg": false,
 		"appendNumber": false,
-		"prependAdjective": false
+		"prependAdjective": false,
+		"hexagonalShape": 0,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		}
 	},
 	"items": [
 		{
@@ -743,9 +766,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -835,9 +863,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -927,9 +960,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1019,9 +1057,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1111,9 +1154,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1212,9 +1260,14 @@
 			"folder": null,
 			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1261,7 +1314,9 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
@@ -1272,9 +1327,14 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Actor.qMGd4cvklLNPHXDL.Item.fx8UNI6SdqVCC5a0",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1321,16 +1381,23 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1410,16 +1477,23 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1466,16 +1540,23 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1565,7 +1646,9 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
@@ -1577,9 +1660,14 @@
 			},
 			"_id": "hWBs8HVYBIxzAPxo",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Actor.UAk4SeQM04OLz0g4.Item.G1t52Ix7Zc9wz9Pv",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1680,7 +1768,9 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
@@ -1692,9 +1782,14 @@
 			},
 			"_id": "oCCGGhyCRJErPe2f",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Actor.UAk4SeQM04OLz0g4.Item.G1t52Ix7Zc9wz9Pv",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1796,7 +1891,9 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
@@ -1807,9 +1904,14 @@
 				}
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Actor.qMGd4cvklLNPHXDL.Item.eWJ7oOf21bjkUMv8",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1910,7 +2012,9 @@
 							"system": "0.17.41"
 						}
 					}
-				}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"effects": [],
 			"folder": null,
@@ -1922,9 +2026,14 @@
 			},
 			"_id": "XE5gUmBNh541hdeS",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Actor.qMGd4cvklLNPHXDL.Item.eWJ7oOf21bjkUMv8",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "0.19.26",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		}
 	],
@@ -1942,10 +2051,13 @@
 		}
 	},
 	"folder": null,
-	"_id": "kb3dxc95wqhhmd1v",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1727275283974,
+		"modifiedTime": 1727275283974,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "kb3dxc95wqhhmd1v"
 }

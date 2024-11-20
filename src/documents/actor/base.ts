@@ -13,7 +13,7 @@ import type HitDiceManager from '../../managers/HitDiceManager';
 
 // *****************************************************************************************
 
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 import ActiveEffectA5e from '../activeEffect/activeEffect';
 
@@ -1864,7 +1864,7 @@ class BaseActorA5e extends Actor {
     }
 
     // Handle multi-leveled effects
-    if (['fatigue', 'exhaustion', 'strife'].includes(statusId)) {
+    if (['corruption', 'fatigue', 'exhaustion', 'inebriated', 'strife'].includes(statusId)) {
       const delta = active ? 1 : -1;
       const currLevel = this.system.attributes[statusId];
       // @ts-expect-error

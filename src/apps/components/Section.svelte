@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { localize } from "#runtime/svelte/helper";
+    import { localize } from "#runtime/util/i18n";
 
     export let headerButtons: any[] = [];
     export let headerClasses: string = "";

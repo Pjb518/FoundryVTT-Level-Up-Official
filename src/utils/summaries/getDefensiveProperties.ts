@@ -1,6 +1,6 @@
 import type ObjectItemA5e from '../../documents/item/object';
 
-import { localize } from '#runtime/svelte/helper';
+import { localize } from '#runtime/util/i18n';
 
 export default function getDefensiveProperties(item: ObjectItemA5e) {
   const { defensiveProperties, weaponProperties } = CONFIG.A5E;

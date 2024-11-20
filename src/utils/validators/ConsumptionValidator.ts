@@ -1,7 +1,8 @@
-import { localize } from '#runtime/svelte/helper';
 import type { A5EActionData } from '../../dataModels/item/actions/ActionDataModel';
 import type { BaseActorA5e } from '../../documents/actor/base';
 import type { ItemA5e } from '../../documents/item/item';
+
+import { localize } from '#runtime/util/i18n';
 
 export default class ConsumptionValidator {
   #action: A5EActionData;

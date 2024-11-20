@@ -13,15 +13,67 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>This ornate bracer fits over the stump of a missing hand. You can use a mental command at any time (no action required) to summon a spectral, skeletal hand from the end of the bracer, allowing the user to function as though they had a natural hand in its place. You may also dismiss the hand, if desired (no action required). Finally, the hand can function as per the mage hand spell for up to an hour per day. The hour need not be continuous. While the hand is used this way, you lose the use of the hand as a normal hand until it returns.</p>",
+		"actions": {
+			"cI82EZOYUsjli7Al": {
+				"name": "Mage Hand",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"ydV6QRuuTkwuFB80": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"ranges": {
+					"jTIF5jsoF1Um2nVk": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "",
+					"size": "",
+					"placeTemplate": false
+				},
+				"target": {
+					"quantity": "",
+					"type": "none"
+				},
+				"img": "icons/magic/unholy/strike-hand-glow-pink.webp",
+				"description": "<p>A faintly shimmering phantasmal hand appears at a point you choose within range. It remains until you dismiss it as an action, or until you move more than 30 feet from it.</p><p>You can use an action to control the hand and direct it to do any of the following:</p><ul><li>manipulate an object.</li><li>open an unlocked container or door.</li><li>stow or retrieve items from unlocked containers.</li></ul><p>The hand cannot attack, use magic items, or carry more than 10 pounds.</p>",
+				"descriptionOutputs": [
+					"action"
+				]
+			}
+		},
+		"description": "<p>This ornate bracer fits over the stump of a missing hand. You can use a mental command at any time (no action required) to summon a spectral, skeletal hand from the end of the bracer, allowing the user to function as though they had a natural hand in its place. You may also dismiss the hand, if desired (no action required). Finally, the hand can function as per the @UUID[Compendium.a5e.a5e-spells.Item.mocigztrqyoks506]{Mage Hand} spell for up to an hour per day. The hour need not be continuous. While the hand is used this way, you lose the use of the hand as a normal hand until it returns.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "arcaneSniper",
+		"source": "multiclassersManual",
 		"uses": {
-			"value": 0,
-			"max": "",
-			"per": "",
+			"value": 1,
+			"max": "1",
+			"per": "day",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -66,15 +118,25 @@
 		"defensiveProperties": "",
 		"flaws": [],
 		"versatile": "",
-		"mounted": []
+		"mounted": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		}
 	},
 	"effects": [],
-	"flags": {},
+	"flags": {
+		"core": {}
+	},
 	"folder": null,
-	"_id": "py2owu2duoj4jkzd",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.27",
+		"createdTime": 1727618772663,
+		"modifiedTime": 1727618838585,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "py2owu2duoj4jkzd"
 }

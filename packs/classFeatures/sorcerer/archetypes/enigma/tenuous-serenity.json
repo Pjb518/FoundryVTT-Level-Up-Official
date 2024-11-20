@@ -1,7 +1,7 @@
 {
 	"name": "Tenuous Serenity",
 	"type": "feature",
-	"img": "icons/svg/item-bag.svg",
+	"img": "icons/magic/holy/meditation-chi-focus-blue.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -17,10 +17,10 @@
 		},
 		"actions": {
 			"Yp25JXy0UegvFmEw": {
-				"name": "Tenuous Serenity",
+				"name": "Empowered",
 				"activation": {
-					"cost": "",
-					"type": "special",
+					"cost": 1,
+					"type": "",
 					"reactionTrigger": ""
 				},
 				"duration": {
@@ -30,7 +30,8 @@
 				"area": {
 					"shape": "",
 					"size": "",
-					"placeTemplate": false
+					"placeTemplate": false,
+					"quantity": 1
 				},
 				"target": {
 					"quantity": "",
@@ -39,6 +40,37 @@
 				"consumers": {
 					"sd3sAjb9GJ6mCwls": {
 						"type": "itemUses"
+					},
+					"SlXCJlKA2ycF0zV2": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "@classResources.sorcery-points",
+						"resource": "classResource",
+						"quantity": 1
+					}
+				}
+			},
+			"dEollyS7fjWaqaGa": {
+				"name": "Meditation",
+				"activation": {},
+				"consumers": {
+					"h1IHij8qPfLZ74Ue": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "longRest",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
 					}
 				}
 			}
@@ -48,9 +80,9 @@
 		"secretDescription": "",
 		"source": "adventurersGuide",
 		"uses": {
-			"value": 1,
-			"max": "1",
-			"per": "longRest",
+			"value": 0,
+			"max": "",
+			"per": "",
 			"recharge": {
 				"formula": "1d6",
 				"threshold": 6
@@ -71,13 +103,17 @@
 				}
 			}
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"folder": null,
-	"_id": "m5qc4zw1v9j29qpr",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726692200058,
+		"modifiedTime": 1726692314942,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "m5qc4zw1v9j29qpr"
 }

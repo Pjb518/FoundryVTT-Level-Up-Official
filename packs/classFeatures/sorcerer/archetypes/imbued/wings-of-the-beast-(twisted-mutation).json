@@ -13,8 +13,73 @@
 			"requiresNoShield": false,
 			"requiresUnarmored": false
 		},
-		"actions": {},
-		"description": "<p>At 6th level your power grows as your altered physiology adapts to the life you&rsquo;ve led up to this point. You may choose one of the following abilities and are not bound by your flesh and bone selection.</p>\n<p><strong>Wings of the Beast</strong>: You grow a pair of broad, leathery, wings not unlike those of a bat or a dragon. You gain a fly speed of 40ft. In addition, if you possess the beastmantle bonded power you may now make your tail attack as a ranged weapon attack. It has a range of 20/60 and flings poisoned spines. Your tail&rsquo;s damage increases to 1d10 piercing damage plus Constitution modifier poison damage and any creature damaged becomes poisoned for 1 minute.</p>",
+		"actions": {
+			"LFW1brZ5SnEPu0Fz": {
+				"name": "Beastmantle (Stinger)",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {
+					"G7fGNZ5pGzMM4Yzp": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"VWTXQJjAjs1RVs5k": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d10",
+						"damageType": "piercing"
+					},
+					"XtMOeTBlYy6VH21f": {
+						"type": "damage",
+						"default": true,
+						"formula": "@con.mod",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"DcMuYRe5QF1jRP1q": {
+						"type": "effect",
+						"default": true,
+						"effectId": "OE4pNm5P4wuwzHLQ"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "instantaneous"
+				},
+				"ranges": {
+					"GsBM43BWQVdq3iRr": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"v7AiRkkGleqKCck1": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				},
+				"img": "icons/magic/symbols/triangle-glow-purple.webp"
+			}
+		},
+		"description": "<p>At 6th level your power grows as your altered physiology adapts to the life you&rsquo;ve led up to this point. You may choose one of the following abilities and are not bound by your flesh and bone selection.</p>\n<p><strong>Wings of the Beast</strong>: You grow a pair of broad, leathery, wings not unlike those of a bat or a dragon. You gain a fly speed of 40ft. In addition, if you possess the @UUID[Compendium.a5e.a5e-class-features.Item.fu6smv03quuleegl]{Beastmantle} bonded power you may now make your tail attack as a ranged weapon attack. It has a range of 20/60 and flings poisoned spines. Your tail&rsquo;s damage increases to 1d10 piercing damage plus Constitution modifier poison damage and any creature damaged becomes poisoned for 1 minute.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "moarComplete",
@@ -29,62 +94,114 @@
 		},
 		"concentration": false,
 		"featureType": "class",
-		"grants": {},
+		"grants": {
+			"7tiJiH31enUGOE5i": {
+				"grantType": "feature",
+				"level": 18,
+				"levelType": "class",
+				"optional": false,
+				"_id": "7tiJiH31enUGOE5i",
+				"label": "Chimeric",
+				"features": {
+					"base": [
+						{
+							"uuid": "Compendium.a5e.a5e-class-features.Item.z5gr89rgp4raqwmp",
+							"limitedReselection": true,
+							"selectionLimit": 1
+						}
+					],
+					"options": [],
+					"total": 0
+				},
+				"img": ""
+			},
+			"WrsueJleA5MccFF6": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "WrsueJleA5MccFF6",
+				"label": "Wings of the Beast",
+				"bonus": "40",
+				"movementTypes": {
+					"base": [
+						"fly"
+					]
+				}
+			}
+		},
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"schemaVersion": {
 			"version": 0.019,
 			"lastMigration": null
 		},
-		"classes": "sorcerer"
+		"classes": "sorcerer",
+		"class": ""
 	},
 	"effects": [
 		{
-			"icon": "icons/svg/aura.svg",
-			"origin": "Item.cIQFgya9DKnkUcfr",
+			"origin": "Item.ykqVWJqB9pbKkaMw",
 			"flags": {
 				"a5e": {
 					"sort": 0,
-					"transferType": "passive"
+					"transferType": "onUse",
+					"actionId": "LFW1brZ5SnEPu0Fz",
+					"duration": {
+						"unit": "minutes"
+					}
 				}
 			},
 			"transfer": false,
-			"name": "Wings of the Beast",
-			"_id": "s74PLGD8o3rAEhWj",
+			"name": "Poisoned",
+			"img": "icons/magic/symbols/triangle-glow-purple.webp",
+			"_id": "OE4pNm5P4wuwzHLQ",
+			"type": "base",
+			"system": {},
 			"changes": [
 				{
-					"key": "system.attributes.movement.fly.distance",
-					"mode": 5,
-					"value": "40",
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "",
+					"mode": 0,
 					"priority": null
 				}
 			],
 			"disabled": false,
 			"duration": {
 				"startTime": null,
-				"seconds": null,
+				"seconds": 60,
 				"combat": null,
 				"rounds": null,
 				"turns": null,
 				"startRound": null,
 				"startTurn": null
 			},
-			"description": "",
+			"description": "<p>A poisoned creature has disadvantage on attack rolls and ability checks.</p>",
+			"tint": "#ffffff",
 			"statuses": [],
-			"folder": null,
+			"sort": 0,
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
-			}
+				"systemVersion": "0.19.26",
+				"createdTime": 1726854663406,
+				"modifiedTime": 1726854690236,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
 		}
 	],
 	"flags": {},
 	"folder": null,
-	"_id": "hut8dgrb3ygbfkhh",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "0.19.26",
+		"createdTime": 1726854330179,
+		"modifiedTime": 1726854663448,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "hut8dgrb3ygbfkhh"
 }

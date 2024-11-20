@@ -1,6 +1,6 @@
 export default async function automateMultiLevelConditions(actor, data, userId) {
   if (game.user.id !== userId) return;
-  const conditionKeys = new Set(['fatigue', 'exhaustion', 'strife']);
+  const conditionKeys = new Set(['corruption', 'fatigue', 'exhaustion', 'inebriated', 'strife']);
   const keys = new Set(Object.keys(data?.system?.attributes ?? {}));
 
   const applicableConditions = conditionKeys.intersection(keys);
