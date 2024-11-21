@@ -37,6 +37,11 @@
         return bulkyCount;
     }, 0);
 
+    $: supplyItems = $actor.items.reduce((supplyCount, item) => {
+            if (item.system.supply && item.system.equippedState) supplyCount += 1;
+            return supplyCount;
+        }, 0);
+
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : ($actor.flags?.a5e?.sheetIsLocked ?? true);
@@ -46,6 +51,7 @@
     $: currency = $actor.system.currency;
     $: supply = $actor.system.supply;
     $: supplyTooltip = getSupplyTooltip($actor);
+    $: totalSupply = $actor.system.supply + supplyItems;
 </script>
 
 <section class="shield-container">
@@ -89,21 +95,40 @@
                 {localize("A5E.Supply")}
             </h3>
 
-            <input
-                class="shield-input a5e-footer-group__input"
-                class:disable-pointer-events={!$actor.isOwner}
-                type="number"
-                name="system.supply"
-                value={supply}
-                placeholder="0"
-                min="0"
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        Number(target.value),
-                    )}
-            />
+            {#if !sheetIsLocked}
+                <input
+                    class="shield-input a5e-footer-group__input"
+                    class:disable-pointer-events={!$actor.isOwner}
+                    type="number"
+                    name="system.supply"
+                    value={supply}
+                    placeholder="0"
+                    min="0"
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value),
+                        )}
+                />
+            {:else}
+                <input
+                    class="shield-input a5e-footer-group__input"
+                    class:disable-pointer-events={!$actor.isOwner}
+                    type="number"
+                    name="system.supply"
+                    value={totalSupply}
+                    placeholder="0"
+                    min="0"
+                    disabled={sheetIsLocked}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value),
+                        )}
+                />
+            {/if}
         </div>
     {/if}
 

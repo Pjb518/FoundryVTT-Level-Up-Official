@@ -33,7 +33,7 @@ export default function registerExtraContentConfig() {
     //Tools
     delete CONFIG.A5E.tools.vehicles.spaceVehicles;
     delete CONFIG.A5E.tools.miscellaneous.computers;
-    delete CONFIG.A5E.tools.specialist.hackingTool;
+    delete CONFIG.A5E.tools.specialist;
 
     //Weapons
       //Simple

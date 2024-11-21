@@ -62,6 +62,7 @@ const schema = {
     new fields.StringField({ required: true, initial: '' }),
     { required: true, initial: [] }
   ),
+  supply: new fields.BooleanField({ required: true, initial: false }),
   techLevel: new fields.StringField({ required: true, initial: 'archaic' }),
   unidentified: new fields.BooleanField({ required: true, initial: false }),
   unidentifiedDescription: new fields.HTMLField({ required: true, initial: '' }),
