@@ -17,7 +17,7 @@ export default function registerExtraContentConfig() {
     delete CONFIG.A5E.skillSpecialties.eng.starshipShields;
 
     //Investigation
-    delete CONFIG.A5E.skillSpecialties.inv.sensors
+    delete CONFIG.A5E.skillSpecialties.inv.sensors;
 
     //Medicine
     delete CONFIG.A5E.skillSpecialties.med.xenobiology;
@@ -33,17 +33,22 @@ export default function registerExtraContentConfig() {
     //Tools
     delete CONFIG.A5E.tools.vehicles.spaceVehicles;
     delete CONFIG.A5E.tools.miscellaneous.computers;
-    delete CONFIG.A5E.tools.miscellaneous.hackingTool;
+    delete CONFIG.A5E.tools.specialist.hackingTool;
 
     //Weapons
-    delete CONFIG.A5E.weapons.simple.blaster;
-    delete CONFIG.A5E.weapons.simple.joltPistol;
-    delete CONFIG.A5E.weapons.simple.slugger;
-    delete CONFIG.A5E.weapons.martial.hypodermicPistol;
-    delete CONFIG.A5E.weapons.martial.pulseRifle;
-    delete CONFIG.A5E.weapons.martial.slugRifle;
-    delete CONFIG.A5E.weapons.martial.sniperRifle;
-    delete CONFIG.A5E.weapons.miscellaneous.starship;
+      //Simple
+      delete CONFIG.A5E.weapons.simple.blaster;
+      delete CONFIG.A5E.weapons.simple.joltPistol;
+      delete CONFIG.A5E.weapons.simple.slugger;
+
+      //Martial
+      delete CONFIG.A5E.weapons.martial.hypodermicPistol;
+      delete CONFIG.A5E.weapons.martial.pulseRifle;
+      delete CONFIG.A5E.weapons.martial.slugRifle;
+      delete CONFIG.A5E.weapons.martial.sniperRifle;
+
+      //Misc
+      delete CONFIG.A5E.weapons.miscellaneous.starship;
   }
   
   return

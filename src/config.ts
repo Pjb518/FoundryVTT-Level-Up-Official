@@ -1450,6 +1450,7 @@ const toolCategories = {
   gamingSets: 'A5E.ToolsGamingSets',
   musicalInstruments: 'A5E.MusicalInstruments',
   miscellaneous: 'A5E.ToolsMiscellaneous',
+  specialist: "A5E.ToolsSpecialist",
   vehicles: 'A5E.ToolsVehicles',
   other: 'A5E.ToolsOther'
 };
@@ -1507,8 +1508,18 @@ const tools = {
     sewingKit: 'A5E.ToolSewingKit',
     smithsTools: 'A5E.ToolSmithsTools',
     thievesTools: 'A5E.ToolThievesTools',
-    computers: 'A5E.ToolComputers',
+    computers: 'A5E.ToolComputers'
+  },
+  specialist: {
+    computerTechnicianKit: 'A5E.ToolComputerTechnicianKit',
+    cyberneticsKit: 'A5E.ToolCyberneticsKit',
+    engineersToolbox: 'A5E.ToolEngineersToolbox',
+    fieldLaboratory: 'A5E.ToolFieldLaboratory',
     hackingTool: 'A5E.ToolHackingTool',
+    maintenanceTools: 'A5E.ToolMaintenanceTools',
+    medicalPouch: 'A5E.ToolMedicalPouch',
+    multiScanner: 'A5E.ToolMultiScanner',
+    vehicleRepairKit: 'A5E.ToolVehicleRepairKit'
   },
   vehicles: {
     landVehicles: 'A5E.VehicleLand',
@@ -1571,7 +1582,17 @@ const toolsPlural = {
     sewingKit: 'A5E.ToolSewingKitPlural',
     smithsTools: 'A5E.ToolSmithsToolsPlural',
     thievesTools: 'A5E.ToolThievesToolsPlural',
-    hackingTool: 'A5E.ToolHackingToolPlural'
+  },
+  specialist: {
+    computerTechnicianKit: 'A5E.ToolComputerTechnicianKitPlural',
+    cyberneticsKit: 'A5E.ToolCyberneticsKitPlural',
+    engineersToolbox: 'A5E.ToolEngineersToolboxPlural',
+    fieldLaboratory: 'A5E.ToolFieldLaboratoryPlural',
+    hackingTool: 'A5E.ToolHackingToolPlural',
+    maintenanceTools: 'A5E.ToolMaintenanceTools',
+    medicalPouch: 'A5E.ToolMedicalPouchPlural',
+    multiScanner: 'A5E.ToolMultiScannerPlural',
+    vehicleRepairKit: 'A5E.ToolVehicleRepairKitPlural'
   },
   vehicles: {
     landVehicles: 'A5E.VehicleLandPlural',
