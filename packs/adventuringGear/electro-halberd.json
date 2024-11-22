@@ -1,8 +1,8 @@
 {
 	"folder": null,
-	"name": "Gloam Bread",
+	"name": "Electro Halberd",
 	"type": "object",
-	"img": "icons/consumables/grains/donut-baked-brown.webp",
+	"img": "icons/weapons/polearms/spear-flared-silver-pink.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -15,15 +15,23 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"RGAavNBh43WOCk5F": {
-				"name": "Gloam Bread",
+			"SC1OTBLy5opQIdOV": {
+				"name": "Electro Halberd",
 				"activation": {},
 				"consumers": {},
 				"rolls": {
-					"D9gqklFxH08LQZQg": {
-						"type": "savingThrow",
+					"V3T3Jo7TAHAmy5lp": {
+						"type": "attack",
 						"default": true,
-						"ability": "wis"
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"USsPCvaAZ0jGCDxZ": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d10 + @str.mod",
+						"damageType": "lightning"
 					}
 				},
 				"prompts": {},
@@ -37,20 +45,30 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
+				},
+				"ranges": {
+					"udUCRUZRMputLzi9": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
 				}
 			}
 		},
-		"description": "<p>These dark, dense bread rolls are incredibly filling, but leave an unpleasant, greasy taste in your mouth.</p><p>Each piece of Gloam Bread is considered one Supply. When consumed, you have advantage on Wisdom saving throws against the Fellspire Gloaming challenge for 24 hours. In addition, you can make a DC 16 Wisdom saving throw, reducing your strife by one level on a success. Once a creature reduces its strife in this way it cannot do so again until it has had a long rest.</p>",
+		"description": "<p>This polearm sports an electrified blade.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "gpg1",
+		"source": "voidrunnersCodex",
 		"uses": {
 			"value": 0,
 			"max": "",
 			"per": "",
 			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
+				"formula": "",
+				"threshold": 0
 			}
 		},
 		"ammunitionProperties": [],
@@ -58,50 +76,50 @@
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "The ashes of a creature that died of starvation",
+		"craftingComponents": "",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
 		"items": {},
 		"materialProperties": [],
-		"objectType": "consumable",
+		"objectType": "weapon",
 		"plotItem": false,
-		"price": "45 gp",
-		"proficient": true,
+		"price": "75 cr",
+		"proficient": false,
 		"quantity": 1,
-		"rarity": "common",
+		"rarity": "mundane",
 		"requiresAttunement": false,
 		"shieldCategory": "",
 		"shieldProperties": [],
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
-		"weaponProperties": [],
-		"weight": 0,
+		"weaponProperties": [
+			"heavy",
+			"reach",
+			"twoHanded"
+		],
+		"weight": 7,
 		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
+			"version": 0.019,
+			"lastMigration": null
 		},
 		"breakerProperties": [],
-		"defensiveProperties": "",
-		"flaws": [],
-		"versatile": "",
-		"mounted": [],
 		"capacity": {
 			"type": "weight",
 			"value": 0,
 			"weightlessContents": false
 		},
-		"supply": true,
-		"techLevel": "archaic",
-		"energyProperties": "",
-		"weaponAugments": []
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": [
+			"energy"
+		],
+		"energyProperties": "shock"
 	},
 	"effects": [],
 	"flags": {},
@@ -109,9 +127,9 @@
 		"coreVersion": "12.331",
 		"systemId": "a5e",
 		"systemVersion": "0.19.32",
-		"createdTime": 1732221021136,
-		"modifiedTime": 1732221028964,
+		"createdTime": 1732229068215,
+		"modifiedTime": 1732304122177,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "0nb6tl44cxgzssk3"
+	"_id": "NJq23HPttqqVhw16"
 }

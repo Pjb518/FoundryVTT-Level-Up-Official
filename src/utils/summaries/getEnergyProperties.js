@@ -12,5 +12,5 @@ export default function getEnergyProperties(item) {
     );
   }
 
-  return 'A5E.weaponAugments.energy';
+  return weaponAugments.energy;
 }

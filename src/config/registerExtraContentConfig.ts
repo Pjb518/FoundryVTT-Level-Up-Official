@@ -40,12 +40,25 @@ export default function registerExtraContentConfig() {
       delete CONFIG.A5E.weapons.simple.blaster;
       delete CONFIG.A5E.weapons.simple.joltPistol;
       delete CONFIG.A5E.weapons.simple.slugger;
+      delete CONFIG.A5E.weapons.simple.shockMace;
+      delete CONFIG.A5E.weapons.simple.sonicMaul;
+      delete CONFIG.A5E.weapons.simple.stunStick;
+      delete CONFIG.A5E.weapons.simple.tacticalBaton;
 
       //Martial
+      delete CONFIG.A5E.weapons.martial.battleGauntlet;
+      delete CONFIG.A5E.weapons.martial.combatChainsaw;
+      delete CONFIG.A5E.weapons.martial.combatKnife;
+      delete CONFIG.A5E.weapons.martial.duelingSword;
+      delete CONFIG.A5E.weapons.martial.electroHalberd;
       delete CONFIG.A5E.weapons.martial.hypodermicPistol;
+      delete CONFIG.A5E.weapons.martial.longspear;
+      delete CONFIG.A5E.weapons.martial.monoWhip;
+      delete CONFIG.A5E.weapons.martial.plasmaSword;
       delete CONFIG.A5E.weapons.martial.pulseRifle;
       delete CONFIG.A5E.weapons.martial.slugRifle;
       delete CONFIG.A5E.weapons.martial.sniperRifle;
+      delete CONFIG.A5E.weapons.martial.vibroknife;
 
       //Misc
       delete CONFIG.A5E.weapons.miscellaneous.starship;

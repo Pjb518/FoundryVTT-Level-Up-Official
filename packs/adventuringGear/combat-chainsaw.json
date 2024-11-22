@@ -1,8 +1,8 @@
 {
 	"folder": null,
-	"name": "Gloam Bread",
+	"name": "Combat Chainsaw",
 	"type": "object",
-	"img": "icons/consumables/grains/donut-baked-brown.webp",
+	"img": "icons/tools/hand/saw-steel-grey.webp",
 	"system": {
 		"ac": {
 			"baseFormula": "",
@@ -15,15 +15,23 @@
 			"requiresUnarmored": false
 		},
 		"actions": {
-			"RGAavNBh43WOCk5F": {
-				"name": "Gloam Bread",
+			"wUGH6yu71GG89UZk": {
+				"name": "Combat Chainsaw",
 				"activation": {},
 				"consumers": {},
 				"rolls": {
-					"D9gqklFxH08LQZQg": {
-						"type": "savingThrow",
+					"2Yv1WJH79fG8Oift": {
+						"type": "attack",
 						"default": true,
-						"ability": "wis"
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"Kjefq0wbuyG7AinF": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d4xo4 + @str.mod",
+						"damageType": "slashing"
 					}
 				},
 				"prompts": {},
@@ -37,20 +45,29 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
+				},
+				"ranges": {
+					"rM5a29J1VaLrvDq8": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
 				}
 			}
 		},
-		"description": "<p>These dark, dense bread rolls are incredibly filling, but leave an unpleasant, greasy taste in your mouth.</p><p>Each piece of Gloam Bread is considered one Supply. When consumed, you have advantage on Wisdom saving throws against the Fellspire Gloaming challenge for 24 hours. In addition, you can make a DC 16 Wisdom saving throw, reducing your strife by one level on a success. Once a creature reduces its strife in this way it cannot do so again until it has had a long rest.</p>",
+		"description": "<p><em><strong>Prerequisite:</strong> Strength 13+</em></p>\n<p>Unlike the tools designed for industry or personal use, combat chainsaws are meant for war. When you make a damage roll with the weapon, if either of the dice result in a 4, you can roll an additional d4 and add the result to the total damage dealt.</p>",
 		"favorite": false,
 		"secretDescription": "",
-		"source": "gpg1",
+		"source": "voidrunnersCodex",
 		"uses": {
 			"value": 0,
 			"max": "",
 			"per": "",
 			"recharge": {
-				"formula": "1d6",
-				"threshold": 6
+				"formula": "",
+				"threshold": 0
 			}
 		},
 		"ammunitionProperties": [],
@@ -58,48 +75,47 @@
 		"armorProperties": [],
 		"attuned": false,
 		"bulky": false,
-		"craftingComponents": "The ashes of a creature that died of starvation",
+		"craftingComponents": "",
 		"containerId": "",
 		"damagedState": 0,
 		"equippedState": 0,
 		"items": {},
 		"materialProperties": [],
-		"objectType": "consumable",
+		"objectType": "weapon",
 		"plotItem": false,
-		"price": "45 gp",
-		"proficient": true,
+		"price": "65 cr",
+		"proficient": false,
 		"quantity": 1,
-		"rarity": "common",
+		"rarity": "mundane",
 		"requiresAttunement": false,
 		"shieldCategory": "",
 		"shieldProperties": [],
 		"unidentified": false,
 		"unidentifiedDescription": "",
 		"unidentifiedName": "",
-		"weaponProperties": [],
-		"weight": 0,
+		"weaponProperties": [
+			"breaker",
+			"exotic",
+			"heavy",
+			"twoHanded"
+		],
+		"weight": 12,
 		"schemaVersion": {
-			"version": 0.018,
-			"lastMigration": {
-				"version": {
-					"schema": 0.016,
-					"foundry": "11.315",
-					"system": "0.17.41"
-				}
-			}
+			"version": 0.019,
+			"lastMigration": null
 		},
 		"breakerProperties": [],
-		"defensiveProperties": "",
-		"flaws": [],
-		"versatile": "",
-		"mounted": [],
 		"capacity": {
 			"type": "weight",
 			"value": 0,
 			"weightlessContents": false
 		},
-		"supply": true,
-		"techLevel": "archaic",
+		"defensiveProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
 		"energyProperties": "",
 		"weaponAugments": []
 	},
@@ -109,9 +125,9 @@
 		"coreVersion": "12.331",
 		"systemId": "a5e",
 		"systemVersion": "0.19.32",
-		"createdTime": 1732221021136,
-		"modifiedTime": 1732221028964,
+		"createdTime": 1732223896338,
+		"modifiedTime": 1732228336252,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
-	"_id": "0nb6tl44cxgzssk3"
+	"_id": "eWLgydUyV0G736jf"
 }
