@@ -296,6 +296,12 @@ const armorModes = {
  */
 const armorProperties = {
   camouflaged: 'A5E.ArmorPropertyCamouflaged',
+  cloaking: 'A5E.ArmorPropertyCloaking',
+  coldShielding: 'A5E.ArmorPropertyColdShielding',
+  greased: 'A5E.ArmorPropertyGreased',
+  heatShielding: 'A5E.ArmorPropertyHeatShielding',
+  mirrored: 'A5E.ArmorPropertyMirrored',
+  shearThickening: 'A5E.ArmorPropertyShearThickening',
   spiked: 'A5E.ArmorPropertySpiked',
   stealthy: 'A5E.objectProperties.stealthy',
   storage: 'A5E.objectProperties.storage'
@@ -657,12 +663,14 @@ const materialProperties = {
   feybane: 'A5E.MaterialPropertyFeybane',
   flaw: 'A5E.MaterialPropertyFlaw',
   fortified: 'A5E.MaterialPropertyFortified',
+  hackable: 'A5E.MaterialPropertyHackable',
   hardy: 'A5E.MaterialPropertyHardy',
   highQuality: 'A5E.MaterialPropertyHighQuality',
   lightweight: 'A5E.MaterialPropertyLightweight',
   lowMaintenance: 'A5E.MaterialPropertyLowMaintenance',
   rust: 'A5E.MaterialPropertyRust',
   silvered: 'A5E.MaterialPropertySilvered',
+  spacefaring: 'A5E.MaterialPropertySpacefaring',
   underarmor: 'A5E.MaterialPropertyUnderarmor',
   weighty: 'A5E.MaterialPropertyWeighty',
   wild: 'A5E.MaterialPropertyWild'
@@ -1775,27 +1783,61 @@ const weaponsPlural = {
 };
 
 /**
+ * The set of core weapon augments used in the system.
+ * @enum {string}
+ */
+const weaponAugments = {
+  biometric: 'A5E.weaponAugments.biometric',
+  burst: 'A5E.weaponAugments.burst',
+  concealed: 'A5E.weaponAugments.concealed',
+  energy: 'Energy',
+  longRange: 'A5E.weaponAugments.longRange',
+  mounted: 'A5E.weaponAugments.mounted',
+  overkill: 'A5E.weaponAugments.overkill',
+  repeating: 'A5E.weaponAugments.repeating',
+  scoped: 'A5E.weaponAugments.scoped',
+  toggled: 'A5E.weaponAugments.toggled'
+};
+
+const energyProperties = {
+  force: 'Force',
+  laser: 'Laser',
+  plasma: 'Plasma',
+  shock: 'Shock',
+  sonic: 'Sonic'
+};
+
+/**
  * The set of core weapon propeties used in the system.
  * @enum {string}
  */
 const weaponProperties = {
+  ammunition: 'A5E.weaponProperties.ammunition',
+  aquatic: 'A5E.weaponProperties.aquatic',
+  areaFire: 'A5E.weaponProperties.areaFire',
   blackPowderPyrotechnics: 'A5E.weaponProperties.blackPowderPyrotechnics',
   breaker: 'A5E.weaponProperties.breaker',
+  burstFire: 'A5E.weaponProperties.burstFire',
   clubbing: 'A5E.weaponProperties.clubbing',
   compounding: 'A5E.weaponProperties.compounding',
   defensive: 'A5E.weaponProperties.defensive',
+  directFire: 'A5E.weaponProperties.directFire',
   dualWielding: 'A5E.weaponProperties.dualWielding',
+  exotic: 'A5E.weaponProperties.exotic',
   finesse: 'A5E.weaponProperties.finesse',
   flamboyant: 'A5E.weaponProperties.flamboyant',
+  guidedFire: 'A5E.weaponProperties.guidedFire',
   hailOfLead: 'A5E.weaponProperties.hailOfLead',
   handMounted: 'A5E.weaponProperties.handMounted',
   heavy: 'A5E.weaponProperties.heavy',
   inaccurate: 'A5E.weaponProperties.inaccurate',
+  indirectFire: 'A5E.weaponProperties.indirectFire',
   loading: 'A5E.weaponProperties.loading',
   menacing: 'A5E.weaponProperties.menacing',
   misfire: 'A5E.weaponProperties.misfire',
   mounted: 'A5E.weaponProperties.mounted',
   muzzleLoading: 'A5E.weaponProperties.muzzleLoading',
+  overkill: 'A5E.weaponProperties.overkill',
   parrying: 'A5E.weaponProperties.parrying',
   parryingImmunity: 'A5E.weaponProperties.parryingImmunity',
   punching: 'A5E.weaponProperties.punching',
@@ -1803,6 +1845,7 @@ const weaponProperties = {
   range: 'A5E.weaponProperties.range',
   rebounding: 'A5E.objectProperties.rebounding',
   reach: 'A5E.weaponProperties.reach',
+  reload: 'A5E.weaponProperties.reload',
   rifled: 'A5E.weaponProperties.rifled',
   scatter: 'A5E.weaponProperties.scatter',
   shock: 'A5E.weaponProperties.shock',
@@ -1940,9 +1983,11 @@ const A5E = {
   weaponCategories,
   weapons,
   weaponsPlural,
+  weaponAugments,
   weaponProperties,
   breakerProperties,
   defensiveProperties,
+  energyProperties,
   versatileOptions,
 
   // Function Properties

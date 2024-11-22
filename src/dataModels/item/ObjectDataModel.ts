@@ -32,6 +32,7 @@ const schema = {
     required: true, initial: 0, integer: true, min: 0, max: 2
   }),
   defensiveProperties: new fields.StringField({ required: true, initial: '' }),
+  energyProperties: new fields.StringField({ required: true, initial: '' }),
   equippedState: new fields.NumberField({
     required: true, initial: 0, integer: true, min: 0, max: 2
   }),
@@ -68,6 +69,10 @@ const schema = {
   unidentifiedDescription: new fields.HTMLField({ required: true, initial: '' }),
   unidentifiedName: new fields.StringField({ required: true, initial: '' }),
   versatile: new fields.StringField({ required: true, initial: '' }),
+  weaponAugments: new fields.ArrayField(
+    new fields.StringField({ required: true, initial: '' }),
+    { required: true, initial: [] }
+  ),
   weaponProperties: new fields.ArrayField(
     new fields.StringField({ required: true, initial: '' }),
     { required: true, initial: [] }
