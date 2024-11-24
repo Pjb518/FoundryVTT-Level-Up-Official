@@ -682,6 +682,16 @@ const flaws = {
   slashing: 'A5E.damageTypes.slashing'
 };
 
+const modPorts = {
+  0: 'Ignore',
+  1: '1',
+  2: '2',
+  3: '3',
+  4: '4',
+  5: '5',
+  6: '6'
+};
+
 /**
  * The set of core movement types in the system.
  * @enum {string}
@@ -2007,6 +2017,7 @@ const A5E = {
   maneuverTraditions,
   materialProperties,
   flaws,
+  modPorts,
   movement,
   movementAbbreviations,
   distanceUnits,

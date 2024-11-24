@@ -45,6 +45,7 @@ const schema = {
     new fields.StringField({ required: true, initial: '' }),
     { required: true, initial: [] }
   ),
+  modPorts: new fields.StringField({ required: true, initial: '' }),
   mounted: new fields.ArrayField(
     new fields.StringField({ required: true, initial: '' }),
     { required: true, initial: [] }
