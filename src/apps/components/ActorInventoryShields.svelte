@@ -33,7 +33,10 @@
     }
 
     $: bulkyItems = $actor.items.reduce((bulkyCount, item) => {
-        if (item.system.bulky && item.system.equippedState) bulkyCount += 1;
+        if (item.system.bulky && item.system.equippedState) {
+            if (item.system.objectType == "armor" && item.system.equippedState == 2) {}
+            else bulkyCount += 1;
+        }
         return bulkyCount;
     }, 0);
 

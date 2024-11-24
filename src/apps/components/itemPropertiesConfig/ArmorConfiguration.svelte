@@ -135,7 +135,7 @@
                 <dt class="u-text-bold">{localize("A5E.Repairability")}:</dt>
 
                 <dd class="u-m-0 u-p-0">
-                    DC {dc}, {selectedRepairabilityProperties}
+                    {#if dc != "0"}DC {dc}, {/if}{selectedRepairabilityProperties}
                 </dd>
             </div>
         </dl>
