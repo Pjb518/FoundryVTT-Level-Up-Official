@@ -290,6 +290,35 @@ const armorModes = {
   2: 'A5E.armorClass.modes.override'
 };
 
+const armorMods = {
+  biosensors: 'A5E.ArmorModBiosensors',
+  dronePort: 'A5E.ArmorModDronePort',
+  environmentalRecycling: 'A5E.ArmorModEnvironmentalRecycling',
+  floodlights: 'A5E.ArmorModFloodlights',
+  gliderWings: 'A5E.ArmorModGliderWings',
+  grapplingHook: 'A5E.ArmorModGrapplingHook',
+  groundAnchors: 'A5E.ArmorModGroundAnchors',
+  hazmatSealing: 'A5E.ArmorModHazmatSealing',
+  improvedColdShielding: 'A5E.ArmorModImprovedColdShielding',
+  improvedHeatShielding: 'A5E.ArmorModImprovedHeatShielding',
+  improvedWeaponHatch: 'A5E.ArmorModImprovedWeaponHatch',
+  integratedFirstAid: 'A5E.ArmorModIntegratedFirstAid',
+  integratedJetpack: 'A5E.ArmorModIntegratedJetpack',
+  integratedTool: 'A5E.ArmorModIntegratedTool',
+  kineticAssistance: 'A5E.ArmorModKineticAssistance',
+  massJammer: 'A5E.ArmorModMassJammer',
+  mindshielding: 'A5E.ArmorModMindshielding',
+  nightvisionGoggles: 'A5E.ArmorModNightvisionGoggles',
+  personalJammer: 'A5E.ArmorModPersonalJammer',
+  pocket: 'A5E.ArmorModPocket',
+  powerClaw: 'A5E.ArmorModPowerClaw',
+  rechargePort: 'A5E.ArmorModRechargePort',
+  reconApparatus: 'A5E.ArmorModReconApparatus',
+  repairKit: 'A5E.ArmorModRepairKit',
+  secondaryArmorPlating: 'A5E.ArmorModSecondaryArmorPlating',
+  weaponHatch: 'A5E.ArmorModWeaponHatch'
+};
+
 /**
  * The set of core armor properties in the system.
  * @enum {string}
@@ -1988,6 +2017,7 @@ const A5E = {
   areaTemplates,
   armor,
   armorModes,
+  armorMods,
   armorProperties,
   armorPlural,
   attackTypes,

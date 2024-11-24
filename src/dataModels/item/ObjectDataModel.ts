@@ -11,6 +11,10 @@ const schema = {
     { required: true, initial: [] }
   ),
   armorCategory: new fields.StringField({ required: true, initial: '' }),
+  armorMods: new fields.ArrayField(
+    new fields.StringField({ required: true, initial: '' }),
+    { required: true, initial: [] }
+  ),
   armorProperties: new fields.ArrayField(
     new fields.StringField({ required: true, initial: '' }),
     { required: true, initial: [] }

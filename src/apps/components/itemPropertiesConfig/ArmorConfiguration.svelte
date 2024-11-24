@@ -9,6 +9,19 @@
     import RadioGroup from "../RadioGroup.svelte";
     import Section from "../Section.svelte";
 
+    function prepareArmorMods(item) {
+        let properties = item.system.armorMods.map(
+            (property) => armorMods[property] ?? property,
+        );
+        properties.sort((a, b) => a.localeCompare(b));
+
+        properties = properties.map(
+            (property) => localize(property),
+        );
+
+        return properties.join(", ");
+    }
+    
     function prepareArmorProperties(item) {
         const properties = item.system.armorProperties.map(
             (property) => armorProperties[property] ?? property,
@@ -38,10 +51,11 @@
 
     const item = getContext("item");
     const appId = getContext("appId");
-    const { armor: armorTypes, armorProperties, repairTools } = CONFIG.A5E;
+    const { armor: armorTypes, armorProperties, armorMods, repairTools } = CONFIG.A5E;
 
     let editMode = false;
 
+    $: selectedArmorMods = prepareArmorMods($item);
     $: selectedArmorProperties = prepareArmorProperties($item);
     $: selectedRepairabilityProperties = prepareRepairabilityProperties($item);
     $: dc = getRepairabilityDC($item);
@@ -76,6 +90,18 @@
                 updateDocumentDataFromField(
                     $item,
                     "system.armorProperties",
+                    event.detail,
+                )}
+        />
+
+        <CheckboxGroup
+            heading="A5E.ArmorMods"
+            options={Object.entries(armorMods)}
+            selected={$item.system.armorMods}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField(
+                    $item,
+                    "system.armorMods",
                     event.detail,
                 )}
         />
@@ -130,6 +156,16 @@
                     {selectedArmorProperties || localize("A5E.None")}
                 </dd>
             </div>
+
+            {#if selectedArmorMods}
+                <div class="u-flex u-gap-md">
+                    <dt class="u-text-bold">{localize("A5E.ArmorMods")}:</dt>
+
+                    <dd class="u-m-0 u-p-0">
+                        {selectedArmorMods}
+                    </dd>
+                </div>
+            {/if}
 
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.Repairability")}:</dt>
