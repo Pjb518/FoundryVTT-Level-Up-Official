@@ -57,6 +57,13 @@ const schema = {
     required: true, initial: 1, integer: true, min: 0
   }),
   rarity: new fields.StringField({ required: true, initial: 'mundane' }),
+  repairabilityDC: new fields.NumberField({
+    required: true, initial: 0, min: 0, nullable: false
+  }),
+  repairTools: new fields.ArrayField(
+    new fields.StringField({ required: true, initial: '' }),
+    { required: true, initial: [] }
+  ),
   requiresAttunement: new fields.BooleanField({ required: true, initial: false }),
   shieldCategory: new fields.StringField({ required: true, initial: '' }),
   shieldProperties: new fields.ArrayField(

@@ -800,6 +800,18 @@ const rangeValues = {
   long: 120
 };
 
+/**
+ * The set of core armor properties in the system.
+ * @enum {string}
+ */
+const repairTools = {
+  forge: 'A5E.repairTools.forge',
+  engineersToolbox: 'A5E.repairTools.engineersToolbox',
+  notRepairable: 'A5E.repairTools.notRepairable',
+  sewingKit: 'A5E.repairTools.sewingKit',
+  smithsTools: 'A5E.repairTools.smithsTools'
+};
+
 const resourceRecoveryOptions = {
   shortRest: 'A5E.RestShort',
   longRest: 'A5E.RestLong',
@@ -2006,6 +2018,7 @@ const A5E = {
   psionicDisciplines,
   rangeDescriptors,
   rangeValues,
+  repairTools,
   resourceRecoveryOptions,
   rollModes,
   rollTypes,
