@@ -15,6 +15,17 @@
     export let { document, dialog, skillKey, options } =
         getContext("#external").application;
 
+    function getMinRoll (minRoll, skillMinRoll, abilityMinRoll) {
+	if (minRoll) return minRoll;
+	else if (skillMinRoll > abilityMinRoll) return skillMinRoll;
+	else return abilityMinRoll;
+    }
+
+    function getAbilityMinRoll (abilityKey) {
+	if (abilityKey != "none") return $actor.system.abilities[abilityKey].check.minRoll;
+	else return 1;
+    }
+
     function getInitialExpertiseDieSelection() {
         if (hideExpertiseDice) return 0;
 
@@ -28,6 +39,7 @@
     function onSubmit() {
         dialog.submit({
             expertiseDie,
+            minRoll,
             rollFormula,
             abilityKey,
             rollMode,
@@ -50,10 +62,15 @@
 
     let visibilityMode = options.visibilityMode ?? game.settings.get("core", "rollMode");
 
-    let { minRoll } = options.minRoll ?? $actor.system.skills[skillKey];
+    let { minRoll } = options.minRoll ?? $actor.system.skills[skillKey].minRoll;
+    let abilityMinRoll = 1;
     let rollFormula;
     let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
     let situationalMods = options.situationalMods ?? "";
+
+    $: abilityMinRoll = getAbilityMinRoll(abilityKey);
+
+    $: minRoll = getMinRoll(options.minRoll, $actor.system.skills[skillKey].minRoll, abilityMinRoll);
 
     $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(abilityKey, "check");
 
