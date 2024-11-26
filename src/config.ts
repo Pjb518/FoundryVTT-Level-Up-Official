@@ -1575,10 +1575,8 @@ const tools = {
     engineersToolbox: 'A5E.ToolEngineersToolbox',
     fieldLaboratory: 'A5E.ToolFieldLaboratory',
     hackingTool: 'A5E.ToolHackingTool',
-    maintenanceTools: 'A5E.ToolMaintenanceTools',
     medicalPouch: 'A5E.ToolMedicalPouch',
-    multiScanner: 'A5E.ToolMultiScanner',
-    vehicleRepairKit: 'A5E.ToolVehicleRepairKit'
+    multiScanner: 'A5E.ToolMultiScanner'
   },
   vehicles: {
     landVehicles: 'A5E.VehicleLand',
@@ -1648,10 +1646,8 @@ const toolsPlural = {
     engineersToolbox: 'A5E.ToolEngineersToolboxPlural',
     fieldLaboratory: 'A5E.ToolFieldLaboratoryPlural',
     hackingTool: 'A5E.ToolHackingToolPlural',
-    maintenanceTools: 'A5E.ToolMaintenanceTools',
     medicalPouch: 'A5E.ToolMedicalPouchPlural',
-    multiScanner: 'A5E.ToolMultiScannerPlural',
-    vehicleRepairKit: 'A5E.ToolVehicleRepairKitPlural'
+    multiScanner: 'A5E.ToolMultiScannerPlural'
   },
   vehicles: {
     landVehicles: 'A5E.VehicleLandPlural',

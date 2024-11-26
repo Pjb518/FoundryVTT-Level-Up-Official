@@ -1,0 +1,210 @@
+{
+	"folder": null,
+	"name": "Smelling Salts",
+	"type": "object",
+	"img": "icons/commodities/gems/gem-fragments-turquoise.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"4C6Vj9JcZxoCWUmQ": {
+				"name": "Smelling Salts",
+				"activation": {},
+				"consumers": {
+					"8pwe4rQbQMDWqLhb": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"dWzpO65xv4BeU4Nd": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "custom",
+							"bonus": "10"
+						}
+					},
+					"x3po7kb0RbrCVm6z": {
+						"type": "effect",
+						"default": true,
+						"effectId": "uwiKBZAWkphmx6zO"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"ViRjmSou9JBRVOTW": {
+				"name": "Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"33QJ1YsaW0MykMuZ": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d4",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Available in several different forms (crystals, a solution, etc.) when the fumes from smelling salts are inhaled by a creature, they immediately become more alert. Unconscious creatures make a DC 10 Constitution saving throw, and on a success, regain consciousness. creatures that are already conscious can ignore the effects of one level of fatigue for up to 10 minutes. Overuse of smelling salts can be dangerous. For every dose beyond the first in a 24-hour period, a creature makes a constitution saving throw of DC 11 + 1 per dose beyond the first. A creature that fails takes 1d4 points of poison damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "5 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"armorMods": [],
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"modPorts": "",
+		"mounted": [],
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.2hOodsPVwvRParOs",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "4C6Vj9JcZxoCWUmQ",
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Smelling Salts",
+			"img": "icons/commodities/gems/gem-fragments-turquoise.webp",
+			"_id": "uwiKBZAWkphmx6zO",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 3,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Creatures that are already conscious can ignore the effects of one level of fatigue for up to 10 minutes.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732566943109,
+				"modifiedTime": 1732566971159,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732566824621,
+		"modifiedTime": 1732567002685,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "Gi4H8xR9JKO57jEc"
+}
