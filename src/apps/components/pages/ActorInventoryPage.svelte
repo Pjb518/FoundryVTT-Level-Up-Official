@@ -14,6 +14,7 @@
 
     import usesRequired from "../../../utils/usesRequired";
     import quantityRequired from "../../../utils/quantityRequired";
+    import weightRequired from "../../../utils/weightRequired";
 
     const actor = getContext("actor");
     const { objects } = actor;
@@ -29,6 +30,10 @@
     let showUses = usesRequired(objects);
     let showQuantity = quantityRequired(objects);
 
+    let showWeightColumnFlag = $actor.flags?.a5e?.showWeightColumn ?? true;
+
+    let showWeight = weightRequired(objects) && showWeightColumnFlag;
+
     $: menuList = Object.entries(subTypes);
     $: sortedObjects = Object.entries($objects._types).sort(
         (a, b) => sortMap[a[0]] - sortMap[b[0]],
@@ -37,6 +42,7 @@
     const unsubscribe = objects.subscribe((_) => {
         showUses = usesRequired(objects);
         showQuantity = quantityRequired(objects);
+	showWeight = weightRequired(objects) && showWeightColumnFlag;
     });
 
     onDestroy(() => {
@@ -72,6 +78,7 @@
                 {showDescription}
                 {showQuantity}
                 {showUses}
+                {showWeight}
                 type="objectTypesPlural"
             />
         {/if}

@@ -17,6 +17,7 @@
     export let showSpellPoints = false;
     export let showSpellSlots = false;
     export let showUses = false;
+    export let showWeight = false;
 
     const actor = getContext("actor");
     const sheet = getContext("sheet");
@@ -52,18 +53,34 @@
         );
     }
 
-    function getHeadingTemplateConfiguration(showUses, showQuantity) {
+    function getHeadingTemplateConfiguration(showUses, showQuantity, showWeight) {
         let areas = "name";
         let columns = "1fr";
 
-        if (showUses) {
-            if (showQuantity) {
-                areas = "name quantity uses";
-                columns = "1fr 4rem 6.25rem";
-            } else {
-                areas = "name uses";
-                columns = "1fr 6.25rem";
-            }
+	if (showWeight) {
+		if (showUses) {
+			if (showQuantity) {
+				areas = "name quantity uses weight";
+				columns = "1fr 4rem 6.25rem 4rem";
+			} else {
+				areas = "name uses weight";
+				columns = "1fr 6.25rem 4rem";
+			}
+		} else if (showQuantity) {
+			areas = "name quantity weight";
+			columns = "1fr 4rem 4rem";
+		} else {
+			areas = "name weight";
+			columns = "1fr 4rem";
+		}
+	} else if (showUses) {
+            	if (showQuantity) {
+                	areas = "name quantity uses";
+                	columns = "1fr 4rem 6.25rem";
+            	} else {
+                	areas = "name uses";
+                	columns = "1fr 6.25rem";
+           	}
         } else if (showQuantity) {
             areas = "name quantity";
             columns = "1fr 4rem";
@@ -75,11 +92,27 @@
         return { areas: `"${areas}"`, columns };
     }
 
-    function getItemTemplateConfiguration(showUses, showQuantity) {
+    function getItemTemplateConfiguration(showUses, showQuantity, showWeight) {
         let areas = "icon name indicators";
         let columns = "min-content 1fr min-content";
 
-        if (showUses) {
+	if (showWeight) {
+		if (showUses) {
+			if (showQuantity) {
+				areas = "icon name indicators quantity uses weight";
+				columns = "min-content 1fr min-content 4rem 6.25rem 4rem";
+			} else {
+				areas = "icon name indicators uses weight";
+				columns = "min-content 1fr min-content 6.25rem 4rem";
+			}
+		} else if (showQuantity) {
+			areas = "icon name indicators quantity weight";
+			columns = "min-content 1fr min-content 4rem 4rem";
+		} else {
+			areas = "icon name indicators weight";
+			columns = "min-content 1fr min-content 4rem";
+		}
+        } else if (showUses) {
             if (showQuantity) {
                 areas = "icon name indicators quantity uses";
                 columns = "min-content 1fr min-content 4rem 6.25rem";
@@ -101,9 +134,10 @@
     $: headingTemplateConfiguration = getHeadingTemplateConfiguration(
         showUses,
         showQuantity,
+	showWeight,
     );
 
-    $: itemTemplateConfiguration = getItemTemplateConfiguration(showUses, showQuantity);
+    $: itemTemplateConfiguration = getItemTemplateConfiguration(showUses, showQuantity, showWeight);
 </script>
 
 <section class="category-container">
@@ -167,6 +201,14 @@
                     Uses
                 </h3>
             {/if}
+
+            {#if showWeight}
+                <h3
+                    class="a5e-section-header__heading a5e-section-header__heading--center a5e-section-header__heading--weight"
+                >
+                    Weight
+                </h3>
+            {/if}
         </header>
     {/if}
 
@@ -200,6 +242,10 @@
 
         &--uses {
             grid-area: uses;
+        }
+
+        &--weight {
+            grid-area: weight;
         }
     }
 </style>
