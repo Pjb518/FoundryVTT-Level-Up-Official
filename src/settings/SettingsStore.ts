@@ -715,6 +715,18 @@ class A5eGameSettings extends TJSGameSettings {
           type: Boolean
         }
       },
+      {
+        namespace,
+        key: 'useCredits',
+        options: {
+          name: 'A5E.settings.useCredits',
+          hint: 'A5E.settings.hints.useCredits',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
       // Hidden system settings
       {
         namespace,

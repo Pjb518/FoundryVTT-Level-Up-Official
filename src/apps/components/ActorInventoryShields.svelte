@@ -4,7 +4,10 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
+    const { A5E } = CONFIG;
     const actor = getContext("actor");
+
+    const useCredits = game.settings.get('a5e', 'useCredits') ?? false;
 
     function getBulkyTooltip(actor) {
         let bulkyLimit;
@@ -162,31 +165,59 @@
     >
         <ol class="currency__list">
             {#each Object.entries(currency) as [label, value]}
-                <li class="currency__item" data-type={label}>
-                    <label
-                        class="currency__label"
-                        class:disable-pointer-events={!$actor.isOwner}
-                        for="currency-{label}"
-                    >
-                        {localize(label)}
-                    </label>
+                {#if useCredits && label == "cr"} 
+                    <li class="currency__item" data-type={label}>
+                        <label
+                            class="currency__label"
+                            class:disable-pointer-events={!$actor.isOwner}
+                            for="currency-{label}"
+                        >
+                            {localize(label)}
+                        </label>
 
-                    <input
-                        class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
-                        class:disable-pointer-events={!$actor.isOwner}
-                        id="currency-{label}"
-                        type="number"
-                        name="system.currency.{label}"
-                        {value}
-                        min="0"
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                Number(target.value),
-                            )}
-                    />
-                </li>
+                        <input
+                            class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
+                            class:disable-pointer-events={!$actor.isOwner}
+                            id="currency-{label}"
+                            type="number"
+                            name="system.currency.{label}"
+                            {value}
+                            min="0"
+                            on:change={({ target }) =>
+                                updateDocumentDataFromField(
+                                    $actor,
+                                    target.name,
+                                    Number(target.value),
+                                )}
+                        />
+                    </li>
+                 {:else if !useCredits && label != "cr"}
+                    <li class="currency__item" data-type={label}>
+                        <label
+                            class="currency__label"
+                            class:disable-pointer-events={!$actor.isOwner}
+                            for="currency-{label}"
+                        >
+                            {localize(label)}
+                        </label>
+
+                        <input
+                            class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
+                            class:disable-pointer-events={!$actor.isOwner}
+                            id="currency-{label}"
+                            type="number"
+                            name="system.currency.{label}"
+                            {value}
+                            min="0"
+                            on:change={({ target }) =>
+                                updateDocumentDataFromField(
+                                    $actor,
+                                    target.name,
+                                    Number(target.value),
+                                )}
+                        />
+                    </li>
+                {/if}
             {/each}
         </ol>
     </div>

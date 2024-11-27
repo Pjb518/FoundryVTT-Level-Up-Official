@@ -15,6 +15,7 @@
     let showVRCSkills = settings.getStore("showVRCSkills");
     let showVRCSpecialties = settings.getStore("showVRCSpecialties");
     let showVRCTechLevel = settings.getStore("showVRCTechLevel");
+    let useCredits = settings.getStore("useCredits");
     
 </script>
 
@@ -82,6 +83,19 @@
                     true}
                 on:updateSelection={({ detail }) => {
                     updates.set("showVRCTechLevel", detail);
+                    reload = true;
+                }}
+            />
+        </FieldWrapper>
+
+        <FieldWrapper hint="A5E.settings.hints.useCredits">
+            <Checkbox
+                label="A5E.settings.useCredits"
+                checked={updates.get("useCredits") ??
+                    $useCredits ??
+                    true}
+                on:updateSelection={({ detail }) => {
+                    updates.set("useCredits", detail);
                     reload = true;
                 }}
             />
