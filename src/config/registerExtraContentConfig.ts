@@ -33,6 +33,12 @@ export default function registerExtraContentConfig() {
     //Tools
     delete CONFIG.A5E.tools.vehicles.spaceVehicles;
     delete CONFIG.A5E.tools.miscellaneous.computers;
+    delete CONFIG.A5E.tools.musicalInstruments.acousticGuitar;
+    delete CONFIG.A5E.tools.musicalInstruments.electricGuitar;
+    delete CONFIG.A5E.tools.musicalInstruments.harmonica;
+    delete CONFIG.A5E.tools.musicalInstruments.keytar;
+    delete CONFIG.A5E.tools.musicalInstruments.saxophone;
+    delete CONFIG.A5E.tools.musicalInstruments.theremin;
     delete CONFIG.A5E.tools.specialist;
 
     //Weapons
