@@ -23,6 +23,8 @@
     const subTypes = A5E.featureTypes;
     const sortMap = CONFIG.A5E.reducerSortMap.features;
 
+    const disableFavorPoints = game.settings.get('a5e', 'disableFavorPoints') ?? false;
+
     let showDescription = false;
     let showUses = usesRequired(features);
 
@@ -78,7 +80,7 @@
 </section>
 
 <TabFooter --padding-right="1rem">
-    {#if $actor.type === "character"}
+    {#if $actor.type === "character" && !disableFavorPoints}
         <div class="u-flex u-align-center u-gap-md">
             <h3 class="u-mb-0 u-text-sm u-text-bold">
                 {localize("A5E.FavorPoints")}

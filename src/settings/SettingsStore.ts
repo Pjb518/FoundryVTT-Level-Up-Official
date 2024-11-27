@@ -84,6 +84,18 @@ class A5eGameSettings extends TJSGameSettings {
       },
       {
         namespace,
+        key: 'disableFavorPoints',
+        options: {
+          name: 'A5E.settings.disableFavorPoints',
+          hint: 'A5E.settings.hints.disableFavorPoints',
+          scope: scope.world,
+          config: true,
+          default: false,
+          type: Boolean
+        }
+      },
+      {
+        namespace,
         key: 'hideDeleteConfirmation',
         options: {
           name: 'A5E.settings.hideDeletionConfirmationDialog',

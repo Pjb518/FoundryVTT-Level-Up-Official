@@ -15,6 +15,8 @@
     const actionId = getContext("actionId");
     const A5E = CONFIG.A5E;
 
+    const disableFavorPoints = game.settings.get('a5e', 'disableFavorPoints') ?? false;
+
     function updateResourceSelection() {
         updateDocumentDataFromField(
             $item,
@@ -59,9 +61,15 @@
             <option value="" />
 
             {#each Object.entries(A5E.resourceConsumerConfig) as [value, { label }] (value)}
-                <option {value}>
-                    {localize(label)}
-                </option>
+                {#if disableFavorPoints && value != "favorPoints"}
+                	<option {value}>
+                    		{localize(label)}
+                	</option>
+		{:else if !disableFavorPoints}
+                	<option {value}>
+                    		{localize(label)}
+                	</option>
+		{/if}
             {/each}
         </select>
     </FieldWrapper>
