@@ -17,6 +17,7 @@
     let editMode = false;
     let hideBrokenAndDamaged = game.settings.get("a5e", "hideBrokenAndDamaged");
     let showVRCTechLevel = game.settings.get("a5e", "showVRCTechLevel");
+    let showVRCImplants = game.settings.get("a5e", "showVRCImplants");
 </script>
 
 <Section
@@ -103,6 +104,19 @@
                         updateDocumentDataFromField(
                             $item,
                             "system.supply",
+                            detail,
+                        )}
+                />
+            {/if}
+
+            {#if !showVRCImplants}
+                <Checkbox
+                    label="A5E.Implant"
+                    checked={$item.system.implant}
+                    on:updateSelection={({ detail }) =>
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.implant",
                             detail,
                         )}
                 />

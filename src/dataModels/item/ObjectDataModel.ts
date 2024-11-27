@@ -45,6 +45,7 @@ const schema = {
     { required: true, initial: [] }
   ),
   items: new fields.ObjectField({ required: true, initial: {} }),
+  implant: new fields.BooleanField({ required: true, initial: false }),
   materialProperties: new fields.ArrayField(
     new fields.StringField({ required: true, initial: '' }),
     { required: true, initial: [] }

@@ -727,6 +727,18 @@ class A5eGameSettings extends TJSGameSettings {
           type: Boolean
         }
       },
+      {
+        namespace,
+        key: 'showVRCImplants',
+        options: {
+          name: 'A5E.settings.showVRCImplants',
+          hint: 'A5E.settings.hints.showVRCImplants',
+          scope: scope.world,
+          config: true,
+          default: true,
+          type: Boolean
+        }
+      },
       // Hidden system settings
       {
         namespace,

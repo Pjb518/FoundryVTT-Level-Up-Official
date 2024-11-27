@@ -7,6 +7,7 @@
     const { A5E } = CONFIG;
     const actor = getContext("actor");
 
+    const showVRCImplants = game.settings.get('a5e', 'showVRCImplants') ?? false;
     const useCredits = game.settings.get('a5e', 'useCredits') ?? false;
 
     function getBulkyTooltip(actor) {
@@ -43,6 +44,13 @@
         return bulkyCount;
     }, 0);
 
+    $: implantItems = $actor.items.reduce((implantCount, item) => {
+        if (item.system.implant && item.system.equippedState) {
+           implantCount += 1;
+        }
+        return implantCount;
+    }, 0);
+
     $: supplyItems = $actor.items.reduce((supplyCount, item) => {
             if (item.system.supply && item.system.equippedState) supplyCount += 1;
             return supplyCount;
@@ -58,6 +66,7 @@
     $: supply = $actor.system.supply;
     $: supplyTooltip = getSupplyTooltip($actor);
     $: totalSupply = $actor.system.supply + supplyItems;
+    $: implantMax = $actor.system.attributes.prof;
 </script>
 
 <section class="shield-container">
@@ -152,6 +161,37 @@
             {bulkyItems}
         </span>
     </div>
+
+    <!-- Implants -->
+     {#if !showVRCImplants}
+        <div class="shield shield--implants">
+            <h3 class="footer-shield-header">
+                {localize("A5E.Implant")}
+            </h3>
+
+            <span class="a5e-footer-group__value a5e-footer-group__value--implants">
+                {implantItems}
+            </span>
+            /
+            <input
+                class="shield-input a5e-footer-group__input"
+                class:disable-pointer-events={!$actor.isOwner}
+                type="number"
+                name="system.attributes.prof"
+                value={implantMax}
+                placeholder="0"
+                min="0"
+                max="9"
+                disabled={sheetIsLocked}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
+            />
+        </div>
+    {/if}
 
     <!-- Currencies -->
     <div
