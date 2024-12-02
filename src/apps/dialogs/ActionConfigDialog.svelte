@@ -63,6 +63,8 @@
 
     let currentTab = tabs[0];
 
+    console.log($item);
+
     setContext("item", item);
     setContext("actionId", actionId);
 </script>
@@ -72,7 +74,7 @@
         <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
         <img
             class="item-image"
-            src={$item?.actions[actionId]?.img ?? $item.img}
+            src={$item?.actions.get(actionId)?.img ?? $item.img}
             alt="{$item.name} image"
             on:click={() => editDocumentImage($item, { actionId, dialog })}
         />

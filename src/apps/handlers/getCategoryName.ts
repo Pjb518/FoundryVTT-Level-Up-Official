@@ -1,31 +1,33 @@
+/* eslint-disable no-param-reassign */
+/* eslint-disable eqeqeq */
 function getCRLabel(cr: string | number): string {
-  if (cr == 0.125) return "CR ⅛";
-  if (cr == 0.25) return "CR ¼";
-  if (cr == 0.5) return "CR ½";
+  if (cr == 0.125) return 'CR ⅛';
+  if (cr == 0.25) return 'CR ¼';
+  if (cr == 0.5) return 'CR ½';
 
   return `CR ${cr}`;
 }
 
 function getManueverDegreeLabel(level: string | number): string {
-  if (level == 0) return "Basic Maneuvers";
+  if (level == 0) return 'Basic Maneuvers';
 
+  // eslint-disable-next-line no-param-reassign
   if (typeof level === 'string') level = parseInt(level, 10);
 
-  // @ts-ignore
-  level = isNaN(level) ? (1).ordinalString() : level.ordinalString();
+  // eslint-disable-next-line no-param-reassign
+  level = Number.isNaN(level) ? (1).ordinalString() : level.ordinalString();
   return `${level} Degree Maneuvers`;
 }
 
 function getRarityLabel(rarity: string | number): string {
-  // @ts-ignore
-  return `${rarity.capitalize()} Items`;
+  if (typeof rarity === 'string') return `${rarity.capitalize()} Items`;
+  return `${rarity.toString().capitalize()} Items`;
 }
 
 function getSpellLevelLabel(level: string | number): string {
-  if (level == 0) return "Cantrips";
+  if (level == 0) return 'Cantrips';
   if (typeof level === 'string') level = parseInt(level, 10);
-  // @ts-ignore
-  level = isNaN(level) ? (1).ordinalString() : level.ordinalString();
+  level = Number.isNaN(level) ? (1).ordinalString() : level.ordinalString();
 
   return `${level} Level Spells`;
 }

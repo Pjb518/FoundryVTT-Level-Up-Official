@@ -4,9 +4,8 @@ function renderEffectsPanel() {
   const target = document.body.querySelector('#ui-right');
   if (!target) return;
 
-  const panel = new A5EEffectsPanel({
-    target
-  });
+  // eslint-disable-next-line no-new
+  new A5EEffectsPanel({ target });
 }
 
 export default function canvasReady() {

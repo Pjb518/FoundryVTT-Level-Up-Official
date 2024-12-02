@@ -30,6 +30,7 @@ const characterSchema = () => ({
       max: new fields.NumberField({
         required: true, nullable: false, initial: 0, integer: true
       }),
+      // @ts-expect-error
       recoverOnRest: new fields.BooleanField({ required: true, initial: true })
     }),
     favorPoints: new fields.SchemaField({
@@ -143,8 +144,12 @@ declare namespace A5ECharacterData {
     & ReturnType<typeof characterSchema>
     & ReturnType<typeof schemaData>
     & ReturnType<typeof source>;
-  interface BaseData { }
-  interface DerivedData { }
+
+  interface BaseData extends Record<string, any> {
+    'attributes.prof': string
+  }
+  interface DerivedData extends Record<string, any> {
+  }
 }
 
 class A5ECharacterData extends foundry.abstract.TypeDataModel<

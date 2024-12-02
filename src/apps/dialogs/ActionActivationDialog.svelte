@@ -1,149 +1,137 @@
-<script>
+<script lang="ts">
+    import type { ActionActivationOptions } from "../../documents/item/data";
+    import type { AttackRollData } from "../../dataModels/item/actions/ActionRollsDataModel";
+    import type { BaseActorA5e } from "../../documents/actor/base";
+    import type { ItemA5e } from "../../documents/item/item";
+    import type { ResourceConsumptionManager } from "../../managers/ResourceConsumptionManager";
+
+    import { RollPreparationManager } from "../../managers/RollPreparationManager";
+
     import { getContext, setContext } from "svelte";
     import { localize } from "#runtime/util/i18n";
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-    import ConsumptionValidator from "../../utils/validators/ConsumptionValidator";
-
-    import computeSaveDC from "../../utils/computeSaveDC";
     import showActivationDialogSection from "../../utils/showActivationDialogSection";
-    import validateTemplateData from "../../utils/measuredTemplates/validateTemplateData";
 
-    import prepareConsumers from "../dataPreparationHelpers/itemActivationConsumers/prepareConsumers";
-    import preparePrompts from "../dataPreparationHelpers/itemActivationPrompts/preparePrompts";
-    import prepareRolls from "../dataPreparationHelpers/itemActivationRolls/prepareRolls";
-
-    import Checkbox from "../components/Checkbox.svelte";
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Section from "../components/Section.svelte";
 
     import AttackRollSection from "../components/activationDialog/AttackRollSection.svelte";
-    import HitDiceSection from "../components/activationDialog/HitDiceSection.svelte";
     import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
     import PromptsSection from "../components/activationDialog/PromptsSection.svelte";
     import RollsSection from "../components/activationDialog/RollsSection.svelte";
     import SpellSection from "../components/activationDialog/SpellSection.svelte";
     import UsesSection from "../components/activationDialog/UsesSection.svelte";
+    import HitDiceSection from "../components/activationDialog/HitDiceSection.svelte";
+    import ConsumptionValidator from "../../utils/validators/ConsumptionValidator";
 
-    export let { actionId, actorDocument, dialog, itemDocument, options } =
-        getContext("#external").application;
-
-    function getDefaultSelections(property) {
-        return Object.values(property ?? {})
-            .flat()
-            .reduce((acc, [key, value]) => {
-                if (
-                    ["generic", "healing", "damage"].includes(value.type) &&
-                    !value.formula
-                ) {
-                    return acc;
-                }
-
-                if (value.default ?? true) acc.push(key);
-                return acc;
-            }, []);
-    }
+    export let { application } = getContext("#external") as { application: any };
+    export let {
+        actionId,
+        options,
+        dialog,
+    }: { actionId: string; options: ActionActivationOptions; dialog: any } = application;
+    export let {
+        actorDocument,
+        itemDocument,
+    }: { actorDocument: BaseActorA5e; itemDocument: ItemA5e } = application;
 
     function onSubmit() {
-        // TODO: Chat cards - Clean this up. A lot of stuff here is prototyping for the chat cards
-
         dialog.submit({
             attack: attackRollData,
-
             consumers: {
                 actionUses: actionUsesData,
                 hitDice: hitDiceData,
                 itemUses: itemUsesData,
                 spell: spellData,
             },
-            damageBonuses: Object.entries($actor.system.bonuses.damage ?? {}).reduce(
-                (acc, [key, damageBonus]) => {
-                    if (selectedDamageBonuses.includes(key)) {
-                        acc.push(damageBonus);
-                    }
-
-                    return acc;
-                },
-                [],
+            damageBonuses: RollPreparationManager.getSelectedBonuses(
+                $actor,
+                "damage",
+                selectedDamageBonuses,
             ),
-            healingBonuses: Object.entries($actor.system.bonuses.healing ?? {}).reduce(
-                (acc, [key, healingBonus]) => {
-                    if (selectedHealingBonuses.includes(key)) {
-                        acc.push(healingBonus);
-                    }
-
-                    return acc;
-                },
-                [],
+            healingBonuses: RollPreparationManager.getSelectedBonuses(
+                $actor,
+                "healing",
+                selectedHealingBonuses,
             ),
-            prompts: Object.entries(action.prompts ?? {}).reduce((acc, [key, prompt]) => {
-                if (selectedPrompts.includes(key)) {
-                    if (prompt.type === "savingThrow") {
-                        prompt.dc = computeSaveDC($actor, $item, prompt.saveDC);
-                    }
-
-                    acc.push(prompt);
-                }
-
-                return acc;
-            }, []),
-            rolls: Object.entries(action.rolls ?? {}).reduce((acc, [key, roll]) => {
-                // Attack rolls are excluded here because they are formatted differently
-                // and require additional processing.
-                if (selectedRolls.includes(key) && roll.type !== "attack") {
-                    acc.push(roll);
-                }
-
-                return acc;
-            }, []),
-            placeTemplate,
+            prompts: RollPreparationManager.getSelectedPrompts(
+                $actor,
+                $item,
+                actionId,
+                selectedPrompts,
+            ),
+            rolls: RollPreparationManager.getSelectedRolls(
+                $item,
+                actionId,
+                selectedRolls,
+            ),
             visibilityMode,
         });
     }
 
     const actor = new TJSDocument(actorDocument);
     const item = new TJSDocument(itemDocument);
-    const action = $item.actions[actionId];
+    const action = $item.actions.get(actionId)!;
+    const { BonusesManager } = $actor;
+    const { isEmpty } = foundry.utils;
 
-    const consumers = prepareConsumers(action.consumers);
-    const prompts = preparePrompts(action.prompts, $item);
-    const rolls = prepareRolls(action.rolls);
-    const damageBonuses = $actor.BonusesManager.prepareGlobalDamageBonuses($item, rolls);
-    const healingBonuses = $actor.BonusesManager.prepareGlobalHealingBonuses(
-        $item,
-        rolls,
+    const consumers = RollPreparationManager.prepareConsumers($item, actionId);
+    // TODO: Add support for effects
+    const prompts = RollPreparationManager.preparePrompts($item, actionId);
+    const rolls = RollPreparationManager.prepareRolls($item, actionId);
+    const damageBonuses = BonusesManager.prepareGlobalDamageBonuses($item, rolls);
+    const healingBonuses = BonusesManager.prepareGlobalHealingBonuses($item, rolls);
+
+    const attackRoll = rolls.attack?.length ? rolls.attack[0][1] : ({} as AttackRollData);
+
+    // Show Config
+    const showAttackRoll = !isEmpty(attackRoll);
+    const showAreaSection = false;
+    const showOtherRolls = !!Object.values(rolls).flat().length;
+    const showDamageBonuses = !!Object.values(damageBonuses).flat().length;
+    const showHealingBonuses = !!Object.values(healingBonuses).flat().length;
+    const showBonusesSection = showDamageBonuses || showHealingBonuses;
+    const showPrompts = !!Object.values(prompts).flat().length;
+    const showSpellSection = showActivationDialogSection(
+        action,
+        ["spell"],
+        ["spellLevel", "spellPoints"],
     );
-
-    const attackRoll = rolls?.attack?.length ? rolls.attack[0][1] : {};
+    const showUsesSection = showActivationDialogSection(
+        action,
+        ["actionUses", "itemUses"],
+        ["actionUses", "itemUses"],
+    );
+    const showHitDiceSection = !!Object.values(consumers.hitDice ?? {}).flat().length;
+    const showConsumersSection =
+        showSpellSection || showUsesSection || showHitDiceSection;
 
     let attackRollData = {};
-    let actionUsesData = {};
-    let hitDiceData = {};
-    let itemUsesData = {};
-    let spellData = {};
-    let selectedDamageBonuses = getDefaultSelections({ damageBonuses });
-    let selectedHealingBonuses = getDefaultSelections({ healingBonuses });
-    let selectedPrompts = getDefaultSelections(prompts);
-    let selectedRolls = getDefaultSelections(rolls);
-    let visibilityMode = game.settings.get("core", "rollMode");
+    let actionUsesData = {} as ResourceConsumptionManager.UsesConsumerData;
+    let hitDiceData = {} as ResourceConsumptionManager.HitDiceConsumerData;
+    let itemUsesData = {} as ResourceConsumptionManager.UsesConsumerData;
+    let spellData = {} as ResourceConsumptionManager.SpellConsumerData;
+    let selectedDamageBonuses = BonusesManager.getDefaultSelectionsFromBonuses({
+        damageBonuses,
+    });
+    let selectedHealingBonuses = BonusesManager.getDefaultSelectionsFromBonuses({
+        healingBonuses,
+    });
+    let selectedPrompts = BonusesManager.getDefaultSelectionsFromBonuses(prompts);
+    let selectedRolls = BonusesManager.getDefaultSelectionsFromBonuses(rolls);
+    let visibilityMode = game.settings?.get("core", "rollMode")!;
 
+    // TODO: Place Template
     let placeTemplate =
-        game.settings.get("a5e", "placeItemTemplateDefault") ||
-        action?.area?.placeTemplate ||
+        (game.settings.get("a5e", "placeItemTemplateDefault") as boolean) ||
+        (action?.area?.placeTemplate as boolean) ||
         false;
 
+    // Validator
     const validator = new ConsumptionValidator($actor, $item, action, consumers);
-
-    const { isEmpty } = foundry.utils;
-    const preventActionRollOnWarning = game.settings.get(
-        "a5e",
-        "preventActionRollOnWarning",
-    );
-
-    setContext("actionId", actionId);
-    setContext("actor", actor);
-    setContext("dialog", dialog);
-    setContext("item", item);
+    const preventActionRollOnWarning =
+        (game.settings?.get("a5e", "preventActionRollOnWarning") as boolean) ?? false;
 
     $: consumerData = {
         actionUses: actionUsesData,
@@ -152,6 +140,11 @@
     };
 
     $: warnings = validator.validateData(consumerData);
+
+    setContext("actionId", actionId);
+    setContext("actor", actor);
+    setContext("dialog", dialog);
+    setContext("item", item);
 </script>
 
 <form>
@@ -166,13 +159,72 @@
         </section>
     {/if}
 
-    <OutputVisibilitySection bind:visibilityMode />
+    {#if showAttackRoll}
+        <Section heading="Attack Roll Config" --a5e-section-body-gap="0.5rem">
+            <OutputVisibilitySection bind:visibilityMode />
 
-    {#if !isEmpty(attackRoll)}
-        <AttackRollSection {attackRoll} {options} bind:attackRollData />
+            <AttackRollSection {attackRoll} {options} bind:attackRollData />
+        </Section>
     {/if}
 
-    {#if validateTemplateData($item.actions.get(actionId)?.area)}
+    {#if showOtherRolls}
+        <Section heading="Rolls Config" --a5e-section-body-gap="0.5rem">
+            <RollsSection {rolls} bind:selectedRolls />
+        </Section>
+    {/if}
+
+    {#if showBonusesSection}
+        <Section heading="Bonuses Config" --a5e-section-body-gap="0.5rem">
+            {#if showDamageBonuses}
+                <CheckboxGroup
+                    heading="Damage Bonuses"
+                    options={damageBonuses.map(([key, damageBonus]) => [
+                        key,
+                        damageBonus.label || damageBonus.defaultLabel || "",
+                    ])}
+                    selected={selectedDamageBonuses}
+                    on:updateSelection={({ detail }) => (selectedDamageBonuses = detail)}
+                />
+            {/if}
+
+            {#if showHealingBonuses}
+                <CheckboxGroup
+                    heading="Healing Bonuses"
+                    options={healingBonuses.map(([key, healingBonus]) => [
+                        key,
+                        healingBonus.label || healingBonus.defaultLabel || "",
+                    ])}
+                    selected={selectedHealingBonuses}
+                    on:updateSelection={({ detail }) => (selectedHealingBonuses = detail)}
+                />
+            {/if}
+        </Section>
+    {/if}
+
+    {#if showPrompts}
+        <Section heading="Prompts Config" --a5e-section-body-gap="0.5rem">
+            <PromptsSection {prompts} bind:selectedPrompts />
+        </Section>
+    {/if}
+
+    {#if showConsumersSection}
+        <Section heading="Consumers Config" --a5e-section-body-gap="0.5rem">
+            {#if showSpellSection}
+                <SpellSection {consumers} bind:spellData />
+            {/if}
+
+            {#if showUsesSection}
+                <UsesSection {consumers} bind:actionUsesData bind:itemUsesData />
+            {/if}
+
+            {#if showHitDiceSection}
+                <HitDiceSection {consumers} bind:hitDiceData />
+            {/if}
+        </Section>
+    {/if}
+
+    <!-- TODO: Template Areas and Placement options -->
+    <!-- {#if validateTemplateData($item.actions.get(actionId)?.area)}
         <FieldWrapper>
             <Checkbox
                 label="A5E.ItemPlaceTemplate"
@@ -182,59 +234,11 @@
                 }}
             />
         </FieldWrapper>
-    {/if}
+    {/if} -->
 
-    <!-- If there are no rolls, hide this section -->
-    {#if Object.values(rolls).flat().length}
-        <RollsSection {rolls} bind:selectedRolls />
-    {/if}
-
-    <!-- If there are no rolls, hide this section -->
-    {#if Object.values(damageBonuses).flat().length}
-        <CheckboxGroup
-            heading="Damage Bonuses"
-            options={damageBonuses.map(([key, damageBonus]) => [
-                key,
-                damageBonus.label || damageBonus.defaultLabel,
-            ])}
-            selected={selectedDamageBonuses}
-            on:updateSelection={({ detail }) => (selectedDamageBonuses = detail)}
-        />
-    {/if}
-
-    <!-- If there are no rolls, hide this section -->
-    {#if Object.values(healingBonuses).flat().length}
-        <CheckboxGroup
-            heading="Healing Bonuses"
-            options={healingBonuses.map(([key, healingBonus]) => [
-                key,
-                healingBonus.label || healingBonus.defaultLabel,
-            ])}
-            selected={selectedHealingBonuses}
-            on:updateSelection={({ detail }) => (selectedHealingBonuses = detail)}
-        />
-    {/if}
-
-    <!-- If there are no prompts, hide this section -->
-    {#if Object.values(prompts).flat().length}
-        <PromptsSection {prompts} bind:selectedPrompts />
-    {/if}
-
-    {#if showActivationDialogSection(action, ["spell"], ["spellLevel", "spellPoints"])}
-        <SpellSection {consumers} bind:spellData />
-    {/if}
-
-    {#if showActivationDialogSection(action, ["actionUses", "itemUses"], ["actionUses", "itemUses"])}
-        <UsesSection {consumers} bind:actionUsesData bind:itemUsesData />
-    {/if}
-
-    {#if Object.values(consumers?.hitDice ?? {}).flat().length}
-        <HitDiceSection {consumers} bind:hitDiceData />
-    {/if}
-
-    <section>
+    <Section>
         <button
-            disabled={preventActionRollOnWarning && warnings.length}
+            disabled={preventActionRollOnWarning && !!warnings.length}
             on:click|preventDefault={onSubmit}
         >
             {#if warnings.length}
@@ -247,7 +251,7 @@
             {/if}
             {localize("A5E.DialogSubmitRoll")}
         </button>
-    </section>
+    </Section>
 </form>
 
 <style lang="scss">
@@ -259,7 +263,7 @@
     form {
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.75rem;
         padding: 0.75rem;
         max-height: 50rem;
         overflow-y: auto;

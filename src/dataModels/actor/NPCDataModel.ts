@@ -36,8 +36,11 @@ const npcSchema = () => ({
   }),
   details: new fields.SchemaField({
     cr: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+    // @ts-expect-error
     elite: new fields.BooleanField({ required: true, initial: false }),
+    // @ts-expect-error
     isSquad: new fields.BooleanField({ required: true, initial: false }),
+    // @ts-expect-error
     isSwarm: new fields.BooleanField({ required: true, initial: false }),
     notes: new fields.HTMLField({ required: true, initial: '' }),
     privateNotes: new fields.HTMLField({ required: true, initial: '' }),
@@ -52,23 +55,39 @@ const npcSchema = () => ({
   }, { required: true, nullable: false }),
   spellResources: new fields.SchemaField({
     artifactCharges: new fields.SchemaField({
-      current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
-      max: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+      current: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      }),
+      max: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      })
     }),
     inventions: new fields.SchemaField({
-      current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
-      max: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+      current: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      }),
+      max: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      })
     }),
     points: new fields.SchemaField({
-      current: new fields.NumberField({ nullable: false, initial: 0, integer: true }),
-      max: new fields.NumberField({ nullable: false, initial: 0, integer: true })
+      current: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      }),
+      max: new fields.NumberField({
+        required: true, nullable: false, initial: 0, integer: true
+      })
     }),
     slots: new fields.SchemaField(
       Array.from({ length: 9 }, (_, i) => i + 1)
         .reduce((acc, level) => {
           acc[level] = new fields.SchemaField({
-            current: new fields.NumberField({ nullable: false, initial: 0, min: 0 }),
-            max: new fields.NumberField({ nullable: false, initial: 0, min: 0 })
+            current: new fields.NumberField({
+              required: true, nullable: false, initial: 0, min: 0
+            }),
+            max: new fields.NumberField({
+              required: true, nullable: false, initial: 0, min: 0
+            })
           });
           return acc;
         }, {})
@@ -90,8 +109,12 @@ declare namespace A5ENPCData {
     & ReturnType<typeof npcSchema>
     & ReturnType<typeof schemaData>
     & ReturnType<typeof source>;
-  interface BaseData { }
-  interface DerivedData { }
+
+  interface BaseData extends Record<string, any> {
+    'attributes.prof': string;
+  }
+
+  interface DerivedData extends Record<string, any> { }
 }
 
 class A5ENPCData extends foundry.abstract.TypeDataModel<

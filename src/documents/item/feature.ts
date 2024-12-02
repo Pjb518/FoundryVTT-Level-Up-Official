@@ -1,6 +1,6 @@
 import type { A5EFeatureData } from '../../dataModels/item/FeatureDataModel';
 
-import ItemA5e from './item';
+import { ItemA5e } from './item';
 
 import ItemGrantsManager from '../../managers/ItemGrantsManager';
 
@@ -44,7 +44,6 @@ export default class FeatureItemA5e extends ItemA5e {
     if (!this.parent || this.parent?.documentName !== 'Actor') return;
 
     const actor = this.parent;
-    // @ts-expect-error
     await actor.grants.removeGrantsByItem(this.uuid);
   }
 }

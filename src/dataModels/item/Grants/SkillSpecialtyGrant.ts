@@ -10,7 +10,7 @@ export default class SkillSpecialtyGrant extends BaseGrant {
 
   #type = 'skillSpecialty';
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -31,7 +31,7 @@ export default class SkillSpecialtyGrant extends BaseGrant {
     });
   }
 
-  getApplyData(actor: any, data: any) {
+  override getApplyData(actor: any, data: any) {
     if (!actor) return {};
     const selected: string[] = data?.selected ?? this.specialties.base ?? [];
     const skill: string = data?.skill ?? this.skill ?? 'acr';
@@ -69,11 +69,11 @@ export default class SkillSpecialtyGrant extends BaseGrant {
     };
   }
 
-  getSelectionComponent() {
+  override getSelectionComponent() {
     return this.#component;
   }
 
-  getSelectionComponentProps(data: any) {
+  override getSelectionComponentProps(data: any) {
     return {
       base: this.specialties.base ?? [],
       choices: this.specialties.options,
@@ -83,7 +83,7 @@ export default class SkillSpecialtyGrant extends BaseGrant {
     };
   }
 
-  requiresConfig(): boolean {
+  override requiresConfig(): boolean {
     return this.specialties.options.length;
   }
 

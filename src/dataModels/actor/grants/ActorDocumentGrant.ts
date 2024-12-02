@@ -5,7 +5,7 @@ export class ActorFeatureGrant extends ActorBaseGrant {
   // Declare Schema Variables
   declare documentIds: string[];
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -22,7 +22,7 @@ export class ActorItemGrant extends ActorBaseGrant {
   // Declare Schema Variables
   declare documentIds: string[];
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {

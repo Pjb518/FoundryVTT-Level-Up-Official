@@ -24,7 +24,7 @@
     const dispatch = createEventDispatcher();
 </script>
 
-<Section --a5e-section-body-gap="0.75rem">
+<Section --a5e-section-body-gap="0.75rem" --a5e-section-margin="0.5rem 0">
     <RadioGroup
         heading="Configure Roll Mode"
         options={damageButtons}
@@ -36,7 +36,6 @@
         heading="Configure Expertise Die"
         options={expertiseDice}
         selected={rollData.expertiseDice ?? 0}
-        on:updateSelection={({ detail }) =>
-            dispatch("toggleExpertiseDice", detail)}
+        on:updateSelection={({ detail }) => dispatch("toggleExpertiseDice", detail)}
     />
 </Section>

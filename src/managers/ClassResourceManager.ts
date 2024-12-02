@@ -102,7 +102,7 @@ export default class ClassResourceManager extends Map<string, ClassResource> {
 
   async remove(slug: string) {
     const filteredArray = this.item.system.resources.filter(
-      (resource) => resource.slug !== slug || resource.name.slugify({ strict: true }) !== slug
+      (resource) => resource.slug !== slug || resource.name?.slugify({ strict: true }) !== slug
     );
 
     await this.item.update({

@@ -1,6 +1,6 @@
 import type { A5ESpellData } from '../../dataModels/item/SpellDataModel';
 
-import ItemA5e from './item';
+import { ItemA5e } from './item';
 
 export default class SpellItemA5e extends ItemA5e {
   declare system: InstanceType<typeof A5ESpellData>;

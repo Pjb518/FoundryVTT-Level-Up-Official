@@ -14,7 +14,7 @@
 
     const item = document;
 
-    $: roll = $item.actions[actionId].rolls[rollId];
+    $: roll = $item.actions.get(actionId)?.rolls[rollId];
     $: scalingMode = roll.scaling?.mode ?? null;
 </script>
 

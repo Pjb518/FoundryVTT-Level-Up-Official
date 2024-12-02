@@ -47,6 +47,7 @@
     }
 
     async function rollOnSkillTable(skillKey, resultType) {
+        console.log("Here");
         const tableKey =
             resultType === "critical" ? "skillCriticalTables" : "skillFumbleTables";
 
@@ -61,17 +62,17 @@
         const chatData = {
             author: game.user?.id,
             speaker: ChatMessage.getSpeaker({ actor }),
-            flags: {
-                a5e: {
-                    actorId: actor.uuid,
-                    cardType: "rollTableOutput",
-                    itemDescription: result?.text,
-                    img: critTable?.img,
-                    name: critTable?.name,
-                    actionName: result?.flags?.title,
-                },
+            rolls: [rollOutcome.roll],
+            system: {
+                actorId: actor.uuid,
+                actorName: actor.name,
+                description: result?.text,
+                img: critTable?.img,
+                tableName: critTable?.name,
+                tableId: critTable.uuid,
+                resultTitle: result?.flags?.title,
             },
-            content: "<article></article>",
+            type: "rollTableOutput",
         };
 
         ChatMessage.applyRollMode(chatData, game.settings.get("core", "rollMode"));
@@ -97,7 +98,7 @@
     let showRollConfig = false;
 
     const message = getContext("message");
-    const actor = fromUuidSync($message?.flags?.a5e?.actorId);
+    const actor = fromUuidSync($message?.system.actorId);
     const { user } = game;
 
     $: isCriticalFailure = determineIfCriticalFailure(roll);
@@ -119,7 +120,7 @@
 
     <header class="roll-header">
         <h3 class="roll-label">
-            {rollData.label}
+            {rollData.label || "Result"}
         </h3>
 
         {#if !showRollConfig && (rollData.expertiseDice || rollData.rollMode || rollData.userLabel)}

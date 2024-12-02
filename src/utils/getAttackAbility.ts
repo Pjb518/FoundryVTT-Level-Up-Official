@@ -1,3 +1,5 @@
+import type { AttackRollData } from '../dataModels/item/actions/ActionRollsDataModel';
+
 import getSpellBookAbility from './getSpellBookAbility';
 
 /**
@@ -6,7 +8,7 @@ import getSpellBookAbility from './getSpellBookAbility';
 export default function getAttackAbility(
   actor: any,
   item: any,
-  attackData: AttackRoll
+  attackData: AttackRollData
 ): string {
   const actorData: any = actor.system;
   const itemData: any = item.system;

@@ -1,4 +1,7 @@
-<script>
+<script lang="ts">
+    import type { Action } from "types/action";
+    import type { ItemA5e } from "../../documents/item/item";
+
     import { createEventDispatcher, getContext } from "svelte";
     import { slide } from "svelte/transition";
     import { localize } from "#runtime/util/i18n";
@@ -10,11 +13,12 @@
     import ItemActionButtons from "./ItemActionButtons.svelte";
     import ItemInnerWrapper from "./ItemInnerWrapper.svelte";
     import ItemSummary from "./itemSummaries/ItemSummary.svelte";
+    import type { BaseItemA5e } from "../../documents/item/base";
 
-    export let item;
-    export let action = null;
-    export let actionId = null;
-    export let showDescription = false;
+    export let item: ItemA5e;
+    export let action: Action | null = null;
+    export let actionId: string | null = null;
+    export let showDescription: boolean = false;
 
     const actor = getContext("actor");
     const { A5E } = CONFIG;
@@ -22,17 +26,21 @@
     const dispatch = createEventDispatcher();
 
     let rightClickConfigure =
-        game.settings.get("a5e", "itemRightClickConfigure") ?? false;
+        game.settings?.get("a5e", "itemRightClickConfigure") ?? false;
 
-    let isGM = game.user.isGM;
+    let isGM = game.user?.isGM;
 
-    function determineActionListVisibility(action, item, sheetIsLocked) {
+    function determineActionListVisibility(
+        action: Action | null,
+        item: ItemA5e,
+        sheetIsLocked: boolean,
+    ) {
         if (action) return false;
 
         if (item.actions?.count < 2) {
-            return item.actions
-                ?.values()
-                ?.some((action) => action.uses?.value || action.uses?.max);
+            return [...(item.actions?.values() ?? [])]?.some(
+                (action) => action.uses?.value || action.uses?.max,
+            );
         }
 
         if (item.getFlag("a5e", "showActionList") === false) return false;
@@ -49,43 +57,50 @@
 
     async function onConfigure() {
         if (actionId) {
-            await item.actions?.configure(actionId);
+            item.actions?.configure(actionId);
             return;
         }
 
         item.configureItem();
     }
 
-    function onDragStart(event) {
+    function onDragStart(
+        event: DragEvent & {
+            currentTarget: EventTarget & HTMLLIElement;
+        },
+    ) {
         const dragData = item.toDragData();
         if (!dragData) return;
 
+        // @ts-expect-error
         dragData.actorId = item?.parent.id;
-        dragData.actionId = actionId;
+        // @ts-expect-error
+        if (actionId) dragData.actionId = actionId;
 
-        return event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
     }
 
-    async function getDescription() {
+    async function getDescription(item: BaseItemA5e) {
         const data =
             (await TextEditor.enrichHTML(
-                actionId ? action.description : item.system.description,
+                actionId && action ? action.description : item.system.description,
                 {
                     async: true,
                     secrets: item.isOwner,
                     relativeTo: item,
-                    rollData: $actor?.getRollData(this) ?? {},
+                    rollData: $actor?.getRollData(item) ?? {},
                 },
             )) ?? localize("A5E.NoDescription");
 
         return data;
     }
 
+    // @ts-expect-error // TODO: Make this is an object type check
     $: containerItems = (item?.contents ?? []).reduce((acc, i) => {
         if (!i) return acc;
         if (i.parent?.id !== $actor.id) return acc;
 
-        acc.push([i?.id ?? foundry.utils.randomId(), i]);
+        acc.push([i?.id ?? foundry.utils.randomID(), i]);
         return acc;
     }, []);
 
@@ -130,7 +145,7 @@
         class:a5e-item__roll-button--ctrl={$pressedKeysStore.Control}
         class:disable-pointer-events={!$actor.isOwner}
         on:click|stopPropagation={({ target }) => {
-            target.blur();
+            target?.blur();
             onItemActivate();
         }}
     >
@@ -163,7 +178,7 @@
 
 {#if showDescription}
     <div class="description-wrapper" transition:slide|local>
-        {#if !isGM && item.type === "object" && item.system.unidentified}
+        {#if !isGM && item.isType("object") && item.system.unidentified}
             {@html item.system.unidentifiedDescription ??
                 localize("A5E.NoUnidentifiedDescription")}
         {:else}
@@ -182,7 +197,7 @@
 
 {#if showActionList}
     <ul class="a5e-item-list a5e-item-list--sub-items">
-        {#each item?.actions?.entries() ?? [] as [id, action] (id)}
+        {#each [...(item?.actions?.entries() ?? [])] as [id, action] (id)}
             <svelte:self {item} {action} actionId={id} />
         {/each}
     </ul>

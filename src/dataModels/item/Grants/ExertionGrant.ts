@@ -20,7 +20,7 @@ export default class ExertionGrant extends BaseGrant {
 
   declare label: string;
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -32,7 +32,7 @@ export default class ExertionGrant extends BaseGrant {
     });
   }
 
-  getApplyData(actor: any): any {
+  override getApplyData(actor: any): any {
     if (!actor) return {};
 
     const updates: Record<string, any> = {};
@@ -71,19 +71,19 @@ export default class ExertionGrant extends BaseGrant {
     return updates;
   }
 
-  getSelectionComponent() {
+  override getSelectionComponent() {
     return null;
   }
 
-  getSelectionComponentProps() {
+  override getSelectionComponentProps() {
     return null;
   }
 
-  requiresConfig() {
+  override requiresConfig() {
     return false;
   }
 
-  async configureGrant(): Promise<any> {
+  override async configureGrant(): Promise<any> {
     const dialogData = {
       document: this?.parent,
       grantId: this._id,

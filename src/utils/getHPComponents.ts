@@ -1,6 +1,8 @@
+import type CharacterActorA5E from '../documents/actor/character';
+
 import getDeterministicBonus from '../dice/getDeterministicBonus';
 
-export default function getTotalHp(actor: typeof Actor) {
+export default function getTotalHp(actor: CharacterActorA5E) {
   if (!actor) return 0;
 
   const classesHp: [string, string][] = Object.values(actor.classes ?? {}).reduce(
@@ -15,6 +17,7 @@ export default function getTotalHp(actor: typeof Actor) {
   );
 
   const maxHp = classesHp.map(([hp]) => hp).join(' + ');
+  // @ts-expect-error
   const conMod = (actor.system?.abilities?.con?.check?.mod ?? 0) * actor.levels.character;
   const tempBonus = actor.system?.attributes?.hp?.bonus ?? 0;
   const hpBonuses = getDeterministicBonus(
@@ -26,15 +29,6 @@ export default function getTotalHp(actor: typeof Actor) {
     `${maxHp} + ${conMod} + ${tempBonus} + ${hpBonuses}`,
     actor.getRollData()
   );
-
-  let hpString = '';
-  if (maxHp) {
-    hpString += classesHp
-      .map(([hp, name]) => `${hp}[${name}]`)
-      .join(' + ');
-  }
-  if (conMod) hpString += ` + ${conMod}[Con Mod]`;
-  if (tempBonus + hpBonuses) hpString += ` + ${tempBonus + hpBonuses}[Bonuses]`;
 
   return totalHp;
 }

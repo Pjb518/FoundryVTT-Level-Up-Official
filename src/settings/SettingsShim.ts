@@ -6,12 +6,11 @@ export default class SettingsShim extends FormApplication {
     SystemSettings.show();
   }
 
-  /** @override */
-  async updateObject(): void {
+  async _updateObject(): Promise<void> {
     //
   }
 
-  render(): void {
+  override render(): void {
     this.close();
   }
 }

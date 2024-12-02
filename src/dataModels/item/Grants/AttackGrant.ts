@@ -12,7 +12,7 @@ export default class AttackGrant extends BaseGrant {
 
   #type = 'attack';
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -34,7 +34,7 @@ export default class AttackGrant extends BaseGrant {
     });
   }
 
-  getApplyData(actor: any, data: any) {
+  override getApplyData(actor: any, data: any) {
     if (!actor) return {};
 
     const selected = data?.selected ?? this.attackTypes.base ?? [];
@@ -72,11 +72,11 @@ export default class AttackGrant extends BaseGrant {
     };
   }
 
-  getSelectionComponent() {
+  override getSelectionComponent() {
     return this.#component;
   }
 
-  getSelectionComponentProps(data: any) {
+  override getSelectionComponentProps(data: any) {
     return {
       base: this.attackTypes.base ?? [],
       bonus: this.bonus,
@@ -88,7 +88,7 @@ export default class AttackGrant extends BaseGrant {
     };
   }
 
-  requiresConfig(): boolean {
+  override requiresConfig(): boolean {
     return this.attackTypes.options.length;
   }
 

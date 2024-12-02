@@ -10,7 +10,7 @@ export default class ActorExertionGrant extends ActorBaseGrant {
 
   declare type: string;
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {

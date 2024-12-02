@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 function generateChanges(A5E) {
   const MODES = A5E.ACTIVE_EFFECT_MODES;
 
@@ -248,7 +250,7 @@ export default function registerConditionsConfig() {
   const MODES = A5E.ACTIVE_EFFECT_MODES;
 
   const enabledConditions = new Set(
-    game.settings.storage.get('world').getItem('a5e.automatedConditions')
+    game.settings.storage.get('world')?.getItem('a5e.automatedConditions')
   );
 
   const replaceFatigueAndStrife = game.settings.get('a5e', 'replaceFatigueAndStrife');

@@ -1,8 +1,8 @@
+import registerActionsConfig from './config/registerActionsConfig';
 import registerActiveEffectConfig from './config/registerActiveEffectConfig';
 import registerBonusesConfig from './config/registerBonusesConfig';
 import registerCharacterClassesConfig from './config/registerCharacterClassesConfig';
 import registerClassesConfig from './config/registerClassesConfig';
-import registerConsumerConfig from './config/registerConsumerConfig';
 import registerContextsConfig from './config/registerContextsConfig';
 import registerDocumentConfig from './config/registerDocumentConfig';
 import registerEncounterElements from './config/registerEncounterElements';
@@ -1033,7 +1033,7 @@ const spellLevels = {
   7: 'A5E.SpellLevel7',
   8: 'A5E.SpellLevel8',
   9: 'A5E.SpellLevel9'
-};
+} as const;
 
 const spellLevelCost = {
   0: 0,
@@ -2115,10 +2115,10 @@ const A5E = {
   ...registerContextsConfig(),
   ...registerGrantsConfig(),
 
+  ...registerActionsConfig(),
   ...registerActiveEffectConfig(),
   ...registerBonusesConfig(),
   ...registerCharacterClassesConfig(),
-  ...registerConsumerConfig(),
   ...registerEncounterElements(),
   ...registerEffectGroupConfig(),
   ...registerEffectLocalizationConfig(),

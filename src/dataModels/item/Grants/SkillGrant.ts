@@ -12,7 +12,7 @@ export default class SkillGrant extends BaseGrant {
 
   #type = 'skill';
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -34,7 +34,7 @@ export default class SkillGrant extends BaseGrant {
     });
   }
 
-  getApplyData(actor: typeof Actor, data: any = {}): any {
+  override getApplyData(actor: typeof Actor, data: any = {}): any {
     if (!actor) return {};
     const selected = data?.selected ?? this.skills.base ?? [];
 
@@ -71,11 +71,11 @@ export default class SkillGrant extends BaseGrant {
     };
   }
 
-  getSelectionComponent() {
+  override getSelectionComponent() {
     return this.#component;
   }
 
-  getSelectionComponentProps(data: any) {
+  override getSelectionComponentProps(data: any) {
     return {
       base: this.skills.base,
       bonus: this.bonus,
@@ -87,7 +87,7 @@ export default class SkillGrant extends BaseGrant {
     };
   }
 
-  requiresConfig() {
+  override requiresConfig() {
     return this.skills.options.length;
   }
 

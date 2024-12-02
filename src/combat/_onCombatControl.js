@@ -1,4 +1,4 @@
-/* eslint-disable no-underscore-dangle */
+// eslint-disable-next-line @typescript-eslint/naming-convention
 export default async function _onCombatControl(event) {
   event.preventDefault();
 

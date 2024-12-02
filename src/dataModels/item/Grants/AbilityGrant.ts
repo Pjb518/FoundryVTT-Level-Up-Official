@@ -12,7 +12,7 @@ export default class AbilityGrant extends BaseGrant {
 
   #type = 'ability';
 
-  static defineSchema() {
+  static override defineSchema() {
     const { fields } = foundry.data;
 
     return this.mergeSchema(super.defineSchema(), {
@@ -34,7 +34,7 @@ export default class AbilityGrant extends BaseGrant {
     });
   }
 
-  getApplyData(actor: any, data: any): any {
+  override getApplyData(actor: any, data: any): any {
     if (!actor) return {};
     const selected = data?.selected ?? this.abilities.base ?? [];
 
@@ -71,11 +71,11 @@ export default class AbilityGrant extends BaseGrant {
     };
   }
 
-  getSelectionComponent() {
+  override getSelectionComponent() {
     return this.#component;
   }
 
-  getSelectionComponentProps(data: any) {
+  override getSelectionComponentProps(data: any) {
     return {
       base: this.abilities.base,
       bonus: this.bonus,
@@ -87,7 +87,7 @@ export default class AbilityGrant extends BaseGrant {
     };
   }
 
-  requiresConfig() {
+  override requiresConfig() {
     return this.abilities.options.length;
   }
 

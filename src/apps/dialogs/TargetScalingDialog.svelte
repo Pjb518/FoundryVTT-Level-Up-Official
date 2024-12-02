@@ -14,7 +14,7 @@
 
     const item = document;
 
-    $: action = $item.actions[actionId];
+    $: action = $item.actions.get(actionId);
     $: target = action.target ?? {};
     $: scalingMode = target?.scaling?.mode ?? null;
 </script>

@@ -3,9 +3,9 @@ import { A5EBaseItemData } from './base';
 const { fields } = foundry.data;
 
 const schema = {
-  sourceOfInspiration: new fields.StringField({ nullable: false, initial: '' }),
-  inspirationFeature: new fields.StringField({ nullable: false, initial: '' }),
-  fulfillmentFeature: new fields.StringField({ nullable: false, initial: '' })
+  sourceOfInspiration: new fields.StringField({ required: true, nullable: false, initial: '' }),
+  inspirationFeature: new fields.StringField({ required: true, nullable: false, initial: '' }),
+  fulfillmentFeature: new fields.StringField({ required: true, nullable: false, initial: '' })
 };
 
 declare namespace A5EDestinyData {

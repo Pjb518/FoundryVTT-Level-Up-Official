@@ -1,5 +1,6 @@
 import type { ExpertiseDiceGrant, RollOverrideGrant } from '../../types/actorGrants';
 import type { BaseActorA5e } from '../documents/actor/base';
+import type FeatureItemA5e from '../documents/item/feature';
 
 type OverrideType = 'rollMode' | 'expertiseDice';
 
@@ -73,9 +74,10 @@ export default class RollOverrideManager {
     });
 
     // Register expertise dice from grants
+    // @ts-expect-error
     this.actor.grants.byType('expertiseDice').forEach((grant: ExpertiseDiceGrant) => {
       const { expertiseType: type, expertiseCount, keys } = grant.expertiseDiceData ?? {};
-      const { name } = fromUuidSync(grant.itemUuid) as typeof Item ?? {};
+      const { name } = fromUuidSync(grant.itemUuid) as FeatureItemA5e ?? {};
 
       if (type === 'abilityCheck') {
         keys.forEach((key: string) => {
@@ -114,9 +116,10 @@ export default class RollOverrideManager {
     });
 
     // Register all overrides from grants
+    // @ts-expect-error
     this.actor.grants.byType('rollOverride').forEach((grant: RollOverrideGrant) => {
       const { rollOverrideType: type, rollMode, keys } = grant.rollOverrideData ?? {};
-      const { name } = fromUuidSync(grant.itemUuid) as typeof Item ?? {};
+      const { name } = fromUuidSync(grant.itemUuid) as FeatureItemA5e ?? {};
 
       const mapKey: string[] = [];
 
@@ -144,8 +147,9 @@ export default class RollOverrideManager {
     });
 
     // Register all overrides from items
-    this.actor.items.forEach((item: typeof Item) => {
-      if (item.type !== 'object' && item.system?.objectType !== 'armor') return;
+    this.actor.items.forEach((item) => {
+      if (!item.isType('object')) return;
+      if (item.system?.objectType !== 'armor') return;
 
       // Add disadvantage to stealth checks for armor
       if (
@@ -157,7 +161,7 @@ export default class RollOverrideManager {
     });
 
     // Register all overrides from effects
-    const changes = this.actor.effects.reduce((acc: Change[], effect: typeof ActiveEffect) => {
+    const changes = this.actor.effects.reduce((acc: Change[], effect: ActiveEffect) => {
       if (effect.disabled) return acc;
       if (effect.changes.length === 0) return acc;
 

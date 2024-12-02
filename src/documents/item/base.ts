@@ -21,6 +21,8 @@ interface BaseItemA5e<ItemType extends SystemItemTypes = SystemItemTypes> {
  * @extends {Item}
  */
 class BaseItemA5e extends Item {
+  declare initialized: boolean;
+
   dialogs: {
     actions: Record<string, any>;
     areaScaling: Record<string, any>;
@@ -50,7 +52,23 @@ class BaseItemA5e extends Item {
     return this._stats.compendiumSource || this.flags.core?.sourceId || null;
   }
 
-  // *****************************************************************************************
+  /** ------------------------------------------------------ */
+  /**                      Data Prep                         */
+  /** ------------------------------------------------------ */
+  protected override _initialize(options?: Record<string, unknown>) {
+    this.initialized = false;
+
+    super._initialize(options);
+  }
+
+  override prepareData() {
+    if (this.initialized) return;
+    if (!this.parent || this.parent.initialized) {
+      this.initialized = true;
+      super.prepareData();
+    }
+  }
+
   override prepareBaseData() { }
 
   override prepareDerivedData() { }
@@ -86,47 +104,46 @@ class BaseItemA5e extends Item {
     const chatData = {
       author: (game as Game).user?.id,
       speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-      flags: {
-        a5e: {
-          actorId: this.actor?.uuid,
-          itemId: this.uuid,
-          cardType: 'item',
-          actionName: action?.name,
-          actionDescription: action?.descriptionOutputs?.includes('action')
-            ? await TextEditor.enrichHTML(action.description, {
-              secrets: this.isOwner,
-              relativeTo: this,
-              rollData: this?.actor?.getRollData(this) ?? {}
-            })
-            : null,
-          itemDescription: action?.descriptionOutputs?.includes('item') ?? true
-            ? await TextEditor.enrichHTML(this.system.description, {
-              secrets: this.isOwner,
-              relativeTo: this,
-              rollData: this?.actor?.getRollData(this) ?? {}
-            })
-            : null,
-          unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
-            // @ts-expect-error
-            ? await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
-              secrets: this.isOwner,
-              relativeTo: this,
-              rollData: this?.actor?.getRollData(this) ?? {}
-            })
-            : null,
-          img: action?.img ?? this.img,
-          name: this.name,
-          summaryData: getSummaryData(this, action, {
-            hideSpellClasses: true,
-            hideSpellComponents: true,
-            hideSpellLevel: true
+      system: {
+        actorId: this.actor?.uuid,
+        actorName: this.name,
+        actionName: action?.name,
+        img: action?.img ?? this.img,
+        itemId: this.uuid,
+        actionDescription: action?.descriptionOutputs?.includes('action')
+          ? await TextEditor.enrichHTML(action.description, {
+            secrets: this.isOwner,
+            relativeTo: this,
+            rollData: this?.actor?.getRollData(this) ?? {}
           })
-        }
+          : null,
+        itemDescription: action?.descriptionOutputs?.includes('item') ?? true
+          ? await TextEditor.enrichHTML(this.system.description, {
+            secrets: this.isOwner,
+            relativeTo: this,
+            rollData: this?.actor?.getRollData(this) ?? {}
+          })
+          : null,
+        unidentifiedDescription: action?.descriptionOutputs?.includes('item') ?? true
+          // @ts-expect-error
+          ? await TextEditor.enrichHTML(this.system.unidentifiedDescription, {
+            secrets: this.isOwner,
+            relativeTo: this,
+            rollData: this?.actor?.getRollData(this) ?? {}
+          })
+          : null,
+        summaryData: getSummaryData(this, action, {
+          hideSpellClasses: true,
+          hideSpellComponents: true,
+          hideSpellLevel: true
+        })
       },
-      content: '<article></article>'
+      type: 'item'
     };
 
+    // @ts-expect-error
     ChatMessage.applyRollMode(chatData, game.settings.get('core', 'rollMode'));
+    // @ts-expect-error
     const chatCard = ChatMessage.create(chatData);
 
     Hooks.callAll('a5e.itemActivate', this, { action });
@@ -143,7 +160,6 @@ class BaseItemA5e extends Item {
     newItem.name = `${newItem.name} (Copy)`;
 
     if (newItem.type === 'object') {
-      // @ts-expect-error
       newItem.system.containerId = null;
     }
 
@@ -280,11 +296,9 @@ class BaseItemA5e extends Item {
     }
 
     // TODO: Don't update some action properties
-    // @ts-expect-error
     if (compendiumData.system.actions) {
       // @ts-expect-error
       const currentActions = this.system.actions;
-      // @ts-expect-error
       const compendiaActions = compendiumData.system.actions;
 
       const updatedActions = Object.entries(compendiaActions).reduce((acc, [actionId, action]) => {
@@ -349,18 +363,8 @@ class BaseItemA5e extends Item {
     await super._preCreate(data, options, user);
 
     // Add schema version
-    // @ts-expect-error
-    if (!this.system.schemaVersion?.version && !this.system.schema?.version) {
-      let version = null;
-      // @ts-expect-error
-      if (typeof this.system?.equipped === 'boolean') version = 0.003;
-      // @ts-expect-error
-      else if (typeof this.system?.recharge === 'string') version = 0.002;
-      // @ts-expect-error
-      else if (typeof this.system?.uses?.max === 'string') version = 0.001;
-      // @ts-expect-error
-      else if (this.system?.actionOptions) version = null;
-      else version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
+    if (!this.system.schemaVersion?.version) {
+      const version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
 
       this.updateSource({
         // @ts-expect-error
@@ -421,5 +425,4 @@ class BaseItemA5e extends Item {
   }
 }
 
-// eslint-disable-next-line import/prefer-default-export
 export { BaseItemA5e };

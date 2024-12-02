@@ -1,14 +1,17 @@
+import type { A5EActionData } from '../dataModels/item/actions/ActionDataModel';
+
 export default function showActivationDialogSection(
-  action: Action,
-  consumerTypes = [],
-  scalingModes = []
+  action: A5EActionData,
+  consumerTypes: string[] = [],
+  scalingModes: string[] = []
 ) {
   const hasConsumer = Object.values(action.consumers ?? {})
-    .filter((c: any): boolean => consumerTypes.includes(c.type)).length > 0;
+    .filter((c) => consumerTypes.includes(c.type)).length > 0;
 
   const hasDamageScaling = Object.values(action.rolls ?? {})
-    ?.filter((r: DamageRoll | HealingRoll) => ['damage', 'healing'].includes(r.type))
-    ?.some((dr: DamageRoll | HealingRoll) => scalingModes.includes(dr.scaling?.mode));
+    ?.filter((r) => ['damage', 'healing'].includes(r.type))
+    // @ts-expect-error
+    ?.some((dr) => scalingModes.includes(dr.scaling?.mode));
 
   const hasTargetScaling = scalingModes.includes(action.target?.scaling?.mode);
   const hasTemplateScaling = scalingModes.includes(action.area?.scaling?.mode);

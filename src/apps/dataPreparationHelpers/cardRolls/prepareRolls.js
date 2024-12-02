@@ -14,7 +14,7 @@ const ROLL_SORT_KEY_MAP = {
 
 export default function prepareRolls(message) {
   const { rolls } = message;
-  const messageData = message.flags?.a5e ?? {};
+  const messageData = message.system ?? {};
 
   if (messageData.rollData) {
     return zip(rolls, messageData.rollData).sort(

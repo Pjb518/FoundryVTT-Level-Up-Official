@@ -60,7 +60,7 @@ const schema = {
   price: new fields.StringField({ required: true, initial: '' }),
   proficient: new fields.BooleanField({ required: true, initial: false }),
   quantity: new fields.NumberField({
-    required: true, initial: 1, integer: true, min: 0
+    required: true, nullable: false, initial: 1, integer: true, min: 0
   }),
   rarity: new fields.StringField({ required: true, initial: 'mundane' }),
   repairabilityDC: new fields.NumberField({

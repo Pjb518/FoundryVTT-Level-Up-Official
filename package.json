@@ -5,10 +5,14 @@
   "main": "dist/index.js",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "npm run build:compendia && vite build",
     "build:system": "vite build",
-    "build:compendia": "node ./build/buildCompendia.mjs"
+    "build:compendia": "node ./build/buildCompendia.mjs",
+    "dev": "vite",
+    "lint": "eslint .",
+    "lint-fix": "eslint --fix .",
+    "eslint:report": "eslint --output-file eslint_report.json --format json .",
+    "type-check": "tsc --noEmit"
   },
   "imports": {
     "#runtime/*": "@typhonjs-fvtt/runtime/*",
@@ -46,7 +50,7 @@
     "node": ">=22.1.0"
   },
   "devDependencies": {
-    "@league-of-foundry-developers/foundry-vtt-types": "github:League-of-Foundry-Developers/foundry-vtt-types#cfe177bb0a04fea450233d574175e5eff3ae65ca",
+    "@league-of-foundry-developers/foundry-vtt-types": "github:League-of-Foundry-Developers/foundry-vtt-types#0a62d5d4dc84d70a77c7a9c8360e1e2ead5de242",
     "@tsconfig/svelte": "^5.0.4",
     "@types/node": "^20.14.10",
     "@typescript-eslint/eslint-plugin": "^7.16.0",
@@ -68,7 +72,7 @@
     "stylelint-config-sass-guidelines": "^11.0.0",
     "svelte-range-slider-pips": "^2.3.1",
     "svelte-select": "^5.8.3",
-    "typescript": "^5.5.3",
+    "typescript": "^5.5.4",
     "vite": "^5.4.10"
   },
   "dependencies": {

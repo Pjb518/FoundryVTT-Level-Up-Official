@@ -1,8 +1,11 @@
-<script>
+<script lang="ts">
+    import type { Writable } from "svelte/store";
+    import type { ItemA5e } from "../../../documents/item/item";
+
     import { getContext } from "svelte";
     import { localize } from "#runtime/util/i18n";
 
-    import ActionsManager from "../../../managers/ActionsManager";
+    import { ActionsManager } from "../../../managers/ActionsManager";
 
     import AbilityCheckRollConfig from "../itemActionsConfig/AbilityCheckRollConfig.svelte";
     import AttackRollConfig from "../itemActionsConfig/AttackRollConfig.svelte";
@@ -15,7 +18,7 @@
     import SkillCheckRollConfig from "../itemActionsConfig/SkillCheckRollConfig.svelte";
     import ToolCheckRollConfig from "../itemActionsConfig/ToolCheckRollConfig.svelte";
 
-    async function deleteRoll(actionId, rollId) {
+    async function deleteRoll(actionId: string, rollId: string) {
         // Close dialog
         const dialog = $item.dialogs.rollScaling[rollId];
         await dialog?.close();
@@ -28,7 +31,7 @@
         });
     }
 
-    function duplicateRoll(actionId, roll) {
+    function duplicateRoll(actionId: string, roll: string) {
         const newRoll = foundry.utils.duplicate(roll);
 
         $item.update({
@@ -38,8 +41,8 @@
         });
     }
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+    const item: Writable<ItemA5e> = getContext("item");
+    const actionId: string = getContext("actionId");
 
     const rollTypes = {
         attack: {
@@ -85,7 +88,7 @@
         },
     };
 
-    $: action = $item.actions[actionId];
+    $: action = $item.actions.get(actionId)!;
     $: rolls = action.rolls ?? {};
 
     $: attackRolls = Object.entries(action.rolls ?? {}).filter(
@@ -96,7 +99,7 @@
         if (!(rollType === "attack" && attackRolls.length > 0))
             acc.push([rollType, singleLabel]);
         return acc;
-    }, []);
+    }, [] as string[][]);
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
