@@ -322,6 +322,17 @@
                 on:change={({ target }) =>
                     updateMaxSpellResource("points", Number(target.value))}
             />
+
+            {#if spellResources.points.current < spellPointMax && spellPointMax && $actor.system.classes.startingClass == "psion"}
+                <button
+                    class="recharge-button"
+                    data-tooltip="A5E.PsionicPointsRechargeFromHitDice"
+                    data-tooltip-direction="UP"
+                    on:click={() => $actor.recoverPsionicPointsUsingHitDice()}
+                >
+                    <i class="fa-solid fa-brain" />
+                </button>
+            {/if}
         </div>
     {/if}
 
@@ -407,6 +418,29 @@
 
         &:hover {
             transform: scale(1.2);
+        }
+    }
+
+    .recharge-button {
+        flex-grow: 0;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+        margin-left: 0.25rem;
+        background: none;
+        color: #999;
+        border: 0;
+
+        transition: var(--a5e-transition-standard);
+
+        &:hover {
+            color: #555;
+            transform: scale(1.2);
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: none;
         }
     }
 </style>

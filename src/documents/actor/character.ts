@@ -4,6 +4,7 @@ import type ClassItemA5e from '../item/class';
 import { BaseActorA5e } from './base';
 
 import HitDiceManager from '../../managers/HitDiceManager';
+import ActionActivationDialog from '../../apps/dialogs/initializers/ActionActivationDialog';
 
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 
@@ -430,6 +431,35 @@ export default class CharacterActorA5E extends BaseActorA5e {
         'exertion.current': newExertion,
         [`hitDice.${lowestAvailableHitDie}.current`]: newHitDieCount
       }
+    });
+  }
+
+  async recoverPsionicPointsUsingHitDice() {
+    const { current, max } = this.system.spellResources.points;
+
+    // @ts-expect-error
+    const [lowestAvailableHitDie] = Object.entries(this.system.attributes.hitDice ?? {}).find(
+      // @ts-expect-error
+      ([, { current: c, total: t }]) => c > 0 && t > 0
+    );
+
+    if (!lowestAvailableHitDie) {
+      // @ts-expect-error
+      ui.notifications.warn(`${this.name} has no hit dice remaining.`);
+      return;
+    }
+
+    const roll = await new Roll('1d6');
+
+    // TODO: Chat Cards - Make the message prettier
+    await roll.toMessage();
+
+
+    const newPsionicPoints = Math.min((current ?? 0) + (roll.total ?? 0), max);
+    const newHitDieCount = 0;
+
+    await this.update({
+      'system.spellResources.points.current': newPsionicPoints
     });
   }
 
