@@ -1,0 +1,109 @@
+{
+	"folder": null,
+	"name": "Space Legs",
+	"type": "feature",
+	"img": "icons/magic/movement/pinwheel-turning-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {},
+		"description": "<p>You are adapted to the unique rigors of zero gravity, suffering minimal disorientation and even showing increased mobility. While in zero gravity, your base speed increases by 10 feet and you gain a climb speed equal to your base speed.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.V080uT1knSStd2Vt",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Zero Gravity",
+			"img": "icons/magic/movement/pinwheel-turning-blue.webp",
+			"_id": "B9eSFQtumauHMBpV",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "10",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.climb.distance",
+					"value": "@attributes.movement.walk.distance",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While in zero gravity, your base speed increases by 10 feet and you gain a climb speed equal to your base speed.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.30",
+				"createdTime": 1731762014516,
+				"modifiedTime": 1731762055440,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1731761981808,
+		"modifiedTime": 1731791172928,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "QJWih5ogoCcxmaJe"
+}

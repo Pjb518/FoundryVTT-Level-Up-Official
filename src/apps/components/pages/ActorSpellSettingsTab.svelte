@@ -8,9 +8,16 @@
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
+    function setPointsFlag() {
+        if($actor.system.classes.startingClass == "psion") {
+            $actor.flags.a5e.restoreSpellPointsOnShortRest = false;
+        }
+    };
+
     const actor = getContext("actor");
     const { abilityAbbreviations } = CONFIG.A5E;
 
+    $: setPointsFlag();
     $: flags = $actor.flags?.a5e ?? {};
 </script>
 

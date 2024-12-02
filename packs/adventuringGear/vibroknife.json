@@ -1,0 +1,258 @@
+{
+	"folder": null,
+	"name": "Vibroknife",
+	"type": "object",
+	"img": "icons/weapons/daggers/dagger-double-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"Vnu3pS2LhDLJ69eC": {
+				"name": "Vibroknife",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"oOtTOeNvMwsHSWx4": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"Lg3W0KNslH3Fs4j4": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @finesse.mod",
+						"damageType": "thunder"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"Xx8oA1kIjupddQXK": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"Hb5UXIckaJtC6b55": {
+				"name": "Vibroknife (Off-hand)",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"oOtTOeNvMwsHSWx4": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"Lg3W0KNslH3Fs4j4": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + min(@finesse.mod,0)",
+						"damageType": "thunder"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"Xx8oA1kIjupddQXK": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"jBfG7aJDRnVnSVSl": {
+				"name": "Increase Armor Class",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {
+					"zcG20A7qRfel251V": {
+						"type": "effect",
+						"default": true,
+						"effectId": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/daggers/dagger-double-red.webp"
+			}
+		},
+		"description": "<p>A short blade which emits a high pitched whine capable of dealing sonic damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "30 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"defensive",
+			"dualWielding",
+			"finesse"
+		],
+		"weight": 2,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "light",
+		"energyProperties": "sonic",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": [
+			"energy"
+		]
+	},
+	"effects": [
+		{
+			"origin": "Item.EUCPnPw7lVdTzoBu",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "jBfG7aJDRnVnSVSl",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Defensive",
+			"img": "icons/weapons/daggers/dagger-double-red.webp",
+			"_id": "pIs1Xei3P0VA7XAD",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Increase your Armor Class by 1 until the start of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732305515284,
+				"modifiedTime": 1732305527695,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732305365396,
+		"modifiedTime": 1732305523154,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "rRykVHVqM1Kzg2U1"
+}

@@ -1,0 +1,390 @@
+{
+	"folder": null,
+	"name": "Bio-chakram",
+	"type": "object",
+	"img": "icons/weapons/thrown/shuriken-triple-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"LCHHuJsV5O1jdsBf": {
+				"name": "Bio-chakram",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"YABlmb4mjP9LOTgV": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"j9zHzFDykSeh5KlB": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6 + @str.mod",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"sea02SSUY2MTo7xw": {
+						"range": "fiveFeet",
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"qE69CLnKWmcKzmqu": {
+				"name": "Bio-chakram (Thrown)",
+				"activation": {},
+				"consumers": {
+					"srdL806SDxWEnyW6": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"YABlmb4mjP9LOTgV": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"j9zHzFDykSeh5KlB": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6 + @finesse.mod",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"sea02SSUY2MTo7xw": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"GQIjE0JUmdvObNWE": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"i3jZdmpex7aTJJmo": {
+				"name": "Bio-chakram (Off-hand)",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"YABlmb4mjP9LOTgV": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"j9zHzFDykSeh5KlB": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6 + min(@str.mod,0)",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"sea02SSUY2MTo7xw": {
+						"range": "fiveFeet",
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"1uhbJhSuxJHQQc3V": {
+				"name": "Bio-chakram (Thrown, Off-hand)",
+				"activation": {},
+				"consumers": {
+					"srdL806SDxWEnyW6": {
+						"type": "quantity",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"YABlmb4mjP9LOTgV": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"j9zHzFDykSeh5KlB": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6 + min(@finesse.mod,0)",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"sea02SSUY2MTo7xw": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"GQIjE0JUmdvObNWE": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"PgVAYx0OlzDopGh8": {
+				"name": "Parry",
+				"activation": {},
+				"consumers": {
+					"FSKFmqgTDRGXYnaF": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"BgCKRscKUlt8lAFD": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class Bonus",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "turn",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/thrown/shuriken-triple-purple.webp"
+			},
+			"Wcdyl1xNa4yzKwKQ": {
+				"name": "Call Weapon",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"DU46jE4Gj5g9ER6Q": {
+						"range": 50,
+						"unit": "feet"
+					}
+				}
+			},
+			"P3m5EEtWmPR5eXC7": {
+				"name": "Missed Ranged Attack",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Miss with a ranged attack"
+				},
+				"consumers": {},
+				"rolls": {
+					"YABlmb4mjP9LOTgV": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"j9zHzFDykSeh5KlB": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d6 + @finesse.mod",
+						"damageType": "slashing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"sea02SSUY2MTo7xw": {
+						"range": 20,
+						"unit": "feet"
+					},
+					"GQIjE0JUmdvObNWE": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>Bio-chakrams are sharp-edged discs designed to return to the wielder’s hand when thrown. All bio-chakrams come equipped with the biometric weapon augment. When you make a ranged attack with the bio-chakram, it returns to your hand whether the attack hits or misses and regardless of what space you are in.</p>\n<p>If you are separated from the bio-chakram by 50 feet or less, you can use a bonus action to call the weapon to your hand. The bio-chakram must be unattended and can’t pass through obstructions such as doors or walls, but you do not need to see the weapon to call it in this way (it flies around corners to reach you, for example).</p>\n<p>Whenever you miss with a ranged attack using the bio-chakram, before the weapon returns to your hand, you can use your reaction to make another attack with the weapon against the same target or another target you can see within the weapon’s range.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "25 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"dualWielding",
+			"exotic",
+			"thrown",
+			"parrying"
+		],
+		"weight": 2,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": [
+			"biometric"
+		]
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732310101915,
+		"modifiedTime": 1732393229523,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "g6bmEnH0EqW9QHaZ"
+}

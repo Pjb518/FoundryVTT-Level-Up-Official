@@ -9,6 +9,8 @@ export default function getWeaponProficiencies(data) {
         acc.simple.push(curr);
       } else if (Object.keys(CONFIG.A5E.weaponsPlural.rare).includes(curr)) {
         acc.rare.push(curr);
+      } else if (Object.keys(CONFIG.A5E.weaponsPlural.miscellaneous).includes(curr)) {
+        acc.miscellaneous.push(curr);
       } else {
         acc.other.push(curr);
       }
@@ -19,12 +21,13 @@ export default function getWeaponProficiencies(data) {
       simple: [],
       martial: [],
       rare: [],
+      miscellaneous: [],
       other: []
     }
   );
 
   // Replace complete weapon groups with a category name, instead of displaying dozens of tags.
-  ['simple', 'martial', 'rare'].forEach((weaponType) => {
+  ['simple', 'martial', 'rare', 'miscellaneous'].forEach((weaponType) => {
     const weaponKeys = Object.keys(CONFIG.A5E.weaponsPlural[weaponType]);
 
     if (arraysAreEqual(weaponKeys, weaponProficienciesByGroup[weaponType])) {

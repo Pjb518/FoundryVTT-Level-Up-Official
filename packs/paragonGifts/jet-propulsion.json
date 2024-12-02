@@ -1,0 +1,152 @@
+{
+	"folder": null,
+	"name": "Jet Propulsion",
+	"type": "feature",
+	"img": "icons/commodities/tech/smoke-bomb-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"sO8qLA1nrdYcVliq": {
+				"name": "Jet Propulsion",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"3y01MZT9jdZrPNxW": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"bonus": "1d4"
+					}
+				},
+				"prompts": {
+					"pEeVQxcbqDsotEOc": {
+						"type": "effect",
+						"default": true,
+						"effectId": "sDUQFliMGex5VjOG"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You gain a fly speed of 30 feet. Maintaining this speed requires a check after the first minute and every minute after as though you were undertaking a forced march. You gain an expertise die on these checks to avoid fatigue from a forced march.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "",
+		"grants": {
+			"bSrRonSmBmT37x3i": {
+				"grantType": "movement",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "bSrRonSmBmT37x3i",
+				"label": "Jet Propulsion",
+				"bonus": "30",
+				"movementTypes": {
+					"base": [
+						"fly"
+					]
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.dK6K0USr8aiMKatJ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "sO8qLA1nrdYcVliq",
+					"applyToSelf": false
+				}
+			},
+			"transfer": false,
+			"name": "Fatigue",
+			"img": "icons/commodities/tech/smoke-bomb-yellow.webp",
+			"_id": "sDUQFliMGex5VjOG",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.30",
+				"createdTime": 1731589061611,
+				"modifiedTime": 1731589077743,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1731588810427,
+		"modifiedTime": 1731589061643,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "O0qsUBPU3oADzgLa"
+}
