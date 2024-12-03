@@ -16,8 +16,21 @@
 		"enabled": true,
 		"rules": {
 			"recommended": true,
+			"complexity": {
+				"noForEach": "off"
+			},
 			"correctness": { "noInvalidUseBeforeDeclaration": "off" },
-			"style": { "noParameterAssign": "error" }
+			"performance": {
+				"noDelete": "off"
+			},
+			"style": {
+				"noNonNullAssertion": "off",
+				"noParameterAssign": "error"
+			},
+			"suspicious": {
+				"noAssignInExpressions": "off",
+				"noExplicitAny": "off"
+			}
 		},
 		"ignore": ["dist/**/*", "src/a5e.js", "public/**/*"]
 	},
@@ -28,6 +41,18 @@
 			"indentWidth": 2
 		}
 	},
+	"overrides": [
+		{
+			"include": ["*.svelte"],
+			"linter": {
+				"rules": {
+					"style": {
+						"useConst": "off"
+					}
+				}
+			}
+		}
+	],
 	"javascript": {
 		"formatter": {
 			"arrowParentheses": "always",

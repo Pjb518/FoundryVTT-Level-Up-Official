@@ -416,7 +416,7 @@ class BaseActorA5e extends Actor {
 			const tempFinalAC = (changes.override?.value ?? baseAC) + changes.bonuses.value;
 			foundry.utils.mergeObject(this.system.attributes.ac, {
 				changes,
-				value: parseInt(tempFinalAC, 10) || 10,
+				value: Number.parseInt(tempFinalAC, 10) || 10,
 			});
 
 			const overrideChange = effectOverride?.apply(
@@ -464,7 +464,7 @@ class BaseActorA5e extends Actor {
 
 		foundry.utils.mergeObject(this.system.attributes.ac, {
 			changes,
-			value: parseInt(finalAC, 10) || 10,
+			value: Number.parseInt(finalAC, 10) || 10,
 		});
 	}
 
@@ -789,13 +789,12 @@ class BaseActorA5e extends Actor {
 		}
 
 		if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
-			const actor = this;
 			const delayDelta = game.settings.get('a5e', 'cascadingDamageAndHealingDelay') as number;
 			let delay = 0;
 
 			damageRolls.forEach(([damage, damageType]) => {
 				setTimeout(async () => {
-					await displayCascadingNumbers(actor, 'damage', `-${damage}`, damageType);
+					await displayCascadingNumbers(this, 'damage', `-${damage}`, damageType);
 				}, delay);
 
 				delay += delayDelta;
@@ -864,7 +863,6 @@ class BaseActorA5e extends Actor {
 		updates['system.attributes.hp.value'] = Math.clamp(value + healingTotal, value, max);
 
 		if (game.settings.get('a5e', 'enableCascadingDamageAndHealing')) {
-			const actor = this;
 			const delayDelta = game.settings.get('a5e', 'cascadingDamageAndHealingDelay') as number;
 			let delay = 0;
 
@@ -872,7 +870,7 @@ class BaseActorA5e extends Actor {
 				if (!showCascadingTemp && healingType === 'temporaryHealing') return;
 
 				setTimeout(async () => {
-					await displayCascadingNumbers(actor, 'healing', `+${healing}`, healingType);
+					await displayCascadingNumbers(this, 'healing', `+${healing}`, healingType);
 				}, delay);
 
 				delay += delayDelta;
