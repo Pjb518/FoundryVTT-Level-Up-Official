@@ -12,15 +12,15 @@ class A5eEnricherManager {
   registerCustomEnrichers() {
     const enricherTypes = ['check', 'save', 'condition'];
 
-    CONFIG.TextEditor.enrichers.push({
+    // CONFIG.TextEditor.enrichers.push({
 
-      pattern: new RegExp(`\\[\\[\\/(?<enricherType>${enricherTypes.join('|')})(?<argString>( +\\w+=([\\w\\d]+|"[\\w\\d ]+"))*)\\]\\]`, 'gi'),
-      enricher: this.parseEnricherInput.bind(this)
-    }, {
-      // eslint-disable-next-line no-useless-escape
-      pattern: /\[\[\/choose label=((?<label>[\w\d]+)|"(?<label>[\w\d -\.,]+)")(?<argString>( +(\[\d+\])?(uuid|text)=([\d\w\-\.]+|"[\d\w\-\. ]+"))+) *\]\]/gi,
-      enricher: this.parseChooseInput.bind(this)
-    });
+    //   pattern: new RegExp(`\\[\\[\\/(?<enricherType>${enricherTypes.join('|')})(?<argString>( +\\w+=([\\w\\d]+|"[\\w\\d ]+"))*)\\]\\]`, 'gi'),
+    //   enricher: this.parseEnricherInput.bind(this)
+    // }, {
+    //   // eslint-disable-next-line no-useless-escape
+    //   pattern: /\[\[\/choose label=((?<label>[\w\d]+)|"(?<label>[\w\d -\.,]+)")(?<argString>( +(\[\d+\])?(uuid|text)=([\d\w\-\.]+|"[\d\w\-\. ]+"))+) *\]\]/gi,
+    //   enricher: this.parseChooseInput.bind(this)
+    // });
 
     // FIXME: This is inefficient
     document.body.addEventListener('click', this.onRoll.bind(this));
@@ -476,10 +476,10 @@ class A5eEnricherManager {
     const { label, argString } = match.groups as { label: string, argString: string };
 
     // eslint-disable-next-line no-useless-escape
-    const argRegex = /(\[(?<weight>\d+)\])?(?<type>uuid|text)=((?<value>[\d\w\-\.]+)|"(?<value>[\d\w\-\. ]+)")/gi;
-    const args = [...argString.matchAll(argRegex)];
+    // const argRegex = /(\[(?<weight>\d+)\])?(?<type>uuid|text)=((?<value>[\d\w\-\.]+)|"(?<value>[\d\w\-\. ]+)")/gi;
+    // const args = [...argString.matchAll(argRegex)];
 
-    return this.#enrichChoose(label, args, options);
+    // return this.#enrichChoose(label, args, options);
   }
 
   async #enrichChoose(
