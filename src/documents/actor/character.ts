@@ -9,7 +9,11 @@ import ActionActivationDialog from '../../apps/dialogs/initializers/ActionActiva
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 
 export default class CharacterActorA5E extends BaseActorA5e {
-  declare system: A5ECharacterData;
+	declare system: A5ECharacterData;
+
+	declare automationAvailable: boolean;
+
+	declare _classes: Record<string, ClassItemA5e> | undefined;
 
   declare automationAvailable: boolean;
 

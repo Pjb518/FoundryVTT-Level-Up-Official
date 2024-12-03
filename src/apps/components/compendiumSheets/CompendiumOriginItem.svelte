@@ -1,33 +1,33 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import ImportButton from "../ImportButton.svelte";
+import ImportButton from '../ImportButton.svelte';
 
-    import getDocumentSourceTooltip from "../../../utils/getDocumentSourceTooltip";
-    import CompendiumDeleteButton from "../CompendiumDeleteButton.svelte";
+import getDocumentSourceTooltip from '../../../utils/getDocumentSourceTooltip';
+import CompendiumDeleteButton from '../CompendiumDeleteButton.svelte';
 
-    export let document;
+export let document;
 
-    function onDragStart(event) {
-        const data = {
-            type: collection.documentName,
-            uuid: collection.getUuid(document._id),
-        };
-        return event.dataTransfer.setData("text/plain", JSON.stringify(data));
-    }
+function onDragStart(event) {
+	const data = {
+		type: collection.documentName,
+		uuid: collection.getUuid(document._id),
+	};
+	return event.dataTransfer.setData('text/plain', JSON.stringify(data));
+}
 
-    function getOriginSource(originItem) {
-        if (typeof originItem.system.source !== "string") return null;
+function getOriginSource(originItem) {
+	if (typeof originItem.system.source !== 'string') return null;
 
-        const source = products[originItem.system.source];
+	const source = products[originItem.system.source];
 
-        return source || null;
-    }
+	return source || null;
+}
 
-    const collection = getContext("collection");
-    const { products } = CONFIG.A5E;
+const collection = getContext('collection');
+const { products } = CONFIG.A5E;
 
-    $: originSource = getOriginSource(document);
+$: originSource = getOriginSource(document);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->

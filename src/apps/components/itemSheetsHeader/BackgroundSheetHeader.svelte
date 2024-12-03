@@ -1,9 +1,9 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    const item = getContext("item");
+const item = getContext('item');
 </script>
 
 <header class="sheet-header">

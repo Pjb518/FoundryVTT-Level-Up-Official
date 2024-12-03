@@ -1,59 +1,59 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
+import { createEventDispatcher } from 'svelte';
 
-    import FieldWrapper from "./FieldWrapper.svelte";
-    import Tag from "./Tag.svelte";
+import FieldWrapper from './FieldWrapper.svelte';
+import Tag from './Tag.svelte';
 
-    import arraysAreEqual from "../../utils/arraysAreEqual";
+import arraysAreEqual from '../../utils/arraysAreEqual';
 
-    export let disabled = false;
-    export let disabledOptions: string[] = [];
-    export let heading = "";
-    export let hint = "";
-    export let listClasses = "";
-    export let options: string[][] = [];
-    export let optionStyles = "";
-    export let orange: string[] = [];
-    export let red: string[] = [];
-    export let selected: string[] = [];
-    export let showToggleAllButton = false;
-    export let showWarning = false;
-    export let tooltipData: Record<string, string> = {};
-    export let warning = "";
+export let disabled = false;
+export let disabledOptions: string[] = [];
+export let heading = '';
+export let hint = '';
+export let listClasses = '';
+export let options: string[][] = [];
+export let optionStyles = '';
+export let orange: string[] = [];
+export let red: string[] = [];
+export let selected: string[] = [];
+export let showToggleAllButton = false;
+export let showWarning = false;
+export let tooltipData: Record<string, string> = {};
+export let warning = '';
 
-    function getButtons() {
-        if (!showToggleAllButton) return [];
+function getButtons() {
+	if (!showToggleAllButton) return [];
 
-        return [
-            {
-                classes: "u-text-xs",
-                label: "+ Toggle All",
-                handler: toggleAll,
-            },
-        ];
-    }
+	return [
+		{
+			classes: 'u-text-xs',
+			label: '+ Toggle All',
+			handler: toggleAll,
+		},
+	];
+}
 
-    function updateSelection(value: string) {
-        const newSelections: Set<string> = new Set(selected);
+function updateSelection(value: string) {
+	const newSelections: Set<string> = new Set(selected);
 
-        if (newSelections.has(value)) newSelections.delete(value);
-        else newSelections.add(value);
+	if (newSelections.has(value)) newSelections.delete(value);
+	else newSelections.add(value);
 
-        dispatch("updateSelection", [...newSelections]);
-    }
+	dispatch('updateSelection', [...newSelections]);
+}
 
-    function toggleAll() {
-        const optionKeys = options.map(([key]) => key);
-        const selectedKeys = selected;
+function toggleAll() {
+	const optionKeys = options.map(([key]) => key);
+	const selectedKeys = selected;
 
-        if (arraysAreEqual(optionKeys, selectedKeys)) selected = [];
-        else selected = optionKeys;
+	if (arraysAreEqual(optionKeys, selectedKeys)) selected = [];
+	else selected = optionKeys;
 
-        dispatch("updateSelection", selected);
-    }
+	dispatch('updateSelection', selected);
+}
 
-    const dispatch = createEventDispatcher();
-    const buttons = getButtons();
+const dispatch = createEventDispatcher();
+const buttons = getButtons();
 </script>
 
 <FieldWrapper

@@ -1,17 +1,17 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import Section from "../Section.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
-    import CheckboxGroup from "../CheckboxGroup.svelte";
+import Section from '../Section.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import RadioGroup from '../RadioGroup.svelte';
+import CheckboxGroup from '../CheckboxGroup.svelte';
 
-    const item = getContext("item");
-    const abilities = { none: "None", ...CONFIG.A5E.abilities };
-    const abilitiesWithoutNone = CONFIG.A5E.abilities;
-    const { casterTypes, classes, classes5e } = CONFIG.A5E;
+const item = getContext('item');
+const abilities = { none: 'None', ...CONFIG.A5E.abilities };
+const abilitiesWithoutNone = CONFIG.A5E.abilities;
+const { casterTypes, classes, classes5e } = CONFIG.A5E;
 </script>
 
 <article class="a5e-page-wrapper a5e-page-wrapper--scrollable">

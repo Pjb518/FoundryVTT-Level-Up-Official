@@ -1,32 +1,32 @@
 <script>
-    import { getContext, onDestroy } from "svelte";
+import { getContext, onDestroy } from 'svelte';
 
-    import GenericActorResource from "../GenericActorResource.svelte";
-    import ItemCategory from "../ItemCategory.svelte";
-    import ActorSkillsPage from "./ActorSkillsPage.svelte";
+import GenericActorResource from '../GenericActorResource.svelte';
+import ItemCategory from '../ItemCategory.svelte';
+import ActorSkillsPage from './ActorSkillsPage.svelte';
 
-    import usesRequired from "../../../utils/usesRequired";
-    import quantityRequired from "../../../utils/quantityRequired";
+import usesRequired from '../../../utils/usesRequired';
+import quantityRequired from '../../../utils/quantityRequired';
 
-    export let resources;
+export let resources;
 
-    const actor = getContext("actor");
-    const { favorites } = actor;
+const actor = getContext('actor');
+const { favorites } = actor;
 
-    let showQuantity = quantityRequired($favorites);
-    let showUses = usesRequired($favorites);
+let showQuantity = quantityRequired($favorites);
+let showUses = usesRequired($favorites);
 
-    $: resources = $actor.system.resources;
-    $: flags = $actor.flags;
+$: resources = $actor.system.resources;
+$: flags = $actor.flags;
 
-    const unsubscribe = favorites.subscribe((_) => {
-        showQuantity = quantityRequired($favorites);
-        showUses = usesRequired($favorites);
-    });
+const unsubscribe = favorites.subscribe((_) => {
+	showQuantity = quantityRequired($favorites);
+	showUses = usesRequired($favorites);
+});
 
-    onDestroy(() => {
-        unsubscribe();
-    });
+onDestroy(() => {
+	unsubscribe();
+});
 </script>
 
 {#if !(flags.a5e?.hideGenericResources ?? $actor.type === "npc")}

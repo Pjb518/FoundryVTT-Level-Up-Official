@@ -1,9 +1,9 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import AbilityScore from "./AbilityScore.svelte";
+import AbilityScore from './AbilityScore.svelte';
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 </script>
 
 <ul class="a5e-ability-scores">

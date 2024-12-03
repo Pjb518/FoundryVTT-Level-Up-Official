@@ -1,14 +1,14 @@
 <script>
-    import calculateHeaderTextColor from "../../utils/calculateHeaderTextColor";
+import calculateHeaderTextColor from '../../utils/calculateHeaderTextColor';
 
-    export let tableName;
-    export let img;
-    export let messageDocument;
+export let tableName;
+export let img;
+export let messageDocument;
 
-    const headerBackgroundColor = messageDocument.author.color;
-    const headerTextColor = calculateHeaderTextColor(headerBackgroundColor);
+const headerBackgroundColor = messageDocument.author.color;
+const headerTextColor = calculateHeaderTextColor(headerBackgroundColor);
 
-    const { timeSince } = foundry.utils;
+const { timeSince } = foundry.utils;
 </script>
 
 <header

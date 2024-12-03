@@ -6,45 +6,48 @@ import DeletionConfirmationDialogComponent from '../DeletionConfirmationDialog.s
  * Provides a dialog for creating documents that by default is modal and not draggable.
  */
 export default class DeletionConfirmationDialog extends TJSDialog {
-  constructor(itemDocument, hideDeleteSection = false) {
-    super({
-      title: `${itemDocument?.name}: Confirm Deletion`,
-      content: {
-        class: DeletionConfirmationDialogComponent,
-        props: { itemDocument, hideDeleteSection }
-      }
-    }, {
-      classes: ['a5e-sheet'],
-      width: 420
-    });
+	constructor(itemDocument, hideDeleteSection = false) {
+		super(
+			{
+				title: `${itemDocument?.name}: Confirm Deletion`,
+				content: {
+					class: DeletionConfirmationDialogComponent,
+					props: { itemDocument, hideDeleteSection },
+				},
+			},
+			{
+				classes: ['a5e-sheet'],
+				width: 420,
+			},
+		);
 
-    this.data.content.props.dialog = this;
+		this.data.content.props.dialog = this;
 
-    this.promise = new Promise((resolve) => {
-      this.resolve = resolve;
-    });
-  }
+		this.promise = new Promise((resolve) => {
+			this.resolve = resolve;
+		});
+	}
 
-  /** @inheritdoc */
-  close(options) {
-    this.#resolvePromise(null);
-    return super.close(options);
-  }
+	/** @inheritdoc */
+	close(options) {
+		this.#resolvePromise(null);
+		return super.close(options);
+	}
 
-  /**
-   * Resolves the dialog's promise and closes it.
-   *
-   * @param {object} results
-   * @returns
-   */
-  submit(results) {
-    this.#resolvePromise(results);
-    return super.close();
-  }
+	/**
+	 * Resolves the dialog's promise and closes it.
+	 *
+	 * @param {object} results
+	 * @returns
+	 */
+	submit(results) {
+		this.#resolvePromise(results);
+		return super.close();
+	}
 
-  #resolvePromise(data) {
-    if (this.resolve) {
-      this.resolve(data);
-    }
-  }
+	#resolvePromise(data) {
+		if (this.resolve) {
+			this.resolve(data);
+		}
+	}
 }

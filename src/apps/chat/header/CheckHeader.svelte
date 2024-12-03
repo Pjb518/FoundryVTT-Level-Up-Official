@@ -1,14 +1,14 @@
 <script>
-    import { createEventDispatcher } from "svelte";
+import { createEventDispatcher } from 'svelte';
 
-    import BaseHeader from "./BaseHeader.svelte";
+import BaseHeader from './BaseHeader.svelte';
 
-    export let message;
+export let message;
 
-    const { actorId, img, name } = $message?.flags?.a5e;
-    const actor = fromUuidSync(actorId);
-    const dispatch = createEventDispatcher();
-    const { user } = game;
+const { actorId, img, name } = $message?.flags?.a5e;
+const actor = fromUuidSync(actorId);
+const dispatch = createEventDispatcher();
+const { user } = game;
 </script>
 
 {#if user.isGM || actor?.testUserPermission(user, 1)}

@@ -96,26 +96,26 @@ const schema = {
 };
 
 declare namespace A5EObjectData {
-  type Schema = A5EBaseItemData.Schema & ActionsData & ArmorData & UsesData & typeof schema;
-  type BaseData = A5EBaseItemData.BaseData;
-  type DerivedData = A5EBaseItemData.DerivedData;
+	type Schema = A5EBaseItemData.Schema & ActionsData & ArmorData & UsesData & typeof schema;
+	type BaseData = A5EBaseItemData.BaseData;
+	type DerivedData = A5EBaseItemData.DerivedData;
 }
 
 class A5EObjectData extends A5EBaseItemData<
-  A5EObjectData.Schema,
-  A5EObjectData.BaseData,
-  A5EObjectData.DerivedData
+	A5EObjectData.Schema,
+	A5EObjectData.BaseData,
+	A5EObjectData.DerivedData
 > {
-  /** @inheritDoc */
-  static override defineSchema(): A5EObjectData.Schema {
-    return {
-      ...super.defineSchema(),
-      ...actions(),
-      ...armor(),
-      ...uses(),
-      ...schema
-    };
-  }
+	/** @inheritDoc */
+	static override defineSchema(): A5EObjectData.Schema {
+		return {
+			...super.defineSchema(),
+			...actions(),
+			...armor(),
+			...uses(),
+			...schema,
+		};
+	}
 }
 
 // eslint-disable-next-line import/prefer-default-export

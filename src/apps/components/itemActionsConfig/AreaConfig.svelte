@@ -1,76 +1,76 @@
 <script>
-    import { localize } from "#runtime/util/i18n";
+import { localize } from '#runtime/util/i18n';
 
-    import TemplatePreparationManager from "../../../managers/TemplatePreparationManager";
+import TemplatePreparationManager from '../../../managers/TemplatePreparationManager';
 
-    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import getOrdinalNumber from '../../../utils/getOrdinalNumber';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
+import GenericConfigDialog from '../../dialogs/initializers/GenericConfigDialog';
 
-    import AreaShape from "./AreaShape.svelte";
-    import Checkbox from "../Checkbox.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
-    import TemplateScalingDialog from "../../dialogs/TemplateScalingDialog.svelte";
+import AreaShape from './AreaShape.svelte';
+import Checkbox from '../Checkbox.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
+import TemplateScalingDialog from '../../dialogs/TemplateScalingDialog.svelte';
 
-    export let action;
-    export let actionId;
-    export let item;
+export let action;
+export let actionId;
+export let item;
 
-    function onClickScalingButton() {
-        let dialog = $item.dialogs.areaScaling[actionId];
+function onClickScalingButton() {
+	let dialog = $item.dialogs.areaScaling[actionId];
 
-        if (!dialog) {
-            $item.dialogs.areaScaling[actionId] = new GenericConfigDialog(
-                $item,
-                `${$item.name} Target Scaling Configuration`,
-                TemplateScalingDialog,
-                { actionId },
-            );
+	if (!dialog) {
+		$item.dialogs.areaScaling[actionId] = new GenericConfigDialog(
+			$item,
+			`${$item.name} Target Scaling Configuration`,
+			TemplateScalingDialog,
+			{ actionId },
+		);
 
-            dialog = $item.dialogs.areaScaling[actionId];
-        }
+		dialog = $item.dialogs.areaScaling[actionId];
+	}
 
-        dialog.render(true);
-    }
+	dialog.render(true);
+}
 
-    function getLocalization(type) {
-        if (properties.length === 1)
-            return localize(`A5E.scaling.summaries.${type}.template`, {
-                shape: action?.area.shape,
-                formula: action?.area.scaling?.formula?.[properties[0]] ?? 0,
-                property: properties[0],
-                unit: "feet",
-                level: getOrdinalNumber($item.system.level ?? 0),
-                step: action.area?.scaling?.step,
-            });
-        else if (properties.length === 2)
-            return localize(`A5E.scaling.summaries.${type}.templateMulti`, {
-                shape: action?.area.shape,
-                formula1: action.area.scaling?.formula?.[properties[0]] ?? 0,
-                formula2: action.area.scaling?.formula?.[properties[1]] ?? 0,
-                property1: properties[0],
-                property2: properties[1],
-                unit: "feet",
-                level: getOrdinalNumber($item.system.level ?? 0),
-                step: action.area?.scaling?.step,
-            });
-    }
+function getLocalization(type) {
+	if (properties.length === 1)
+		return localize(`A5E.scaling.summaries.${type}.template`, {
+			shape: action?.area.shape,
+			formula: action?.area.scaling?.formula?.[properties[0]] ?? 0,
+			property: properties[0],
+			unit: 'feet',
+			level: getOrdinalNumber($item.system.level ?? 0),
+			step: action.area?.scaling?.step,
+		});
+	else if (properties.length === 2)
+		return localize(`A5E.scaling.summaries.${type}.templateMulti`, {
+			shape: action?.area.shape,
+			formula1: action.area.scaling?.formula?.[properties[0]] ?? 0,
+			formula2: action.area.scaling?.formula?.[properties[1]] ?? 0,
+			property1: properties[0],
+			property2: properties[1],
+			unit: 'feet',
+			level: getOrdinalNumber($item.system.level ?? 0),
+			step: action.area?.scaling?.step,
+		});
+}
 
-    function removeArea() {
-        $item.update({
-            [`system.actions.${actionId}`]: {
-                "-=area": null,
-            },
-        });
-    }
+function removeArea() {
+	$item.update({
+		[`system.actions.${actionId}`]: {
+			'-=area': null,
+		},
+	});
+}
 
-    const { A5E } = CONFIG;
-    const getShapeProperties = TemplatePreparationManager.getShapeProperties;
-    const { isEmpty } = foundry.utils;
+const { A5E } = CONFIG;
+const getShapeProperties = TemplatePreparationManager.getShapeProperties;
+const { isEmpty } = foundry.utils;
 
-    $: properties = [...getShapeProperties(action.area?.shape)];
+$: properties = [...getShapeProperties(action.area?.shape)];
 </script>
 
 <Section

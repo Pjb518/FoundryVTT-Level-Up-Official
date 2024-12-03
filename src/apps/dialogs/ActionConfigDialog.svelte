@@ -1,72 +1,72 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { getContext, setContext } from "svelte";
+import { getContext, setContext } from 'svelte';
 
-    import ActionsActivationTab from "../components/pages/ActionsActivationTab.svelte";
-    import ActionsDescriptionTab from "../components/pages/ActionsDescriptionTab.svelte";
-    import ActionsEffectsTab from "../components/pages/ActionsEffectsTab.svelte";
-    import ActionsPromptsTab from "../components/pages/ActionsPromptsTab.svelte";
-    import ActionsRollsTab from "../components/pages/ActionsRollsTab.svelte";
-    import ActionsResourceManagementTab from "../components/pages/ActionsResourceManagementTab.svelte";
-    import ActionsTargetingTab from "../components/pages/ActionsTargetingTab.svelte";
-    import NavigationBar from "../components/navigation/NavigationBar.svelte";
+import ActionsActivationTab from '../components/pages/ActionsActivationTab.svelte';
+import ActionsDescriptionTab from '../components/pages/ActionsDescriptionTab.svelte';
+import ActionsEffectsTab from '../components/pages/ActionsEffectsTab.svelte';
+import ActionsPromptsTab from '../components/pages/ActionsPromptsTab.svelte';
+import ActionsRollsTab from '../components/pages/ActionsRollsTab.svelte';
+import ActionsResourceManagementTab from '../components/pages/ActionsResourceManagementTab.svelte';
+import ActionsTargetingTab from '../components/pages/ActionsTargetingTab.svelte';
+import NavigationBar from '../components/navigation/NavigationBar.svelte';
 
-    import editDocumentImage from "../handlers/editDocumentImage";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+import editDocumentImage from '../handlers/editDocumentImage';
+import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-    export let { document, actionId, dialog } = getContext("#external").application;
+export let { document, actionId, dialog } = getContext('#external').application;
 
-    const item = document;
+const item = document;
 
-    function updateCurrentTab(event) {
-        currentTab = tabs[event.detail];
-    }
+function updateCurrentTab(event) {
+	currentTab = tabs[event.detail];
+}
 
-    const tabs = [
-        {
-            name: "description",
-            label: "A5E.ItemSheetLabelDescriptionTab",
-            component: ActionsDescriptionTab,
-        },
-        {
-            name: "activation",
-            label: "A5E.TabActivation",
-            component: ActionsActivationTab,
-        },
-        {
-            name: "targeting",
-            label: "A5E.TabTargeting",
-            component: ActionsTargetingTab,
-        },
-        {
-            name: "rolls",
-            label: "A5E.TabRolls",
-            component: ActionsRollsTab,
-        },
-        {
-            name: "prompts",
-            label: "A5E.TabPrompts",
-            component: ActionsPromptsTab,
-        },
-        {
-            name: "consumers",
-            label: "A5E.TabResourceManagement",
-            component: ActionsResourceManagementTab,
-        },
-        {
-            name: "effects",
-            label: "A5E.TabEffects",
-            component: ActionsEffectsTab,
-        },
-    ];
+const tabs = [
+	{
+		name: 'description',
+		label: 'A5E.ItemSheetLabelDescriptionTab',
+		component: ActionsDescriptionTab,
+	},
+	{
+		name: 'activation',
+		label: 'A5E.TabActivation',
+		component: ActionsActivationTab,
+	},
+	{
+		name: 'targeting',
+		label: 'A5E.TabTargeting',
+		component: ActionsTargetingTab,
+	},
+	{
+		name: 'rolls',
+		label: 'A5E.TabRolls',
+		component: ActionsRollsTab,
+	},
+	{
+		name: 'prompts',
+		label: 'A5E.TabPrompts',
+		component: ActionsPromptsTab,
+	},
+	{
+		name: 'consumers',
+		label: 'A5E.TabResourceManagement',
+		component: ActionsResourceManagementTab,
+	},
+	{
+		name: 'effects',
+		label: 'A5E.TabEffects',
+		component: ActionsEffectsTab,
+	},
+];
 
-    let currentTab = tabs[0];
+let currentTab = tabs[0];
 
-    console.log($item);
+console.log($item);
 
-    setContext("item", item);
-    setContext("actionId", actionId);
+setContext('item', item);
+setContext('actionId', actionId);
 </script>
 
 <article>

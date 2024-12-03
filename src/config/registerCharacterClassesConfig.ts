@@ -1,20 +1,20 @@
 export default function registerCharacterClassesConfig() {
-  const classSpellLists = {
-    artificer: 'A5E.characterClasses.artificer',
-    bard: 'A5E.characterClasses.bard',
-    cleric: 'A5E.characterClasses.cleric',
-    druid: 'A5E.characterClasses.druid',
-    elementalistAir: 'A5E.characterClasses.elementalistAir',
-    elementalistEarth: 'A5E.characterClasses.elementalistEarth',
-    elementalistFire: 'A5E.characterClasses.elementalistFire',
-    elementalistWater: 'A5E.characterClasses.elementalistWater',
-    herald: 'A5E.characterClasses.herald',
-    sorcerer: 'A5E.characterClasses.sorcerer',
-    warlock: 'A5E.characterClasses.warlock',
-    wielder: 'A5E.characterClasses.wielder',
-    witch: 'A5E.characterClasses.witch',
-    wizard: 'A5E.characterClasses.wizard'
-  };
+	const classSpellLists = {
+		artificer: 'A5E.characterClasses.artificer',
+		bard: 'A5E.characterClasses.bard',
+		cleric: 'A5E.characterClasses.cleric',
+		druid: 'A5E.characterClasses.druid',
+		elementalistAir: 'A5E.characterClasses.elementalistAir',
+		elementalistEarth: 'A5E.characterClasses.elementalistEarth',
+		elementalistFire: 'A5E.characterClasses.elementalistFire',
+		elementalistWater: 'A5E.characterClasses.elementalistWater',
+		herald: 'A5E.characterClasses.herald',
+		sorcerer: 'A5E.characterClasses.sorcerer',
+		warlock: 'A5E.characterClasses.warlock',
+		wielder: 'A5E.characterClasses.wielder',
+		witch: 'A5E.characterClasses.witch',
+		wizard: 'A5E.characterClasses.wizard',
+	};
 
   const characterClasses = {
     adept: 'A5E.characterClasses.adept',
@@ -43,5 +43,5 @@ export default function registerCharacterClassesConfig() {
     wizard: 'A5E.characterClasses.wizard'
   };
 
-  return { classSpellLists, characterClasses };
+	return { classSpellLists, characterClasses };
 }

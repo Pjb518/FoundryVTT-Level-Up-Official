@@ -1,31 +1,31 @@
 <script lang="ts">
-    import type { BaseActorA5e } from "../../../documents/actor/base";
-    import type { ConsumerHandlerReturnType } from "../../dataPreparationHelpers/itemActivationConsumers/prepareConsumers";
-    import type { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+import type { BaseActorA5e } from '../../../documents/actor/base';
+import type { ConsumerHandlerReturnType } from '../../dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
+import type { TJSDocument } from '#runtime/svelte/store/fvtt/document';
 
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import { ResourceConsumptionManager } from "../../../managers/ResourceConsumptionManager";
+import { ResourceConsumptionManager } from '../../../managers/ResourceConsumptionManager';
 
-    import FieldWrapper from "../FieldWrapper.svelte";
+import FieldWrapper from '../FieldWrapper.svelte';
 
-    export let consumers: ConsumerHandlerReturnType;
-    export let hitDiceData: ResourceConsumptionManager.HitDiceConsumerData;
+export let consumers: ConsumerHandlerReturnType;
+export let hitDiceData: ResourceConsumptionManager.HitDiceConsumerData;
 
-    function updateSelected(dieSize, remove = false) {
-        const quantity = hitDiceData.selected[dieSize];
-        const newValue = remove ? quantity - 1 : quantity + 1;
+function updateSelected(dieSize, remove = false) {
+	const quantity = hitDiceData.selected[dieSize];
+	const newValue = remove ? quantity - 1 : quantity + 1;
 
-        hitDiceData.selected[dieSize] = Math.max(newValue, 0);
-    }
+	hitDiceData.selected[dieSize] = Math.max(newValue, 0);
+}
 
-    const actor: TJSDocument<BaseActorA5e> = getContext("actor");
-    const parts = ResourceConsumptionManager.prepareHitDiceData($actor, consumers);
+const actor: TJSDocument<BaseActorA5e> = getContext('actor');
+const parts = ResourceConsumptionManager.prepareHitDiceData($actor, consumers);
 
-    const { availableHitDice } = parts;
-    hitDiceData = parts.hitDiceData;
+const { availableHitDice } = parts;
+hitDiceData = parts.hitDiceData;
 
-    let hitDice = $actor.system.attributes.hitDice;
+let hitDice = $actor.system.attributes.hitDice;
 </script>
 
 <FieldWrapper heading="A5E.HitDiceLabel">

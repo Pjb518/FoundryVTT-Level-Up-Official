@@ -10,28 +10,28 @@ import regexObjectQuery from './searchUtils';
  * @returns {} searchInput
  */
 export function addSearchFilter(reducer) {
-  const searchFilter = DynReducerHelper.filters.regexObjectQuery(['name', 'containerItemNames']);
-  const searchInput = {
-    store: searchFilter,
-    placeholder: 'Search',
-    type: 'search'
-  };
-  reducer.filters.add({ id: 'searchFilter', filter: searchFilter });
+	const searchFilter = DynReducerHelper.filters.regexObjectQuery(['name', 'containerItemNames']);
+	const searchInput = {
+		store: searchFilter,
+		placeholder: 'Search',
+		type: 'search',
+	};
+	reducer.filters.add({ id: 'searchFilter', filter: searchFilter });
 
-  return searchInput;
+	return searchInput;
 }
 
 export function addTJSDocumentSearchFilter(reducer) {
-  const searchFilter = regexObjectQuery('name');
-  const searchInput = {
-    store: searchFilter,
-    placeholder: 'Search',
-    type: 'search'
-  };
-  reducer.filters.add({ id: 'searchFilter', filter: searchFilter });
-  return searchInput;
+	const searchFilter = regexObjectQuery('name');
+	const searchInput = {
+		store: searchFilter,
+		placeholder: 'Search',
+		type: 'search',
+	};
+	reducer.filters.add({ id: 'searchFilter', filter: searchFilter });
+	return searchInput;
 }
 
 export function removeSearchFilter(reducer) {
-  reducer.filters.removeById('searchFilter');
+	reducer.filters.removeById('searchFilter');
 }

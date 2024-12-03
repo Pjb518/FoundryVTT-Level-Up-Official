@@ -25,9 +25,15 @@ Hooks.once('ready', ready);
 Hooks.on('canvasInit', canvasInit);
 Hooks.on('canvasReady', canvasReady);
 
-Hooks.on('getActorDirectoryEntryContext', (dialog, html, data) => getDocumentDirectoryContext(dialog, html, data, 'Actor'));
-Hooks.on('getItemDirectoryEntryContext', (dialog, html, data) => getDocumentDirectoryContext(dialog, html, data, 'Item'));
-Hooks.on('getCompendiumDirectoryEntryContext', (dialog, html, data) => getDocumentDirectoryContext(dialog, html, data, 'Pack'));
+Hooks.on('getActorDirectoryEntryContext', (dialog, html, data) =>
+	getDocumentDirectoryContext(dialog, html, data, 'Actor'),
+);
+Hooks.on('getItemDirectoryEntryContext', (dialog, html, data) =>
+	getDocumentDirectoryContext(dialog, html, data, 'Item'),
+);
+Hooks.on('getCompendiumDirectoryEntryContext', (dialog, html, data) =>
+	getDocumentDirectoryContext(dialog, html, data, 'Pack'),
+);
 
 Hooks.on('createActor', createActor);
 Hooks.on('createToken', createToken);

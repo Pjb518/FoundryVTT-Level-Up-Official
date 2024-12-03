@@ -1,19 +1,19 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { getContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/application";
+import { getContext } from 'svelte';
+import { ApplicationShell } from '#runtime/svelte/component/application';
 
-    export let { document, sheet } = getContext("#external").application;
-    export let elementRoot;
+export let { document, sheet } = getContext('#external').application;
+export let elementRoot;
 
-    const description = $document.system.unidentified
-        ? $document.system.unidentifiedDescription
-        : $document.system.description;
+const description = $document.system.unidentified
+	? $document.system.unidentifiedDescription
+	: $document.system.description;
 
-    const showDescription = description?.length
-        ? (game.settings.get("a5e", "showDescriptionOnLimitedPerms") ?? false)
-        : false;
+const showDescription = description?.length
+	? (game.settings.get('a5e', 'showDescriptionOnLimitedPerms') ?? false)
+	: false;
 </script>
 
 <ApplicationShell bind:elementRoot>

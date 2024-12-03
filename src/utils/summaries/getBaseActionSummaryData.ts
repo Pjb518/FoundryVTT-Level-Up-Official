@@ -9,12 +9,12 @@ import getRangeLabels from './getRangeLabels';
 import getTargetLabel from './getTargetLabel';
 
 export default function getBaseActionSummaryData(item: ItemA5e, action: Action) {
-  return {
-    activationCost: getActivationCostLabel(item, action),
-    area: getAreaLabel(action),
-    damage: getDamageLabel(action),
-    duration: getDurationLabel(item, action),
-    ranges: getRangeLabels(action),
-    targets: getTargetLabel(action)
-  };
+	return {
+		activationCost: getActivationCostLabel(item, action),
+		area: getAreaLabel(action),
+		damage: getDamageLabel(action),
+		duration: getDurationLabel(item, action),
+		ranges: getRangeLabels(action),
+		targets: getTargetLabel(action),
+	};
 }

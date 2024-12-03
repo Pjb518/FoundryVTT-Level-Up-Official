@@ -1,61 +1,58 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import editDocumentImage from "../../handlers/editDocumentImage";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import editDocumentImage from '../../handlers/editDocumentImage';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    async function fulfilDestiny() {
-        const fulfillmentFeature = await fromUuid($item.system.fulfillmentFeature);
-        if (!fulfillmentFeature || !$item.actor) return;
-        if ($item.actor.getFlag("a5e", "destinyFulfilled") ?? false) return;
+async function fulfilDestiny() {
+	const fulfillmentFeature = await fromUuid($item.system.fulfillmentFeature);
+	if (!fulfillmentFeature || !$item.actor) return;
+	if ($item.actor.getFlag('a5e', 'destinyFulfilled') ?? false) return;
 
-        await $item.actor.createEmbeddedDocuments("Item", [fulfillmentFeature]);
-        await $item.actor.setFlag("a5e", "destinyFulfilled", true);
-        disableFulfil = true;
-    }
+	await $item.actor.createEmbeddedDocuments('Item', [fulfillmentFeature]);
+	await $item.actor.setFlag('a5e', 'destinyFulfilled', true);
+	disableFulfil = true;
+}
 
-    async function updateClassLevel(value) {
-        value = parseInt(value, 10);
-        const currentValue = $item.system.classLevels;
-        const diff = Math.abs(currentValue - value);
-        const sign = Math.sign(value - currentValue);
+async function updateClassLevel(value) {
+	value = parseInt(value, 10);
+	const currentValue = $item.system.classLevels;
+	const diff = Math.abs(currentValue - value);
+	const sign = Math.sign(value - currentValue);
 
-        for (let i = 0; i < diff; i++) {
-            if (sign === 1) {
-                await $item.update({
-                    "system.classLevels": Math.min(
-                        $item.system.classLevels + 1,
-                        $item.system.maxLevel,
-                    ),
-                });
-            } else {
-                await $item.update({
-                    "system.classLevels": $item.system.classLevels - 1,
-                });
-            }
-        }
-    }
+	for (let i = 0; i < diff; i++) {
+		if (sign === 1) {
+			await $item.update({
+				'system.classLevels': Math.min($item.system.classLevels + 1, $item.system.maxLevel),
+			});
+		} else {
+			await $item.update({
+				'system.classLevels': $item.system.classLevels - 1,
+			});
+		}
+	}
+}
 
-    // TODO: Mystification - Re-add this in 0.9.1 or later, as there is more work required to make
-    // this useful.
-    //
-    // function getItemName(item) {
-    //     if (game.user.isGM) return item.name;
-    //     if (!item.system.unidentified) return item.name;
+// TODO: Mystification - Re-add this in 0.9.1 or later, as there is more work required to make
+// this useful.
+//
+// function getItemName(item) {
+//     if (game.user.isGM) return item.name;
+//     if (!item.system.unidentified) return item.name;
 
-    //     return unidentifiedName ?? localize("A5E.ItemUnidentifiedName");
-    // }
+//     return unidentifiedName ?? localize("A5E.ItemUnidentifiedName");
+// }
 
-    // $: name = getItemName($item);
+// $: name = getItemName($item);
 
-    const appId = getContext("appId");
-    const { DAMAGED_STATES, damagedStates } = CONFIG.A5E;
-    const { isGM } = game.user;
-    const item = getContext("item");
-    const prerequisiteTypes = ["maneuver", "feature", "spell"];
+const appId = getContext('appId');
+const { DAMAGED_STATES, damagedStates } = CONFIG.A5E;
+const { isGM } = game.user;
+const item = getContext('item');
+const prerequisiteTypes = ['maneuver', 'feature', 'spell'];
 
-    let disableFulfil = $item.actor?.getFlag("a5e", "destinyFulfilled") ?? true;
+let disableFulfil = $item.actor?.getFlag('a5e', 'destinyFulfilled') ?? true;
 </script>
 
 <header class="sheet-header">

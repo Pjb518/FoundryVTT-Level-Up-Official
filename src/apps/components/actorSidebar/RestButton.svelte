@@ -1,9 +1,9 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    let replaceFatigueAndStrife = game.settings.get("a5e", "replaceFatigueAndStrife");
+let replaceFatigueAndStrife = game.settings.get('a5e', 'replaceFatigueAndStrife');
 </script>
 
 <div

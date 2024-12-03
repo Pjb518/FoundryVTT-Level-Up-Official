@@ -1,40 +1,38 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
-    import prepareHitDice from "../../dataPreparationHelpers/prepareHitDice";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+import prepareHitDice from '../../dataPreparationHelpers/prepareHitDice';
 
-    import FieldWrapper from "../FieldWrapper.svelte";
+import FieldWrapper from '../FieldWrapper.svelte';
 
-    export let consumer;
-    export let consumerId;
-    export let deleteConsumer;
+export let consumer;
+export let consumerId;
+export let deleteConsumer;
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+const item = getContext('item');
+const actionId = getContext('actionId');
 
-    function updateSelection() {
-        updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.consumers.${consumerId}.defaultDie`,
-            selected,
-        );
-    }
+function updateSelection() {
+	updateDocumentDataFromField(
+		$item,
+		`system.actions.${actionId}.consumers.${consumerId}.defaultDie`,
+		selected,
+	);
+}
 
-    const hitDice = $item.actor ? prepareHitDice($item.actor) : [];
-    const availableHitDice = hitDice.reduce((acc, { die, total }) => {
-        if (total > 0) acc.push([die, die]);
-        return acc;
-    }, []);
+const hitDice = $item.actor ? prepareHitDice($item.actor) : [];
+const availableHitDice = hitDice.reduce((acc, { die, total }) => {
+	if (total > 0) acc.push([die, die]);
+	return acc;
+}, []);
 
-    const defaultSelection = availableHitDice.length
-        ? availableHitDice[0][0]
-        : "";
+const defaultSelection = availableHitDice.length ? availableHitDice[0][0] : '';
 
-    $: selected = consumer.defaultDie ?? defaultSelection;
-    $: selected, updateSelection();
+$: selected = consumer.defaultDie ?? defaultSelection;
+$: selected, updateSelection();
 
-    if (!selected) updateSelection();
+if (!selected) updateSelection();
 </script>
 
 <FieldWrapper

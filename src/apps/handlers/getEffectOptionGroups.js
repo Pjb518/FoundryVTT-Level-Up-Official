@@ -1,30 +1,27 @@
 import { localize } from '#runtime/util/i18n';
 
 export default function getEffectOptionGroups(optionsList) {
-  const options = Object.values(optionsList);
+	const options = Object.values(optionsList);
 
-  // Invert the effectKeyGroups array so that each effect key points to a group. The config
-  // object cannot be used directly, as it may contain invalid keys.
-  const groupMap = Object.entries(CONFIG.A5E.effectKeyGroups).reduce(
-    (acc, [group, { items }]) => {
-      items.forEach((item) => {
-        acc[item] = group;
-      });
+	// Invert the effectKeyGroups array so that each effect key points to a group. The config
+	// object cannot be used directly, as it may contain invalid keys.
+	const groupMap = Object.entries(CONFIG.A5E.effectKeyGroups).reduce((acc, [group, { items }]) => {
+		items.forEach((item) => {
+			acc[item] = group;
+		});
 
-      return acc;
-    },
-    {}
-  );
+		return acc;
+	}, {});
 
-  const groups = options.map((option) => ({
-    label: option.label,
-    key: option.effectKey,
-    group: localize(
-      CONFIG.A5E.effectKeyGroups[groupMap[option.effectKey] ?? 'other']?.label ?? 'Other'
-    )
-  }));
+	const groups = options.map((option) => ({
+		label: option.label,
+		key: option.effectKey,
+		group: localize(
+			CONFIG.A5E.effectKeyGroups[groupMap[option.effectKey] ?? 'other']?.label ?? 'Other',
+		),
+	}));
 
-  groups.sort((a, b) => a.group.localeCompare(b.group));
+	groups.sort((a, b) => a.group.localeCompare(b.group));
 
-  return groups;
+	return groups;
 }

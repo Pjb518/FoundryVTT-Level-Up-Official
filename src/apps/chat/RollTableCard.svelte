@@ -1,23 +1,23 @@
 <svelte:options accessors={true} />
 
 <script lang="ts">
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
-    import { setContext } from "svelte";
+import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
+import { setContext } from 'svelte';
 
-    import prepareRolls from "../dataPreparationHelpers/cardRolls/prepareRolls";
+import prepareRolls from '../dataPreparationHelpers/cardRolls/prepareRolls';
 
-    import RollTableCardHeader from "./RollTableCardHeader.svelte";
-    import RollSummary from "./body/RollSummary.svelte";
+import RollTableCardHeader from './RollTableCardHeader.svelte';
+import RollSummary from './body/RollSummary.svelte';
 
-    export let messageDocument;
+export let messageDocument;
 
-    const message = new TJSDocument(messageDocument);
-    const { system } = $message;
+const message = new TJSDocument(messageDocument);
+const { system } = $message;
 
-    const { tableName, tableId, resultTitle, img, description } = system;
-    const rolls = prepareRolls($message);
+const { tableName, tableId, resultTitle, img, description } = system;
+const rolls = prepareRolls($message);
 
-    setContext("message", message);
+setContext('message', message);
 </script>
 
 <RollTableCardHeader {tableName} {img} messageDocument={$message} />

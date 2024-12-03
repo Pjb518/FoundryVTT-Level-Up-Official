@@ -1,47 +1,47 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
 
-    export let consumer;
-    export let consumerId;
-    export let deleteConsumer;
+export let consumer;
+export let consumerId;
+export let deleteConsumer;
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
-    const A5E = CONFIG.A5E;
+const item = getContext('item');
+const actionId = getContext('actionId');
+const A5E = CONFIG.A5E;
 
-    function updateItemSelection() {
-        updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.consumers.${consumerId}.itemId`,
-            selectedItem,
-        );
-    }
+function updateItemSelection() {
+	updateDocumentDataFromField(
+		$item,
+		`system.actions.${actionId}.consumers.${consumerId}.itemId`,
+		selectedItem,
+	);
+}
 
-    let selectedItem = consumer.itemId ?? "";
-    $: selectedItem, updateItemSelection();
-    $: optGroup = $item.actor
-        ? $item.actor.items.reduce((acc, i) => {
-              if (i.type !== "object") return acc;
-              if (i.system.objectType === "ammunition") return acc;
+let selectedItem = consumer.itemId ?? '';
+$: selectedItem, updateItemSelection();
+$: optGroup = $item.actor
+	? $item.actor.items.reduce((acc, i) => {
+			if (i.type !== 'object') return acc;
+			if (i.system.objectType === 'ammunition') return acc;
 
-              const type = i.system.objectType;
-              const data = {
-                  name: i.name,
-                  id: i.id,
-              };
+			const type = i.system.objectType;
+			const data = {
+				name: i.name,
+				id: i.id,
+			};
 
-              if (acc?.[type]) acc[type].push(data);
-              else acc[type] = [data];
+			if (acc?.[type]) acc[type].push(data);
+			else acc[type] = [data];
 
-              return acc;
-          }, {})
-        : [];
+			return acc;
+		}, {})
+	: [];
 </script>
 
 <FieldWrapper

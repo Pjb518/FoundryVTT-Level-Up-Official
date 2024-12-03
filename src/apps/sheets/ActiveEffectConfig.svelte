@@ -1,50 +1,50 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/application";
+import { getContext, setContext } from 'svelte';
+import { ApplicationShell } from '#runtime/svelte/component/application';
 
-    import EffectsDescriptionTab from "../components/pages/EffectsDescriptionTab.svelte";
-    import EffectsEffectTab from "../components/pages/EffectsEffectTab.svelte";
-    import EffectsPropertiesTab from "../components/pages/EffectsPropertiesTab.svelte";
-    import EffectSheetHeader from "../components/EffectSheetHeader.svelte";
-    import NavigationBar from "../components/navigation/NavigationBar.svelte";
+import EffectsDescriptionTab from '../components/pages/EffectsDescriptionTab.svelte';
+import EffectsEffectTab from '../components/pages/EffectsEffectTab.svelte';
+import EffectsPropertiesTab from '../components/pages/EffectsPropertiesTab.svelte';
+import EffectSheetHeader from '../components/EffectSheetHeader.svelte';
+import NavigationBar from '../components/navigation/NavigationBar.svelte';
 
-    export let { appId, document, sheet } = getContext("#external").application;
-    export let elementRoot;
+export let { appId, document, sheet } = getContext('#external').application;
+export let elementRoot;
 
-    const effect = document;
+const effect = document;
 
-    function updateCurrentTab(event) {
-        currentTab = tabs[event.detail];
-    }
+function updateCurrentTab(event) {
+	currentTab = tabs[event.detail];
+}
 
-    let effectType = foundry.utils.getProperty($effect, "flags.a5e.transferType");
+let effectType = foundry.utils.getProperty($effect, 'flags.a5e.transferType');
 
-    const tabs = [
-        {
-            name: "description",
-            label: "A5E.ItemSheetLabelDescriptionTab",
-            component: EffectsDescriptionTab,
-        },
-        {
-            name: "properties",
-            label: "A5E.ItemSheetLabelPropertiesTab",
-            component: EffectsPropertiesTab,
-            display: effectType === "onUse",
-        },
-        {
-            name: "effects",
-            label: "A5E.TabEffects",
-            component: EffectsEffectTab,
-        },
-    ];
+const tabs = [
+	{
+		name: 'description',
+		label: 'A5E.ItemSheetLabelDescriptionTab',
+		component: EffectsDescriptionTab,
+	},
+	{
+		name: 'properties',
+		label: 'A5E.ItemSheetLabelPropertiesTab',
+		component: EffectsPropertiesTab,
+		display: effectType === 'onUse',
+	},
+	{
+		name: 'effects',
+		label: 'A5E.TabEffects',
+		component: EffectsEffectTab,
+	},
+];
 
-    let currentTab = tabs[0];
+let currentTab = tabs[0];
 
-    setContext("appId", appId);
-    setContext("effect", effect);
-    setContext("sheet", sheet);
+setContext('appId', appId);
+setContext('effect', effect);
+setContext('sheet', sheet);
 </script>
 
 <ApplicationShell bind:elementRoot>

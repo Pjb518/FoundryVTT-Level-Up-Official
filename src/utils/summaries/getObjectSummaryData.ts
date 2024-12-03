@@ -8,30 +8,30 @@ import getShieldProperties from './getShieldProperties';
 import getWeaponProperties from './getWeaponProperties';
 
 export default function getObjectSummaryData(item: ObjectItemA5e, options: Record<string, any>) {
-  // @ts-expect-error
-  const summaryData: {
-    objectProperties: string,
-    craftingComponents?: string,
-    objectMechanics: string
-  } = {};
+	// @ts-expect-error
+	const summaryData: {
+		objectProperties: string;
+		craftingComponents?: string;
+		objectMechanics: string;
+	} = {};
 
-  const { objectType } = (item).system;
+	const { objectType } = item.system;
 
-  const objectProperties = getMaterialProperties(item);
+	const objectProperties = getMaterialProperties(item);
 
-  if (objectType === 'armor') objectProperties.push(...getArmorProperties(item));
-  else if (objectType === 'shield') objectProperties.push(...getShieldProperties(item));
-  else if (objectType === 'weapon') objectProperties.push(...getWeaponProperties(item));
+	if (objectType === 'armor') objectProperties.push(...getArmorProperties(item));
+	else if (objectType === 'shield') objectProperties.push(...getShieldProperties(item));
+	else if (objectType === 'weapon') objectProperties.push(...getWeaponProperties(item));
 
-  objectProperties.sort((a, b) => a.localeCompare(b));
+	objectProperties.sort((a, b) => a.localeCompare(b));
 
-  summaryData.objectProperties = objectProperties.join(', ');
+	summaryData.objectProperties = objectProperties.join(', ');
 
-  if (!options?.hideCraftingComponents) {
-    summaryData.craftingComponents = getCraftingComponentsLabel(item);
-  }
+	if (!options?.hideCraftingComponents) {
+		summaryData.craftingComponents = getCraftingComponentsLabel(item);
+	}
 
-  summaryData.objectMechanics = getObjectMechanicsLabel(item, options);
+	summaryData.objectMechanics = getObjectMechanicsLabel(item, options);
 
-  return summaryData;
+	return summaryData;
 }

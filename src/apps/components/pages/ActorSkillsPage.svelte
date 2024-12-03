@@ -1,61 +1,66 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Skill from "../Skill.svelte";
+import FieldWrapper from '../FieldWrapper.svelte';
+import Skill from '../Skill.svelte';
 
-    function determineWhetherToShowSkillSpecialties(skills) {
-        if (game.settings.get("a5e", "hideSkillSpecialties")) return false;
+function determineWhetherToShowSkillSpecialties(skills) {
+	if (game.settings.get('a5e', 'hideSkillSpecialties')) return false;
 
-        return Object.values(skills).some((skill) => skill.specialties.length);
-    }
+	return Object.values(skills).some((skill) => skill.specialties.length);
+}
 
-    function getSkills(baseSkills) {
-        const skills = { ...baseSkills };
+function getSkills(baseSkills) {
+	const skills = { ...baseSkills };
 
-        if (game.settings.get("a5e", "hideA5eSkills")) {
-            delete skills.cul;
-            delete skills.eng;
-        }
+	if (game.settings.get('a5e', 'hideA5eSkills')) {
+		delete skills.cul;
+		delete skills.eng;
+	}
 
+<<<<<<< HEAD
 	if(game.settings.get("a5e", "showVRCSkills")) {
 		delete skills.sci;
 	}
 
         return skills;
     }
+=======
+	return skills;
+}
+>>>>>>> v1
 
-    function getSkillSpecialties(skillKey, skill) {
-        const specialties = skill.specialties;
+function getSkillSpecialties(skillKey, skill) {
+	const specialties = skill.specialties;
 
-        if (!Array.isArray(specialties) || !specialties?.length) return [];
+	if (!Array.isArray(specialties) || !specialties?.length) return [];
 
-        return specialties
-            .sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
-            .map((specialty) => {
-                if (!skillSpecialties[skillKey]) return specialty;
+	return specialties
+		.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()))
+		.map((specialty) => {
+			if (!skillSpecialties[skillKey]) return specialty;
 
-                return skillSpecialties[skillKey][specialty] ?? specialty;
-            });
-    }
+			return skillSpecialties[skillKey][specialty] ?? specialty;
+		});
+}
 
-    function rollSkillCheckWithSpecialty(skillKey) {
-        const baseExpertiseDice = $actor.system.skills[skillKey].expertiseDice;
+function rollSkillCheckWithSpecialty(skillKey) {
+	const baseExpertiseDice = $actor.system.skills[skillKey].expertiseDice;
 
-        $actor.rollSkillCheck(skillKey, {
-            expertiseDice: baseExpertiseDice + 1,
-        });
-    }
+	$actor.rollSkillCheck(skillKey, {
+		expertiseDice: baseExpertiseDice + 1,
+	});
+}
 
-    const actor = getContext("actor");
-    const { A5E } = CONFIG;
-    const { skillSpecialties } = A5E;
+const actor = getContext('actor');
+const { A5E } = CONFIG;
+const { skillSpecialties } = A5E;
 
-    $: skills = getSkills($actor.system.skills);
-    $: showSpecialties = determineWhetherToShowSkillSpecialties(skills);
+$: skills = getSkills($actor.system.skills);
+$: showSpecialties = determineWhetherToShowSkillSpecialties(skills);
 
-    $: skillListFlowDirection = game.settings.get("a5e", "skillListFlowDirection");
+$: skillListFlowDirection = game.settings.get('a5e', 'skillListFlowDirection');
 </script>
 
 <div class="skill-page-wrapper">

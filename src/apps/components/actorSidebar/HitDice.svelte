@@ -1,11 +1,11 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import computeTotalAvailableHitDice from "../../../utils/computeTotalAvailableHitDice";
+import computeTotalAvailableHitDice from '../../../utils/computeTotalAvailableHitDice';
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    $: availableHitDice = computeTotalAvailableHitDice($actor);
+$: availableHitDice = computeTotalAvailableHitDice($actor);
 </script>
 
 <li class="hit-dice-wrapper">

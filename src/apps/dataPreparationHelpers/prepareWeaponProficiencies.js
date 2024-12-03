@@ -30,19 +30,19 @@ export default function getWeaponProficiencies(data) {
   ['simple', 'martial', 'rare', 'miscellaneous'].forEach((weaponType) => {
     const weaponKeys = Object.keys(CONFIG.A5E.weaponsPlural[weaponType]);
 
-    if (arraysAreEqual(weaponKeys, weaponProficienciesByGroup[weaponType])) {
-      weaponProficienciesByGroup[weaponType] = [game.i18n.localize(
-        `A5E.Weapons${weaponType[0].toUpperCase() + weaponType.slice(1)}`
-      )];
-    } else {
-      weaponProficienciesByGroup[weaponType] = weaponProficienciesByGroup[weaponType].map(
-        (weapon) => game.i18n.localize(CONFIG.A5E.weaponsPlural[weaponType][weapon])
-      );
-    }
-  });
+		if (arraysAreEqual(weaponKeys, weaponProficienciesByGroup[weaponType])) {
+			weaponProficienciesByGroup[weaponType] = [
+				game.i18n.localize(`A5E.Weapons${weaponType[0].toUpperCase() + weaponType.slice(1)}`),
+			];
+		} else {
+			weaponProficienciesByGroup[weaponType] = weaponProficienciesByGroup[weaponType].map(
+				(weapon) => game.i18n.localize(CONFIG.A5E.weaponsPlural[weaponType][weapon]),
+			);
+		}
+	});
 
-  const weaponProficiencies = Object.values(weaponProficienciesByGroup).flat();
-  weaponProficiencies.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+	const weaponProficiencies = Object.values(weaponProficienciesByGroup).flat();
+	weaponProficiencies.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 
-  return weaponProficiencies;
+	return weaponProficiencies;
 }

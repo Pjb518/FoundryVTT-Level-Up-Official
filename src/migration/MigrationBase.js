@@ -1,59 +1,59 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 export default class MigrationBase {
-  static version;
+	static version;
 
-  constructor(requiresFlush = false) {
-    this.version = (this.constructor).version;
-    this.requiresFlush = false;
-  }
+	constructor(requiresFlush = false) {
+		this.version = this.constructor.version;
+		this.requiresFlush = false;
+	}
 
-  /**
-   *
-   * @param {Object} actorData
-   * @returns {Promise<void>}
-   */
-  async updateActor(actorData) { }
+	/**
+	 *
+	 * @param {Object} actorData
+	 * @returns {Promise<void>}
+	 */
+	async updateActor(actorData) {}
 
-  /**
-   *
-   * @param {*} itemData
-   * @param {*} actorData
-   * @returns {Promise<void>}
-   */
-  async preUpdateItem(itemData, actorData) { }
+	/**
+	 *
+	 * @param {*} itemData
+	 * @param {*} actorData
+	 * @returns {Promise<void>}
+	 */
+	async preUpdateItem(itemData, actorData) {}
 
-  /**
-   *
-   * @param {*} itemData
-   * @returns {Promise<void>}
-   */
-  async updateItem(itemData, actorData) { }
+	/**
+	 *
+	 * @param {*} itemData
+	 * @returns {Promise<void>}
+	 */
+	async updateItem(itemData, actorData) {}
 
-  /**
-   *
-   * @param {*} macroData
-   * @returns {Promise<void>}
-   */
-  async updateMacro(macroData) { }
+	/**
+	 *
+	 * @param {*} macroData
+	 * @returns {Promise<void>}
+	 */
+	async updateMacro(macroData) {}
 
-  /**
-   *
-   * @param {*} tokenData
-   * @returns {Promise<void>}
-   */
-  async updateToken(tokenData, _actor, _scene) { }
+	/**
+	 *
+	 * @param {*} tokenData
+	 * @returns {Promise<void>}
+	 */
+	async updateToken(tokenData, _actor, _scene) {}
 
-  /**
-   *
-   * @param {*} userData
-   * @returns {Promise<void>}
-   */
-  async updateUser(userData) { }
+	/**
+	 *
+	 * @param {*} userData
+	 * @returns {Promise<void>}
+	 */
+	async updateUser(userData) {}
 
-  /**
-   *
-   * @returns {Promise<void>}
-   */
-  async migrate() { }
+	/**
+	 *
+	 * @returns {Promise<void>}
+	 */
+	async migrate() {}
 }

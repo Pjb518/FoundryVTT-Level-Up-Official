@@ -1,9 +1,9 @@
 <script>
-    import Section from "../Section.svelte";
+import Section from '../Section.svelte';
 
-    export let ItemComponent;
-    export let name;
-    export let reducer;
+export let ItemComponent;
+export let name;
+export let reducer;
 </script>
 
 {#if reducer.length}

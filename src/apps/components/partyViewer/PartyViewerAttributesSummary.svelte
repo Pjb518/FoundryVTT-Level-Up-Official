@@ -1,11 +1,11 @@
 <script>
-    import replaceHyphenWithMinusSign from "../../../utils/replaceHyphenWithMinusSign";
+import replaceHyphenWithMinusSign from '../../../utils/replaceHyphenWithMinusSign';
 
-    export let actor;
-    export const propData = {};
+export let actor;
+export const propData = {};
 
-    $: actorData = $actor?.system;
-    const abilities = CONFIG.A5E.abilities;
+$: actorData = $actor?.system;
+const abilities = CONFIG.A5E.abilities;
 </script>
 
 {#each Object.entries(actorData.abilities ?? {}) as [key, attribute]}

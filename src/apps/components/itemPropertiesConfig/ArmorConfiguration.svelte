@@ -1,8 +1,8 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
@@ -40,10 +40,10 @@
             (property) => localize(property),
         );
 
-        properties.sort((a, b) => a.localeCompare(b));
+	properties.sort((a, b) => a.localeCompare(b));
 
-        return properties.join(", ");
-    }
+	return properties.join(', ');
+}
 
     function getRepairabilityDC(item) {
         return item.system.repairabilityDC;
@@ -53,7 +53,7 @@
     const appId = getContext("appId");
     const { armor: armorTypes, armorProperties, armorMods, repairTools } = CONFIG.A5E;
 
-    let editMode = false;
+let editMode = false;
 
     $: selectedArmorMods = prepareArmorMods($item);
     $: selectedArmorProperties = prepareArmorProperties($item);

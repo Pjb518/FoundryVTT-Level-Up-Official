@@ -1,12 +1,11 @@
 <script>
-    export let propData = {};
+export let propData = {};
 
-    function getSpellLevels({ highestSpellSlotLevel }) {
-        return Object.entries(CONFIG.A5E.spellLevels).filter(
-            ([spellLevel]) =>
-                spellLevel && spellLevel !== "0" && spellLevel <= highestSpellSlotLevel,
-        );
-    }
+function getSpellLevels({ highestSpellSlotLevel }) {
+	return Object.entries(CONFIG.A5E.spellLevels).filter(
+		([spellLevel]) => spellLevel && spellLevel !== '0' && spellLevel <= highestSpellSlotLevel,
+	);
+}
 </script>
 
 <header class="a5e-section-header a5e-section-header--party-viewer">

@@ -1,40 +1,40 @@
 <script>
-    import { localize } from "#runtime/util/i18n";
-    import { getContext } from "svelte";
+import { localize } from '#runtime/util/i18n';
+import { getContext } from 'svelte';
 
-    import Editor from "../Editor.svelte";
+import Editor from '../Editor.svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    let currentEditor = "bio";
+let currentEditor = 'bio';
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    const charChoicesLabel = {
-        classes: "A5E.ClassPlural",
-        archetype: "A5E.Archetype",
-        // background: "A5E.Background",
-        // culture: "A5E.Culture",
-        // destiny: "A5E.Destiny",
-        heritage: "A5E.Heritage",
-        prestige: "A5E.Prestige",
-    };
+const charChoicesLabel = {
+	classes: 'A5E.ClassPlural',
+	archetype: 'A5E.Archetype',
+	// background: "A5E.Background",
+	// culture: "A5E.Culture",
+	// destiny: "A5E.Destiny",
+	heritage: 'A5E.Heritage',
+	prestige: 'A5E.Prestige',
+};
 
-    const traitsLabel = {
-        age: "A5E.DetailsAge",
-        eyeColor: "A5E.DetailsEyeColor",
-        hairColor: "A5E.DetailsHairColor",
-        skinColor: "A5E.DetailsSkinColor",
-        height: "A5E.DetailsHeight",
-        weight: "A5E.DetailsWeight",
-        gender: "A5E.DetailsGender",
-    };
+const traitsLabel = {
+	age: 'A5E.DetailsAge',
+	eyeColor: 'A5E.DetailsEyeColor',
+	hairColor: 'A5E.DetailsHairColor',
+	skinColor: 'A5E.DetailsSkinColor',
+	height: 'A5E.DetailsHeight',
+	weight: 'A5E.DetailsWeight',
+	gender: 'A5E.DetailsGender',
+};
 
-    function onSelectEditor(editor) {
-        currentEditor = editor;
-    }
+function onSelectEditor(editor) {
+	currentEditor = editor;
+}
 
-    $: details = $actor.system.details;
+$: details = $actor.system.details;
 </script>
 
 <div class="bio-page">

@@ -1,25 +1,25 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import Checkbox from "../Checkbox.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
+import Checkbox from '../Checkbox.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
+import RadioGroup from '../RadioGroup.svelte';
 
-    const item = getContext("item");
-    const grantId = getContext("grantId");
+const item = getContext('item');
+const grantId = getContext('grantId');
 
-    const levelTypes = CONFIG.A5E.classLevelTypes;
+const levelTypes = CONFIG.A5E.classLevelTypes;
 
-    function onUpdateValue(key, value) {
-        key = `system.grants.${grantId}.${key}`;
-        updateDocumentDataFromField($item, key, value);
-    }
+function onUpdateValue(key, value) {
+	key = `system.grants.${grantId}.${key}`;
+	updateDocumentDataFromField($item, key, value);
+}
 
-    $: grant = $item.system.grants[grantId];
+$: grant = $item.system.grants[grantId];
 </script>
 
 <Section heading="Grant Config" --a5e-section-body-gap="0.75rem">

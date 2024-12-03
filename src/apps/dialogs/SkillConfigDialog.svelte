@@ -1,28 +1,28 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import CustomTagGroup from "../components/CustomTagGroup.svelte";
-    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
-    import Section from "../components/Section.svelte";
+import Checkbox from '../components/Checkbox.svelte';
+import CustomTagGroup from '../components/CustomTagGroup.svelte';
+import ExpertiseDiePicker from '../components/ExpertiseDiePicker.svelte';
+import FieldWrapper from '../components/FieldWrapper.svelte';
+import RadioGroup from '../components/RadioGroup.svelte';
+import Section from '../components/Section.svelte';
 
-    import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+import prepareAbilityOptions from '../dataPreparationHelpers/prepareAbilityOptions';
+import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-    export let { document, appId, skillKey } = getContext("#external").application;
+export let { document, appId, skillKey } = getContext('#external').application;
 
-    const actor = document;
-    const abilityOptions = prepareAbilityOptions();
+const actor = document;
+const abilityOptions = prepareAbilityOptions();
 
-    const specialtyOptions = Object.entries(CONFIG.A5E.skillSpecialties[skillKey]);
+const specialtyOptions = Object.entries(CONFIG.A5E.skillSpecialties[skillKey]);
 
-    let dnd5eStyleExpertise = game.settings.get("a5e", "5eStyleExpertise");
+let dnd5eStyleExpertise = game.settings.get('a5e', '5eStyleExpertise');
 
-    let hideSkillSpecialties = game.settings.get("a5e", "hideSkillSpecialties") ?? false;
+let hideSkillSpecialties = game.settings.get('a5e', 'hideSkillSpecialties') ?? false;
 
-    $: skill = $actor.system.skills[skillKey];
+$: skill = $actor.system.skills[skillKey];
 </script>
 
 <article>

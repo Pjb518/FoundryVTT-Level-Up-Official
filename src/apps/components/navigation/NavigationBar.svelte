@@ -1,17 +1,17 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import AddButton from "./AddButton.svelte";
-    import LockButton from "./LockButton.svelte";
-    import NavigationItem from "./NavigationItem.svelte";
+import AddButton from './AddButton.svelte';
+import LockButton from './LockButton.svelte';
+import NavigationItem from './NavigationItem.svelte';
 
-    export let currentTab;
-    export let tabs;
-    export let showLock = false;
-    export let showAdd = false;
+export let currentTab;
+export let tabs;
+export let showLock = false;
+export let showAdd = false;
 
-    const actor = getContext("actor");
-    const observerPermissionsLevel = CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER;
+const actor = getContext('actor');
+const observerPermissionsLevel = CONST.DOCUMENT_OWNERSHIP_LEVELS.OBSERVER;
 </script>
 
 <nav class="nav-wrapper">

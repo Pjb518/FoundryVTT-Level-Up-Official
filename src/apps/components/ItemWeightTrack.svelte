@@ -1,15 +1,15 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import calculateCarryCapacity from "../handlers/calculateCarryCapacity";
-    import calculateInventoryWeight from "../handlers/calculateInventoryWeight";
+import calculateCarryCapacity from '../handlers/calculateCarryCapacity';
+import calculateInventoryWeight from '../handlers/calculateInventoryWeight';
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    $: inventoryWeight = calculateInventoryWeight($actor);
-    $: carryCapacity = calculateCarryCapacity($actor);
-    $: encumbrancePercentage = Math.min((inventoryWeight / carryCapacity) * 100, 100);
+$: inventoryWeight = calculateInventoryWeight($actor);
+$: carryCapacity = calculateCarryCapacity($actor);
+$: encumbrancePercentage = Math.min((inventoryWeight / carryCapacity) * 100, 100);
 </script>
 
 <div

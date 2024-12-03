@@ -37,25 +37,25 @@ const schema = {
 };
 
 declare namespace A5ESpellData {
-  type Schema = A5EBaseItemData.Schema & ActionsData & UsesData & typeof schema;
-  type BaseData = A5EBaseItemData.BaseData;
-  type DerivedData = A5EBaseItemData.DerivedData;
+	type Schema = A5EBaseItemData.Schema & ActionsData & UsesData & typeof schema;
+	type BaseData = A5EBaseItemData.BaseData;
+	type DerivedData = A5EBaseItemData.DerivedData;
 }
 
 class A5ESpellData extends A5EBaseItemData<
-  A5ESpellData.Schema,
-  A5ESpellData.BaseData,
-  A5ESpellData.DerivedData
+	A5ESpellData.Schema,
+	A5ESpellData.BaseData,
+	A5ESpellData.DerivedData
 > {
-  /** @inheritDoc */
-  static override defineSchema(): A5ESpellData.Schema {
-    return {
-      ...super.defineSchema(),
-      ...actions(),
-      ...uses(),
-      ...schema
-    };
-  }
+	/** @inheritDoc */
+	static override defineSchema(): A5ESpellData.Schema {
+		return {
+			...super.defineSchema(),
+			...actions(),
+			...uses(),
+			...schema,
+		};
+	}
 }
 
 // eslint-disable-next-line import/prefer-default-export

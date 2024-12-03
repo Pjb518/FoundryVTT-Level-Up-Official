@@ -1,109 +1,106 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import Item from "./Item.svelte";
-    import SpellSlots from "./SpellSlots.svelte";
+import Item from './Item.svelte';
+import SpellSlots from './SpellSlots.svelte';
 
-    export let icon = null;
-    export let label;
-    export let level = 0;
-    export let items;
-    export let type;
-    export let showArtifactCharges = false;
-    export let showDescription = false;
-    export let showQuantity = false;
-    // export let showSpellInventions = false;
-    export let showSpellPoints = false;
-    export let showSpellSlots = false;
-    export let showUses = false;
+export let icon = null;
+export let label;
+export let level = 0;
+export let items;
+export let type;
+export let showArtifactCharges = false;
+export let showDescription = false;
+export let showQuantity = false;
+// export let showSpellInventions = false;
+export let showSpellPoints = false;
+export let showSpellSlots = false;
+export let showUses = false;
 
-    const actor = getContext("actor");
-    const sheet = getContext("sheet");
+const actor = getContext('actor');
+const sheet = getContext('sheet');
 
-    const { A5E } = CONFIG;
+const { A5E } = CONFIG;
 
-    async function onDropObject(event, items) {
-        const draggedItemUUID = JSON.parse(event.dataTransfer.getData("text/plain")).uuid;
+async function onDropObject(event, items) {
+	const draggedItemUUID = JSON.parse(event.dataTransfer.getData('text/plain')).uuid;
 
-        const draggedItem = await fromUuid(draggedItemUUID);
+	const draggedItem = await fromUuid(draggedItemUUID);
 
-        const target = event.target.closest(".a5e-item");
-        const targetUUID = target.getAttribute("data-document-uuid");
-        const targetItem = await fromUuid(targetUUID);
+	const target = event.target.closest('.a5e-item');
+	const targetUUID = target.getAttribute('data-document-uuid');
+	const targetItem = await fromUuid(targetUUID);
 
-        if (targetItem?.system?.objectType === "container") {
-            sheet._onDrop(event, { containerUuid: targetItem.uuid });
-            return;
-        }
+	if (targetItem?.system?.objectType === 'container') {
+		sheet._onDrop(event, { containerUuid: targetItem.uuid });
+		return;
+	}
 
-        if (!items.includes(draggedItem)) return sheet._onDrop(event);
+	if (!items.includes(draggedItem)) return sheet._onDrop(event);
 
-        const updates = SortingHelpers.performIntegerSort(draggedItem, {
-            target: targetItem,
-            siblings: items,
-        });
+	const updates = SortingHelpers.performIntegerSort(draggedItem, {
+		target: targetItem,
+		siblings: items,
+	});
 
-        $actor.updateEmbeddedDocuments(
-            "Item",
-            updates.map(({ target, update }) => {
-                return { _id: target.id, sort: update.sort };
-            }),
-        );
-    }
+	$actor.updateEmbeddedDocuments(
+		'Item',
+		updates.map(({ target, update }) => {
+			return { _id: target.id, sort: update.sort };
+		}),
+	);
+}
 
-    function getHeadingTemplateConfiguration(showUses, showQuantity) {
-        let areas = "name";
-        let columns = "1fr";
+function getHeadingTemplateConfiguration(showUses, showQuantity) {
+	let areas = 'name';
+	let columns = '1fr';
 
-        if (showUses) {
-            if (showQuantity) {
-                areas = "name quantity uses";
-                columns = "1fr 4rem 6.25rem";
-            } else {
-                areas = "name uses";
-                columns = "1fr 6.25rem";
-            }
-        } else if (showQuantity) {
-            areas = "name quantity";
-            columns = "1fr 4rem";
-        }
+	if (showUses) {
+		if (showQuantity) {
+			areas = 'name quantity uses';
+			columns = '1fr 4rem 6.25rem';
+		} else {
+			areas = 'name uses';
+			columns = '1fr 6.25rem';
+		}
+	} else if (showQuantity) {
+		areas = 'name quantity';
+		columns = '1fr 4rem';
+	}
 
-        areas += ` menu`;
-        columns += ` 2rem`;
+	areas += ` menu`;
+	columns += ` 2rem`;
 
-        return { areas: `"${areas}"`, columns };
-    }
+	return { areas: `"${areas}"`, columns };
+}
 
-    function getItemTemplateConfiguration(showUses, showQuantity) {
-        let areas = "icon name indicators";
-        let columns = "min-content 1fr min-content";
+function getItemTemplateConfiguration(showUses, showQuantity) {
+	let areas = 'icon name indicators';
+	let columns = 'min-content 1fr min-content';
 
-        if (showUses) {
-            if (showQuantity) {
-                areas = "icon name indicators quantity uses";
-                columns = "min-content 1fr min-content 4rem 6.25rem";
-            } else {
-                areas = "icon name indicators uses";
-                columns = "min-content 1fr min-content 6.25rem";
-            }
-        } else if (showQuantity) {
-            areas = "icon name indicators quantity";
-            columns = "min-content 1fr min-content 4rem";
-        }
+	if (showUses) {
+		if (showQuantity) {
+			areas = 'icon name indicators quantity uses';
+			columns = 'min-content 1fr min-content 4rem 6.25rem';
+		} else {
+			areas = 'icon name indicators uses';
+			columns = 'min-content 1fr min-content 6.25rem';
+		}
+	} else if (showQuantity) {
+		areas = 'icon name indicators quantity';
+		columns = 'min-content 1fr min-content 4rem';
+	}
 
-        areas += ` menu`;
-        columns += ` 2rem`;
+	areas += ` menu`;
+	columns += ` 2rem`;
 
-        return { areas: `"${areas}"`, columns };
-    }
+	return { areas: `"${areas}"`, columns };
+}
 
-    $: headingTemplateConfiguration = getHeadingTemplateConfiguration(
-        showUses,
-        showQuantity,
-    );
+$: headingTemplateConfiguration = getHeadingTemplateConfiguration(showUses, showQuantity);
 
-    $: itemTemplateConfiguration = getItemTemplateConfiguration(showUses, showQuantity);
+$: itemTemplateConfiguration = getItemTemplateConfiguration(showUses, showQuantity);
 </script>
 
 <section class="category-container">

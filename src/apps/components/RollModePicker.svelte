@@ -1,21 +1,19 @@
 <script lang="ts">
-    import { localize } from "#runtime/util/i18n";
+import { localize } from '#runtime/util/i18n';
 
-    import RadioGroup from "./RadioGroup.svelte";
+import RadioGroup from './RadioGroup.svelte';
 
-    export let selected: string;
-    export let source: string;
+export let selected: string;
+export let source: string;
 
-    const rollModes: [string, string][] = Object.entries(CONFIG.A5E.rollModes ?? {});
+const rollModes: [string, string][] = Object.entries(CONFIG.A5E.rollModes ?? {});
 
-    const options = rollModes.map(([key, value]) => [
-        CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
-        localize(value),
-    ]);
+const options = rollModes.map(([key, value]) => [
+	CONFIG.A5E.ROLL_MODE[key.toUpperCase()],
+	localize(value),
+]);
 
-    $: buttons = source.length
-        ? [{ classes: "fas fa-question-circle", tooltip: source }]
-        : [];
+$: buttons = source.length ? [{ classes: 'fas fa-question-circle', tooltip: source }] : [];
 </script>
 
 <RadioGroup

@@ -1,51 +1,48 @@
 <script lang="ts">
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
-    import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
+import type { TJSDocument } from '@typhonjs-fvtt/runtime/svelte/store/fvtt/document';
 
-    import ItemGrantManager from "../../../managers/ItemGrantsManager";
+import ItemGrantManager from '../../../managers/ItemGrantsManager';
 
-    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
-    import ItemGrantListComponent from "../grants/ItemGrantListComponent.svelte";
-    import Section from "../Section.svelte";
+import CreateMenu from '../actorUtilityBar/CreateMenu.svelte';
+import ItemGrantListComponent from '../grants/ItemGrantListComponent.svelte';
+import Section from '../Section.svelte';
 
-    const item: TJSDocument = getContext("item");
-    // @ts-ignore
-    const itemGrantTypes = CONFIG.A5E.itemGrants;
+const item: TJSDocument = getContext('item');
+// @ts-ignore
+const itemGrantTypes = CONFIG.A5E.itemGrants;
 
-    function getGrantTemplateConfiguration() {
-        let areas = "icon name indicators";
-        let columns = "min-content 1fr min-content";
+function getGrantTemplateConfiguration() {
+	let areas = 'icon name indicators';
+	let columns = 'min-content 1fr min-content';
 
-        if ($item.documentName === "Item" || !sheetIsLocked) {
-            areas += " menu";
-            columns += " 2rem";
-        }
+	if ($item.documentName === 'Item' || !sheetIsLocked) {
+		areas += ' menu';
+		columns += ' 2rem';
+	}
 
-        return { areas: `"${areas}"`, columns };
-    }
+	return { areas: `"${areas}"`, columns };
+}
 
-    function addGrant(detail: string) {
-        const data = {
-            grantType: detail,
-            optional: false,
-        };
+function addGrant(detail: string) {
+	const data = {
+		grantType: detail,
+		optional: false,
+	};
 
-        ItemGrantManager.addGrant($item, data);
-    }
+	ItemGrantManager.addGrant($item, data);
+}
 
-    $: grants = $item.grants as ItemGrantManager;
+$: grants = $item.grants as ItemGrantManager;
 
-    $: menuList = Object.entries(itemGrantTypes).reduce(
-        (acc: any[], [grantType, label]) => {
-            acc.push([grantType, label]);
-            return acc;
-        },
-        [],
-    );
+$: menuList = Object.entries(itemGrantTypes).reduce((acc: any[], [grantType, label]) => {
+	acc.push([grantType, label]);
+	return acc;
+}, []);
 
-    $: sheetIsLocked = !$item.isOwner ? true : false;
-    $: grantTemplateConfiguration = getGrantTemplateConfiguration();
+$: sheetIsLocked = !$item.isOwner ? true : false;
+$: grantTemplateConfiguration = getGrantTemplateConfiguration();
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">

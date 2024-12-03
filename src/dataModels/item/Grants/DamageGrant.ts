@@ -5,72 +5,75 @@ import NumericalGrantConfig from '../../../apps/components/grants/NumericalGrant
 import { getDamageBonusContext } from '../../actor/Contexts';
 
 export default class DamageGrant extends BaseGrant {
-  #configComponent = NumericalGrantConfig;
+	#configComponent = NumericalGrantConfig;
 
-  #type = 'damage';
+	#type = 'damage';
 
-  static override defineSchema() {
-    const { fields } = foundry.data;
+	static override defineSchema() {
+		const { fields } = foundry.data;
 
-    return this.mergeSchema(super.defineSchema(), {
-      grantType: new fields.StringField({ required: true, initial: 'damage' }),
-      bonus: new fields.StringField({ required: true, initial: '' }),
-      damageType: new fields.StringField({ required: true, initial: '' }),
-      context: new fields.SchemaField(getDamageBonusContext('grant')),
-      label: new fields.StringField({ required: true, initial: 'New Damage Grant' })
-    });
-  }
+		return this.mergeSchema(super.defineSchema(), {
+			grantType: new fields.StringField({ required: true, initial: 'damage' }),
+			bonus: new fields.StringField({ required: true, initial: '' }),
+			damageType: new fields.StringField({ required: true, initial: '' }),
+			context: new fields.SchemaField(getDamageBonusContext('grant')),
+			label: new fields.StringField({ required: true, initial: 'New Damage Grant' }),
+		});
+	}
 
-  override getApplyData(actor: any): any {
-    if (!actor) return {};
+	override getApplyData(actor: any): any {
+		if (!actor) return {};
 
-    const bonusId = foundry.utils.randomID();
-    const bonus = {
-      context: this.context,
-      formula: this.bonus,
-      label: this.label || this.parent?.name || 'Damage Grant',
-      default: this.context.default ?? true,
-      img: this.img || this?.parent?.img
-    };
+		const bonusId = foundry.utils.randomID();
+		const bonus = {
+			context: this.context,
+			formula: this.bonus,
+			label: this.label || this.parent?.name || 'Damage Grant',
+			default: this.context.default ?? true,
+			img: this.img || this?.parent?.img,
+		};
 
-    delete bonus.context.default;
+		delete bonus.context.default;
 
-    const grantData = {
-      itemUuid: this.parent.uuid,
-      grantId: this._id,
-      bonusId,
-      type: 'damage',
-      grantType: 'bonus',
-      level: this.level
-    };
+		const grantData = {
+			itemUuid: this.parent.uuid,
+			grantId: this._id,
+			bonusId,
+			type: 'damage',
+			grantType: 'bonus',
+			level: this.level,
+		};
 
-    return {
-      [`system.bonuses.damage.${bonusId}`]: bonus,
-      'system.grants': {
-        ...actor.system.grants,
-        [this._id]: grantData
-      }
-    };
-  }
+		return {
+			[`system.bonuses.damage.${bonusId}`]: bonus,
+			'system.grants': {
+				...actor.system.grants,
+				[this._id]: grantData,
+			},
+		};
+	}
 
-  override getSelectionComponent() { return null; }
+	override getSelectionComponent() {
+		return null;
+	}
 
-  override getSelectionComponentProps() { return null; }
+	override getSelectionComponentProps() {
+		return null;
+	}
 
-  override requiresConfig() { return false; }
+	override requiresConfig() {
+		return false;
+	}
 
-  override async configureGrant() {
-    const dialogData = {
-      document: this.parent,
-      grantId: this._id,
-      grantType: this.#type
-    };
+	override async configureGrant() {
+		const dialogData = {
+			document: this.parent,
+			grantId: this._id,
+			grantType: this.#type,
+		};
 
-    super.configureGrant(
-      'Configure Damage Grant',
-      dialogData,
-      this.#configComponent,
-      { width: 500 }
-    );
-  }
+		super.configureGrant('Configure Damage Grant', dialogData, this.#configComponent, {
+			width: 500,
+		});
+	}
 }

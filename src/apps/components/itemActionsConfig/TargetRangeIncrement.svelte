@@ -1,93 +1,89 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
-    import isStandardRange from "../../../utils/isStandardRange";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import getOrdinalNumber from '../../../utils/getOrdinalNumber';
+import isStandardRange from '../../../utils/isStandardRange';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import Checkbox from "../Checkbox.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
-    import Section from "../Section.svelte";
+import Checkbox from '../Checkbox.svelte';
+import RadioGroup from '../RadioGroup.svelte';
+import Section from '../Section.svelte';
 
-    export let index;
-    export let id;
-    export let rangeObject;
-    let range = rangeObject.range;
+export let index;
+export let id;
+export let rangeObject;
+let range = rangeObject.range;
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
-    const A5E = CONFIG.A5E;
+const item = getContext('item');
+const actionId = getContext('actionId');
+const A5E = CONFIG.A5E;
 
-    function updateRangeValue(option) {
-        const isStandard = isStandardRange(option);
+function updateRangeValue(option) {
+	const isStandard = isStandardRange(option);
 
-        if (isStandard) {
-            range = option;
-            customValue = "";
-        } else if (includeUnit) range = parseInt(option, 10);
-        else range = customValue;
+	if (isStandard) {
+		range = option;
+		customValue = '';
+	} else if (includeUnit) range = parseInt(option, 10);
+	else range = customValue;
 
-        updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.ranges.${id}.range`,
-            range,
-        );
-    }
+	updateDocumentDataFromField($item, `system.actions.${actionId}.ranges.${id}.range`, range);
+}
 
-    function selectRangeUnit(event) {
-        const selectedOption = event.target?.selectedOptions[0]?.value;
+function selectRangeUnit(event) {
+	const selectedOption = event.target?.selectedOptions[0]?.value;
 
-        if (selectedOption === "null") {
-            $item.update({
-                [`system.actions.${actionId}.ranges.${id}`]: {
-                    "-=unit": null,
-                },
-            });
-        } else {
-            $item.update({
-                [`system.actions.${actionId}.ranges.${id}`]: {
-                    unit: selectedOption,
-                },
-            });
-        }
-    }
+	if (selectedOption === 'null') {
+		$item.update({
+			[`system.actions.${actionId}.ranges.${id}`]: {
+				'-=unit': null,
+			},
+		});
+	} else {
+		$item.update({
+			[`system.actions.${actionId}.ranges.${id}`]: {
+				unit: selectedOption,
+			},
+		});
+	}
+}
 
-    function deleteRangeUnit(event) {
-        const checked = event.target?.checked;
-        if (checked === true) return;
-        $item.update({
-            [`system.actions.${actionId}.ranges.${id}`]: {
-                "-=unit": null,
-            },
-        });
-    }
+function deleteRangeUnit(event) {
+	const checked = event.target?.checked;
+	if (checked === true) return;
+	$item.update({
+		[`system.actions.${actionId}.ranges.${id}`]: {
+			'-=unit': null,
+		},
+	});
+}
 
-    function deleteRangeIncrement() {
-        $item.update({
-            [`system.actions.${actionId}.ranges`]: {
-                [`-=${id}`]: null,
-            },
-        });
-    }
+function deleteRangeIncrement() {
+	$item.update({
+		[`system.actions.${actionId}.ranges`]: {
+			[`-=${id}`]: null,
+		},
+	});
+}
 
-    const heading = localize("A5E.ItemRangeIncrement", {
-        increment: getOrdinalNumber(index + 1),
-    });
+const heading = localize('A5E.ItemRangeIncrement', {
+	increment: getOrdinalNumber(index + 1),
+});
 
-    const options = Object.entries(CONFIG.A5E.rangeDescriptors).map(([value, label]) => {
-        if (["short", "medium", "long"].includes(value)) {
-            const range = CONFIG.A5E.rangeValues[value];
-            return [value, `${localize(label)} (${range} ft.)`];
-        }
+const options = Object.entries(CONFIG.A5E.rangeDescriptors).map(([value, label]) => {
+	if (['short', 'medium', 'long'].includes(value)) {
+		const range = CONFIG.A5E.rangeValues[value];
+		return [value, `${localize(label)} (${range} ft.)`];
+	}
 
-        return [value, label];
-    });
+	return [value, label];
+});
 
-    let customValue = isStandardRange(range) ? "" : range;
-    let includeUnit = rangeObject.unit ? true : false;
+let customValue = isStandardRange(range) ? '' : range;
+let includeUnit = rangeObject.unit ? true : false;
 
-    $: selected = isStandardRange(range) ? range : "other";
+$: selected = isStandardRange(range) ? range : 'other';
 </script>
 
 <RadioGroup

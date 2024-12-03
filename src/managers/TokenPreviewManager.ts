@@ -1,120 +1,120 @@
 export default class TokenPreviewManager {
-  private initialLayer: any;
+	private initialLayer: any;
 
-  private moveTime: number = 0;
+	private moveTime: number = 0;
 
-  private events: any = {};
+	private events: any = {};
 
-  token: Token;
+	token: Token;
 
-  constructor(token: Token) {
-    this.token = token;
+	constructor(token: Token) {
+		this.token = token;
 
-    this.initialLayer = canvas.activeLayer;
-  }
+		this.initialLayer = canvas.activeLayer;
+	}
 
-  async preview() {
-    this.token.draw();
-    this.token.layer.preview?.addChild(this.token);
+	async preview() {
+		this.token.draw();
+		this.token.layer.preview?.addChild(this.token);
 
-    return this.activatePreviewListeners();
-  }
+		return this.activatePreviewListeners();
+	}
 
-  activatePreviewListeners() {
-    return new Promise((resolve, reject) => {
-      this.events = {
-        cancel: this._onCancel.bind(this),
-        confirm: this._onConfirm.bind(this),
-        move: this._onMove.bind(this),
-        rotate: this._onRotate.bind(this),
-        resolve,
-        reject
-      };
+	activatePreviewListeners() {
+		return new Promise((resolve, reject) => {
+			this.events = {
+				cancel: this._onCancel.bind(this),
+				confirm: this._onConfirm.bind(this),
+				move: this._onMove.bind(this),
+				rotate: this._onRotate.bind(this),
+				resolve,
+				reject,
+			};
 
-      canvas.stage?.on('mousemove', this.events.move);
-      canvas.stage?.on('mousedown', this.events.confirm);
-      if (canvas.app) {
-        // @ts-expect-error
-        canvas.app.view.oncontextmenu = this.events.cancel;
-        // @ts-expect-error
-        canvas.app.view.onwheel = this.events.rotate;
-      }
-    });
-  }
+			canvas.stage?.on('mousemove', this.events.move);
+			canvas.stage?.on('mousedown', this.events.confirm);
+			if (canvas.app) {
+				// @ts-expect-error
+				canvas.app.view.oncontextmenu = this.events.cancel;
+				// @ts-expect-error
+				canvas.app.view.onwheel = this.events.rotate;
+			}
+		});
+	}
 
-  _cleanup() {
-    canvas.stage?.off('mousemove', this.events.move);
-    canvas.stage?.off('mousedown', this.events.confirm);
-    if (canvas.app) {
-      // @ts-expect-error
-      canvas.app.view.oncontextmenu = null;
-      // @ts-expect-error
-      canvas.app.view.onwheel = null;
-    }
+	_cleanup() {
+		canvas.stage?.off('mousemove', this.events.move);
+		canvas.stage?.off('mousedown', this.events.confirm);
+		if (canvas.app) {
+			// @ts-expect-error
+			canvas.app.view.oncontextmenu = null;
+			// @ts-expect-error
+			canvas.app.view.onwheel = null;
+		}
 
-    // TODO: Revert to original layer
-  }
+		// TODO: Revert to original layer
+	}
 
-  _onMove(e: any) {
-    e.stopPropagation();
+	_onMove(e: any) {
+		e.stopPropagation();
 
-    const now = Date.now();
-    if (now - this.moveTime <= 10) return;
-    const center = e.data.getLocalPosition(this.token.layer);
+		const now = Date.now();
+		if (now - this.moveTime <= 10) return;
+		const center = e.data.getLocalPosition(this.token.layer);
 
-    // Snap to grid
-    const hw = (canvas.grid?.w ?? 0) / 2;
-    const hh = (canvas.grid?.h ?? 0) / 2;
-    const x = center.x - ((this.token.document.width ?? 1) * hw);
-    const y = center.y - ((this.token.document.height ?? 1) * hh);
+		// Snap to grid
+		const hw = (canvas.grid?.w ?? 0) / 2;
+		const hh = (canvas.grid?.h ?? 0) / 2;
+		const x = center.x - (this.token.document.width ?? 1) * hw;
+		const y = center.y - (this.token.document.height ?? 1) * hh;
 
-    // @ts-expect-error
-    const destination = e.shiftKey ? { x, y } : canvas.grid?.getSnappedPoint({ x, y });
+		// @ts-expect-error
+		const destination = e.shiftKey ? { x, y } : canvas.grid?.getSnappedPoint({ x, y });
 
-    this.token.document.updateSource({ x: destination.x, y: destination.y });
-    this.token.refresh();
-    this.moveTime = now;
-  }
+		this.token.document.updateSource({ x: destination.x, y: destination.y });
+		this.token.refresh();
+		this.moveTime = now;
+	}
 
-  _onRotate(e: any) {
-    if (e.ctrlKey) e.preventDefault(); // Prevent zooming
-    e.stopPropagation();
+	_onRotate(e: any) {
+		if (e.ctrlKey) e.preventDefault(); // Prevent zooming
+		e.stopPropagation();
 
-    const delta = Math.sign(e.deltaY);
-    const rotation = this.token.rotation + (delta * Math.PI) / 6;
+		const delta = Math.sign(e.deltaY);
+		const rotation = this.token.rotation + (delta * Math.PI) / 6;
 
-    this.token.document.updateSource({ rotation });
-    this.token.refresh();
-  }
+		this.token.document.updateSource({ rotation });
+		this.token.refresh();
+	}
 
-  _onCancel(e: any) {
-    // @ts-expect-error
-    this.token.layer._onDragLeftCancel(e ?? {});
-    this._cleanup();
+	_onCancel(e: any) {
+		// @ts-expect-error
+		this.token.layer._onDragLeftCancel(e ?? {});
+		this._cleanup();
 
-    this.token.layer.preview?.removeChild(this.token);
-    this.token.destroy();
-    this.events.reject();
-  }
+		this.token.layer.preview?.removeChild(this.token);
+		this.token.destroy();
+		this.events.reject();
+	}
 
-  _onConfirm() {
-    this._cleanup();
+	_onConfirm() {
+		this._cleanup();
 
-    const { token } = this;
-    const interval = canvas.grid?.type === CONST.GRID_TYPES.GRIDLESS ? 0 : 2;
-    // @ts-expect-error
-    const destination = canvas.grid?.getSnappedPoint(
-      { x: token.document.x, y: token.document.y },
-      { mode: interval }
-    );
+		const { token } = this;
+		const interval = canvas.grid?.type === CONST.GRID_TYPES.GRIDLESS ? 0 : 2;
+		// @ts-expect-error
+		const destination = canvas.grid?.getSnappedPoint(
+			{ x: token.document.x, y: token.document.y },
+			{ mode: interval },
+		);
 
-    token.document.updateSource({ x: destination.x, y: destination.y });
-    token.refresh();
-    token.destroy();
+		token.document.updateSource({ x: destination.x, y: destination.y });
+		token.refresh();
+		token.destroy();
 
-    this.events.resolve(
-      // @ts-expect-error
-      canvas.scene?.createEmbeddedDocuments('Token', [token.document.toObject()])
-    );
-  }
+		this.events.resolve(
+			// @ts-expect-error
+			canvas.scene?.createEmbeddedDocuments('Token', [token.document.toObject()]),
+		);
+	}
 }

@@ -1,21 +1,21 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
     import getWeaponProperties from "../../../utils/summaries/getWeaponProperties";
     import getWeaponAugments from "../../../utils/summaries/getWeaponAugments";
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
-    import Section from "../Section.svelte";
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import RadioGroup from '../RadioGroup.svelte';
+import Section from '../Section.svelte';
 
-    const item = getContext("item");
+const item = getContext('item');
 
     const { breakerProperties, defensiveProperties, energyProperties, versatileOptions, weaponAugments, weaponProperties } =
         CONFIG.A5E;
 
-    let editMode = false;
+let editMode = false;
 
     $: selectedWeaponProperties = getWeaponProperties($item).filter(Boolean).join(", ");
     $: selectedWeaponAugments = getWeaponAugments($item).filter(Boolean).join(", ");

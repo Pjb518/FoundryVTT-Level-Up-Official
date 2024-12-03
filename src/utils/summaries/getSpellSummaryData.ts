@@ -17,9 +17,9 @@ export default function getSpellSummaryData(item: SpellItemA5e, options: Record<
   spellProperties.push(...spellSchools);
   spellProperties.push(psionicDiscipline);
 
-  return {
-    spellClasses: options?.hideSpellClasses ? '' : spellClasses,
-    spellComponents: options?.hideSpellComponents ? '' : spellComponents,
-    spellProperties: spellProperties.filter(Boolean).join(', ')
-  };
+	return {
+		spellClasses: options?.hideSpellClasses ? '' : spellClasses,
+		spellComponents: options?.hideSpellComponents ? '' : spellComponents,
+		spellProperties: spellProperties.filter(Boolean).join(', '),
+	};
 }

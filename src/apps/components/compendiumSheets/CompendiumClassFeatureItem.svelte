@@ -1,52 +1,50 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import ImportButton from "../ImportButton.svelte";
+import ImportButton from '../ImportButton.svelte';
 
-    import getDocumentSourceTooltip from "../../../utils/getDocumentSourceTooltip";
-    import CompendiumDeleteButton from "../CompendiumDeleteButton.svelte";
+import getDocumentSourceTooltip from '../../../utils/getDocumentSourceTooltip';
+import CompendiumDeleteButton from '../CompendiumDeleteButton.svelte';
 
-    export let document;
+export let document;
 
-    function onDragStart(event) {
-        const data = {
-            type: collection.documentName,
-            uuid: collection.getUuid(document._id),
-        };
-        return event.dataTransfer.setData("text/plain", JSON.stringify(data));
-    }
+function onDragStart(event) {
+	const data = {
+		type: collection.documentName,
+		uuid: collection.getUuid(document._id),
+	};
+	return event.dataTransfer.setData('text/plain', JSON.stringify(data));
+}
 
-    function getFeatureDetailsLabel(feature) {
-        const parentClass = feature.system.classes;
+function getFeatureDetailsLabel(feature) {
+	const parentClass = feature.system.classes;
 
-        const featureProperties = [
-            classes[parentClass] ?? classes5e[parentClass],
-        ];
+	const featureProperties = [classes[parentClass] ?? classes5e[parentClass]];
 
-        if (feature.system.featureType === "knack") {
-            featureProperties.push(knackTypes[parentClass]);
-        }
+	if (feature.system.featureType === 'knack') {
+		featureProperties.push(knackTypes[parentClass]);
+	}
 
-        return featureProperties.filter(Boolean).join(" | ");
-    }
+	return featureProperties.filter(Boolean).join(' | ');
+}
 
-    function getFeatureSource(feature) {
-        if (typeof feature.system.source !== "string") return null;
+function getFeatureSource(feature) {
+	if (typeof feature.system.source !== 'string') return null;
 
-        const source = products[feature.system.source];
+	const source = products[feature.system.source];
 
-        return source || null;
-    }
+	return source || null;
+}
 
-    function getPrerequisiteTooltipContent(prerequisite) {
-        return `<b>Prerequisites:</b> ${prerequisite}`;
-    }
+function getPrerequisiteTooltipContent(prerequisite) {
+	return `<b>Prerequisites:</b> ${prerequisite}`;
+}
 
-    const collection = getContext("collection");
-    const { classes, classes5e, knackTypes, products } = CONFIG.A5E;
+const collection = getContext('collection');
+const { classes, classes5e, knackTypes, products } = CONFIG.A5E;
 
-    $: featureDetails = getFeatureDetailsLabel(document);
-    $: featureSource = getFeatureSource(document);
+$: featureDetails = getFeatureDetailsLabel(document);
+$: featureSource = getFeatureSource(document);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->

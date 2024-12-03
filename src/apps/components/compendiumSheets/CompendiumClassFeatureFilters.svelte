@@ -1,40 +1,40 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
+import CompendiumFilterCategory from './CompendiumFilterCategory.svelte';
 
-    export let compendiumType = "class";
+export let compendiumType = 'class';
 
-    const filterStore = getContext("filterStore");
-    const { classes } = CONFIG.A5E;
+const filterStore = getContext('filterStore');
+const { classes } = CONFIG.A5E;
 
-    const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
-        acc[key] = value.title;
-        return acc;
-    }, {});
+const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
+	acc[key] = value.title;
+	return acc;
+}, {});
 
-    function getFormSections() {
-        const formSectionMap = [
-            {
-                filterKey: "classes",
-                heading: "Class",
-                options: classes,
-            },
-            {
-                filterKey: "source",
-                heading: "Source",
-                options: products,
-            },
-        ];
+function getFormSections() {
+	const formSectionMap = [
+		{
+			filterKey: 'classes',
+			heading: 'Class',
+			options: classes,
+		},
+		{
+			filterKey: 'source',
+			heading: 'Source',
+			options: products,
+		},
+	];
 
-        return formSectionMap;
-    }
+	return formSectionMap;
+}
 
-    let filterSelections = {};
+let filterSelections = {};
 
-    filterStore.subscribe((store) => {
-        filterSelections = store;
-    });
+filterStore.subscribe((store) => {
+	filterSelections = store;
+});
 </script>
 
 {#each getFormSections() as { display, heading, filterKey, options }}

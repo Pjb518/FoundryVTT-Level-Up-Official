@@ -1,26 +1,23 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
-    import Section from "../components/Section.svelte";
+import Checkbox from '../components/Checkbox.svelte';
+import FieldWrapper from '../components/FieldWrapper.svelte';
+import RadioGroup from '../components/RadioGroup.svelte';
+import Section from '../components/Section.svelte';
 
-    // export let reload;
+// export let reload;
 
-    const settings = getContext("settings");
-    const updates = getContext("updates");
+const settings = getContext('settings');
+const updates = getContext('updates');
 
-    // Stores
-    let critCalculationMode = settings.getStore("critCalculationMode");
-    let preventActivationRoll = settings.getStore("preventActionRollOnWarning");
+// Stores
+let critCalculationMode = settings.getStore('critCalculationMode');
+let preventActivationRoll = settings.getStore('preventActionRollOnWarning');
 
-    let selectedCritMode =
-        updates.get("critCalculationMode") ?? $critCalculationMode;
+let selectedCritMode = updates.get('critCalculationMode') ?? $critCalculationMode;
 
-    const critCalculationModeOptions = game.settings.settings.get(
-        "a5e.critCalculationMode",
-    ).choices;
+const critCalculationModeOptions = game.settings.settings.get('a5e.critCalculationMode').choices;
 </script>
 
 <Section heading="Generic Roll Settings" --a5e-section-body-gap="0.5rem">

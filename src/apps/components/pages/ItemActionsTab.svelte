@@ -1,46 +1,46 @@
 <script lang="ts">
-    import type { Writable } from "svelte/store";
-    import type { ItemA5e } from "../../../documents/item/item";
+import type { Writable } from 'svelte/store';
+import type { ItemA5e } from '../../../documents/item/item';
 
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import Section from "../Section.svelte";
+import Section from '../Section.svelte';
 
-    const item: Writable<ItemA5e> = getContext("item");
+const item: Writable<ItemA5e> = getContext('item');
 
-    function addAction() {
-        $item.actions.add();
-    }
+function addAction() {
+	$item.actions.add();
+}
 
-    function duplicateAction(actionId: string) {
-        $item.actions.duplicate(actionId);
-    }
+function duplicateAction(actionId: string) {
+	$item.actions.duplicate(actionId);
+}
 
-    function configureAction(actionId: string) {
-        $item.actions.configure(actionId);
-    }
+function configureAction(actionId: string) {
+	$item.actions.configure(actionId);
+}
 
-    function deleteAction(actionId: string) {
-        $item.actions.remove(actionId);
-    }
+function deleteAction(actionId: string) {
+	$item.actions.remove(actionId);
+}
 
-    function setDefault(actionId: string) {
-        $item.actions.setDefaultAction(actionId);
-    }
+function setDefault(actionId: string) {
+	$item.actions.setDefaultAction(actionId);
+}
 
-    // **********************************************
-    // Drag Drop Handlers
-    async function _onDragStart(event: DragEvent, actionId: string) {
-        const dragData = {
-            actionId,
-            itemUuid: $item.uuid,
-            type: "Action",
-        };
+// **********************************************
+// Drag Drop Handlers
+async function _onDragStart(event: DragEvent, actionId: string) {
+	const dragData = {
+		actionId,
+		itemUuid: $item.uuid,
+		type: 'Action',
+	};
 
-        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
-    }
+	return event.dataTransfer?.setData('text/plain', JSON.stringify(dragData));
+}
 
-    $: defaultAction = $item.actions.default?.id;
+$: defaultAction = $item.actions.default?.id;
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">

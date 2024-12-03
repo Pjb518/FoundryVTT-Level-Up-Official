@@ -1,27 +1,27 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import getContextsMap from "../../../utils/getContextsMap";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import getContextsMap from '../../../utils/getContextsMap';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import Checkbox from "../Checkbox.svelte";
-    import CheckBoxGroup from "../CheckboxGroup.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
+import Checkbox from '../Checkbox.svelte';
+import CheckBoxGroup from '../CheckboxGroup.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
 
-    const item = getContext("item");
-    const grantId = getContext("grantId");
-    const grantType = getContext("grantType");
-    const getProperty = foundry.utils.getProperty;
-    const contextMap = getContextsMap("grant", grantType);
+const item = getContext('item');
+const grantId = getContext('grantId');
+const grantType = getContext('grantType');
+const getProperty = foundry.utils.getProperty;
+const contextMap = getContextsMap('grant', grantType);
 
-    function onUpdateValue(key, value) {
-        key = `system.grants.${grantId}.${key}`;
-        updateDocumentDataFromField($item, key, value);
-    }
+function onUpdateValue(key, value) {
+	key = `system.grants.${grantId}.${key}`;
+	updateDocumentDataFromField($item, key, value);
+}
 
-    $: grant = $item.system.grants[grantId];
+$: grant = $item.system.grants[grantId];
 </script>
 
 <Section

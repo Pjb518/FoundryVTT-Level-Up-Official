@@ -6,12 +6,12 @@ import MigrationRunner from '../migration/MigrationRunner';
 import { A5E as CONFIG } from '../config';
 
 class A5eGameSettings extends TJSGameSettings {
-  public settingsData: any;
+	public settingsData: any;
 
-  constructor() {
-    super('a5e');
-    this.settingsData = null;
-  }
+	constructor() {
+		super('a5e');
+		this.settingsData = null;
+	}
 
   init(): void {
     const namespace = 'a5e';
@@ -778,30 +778,29 @@ class A5eGameSettings extends TJSGameSettings {
         }
       },
 
-      // Party Sheet Settings
-      {
-        namespace,
-        key: 'parties',
-        options: {
-          name: 'A5E.settings.parties',
-          scope: scope.world,
-          config: false,
-          default: {
-            '5Di3aRnZbNtrXq0K': {
-              name: 'New Party',
-              actors: [],
-              isLocked: false
-            }
-          },
-          type: Object
-        }
-      }
+			// Party Sheet Settings
+			{
+				namespace,
+				key: 'parties',
+				options: {
+					name: 'A5E.settings.parties',
+					scope: scope.world,
+					config: false,
+					default: {
+						'5Di3aRnZbNtrXq0K': {
+							name: 'New Party',
+							actors: [],
+							isLocked: false,
+						},
+					},
+					type: Object,
+				},
+			},
+		];
 
-    ];
-
-    this.registerAll(settings, false);
-    this.settingsData = settings;
-  }
+		this.registerAll(settings, false);
+		this.settingsData = settings;
+	}
 }
 
 // eslint-disable-next-line import/prefer-default-export

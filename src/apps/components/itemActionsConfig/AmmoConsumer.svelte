@@ -1,36 +1,36 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
 
-    export let consumer;
-    export let consumerId;
-    export let deleteConsumer;
+export let consumer;
+export let consumerId;
+export let deleteConsumer;
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+const item = getContext('item');
+const actionId = getContext('actionId');
 
-    function updateItemSelection() {
-        updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.consumers.${consumerId}.itemId`,
-            selectedItem,
-        );
-    }
+function updateItemSelection() {
+	updateDocumentDataFromField(
+		$item,
+		`system.actions.${actionId}.consumers.${consumerId}.itemId`,
+		selectedItem,
+	);
+}
 
-    let selectedItem = consumer.itemId;
-    $: selectedItem, updateItemSelection();
+let selectedItem = consumer.itemId;
+$: selectedItem, updateItemSelection();
 
-    $: ammunitionItems = $item.actor
-        ? $item.actor.items
-              .filter((i) => i.type === "object" && i.system.objectType === "ammunition")
-              .map((i) => ({ name: i.name, id: i.id }))
-              .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
-        : [];
+$: ammunitionItems = $item.actor
+	? $item.actor.items
+			.filter((i) => i.type === 'object' && i.system.objectType === 'ammunition')
+			.map((i) => ({ name: i.name, id: i.id }))
+			.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()))
+	: [];
 </script>
 
 <FieldWrapper

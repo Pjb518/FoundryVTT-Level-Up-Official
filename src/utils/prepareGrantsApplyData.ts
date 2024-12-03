@@ -2,64 +2,64 @@ import type { Grant } from 'types/itemGrants';
 import type CharacterActorA5E from '../documents/actor/character';
 
 export default function prepareApplyData(
-  actor: CharacterActorA5E,
-  grants: any[],
-  applyData: Map<string, any>
+	actor: CharacterActorA5E,
+	grants: any[],
+	applyData: Map<string, any>,
 ): Record<string, any> {
-  const updateData: Record<string, any> = {};
-  const documentData: Map<string, any[]> = new Map();
+	const updateData: Record<string, any> = {};
+	const documentData: Map<string, any[]> = new Map();
 
-  grants.forEach(({ id, grant }: { id: string, grant: Grant }) => {
-    const inputData = applyData.get(id);
+	grants.forEach(({ id, grant }: { id: string; grant: Grant }) => {
+		const inputData = applyData.get(id);
 
-    if (grant.grantType === 'feature') {
-      const data = grant.getApplyData(actor, inputData);
-      const uuids: string[] = inputData?.uuids ?? grant.features.base.map(({ uuid }) => uuid) ?? [];
+		if (grant.grantType === 'feature') {
+			const data = grant.getApplyData(actor, inputData);
+			const uuids: string[] = inputData?.uuids ?? grant.features.base.map(({ uuid }) => uuid) ?? [];
 
-      const temp = uuids.map((uuid: string) => ({ uuid, type: 'feature' }));
-      documentData.set(id, temp);
+			const temp = uuids.map((uuid: string) => ({ uuid, type: 'feature' }));
+			documentData.set(id, temp);
 
-      foundry.utils.mergeObject(updateData, (data ?? {}));
-      return;
-    }
+			foundry.utils.mergeObject(updateData, data ?? {});
+			return;
+		}
 
-    if (grant.grantType === 'item') {
-      const data = grant.getApplyData(actor, inputData);
-      const uuids: string[] = inputData?.uuids ?? grant.items.base.map(({ uuid }) => uuid) ?? [];
+		if (grant.grantType === 'item') {
+			const data = grant.getApplyData(actor, inputData);
+			const uuids: string[] = inputData?.uuids ?? grant.items.base.map(({ uuid }) => uuid) ?? [];
 
-      // Get quantity overrides from the grant
-      const allOptions = [...grant.items.base, ...grant.items.options];
-      const temp = allOptions.reduce((acc: any[], { uuid, quantityOverride }) => {
-        if (!uuids.includes(uuid)) return acc;
+			// Get quantity overrides from the grant
+			const allOptions = [...grant.items.base, ...grant.items.options];
+			const temp = allOptions.reduce((acc: any[], { uuid, quantityOverride }) => {
+				if (!uuids.includes(uuid)) return acc;
 
-        acc.push({ uuid, type: 'object', quantity: quantityOverride });
-        return acc;
-      }, []);
+				acc.push({ uuid, type: 'object', quantity: quantityOverride });
+				return acc;
+			}, []);
 
-      documentData.set(id, temp);
-      foundry.utils.mergeObject(updateData, (data ?? {}));
+			documentData.set(id, temp);
+			foundry.utils.mergeObject(updateData, data ?? {});
 
-      return;
-    }
+			return;
+		}
 
-    let grantUpdates;
-    if (inputData) {
-      grantUpdates = grant.getApplyData(actor, inputData);
-    } else {
-      grantUpdates = grant.getApplyData(actor);
-    }
+		let grantUpdates;
+		if (inputData) {
+			grantUpdates = grant.getApplyData(actor, inputData);
+		} else {
+			grantUpdates = grant.getApplyData(actor);
+		}
 
-    // Manually merge arrays from updateData
-    Object.entries(grantUpdates ?? {}).forEach(([key, value]) => {
-      if (!Array.isArray(value)) return;
+		// Manually merge arrays from updateData
+		Object.entries(grantUpdates ?? {}).forEach(([key, value]) => {
+			if (!Array.isArray(value)) return;
 
-      const originalValue = (foundry.utils.getProperty(updateData, key) as string[]) ?? [];
-      const newValue = [...new Set([...originalValue, ...(value as any[])])];
-      grantUpdates[key] = newValue;
-    });
+			const originalValue = (foundry.utils.getProperty(updateData, key) as string[]) ?? [];
+			const newValue = [...new Set([...originalValue, ...(value as any[])])];
+			grantUpdates[key] = newValue;
+		});
 
-    foundry.utils.mergeObject(updateData, grantUpdates);
-  });
+		foundry.utils.mergeObject(updateData, grantUpdates);
+	});
 
-  return { updateData, documentData };
+	return { updateData, documentData };
 }

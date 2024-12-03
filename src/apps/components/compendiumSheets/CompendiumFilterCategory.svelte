@@ -1,15 +1,15 @@
 <script>
-    import { createEventDispatcher } from "svelte";
+import { createEventDispatcher } from 'svelte';
 
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import MultiStateCheckBoxGroup from "../MultiStateCheckBoxGroup.svelte";
+import FieldWrapper from '../FieldWrapper.svelte';
+import MultiStateCheckBoxGroup from '../MultiStateCheckBoxGroup.svelte';
 
-    export let filterKey;
-    export let filterSelections;
-    export let heading;
-    export let options;
+export let filterKey;
+export let filterSelections;
+export let heading;
+export let options;
 
-    const dispatch = createEventDispatcher();
+const dispatch = createEventDispatcher();
 </script>
 
 <FieldWrapper>
