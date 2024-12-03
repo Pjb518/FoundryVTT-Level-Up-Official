@@ -604,6 +604,7 @@ const knackTypes = {
   herald: 'Divine Lesson',
   marshal: 'Lesson of War',
   psion: 'Cognitive Discoveries',
+  psyknight: 'Psychic Isometrics',
   ranger: 'Exploration Knack',
   rogue: 'Skill Trick',
   savant: 'Clever Scheme',
@@ -661,17 +662,20 @@ const maneuverDegrees = {
 };
 
 const maneuverTraditions = {
+	aceStarfighter: 'A5E.maneuverTraditions.aceStarfighter',
 	adamantMountain: 'A5E.maneuverTraditions.adamantMountain',
 	arcaneArtillery: 'A5E.maneuverTraditions.arcaneArtillery',
 	arcaneKnight: 'A5E.maneuverTraditions.arcaneKnight',
 	awakenedMind: 'A5E.maneuverTraditions.awakenedMind',
 	beastUnity: 'A5E.maneuverTraditions.beastUnity',
 	bitingZephyr: 'A5E.maneuverTraditions.bitingZephyr',
+	blazingStarglaive: 'A5E.maneuverTraditions.blazingStarglaive',
 	comedicJabs: 'A5E.maneuverTraditions.comedicJabs',
 	cuttingOmen: 'A5E.maneuverTraditions.cuttingOmen',
 	eldritchBlackguard: 'A5E.maneuverTraditions.eldritchBlackguard',
 	gallantHeart: 'A5E.maneuverTraditions.gallantHeart',
 	grindingCog: 'A5E.maneuverTraditions.grindingCog',
+	mindfulBody: 'A5E.maneuverTraditions.mindfulBody',
 	mirrorsGlint: 'A5E.maneuverTraditions.mirrorsGlint',
 	mistAndShade: 'A5E.maneuverTraditions.mistAndShade',
 	rapidCurrent: 'A5E.maneuverTraditions.rapidCurrent',

@@ -27,6 +27,11 @@ export default function registerExtraContentConfig() {
   }
   
   if (game.settings.get("a5e", "showVRCProficiencies")) {
+    //Combat Traditions
+    delete CONFIG.A5E.maneuverTraditions.aceStarfighter;
+    delete CONFIG.A5E.maneuverTraditions.blazingStarglaive;
+    delete CONFIG.A5E.maneuverTraditions.mindfulBody;
+    
     //Languages
     delete CONFIG.A5E.languages.machine;
 

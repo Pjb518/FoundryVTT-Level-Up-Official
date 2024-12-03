@@ -15,6 +15,7 @@ export default function registerClassesConfig() {
     herald: 'A5E.characterClasses.herald',
     marshal: 'A5E.characterClasses.marshal',
     psion: 'A5E.characterClasses.psion',
+    psyknight: 'A5E.characterClasses.psyknight',
     ranger: 'A5E.characterClasses.ranger',
     rogue: 'A5E.characterClasses.rogue',
     savant: 'A5E.characterClasses.savant',
