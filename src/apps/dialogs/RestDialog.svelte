@@ -87,6 +87,11 @@
                         }}
                     />
                 </FieldWrapper>
+                {#if consumeSupply && $actor.system.supply == 0}
+                    <div class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
+                        {localize("A5E.LongRestWithoutSupplyWarning", { name: $actor.name })}
+                    </div>
+                {/if}
             {/if}
         </Section>
     {/if}

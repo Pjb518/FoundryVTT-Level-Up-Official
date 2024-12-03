@@ -31,21 +31,21 @@ export default class RestManager {
     } = this.#restData;
 
     // Restore long rest resources
-    if (this.#type === 'long') {
-      this.#adjustStrifeAndFatigue();
-      this.#restoreHitDice();
-      this.#restoreHitPoints();
-      await this.#removeTemporaryActiveEffects();
-    }
+      if (this.#type === 'long') {
+        this.#adjustStrifeAndFatigue();
+        this.#restoreHitDice();
+        this.#restoreHitPoints();
+        await this.#removeTemporaryActiveEffects();
+      }
 
-    // Optionally consume supply
-    if (consumeSupply) this.#consumeSupply();
+      // Optionally consume supply
+      if (consumeSupply) this.#consumeSupply();
 
-    // Restore short rest resources
-    this.#restoreGenericResources();
-    this.#restoreExertion();
-    this.#restoreSpellResources();
-    this.#restoreUses();
+      // Restore short rest resources
+      this.#restoreGenericResources();
+      this.#restoreExertion();
+      this.#restoreSpellResources();
+      this.#restoreUses();
 
     // Call pre-hook
 
@@ -60,7 +60,7 @@ export default class RestManager {
   }
 
   #adjustStrifeAndFatigue() {
-    const { haven, recoverStrifeAndFatigue } = this.#restData;
+    const { consumeSupply, haven, recoverStrifeAndFatigue } = this.#restData;
     const { strife, fatigue } = this.#actor.system.attributes;
 
     this.#updates.actor['system.attributes.inebriated'] = 0;
@@ -68,8 +68,11 @@ export default class RestManager {
     if (!recoverStrifeAndFatigue) {
       this.#updates.actor['system.attributes.fatigue'] = fatigue + 1;
     } else if (!haven) {
-      this.#updates.actor['system.attributes.fatigue'] = fatigue === 1 ? 0 : fatigue;
-      this.#updates.actor['system.attributes.strife'] = strife === 1 ? 0 : strife;
+        if (consumeSupply && this.#actor.system.supply == 0) this.#updates.actor['system.attributes.fatigue'] = fatigue + 1;
+        else {
+          this.#updates.actor['system.attributes.fatigue'] = fatigue === 1 ? 0 : fatigue;
+          this.#updates.actor['system.attributes.strife'] = strife === 1 ? 0 : strife;
+        }
     } else {
       this.#updates.actor['system.attributes.fatigue'] = Math.max(fatigue - 1, 0);
       this.#updates.actor['system.attributes.strife'] = Math.max(strife - 1, 0);
