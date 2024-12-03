@@ -9,9 +9,9 @@
 		"build:system": "vite build",
 		"build:compendia": "node ./build/buildCompendia.mjs",
 		"dev": "vite",
-		"lint": "eslint .",
-		"lint-fix": "eslint --fix .",
-		"eslint:report": "eslint --output-file eslint_report.json --format json .",
+		"format": "npx @biomejs/biome format --write ./src/",
+		"lint": "npx @biomejs/biome lint ./src/",
+		"lint-fix": "npx @biomejs/biome lint --write ./src/",
 		"type-check": "tsc --noEmit"
 	},
 	"imports": {
