@@ -1,87 +1,77 @@
 {
-  "name": "a5e",
-  "version": "0.19.31",
-  "description": "An official implementation of the Level Up: Advanced 5th Edition system for FoundryVTT.",
-  "main": "dist/index.js",
-  "type": "module",
-  "scripts": {
-    "build": "npm run build:compendia && vite build",
-    "build:system": "vite build",
-    "build:compendia": "node ./build/buildCompendia.mjs",
-    "dev": "vite",
-    "lint": "eslint .",
-    "lint-fix": "eslint --fix .",
-    "eslint:report": "eslint --output-file eslint_report.json --format json .",
-    "type-check": "tsc --noEmit"
-  },
-  "imports": {
-    "#runtime/*": "@typhonjs-fvtt/runtime/*",
-    "#standard/*": "@typhonjs-fvtt/standard/*"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Pjb518/FoundryVTT-Level-Up-Official"
-  },
-  "author": {
-    "name": "Phillip Best",
-    "email": "me@phillip.best",
-    "url": "https://bio.link/philbest"
-  },
-  "bugs": {
-    "url": "https://github.com/Pjb518/FoundryVTT-Level-Up-Official/issues"
-  },
-  "homepage": "https://github.com/Pjb518/FoundryVTT-Level-Up-Official",
-  "funding": [
-    {
-      "type": "patreon",
-      "url": "https://www.patreon.com/ForgemasterModules"
-    },
-    {
-      "type": "individual",
-      "url": "https://ko-fi.com/philbest"
-    },
-    {
-      "type": "individual",
-      "url": "https://ko-fi.com/nekrodarkmoon"
-    }
-  ],
-  "license": "MIT",
-  "engines": {
-    "node": ">=22.1.0"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@league-of-foundry-developers/foundry-vtt-types": "github:League-of-Foundry-Developers/foundry-vtt-types#0a62d5d4dc84d70a77c7a9c8360e1e2ead5de242",
-    "@tsconfig/svelte": "^5.0.4",
-    "@types/node": "^20.14.10",
-    "@typescript-eslint/eslint-plugin": "^7.16.0",
-    "@typescript-eslint/parser": "^7.16.0",
-    "@typhonjs-fvtt/eslint-config-foundry.js": "^0.8.0",
-    "classic-level": "^1.4.1",
-    "eslint": "^8.57.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^18.0.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^6.9.0",
-    "eslint-plugin-react": "^7.34.4",
-    "eslint-plugin-svelte": "^2.42.0",
-    "glob": "^11.0.0",
-    "jszip": "^3.10.1",
-    "postcss-scss": "^4.0.9",
-    "sass": "^1.77.8",
-    "stylelint": "^16.7.0",
-    "stylelint-config-sass-guidelines": "^11.0.0",
-    "svelte-range-slider-pips": "^2.3.1",
-    "svelte-select": "^5.8.3",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.10"
-  },
-  "dependencies": {
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@sveltejs/vite-plugin-svelte": "^3.1.2",
-    "@typhonjs-fvtt/runtime": "^0.2.0-next.2",
-    "@typhonjs-fvtt/standard": "^0.2.0-next.2",
-    "svelte": "^4.2.19",
-    "svelte-preprocess": "^6.0.2"
-  }
+	"name": "a5e",
+	"version": "0.19.31",
+	"description": "An official implementation of the Level Up: Advanced 5th Edition system for FoundryVTT.",
+	"main": "dist/index.js",
+	"type": "module",
+	"scripts": {
+		"build": "npm run build:compendia && vite build",
+		"build:system": "vite build",
+		"build:compendia": "node ./build/buildCompendia.mjs",
+		"dev": "vite",
+		"lint": "eslint .",
+		"lint-fix": "eslint --fix .",
+		"eslint:report": "eslint --output-file eslint_report.json --format json .",
+		"type-check": "tsc --noEmit"
+	},
+	"imports": {
+		"#runtime/*": "@typhonjs-fvtt/runtime/*",
+		"#standard/*": "@typhonjs-fvtt/standard/*"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Pjb518/FoundryVTT-Level-Up-Official"
+	},
+	"author": {
+		"name": "Phillip Best",
+		"email": "me@phillip.best",
+		"url": "https://bio.link/philbest"
+	},
+	"bugs": {
+		"url": "https://github.com/Pjb518/FoundryVTT-Level-Up-Official/issues"
+	},
+	"homepage": "https://github.com/Pjb518/FoundryVTT-Level-Up-Official",
+	"funding": [
+		{
+			"type": "patreon",
+			"url": "https://www.patreon.com/ForgemasterModules"
+		},
+		{
+			"type": "individual",
+			"url": "https://ko-fi.com/philbest"
+		},
+		{
+			"type": "individual",
+			"url": "https://ko-fi.com/nekrodarkmoon"
+		}
+	],
+	"license": "MIT",
+	"engines": {
+		"node": ">=22.1.0"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.9.4",
+		"@league-of-foundry-developers/foundry-vtt-types": "github:League-of-Foundry-Developers/foundry-vtt-types#0a62d5d4dc84d70a77c7a9c8360e1e2ead5de242",
+		"@tsconfig/svelte": "^5.0.4",
+		"@types/node": "^20.14.10",
+		"classic-level": "^1.4.1",
+		"glob": "^11.0.0",
+		"jszip": "^3.10.1",
+		"postcss-scss": "^4.0.9",
+		"sass": "^1.77.8",
+		"stylelint": "^16.7.0",
+		"stylelint-config-sass-guidelines": "^11.0.0",
+		"svelte-range-slider-pips": "^2.3.1",
+		"svelte-select": "^5.8.3",
+		"typescript": "^5.5.4",
+		"vite": "^5.4.10"
+	},
+	"dependencies": {
+		"@rollup/plugin-node-resolve": "^15.2.3",
+		"@sveltejs/vite-plugin-svelte": "^3.1.2",
+		"@typhonjs-fvtt/runtime": "^0.2.0-next.2",
+		"@typhonjs-fvtt/standard": "^0.2.0-next.2",
+		"svelte": "^4.2.19",
+		"svelte-preprocess": "^6.0.2"
+	}
 }
