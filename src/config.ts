@@ -324,7 +324,6 @@ const armorMods = {
  * @enum {string}
  */
 const armorProperties = {
-<<<<<<< HEAD
   camouflaged: 'A5E.ArmorPropertyCamouflaged',
   cloaking: 'A5E.ArmorPropertyCloaking',
   coldShielding: 'A5E.ArmorPropertyColdShielding',
@@ -335,12 +334,6 @@ const armorProperties = {
   spiked: 'A5E.ArmorPropertySpiked',
   stealthy: 'A5E.objectProperties.stealthy',
   storage: 'A5E.objectProperties.storage'
-=======
-	camouflaged: 'A5E.ArmorPropertyCamouflaged',
-	spiked: 'A5E.ArmorPropertySpiked',
-	stealthy: 'A5E.objectProperties.stealthy',
-	storage: 'A5E.objectProperties.storage',
->>>>>>> v1
 };
 
 /**
@@ -598,7 +591,6 @@ const inventoryFilters = {
 };
 
 const knackTypes = {
-<<<<<<< HEAD
   adept: 'Practiced Technique',
   artificer: 'Field Discovery',
   artificerRevised: 'Field Discovery',
@@ -621,29 +613,6 @@ const knackTypes = {
   wielder: 'Artifact Whisper',
   witch: 'Magical Mystery',
   wizard: 'Elective Study'
-=======
-	adept: 'Practiced Technique',
-	artificer: 'Field Discovery',
-	artificerRevised: 'Field Discovery',
-	bard: 'Adventuring Trick',
-	berserker: 'Developed Talent',
-	bloodblade: 'Esoteric Arts',
-	cleric: 'Sign of Faith',
-	druid: 'Secret of Nature',
-	elementalist: 'Elemental Adaptation',
-	fighter: 'Soldiering Knack',
-	herald: 'Divine Lesson',
-	marshal: 'Lesson of War',
-	ranger: 'Exploration Knack',
-	rogue: 'Skill Trick',
-	savant: 'Clever Scheme',
-	scholar: 'Scholarly Discovery',
-	sorcerer: 'Arcane Innovation',
-	warlock: 'Secret of Arcana',
-	wielder: 'Artifact Whisper',
-	witch: 'Magical Mystery',
-	wizard: 'Elective Study',
->>>>>>> v1
 };
 
 /**
@@ -651,7 +620,6 @@ const knackTypes = {
  * @enum {string}
  */
 const languages = {
-<<<<<<< HEAD
   abyssal: 'A5E.languages.abyssal',
   aquan: 'A5E.languages.aquan',
   auran: 'A5E.languages.auran',
@@ -681,36 +649,6 @@ const languages = {
   terran: 'A5E.languages.terran',
   cant: 'A5E.languages.thievesCant',
   undercommon: 'A5E.languages.undercommon'
-=======
-	abyssal: 'A5E.languages.abyssal',
-	aquan: 'A5E.languages.aquan',
-	auran: 'A5E.languages.auran',
-	boggard: 'A5E.languages.boggard',
-	celestial: 'A5E.languages.celestial',
-	common: 'A5E.languages.common',
-	deep: 'A5E.languages.deepSpeech',
-	draconic: 'A5E.languages.draconic',
-	druidic: 'A5E.languages.druidic',
-	dwarvish: 'A5E.languages.dwarvish',
-	elvish: 'A5E.languages.elvish',
-	giant: 'A5E.languages.giant',
-	gnoll: 'A5E.languages.gnoll',
-	gnomish: 'A5E.languages.gnomish',
-	goblin: 'A5E.languages.goblin',
-	grimlock: 'A5E.languages.grimlock',
-	grippli: 'A5E.languages.grippli',
-	halfling: 'A5E.languages.halfling',
-	ignan: 'A5E.languages.ignan',
-	infernal: 'A5E.languages.infernal',
-	minotaur: 'A5E.languages.minotaur',
-	mycelial: 'A5E.languages.mycelial',
-	orc: 'A5E.languages.orc',
-	primordial: 'A5E.languages.primordial',
-	sylvan: 'A5E.languages.sylvan',
-	terran: 'A5E.languages.terran',
-	cant: 'A5E.languages.thievesCant',
-	undercommon: 'A5E.languages.undercommon',
->>>>>>> v1
 };
 
 const maneuverDegrees = {
@@ -750,7 +688,6 @@ const maneuverTraditions = {
 };
 
 const materialProperties = {
-<<<<<<< HEAD
   comfortable: 'A5E.MaterialPropertyComfortable',
   feybane: 'A5E.MaterialPropertyFeybane',
   flaw: 'A5E.MaterialPropertyFlaw',
@@ -766,21 +703,6 @@ const materialProperties = {
   underarmor: 'A5E.MaterialPropertyUnderarmor',
   weighty: 'A5E.MaterialPropertyWeighty',
   wild: 'A5E.MaterialPropertyWild'
-=======
-	comfortable: 'A5E.MaterialPropertyComfortable',
-	feybane: 'A5E.MaterialPropertyFeybane',
-	flaw: 'A5E.MaterialPropertyFlaw',
-	fortified: 'A5E.MaterialPropertyFortified',
-	hardy: 'A5E.MaterialPropertyHardy',
-	highQuality: 'A5E.MaterialPropertyHighQuality',
-	lightweight: 'A5E.MaterialPropertyLightweight',
-	lowMaintenance: 'A5E.MaterialPropertyLowMaintenance',
-	rust: 'A5E.MaterialPropertyRust',
-	silvered: 'A5E.MaterialPropertySilvered',
-	underarmor: 'A5E.MaterialPropertyUnderarmor',
-	weighty: 'A5E.MaterialPropertyWeighty',
-	wild: 'A5E.MaterialPropertyWild',
->>>>>>> v1
 };
 
 const flaws = {
@@ -1207,7 +1129,6 @@ const spellSchools = {
  * @enum {string}
  */
 const skills = {
-<<<<<<< HEAD
   acr: 'A5E.skills.acrobatics',
   ani: 'A5E.skills.animalHandling',
   arc: 'A5E.skills.arcana',
@@ -1229,28 +1150,6 @@ const skills = {
   slt: 'A5E.skills.sleightOfHand',
   ste: 'A5E.skills.stealth',
   sur: 'A5E.skills.survival'
-=======
-	acr: 'A5E.skills.acrobatics',
-	ani: 'A5E.skills.animalHandling',
-	arc: 'A5E.skills.arcana',
-	ath: 'A5E.skills.athletics',
-	cul: 'A5E.skills.culture',
-	dec: 'A5E.skills.deception',
-	eng: 'A5E.skills.engineering',
-	his: 'A5E.skills.history',
-	ins: 'A5E.skills.insight',
-	itm: 'A5E.skills.intimidation',
-	inv: 'A5E.skills.investigation',
-	med: 'A5E.skills.medicine',
-	nat: 'A5E.skills.nature',
-	prc: 'A5E.skills.perception',
-	prf: 'A5E.skills.performance',
-	per: 'A5E.skills.persuasion',
-	rel: 'A5E.skills.religion',
-	slt: 'A5E.skills.sleightOfHand',
-	ste: 'A5E.skills.stealth',
-	sur: 'A5E.skills.survival',
->>>>>>> v1
 };
 
 const skillCriticalTables = {
@@ -1300,7 +1199,6 @@ const skillFumbleTables = {
 };
 
 const skillDefaultAbilities = {
-<<<<<<< HEAD
   acr: 'dex',
   ani: 'wis',
   arc: 'int',
@@ -1322,35 +1220,12 @@ const skillDefaultAbilities = {
   slt: 'dex',
   ste: 'dex',
   sur: 'wis'
-=======
-	acr: 'dex',
-	ani: 'wis',
-	arc: 'int',
-	ath: 'str',
-	cul: 'int',
-	dec: 'cha',
-	eng: 'int',
-	his: 'int',
-	ins: 'wis',
-	itm: 'cha',
-	inv: 'int',
-	med: 'wis',
-	nat: 'int',
-	prc: 'wis',
-	prf: 'cha',
-	per: 'cha',
-	rel: 'int',
-	slt: 'dex',
-	ste: 'dex',
-	sur: 'wis',
->>>>>>> v1
 };
 
 /**
  * The set of core skill specialties used in the system.
  */
 const skillSpecialties = {
-<<<<<<< HEAD
   acr: {
     balancing: 'A5E.skillSpecialties.balancing',
     escapeArtistry: 'A5E.skillSpecialties.escapeArtistry',
@@ -1531,169 +1406,6 @@ const skillSpecialties = {
     tracking: 'A5E.skillSpecialties.tracking',
     wayfinding: 'A5E.skillSpecialties.wayfinding'
   }
-=======
-	acr: {
-		balancing: 'A5E.skillSpecialties.balancing',
-		escapeArtistry: 'A5E.skillSpecialties.escapeArtistry',
-		swinging: 'A5E.skillSpecialties.swinging',
-		tumbling: 'A5E.skillSpecialties.tumbling',
-	},
-	ani: {
-		calming: 'A5E.skillSpecialties.calming',
-		driving: 'A5E.skillSpecialties.driving',
-		farming: 'A5E.skillSpecialties.farming',
-		riding: 'A5E.skillSpecialties.riding',
-		training: 'A5E.skillSpecialties.training',
-	},
-	arc: {
-		aberrations: 'A5E.skillSpecialties.aberrations',
-		artifacts: 'A5E.skillSpecialties.artifacts',
-		constructs: 'A5E.skillSpecialties.constructs',
-		detection: 'A5E.skillSpecialties.detection',
-		dragons: 'A5E.skillSpecialties.dragons',
-		elementals: 'A5E.skillSpecialties.elementals',
-		fey: 'A5E.skillSpecialties.fey',
-		forbiddenKnowledge: 'A5E.skillSpecialties.forbiddenKnowledge',
-		monstrosities: 'A5E.skillSpecialties.monstrosities',
-		oozes: 'A5E.skillSpecialties.oozes',
-		thePlanes: 'A5E.skillSpecialties.thePlanes',
-	},
-	ath: {
-		climbing: 'A5E.skillSpecialties.climbing',
-		diving: 'A5E.skillSpecialties.diving',
-		jumping: 'A5E.skillSpecialties.jumping',
-		lifting: 'A5E.skillSpecialties.lifting',
-		martialArts: 'A5E.skillSpecialties.martialArts',
-		running: 'A5E.skillSpecialties.running',
-		swimming: 'A5E.skillSpecialties.swimming',
-		throwing: 'A5E.skillSpecialties.throwing',
-	},
-	cul: {
-		courtlyManners: 'A5E.skillSpecialties.courtlyManners',
-		cuisine: 'A5E.skillSpecialties.cuisine',
-		etiquette: 'A5E.skillSpecialties.etiquette',
-		fencingProtocol: 'A5E.skillSpecialties.fencingProtocol',
-		laws: 'A5E.skillSpecialties.laws',
-		linguistics: 'A5E.skillSpecialties.linguistics',
-		regionalGoods: 'A5E.skillSpecialties.regionalGoods',
-		streetwise: 'A5E.skillSpecialties.streetwise',
-		trade: 'A5E.skillSpecialties.trade',
-	},
-	dec: {
-		boasting: 'A5E.skillSpecialties.boasting',
-		ciphers: 'A5E.skillSpecialties.ciphers',
-		concealingEmotions: 'A5E.skillSpecialties.concealingEmotions',
-		liesOfOmission: 'A5E.skillSpecialties.liesOfOmission',
-		mimicry: 'A5E.skillSpecialties.mimicry',
-	},
-	eng: {
-		architecture: 'A5E.skillSpecialties.architecture',
-		chemistry: 'A5E.skillSpecialties.chemistry',
-		explosives: 'A5E.skillSpecialties.explosives',
-		gadgetry: 'A5E.skillSpecialties.gadgetry',
-		mathematics: 'A5E.skillSpecialties.mathematics',
-		mechanicalTraps: 'A5E.skillSpecialties.mechanicalTraps',
-		plumbing: 'A5E.skillSpecialties.plumbing',
-		siegecraft: 'A5E.skillSpecialties.siegecraft',
-		weaponry: 'A5E.skillSpecialties.weaponry',
-	},
-	his: {
-		arts: 'A5E.skillSpecialties.arts',
-		empires: 'A5E.skillSpecialties.empires',
-		genealogy: 'A5E.skillSpecialties.genealogy',
-		legends: 'A5E.skillSpecialties.legends',
-		militaryHistory: 'A5E.skillSpecialties.militaryHistory',
-		wars: 'A5E.skillSpecialties.wars',
-	},
-	ins: {
-		detectingLies: 'A5E.skillSpecialties.detectingLies',
-		readingEmotions: 'A5E.skillSpecialties.readingEmotions',
-		sensingMotives: 'A5E.skillSpecialties.sensingMotives',
-	},
-	itm: {
-		authority: 'A5E.skillSpecialties.authority',
-		ferocity: 'A5E.skillSpecialties.ferocity',
-		interrogation: 'A5E.skillSpecialties.interrogation',
-		subtleThreats: 'A5E.skillSpecialties.subtleThreats',
-		weaponDisplays: 'A5E.skillSpecialties.weaponDisplays',
-	},
-	inv: {
-		appraisal: 'A5E.skillSpecialties.appraisal',
-		deciphering: 'A5E.skillSpecialties.deciphering',
-		forensics: 'A5E.skillSpecialties.forensics',
-		gatheringRumors: 'A5E.skillSpecialties.gatheringRumors',
-		research: 'A5E.skillSpecialties.research',
-		trapfinding: 'A5E.skillSpecialties.trapfinding',
-	},
-	med: {
-		animals: 'A5E.skillSpecialties.animals',
-		autopsy: 'A5E.skillSpecialties.autopsy',
-		diseases: 'A5E.skillSpecialties.diseases',
-		drugs: 'A5E.skillSpecialties.drugs',
-		herbalism: 'A5E.skillSpecialties.herbalism',
-		mentalHealth: 'A5E.skillSpecialties.mentalHealth',
-		poisons: 'A5E.skillSpecialties.poisons',
-	},
-	nat: {
-		astronomy: 'A5E.skillSpecialties.astronomy',
-		beastLore: 'A5E.skillSpecialties.beastLore',
-		farming: 'A5E.skillSpecialties.farming',
-		fey: 'A5E.skillSpecialties.fey',
-		plantLore: 'A5E.skillSpecialties.plantLore',
-		weather: 'A5E.skillSpecialties.weather',
-	},
-	prc: {
-		farsight: 'A5E.skillSpecialties.farsight',
-		invisibleObjects: 'A5E.skillSpecialties.invisibleObjects',
-		listening: 'A5E.skillSpecialties.listening',
-		scent: 'A5E.skillSpecialties.scent',
-	},
-	prf: {
-		acting: 'A5E.skillSpecialties.acting',
-		composing: 'A5E.skillSpecialties.composing',
-		dancing: 'A5E.skillSpecialties.dancing',
-		fineArt: 'A5E.skillSpecialties.fineArt',
-		singing: 'A5E.skillSpecialties.singing',
-		speaking: 'A5E.skillSpecialties.speaking',
-		writing: 'A5E.skillSpecialties.writing',
-	},
-	per: {
-		bribery: 'A5E.skillSpecialties.bribery',
-		flattery: 'A5E.skillSpecialties.flattery',
-		leadership: 'A5E.skillSpecialties.leadership',
-		negotiation: 'A5E.skillSpecialties.negotiation',
-		peacemaking: 'A5E.skillSpecialties.peacemaking',
-	},
-	rel: {
-		alignment: 'A5E.skillSpecialties.alignment',
-		celestials: 'A5E.skillSpecialties.celestials',
-		cults: 'A5E.skillSpecialties.cults',
-		fiends: 'A5E.skillSpecialties.fiends',
-		gods: 'A5E.skillSpecialties.gods',
-		holySymbols: 'A5E.skillSpecialties.holySymbols',
-		morality: 'A5E.skillSpecialties.morality',
-		prophecy: 'A5E.skillSpecialties.prophecy',
-		relics: 'A5E.skillSpecialties.relics',
-		undead: 'A5E.skillSpecialties.undead',
-	},
-	slt: {
-		distraction: 'A5E.skillSpecialties.distraction',
-		legerdemain: 'A5E.skillSpecialties.legerdemain',
-		pickpocketing: 'A5E.skillSpecialties.pickpocketing',
-	},
-	ste: {
-		anonymity: 'A5E.skillSpecialties.anonymity',
-		camouflage: 'A5E.skillSpecialties.camouflage',
-		casing: 'A5E.skillSpecialties.casing',
-	},
-	sur: {
-		dungeoneering: 'A5E.skillSpecialties.dungeoneering',
-		foraging: 'A5E.skillSpecialties.foraging',
-		hunting: 'A5E.skillSpecialties.hunting',
-		tracking: 'A5E.skillSpecialties.tracking',
-		wayfinding: 'A5E.skillSpecialties.wayfinding',
-	},
->>>>>>> v1
 };
 
 const targetTypes = {
@@ -1793,7 +1505,6 @@ const tokenHPColors = {
 };
 
 const toolCategories = {
-<<<<<<< HEAD
   artisansTools: 'A5E.ToolsArtisanTools',
   gamingSets: 'A5E.ToolsGamingSets',
   musicalInstruments: 'A5E.MusicalInstruments',
@@ -1964,150 +1675,12 @@ const weaponCategories = {
   rare: 'A5E.WeaponsRare',
   miscellaneous: 'A5E.WeaponsMiscellaneous',
   other: 'A5E.WeaponsOther'
-=======
-	artisansTools: 'A5E.ToolsArtisanTools',
-	gamingSets: 'A5E.ToolsGamingSets',
-	musicalInstruments: 'A5E.MusicalInstruments',
-	miscellaneous: 'A5E.ToolsMiscellaneous',
-	vehicles: 'A5E.ToolsVehicles',
-	other: 'A5E.ToolsOther',
-};
-
-const tools = {
-	artisansTools: {
-		alchemistsSupplies: 'A5E.ToolAlchemistsSupplies',
-		bookbindersKit: 'A5E.ToolBookbindersKit',
-		brewersSupplies: 'A5E.ToolBrewersSupplies',
-		calligraphersSupplies: 'A5E.ToolCalligraphersSupplies',
-		carpentersTools: 'A5E.ToolCarpentersTools',
-		cartographersTools: 'A5E.ToolCartographersTools',
-		cobblersTools: 'A5E.ToolCobblersTools',
-		cooksUtensils: 'A5E.ToolCooksUtensils',
-		glassblowersTools: 'A5E.ToolGlassblowersTools',
-		jewelersTools: 'A5E.ToolJewelersTools',
-		leatherworkersTools: 'A5E.ToolLeatherworkersTools',
-		masonsTools: 'A5E.ToolMasonsTools',
-		paintersSupplies: 'A5E.ToolPaintersSupplies',
-		pottersTools: 'A5E.ToolPottersTools',
-		tinkersTools: 'A5E.ToolTinkersTools',
-		weaversTools: 'A5E.ToolWeaversTools',
-		woodcarversTools: 'A5E.ToolWoodcarversTools',
-	},
-	gamingSets: {
-		diceSet: 'A5E.ToolDiceSet',
-		boardGameSet: 'A5E.ToolBoardGameSet',
-		playingCardSet: 'A5E.ToolPlayingCardSet',
-	},
-	musicalInstruments: {
-		bagpipes: 'A5E.InstrumentBagpipes',
-		casaba: 'A5E.InstrumentCasaba',
-		castanet: 'A5E.InstrumentCastanet',
-		drum: 'A5E.InstrumentDrum',
-		dulcimer: 'A5E.InstrumentDulcimer',
-		flute: 'A5E.InstrumentFlute',
-		harp: 'A5E.InstrumentHarp',
-		horn: 'A5E.InstrumentHorn',
-		lute: 'A5E.InstrumentLute',
-		lyre: 'A5E.InstrumentLyre',
-		maraca: 'A5E.InstrumentMaraca',
-		ocarina: 'A5E.InstrumentOcarina',
-		panFlute: 'A5E.InstrumentPanFlute',
-		shawm: 'A5E.InstrumentShawm',
-		trombone: 'A5E.InstrumentTrombone',
-		viol: 'A5E.InstrumentViol',
-		violin: 'A5E.InstrumentViolin',
-	},
-	miscellaneous: {
-		disguiseKit: 'A5E.ToolDisguiseKit',
-		forgeryKit: 'A5E.ToolForgeryKit',
-		herbalismKit: 'A5E.ToolHerbalismKit',
-		navigatorsTools: 'A5E.ToolNavigatorsTools',
-		poisonersKit: 'A5E.ToolPoisonersKit',
-		sewingKit: 'A5E.ToolSewingKit',
-		smithsTools: 'A5E.ToolSmithsTools',
-		thievesTools: 'A5E.ToolThievesTools',
-	},
-	vehicles: {
-		landVehicles: 'A5E.VehicleLand',
-		waterVehicles: 'A5E.VehicleWater',
-		airVehicles: 'A5E.VehicleAir',
-	},
-};
-
-const toolsPlural = {
-	artisansTools: {
-		alchemistsSupplies: 'A5E.ToolAlchemistsSupplies',
-		bookbindersKit: 'A5E.ToolBookbindersKitPlural',
-		brewersSupplies: 'A5E.ToolBrewersSupplies',
-		calligraphersSupplies: 'A5E.ToolCalligraphersSupplies',
-		carpentersTools: 'A5E.ToolCarpentersTools',
-		cartographersTools: 'A5E.ToolCartographersTools',
-		cobblersTools: 'A5E.ToolCobblersTools',
-		cooksUtensils: 'A5E.ToolCooksUtensils',
-		glassblowersTools: 'A5E.ToolGlassblowersTools',
-		jewelersTools: 'A5E.ToolJewelersTools',
-		leatherworkersTools: 'A5E.ToolLeatherworkersTools',
-		masonsTools: 'A5E.ToolMasonsTools',
-		paintersSupplies: 'A5E.ToolPaintersSupplies',
-		pottersTools: 'A5E.ToolPottersTools',
-		tinkersTools: 'A5E.ToolTinkersTools',
-		weaversTools: 'A5E.ToolWeaversTools',
-		woodcarversTools: 'A5E.ToolWoodcarversTools',
-	},
-	gamingSets: {
-		diceSet: 'A5E.ToolDiceSetPlural',
-		boardGameSet: 'A5E.ToolBoardGameSetPlural',
-		playingCardSet: 'A5E.ToolPlayingCardSetPlural',
-	},
-	musicalInstruments: {
-		bagpipes: 'A5E.InstrumentBagpipesPlural',
-		casaba: 'A5E.InstrumentCasabaPlural',
-		castanet: 'A5E.InstrumentCastanetPlural',
-		drum: 'A5E.InstrumentDrumPlural',
-		dulcimer: 'A5E.InstrumentDulcimerPlural',
-		flute: 'A5E.InstrumentFlutePlural',
-		harp: 'A5E.InstrumentHarpPlural',
-		horn: 'A5E.InstrumentHornPlural',
-		lute: 'A5E.InstrumentLutePlural',
-		lyre: 'A5E.InstrumentLyrePlural',
-		maraca: 'A5E.InstrumentMaracaPlural',
-		ocarina: 'A5E.InstrumentOcarinaPlural',
-		panFlute: 'A5E.InstrumentPanFlutePlural',
-		shawm: 'A5E.InstrumentShawmPlural',
-		trombone: 'A5E.InstrumentTrombonePlural',
-		viol: 'A5E.InstrumentViolPlural',
-		violin: 'A5E.InstrumentViolinPlural',
-	},
-	miscellaneous: {
-		disguiseKit: 'A5E.ToolDisguiseKitPlural',
-		forgeryKit: 'A5E.ToolForgeryKitPlural',
-		herbalismKit: 'A5E.ToolHerbalismKitPlural',
-		navigatorsTools: 'A5E.ToolNavigatorsToolsPlural',
-		poisonersKit: 'A5E.ToolPoisonersKitPlural',
-		sewingKit: 'A5E.ToolSewingKitPlural',
-		smithsTools: 'A5E.ToolSmithsToolsPlural',
-		thievesTools: 'A5E.ToolThievesToolsPlural',
-	},
-	vehicles: {
-		landVehicles: 'A5E.VehicleLandPlural',
-		waterVehicles: 'A5E.VehicleWaterPlural',
-		airVehicles: 'A5E.VehicleAirPlural',
-	},
-};
-
-const weaponCategories = {
-	simple: 'A5E.WeaponsSimple',
-	martial: 'A5E.WeaponsMartial',
-	rare: 'A5E.WeaponsRare',
-	other: 'A5E.WeaponsOther',
->>>>>>> v1
 };
 
 /**
  * The set of core weapons used in the system.
  */
 const weapons = {
-<<<<<<< HEAD
   simple: {
     blaster: 'A5E.WeaponBlaster',
     blowgun: 'A5E.WeaponBlowgun',
@@ -2212,83 +1785,12 @@ const weapons = {
     improvised: 'A5E.WeaponImprovised',
     starship: 'A5E.WeaponStarship'
   }
-=======
-	simple: {
-		blowgun: 'A5E.WeaponBlowgun',
-		club: 'A5E.WeaponClub',
-		dagger: 'A5E.WeaponDagger',
-		handaxe: 'A5E.WeaponHandaxe',
-		heavyCrossbow: 'A5E.WeaponHeavyCrossbow',
-		greatclub: 'A5E.WeaponGreatclub',
-		lightCrossbow: 'A5E.WeaponLightCrossbow',
-		mace: 'A5E.WeaponMace',
-		quarterstaff: 'A5E.WeaponQuarterstaff',
-		sickle: 'A5E.WeaponSickle',
-		sling: 'A5E.WeaponSling',
-		spear: 'A5E.WeaponSpear',
-	},
-	martial: {
-		bastardSword: 'A5E.WeaponBastardSword',
-		battleaxe: 'A5E.WeaponBattleaxe',
-		brassKnuckles: 'A5E.WeaponBrassKnuckles',
-		compositeBow: 'A5E.WeaponCompositeBow',
-		dart: 'A5E.WeaponDart',
-		duelingDagger: 'A5E.WeaponDuelingDagger',
-		flail: 'A5E.WeaponFlail',
-		garotte: 'A5E.WeaponGarotte',
-		glaive: 'A5E.WeaponGlaive',
-		greataxe: 'A5E.WeaponGreataxe',
-		greatsword: 'A5E.WeaponGreatsword',
-		halberd: 'A5E.WeaponHalberd',
-		handCrossbow: 'A5E.WeaponHandCrossbow',
-		javelin: 'A5E.WeaponJavelin',
-		lance: 'A5E.WeaponLance',
-		lightHammer: 'A5E.WeaponLightHammer',
-		longbow: 'A5E.WeaponLongbow',
-		longsword: 'A5E.WeaponLongsword',
-		maul: 'A5E.WeaponMaul',
-		morningstar: 'A5E.WeaponMorningstar',
-		net: 'A5E.WeaponNet',
-		pike: 'A5E.WeaponPike',
-		punchingDagger: 'A5E.WeaponPunchingDagger',
-		rapier: 'A5E.WeaponRapier',
-		saber: 'A5E.WeaponSaber',
-		scimitar: 'A5E.WeaponScimitar',
-		scythe: 'A5E.WeaponScythe',
-		shortbow: 'A5E.WeaponShortbow',
-		shortsword: 'A5E.WeaponShortsword',
-		spearThrower: 'A5E.WeaponSpearThrower',
-		throwingDagger: 'A5E.WeaponThrowingDagger',
-		trident: 'A5E.WeaponTrident',
-		warhammer: 'A5E.WeaponWarhammer',
-		warPick: 'A5E.WeaponWarPick',
-		whip: 'A5E.WeaponWhip',
-	},
-	rare: {
-		assassinsGauntlet: 'A5E.WeaponAssassinsGauntlet',
-		battleBook: 'A5E.WeaponBattleBook',
-		bootDagger: 'A5E.WeaponBootDagger',
-		carbine: 'A5E.WeaponCarbine',
-		doubleWeapon: 'A5E.WeaponDoubleWeapon',
-		gearedSlingshot: 'A5E.WeaponGearedSlingshot',
-		mercurialMaul: 'A5E.WeaponMercurialMaul',
-		musket: 'A5E.WeaponMusket',
-		pistol: 'A5E.WeaponPistol',
-		ratchetingCrossbow: 'A5E.WeaponRatchetingCrossbow',
-		revolver: 'A5E.WeaponRevolver',
-		ringBlade: 'A5E.WeaponRingBlade',
-		shotgun: 'A5E.WeaponShotgun',
-		spikedChain: 'A5E.WeaponSpikedChain',
-		swordPistol: 'A5E.WeaponSwordPistol',
-	},
->>>>>>> v1
 };
 
 /**
  * The set of core weapons used in the system in their plural form.
  */
 const weaponsPlural = {
-<<<<<<< HEAD
   simple: {
     blaster: 'A5E.WeaponBlasterPlural',
     blowgun: 'A5E.WeaponBlowgunPlural',
@@ -2393,76 +1895,6 @@ const weaponsPlural = {
     improvised: 'A5E.WeaponImprovisedPlural',
     starship: 'A5E.WeaponStarshipPlural'
   }
-=======
-	simple: {
-		blowgun: 'A5E.WeaponBlowgunPlural',
-		club: 'A5E.WeaponClubPlural',
-		dagger: 'A5E.WeaponDaggerPlural',
-		handaxe: 'A5E.WeaponHandaxePlural',
-		heavyCrossbow: 'A5E.WeaponHeavyCrossbowPlural',
-		greatclub: 'A5E.WeaponGreatclubPlural',
-		lightCrossbow: 'A5E.WeaponLightCrossbowPlural',
-		mace: 'A5E.WeaponMacePlural',
-		quarterstaff: 'A5E.WeaponQuarterstaffPlural',
-		sickle: 'A5E.WeaponSicklePlural',
-		sling: 'A5E.WeaponSlingPlural',
-		spear: 'A5E.WeaponSpearPlural',
-	},
-	martial: {
-		bastardSword: 'A5E.WeaponBastardSwordPlural',
-		battleaxe: 'A5E.WeaponBattleaxePlural',
-		brassKnuckles: 'A5E.WeaponBrassKnucklesPlural',
-		compositeBow: 'A5E.WeaponCompositeBowPlural',
-		dart: 'A5E.WeaponDartPlural',
-		duelingDagger: 'A5E.WeaponDuelingDaggerPlural',
-		flail: 'A5E.WeaponFlailPlural',
-		garotte: 'A5E.WeaponGarottePlural',
-		glaive: 'A5E.WeaponGlaivePlural',
-		greataxe: 'A5E.WeaponGreataxePlural',
-		greatsword: 'A5E.WeaponGreatswordPlural',
-		halberd: 'A5E.WeaponHalberdPlural',
-		handCrossbow: 'A5E.WeaponHandCrossbowPlural',
-		javelin: 'A5E.WeaponJavelinPlural',
-		lance: 'A5E.WeaponLancePlural',
-		lightHammer: 'A5E.WeaponLightHammerPlural',
-		longbow: 'A5E.WeaponLongbowPlural',
-		longsword: 'A5E.WeaponLongswordPlural',
-		maul: 'A5E.WeaponMaulPlural',
-		morningstar: 'A5E.WeaponMorningstarPlural',
-		net: 'A5E.WeaponNetPlural',
-		pike: 'A5E.WeaponPikePlural',
-		punchingDagger: 'A5E.WeaponPunchingDaggerPlural',
-		rapier: 'A5E.WeaponRapierPlural',
-		saber: 'A5E.WeaponSaberPlural',
-		scimitar: 'A5E.WeaponScimitarPlural',
-		scythe: 'A5E.WeaponScythePlural',
-		shortbow: 'A5E.WeaponShortbowPlural',
-		shortsword: 'A5E.WeaponShortswordPlural',
-		spearThrower: 'A5E.WeaponSpearThrowerPlural',
-		throwingDagger: 'A5E.WeaponThrowingDaggerPlural',
-		trident: 'A5E.WeaponTridentPlural',
-		warhammer: 'A5E.WeaponWarhammerPlural',
-		warPick: 'A5E.WeaponWarPickPlural',
-		whip: 'A5E.WeaponWhipPlural',
-	},
-	rare: {
-		assassinsGauntlet: 'A5E.WeaponAssassinsGauntletPlural',
-		battleBook: 'A5E.WeaponBattleBookPlural',
-		bootDagger: 'A5E.WeaponBootDaggerPlural',
-		carbine: 'A5E.WeaponCarbinePlural',
-		doubleWeapon: 'A5E.WeaponDoubleWeaponPlural',
-		gearedSlingshot: 'A5E.WeaponGearedSlingshotPlural',
-		mercurialMaul: 'A5E.WeaponMercurialMaulPlural',
-		musket: 'A5E.WeaponMusketPlural',
-		pistol: 'A5E.WeaponPistolPlural',
-		ratchetingCrossbow: 'A5E.WeaponRatchetingCrossbowPlural',
-		revolver: 'A5E.WeaponRevolverPlural',
-		ringBlade: 'A5E.WeaponRingBladePlural',
-		shotgun: 'A5E.WeaponShotgunPlural',
-		spikedChain: 'A5E.WeaponSpikedChainPlural',
-		swordPistol: 'A5E.WeaponSwordPistolPlural',
-	},
->>>>>>> v1
 };
 
 /**
@@ -2495,7 +1927,6 @@ const energyProperties = {
  * @enum {string}
  */
 const weaponProperties = {
-<<<<<<< HEAD
   ammunition: 'A5E.weaponProperties.ammunition',
   aquatic: 'A5E.weaponProperties.aquatic',
   areaFire: 'A5E.weaponProperties.areaFire',
@@ -2543,45 +1974,6 @@ const weaponProperties = {
   twoHanded: 'A5E.weaponProperties.twoHanded',
   versatile: 'A5E.weaponProperties.versatile',
   vicious: 'A5E.weaponProperties.vicious'
-=======
-	blackPowderPyrotechnics: 'A5E.weaponProperties.blackPowderPyrotechnics',
-	breaker: 'A5E.weaponProperties.breaker',
-	clubbing: 'A5E.weaponProperties.clubbing',
-	compounding: 'A5E.weaponProperties.compounding',
-	defensive: 'A5E.weaponProperties.defensive',
-	dualWielding: 'A5E.weaponProperties.dualWielding',
-	finesse: 'A5E.weaponProperties.finesse',
-	flamboyant: 'A5E.weaponProperties.flamboyant',
-	hailOfLead: 'A5E.weaponProperties.hailOfLead',
-	handMounted: 'A5E.weaponProperties.handMounted',
-	heavy: 'A5E.weaponProperties.heavy',
-	inaccurate: 'A5E.weaponProperties.inaccurate',
-	loading: 'A5E.weaponProperties.loading',
-	menacing: 'A5E.weaponProperties.menacing',
-	misfire: 'A5E.weaponProperties.misfire',
-	mounted: 'A5E.weaponProperties.mounted',
-	muzzleLoading: 'A5E.weaponProperties.muzzleLoading',
-	parrying: 'A5E.weaponProperties.parrying',
-	parryingImmunity: 'A5E.weaponProperties.parryingImmunity',
-	punching: 'A5E.weaponProperties.punching',
-	quickdraw: 'A5E.weaponProperties.quickdraw',
-	range: 'A5E.weaponProperties.range',
-	rebounding: 'A5E.objectProperties.rebounding',
-	reach: 'A5E.weaponProperties.reach',
-	rifled: 'A5E.weaponProperties.rifled',
-	scatter: 'A5E.weaponProperties.scatter',
-	shock: 'A5E.weaponProperties.shock',
-	simple: 'A5E.weaponProperties.simple',
-	stealthy: 'A5E.objectProperties.stealthy',
-	storage: 'A5E.objectProperties.storage',
-	surpriseShot: 'A5E.weaponProperties.surpriseShot',
-	thrown: 'A5E.weaponProperties.thrown',
-	triggerCharge: 'A5E.weaponProperties.triggerCharge',
-	trip: 'A5E.weaponProperties.trip',
-	twoHanded: 'A5E.weaponProperties.twoHanded',
-	versatile: 'A5E.weaponProperties.versatile',
-	vicious: 'A5E.weaponProperties.vicious',
->>>>>>> v1
 };
 
 const breakerProperties = {
@@ -2617,7 +2009,6 @@ const A5E = {
 	PREPARED_STATES,
 	ROLL_MODE,
 
-<<<<<<< HEAD
   // Config Objects
   abilities,
   abilityAbbreviations,
@@ -2716,99 +2107,6 @@ const A5E = {
   defensiveProperties,
   energyProperties,
   versatileOptions,
-=======
-	// Config Objects
-	abilities,
-	abilityAbbreviations,
-	abilityActivationTypes,
-	abilityActivationTypesPlural,
-	actionOptions,
-	actorSizes,
-	originItemTypes,
-	alignments,
-	ammunitionProperties,
-	appliedArmorTypes,
-	areaIcons,
-	areaTypes,
-	areaTemplates,
-	armor,
-	armorModes,
-	armorProperties,
-	armorPlural,
-	attackTypes,
-	carryCapacityMultiplier,
-	capacityTypes,
-	chatCardTypes,
-	conditions,
-	creatureTypes,
-	damagedStates,
-	baseScalingModes,
-	targetScalingModes,
-	damageTypes,
-	damageColors,
-	defaultActorImportCompendia,
-	equippedStates,
-	expertiseDiceSidesMap,
-	featureTypes,
-	healingTypes,
-	healingColors,
-	itemRarity,
-	itemTypes,
-	inventoryFilters,
-	knackTypes,
-	languages,
-	maneuverDegrees,
-	maneuverTraditions,
-	materialProperties,
-	flaws,
-	movement,
-	movementAbbreviations,
-	distanceUnits,
-	distanceAbbreviations,
-	visionUnits,
-	objectTypes,
-	objectTypesPlural,
-	preparedStates,
-	rangeDescriptors,
-	rangeValues,
-	resourceRecoveryOptions,
-	rollModes,
-	rollTypes,
-	saveDCOptions,
-	senses,
-	scrollData,
-	shieldProperties,
-	shieldTypes,
-	shieldBaseACBonus,
-	spellBookTypes,
-	spellComponents,
-	spellComponentAbbreviations,
-	spellLevels,
-	spellLevelCost,
-	spellSchools,
-	skills,
-	skillCriticalTables,
-	skillFumbleTables,
-	skillDefaultAbilities,
-	skillSpecialties,
-	targetTypes,
-	targetTypesPlural,
-	terrainTypes,
-	timePeriods,
-	timePeriodsPlural,
-	tokenDimensions,
-	tokenHPColors,
-	toolCategories,
-	tools,
-	toolsPlural,
-	weaponCategories,
-	weapons,
-	weaponsPlural,
-	weaponProperties,
-	breakerProperties,
-	defensiveProperties,
-	versatileOptions,
->>>>>>> v1
 
 	// Function Properties
 	// These are purposefully done first

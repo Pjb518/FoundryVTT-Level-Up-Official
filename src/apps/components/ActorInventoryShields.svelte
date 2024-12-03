@@ -36,7 +36,6 @@ function getSupplyTooltip(actor) {
 	}
 }
 
-<<<<<<< HEAD
     $: bulkyItems = $actor.items.reduce((bulkyCount, item) => {
         if (item.system.bulky && item.system.equippedState) {
             if (item.system.objectType == "armor" && item.system.equippedState == 2) {}
@@ -68,20 +67,6 @@ function getSupplyTooltip(actor) {
     $: supplyTooltip = getSupplyTooltip($actor);
     $: totalSupply = $actor.system.supply + supplyItems;
     $: implantMax = $actor.system.attributes.prof;
-=======
-$: bulkyItems = $actor.items.reduce((bulkyCount, item) => {
-	if (item.system.bulky && item.system.equippedState) bulkyCount += 1;
-	return bulkyCount;
-}, 0);
-
-$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
-
-$: attunement = $actor.system.attributes.attunement;
-$: bulkyTooltip = getBulkyTooltip($actor);
-$: currency = $actor.system.currency;
-$: supply = $actor.system.supply;
-$: supplyTooltip = getSupplyTooltip($actor);
->>>>>>> v1
 </script>
 
 <section class="shield-container">

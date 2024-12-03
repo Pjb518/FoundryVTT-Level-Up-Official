@@ -1,5 +1,4 @@
 export default function registerClassesConfig() {
-<<<<<<< HEAD
   const classes = {
     adept: 'A5E.characterClasses.adept',
     artificer: 'A5E.characterClasses.artificer',
@@ -26,33 +25,6 @@ export default function registerClassesConfig() {
     witch: 'A5E.characterClasses.witch',
     wizard: 'A5E.characterClasses.wizard'
   };
-=======
-	const classes = {
-		adept: 'A5E.characterClasses.adept',
-		artificer: 'A5E.characterClasses.artificer',
-		artificerRevised: 'A5E.characterClasses.artificerRevised',
-		bard: 'A5E.characterClasses.bard',
-		berserker: 'A5E.characterClasses.berserker',
-		bloodblade: 'A5E.characterClasses.bloodblade',
-		cleric: 'A5E.characterClasses.cleric',
-		dirgesinger: 'A5E.characterClasses.dirgesinger',
-		druid: 'A5E.characterClasses.druid',
-		elementalist: 'A5E.characterClasses.elementalist',
-		fighter: 'A5E.characterClasses.fighter',
-		gambler: 'A5E.characterClasses.gambler',
-		herald: 'A5E.characterClasses.herald',
-		marshal: 'A5E.characterClasses.marshal',
-		ranger: 'A5E.characterClasses.ranger',
-		rogue: 'A5E.characterClasses.rogue',
-		savant: 'A5E.characterClasses.savant',
-		scholar: 'A5E.characterClasses.scholar',
-		sorcerer: 'A5E.characterClasses.sorcerer',
-		warlock: 'A5E.characterClasses.warlock',
-		wielder: 'A5E.characterClasses.wielder',
-		witch: 'A5E.characterClasses.witch',
-		wizard: 'A5E.characterClasses.wizard',
-	};
->>>>>>> v1
 
 	const classes5e = {
 		dnd5eArtificer: 'A5E.characterClasses.artificer',
@@ -81,7 +53,6 @@ export default function registerClassesConfig() {
 		custom: 'A5E.classes.hpTypes.custom',
 	};
 
-<<<<<<< HEAD
   const casterTypes = {
     none: 'A5E.None',
     fullCaster: 'A5E.classes.casterTypes.fullCaster',
@@ -97,22 +68,6 @@ export default function registerClassesConfig() {
     warlock5e: 'A5E.classes.casterTypes.warlock5e',
     wielder: 'A5E.classes.casterTypes.wielder'
   };
-=======
-	const casterTypes = {
-		none: 'A5E.None',
-		fullCaster: 'A5E.classes.casterTypes.fullCaster',
-		halfCaster: 'A5E.classes.casterTypes.halfCaster',
-		halfCasterWithFirstLevel: 'A5E.classes.casterTypes.halfCasterWithFirstLevel',
-		tertiaryCaster: 'A5E.classes.casterTypes.tertiaryCaster',
-		quaternaryCaster: 'A5E.classes.casterTypes.quaternaryCaster',
-		artificerA5e: 'A5E.classes.casterTypes.artificerA5e',
-		elementalist: 'A5E.classes.casterTypes.elementalist',
-		herald: 'A5E.classes.casterTypes.herald',
-		warlockA5e: 'A5E.classes.casterTypes.warlockA5e',
-		warlock5e: 'A5E.classes.casterTypes.warlock5e',
-		wielder: 'A5E.classes.casterTypes.wielder',
-	};
->>>>>>> v1
 
 	const exertionPoolTypes = {
 		none: 'A5E.classes.exertionPoolTypes.none',
@@ -169,7 +124,6 @@ export default function registerClassesConfig() {
 		20: { points: 22, level: 5 },
 	};
 
-<<<<<<< HEAD
   const SPELL_POINTS_TABLE_PSION = {
     1: { points: 4, level: 1 },
     2: { points: 5, level: 1 },
@@ -215,30 +169,6 @@ export default function registerClassesConfig() {
     19: { points: 30, level: 5 },
     20: { points: 31, level: 5 }
   };
-=======
-	const SPELL_POINTS_TABLE_WARLOCK = {
-		1: { points: 2, level: 1 },
-		2: { points: 4, level: 1 },
-		3: { points: 6, level: 2 },
-		4: { points: 8, level: 2 },
-		5: { points: 10, level: 3 },
-		6: { points: 11, level: 3 },
-		7: { points: 12, level: 4 },
-		8: { points: 13, level: 4 },
-		9: { points: 14, level: 5 },
-		10: { points: 17, level: 5 },
-		11: { points: 21, level: 5 },
-		12: { points: 22, level: 5 },
-		13: { points: 24, level: 5 },
-		14: { points: 25, level: 5 },
-		15: { points: 26, level: 5 },
-		16: { points: 27, level: 5 },
-		17: { points: 28, level: 5 },
-		18: { points: 29, level: 5 },
-		19: { points: 30, level: 5 },
-		20: { points: 31, level: 5 },
-	};
->>>>>>> v1
 
 	const PACT_SLOT_TABLE = {
 		1: { slots: 1, level: 1 },
