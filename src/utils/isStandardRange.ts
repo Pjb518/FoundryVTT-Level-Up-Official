@@ -3,5 +3,5 @@
  * ranges (e.g. 'short', 'long', 'touch', etc.)
  */
 export default function isStandardRange(range: string): boolean {
-  return range !== 'other' && Object.keys(CONFIG.A5E.rangeDescriptors).includes(range);
+	return range !== 'other' && Object.keys(CONFIG.A5E.rangeDescriptors).includes(range);
 }

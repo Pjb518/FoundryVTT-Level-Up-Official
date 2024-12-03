@@ -1,18 +1,18 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import Checkbox from "../Checkbox.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
+import Checkbox from '../Checkbox.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+const item = getContext('item');
+const actionId = getContext('actionId');
 
-    export let deletePrompt;
-    export let duplicatePrompt;
-    export let prompt;
-    export let promptId;
+export let deletePrompt;
+export let duplicatePrompt;
+export let prompt;
+export let promptId;
 </script>
 
 <FieldWrapper

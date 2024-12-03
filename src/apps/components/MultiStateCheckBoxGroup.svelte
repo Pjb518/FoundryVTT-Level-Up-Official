@@ -1,35 +1,35 @@
 <script>
-    import { createEventDispatcher } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { createEventDispatcher } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import Tag from "./Tag.svelte";
+import Tag from './Tag.svelte';
 
-    export let auxEnabled = true;
-    export let color = "orange";
-    export let hint = "";
-    export let options = [];
-    export let selected = [[], []];
+export let auxEnabled = true;
+export let color = 'orange';
+export let hint = '';
+export let options = [];
+export let selected = [[], []];
 
-    function updateSelection(value, skipDefault = false) {
-        let newSelections = selected.map((c) => new Set(c));
+function updateSelection(value, skipDefault = false) {
+	let newSelections = selected.map((c) => new Set(c));
 
-        if (newSelections[0].has(value)) {
-            newSelections[0].delete(value);
-            newSelections[1].add(value);
-        } else if (newSelections[1].has(value)) {
-            newSelections[1].delete(value);
-        } else if (auxEnabled && skipDefault) {
-            newSelections[1].add(value);
-        } else {
-            newSelections[0].add(value);
-        }
+	if (newSelections[0].has(value)) {
+		newSelections[0].delete(value);
+		newSelections[1].add(value);
+	} else if (newSelections[1].has(value)) {
+		newSelections[1].delete(value);
+	} else if (auxEnabled && skipDefault) {
+		newSelections[1].add(value);
+	} else {
+		newSelections[0].add(value);
+	}
 
-        newSelections = newSelections.map((c) => [...c]);
+	newSelections = newSelections.map((c) => [...c]);
 
-        dispatch("updateSelection", newSelections);
-    }
+	dispatch('updateSelection', newSelections);
+}
 
-    const dispatch = createEventDispatcher();
+const dispatch = createEventDispatcher();
 </script>
 
 <ul

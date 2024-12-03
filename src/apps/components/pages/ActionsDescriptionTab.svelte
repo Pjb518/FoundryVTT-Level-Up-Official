@@ -1,31 +1,32 @@
 <script lang="ts">
-    import type { Writable } from "svelte/store";
-    import type { ItemA5e } from "../../../documents/item/item";
+import type { Writable } from 'svelte/store';
+import type { ItemA5e } from '../../../documents/item/item';
 
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import Editor from "../Editor.svelte";
-    import ItemSummary from "../itemSummaries/ItemSummary.svelte";
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import Editor from '../Editor.svelte';
+import ItemSummary from '../itemSummaries/ItemSummary.svelte';
 
-    import getSummaryData from "../../../utils/summaries/getSummaryData";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import getSummaryData from '../../../utils/summaries/getSummaryData';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    export let summaryData = {};
+export let summaryData = {};
 
-    const item: Writable<ItemA5e> = getContext("item");
-    const actionId: string = getContext("actionId");
+const item: Writable<ItemA5e> = getContext('item');
+const actionId: string = getContext('actionId');
 
-    const descriptionOutputOptions = [
-        ["action", "A5E.ActionActivationAction"],
-        ["item", "A5E.Item"],
-    ];
+const descriptionOutputOptions = [
+	['action', 'A5E.ActionActivationAction'],
+	['item', 'A5E.Item'],
+];
 
-    $: content = $item.system.actions[actionId]?.description;
-    $: descriptionOutputs = ($item.system.actions[actionId]
-        ?.descriptionOutputs as string[]) ?? ["item"];
+$: content = $item.system.actions[actionId]?.description;
+$: descriptionOutputs = ($item.system.actions[actionId]?.descriptionOutputs as string[]) ?? [
+	'item',
+];
 
-    $: summaryData = getSummaryData($item, $item.actions.get(actionId));
+$: summaryData = getSummaryData($item, $item.actions.get(actionId));
 </script>
 
 {#if Object.values(summaryData ?? {}).some(Boolean)}

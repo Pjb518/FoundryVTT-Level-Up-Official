@@ -1,150 +1,138 @@
 <script lang="ts">
-    import type { ActionActivationOptions } from "../../documents/item/data";
-    import type { AttackRollData } from "../../dataModels/item/actions/ActionRollsDataModel";
-    import type { BaseActorA5e } from "../../documents/actor/base";
-    import type { ItemA5e } from "../../documents/item/item";
-    import type { ResourceConsumptionManager } from "../../managers/ResourceConsumptionManager";
+import type { ActionActivationOptions } from '../../documents/item/data';
+import type { AttackRollData } from '../../dataModels/item/actions/ActionRollsDataModel';
+import type { BaseActorA5e } from '../../documents/actor/base';
+import type { ItemA5e } from '../../documents/item/item';
+import type { ResourceConsumptionManager } from '../../managers/ResourceConsumptionManager';
 
-    import { RollPreparationManager } from "../../managers/RollPreparationManager";
+import { RollPreparationManager } from '../../managers/RollPreparationManager';
 
-    import { getContext, setContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+import { getContext, setContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
+import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
 
-    import showActivationDialogSection from "../../utils/showActivationDialogSection";
+import showActivationDialogSection from '../../utils/showActivationDialogSection';
 
-    import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import Section from "../components/Section.svelte";
+import CheckboxGroup from '../components/CheckboxGroup.svelte';
+import Section from '../components/Section.svelte';
 
-    import AttackRollSection from "../components/activationDialog/AttackRollSection.svelte";
-    import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
-    import PromptsSection from "../components/activationDialog/PromptsSection.svelte";
-    import RollsSection from "../components/activationDialog/RollsSection.svelte";
-    import SpellSection from "../components/activationDialog/SpellSection.svelte";
-    import UsesSection from "../components/activationDialog/UsesSection.svelte";
-    import HitDiceSection from "../components/activationDialog/HitDiceSection.svelte";
-    import ConsumptionValidator from "../../utils/validators/ConsumptionValidator";
+import AttackRollSection from '../components/activationDialog/AttackRollSection.svelte';
+import OutputVisibilitySection from '../components/activationDialog/OutputVisibilitySection.svelte';
+import PromptsSection from '../components/activationDialog/PromptsSection.svelte';
+import RollsSection from '../components/activationDialog/RollsSection.svelte';
+import SpellSection from '../components/activationDialog/SpellSection.svelte';
+import UsesSection from '../components/activationDialog/UsesSection.svelte';
+import HitDiceSection from '../components/activationDialog/HitDiceSection.svelte';
+import ConsumptionValidator from '../../utils/validators/ConsumptionValidator';
 
-    export let { application } = getContext("#external") as { application: any };
-    export let {
-        actionId,
-        options,
-        dialog,
-    }: { actionId: string; options: ActionActivationOptions; dialog: any } = application;
-    export let {
-        actorDocument,
-        itemDocument,
-    }: { actorDocument: BaseActorA5e; itemDocument: ItemA5e } = application;
+export let { application } = getContext('#external') as { application: any };
+export let {
+	actionId,
+	options,
+	dialog,
+}: { actionId: string; options: ActionActivationOptions; dialog: any } = application;
+export let { actorDocument, itemDocument }: { actorDocument: BaseActorA5e; itemDocument: ItemA5e } =
+	application;
 
-    function onSubmit() {
-        dialog.submit({
-            attack: attackRollData,
-            consumers: {
-                actionUses: actionUsesData,
-                hitDice: hitDiceData,
-                itemUses: itemUsesData,
-                spell: spellData,
-            },
-            damageBonuses: RollPreparationManager.getSelectedBonuses(
-                $actor,
-                "damage",
-                selectedDamageBonuses,
-            ),
-            healingBonuses: RollPreparationManager.getSelectedBonuses(
-                $actor,
-                "healing",
-                selectedHealingBonuses,
-            ),
-            prompts: RollPreparationManager.getSelectedPrompts(
-                $actor,
-                $item,
-                actionId,
-                selectedPrompts,
-            ),
-            rolls: RollPreparationManager.getSelectedRolls(
-                $item,
-                actionId,
-                selectedRolls,
-            ),
-            visibilityMode,
-        });
-    }
+function onSubmit() {
+	dialog.submit({
+		attack: attackRollData,
+		consumers: {
+			actionUses: actionUsesData,
+			hitDice: hitDiceData,
+			itemUses: itemUsesData,
+			spell: spellData,
+		},
+		damageBonuses: RollPreparationManager.getSelectedBonuses(
+			$actor,
+			'damage',
+			selectedDamageBonuses,
+		),
+		healingBonuses: RollPreparationManager.getSelectedBonuses(
+			$actor,
+			'healing',
+			selectedHealingBonuses,
+		),
+		prompts: RollPreparationManager.getSelectedPrompts($actor, $item, actionId, selectedPrompts),
+		rolls: RollPreparationManager.getSelectedRolls($item, actionId, selectedRolls),
+		visibilityMode,
+	});
+}
 
-    const actor = new TJSDocument(actorDocument);
-    const item = new TJSDocument(itemDocument);
-    const action = $item.actions.get(actionId)!;
-    const { BonusesManager } = $actor;
-    const { isEmpty } = foundry.utils;
+const actor = new TJSDocument(actorDocument);
+const item = new TJSDocument(itemDocument);
+const action = $item.actions.get(actionId)!;
+const { BonusesManager } = $actor;
+const { isEmpty } = foundry.utils;
 
-    const consumers = RollPreparationManager.prepareConsumers($item, actionId);
-    // TODO: Add support for effects
-    const prompts = RollPreparationManager.preparePrompts($item, actionId);
-    const rolls = RollPreparationManager.prepareRolls($item, actionId);
-    const damageBonuses = BonusesManager.prepareGlobalDamageBonuses($item, rolls);
-    const healingBonuses = BonusesManager.prepareGlobalHealingBonuses($item, rolls);
+const consumers = RollPreparationManager.prepareConsumers($item, actionId);
+// TODO: Add support for effects
+const prompts = RollPreparationManager.preparePrompts($item, actionId);
+const rolls = RollPreparationManager.prepareRolls($item, actionId);
+const damageBonuses = BonusesManager.prepareGlobalDamageBonuses($item, rolls);
+const healingBonuses = BonusesManager.prepareGlobalHealingBonuses($item, rolls);
 
-    const attackRoll = rolls.attack?.length ? rolls.attack[0][1] : ({} as AttackRollData);
+const attackRoll = rolls.attack?.length ? rolls.attack[0][1] : ({} as AttackRollData);
 
-    // Show Config
-    const showAttackRoll = !isEmpty(attackRoll);
-    const showAreaSection = false;
-    const showOtherRolls = !!Object.values(rolls).flat().length;
-    const showDamageBonuses = !!Object.values(damageBonuses).flat().length;
-    const showHealingBonuses = !!Object.values(healingBonuses).flat().length;
-    const showBonusesSection = showDamageBonuses || showHealingBonuses;
-    const showPrompts = !!Object.values(prompts).flat().length;
-    const showSpellSection = showActivationDialogSection(
-        action,
-        ["spell"],
-        ["spellLevel", "spellPoints"],
-    );
-    const showUsesSection = showActivationDialogSection(
-        action,
-        ["actionUses", "itemUses"],
-        ["actionUses", "itemUses"],
-    );
-    const showHitDiceSection = !!Object.values(consumers.hitDice ?? {}).flat().length;
-    const showConsumersSection =
-        showSpellSection || showUsesSection || showHitDiceSection;
+// Show Config
+const showAttackRoll = !isEmpty(attackRoll);
+const showAreaSection = false;
+const showOtherRolls = !!Object.values(rolls).flat().length;
+const showDamageBonuses = !!Object.values(damageBonuses).flat().length;
+const showHealingBonuses = !!Object.values(healingBonuses).flat().length;
+const showBonusesSection = showDamageBonuses || showHealingBonuses;
+const showPrompts = !!Object.values(prompts).flat().length;
+const showSpellSection = showActivationDialogSection(
+	action,
+	['spell'],
+	['spellLevel', 'spellPoints'],
+);
+const showUsesSection = showActivationDialogSection(
+	action,
+	['actionUses', 'itemUses'],
+	['actionUses', 'itemUses'],
+);
+const showHitDiceSection = !!Object.values(consumers.hitDice ?? {}).flat().length;
+const showConsumersSection = showSpellSection || showUsesSection || showHitDiceSection;
 
-    let attackRollData = {};
-    let actionUsesData = {} as ResourceConsumptionManager.UsesConsumerData;
-    let hitDiceData = {} as ResourceConsumptionManager.HitDiceConsumerData;
-    let itemUsesData = {} as ResourceConsumptionManager.UsesConsumerData;
-    let spellData = {} as ResourceConsumptionManager.SpellConsumerData;
-    let selectedDamageBonuses = BonusesManager.getDefaultSelectionsFromBonuses({
-        damageBonuses,
-    });
-    let selectedHealingBonuses = BonusesManager.getDefaultSelectionsFromBonuses({
-        healingBonuses,
-    });
-    let selectedPrompts = BonusesManager.getDefaultSelectionsFromBonuses(prompts);
-    let selectedRolls = BonusesManager.getDefaultSelectionsFromBonuses(rolls);
-    let visibilityMode = game.settings?.get("core", "rollMode")!;
+let attackRollData = {};
+let actionUsesData = {} as ResourceConsumptionManager.UsesConsumerData;
+let hitDiceData = {} as ResourceConsumptionManager.HitDiceConsumerData;
+let itemUsesData = {} as ResourceConsumptionManager.UsesConsumerData;
+let spellData = {} as ResourceConsumptionManager.SpellConsumerData;
+let selectedDamageBonuses = BonusesManager.getDefaultSelectionsFromBonuses({
+	damageBonuses,
+});
+let selectedHealingBonuses = BonusesManager.getDefaultSelectionsFromBonuses({
+	healingBonuses,
+});
+let selectedPrompts = BonusesManager.getDefaultSelectionsFromBonuses(prompts);
+let selectedRolls = BonusesManager.getDefaultSelectionsFromBonuses(rolls);
+let visibilityMode = game.settings?.get('core', 'rollMode')!;
 
-    // TODO: Place Template
-    let placeTemplate =
-        (game.settings.get("a5e", "placeItemTemplateDefault") as boolean) ||
-        (action?.area?.placeTemplate as boolean) ||
-        false;
+// TODO: Place Template
+let placeTemplate =
+	(game.settings.get('a5e', 'placeItemTemplateDefault') as boolean) ||
+	(action?.area?.placeTemplate as boolean) ||
+	false;
 
-    // Validator
-    const validator = new ConsumptionValidator($actor, $item, action, consumers);
-    const preventActionRollOnWarning =
-        (game.settings?.get("a5e", "preventActionRollOnWarning") as boolean) ?? false;
+// Validator
+const validator = new ConsumptionValidator($actor, $item, action, consumers);
+const preventActionRollOnWarning =
+	(game.settings?.get('a5e', 'preventActionRollOnWarning') as boolean) ?? false;
 
-    $: consumerData = {
-        actionUses: actionUsesData,
-        hitDice: hitDiceData,
-        itemUses: itemUsesData,
-    };
+$: consumerData = {
+	actionUses: actionUsesData,
+	hitDice: hitDiceData,
+	itemUses: itemUsesData,
+};
 
-    $: warnings = validator.validateData(consumerData);
+$: warnings = validator.validateData(consumerData);
 
-    setContext("actionId", actionId);
-    setContext("actor", actor);
-    setContext("dialog", dialog);
-    setContext("item", item);
+setContext('actionId', actionId);
+setContext('actor', actor);
+setContext('dialog', dialog);
+setContext('item', item);
 </script>
 
 <form>

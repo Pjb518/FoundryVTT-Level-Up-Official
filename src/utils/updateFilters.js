@@ -6,11 +6,11 @@
  * @returns
  */
 function booleanFilter(key, type = 'inclusive') {
-  if (type === 'exclusive') {
-    return (item) => !foundry.utils.getProperty(item, key);
-  }
+	if (type === 'exclusive') {
+		return (item) => !foundry.utils.getProperty(item, key);
+	}
 
-  return (item) => foundry.utils.getProperty(item, key);
+	return (item) => foundry.utils.getProperty(item, key);
 }
 
 /**
@@ -21,88 +21,90 @@ function booleanFilter(key, type = 'inclusive') {
  * @returns
  */
 function valueBasedFilter(key, value, type = 'inclusive') {
-  if (type === 'exclusive') {
-    return (item) => foundry.utils.getProperty(item, key) != value;
-  }
+	if (type === 'exclusive') {
+		return (item) => foundry.utils.getProperty(item, key) != value;
+	}
 
-  return (item) => foundry.utils.getProperty(item, key) == value;
+	return (item) => foundry.utils.getProperty(item, key) == value;
 }
 
 function actionBasedFilter(key, value, type = 'inclusive') {
-  const filter = (item) => {
-    const actionKeys = item.actions?.activationTypes;
-    if (!actionKeys) return false;
+	const filter = (item) => {
+		const actionKeys = item.actions?.activationTypes;
+		if (!actionKeys) return false;
 
-    if (type === 'exclusive') {
-      return actionKeys.some((actionValue) => value != actionValue);
-    }
+		if (type === 'exclusive') {
+			return actionKeys.some((actionValue) => value != actionValue);
+		}
 
-    return actionKeys.some((actionValue) => value == actionValue);
-  };
+		return actionKeys.some((actionValue) => value == actionValue);
+	};
 
-  return filter;
+	return filter;
 }
 
 export default function updateFilters(reducer, type, filterKeys) {
-  // Clear existing filters
-  const removeIds = [...reducer.filters].reduce((acc, filter) => {
-    if (filter?.id?.includes(`${type}-`)) acc.push(filter.id);
+	// Clear existing filters
+	const removeIds = [...reducer.filters].reduce((acc, filter) => {
+		if (filter?.id?.includes(`${type}-`)) acc.push(filter.id);
 
-    return acc;
-  }, []);
+		return acc;
+	}, []);
 
-  reducer.filters.removeById(...removeIds);
+	reducer.filters.removeById(...removeIds);
 
-  // Get filterData
-  const filterData = Object.values(CONFIG.A5E.filters[type])
-    .reduce((acc, curr) => ({ ...acc, ...curr.filters }), {});
+	// Get filterData
+	const filterData = Object.values(CONFIG.A5E.filters[type]).reduce(
+		(acc, curr) => ({ ...acc, ...curr.filters }),
+		{},
+	);
 
-  const andFilters = [];
-  const orFilters = [];
+	const andFilters = [];
+	const orFilters = [];
 
-  // Get inclusive filters
-  filterKeys?.inclusive?.forEach((value) => {
-    const { key, type: filterType, truthValue } = filterData[value];
-    let filter;
+	// Get inclusive filters
+	filterKeys?.inclusive?.forEach((value) => {
+		const { key, type: filterType, truthValue } = filterData[value];
+		let filter;
 
-    if (filterType === 'boolean') filter = booleanFilter(key);
-    else if (filterType === 'value') filter = valueBasedFilter(key, value);
-    else if (filterType === 'action') filter = actionBasedFilter(key, value);
-    else return;
+		if (filterType === 'boolean') filter = booleanFilter(key);
+		else if (filterType === 'value') filter = valueBasedFilter(key, value);
+		else if (filterType === 'action') filter = actionBasedFilter(key, value);
+		else return;
 
-    if (truthValue === 'or') {
-      orFilters.push(filter);
-    } else {
-      andFilters.push({
-        id: `${type}-${value}`,
-        filter
-      });
-    }
-  });
+		if (truthValue === 'or') {
+			orFilters.push(filter);
+		} else {
+			andFilters.push({
+				id: `${type}-${value}`,
+				filter,
+			});
+		}
+	});
 
-  // Get exclusive filters
-  filterKeys?.exclusive?.forEach((value) => {
-    const { key, type: filterType } = filterData[value];
-    let filter;
+	// Get exclusive filters
+	filterKeys?.exclusive?.forEach((value) => {
+		const { key, type: filterType } = filterData[value];
+		let filter;
 
-    if (filterType === 'boolean') filter = booleanFilter(key, 'exclusive');
-    else if (filterType === 'value') filter = valueBasedFilter(key, value, 'exclusive');
-    else if (filterType === 'action') filter = actionBasedFilter(key, value, 'exclusive');
-    else return;
+		if (filterType === 'boolean') filter = booleanFilter(key, 'exclusive');
+		else if (filterType === 'value') filter = valueBasedFilter(key, value, 'exclusive');
+		else if (filterType === 'action') filter = actionBasedFilter(key, value, 'exclusive');
+		else return;
 
-    andFilters.push({
-      id: `${type}-${value}`,
-      filter
-    });
-  });
+		andFilters.push({
+			id: `${type}-${value}`,
+			filter,
+		});
+	});
 
-  // Add and filters to reducer
-  reducer.filters.add(...andFilters);
+	// Add and filters to reducer
+	reducer.filters.add(...andFilters);
 
-  // Add or filters to reducer
-  if (!orFilters.length) return;
-  reducer.filters.add({
-    id: `${type}-or`,
-    filter: (item) => orFilters.some((filterFn) => filterFn(item))
-  });
+	// Add or filters to reducer
+	if (!orFilters.length) return;
+	reducer.filters.add({
+		id: `${type}-or`,
+		filter: (item) => orFilters.some((filterFn) => filterFn(item)),
+	});
 }

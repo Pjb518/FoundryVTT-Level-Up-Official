@@ -1,17 +1,17 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import Checkbox from "../Checkbox.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
-    import Section from "../Section.svelte";
+import Checkbox from '../Checkbox.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import RadioGroup from '../RadioGroup.svelte';
+import Section from '../Section.svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    const actor = getContext("actor");
-    const { abilityAbbreviations } = CONFIG.A5E;
+const actor = getContext('actor');
+const { abilityAbbreviations } = CONFIG.A5E;
 
-    $: flags = $actor.flags?.a5e ?? {};
+$: flags = $actor.flags?.a5e ?? {};
 </script>
 
 <Section heading="Spell Resource Settings" --a5e-section-body-gap="0.75rem">

@@ -1,31 +1,31 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import prepareAbilityOptions from '../../dataPreparationHelpers/prepareAbilityOptions';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import Checkbox from "../Checkbox.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
+import Checkbox from '../Checkbox.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import RadioGroup from '../RadioGroup.svelte';
 
-    export let deleteRoll;
-    export let duplicateRoll;
-    export let roll;
-    export let rollId;
+export let deleteRoll;
+export let duplicateRoll;
+export let roll;
+export let rollId;
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+const item = getContext('item');
+const actionId = getContext('actionId');
 
-    function updateAbility(ability) {
-        selectedAbility = ability;
-        updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.rolls.${rollId}.ability`,
-            selectedAbility,
-        );
-    }
+function updateAbility(ability) {
+	selectedAbility = ability;
+	updateDocumentDataFromField(
+		$item,
+		`system.actions.${actionId}.rolls.${rollId}.ability`,
+		selectedAbility,
+	);
+}
 
-    $: selectedAbility = roll.ability ?? "none";
+$: selectedAbility = roll.ability ?? 'none';
 </script>
 
 <FieldWrapper

@@ -1,54 +1,54 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    async function deactivateIncompatibleModules() {
-        const modules = game.settings.get("core", "moduleConfiguration");
+async function deactivateIncompatibleModules() {
+	const modules = game.settings.get('core', 'moduleConfiguration');
 
-        const moduleUpdates = activeIncompatibleModules.reduce((updates, [key]) => {
-            updates[key] = false;
-            return updates;
-        }, {});
+	const moduleUpdates = activeIncompatibleModules.reduce((updates, [key]) => {
+		updates[key] = false;
+		return updates;
+	}, {});
 
-        await game.settings.set(
-            "core",
-            "moduleConfiguration",
-            foundry.utils.mergeObject(modules, moduleUpdates),
-        );
+	await game.settings.set(
+		'core',
+		'moduleConfiguration',
+		foundry.utils.mergeObject(modules, moduleUpdates),
+	);
 
-        window.location.reload();
-    }
+	window.location.reload();
+}
 
-    function getPriorityColor(priorityLevel) {
-        switch (priorityLevel) {
-            case "low":
-                return "color: #ffb404;";
-            case "medium":
-                return "color: #fe8006;";
-            case "high":
-                return "color: #fe3901;";
-        }
-    }
+function getPriorityColor(priorityLevel) {
+	switch (priorityLevel) {
+		case 'low':
+			return 'color: #ffb404;';
+		case 'medium':
+			return 'color: #fe8006;';
+		case 'high':
+			return 'color: #fe3901;';
+	}
+}
 
-    function getPriorityTooltipLabel(priorityLevel) {
-        switch (priorityLevel) {
-            case "low":
-                return "Low Priority: No Adverse Effects";
-            case "medium":
-                return "Medium Priority: Limited Adverse Effects on System Functionality";
-            case "high":
-                return "High Priority: Adverse Effects on System Functionality";
-        }
-    }
+function getPriorityTooltipLabel(priorityLevel) {
+	switch (priorityLevel) {
+		case 'low':
+			return 'Low Priority: No Adverse Effects';
+		case 'medium':
+			return 'Medium Priority: Limited Adverse Effects on System Functionality';
+		case 'high':
+			return 'High Priority: Adverse Effects on System Functionality';
+	}
+}
 
-    export let { activeIncompatibleModules } = getContext("#external").application;
+export let { activeIncompatibleModules } = getContext('#external').application;
 
-    $: modules = activeIncompatibleModules.map(([module, { reason, priority }]) => [
-        game.modules.get(module)?.title,
-        reason,
-        priority,
-    ]);
+$: modules = activeIncompatibleModules.map(([module, { reason, priority }]) => [
+	game.modules.get(module)?.title,
+	reason,
+	priority,
+]);
 </script>
 
 <article class="main-announcement-container">

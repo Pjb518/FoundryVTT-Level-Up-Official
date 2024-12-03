@@ -1,28 +1,26 @@
 <script lang="ts">
-    import { onDestroy } from "svelte";
+import { onDestroy } from 'svelte';
 
-    import keyBindingStore from "../stores/pressedKeysStore";
+import keyBindingStore from '../stores/pressedKeysStore';
 
-    let pressedKeys;
+let pressedKeys;
 
-    const unsubscribe = keyBindingStore.subscribe(
-        (value) => (pressedKeys = value)
-    );
+const unsubscribe = keyBindingStore.subscribe((value) => (pressedKeys = value));
 
-    function logKey(event) {
-        pressedKeys["Alt"] = event.altKey;
-        pressedKeys["Control"] = event.metaKey || event.ctrlKey;
-        pressedKeys["Shift"] = event.shiftKey;
+function logKey(event) {
+	pressedKeys['Alt'] = event.altKey;
+	pressedKeys['Control'] = event.metaKey || event.ctrlKey;
+	pressedKeys['Shift'] = event.shiftKey;
 
-        keyBindingStore.update(() => ({ ...pressedKeys }));
-    }
+	keyBindingStore.update(() => ({ ...pressedKeys }));
+}
 
-    function resetKeys() {
-        Object.keys(pressedKeys).forEach((key) => (pressedKeys[key] = false));
-        keyBindingStore.update(() => ({ ...pressedKeys }));
-    }
+function resetKeys() {
+	Object.keys(pressedKeys).forEach((key) => (pressedKeys[key] = false));
+	keyBindingStore.update(() => ({ ...pressedKeys }));
+}
 
-    onDestroy(unsubscribe);
+onDestroy(unsubscribe);
 </script>
 
 <svelte:window

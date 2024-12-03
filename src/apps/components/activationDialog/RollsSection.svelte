@@ -1,26 +1,26 @@
 <script lang="ts">
-    import type { RollHandlerReturnType } from "../../dataPreparationHelpers/itemActivationRolls/prepareRolls";
+import type { RollHandlerReturnType } from '../../dataPreparationHelpers/itemActivationRolls/prepareRolls';
 
-    import { RollPreparationManager } from "../../../managers/RollPreparationManager";
+import { RollPreparationManager } from '../../../managers/RollPreparationManager';
 
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
 
-    export let selectedRolls: string[];
-    export let rolls: RollHandlerReturnType;
+export let selectedRolls: string[];
+export let rolls: RollHandlerReturnType;
 
-    const rollHeadingMap = {
-        abilityCheck: "Ability Checks",
-        damage: "Damage Rolls",
-        generic: "Generic Rolls",
-        healing: "Healing Rolls",
-        savingThrow: "Saving Throws",
-        skillCheck: "Skill Checks",
-        toolCheck: "Tool Checks",
-    };
+const rollHeadingMap = {
+	abilityCheck: 'Ability Checks',
+	damage: 'Damage Rolls',
+	generic: 'Generic Rolls',
+	healing: 'Healing Rolls',
+	savingThrow: 'Saving Throws',
+	skillCheck: 'Skill Checks',
+	toolCheck: 'Tool Checks',
+};
 
-    const { invalidSelections: disabledRolls, otherRolls } =
-        RollPreparationManager.prepareOtherRollData(rolls);
+const { invalidSelections: disabledRolls, otherRolls } =
+	RollPreparationManager.prepareOtherRollData(rolls);
 </script>
 
 <FieldWrapper hint="A5E.RollsHint">

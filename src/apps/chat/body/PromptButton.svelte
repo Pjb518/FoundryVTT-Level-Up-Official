@@ -1,12 +1,12 @@
 <script>
-    import { createEventDispatcher } from "svelte";
+import { createEventDispatcher } from 'svelte';
 
-    export let icon = null;
-    export let prompt;
-    export let title;
-    export let subtitle = null;
+export let icon = null;
+export let prompt;
+export let title;
+export let subtitle = null;
 
-    const dispatch = createEventDispatcher();
+const dispatch = createEventDispatcher();
 </script>
 
 <button class="save-prompt" on:click={() => dispatch("triggerPrompt")}>

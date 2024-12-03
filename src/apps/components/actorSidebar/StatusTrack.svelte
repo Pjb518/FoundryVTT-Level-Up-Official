@@ -1,21 +1,21 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    export let icon;
-    export let tooltipText;
-    export let trackProperty;
-    export let options;
-    export let selectedOption;
+export let icon;
+export let tooltipText;
+export let trackProperty;
+export let options;
+export let selectedOption;
 
-    function handleStatusEffectChange(value) {
-        updateDocumentDataFromField($actor, `system.attributes.${trackProperty}`, value);
-    }
+function handleStatusEffectChange(value) {
+	updateDocumentDataFromField($actor, `system.attributes.${trackProperty}`, value);
+}
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    let replaceFatigueAndStrife = game.settings.get("a5e", "replaceFatigueAndStrife");
+let replaceFatigueAndStrife = game.settings.get('a5e', 'replaceFatigueAndStrife');
 </script>
 
 <div

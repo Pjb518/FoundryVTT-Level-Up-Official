@@ -75,155 +75,155 @@ import openCompendium from '../utils/openCompendium';
 import { gameSettings } from '../settings/SettingsStore';
 
 export default function init() {
-  CONFIG.A5E = A5E;
-  CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
-  // @ts-expect-error
-  CONFIG.Actor.documentClass = ActorProxy;
-  CONFIG.Actor.trackableAttributes = trackableAttributes;
-  CONFIG.Item.documentClass = ItemProxy;
-  CONFIG.Token.documentClass = TokenDocumentA5e;
-  CONFIG.Token.objectClass = TokenA5e;
+	CONFIG.A5E = A5E;
+	CONFIG.ActiveEffect.documentClass = ActiveEffectA5e;
+	// @ts-expect-error
+	CONFIG.Actor.documentClass = ActorProxy;
+	CONFIG.Actor.trackableAttributes = trackableAttributes;
+	CONFIG.Item.documentClass = ItemProxy;
+	CONFIG.Token.documentClass = TokenDocumentA5e;
+	CONFIG.Token.objectClass = TokenA5e;
 
-  CONFIG.Dice.D20Roll = D20Roll;
+	CONFIG.Dice.D20Roll = D20Roll;
 
-  CONFIG.Dice.rolls.push(D20Roll);
+	CONFIG.Dice.rolls.push(D20Roll);
 
-  CONFIG.MeasuredTemplate.defaults.angle = 60;
+	CONFIG.MeasuredTemplate.defaults.angle = 60;
 
-  // DataModels
-  CONFIG.Actor.dataModels = actorDataModels;
-  // @ts-expect-error
-  CONFIG.ChatMessage.dataModels = chatDataModels;
-  CONFIG.Item.dataModels = itemDataModels;
+	// DataModels
+	CONFIG.Actor.dataModels = actorDataModels;
+	// @ts-expect-error
+	CONFIG.ChatMessage.dataModels = chatDataModels;
+	CONFIG.Item.dataModels = itemDataModels;
 
-  // Initialize the game's A5E namespace
-  game.a5e = {
-    applications: {
-      ActorSheetA5e,
-      ItemSheetA5e
-    },
-    activeEffects: {
-      EffectOption,
-      options: {},
-      effectsPanel: null
-    },
-    compendiumSheets: {
-      DND5ESpellCompendiumSheet,
-      ItemCompendiumSheet,
-      ManeuverCompendiumSheet,
-      MonsterCompendiumSheet,
-      SpellCompendiumSheet
-    },
-    config: A5E,
-    dice: {
-      D20Roll
-    },
-    documentClasses: {
-      ...A5E.Actor.documentClasses,
-      ...A5E.Item.documentClasses,
-      TokenDocumentA5e,
-      TokenA5e
-    },
-    dialogs: {
-      bonuses: {
-        abilities: {},
-        damage: {},
-        healing: {},
-        skills: {}
-      },
-      partyViewer: null
-    },
-    macros: {
-      activateActionMacro,
-      activateItemMacro,
-      createMacro
-    },
-    managers: {
-      ActionsManager,
-      ContainerManager,
-      ForeignDocumentManager,
-      HitDiceManager,
-      ItemGrantsManager,
-      ModifierManager,
-      ResourceConsumptionManager,
-      RestManager,
-      RollPreparationManager,
-      TemplatePreparationManager
-    },
-    migrations: {
-      MigrationList,
-      MigrationRunner,
-      handleMigration,
-      handlePackMigration
-    },
-    settings: {
-      store: gameSettings
-    },
-    utils: {
-      getDeterministicBonus,
-      compendiaIndexFunctions,
-      openCompendium
-    }
-  };
+	// Initialize the game's A5E namespace
+	game.a5e = {
+		applications: {
+			ActorSheetA5e,
+			ItemSheetA5e,
+		},
+		activeEffects: {
+			EffectOption,
+			options: {},
+			effectsPanel: null,
+		},
+		compendiumSheets: {
+			DND5ESpellCompendiumSheet,
+			ItemCompendiumSheet,
+			ManeuverCompendiumSheet,
+			MonsterCompendiumSheet,
+			SpellCompendiumSheet,
+		},
+		config: A5E,
+		dice: {
+			D20Roll,
+		},
+		documentClasses: {
+			...A5E.Actor.documentClasses,
+			...A5E.Item.documentClasses,
+			TokenDocumentA5e,
+			TokenA5e,
+		},
+		dialogs: {
+			bonuses: {
+				abilities: {},
+				damage: {},
+				healing: {},
+				skills: {},
+			},
+			partyViewer: null,
+		},
+		macros: {
+			activateActionMacro,
+			activateItemMacro,
+			createMacro,
+		},
+		managers: {
+			ActionsManager,
+			ContainerManager,
+			ForeignDocumentManager,
+			HitDiceManager,
+			ItemGrantsManager,
+			ModifierManager,
+			ResourceConsumptionManager,
+			RestManager,
+			RollPreparationManager,
+			TemplatePreparationManager,
+		},
+		migrations: {
+			MigrationList,
+			MigrationRunner,
+			handleMigration,
+			handlePackMigration,
+		},
+		settings: {
+			store: gameSettings,
+		},
+		utils: {
+			getDeterministicBonus,
+			compendiaIndexFunctions,
+			openCompendium,
+		},
+	};
 
-  // Register sheet application classes
-  Actors.unregisterSheet('core', ActorSheet);
-  // @ts-expect-error
-  Actors.registerSheet('a5e', ActorSheetA5e, {
-    types: ['character'],
-    makeDefault: true,
-    label: 'A5E.SheetClassCharacter'
-  });
+	// Register sheet application classes
+	Actors.unregisterSheet('core', ActorSheet);
+	// @ts-expect-error
+	Actors.registerSheet('a5e', ActorSheetA5e, {
+		types: ['character'],
+		makeDefault: true,
+		label: 'A5E.SheetClassCharacter',
+	});
 
-  // @ts-expect-error
-  Actors.registerSheet('a5e', ActorSheetA5e, {
-    types: ['npc'],
-    makeDefault: true,
-    label: 'A5E.SheetClassNPC'
-  });
+	// @ts-expect-error
+	Actors.registerSheet('a5e', ActorSheetA5e, {
+		types: ['npc'],
+		makeDefault: true,
+		label: 'A5E.SheetClassNPC',
+	});
 
-  Items.unregisterSheet('core', ItemSheet);
-  // @ts-expect-error
-  Items.registerSheet('a5e', ItemSheetA5e, {
-    makeDefault: true,
-    label: 'A5E.SheetClassItem'
-  });
+	Items.unregisterSheet('core', ItemSheet);
+	// @ts-expect-error
+	Items.registerSheet('a5e', ItemSheetA5e, {
+		makeDefault: true,
+		label: 'A5E.SheetClassItem',
+	});
 
-  DocumentSheetConfig.unregisterSheet(ActiveEffect, 'core', ActiveEffectConfig);
-  DocumentSheetConfig.registerSheet(ActiveEffect, 'a5e', ActiveEffectConfigA5e, {
-    makeDefault: true,
-    label: 'A5E.SheetClassActiveEffectConfig'
-  });
+	DocumentSheetConfig.unregisterSheet(ActiveEffect, 'core', ActiveEffectConfig);
+	DocumentSheetConfig.registerSheet(ActiveEffect, 'a5e', ActiveEffectConfigA5e, {
+		makeDefault: true,
+		label: 'A5E.SheetClassActiveEffectConfig',
+	});
 
-  // @ts-expect-error
-  Combatant.prototype._getInitiativeFormula = getInitiativeFormula;
-  Combatant.prototype.getInitiativeRoll = getInitiativeRoll;
-  Combatant.prototype.rollInitiative = rollCombatantInitiative;
+	// @ts-expect-error
+	Combatant.prototype._getInitiativeFormula = getInitiativeFormula;
+	Combatant.prototype.getInitiativeRoll = getInitiativeRoll;
+	Combatant.prototype.rollInitiative = rollCombatantInitiative;
 
-  Combat.prototype.rollInitiative = rollInitiative;
+	Combat.prototype.rollInitiative = rollInitiative;
 
-  // @ts-expect-error
-  CombatTracker.prototype._onCombatantControl = _onCombatantControl;
-  // @ts-expect-error
-  CombatTracker.prototype._onCombatControl = _onCombatControl;
+	// @ts-expect-error
+	CombatTracker.prototype._onCombatantControl = _onCombatantControl;
+	// @ts-expect-error
+	CombatTracker.prototype._onCombatControl = _onCombatControl;
 
-  // Register detection modes
-  prepareDetectionModes();
+	// Register detection modes
+	prepareDetectionModes();
 
-  // Set tooltips to animate faster
-  TooltipManager.TOOLTIP_ACTIVATION_MS = 100;
+	// Set tooltips to animate faster
+	TooltipManager.TOOLTIP_ACTIVATION_MS = 100;
 
-  // Prelocalize any static strings once localization files become available.
-  Hooks.once('i18nInit', () => {
-    performPreLocalization(CONFIG.A5E);
-    game.a5e.activeEffects.options = constructEffectOptions();
-  });
+	// Prelocalize any static strings once localization files become available.
+	Hooks.once('i18nInit', () => {
+		performPreLocalization(CONFIG.A5E);
+		game.a5e.activeEffects.options = constructEffectOptions();
+	});
 
-  registerKeybindings();
+	registerKeybindings();
 
-  // Add enricher
-  const enricherManager = new A5eEnricherManager();
-  enricherManager.registerCustomEnrichers();
+	// Add enricher
+	const enricherManager = new A5eEnricherManager();
+	enricherManager.registerCustomEnrichers();
 
-  return preloadHandlebarsTemplates();
+	return preloadHandlebarsTemplates();
 }

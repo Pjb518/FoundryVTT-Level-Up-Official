@@ -1,61 +1,61 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/application";
+import { getContext, setContext } from 'svelte';
+import { ApplicationShell } from '#runtime/svelte/component/application';
 
-    import ClassPropertiesTab from "../components/pages/ClassPropertiesTab.svelte";
-    import ClassResourcesTab from "../components/pages/ClassResourcesTab.svelte";
-    import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
-    import ItemGrantsTab from "../components/pages/ItemGrantsTab.svelte";
-    import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
-    import NavigationBar from "../components/navigation/NavigationBar.svelte";
+import ClassPropertiesTab from '../components/pages/ClassPropertiesTab.svelte';
+import ClassResourcesTab from '../components/pages/ClassResourcesTab.svelte';
+import ItemDescriptionTab from '../components/pages/ItemDescriptionTab.svelte';
+import ItemGrantsTab from '../components/pages/ItemGrantsTab.svelte';
+import ItemSheetHeader from '../components/itemSheetsHeader/ItemSheetHeader.svelte';
+import NavigationBar from '../components/navigation/NavigationBar.svelte';
 
-    export let { document, sheet } = getContext("#external").application;
-    export let elementRoot;
+export let { document, sheet } = getContext('#external').application;
+export let elementRoot;
 
-    const item = document;
+const item = document;
 
-    function updateCurrentTab(event) {
-        currentTab = tabs[event.detail];
-    }
+function updateCurrentTab(event) {
+	currentTab = tabs[event.detail];
+}
 
-    // **********************************************
-    // Drag Drop Handlers
-    function onDrop(event) {
-        const transferData = event.dataTransfer.getData("text/plain");
-        if (!transferData) return;
+// **********************************************
+// Drag Drop Handlers
+function onDrop(event) {
+	const transferData = event.dataTransfer.getData('text/plain');
+	if (!transferData) return;
 
-        const dragData = JSON.parse(transferData);
-        sheet._onDropDocument(dragData);
-    }
+	const dragData = JSON.parse(transferData);
+	sheet._onDropDocument(dragData);
+}
 
-    const tabs = [
-        {
-            name: "description",
-            label: "A5E.Description",
-            component: ItemDescriptionTab,
-        },
-        {
-            name: "properties",
-            label: "A5E.ItemSheetLabelPropertiesTab",
-            component: ClassPropertiesTab,
-        },
-        {
-            name: "resources",
-            label: "A5E.TabResources",
-            component: ClassResourcesTab,
-        },
-        {
-            name: "grants",
-            label: "A5E.TabGrants",
-            component: ItemGrantsTab,
-        },
-    ];
+const tabs = [
+	{
+		name: 'description',
+		label: 'A5E.Description',
+		component: ItemDescriptionTab,
+	},
+	{
+		name: 'properties',
+		label: 'A5E.ItemSheetLabelPropertiesTab',
+		component: ClassPropertiesTab,
+	},
+	{
+		name: 'resources',
+		label: 'A5E.TabResources',
+		component: ClassResourcesTab,
+	},
+	{
+		name: 'grants',
+		label: 'A5E.TabGrants',
+		component: ItemGrantsTab,
+	},
+];
 
-    let currentTab = tabs[0];
+let currentTab = tabs[0];
 
-    setContext("item", item);
+setContext('item', item);
 </script>
 
 <ApplicationShell bind:elementRoot>

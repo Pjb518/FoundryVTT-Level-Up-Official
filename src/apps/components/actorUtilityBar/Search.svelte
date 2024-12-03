@@ -1,23 +1,20 @@
 <script>
-    import { getContext, onDestroy } from "svelte";
-    import { TJSInput } from "#standard/component/form";
+import { getContext, onDestroy } from 'svelte';
+import { TJSInput } from '#standard/component/form';
 
-    import {
-        addSearchFilter,
-        removeSearchFilter,
-    } from "../../handlers/handleSearchFilter";
+import { addSearchFilter, removeSearchFilter } from '../../handlers/handleSearchFilter';
 
-    export let reducerType;
-    export let reducer = null;
+export let reducerType;
+export let reducer = null;
 
-    const document = getContext("actor") ?? getContext("item");
+const document = getContext('actor') ?? getContext('item');
 
-    if (!reducer) {
-        reducer = document[reducerType];
-    }
+if (!reducer) {
+	reducer = document[reducerType];
+}
 
-    const input = addSearchFilter(reducer);
-    onDestroy(() => removeSearchFilter(reducer));
+const input = addSearchFilter(reducer);
+onDestroy(() => removeSearchFilter(reducer));
 </script>
 
 <div class="search-container">

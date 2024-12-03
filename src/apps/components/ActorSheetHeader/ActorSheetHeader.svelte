@@ -1,13 +1,13 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import AbilityScores from "./AbilityScores.svelte";
-    import CharacterShields from "./CharacterShields.svelte";
-    import NpcShields from "./NpcShields.svelte";
+import AbilityScores from './AbilityScores.svelte';
+import CharacterShields from './CharacterShields.svelte';
+import NpcShields from './NpcShields.svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 </script>
 
 <header class="sheet-header">

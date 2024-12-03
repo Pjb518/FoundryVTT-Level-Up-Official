@@ -1,22 +1,22 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
+import FieldWrapper from '../components/FieldWrapper.svelte';
+import RadioGroup from '../components/RadioGroup.svelte';
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-    export let { document, actionId } = getContext("#external").application;
+export let { document, actionId } = getContext('#external').application;
 
-    function getTargetScalingOptions() {
-        return [[null, "A5E.None"], ...Object.entries(CONFIG.A5E.targetScalingModes)];
-    }
+function getTargetScalingOptions() {
+	return [[null, 'A5E.None'], ...Object.entries(CONFIG.A5E.targetScalingModes)];
+}
 
-    const item = document;
+const item = document;
 
-    $: action = $item.actions.get(actionId);
-    $: target = action.target ?? {};
-    $: scalingMode = target?.scaling?.mode ?? null;
+$: action = $item.actions.get(actionId);
+$: target = action.target ?? {};
+$: scalingMode = target?.scaling?.mode ?? null;
 </script>
 
 <form>

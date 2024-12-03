@@ -8,28 +8,27 @@
  * @returns {Array<RollTerm>} A new array of RollTerm objects.
  */
 export default function simplifyOperatorTerms(terms) {
-  const Terms = foundry.dice.terms;
+	const Terms = foundry.dice.terms;
 
-  return terms.reduce((acc, term, i) => {
-    const prior = acc[acc.length - 1];
-    const ops = new Set([prior?.operator, term.operator]);
+	return terms.reduce((acc, term, i) => {
+		const prior = acc[acc.length - 1];
+		const ops = new Set([prior?.operator, term.operator]);
 
-    // If the final terms is an operator term, ignore it.
-    if ((i === terms.length - 1) && (term.operator)) return acc;
+		// If the final terms is an operator term, ignore it.
+		if (i === terms.length - 1 && term.operator) return acc;
 
-    // If one of the terms is not an operator, add the current term as is.
-    if (ops.has(undefined)) acc.push(term);
+		// If one of the terms is not an operator, add the current term as is.
+		if (ops.has(undefined)) acc.push(term);
+		// Replace consecutive "+ -" operators with a "-" operator.
+		else if (ops.has('+') && ops.has('-'))
+			acc.splice(-1, 1, new Terms.OperatorTerm({ operator: '-' }));
+		// Replace double "-" operators with a "+" operator.
+		else if (ops.has('-') && ops.size === 1)
+			acc.splice(-1, 1, new Terms.OperatorTerm({ operator: '+' }));
+		// Don't include "+" operators that directly follow "+", "*", or "/".
+		// Otherwise, add the term as is.
+		else if (!ops.has('+')) acc.push(term);
 
-    // Replace consecutive "+ -" operators with a "-" operator.
-    else if ((ops.has('+')) && (ops.has('-'))) acc.splice(-1, 1, new Terms.OperatorTerm({ operator: '-' }));
-
-    // Replace double "-" operators with a "+" operator.
-    else if ((ops.has('-')) && (ops.size === 1)) acc.splice(-1, 1, new Terms.OperatorTerm({ operator: '+' }));
-
-    // Don't include "+" operators that directly follow "+", "*", or "/".
-    // Otherwise, add the term as is.
-    else if (!ops.has('+')) acc.push(term);
-
-    return acc;
-  }, []);
+		return acc;
+	}, []);
 }

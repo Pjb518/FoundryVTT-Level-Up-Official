@@ -5,167 +5,167 @@ const { fields } = foundry.data;
 //                        Schemas
 // ======================================================
 const baseSchema = () => ({
-  // @ts-expect-error
-  default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
-  label: new fields.StringField({ required: true, nullable: false, initial: '' }),
-  type: new fields.StringField({ required: true, nullable: false, initial: '' })
+	// @ts-expect-error
+	default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
+	label: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	type: new fields.StringField({ required: true, nullable: false, initial: '' }),
 });
 
 const usesSchema = () => ({
-  quantity: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
-  ...baseSchema()
+	quantity: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
+	...baseSchema(),
 });
 
 const quantitySchema = () => ({
-  itemId: new fields.StringField({ required: true, nullable: false, initial: '' }),
-  quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-  ...baseSchema()
+	itemId: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	...baseSchema(),
 });
 
 const hitDiceSchema = () => ({
-  quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-  ...baseSchema()
+	quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	...baseSchema(),
 });
 
 const resourceSchema = () => ({
-  classIdentifier: new fields.StringField({ required: true, nullable: false, initial: '' }),
-  quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-  resource: new fields.StringField({ required: true, nullable: false, initial: '' }),
-  // @ts-expect-error
-  restore: new fields.BooleanField({ required: true, nullable: false, initial: false }),
-  ...baseSchema()
+	classIdentifier: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	resource: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	// @ts-expect-error
+	restore: new fields.BooleanField({ required: true, nullable: false, initial: false }),
+	...baseSchema(),
 });
 
 const spellSchema = () => ({
-  mode: new fields.StringField({
-    required: true,
-    nullable: false,
-    initial: 'variable',
-    choices: [...CONFIG.A5E.SPELL_CONSUMER_MODES]
-  }),
-  charges: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-  points: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-  spellLevel: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-  ...baseSchema()
+	mode: new fields.StringField({
+		required: true,
+		nullable: false,
+		initial: 'variable',
+		choices: [...CONFIG.A5E.SPELL_CONSUMER_MODES],
+	}),
+	charges: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	points: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	spellLevel: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+	...baseSchema(),
 });
 
 // ======================================================
 //                      NameSpaces
 // ======================================================
 declare namespace ActionUsesConsumerData {
-  type Schema = DataSchema & ReturnType<typeof usesSchema>;
+	type Schema = DataSchema & ReturnType<typeof usesSchema>;
 }
 
 declare namespace AmmunitionConsumerData {
-  type Schema = DataSchema & ReturnType<typeof quantitySchema>;
+	type Schema = DataSchema & ReturnType<typeof quantitySchema>;
 }
 
 declare namespace HitDiceConsumerData {
-  type Schema = DataSchema & ReturnType<typeof hitDiceSchema>;
+	type Schema = DataSchema & ReturnType<typeof hitDiceSchema>;
 }
 
 declare namespace ItemUsesConsumerData {
-  type Schema = DataSchema & ReturnType<typeof usesSchema>;
+	type Schema = DataSchema & ReturnType<typeof usesSchema>;
 }
 
 declare namespace QuantityConsumerData {
-  type Schema = DataSchema & ReturnType<typeof quantitySchema>;
+	type Schema = DataSchema & ReturnType<typeof quantitySchema>;
 }
 
 declare namespace ResourceConsumerData {
-  type Schema = DataSchema & ReturnType<typeof resourceSchema>;
+	type Schema = DataSchema & ReturnType<typeof resourceSchema>;
 }
 
 declare namespace SpellConsumerData {
-  type Schema = DataSchema & ReturnType<typeof spellSchema>;
+	type Schema = DataSchema & ReturnType<typeof spellSchema>;
 }
 
 // ======================================================
 //                       Classes
 // ======================================================
 class ActionUsesConsumerData extends foundry.abstract.DataModel<
-  ActionUsesConsumerData.Schema,
-  foundry.abstract.Document<DataSchema, any, any>
+	ActionUsesConsumerData.Schema,
+	foundry.abstract.Document<DataSchema, any, any>
 > {
-  static override defineSchema(): ActionUsesConsumerData.Schema {
-    return {
-      ...usesSchema()
-    };
-  }
+	static override defineSchema(): ActionUsesConsumerData.Schema {
+		return {
+			...usesSchema(),
+		};
+	}
 }
 
 class AmmunitionConsumerData extends foundry.abstract.DataModel<
-  AmmunitionConsumerData.Schema,
-  foundry.abstract.Document<DataSchema, any, any>
+	AmmunitionConsumerData.Schema,
+	foundry.abstract.Document<DataSchema, any, any>
 > {
-  static override defineSchema(): AmmunitionConsumerData.Schema {
-    return {
-      ...quantitySchema()
-    };
-  }
+	static override defineSchema(): AmmunitionConsumerData.Schema {
+		return {
+			...quantitySchema(),
+		};
+	}
 }
 
 class HitDiceConsumerData extends foundry.abstract.DataModel<
-  HitDiceConsumerData.Schema,
-  foundry.abstract.Document<DataSchema, any, any>
+	HitDiceConsumerData.Schema,
+	foundry.abstract.Document<DataSchema, any, any>
 > {
-  static override defineSchema(): HitDiceConsumerData.Schema {
-    return {
-      ...hitDiceSchema()
-    };
-  }
+	static override defineSchema(): HitDiceConsumerData.Schema {
+		return {
+			...hitDiceSchema(),
+		};
+	}
 }
 
 class ItemUsesConsumerData extends foundry.abstract.DataModel<
-  ItemUsesConsumerData.Schema,
-  foundry.abstract.Document<DataSchema, any, any>
+	ItemUsesConsumerData.Schema,
+	foundry.abstract.Document<DataSchema, any, any>
 > {
-  static override defineSchema(): ItemUsesConsumerData.Schema {
-    return {
-      ...usesSchema()
-    };
-  }
+	static override defineSchema(): ItemUsesConsumerData.Schema {
+		return {
+			...usesSchema(),
+		};
+	}
 }
 
 class QuantityConsumerData extends foundry.abstract.DataModel<
-  QuantityConsumerData.Schema,
-  foundry.abstract.Document<DataSchema, any, any>
+	QuantityConsumerData.Schema,
+	foundry.abstract.Document<DataSchema, any, any>
 > {
-  static override defineSchema(): QuantityConsumerData.Schema {
-    return {
-      ...quantitySchema()
-    };
-  }
+	static override defineSchema(): QuantityConsumerData.Schema {
+		return {
+			...quantitySchema(),
+		};
+	}
 }
 
 class ResourceConsumerData extends foundry.abstract.DataModel<
-  ResourceConsumerData.Schema,
-  foundry.abstract.Document<DataSchema, any, any>
+	ResourceConsumerData.Schema,
+	foundry.abstract.Document<DataSchema, any, any>
 > {
-  static override defineSchema(): ResourceConsumerData.Schema {
-    return {
-      ...resourceSchema()
-    };
-  }
+	static override defineSchema(): ResourceConsumerData.Schema {
+		return {
+			...resourceSchema(),
+		};
+	}
 }
 
 class SpellConsumerData extends foundry.abstract.DataModel<
-  SpellConsumerData.Schema,
-  foundry.abstract.Document<DataSchema, any, any>
+	SpellConsumerData.Schema,
+	foundry.abstract.Document<DataSchema, any, any>
 > {
-  static override defineSchema(): SpellConsumerData.Schema {
-    return {
-      ...spellSchema()
-    };
-  }
+	static override defineSchema(): SpellConsumerData.Schema {
+		return {
+			...spellSchema(),
+		};
+	}
 }
 
 export {
-  ActionUsesConsumerData,
-  AmmunitionConsumerData,
-  HitDiceConsumerData,
-  ItemUsesConsumerData,
-  QuantityConsumerData,
-  ResourceConsumerData,
-  SpellConsumerData
+	ActionUsesConsumerData,
+	AmmunitionConsumerData,
+	HitDiceConsumerData,
+	ItemUsesConsumerData,
+	QuantityConsumerData,
+	ResourceConsumerData,
+	SpellConsumerData,
 };

@@ -1,73 +1,71 @@
 <script>
-    function applyDamage(damageType = null, multiplier = 1, temp = false) {
-        if (multiplier < 0) {
-            applyHealing(temp ? "temporaryHealing" : "healing");
-            return;
-        }
+function applyDamage(damageType = null, multiplier = 1, temp = false) {
+	if (multiplier < 0) {
+		applyHealing(temp ? 'temporaryHealing' : 'healing');
+		return;
+	}
 
-        const { character } = game.user;
-        const selectedTokens = canvas.tokens.controlled;
-        const damage = roll.total * multiplier;
+	const { character } = game.user;
+	const selectedTokens = canvas.tokens.controlled;
+	const damage = roll.total * multiplier;
 
-        if (selectedTokens.length)
-            selectedTokens.forEach((token) =>
-                token.actor.applyDamage(damage, damageType),
-            );
-        else if (character) character.applyDamage(damage, damageType);
-        else ui.notifications.warn("No tokens selected");
-    }
+	if (selectedTokens.length)
+		selectedTokens.forEach((token) => token.actor.applyDamage(damage, damageType));
+	else if (character) character.applyDamage(damage, damageType);
+	else ui.notifications.warn('No tokens selected');
+}
 
-    async function applyHealing(healingType) {
-        const { character } = game.user;
-        const selectedTokens = canvas.tokens.controlled;
+async function applyHealing(healingType) {
+	const { character } = game.user;
+	const selectedTokens = canvas.tokens.controlled;
 
-        if (selectedTokens.length) {
-            selectedTokens.forEach((token) => {
-                token.actor.applyHealing(roll.total, healingType);
-            });
-        } else if (character) {
-            character.applyHealing(roll.total, healingType);
-        } else {
-            ui.notifications.warn("No tokens selected");
-        }
-    }
+	if (selectedTokens.length) {
+		selectedTokens.forEach((token) => {
+			token.actor.applyHealing(roll.total, healingType);
+		});
+	} else if (character) {
+		character.applyHealing(roll.total, healingType);
+	} else {
+		ui.notifications.warn('No tokens selected');
+	}
+}
 
-    export let roll;
-    export let rollData;
+export let roll;
+export let rollData;
 
-    const damageButtons = [
-        {
-            label: "Grant Temporary Hit Points",
-            multiplier: -1,
-            temp: true,
-            icon: "fa-heart-circle-bolt",
-        },
-        {
-            label: "Apply Damage as Healing",
-            multiplier: -1,
-            icon: "fa-heart-circle-plus",
-        },
-        {
-            label: "Apply Double Damage",
-            multiplier: 2,
-            icon: "fa-skull",
-        },
-        {
-            label: "Apply Quarter Damage",
-            multiplier: 0.25,
-            icon: "fa-shield",
-        },
-        {
-            label: "Apply Half Damage",
-            multiplier: 0.5,
-            icon: "fa-shield-halved",
-        },
-        {
-            label: "Apply Damage",
-            multiplier: 1,
-            icon: "fa-heart-crack",
-        },
-    ];
+const damageButtons = [
+	{
+		label: 'Grant Temporary Hit Points',
+		multiplier: -1,
+		temp: true,
+		icon: 'fa-heart-circle-bolt',
+	},
+	{
+		label: 'Apply Damage as Healing',
+		multiplier: -1,
+		icon: 'fa-heart-circle-plus',
+	},
+	{
+		label: 'Apply Double Damage',
+		multiplier: 2,
+		icon: 'fa-skull',
+	},
+	{
+		label: 'Apply Quarter Damage',
+		multiplier: 0.25,
+		icon: 'fa-shield',
+	},
+	{
+		label: 'Apply Half Damage',
+		multiplier: 0.5,
+		icon: 'fa-shield-halved',
+	},
+	{
+		label: 'Apply Damage',
+		multiplier: 1,
+		icon: 'fa-heart-crack',
+	},
+];
 </script>
 
 {#if rollData.type === "damage"}

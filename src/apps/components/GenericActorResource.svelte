@@ -1,102 +1,84 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import GenericConfigDialog from "../dialogs/initializers/GenericConfigDialog";
+import GenericConfigDialog from '../dialogs/initializers/GenericConfigDialog';
 
-    import getDeterministicBonus from "../../dice/getDeterministicBonus";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+import getDeterministicBonus from '../../dice/getDeterministicBonus';
+import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-    import GenericActorResourceConfigDialog from "../dialogs/GenericActorResourceConfigDialog.svelte";
+import GenericActorResourceConfigDialog from '../dialogs/GenericActorResourceConfigDialog.svelte';
 
-    export let resource;
-    export let source;
+export let resource;
+export let source;
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    function configureResource() {
-        let dialog = $actor.dialogs.genericResources[source];
+function configureResource() {
+	let dialog = $actor.dialogs.genericResources[source];
 
-        if (!dialog) {
-            $actor.dialogs.genericResources[source] = new GenericConfigDialog(
-                $actor,
-                `${$actor.name}: Generic Resource Dialog`,
-                GenericActorResourceConfigDialog,
-                { source },
-            );
+	if (!dialog) {
+		$actor.dialogs.genericResources[source] = new GenericConfigDialog(
+			$actor,
+			`${$actor.name}: Generic Resource Dialog`,
+			GenericActorResourceConfigDialog,
+			{ source },
+		);
 
-            dialog = $actor.dialogs.genericResources[source];
-        }
+		dialog = $actor.dialogs.genericResources[source];
+	}
 
-        dialog.render(true);
-    }
+	dialog.render(true);
+}
 
-    function incrementResource() {
-        resource.value = Math.max(resource.value + 1, 0);
-        updateDocumentDataFromField(
-            $actor,
-            `system.resources.${source}.value`,
-            Number(resource.value),
-        );
-    }
+function incrementResource() {
+	resource.value = Math.max(resource.value + 1, 0);
+	updateDocumentDataFromField($actor, `system.resources.${source}.value`, Number(resource.value));
+}
 
-    function decrementResource() {
-        resource.value = Math.max(resource.value - 1, 0);
-        updateDocumentDataFromField(
-            $actor,
-            `system.resources.${source}.value`,
-            Number(resource.value),
-        );
-    }
+function decrementResource() {
+	resource.value = Math.max(resource.value - 1, 0);
+	updateDocumentDataFromField($actor, `system.resources.${source}.value`, Number(resource.value));
+}
 
-    function updateResourceValue(value) {
-        if (isClassResource) {
-            updateDocumentDataFromField(
-                $actor,
-                `system.resources.classResources.${source}`,
-                Number(value),
-            );
-        } else {
-            updateDocumentDataFromField(
-                $actor,
-                `system.resources.${source}.value`,
-                Number(value),
-            );
-        }
-    }
+function updateResourceValue(value) {
+	if (isClassResource) {
+		updateDocumentDataFromField($actor, `system.resources.classResources.${source}`, Number(value));
+	} else {
+		updateDocumentDataFromField($actor, `system.resources.${source}.value`, Number(value));
+	}
+}
 
-    function determineResourceVisibility(sheetIsLocked) {
-        // Add class resources when sheet is locked
-        if (!sheetIsLocked && !isClassResource) return true;
+function determineResourceVisibility(sheetIsLocked) {
+	// Add class resources when sheet is locked
+	if (!sheetIsLocked && !isClassResource) return true;
 
-        // Add resource is Hide Max is set
-        if (sheetIsLocked && resource.hideMax) return true;
+	// Add resource is Hide Max is set
+	if (sheetIsLocked && resource.hideMax) return true;
 
-        // Add resource is max is not 0
-        if (sheetIsLocked && max !== 0) return true;
+	// Add resource is max is not 0
+	if (sheetIsLocked && max !== 0) return true;
 
-        return false;
-    }
+	return false;
+}
 
-    function canRecharge(_, sheetIsLocked) {
-        if (!sheetIsLocked) return false;
-        if (resource.per !== "recharge") return false;
-        if (resource.hideMax) return true;
+function canRecharge(_, sheetIsLocked) {
+	if (!sheetIsLocked) return false;
+	if (resource.per !== 'recharge') return false;
+	if (resource.hideMax) return true;
 
-        // Return false if the resource has a max value and the current value equals the max value
-        return resource.value < max;
-    }
+	// Return false if the resource has a max value and the current value equals the max value
+	return resource.value < max;
+}
 
-    const genericResources = ["primary", "secondary", "tertiary", "quaternary"];
+const genericResources = ['primary', 'secondary', 'tertiary', 'quaternary'];
 
-    $: resource = resource;
-    $: isClassResource = !genericResources.includes(source);
-    $: max = getDeterministicBonus(resource.max, $actor.getRollData());
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
-    $: showRechargeButton = canRecharge($actor, sheetIsLocked);
-    $: showResource = determineResourceVisibility(sheetIsLocked);
+$: resource = resource;
+$: isClassResource = !genericResources.includes(source);
+$: max = getDeterministicBonus(resource.max, $actor.getRollData());
+$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+$: showRechargeButton = canRecharge($actor, sheetIsLocked);
+$: showResource = determineResourceVisibility(sheetIsLocked);
 </script>
 
 {#if showResource}

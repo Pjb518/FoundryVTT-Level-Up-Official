@@ -1,24 +1,24 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
+import Checkbox from '../components/Checkbox.svelte';
+import FieldWrapper from '../components/FieldWrapper.svelte';
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-    export let { document, appId } = getContext("#external").application;
+export let { document, appId } = getContext('#external').application;
 
-    const actor = document;
-    const { A5E } = CONFIG;
+const actor = document;
+const { A5E } = CONFIG;
 
-    const headings = {
-        burrow: "A5E.MovementBurrowingSpeed",
-        climb: "A5E.MovementClimbingSpeed",
-        fly: "A5E.MovementFlyingSpeed",
-        swim: "A5E.MovementSwimmingSpeed",
-        walk: "A5E.MovementWalkingSpeed",
-    };
+const headings = {
+	burrow: 'A5E.MovementBurrowingSpeed',
+	climb: 'A5E.MovementClimbingSpeed',
+	fly: 'A5E.MovementFlyingSpeed',
+	swim: 'A5E.MovementSwimmingSpeed',
+	walk: 'A5E.MovementWalkingSpeed',
+};
 </script>
 
 <article>

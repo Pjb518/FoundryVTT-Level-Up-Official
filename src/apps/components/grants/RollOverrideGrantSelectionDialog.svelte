@@ -1,82 +1,82 @@
 <script lang="ts">
-    import type { ExpertiseDiceGrant } from "types/itemGrants";
+import type { ExpertiseDiceGrant } from 'types/itemGrants';
 
-    import { createEventDispatcher } from "svelte";
+import { createEventDispatcher } from 'svelte';
 
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
 
-    export let grant: ExpertiseDiceGrant;
-    export let base: string[];
-    export let choices: string[];
-    export let count: number;
-    export let rollOverrideType: string;
-    export let selected: string[];
+export let grant: ExpertiseDiceGrant;
+export let base: string[];
+export let choices: string[];
+export let count: number;
+export let rollOverrideType: string;
+export let selected: string[];
 
-    function getGrantSummary(selected) {
-        // return ` This grant provides a bonus of ${bonus} to ${selected
-        //     .map((s) => configObject[s])
-        //     .join(", ")}.`;
-        return "";
-    }
+function getGrantSummary(selected) {
+	// return ` This grant provides a bonus of ${bonus} to ${selected
+	//     .map((s) => configObject[s])
+	//     .join(", ")}.`;
+	return '';
+}
 
-    function onUpdateSelection({ detail }) {
-        selected = detail;
-        dispatch("updateSelection", { selected, summary });
-    }
+function onUpdateSelection({ detail }) {
+	selected = detail;
+	dispatch('updateSelection', { selected, summary });
+}
 
-    function getOptions(choicesLocked: boolean): string[][] {
-        if (!choicesLocked) return configObject[rollOverrideType]?.options ?? [];
+function getOptions(choicesLocked: boolean): string[][] {
+	if (!choicesLocked) return configObject[rollOverrideType]?.options ?? [];
 
-        const options: string[][] = [];
-        for (const [value, label] of configObject[rollOverrideType]?.options ?? []) {
-            if (choices.includes(value)) {
-                options.push([value, label]);
-            }
-        }
+	const options: string[][] = [];
+	for (const [value, label] of configObject[rollOverrideType]?.options ?? []) {
+		if (choices.includes(value)) {
+			options.push([value, label]);
+		}
+	}
 
-        return options;
-    }
+	return options;
+}
 
-    const dispatch = createEventDispatcher();
-    const configObject = {
-        abilityCheck: {
-            label: "A5E.AbilityCheck",
-            options: Object.entries(CONFIG.A5E.abilities),
-        },
-        abilitySave: {
-            label: "A5E.SavingThrow",
-            options: Object.entries(CONFIG.A5E.abilities),
-        },
-        attack: {
-            label: "A5E.ActionOptionAttack",
-            options: Object.entries(CONFIG.A5E.attackTypes),
-        },
-        initiative: {
-            label: "A5E.Initiative",
-            options: [],
-        },
-        concentration: {
-            label: "A5E.ConditionConcentration",
-            options: [],
-        },
-        deathSave: {
-            label: "Death Save",
-            options: [],
-        },
-        skill: {
-            label: "A5E.Skill",
-            options: Object.entries(CONFIG.A5E.skills),
-        },
-    };
+const dispatch = createEventDispatcher();
+const configObject = {
+	abilityCheck: {
+		label: 'A5E.AbilityCheck',
+		options: Object.entries(CONFIG.A5E.abilities),
+	},
+	abilitySave: {
+		label: 'A5E.SavingThrow',
+		options: Object.entries(CONFIG.A5E.abilities),
+	},
+	attack: {
+		label: 'A5E.ActionOptionAttack',
+		options: Object.entries(CONFIG.A5E.attackTypes),
+	},
+	initiative: {
+		label: 'A5E.Initiative',
+		options: [],
+	},
+	concentration: {
+		label: 'A5E.ConditionConcentration',
+		options: [],
+	},
+	deathSave: {
+		label: 'Death Save',
+		options: [],
+	},
+	skill: {
+		label: 'A5E.Skill',
+		options: Object.entries(CONFIG.A5E.skills),
+	},
+};
 
-    let choicesLocked = true;
+let choicesLocked = true;
 
-    $: selected = [...new Set(base.concat(selected))];
-    $: totalCount = base.length + count;
-    $: remainingSelections = totalCount - selected.length;
-    $: summary = getGrantSummary(selected);
+$: selected = [...new Set(base.concat(selected))];
+$: totalCount = base.length + count;
+$: remainingSelections = totalCount - selected.length;
+$: summary = getGrantSummary(selected);
 </script>
 
 <Section

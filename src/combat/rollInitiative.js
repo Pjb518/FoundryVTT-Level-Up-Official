@@ -15,75 +15,78 @@
  *                            are complete.
  */
 export default async function rollInitiative(
-  /* eslint-ignore no-restricted syntax */
+	/* eslint-ignore no-restricted syntax */
 
-  _ids,
-  { updateTurn = true, messageOptions = {}, rollOptions = {} } = {}
+	_ids,
+	{ updateTurn = true, messageOptions = {}, rollOptions = {} } = {},
 ) {
-  // Structure input data
-  const ids = typeof _ids === 'string' ? [_ids] : _ids;
-  const currentId = this.combatant?.id;
-  const rollMode = messageOptions.rollMode || game.settings.get('core', 'rollMode');
+	// Structure input data
+	const ids = typeof _ids === 'string' ? [_ids] : _ids;
+	const currentId = this.combatant?.id;
+	const rollMode = messageOptions.rollMode || game.settings.get('core', 'rollMode');
 
-  // Iterate over Combatants, performing an initiative roll for each
-  const updates = [];
-  const messages = [];
+	// Iterate over Combatants, performing an initiative roll for each
+	const updates = [];
+	const messages = [];
 
-  // eslint-disable-next-line no-restricted-syntax
-  for (const [i, id] of ids.entries()) {
-    let roll;
+	// eslint-disable-next-line no-restricted-syntax
+	for (const [i, id] of ids.entries()) {
+		let roll;
 
-    // Get Combatant data (non-strictly)
-    const combatant = this.combatants.get(id);
+		// Get Combatant data (non-strictly)
+		const combatant = this.combatants.get(id);
 
-    // TODO: Look into where this results variable is supposed to be coming from.
-    // eslint-disable-next-line no-undef
-    if (!combatant?.isOwner) return results;
+		// TODO: Look into where this results variable is supposed to be coming from.
+		// eslint-disable-next-line no-undef
+		if (!combatant?.isOwner) return results;
 
-    // Produce an initiative roll for the Combatant
-    try {
-      // eslint-disable-next-line no-await-in-loop
-      roll = await combatant.getInitiativeRoll(rollOptions);
-    } catch {
-      continue;
-    }
+		// Produce an initiative roll for the Combatant
+		try {
+			// eslint-disable-next-line no-await-in-loop
+			roll = await combatant.getInitiativeRoll(rollOptions);
+		} catch {
+			continue;
+		}
 
-    updates.push({ _id: id, initiative: roll.total });
+		updates.push({ _id: id, initiative: roll.total });
 
-    // Construct chat message data
-    const messageData = foundry.utils.mergeObject({
-      speaker: {
-        scene: this.scene.id,
-        actor: combatant.actor?.id,
-        token: combatant.token?.id,
-        alias: combatant.name
-      },
-      flavor: game.i18n.format('COMBAT.RollsInitiative', { name: combatant.name }),
-      flags: { 'core.initiativeRoll': true }
-    }, messageOptions);
+		// Construct chat message data
+		const messageData = foundry.utils.mergeObject(
+			{
+				speaker: {
+					scene: this.scene.id,
+					actor: combatant.actor?.id,
+					token: combatant.token?.id,
+					alias: combatant.name,
+				},
+				flavor: game.i18n.format('COMBAT.RollsInitiative', { name: combatant.name }),
+				flags: { 'core.initiativeRoll': true },
+			},
+			messageOptions,
+		);
 
-    // eslint-disable-next-line no-await-in-loop
-    const chatData = await roll.toMessage(messageData, {
-      create: false,
-      rollMode: combatant.hidden && (rollMode === 'roll') ? 'gmroll' : rollMode
-    });
+		// eslint-disable-next-line no-await-in-loop
+		const chatData = await roll.toMessage(messageData, {
+			create: false,
+			rollMode: combatant.hidden && rollMode === 'roll' ? 'gmroll' : rollMode,
+		});
 
-    // Play 1 sound for the whole rolled set
-    if (i > 0) chatData.sound = null;
-    messages.push(chatData);
-  }
+		// Play 1 sound for the whole rolled set
+		if (i > 0) chatData.sound = null;
+		messages.push(chatData);
+	}
 
-  if (!updates.length) return this;
+	if (!updates.length) return this;
 
-  // Update multiple combatants
-  await this.updateEmbeddedDocuments('Combatant', updates);
+	// Update multiple combatants
+	await this.updateEmbeddedDocuments('Combatant', updates);
 
-  // Ensure the turn order remains with the same combatant
-  if (updateTurn) {
-    await this.update({ turn: this.turns.findIndex((t) => t.id === currentId) });
-  }
+	// Ensure the turn order remains with the same combatant
+	if (updateTurn) {
+		await this.update({ turn: this.turns.findIndex((t) => t.id === currentId) });
+	}
 
-  // Create multiple chat messages
-  await ChatMessage.implementation.create(messages);
-  return this;
+	// Create multiple chat messages
+	await ChatMessage.implementation.create(messages);
+	return this;
 }

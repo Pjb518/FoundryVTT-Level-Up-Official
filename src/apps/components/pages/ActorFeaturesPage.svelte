@@ -1,44 +1,42 @@
 <script>
-    import { localize } from "#runtime/util/i18n";
-    import { getContext, onDestroy } from "svelte";
+import { localize } from '#runtime/util/i18n';
+import { getContext, onDestroy } from 'svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
-    import Filter from "../actorUtilityBar/Filter.svelte";
-    import ItemCategory from "../ItemCategory.svelte";
-    import Search from "../actorUtilityBar/Search.svelte";
-    import ShowDescription from "../actorUtilityBar/ShowDescription.svelte";
-    import Sort from "../actorUtilityBar/Sort.svelte";
-    import TabFooter from "../TabFooter.svelte";
-    import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
+import CreateMenu from '../actorUtilityBar/CreateMenu.svelte';
+import Filter from '../actorUtilityBar/Filter.svelte';
+import ItemCategory from '../ItemCategory.svelte';
+import Search from '../actorUtilityBar/Search.svelte';
+import ShowDescription from '../actorUtilityBar/ShowDescription.svelte';
+import Sort from '../actorUtilityBar/Sort.svelte';
+import TabFooter from '../TabFooter.svelte';
+import UtilityBar from '../actorUtilityBar/UtilityBar.svelte';
 
-    import usesRequired from "../../../utils/usesRequired";
+import usesRequired from '../../../utils/usesRequired';
 
-    const actor = getContext("actor");
-    const { features } = actor;
-    const { A5E } = CONFIG;
+const actor = getContext('actor');
+const { features } = actor;
+const { A5E } = CONFIG;
 
-    const reducerType = "features";
-    const subTypes = A5E.featureTypes;
-    const sortMap = CONFIG.A5E.reducerSortMap.features;
+const reducerType = 'features';
+const subTypes = A5E.featureTypes;
+const sortMap = CONFIG.A5E.reducerSortMap.features;
 
-    let showDescription = false;
-    let showUses = usesRequired(features);
+let showDescription = false;
+let showUses = usesRequired(features);
 
-    $: favorPoints = $actor.system.attributes.favorPoints;
-    $: menuList = Object.entries(subTypes);
-    $: sortedFeatures = Object.entries($features._types).sort(
-        (a, b) => sortMap[a[0]] - sortMap[b[0]],
-    );
+$: favorPoints = $actor.system.attributes.favorPoints;
+$: menuList = Object.entries(subTypes);
+$: sortedFeatures = Object.entries($features._types).sort((a, b) => sortMap[a[0]] - sortMap[b[0]]);
 
-    const unsubscribe = features.subscribe((_) => {
-        showUses = usesRequired(features);
-    });
+const unsubscribe = features.subscribe((_) => {
+	showUses = usesRequired(features);
+});
 
-    onDestroy(() => {
-        unsubscribe();
-    });
+onDestroy(() => {
+	unsubscribe();
+});
 </script>
 
 {#if $actor.isOwner}

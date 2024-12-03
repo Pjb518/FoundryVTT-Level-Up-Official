@@ -1,30 +1,30 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import Checkbox from "../Checkbox.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
+import Checkbox from '../Checkbox.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    export let consumer;
-    export let consumerId;
-    export let deleteConsumer;
+export let consumer;
+export let consumerId;
+export let deleteConsumer;
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
-    const A5E = CONFIG.A5E;
+const item = getContext('item');
+const actionId = getContext('actionId');
+const A5E = CONFIG.A5E;
 
-    function updateResourceSelection() {
-        updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.consumers.${consumerId}.resource`,
-            selectedResource,
-        );
-    }
+function updateResourceSelection() {
+	updateDocumentDataFromField(
+		$item,
+		`system.actions.${actionId}.consumers.${consumerId}.resource`,
+		selectedResource,
+	);
+}
 
-    let selectedResource = consumer.resource ?? "";
-    $: selectedResource, updateResourceSelection();
+let selectedResource = consumer.resource ?? '';
+$: selectedResource, updateResourceSelection();
 </script>
 
 <FieldWrapper

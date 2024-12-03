@@ -10,25 +10,20 @@ import SimpleInitiativeRollDialog from '../apps/dialogs/SimpleInitiativeRollDial
  * @returns {string}  Final initiative formula for the actor.
  */
 export default async function getInitiativeFormula(options) {
-  if (options?.skipRollDialog) {
-    return getDefaultInitiativeFormula(this.actor, options);
-  }
+	if (options?.skipRollDialog) {
+		return getDefaultInitiativeFormula(this.actor, options);
+	}
 
-  const title = game.i18n.format('A5E.InitiativePromptTitle', { name: this.name });
-  const component = game.settings.get('a5e', 'simpleInitiative') ? SimpleInitiativeRollDialog : InitiativeRollDialog;
+	const title = game.i18n.format('A5E.InitiativePromptTitle', { name: this.name });
+	const component = game.settings.get('a5e', 'simpleInitiative')
+		? SimpleInitiativeRollDialog
+		: InitiativeRollDialog;
 
-  const dialog = new GenericRollDialog(
-    this,
-    title,
-    component,
-    {},
-    options,
-    { width: 530 }
-  );
+	const dialog = new GenericRollDialog(this, title, component, {}, options, { width: 530 });
 
-  await dialog.render(true);
+	await dialog.render(true);
 
-  const { rollFormula } = await dialog.promise;
+	const { rollFormula } = await dialog.promise;
 
-  return rollFormula;
+	return rollFormula;
 }

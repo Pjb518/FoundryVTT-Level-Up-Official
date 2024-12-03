@@ -1,65 +1,65 @@
 <script>
-    import { getContext, onDestroy } from "svelte";
+import { getContext, onDestroy } from 'svelte';
 
-    import CreateMenu from "./actorUtilityBar/CreateMenu.svelte";
-    import Filter from "./actorUtilityBar/Filter.svelte";
-    import ItemCategory from "./ItemCategory.svelte";
-    import Search from "./actorUtilityBar/Search.svelte";
-    import ShowDescription from "./actorUtilityBar/ShowDescription.svelte";
-    import Sort from "./actorUtilityBar/Sort.svelte";
-    import UtilityBar from "./actorUtilityBar/UtilityBar.svelte";
+import CreateMenu from './actorUtilityBar/CreateMenu.svelte';
+import Filter from './actorUtilityBar/Filter.svelte';
+import ItemCategory from './ItemCategory.svelte';
+import Search from './actorUtilityBar/Search.svelte';
+import ShowDescription from './actorUtilityBar/ShowDescription.svelte';
+import Sort from './actorUtilityBar/Sort.svelte';
+import UtilityBar from './actorUtilityBar/UtilityBar.svelte';
 
-    import usesRequired from "../../utils/usesRequired";
+import usesRequired from '../../utils/usesRequired';
 
-    export let spellBookId;
-    export let reducer;
+export let spellBookId;
+export let reducer;
 
-    function importer(docs) {
-        docs.forEach((doc) => {
-            doc.system.spellBook = spellBookId;
-        });
+function importer(docs) {
+	docs.forEach((doc) => {
+		doc.system.spellBook = spellBookId;
+	});
 
-        $actor.createEmbeddedDocuments("Item", docs);
-    }
+	$actor.createEmbeddedDocuments('Item', docs);
+}
 
-    const actor = getContext("actor");
-    const { spellLevels } = CONFIG.A5E;
-    const reducerType = "spells";
-    const openCompendium = game.a5e.utils.openCompendium;
+const actor = getContext('actor');
+const { spellLevels } = CONFIG.A5E;
+const reducerType = 'spells';
+const openCompendium = game.a5e.utils.openCompendium;
 
-    let showUses = false;
+let showUses = false;
 
-    const unsubscribe = reducer.subscribe((_) => {
-        const spells = Object.keys(spellLevels).reduce((spellBookSpells, level) => {
-            spellBookSpells.push(...$reducer?._levels[level]);
-            return spellBookSpells;
-        }, []);
-        showUses = usesRequired(spells);
-    });
+const unsubscribe = reducer.subscribe((_) => {
+	const spells = Object.keys(spellLevels).reduce((spellBookSpells, level) => {
+		spellBookSpells.push(...$reducer?._levels[level]);
+		return spellBookSpells;
+	}, []);
+	showUses = usesRequired(spells);
+});
 
-    $: menuList = Object.entries(spellLevels);
-    $: spellBook = $actor?.spellBooks?.get(spellBookId);
+$: menuList = Object.entries(spellLevels);
+$: spellBook = $actor?.spellBooks?.get(spellBookId);
 
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 
-    $: isSpellLevelVisible = (level) => {
-        if (!sheetIsLocked) return true;
+$: isSpellLevelVisible = (level) => {
+	if (!sheetIsLocked) return true;
 
-        const maxSlots = $actor.system.spellResources.slots[level]?.max;
-        const showSpellSlots = $actor.flags?.a5e?.showSpellSlots ?? true;
-        const spellQuantity = [...($reducer?._levels[level] ?? [])].length;
+	const maxSlots = $actor.system.spellResources.slots[level]?.max;
+	const showSpellSlots = $actor.flags?.a5e?.showSpellSlots ?? true;
+	const spellQuantity = [...($reducer?._levels[level] ?? [])].length;
 
-        if (spellQuantity) return true;
-        if (showSpellSlots && maxSlots > 0) return true;
+	if (spellQuantity) return true;
+	if (showSpellSlots && maxSlots > 0) return true;
 
-        return false;
-    };
+	return false;
+};
 
-    let showDescription = false;
+let showDescription = false;
 
-    onDestroy(() => {
-        unsubscribe();
-    });
+onDestroy(() => {
+	unsubscribe();
+});
 </script>
 
 <!-- The class name shouldn't change as it is used to find the closest spell book for onDrop -->

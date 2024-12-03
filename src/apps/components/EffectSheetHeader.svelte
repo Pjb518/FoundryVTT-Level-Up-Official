@@ -1,12 +1,12 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import editDocumentImage from "../handlers/editDocumentImage";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+import editDocumentImage from '../handlers/editDocumentImage';
+import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-    const effect = getContext("effect");
+const effect = getContext('effect');
 
-    const appId = getContext("appId");
+const appId = getContext('appId');
 </script>
 
 <header class="sheet-header">

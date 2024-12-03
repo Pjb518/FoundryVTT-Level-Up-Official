@@ -1,14 +1,14 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import Editor from "../Editor.svelte";
-    import ItemSummary from "../itemSummaries/ItemSummary.svelte";
+import Editor from '../Editor.svelte';
+import ItemSummary from '../itemSummaries/ItemSummary.svelte';
 
-    export let summaryData = {};
+export let summaryData = {};
 
-    const item = getContext("item");
+const item = getContext('item');
 
-    $: content = $item.system.description;
+$: content = $item.system.description;
 </script>
 
 {#if Object.values(summaryData ?? {}).some(Boolean)}

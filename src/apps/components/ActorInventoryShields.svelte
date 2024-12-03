@@ -1,51 +1,49 @@
 <script>
-    import { localize } from "#runtime/util/i18n";
-    import { getContext } from "svelte";
+import { localize } from '#runtime/util/i18n';
+import { getContext } from 'svelte';
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    function getBulkyTooltip(actor) {
-        let bulkyLimit;
-        const { supply } = actor.system;
+function getBulkyTooltip(actor) {
+	let bulkyLimit;
+	const { supply } = actor.system;
 
-        if (supply) {
-            bulkyLimit = Math.max(1 + actor.system.abilities.str.mod, 1);
-        } else {
-            bulkyLimit = Math.max(2 + actor.system.abilities.str.mod, 2);
-        }
+	if (supply) {
+		bulkyLimit = Math.max(1 + actor.system.abilities.str.mod, 1);
+	} else {
+		bulkyLimit = Math.max(2 + actor.system.abilities.str.mod, 2);
+	}
 
-        return `Bulky Limit: ${bulkyLimit}`;
-    }
+	return `Bulky Limit: ${bulkyLimit}`;
+}
 
-    function getSupplyTooltip(actor) {
-        const { supply } = actor.system;
-        const freeSupplyLimit = actor.system.abilities.str.value;
+function getSupplyTooltip(actor) {
+	const { supply } = actor.system;
+	const freeSupplyLimit = actor.system.abilities.str.value;
 
-        const excessSupply = Math.abs(Math.min(freeSupplyLimit - supply, 0));
+	const excessSupply = Math.abs(Math.min(freeSupplyLimit - supply, 0));
 
-        if (excessSupply) {
-            return `Free Supply: ${freeSupplyLimit} &nbsp;&nbsp;|&nbsp;&nbsp; Additional Supply: ${excessSupply}`;
-        } else {
-            return `Free Supply: ${supply} &nbsp;&nbsp;|&nbsp;&nbsp; Additional Supply: 0`;
-        }
-    }
+	if (excessSupply) {
+		return `Free Supply: ${freeSupplyLimit} &nbsp;&nbsp;|&nbsp;&nbsp; Additional Supply: ${excessSupply}`;
+	} else {
+		return `Free Supply: ${supply} &nbsp;&nbsp;|&nbsp;&nbsp; Additional Supply: 0`;
+	}
+}
 
-    $: bulkyItems = $actor.items.reduce((bulkyCount, item) => {
-        if (item.system.bulky && item.system.equippedState) bulkyCount += 1;
-        return bulkyCount;
-    }, 0);
+$: bulkyItems = $actor.items.reduce((bulkyCount, item) => {
+	if (item.system.bulky && item.system.equippedState) bulkyCount += 1;
+	return bulkyCount;
+}, 0);
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 
-    $: attunement = $actor.system.attributes.attunement;
-    $: bulkyTooltip = getBulkyTooltip($actor);
-    $: currency = $actor.system.currency;
-    $: supply = $actor.system.supply;
-    $: supplyTooltip = getSupplyTooltip($actor);
+$: attunement = $actor.system.attributes.attunement;
+$: bulkyTooltip = getBulkyTooltip($actor);
+$: currency = $actor.system.currency;
+$: supply = $actor.system.supply;
+$: supplyTooltip = getSupplyTooltip($actor);
 </script>
 
 <section class="shield-container">

@@ -1,10 +1,10 @@
 <script lang="ts">
-    import RadioGroup from "../RadioGroup.svelte";
+import RadioGroup from '../RadioGroup.svelte';
 
-    const rollModes = CONST.DICE_ROLL_MODES;
-    const { DICE_ROLL_MODES } = CONFIG.A5E;
+const rollModes = CONST.DICE_ROLL_MODES;
+const { DICE_ROLL_MODES } = CONFIG.A5E;
 
-    export let visibilityMode: string;
+export let visibilityMode: string;
 </script>
 
 <RadioGroup

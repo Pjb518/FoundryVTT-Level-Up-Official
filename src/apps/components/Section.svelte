@@ -1,12 +1,12 @@
 <script lang="ts">
-    import { localize } from "#runtime/util/i18n";
+import { localize } from '#runtime/util/i18n';
 
-    export let headerButtons: any[] = [];
-    export let headerClasses: string = "";
-    export let heading: string = "";
-    export let hint: string = "";
-    export let showWarning: boolean = false;
-    export let warning: string = "";
+export let headerButtons: any[] = [];
+export let headerClasses: string = '';
+export let heading: string = '';
+export let hint: string = '';
+export let showWarning: boolean = false;
+export let warning: string = '';
 </script>
 
 <section class="a5e-section">

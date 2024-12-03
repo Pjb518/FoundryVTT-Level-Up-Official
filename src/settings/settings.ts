@@ -1,3 +1,3 @@
 export type Settings = {
-  automatedConditions: string[]
+	automatedConditions: string[];
 };

@@ -1,15 +1,15 @@
 <script>
-    import FieldWrapper from "./FieldWrapper.svelte";
+import FieldWrapper from './FieldWrapper.svelte';
 
-    export let heading = "";
-    export let hint = "";
-    export let fieldValue = "";
-    export let updateFunction;
+export let heading = '';
+export let hint = '';
+export let fieldValue = '';
+export let updateFunction;
 
-    function onValueChange(newValue) {
-        fieldValue = newValue;
-        updateFunction();
-    }
+function onValueChange(newValue) {
+	fieldValue = newValue;
+	updateFunction();
+}
 </script>
 
 <FieldWrapper {heading} {hint}>

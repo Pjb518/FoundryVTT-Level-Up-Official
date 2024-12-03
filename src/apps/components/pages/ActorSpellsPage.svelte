@@ -1,151 +1,130 @@
 <script>
-    import { localize } from "#runtime/util/i18n";
-    import { getContext } from "svelte";
+import { localize } from '#runtime/util/i18n';
+import { getContext } from 'svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
+import GenericConfigDialog from '../../dialogs/initializers/GenericConfigDialog';
 
-    import TabFooter from "../TabFooter.svelte";
-    import SpellBook from "../SpellBook.svelte";
-    import SpellbookConfigDialog from "../../dialogs/SpellbookConfigDialog.svelte";
-    import SpellbookDeletionConfirmationDialog from "../../dialogs/initializers/SpellbookDeletionConfirmationDialog";
+import TabFooter from '../TabFooter.svelte';
+import SpellBook from '../SpellBook.svelte';
+import SpellbookConfigDialog from '../../dialogs/SpellbookConfigDialog.svelte';
+import SpellbookDeletionConfirmationDialog from '../../dialogs/initializers/SpellbookDeletionConfirmationDialog';
 
-    import ActorSheetTempSettingsStore from "../../../stores/ActorSheetTempSettingsStore";
+import ActorSheetTempSettingsStore from '../../../stores/ActorSheetTempSettingsStore';
 
-    const actor = getContext("actor");
-    let { spells } = actor;
+const actor = getContext('actor');
+let { spells } = actor;
 
-    async function addSpellBook() {
-        const initialSpellBookQuantity = Object.keys(
-            $actor.system.spellBooks ?? {},
-        ).length;
+async function addSpellBook() {
+	const initialSpellBookQuantity = Object.keys($actor.system.spellBooks ?? {}).length;
 
-        const newSpellBookId = await $actor.spellBooks.add({});
-        spells.initialize(); // Manually refresh reducer
+	const newSpellBookId = await $actor.spellBooks.add({});
+	spells.initialize(); // Manually refresh reducer
 
-        if (initialSpellBookQuantity === 0) {
-            updateCurrentSpellBook(newSpellBookId);
-        } else {
-            currentSpellBook = currentSpellBook; // This is stupid, but it works
-        }
+	if (initialSpellBookQuantity === 0) {
+		updateCurrentSpellBook(newSpellBookId);
+	} else {
+		currentSpellBook = currentSpellBook; // This is stupid, but it works
+	}
 
-        configureSpellbook(newSpellBookId);
-    }
+	configureSpellbook(newSpellBookId);
+}
 
-    async function configureSpellbook(spellBookId) {
-        const dialog = new GenericConfigDialog(
-            $actor,
-            "Configure Spell Book",
-            SpellbookConfigDialog,
-            { spellBookId },
-        );
+async function configureSpellbook(spellBookId) {
+	const dialog = new GenericConfigDialog($actor, 'Configure Spell Book', SpellbookConfigDialog, {
+		spellBookId,
+	});
 
-        await dialog.render(true);
-    }
+	await dialog.render(true);
+}
 
-    async function deleteSpellbook(spellBookId) {
-        const initialSpellBookQuantity = Object.keys(
-            $actor.system.spellBooks ?? {},
-        ).length;
+async function deleteSpellbook(spellBookId) {
+	const initialSpellBookQuantity = Object.keys($actor.system.spellBooks ?? {}).length;
 
-        const dialog = new SpellbookDeletionConfirmationDialog();
-        await dialog.render(true);
+	const dialog = new SpellbookDeletionConfirmationDialog();
+	await dialog.render(true);
 
-        const { confirmDeletion } = await dialog.promise;
+	const { confirmDeletion } = await dialog.promise;
 
-        if (!confirmDeletion) return;
+	if (!confirmDeletion) return;
 
-        $actor.spellBooks.remove(spellBookId);
+	$actor.spellBooks.remove(spellBookId);
 
-        if (initialSpellBookQuantity === 1) {
-            updateCurrentSpellBook(null);
-        }
+	if (initialSpellBookQuantity === 1) {
+		updateCurrentSpellBook(null);
+	}
 
-        if (currentSpellBook === spellBookId) {
-            const firstSpellBook = Object.keys($actor.system.spellBooks ?? {})?.[0];
+	if (currentSpellBook === spellBookId) {
+		const firstSpellBook = Object.keys($actor.system.spellBooks ?? {})?.[0];
 
-            updateCurrentSpellBook(firstSpellBook);
-        }
-    }
+		updateCurrentSpellBook(firstSpellBook);
+	}
+}
 
-    function getMaxSpellResource(type) {
-        if ($actor.type !== "character") {
-            return spellResources[type].max;
-        }
+function getMaxSpellResource(type) {
+	if ($actor.type !== 'character') {
+		return spellResources[type].max;
+	}
 
-        if (sheetIsLocked) return spellResources[type].max;
-        return spellResources[type].override;
-    }
+	if (sheetIsLocked) return spellResources[type].max;
+	return spellResources[type].override;
+}
 
-    function updateCurrentSpellBook(spellBookId) {
-        const { uuid } = $actor;
-        currentSpellBook = spellBookId;
+function updateCurrentSpellBook(spellBookId) {
+	const { uuid } = $actor;
+	currentSpellBook = spellBookId;
 
-        ActorSheetTempSettingsStore.update((currentSettings) => ({
-            ...currentSettings,
-            [uuid]: {
-                ...(currentSettings[uuid] ?? {}),
-                currentSpellBook: spellBookId,
-            },
-        }));
-    }
+	ActorSheetTempSettingsStore.update((currentSettings) => ({
+		...currentSettings,
+		[uuid]: {
+			...(currentSettings[uuid] ?? {}),
+			currentSpellBook: spellBookId,
+		},
+	}));
+}
 
-    function updateMaxSpellResource(type, value) {
-        const key =
-            $actor.type === "character"
-                ? `system.spellResources.${type}.override`
-                : `system.spellResources.${type}.max`;
+function updateMaxSpellResource(type, value) {
+	const key =
+		$actor.type === 'character'
+			? `system.spellResources.${type}.override`
+			: `system.spellResources.${type}.max`;
 
-        updateDocumentDataFromField($actor, key, value);
-    }
+	updateDocumentDataFromField($actor, key, value);
+}
 
-    let tempSettings = {};
+let tempSettings = {};
 
-    ActorSheetTempSettingsStore.subscribe((store) => {
-        tempSettings = store;
-    });
+ActorSheetTempSettingsStore.subscribe((store) => {
+	tempSettings = store;
+});
 
-    $: spellResources = $actor.system.spellResources;
+$: spellResources = $actor.system.spellResources;
 
-    $: preparedSpellCount = $actor.items.filter((item) => {
-        if (item.type !== "spell") return false;
-        if (
-            !item.system.prepared ||
-            item.system.prepared === CONFIG.A5E.PREPARED_STATES.ALWAYS_PREPARED
-        )
-            return false;
+$: preparedSpellCount = $actor.items.filter((item) => {
+	if (item.type !== 'spell') return false;
+	if (!item.system.prepared || item.system.prepared === CONFIG.A5E.PREPARED_STATES.ALWAYS_PREPARED)
+		return false;
 
-        return true;
-    }).length;
+	return true;
+}).length;
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 
-    $: spellBooks = $actor.spellBooks;
+$: spellBooks = $actor.spellBooks;
 
-    $: artifactChargesMax = getMaxSpellResource(
-        "artifactCharges",
-        spellResources,
-        sheetIsLocked,
-    );
+$: artifactChargesMax = getMaxSpellResource('artifactCharges', spellResources, sheetIsLocked);
 
-    $: spellInventionsMax = getMaxSpellResource(
-        "inventions",
-        spellResources,
-        sheetIsLocked,
-    );
+$: spellInventionsMax = getMaxSpellResource('inventions', spellResources, sheetIsLocked);
 
-    $: spellPointMax = getMaxSpellResource("points", spellResources, sheetIsLocked);
+$: spellPointMax = getMaxSpellResource('points', spellResources, sheetIsLocked);
 
-    let currentSpellBook =
-        tempSettings[$actor?.uuid]?.currentSpellBook ??
-        Object.keys($actor.system.spellBooks ?? {})?.[0];
+let currentSpellBook =
+	tempSettings[$actor?.uuid]?.currentSpellBook ?? Object.keys($actor.system.spellBooks ?? {})?.[0];
 
-    if (!$spells._books[currentSpellBook]) {
-        spells.initialize();
-    }
+if (!$spells._books[currentSpellBook]) {
+	spells.initialize();
+}
 </script>
 
 {#if !sheetIsLocked || [...spellBooks].length > 1}

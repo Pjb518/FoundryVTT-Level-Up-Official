@@ -1,37 +1,37 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import prepareAbilityOptions from '../../dataPreparationHelpers/prepareAbilityOptions';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import Checkbox from "../Checkbox.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
+import Checkbox from '../Checkbox.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import RadioGroup from '../RadioGroup.svelte';
 
-    function updateAbility(ability) {
-        selectedAbility = ability;
-        updateDocumentDataFromField(
-            $item,
-            `system.actions.${actionId}.rolls.${rollId}.ability`,
-            selectedAbility,
-        );
-    }
+function updateAbility(ability) {
+	selectedAbility = ability;
+	updateDocumentDataFromField(
+		$item,
+		`system.actions.${actionId}.rolls.${rollId}.ability`,
+		selectedAbility,
+	);
+}
 
-    export let deleteRoll;
-    export let duplicateRoll;
-    export let roll;
-    export let rollId;
+export let deleteRoll;
+export let duplicateRoll;
+export let roll;
+export let rollId;
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+const item = getContext('item');
+const actionId = getContext('actionId');
 
-    const tools = Object.entries(CONFIG.A5E.tools)
-        .map(([_, tools]) => Object.entries(tools))
-        .flat()
-        .sort((a, b) => a[0].toLowerCase().localeCompare(b[0].toLowerCase()));
+const tools = Object.entries(CONFIG.A5E.tools)
+	.map(([_, tools]) => Object.entries(tools))
+	.flat()
+	.sort((a, b) => a[0].toLowerCase().localeCompare(b[0].toLowerCase()));
 
-    $: selectedAbility = roll.ability ?? "none";
+$: selectedAbility = roll.ability ?? 'none';
 </script>
 
 <FieldWrapper

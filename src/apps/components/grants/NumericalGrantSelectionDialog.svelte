@@ -1,53 +1,53 @@
 <script lang="ts">
-    import type { ItemGrant } from "types/itemGrants";
+import type { ItemGrant } from 'types/itemGrants';
 
-    import { createEventDispatcher } from "svelte";
+import { createEventDispatcher } from 'svelte';
 
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
 
-    export let grant: ItemGrant;
-    export let heading: string;
-    export let base: string[];
-    export let choices: string[];
-    export let configObject: Record<string, any> = {};
-    export let count: number;
-    export let bonus: string;
-    export let selected: string[];
+export let grant: ItemGrant;
+export let heading: string;
+export let base: string[];
+export let choices: string[];
+export let configObject: Record<string, any> = {};
+export let count: number;
+export let bonus: string;
+export let selected: string[];
 
-    function getGrantSummary(bonus: string, selected: string[]) {
-        return ` This grant provides a bonus of ${bonus} to ${selected
-            .map((s) => configObject[s])
-            .join(", ")}.`;
-    }
+function getGrantSummary(bonus: string, selected: string[]) {
+	return ` This grant provides a bonus of ${bonus} to ${selected
+		.map((s) => configObject[s])
+		.join(', ')}.`;
+}
 
-    function onUpdateSelection({ detail }) {
-        selected = detail;
-        dispatch("updateSelection", { selected, summary });
-    }
+function onUpdateSelection({ detail }) {
+	selected = detail;
+	dispatch('updateSelection', { selected, summary });
+}
 
-    function getOptions(choicesLocked: boolean): string[][] {
-        if (!choicesLocked) return Object.entries(configObject);
+function getOptions(choicesLocked: boolean): string[][] {
+	if (!choicesLocked) return Object.entries(configObject);
 
-        const options: string[][] = [];
-        for (const [value, label] of Object.entries(configObject)) {
-            if (choices.includes(value)) {
-                options.push([value, label]);
-            }
-        }
+	const options: string[][] = [];
+	for (const [value, label] of Object.entries(configObject)) {
+		if (choices.includes(value)) {
+			options.push([value, label]);
+		}
+	}
 
-        return options;
-    }
+	return options;
+}
 
-    const dispatch = createEventDispatcher();
-    let choicesLocked = true;
+const dispatch = createEventDispatcher();
+let choicesLocked = true;
 
-    $: totalCount = base.length + count;
+$: totalCount = base.length + count;
 
-    $: selected = [...new Set(base.concat(selected))];
-    $: remainingSelections = totalCount - selected.length;
-    $: summary = getGrantSummary(bonus, selected);
+$: selected = [...new Set(base.concat(selected))];
+$: remainingSelections = totalCount - selected.length;
+$: summary = getGrantSummary(bonus, selected);
 </script>
 
 <Section

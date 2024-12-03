@@ -1,36 +1,36 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
-    import prepareXP from "../../dataPreparationHelpers/prepareXP";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+import prepareXP from '../../dataPreparationHelpers/prepareXP';
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    function updateCr(target) {
-        const { value } = target;
-        let newValue;
+function updateCr(target) {
+	const { value } = target;
+	let newValue;
 
-        if (value === "1/2") newValue = 0.5;
-        else if (value === "1/4") newValue = 0.25;
-        else if (value === "1/8") newValue = 0.125;
-        else newValue = parseInt(value, 10);
+	if (value === '1/2') newValue = 0.5;
+	else if (value === '1/4') newValue = 0.25;
+	else if (value === '1/8') newValue = 0.125;
+	else newValue = parseInt(value, 10);
 
-        if (isNaN(newValue)) newValue = $actor.system.details.cr;
-        updateDocumentDataFromField($actor, target.name, newValue);
-    }
+	if (isNaN(newValue)) newValue = $actor.system.details.cr;
+	updateDocumentDataFromField($actor, target.name, newValue);
+}
 
-    function displayCr(cr) {
-        if (cr === 0.5) return "1/2";
-        else if (cr === 0.25) return "1/4";
-        else if (cr === 0.125) return "1/8";
+function displayCr(cr) {
+	if (cr === 0.5) return '1/2';
+	else if (cr === 0.25) return '1/4';
+	else if (cr === 0.125) return '1/8';
 
-        return cr;
-    }
+	return cr;
+}
 
-    $: cr = displayCr($actor.system.details.cr);
-    $: xp = prepareXP($actor);
-    $: isElite = $actor.system.details.elite;
-    $: sheetIsLocked = $actor.flags.a5e?.sheetIsLocked ?? true;
+$: cr = displayCr($actor.system.details.cr);
+$: xp = prepareXP($actor);
+$: isElite = $actor.system.details.elite;
+$: sheetIsLocked = $actor.flags.a5e?.sheetIsLocked ?? true;
 </script>
 
 <div class="level-container">

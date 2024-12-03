@@ -1,41 +1,41 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import getRequiredExperiencePoints from "../../../utils/getRequiredExperiencePoints";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import getRequiredExperiencePoints from '../../../utils/getRequiredExperiencePoints';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    function isLevelLocked() {
-        if (sheetIsLocked) return true;
-        if (Object.keys($actor.classes ?? {}).length) return true;
+function isLevelLocked() {
+	if (sheetIsLocked) return true;
+	if (Object.keys($actor.classes ?? {}).length) return true;
 
-        return false;
-    }
+	return false;
+}
 
-    function getCharacterLevel() {
-        if (!Object.keys($actor.classes ?? {}).length) return $actor.system.details.level;
+function getCharacterLevel() {
+	if (!Object.keys($actor.classes ?? {}).length) return $actor.system.details.level;
 
-        return $actor.levels.character;
-    }
+	return $actor.levels.character;
+}
 
-    function getLevelSource() {
-        if (!Object.keys($actor.classes ?? {}).length) return "";
+function getLevelSource() {
+	if (!Object.keys($actor.classes ?? {}).length) return '';
 
-        const data = Object.values($actor.classes ?? {}).map((cls) => {
-            return `${cls.name} (${cls.classLevels})`;
-        }, []);
+	const data = Object.values($actor.classes ?? {}).map((cls) => {
+		return `${cls.name} (${cls.classLevels})`;
+	}, []);
 
-        return data.join(" / ");
-    }
+	return data.join(' / ');
+}
 
-    $: characterLevel = getCharacterLevel($actor);
-    $: levelSource = getLevelSource($actor);
-    $: hasInspiration = $actor.system.attributes.inspiration;
-    $: requiredXP = getRequiredExperiencePoints($actor);
-    $: sheetIsLocked = $actor.flags.a5e?.sheetIsLocked ?? true;
-    $: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
+$: characterLevel = getCharacterLevel($actor);
+$: levelSource = getLevelSource($actor);
+$: hasInspiration = $actor.system.attributes.inspiration;
+$: requiredXP = getRequiredExperiencePoints($actor);
+$: sheetIsLocked = $actor.flags.a5e?.sheetIsLocked ?? true;
+$: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
 </script>
 
 <div class="character-shields__container">

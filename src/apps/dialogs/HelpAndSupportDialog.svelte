@@ -2,9 +2,9 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { ApplicationShell } from "#runtime/svelte/component/application";
+import { ApplicationShell } from '#runtime/svelte/component/application';
 
-    export let elementRoot;
+export let elementRoot;
 </script>
 
 <ApplicationShell bind:elementRoot>

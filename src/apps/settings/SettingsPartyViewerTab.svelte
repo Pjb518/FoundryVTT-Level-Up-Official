@@ -1,19 +1,19 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import Section from "../components/Section.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
+import Checkbox from '../components/Checkbox.svelte';
+import Section from '../components/Section.svelte';
+import FieldWrapper from '../components/FieldWrapper.svelte';
 
-    export let reload;
+export let reload;
 
-    const settings = getContext("settings");
-    const updates = getContext("updates");
+const settings = getContext('settings');
+const updates = getContext('updates');
 
-    const isGM = game.user.isGM;
+const isGM = game.user.isGM;
 
-    let playersCanAccess = settings.getStore("playersCanAccessPartyViewer");
-    let showActorImages = settings.getStore("showActorImagesInPartyViewer");
+let playersCanAccess = settings.getStore('playersCanAccessPartyViewer');
+let showActorImages = settings.getStore('showActorImagesInPartyViewer');
 </script>
 
 <Section heading="Appearance" --a5e-section-body-gap="0.5rem">

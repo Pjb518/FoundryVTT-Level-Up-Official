@@ -1,29 +1,29 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
-    import Section from "../Section.svelte";
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import RadioGroup from '../RadioGroup.svelte';
+import Section from '../Section.svelte';
 
-    function prepareArmorProperties(item) {
-        const properties = item.system.armorProperties.map(
-            (property) => armorProperties[property] ?? property,
-        );
+function prepareArmorProperties(item) {
+	const properties = item.system.armorProperties.map(
+		(property) => armorProperties[property] ?? property,
+	);
 
-        properties.sort((a, b) => a.localeCompare(b));
+	properties.sort((a, b) => a.localeCompare(b));
 
-        return properties.join(", ");
-    }
+	return properties.join(', ');
+}
 
-    const item = getContext("item");
-    const { armor: armorTypes, armorProperties } = CONFIG.A5E;
+const item = getContext('item');
+const { armor: armorTypes, armorProperties } = CONFIG.A5E;
 
-    let editMode = false;
+let editMode = false;
 
-    $: selectedArmorProperties = prepareArmorProperties($item);
+$: selectedArmorProperties = prepareArmorProperties($item);
 </script>
 
 <Section

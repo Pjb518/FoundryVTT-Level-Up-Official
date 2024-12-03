@@ -1,73 +1,73 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import RangeSlider from "svelte-range-slider-pips";
+import CompendiumFilterCategory from './CompendiumFilterCategory.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import RangeSlider from 'svelte-range-slider-pips';
 
-    export const compendiumType = "monster";
+export const compendiumType = 'monster';
 
-    const filterStore = getContext("filterStore");
-    const { actorSizes, creatureTypes, terrainTypes } = CONFIG.A5E;
+const filterStore = getContext('filterStore');
+const { actorSizes, creatureTypes, terrainTypes } = CONFIG.A5E;
 
-    const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
-        acc[key] = value.title;
-        return acc;
-    }, {});
+const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
+	acc[key] = value.title;
+	return acc;
+}, {});
 
-    function getChallengeRatingRangeLabel({ cr }) {
-        const { min, max } = cr;
+function getChallengeRatingRangeLabel({ cr }) {
+	const { min, max } = cr;
 
-        if (min === max) return min;
+	if (min === max) return min;
 
-        return `${min}–${max}`;
-    }
+	return `${min}–${max}`;
+}
 
-    function updateChallengeRatingRange([min, max]) {
-        filterStore.update((currentFilterSelections) => ({
-            ...currentFilterSelections,
-            cr: { min, max },
-        }));
-    }
+function updateChallengeRatingRange([min, max]) {
+	filterStore.update((currentFilterSelections) => ({
+		...currentFilterSelections,
+		cr: { min, max },
+	}));
+}
 
-    const formSectionMap = [
-        {
-            filterKey: "creatureTypes",
-            heading: "Creature Types",
-            options: creatureTypes,
-        },
-        {
-            filterKey: "terrain",
-            heading: "Terrain",
-            options: terrainTypes,
-        },
-        {
-            filterKey: "creatureSize",
-            heading: "Creature Size",
-            options: actorSizes,
-        },
-        {
-            filterKey: "miscellaneous",
-            heading: "Miscellaneous",
-            options: {
-                elite: "Elite",
-                swarm: "Swarm",
-            },
-        },
-        {
-            filterKey: "source",
-            heading: "Source",
-            options: products,
-        },
-    ];
+const formSectionMap = [
+	{
+		filterKey: 'creatureTypes',
+		heading: 'Creature Types',
+		options: creatureTypes,
+	},
+	{
+		filterKey: 'terrain',
+		heading: 'Terrain',
+		options: terrainTypes,
+	},
+	{
+		filterKey: 'creatureSize',
+		heading: 'Creature Size',
+		options: actorSizes,
+	},
+	{
+		filterKey: 'miscellaneous',
+		heading: 'Miscellaneous',
+		options: {
+			elite: 'Elite',
+			swarm: 'Swarm',
+		},
+	},
+	{
+		filterKey: 'source',
+		heading: 'Source',
+		options: products,
+	},
+];
 
-    let filterSelections = {};
+let filterSelections = {};
 
-    filterStore.subscribe((store) => {
-        filterSelections = store;
-    });
+filterStore.subscribe((store) => {
+	filterSelections = store;
+});
 
-    $: crRangeLabel = getChallengeRatingRangeLabel(filterSelections);
+$: crRangeLabel = getChallengeRatingRangeLabel(filterSelections);
 </script>
 
 <FieldWrapper

@@ -1,68 +1,68 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import RangeSlider from "svelte-range-slider-pips";
+import CompendiumFilterCategory from './CompendiumFilterCategory.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import RangeSlider from 'svelte-range-slider-pips';
 
-    const filterStore = getContext("filterStore");
-    const { maneuverDegrees, maneuverTraditions } = CONFIG.A5E;
+const filterStore = getContext('filterStore');
+const { maneuverDegrees, maneuverTraditions } = CONFIG.A5E;
 
-    const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
-        acc[key] = value.title;
-        return acc;
-    }, {});
+const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
+	acc[key] = value.title;
+	return acc;
+}, {});
 
-    console.log(products);
+console.log(products);
 
-    function getExertionCostLabel({ exertion }) {
-        const { min, max } = exertion;
+function getExertionCostLabel({ exertion }) {
+	const { min, max } = exertion;
 
-        if (min === max) return min;
+	if (min === max) return min;
 
-        return `${min}–${max}`;
-    }
+	return `${min}–${max}`;
+}
 
-    function updateExertionRange([min, max]) {
-        filterStore.update((currentFilterSelections) => ({
-            ...currentFilterSelections,
-            exertion: { min, max },
-        }));
-    }
+function updateExertionRange([min, max]) {
+	filterStore.update((currentFilterSelections) => ({
+		...currentFilterSelections,
+		exertion: { min, max },
+	}));
+}
 
-    let filterSelections = {};
+let filterSelections = {};
 
-    filterStore.subscribe((store) => {
-        filterSelections = store;
-    });
+filterStore.subscribe((store) => {
+	filterSelections = store;
+});
 
-    const formSectionMap = [
-        {
-            filterKey: "maneuverDegrees",
-            heading: "Maneuver Degrees",
-            options: maneuverDegrees,
-        },
-        {
-            filterKey: "maneuverTraditions",
-            heading: "Maneuver Traditions",
-            options: maneuverTraditions,
-        },
-        {
-            filterKey: "miscellaneous",
-            heading: "Miscellaneous",
-            options: {
-                concentration: "Concentration",
-                stance: "Stance",
-            },
-        },
-        {
-            filterKey: "source",
-            heading: "Source",
-            options: products,
-        },
-    ];
+const formSectionMap = [
+	{
+		filterKey: 'maneuverDegrees',
+		heading: 'Maneuver Degrees',
+		options: maneuverDegrees,
+	},
+	{
+		filterKey: 'maneuverTraditions',
+		heading: 'Maneuver Traditions',
+		options: maneuverTraditions,
+	},
+	{
+		filterKey: 'miscellaneous',
+		heading: 'Miscellaneous',
+		options: {
+			concentration: 'Concentration',
+			stance: 'Stance',
+		},
+	},
+	{
+		filterKey: 'source',
+		heading: 'Source',
+		options: products,
+	},
+];
 
-    $: exertionCostLabel = getExertionCostLabel(filterSelections);
+$: exertionCostLabel = getExertionCostLabel(filterSelections);
 </script>
 
 <FieldWrapper

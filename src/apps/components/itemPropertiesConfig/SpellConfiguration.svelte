@@ -1,49 +1,49 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import objectEntriesNumberKeyConverter from "../../../utils/objectEntriesNumberKeyConverter";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import objectEntriesNumberKeyConverter from '../../../utils/objectEntriesNumberKeyConverter';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import Checkbox from "../Checkbox.svelte";
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
-    import Section from "../Section.svelte";
-    import Tag from "../Tag.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
+import Checkbox from '../Checkbox.svelte';
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import RadioGroup from '../RadioGroup.svelte';
+import Section from '../Section.svelte';
+import Tag from '../Tag.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
 
-    function prepareSpellComponents(item) {
-        return Object.entries(item.system.components)
-            .filter(([_, state]) => state)
-            .map(([component]) => spellComponentAbbreviations[component] ?? component)
-            .join(", ");
-    }
+function prepareSpellComponents(item) {
+	return Object.entries(item.system.components)
+		.filter(([_, state]) => state)
+		.map(([component]) => spellComponentAbbreviations[component] ?? component)
+		.join(', ');
+}
 
-    function prepareSecondarySpellSchools(item) {
-        const schools = item.system.schools.secondary.map(
-            (school) => spellSchools.secondary[school] ?? school,
-        );
+function prepareSecondarySpellSchools(item) {
+	const schools = item.system.schools.secondary.map(
+		(school) => spellSchools.secondary[school] ?? school,
+	);
 
-        schools.sort((a, b) => a.localeCompare(b));
+	schools.sort((a, b) => a.localeCompare(b));
 
-        return schools.join(", ");
-    }
+	return schools.join(', ');
+}
 
-    const item = getContext("item");
+const item = getContext('item');
 
-    const {
-        PREPARED_STATES,
-        classSpellLists,
-        spellComponents,
-        spellComponentAbbreviations,
-        spellLevels,
-        spellSchools,
-    } = CONFIG.A5E;
+const {
+	PREPARED_STATES,
+	classSpellLists,
+	spellComponents,
+	spellComponentAbbreviations,
+	spellLevels,
+	spellSchools,
+} = CONFIG.A5E;
 
-    let editMode = false;
+let editMode = false;
 
-    $: selectedSpellComponents = prepareSpellComponents($item);
-    $: selectedSecondarySpellSchools = prepareSecondarySpellSchools($item);
+$: selectedSpellComponents = prepareSpellComponents($item);
+$: selectedSecondarySpellSchools = prepareSecondarySpellSchools($item);
 </script>
 
 <Section

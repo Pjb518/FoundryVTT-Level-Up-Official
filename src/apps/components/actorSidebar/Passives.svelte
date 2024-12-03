@@ -1,26 +1,26 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    export let passiveFields;
+export let passiveFields;
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    $: passiveFields = [
-        {
-            label: "A5E.ManeuverDC",
-            value: $actor.system.attributes.maneuverDC,
-        },
-        {
-            label: "A5E.SpellDC",
-            value: $actor.system.attributes.spellDC,
-            tooltip: $actor.spellBooks.getSpellDCString(true),
-        },
-        {
-            label: "Passive Percep.",
-            value: $actor.system.skills.prc.passive,
-        },
-    ];
+$: passiveFields = [
+	{
+		label: 'A5E.ManeuverDC',
+		value: $actor.system.attributes.maneuverDC,
+	},
+	{
+		label: 'A5E.SpellDC',
+		value: $actor.system.attributes.spellDC,
+		tooltip: $actor.spellBooks.getSpellDCString(true),
+	},
+	{
+		label: 'Passive Percep.',
+		value: $actor.system.skills.prc.passive,
+	},
+];
 </script>
 
 {#each passiveFields as { label, value, tooltip }}

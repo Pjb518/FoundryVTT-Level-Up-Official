@@ -1,16 +1,16 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import FieldWrapper from "../FieldWrapper.svelte";
+import FieldWrapper from '../FieldWrapper.svelte';
 
-    export let consumer;
-    export let consumerId;
-    export let deleteConsumer;
+export let consumer;
+export let consumerId;
+export let deleteConsumer;
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+const item = getContext('item');
+const actionId = getContext('actionId');
 </script>
 
 <FieldWrapper

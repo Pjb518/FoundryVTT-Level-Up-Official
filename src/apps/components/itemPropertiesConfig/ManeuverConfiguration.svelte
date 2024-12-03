@@ -1,20 +1,20 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import Checkbox from "../Checkbox.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
+import Checkbox from '../Checkbox.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import RadioGroup from '../RadioGroup.svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
-    import objectEntriesNumberKeyConverter from "../../../utils/objectEntriesNumberKeyConverter";
-    import Section from "../Section.svelte";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+import objectEntriesNumberKeyConverter from '../../../utils/objectEntriesNumberKeyConverter';
+import Section from '../Section.svelte';
 
-    const item = getContext("item");
-    const appId = getContext("appId");
-    const { maneuverDegrees, maneuverTraditions } = CONFIG.A5E;
+const item = getContext('item');
+const appId = getContext('appId');
+const { maneuverDegrees, maneuverTraditions } = CONFIG.A5E;
 
-    let editMode = false;
+let editMode = false;
 </script>
 
 <Section

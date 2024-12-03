@@ -1,24 +1,24 @@
 <script lang="ts">
-    import type { Writable } from "svelte/store";
-    import type { ItemA5e } from "../../../documents/item/item";
+import type { Writable } from 'svelte/store';
+import type { ItemA5e } from '../../../documents/item/item';
 
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
-    import updateAssociatedValues from "../../handlers/updateAssociatedValues";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+import updateAssociatedValues from '../../handlers/updateAssociatedValues';
 
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
 
-    const item: Writable<ItemA5e> = getContext("item");
-    const actionId: string = getContext("actionId");
+const item: Writable<ItemA5e> = getContext('item');
+const actionId: string = getContext('actionId');
 
-    const { A5E } = CONFIG;
-    const specialActivationTypes = ["none", "special"];
-    const specialTimeTypes = ["instantaneous", "permanent", "special"];
+const { A5E } = CONFIG;
+const specialActivationTypes = ['none', 'special'];
+const specialTimeTypes = ['instantaneous', 'permanent', 'special'];
 
-    $: action = $item.actions.get(actionId)!;
+$: action = $item.actions.get(actionId)!;
 </script>
 
 <Section heading="A5E.ActivationConfiguration" --a5e-section-body-gap="0.75rem">

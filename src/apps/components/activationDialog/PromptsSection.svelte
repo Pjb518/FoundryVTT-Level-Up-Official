@@ -1,24 +1,23 @@
 <script lang="ts">
-    import type { PromptHandlerReturnType } from "../../dataPreparationHelpers/itemActivationPrompts/preparePrompts";
+import type { PromptHandlerReturnType } from '../../dataPreparationHelpers/itemActivationPrompts/preparePrompts';
 
-    import { RollPreparationManager } from "../../../managers/RollPreparationManager";
+import { RollPreparationManager } from '../../../managers/RollPreparationManager';
 
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
 
-    export let selectedPrompts: string[];
-    export let prompts: PromptHandlerReturnType;
+export let selectedPrompts: string[];
+export let prompts: PromptHandlerReturnType;
 
-    const promptHeadingMap = {
-        abilityCheck: "Ability Check Prompts",
-        effect: "Effect Prompts",
-        savingThrow: "Saving Throw Prompts",
-        skillCheck: "Skill Check Prompts",
-        generic: "Generic Roll Prompts",
-    };
+const promptHeadingMap = {
+	abilityCheck: 'Ability Check Prompts',
+	effect: 'Effect Prompts',
+	savingThrow: 'Saving Throw Prompts',
+	skillCheck: 'Skill Check Prompts',
+	generic: 'Generic Roll Prompts',
+};
 
-    let disabledPrompts =
-        RollPreparationManager.preparePromptsData(prompts).invalidSelections;
+let disabledPrompts = RollPreparationManager.preparePromptsData(prompts).invalidSelections;
 </script>
 
 <FieldWrapper hint="A5E.PromptsHint">
