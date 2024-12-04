@@ -56,6 +56,19 @@
     />
 </FieldWrapper>
 
+<FieldWrapper>
+    <Checkbox
+        label="Select Consumer Automatically in Roll Prompt"
+        checked={consumer.default ?? true}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.consumers.${consumerId}.default`,
+                detail,
+            )}
+    />
+</FieldWrapper>
+
 <Section
     --a5e-section-body-direction="row"
     --a5e-section-body-padding="0"
