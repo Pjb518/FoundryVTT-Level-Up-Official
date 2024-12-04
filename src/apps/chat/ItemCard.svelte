@@ -32,11 +32,7 @@
         return actionName;
     }
 
-    // TODO: Update this
-    function getEffectIcon(prompt) {
-        if (prompt.type !== "effect") return null;
-        const effect = fromUuidSync(prompt.effectUuid);
-        // @ts-expect-error
+    function getEffectIcon(effect) {
         return effect?.img ?? "icons/svg/hazard.svg";
     }
 
@@ -81,8 +77,6 @@
 
         if (prompt.type === "abilityCheck") {
             await triggerAbilityCheckPrompt(tokenActors, prompt, options);
-        } else if (prompt.type === "effect") {
-            await triggerEffectPrompt(tokenActors, prompt);
         } else if (prompt.type === "savingThrow") {
             await triggerSavingThrowPrompt(tokenActors, prompt, options);
         } else if (prompt.type === "skillCheck") {
@@ -98,8 +92,13 @@
         });
     }
 
-    async function triggerEffectPrompt(tokenActors, prompt) {
-        const effect = fromUuidSync(prompt.effectUuid);
+    async function triggerEffect(effect) {
+        const tokenActors = prepareSelectedTokenActors();
+
+        if (!tokenActors.length) {
+            ui.notifications.warn("No tokens selected");
+            return;
+        }
 
         tokenActors.forEach((actor) => {
             effect.transferEffect(actor);
@@ -197,15 +196,15 @@
     const { actionDescription, itemDescription, unidentifiedDescription } = system;
 
     const { isGM } = game.user;
+    const item = fromUuidSync($message.system.itemId ?? "");
     const prompts = preparePrompts($message);
     const hasPrompts = Object.values(prompts).flat().length;
     const rolls = prepareRolls($message);
     const hasRolls = rolls.length;
-    const item = fromUuidSync($message.system.itemId ?? "");
+    const effects = system.effects.map((id) => item.effects.get(id));
+    const hasEffects = !!effects.length;
     let hideDescription =
         game.settings.get("a5e", "hideChatDescriptionsByDefault") ?? false;
-
-    console.log(system);
 
     setContext("message", message);
 
@@ -291,7 +290,6 @@
                         {#each prompts[promptType] as prompt}
                             <PromptButton
                                 {prompt}
-                                icon={getEffectIcon(prompt)}
                                 title={getPromptTitle(prompt, $message?.system.actorId)}
                                 subtitle={getPromptSubtitle(prompt)}
                                 --hover-color={hoverColor}
@@ -302,6 +300,19 @@
                 {/if}
             {/each}
         </section>
+    {/if}
+
+    {#if hasEffects}
+        {#each effects as effect}
+            <PromptButton
+                prompt={{ type: "effect" }}
+                icon={getEffectIcon(effect)}
+                title={effect.name}
+                subtitle="Apply Effect"
+                --hover-color={hoverColor}
+                on:triggerPrompt={() => triggerEffect(effect)}
+            />
+        {/each}
     {/if}
 </article>
 

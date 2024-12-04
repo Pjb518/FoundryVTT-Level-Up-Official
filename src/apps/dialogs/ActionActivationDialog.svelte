@@ -241,7 +241,7 @@
     {#if effects.length}
         <Section heading="Effects Config" --a5e-section-body-gap="0.5rem">
             <CheckboxGroup
-                options={effects.map((e) => [e.uuid, e.name])}
+                options={effects.map((e) => [e.id, e.name])}
                 selected={selectedEffects}
                 hint="Select which effects to activate/display on chat card"
                 on:updateSelection={({ detail }) => (selectedEffects = detail)}

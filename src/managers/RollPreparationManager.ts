@@ -765,7 +765,7 @@ class RollPreparationManager {
 
 	static getDefaultSelectedEffects(effects) {
 		return effects.reduce((acc, e) => {
-			if (e.system.default) acc.push(e.uuid);
+			if (e.system.default) acc.push(e.id);
 			return acc;
 		}, [] as string[]);
 	}
