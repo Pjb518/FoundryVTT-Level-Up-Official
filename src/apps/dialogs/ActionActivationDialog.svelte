@@ -290,6 +290,7 @@
 
     <Section>
         <button
+            type="submit"
             disabled={preventActionRollOnWarning && !!warnings.length}
             on:click|preventDefault={onSubmit}
         >

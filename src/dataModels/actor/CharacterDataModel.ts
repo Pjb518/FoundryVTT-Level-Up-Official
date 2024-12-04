@@ -36,7 +36,6 @@ const characterSchema = () => ({
 				initial: 0,
 				integer: true,
 			}),
-			// @ts-expect-error
 			recoverOnRest: new fields.BooleanField({ required: true, initial: true }),
 		}),
 		favorPoints: new fields.SchemaField({
@@ -80,7 +79,11 @@ const characterSchema = () => ({
 			initial: 1,
 			integer: true,
 		}),
-		notes: new fields.StringField({ required: true, initial: '' }),
+		bonds: new fields.HTMLField({ required: true, nullable: false, initial: '' }),
+		flaws: new fields.HTMLField({ required: true, nullable: false, initial: '' }),
+		ideals: new fields.HTMLField({ required: true, nullable: false, initial: '' }),
+		goals: new fields.HTMLField({ required: true, nullable: false, initial: '' }),
+		notes: new fields.HTMLField({ required: true, nullable: false, initial: '' }),
 		prestige: new fields.NumberField({ required: true, initial: 1, integer: true }),
 		skinColor: new fields.StringField({ required: true, initial: '' }),
 		weight: new fields.StringField({ required: true, initial: '' }),
