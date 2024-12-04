@@ -236,6 +236,7 @@ class ItemA5e extends BaseItemA5e {
 								rollData: this?.actor?.getRollData(this) ?? {},
 							})
 						: null,
+				effects: activationData.effects ?? [],
 				prompts: activationData.prompts,
 				rollData: rolls.map(({ roll, ...rollData }) => rollData),
 				summaryData: getSummaryData(this, action, {
@@ -305,6 +306,9 @@ class ItemA5e extends BaseItemA5e {
 		const rolls = RollPreparationManager.prepareRolls(this, actionId);
 		const attack = this.#getDefaultAttackRollData(rolls.attack, options);
 		const consumers = this.#getDefaultConsumerData(actionId);
+		const effects = RollPreparationManager.getDefaultSelectedEffects(
+			RollPreparationManager.prepareEffects(this, actionId),
+		);
 		const { damageBonuses, healingBonuses } = this.#getDefaultBonuses(this.actor, rolls);
 
 		const otherRolls = this.#getDefaultRollData(rolls);
@@ -317,6 +321,7 @@ class ItemA5e extends BaseItemA5e {
 			attack,
 			consumers,
 			damageBonuses,
+			effects,
 			healingBonuses,
 			placeTemplate,
 			prompts,

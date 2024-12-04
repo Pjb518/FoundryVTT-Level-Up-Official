@@ -763,6 +763,13 @@ class RollPreparationManager {
 		}, [] as any[]);
 	}
 
+	static getDefaultSelectedEffects(effects) {
+		return effects.reduce((acc, e) => {
+			if (e.system.default) acc.push(e.uuid);
+			return acc;
+		}, [] as string[]);
+	}
+
 	/** ******************************************* */
 
 	static prepareConsumers(item: ItemA5e, actionId: string) {

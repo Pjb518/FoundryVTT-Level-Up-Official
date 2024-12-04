@@ -7,6 +7,10 @@ const itemCardSchema = () => ({
 	actionId: new fields.StringField({ required: false, nullable: true }),
 	actionDescription: new fields.HTMLField({ required: true, nullable: false, initial: '' }),
 	castingLevel: new fields.NumberField({ required: true, nullable: true }),
+	effects: new fields.ArrayField(
+		new fields.StringField({ required: true, nullable: false, initial: '' }),
+		{ required: true, nullable: false },
+	),
 	itemDescription: new fields.HTMLField({ required: true, nullable: false, initial: '' }),
 	itemId: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	prompts: new fields.ArrayField(new fields.ObjectField({ required: true, nullable: false })),

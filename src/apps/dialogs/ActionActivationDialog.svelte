@@ -50,6 +50,7 @@
                 "damage",
                 selectedDamageBonuses,
             ),
+            effects: selectedEffects,
             healingBonuses: RollPreparationManager.getSelectedBonuses(
                 $actor,
                 "healing",
@@ -82,8 +83,6 @@
     const rolls = RollPreparationManager.prepareRolls($item, actionId);
     const damageBonuses = BonusesManager.prepareGlobalDamageBonuses($item, rolls);
     const healingBonuses = BonusesManager.prepareGlobalHealingBonuses($item, rolls);
-
-    console.log(effects);
 
     const attackRoll = rolls.attack?.length ? rolls.attack[0][1] : ({} as AttackRollData);
 
@@ -122,6 +121,7 @@
     });
     let selectedPrompts = BonusesManager.getDefaultSelectionsFromBonuses(prompts);
     let selectedRolls = BonusesManager.getDefaultSelectionsFromBonuses(rolls);
+    let selectedEffects = RollPreparationManager.getDefaultSelectedEffects(effects);
     let visibilityMode = game.settings?.get("core", "rollMode")!;
 
     // TODO: Place Template
@@ -237,6 +237,17 @@
             />
         </FieldWrapper>
     {/if} -->
+
+    {#if effects.length}
+        <Section heading="Effects Config" --a5e-section-body-gap="0.5rem">
+            <CheckboxGroup
+                options={effects.map((e) => [e.uuid, e.name])}
+                selected={selectedEffects}
+                hint="Select which effects to activate/display on chat card"
+                on:updateSelection={({ detail }) => (selectedEffects = detail)}
+            />
+        </Section>
+    {/if}
 
     <Section>
         <button
