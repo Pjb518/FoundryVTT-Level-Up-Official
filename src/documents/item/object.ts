@@ -45,7 +45,7 @@ export default class ObjectItemA5e extends ItemA5e {
 	/**                      Data Prep                         */
 	/** ------------------------------------------------------ */
 	protected override _initialize(options?: Record<string, unknown>) {
-		if (this.system.objectType === 'container') {
+		if (this.system?.objectType === 'container') {
 			this.containerItems = null!;
 		}
 
