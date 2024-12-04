@@ -1,42 +1,48 @@
 <script lang="ts">
-import type { BaseActorA5e } from '../../../documents/actor/base';
-import type { ConsumerHandlerReturnType } from '../../dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
-import type { ItemA5e } from '../../../documents/item/item';
-import type { TJSDocument } from '#runtime/svelte/store/fvtt/document';
+    import type { BaseActorA5e } from "../../../documents/actor/base";
+    import type { ConsumerHandlerReturnType } from "../../dataPreparationHelpers/itemActivationConsumers/prepareConsumers";
+    import type { ItemA5e } from "../../../documents/item/item";
+    import type { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-import { localize } from '#runtime/util/i18n';
-import { getContext } from 'svelte';
+    import { localize } from "#runtime/util/i18n";
+    import { getContext } from "svelte";
 
-import { ResourceConsumptionManager } from '../../../managers/ResourceConsumptionManager';
+    import { ResourceConsumptionManager } from "../../../managers/ResourceConsumptionManager";
 
-import FieldWrapper from '../FieldWrapper.svelte';
+    import FieldWrapper from "../FieldWrapper.svelte";
 
-import showActivationDialogSection from '../../../utils/showActivationDialogSection';
+    import showActivationDialogSection from "../../../utils/showActivationDialogSection";
 
-export let consumers: ConsumerHandlerReturnType;
-export let actionUsesData: ResourceConsumptionManager.UsesConsumerData;
-export let itemUsesData: ResourceConsumptionManager.UsesConsumerData;
+    export let consumers: ConsumerHandlerReturnType;
+    export let selectedConsumers: string[];
+    export let actionUsesData: ResourceConsumptionManager.UsesConsumerData;
+    export let itemUsesData: ResourceConsumptionManager.UsesConsumerData;
 
-const actor: TJSDocument<BaseActorA5e> = getContext('actor');
-const item: TJSDocument<ItemA5e> = getContext('item');
-const actionId: string = getContext('actionId');
-const action = $item.actions.get(actionId)!;
+    const actor: TJSDocument<BaseActorA5e> = getContext("actor");
+    const item: TJSDocument<ItemA5e> = getContext("item");
+    const actionId: string = getContext("actionId");
+    const action = $item.actions.get(actionId)!;
 
-let parts = ResourceConsumptionManager.prepareUsesData($actor, $item, consumers, actionId);
+    let parts = ResourceConsumptionManager.prepareUsesData(
+        $actor,
+        $item,
+        consumers,
+        actionId,
+    );
 
-// =======================================================
-// Consumer data
-actionUsesData = parts.actionUsesData;
-itemUsesData = parts.itemUsesData;
+    // =======================================================
+    // Consumer data
+    actionUsesData = parts.actionUsesData;
+    itemUsesData = parts.itemUsesData;
 
-$: actionUses = parts.actionUses;
-$: actionMaxUses = parts.actionMaxUses;
-$: itemUses = parts.itemUses;
-$: itemMaxUses = parts.itemMaxUses;
+    $: actionUses = parts.actionUses;
+    $: actionMaxUses = parts.actionMaxUses;
+    $: itemUses = parts.itemUses;
+    $: itemMaxUses = parts.itemMaxUses;
 </script>
 
 <div class="side-by-side">
-    {#if showActivationDialogSection(action, ["actionUses"], ["actionUses"]) && actionUses?.max}
+    {#if showActivationDialogSection(action, selectedConsumers, ["actionUses"], ["actionUses"]) && actionUses?.max}
         <FieldWrapper heading="A5E.ActionUses">
             <div class="u-flex u-gap-md u-align-center">
                 <div class="u-flex u-w-10">
@@ -57,7 +63,7 @@ $: itemMaxUses = parts.itemMaxUses;
         </FieldWrapper>
     {/if}
 
-    {#if showActivationDialogSection(action, ["itemUses"], ["itemUses"]) && itemUses?.max}
+    {#if showActivationDialogSection(action, selectedConsumers, ["itemUses"], ["itemUses"]) && itemUses?.max}
         <FieldWrapper heading="A5E.ItemUses">
             <div class="u-flex u-gap-md u-align-center">
                 <div class="u-flex u-w-10">

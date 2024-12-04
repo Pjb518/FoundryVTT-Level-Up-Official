@@ -17,6 +17,8 @@ class ResourceConsumptionManager {
 
 	#consumptionData: ResourceConsumptionManager.ConsumptionData;
 
+	#selectedConsumers: string[];
+
 	#updates: { actor: Record<string, any>; item: Record<string, any> };
 
 	constructor(
@@ -24,11 +26,13 @@ class ResourceConsumptionManager {
 		item: ItemA5e,
 		actionId: string,
 		consumptionData: ResourceConsumptionManager.ConsumptionData,
+		selectedConsumers: string[],
 	) {
 		this.#actor = actor;
 		this.#item = item;
 		this.#actionId = actionId;
 		this.#consumptionData = consumptionData;
+		this.#selectedConsumers = selectedConsumers;
 
 		this.#updates = {
 			actor: {},
@@ -49,6 +53,7 @@ class ResourceConsumptionManager {
 			const consumerType = consumer.type;
 
 			if (!consumerType) return;
+			if (!this.#selectedConsumers.includes(consumerId)) return;
 
 			if (consumerType === 'actionUses') this.#consumeActionUses(actionUses);
 			else if (consumerType === 'hitDice') this.#consumeHitDice(hitDice);
@@ -192,6 +197,22 @@ class ResourceConsumptionManager {
 		if (foundry.utils.isEmpty(consumers[type])) return {};
 		const [, consumer] = Object.values(consumers[type]);
 		return consumer;
+	}
+
+	static getDefaultConsumerSelection(consumers: ConsumerHandlerReturnType) {
+		const flattened = Object.entries(consumers).reduce((acc, [type, data]) => {
+			if (type === 'resource') {
+				data.forEach((e) => {
+					if (e[1]?.default) acc.push(e[0]);
+				});
+			} else {
+				if (data[1]?.default) acc.push(data[0]); // This is the consumerId
+			}
+
+			return acc;
+		}, [] as string[]);
+
+		return flattened;
 	}
 
 	static prepareHitDiceData(actor: BaseActorA5e, consumers: ConsumerHandlerReturnType) {

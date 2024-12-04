@@ -3,8 +3,8 @@
     import type { AttackRollData } from "../../dataModels/item/actions/ActionRollsDataModel";
     import type { BaseActorA5e } from "../../documents/actor/base";
     import type { ItemA5e } from "../../documents/item/item";
-    import type { ResourceConsumptionManager } from "../../managers/ResourceConsumptionManager";
 
+    import { ResourceConsumptionManager } from "../../managers/ResourceConsumptionManager";
     import { RollPreparationManager } from "../../managers/RollPreparationManager";
 
     import { getContext, setContext } from "svelte";
@@ -14,6 +14,7 @@
     import showActivationDialogSection from "../../utils/showActivationDialogSection";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
     import Section from "../components/Section.svelte";
 
     import AttackRollSection from "../components/activationDialog/AttackRollSection.svelte";
@@ -67,6 +68,7 @@
                 actionId,
                 selectedRolls,
             ),
+            selectedConsumers,
             visibilityMode,
         });
     }
@@ -85,6 +87,23 @@
     const healingBonuses = BonusesManager.prepareGlobalHealingBonuses($item, rolls);
 
     const attackRoll = rolls.attack?.length ? rolls.attack[0][1] : ({} as AttackRollData);
+    const consumerOptions = Object.entries(consumers ?? {}).reduce(
+        (acc, [type, data]) => {
+            if (type === "resource") {
+                data.forEach((e, idx) =>
+                    acc.push([e[0], e[1].label || `Resource Consumer #${idx + 1}`]),
+                );
+            } else {
+                acc.push([data[0], data[1].label || `${type.capitalize()} Consumer `]);
+            }
+
+            return acc;
+        },
+        [] as any[],
+    );
+
+    let selectedConsumers =
+        ResourceConsumptionManager.getDefaultConsumerSelection(consumers);
 
     // Show Config
     const showAttackRoll = !isEmpty(attackRoll);
@@ -94,19 +113,23 @@
     const showHealingBonuses = !!Object.values(healingBonuses).flat().length;
     const showBonusesSection = showDamageBonuses || showHealingBonuses;
     const showPrompts = !!Object.values(prompts).flat().length;
-    const showSpellSection = showActivationDialogSection(
+    $: showSpellSection = showActivationDialogSection(
         action,
+        selectedConsumers,
         ["spell"],
         ["spellLevel", "spellPoints"],
     );
-    const showUsesSection = showActivationDialogSection(
+    $: showUsesSection = showActivationDialogSection(
         action,
+        selectedConsumers,
         ["actionUses", "itemUses"],
         ["actionUses", "itemUses"],
     );
-    const showHitDiceSection = !!Object.values(consumers.hitDice ?? {}).flat().length;
-    const showConsumersSection =
-        showSpellSection || showUsesSection || showHitDiceSection;
+    $: showHitDiceSection =
+        !!Object.values(consumers.hitDice ?? {}).flat().length &&
+        selectedConsumers.includes(consumers?.hitDice?.[0]);
+
+    $: showConsumersSection = showSpellSection || showUsesSection || showHitDiceSection;
 
     let attackRollData = {};
     let actionUsesData = {} as ResourceConsumptionManager.UsesConsumerData;
@@ -141,7 +164,7 @@
         itemUses: itemUsesData,
     };
 
-    $: warnings = validator.validateData(consumerData);
+    $: warnings = validator.validateData(consumerData, selectedConsumers);
 
     setContext("actionId", actionId);
     setContext("actor", actor);
@@ -211,12 +234,28 @@
 
     {#if showConsumersSection}
         <Section heading="Consumers Config" --a5e-section-body-gap="0.5rem">
+            <FieldWrapper
+                hint="These consumers are the only ones that will apply when the item is rolled."
+            >
+                <CheckboxGroup
+                    heading="Selected Consumers to apply on roll"
+                    options={consumerOptions}
+                    selected={selectedConsumers}
+                    on:updateSelection={({ detail }) => (selectedConsumers = detail)}
+                />
+            </FieldWrapper>
+
             {#if showSpellSection}
                 <SpellSection {consumers} bind:spellData />
             {/if}
 
             {#if showUsesSection}
-                <UsesSection {consumers} bind:actionUsesData bind:itemUsesData />
+                <UsesSection
+                    {consumers}
+                    {selectedConsumers}
+                    bind:actionUsesData
+                    bind:itemUsesData
+                />
             {/if}
 
             {#if showHitDiceSection}

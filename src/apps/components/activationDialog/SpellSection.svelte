@@ -1,139 +1,146 @@
 <script lang="ts">
-import type { BaseActorA5e } from '../../../documents/actor/base';
-import type { ConsumerHandlerReturnType } from '../../dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
-import type { ItemA5e } from '../../../documents/item/item';
-import type SpellItemA5e from '../../../documents/item/spell';
-import type { TJSDocument } from '#runtime/svelte/store/fvtt/document';
+    import type { BaseActorA5e } from "../../../documents/actor/base";
+    import type { ConsumerHandlerReturnType } from "../../dataPreparationHelpers/itemActivationConsumers/prepareConsumers";
+    import type { ItemA5e } from "../../../documents/item/item";
+    import type SpellItemA5e from "../../../documents/item/spell";
+    import type { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-import { localize } from '#runtime/util/i18n';
-import { getContext } from 'svelte';
+    import { localize } from "#runtime/util/i18n";
+    import { getContext } from "svelte";
 
-import { ResourceConsumptionManager } from '../../../managers/ResourceConsumptionManager';
+    import { ResourceConsumptionManager } from "../../../managers/ResourceConsumptionManager";
 
-import Checkbox from '../Checkbox.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
-import RadioGroup from '../RadioGroup.svelte';
+    import Checkbox from "../Checkbox.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
 
-export let consumers: ConsumerHandlerReturnType;
-export let spellData: ResourceConsumptionManager.SpellConsumerData;
+    export let consumers: ConsumerHandlerReturnType;
+    export let spellData: ResourceConsumptionManager.SpellConsumerData;
 
-function updateSpellResourceData(level: number) {
-	spellData.charges = level;
-	spellData.level = level;
-	spellData.points = A5E.spellLevelCost[spellData.level];
-}
+    function updateSpellResourceData(level: number) {
+        spellData.charges = level;
+        spellData.level = level;
+        spellData.points = A5E.spellLevelCost[spellData.level];
+    }
 
-function updateConsumeOption(option: any) {
-	spellData.consume = option;
+    function updateConsumeOption(option: any) {
+        spellData.consume = option;
 
-	// Update disabled list
-	if (option === 'artifactCharge') disableArtifactChargeOptions();
-	else if (option === 'spellSlot') disableSpellSlotOptions();
-	else if (option === 'spellPoint') disableSpellPointOptions();
-	else disableBaseSlotOptions();
+        // Update disabled list
+        if (option === "artifactCharge") disableArtifactChargeOptions();
+        else if (option === "spellSlot") disableSpellSlotOptions();
+        else if (option === "spellPoint") disableSpellPointOptions();
+        else disableBaseSlotOptions();
 
-	spellData.level = getBaseSpellLevel();
-}
+        spellData.level = getBaseSpellLevel();
+    }
 
-function disableArtifactChargeOptions() {
-	const baseLevel = consumer.spellLevel ?? ($item.isType('spell') ? $item.system?.level : 1) ?? 1;
-	disabled = spellLevels.reduce((acc: string[], [level]) => {
-		const l = Number(level);
-		if (baseLevel > l) acc.push(level);
-		if (l > availableCharges) acc.push(level);
-		return acc;
-	}, []);
-}
+    function disableArtifactChargeOptions() {
+        const baseLevel =
+            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
+        disabled = spellLevels.reduce((acc: string[], [level]) => {
+            const l = Number(level);
+            if (baseLevel > l) acc.push(level);
+            if (l > availableCharges) acc.push(level);
+            return acc;
+        }, []);
+    }
 
-function disableBaseSlotOptions() {
-	const baseLevel = consumer.spellLevel ?? ($item.isType('spell') ? $item.system?.level : 1) ?? 1;
-	disabled = spellLevels.slice(0, baseLevel - 1).map((i) => i[0]);
-}
+    function disableBaseSlotOptions() {
+        const baseLevel =
+            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
+        disabled = spellLevels.slice(0, baseLevel - 1).map((i) => i[0]);
+    }
 
-function disableSpellSlotOptions() {
-	const temp = new Set(spellLevels.map((i) => i[0]));
-	const baseLevel = consumer.spellLevel ?? ($item.isType('spell') ? $item.system?.level : 1) ?? 1;
-	disabled = [
-		...temp.difference(new Set(availableSpellSlots)),
-		...spellLevels.slice(0, baseLevel - 1).map((i) => i[0]),
-	];
-}
+    function disableSpellSlotOptions() {
+        const temp = new Set(spellLevels.map((i) => i[0]));
+        const baseLevel =
+            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
+        disabled = [
+            ...temp.difference(new Set(availableSpellSlots)),
+            ...spellLevels.slice(0, baseLevel - 1).map((i) => i[0]),
+        ];
+    }
 
-function disableSpellPointOptions() {
-	const baseLevel = consumer.spellLevel ?? ($item.isType('spell') ? $item.system?.level : 1) ?? 1;
-	const cap = Object.entries(A5E.spellLevelCost).reduce((acc, [level, cost]) => {
-		if (Number(cost) <= availablePoints) acc = Number(level);
-		return acc;
-	}, 0);
+    function disableSpellPointOptions() {
+        const baseLevel =
+            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
+        const cap = Object.entries(A5E.spellLevelCost).reduce((acc, [level, cost]) => {
+            if (Number(cost) <= availablePoints) acc = Number(level);
+            return acc;
+        }, 0);
 
-	disabled = [
-		...spellLevels.slice(0, baseLevel - 1).map((i) => i[0]),
-		...spellLevels.map((i) => i[0]).slice(cap),
-	];
-}
+        disabled = [
+            ...spellLevels.slice(0, baseLevel - 1).map((i) => i[0]),
+            ...spellLevels.map((i) => i[0]).slice(cap),
+        ];
+    }
 
-function getConsumeHeading(type: string) {
-	if (spellData.consume === 'artifactCharge') {
-		return `${localize('A5E.SpellLevel')} (${spellData.charges} charges)`;
-	} else if (spellData.consume === 'spellPoint') {
-		return `${localize('A5E.SpellLevel')} (${spellData.points} points)`;
-	} else {
-		return localize('A5E.SpellLevel');
-	}
-}
+    function getConsumeHeading(type: string) {
+        if (spellData.consume === "artifactCharge") {
+            return `${localize("A5E.SpellLevel")} (${spellData.charges} charges)`;
+        }
 
-function getBaseSpellLevel(): number {
-	const defaultLevel =
-		consumer.spellLevel ?? ($item.isType('spell') ? $item.system?.level : 1) ?? 1;
-	const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
+        if (spellData.consume === "spellPoint") {
+            return `${localize("A5E.SpellLevel")} (${spellData.points} points)`;
+        }
 
-	const selection =
-		spellData.consume === 'spellSlot' ? Math.max(defaultLevel, smallestAvailable) : defaultLevel;
+        return localize("A5E.SpellLevel");
+    }
 
-	return selection;
-}
+    function getBaseSpellLevel(): number {
+        const defaultLevel =
+            consumer.spellLevel ?? ($item.isType("spell") ? $item.system?.level : 1) ?? 1;
+        const smallestAvailable = Math.min(...availableSpellSlots.map(Number));
 
-const actionId: string = getContext('actionId');
-const actor: TJSDocument<BaseActorA5e> = getContext('actor');
-const item: TJSDocument<ItemA5e> = getContext('item');
+        const selection =
+            spellData.consume === "spellSlot"
+                ? Math.max(defaultLevel, smallestAvailable)
+                : defaultLevel;
 
-const { A5E } = CONFIG;
-const { isEmpty } = foundry.utils;
+        return selection;
+    }
 
-const consumeOptions: Record<string, any> = {
-	artifactCharge: 'A5E.ArtifactCharges',
-	spellSlot: 'A5E.ConsumeSpellSlot',
-	spellPoint: 'A5E.SpellPoints',
-	// inventions: "A5E.SpellInventions",
-	noConsume: 'A5E.ConsumeNothing',
-};
+    const actionId: string = getContext("actionId");
+    const actor: TJSDocument<BaseActorA5e> = getContext("actor");
+    const item: TJSDocument<ItemA5e> = getContext("item");
 
-let disabled: string[] = [];
+    const { A5E } = CONFIG;
+    const { isEmpty } = foundry.utils;
 
-const parts = ResourceConsumptionManager.prepareSpellData(
-	$actor,
-	$item as SpellItemA5e,
-	consumers,
-	actionId,
-);
+    const consumeOptions: Record<string, any> = {
+        artifactCharge: "A5E.ArtifactCharges",
+        spellSlot: "A5E.ConsumeSpellSlot",
+        spellPoint: "A5E.SpellPoints",
+        // inventions: "A5E.SpellInventions",
+        noConsume: "A5E.ConsumeNothing",
+    };
 
-let {
-	availableCharges,
-	availablePoints,
-	availableSpellSlots,
-	consumer,
-	mode,
-	spellLevels,
-	spellResources,
-} = parts;
+    let disabled: string[] = [];
 
-spellData = parts.spellData;
-$: console.log(spellData);
+    const parts = ResourceConsumptionManager.prepareSpellData(
+        $actor,
+        $item as SpellItemA5e,
+        consumers,
+        actionId,
+    );
 
-if (spellData.consume === 'artifactCharge') disableArtifactChargeOptions();
-else if (spellData.consume === 'spellPoint') disableSpellPointOptions();
-else if (spellData.consume === 'spellSlot') disableSpellSlotOptions();
-else disableBaseSlotOptions();
+    let {
+        availableCharges,
+        availablePoints,
+        availableSpellSlots,
+        consumer,
+        mode,
+        spellLevels,
+        spellResources,
+    } = parts;
+
+    spellData = parts.spellData;
+
+    if (spellData.consume === "artifactCharge") disableArtifactChargeOptions();
+    else if (spellData.consume === "spellPoint") disableSpellPointOptions();
+    else if (spellData.consume === "spellSlot") disableSpellSlotOptions();
+    else disableBaseSlotOptions();
 </script>
 
 {#if ["variable", "slotsOnly"].includes(mode)}

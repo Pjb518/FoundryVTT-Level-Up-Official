@@ -191,6 +191,7 @@ class ItemA5e extends BaseItemA5e {
 			this,
 			actionId,
 			activationData.consumers ?? {},
+			activationData.selectedConsumers ?? [],
 		);
 
 		await resourceConsumptionManager.consumeResources();
@@ -324,6 +325,9 @@ class ItemA5e extends BaseItemA5e {
 			placeTemplate,
 			prompts,
 			rolls: otherRolls,
+			selectedConsumers: ResourceConsumptionManager.getDefaultConsumerSelection(
+        RollPreparationManager.prepareConsumers(this, actionId)
+      ),
 		};
 	}
 
