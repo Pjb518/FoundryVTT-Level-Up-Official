@@ -1,51 +1,53 @@
 <script>
-import { localize } from '#runtime/util/i18n';
-import { getContext } from 'svelte';
+    import { localize } from "#runtime/util/i18n";
+    import { getContext } from "svelte";
 
-import FieldWrapper from '../FieldWrapper.svelte';
-import RadioGroup from '../RadioGroup.svelte';
-import Checkbox from '../Checkbox.svelte';
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
+    import Checkbox from "../Checkbox.svelte";
 
-const effect = getContext('effect');
-const { A5E } = CONFIG;
+    const effect = getContext("effect");
+    const { A5E } = CONFIG;
 
-const durationMap = {
-	seconds: 1,
-	minutes: 60,
-	hours: 3600,
-};
+    const durationMap = {
+        seconds: 1,
+        minutes: 60,
+        hours: 3600,
+    };
 
-function updateEffectDuration(key, value, changedUnit = null) {
-	const updates = {
-		'flags.a5e.duration.unit': changedUnit ?? unit,
-		'duration.seconds': null,
-		'duration.rounds': key === 'seconds' ? null : $effect.duration.rounds,
-		'duration.turns': key === 'seconds' ? null : $effect.duration.turns,
-	};
+    function updateEffectDuration(key, value, changedUnit = null) {
+        const updates = {
+            "flags.a5e.duration.unit": changedUnit ?? unit,
+            "duration.seconds": null,
+            "duration.rounds": key === "seconds" ? null : $effect.duration.rounds,
+            "duration.turns": key === "seconds" ? null : $effect.duration.turns,
+        };
 
-	if (key === 'seconds') {
-		let newValue;
+        if (key === "seconds") {
+            let newValue;
 
-		if (changedUnit && unit !== changedUnit) {
-			updates['flags.a5e.duration.unit'] = changedUnit;
-			newValue = Math.max(0, parsedSecondsValue * durationMap[changedUnit]);
-		} else newValue = Math.max(0, value * durationMap[unit]);
+            if (changedUnit && unit !== changedUnit) {
+                updates["flags.a5e.duration.unit"] = changedUnit;
+                newValue = Math.max(0, parsedSecondsValue * durationMap[changedUnit]);
+            } else newValue = Math.max(0, value * durationMap[unit]);
 
-		updates['duration.seconds'] = newValue;
-	} else if (['rounds', 'turns'].includes(key)) {
-		updates[`duration.${key}`] = Math.max(0, value);
-	}
+            updates["duration.seconds"] = newValue;
+        } else if (["rounds", "turns"].includes(key)) {
+            updates[`duration.${key}`] = Math.max(0, value);
+        }
 
-	$effect.update(updates);
-}
+        $effect.update(updates);
+    }
 
-$: parsedSecondsValue = Math.floor(($effect.duration.seconds ?? 0) / durationMap[unit]);
-$: durationType = $effect.flags?.a5e?.duration?.type ?? 'seconds';
-$: unit = $effect.flags?.a5e?.duration?.unit ?? 'minutes';
+    $: parsedSecondsValue = Math.floor(
+        ($effect.duration.seconds ?? 0) / durationMap[unit],
+    );
+    $: durationType = $effect.flags?.a5e?.duration?.type ?? "seconds";
+    $: unit = $effect.flags?.a5e?.duration?.unit ?? "minutes";
 </script>
 
 <article>
-    {#if $effect.flags?.a5e?.transferType === "onUse"}
+    {#if $effect.system.effectType === "onUse"}
         <FieldWrapper>
             <Checkbox
                 label="A5E.effects.applyToSelf"

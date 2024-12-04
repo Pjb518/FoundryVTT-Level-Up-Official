@@ -1,30 +1,29 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import FieldWrapper from '../FieldWrapper.svelte';
+    import FieldWrapper from "../FieldWrapper.svelte";
 
-export let deletePrompt;
-export let duplicatePrompt;
-export let prompt;
-export let promptId;
+    export let deletePrompt;
+    export let duplicatePrompt;
+    export let prompt;
+    export let promptId;
 
-const item = getContext('item');
-const actionId = getContext('actionId');
+    const item = getContext("item");
+    const actionId = getContext("actionId");
 
-$: prompt = prompt;
-$: effects = $item.effects
-	.filter((e) => e.flags?.a5e?.transferType === 'onUse')
-	.map((e) => [e._id, e.name]);
+    $: prompt = prompt;
+    $: effects = $item.effects
+        .filter((e) => e.system.effectType === "onUse")
+        .map((e) => [e._id, e.name]);
 </script>
 
 <FieldWrapper
     heading="A5E.Label"
     buttons={[
         {
-            classes:
-                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes: "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicatePrompt(actionId, prompt),
         },
         {

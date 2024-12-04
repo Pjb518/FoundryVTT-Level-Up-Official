@@ -6,7 +6,7 @@ import type { ItemA5e } from '../documents/item/item';
 import type { RollHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 import type { PromptHandlerReturnType } from '../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
 import type { ResourceConsumptionManager } from './ResourceConsumptionManager';
-import * as RollData from '../dataModels/item/actions/ActionRollsDataModel';
+import type * as RollData from '../dataModels/item/actions/ActionRollsDataModel';
 
 import { localize } from '#runtime/util/i18n';
 
@@ -22,6 +22,7 @@ import getRollFormula from '../utils/getRollFormula';
 import _prepareConsumers from '../apps/dataPreparationHelpers/itemActivationConsumers/prepareConsumers';
 import _preparePrompts from '../apps/dataPreparationHelpers/itemActivationPrompts/preparePrompts';
 import _prepareRolls from '../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
+import _prepareEffects from '../apps/dataPreparationHelpers/itemActivationPrompts/prepareEffectPrompts';
 
 class RollPreparationManager {
 	#actor: BaseActorA5e;
@@ -274,7 +275,7 @@ class RollPreparationManager {
 		let critRoll = baseRoll;
 
 		if (canCrit ?? true) {
-			if (context && context.isCritBonus) {
+			if (context?.isCritBonus) {
 				critRoll = roll;
 				baseRoll = await new Roll('0').evaluate();
 				roll = baseRoll;
@@ -372,7 +373,7 @@ class RollPreparationManager {
 
 		const ability = localize(CONFIG.A5E.abilities[_roll?.ability ?? '']);
 		const roll = await new Roll(rollFormula).evaluate();
-		let label;
+		let label: string;
 
 		if (_roll.saveType === 'concentration') label = localize('A5E.ConcentrationCheck');
 		else if (_roll.saveType === 'death') label = localize('A5E.DeathSavingThrow');
@@ -504,8 +505,8 @@ class RollPreparationManager {
 	#applyCantripScaling(roll): string {
 		const actorData = this.#actor.system;
 
-		// @ts-expect-error
 		const casterLevel =
+			// @ts-expect-error
 			this.#actor?.levels?.character ??
 			// @ts-expect-error
 			actorData.details.level ??
@@ -674,7 +675,9 @@ class RollPreparationManager {
 	}
 
 	static prepareOtherRollData(rolls: RollHandlerReturnType) {
-		const invalidSelections = this.#getInvalidSelections(rolls as unknown as [string, any][]);
+		const invalidSelections = RollPreparationManager.#getInvalidSelections(
+			rolls as unknown as [string, any][],
+		);
 
 		const otherRolls = Object.entries(rolls).reduce(
 			(acc, [rollType, rollGroup]) => {
@@ -708,7 +711,9 @@ class RollPreparationManager {
 	}
 
 	static preparePromptsData(prompts: PromptHandlerReturnType) {
-		const invalidSelections = this.#getInvalidSelections(prompts as unknown as [string, any][]);
+		const invalidSelections = RollPreparationManager.#getInvalidSelections(
+			prompts as unknown as [string, any][],
+		);
 
 		return {
 			invalidSelections,
@@ -764,6 +769,10 @@ class RollPreparationManager {
 		return _prepareConsumers(item, actionId);
 	}
 
+	static prepareEffects(item: ItemA5e, actionId: string) {
+		return _prepareEffects(item, actionId);
+	}
+
 	static preparePrompts(item: ItemA5e, actionId: string) {
 		return _preparePrompts(item, actionId);
 	}
@@ -796,6 +805,7 @@ declare namespace RollPreparationManager {
 	}
 }
 
+// biome-ignore lint/complexity/noBannedTypes: <explanation>
 type EvaluatedRoll = Awaited<ReturnType<InstanceType<typeof Roll<{}>>['evaluate']>>;
 
 interface PreparedAttackRoll {

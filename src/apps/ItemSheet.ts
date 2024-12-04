@@ -179,7 +179,7 @@ export default class ItemSheet extends SvelteApplication {
 
 		// Copy over effects from old item to new item
 		const effects = Array.from(document?.effects).filter(
-			(e: any) => e.flags?.a5e?.transferType === 'onUse' && e.flags?.a5e?.actionId,
+			(e: any) => e.system.effectType === 'onUse' && e.flags?.a5e?.actionId,
 		);
 
 		if (!effects.length) return;

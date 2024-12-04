@@ -166,7 +166,7 @@ class BaseActorA5e extends Actor {
 		const effects: ActiveEffect[] = [];
 
 		for (const effect of this.allApplicableEffects()) {
-			if (effect.active && (effect.isTemporary || effect?.flags?.a5e?.transferType === 'onUse')) {
+			if (effect.active && (effect.isTemporary || effect?.system?.effectType === 'onUse')) {
 				effects.push(effect);
 			}
 		}

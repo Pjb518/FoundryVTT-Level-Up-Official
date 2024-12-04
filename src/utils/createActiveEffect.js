@@ -20,9 +20,9 @@ export default async function createEffect(document, { effectType, actionId }) {
 			}
 
 			// Set related flags
-			foundry.utils.setProperty(updateData, 'flags.a5e.transferType', 'onUse');
+			foundry.utils.setProperty(updateData, 'system.effectType', 'onUse');
 		} else {
-			foundry.utils.setProperty(updateData, 'flags.a5e.transferType', 'passive');
+			foundry.utils.setProperty(updateData, 'system.effectType', 'passive');
 		}
 	}
 
