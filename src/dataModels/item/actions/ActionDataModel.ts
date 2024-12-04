@@ -28,10 +28,10 @@ const actionSchema = () => ({
 		value: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
 	}),
 
-	effects: new fields.ArrayField(new fields.ObjectField({ required: true, nullable: false }), {
-		required: true,
-		nullable: false,
-	}),
+	effects: new fields.SetField(
+		new fields.StringField({ required: true, nullable: false, initial: '' }),
+		{ required: true, nullable: false },
+	),
 
 	consumers: new RecordField(
 		new fields.DocumentIdField({

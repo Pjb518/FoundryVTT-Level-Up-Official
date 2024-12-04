@@ -3,15 +3,13 @@ import { localize } from '#runtime/util/i18n';
 import { ActionsManager } from '../managers/ActionsManager';
 
 export default async function createEffect(document, { effectType, actionId }) {
-	const action = document?.actions?.[actionId] ?? {};
+	const action = document?.actions.get(actionId) ?? {};
 
 	const updateData = {
 		label: localize('A5E.effects.new'),
 		icon: document.documentName === 'Item' ? (action?.img ?? document.img) : 'icons/svg/aura.svg',
 		origin: document.uuid,
 	};
-
-	foundry.utils.setProperty(updateData, 'flags.a5e.sort', 0);
 
 	if (document.documentName === 'Item') {
 		updateData.transfer = false;
@@ -23,7 +21,6 @@ export default async function createEffect(document, { effectType, actionId }) {
 
 			// Set related flags
 			foundry.utils.setProperty(updateData, 'flags.a5e.transferType', 'onUse');
-			foundry.utils.setProperty(updateData, 'flags.a5e.actionId', actionId);
 		} else {
 			foundry.utils.setProperty(updateData, 'flags.a5e.transferType', 'passive');
 		}
@@ -37,7 +34,6 @@ export default async function createEffect(document, { effectType, actionId }) {
 	// Create prompt on action for effect
 	if (effectType === 'onUse') {
 		if (!action) return;
-
-		ActionsManager.addPrompt(document, [actionId, action], 'effect', { effectId: documents[0].id });
+		ActionsManager.addEffect(document, actionId, documents[0].id);
 	}
 }

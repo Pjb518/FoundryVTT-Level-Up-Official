@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import type { Action } from 'types/action';
 import type { ActionActivationOptions } from './data';
-import { type RollHandlerReturnType } from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
+import type { RollHandlerReturnType } from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 
 import { BaseItemA5e } from './base';
 
@@ -50,6 +50,8 @@ class ItemA5e extends BaseItemA5e {
 	}
 
 	override prepareBaseData() {
+		super.prepareBaseData();
+
 		// Set up managers
 		this.actions = new ActionsManager(this);
 	}
@@ -249,8 +251,8 @@ class ItemA5e extends BaseItemA5e {
 			type: 'item',
 		};
 
-		// @ts-expect-error
 		ChatMessage.applyRollMode(
+			// @ts-expect-error
 			chatData,
 			activationData.visibilityMode ?? game.settings.get('core', 'rollMode'),
 		);
