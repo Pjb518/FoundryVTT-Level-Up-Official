@@ -3,6 +3,7 @@ import { schemaData } from '../common';
 const { fields } = foundry.data;
 
 const baseSchema = () => ({
+	applyToSelf: new fields.BooleanField({ required: true, nullable: false, initial: false }),
 	effectType: new fields.StringField({ required: true, nullable: false, initial: 'passive' }),
 	default: new fields.BooleanField({ required: true, nullable: false, initial: true }),
 });

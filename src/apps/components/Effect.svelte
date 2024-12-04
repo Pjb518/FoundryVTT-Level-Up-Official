@@ -1,81 +1,79 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import DeletionConfirmationDialog from '../dialogs/initializers/DeletionConfirmationDialog';
+    import DeletionConfirmationDialog from "../dialogs/initializers/DeletionConfirmationDialog";
 
-export let effect;
+    export let effect;
 
-function onEffectActivate() {}
+    function onEffectActivate() {}
 
-function onConfigure() {
-	effect.sheet?.render(true);
-}
+    function onConfigure() {
+        effect.sheet?.render(true);
+    }
 
-function onDuplicate() {
-	effect.duplicateEffect();
-}
+    function onDuplicate() {
+        effect.duplicateEffect();
+    }
 
-async function onDelete() {
-	let dialogData;
+    async function onDelete() {
+        let dialogData;
 
-	if (!game.settings.get('a5e', 'hideDeleteConfirmation')) {
-		const itemDocument = { name: effect.name, type: 'Active Effect' };
-		const dialog = new DeletionConfirmationDialog(itemDocument);
-		await dialog.render(true);
-		dialogData = await dialog.promise;
+        if (!game.settings.get("a5e", "hideDeleteConfirmation")) {
+            const itemDocument = { name: effect.name, type: "Active Effect" };
+            const dialog = new DeletionConfirmationDialog(itemDocument);
+            await dialog.render(true);
+            dialogData = await dialog.promise;
 
-		if (!dialogData || !dialogData.confirmDeletion) return;
-	}
+            if (!dialogData || !dialogData.confirmDeletion) return;
+        }
 
-	await game.settings.set(
-		'a5e',
-		'hideDeleteConfirmation',
-		dialogData?.hideDeleteConfirmation ?? game.settings.get('a5e', 'hideDeleteConfirmation'),
-	);
+        await game.settings.set(
+            "a5e",
+            "hideDeleteConfirmation",
+            dialogData?.hideDeleteConfirmation ??
+                game.settings.get("a5e", "hideDeleteConfirmation"),
+        );
 
-	const effectId = effect.id;
-	effect.delete();
+        const effectId = effect.id;
+        effect.delete();
 
-	// Remove Prompt config
-	if (!actionId || $doc.documentName !== 'Item') return;
+        // Remove Prompt config
+        if (!actionId || $doc.documentName !== "Item") return;
 
-	const action = $doc.system.actions.get(actionId);
-	const prompt = Object.entries(action?.prompts ?? {}).find(
-		([, prompt]) => prompt.type === 'effect' && prompt.effectId === effectId,
-	);
+        const action = $doc.actions.get(actionId);
+        const updatedEffects = [...action.effects].filter((id) => id !== effectId);
 
-	if (!prompt?.[0]) return;
+        $doc.update({
+            [`system.actions.${actionId}.effects`]: updatedEffects,
+        });
+    }
 
-	$doc.update({
-		[`system.actions.${actionId}.prompts.-=${prompt[0]}`]: null,
-	});
-}
+    function onDragStart(event) {
+        const dragData = effect.toDragData();
+        if (!dragData) return;
 
-function onDragStart(event) {
-	const dragData = effect.toDragData();
-	if (!dragData) return;
+        dragData.parentId = effect?.parent?.id;
 
-	dragData.parentId = effect?.parent?.id;
+        return event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
+    }
 
-	return event.dataTransfer.setData('text/plain', JSON.stringify(dragData));
-}
+    const doc = getContext("actor") ?? getContext("item");
+    const actionId = getContext("actionId");
 
-const doc = getContext('actor') ?? getContext('item');
-const actionId = getContext('actionId');
+    let rightClickConfigure =
+        game.settings.get("a5e", "itemRightClickConfigure") ?? false;
 
-let rightClickConfigure = game.settings.get('a5e', 'itemRightClickConfigure') ?? false;
+    $: allowTransfer =
+        effect.getFlag("a5e", "transferType") === "passive" &&
+        $doc.documentName === "Item" &&
+        ["Actor", "ActorDelta"].includes($doc.parent?.documentName);
 
-$: allowTransfer =
-	effect.getFlag('a5e', 'transferType') === 'passive' &&
-	$doc.documentName === 'Item' &&
-	['Actor', 'ActorDelta'].includes($doc.parent?.documentName);
-
-$: sheetIsLocked = !$doc.isOwner
-	? true
-	: $doc.documentName === 'Item'
-		? false
-		: ($doc.flags?.a5e?.sheetIsLocked ?? true);
+    $: sheetIsLocked = !$doc.isOwner
+        ? true
+        : $doc.documentName === "Item"
+          ? false
+          : ($doc.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 <li

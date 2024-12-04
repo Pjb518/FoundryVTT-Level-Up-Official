@@ -16,11 +16,10 @@
     const subTypes = CONFIG.A5E.actionActiveEffectTypesPlural;
     const reducerType = "activeEffects";
 
-    let availableEffects = $item.actions.get(actionId).effects;
     activeEffects?.filters.add({
         id: "onUse-filter",
         filter: (effect) => {
-            return availableEffects.has(effect.id);
+            return $item.actions.get(actionId).effects.has(effect.id);
         },
     });
 
