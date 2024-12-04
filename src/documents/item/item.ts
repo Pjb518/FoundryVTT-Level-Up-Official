@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import type { Action } from 'types/action';
 import type { ActionActivationOptions } from './data';
-import { type RollHandlerReturnType } from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
+import type { RollHandlerReturnType } from '../../apps/dataPreparationHelpers/itemActivationRolls/prepareRolls';
 
 import { BaseItemA5e } from './base';
 
@@ -50,6 +50,8 @@ class ItemA5e extends BaseItemA5e {
 	}
 
 	override prepareBaseData() {
+		super.prepareBaseData();
+
 		// Set up managers
 		this.actions = new ActionsManager(this);
 	}
@@ -189,6 +191,7 @@ class ItemA5e extends BaseItemA5e {
 			this,
 			actionId,
 			activationData.consumers ?? {},
+			activationData.selectedConsumers ?? [],
 		);
 
 		await resourceConsumptionManager.consumeResources();
@@ -234,6 +237,7 @@ class ItemA5e extends BaseItemA5e {
 								rollData: this?.actor?.getRollData(this) ?? {},
 							})
 						: null,
+				effects: activationData.effects ?? [],
 				prompts: activationData.prompts,
 				rollData: rolls.map(({ roll, ...rollData }) => rollData),
 				summaryData: getSummaryData(this, action, {
@@ -249,8 +253,8 @@ class ItemA5e extends BaseItemA5e {
 			type: 'item',
 		};
 
-		// @ts-expect-error
 		ChatMessage.applyRollMode(
+			// @ts-expect-error
 			chatData,
 			activationData.visibilityMode ?? game.settings.get('core', 'rollMode'),
 		);
@@ -258,18 +262,16 @@ class ItemA5e extends BaseItemA5e {
 		const chatCard = await ChatMessage.create(chatData);
 
 		// Apply onUse effects to self
-		const effects = activationData.prompts.reduce((acc, { type, effectId }) => {
-			if (type === 'effect') {
-				const effect = this.effects.get(effectId);
-				if (!effect) return acc;
-				if (!effect.flags?.a5e?.applyToSelf) return acc;
-				acc.push(effect);
-			}
+		const selfAppliedEffects = activationData.effects.reduce((acc, id) => {
+			const effect = this.effects.get(id);
+			if (!effect) return acc;
+			// @ts-expect-error
+			if (effect.system.applyToSelf) acc.push(effect);
 
 			return acc;
 		}, []);
 
-		effects.forEach((effect) => effect.transferEffect(this.actor));
+		selfAppliedEffects.forEach((effect) => effect.transferEffect(this.actor));
 
 		Hooks.callAll('a5e.itemActivate', this, {
 			actionId,
@@ -303,6 +305,9 @@ class ItemA5e extends BaseItemA5e {
 		const rolls = RollPreparationManager.prepareRolls(this, actionId);
 		const attack = this.#getDefaultAttackRollData(rolls.attack, options);
 		const consumers = this.#getDefaultConsumerData(actionId);
+		const effects = RollPreparationManager.getDefaultSelectedEffects(
+			RollPreparationManager.prepareEffects(this, actionId),
+		);
 		const { damageBonuses, healingBonuses } = this.#getDefaultBonuses(this.actor, rolls);
 
 		const otherRolls = this.#getDefaultRollData(rolls);
@@ -315,10 +320,14 @@ class ItemA5e extends BaseItemA5e {
 			attack,
 			consumers,
 			damageBonuses,
+			effects,
 			healingBonuses,
 			placeTemplate,
 			prompts,
 			rolls: otherRolls,
+			selectedConsumers: ResourceConsumptionManager.getDefaultConsumerSelection(
+        RollPreparationManager.prepareConsumers(this, actionId)
+      ),
 		};
 	}
 

@@ -193,9 +193,9 @@ class ActionsManager extends Map<string, Action> {
 			(effect) => effect.flags.a5e.actionId === actionId,
 		);
 
-		// @ts-expect-error
 		this.#item.deleteEmbeddedDocuments(
 			'ActiveEffect',
+			// @ts-expect-error
 			effects.map((effect) => effect.id),
 		);
 	}
@@ -388,6 +388,18 @@ class ActionsManager extends Map<string, Action> {
 
 		if (update) item.update(updateData);
 		return updateData;
+	}
+
+	/** ----------------------------------------- */
+	static async addEffect(item: ItemA5e, actionId: string, effectId: string) {
+		const action = item.actions.get(actionId);
+		if (!action) return false;
+
+		const existingEffects = action.effects;
+		const newList = new Set([...existingEffects, effectId]);
+		return item.update({
+			[`system.actions.${actionId}.effects`]: newList,
+		});
 	}
 
 	/** ----------------------------------------- */

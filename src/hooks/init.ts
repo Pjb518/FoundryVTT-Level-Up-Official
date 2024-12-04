@@ -23,6 +23,7 @@ import SpellCompendiumSheet from '../apps/SpellCompendiumSheet';
 
 // DataModels
 import actorDataModels from '../dataModels/actor/actorDataModels';
+import activeEffectModels from '../dataModels/effect/effectDataModels';
 import chatDataModels from '../dataModels/chat/chatCardDataModels';
 import itemDataModels from '../dataModels/item/itemDataModels';
 
@@ -92,6 +93,8 @@ export default function init() {
 
 	// DataModels
 	CONFIG.Actor.dataModels = actorDataModels;
+	// @ts-expect-error
+	CONFIG.ActiveEffect.dataModels = activeEffectModels;
 	// @ts-expect-error
 	CONFIG.ChatMessage.dataModels = chatDataModels;
 	CONFIG.Item.dataModels = itemDataModels;

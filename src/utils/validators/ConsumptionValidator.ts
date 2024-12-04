@@ -21,7 +21,7 @@ export default class ConsumptionValidator {
 		this.#actor = actor;
 		this.#item = item;
 
-		this.availableConsumers = Object.values(action?.consumers ?? {});
+		this.availableConsumers = Object.entries(action?.consumers ?? {});
 		this.warnings = [];
 	}
 
@@ -36,11 +36,13 @@ export default class ConsumptionValidator {
 		};
 	}
 
-	validateData(currentInputData) {
+	validateData(currentInputData, selectedConsumers: string[]) {
 		// Reset Warnings
 		this.warnings.length = 0;
 
-		this.availableConsumers.forEach((consumer) => {
+		this.availableConsumers.forEach(([consumerId, consumer]) => {
+			if (!selectedConsumers.includes(consumerId)) return;
+
 			const validateFunction = this.VALIDATE_FUNCTION_MAP[consumer.type];
 			validateFunction?.call(this, currentInputData?.[consumer.type], consumer);
 		});

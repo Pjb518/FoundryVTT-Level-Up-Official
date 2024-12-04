@@ -179,9 +179,7 @@ export default class RestManager {
 	async #removeTemporaryActiveEffects() {
 		if (!game.settings.get('a5e', 'removeActiveEffectsOnLongRest')) return;
 
-		const effects = Array.from(this.#actor.effects).filter(
-			(e) => e.flags?.a5e?.transferType === 'onUse',
-		);
+		const effects = Array.from(this.#actor.effects).filter((e) => e.system.effectType === 'onUse');
 
 		if (!effects.length) return;
 		await this.#actor.deleteEmbeddedDocuments(

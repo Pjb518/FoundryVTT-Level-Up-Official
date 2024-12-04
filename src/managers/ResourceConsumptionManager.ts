@@ -17,6 +17,8 @@ class ResourceConsumptionManager {
 
 	#consumptionData: ResourceConsumptionManager.ConsumptionData;
 
+	#selectedConsumers: string[];
+
 	#updates: { actor: Record<string, any>; item: Record<string, any> };
 
 	constructor(
@@ -24,11 +26,13 @@ class ResourceConsumptionManager {
 		item: ItemA5e,
 		actionId: string,
 		consumptionData: ResourceConsumptionManager.ConsumptionData,
+		selectedConsumers: string[],
 	) {
 		this.#actor = actor;
 		this.#item = item;
 		this.#actionId = actionId;
 		this.#consumptionData = consumptionData;
+		this.#selectedConsumers = selectedConsumers;
 
 		this.#updates = {
 			actor: {},
@@ -41,14 +45,15 @@ class ResourceConsumptionManager {
 	}
 
 	async consumeResources() {
-		const consumers = Object.values(this.action?.consumers ?? {});
+		const consumers = Object.entries(this.action?.consumers ?? {});
 
 		const { actionUses, hitDice, itemUses, spell } = this.#consumptionData;
 
-		consumers.forEach((consumer) => {
+		consumers.forEach(([consumerId, consumer]) => {
 			const consumerType = consumer.type;
 
 			if (!consumerType) return;
+			if (!this.#selectedConsumers.includes(consumerId)) return;
 
 			if (consumerType === 'actionUses') this.#consumeActionUses(actionUses);
 			else if (consumerType === 'hitDice') this.#consumeHitDice(hitDice);
@@ -56,8 +61,8 @@ class ResourceConsumptionManager {
 			else if (consumerType === 'spell') this.#consumeSpellResource(spell);
 			// @ts-expect-error
 			else if (consumerType === 'resource') this.#consumeResource(consumer);
-			// @ts-expect-error
-			else if (['ammunition', 'quantity'].includes(consumerType)) this.#consumeQuantity(consumer);
+			else if (['ammunition', 'quantity'].includes(consumerType))
+				this.#consumeQuantity(consumerId, consumer);
 		});
 
 		// Updates documents
@@ -102,13 +107,23 @@ class ResourceConsumptionManager {
 	}
 
 	// @ts-ignore
-	async #consumeQuantity({ itemId, quantity = 0 } = {}) {
+	async #consumeQuantity(consumerId: string, consumer = {}) {
+		//@ts-expect-error
+		const { itemId, quantity = 1, deleteOnZero } = consumer;
+
 		if (!this.#actor || itemId === '') return;
 
 		const item = this.#actor.items.get(itemId);
 		if (!item || !item.isType('object')) return;
 
 		const newQuantity = Math.max((item.system.quantity ?? 0) - quantity, 0);
+
+		if (deleteOnZero && newQuantity === 0) {
+			// Update consumer
+			this.#updates.item[`system.actions.${this.#actionId}.consumers.${consumerId}.itemId`] = '';
+			item.delete();
+			return;
+		}
 
 		await this.#actor.updateEmbeddedDocuments('Item', [
 			{ _id: item.id, 'system.quantity': newQuantity },
@@ -182,6 +197,22 @@ class ResourceConsumptionManager {
 		if (foundry.utils.isEmpty(consumers[type])) return {};
 		const [, consumer] = Object.values(consumers[type]);
 		return consumer;
+	}
+
+	static getDefaultConsumerSelection(consumers: ConsumerHandlerReturnType) {
+		const flattened = Object.entries(consumers).reduce((acc, [type, data]) => {
+			if (type === 'resource') {
+				data.forEach((e) => {
+					if (e[1]?.default) acc.push(e[0]);
+				});
+			} else {
+				if (data[1]?.default) acc.push(data[0]); // This is the consumerId
+			}
+
+			return acc;
+		}, [] as string[]);
+
+		return flattened;
 	}
 
 	static prepareHitDiceData(actor: BaseActorA5e, consumers: ConsumerHandlerReturnType) {
@@ -308,11 +339,11 @@ class ResourceConsumptionManager {
 		actionId: string,
 	) {
 		const action = item.actions.get(actionId)!;
-		const actionConsumer = this.#getConsumerType(
+		const actionConsumer = ResourceConsumptionManager.#getConsumerType(
 			consumers,
 			'actionUses',
 		) as ConsumerData.ActionUsesConsumerData;
-		const itemConsumer = this.#getConsumerType(
+		const itemConsumer = ResourceConsumptionManager.#getConsumerType(
 			consumers,
 			'itemUses',
 		) as ConsumerData.ItemUsesConsumerData;

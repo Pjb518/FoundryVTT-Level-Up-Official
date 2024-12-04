@@ -29,7 +29,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 		if (this.disabled || !['Actor', 'ActorDelta', 'Token'].includes(this.parent.documentName))
 			return true;
 
-		if (this.flags?.a5e?.transferType === 'onUse') return false;
+		if (this.system.effectType === 'onUse') return false;
 
 		const { parentItem } = this;
 		if (!parentItem || parentItem?.type !== 'object') return false;
@@ -50,7 +50,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 	get isLocked() {
 		if (!['Actor', 'ActorDelta', 'Token'].includes(this.parent.documentName)) return true;
 
-		if (this.flags?.a5e?.transferType === 'onUse') return false;
+		if (this.system.effectType === 'onUse') return false;
 
 		const { parentItem } = this;
 		if (!parentItem || parentItem?.type !== 'object') return false;
@@ -287,7 +287,7 @@ export default class ActiveEffectA5e extends ActiveEffect {
 		if (!(this.parent?.parent instanceof Actor)) return;
 		const actor = this.parent.parent;
 
-		if (this.flags?.a5e?.transferType !== 'passive') return;
+		if (this.system.effectType !== 'passive') return;
 		const parentEffect = actor.effects.contents.find((e) => this.equals(e));
 		if (!parentEffect) return;
 		const parentUpdateData = foundry.utils.deepClone(data);
