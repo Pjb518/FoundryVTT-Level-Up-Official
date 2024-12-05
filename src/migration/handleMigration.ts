@@ -1,8 +1,8 @@
-import MigrationList from './MigrationList';
-import MigrationRunner from './MigrationRunner';
+import { MigrationList } from './MigrationList';
+import { MigrationRunner } from './MigrationRunner';
 
 export default async function handleMigration() {
-	if (!game.user.isGM) return;
+	if (!game.user!.isGM) return;
 
 	// Determine whether a system migration is required
 	const legacyVersion = game.settings.get('a5e', 'systemMigrationVersion');
@@ -10,7 +10,7 @@ export default async function handleMigration() {
 	const currentVersion = legacyMigrate ? '0.000' : game.settings.get('a5e', 'worldSchemaVersion');
 
 	// Save the current world schema version if hasn't before.
-	const storedSchemaVersion = game.settings.storage.get('world').getItem('a5e.worldSchemaVersion');
+	const storedSchemaVersion = game.settings.storage.get('world')!.getItem('a5e.worldSchemaVersion');
 
 	if (!storedSchemaVersion) {
 		const minimumVersion = MigrationRunner.RECOMMENDED_SAFE_VERSION;
