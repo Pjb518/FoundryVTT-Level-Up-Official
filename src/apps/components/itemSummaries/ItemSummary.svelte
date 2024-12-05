@@ -34,6 +34,10 @@ const fields = [
 		field: 'duration',
 		label: 'A5E.ItemDuration',
 	},
+    {
+		field: 'savingThrow',
+		label: 'A5E.ItemSavingThrow',
+	},
 ];
 
 export let summaryData = {};
