@@ -1,4 +1,4 @@
-import { schemaData } from '../common';
+import { migrationData } from '../common';
 
 const { fields } = foundry.data;
 
@@ -9,7 +9,7 @@ const baseSchema = () => ({
 });
 
 declare namespace A5EBaseActiveEffectData {
-	type Schema = DataSchema & ReturnType<typeof baseSchema> & ReturnType<typeof schemaData>;
+	type Schema = DataSchema & ReturnType<typeof baseSchema> & ReturnType<typeof migrationData>;
 	type BaseData = Record<string, unknown>;
 	type DerivedData = Record<string, unknown>;
 }
@@ -23,7 +23,7 @@ class A5EBaseActiveEffectData extends foundry.abstract.TypeDataModel<
 	static override defineSchema(): A5EBaseActiveEffectData.Schema {
 		return {
 			...baseSchema(),
-			...schemaData(),
+			...migrationData(),
 		};
 	}
 }

@@ -2,7 +2,7 @@ import type { DescriptionData, FavoriteData, SecretDescriptionData, SourceData }
 import type { SchemaData } from '../common';
 
 import { description, favorite, secretDescription, source } from './common';
-import { schemaData } from '../common';
+import { migrationData } from '../common';
 
 declare namespace A5EBaseItemData {
 	interface Schema
@@ -12,8 +12,8 @@ declare namespace A5EBaseItemData {
 			SecretDescriptionData,
 			SchemaData,
 			SourceData {}
-	interface BaseData {}
-	interface DerivedData {}
+	type BaseData = {};
+	type DerivedData = {};
 }
 
 class A5EBaseItemData<
@@ -27,7 +27,7 @@ class A5EBaseItemData<
 			...description(),
 			...favorite(),
 			...secretDescription(),
-			...schemaData(),
+			...migrationData(),
 			...source(),
 		};
 	}

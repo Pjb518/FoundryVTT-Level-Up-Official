@@ -1,11 +1,19 @@
-/* eslint-disable no-await-in-loop */
-/* eslint-disable no-console */
 import type { MigrationBase } from './MigrationBase.ts';
 
 interface CollectionDiff<T = any> {
 	inserted: T[];
 	deleted: string[];
 	updated: T[];
+}
+
+interface MigrationRecord {
+	version: number | null;
+	type: string; // TODO: Update this to be better
+	lastMigration: {
+		version: number | null;
+		system: string;
+		foundry: string;
+	} | null;
 }
 
 class MigrationRunnerBase {
@@ -194,18 +202,21 @@ class MigrationRunnerBase {
 		return userData;
 	}
 
-	// TODO: Update this
-	#updateSchemaRecord(schema = {}, latestMigration = null) {
+	#updateMigrationRecord(
+		type: string,
+		migration = {} as MigrationRecord,
+		latestMigration: MigrationBase | null = null,
+	) {
 		if (!('game' in globalThis && latestMigration)) return;
 
-		const fromVersion = typeof schema?.version === 'number' ? schema.version : null;
-		schema.version = latestMigration?.version;
-		schema.lastMigration = {
-			version: {
-				schema: fromVersion,
-				foundry: game.version,
-				system: game.system.version,
-			},
+		const fromVersion = typeof migration?.version === 'number' ? migration.version : null;
+		migration.version = latestMigration?.version;
+
+		migration.lastMigration = {
+			version: fromVersion,
+			// @ts-expect-error
+			foundry: game.version,
+			system: game.system.version,
 		};
 	}
 }
