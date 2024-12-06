@@ -1,0 +1,171 @@
+{
+	"folder": null,
+	"name": "Knockdown Blast",
+	"type": "feature",
+	"img": "icons/magic/control/energy-stream-link-spiral-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"gDGEorqY6BdtOrfG": {
+				"name": "Knockdown Blast",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"2fopOFUU3LV0wNvc": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"9mEy8QjDoOZT7cum": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"label": "",
+						"onSave": ""
+					},
+					"p3jnjOz0LH4CPaqM": {
+						"type": "effect",
+						"default": true,
+						"effectId": "udAwMNPORlZxaZ1q"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"img": "",
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>You spend 1 exertion and use your bonus action to knock a creature to the ground with a wave of psychic force.</p>\n<p>The target makes a Strength saving throw against your psionics save DC or is knocked prone. The size of the creature you can affect with this feature is shown on Table: Knock Prone.</p>\n<p><strong>Table: Knock Prone</strong></p>\n<table>\n<thead>\n<tr>\n<th>Psyknight Level</th>\n<th>Size</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>1–10</td>\n<td>Medium or smaller</td>\n</tr>\n<tr>\n<td>11–16</td>\n<td>Large</td>\n</tr>\n<tr>\n<td>17–20</td>\n<td>Huge</td>\n</tr>\n</tbody>\n</table>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "psyknight"
+	},
+	"effects": [
+		{
+			"origin": "Item.8AeUbSC2OYm61KGT",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "gDGEorqY6BdtOrfG"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"img": "icons/magic/control/energy-stream-link-spiral-blue.webp",
+			"_id": "udAwMNPORlZxaZ1q",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733262900805,
+				"modifiedTime": 1733262911000,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733248725168,
+		"modifiedTime": 1733265588246,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "Eq0QxrE45QvYzmCs"
+}

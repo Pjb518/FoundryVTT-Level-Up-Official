@@ -27,13 +27,15 @@ function getTooltipData() {
 	return data;
 }
 
-const actor = document;
-const options = Object.entries(configObject);
-const isRadioGroup = ['size'].includes(type);
-const { weaponCategories, toolCategories } = CONFIG.A5E;
 
-$: selected = foundry.utils.getProperty($actor, propertyKey);
-$: tooltipData = getTooltipData($actor);
+    const actor = document;
+    let options = Object.entries(configObject);
+    const isRadioGroup = ["size"].includes(type);
+    const { weaponCategories, toolCategories } = CONFIG.A5E;
+
+    $: selected = foundry.utils.getProperty($actor, propertyKey);
+    $: tooltipData = getTooltipData($actor);
+    $: options = Object.entries(configObject);
 </script>
 
 <Section --a5e-section-body-padding="0.75rem" --a5e-section-body-gap="0.75rem">

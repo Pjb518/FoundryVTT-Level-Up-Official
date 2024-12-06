@@ -70,7 +70,7 @@ const { skills } = CONFIG.A5E;
 
 let showDeterministicBonus = $actor.flags?.a5e?.includeAbilityModifiersForSkills ?? true;
 
-$: abilityBonus = $actor.system.abilities[skill.ability].check.deterministicBonus;
+$: abilityBonus = $actor.system.abilities[skill.ability].check.mod;
 
 $: skillBonus = getSkillBonus($actor, showDeterministicBonus);
 $: proficiencyLevel = getProficiencyLevel($actor, skill);
@@ -120,7 +120,9 @@ $: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ??
 
     <div class="skill__mod-wrapper">
         <span class="skill__mod">
-            {replaceHyphenWithMinusSign(skillBonus)}
+            {replaceHyphenWithMinusSign(
+                showDeterministicBonus ? skillBonus + abilityBonus : skillBonus
+            )}
         </span>
 
         {#if $actor.flags.a5e?.showPassiveScores ?? true}

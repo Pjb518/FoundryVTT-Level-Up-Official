@@ -4,11 +4,15 @@ import { getContext } from 'svelte';
 
 import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-const actor = getContext('actor');
+    const { A5E } = CONFIG;
+    const actor = getContext("actor");
 
-function getBulkyTooltip(actor) {
-	let bulkyLimit;
-	const { supply } = actor.system;
+    const showVRCImplants = game.settings.get('a5e', 'showVRCImplants') ?? false;
+    const useCredits = game.settings.get('a5e', 'useCredits') ?? false;
+
+    function getBulkyTooltip(actor) {
+        let bulkyLimit;
+        const { supply } = actor.system;
 
 	if (supply) {
 		bulkyLimit = Math.max(1 + actor.system.abilities.str.mod, 1);
@@ -32,18 +36,37 @@ function getSupplyTooltip(actor) {
 	}
 }
 
-$: bulkyItems = $actor.items.reduce((bulkyCount, item) => {
-	if (item.system.bulky && item.system.equippedState) bulkyCount += 1;
-	return bulkyCount;
-}, 0);
+    $: bulkyItems = $actor.items.reduce((bulkyCount, item) => {
+        if (item.system.bulky && item.system.equippedState) {
+            if (item.system.objectType == "armor" && item.system.equippedState == 2) {}
+            else bulkyCount += 1;
+        }
+        return bulkyCount;
+    }, 0);
 
-$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+    $: implantItems = $actor.items.reduce((implantCount, item) => {
+        if (item.system.implant && item.system.equippedState) {
+           implantCount += 1;
+        }
+        return implantCount;
+    }, 0);
 
-$: attunement = $actor.system.attributes.attunement;
-$: bulkyTooltip = getBulkyTooltip($actor);
-$: currency = $actor.system.currency;
-$: supply = $actor.system.supply;
-$: supplyTooltip = getSupplyTooltip($actor);
+    $: supplyItems = $actor.items.reduce((supplyCount, item) => {
+            if (item.system.supply && item.system.equippedState) supplyCount += 1;
+            return supplyCount;
+        }, 0);
+
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+
+    $: attunement = $actor.system.attributes.attunement;
+    $: bulkyTooltip = getBulkyTooltip($actor);
+    $: currency = $actor.system.currency;
+    $: supply = $actor.system.supply;
+    $: supplyTooltip = getSupplyTooltip($actor);
+    $: totalSupply = $actor.system.supply + supplyItems;
+    $: implantMax = $actor.system.attributes.prof;
 </script>
 
 <section class="shield-container">
@@ -87,21 +110,40 @@ $: supplyTooltip = getSupplyTooltip($actor);
                 {localize("A5E.Supply")}
             </h3>
 
-            <input
-                class="shield-input a5e-footer-group__input"
-                class:disable-pointer-events={!$actor.isOwner}
-                type="number"
-                name="system.supply"
-                value={supply}
-                placeholder="0"
-                min="0"
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        Number(target.value),
-                    )}
-            />
+            {#if !sheetIsLocked}
+                <input
+                    class="shield-input a5e-footer-group__input"
+                    class:disable-pointer-events={!$actor.isOwner}
+                    type="number"
+                    name="system.supply"
+                    value={supply}
+                    placeholder="0"
+                    min="0"
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value),
+                        )}
+                />
+            {:else}
+                <input
+                    class="shield-input a5e-footer-group__input"
+                    class:disable-pointer-events={!$actor.isOwner}
+                    type="number"
+                    name="system.supply"
+                    value={totalSupply}
+                    placeholder="0"
+                    min="0"
+                    disabled={sheetIsLocked}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value),
+                        )}
+                />
+            {/if}
         </div>
     {/if}
 
@@ -120,6 +162,37 @@ $: supplyTooltip = getSupplyTooltip($actor);
         </span>
     </div>
 
+    <!-- Implants -->
+     {#if !showVRCImplants}
+        <div class="shield shield--implants">
+            <h3 class="footer-shield-header">
+                {localize("A5E.Implant")}
+            </h3>
+
+            <span class="a5e-footer-group__value a5e-footer-group__value--implants">
+                {implantItems}
+            </span>
+            /
+            <input
+                class="shield-input a5e-footer-group__input"
+                class:disable-pointer-events={!$actor.isOwner}
+                type="number"
+                name="system.attributes.prof"
+                value={implantMax}
+                placeholder="0"
+                min="0"
+                max="9"
+                disabled={sheetIsLocked}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
+            />
+        </div>
+    {/if}
+
     <!-- Currencies -->
     <div
         class="
@@ -132,31 +205,59 @@ $: supplyTooltip = getSupplyTooltip($actor);
     >
         <ol class="currency__list">
             {#each Object.entries(currency) as [label, value]}
-                <li class="currency__item" data-type={label}>
-                    <label
-                        class="currency__label"
-                        class:disable-pointer-events={!$actor.isOwner}
-                        for="currency-{label}"
-                    >
-                        {localize(label)}
-                    </label>
+                {#if useCredits && label == "cr"} 
+                    <li class="currency__item" data-type={label}>
+                        <label
+                            class="currency__label"
+                            class:disable-pointer-events={!$actor.isOwner}
+                            for="currency-{label}"
+                        >
+                            {localize(label)}
+                        </label>
 
-                    <input
-                        class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
-                        class:disable-pointer-events={!$actor.isOwner}
-                        id="currency-{label}"
-                        type="number"
-                        name="system.currency.{label}"
-                        {value}
-                        min="0"
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                Number(target.value),
-                            )}
-                    />
-                </li>
+                        <input
+                            class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
+                            class:disable-pointer-events={!$actor.isOwner}
+                            id="currency-{label}"
+                            type="number"
+                            name="system.currency.{label}"
+                            {value}
+                            min="0"
+                            on:change={({ target }) =>
+                                updateDocumentDataFromField(
+                                    $actor,
+                                    target.name,
+                                    Number(target.value),
+                                )}
+                        />
+                    </li>
+                 {:else if !useCredits && label != "cr"}
+                    <li class="currency__item" data-type={label}>
+                        <label
+                            class="currency__label"
+                            class:disable-pointer-events={!$actor.isOwner}
+                            for="currency-{label}"
+                        >
+                            {localize(label)}
+                        </label>
+
+                        <input
+                            class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
+                            class:disable-pointer-events={!$actor.isOwner}
+                            id="currency-{label}"
+                            type="number"
+                            name="system.currency.{label}"
+                            {value}
+                            min="0"
+                            on:change={({ target }) =>
+                                updateDocumentDataFromField(
+                                    $actor,
+                                    target.name,
+                                    Number(target.value),
+                                )}
+                        />
+                    </li>
+                {/if}
             {/each}
         </ol>
     </div>

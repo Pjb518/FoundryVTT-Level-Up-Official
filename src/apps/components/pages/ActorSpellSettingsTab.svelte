@@ -8,10 +8,17 @@ import Section from '../Section.svelte';
 
 import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-const actor = getContext('actor');
-const { abilityAbbreviations } = CONFIG.A5E;
+    function setPointsFlag() {
+        if($actor.system.classes.startingClass == "psion") {
+            $actor.flags.a5e.restoreSpellPointsOnShortRest = false;
+        }
+    };
 
-$: flags = $actor.flags?.a5e ?? {};
+    const actor = getContext("actor");
+    const { abilityAbbreviations } = CONFIG.A5E;
+
+    $: setPointsFlag();
+    $: flags = $actor.flags?.a5e ?? {};
 </script>
 
 <Section heading="Spell Resource Settings" --a5e-section-body-gap="0.75rem">

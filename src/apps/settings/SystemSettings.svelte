@@ -5,15 +5,16 @@ import { getContext, setContext } from 'svelte';
 import { ApplicationShell } from '#runtime/svelte/component/application';
 import { localize } from '#runtime/util/i18n';
 
-import NavigationBar from '../components/navigation/NavigationBar.svelte';
-import Settings5eTab from './Settings5eTab.svelte';
-import SettingsActorTab from './SettingsActorTab.svelte';
-import SettingsCanvasTab from './SettingsCanvasTab.svelte';
-import SettingsChatCardTab from './SettingsChatCardTab.svelte';
-import SettingsEffectsTab from './SettingsEffectsTab.svelte';
-import SettingsMiscTab from './SettingsMiscTab.svelte';
-import SettingsPartyViewerTab from './SettingsPartyViewerTab.svelte';
-import SettingsRollTab from './SettingsRollTab.svelte';
+    import NavigationBar from "../components/navigation/NavigationBar.svelte";
+    import Settings5eTab from "./Settings5eTab.svelte";
+    import SettingsActorTab from "./SettingsActorTab.svelte";
+    import SettingsCanvasTab from "./SettingsCanvasTab.svelte";
+    import SettingsChatCardTab from "./SettingsChatCardTab.svelte";
+    import SettingsEffectsTab from "./SettingsEffectsTab.svelte";
+    import SettingsMiscTab from "./SettingsMiscTab.svelte";
+    import SettingsPartyViewerTab from "./SettingsPartyViewerTab.svelte";
+    import SettingsRollTab from "./SettingsRollTab.svelte";
+    import SettingsExtraTab from "./SettingsExtraTab.svelte";
 
 export let elementRoot;
 export let { appId, settings, dialog } = getContext('#external').application;
@@ -33,54 +34,60 @@ function updateCurrentTab(event) {
 	currentTab = tabs[event.detail];
 }
 
-const tabs = [
-	{
-		name: 'actor',
-		label: 'A5E.settings.navigation.actor',
-		component: SettingsActorTab,
-	},
-	{
-		name: 'canvas',
-		label: 'A5E.settings.navigation.canvas',
-		component: SettingsCanvasTab,
-		display: game.user.isGM,
-	},
-	{
-		name: 'chat',
-		label: 'A5E.settings.navigation.chat',
-		component: SettingsChatCardTab,
-	},
-	{
-		name: 'effects',
-		label: 'A5E.settings.navigation.activeEffects',
-		component: SettingsEffectsTab,
-		display: game.user.isGM,
-	},
-	{
-		name: 'partyViewer',
-		label: 'Party Viewer',
-		component: SettingsPartyViewerTab,
-		display: $playersCanAccessPartyViewer,
-	},
-	{
-		name: 'rolls',
-		label: 'A5E.settings.navigation.rolls',
-		component: SettingsRollTab,
-		display: game.user.isGM,
-	},
-	{
-		name: '5eSettings',
-		label: 'A5E.settings.navigation.5eSettings',
-		component: Settings5eTab,
-		display: game.user.isGM,
-	},
-	{
-		name: 'misc',
-		label: 'A5E.settings.navigation.misc',
-		component: SettingsMiscTab,
-		display: game.user.isGM,
-	},
-];
+    const tabs = [
+        {
+            name: "actor",
+            label: "A5E.settings.navigation.actor",
+            component: SettingsActorTab,
+        },
+        {
+            name: "canvas",
+            label: "A5E.settings.navigation.canvas",
+            component: SettingsCanvasTab,
+            display: game.user.isGM,
+        },
+        {
+            name: "chat",
+            label: "A5E.settings.navigation.chat",
+            component: SettingsChatCardTab,
+        },
+        {
+            name: "effects",
+            label: "A5E.settings.navigation.activeEffects",
+            component: SettingsEffectsTab,
+            display: game.user.isGM,
+        },
+        {
+            name: "partyViewer",
+            label: "Party Viewer",
+            component: SettingsPartyViewerTab,
+            display: $playersCanAccessPartyViewer,
+        },
+        {
+            name: "rolls",
+            label: "A5E.settings.navigation.rolls",
+            component: SettingsRollTab,
+            display: game.user.isGM,
+        },
+        {
+            name: "5eSettings",
+            label: "A5E.settings.navigation.5eSettings",
+            component: Settings5eTab,
+            display: game.user.isGM,
+        },
+        {
+            name: "extraSettings",
+            label: "A5E.settings.navigation.extraSettings",
+            component: SettingsExtraTab,
+            display: game.user.isGM,
+        },
+        {
+            name: "misc",
+            label: "A5E.settings.navigation.misc",
+            component: SettingsMiscTab,
+            display: game.user.isGM,
+        },
+    ];
 
 let currentTab = tabs[0];
 let updates = new Map();

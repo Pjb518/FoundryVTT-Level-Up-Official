@@ -19,8 +19,12 @@ function getSkills(baseSkills) {
 		delete skills.eng;
 	}
 
-	return skills;
-}
+	if(game.settings.get("a5e", "showVRCSkills")) {
+		delete skills.sci;
+	}
+
+        return skills;
+    }
 
 function getSkillSpecialties(skillKey, skill) {
 	const specialties = skill.specialties;

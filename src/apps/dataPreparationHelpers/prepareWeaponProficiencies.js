@@ -1,31 +1,34 @@
 import arraysAreEqual from '../../utils/arraysAreEqual';
 
 export default function getWeaponProficiencies(data) {
-	const weaponProficienciesByGroup = data.system.proficiencies.weapons.reduce(
-		(acc, curr) => {
-			if (Object.keys(CONFIG.A5E.weaponsPlural.martial).includes(curr)) {
-				acc.martial.push(curr);
-			} else if (Object.keys(CONFIG.A5E.weaponsPlural.simple).includes(curr)) {
-				acc.simple.push(curr);
-			} else if (Object.keys(CONFIG.A5E.weaponsPlural.rare).includes(curr)) {
-				acc.rare.push(curr);
-			} else {
-				acc.other.push(curr);
-			}
+  const weaponProficienciesByGroup = data.system.proficiencies.weapons.reduce(
+    (acc, curr) => {
+      if (Object.keys(CONFIG.A5E.weaponsPlural.martial).includes(curr)) {
+        acc.martial.push(curr);
+      } else if (Object.keys(CONFIG.A5E.weaponsPlural.simple).includes(curr)) {
+        acc.simple.push(curr);
+      } else if (Object.keys(CONFIG.A5E.weaponsPlural.rare).includes(curr)) {
+        acc.rare.push(curr);
+      } else if (Object.keys(CONFIG.A5E.weaponsPlural.miscellaneous).includes(curr)) {
+        acc.miscellaneous.push(curr);
+      } else {
+        acc.other.push(curr);
+      }
 
-			return acc;
-		},
-		{
-			simple: [],
-			martial: [],
-			rare: [],
-			other: [],
-		},
-	);
+      return acc;
+    },
+    {
+      simple: [],
+      martial: [],
+      rare: [],
+      miscellaneous: [],
+      other: []
+    }
+  );
 
-	// Replace complete weapon groups with a category name, instead of displaying dozens of tags.
-	['simple', 'martial', 'rare'].forEach((weaponType) => {
-		const weaponKeys = Object.keys(CONFIG.A5E.weaponsPlural[weaponType]);
+  // Replace complete weapon groups with a category name, instead of displaying dozens of tags.
+  ['simple', 'martial', 'rare', 'miscellaneous'].forEach((weaponType) => {
+    const weaponKeys = Object.keys(CONFIG.A5E.weaponsPlural[weaponType]);
 
 		if (arraysAreEqual(weaponKeys, weaponProficienciesByGroup[weaponType])) {
 			weaponProficienciesByGroup[weaponType] = [

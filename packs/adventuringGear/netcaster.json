@@ -1,0 +1,200 @@
+{
+	"folder": null,
+	"name": "Netcaster",
+	"type": "object",
+	"img": "icons/magic/control/debuff-chains-ropes-net-purple-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"KggpWaOPeHrciQW7": {
+				"name": "Netcaster",
+				"activation": {},
+				"consumers": {
+					"V473XCbeLTJPjPHC": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"ozMQubK7pgdCJ6Gz": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					}
+				},
+				"prompts": {
+					"6SlTBAtNmpV5LRLF": {
+						"type": "effect",
+						"default": true,
+						"effectId": "t1Zz4wFjCbiwmS4G"
+					},
+					"8rs5yw078Ml2JsmJ": {
+						"type": "abilityCheck",
+						"default": true,
+						"ability": "str"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"YqUzCzeR3hAbrNt9": {
+						"range": "short"
+					},
+					"5xAvMVM8FosxJMtE": {
+						"range": "long"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>Netcasters fire cartridges that break apart mid-flight, deploying a net made of sturdy carbon fiber. A corporeal Large or smaller creature that cannot move through a space one inch or smaller who is hit by ranged attack made with a netcaster is restrained until it is freed. A creature can use its action to make a DC 15 Strength check, freeing itself or another creature within its reach on a success. A net has AC 10, 15 hit points, and is immune to bludgeoning, poison, and psychic damage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "45 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"ammunition",
+			"exotic",
+			"loading",
+			"twoHanded"
+		],
+		"weight": 5,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.5Vb9BWNxmw7CRrav",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "KggpWaOPeHrciQW7"
+				}
+			},
+			"transfer": false,
+			"name": "Restrained",
+			"img": "icons/magic/control/debuff-chains-ropes-net-purple-blue.webp",
+			"_id": "t1Zz4wFjCbiwmS4G",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"restrained\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A restrained creature's Speed becomes 0, and it can't benefit from bonuses to speed.</li>\n<li>Attack rolls against a restrained creature are made with advantage.</li>\n<li>A restrained creature makes attack rolls with disadvantage.</li>\n<li>The restrained creature has disadvantage on Dexterity saving throws.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"restrained"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732374527259,
+				"modifiedTime": 1732374567595,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732374401941,
+		"modifiedTime": 1732393229523,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "XhfuE4Sa7qrbvh2J"
+}

@@ -5,11 +5,12 @@ import { localize } from '#runtime/util/i18n';
 import getMaterialProperties from '../../../utils/summaries/getMaterialProperties';
 import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-import CheckboxGroup from '../CheckboxGroup.svelte';
-import Section from '../Section.svelte';
+    import CheckboxGroup from "../CheckboxGroup.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
 
-const item = getContext('item');
-const { flaws, materialProperties } = CONFIG.A5E;
+    const item = getContext("item");
+    const { flaws, materialProperties, modPorts } = CONFIG.A5E;
 
 let editMode = false;
 
@@ -48,6 +49,16 @@ $: selectedMaterialProperties = getMaterialProperties($item).filter(Boolean).joi
                 selected={$item.system.flaws}
                 on:updateSelection={(event) =>
                     updateDocumentDataFromField($item, "system.flaws", event.detail)}
+            />
+        {/if}
+
+        {#if $item.system.materialProperties.includes("spacefaring")}
+            <RadioGroup
+                heading="Spacefaring Mod Port Property"
+                options={Object.entries(modPorts)}
+                selected={$item.system.modPorts}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField($item, "system.modPorts", event.detail)}
             />
         {/if}
     {:else}

@@ -1,0 +1,256 @@
+{
+	"folder": null,
+	"name": "Psychic Choke",
+	"type": "feature",
+	"img": "icons/magic/unholy/hand-grasping-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ugfbJE1UHKoiOr5f": {
+				"name": "Psychic Choke",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"zYod0KciMRNnQOqj": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "",
+						"resource": "exertion",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"7UglmWlzzbsxaQou": {
+						"type": "damage",
+						"default": true,
+						"damageType": "bludgeoning",
+						"formula": "1 + @spellcasting.mod",
+						"canCrit": false,
+						"critBonus": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {
+					"KQpX3HkAYyMxNGLU": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"label": "",
+						"onSave": "Unaffected, but is aware of your attempt"
+					},
+					"bcBtgNp0iRXyM0Vq": {
+						"type": "effect",
+						"default": true,
+						"effectId": "UkWAkC5wILtVww1b"
+					},
+					"HOJLnnycJ2M943g8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "66g7LXgL05T2Pitz"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"YmGCHYZoso5VaSnR": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": 0
+				}
+			}
+		},
+		"description": "<p>You can squeeze the breath out of a humanoid target you can see within 30 feet of you. Use an action and spend 1 exertion point. The target must make a Constitution saving throw against your psionics save DC. On a successful save, the target is unaffected by the attack but is aware of your attempt. On a failed save, the target is paralyzed and levitated 5 feet into the air until the start of your next turn, and suffers bludgeoning damage equal to 1 + your psionic ability modifier.</p>\n<p>While you are choking your target, you may not move, you must maintain line of sight with your target, attacks against you are made with advantage, and you make saving throws at disadvantage.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "10th Level, The Steep Climb",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "psyknight"
+	},
+	"effects": [
+		{
+			"origin": "Item.0ebh0eD7mkbqHhaM",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ugfbJE1UHKoiOr5f",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Psychic Choke",
+			"img": "icons/magic/unholy/hand-grasping-green.webp",
+			"_id": "UkWAkC5wILtVww1b",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"paralyzed\"]",
+					"mode": 0,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.movement.traits.hover",
+					"value": "true",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Paralyzed and levitated 5 feet into the air until the start of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"paralyzed"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733263529629,
+				"modifiedTime": 1733263866985,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.0ebh0eD7mkbqHhaM",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "ugfbJE1UHKoiOr5f",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Choking Target",
+			"img": "icons/magic/unholy/hand-grasping-green.webp",
+			"_id": "66g7LXgL05T2Pitz",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.all",
+					"value": "-1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While you are choking your target, you may not move, you must maintain line of sight with your target, attacks against you are made with advantage, and you make saving throws at disadvantage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733263961878,
+				"modifiedTime": 1733264060818,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733248725228,
+		"modifiedTime": 1733265588246,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "GUynVuGSt8PDa26R"
+}

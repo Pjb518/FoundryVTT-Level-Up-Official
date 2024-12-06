@@ -9,7 +9,7 @@ export default function getActivationCostLabel(item: ItemA5e, action: Action) {
 	const { activation } = action;
 	let activationLabel = '';
 
-	if (foundry.utils.isEmpty(activation) || !activation.type) return 'null';
+	if (foundry.utils.isEmpty(activation) || !activation.type) return null;
 
 	if (activation.type === 'reaction') {
 		if (activation.reactionTrigger) {

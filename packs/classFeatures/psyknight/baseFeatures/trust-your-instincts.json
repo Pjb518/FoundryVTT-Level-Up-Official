@@ -1,0 +1,174 @@
+{
+	"folder": null,
+	"name": "Trust Your Instincts",
+	"type": "feature",
+	"img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"cSikdzwIJpa9tqqF": {
+				"name": "Trust Your Instincts",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"90WopLYgGDuM9mZI": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"lRHxFLjYUJ7FVPie": {
+						"type": "effect",
+						"default": true,
+						"effectId": "gjDfp2ZOJVjtxxDv",
+						"label": "Advantage Attack Roll"
+					},
+					"laG5BoH5Q3tEC86d": {
+						"type": "effect",
+						"default": true,
+						"effectId": "uXyNiYTv5vH7MTns",
+						"label": "Advantage Ability Check"
+					},
+					"zO2ZpENb7EESlGsq": {
+						"type": "effect",
+						"default": true,
+						"effectId": "VKNaEnQ5qyo0we9w"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"ranges": {}
+			}
+		},
+		"description": "<p>You clear your mind, and enter a calm state, allowing your psionic energies to wash over you.&nbsp;As a bonus action, you can gain advantage on your next ability check or attack roll.&nbsp;Once you have used this tactic, you may not use it again until you have taken a short or long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "The High Road",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "psyknight"
+	},
+	"effects": [
+		{
+			"origin": "Item.HwdbBzqeSLmVf8J3",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "cSikdzwIJpa9tqqF",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Trust Your Instincts",
+			"img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
+			"_id": "VKNaEnQ5qyo0we9w",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain advantage on your next ability check or attack roll.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733264793584,
+				"modifiedTime": 1733264950034,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733248725321,
+		"modifiedTime": 1733265588246,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "0WbCanPLnGlDSB07"
+}

@@ -808,6 +808,14 @@ export default function registerPremiumContentConfig() {
 			title: 'Venture Forth',
 			url: 'https://bit.ly/49prJRm',
 		},
+		voidrunnersCodex: {
+			abbreviation: 'VRC',
+			affiliate: true,
+			publisher: 'enPublishing',
+			systems: ['a5e'],
+			title: "Voidrunner's Codex",
+			url: '',
+		},
 	};
 
 	return {
