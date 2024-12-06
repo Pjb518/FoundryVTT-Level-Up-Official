@@ -20,6 +20,7 @@ export default function registerClassesConfig() {
     rogue: 'A5E.characterClasses.rogue',
     savant: 'A5E.characterClasses.savant',
     scholar: 'A5E.characterClasses.scholar',
+    scientist: 'A5E.characterClasses.scientist',
     sorcerer: 'A5E.characterClasses.sorcerer',
     warlock: 'A5E.characterClasses.warlock',
     wielder: 'A5E.characterClasses.wielder',
