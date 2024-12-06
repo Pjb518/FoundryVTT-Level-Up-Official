@@ -1,8 +1,8 @@
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
 import { A5E as CONFIG } from '../../config';
 
-export default class Migration010MigrateContexts extends MigrationBase {
+export class Migration010MigrateContexts extends MigrationBase {
 	static version = 0.01;
 
 	#effectKeys = new Set([

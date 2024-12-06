@@ -5,7 +5,7 @@ import type { Action } from 'types/action';
 import type { BaseActorA5e } from '../actor/base';
 import type { RevitalizeOptions } from './data';
 
-import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
+import { MigrationRunnerBase } from '../../migration/MigrationRunnerBase';
 import getSummaryData from '../../utils/summaries/getSummaryData';
 
 type SystemItemTypes = Exclude<foundry.documents.BaseItem.TypeNames, 'base'>;

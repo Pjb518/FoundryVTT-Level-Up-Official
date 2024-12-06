@@ -1,6 +1,6 @@
-import type { MigrationBase } from './MigrationBase.ts';
-import { MigrationRunner } from './MigrationRunner.js';
-import * as Migrations from './migrations/index.ts';
+import type { MigrationBase } from './MigrationBase';
+import { MigrationRunner } from './MigrationRunner';
+import * as Migrations from './migrations/index';
 
 // biome-ignore lint/complexity/noStaticOnlyClass: <explanation>
 class MigrationList {

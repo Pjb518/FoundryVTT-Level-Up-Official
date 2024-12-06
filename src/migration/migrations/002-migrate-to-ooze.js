@@ -1,4 +1,4 @@
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
 function createAmmoConsumer(i) {
 	const [actionId, action] = Object.entries(i.system.actions ?? {})?.[0] ?? [[], []];
@@ -22,8 +22,8 @@ function createAmmoConsumer(i) {
 }
 
 function createUsesConsumer(i) {
-	const usesCurrent = parseInt(i.system.uses.value, 10);
-	const usesMax = parseInt(i.system.uses.max, 10);
+	const usesCurrent = Number.parseInt(i.system.uses.value, 10);
+	const usesMax = Number.parseInt(i.system.uses.max, 10);
 	if (!usesMax && !usesCurrent) return;
 
 	const actionId = Object.keys(i.system.actions ?? {})?.[0];
@@ -39,7 +39,7 @@ function createUsesConsumer(i) {
 }
 
 function createManeuverConsumer(i) {
-	const exertion = parseInt(i.system.exertionCost, 10);
+	const exertion = Number.parseInt(i.system.exertionCost, 10);
 	if (!exertion || exertion === 0) return;
 
 	const actionId = Object.keys(i.system.actions ?? {})?.[0];
@@ -57,7 +57,7 @@ function createManeuverConsumer(i) {
 }
 
 function createSpellConsumer(i) {
-	const level = parseInt(i.system.level, 10);
+	const level = Number.parseInt(i.system.level, 10);
 	if (level === 0) return;
 
 	const actionId = Object.keys(i.system.actions ?? {})?.[0];
@@ -66,7 +66,7 @@ function createSpellConsumer(i) {
 	const consumer = {
 		mode: 'variable',
 		spellLevel: level ?? 1,
-		points: CONFIG.A5E.spellLevelCost[parseInt(level, 10)] ?? 2,
+		points: CONFIG.A5E.spellLevelCost[Number.parseInt(level, 10)] ?? 2,
 		type: 'spell',
 	};
 
@@ -75,7 +75,7 @@ function createSpellConsumer(i) {
 	});
 }
 
-export default class Migration002Ooze extends MigrationBase {
+export class Migration002Ooze extends MigrationBase {
 	/** @override */
 	static version = 0.002;
 

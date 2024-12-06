@@ -1,6 +1,6 @@
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
-export default class Migration017MigrateSpellMax extends MigrationBase {
+export class Migration017MigrateSpellMax extends MigrationBase {
 	static version = 0.017;
 
 	async updateActor(actor: Record<string, any>) {

@@ -5,7 +5,7 @@ import { localize } from '@typhonjs-fvtt/runtime/util/i18n';
 
 class MigrationRunner extends MigrationRunnerBase {
 	override needsMigration(): boolean {
-		return super.needsMigration(game.settings.get('nimble', 'worldSchemaVersion') as number);
+		return super.needsMigration(game.settings.get('a5e', 'worldSchemaVersion') as number);
 	}
 
 	static async ensureSchemaVersion(document: any, migrations: MigrationBase[]): Promise<void> {
@@ -385,7 +385,7 @@ class MigrationRunner extends MigrationRunnerBase {
 
 				const deltaSource = token.delta?._source;
 				const hasMigratableData =
-					(!!deltaSource && !!deltaSource.flags?.nimble) ||
+					(!!deltaSource && !!deltaSource.flags?.a5e) ||
 					(deltaSource?.items ?? []).length > 0 ||
 					Object.keys(deltaSource?.system ?? {}).length > 0;
 
@@ -410,13 +410,13 @@ class MigrationRunner extends MigrationRunnerBase {
 			if (!['Actor', 'Item'].includes(pack.documentName)) continue;
 
 			ui.notifications.info(
-				localize('NIMBLE.migration.compendium.starting', { packName: pack.metadata.label }),
+				localize('A5E.migration.compendium.starting', { packName: pack.metadata.label }),
 			);
 
 			console.info(`A5E | Migrating ${pack.index.size} documents in ${pack.metadata.id}.`);
 			await this.runCompendiumMigration(migrations, pack);
 			ui.notifications.info(
-				localize('NIMBLE.migration.compendium.finished', { packName: pack.metadata.label }),
+				localize('A5E.migration.compendium.finished', { packName: pack.metadata.label }),
 			);
 		}
 	}
@@ -424,12 +424,12 @@ class MigrationRunner extends MigrationRunnerBase {
 	async runMigration(force = false): Promise<void> {
 		const migrationVersion = {
 			latest: MigrationRunner.LATEST_SCHEMA_VERSION,
-			current: game.settings.get('nimble', 'worldSchemaVersion') as number,
+			current: game.settings.get('a5e', 'worldSchemaVersion') as number,
 		};
 
 		const systemVersion = game.system.version;
 
-		ui.notifications.info(localize('NIMBLE.migration.world.starting', { version: systemVersion }));
+		ui.notifications.info(localize('A5E.migration.world.starting', { version: systemVersion }));
 
 		const migrationsToRun = force
 			? this.migrations
@@ -448,7 +448,7 @@ class MigrationRunner extends MigrationRunnerBase {
 			if (phase.length > 0) await this.runMigrations(phase);
 		}
 
-		await game.settings.set('nimble', 'worldSchemaVersion', migrationVersion.latest);
+		await game.settings.set('A5E', 'worldSchemaVersion', migrationVersion.latest);
 	}
 }
 

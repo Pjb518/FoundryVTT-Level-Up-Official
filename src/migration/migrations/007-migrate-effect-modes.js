@@ -1,4 +1,4 @@
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
 const EFFECT_MODES_MAP = {
 	0: 0, // CUSTOM -> CUSTOM
@@ -9,7 +9,7 @@ const EFFECT_MODES_MAP = {
 	5: 6, // UPGRADE -> OVERRIDE
 };
 
-export default class Migration007MigrateEffectModes extends MigrationBase {
+export class Migration007MigrateEffectModes extends MigrationBase {
 	/** @override */
 	static version = 0.007;
 

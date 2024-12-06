@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { TJSGameSettings, type GameSetting } from '#runtime/svelte/store/fvtt/settings';
 
-import MigrationRunner from '../migration/MigrationRunner';
+import { MigrationRunner } from '../migration/MigrationRunner';
 import { A5E as CONFIG } from '../config';
 
 class A5eGameSettings extends TJSGameSettings {

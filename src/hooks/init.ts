@@ -62,8 +62,8 @@ import { RollPreparationManager } from '../managers/RollPreparationManager';
 import TemplatePreparationManager from '../managers/TemplatePreparationManager';
 
 // Migrations
-import MigrationList from '../migration/MigrationList';
-import MigrationRunner from '../migration/MigrationRunner';
+import { MigrationList } from '../migration/MigrationList';
+import { MigrationRunner } from '../migration/MigrationRunner';
 import handleMigration from '../migration/handleMigration';
 import handlePackMigration from '../migration/handlePackMigration';
 

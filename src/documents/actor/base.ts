@@ -19,7 +19,7 @@ import ActiveEffectA5e from '../activeEffect/activeEffect';
 
 import ActorGrantsManager from '../../managers/ActorGrantsManager';
 import BonusesManager from '../../managers/BonusesManager';
-import MigrationRunnerBase from '../../migration/MigrationRunnerBase';
+import { MigrationRunnerBase } from '../../migration/MigrationRunnerBase';
 import SpellBookManager from '../../managers/SpellBookManager';
 import RestManager from '../../managers/RestManager';
 import RollOverrideManager from '../../managers/RollOverrideManager';

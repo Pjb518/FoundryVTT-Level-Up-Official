@@ -1,6 +1,6 @@
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
-export default class Migration006MigrateFormulaACAndBroken extends MigrationBase {
+export class Migration006MigrateFormulaACAndBroken extends MigrationBase {
 	/** @override */
 	static version = 0.006;
 

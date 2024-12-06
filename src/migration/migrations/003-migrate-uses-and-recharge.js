@@ -1,9 +1,9 @@
 /* eslint-disable no-unused-vars */
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
 const FEATURE_ITEMS = ['background', 'class', 'culture', 'destiny', 'heritage', 'subclass'];
 
-export default class Migration003Uses extends MigrationBase {
+export class Migration003Uses extends MigrationBase {
 	/** @override */
 	static version = 0.003;
 

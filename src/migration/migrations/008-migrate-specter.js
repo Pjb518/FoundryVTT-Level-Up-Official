@@ -1,6 +1,6 @@
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
-export default class Migration008Specter extends MigrationBase {
+export class Migration008MigrateSpecter extends MigrationBase {
 	/** @override */
 	static version = 0.008;
 

@@ -1,8 +1,8 @@
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
 import isStandardRange from '../../utils/isStandardRange';
 
-export default class Migration001Aboleth extends MigrationBase {
+export class Migration001Aboleth extends MigrationBase {
 	/** @override */
 	static version = 0.001;
 
@@ -230,11 +230,11 @@ export default class Migration001Aboleth extends MigrationBase {
 			// eslint-disable-next-line no-restricted-syntax
 			for (const [unit, strings] of Object.entries(unitMap)) {
 				if (strings.some((el) => distance.toString().includes(el))) {
-					acc[mode] = { distance: parseInt(distance, 10) || 0, unit };
+					acc[mode] = { distance: Number.parseInt(distance, 10) || 0, unit };
 					return acc;
 				}
 			}
-			acc[mode] = { distance: parseInt(distance, 10) || 0, unit: 'feet' };
+			acc[mode] = { distance: Number.parseInt(distance, 10) || 0, unit: 'feet' };
 			return acc;
 		}, {});
 
@@ -254,12 +254,12 @@ export default class Migration001Aboleth extends MigrationBase {
 			// eslint-disable-next-line no-restricted-syntax
 			for (const [unit, strings] of Object.entries(unitMap)) {
 				if (strings.some((el) => distance.toString().includes(el))) {
-					acc[sense] = { distance: parseInt(distance, 10), unit };
+					acc[sense] = { distance: Number.parseInt(distance, 10), unit };
 					return acc;
 				}
 			}
 
-			acc[sense] = { distance: parseInt(distance, 10), unit: 'feet' };
+			acc[sense] = { distance: Number.parseInt(distance, 10), unit: 'feet' };
 			return acc;
 		}, {});
 

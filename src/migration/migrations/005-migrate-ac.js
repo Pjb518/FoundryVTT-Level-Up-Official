@@ -1,6 +1,6 @@
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
-export default class Migration005MigrateAC extends MigrationBase {
+export class Migration005MigrateAC extends MigrationBase {
 	/** @override */
 	static version = 0.005;
 
@@ -13,7 +13,7 @@ export default class Migration005MigrateAC extends MigrationBase {
 		const { ac } = actorData.system.attributes;
 
 		foundry.utils.setProperty(actorData, 'system.attributes.ac', {
-			base: parseInt(ac, 10) || 10,
+			base: Number.parseInt(ac, 10) || 10,
 			value: 0,
 		});
 	}

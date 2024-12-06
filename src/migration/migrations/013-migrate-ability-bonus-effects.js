@@ -1,6 +1,6 @@
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
-export default class MigrateAbilityBonusEffects extends MigrationBase {
+export class Migrate013AbilityBonusEffects extends MigrationBase {
 	static version = 0.013;
 
 	#effectKeys = new Set([

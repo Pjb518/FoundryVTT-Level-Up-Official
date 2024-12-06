@@ -1,6 +1,6 @@
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
-export default class Migration009Genie extends MigrationBase {
+export class Migration009Genie extends MigrationBase {
 	/** @override */
 	static version = 0.009;
 

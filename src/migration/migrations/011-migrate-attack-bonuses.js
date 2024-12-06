@@ -1,8 +1,8 @@
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
 import { A5E } from '../../config';
 
-export default class Migration011MigrateAttackBonuses extends MigrationBase {
+export class Migration011MigrateAttackBonuses extends MigrationBase {
 	static version = 0.011;
 
 	#effectKeys = new Set([

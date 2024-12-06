@@ -1,11 +1,11 @@
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
 /**
  * @override
  * @param {Object} itemData
  * @returns {Promise<void>}
  */
-export default class Migration004EquippedState extends MigrationBase {
+export class Migration004EquippedState extends MigrationBase {
 	/** @override */
 	static version = 0.004;
 

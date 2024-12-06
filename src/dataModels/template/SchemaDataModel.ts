@@ -1,4 +1,4 @@
-import MigrationRunner from '../../migration/MigrationRunner';
+import { MigrationRunner } from '../../migration/MigrationRunner';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 
