@@ -1,16 +1,3 @@
-export { Migration001Aboleth } from './001-migrate-to-aboleth';
-export { Migration002Ooze } from './002-migrate-to-ooze';
-export { Migration003Uses } from './003-migrate-uses-and-recharge';
-export { Migration004EquippedState } from './004-migrate-equipped-state';
-export { Migration005MigrateAC } from './005-migrate-ac';
-export { Migration006MigrateFormulaACAndBroken } from './006-migrate-formula-ac-and-broken';
-export { Migration007MigrateEffectModes } from './007-migrate-effect-modes';
-export { Migration008MigrateSpecter } from './008-migrate-specter';
-export { Migration009Genie } from './009-migrate-to-genie';
-export { Migration010MigrateContexts } from './010-migrate-contexts';
-export { Migration011MigrateAttackBonuses } from './011-migrate-attack-bonuses';
-export { Migration012MigrateInitiativeBonus } from './012-migrate-initiative-bonus';
-export { Migrate013AbilityBonusEffects } from './013-migrate-ability-bonus-effects';
 export { Migration014MigrateSpellBooks } from './014-migrate-spellbooks';
 export { Migration015MigrateProperties } from './015-migrate-properties';
 export { Migration016MigrateSkillProficiency } from './016-migrate-skill-proficiency';
