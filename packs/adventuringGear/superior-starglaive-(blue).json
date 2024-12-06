@@ -1,0 +1,307 @@
+{
+	"name": "Superior Starglaive (Blue)",
+	"type": "object",
+	"img": "icons/weapons/swords/sword-flanged-lightning.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"dLOU65COLFxr6wx7": {
+				"name": "Activation",
+				"id": "dLOU65COLFxr6wx7",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/weapons/swords/sword-flanged-lightning.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [
+					"uYAfSIwlhpaWlEk5"
+				],
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"Z1rO6H21zwTpZFvU": {
+				"name": "Starglaive",
+				"id": "Z1rO6H21zwTpZFvU",
+				"default": true,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/weapons/swords/sword-flanged-lightning.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"XdeUlyovyeRJ7Buv": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "2",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"muqDIYCBaFX8culm": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "cold",
+						"formula": "1d12 + @finesse.mod + 2",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"ErPhdZwRFIwxEOVa": {
+				"name": "Parry",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"consumers": {},
+				"rolls": {
+					"tmuyLFz7KQutuiOG": {
+						"type": "generic",
+						"default": true,
+						"label": "Armor Class",
+						"formula": "1d4"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"img": "icons/weapons/swords/sword-flanged-lightning.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>This customized hilt contains a specially attuned psychic crystal which fuses plasma and force energies into a deadly, superheated blade. A starglaive ignites from the hilt upon activation, shaped from fields of shimmering force energy and infused with vibrantly glowing plasma. The blade casts bright light in a 10 foot radius and dim light for another 10 feet. Dropping, throwing, or otherwise being disarmed of the starglaive immediately deactivates it (although some psyknights are able to learn techniques which allow them to throw an ignited starglaive). The color of a starglaive’s blade is based on the damage type it inflicts.</p>\n<p><strong>Attunement.</strong> Due to the many intense energies surging through a starglaive, and the inherent dangerousness of the weapon, a creature not attuned to a starglaive has disadvantage on all attack rolls using this weapon. Only creatures with 11 or more psyknight levels may attune to a starglaive.</p>\n<p><strong>Properties.</strong> The starglaive is a medium blade and does 1d12 damage of the type selected when you constructed the weapon, has the defensive (light and medium), parrying, and finesse properties, and weighs 1 lb. Attacks made with a starglaive ignore the parrying property of melee weapons that don’t have an energy augment.</p>\n<p><strong>Cutting.</strong> A starglaive blade can cut through metal, rock, or other heavy duty material up to 2 feet thick at a rate of 2 feet per round.</p>\n<table style=\"width: 42.3301%;\" border=\"1\"><colgroup><col style=\"width: 45.815%;\"><col style=\"width: 54.185%;\"></colgroup>\n<thead>\n<tr>\n<td>Damage Type</td>\n<td>Starglaive Color</td>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Cold</td>\n<td>Blue</td>\n</tr>\n<tr>\n<td>Fire</td>\n<td>Red</td>\n</tr>\n<tr>\n<td>Force</td>\n<td>Yellow</td>\n</tr>\n<tr>\n<td>Necrotic</td>\n<td>Green</td>\n</tr>\n<tr>\n<td>Radiant</td>\n<td>White</td>\n</tr>\n</tbody>\n</table>\n<h3>Starglaive Variants</h3>\n<p>In addition to blades, starglaives also come in maul and polearm variants. These variants replace the starglaive’s cutting ability with the following.</p>\n<p><strong>Mauls.</strong> A starglaive maul has the breaker property.</p>\n<p><strong>Polearms.</strong> Starglaive polearms have the two-handed and reach properties.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "Psychic crystal, psyknight’s Construct Starglaive feature",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "19,500 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "veryRare",
+		"requiresAttunement": true,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"defensive",
+			"parrying",
+			"finesse"
+		],
+		"weight": 1,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "medium",
+		"flaws": [],
+		"mounted": [],
+		"versatile": "",
+		"armorMods": [],
+		"energyProperties": "",
+		"implant": false,
+		"modPorts": "",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "standard",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.mS3I4a0dZo316gfL",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"schemaVersion": {
+					"version": 0.019,
+					"lastMigration": null
+				}
+			},
+			"name": "Starglaive Light",
+			"img": "icons/weapons/swords/sword-flanged-lightning.webp",
+			"_id": "uYAfSIwlhpaWlEk5",
+			"type": "base",
+			"changes": [
+				{
+					"key": "@token.light.bright",
+					"value": "10",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.dim",
+					"value": "20",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "@token.light.color",
+					"value": "#0000FF",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The blade casts bright light in a 10 foot radius and dim light for another 10 feet. Dropping, throwing, or otherwise being disarmed of the starglaive immediately deactivates it (although some psyknights are able to learn techniques which allow them to throw an ignited starglaive). The color of a starglaive’s blade is based on the damage type it inflicts.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.31",
+				"createdTime": null,
+				"modifiedTime": 1733500428059,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"folder": null,
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.31",
+		"createdTime": 1733500427982,
+		"modifiedTime": 1733500472106,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "QYm3ZwvARog0k4dP"
+}
