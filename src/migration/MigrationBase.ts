@@ -1,7 +1,7 @@
 interface MigrationBase {
-	updateActor?(source: any): Promise<void>;
+	updateActor?(source: Record<string, any>): Promise<void>;
 
-	updateItem?(source: any, parent?: any): Promise<void>;
+	updateItem?(source: Record<string, any>, parent?: any): Promise<void>;
 
 	updateEffect?(source: any, parent?: any): Promise<void>;
 
@@ -23,7 +23,8 @@ interface MigrationBase {
 abstract class MigrationBase {
 	static readonly version: number;
 
-	readonly version: number = MigrationBase.version;
+	// @ts-expect-error
+	readonly version: number = this.constructor.version;
 
 	requiresFlush = false;
 }

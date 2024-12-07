@@ -4,6 +4,8 @@ import { MigrationRunnerBase } from './base';
 import { localize } from '@typhonjs-fvtt/runtime/util/i18n';
 
 class MigrationRunnerFoundry extends MigrationRunnerBase {
+	#sourceData: any;
+
 	override needsMigration(): boolean {
 		return super.needsMigration(game.settings.get('a5e', 'worldSchemaVersion') as number);
 	}
@@ -134,7 +136,7 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		options?: { isAdventure?: boolean; pack?: string },
 	): Promise<any | null> {
 		const { pack, isAdventure = false } = options ?? {};
-		const baseActor = game.data.actors?.find((a) => actor._id === a._id) ?? actor.toObject();
+		const baseActor = this.#sourceData.actors?.find((a) => actor._id === a._id) ?? actor.toObject();
 
 		const updatedActor = await (async () => {
 			try {
@@ -201,7 +203,7 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		options?: { isAdventure?: boolean; pack?: string },
 	): Promise<any | null> {
 		const { pack, isAdventure = false } = options ?? {};
-		const baseItem = game.data.items?.find((i) => i._id === item._id) ?? item.toObject();
+		const baseItem = this.#sourceData.items?.find((i) => i._id === item._id) ?? item.toObject();
 
 		const updatedItem = await (() => {
 			try {
@@ -444,11 +446,24 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 			}
 		}
 
+		await this.#setupSourceData();
+		console.log(this.#sourceData);
+		// return;
+
 		for (const phase of migrationPhases) {
 			if (phase.length > 0) await this.runMigrations(phase);
 		}
 
-		await game.settings.set('A5E', 'worldSchemaVersion', migrationVersion.latest);
+		await game.settings.set('a5e', 'worldSchemaVersion', migrationVersion.latest);
+	}
+
+	async #setupSourceData() {
+		const socket = await Game.connect(game.sessionId);
+		this.#sourceData = await Game.getData(socket, 'game');
+
+		// TODO: Might need to close this socket.
+
+		return;
 	}
 }
 

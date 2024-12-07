@@ -19,11 +19,11 @@ interface MigrationRecord {
 class MigrationRunnerBase {
 	migrations: MigrationBase[];
 
-	static LATEST_MIGRATION_VERSION = 0;
+	static LATEST_MIGRATION_VERSION = 0.02;
 
-	static RECOMMENDED_SAFE_VERSION = 0;
+	static RECOMMENDED_SAFE_VERSION = 0.014; // TODO: Update this
 
-	static MINIMUM_SAFE_VERSION = 0;
+	static MINIMUM_SAFE_VERSION = 0.014;
 
 	constructor(migrations?: MigrationBase[]) {
 		if (!migrations) migrations = [];
