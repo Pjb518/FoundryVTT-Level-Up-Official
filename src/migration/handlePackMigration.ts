@@ -1,5 +1,5 @@
 import { MigrationList } from './MigrationList';
-import { MigrationRunner } from './MigrationRunner';
+import { MigrationRunnerFoundry } from './runner/foundryRunner';
 
 export default async function handlePackMigration(pack, fullMigration = false) {
 	if (!game.user!.isGM) return;
@@ -8,7 +8,7 @@ export default async function handlePackMigration(pack, fullMigration = false) {
 		permanent: true,
 	});
 
-	const migrationRunner = new MigrationRunner(MigrationList.constructFromVersion());
+	const migrationRunner = new MigrationRunnerFoundry(MigrationList.constructFromVersion());
 
 	// TODO: Fix this
 	await migrationRunner.runCompendiumMigration(pack, fullMigration);

@@ -1,5 +1,5 @@
 import { MigrationList } from './MigrationList';
-import { MigrationRunner } from './MigrationRunner';
+import { MigrationRunnerFoundry } from './runner/foundryRunner';
 
 export default async function handleDocumentMigration(document) {
 	if (!game.user!.isGM) return;
@@ -8,7 +8,7 @@ export default async function handleDocumentMigration(document) {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const legacyMigrate = foundry.utils.isNewerVersion('0.10.8', legacyVersion); // TODO: Migration - Fix where the goes
 
-	const migrationRunner = new MigrationRunner(
+	const migrationRunner = new MigrationRunnerFoundry(
 		MigrationList.constructFromVersion(
 			document.system.schemaVersion?.version ?? document.system.schema.version ?? 0.0,
 		),

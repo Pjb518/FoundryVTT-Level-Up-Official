@@ -1,4 +1,4 @@
-import { MigrationRunner } from '../../migration/MigrationRunner';
+import { MigrationRunnerFoundry } from '../../migration/runner/foundryRunner';
 
 // eslint-disable-next-line @typescript-eslint/naming-convention
 
@@ -27,7 +27,7 @@ export default class SchemaDataModel extends foundry.abstract.TypeDataModel<
 			schemaVersion: new foundry.data.fields.SchemaField({
 				version: new foundry.data.fields.NumberField({
 					nullable: true,
-					initial: MigrationRunner.LATEST_SCHEMA_VERSION,
+					initial: MigrationRunnerFoundry.LATEST_MIGRATION_VERSION,
 				}),
 				lastMigration: new foundry.data.fields.SchemaField(
 					{

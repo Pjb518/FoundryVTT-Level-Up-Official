@@ -63,7 +63,7 @@ import TemplatePreparationManager from '../managers/TemplatePreparationManager';
 
 // Migrations
 import { MigrationList } from '../migration/MigrationList';
-import { MigrationRunner } from '../migration/MigrationRunner';
+import { MigrationRunnerFoundry } from '../migration/runner/foundryRunner';
 import handleMigration from '../migration/handleMigration';
 import handlePackMigration from '../migration/handlePackMigration';
 
@@ -155,7 +155,7 @@ export default function init() {
 		},
 		migrations: {
 			MigrationList,
-			MigrationRunner,
+			MigrationRunner: MigrationRunnerFoundry,
 			handleMigration,
 			handlePackMigration,
 		},

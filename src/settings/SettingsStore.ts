@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { TJSGameSettings, type GameSetting } from '#runtime/svelte/store/fvtt/settings';
 
-import { MigrationRunner } from '../migration/MigrationRunner';
+import { MigrationRunnerFoundry } from '../migration/runner/foundryRunner';
 import { A5E as CONFIG } from '../config';
 
 class A5eGameSettings extends TJSGameSettings {
@@ -673,7 +673,7 @@ class A5eGameSettings extends TJSGameSettings {
 					name: 'A5E.settings.worldSchemaVersion',
 					scope: scope.world,
 					config: false,
-					default: MigrationRunner.LATEST_SCHEMA_VERSION,
+					default: MigrationRunnerFoundry.LATEST_MIGRATION_VERSION,
 					type: Number,
 				},
 			},

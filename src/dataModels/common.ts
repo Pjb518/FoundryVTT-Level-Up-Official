@@ -1,4 +1,4 @@
-import { MigrationRunner } from '../migration/MigrationRunner';
+import { MigrationRunnerFoundry } from '../migration/runner/foundryRunner';
 
 const { fields } = foundry.data;
 
@@ -8,7 +8,7 @@ export const migrationData = () => ({
 		version: new fields.NumberField({
 			required: true,
 			nullable: true,
-			initial: MigrationRunner.LATEST_SCHEMA_VERSION,
+			initial: MigrationRunnerFoundry.LATEST_MIGRATION_VERSION,
 		}),
 		type: new fields.StringField({ required: true, nullable: false, initial: '' }),
 		lastMigration: new fields.SchemaField({

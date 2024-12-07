@@ -1,19 +1,19 @@
-import type { MigrationBase } from './MigrationBase.js';
+import type { MigrationBase } from '../MigrationBase';
 
-import { MigrationRunnerBase } from './MigrationRunnerBase.js';
+import { MigrationRunnerBase } from './base';
 import { localize } from '@typhonjs-fvtt/runtime/util/i18n';
 
-class MigrationRunner extends MigrationRunnerBase {
+class MigrationRunnerFoundry extends MigrationRunnerBase {
 	override needsMigration(): boolean {
 		return super.needsMigration(game.settings.get('a5e', 'worldSchemaVersion') as number);
 	}
 
 	static async ensureSchemaVersion(document: any, migrations: MigrationBase[]): Promise<void> {
 		if (migrations.length === 0) return;
-		const currentVersion = MigrationRunner.LATEST_SCHEMA_VERSION;
+		const currentVersion = MigrationRunnerFoundry.LATEST_MIGRATION_VERSION;
 
 		if ((Number(document.migrationVersion) || 0) < currentVersion) {
-			const runner = new MigrationRunner(migrations);
+			const runner = new MigrationRunnerFoundry(migrations);
 			const source = document._source;
 
 			const updated = await (async () => {
@@ -423,7 +423,7 @@ class MigrationRunner extends MigrationRunnerBase {
 
 	async runMigration(force = false): Promise<void> {
 		const migrationVersion = {
-			latest: MigrationRunner.LATEST_SCHEMA_VERSION,
+			latest: MigrationRunnerFoundry.LATEST_MIGRATION_VERSION,
 			current: game.settings.get('a5e', 'worldSchemaVersion') as number,
 		};
 
@@ -452,4 +452,4 @@ class MigrationRunner extends MigrationRunnerBase {
 	}
 }
 
-export { MigrationRunner };
+export { MigrationRunnerFoundry };

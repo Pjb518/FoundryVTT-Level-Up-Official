@@ -1,4 +1,4 @@
-import type { MigrationBase } from './MigrationBase.ts';
+import type { MigrationBase } from '../MigrationBase.js';
 
 interface CollectionDiff<T = any> {
 	inserted: T[];
@@ -19,7 +19,7 @@ interface MigrationRecord {
 class MigrationRunnerBase {
 	migrations: MigrationBase[];
 
-	static LATEST_SCHEMA_VERSION = 0;
+	static LATEST_MIGRATION_VERSION = 0;
 
 	static RECOMMENDED_SAFE_VERSION = 0;
 
@@ -31,7 +31,7 @@ class MigrationRunnerBase {
 	}
 
 	needsMigration(currentVersion: number): boolean {
-		return currentVersion < MigrationRunnerBase.LATEST_SCHEMA_VERSION;
+		return currentVersion < MigrationRunnerBase.LATEST_MIGRATION_VERSION;
 	}
 
 	diffCollection(original: any[], updated: any[]): CollectionDiff {

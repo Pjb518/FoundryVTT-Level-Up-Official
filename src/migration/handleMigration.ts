@@ -1,38 +1,40 @@
 import { MigrationList } from './MigrationList';
-import { MigrationRunner } from './MigrationRunner';
+import { MigrationRunnerFoundry } from './runner/foundryRunner';
 
 export default async function handleMigration() {
 	if (!game.user!.isGM) return;
 
 	// Determine whether a system migration is required
-	const legacyVersion = game.settings.get('a5e', 'systemMigrationVersion');
-	const legacyMigrate = foundry.utils.isNewerVersion('0.10.8', legacyVersion);
-	const currentVersion = legacyMigrate ? '0.000' : game.settings.get('a5e', 'worldSchemaVersion');
+	let currentVersion = game.settings.get('a5e', 'worldSchemaVersion') as number;
 
 	// Save the current world schema version if hasn't before.
 	const storedSchemaVersion = game.settings.storage.get('world')!.getItem('a5e.worldSchemaVersion');
 
 	if (!storedSchemaVersion) {
-		const minimumVersion = MigrationRunner.RECOMMENDED_SAFE_VERSION;
-		const currVersion =
+		const minimumVersion = MigrationRunnerFoundry.RECOMMENDED_SAFE_VERSION;
+		currentVersion =
 			game.actors.size === 0
-				? game.settings.get('a5e', 'worldSchemaVersion')
+				? (game.settings.get('a5e', 'worldSchemaVersion') as number)
 				: Math.max(
-						Math.min(...new Set(game.actors.map((actor) => actor.schemaVersion ?? minimumVersion))),
+						Math.min(
+							// @ts-expect-error
+							...new Set(
+								game.actors.map((actor) => (actor.schemaVersion as number) ?? minimumVersion),
+							),
+						),
 						minimumVersion,
 					);
 
-		await game.settings.set('a5e', 'worldSchemaVersion', currVersion);
+		await game.settings.set('a5e', 'worldSchemaVersion', currentVersion);
 	}
 
 	// Perform Migrations if necessary
 	const migrationList = MigrationList.constructFromVersion(currentVersion);
-	// eslint-disable-next-line no-console
 	console.debug('A5E | Migration List', migrationList);
-	const migrationRunner = new MigrationRunner(migrationList);
+	const migrationRunner = new MigrationRunnerFoundry(migrationList);
 
 	if (migrationRunner.needsMigration()) {
-		if (currentVersion && currentVersion < MigrationRunner.MIN_SAFE_VERSION) {
+		if (currentVersion && currentVersion < MigrationRunnerFoundry.MINIMUM_SAFE_VERSION) {
 			ui.notifications.error(
 				'Your A5E system data is from too old a Foundry version and cannot be reliably migrated to the latest version. The process will be attempted, but errors may occur.',
 				{ permanent: true },
@@ -40,7 +42,5 @@ export default async function handleMigration() {
 		}
 
 		await migrationRunner.runMigration();
-		// TODO: Migration Upgrade - Add Migration summary
-		// https://github.com/foundryvtt/pf2e/blob/5fd278acdd15f5337e54484bde45b2e1f5bf0b0a/src/module/apps/migration-summary.ts
 	}
 }

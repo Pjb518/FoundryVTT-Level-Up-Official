@@ -19,7 +19,7 @@ import ActiveEffectA5e from '../activeEffect/activeEffect';
 
 import ActorGrantsManager from '../../managers/ActorGrantsManager';
 import BonusesManager from '../../managers/BonusesManager';
-import { MigrationRunnerBase } from '../../migration/MigrationRunnerBase';
+import { MigrationRunnerBase } from '../../migration/runner/base';
 import SpellBookManager from '../../managers/SpellBookManager';
 import RestManager from '../../managers/RestManager';
 import RollOverrideManager from '../../managers/RollOverrideManager';
@@ -155,6 +155,10 @@ class BaseActorA5e extends Actor {
 		// @ts-expect-error
 		const { max, value } = this.system.attributes.hp;
 		return (value / max) * 100 <= 50;
+	}
+
+	get migrationVersion() {
+		return this.system.migrationData.version;
 	}
 
 	/**
@@ -1789,12 +1793,12 @@ class BaseActorA5e extends Actor {
 		await super._preCreate(data, options, user);
 
 		// Add schema version
-		if (!this.system.schemaVersion?.version) {
-			const version: number = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
+		if (!this.system.migrationData?.version) {
+			const version: number = MigrationRunnerBase.LATEST_MIGRATION_VERSION;
 
 			this.updateSource({
 				// @ts-expect-error
-				'system.schemaVersion.version': version,
+				'system.migrationData.version': version,
 			});
 		}
 

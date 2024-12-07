@@ -5,7 +5,7 @@ import type { Action } from 'types/action';
 import type { BaseActorA5e } from '../actor/base';
 import type { RevitalizeOptions } from './data';
 
-import { MigrationRunnerBase } from '../../migration/MigrationRunnerBase';
+import { MigrationRunnerBase } from '../../migration/runner/base';
 import getSummaryData from '../../utils/summaries/getSummaryData';
 
 type SystemItemTypes = Exclude<foundry.documents.BaseItem.TypeNames, 'base'>;
@@ -366,7 +366,7 @@ class BaseItemA5e extends Item {
 
 		// Add schema version
 		if (!this.system.schemaVersion?.version) {
-			const version = MigrationRunnerBase.LATEST_SCHEMA_VERSION;
+			const version = MigrationRunnerBase.LATEST_MIGRATION_VERSION;
 
 			this.updateSource({
 				// @ts-expect-error
