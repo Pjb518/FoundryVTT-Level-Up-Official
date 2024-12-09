@@ -3,6 +3,17 @@ import type { MigrationBase } from '../MigrationBase';
 import { MigrationRunnerBase } from './base';
 import { localize } from '@typhonjs-fvtt/runtime/util/i18n';
 
+interface DocumentMigrationOptions {
+	isAdventure?: boolean;
+	fromSourceData?: boolean;
+	pack?: string;
+}
+
+interface MigrateOptions {
+	inPreCreate?: boolean;
+	fromSourceData?: boolean;
+}
+
 class MigrationRunnerFoundry extends MigrationRunnerBase {
 	#sourceData: any;
 
@@ -47,21 +58,26 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 			}
 		}
 
-		document.updateSource({ 'system._migration.version': currentVersion });
+		document.updateSource({ 'system.migrationData.version': currentVersion });
 
 		if ('items' in document && 'prototypeToken' in document) {
 			for (const item of document.items) {
 				if (!item.migrationVersion) {
-					item.updateSource({ 'system._migration.version': currentVersion });
+					item.updateSource({ 'system.migrationData.version': currentVersion });
 				}
 			}
 		}
 	}
 
-	async #migrateDocuments(collection: any, migrations: MigrationBase[]): Promise<void> {
+	async #migrateDocuments(
+		collection: any,
+		migrations: MigrationBase[],
+		options?: MigrateOptions,
+	): Promise<void> {
 		const { documentClass } = collection;
 		const pack = 'metadata' in collection ? collection.metadata.id : null;
 		const updateGroup: any[] = [];
+		const { fromSourceData } = options ?? {};
 
 		for (const document of collection.contents) {
 			if (updateGroup.length === 50) {
@@ -77,8 +93,8 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 
 			const updated =
 				'prototypeToken' in document
-					? await this.#migrateActor(migrations, document, { pack })
-					: await this.#migrateItem(migrations, document, { pack });
+					? await this.#migrateActor(migrations, document, { pack, fromSourceData })
+					: await this.#migrateItem(migrations, document, { pack, fromSourceData });
 
 			if (updated) updateGroup.push(updated);
 		}
@@ -133,10 +149,13 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 	async #migrateActor(
 		migrations: MigrationBase[],
 		actor: any,
-		options?: { isAdventure?: boolean; pack?: string },
+		options?: DocumentMigrationOptions,
 	): Promise<any | null> {
-		const { pack, isAdventure = false } = options ?? {};
-		const baseActor = this.#sourceData.actors?.find((a) => actor._id === a._id) ?? actor.toObject();
+		const { pack, isAdventure = false, fromSourceData = false } = options ?? {};
+
+		const baseActor = fromSourceData
+			? (this.#sourceData.actors?.find((a) => actor._id === a._id) ?? actor.toObject())
+			: actor._source.toObject();
 
 		const updatedActor = await (async () => {
 			try {
@@ -200,10 +219,13 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 	async #migrateItem(
 		migrations: MigrationBase[],
 		item: any,
-		options?: { isAdventure?: boolean; pack?: string },
+		options?: DocumentMigrationOptions,
 	): Promise<any | null> {
-		const { pack, isAdventure = false } = options ?? {};
-		const baseItem = this.#sourceData.items?.find((i) => i._id === item._id) ?? item.toObject();
+		const { pack, isAdventure = false, fromSourceData = false } = options ?? {};
+
+		const baseItem = fromSourceData
+			? (this.#sourceData.items?.find((i) => item._id === i._id) ?? item.toObject())
+			: item._source.toObject();
 
 		const updatedItem = await (() => {
 			try {

@@ -56,6 +56,7 @@ import automateMultiLevelConditions from '../activeEffect/utils/automateMultiLev
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 import getRollFormula from '../../utils/getRollFormula';
 import displayCascadingNumbers from '../../utils/displayCascadingNumbers';
+import { handleDocumentImportMigration } from '../../migration/handlers/handleDocumentMigration';
 
 // *****************************************************************************************
 
@@ -1793,13 +1794,20 @@ class BaseActorA5e extends Actor {
 		await super._preCreate(data, options, user);
 
 		// Add schema version
-		if (!this.system.migrationData?.version) {
-			const version: number = MigrationRunnerBase.LATEST_MIGRATION_VERSION;
+		const version: number = MigrationRunnerBase.LATEST_MIGRATION_VERSION;
+		const docVersion = this.system.migrationData?.version;
 
+		if (!docVersion) {
 			this.updateSource({
 				// @ts-expect-error
-				'system.migrationData.version': version,
+				'system.migrationData': {
+					version: 0.019,
+					type: 'Actor',
+				},
 			});
+		} else if (docVersion < version) {
+			// Handle document migration
+			await handleDocumentImportMigration(this);
 		}
 
 		// Player character configuration

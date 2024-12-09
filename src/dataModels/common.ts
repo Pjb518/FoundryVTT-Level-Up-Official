@@ -1,5 +1,3 @@
-import { MigrationRunnerFoundry } from '../migration/runner/foundryRunner';
-
 const { fields } = foundry.data;
 
 // eslint-disable-next-line import/prefer-default-export
@@ -8,7 +6,7 @@ export const migrationData = () => ({
 		version: new fields.NumberField({
 			required: true,
 			nullable: true,
-			initial: MigrationRunnerFoundry.LATEST_MIGRATION_VERSION,
+			initial: null,
 		}),
 		type: new fields.StringField({ required: true, nullable: false, initial: '' }),
 		lastMigration: new fields.SchemaField({

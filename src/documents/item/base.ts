@@ -7,6 +7,7 @@ import type { RevitalizeOptions } from './data';
 
 import { MigrationRunnerBase } from '../../migration/runner/base';
 import getSummaryData from '../../utils/summaries/getSummaryData';
+import { handleDocumentImportMigration } from '../../migration/handlers/handleDocumentMigration';
 
 type SystemItemTypes = Exclude<foundry.documents.BaseItem.TypeNames, 'base'>;
 
@@ -364,14 +365,20 @@ class BaseItemA5e extends Item {
 	override async _preCreate(data, options, user): Promise<boolean | void> {
 		await super._preCreate(data, options, user);
 
-		// Add schema version
-		if (!this.system.schemaVersion?.version) {
-			const version = MigrationRunnerBase.LATEST_MIGRATION_VERSION;
+		const version = MigrationRunnerBase.LATEST_MIGRATION_VERSION;
+		const docVersion = this.system.migrationData?.version;
 
+		// Add schema version
+		if (!docVersion) {
 			this.updateSource({
 				// @ts-expect-error
-				'this.system.schemaVersion.version': version,
+				'this.system.migrationData': {
+					version,
+					type: 'Item',
+				},
 			});
+		} else if (docVersion < version) {
+			await handleDocumentImportMigration(this);
 		}
 	}
 
