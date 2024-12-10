@@ -14,7 +14,7 @@ export default function getBaseActionSummaryData(item: ItemA5e, action: Action) 
 		activationCost: getActivationCostLabel(item, action),
 		area: getAreaLabel(action),
 		attackRoll: getAttackRollLabel(item, action),
-		damage: getDamageLabel(action),
+		damage: getDamageLabel(item, action),
 		duration: getDurationLabel(item, action),
 		ranges: getRangeLabels(action),
 		targets: getTargetLabel(action),
