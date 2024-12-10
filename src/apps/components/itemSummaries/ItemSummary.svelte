@@ -3,6 +3,10 @@ import { localize } from '#runtime/util/i18n';
 
 const fields = [
 	{
+		field: 'attackRoll',
+		label: 'A5E.ActionOptionAttack',
+	},
+    {
 		field: 'craftingComponents',
 		label: 'A5E.CraftingComponents',
 	},
