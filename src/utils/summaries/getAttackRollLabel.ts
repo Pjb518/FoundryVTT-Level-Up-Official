@@ -20,7 +20,7 @@ export default function getAttackRollLabel(item: ItemA5e, action: AttackRollData
 	if (foundry.utils.isEmpty(item) || foundry.utils.isEmpty(item.actor) || foundry.utils.isEmpty(action)) return '';
 
 	const rolls = action?.rolls;
-	const rollID = Object.keys(rolls);
+	const rollID = Object.keys(rolls).filter((id) => rolls[id].type === "attack");
 	const attackRollData = rolls[rollID];
 	
 	if (!rolls || !attackRollData) return '';
