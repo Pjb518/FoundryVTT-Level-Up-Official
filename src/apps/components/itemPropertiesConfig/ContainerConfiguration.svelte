@@ -75,7 +75,7 @@
 
         {#if $item.system.containerSortMethod !== "none"}
             <RadioGroup
-                heading="Sort Method"
+                heading="Sort Direction"
                 options={Object.entries(A5E.containerSortDirections)}
                 selected={$item.system.containerSortDirection}
                 on:updateSelection={({ detail }) =>
