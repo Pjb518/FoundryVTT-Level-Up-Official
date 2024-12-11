@@ -18,10 +18,12 @@ export class Migration020MigrateToV1 extends MigrationBase {
 
 	override async updateEffect(source: any, parent?: any): Promise<void> {
 		// Migrate applyToSelf
-		source.system.applyToSelf = source.flags?.a5e?.applyToSelf ?? false;
+		source.system.applyToSelf =
+			source.flags?.a5e?.applyToSelf ?? source.system.applyToSelf ?? false;
 
 		// Migrate transferType to effect type
-		source.system.effectType = source.flags?.a5e?.transferType ?? 'passive';
+		source.system.effectType =
+			source.flags?.a5e?.transferType ?? source.system.transferType ?? 'passive';
 
 		source['flags.a5e.-=actionId'] = null;
 		source['flags.a5e.-=applyToSelf'] = null;
