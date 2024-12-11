@@ -25,6 +25,7 @@ export class Migration020MigrateToV1 extends MigrationBase {
 
 		source['flags.a5e.-=actionId'] = null;
 		source['flags.a5e.-=applyToSelf'] = null;
+		source['flags.a5e.-=sort'] = null;
 		source['flags.a5e.-=transferType'] = null;
 	}
 
