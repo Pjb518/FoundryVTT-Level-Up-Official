@@ -1,43 +1,47 @@
 <script>
-import { localize } from '#runtime/util/i18n';
+    import { localize } from "#runtime/util/i18n";
 
-const fields = [
-	{
-		field: 'craftingComponents',
-		label: 'A5E.CraftingComponents',
-	},
-	{
-		field: 'spellClasses',
-		label: 'Classes',
-	},
-	{
-		field: 'activationCost',
-		label: 'A5E.ActionActivationCost',
-	},
-	{
-		field: 'ranges',
-		label: 'A5E.ItemRange',
-	},
-	{
-		field: 'targets',
-		label: 'A5E.ItemTargetPlural',
-	},
-	{
-		field: 'area',
-		label: 'A5E.TargetArea',
-	},
-	{
-		field: 'spellComponents',
-		label: 'A5E.SpellComponents',
-	},
-	{
-		field: 'duration',
-		label: 'A5E.ItemDuration',
-	},
-];
+    const fields = [
+        {
+            field: "craftingComponents",
+            label: "A5E.CraftingComponents",
+        },
+        {
+            field: "spellClasses",
+            label: "Classes",
+        },
+        {
+            field: "activationCost",
+            label: "A5E.ActionActivationCost",
+        },
+        {
+            field: "ranges",
+            label: "A5E.ItemRange",
+        },
+        {
+            field: "targets",
+            label: "A5E.ItemTargetPlural",
+        },
+        {
+            field: "area",
+            label: "A5E.TargetArea",
+        },
+        {
+            field: "spellComponents",
+            label: "A5E.SpellComponents",
+        },
+        {
+            field: "duration",
+            label: "A5E.ItemDuration",
+        },
+        {
+            field: "savingThrow",
+            label: "A5E.ItemSavingThrow",
+        },
+    ];
 
-export let summaryData = {};
-let listHeight;
+    export let summaryData = {};
+    let listHeight;
 </script>
 
 <div class="summary-wrapper">

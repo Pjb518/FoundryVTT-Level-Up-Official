@@ -1,29 +1,23 @@
-import MigrationRunner from '../migration/MigrationRunner';
-
 const { fields } = foundry.data;
 
 // eslint-disable-next-line import/prefer-default-export
-export const schemaData = () => ({
-	schemaVersion: new fields.SchemaField({
+export const migrationData = () => ({
+	migrationData: new fields.SchemaField({
 		version: new fields.NumberField({
 			required: true,
 			nullable: true,
-			initial: MigrationRunner.LATEST_SCHEMA_VERSION,
+			initial: null,
 		}),
-		lastMigration: new fields.SchemaField(
-			{
-				version: new fields.SchemaField({
-					schema: new fields.NumberField({ nullable: true }),
-					system: new fields.StringField({ nullable: true, required: false }),
-					foundry: new fields.StringField({ nullable: true, required: false }),
-				}),
-			},
-			{ nullable: true, initial: null },
-		),
+		type: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		lastMigration: new fields.SchemaField({
+			schema: new fields.NumberField({ nullable: true }),
+			system: new fields.StringField({ nullable: true, required: false }),
+			foundry: new fields.StringField({ nullable: true, required: false }),
+		}),
 	}),
 });
 
-export type SchemaData = ReturnType<typeof schemaData>;
+export type SchemaData = ReturnType<typeof migrationData>;
 
 // -----------------------------------------
 // Source

@@ -12,7 +12,7 @@ import {
 	traits,
 } from './common';
 
-import { schemaData, source } from '../common';
+import { migrationData, source } from '../common';
 
 const { fields } = foundry.data;
 
@@ -138,7 +138,7 @@ declare namespace A5ENPCData {
 		ReturnType<typeof spellBooks> &
 		ReturnType<typeof traits> &
 		ReturnType<typeof npcSchema> &
-		ReturnType<typeof schemaData> &
+		ReturnType<typeof migrationData> &
 		ReturnType<typeof source>;
 
 	interface BaseData extends Record<string, any> {
@@ -165,7 +165,7 @@ class A5ENPCData extends foundry.abstract.TypeDataModel<
 			...spellBooks(),
 			...traits(),
 			...source(),
-			...schemaData(),
+			...migrationData(),
 			...npcSchema(),
 		};
 	}

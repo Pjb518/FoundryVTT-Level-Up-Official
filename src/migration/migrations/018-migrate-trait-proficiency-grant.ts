@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
-export default class Migration018MigrateTraitProficiencyGrant extends MigrationBase {
+export class Migration018MigrateTraitProficiencyGrant extends MigrationBase {
 	static version = 0.018;
 
 	traitTypes = ['armorTypes', 'maneuverTraditions', 'tools', 'weapons'];

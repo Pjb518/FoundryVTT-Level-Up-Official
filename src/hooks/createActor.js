@@ -5,6 +5,7 @@ export default function createActor(actor, options, userId) {
 	}
 }
 
+// TODO: V1 - Move to preCreate
 async function addBasicManuevers(actor, userId) {
 	const currentUser = game.user;
 	if (currentUser.id !== userId) return;
