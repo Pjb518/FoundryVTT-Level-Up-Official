@@ -64,6 +64,24 @@
                     )}
             />
         </FieldWrapper>
+
+        <RadioGroup
+            heading="Sort Method"
+            options={Object.entries(A5E.containerSortMethods)}
+            selected={$item.system.containerSortMethod}
+            on:updateSelection={({ detail }) =>
+                updateDocumentDataFromField($item, "system.containerSortMethod", detail)}
+        />
+
+        {#if $item.system.containerSortMethod !== "none"}
+            <RadioGroup
+                heading="Sort Method"
+                options={Object.entries(A5E.containerSortDirections)}
+                selected={$item.system.containerSortDirection}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField($item, "system.containerSortDirection", detail)}
+            />
+        {/if}
     {:else}
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">
@@ -85,6 +103,22 @@
                     {$item.system.capacity.weightlessContents ? "Yes" : "No"}
                 </dd>
             </div>
+
+            <div class="u-flex u-gap-md">
+                <dt class="u-text-bold">Sort Method:</dt>
+                <dd class="u-m-0 u-p-0">
+                    {localize(A5E.containerSortMethods[$item.system.containerSortMethod]) ?? localize("A5E.None")}
+                </dd>
+            </div>
+
+            {#if $item.system.containerSortMethod !== "none"}
+                <div class="u-flex u-gap-md">
+                    <dt class="u-text-bold">Sort Direction:</dt>
+                    <dd class="u-m-0 u-p-0">
+                        {localize(A5E.containerSortDirections[$item.system.containerSortDirection])}
+                    </dd>
+                </div>
+            {/if}
         </dl>
     {/if}
 </Section>
