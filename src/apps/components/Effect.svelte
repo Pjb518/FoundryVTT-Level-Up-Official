@@ -13,7 +13,7 @@
     }
 
     function onDuplicate() {
-        effect.duplicateEffect();
+        effect.duplicateEffect(actionId);
     }
 
     async function onDelete() {
@@ -59,13 +59,13 @@
     }
 
     const doc = getContext("actor") ?? getContext("item");
-    const actionId = getContext("actionId");
+    const actionId = getContext("actionId") ?? null;
 
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
 
     $: allowTransfer =
-        effect.getFlag("a5e", "transferType") === "passive" &&
+        effect.system.effectType === "passive" &&
         $doc.documentName === "Item" &&
         ["Actor", "ActorDelta"].includes($doc.parent?.documentName);
 

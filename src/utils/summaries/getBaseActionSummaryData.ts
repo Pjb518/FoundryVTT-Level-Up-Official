@@ -6,6 +6,7 @@ import getAreaLabel from './getAreaLabel';
 import getDamageLabel from './getDamageLabel';
 import getDurationLabel from './getDurationLabel';
 import getRangeLabels from './getRangeLabels';
+import getSavingThrowLabel from './getSavingThrowLabel';
 import getTargetLabel from './getTargetLabel';
 
 export default function getBaseActionSummaryData(item: ItemA5e, action: Action) {
@@ -15,6 +16,7 @@ export default function getBaseActionSummaryData(item: ItemA5e, action: Action) 
 		damage: getDamageLabel(action),
 		duration: getDurationLabel(item, action),
 		ranges: getRangeLabels(action),
+		savingThrow: getSavingThrowLabel(action),
 		targets: getTargetLabel(action),
 	};
 }

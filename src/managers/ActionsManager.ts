@@ -38,9 +38,9 @@ class ActionsManager extends Map<string, Action> {
 		return this.size;
 	}
 
-	get first(): Action | null {
+	get first(): Action | undefined {
 		const action = this.values().next();
-		if (!action) return null;
+		if (!action) return undefined;
 		return action.value;
 	}
 
@@ -144,26 +144,12 @@ class ActionsManager extends Map<string, Action> {
 		const newActionId = foundry.utils.randomID();
 		newAction.name = `${newAction.name} (Copy)`;
 
-		// TODO: Remove support for this
-		// Get effect prompts
-		const prompts = Object.entries(newAction.prompts ?? {})
-			// @ts-expect-error
-			.filter(([, prompt]) => prompt.type === 'effect');
+		const effects = [...original.effects]
+			.map((id) => this.#item.effects.get(id)?.toObject())
+			.filter((e) => !!e);
 
-		if (prompts.length) {
-			for await (const [promptId, prompt] of prompts) {
-				// @ts-expect-error
-				const effect = this.#item.effects.get(prompt.effectId);
-				if (!effect) return;
-
-				// Duplicate effect
-				const effectData = foundry.utils.duplicate(effect);
-				foundry.utils.setProperty(effectData, 'flags.a5e.actionId', newActionId);
-				const newEffect = await this.#item.createEmbeddedDocuments('ActiveEffect', [effectData]);
-				// @ts-expect-error
-				newAction.prompts[promptId].effectId = newEffect[0].id;
-			}
-		}
+		const duplicatedEffects = await this.#item.createEmbeddedDocuments('ActiveEffect', effects);
+		newAction.effects = duplicatedEffects.map((e) => e.id);
 
 		await this.#item.update({
 			'system.actions': {
@@ -181,6 +167,9 @@ class ActionsManager extends Map<string, Action> {
 		await dialog?.close();
 		delete this.#item.dialogs.actions[actionId];
 
+		const action = this.get(actionId);
+		if (!action) return;
+
 		await this.#item.update({
 			'system.actions': {
 				[`-=${actionId}`]: null,
@@ -188,16 +177,7 @@ class ActionsManager extends Map<string, Action> {
 		});
 
 		// Remove any effects associated with the action
-		const effects = this.#item.effects.filter(
-			// @ts-expect-error
-			(effect) => effect.flags.a5e.actionId === actionId,
-		);
-
-		this.#item.deleteEmbeddedDocuments(
-			'ActiveEffect',
-			// @ts-expect-error
-			effects.map((effect) => effect.id),
-		);
+		this.#item.deleteEmbeddedDocuments('ActiveEffect', [...action.effects]);
 	}
 
 	/** ************************************************
@@ -211,7 +191,7 @@ class ActionsManager extends Map<string, Action> {
 	) {
 		const newAction = foundry.utils.mergeObject(
 			{
-				name: this.getActionName(item) || 'New Action',
+				name: ActionsManager.getActionName(item) || 'New Action',
 			},
 			data,
 		) as Action;
@@ -220,11 +200,11 @@ class ActionsManager extends Map<string, Action> {
 
 		let consumer: Record<string, any> | null = null;
 		if (item.system.uses?.max)
-			consumer = await this.addConsumer(item, [id, newAction], 'itemUses', {}, false);
+			consumer = await ActionsManager.addConsumer(item, [id, newAction], 'itemUses', {}, false);
 		if (item.type === 'spell')
-			consumer = await this.addConsumer(item, [id, newAction], 'spell', {}, false);
+			consumer = await ActionsManager.addConsumer(item, [id, newAction], 'spell', {}, false);
 		else if (item.type === 'maneuver') {
-			consumer = await this.addConsumer(
+			consumer = await ActionsManager.addConsumer(
 				item,
 				[id, newAction],
 				'resource',

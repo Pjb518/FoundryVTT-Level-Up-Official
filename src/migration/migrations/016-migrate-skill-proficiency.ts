@@ -1,6 +1,6 @@
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
-export default class Migration016MigrateSkillProficiency extends MigrationBase {
+export class Migration016MigrateSkillProficiency extends MigrationBase {
 	static version = 0.016;
 
 	async updateEffect(effectData: Record<string, any>) {
