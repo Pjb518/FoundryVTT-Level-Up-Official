@@ -81,13 +81,51 @@
         return data;
     }
 
-    $: containerItems = (item?.contents ?? []).reduce((acc, i) => {
-        if (!i) return acc;
-        if (i.parent?.id !== $actor.id) return acc;
+    $: sortMethod = item.system.containerSortMethod;
+    $: sortDirection = item.system.containerSortDirection;
 
-        acc.push([i?.id ?? foundry.utils.randomId(), i]);
-        return acc;
-    }, []);
+    $: containerItems = (item?.contents ?? [])
+        .sort((a,b) => {
+            if (sortMethod === "alphabetical") {
+                if (sortDirection === "ascending") return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+
+                return b.name.toLowerCase().localeCompare(a.name.toLowerCase());
+            }
+
+            if (sortMethod === "quantity") {
+                if (sortDirection === "ascending") {
+                    if (a.system.quantity < b.system.quantity) return -1;
+                    if (a.system.quantity > b.system.quantity) return 1;
+                    return 0;
+                }
+
+                if (a.system.quantity > b.system.quantity) return -1;
+                if (a.system.quantity < b.system.quantity) return 1;
+                return 0;
+            }
+
+            if (sortMethod === "weight") {
+                if (sortDirection === "ascending") {
+                    if (a.system.weight < b.system.weight) return -1;
+                    if (a.system.weight > b.system.weight) return 1;
+                    return 0;
+                }
+
+                if (a.system.weight > b.system.weight) return -1;
+                if (a.system.weight < b.system.weight) return 1;
+                return 0;
+            }
+
+            return 0;
+        })
+        .reduce((acc, i) => {
+            if (!i) return acc;
+            if (i.parent?.id !== $actor.id) return acc;
+
+            acc.push([i?.id ?? foundry.utils.randomId(), i]);
+            return acc;
+        },
+    []);
 
     $: description = getDescription(item)
         .then((data) => (description = data))

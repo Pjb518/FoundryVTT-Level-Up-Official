@@ -382,6 +382,18 @@ const conditions = {
   unconscious: 'A5E.ConditionUnconscious'
 };
 
+const containerSortDirections = {
+  ascending: 'A5E.ContainerSortDirectionAscending',
+  descending: 'A5E.ContainerSortDirectionDescending'
+};
+
+const containerSortMethods = {
+  none: 'A5E.None',
+  alphabetical: 'A5E.ContainerSortMethodAlphabetical',
+  quantity: 'A5E.ContainerSortMethodQuantity',
+  weight: 'A5E.ContainerSortMethodWeight'
+};
+
 /**
  * The default creature types.
  * @enum {string}
@@ -1795,6 +1807,8 @@ const A5E = {
   capacityTypes,
   chatCardTypes,
   conditions,
+  containerSortDirections,
+  containerSortMethods,
   creatureTypes,
   damagedStates,
   baseScalingModes,
