@@ -1,6 +1,6 @@
 import { localize } from '#runtime/util/i18n';
 
-import handleDocumentMigration from '../migration/handleDocumentMigration';
+import { handleDocumentMigration } from '../migration/handlers/handleDocumentMigration';
 import handlePackMigration from '../migration/handlePackMigration';
 
 export default function getDocumentDirectoryContext(dialog, html, data, type) {

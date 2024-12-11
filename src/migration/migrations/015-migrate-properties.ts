@@ -1,6 +1,6 @@
-import MigrationBase from '../MigrationBase';
+import { MigrationBase } from '../MigrationBase';
 
-export default class Migration015MigrateProperties extends MigrationBase {
+export class Migration015MigrateProperties extends MigrationBase {
 	static version = 0.015;
 
 	async updateItem(item: Record<string, any>) {

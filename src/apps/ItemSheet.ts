@@ -166,54 +166,27 @@ export default class ItemSheet extends SvelteApplication {
 		if (!actionId || !itemUuid) return;
 
 		const document = (await fromUuid(itemUuid)) as ItemA5e;
-		const action = foundry.utils.duplicate(document?.actions.get(actionId));
+		const action = document?.actions.get(actionId)?.toObject();
 		if (!action) return;
 
 		// Change image
 		// @ts-expect-error
-		action.img ??= document?.img;
-
-		// @ts-expect-error
-		const [newActionId] = await (this.item as ItemA5e).actions.add(action, true, true);
-		if (!newActionId) return;
+		action.img = document?.img;
 
 		// Copy over effects from old item to new item
-		const effects = Array.from(document?.effects).filter(
-			(e: any) => e.system.effectType === 'onUse' && e.flags?.a5e?.actionId,
-		);
+		const effects = [...action.effects]
+			.map((id) => document.effects.get(id)?.toObject())
+			.filter((e) => !!e);
 
-		if (!effects.length) return;
+		if (effects.length) {
+			const effectIds = (await this.item.createEmbeddedDocuments('ActiveEffect', effects)).map(
+				(e) => e.id,
+			);
 
-		let newEffects = effects.map((e: any) => {
-			const newEffect = e.toObject();
-			newEffect.flags.a5e.actionId = newActionId;
-			return newEffect;
-		});
+			action.effects = effectIds;
+		}
 
-		newEffects = await this.item.createEmbeddedDocuments('ActiveEffect', newEffects);
-
-		const effectPrompts = Object.entries(action.prompts ?? {}).filter(
-			([, prompt]: [string, any]) => prompt.type === 'effect',
-		);
-
-		const idMapping = effectPrompts.reduce((acc, [promptId, prompt]: [string, any]) => {
-			const effect = effects.find((e: any) => e._id === prompt.effectId);
-			if (!effect) return acc;
-
-			const newEffect: any = newEffects.find((e) => e.equals(effect));
-			if (!newEffect) return acc;
-
-			acc[promptId] = newEffect._id;
-			return acc;
-		}, {});
-
-		const updates = {};
-		effectPrompts.forEach(([promptId]) => {
-			updates[`system.actions.${newActionId}.prompts.${promptId}.effectId`] =
-				idMapping[promptId] ?? '';
-		});
-
-		this.item.update(updates);
+		(this.item as ItemA5e).actions.add(action);
 	}
 
 	async #onDropGrant(dragData: Record<string, any>) {
@@ -244,18 +217,30 @@ export default class ItemSheet extends SvelteApplication {
 		const actions = [...spell.actions.values()];
 
 		// Create copies of all the actions.
-		const data = actions.map((action) => {
-			// @ts-expect-error
-			action.img ??= spell.img;
-			action.description ??= spell.system.description;
-			action.descriptionOutputs = ['action'];
-			return action;
-		});
+		for await (const action of actions) {
+			const actionData = action.toObject();
 
-		data.forEach((a) => {
 			// @ts-expect-error
-			this.item.actions.add(foundry.utils.duplicate(a));
-		});
+			actionData.img = spell.img;
+			actionData.description ??= spell.system.description;
+			actionData.descriptionOutputs = ['action'];
+
+			// Copy over effects from old item to new item
+			const effects = [...actionData.effects]
+				.map((id) => spell.effects.get(id)?.toObject())
+				.filter((e) => !!e);
+
+			if (effects.length) {
+				const effectIds = (await this.item.createEmbeddedDocuments('ActiveEffect', effects)).map(
+					(e) => e.id,
+				);
+
+				actionData.effects = effectIds;
+			}
+
+			// @ts-expect-error
+			this.item.actions.add(actionData);
+		}
 	}
 
 	static getSheetComponent(type) {
