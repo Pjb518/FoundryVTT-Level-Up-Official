@@ -402,12 +402,22 @@ export default class ActiveEffectA5e extends ActiveEffect {
 		});
 	}
 
-	async duplicateEffect() {
+	async duplicateEffect(actionId = null) {
 		const owningDocument = this.parent;
 		const newEffect = foundry.utils.duplicate(this);
 		newEffect.name = `${localize(newEffect.name)} (Copy)`;
 
-		if (owningDocument) owningDocument.createEmbeddedDocuments('ActiveEffect', [newEffect]);
+		if (!owningDocument) return;
+
+		const effects = await owningDocument.createEmbeddedDocuments('ActiveEffect', [newEffect]);
+
+		// Handle action update
+		if (owningDocument?.documentName === 'Item' && actionId) {
+			const action = owningDocument.actions.get(actionId);
+			owningDocument.update({
+				[`system.actions.${actionId}.effects`]: [[...action.effects], ...effects.map((e) => e.id)],
+			});
+		}
 	}
 
 	// -------------------------------------------------------
