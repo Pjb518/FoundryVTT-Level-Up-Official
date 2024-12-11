@@ -372,16 +372,19 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		if (wasLocked) await pack.configure({ locked: true });
 	}
 
-	async runMigrations(migrations: MigrationBase[]): Promise<void> {
+	async runMigrations(migrations: MigrationBase[], options: MigrateOptions = {}): Promise<void> {
 		if (migrations.length === 0) return;
+
+		options.fromSourceData ??= true; // Marked as true for world data
+		options.inPreCreate ??= false;
 
 		// TODO: Progress marker
 
 		// Migrate Actors
-		await this.#migrateDocuments(game.actors, migrations);
+		await this.#migrateDocuments(game.actors, migrations, options);
 
 		// Migrate Items
-		await this.#migrateDocuments(game.items, migrations);
+		await this.#migrateDocuments(game.items, migrations, options);
 
 		// Update tiny docs
 		const promises: Promise<unknown>[] = [];
@@ -398,6 +401,7 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 
 		await Promise.allSettled(promises);
 
+		// TODO: Look into possibly migrating all tokens at once from source.
 		// Migrate Tokens
 		for (const scene of game.scenes) {
 			for (const token of scene.tokens) {
@@ -469,14 +473,13 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		}
 
 		await this.#setupSourceData();
-		console.log(this.#sourceData);
-		// return;
 
 		for (const phase of migrationPhases) {
 			if (phase.length > 0) await this.runMigrations(phase);
 		}
 
 		await game.settings.set('a5e', 'worldSchemaVersion', migrationVersion.latest);
+		ui.notifications.info(localize('A5E.migration.world.finished', { version: systemVersion }));
 	}
 
 	async #setupSourceData() {

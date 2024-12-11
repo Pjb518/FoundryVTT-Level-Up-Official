@@ -1801,7 +1801,7 @@ class BaseActorA5e extends Actor {
 			this.updateSource({
 				// @ts-expect-error
 				'system.migrationData': {
-					version: 0.019,
+					version,
 					type: 'Actor',
 				},
 			});
