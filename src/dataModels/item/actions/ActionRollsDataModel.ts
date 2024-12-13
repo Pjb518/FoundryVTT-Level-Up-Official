@@ -41,6 +41,7 @@ const damageRollSchema = () => ({
 
 const genericRollSchema = () => ({
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	scaling: new fields.ObjectField({ required: true, nullable: false }), // TODO: Make this proper
 	...baseSchema(),
 });
 
