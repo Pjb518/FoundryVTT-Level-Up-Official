@@ -610,6 +610,7 @@ const knackTypes = {
   savant: 'Clever Scheme',
   scholar: 'Scholarly Discovery',
   scientist: 'Scientific Praxes',
+  scout: 'Clever Trick',
   sorcerer: 'Arcane Innovation',
   warlock: 'Secret of Arcana',
   wielder: 'Artifact Whisper',
