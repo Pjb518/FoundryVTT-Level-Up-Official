@@ -758,7 +758,7 @@ class A5eGameSettings extends TJSGameSettings {
 					name: 'A5E.settings.worldSchemaVersion',
 					scope: scope.world,
 					config: false,
-					default: MigrationRunner.LATEST_SCHEMA_VERSION,
+					default: MigrationRunnerFoundry.LATEST_SCHEMA_VERSION,
 					type: Number,
 				},
 			},

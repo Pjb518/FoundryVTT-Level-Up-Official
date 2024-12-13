@@ -1,0 +1,181 @@
+{
+	"folder": null,
+	"name": "Cloaking Device",
+	"type": "feature",
+	"img": "icons/magic/perception/silhouette-stealth-shadow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"WhqxN6AZ0LjVtIM6": {
+				"name": "Cloaking Device",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"uCMb65u9eNtuxt9o": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"fkJHQzumfcbAaoDK": {
+						"type": "effect",
+						"default": true,
+						"effectId": "qL1HpHFmnx4bHmAA"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action",
+					"item"
+				],
+				"duration": {
+					"unit": "minute",
+					"value": 30
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"img": "",
+				"effects": [
+					"X1pxiLdWYAV607vE"
+				],
+				"ranges": {
+					"N0OI77b5oK1bQ98K": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creature"
+				}
+			}
+		},
+		"description": "<p>Once between long rests, you can deploy an experimental device to hide a creature from view.&nbsp;As an action, you cloak one creature you touch with a fragile device, turning it invisible.&nbsp;Anything the target is carrying or wearing is invisible as long as it remains in the target’s possession.&nbsp;The device functions for 30 minutes but malfunctions if the target attacks or uses a psionic power, ending the invisibility early.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "4th level",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "scientist",
+		"migrationData": {
+			"version": 0.019,
+			"lastMigration": {
+				"system": null,
+				"foundry": null,
+				"schema": null
+			},
+			"type": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.D3fEJOTy40WEk4F5",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Cloaking Device",
+			"img": "icons/magic/perception/silhouette-stealth-shadow.webp",
+			"_id": "X1pxiLdWYAV607vE",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 1800,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You cloak one creature you touch with a fragile device, turning it invisible. Anything the target is carrying or wearing is invisible as long as it remains in the target’s possession. The device functions for 30 minutes but malfunctions if the target attacks or uses a psionic power, ending the invisibility early.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"invisible"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733523218399,
+				"modifiedTime": 1733523250127,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733520377077,
+		"modifiedTime": 1733668633228,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "JOcIC4PMRA1Fqjyi"
+}

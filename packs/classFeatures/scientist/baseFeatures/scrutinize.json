@@ -1,0 +1,174 @@
+{
+	"folder": null,
+	"name": "Scrutinize",
+	"type": "feature",
+	"img": "icons/commodities/tech/sensor-brown.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"LHRdDmALr5YOL4Ht": {
+				"name": "Scrutinize",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"CNG1UzzbJJDHE98b": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1,
+					"scaling": {
+						"mode": null
+					}
+				},
+				"ranges": {
+					"jDaP5vQOuF0MtvBz": {
+						"range": "short"
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"img": "",
+				"effects": [
+					"qXAn2TgiKPtnE2nW"
+				]
+			}
+		},
+		"description": "<p>At 1st level, you can apply your deep cunning to analyze enemy weaknesses.&nbsp;You can use a bonus action to critically assess a target you can see within 30 feet (or in space combat, within firing range of your spacecraft). When you do, you learn of any vulnerabilities that creature has.</p>\n<p>Additionally, you can identify a specific weakness and choose one damage type. Damage of the chosen type dealt against the target increases by an amount equal to your proficiency bonus for 1 minute.</p>\n<p>Your range for this feature increases by 30 feet at 6th, 11th, and 16th level. At 20th level, your range is limited only by sight.</p>\n<p>You have one use of this feature, gaining a second at 11th level. You regain all spent uses whenever you finish a short or long rest.&nbsp;Additionally, you may always use your Intelligence modifier instead of Strength or Dexterity on attack and damage rolls with weapons in which you are proficient.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "scientist",
+		"migrationData": {
+			"version": 0.019,
+			"lastMigration": {
+				"system": null,
+				"foundry": null,
+				"schema": null
+			},
+			"type": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.aKkyTjhwfh0SLuF1",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Scrutinize",
+			"img": "icons/commodities/tech/sensor-brown.webp",
+			"_id": "qXAn2TgiKPtnE2nW",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Scrutinize\",\"formula\":\"@prof\",\"damageType\":\"\",\"context\":{\"attackTypes\":[],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":false,\"img\":\"icons/commodities/tech/sensor-brown.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You can identify a specific weakness and choose one damage type. Damage of the chosen type dealt against the target increases by an amount equal to your proficiency bonus for 1 minute.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733517707507,
+				"modifiedTime": 1733517755622,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733516061501,
+		"modifiedTime": 1733668633680,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "BZGaXcUluVc3Zdaq"
+}

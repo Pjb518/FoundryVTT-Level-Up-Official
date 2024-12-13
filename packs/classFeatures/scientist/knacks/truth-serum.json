@@ -1,0 +1,194 @@
+{
+	"folder": null,
+	"name": "Truth Serum",
+	"type": "feature",
+	"img": "icons/consumables/potions/flask-corked-purple-glow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"jcuJ2hzjmhlAmHu3": {
+				"name": "Truth Serum",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"e6KHxyP2xs47e1zl": {
+						"type": "actionUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"8IRpjs5EgqEVTOoT": {
+						"type": "generic",
+						"default": true,
+						"scaling": {
+							"mode": "actionUses",
+							"formula": "1d6"
+						},
+						"formula": "1d6",
+						"label": ""
+					}
+				},
+				"prompts": {
+					"oqMirBYDwsrCzmu9": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "int",
+							"bonus": ""
+						},
+						"label": "",
+						"onSave": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "@prof",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 10
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [
+					"mEkRGmkoVPwQLrBV"
+				],
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>This injectable serum unlocks and untethers the mind. A creature makes a Constitution saving throw against your Science save DC when it is subjected to the serum, and on a failure it becomes poisoned. While poisoned in this way, a creature cannot knowingly lie.</p>\n<p>Form a countdown dice pool equal to your proficiency bonus. Each time the target is forced to answer a question truthfully, roll the countdown dice pool and remove any dice which result in a 6. When the pool is depleted, the truth serum wears off. If the pool is not depleted, the serum wears off after 10 minutes.</p>\n<p>A target who has been affected by truth serum cannot be affected again until after they have finished a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "scientist",
+		"migrationData": {
+			"version": 0.019,
+			"lastMigration": {
+				"system": null,
+				"foundry": null,
+				"schema": null
+			},
+			"type": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.4vMDsFxvmKRRD42c",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Poisoned",
+			"img": "icons/consumables/potions/flask-corked-purple-glow.webp",
+			"_id": "mEkRGmkoVPwQLrBV",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"poisoned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A poisoned creature has disadvantage on attack rolls and ability checks.</li>\n<li>While poisoned in this way, a creature cannot knowingly lie.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"poisoned"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733589086490,
+				"modifiedTime": 1733589139611,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733520377402,
+		"modifiedTime": 1734040106134,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "MAyC4G7jbQVTt1wc"
+}
