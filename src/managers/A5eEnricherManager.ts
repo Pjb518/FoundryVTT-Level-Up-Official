@@ -2,7 +2,7 @@ import type { BaseActorA5e } from '../documents/actor/base';
 import type { BaseItemA5e } from '../documents/item/base';
 
 declare namespace A5eEnricherManager {
-	type EnricherTypes = 'check' | 'save';
+	type EnricherTypes = 'check' | 'save' | 'condition';
 }
 
 class A5eEnricherManager {
@@ -10,11 +10,14 @@ class A5eEnricherManager {
 	 * Pushes enrichers to config and adds
 	 */
 	registerCustomEnrichers() {
-		const enricherTypes = ['check', 'save', 'condition'];
+		CONFIG.TextEditor.enrichers.push({
+			// [[/check args=d|"d"|'d']]
+			pattern: /\[\[\/(?<enricherType>check|save|condition)(?<argString> [^\]]+)?]]/gi,
+			enricher: this.parseEnricherInput.bind(this),
+		});
 
 		// CONFIG.TextEditor.enrichers.push({
-
-		//   pattern: new RegExp(`\\[\\[\\/(?<enricherType>${enricherTypes.join('|')})(?<argString>( +\\w+=([\\w\\d]+|"[\\w\\d ]+"))*)\\]\\]`, 'gi'),
+		// pattern: new RegExp(`\\[\\[\\/(?<enricherType>${enricherTypes.join('|')})(?<argString>( +\\w+=([\\w\\d]+|"[\\w\\d ]+"))*)\\]\\]`, 'gi'),
 		//   enricher: this.parseEnricherInput.bind(this)
 		// }, {
 		//   // eslint-disable-next-line no-useless-escape
@@ -41,18 +44,16 @@ class A5eEnricherManager {
 	): Promise<HTMLElement | null> {
 		const { enricherType, argString } = match.groups as { enricherType: string; argString: string };
 
+		console.log(enricherType, argString);
+
 		const args = this.#parseArguments(argString);
 		args.enricherType = enricherType.toLowerCase();
 
-		if (enricherType === 'check') {
-			return this.#enrichCheck(args, options);
-		}
-		if (enricherType === 'save') {
-			return this.#enrichSave(args, options);
-		}
-		if (enricherType === 'condition') {
-			return this.#enrichCondition(args, options);
-		}
+		console.log(args);
+
+		if (enricherType === 'check') return this.#enrichCheck(args, options);
+		if (enricherType === 'save') return this.#enrichSave(args, options);
+		if (enricherType === 'condition') return this.#enrichCondition(args, options);
 
 		return null;
 	}
@@ -67,15 +68,21 @@ class A5eEnricherManager {
 	 * @returns An indexed array of config item tuples [arg, val]
 	 */
 	#parseArguments(argString: string): Record<string, any> {
-		const args = argString.toLowerCase().split(' ').filter(Boolean);
-		const structured: Record<string, any> = {};
+		const expr = /(\w+)=(["']?)([^"'\s]+(?:\s[^"'\s]+)*?)\2/gi;
+		const match = [...argString.matchAll(expr)];
 
-		args.forEach((arg) => {
-			const [key, value] = arg.split('=').map((a) => a.trim());
-			structured[key] = Number.isNumeric(value) ? parseInt(value, 10) : value;
+		const args: Record<string, any> = {};
+
+		match?.forEach((g) => {
+			const key = g.at(1)?.toLowerCase();
+			const value = g.at(3);
+
+			if (!key || !value) return;
+
+			args[key] = value;
 		});
 
-		return structured;
+		return args;
 	}
 
 	/**
@@ -117,7 +124,7 @@ class A5eEnricherManager {
 
 			const { name, type } = validOptions[key];
 
-			if (type === 'number') optionsRecord[name] = parseInt(val, 10);
+			if (type === 'number') optionsRecord[name] = Number.parseInt(val, 10);
 			else if (type === 'boolean') optionsRecord[name] = Boolean(val);
 			else optionsRecord[name] = val;
 		});
@@ -141,39 +148,29 @@ class A5eEnricherManager {
 		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		options?: TextEditor.EnrichmentOptions,
 	): Promise<HTMLElement | null> {
-		let label = 'Check';
+		let label = args.label || 'Check';
 		const { ability, skill }: { ability?: string; skill?: string } = args;
 
-		if (!skill && !ability) {
-			ui.notifications?.error('Enricher is missing both skill and ability.');
-			return null;
-		}
+		if (!skill && !ability) return this.createInvalidTag('No ability or skill provided.');
 
 		// Check if the ability is proper
-		if (ability && !Object.keys(CONFIG.A5E.abilities).includes(ability)) {
-			ui.notifications?.error('Invalid ability name.');
-			return null;
-		}
+		if (ability && !Object.keys(CONFIG.A5E.abilities).includes(ability))
+			return this.createInvalidTag(`Invalid ability: ${ability}.`);
 
 		// Checks for a properly defined skill
 		if (skill) {
-			if (!Object.keys(CONFIG.A5E.skills).includes(skill)) {
-				ui.notifications?.error(`Invalid skill ${skill}.`);
-				return null;
-			}
+			if (!Object.keys(CONFIG.A5E.skills).includes(skill))
+				return this.createInvalidTag(`Invalid skill: ${skill}.`);
 
 			// Skill check with or without default ability
-			label = `${CONFIG.A5E.skills[skill]} ${label}`;
-			return this.#createRollButton(args, label);
+			if (!args.label) label = `${CONFIG.A5E.skills[skill]} ${label}`;
+			return this.#createRollButton(args, options, label);
 		}
 
-		if (!ability) {
-			ui.notifications?.error('Ability not provided');
-			return null;
-		}
+		if (!ability) return this.createInvalidTag('No ability provided.');
 
-		label = `${CONFIG.A5E.abilities[ability]} ${label}`;
-		return this.#createRollButton(args, label);
+		if (!args.label) label = `${CONFIG.A5E.abilities[ability]} ${label}`;
+		return this.#createRollButton(args, options, label);
 	}
 
 	/**
@@ -190,63 +187,75 @@ class A5eEnricherManager {
 	): Promise<HTMLElement | null> {
 		const saveTypes: string[] = ['death', 'concentration'];
 		const { type, ability }: { type?: string; ability?: string } = args;
-		let label = 'Saving Throw';
+		let label = args.label || 'Saving Throw';
 
-		if (!type && !ability) {
-			ui.notifications?.error('Enricher is missing both type and ability.');
-			return null;
-		}
+		if (!type && !ability) return this.createInvalidTag('No type or ability provided.');
 
 		// Is either concentration or death save
 		if (type) {
-			if (!saveTypes.includes(type)) {
-				ui.notifications?.error(`Invalid save type ${type}.`);
-				return null;
-			}
+			if (!saveTypes.includes(type)) return this.createInvalidTag(`Invalid save type ${type}.`);
 
-			if (ability) {
-				ui.notifications?.warn('Unnecessary ability argument provided.');
-			}
-
-			label = `${args.type.capitalize()} ${label}`;
-			return this.#createRollButton(args, label);
+			if (!args.label) label = `${args.type.capitalize()} ${label}`;
+			return this.#createRollButton(args, options, label);
 		}
 
 		// Check if the ability is proper
-		if (!ability) {
-			ui.notifications?.error('Ability not provided');
-			return null;
-		}
+		if (!ability) return this.createInvalidTag('No ability provided.');
 
 		if (ability && !Object.keys(CONFIG.A5E.abilities).includes(ability)) {
-			ui.notifications?.error(`Invalid ability ${ability}.`);
-			return null;
+			return this.createInvalidTag(`Invalid ability: ${ability}.`);
 		}
 
-		label = `${CONFIG.A5E.abilities[ability]} ${label}`;
-
-		return this.#createRollButton(args, label);
+		if (!args.label) label = `${CONFIG.A5E.abilities[ability]} ${label}`;
+		return this.#createRollButton(args, options, label);
 	}
+
+	/* -------------------------------------------- */
+	/*  Button Generators                           */
+	/* -------------------------------------------- */
 
 	/**
 	 * Creates a roll button to replace enriched text.
 	 * @param args    Record of arguments passed in and stored in element.
+	 * @param options Text editor options
 	 * @param label   The label for the output button
 	 * @returns An HTML element to insert in place of the matched text or
 	 *          null to indicate that no replacement should be made.
 	 */
-	async #createRollButton(args: Record<string, any>, label: string): Promise<HTMLElement | null> {
+	async #createRollButton(
+		args: Record<string, any>,
+		options: TextEditor.EnrichmentOptions | undefined,
+		label: string,
+	): Promise<HTMLElement | null> {
 		const span = document.createElement('span');
 		span.classList.add('a5e-enricher');
 		span.classList.add('a5e-enricher--roll');
 
+		// TODO: Maybe update this
 		this.#addToDataset(span, args);
 
-		if (game.user?.isGM && args.dc && Number.isNumeric(args.dc)) {
-			span.innerHTML = `<i class="fa-solid fa-dice-d20"></i><span class="a5e-enricher__dc">DC ${args.dc}</span>${label}`;
+		let dc: number | null = null;
+		// @ts-expect-error
+		if (args.dc) dc = (await new Roll(args.dc, options.rollData).evaluate()).total;
+		const showDC = (game.user?.isGM || options?.secrets) && dc;
+
+		if (showDC) {
+			span.innerHTML = `<i class="fa-solid fa-dice-d20"></i><span class="a5e-enricher__dc">DC ${dc}</span>${label}`;
 		} else {
 			span.innerHTML = `<i class="fa-solid fa-dice-d20"></i>${label}`;
 		}
+
+		return span;
+	}
+
+	async createInvalidTag(hint: string): Promise<HTMLElement | null> {
+		const span = document.createElement('span');
+		span.classList.add('a5e-enricher');
+		span.classList.add('a5e-enricher--invalid');
+
+		span.dataset.tooltip = hint;
+
+		span.innerHTML = 'Invalid Enricher';
 
 		return span;
 	}
@@ -505,7 +514,7 @@ class A5eEnricherManager {
 				value = `${arg.groups?.value}`;
 				icons.push('');
 			}
-			const weight = arg.groups?.weight ? parseInt(arg.groups.weight, 10) : 1;
+			const weight = arg.groups?.weight ? Number.parseInt(arg.groups.weight, 10) : 1;
 			for (let i = 0; i < weight; i += 1) {
 				results.push(value);
 			}
