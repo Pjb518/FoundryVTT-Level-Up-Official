@@ -2,7 +2,7 @@ import type { BaseActorA5e } from '../documents/actor/base';
 import type { BaseItemA5e } from '../documents/item/base';
 
 declare namespace A5eEnricherManager {
-	type EnricherTypes = 'check' | 'save' | 'condition';
+	type EnricherTypes = 'check' | 'save' | 'condition' | 'choose';
 }
 
 class A5eEnricherManager {
@@ -10,26 +10,28 @@ class A5eEnricherManager {
 	 * Pushes enrichers to config and adds
 	 */
 	registerCustomEnrichers() {
-		CONFIG.TextEditor.enrichers.push({
-			// [[/check args=d|"d"|'d']]
-			pattern: /\[\[\/(?<enricherType>check|save|condition)(?<argString> [^\]]+)?]]/gi,
-			enricher: this.parseEnricherInput.bind(this),
-		});
-
-		// CONFIG.TextEditor.enrichers.push({
-		// pattern: new RegExp(`\\[\\[\\/(?<enricherType>${enricherTypes.join('|')})(?<argString>( +\\w+=([\\w\\d]+|"[\\w\\d ]+"))*)\\]\\]`, 'gi'),
-		//   enricher: this.parseEnricherInput.bind(this)
-		// }, {
-		//   // eslint-disable-next-line no-useless-escape
-		//   pattern: /\[\[\/choose label=((?<label>[\w\d]+)|"(?<label>[\w\d -\.,]+)")(?<argString>( +(\[\d+\])?(uuid|text)=([\d\w\-\.]+|"[\d\w\-\. ]+"))+) *\]\]/gi,
-		//   enricher: this.parseChooseInput.bind(this)
-		// });
+		CONFIG.TextEditor.enrichers.push(
+			{
+				// [[/check args=d|"d"|'d']]
+				pattern: /\[\[\/(?<enricherType>check|save|condition)(?<argString> [^\]]+)?]]/gi,
+				enricher: this.parseEnricherInput.bind(this),
+			},
+			// {
+			// 	// [[/choose label="Some label" argString]]
+			// 	pattern: /\[\[\/choose flavor=(?:"([^"]+)"|([^"\s]+))(.*)\]\]/gi,
+			// 	enricher: this.parseChooseInput.bind(this),
+			// },
+		);
 
 		// FIXME: This is inefficient
 		document.body.addEventListener('click', this.onRoll.bind(this));
 		document.body.addEventListener('click', this.onEffect.bind(this));
-		document.body.addEventListener('click', this.onChoose.bind(this));
+		// document.body.addEventListener('click', this.onChoose.bind(this));
 	}
+
+	/* -------------------------------------------- */
+	/*  Parsers                                     */
+	/* -------------------------------------------- */
 
 	/**
 	 * Parse the enriched string and provide the appropriate content.
@@ -44,18 +46,41 @@ class A5eEnricherManager {
 	): Promise<HTMLElement | null> {
 		const { enricherType, argString } = match.groups as { enricherType: string; argString: string };
 
-		console.log(enricherType, argString);
-
 		const args = this.#parseArguments(argString);
 		args.enricherType = enricherType.toLowerCase();
-
-		console.log(args);
 
 		if (enricherType === 'check') return this.#enrichCheck(args, options);
 		if (enricherType === 'save') return this.#enrichSave(args, options);
 		if (enricherType === 'condition') return this.#enrichCondition(args, options);
-
 		return null;
+	}
+
+	/**
+	 * Parse the enriched string and provide the appropriate content.
+	 * @param match      The regular expression match result.
+	 * @param options    Options provided to customize text enrichment. Unused
+	 * @returns An HTML element to insert in place of the matched text or
+	 *          null to indicate that no replacement should be made.
+	 */
+	async parseChooseInput(
+		match: RegExpMatchArray,
+		options?: TextEditor.EnrichmentOptions,
+	): Promise<HTMLElement | null> {
+		const { flavor, argString } = match.groups as { flavor: string; argString: string };
+
+		console.log('here');
+		console.log(flavor, argString);
+		const expr = /(\[\d+-\d+\])?\"?([^\"]+?)\"?/gi;
+
+		const matches = [...argString.matchAll(expr)];
+		console.log(matches);
+
+		// eslint-disable-next-line no-useless-escape
+		// const argRegex = /(\[(?<weight>\d+)\])?(?<type>uuid|text)=((?<value>[\d\w\-\.]+)|"(?<value>[\d\w\-\. ]+)")/gi;
+		// const args = [...argString.matchAll(argRegex)];
+
+		// return this.#enrichChoose(label, args, options);
+		return document.createElement('span');
 	}
 
 	/* -------------------------------------------- */
@@ -251,14 +276,13 @@ class A5eEnricherManager {
 		this.#addToDataset(span, args);
 
 		const effect = CONFIG.statusEffects.find((s) => s.id === args.id);
-		const description = effect?.description;
-		console.log(description);
+		const description = effect?.description as unknown as string;
 
 		// @ts-expect-error
 		const icon = effect?.img;
 
-		// TODO: Add description
 		span.innerHTML = `<img src="${icon}"></i>${label}`;
+		// TODO: Make this pretty
 		span.dataset.tooltip = description;
 		return span;
 	}
@@ -431,10 +455,6 @@ class A5eEnricherManager {
 		}
 	}
 
-	/* -------------------------------------------- */
-	/*  Effect Enrichers: Condition                 */
-	/* -------------------------------------------- */
-
 	/**
 	 * Parses information based on button clicked and calls appropriate effect function.
 	 * @param event   Triggering click event.
@@ -455,48 +475,27 @@ class A5eEnricherManager {
 		}
 
 		const { dataset } = target;
+		if (dataset.enricherType !== 'condition') return;
 
-		if (dataset.enricherType === 'condition') {
-			const conditionOptions = {
-				id: { name: 'id', type: 'string' },
-			};
-			const { id } = this.#getOptions(target, conditionOptions);
+		const conditionOptions = {
+			id: { name: 'id', type: 'string' },
+		};
+		const { id } = this.#getOptions(target, conditionOptions);
 
-			for (const selectedToken of selectedTokens) {
-				// @ts-expect-error
-				const { actor }: { actor: BaseActorA5e | null } = selectedToken;
-				if (!actor) {
-					ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
-					continue;
-				}
-				actor.toggleStatusEffect(id);
+		for (const selectedToken of selectedTokens) {
+			// @ts-expect-error
+			const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+			if (!actor) {
+				ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
+				continue;
 			}
+			actor.toggleStatusEffect(id);
 		}
 	}
 
 	/* -------------------------------------------- */
 	/*  Choose Enrichers                            */
 	/* -------------------------------------------- */
-
-	/**
-	 * Parse the enriched string and provide the appropriate content.
-	 * @param match      The regular expression match result.
-	 * @param options    Options provided to customize text enrichment. Unused
-	 * @returns An HTML element to insert in place of the matched text or
-	 *          null to indicate that no replacement should be made.
-	 */
-	async parseChooseInput(
-		match: RegExpMatchArray,
-		options?: TextEditor.EnrichmentOptions,
-	): Promise<HTMLElement | null> {
-		const { label, argString } = match.groups as { label: string; argString: string };
-
-		// eslint-disable-next-line no-useless-escape
-		// const argRegex = /(\[(?<weight>\d+)\])?(?<type>uuid|text)=((?<value>[\d\w\-\.]+)|"(?<value>[\d\w\-\. ]+)")/gi;
-		// const args = [...argString.matchAll(argRegex)];
-
-		// return this.#enrichChoose(label, args, options);
-	}
 
 	async #enrichChoose(
 		label: string,
