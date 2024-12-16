@@ -1,35 +1,35 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import objectEntriesNumberKeyConverter from '../../../utils/objectEntriesNumberKeyConverter';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import objectEntriesNumberKeyConverter from "../../../utils/objectEntriesNumberKeyConverter";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import Checkbox from '../Checkbox.svelte';
-import CheckboxGroup from '../CheckboxGroup.svelte';
-import RadioGroup from '../RadioGroup.svelte';
-import Section from '../Section.svelte';
-import Tag from '../Tag.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
+    import Checkbox from "../Checkbox.svelte";
+    import CheckboxGroup from "../CheckboxGroup.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
+    import Tag from "../Tag.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
 
-function prepareSpellComponents(item) {
-	return Object.entries(item.system.components)
-		.filter(([_, state]) => state)
-		.map(([component]) => spellComponentAbbreviations[component] ?? component)
-		.join(', ');
-}
+    function prepareSpellComponents(item) {
+        return Object.entries(item.system.components)
+            .filter(([_, state]) => state)
+            .map(([component]) => spellComponentAbbreviations[component] ?? component)
+            .join(", ");
+    }
 
-function prepareSecondarySpellSchools(item) {
-	const schools = item.system.schools.secondary.map(
-		(school) => spellSchools.secondary[school] ?? school,
-	);
+    function prepareSecondarySpellSchools(item) {
+        const schools = item.system.schools.secondary.map(
+            (school) => spellSchools.secondary[school] ?? school,
+        );
 
-	schools.sort((a, b) => a.localeCompare(b));
+        schools.sort((a, b) => a.localeCompare(b));
 
-	return schools.join(', ');
-}
+        return schools.join(", ");
+    }
 
-const item = getContext('item');
+    const item = getContext("item");
 
     const {
         PREPARED_STATES,
@@ -44,8 +44,8 @@ const item = getContext('item');
     let editMode = false;
     let showVRCPsionicDisciplines = game.settings.get("a5e", "showVRCPsionicDisciplines");
 
-$: selectedSpellComponents = prepareSpellComponents($item);
-$: selectedSecondarySpellSchools = prepareSecondarySpellSchools($item);
+    $: selectedSpellComponents = prepareSpellComponents($item);
+    $: selectedSecondarySpellSchools = prepareSecondarySpellSchools($item);
 </script>
 
 <Section
@@ -90,17 +90,13 @@ $: selectedSecondarySpellSchools = prepareSecondarySpellSchools($item);
                 )}
         />
 
-        {#if !showVRCPsionicDisciplines}
+        {#if showVRCPsionicDisciplines}
             <RadioGroup
                 heading="A5E.PsionicDiscipline"
                 options={Object.entries(psionicDisciplines)}
                 selected={$item.system.discipline}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $item,
-                        "system.discipline",
-                        event.detail,
-                    )}
+                    updateDocumentDataFromField($item, "system.discipline", event.detail)}
             />
         {/if}
 
@@ -234,7 +230,8 @@ $: selectedSecondarySpellSchools = prepareSecondarySpellSchools($item);
                     </dt>
 
                     <dd class="summary-list__value">
-                        {spellSchools.primary[$item.system.schools.primary] || localize("A5E.None")}
+                        {spellSchools.primary[$item.system.schools.primary] ||
+                            localize("A5E.None")}
                     </dd>
                 </div>
 
@@ -248,14 +245,15 @@ $: selectedSecondarySpellSchools = prepareSecondarySpellSchools($item);
                     </dd>
                 </div>
 
-                {#if !showVRCPsionicDisciplines}
+                {#if showVRCPsionicDisciplines}
                     <div class="summary-list__item">
                         <dt class="summary-list__label">
                             {localize("A5E.PsionicDiscipline")}:
                         </dt>
 
                         <dd class="summary-list__value">
-                            {localize(psionicDisciplines[$item.system.discipline]) || localize("A5E.None")}
+                            {localize(psionicDisciplines[$item.system.discipline]) ||
+                                localize("A5E.None")}
                         </dd>
                     </div>
                 {/if}
