@@ -2,7 +2,7 @@ export default function registerClassesConfig() {
   const classes = {
     adept: 'A5E.characterClasses.adept',
     artificer: 'A5E.characterClasses.artificer',
-    artificerRevised: 'A5E.characterClasses.artificerRevised',
+    artificerrevised: 'A5E.characterClasses.artificerrevised',
     bard: 'A5E.characterClasses.bard',
     berserker: 'A5E.characterClasses.berserker',
     bloodblade: 'A5E.characterClasses.bloodblade',
