@@ -68,7 +68,7 @@ export class Migration020MigrateToV1 extends MigrationBase {
 
 	#migrateSchemaData(source: Record<string, any>) {
 		// Prevent from adding to compendium source
-		if ('game' in globalThis && globalThis.preventDetailsUpdate) return;
+		if (!('game' in globalThis)) return;
 
 		const data = source?.system?.schemaVersion ?? {};
 		if (!data || typeof data !== 'object') return;
