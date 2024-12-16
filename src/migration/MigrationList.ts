@@ -23,6 +23,15 @@ class MigrationList {
 		}, [] as MigrationBase[]);
 	}
 
+	static constructFromLatestVersion(version?: number): MigrationBase[] {
+		const minVersion = Number(version) - 0.001 || MigrationRunnerFoundry.RECOMMENDED_SAFE_VERSION;
+
+		return MigrationList.#list.reduce((acc, M) => {
+			if (M.version > minVersion) acc.push(new M());
+			return acc;
+		}, [] as MigrationBase[]);
+	}
+
 	static constructRange(min: number, max = Number.POSITIVE_INFINITY) {
 		return MigrationList.#list.reduce((acc, M) => {
 			if (M.version >= min && M.version <= max) acc.push(new M());

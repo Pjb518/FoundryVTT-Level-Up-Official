@@ -12,7 +12,7 @@
 		"format": "npx @biomejs/biome format --write ./src/",
 		"lint": "npx @biomejs/biome lint ./src/",
 		"lint-fix": "npx @biomejs/biome lint --write ./src/",
-		"migrate-packs": "node ./build/migratePacks.mjs",
+		"migrate-packs": "npx tsx ./build/migratePacks.ts",
 		"type-check": "tsc --noEmit"
 	},
 	"imports": {
@@ -64,6 +64,7 @@
 		"stylelint-config-sass-guidelines": "^11.0.0",
 		"svelte-range-slider-pips": "^2.3.1",
 		"svelte-select": "^5.8.3",
+		"ts-node": "^10.9.2",
 		"typescript": "^5.5.4",
 		"vite": "^5.4.10"
 	},
@@ -73,6 +74,7 @@
 		"@typhonjs-fvtt/runtime": "^0.2.0-next.2",
 		"@typhonjs-fvtt/standard": "^0.2.0-next.2",
 		"svelte": "^4.2.19",
-		"svelte-preprocess": "^6.0.2"
+		"svelte-preprocess": "^6.0.2",
+		"tsx": "^4.19.2"
 	}
 }
