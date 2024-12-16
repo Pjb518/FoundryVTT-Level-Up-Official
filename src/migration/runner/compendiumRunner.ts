@@ -39,6 +39,19 @@ class MigrationRunnerCompendium extends MigrationRunnerBase {
 		return files;
 	}
 
+	#toFixedJSON(source: Record<string, any>): string {
+		const content = JSON.stringify(
+			source,
+			(key, value) => {
+				if (key.startsWith('-=') || key.includes('.-=')) return;
+				return value;
+			},
+			'\t',
+		);
+
+		return `${content}\n`;
+	}
+
 	async getUpdatedSource(source: Record<string, any>): Promise<Record<string, any>> {
 		if (this.#isActor(source)) {
 			const update = await this.getUpdatedActor(source, this.migrations);
@@ -89,7 +102,7 @@ class MigrationRunnerCompendium extends MigrationRunnerBase {
 
 			// Write to file
 			if (!foundry.utils.objectsEqual(source, updated)) {
-				fs.writeFileSync(filePath, JSON.stringify(updated, null, '\t'), { encoding: 'utf-8' });
+				fs.writeFileSync(filePath, this.#toFixedJSON(updated), { encoding: 'utf-8' });
 			}
 		}
 	}

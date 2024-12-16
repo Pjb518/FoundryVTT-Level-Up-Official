@@ -47,10 +47,10 @@ const migrationList = MigrationList.constructFromLatestVersion(CURRENT_VERSION);
 const migrationRunner = new MigrationRunnerCompendium(migrationList);
 
 console.log(`[INFO] - Migrating to version ${CURRENT_VERSION}...`);
-await migrationRunner.runMigration(dirPaths[0]);
 
 for (const dirPath of dirPaths) {
-	console.log(`[INFO] - Running Migration for ${dirPath}...`);
+	console.log(`[INFO] - Running Migration for ${dirPath.split('\\').at(-1)}...`);
+	await migrationRunner.runMigration(dirPaths[0]);
 }
 
-console.log(`[INFO] - Successfully Migrated to ${CURRENT_VERSION}.`);
+console.log(`[INFO] - Successfully Migrated to version ${CURRENT_VERSION}.`);
