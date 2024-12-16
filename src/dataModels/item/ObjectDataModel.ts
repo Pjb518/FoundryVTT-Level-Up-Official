@@ -11,6 +11,10 @@ const schema = {
 		{ required: true, initial: [] },
 	),
 	armorCategory: new fields.StringField({ required: true, initial: '' }),
+	armorMods: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+		required: true,
+		initial: [],
+	}),
 	armorProperties: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 		required: true,
 		initial: [],
@@ -36,6 +40,7 @@ const schema = {
 		max: 2,
 	}),
 	defensiveProperties: new fields.StringField({ required: true, initial: '' }),
+	energyProperties: new fields.StringField({ required: true, initial: '' }),
 	equippedState: new fields.NumberField({
 		required: true,
 		initial: 0,
@@ -48,10 +53,12 @@ const schema = {
 		initial: [],
 	}),
 	items: new fields.ObjectField({ required: true, initial: {} }),
+	implant: new fields.BooleanField({ required: true, initial: false }),
 	materialProperties: new fields.ArrayField(
 		new fields.StringField({ required: true, initial: '' }),
 		{ required: true, initial: [] },
 	),
+	modPorts: new fields.StringField({ required: true, initial: '' }),
 	mounted: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 		required: true,
 		initial: [],
@@ -68,16 +75,32 @@ const schema = {
 		min: 0,
 	}),
 	rarity: new fields.StringField({ required: true, initial: 'mundane' }),
+	repairabilityDC: new fields.NumberField({
+		required: true,
+		initial: 0,
+		min: 0,
+		nullable: false,
+	}),
+	repairTools: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+		required: true,
+		initial: [],
+	}),
 	requiresAttunement: new fields.BooleanField({ required: true, initial: false }),
 	shieldCategory: new fields.StringField({ required: true, initial: '' }),
 	shieldProperties: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 		required: true,
 		initial: [],
 	}),
+	supply: new fields.BooleanField({ required: true, initial: false }),
+	techLevel: new fields.StringField({ required: true, initial: 'archaic' }),
 	unidentified: new fields.BooleanField({ required: true, initial: false }),
 	unidentifiedDescription: new fields.HTMLField({ required: true, initial: '' }),
 	unidentifiedName: new fields.StringField({ required: true, initial: '' }),
 	versatile: new fields.StringField({ required: true, initial: '' }),
+	weaponAugments: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+		required: true,
+		initial: [],
+	}),
 	weaponProperties: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 		required: true,
 		initial: [],

@@ -1,0 +1,304 @@
+{
+	"folder": null,
+	"name": "Psychic Impulse",
+	"type": "feature",
+	"img": "icons/magic/perception/third-eye-blue-red.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"KOCfmCUqBBMxpW7Z": {
+				"name": "Psychic Detonation",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Enemy moves to flank you"
+				},
+				"consumers": {
+					"v48RDtcGgdYIUfrz": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"NuFKZKSUarcApvAx": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"label": "",
+						"onSave": ""
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"description": "<p>When an enemy moves to flank you, you can use your reaction to send a concussive force outward; enemies in flanking positions make a Strength saving throw or be knocked back 5 feet.</p>",
+				"img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
+				"descriptionOutputs": [
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"id": "",
+				"default": true,
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"CyOtXMniCoLKRIXd": {
+				"name": "Mind Share",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"VH08llNVDc1xnY8W": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
+				"description": "<p>As a bonus action, you can share a brief thought of up to 10 words with one person you know or can see within 60 feet</p>",
+				"ranges": {
+					"SID2e4I2O6Ym9R1U": {
+						"range": "medium"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "",
+				"default": false
+			},
+			"NqfYB1Xs4NqHXYRy": {
+				"name": "Snap Reflex",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "Make an attack of opportunity"
+				},
+				"consumers": {
+					"LEZGfhyNKZRHiBvC": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"description": "<p>If you use your reaction to make an attack of opportunity, you can immediately make a second attack against the same target.</p>",
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"img": "icons/skills/melee/strike-axe-red.webp",
+				"id": "",
+				"default": false,
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creature"
+				}
+			},
+			"nsbhvmeb4sgW6nAy": {
+				"name": "Gut Feeling",
+				"activation": {
+					"type": "",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"2pVkFMxOgQrgxEIO": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"iJOe2Tz9LYUG7M7p": {
+						"type": "effect",
+						"default": true,
+						"effectId": "b2qXxUheZrZ2ulrX"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"img": "icons/magic/perception/eye-ringed-green.webp",
+				"id": "",
+				"default": false,
+				"description": "",
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<div class=\"flex max-w-full flex-col flex-grow\">\n<div class=\"min-h-8 text-message flex w-full flex-col items-end gap-2 whitespace-normal break-words [.text-message+&amp;]:mt-5\" dir=\"auto\" data-message-author-role=\"assistant\" data-message-id=\"a27749f6-abc7-40cf-8a79-c1c31ae6216b\" data-message-model-slug=\"gpt-4o\">\n<div class=\"flex w-full flex-col gap-1 empty:hidden first:pt-[3px]\">\n<div class=\"markdown prose w-full break-words dark:prose-invert light\">\n<p><span style=\"font-size: 10.5pt;\">Also at 1st level, you gain the following abilities. Once you have used any ability granted by this feature, you can’t use this feature again until you finish a long rest.</span></p>\n<p><strong>Psychic Detonation.</strong> When an enemy moves to flank you, you can use your reaction to send a concussive force outward; enemies in flanking positions make a Strength saving throw or be knocked back 5 feet.</p>\n<p><strong>Mind Share.</strong> As a bonus action, you can share a brief thought of up to 10 words with one person you know or can see within 60 feet.</p>\n<p><strong>Snap Reflex.</strong> If you use your reaction to make an attack of opportunity, you can immediately make a second attack against the same target.</p>\n<p><strong>Gut Feeling.</strong> You gain an expertise die on your next Perception check.</p>\n</div>\n</div>\n</div>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": "psyknight"
+	},
+	"effects": [
+		{
+			"origin": "Item.T5Zh0jIwVDb5s0rM",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "nsbhvmeb4sgW6nAy",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Gut Feeling",
+			"img": "icons/magic/perception/eye-ringed-green.webp",
+			"_id": "b2qXxUheZrZ2ulrX",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.skills.prc.expertiseDice",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain an expertise die on your next Perception check.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": null,
+				"modifiedTime": 1733249125639,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733248725234,
+		"modifiedTime": 1733265588246,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "LeLGhS59I6esKdS9"
+}

@@ -1,21 +1,30 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import getWeaponProperties from '../../../utils/summaries/getWeaponProperties';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import getWeaponProperties from "../../../utils/summaries/getWeaponProperties";
+    import getWeaponAugments from "../../../utils/summaries/getWeaponAugments";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import CheckboxGroup from '../CheckboxGroup.svelte';
-import RadioGroup from '../RadioGroup.svelte';
-import Section from '../Section.svelte';
+    import CheckboxGroup from "../CheckboxGroup.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
 
-const item = getContext('item');
+    const item = getContext("item");
 
-const { breakerProperties, defensiveProperties, versatileOptions, weaponProperties } = CONFIG.A5E;
+    const {
+        breakerProperties,
+        defensiveProperties,
+        energyProperties,
+        versatileOptions,
+        weaponAugments,
+        weaponProperties,
+    } = CONFIG.A5E;
 
-let editMode = false;
+    let editMode = false;
 
-$: selectedWeaponProperties = getWeaponProperties($item).filter(Boolean).join(', ');
+    $: selectedWeaponProperties = getWeaponProperties($item).filter(Boolean).join(", ");
+    $: selectedWeaponAugments = getWeaponAugments($item).filter(Boolean).join(", ");
 </script>
 
 <Section
@@ -43,6 +52,14 @@ $: selectedWeaponProperties = getWeaponProperties($item).filter(Boolean).join(',
                 )}
         />
 
+        <CheckboxGroup
+            heading="A5E.WeaponAugments"
+            options={Object.entries(weaponAugments)}
+            selected={$item.system.weaponAugments}
+            on:updateSelection={(event) =>
+                updateDocumentDataFromField($item, "system.weaponAugments", event.detail)}
+        />
+
         {#if $item.system.weaponProperties.includes("breaker")}
             <CheckboxGroup
                 heading="Breaker Property"
@@ -66,6 +83,20 @@ $: selectedWeaponProperties = getWeaponProperties($item).filter(Boolean).join(',
                     updateDocumentDataFromField(
                         $item,
                         "system.defensiveProperties",
+                        event.detail,
+                    )}
+            />
+        {/if}
+
+        {#if $item.system.weaponAugments.includes("energy")}
+            <RadioGroup
+                heading="Energy Property"
+                options={Object.entries(energyProperties)}
+                selected={$item.system.energyProperties}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField(
+                        $item,
+                        "system.energyProperties",
                         event.detail,
                     )}
             />
@@ -99,6 +130,16 @@ $: selectedWeaponProperties = getWeaponProperties($item).filter(Boolean).join(',
                     {selectedWeaponProperties || localize("A5E.None")}
                 </dd>
             </div>
+
+            {#if selectedWeaponAugments}
+                <div class="u-flex u-gap-md">
+                    <dt class="u-text-bold">{localize("A5E.WeaponAugments")}:</dt>
+
+                    <dd class="u-m-0 u-p-0">
+                        {selectedWeaponAugments || localize("A5E.None")}
+                    </dd>
+                </div>
+            {/if}
         </dl>
     {/if}
 </Section>

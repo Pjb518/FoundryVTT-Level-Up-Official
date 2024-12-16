@@ -29,7 +29,7 @@ export default class HitDiceManager {
 
 		Object.entries((this.#actor.system.attributes.hitDice as Record<string, any>) ?? {}).forEach(
 			([die, { current, total }]: [string, { current: number; total: number }]) => {
-				const size = parseInt(die.slice(1), 10);
+				const size = Number.parseInt(die.slice(1), 10);
 				this.#value += total - current;
 				this.#max += total;
 				this.dieSizes.add(size);
@@ -101,7 +101,7 @@ export default class HitDiceManager {
 		Object.entries(consumeData ?? {}).forEach(([die, quantity]) => {
 			const cls = Object.values(classes).find(
 				(c: any) =>
-					c.hitDice.size === parseInt(die.slice(1), 10) && c.hitDice.current - quantity >= 0,
+					c.hitDice.size === Number.parseInt(die.slice(1), 10) && c.hitDice.current - quantity >= 0,
 			);
 
 			if (!cls) return;
@@ -117,10 +117,10 @@ export default class HitDiceManager {
 		await this.#actor.updateEmbeddedDocuments('Item', updates);
 	}
 
-	async rollHitDice(dieSize: string | null = null, quantity: number = 1): Promise<any> {
+	async rollHitDice(dieSize: string | null = null, quantity = 1): Promise<any> {
 		const actorData = this.#actor.system;
-		// @ts-expect-error
-		const conMod = parseInt(actorData.abilities.con.check.mod, 10) || 0;
+		//  @ts-expect-error
+		const conMod = Number.parseInt(actorData.abilities.con.check.mod, 10) || 0;
 
 		if (this.#actor.type === 'npc' || !this.#automate) {
 			const { attributes } = actorData;
@@ -165,7 +165,8 @@ export default class HitDiceManager {
 		} else {
 			cls = Object.values(classes).find(
 				(c: any) =>
-					c.hitDice.size === parseInt(dieSize.slice(1), 10) && c.hitDice.current - quantity >= 0,
+					c.hitDice.size === Number.parseInt(dieSize.slice(1), 10) &&
+					c.hitDice.current - quantity >= 0,
 			);
 
 			if (!cls) return null;
@@ -203,6 +204,7 @@ export default class HitDiceManager {
 		const title = localize('A5E.HitDiceChatHeader', { dieSize: dieSize.toUpperCase() });
 		const chatData = {
 			author: game.user?.id,
+			//  @ts-expect-error
 			speaker: ChatMessage.getSpeaker({ actor: this.#actor }),
 			sound: CONFIG.sounds.dice,
 			rolls: [roll],
@@ -272,8 +274,8 @@ export default class HitDiceManager {
 		const hitDiceData = Object.entries(
 			(this.#actor.system.attributes.hitDice as Record<string, any>) ?? {},
 		).sort(([a], [b]) => {
-			if (restoreLargest) return parseInt(b.slice(1), 10) - parseInt(a.slice(1), 10);
-			return parseInt(a.slice(1), 10) - parseInt(b.slice(1), 10);
+			if (restoreLargest) return Number.parseInt(b.slice(1), 10) - Number.parseInt(a.slice(1), 10);
+			return Number.parseInt(a.slice(1), 10) - Number.parseInt(b.slice(1), 10);
 		});
 
 		hitDiceData.forEach(

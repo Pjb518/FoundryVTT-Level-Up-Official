@@ -1,82 +1,85 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import pressedKeysStore from '../../stores/pressedKeysStore';
+    import pressedKeysStore from "../../stores/pressedKeysStore";
 
-import getKeyPressAsOptions from '../handlers/getKeyPressAsOptions';
-import getExpertiseDieSize from '../../utils/getExpertiseDieSize';
-import getDeterministicBonus from '../../dice/getDeterministicBonus';
-import replaceHyphenWithMinusSign from '../../utils/replaceHyphenWithMinusSign';
+    import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
+    import getExpertiseDieSize from "../../utils/getExpertiseDieSize";
+    import getDeterministicBonus from "../../dice/getDeterministicBonus";
+    import replaceHyphenWithMinusSign from "../../utils/replaceHyphenWithMinusSign";
 
-export let columnFlow;
-export let key;
-export let skill;
+    export let columnFlow;
+    export let key;
+    export let skill;
 
-function getProficiencyLevel(actor, skill) {
-	const jackOfAllTrades = actor.flags.a5e?.jackOfAllTrades;
+    function getProficiencyLevel(actor, skill) {
+        const jackOfAllTrades = actor.flags.a5e?.jackOfAllTrades;
 
-	if (skill.proficient === 2) return 'expertise';
-	else if (skill.proficient) return 'proficient';
-	else if (jackOfAllTrades) return 'jack';
-}
+        if (skill.proficient === 2) return "expertise";
+        if (skill.proficient) return "proficient";
+        if (jackOfAllTrades) return "jack";
+    }
 
-function getProficiencyTooltip(proficiencyLevel) {
-	switch (proficiencyLevel) {
-		case 'expertise':
-			return 'A5E.ProficiencyExpertise';
-		case 'jack':
-			return 'A5E.ProficiencyJack';
-		case 'proficient':
-			return 'A5E.ProficiencyProficient';
-		default:
-			return null;
-	}
-}
+    function getProficiencyTooltip(proficiencyLevel) {
+        switch (proficiencyLevel) {
+            case "expertise":
+                return "A5E.ProficiencyExpertise";
+            case "jack":
+                return "A5E.ProficiencyJack";
+            case "proficient":
+                return "A5E.ProficiencyProficient";
+            default:
+                return null;
+        }
+    }
 
-function updateSkillProficiency() {
-	const currentState = skill.proficient;
-	let newState;
+    function updateSkillProficiency() {
+        const currentState = skill.proficient;
+        let newState;
 
-	if (!game.settings.get('a5e', '5eStyleExpertise')) {
-		if (currentState) newState = 0;
-		else newState = 1;
-	} else {
-		if (currentState === 2) newState = 0;
-		else if (currentState) newState = 2;
-		else newState = 1;
-	}
+        if (!game.settings.get("a5e", "5eStyleExpertise")) {
+            if (currentState) newState = 0;
+            else newState = 1;
+        } else {
+            if (currentState === 2) newState = 0;
+            else if (currentState) newState = 2;
+            else newState = 1;
+        }
 
-	$actor.update({ [`system.skills.${key}.proficient`]: newState });
-}
+        $actor.update({ [`system.skills.${key}.proficient`]: newState });
+    }
 
-function getSkillBonus() {
-	const skillBonus = skill.deterministicBonus;
+    function getSkillBonus() {
+        const skillBonus = skill.deterministicBonus;
 
-	if (showDeterministicBonus) {
-		return skillBonus;
-	} else {
-		const checkBonus = getDeterministicBonus(
-			$actor.BonusesManager.getAbilityBonusesFormula(skill.ability, 'check'),
-			$actor.getRollData(),
-		);
-		return skillBonus - checkBonus;
-	}
-}
+        if (showDeterministicBonus) {
+            return skillBonus;
+        }
 
-const actor = getContext('actor');
-const hideExpertiseDice = game.settings.get('a5e', 'hideExpertiseDice');
-const { skills } = CONFIG.A5E;
+        const checkBonus = getDeterministicBonus(
+            $actor.BonusesManager.getAbilityBonusesFormula(skill.ability, "check"),
+            $actor.getRollData(),
+        );
+        return skillBonus - checkBonus;
+    }
 
-let showDeterministicBonus = $actor.flags?.a5e?.includeAbilityModifiersForSkills ?? true;
+    const actor = getContext("actor");
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
+    const { skills } = CONFIG.A5E;
 
-$: abilityBonus = $actor.system.abilities[skill.ability].check.deterministicBonus;
+    let showDeterministicBonus =
+        $actor.flags?.a5e?.includeAbilityModifiersForSkills ?? true;
 
-$: skillBonus = getSkillBonus($actor, showDeterministicBonus);
-$: proficiencyLevel = getProficiencyLevel($actor, skill);
-$: proficiencyTooltip = getProficiencyTooltip(proficiencyLevel);
+    $: abilityBonus = $actor.system.abilities[skill.ability].check.mod;
 
-$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+    $: skillBonus = getSkillBonus($actor, showDeterministicBonus);
+    $: proficiencyLevel = getProficiencyLevel($actor, skill);
+    $: proficiencyTooltip = getProficiencyTooltip(proficiencyLevel);
+
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 <li class="skill" class:skill--column-flow={columnFlow}>
@@ -120,7 +123,9 @@ $: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ??
 
     <div class="skill__mod-wrapper">
         <span class="skill__mod">
-            {replaceHyphenWithMinusSign(skillBonus)}
+            {replaceHyphenWithMinusSign(
+                showDeterministicBonus ? skillBonus + abilityBonus : skillBonus,
+            )}
         </span>
 
         {#if $actor.flags.a5e?.showPassiveScores ?? true}

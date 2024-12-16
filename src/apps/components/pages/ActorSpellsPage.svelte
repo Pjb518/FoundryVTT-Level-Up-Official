@@ -1,130 +1,156 @@
 <script>
-import { localize } from '#runtime/util/i18n';
-import { getContext } from 'svelte';
+    import { localize } from "#runtime/util/i18n";
+    import { getContext } from "svelte";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import GenericConfigDialog from '../../dialogs/initializers/GenericConfigDialog';
+    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 
-import TabFooter from '../TabFooter.svelte';
-import SpellBook from '../SpellBook.svelte';
-import SpellbookConfigDialog from '../../dialogs/SpellbookConfigDialog.svelte';
-import SpellbookDeletionConfirmationDialog from '../../dialogs/initializers/SpellbookDeletionConfirmationDialog';
+    import TabFooter from "../TabFooter.svelte";
+    import SpellBook from "../SpellBook.svelte";
+    import SpellbookConfigDialog from "../../dialogs/SpellbookConfigDialog.svelte";
+    import SpellbookDeletionConfirmationDialog from "../../dialogs/initializers/SpellbookDeletionConfirmationDialog";
 
-import ActorSheetTempSettingsStore from '../../../stores/ActorSheetTempSettingsStore';
+    import ActorSheetTempSettingsStore from "../../../stores/ActorSheetTempSettingsStore";
 
-const actor = getContext('actor');
-let { spells } = actor;
+    const actor = getContext("actor");
+    let { spells } = actor;
 
-async function addSpellBook() {
-	const initialSpellBookQuantity = Object.keys($actor.system.spellBooks ?? {}).length;
+    async function addSpellBook() {
+        const initialSpellBookQuantity = Object.keys(
+            $actor.system.spellBooks ?? {},
+        ).length;
 
-	const newSpellBookId = await $actor.spellBooks.add({});
-	spells.initialize(); // Manually refresh reducer
+        const newSpellBookId = await $actor.spellBooks.add({});
+        spells.initialize(); // Manually refresh reducer
 
-	if (initialSpellBookQuantity === 0) {
-		updateCurrentSpellBook(newSpellBookId);
-	} else {
-		currentSpellBook = currentSpellBook; // This is stupid, but it works
-	}
+        if (initialSpellBookQuantity === 0) {
+            updateCurrentSpellBook(newSpellBookId);
+        } else {
+            // biome-ignore lint/correctness/noSelfAssign: <explanation>
+            currentSpellBook = currentSpellBook; // This is stupid, but it works
+        }
 
-	configureSpellbook(newSpellBookId);
-}
+        configureSpellbook(newSpellBookId);
+    }
 
-async function configureSpellbook(spellBookId) {
-	const dialog = new GenericConfigDialog($actor, 'Configure Spell Book', SpellbookConfigDialog, {
-		spellBookId,
-	});
+    async function configureSpellbook(spellBookId) {
+        const dialog = new GenericConfigDialog(
+            $actor,
+            "Configure Spell Book",
+            SpellbookConfigDialog,
+            {
+                spellBookId,
+            },
+        );
 
-	await dialog.render(true);
-}
+        await dialog.render(true);
+    }
 
-async function deleteSpellbook(spellBookId) {
-	const initialSpellBookQuantity = Object.keys($actor.system.spellBooks ?? {}).length;
+    async function deleteSpellbook(spellBookId) {
+        const initialSpellBookQuantity = Object.keys(
+            $actor.system.spellBooks ?? {},
+        ).length;
 
-	const dialog = new SpellbookDeletionConfirmationDialog();
-	await dialog.render(true);
+        const dialog = new SpellbookDeletionConfirmationDialog();
+        await dialog.render(true);
 
-	const { confirmDeletion } = await dialog.promise;
+        const { confirmDeletion } = await dialog.promise;
 
-	if (!confirmDeletion) return;
+        if (!confirmDeletion) return;
 
-	$actor.spellBooks.remove(spellBookId);
+        $actor.spellBooks.remove(spellBookId);
 
-	if (initialSpellBookQuantity === 1) {
-		updateCurrentSpellBook(null);
-	}
+        if (initialSpellBookQuantity === 1) {
+            updateCurrentSpellBook(null);
+        }
 
-	if (currentSpellBook === spellBookId) {
-		const firstSpellBook = Object.keys($actor.system.spellBooks ?? {})?.[0];
+        if (currentSpellBook === spellBookId) {
+            const firstSpellBook = Object.keys($actor.system.spellBooks ?? {})?.[0];
 
-		updateCurrentSpellBook(firstSpellBook);
-	}
-}
+            updateCurrentSpellBook(firstSpellBook);
+        }
+    }
 
-function getMaxSpellResource(type) {
-	if ($actor.type !== 'character') {
-		return spellResources[type].max;
-	}
+    function getMaxSpellResource(type) {
+        if ($actor.type !== "character") {
+            return spellResources[type].max;
+        }
 
-	if (sheetIsLocked) return spellResources[type].max;
-	return spellResources[type].override;
-}
+        if (sheetIsLocked) return spellResources[type].max;
+        return spellResources[type].override;
+    }
 
-function updateCurrentSpellBook(spellBookId) {
-	const { uuid } = $actor;
-	currentSpellBook = spellBookId;
+    function updateCurrentSpellBook(spellBookId) {
+        const { uuid } = $actor;
+        currentSpellBook = spellBookId;
 
-	ActorSheetTempSettingsStore.update((currentSettings) => ({
-		...currentSettings,
-		[uuid]: {
-			...(currentSettings[uuid] ?? {}),
-			currentSpellBook: spellBookId,
-		},
-	}));
-}
+        ActorSheetTempSettingsStore.update((currentSettings) => ({
+            ...currentSettings,
+            [uuid]: {
+                ...(currentSettings[uuid] ?? {}),
+                currentSpellBook: spellBookId,
+            },
+        }));
+    }
 
-function updateMaxSpellResource(type, value) {
-	const key =
-		$actor.type === 'character'
-			? `system.spellResources.${type}.override`
-			: `system.spellResources.${type}.max`;
+    function updateMaxSpellResource(type, value) {
+        const key =
+            $actor.type === "character"
+                ? `system.spellResources.${type}.override`
+                : `system.spellResources.${type}.max`;
 
-	updateDocumentDataFromField($actor, key, value);
-}
+        updateDocumentDataFromField($actor, key, value);
+    }
 
-let tempSettings = {};
+    let tempSettings = {};
 
-ActorSheetTempSettingsStore.subscribe((store) => {
-	tempSettings = store;
-});
+    ActorSheetTempSettingsStore.subscribe((store) => {
+        tempSettings = store;
+    });
 
-$: spellResources = $actor.system.spellResources;
+    $: spellResources = $actor.system.spellResources;
 
-$: preparedSpellCount = $actor.items.filter((item) => {
-	if (item.type !== 'spell') return false;
-	if (!item.system.prepared || item.system.prepared === CONFIG.A5E.PREPARED_STATES.ALWAYS_PREPARED)
-		return false;
+    $: preparedSpellCount = $actor.items.filter((item) => {
+        if (item.type !== "spell") return false;
+        if (
+            !item.system.prepared ||
+            item.system.prepared === CONFIG.A5E.PREPARED_STATES.ALWAYS_PREPARED
+        )
+            return false;
 
-	return true;
-}).length;
+        return true;
+    }).length;
 
-$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 
-$: spellBooks = $actor.spellBooks;
+    $: spellBooks = $actor.spellBooks;
 
-$: artifactChargesMax = getMaxSpellResource('artifactCharges', spellResources, sheetIsLocked);
+    $: artifactChargesMax = getMaxSpellResource(
+        "artifactCharges",
+        spellResources,
+        sheetIsLocked,
+    );
 
-$: spellInventionsMax = getMaxSpellResource('inventions', spellResources, sheetIsLocked);
+    $: spellInventionsMax = getMaxSpellResource(
+        "inventions",
+        spellResources,
+        sheetIsLocked,
+    );
 
-$: spellPointMax = getMaxSpellResource('points', spellResources, sheetIsLocked);
+    $: spellPointMax = getMaxSpellResource("points", spellResources, sheetIsLocked);
 
-let currentSpellBook =
-	tempSettings[$actor?.uuid]?.currentSpellBook ?? Object.keys($actor.system.spellBooks ?? {})?.[0];
+    $: exertion = $actor.system.attributes.exertion;
 
-if (!$spells._books[currentSpellBook]) {
-	spells.initialize();
-}
+    let currentSpellBook =
+        tempSettings[$actor?.uuid]?.currentSpellBook ??
+        Object.keys($actor.system.spellBooks ?? {})?.[0];
+
+    if (!$spells._books[currentSpellBook]) {
+        spells.initialize();
+    }
 </script>
 
 {#if !sheetIsLocked || [...spellBooks].length > 1}
@@ -268,18 +294,65 @@ if (!$spells._books[currentSpellBook]) {
     {/if}
 
     <!-- Spell Points -->
-    {#if $actor.spellBooks?.get(currentSpellBook)?.showSpellPoints ?? false}
-        <div class="u-flex u-flex-wrap u-align-center u-gap-md">
-            <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                {localize("A5E.SpellPoints")}
+    {#if $actor.system.classes.startingClass !== "psyknight"}
+        {#if $actor.spellBooks?.get(currentSpellBook)?.showSpellPoints ?? false}
+            <div class="u-flex u-flex-wrap u-align-center u-gap-md">
+                <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
+                    {localize("A5E.SpellPoints")}
+                </h3>
+
+                <input
+                    class="a5e-footer-group__input"
+                    class:disable-pointer-events={!$actor.isOwner}
+                    type="number"
+                    name="system.spellResources.points.current"
+                    value={spellResources.points.current}
+                    placeholder="0"
+                    min="0"
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value),
+                        )}
+                />
+                /
+                <input
+                    class="a5e-footer-group__input"
+                    type="number"
+                    name="system.spellResources.points.max"
+                    value={spellPointMax ?? 0}
+                    disabled={sheetIsLocked}
+                    placeholder="0"
+                    min="0"
+                    on:change={({ target }) =>
+                        updateMaxSpellResource("points", Number(target.value))}
+                />
+
+                {#if spellResources.points.current < spellPointMax && spellPointMax && $actor.system.classes.startingClass == "psion"}
+                    <button
+                        class="recharge-button"
+                        data-tooltip="A5E.PsionicPointsRechargeFromHitDice"
+                        data-tooltip-direction="UP"
+                        on:click={() => $actor.recoverPsionicPointsUsingHitDice()}
+                    >
+                        <i class="fa-solid fa-brain" />
+                    </button>
+                {/if}
+            </div>
+        {/if}
+    {:else}
+        <div class="u-flex u-align-center u-gap-md">
+            <h3 class="u-mb-0 u-text-sm u-text-bold">
+                {localize("A5E.ExertionPool")}
             </h3>
 
             <input
                 class="a5e-footer-group__input"
                 class:disable-pointer-events={!$actor.isOwner}
                 type="number"
-                name="system.spellResources.points.current"
-                value={spellResources.points.current}
+                name="system.attributes.exertion.current"
+                value={exertion.current}
                 placeholder="0"
                 min="0"
                 on:change={({ target }) =>
@@ -293,14 +366,29 @@ if (!$spells._books[currentSpellBook]) {
             <input
                 class="a5e-footer-group__input"
                 type="number"
-                name="system.spellResources.points.max"
-                value={spellPointMax ?? 0}
-                disabled={sheetIsLocked}
+                name="system.attributes.exertion.max"
+                value={exertion.max}
+                disabled={$actor.automationAvailable}
                 placeholder="0"
                 min="0"
                 on:change={({ target }) =>
-                    updateMaxSpellResource("points", Number(target.value))}
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
             />
+
+            {#if exertion.current < exertion.max && exertion.max}
+                <button
+                    class="recharge-button"
+                    data-tooltip="A5E.ExertionRechargeFromHitDice"
+                    data-tooltip-direction="UP"
+                    on:click={() => $actor.recoverExertionUsingHitDice()}
+                >
+                    <i class="fa-solid fa-bolt" />
+                </button>
+            {/if}
         </div>
     {/if}
 
@@ -386,6 +474,29 @@ if (!$spells._books[currentSpellBook]) {
 
         &:hover {
             transform: scale(1.2);
+        }
+    }
+
+    .recharge-button {
+        flex-grow: 0;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+        margin-left: 0.25rem;
+        background: none;
+        color: #999;
+        border: 0;
+
+        transition: var(--a5e-transition-standard);
+
+        &:hover {
+            color: #555;
+            transform: scale(1.2);
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: none;
         }
     }
 </style>

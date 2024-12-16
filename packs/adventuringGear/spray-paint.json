@@ -1,0 +1,195 @@
+{
+	"folder": null,
+	"name": "Spray Paint",
+	"type": "object",
+	"img": "icons/commodities/materials/liquid-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"nzcgmTU8GI6cA1L1": {
+				"name": "Spray Paint",
+				"activation": {},
+				"consumers": {
+					"9DB1cUsN2JFw4Y3x": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"ushrf1RO5t3cu3Rn": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					},
+					"cq8lQZEOUtgZduJ7": {
+						"type": "effect",
+						"default": true,
+						"effectId": "zLPMKXUuMUdUJ0Zn"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"XSdjbQMzXtfTijVq": {
+						"range": 10,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			}
+		},
+		"description": "<p>Used primarily for painting furniture, machine parts, and so on, spray paint is also used for graffiti and street or vehicle art and can blind creatures and cameras alike. It can be sprayed at a creature or camera within 10 feet. Cameras are automatically blinded until the paint is cleaned off (requiring 2 actions). Creatures make a Dexterity saving throw against the attacker's maneuver DC. Creatures that fail are blinded for 1 round if unprotected, or until 2 actions are spent to clean the lenses or visor of whatever eye or face protection they are wearing. A canister has 5 uses. Luminescent varieties exist that cast dim light within 5 feet of the area they are applied to; they cost twice as much.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 5,
+			"max": "5",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "consumable",
+		"plotItem": false,
+		"price": "1.25 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0.5,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"armorMods": [],
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"modPorts": "",
+		"mounted": [],
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.q9JeDCJGDtb3732D",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "nzcgmTU8GI6cA1L1",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Blinded",
+			"img": "icons/commodities/materials/liquid-green.webp",
+			"_id": "zLPMKXUuMUdUJ0Zn",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"blinded\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A blinded creature can't see and it automatically fails ability checks that require sight.</li>\n<li>Attack rolls against a blinded creature are made with advantage, and the creature's attack rolls are made with disadvantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"blinded"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732557314880,
+				"modifiedTime": 1732557358998,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732557180289,
+		"modifiedTime": 1732557314935,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "UjXugmQpIj9gJGRm"
+}

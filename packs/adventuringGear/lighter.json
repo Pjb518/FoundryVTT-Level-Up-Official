@@ -1,0 +1,210 @@
+{
+	"folder": null,
+	"name": "Lighter",
+	"type": "object",
+	"img": "icons/magic/fire/flame-burning-hand-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"xLZsSyEeIHn03RUv": {
+				"name": "Ignite",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"U8CsxshH3xHAideS": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"LvmUVa06weEcwk9l": {
+				"name": "Light",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"C06bcaPd2Rjgp0lL": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"zzjqDAZHZeiomxWC": {
+						"type": "effect",
+						"default": true,
+						"effectId": "QooNuiGXnWyL4cf4"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				}
+			}
+		},
+		"description": "<p>This small fire-starting device can be used to light anything with abundant, exposed fuel or highly-flammable objects such as paper as an action. You may also expend a use to cause the lighter to shed dim light in a 5-foot radius for one round.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 30,
+			"max": "30",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": "1 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"armorMods": [],
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"modPorts": "",
+		"mounted": [],
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.7iJUaXW3cJ9JL1Yy",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "LvmUVa06weEcwk9l",
+					"applyToSelf": true,
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Lighter",
+			"img": "icons/magic/fire/flame-burning-hand-orange.webp",
+			"_id": "QooNuiGXnWyL4cf4",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "@token.light.dim",
+					"value": "5",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Shed dim light in a 5-foot radius for one round.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732650876205,
+				"modifiedTime": 1732650933130,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732650756788,
+		"modifiedTime": 1732650876241,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "rS4DKh1G1WVwAfEg"
+}

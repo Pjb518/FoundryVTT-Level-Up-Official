@@ -1,0 +1,200 @@
+{
+	"folder": null,
+	"name": "Stronger Poison",
+	"type": "feature",
+	"img": "icons/creatures/abilities/stinger-poison-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"UnCQsYuGkBzRSNhc": {
+				"name": "Mandibles",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"vIzyLDqCNiACtJs6": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"f6smZa0Pj1mJbG73": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/creatures/abilities/stinger-poison-green.webp"
+			},
+			"W2zfFji5MxuqhOHP": {
+				"name": "Venomous Mandibles",
+				"activation": {},
+				"consumers": {
+					"MUKUYACmLHBFWysD": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"vIzyLDqCNiACtJs6": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"f6smZa0Pj1mJbG73": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @str.mod",
+						"damageType": "piercing"
+					},
+					"8a1RLS83wqM3ZulH": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d4",
+						"damageType": "poison"
+					}
+				},
+				"prompts": {
+					"ddnZZwucAyQZAmq0": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "con"
+						}
+					},
+					"nF854QM62EyJS86K": {
+						"type": "effect",
+						"default": true,
+						"effectId": "Wh5o6aFYCIxxfaaw"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"img": "icons/creatures/abilities/stinger-poison-green.webp"
+			}
+		},
+		"description": "<p>Your poisonous bite is even more toxic. Your target makes their saving throw against it at disadvantage, and additionally gains the slowed condition upon a failed save. The target may make a saving throw at the end of each turn to end the condition. If you do not already have the @UUID[Compendium.a5e.a5e-heritage-features.Item.4o50Ym3Bk33vakZo]{Venomous Mandibles} trait, you gain the Venomous Mandibles trait instead.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.0tgiyi9lEapmtOqQ",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "W2zfFji5MxuqhOHP"
+				}
+			},
+			"transfer": false,
+			"name": "Slowed",
+			"img": "icons/creatures/abilities/stinger-poison-green.webp",
+			"_id": "Wh5o6aFYCIxxfaaw",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"slowed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A slowed creature's Speed is halved.</li>\n<li>A slowed creature takes a −2 penalty to AC and Dexterity saving throws.</li>\n<li>A slowed creature cannot take reactions.</li>\n<li>On its turn, a slowed creature can take either an action or a bonus action, not both. In addition, it can't make more than one melee or ranged attack during its turn.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"slowed"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.30",
+				"createdTime": 1731768615085,
+				"modifiedTime": 1731768750596,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1731768437735,
+		"modifiedTime": 1731793694959,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "lSwvul9ePiXcI4Eo"
+}

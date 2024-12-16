@@ -1,21 +1,23 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import Checkbox from '../Checkbox.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
-import RadioGroup from '../RadioGroup.svelte';
-import Section from '../Section.svelte';
+    import Checkbox from "../Checkbox.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-const item = getContext('item');
-const appId = getContext('appId');
-const { A5E } = CONFIG;
-const { isGM } = game.user;
+    const item = getContext("item");
+    const appId = getContext("appId");
+    const { A5E } = CONFIG;
+    const { isGM } = game.user;
 
-let editMode = false;
-let hideBrokenAndDamaged = game.settings.get('a5e', 'hideBrokenAndDamaged');
+    let editMode = false;
+    let hideBrokenAndDamaged = game.settings.get("a5e", "hideBrokenAndDamaged");
+    let showVRCTechLevel = game.settings.get("a5e", "showVRCTechLevel");
+    let showVRCImplants = game.settings.get("a5e", "showVRCImplants");
 </script>
 
 <Section
@@ -46,6 +48,16 @@ let hideBrokenAndDamaged = game.settings.get('a5e', 'hideBrokenAndDamaged');
             on:updateSelection={(event) =>
                 updateDocumentDataFromField($item, "system.rarity", event.detail)}
         />
+
+        {#if showVRCTechLevel}
+            <RadioGroup
+                heading="A5E.ItemTechnologyLevel"
+                options={Object.entries(A5E.itemTechLevels)}
+                selected={$item.system.techLevel}
+                on:updateSelection={(event) =>
+                    updateDocumentDataFromField($item, "system.techLevel", event.detail)}
+            />
+        {/if}
 
         <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
             <Checkbox
@@ -81,6 +93,24 @@ let hideBrokenAndDamaged = game.settings.get('a5e', 'hideBrokenAndDamaged');
                     checked={$item.system.unidentified}
                     on:updateSelection={({ detail }) =>
                         updateDocumentDataFromField($item, "system.unidentified", detail)}
+                />
+            {/if}
+
+            {#if $item.system.objectType == "consumable"}
+                <Checkbox
+                    label="A5E.Supply"
+                    checked={$item.system.supply}
+                    on:updateSelection={({ detail }) =>
+                        updateDocumentDataFromField($item, "system.supply", detail)}
+                />
+            {/if}
+
+            {#if showVRCImplants}
+                <Checkbox
+                    label="A5E.Implant"
+                    checked={$item.system.implant}
+                    on:updateSelection={({ detail }) =>
+                        updateDocumentDataFromField($item, "system.implant", detail)}
                 />
             {/if}
         </Section>
@@ -203,6 +233,18 @@ let hideBrokenAndDamaged = game.settings.get('a5e', 'hideBrokenAndDamaged');
                     {localize(A5E.itemRarity[$item.system.rarity] ?? $item.system.rarity)}
                 </dd>
             </div>
+
+            {#if showVRCTechLevel}
+                <div class="u-flex u-gap-md">
+                    <dt class="u-text-bold">{localize("A5E.ItemTechnologyLevel")}:</dt>
+                    <dd class="u-m-0 u-p-0">
+                        {localize(
+                            A5E.itemTechLevels[$item.system.techLevel] ??
+                                $item.system.techLevel,
+                        )}
+                    </dd>
+                </div>
+            {/if}
 
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">{localize("A5E.Attunement")}:</dt>

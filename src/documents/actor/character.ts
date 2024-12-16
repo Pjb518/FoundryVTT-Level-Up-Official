@@ -4,6 +4,7 @@ import type ClassItemA5e from '../item/class';
 import { BaseActorA5e } from './base';
 
 import HitDiceManager from '../../managers/HitDiceManager';
+import ActionActivationDialog from '../../apps/dialogs/initializers/ActionActivationDialog';
 
 import getDeterministicBonus from '../../dice/getDeterministicBonus';
 
@@ -137,6 +138,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
 	}
 
 	prepareMaxFavorPoints() {
+		// @ts-expect-error
 		return this.system.abilities.cha.mod;
 	}
 
@@ -346,7 +348,8 @@ export default class CharacterActorA5E extends BaseActorA5e {
 	}
 
 	prepareResources() {
-		const source = this._source.system.resources;
+		// @ts-expect-error
+		const source = this._source.system.resources as any;
 
 		const genericResources = foundry.utils.deepClone(source);
 		delete genericResources.classResources;
@@ -356,8 +359,8 @@ export default class CharacterActorA5E extends BaseActorA5e {
 		const classResources = this.items.reduce((acc, i) => {
 			if (!['class', 'archetype'].includes(i.type)) return acc;
 
-			// @ts-expect-error
 			const resources = foundry.utils
+				// @ts-expect-error
 				.deepClone(i.resources.consumableResources)
 				.filter((r) => r.displayOnCore);
 
@@ -397,7 +400,7 @@ export default class CharacterActorA5E extends BaseActorA5e {
 		const resources = {};
 
 		data.classes = Object.entries(this.classes ?? {}).reduce((acc, [slug, cls]) => {
-			const classData = (cls.getRollData() ?? {}).actorTransfer ?? {};
+			const classData = cls.getRollData()?.actorTransfer ?? {};
 			acc[slug] = classData;
 
 			Object.assign(resources, classData.resources);
@@ -440,6 +443,34 @@ export default class CharacterActorA5E extends BaseActorA5e {
 				'exertion.current': newExertion,
 				[`hitDice.${lowestAvailableHitDie}.current`]: newHitDieCount,
 			},
+		});
+	}
+
+	async recoverPsionicPointsUsingHitDice() {
+		const { current, max } = this.system.spellResources.points;
+
+		const dieData = Object.entries(this.system.attributes.hitDice ?? {}).find(
+			// @ts-expect-error
+			([, { current: c, total: t }]) => c > 0 && t > 0,
+		);
+
+		if (!dieData) {
+			ui.notifications.warn(`${this.name} has no hit dice remaining.`);
+			return;
+		}
+
+		const [die] = dieData;
+		const roll = new Roll(`1${die}`);
+
+		// TODO: Chat Cards - Make the message prettier
+		await roll.toMessage();
+
+		//@ts-expect-error
+		const newPsionicPoints = Math.min((current ?? 0) + (roll.total ?? 0), max);
+		this.HitDiceManager.consumeHitDice({ [die]: 1 });
+
+		this.update({
+			'system.spellResources.points.current': newPsionicPoints,
 		});
 	}
 

@@ -1,0 +1,229 @@
+{
+	"folder": null,
+	"name": "Companion AI",
+	"type": "object",
+	"img": "icons/creatures/magical/spirit-undead-masked-blue.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"IoPfPps0v7zHoLWk": {
+				"name": "Hacked",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"E4S3Ik64s0GTUm45": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "2d8",
+						"damageType": "psychic"
+					}
+				},
+				"prompts": {
+					"tahignWYgucF3rnf": {
+						"type": "effect",
+						"default": true,
+						"effectId": "kjdoAR5pTeD4Y9C4"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>You have a non-sentient AI integrated with your brain. You recall everything you have experienced in the past week in perfect detail and can opt to manually store specific memories on more permanent storage (costing 50 credits per hour of memory) if desired. You also make all Intelligence checks and saving throws with advantage and Intelligence-based checks take you half as long.</p>\n<p><strong>Hacking.</strong> If the AI is hacked, you immediately suffer 2d8 psychic damage and gain two levels of strife that persist until the implant is reset, which requires a short rest and a cybernetics kit.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "miscellaneous",
+		"plotItem": false,
+		"price": "2,000 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [],
+		"weight": 0,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"armorMods": [],
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"implant": true,
+		"modPorts": "",
+		"mounted": [],
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.1c1prsH5RV7sih8P",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "passive"
+				}
+			},
+			"transfer": false,
+			"name": "Companion AI",
+			"img": "icons/creatures/magical/spirit-undead-masked-blue.webp",
+			"_id": "c9ElMqh3Npl1ncWy",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.int",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.int",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Make all Intelligence checks and saving throws with advantage and Intelligence-based checks take you half as long.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732739346177,
+				"modifiedTime": 1732739380766,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.1c1prsH5RV7sih8P",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "IoPfPps0v7zHoLWk",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Companion AI",
+			"img": "icons/creatures/magical/spirit-undead-masked-blue.webp",
+			"_id": "kjdoAR5pTeD4Y9C4",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "system.attributes.strife",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gain two levels of strife that persist until the implant is reset, which requires a short rest and a cybernetics kit.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732739417599,
+				"modifiedTime": 1732739444066,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732739277124,
+		"modifiedTime": 1732739417641,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "WZouB1L6t3WJkflX"
+}

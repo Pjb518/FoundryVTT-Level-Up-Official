@@ -290,12 +290,47 @@ const armorModes = {
 	2: 'A5E.armorClass.modes.override',
 };
 
+const armorMods = {
+	biosensors: 'A5E.ArmorModBiosensors',
+	dronePort: 'A5E.ArmorModDronePort',
+	environmentalRecycling: 'A5E.ArmorModEnvironmentalRecycling',
+	floodlights: 'A5E.ArmorModFloodlights',
+	gliderWings: 'A5E.ArmorModGliderWings',
+	grapplingHook: 'A5E.ArmorModGrapplingHook',
+	groundAnchors: 'A5E.ArmorModGroundAnchors',
+	hazmatSealing: 'A5E.ArmorModHazmatSealing',
+	improvedColdShielding: 'A5E.ArmorModImprovedColdShielding',
+	improvedHeatShielding: 'A5E.ArmorModImprovedHeatShielding',
+	improvedWeaponHatch: 'A5E.ArmorModImprovedWeaponHatch',
+	integratedFirstAid: 'A5E.ArmorModIntegratedFirstAid',
+	integratedJetpack: 'A5E.ArmorModIntegratedJetpack',
+	integratedTool: 'A5E.ArmorModIntegratedTool',
+	kineticAssistance: 'A5E.ArmorModKineticAssistance',
+	massJammer: 'A5E.ArmorModMassJammer',
+	mindshielding: 'A5E.ArmorModMindshielding',
+	nightvisionGoggles: 'A5E.ArmorModNightvisionGoggles',
+	personalJammer: 'A5E.ArmorModPersonalJammer',
+	pocket: 'A5E.ArmorModPocket',
+	powerClaw: 'A5E.ArmorModPowerClaw',
+	rechargePort: 'A5E.ArmorModRechargePort',
+	reconApparatus: 'A5E.ArmorModReconApparatus',
+	repairKit: 'A5E.ArmorModRepairKit',
+	secondaryArmorPlating: 'A5E.ArmorModSecondaryArmorPlating',
+	weaponHatch: 'A5E.ArmorModWeaponHatch',
+};
+
 /**
  * The set of core armor properties in the system.
  * @enum {string}
  */
 const armorProperties = {
 	camouflaged: 'A5E.ArmorPropertyCamouflaged',
+	cloaking: 'A5E.ArmorPropertyCloaking',
+	coldShielding: 'A5E.ArmorPropertyColdShielding',
+	greased: 'A5E.ArmorPropertyGreased',
+	heatShielding: 'A5E.ArmorPropertyHeatShielding',
+	mirrored: 'A5E.ArmorPropertyMirrored',
+	shearThickening: 'A5E.ArmorPropertyShearThickening',
 	spiked: 'A5E.ArmorPropertySpiked',
 	stealthy: 'A5E.objectProperties.stealthy',
 	storage: 'A5E.objectProperties.storage',
@@ -527,6 +562,12 @@ const itemRarity = {
 	artifact: 'A5E.itemRarities.artifact',
 };
 
+const itemTechLevels = {
+	archaic: 'A5E.itemTechLevels.archaic',
+	standard: 'A5E.itemTechLevels.standard',
+	advanced: 'A5E.itemTechLevels.advanced',
+};
+
 /**
  * // List of various item types.
  * @enum {string}
@@ -562,10 +603,14 @@ const knackTypes = {
 	fighter: 'Soldiering Knack',
 	herald: 'Divine Lesson',
 	marshal: 'Lesson of War',
+	psion: 'Cognitive Discoveries',
+	psyknight: 'Psychic Isometrics',
 	ranger: 'Exploration Knack',
 	rogue: 'Skill Trick',
 	savant: 'Clever Scheme',
 	scholar: 'Scholarly Discovery',
+	scientist: 'Scientific Praxes',
+	scout: 'Clever Trick',
 	sorcerer: 'Arcane Innovation',
 	warlock: 'Secret of Arcana',
 	wielder: 'Artifact Whisper',
@@ -598,6 +643,7 @@ const languages = {
 	halfling: 'A5E.languages.halfling',
 	ignan: 'A5E.languages.ignan',
 	infernal: 'A5E.languages.infernal',
+	machine: 'A5E.languages.machine',
 	minotaur: 'A5E.languages.minotaur',
 	mycelial: 'A5E.languages.mycelial',
 	orc: 'A5E.languages.orc',
@@ -618,17 +664,20 @@ const maneuverDegrees = {
 };
 
 const maneuverTraditions = {
+	aceStarfighter: 'A5E.maneuverTraditions.aceStarfighter',
 	adamantMountain: 'A5E.maneuverTraditions.adamantMountain',
 	arcaneArtillery: 'A5E.maneuverTraditions.arcaneArtillery',
 	arcaneKnight: 'A5E.maneuverTraditions.arcaneKnight',
 	awakenedMind: 'A5E.maneuverTraditions.awakenedMind',
 	beastUnity: 'A5E.maneuverTraditions.beastUnity',
 	bitingZephyr: 'A5E.maneuverTraditions.bitingZephyr',
+	blazingStarglaive: 'A5E.maneuverTraditions.blazingStarglaive',
 	comedicJabs: 'A5E.maneuverTraditions.comedicJabs',
 	cuttingOmen: 'A5E.maneuverTraditions.cuttingOmen',
 	eldritchBlackguard: 'A5E.maneuverTraditions.eldritchBlackguard',
 	gallantHeart: 'A5E.maneuverTraditions.gallantHeart',
 	grindingCog: 'A5E.maneuverTraditions.grindingCog',
+	mindfulBody: 'A5E.maneuverTraditions.mindfulBody',
 	mirrorsGlint: 'A5E.maneuverTraditions.mirrorsGlint',
 	mistAndShade: 'A5E.maneuverTraditions.mistAndShade',
 	rapidCurrent: 'A5E.maneuverTraditions.rapidCurrent',
@@ -649,12 +698,14 @@ const materialProperties = {
 	feybane: 'A5E.MaterialPropertyFeybane',
 	flaw: 'A5E.MaterialPropertyFlaw',
 	fortified: 'A5E.MaterialPropertyFortified',
+	hackable: 'A5E.MaterialPropertyHackable',
 	hardy: 'A5E.MaterialPropertyHardy',
 	highQuality: 'A5E.MaterialPropertyHighQuality',
 	lightweight: 'A5E.MaterialPropertyLightweight',
 	lowMaintenance: 'A5E.MaterialPropertyLowMaintenance',
 	rust: 'A5E.MaterialPropertyRust',
 	silvered: 'A5E.MaterialPropertySilvered',
+	spacefaring: 'A5E.MaterialPropertySpacefaring',
 	underarmor: 'A5E.MaterialPropertyUnderarmor',
 	weighty: 'A5E.MaterialPropertyWeighty',
 	wild: 'A5E.MaterialPropertyWild',
@@ -664,6 +715,16 @@ const flaws = {
 	bludgeoning: 'A5E.damageTypes.bludgeoning',
 	piercing: 'A5E.damageTypes.piercing',
 	slashing: 'A5E.damageTypes.slashing',
+};
+
+const modPorts = {
+	0: 'Ignore',
+	1: '1',
+	2: '2',
+	3: '3',
+	4: '4',
+	5: '5',
+	6: '6',
 };
 
 /**
@@ -754,6 +815,13 @@ const preparedStates = {
 	2: 'A5E.preparedState.alwaysPrepared',
 };
 
+const psionicDisciplines = {
+	dynakinetic: 'A5E.PsionicDisciplineDynakinetic',
+	kinesthetic: 'A5E.PsionicDisciplineKinesthetic',
+	telekinetic: 'A5E.PsionicDisciplineTelekinetic',
+	telepathic: 'A5E.PsionicDisciplineTelepathic',
+};
+
 /**
  * The set of core range types in the system.
  * @enum {string}
@@ -775,6 +843,18 @@ const rangeValues = {
 	short: 30,
 	medium: 60,
 	long: 120,
+};
+
+/**
+ * The set of core armor properties in the system.
+ * @enum {string}
+ */
+const repairTools = {
+	forge: 'A5E.repairTools.forge',
+	engineersToolbox: 'A5E.repairTools.engineersToolbox',
+	notRepairable: 'A5E.repairTools.notRepairable',
+	sewingKit: 'A5E.repairTools.sewingKit',
+	smithsTools: 'A5E.repairTools.smithsTools',
 };
 
 const resourceRecoveryOptions = {
@@ -1072,6 +1152,7 @@ const skills = {
 	prf: 'A5E.skills.performance',
 	per: 'A5E.skills.persuasion',
 	rel: 'A5E.skills.religion',
+	sci: 'A5E.skills.science',
 	slt: 'A5E.skills.sleightOfHand',
 	ste: 'A5E.skills.stealth',
 	sur: 'A5E.skills.survival',
@@ -1141,6 +1222,7 @@ const skillDefaultAbilities = {
 	prf: 'cha',
 	per: 'cha',
 	rel: 'int',
+	sci: 'int',
 	slt: 'dex',
 	ste: 'dex',
 	sur: 'wis',
@@ -1175,6 +1257,9 @@ const skillSpecialties = {
 		monstrosities: 'A5E.skillSpecialties.monstrosities',
 		oozes: 'A5E.skillSpecialties.oozes',
 		thePlanes: 'A5E.skillSpecialties.thePlanes',
+		psionics: 'A5E.skillSpecialties.psionics',
+		psionicItems: 'A5E.skillSpecialties.psionicItems',
+		psionicCreatures: 'A5E.skillSpecialties.psionicCreatures',
 	},
 	ath: {
 		climbing: 'A5E.skillSpecialties.climbing',
@@ -1185,6 +1270,7 @@ const skillSpecialties = {
 		running: 'A5E.skillSpecialties.running',
 		swimming: 'A5E.skillSpecialties.swimming',
 		throwing: 'A5E.skillSpecialties.throwing',
+		zeroG: 'A5E.skillSpecialties.zeroG',
 	},
 	cul: {
 		courtlyManners: 'A5E.skillSpecialties.courtlyManners',
@@ -1212,7 +1298,11 @@ const skillSpecialties = {
 		mathematics: 'A5E.skillSpecialties.mathematics',
 		mechanicalTraps: 'A5E.skillSpecialties.mechanicalTraps',
 		plumbing: 'A5E.skillSpecialties.plumbing',
+		robotics: 'A5E.skillSpecialties.robotics',
 		siegecraft: 'A5E.skillSpecialties.siegecraft',
+		starships: 'A5E.skillSpecialties.starships',
+		starshipEngines: 'A5E.skillSpecialties.starshipEngines',
+		starshipShields: 'A5E.skillSpecialties.starshipShields',
 		weaponry: 'A5E.skillSpecialties.weaponry',
 	},
 	his: {
@@ -1241,6 +1331,7 @@ const skillSpecialties = {
 		forensics: 'A5E.skillSpecialties.forensics',
 		gatheringRumors: 'A5E.skillSpecialties.gatheringRumors',
 		research: 'A5E.skillSpecialties.research',
+		sensors: 'A5E.skillSpecialties.sensors',
 		trapfinding: 'A5E.skillSpecialties.trapfinding',
 	},
 	med: {
@@ -1251,6 +1342,7 @@ const skillSpecialties = {
 		herbalism: 'A5E.skillSpecialties.herbalism',
 		mentalHealth: 'A5E.skillSpecialties.mentalHealth',
 		poisons: 'A5E.skillSpecialties.poisons',
+		xenobiology: 'A5E.skillSpecialties.xenobiology',
 	},
 	nat: {
 		astronomy: 'A5E.skillSpecialties.astronomy',
@@ -1294,6 +1386,14 @@ const skillSpecialties = {
 		relics: 'A5E.skillSpecialties.relics',
 		undead: 'A5E.skillSpecialties.undead',
 	},
+	sci: {
+		astronomy: 'A5E.skillSpecialties.astronomy',
+		chemistry: 'A5E.skillSpecialties.chemistry',
+		earthScience: 'A5E.skillSpecialties.earthScience',
+		mathematics: 'A5E.skillSpecialties.mathematics',
+		physics: 'A5E.skillSpecialties.physics',
+		technobabble: 'A5E.skillSpecialties.technobabble',
+	},
 	slt: {
 		distraction: 'A5E.skillSpecialties.distraction',
 		legerdemain: 'A5E.skillSpecialties.legerdemain',
@@ -1305,6 +1405,7 @@ const skillSpecialties = {
 		casing: 'A5E.skillSpecialties.casing',
 	},
 	sur: {
+		astrogation: 'A5E.skillSpecialties.astrogation',
 		dungeoneering: 'A5E.skillSpecialties.dungeoneering',
 		foraging: 'A5E.skillSpecialties.foraging',
 		hunting: 'A5E.skillSpecialties.hunting',
@@ -1414,6 +1515,7 @@ const toolCategories = {
 	gamingSets: 'A5E.ToolsGamingSets',
 	musicalInstruments: 'A5E.MusicalInstruments',
 	miscellaneous: 'A5E.ToolsMiscellaneous',
+	specialist: 'A5E.ToolsSpecialist',
 	vehicles: 'A5E.ToolsVehicles',
 	other: 'A5E.ToolsOther',
 };
@@ -1444,20 +1546,26 @@ const tools = {
 		playingCardSet: 'A5E.ToolPlayingCardSet',
 	},
 	musicalInstruments: {
+		acousticGuitar: 'A5E.InstrumentAcousticGuitar',
 		bagpipes: 'A5E.InstrumentBagpipes',
 		casaba: 'A5E.InstrumentCasaba',
 		castanet: 'A5E.InstrumentCastanet',
 		drum: 'A5E.InstrumentDrum',
 		dulcimer: 'A5E.InstrumentDulcimer',
+		electricGuitar: 'A5E.InstrumentElectricGuitar',
 		flute: 'A5E.InstrumentFlute',
+		harmonica: 'A5E.InstrumentHarmonica',
 		harp: 'A5E.InstrumentHarp',
 		horn: 'A5E.InstrumentHorn',
+		keytar: 'A5E.InstrumentKeytar',
 		lute: 'A5E.InstrumentLute',
 		lyre: 'A5E.InstrumentLyre',
 		maraca: 'A5E.InstrumentMaraca',
 		ocarina: 'A5E.InstrumentOcarina',
 		panFlute: 'A5E.InstrumentPanFlute',
+		saxophone: 'A5E.InstrumentSaxophone',
 		shawm: 'A5E.InstrumentShawm',
+		theremin: 'A5E.InstrumentTheremin',
 		trombone: 'A5E.InstrumentTrombone',
 		viol: 'A5E.InstrumentViol',
 		violin: 'A5E.InstrumentViolin',
@@ -1471,11 +1579,22 @@ const tools = {
 		sewingKit: 'A5E.ToolSewingKit',
 		smithsTools: 'A5E.ToolSmithsTools',
 		thievesTools: 'A5E.ToolThievesTools',
+		computers: 'A5E.ToolComputers',
+	},
+	specialist: {
+		computerTechnicianKit: 'A5E.ToolComputerTechnicianKit',
+		cyberneticsKit: 'A5E.ToolCyberneticsKit',
+		engineersToolbox: 'A5E.ToolEngineersToolbox',
+		fieldLaboratory: 'A5E.ToolFieldLaboratory',
+		hackingTool: 'A5E.ToolHackingTool',
+		medicalPouch: 'A5E.ToolMedicalPouch',
+		multiScanner: 'A5E.ToolMultiScanner',
 	},
 	vehicles: {
 		landVehicles: 'A5E.VehicleLand',
 		waterVehicles: 'A5E.VehicleWater',
 		airVehicles: 'A5E.VehicleAir',
+		spaceVehicles: 'A5E.VehicleSpace',
 	},
 };
 
@@ -1505,20 +1624,26 @@ const toolsPlural = {
 		playingCardSet: 'A5E.ToolPlayingCardSetPlural',
 	},
 	musicalInstruments: {
+		acousticGuitar: 'A5E.InstrumentAcousticGuitarPlural',
 		bagpipes: 'A5E.InstrumentBagpipesPlural',
 		casaba: 'A5E.InstrumentCasabaPlural',
 		castanet: 'A5E.InstrumentCastanetPlural',
 		drum: 'A5E.InstrumentDrumPlural',
 		dulcimer: 'A5E.InstrumentDulcimerPlural',
+		electricGuitar: 'A5E.InstrumentElectricGuitarPlural',
 		flute: 'A5E.InstrumentFlutePlural',
+		harmonica: 'A5E.InstrumentHarmonicaPlural',
 		harp: 'A5E.InstrumentHarpPlural',
 		horn: 'A5E.InstrumentHornPlural',
+		keytar: 'A5E.InstrumentKeytarPlural',
 		lute: 'A5E.InstrumentLutePlural',
 		lyre: 'A5E.InstrumentLyrePlural',
 		maraca: 'A5E.InstrumentMaracaPlural',
 		ocarina: 'A5E.InstrumentOcarinaPlural',
 		panFlute: 'A5E.InstrumentPanFlutePlural',
+		saxophone: 'A5E.InstrumentSaxophonePlural',
 		shawm: 'A5E.InstrumentShawmPlural',
+		theremin: 'A5E.InstrumentTheremin',
 		trombone: 'A5E.InstrumentTrombonePlural',
 		viol: 'A5E.InstrumentViolPlural',
 		violin: 'A5E.InstrumentViolinPlural',
@@ -1533,10 +1658,20 @@ const toolsPlural = {
 		smithsTools: 'A5E.ToolSmithsToolsPlural',
 		thievesTools: 'A5E.ToolThievesToolsPlural',
 	},
+	specialist: {
+		computerTechnicianKit: 'A5E.ToolComputerTechnicianKitPlural',
+		cyberneticsKit: 'A5E.ToolCyberneticsKitPlural',
+		engineersToolbox: 'A5E.ToolEngineersToolboxPlural',
+		fieldLaboratory: 'A5E.ToolFieldLaboratoryPlural',
+		hackingTool: 'A5E.ToolHackingToolPlural',
+		medicalPouch: 'A5E.ToolMedicalPouchPlural',
+		multiScanner: 'A5E.ToolMultiScannerPlural',
+	},
 	vehicles: {
 		landVehicles: 'A5E.VehicleLandPlural',
 		waterVehicles: 'A5E.VehicleWaterPlural',
 		airVehicles: 'A5E.VehicleAirPlural',
+		spaceVehicles: 'A5E.VehicleSpacePlural',
 	},
 };
 
@@ -1544,6 +1679,7 @@ const weaponCategories = {
 	simple: 'A5E.WeaponsSimple',
 	martial: 'A5E.WeaponsMartial',
 	rare: 'A5E.WeaponsRare',
+	miscellaneous: 'A5E.WeaponsMiscellaneous',
 	other: 'A5E.WeaponsOther',
 };
 
@@ -1552,42 +1688,68 @@ const weaponCategories = {
  */
 const weapons = {
 	simple: {
+		blaster: 'A5E.WeaponBlaster',
 		blowgun: 'A5E.WeaponBlowgun',
 		club: 'A5E.WeaponClub',
 		dagger: 'A5E.WeaponDagger',
 		handaxe: 'A5E.WeaponHandaxe',
 		heavyCrossbow: 'A5E.WeaponHeavyCrossbow',
+		joltPistol: 'A5E.WeaponJoltPistol',
 		greatclub: 'A5E.WeaponGreatclub',
+		laserPistol: 'A5E.WeaponLaserPistol',
 		lightCrossbow: 'A5E.WeaponLightCrossbow',
 		mace: 'A5E.WeaponMace',
 		quarterstaff: 'A5E.WeaponQuarterstaff',
+		shockMace: 'A5E.WeaponShockMace',
 		sickle: 'A5E.WeaponSickle',
 		sling: 'A5E.WeaponSling',
+		slugger: 'A5E.WeaponSlugger',
+		sonicMaul: 'A5E.WeaponSonicMaul',
 		spear: 'A5E.WeaponSpear',
+		stunStick: 'A5E.WeaponStunStick',
+		tacticalBaton: 'A5E.WeaponTacticalBaton',
 	},
 	martial: {
 		bastardSword: 'A5E.WeaponBastardSword',
 		battleaxe: 'A5E.WeaponBattleaxe',
+		battleGauntlet: 'A5E.WeaponBattleGauntlet',
+		bioChakram: 'A5E.WeaponBioChakram',
 		brassKnuckles: 'A5E.WeaponBrassKnuckles',
+		combatChainsaw: 'A5E.WeaponCombatChainsaw',
+		combatKnife: 'A5E.WeaponCombatKnife',
 		compositeBow: 'A5E.WeaponCompositeBow',
 		dart: 'A5E.WeaponDart',
 		duelingDagger: 'A5E.WeaponDuelingDagger',
+		duelingSword: 'A5E.WeaponDuelingSword',
+		electroHalberd: 'A5E.WeaponElectroHalberd',
+		energyCrossbow: 'A5E.WeaponEnergyCrossbow',
 		flail: 'A5E.WeaponFlail',
+		flameBracer: 'A5E.WeaponFlameBracer',
+		flamethrower: 'A5E.WeaponFlamethrower',
 		garotte: 'A5E.WeaponGarotte',
 		glaive: 'A5E.WeaponGlaive',
 		greataxe: 'A5E.WeaponGreataxe',
 		greatsword: 'A5E.WeaponGreatsword',
+		grenadeLauncher: 'A5E.WeaponGrenadeLauncher',
 		halberd: 'A5E.WeaponHalberd',
 		handCrossbow: 'A5E.WeaponHandCrossbow',
+		hypodermicPistol: 'A5E.WeaponHypodermicPistol',
+		ionCannon: 'A5E.WeaponIonCannon',
 		javelin: 'A5E.WeaponJavelin',
 		lance: 'A5E.WeaponLance',
 		lightHammer: 'A5E.WeaponLightHammer',
 		longbow: 'A5E.WeaponLongbow',
+		longspear: 'A5E.WeaponLongspear',
 		longsword: 'A5E.WeaponLongsword',
 		maul: 'A5E.WeaponMaul',
+		monoWhip: 'A5E.WeaponMonoWhip',
 		morningstar: 'A5E.WeaponMorningstar',
 		net: 'A5E.WeaponNet',
+		netcaster: 'A5E.WeaponNetcaster',
 		pike: 'A5E.WeaponPike',
+		plasmaSword: 'A5E.WeaponPlasmaSword',
+		polaronGatlingGun: 'A5E.WeaponPolaronGatlingGun',
+		pulseRifle: 'A5E.WeaponPulseRifle',
 		punchingDagger: 'A5E.WeaponPunchingDagger',
 		rapier: 'A5E.WeaponRapier',
 		saber: 'A5E.WeaponSaber',
@@ -1595,9 +1757,15 @@ const weapons = {
 		scythe: 'A5E.WeaponScythe',
 		shortbow: 'A5E.WeaponShortbow',
 		shortsword: 'A5E.WeaponShortsword',
+		shotgun: 'A5E.WeaponShotgun',
+		slugRifle: 'A5E.WeaponSlugRifle',
+		sniperRifle: 'A5E.WeaponSniperRifle',
 		spearThrower: 'A5E.WeaponSpearThrower',
 		throwingDagger: 'A5E.WeaponThrowingDagger',
+		tkGauntlet: 'A5E.WeaponTKGauntlet',
 		trident: 'A5E.WeaponTrident',
+		vibroknife: 'A5E.WeaponVibroknife',
+		viperRetainer: 'A5E.WeaponViperRetainer',
 		warhammer: 'A5E.WeaponWarhammer',
 		warPick: 'A5E.WeaponWarPick',
 		whip: 'A5E.WeaponWhip',
@@ -1619,6 +1787,10 @@ const weapons = {
 		spikedChain: 'A5E.WeaponSpikedChain',
 		swordPistol: 'A5E.WeaponSwordPistol',
 	},
+	miscellaneous: {
+		improvised: 'A5E.WeaponImprovised',
+		starship: 'A5E.WeaponStarship',
+	},
 };
 
 /**
@@ -1626,42 +1798,68 @@ const weapons = {
  */
 const weaponsPlural = {
 	simple: {
+		blaster: 'A5E.WeaponBlasterPlural',
 		blowgun: 'A5E.WeaponBlowgunPlural',
 		club: 'A5E.WeaponClubPlural',
 		dagger: 'A5E.WeaponDaggerPlural',
 		handaxe: 'A5E.WeaponHandaxePlural',
 		heavyCrossbow: 'A5E.WeaponHeavyCrossbowPlural',
+		joltPistol: 'A5E.WeaponJoltPistolPlural',
 		greatclub: 'A5E.WeaponGreatclubPlural',
+		laserPistol: 'A5E.WeaponLaserPistolPlural',
 		lightCrossbow: 'A5E.WeaponLightCrossbowPlural',
 		mace: 'A5E.WeaponMacePlural',
 		quarterstaff: 'A5E.WeaponQuarterstaffPlural',
+		shockMace: 'A5E.WeaponShockMacePlural',
 		sickle: 'A5E.WeaponSicklePlural',
 		sling: 'A5E.WeaponSlingPlural',
+		slugger: 'A5E.WeaponSluggerPlural',
+		sonicMaul: 'A5E.WeaponSonicMaulPlural',
 		spear: 'A5E.WeaponSpearPlural',
+		stunStick: 'A5E.WeaponStunStickPlural',
+		tacticalBaton: 'A5E.WeaponTacticalBatonPlural',
 	},
 	martial: {
 		bastardSword: 'A5E.WeaponBastardSwordPlural',
 		battleaxe: 'A5E.WeaponBattleaxePlural',
+		battleGauntlet: 'A5E.WeaponBattleGauntletPlural',
+		bioChakram: 'A5E.WeaponBioChakramPlural',
 		brassKnuckles: 'A5E.WeaponBrassKnucklesPlural',
+		combatChainsaw: 'A5E.WeaponCombatChainsawPlural',
+		combatKnife: 'A5E.WeaponCombatKnifePlural',
 		compositeBow: 'A5E.WeaponCompositeBowPlural',
 		dart: 'A5E.WeaponDartPlural',
 		duelingDagger: 'A5E.WeaponDuelingDaggerPlural',
+		duelingSword: 'A5E.WeaponDuelingSwordPlural',
+		electroHalberd: 'A5E.WeaponElectroHalberdPlural',
+		energyCrossbow: 'A5E.WeaponEnergyCrossbowPlural',
 		flail: 'A5E.WeaponFlailPlural',
+		flameBracer: 'A5E.WeaponFlameBracerPlural',
+		flamethrower: 'A5E.WeaponFlamethrowerPlural',
 		garotte: 'A5E.WeaponGarottePlural',
 		glaive: 'A5E.WeaponGlaivePlural',
 		greataxe: 'A5E.WeaponGreataxePlural',
 		greatsword: 'A5E.WeaponGreatswordPlural',
+		grenadeLauncher: 'A5E.WeaponGrenadeLauncherPlural',
 		halberd: 'A5E.WeaponHalberdPlural',
 		handCrossbow: 'A5E.WeaponHandCrossbowPlural',
+		hypodermicPistol: 'A5E.WeaponHypodermicPistolPlural',
+		ionCannon: 'A5E.WeaponIonCannonPlural',
 		javelin: 'A5E.WeaponJavelinPlural',
 		lance: 'A5E.WeaponLancePlural',
 		lightHammer: 'A5E.WeaponLightHammerPlural',
 		longbow: 'A5E.WeaponLongbowPlural',
+		longspear: 'A5E.WeaponLongspearPlural',
 		longsword: 'A5E.WeaponLongswordPlural',
 		maul: 'A5E.WeaponMaulPlural',
+		monoWhip: 'A5E.WeaponMonoWhipPlural',
 		morningstar: 'A5E.WeaponMorningstarPlural',
 		net: 'A5E.WeaponNetPlural',
+		netcaster: 'A5E.WeaponNetcasterPlural',
 		pike: 'A5E.WeaponPikePlural',
+		plasmaSword: 'A5E.WeaponPlasmaSwordPlural',
+		polaronGatlingGun: 'A5E.WeaponPolaronGatlingGunPlural',
+		pulseRifle: 'A5E.WeaponPulseRiflePlural',
 		punchingDagger: 'A5E.WeaponPunchingDaggerPlural',
 		rapier: 'A5E.WeaponRapierPlural',
 		saber: 'A5E.WeaponSaberPlural',
@@ -1669,9 +1867,15 @@ const weaponsPlural = {
 		scythe: 'A5E.WeaponScythePlural',
 		shortbow: 'A5E.WeaponShortbowPlural',
 		shortsword: 'A5E.WeaponShortswordPlural',
+		shotgun: 'A5E.WeaponShotgunPlural',
+		slugRifle: 'A5E.WeaponSlugRiflePlural',
+		sniperRifle: 'A5E.WeaponSniperRiflePlural',
 		spearThrower: 'A5E.WeaponSpearThrowerPlural',
 		throwingDagger: 'A5E.WeaponThrowingDaggerPlural',
+		tkGauntlet: 'A5E.WeaponTKGauntletPlural',
 		trident: 'A5E.WeaponTridentPlural',
+		vibroknife: 'A5E.WeaponVibroknifePlural',
+		viperRetainer: 'A5E.WeaponViperRetainerPlural',
 		warhammer: 'A5E.WeaponWarhammerPlural',
 		warPick: 'A5E.WeaponWarPickPlural',
 		whip: 'A5E.WeaponWhipPlural',
@@ -1693,6 +1897,35 @@ const weaponsPlural = {
 		spikedChain: 'A5E.WeaponSpikedChainPlural',
 		swordPistol: 'A5E.WeaponSwordPistolPlural',
 	},
+	miscellaneous: {
+		improvised: 'A5E.WeaponImprovisedPlural',
+		starship: 'A5E.WeaponStarshipPlural',
+	},
+};
+
+/**
+ * The set of core weapon augments used in the system.
+ * @enum {string}
+ */
+const weaponAugments = {
+	biometric: 'A5E.weaponAugments.biometric',
+	burst: 'A5E.weaponAugments.burst',
+	concealed: 'A5E.weaponAugments.concealed',
+	energy: 'Energy',
+	longRange: 'A5E.weaponAugments.longRange',
+	mounted: 'A5E.weaponAugments.mounted',
+	overkill: 'A5E.weaponAugments.overkill',
+	repeating: 'A5E.weaponAugments.repeating',
+	scoped: 'A5E.weaponAugments.scoped',
+	toggled: 'A5E.weaponAugments.toggled',
+};
+
+const energyProperties = {
+	force: 'Force',
+	laser: 'Laser',
+	plasma: 'Plasma',
+	shock: 'Shock',
+	sonic: 'Sonic',
 };
 
 /**
@@ -1700,23 +1933,32 @@ const weaponsPlural = {
  * @enum {string}
  */
 const weaponProperties = {
+	ammunition: 'A5E.weaponProperties.ammunition',
+	aquatic: 'A5E.weaponProperties.aquatic',
+	areaFire: 'A5E.weaponProperties.areaFire',
 	blackPowderPyrotechnics: 'A5E.weaponProperties.blackPowderPyrotechnics',
 	breaker: 'A5E.weaponProperties.breaker',
+	burstFire: 'A5E.weaponProperties.burstFire',
 	clubbing: 'A5E.weaponProperties.clubbing',
 	compounding: 'A5E.weaponProperties.compounding',
 	defensive: 'A5E.weaponProperties.defensive',
+	directFire: 'A5E.weaponProperties.directFire',
 	dualWielding: 'A5E.weaponProperties.dualWielding',
+	exotic: 'A5E.weaponProperties.exotic',
 	finesse: 'A5E.weaponProperties.finesse',
 	flamboyant: 'A5E.weaponProperties.flamboyant',
+	guidedFire: 'A5E.weaponProperties.guidedFire',
 	hailOfLead: 'A5E.weaponProperties.hailOfLead',
 	handMounted: 'A5E.weaponProperties.handMounted',
 	heavy: 'A5E.weaponProperties.heavy',
 	inaccurate: 'A5E.weaponProperties.inaccurate',
+	indirectFire: 'A5E.weaponProperties.indirectFire',
 	loading: 'A5E.weaponProperties.loading',
 	menacing: 'A5E.weaponProperties.menacing',
 	misfire: 'A5E.weaponProperties.misfire',
 	mounted: 'A5E.weaponProperties.mounted',
 	muzzleLoading: 'A5E.weaponProperties.muzzleLoading',
+	overkill: 'A5E.weaponProperties.overkill',
 	parrying: 'A5E.weaponProperties.parrying',
 	parryingImmunity: 'A5E.weaponProperties.parryingImmunity',
 	punching: 'A5E.weaponProperties.punching',
@@ -1724,6 +1966,7 @@ const weaponProperties = {
 	range: 'A5E.weaponProperties.range',
 	rebounding: 'A5E.objectProperties.rebounding',
 	reach: 'A5E.weaponProperties.reach',
+	reload: 'A5E.weaponProperties.reload',
 	rifled: 'A5E.weaponProperties.rifled',
 	scatter: 'A5E.weaponProperties.scatter',
 	shock: 'A5E.weaponProperties.shock',
@@ -1788,6 +2031,7 @@ const A5E = {
 	areaTemplates,
 	armor,
 	armorModes,
+	armorMods,
 	armorProperties,
 	armorPlural,
 	attackTypes,
@@ -1808,6 +2052,7 @@ const A5E = {
 	healingTypes,
 	healingColors,
 	itemRarity,
+	itemTechLevels,
 	itemTypes,
 	inventoryFilters,
 	knackTypes,
@@ -1816,6 +2061,7 @@ const A5E = {
 	maneuverTraditions,
 	materialProperties,
 	flaws,
+	modPorts,
 	movement,
 	movementAbbreviations,
 	distanceUnits,
@@ -1824,8 +2070,10 @@ const A5E = {
 	objectTypes,
 	objectTypesPlural,
 	preparedStates,
+	psionicDisciplines,
 	rangeDescriptors,
 	rangeValues,
+	repairTools,
 	resourceRecoveryOptions,
 	rollModes,
 	rollTypes,
@@ -1859,9 +2107,11 @@ const A5E = {
 	weaponCategories,
 	weapons,
 	weaponsPlural,
+	weaponAugments,
 	weaponProperties,
 	breakerProperties,
 	defensiveProperties,
+	energyProperties,
 	versatileOptions,
 
 	// Function Properties

@@ -1,0 +1,215 @@
+{
+	"folder": null,
+	"name": "Sniper Rifle",
+	"type": "object",
+	"img": "icons/skills/targeting/crosshair-pointed-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"7EaeO2UX7BWLcjd3": {
+				"name": "Sniper Rifle",
+				"activation": {},
+				"consumers": {
+					"e0TBRh0RHkKMpPo3": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"OPovTONgvVukahpe": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"pobuFtpCEZSGFULJ": {
+						"type": "damage",
+						"default": true,
+						"formula": "2d6 + @dex.mod",
+						"damageType": "piercing"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"plAS72alMlLus66B": {
+						"range": 240,
+						"unit": "feet"
+					},
+					"u8jhNFrezxMoaL0M": {
+						"range": 720,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"SjL9U7yVDetcQLmC": {
+				"name": "Reload",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"tvy47PxzapV2KOP7": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -20
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"NS8kBsWauFj9vdBs": {
+				"name": "Attach/Dettach Scope",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			},
+			"1UnPFFZNXFpw12GB": {
+				"name": "Use Scope",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>A slug rifle designed for long range.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 20,
+			"max": "20",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "165 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"ammunition",
+			"reload",
+			"twoHanded"
+		],
+		"weight": 8,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": [
+			"longRange",
+			"scoped"
+		]
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732378181003,
+		"modifiedTime": 1732393229523,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "GXvSSzNCc6J38Lcw"
+}

@@ -1,39 +1,40 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-import Checkbox from '../components/Checkbox.svelte';
-import CustomTagGroup from '../components/CustomTagGroup.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import RadioGroup from '../components/RadioGroup.svelte';
-import Section from '../components/Section.svelte';
-import ComplexDetailEmbed from '../components/ComplexDetailEmbed.svelte';
+    import Checkbox from "../components/Checkbox.svelte";
+    import CustomTagGroup from "../components/CustomTagGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
+    import Section from "../components/Section.svelte";
+    import ComplexDetailEmbed from "../components/ComplexDetailEmbed.svelte";
 
-export let { document, appId, propertyKey, configObject, heading, type } =
-	getContext('#external').application;
+    export let { document, appId, propertyKey, configObject, heading, type } =
+        getContext("#external").application;
 
-function getTooltipData() {
-	const grantData = $actor.grants.getGrantedTraits(type);
+    function getTooltipData() {
+        const grantData = $actor.grants.getGrantedTraits(type);
 
-	const data = {};
-	for (const value of Object.values(grantData)) {
-		value.traits.forEach((trait) => {
-			const docName = fromUuidSync(value.itemId)?.name;
-			data[trait] = `Granted by ${docName}`;
-		});
-	}
+        const data = {};
+        for (const value of Object.values(grantData)) {
+            value.traits.forEach((trait) => {
+                const docName = fromUuidSync(value.itemId)?.name;
+                data[trait] = `Granted by ${docName}`;
+            });
+        }
 
-	return data;
-}
+        return data;
+    }
 
-const actor = document;
-const options = Object.entries(configObject);
-const isRadioGroup = ['size'].includes(type);
-const { weaponCategories, toolCategories } = CONFIG.A5E;
+    const actor = document;
+    let options = Object.entries(configObject);
+    const isRadioGroup = ["size"].includes(type);
+    const { weaponCategories, toolCategories } = CONFIG.A5E;
 
-$: selected = foundry.utils.getProperty($actor, propertyKey);
-$: tooltipData = getTooltipData($actor);
+    $: selected = foundry.utils.getProperty($actor, propertyKey);
+    $: tooltipData = getTooltipData($actor);
+    $: options = Object.entries(configObject);
 </script>
 
 <Section --a5e-section-body-padding="0.75rem" --a5e-section-body-gap="0.75rem">
@@ -45,11 +46,7 @@ $: tooltipData = getTooltipData($actor);
                 {selected}
                 allowDeselect={false}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        propertyKey,
-                        event.detail,
-                    )}
+                    updateDocumentDataFromField($actor, propertyKey, event.detail)}
             />
         </FieldWrapper>
     {:else if type === "weapons"}
@@ -76,11 +73,7 @@ $: tooltipData = getTooltipData($actor);
                 {selected}
                 {tooltipData}
                 on:updateSelection={(event) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        propertyKey,
-                        event.detail,
-                    )}
+                    updateDocumentDataFromField($actor, propertyKey, event.detail)}
             />
         </FieldWrapper>
     {/if}
@@ -105,11 +98,7 @@ $: tooltipData = getTooltipData($actor);
                 label="A5E.CreatureSwarm"
                 checked={$actor.system.details.isSwarm}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $actor,
-                        "system.details.isSwarm",
-                        detail,
-                    );
+                    updateDocumentDataFromField($actor, "system.details.isSwarm", detail);
                 }}
             />
         </FieldWrapper>
