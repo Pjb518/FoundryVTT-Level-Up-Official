@@ -9,6 +9,7 @@ import { MigrationList } from '../src/migration/MigrationList';
 // ---------------------------------------------------
 //             Setup Foundry utils
 // ---------------------------------------------------
+globalThis.preventDetailsUpdate = true;
 globalThis.foundry = {
 	// @ts-expect-error
 	utils: {
