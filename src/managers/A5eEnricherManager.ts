@@ -250,10 +250,16 @@ class A5eEnricherManager {
 
 		this.#addToDataset(span, args);
 
-		// @ts-expect-error
-		const icon = CONFIG.statusEffects.find((s) => s.id === args.id)?.img;
+		const effect = CONFIG.statusEffects.find((s) => s.id === args.id);
+		const description = effect?.description;
+		console.log(description);
 
+		// @ts-expect-error
+		const icon = effect?.img;
+
+		// TODO: Add description
 		span.innerHTML = `<img src="${icon}"></i>${label}`;
+		span.dataset.tooltip = description;
 		return span;
 	}
 
