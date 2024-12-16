@@ -63,7 +63,6 @@ class MigrationRunnerBase {
 	}
 
 	async getUpdatedActor(actor: any, migrations: MigrationBase[]): Promise<any> {
-		// TODO: Maybe Change this to use the true source
 		const actorData = foundry.utils.deepClone(actor);
 
 		for (const migration of migrations) {
@@ -95,14 +94,27 @@ class MigrationRunnerBase {
 
 		if ('game' in globalThis) {
 			const latestMigration = migrations.at(-1)!;
-			// TODO: Update schema
+			actorData.system.migrationData ??= { version: null, lastMigration: null };
+			// @ts-expect-error
+			this.#updateMigrationRecord(actorData.system.migration, latestMigration);
+
+			for (const itemData of actorData.items) {
+				itemData.system._migration ??= { version: null, previous: null };
+				// @ts-expect-error
+				this.#updateMigrationRecord(itemData.system._migration, latestMigration);
+			}
+
+			for (const effectData of actorData.effects) {
+				effectData.system._migration ??= { version: null, previous: null };
+				// @ts-expect-error
+				this.#updateMigrationRecord(effectData.system._migration, latestMigration);
+			}
 		}
 
 		return actorData;
 	}
 
 	async getUpdatedItem(item: any, migrations: MigrationBase[]): Promise<any> {
-		// TODO: Maybe Change this to use the true source
 		const itemData = foundry.utils.deepClone(item);
 
 		try {
@@ -123,8 +135,17 @@ class MigrationRunnerBase {
 			console.error(e);
 		}
 
-		if (migrations.length > 0) {
-			// TODO: Update Schema version
+		if ('game' in globalThis) {
+			const latestMigration = migrations.at(-1)!;
+			itemData.system.migrationData ??= { version: null, lastMigration: null };
+			// @ts-expect-error
+			this.#updateMigrationRecord(actorData.system.migration, latestMigration);
+
+			for (const effectData of itemData.effects) {
+				effectData.system._migration ??= { version: null, previous: null };
+				// @ts-expect-error
+				this.#updateMigrationRecord(effectData.system._migration, latestMigration);
+			}
 		}
 
 		return itemData;

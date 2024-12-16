@@ -12,6 +12,7 @@
 		"format": "npx @biomejs/biome format --write ./src/",
 		"lint": "npx @biomejs/biome lint ./src/",
 		"lint-fix": "npx @biomejs/biome lint --write ./src/",
+		"migrate-packs": "npx tsx ./build/migratePacks.ts",
 		"type-check": "tsc --noEmit"
 	},
 	"imports": {
@@ -53,7 +54,7 @@
 		"@biomejs/biome": "1.9.4",
 		"@league-of-foundry-developers/foundry-vtt-types": "github:League-of-Foundry-Developers/foundry-vtt-types#0a62d5d4dc84d70a77c7a9c8360e1e2ead5de242",
 		"@tsconfig/svelte": "^5.0.4",
-		"@types/node": "^20.14.10",
+		"@types/node": "^20.17.10",
 		"classic-level": "^1.4.1",
 		"glob": "^11.0.0",
 		"jszip": "^3.10.1",
@@ -63,6 +64,7 @@
 		"stylelint-config-sass-guidelines": "^11.0.0",
 		"svelte-range-slider-pips": "^2.3.1",
 		"svelte-select": "^5.8.3",
+		"ts-node": "^10.9.2",
 		"typescript": "^5.5.4",
 		"vite": "^5.4.10"
 	},
@@ -72,6 +74,7 @@
 		"@typhonjs-fvtt/runtime": "^0.2.0-next.2",
 		"@typhonjs-fvtt/standard": "^0.2.0-next.2",
 		"svelte": "^4.2.19",
-		"svelte-preprocess": "^6.0.2"
+		"svelte-preprocess": "^6.0.2",
+		"tsx": "^4.19.2"
 	}
 }

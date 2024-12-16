@@ -179,11 +179,10 @@ class ResourceConsumptionManager {
 			const value = this.#actor.system.spellResources.slots?.[level]?.current;
 			this.#updates.actor[`system.spellResources.slots.${level}.current`] = Math.max(value - 1, 0);
 		} else if (consume === 'spellPoint') {
-			if (this.#actor.system.classes.startingClass === "psyknight") {
+			if (this.#actor.system.classes.startingClass === 'psyknight') {
 				const value = this.#actor.system.attributes.exertion.current;
 				this.#updates.actor['system.attributes.exertion.current'] = Math.max(value - points, 0);
-			}
-			else {
+			} else {
 				const value = this.#actor.system.spellResources.points.current;
 				this.#updates.actor['system.spellResources.points.current'] = Math.max(value - points, 0);
 			}

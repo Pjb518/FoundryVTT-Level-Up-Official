@@ -13,17 +13,23 @@ export class Migration020MigrateToV1 extends MigrationBase {
 		this.#migrateSchemaData(source);
 
 		// Migrate Action Data
-		source.system.actions = this.#migrateActionData(source);
+		foundry.utils.setProperty(source, 'system.actions', this.#migrateActionData(source));
 	}
 
 	override async updateEffect(source: any, parent?: any): Promise<void> {
 		// Migrate applyToSelf
-		source.system.applyToSelf =
-			source.flags?.a5e?.applyToSelf ?? source.system.applyToSelf ?? false;
+		foundry.utils.setProperty(
+			source,
+			'system.applyToSelf',
+			source.flags?.a5e?.applyToSelf ?? source.system?.applyToSelf ?? false,
+		);
 
 		// Migrate transferType to effect type
-		source.system.effectType =
-			source.flags?.a5e?.transferType ?? source.system.transferType ?? 'passive';
+		foundry.utils.setProperty(
+			source,
+			'system.effectType',
+			source?.flags?.a5e?.transferType ?? source?.system?.transferType ?? 'passive',
+		);
 
 		source['flags.a5e.-=actionId'] = null;
 		source['flags.a5e.-=applyToSelf'] = null;
@@ -61,7 +67,10 @@ export class Migration020MigrateToV1 extends MigrationBase {
 	}
 
 	#migrateSchemaData(source: Record<string, any>) {
-		const data = source.system.schemaVersion;
+		// Prevent from adding to compendium source
+		if (!('game' in globalThis)) return;
+
+		const data = source?.system?.schemaVersion ?? {};
 		if (!data || typeof data !== 'object') return;
 
 		const migrationData = {
@@ -73,6 +82,6 @@ export class Migration020MigrateToV1 extends MigrationBase {
 			},
 		};
 
-		source.system.migrationData = migrationData;
+		foundry.utils.setProperty(source, 'system.migrationData', migrationData);
 	}
 }

@@ -1,9 +1,9 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import getMaterialProperties from '../../../utils/summaries/getMaterialProperties';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import getMaterialProperties from "../../../utils/summaries/getMaterialProperties";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import RadioGroup from "../RadioGroup.svelte";
@@ -12,9 +12,11 @@ import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromFi
     const item = getContext("item");
     const { flaws, materialProperties, modPorts } = CONFIG.A5E;
 
-let editMode = false;
+    let editMode = false;
 
-$: selectedMaterialProperties = getMaterialProperties($item).filter(Boolean).join(', ');
+    $: selectedMaterialProperties = getMaterialProperties($item)
+        .filter(Boolean)
+        .join(", ");
 </script>
 
 <Section

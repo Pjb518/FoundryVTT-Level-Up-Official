@@ -1,8 +1,8 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import CheckboxGroup from "../CheckboxGroup.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
@@ -15,13 +15,11 @@ import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromFi
         );
         properties.sort((a, b) => a.localeCompare(b));
 
-        properties = properties.map(
-            (property) => localize(property),
-        );
+        properties = properties.map((property) => localize(property));
 
         return properties.join(", ");
     }
-    
+
     function prepareArmorProperties(item) {
         const properties = item.system.armorProperties.map(
             (property) => armorProperties[property] ?? property,
@@ -36,14 +34,12 @@ import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromFi
             (property) => repairTools[property] ?? property,
         );
 
-        properties = properties.map(
-            (property) => localize(property),
-        );
+        properties = properties.map((property) => localize(property));
 
-	properties.sort((a, b) => a.localeCompare(b));
+        properties.sort((a, b) => a.localeCompare(b));
 
-	return properties.join(', ');
-}
+        return properties.join(", ");
+    }
 
     function getRepairabilityDC(item) {
         return item.system.repairabilityDC;
@@ -53,12 +49,12 @@ import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromFi
     const appId = getContext("appId");
     const { armor: armorTypes, armorProperties, armorMods, repairTools } = CONFIG.A5E;
 
-let editMode = false;
+    let editMode = false;
 
     $: selectedArmorMods = prepareArmorMods($item);
     $: selectedArmorProperties = prepareArmorProperties($item);
     $: selectedRepairabilityProperties = prepareRepairabilityProperties($item);
-    $: dc = getRepairabilityDC($item);
+    $: repairabilityDC = getRepairabilityDC($item);
 </script>
 
 <Section
@@ -99,11 +95,7 @@ let editMode = false;
             options={Object.entries(armorMods)}
             selected={$item.system.armorMods}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField(
-                    $item,
-                    "system.armorMods",
-                    event.detail,
-                )}
+                updateDocumentDataFromField($item, "system.armorMods", event.detail)}
         />
 
         <Section --a5e-section-body-direction="row">
@@ -171,7 +163,8 @@ let editMode = false;
                 <dt class="u-text-bold">{localize("A5E.Repairability")}:</dt>
 
                 <dd class="u-m-0 u-p-0">
-                    {#if dc != "0"}DC {dc}, {/if}{selectedRepairabilityProperties}
+                    {#if repairabilityDC != "0"}DC {repairabilityDC},
+                    {/if}{selectedRepairabilityProperties}
                 </dd>
             </div>
         </dl>

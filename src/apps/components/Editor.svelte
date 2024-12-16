@@ -1,50 +1,60 @@
 <script>
-import { localize } from '#runtime/util/i18n';
-import { TJSTinyMCE, TinyMCEHelper } from '#standard/component/fvtt/editor';
+    import { localize } from "#runtime/util/i18n";
+    import { TJSTinyMCE, TinyMCEHelper } from "#standard/component/fvtt/editor";
 
-export let document;
-export let content;
-export let updatePath;
+    export let document;
+    export let content;
+    export let updatePath;
 
-const descriptionTypes = {
-	secretDescription: 'A5E.NoSecretDescription',
-	unidentifiedDescription: 'A5E.NoUnidentifiedDescription',
-	description: 'A5E.NoDescription',
-};
+    const descriptionTypes = {
+        secretDescription: "A5E.NoSecretDescription",
+        unidentifiedDescription: "A5E.NoUnidentifiedDescription",
+        description: "A5E.NoDescription",
+    };
 
-function updateEditorContent(event) {
-	const { content } = event.detail;
+    function updateEditorContent(event) {
+        const { content } = event.detail;
 
-	$document.update({
-		[updatePath]: content === '' ? '' : content,
-	});
-}
+        $document.update({
+            [updatePath]: content === "" ? "" : content,
+        });
+    }
 
-async function getEnrichedContent() {
-	return await TextEditor.enrichHTML($document[updatePath]);
-}
+    async function getEnrichedContent() {
+        return await TextEditor.enrichHTML($document[updatePath], enrichOptions);
+    }
 
-let newLabel;
+    let newLabel;
 
-Object.entries(descriptionTypes).forEach(([type, label]) => {
-	if (updatePath.includes(type)) {
-		newLabel = localize(label);
-	}
-});
+    Object.entries(descriptionTypes).forEach(([type, label]) => {
+        if (updatePath.includes(type)) {
+            newLabel = localize(label);
+        }
+    });
 
-const editorOptions = TinyMCEHelper.configStandard();
-editorOptions.toolbar =
-	'styles | fontfamily | table | bullist | numlist | image | superscript | subscript | hr | save | link | removeformat | code ';
+    const editorOptions = TinyMCEHelper.configStandard();
+    editorOptions.toolbar =
+        "styles | fontfamily | table | bullist | numlist | image | superscript | subscript | hr | save | link | removeformat | code ";
 
-const options = {
-	editable: game.user.isGM || $document.isOwner || false,
-	mceConfig: editorOptions,
-};
+    const enrichOptions = {
+        secrets: $document.isOwner,
+        relativeTo: $document,
+        rollData:
+            $document.documentName === "Actor"
+                ? $document.getRollData()
+                : ($document.actor?.getRollData($document) ?? undefined),
+    };
 
-$: (content = content || newLabel) || localize('A5E.NoDescription');
-$: enrichedContent = Promise.resolve(getEnrichedContent())
-	.then((content) => content)
-	.catch(() => 'Error Enriching Content');
+    const options = {
+        editable: game.user.isGM || $document.isOwner || false,
+        enrichOptions,
+        mceConfig: editorOptions,
+    };
+
+    $: (content = content || newLabel) || localize("A5E.NoDescription");
+    $: enrichedContent = Promise.resolve(getEnrichedContent())
+        .then((content) => content)
+        .catch(() => "Error Enriching Content");
 </script>
 
 <div class="editor">

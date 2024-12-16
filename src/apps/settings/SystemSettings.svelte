@@ -1,9 +1,9 @@
 <svelte:options accessors={true} />
 
 <script>
-import { getContext, setContext } from 'svelte';
-import { ApplicationShell } from '#runtime/svelte/component/application';
-import { localize } from '#runtime/util/i18n';
+    import { getContext, setContext } from "svelte";
+    import { ApplicationShell } from "#runtime/svelte/component/application";
+    import { localize } from "#runtime/util/i18n";
 
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
     import Settings5eTab from "./Settings5eTab.svelte";
@@ -16,23 +16,23 @@ import { localize } from '#runtime/util/i18n';
     import SettingsRollTab from "./SettingsRollTab.svelte";
     import SettingsExtraTab from "./SettingsExtraTab.svelte";
 
-export let elementRoot;
-export let { appId, settings, dialog } = getContext('#external').application;
+    export let elementRoot;
+    export let { appId, settings, dialog } = getContext("#external").application;
 
-function onSubmit() {
-	for (const [key, value] of updates) {
-		const setting = settings.getStore(key);
-		setting.set(value);
-	}
+    function onSubmit() {
+        for (const [key, value] of updates) {
+            const setting = settings.getStore(key);
+            setting.set(value);
+        }
 
-	dialog.submit({
-		reload,
-	});
-}
+        dialog.submit({
+            reload,
+        });
+    }
 
-function updateCurrentTab(event) {
-	currentTab = tabs[event.detail];
-}
+    function updateCurrentTab(event) {
+        currentTab = tabs[event.detail];
+    }
 
     const tabs = [
         {
@@ -89,23 +89,23 @@ function updateCurrentTab(event) {
         },
     ];
 
-let currentTab = tabs[0];
-let updates = new Map();
-let reload = false;
+    let currentTab = tabs[0];
+    let updates = new Map();
+    let reload = false;
 
-let { settingsData } = settings;
+    let { settingsData } = settings;
 
-let gmSettings = settingsData.reduce((acc, setting) => {
-	if (setting?.options?.scope === 'world') acc.add(setting.key);
-	return acc;
-}, new Set());
+    let gmSettings = settingsData.reduce((acc, setting) => {
+        if (setting?.options?.scope === "world") acc.add(setting.key);
+        return acc;
+    }, new Set());
 
-const playersCanAccessPartyViewer = settings.getStore('playersCanAccessPartyViewer');
+    const playersCanAccessPartyViewer = settings.getStore("playersCanAccessPartyViewer");
 
-setContext('appId', appId);
-setContext('gmSettings', gmSettings);
-setContext('settings', settings);
-setContext('updates', updates);
+    setContext("appId", appId);
+    setContext("gmSettings", gmSettings);
+    setContext("settings", settings);
+    setContext("updates", updates);
 </script>
 
 <ApplicationShell bind:elementRoot>
