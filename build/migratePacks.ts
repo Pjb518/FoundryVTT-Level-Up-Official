@@ -9,8 +9,8 @@ import { MigrationList } from '../src/migration/MigrationList';
 // ---------------------------------------------------
 //             Setup Foundry utils
 // ---------------------------------------------------
-// biome-ignore lint/style/noVar: <explanation>
-var foundry = {
+globalThis.foundry = {
+	// @ts-expect-error
 	utils: {
 		deepClone: utils.deepClone,
 		duplicate: utils.deepClone,
@@ -20,6 +20,7 @@ var foundry = {
 		getType: utils.getType,
 		isEmpty: utils.isEmpty$1,
 		mergeObject: utils.mergeObject,
+		objectsEqual: utils.objectsEqual,
 		setProperty: utils.setProperty,
 	},
 };
@@ -30,6 +31,7 @@ var foundry = {
 
 console.log('[INFO] - Starting migration process.');
 
+console.log('[INFO] - Getting Files...');
 // Data paths setup
 const dirName = url.fileURLToPath(new URL('.', import.meta.url));
 const dataPath = path.resolve(dirName, '../packs');
@@ -38,16 +40,17 @@ const dirPaths = fs
 	.map((name) => path.resolve(dirName, dataPath, name))
 	.filter((name) => !name.endsWith('json'));
 
-console.log(dirPaths);
-
 // Create migration runner
 const CURRENT_VERSION = MigrationRunnerCompendium.LATEST_MIGRATION_VERSION;
-console.log(CURRENT_VERSION);
 
 const migrationList = MigrationList.constructFromLatestVersion(CURRENT_VERSION);
 const migrationRunner = new MigrationRunnerCompendium(migrationList);
 
+console.log(`[INFO] - Migrating to version ${CURRENT_VERSION}...`);
 await migrationRunner.runMigration(dirPaths[0]);
 
 for (const dirPath of dirPaths) {
+	console.log(`[INFO] - Running Migration for ${dirPath}...`);
 }
+
+console.log(`[INFO] - Successfully Migrated to ${CURRENT_VERSION}.`);

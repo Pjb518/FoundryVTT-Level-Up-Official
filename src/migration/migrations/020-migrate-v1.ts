@@ -21,7 +21,7 @@ export class Migration020MigrateToV1 extends MigrationBase {
 		foundry.utils.setProperty(
 			source,
 			'system.applyToSelf',
-			source.flags?.a5e?.applyToSelf ?? source.system.applyToSelf ?? false,
+			source.flags?.a5e?.applyToSelf ?? source.system?.applyToSelf ?? false,
 		);
 
 		// Migrate transferType to effect type

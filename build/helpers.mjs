@@ -323,3 +323,91 @@ export function mergeObject(
 	}
 	return original;
 }
+
+/**
+ * A helper function for merging objects when the target key does not exist in the original
+ * @private
+ */
+function _mergeInsert(original, k, v, { insertKeys, insertValues, performDeletions } = {}, _d) {
+	// Delete a key
+	if (k.startsWith('-=') && performDeletions) {
+		delete original[k.slice(2)];
+		return;
+	}
+
+	const canInsert = (_d <= 1 && insertKeys) || (_d > 1 && insertValues);
+	if (!canInsert) return;
+
+	// Recursively create simple objects
+	if (v?.constructor === Object) {
+		original[k] = mergeObject({}, v, { insertKeys: true, inplace: true, performDeletions });
+		return;
+	}
+
+	// Insert a key
+	original[k] = v;
+}
+
+/**
+ * A helper function for merging objects when the target key exists in the original
+ * @private
+ */
+function _mergeUpdate(
+	original,
+	k,
+	v,
+	{ insertKeys, insertValues, enforceTypes, overwrite, recursive, performDeletions } = {},
+	_d,
+) {
+	const x = original[k];
+	const tv = getType(v);
+	const tx = getType(x);
+
+	// Recursively merge an inner object
+	if (tv === 'Object' && tx === 'Object' && recursive) {
+		return mergeObject(
+			x,
+			v,
+			{
+				insertKeys,
+				insertValues,
+				overwrite,
+				enforceTypes,
+				performDeletions,
+				inplace: true,
+			},
+			_d,
+		);
+	}
+
+	// Overwrite an existing value
+	if (overwrite) {
+		if (tx !== 'undefined' && tv !== tx && enforceTypes) {
+			throw new Error('Mismatched data types encountered during object merge.');
+		}
+		original[k] = v;
+	}
+}
+
+/* -------------------------------------------- */
+
+/**
+ * Test if two objects contain the same enumerable keys and values.
+ * @param {object} a  The first object.
+ * @param {object} b  The second object.
+ * @returns {boolean}
+ */
+export function objectsEqual(a, b) {
+	if (a == null || b == null) return a === b;
+	if (getType(a) !== 'Object' || getType(b) !== 'Object') return a === b;
+	if (Object.keys(a).length !== Object.keys(b).length) return false;
+	return Object.entries(a).every(([k, v0]) => {
+		const v1 = b[k];
+		const t0 = getType(v0);
+		const t1 = getType(v1);
+		if (t0 !== t1) return false;
+		if (v0?.equals instanceof Function) return v0.equals(v1);
+		if (t0 === 'Object') return objectsEqual(v0, v1);
+		return v0 === v1;
+	});
+}
