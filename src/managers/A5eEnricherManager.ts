@@ -133,8 +133,30 @@ class A5eEnricherManager {
 	}
 
 	/* -------------------------------------------- */
-	/*  Rolling Enrichers: Save + Check             */
+	/*  Enrichers                                   */
 	/* -------------------------------------------- */
+
+	/**
+	 * Provides basic argument validation for saves and provides replacement for the enriched text.
+	 * @param args      Record of arguments passed in.
+	 * @param options   Options provided to customize text enrichment. Unused
+	 * @returns An HTML element to insert in place of the matched text or
+	 *          null to indicate that no replacement should be made.
+	 */
+	async #enrichCondition(
+		args: Record<string, any>,
+		options?: TextEditor.EnrichmentOptions,
+	): Promise<HTMLElement | null> {
+		const { id }: { id?: string } = args;
+		if (!id) return this.createInvalidTag('No id provided.');
+
+		if (!Object.keys(CONFIG.A5E.conditions).includes(id)) {
+			return this.createInvalidTag(`Invalid condition: ${id}.`);
+		}
+
+		const label: string = args.label || CONFIG.A5E.conditions[id];
+		return this.#createEffectButton(args, label);
+	}
 
 	/**
 	 * Provides basic argument validation for checks and provides replacement for the enriched text.
@@ -215,6 +237,27 @@ class A5eEnricherManager {
 	/* -------------------------------------------- */
 
 	/**
+	 * Creates a effect button to replace enriched text.
+	 * @param args    Record of arguments passed in and stored in element.
+	 * @param label   The label for the output button
+	 * @returns An HTML element to insert in place of the matched text or
+	 *          null to indicate that no replacement should be made.
+	 */
+	async #createEffectButton(args: Record<string, any>, label: string): Promise<HTMLElement | null> {
+		const span = document.createElement('span');
+		span.classList.add('a5e-enricher');
+		span.classList.add('a5e-enricher--effect');
+
+		this.#addToDataset(span, args);
+
+		// @ts-expect-error
+		const icon = CONFIG.statusEffects.find((s) => s.id === args.id)?.img;
+
+		span.innerHTML = `<img src="${icon}"></i>${label}`;
+		return span;
+	}
+
+	/**
 	 * Creates a roll button to replace enriched text.
 	 * @param args    Record of arguments passed in and stored in element.
 	 * @param options Text editor options
@@ -259,6 +302,10 @@ class A5eEnricherManager {
 
 		return span;
 	}
+
+	/* -------------------------------------------- */
+	/*  Click Handlers                              */
+	/* -------------------------------------------- */
 
 	/**
 	 * Parses information based on button clicked and calls appropriate roll function.
@@ -381,54 +428,6 @@ class A5eEnricherManager {
 	/* -------------------------------------------- */
 	/*  Effect Enrichers: Condition                 */
 	/* -------------------------------------------- */
-
-	/**
-	 * Provides basic argument validation for saves and provides replacement for the enriched text.
-	 * @param args      Record of arguments passed in.
-	 * @param options   Options provided to customize text enrichment. Unused
-	 * @returns An HTML element to insert in place of the matched text or
-	 *          null to indicate that no replacement should be made.
-	 */
-	async #enrichCondition(
-		args: Record<string, any>,
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		options?: TextEditor.EnrichmentOptions,
-	): Promise<HTMLElement | null> {
-		const { id }: { id?: string } = args;
-		if (!id) {
-			ui.notifications?.error('Enricher is missing condition id.');
-			return null;
-		}
-
-		if (!Object.keys(CONFIG.A5E.conditions).includes(id)) {
-			ui.notifications?.error(`Invalid condition ${id}`);
-			return null;
-		}
-
-		const label = CONFIG.A5E.conditions[id] as string;
-		return this.#createEffectButton(args, label);
-	}
-
-	/**
-	 * Creates a effect button to replace enriched text.
-	 * @param args    Record of arguments passed in and stored in element.
-	 * @param label   The label for the output button
-	 * @returns An HTML element to insert in place of the matched text or
-	 *          null to indicate that no replacement should be made.
-	 */
-	async #createEffectButton(args: Record<string, any>, label: string): Promise<HTMLElement | null> {
-		const span = document.createElement('span');
-		span.classList.add('a5e-enricher');
-		span.classList.add('a5e-enricher--effect');
-
-		this.#addToDataset(span, args);
-
-		// @ts-expect-error
-		const icon = CONFIG.statusEffects.find((s) => s.id === args.id)?.img;
-
-		span.innerHTML = `<img src="${icon}"></i>${label}`;
-		return span;
-	}
 
 	/**
 	 * Parses information based on button clicked and calls appropriate effect function.
