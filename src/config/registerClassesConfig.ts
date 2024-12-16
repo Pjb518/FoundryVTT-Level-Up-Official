@@ -1,33 +1,33 @@
 export default function registerClassesConfig() {
-  const classes = {
-    adept: 'A5E.characterClasses.adept',
-    artificer: 'A5E.characterClasses.artificer',
-    artificerRevised: 'A5E.characterClasses.artificerRevised',
-    bard: 'A5E.characterClasses.bard',
-    berserker: 'A5E.characterClasses.berserker',
-    bloodblade: 'A5E.characterClasses.bloodblade',
-    cleric: 'A5E.characterClasses.cleric',
-    dirgesinger: 'A5E.characterClasses.dirgesinger',
-    druid: 'A5E.characterClasses.druid',
-    elementalist: 'A5E.characterClasses.elementalist',
-    fighter: 'A5E.characterClasses.fighter',
-    gambler: 'A5E.characterClasses.gambler',
-    herald: 'A5E.characterClasses.herald',
-    marshal: 'A5E.characterClasses.marshal',
-    psion: 'A5E.characterClasses.psion',
-    psyknight: 'A5E.characterClasses.psyknight',
-    ranger: 'A5E.characterClasses.ranger',
-    rogue: 'A5E.characterClasses.rogue',
-    savant: 'A5E.characterClasses.savant',
-    scholar: 'A5E.characterClasses.scholar',
-    scientist: 'A5E.characterClasses.scientist',
-    scout: 'A5E.characterClasses.scout',
-    sorcerer: 'A5E.characterClasses.sorcerer',
-    warlock: 'A5E.characterClasses.warlock',
-    wielder: 'A5E.characterClasses.wielder',
-    witch: 'A5E.characterClasses.witch',
-    wizard: 'A5E.characterClasses.wizard'
-  };
+	const classes = {
+		adept: 'A5E.characterClasses.adept',
+		artificer: 'A5E.characterClasses.artificer',
+		artificerRevised: 'A5E.characterClasses.artificerRevised',
+		bard: 'A5E.characterClasses.bard',
+		berserker: 'A5E.characterClasses.berserker',
+		bloodblade: 'A5E.characterClasses.bloodblade',
+		cleric: 'A5E.characterClasses.cleric',
+		dirgesinger: 'A5E.characterClasses.dirgesinger',
+		druid: 'A5E.characterClasses.druid',
+		elementalist: 'A5E.characterClasses.elementalist',
+		fighter: 'A5E.characterClasses.fighter',
+		gambler: 'A5E.characterClasses.gambler',
+		herald: 'A5E.characterClasses.herald',
+		marshal: 'A5E.characterClasses.marshal',
+		psion: 'A5E.characterClasses.psion',
+		psyknight: 'A5E.characterClasses.psyknight',
+		ranger: 'A5E.characterClasses.ranger',
+		rogue: 'A5E.characterClasses.rogue',
+		savant: 'A5E.characterClasses.savant',
+		scholar: 'A5E.characterClasses.scholar',
+		scientist: 'A5E.characterClasses.scientist',
+		scout: 'A5E.characterClasses.scout',
+		sorcerer: 'A5E.characterClasses.sorcerer',
+		warlock: 'A5E.characterClasses.warlock',
+		wielder: 'A5E.characterClasses.wielder',
+		witch: 'A5E.characterClasses.witch',
+		wizard: 'A5E.characterClasses.wizard',
+	};
 
 	const classes5e = {
 		dnd5eArtificer: 'A5E.characterClasses.artificer',
@@ -56,21 +56,21 @@ export default function registerClassesConfig() {
 		custom: 'A5E.classes.hpTypes.custom',
 	};
 
-  const casterTypes = {
-    none: 'A5E.None',
-    fullCaster: 'A5E.classes.casterTypes.fullCaster',
-    halfCaster: 'A5E.classes.casterTypes.halfCaster',
-    halfCasterWithFirstLevel: 'A5E.classes.casterTypes.halfCasterWithFirstLevel',
-    tertiaryCaster: 'A5E.classes.casterTypes.tertiaryCaster',
-    quaternaryCaster: 'A5E.classes.casterTypes.quaternaryCaster',
-    artificerA5e: 'A5E.classes.casterTypes.artificerA5e',
-    elementalist: 'A5E.classes.casterTypes.elementalist',
-    herald: 'A5E.classes.casterTypes.herald',
-    psion: 'A5E.classes.casterTypes.psion',
-    warlockA5e: 'A5E.classes.casterTypes.warlockA5e',
-    warlock5e: 'A5E.classes.casterTypes.warlock5e',
-    wielder: 'A5E.classes.casterTypes.wielder'
-  };
+	const casterTypes = {
+		none: 'A5E.None',
+		fullCaster: 'A5E.classes.casterTypes.fullCaster',
+		halfCaster: 'A5E.classes.casterTypes.halfCaster',
+		halfCasterWithFirstLevel: 'A5E.classes.casterTypes.halfCasterWithFirstLevel',
+		tertiaryCaster: 'A5E.classes.casterTypes.tertiaryCaster',
+		quaternaryCaster: 'A5E.classes.casterTypes.quaternaryCaster',
+		artificerA5e: 'A5E.classes.casterTypes.artificerA5e',
+		elementalist: 'A5E.classes.casterTypes.elementalist',
+		herald: 'A5E.classes.casterTypes.herald',
+		psion: 'A5E.classes.casterTypes.psion',
+		warlockA5e: 'A5E.classes.casterTypes.warlockA5e',
+		warlock5e: 'A5E.classes.casterTypes.warlock5e',
+		wielder: 'A5E.classes.casterTypes.wielder',
+	};
 
 	const exertionPoolTypes = {
 		none: 'A5E.classes.exertionPoolTypes.none',
@@ -127,51 +127,51 @@ export default function registerClassesConfig() {
 		20: { points: 22, level: 5 },
 	};
 
-  const SPELL_POINTS_TABLE_PSION = {
-    1: { points: 4, level: 1 },
-    2: { points: 5, level: 1 },
-    3: { points: 6, level: 1 },
-    4: { points: 6, level: 2 },
-    5: { points: 7, level: 2 },
-    6: { points: 7, level: 2 },
-    7: { points: 9, level: 3 },
-    8: { points: 9, level: 3 },
-    9: { points: 10, level: 3 },
-    10: { points: 10, level: 4 },
-    11: { points: 11, level: 4 },
-    12: { points: 11, level: 4 },
-    13: { points: 13, level: 5 },
-    14: { points: 13, level: 5 },
-    15: { points: 14, level: 5 },
-    16: { points: 14, level: 6 },
-    17: { points: 15, level: 6 },
-    18: { points: 15, level: 6 },
-    19: { points: 17, level: 7 },
-    20: { points: 17, level: 7 }
-  };
+	const SPELL_POINTS_TABLE_PSION = {
+		1: { points: 4, level: 1 },
+		2: { points: 5, level: 1 },
+		3: { points: 6, level: 1 },
+		4: { points: 6, level: 2 },
+		5: { points: 7, level: 2 },
+		6: { points: 7, level: 2 },
+		7: { points: 9, level: 3 },
+		8: { points: 9, level: 3 },
+		9: { points: 10, level: 3 },
+		10: { points: 10, level: 4 },
+		11: { points: 11, level: 4 },
+		12: { points: 11, level: 4 },
+		13: { points: 13, level: 5 },
+		14: { points: 13, level: 5 },
+		15: { points: 14, level: 5 },
+		16: { points: 14, level: 6 },
+		17: { points: 15, level: 6 },
+		18: { points: 15, level: 6 },
+		19: { points: 17, level: 7 },
+		20: { points: 17, level: 7 },
+	};
 
-  const SPELL_POINTS_TABLE_WARLOCK = {
-    1: { points: 2, level: 1 },
-    2: { points: 4, level: 1 },
-    3: { points: 6, level: 2 },
-    4: { points: 8, level: 2 },
-    5: { points: 10, level: 3 },
-    6: { points: 11, level: 3 },
-    7: { points: 12, level: 4 },
-    8: { points: 13, level: 4 },
-    9: { points: 14, level: 5 },
-    10: { points: 17, level: 5 },
-    11: { points: 21, level: 5 },
-    12: { points: 22, level: 5 },
-    13: { points: 24, level: 5 },
-    14: { points: 25, level: 5 },
-    15: { points: 26, level: 5 },
-    16: { points: 27, level: 5 },
-    17: { points: 28, level: 5 },
-    18: { points: 29, level: 5 },
-    19: { points: 30, level: 5 },
-    20: { points: 31, level: 5 }
-  };
+	const SPELL_POINTS_TABLE_WARLOCK = {
+		1: { points: 2, level: 1 },
+		2: { points: 4, level: 1 },
+		3: { points: 6, level: 2 },
+		4: { points: 8, level: 2 },
+		5: { points: 10, level: 3 },
+		6: { points: 11, level: 3 },
+		7: { points: 12, level: 4 },
+		8: { points: 13, level: 4 },
+		9: { points: 14, level: 5 },
+		10: { points: 17, level: 5 },
+		11: { points: 21, level: 5 },
+		12: { points: 22, level: 5 },
+		13: { points: 24, level: 5 },
+		14: { points: 25, level: 5 },
+		15: { points: 26, level: 5 },
+		16: { points: 27, level: 5 },
+		17: { points: 28, level: 5 },
+		18: { points: 29, level: 5 },
+		19: { points: 30, level: 5 },
+		20: { points: 31, level: 5 },
+	};
 
 	const PACT_SLOT_TABLE = {
 		1: { slots: 1, level: 1 },
@@ -242,97 +242,97 @@ export default function registerClassesConfig() {
 		20: { charges: 22, level: 5 },
 	};
 
-  const casterProgression = {
-    none: { type: null, config: null, reference: null },
-    fullCaster: {
-      type: 'multiplier',
-      config: SPELL_SLOT_TABLE,
-      resource: 'slots',
-      multiplier: 1
-    },
-    halfCaster: {
-      type: 'multiplier',
-      config: SPELL_SLOT_TABLE,
-      resource: 'slots',
-      multiplier: 0.5
-    },
-    tertiaryCaster: {
-      type: 'multiplier',
-      config: SPELL_SLOT_TABLE,
-      resource: 'slots',
-      multiplier: 0.33
-    },
-    quaternaryCaster: {
-      type: 'multiplier',
-      config: SPELL_SLOT_TABLE,
-      resource: 'slots',
-      multiplier: 0.25
-    },
-    halfCasterWithFirstLevel: {
-      type: 'multiplier',
-      config: SPELL_SLOT_TABLE,
-      resource: 'slots',
-      multiplier: 0.5,
-      roundUp: true,
-      roundUpMulti: true
-    },
-    artificerA5e: {
-      type: 'reference',
-      config: ARTIFICER_SPELL_INVENTIONS,
-      resource: 'inventions'
-    },
-    elementalist: {
-      type: 'reference',
-      config: SPELL_POINTS_TABLE_ELEMENTALIST,
-      resource: 'points',
-      multiclassMode: 'ADD'
-    },
-    herald: {
-      type: 'multiplier',
-      config: SPELL_SLOT_TABLE,
-      resource: 'slots',
-      multiplier: 0.5,
-      roundUp: true,
-      roundUpMulti: false
-    },
-    psion: {
-      type: 'reference',
-      config: SPELL_POINTS_TABLE_PSION,
-      resource: 'points',
-      multiclassMode: 'ADD'
-    },
-    warlockA5e: {
-      type: 'reference',
-      config: SPELL_POINTS_TABLE_WARLOCK,
-      resource: 'points',
-      multiclassMode: 'ADD'
-    },
-    warlock5e: {
-      type: 'reference',
-      config: PACT_SLOT_TABLE,
-      resource: 'slots'
-    },
-    wielder: {
-      type: 'reference',
-      config: WIELDER_ARTIFACT_CHARGES,
-      resource: 'artifactCharges'
-    }
-  };
+	const casterProgression = {
+		none: { type: null, config: null, reference: null },
+		fullCaster: {
+			type: 'multiplier',
+			config: SPELL_SLOT_TABLE,
+			resource: 'slots',
+			multiplier: 1,
+		},
+		halfCaster: {
+			type: 'multiplier',
+			config: SPELL_SLOT_TABLE,
+			resource: 'slots',
+			multiplier: 0.5,
+		},
+		tertiaryCaster: {
+			type: 'multiplier',
+			config: SPELL_SLOT_TABLE,
+			resource: 'slots',
+			multiplier: 0.33,
+		},
+		quaternaryCaster: {
+			type: 'multiplier',
+			config: SPELL_SLOT_TABLE,
+			resource: 'slots',
+			multiplier: 0.25,
+		},
+		halfCasterWithFirstLevel: {
+			type: 'multiplier',
+			config: SPELL_SLOT_TABLE,
+			resource: 'slots',
+			multiplier: 0.5,
+			roundUp: true,
+			roundUpMulti: true,
+		},
+		artificerA5e: {
+			type: 'reference',
+			config: ARTIFICER_SPELL_INVENTIONS,
+			resource: 'inventions',
+		},
+		elementalist: {
+			type: 'reference',
+			config: SPELL_POINTS_TABLE_ELEMENTALIST,
+			resource: 'points',
+			multiclassMode: 'ADD',
+		},
+		herald: {
+			type: 'multiplier',
+			config: SPELL_SLOT_TABLE,
+			resource: 'slots',
+			multiplier: 0.5,
+			roundUp: true,
+			roundUpMulti: false,
+		},
+		psion: {
+			type: 'reference',
+			config: SPELL_POINTS_TABLE_PSION,
+			resource: 'points',
+			multiclassMode: 'ADD',
+		},
+		warlockA5e: {
+			type: 'reference',
+			config: SPELL_POINTS_TABLE_WARLOCK,
+			resource: 'points',
+			multiclassMode: 'ADD',
+		},
+		warlock5e: {
+			type: 'reference',
+			config: PACT_SLOT_TABLE,
+			resource: 'slots',
+		},
+		wielder: {
+			type: 'reference',
+			config: WIELDER_ARTIFACT_CHARGES,
+			resource: 'artifactCharges',
+		},
+	};
 
-  return {
-    classes,
-    classes5e,
-    classLevelTypes,
-    classHPTypes,
-    casterTypes,
-    exertionPoolTypes,
-    SPELL_SLOT_TABLE,
-    SPELL_POINTS_TABLE_ELEMENTALIST,
-    SPELL_POINTS_TABLE_PSION,
-    SPELL_POINTS_TABLE_WARLOCK,
-    PACT_SLOT_TABLE,
-    ARTIFICER_SPELL_INVENTIONS,
-    WIELDER_ARTIFACT_CHARGES,
-    casterProgression
-  };
+	return {
+		classes,
+		classes5e,
+		classLevelTypes,
+		classHPTypes,
+		casterTypes,
+		exertionPoolTypes,
+		SPELL_SLOT_TABLE,
+		SPELL_POINTS_TABLE_ELEMENTALIST,
+		SPELL_POINTS_TABLE_PSION,
+		SPELL_POINTS_TABLE_WARLOCK,
+		PACT_SLOT_TABLE,
+		ARTIFICER_SPELL_INVENTIONS,
+		WIELDER_ARTIFACT_CHARGES,
+		casterProgression,
+	};
 }

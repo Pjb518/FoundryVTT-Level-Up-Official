@@ -1,23 +1,16 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import Checkbox from '../Checkbox.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
-import RadioGroup from '../RadioGroup.svelte';
-import Section from '../Section.svelte';
+    import Checkbox from "../Checkbox.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
-
-    function setPointsFlag() {
-        if($actor.system.classes.startingClass == "psion") {
-            $actor.flags.a5e.restoreSpellPointsOnShortRest = false;
-        }
-    };
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     const actor = getContext("actor");
     const { abilityAbbreviations } = CONFIG.A5E;
 
-    $: setPointsFlag();
     $: flags = $actor.flags?.a5e ?? {};
 </script>
 
@@ -51,10 +44,7 @@ import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromFi
     </FieldWrapper>
 </Section>
 
-<Section
-    heading="Miscellaneous Spell Settings"
-    --a5e-section-body-gap="0.75rem"
->
+<Section heading="Miscellaneous Spell Settings" --a5e-section-body-gap="0.75rem">
     <RadioGroup
         heading="A5E.DefaultSpellcastingAbilityScore"
         optionStyles="min-width:2rem; text-align: center;"
