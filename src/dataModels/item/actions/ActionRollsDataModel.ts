@@ -21,7 +21,7 @@ const attackRollSchema = () => ({
 	attackType: new fields.StringField({
 		required: true,
 		nullable: false,
-		initial: '',
+		initial: 'meleeWeaponAttack',
 		choices: ['meleeWeaponAttack', 'rangedWeaponAttack', 'meleeSpellAttack', 'rangedSpellAttack'],
 	}),
 	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),

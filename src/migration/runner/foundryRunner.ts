@@ -158,11 +158,12 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		let baseActor: any;
 
 		if (pack && packData) {
-			baseActor = packData.find((a) => actor._id === a._id) ?? actor._source.toObject();
+			baseActor =
+				packData.find((a) => actor._id === a._id) ?? foundry.utils.deepClone(actor._source);
 		} else if (fromSourceData) {
 			baseActor = this.#sourceData.actors?.find((a) => actor._id === a._id) ?? actor.toObject();
 		} else {
-			baseActor = actor._source.toObject();
+			baseActor = foundry.utils.deepClone(actor._source);
 		}
 
 		const updatedActor = await (async () => {

@@ -33,6 +33,7 @@ const actionSchema = () => ({
 		{ required: true, nullable: false },
 	),
 
+	// @ts-expect-error
 	macro: new fields.JavaScriptField({ required: true, nullable: false, initial: '', async: true }),
 
 	consumers: new RecordField(
