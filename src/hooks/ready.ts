@@ -1,5 +1,5 @@
 import hotbarDrop from './hotBarDrop';
-import handleMigration from '../migration/handleMigration';
+import { handleMigration } from '../migration/handlers/handleMigration';
 
 import AnnouncementDialog from '../apps/dialogs/initializers/AnnouncementDialog';
 import KeyPressHandler from '../apps/KeyPressHandler.svelte';

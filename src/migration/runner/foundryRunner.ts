@@ -7,11 +7,13 @@ interface DocumentMigrationOptions {
 	isAdventure?: boolean;
 	fromSourceData?: boolean;
 	pack?: string;
+	packData?: Record<string, any>[];
 }
 
 interface MigrateOptions {
 	inPreCreate?: boolean;
 	fromSourceData?: boolean;
+	packData?: Record<string, any>[];
 }
 
 class MigrationRunnerFoundry extends MigrationRunnerBase {
@@ -77,7 +79,7 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		const { documentClass } = collection;
 		const pack = 'metadata' in collection ? collection.metadata.id : null;
 		const updateGroup: any[] = [];
-		const { fromSourceData } = options ?? {};
+		const { fromSourceData, packData } = options ?? {};
 
 		for (const document of collection.contents) {
 			if (updateGroup.length === 50) {
@@ -93,8 +95,8 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 
 			const updated =
 				'prototypeToken' in document
-					? await this.#migrateActor(migrations, document, { pack, fromSourceData })
-					: await this.#migrateItem(migrations, document, { pack, fromSourceData });
+					? await this.#migrateActor(migrations, document, { pack, fromSourceData, packData })
+					: await this.#migrateItem(migrations, document, { pack, fromSourceData, packData });
 
 			if (updated) updateGroup.push(updated);
 		}
@@ -151,11 +153,17 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		actor: any,
 		options?: DocumentMigrationOptions,
 	): Promise<any | null> {
-		const { pack, isAdventure = false, fromSourceData = false } = options ?? {};
+		const { pack, packData, isAdventure = false, fromSourceData = false } = options ?? {};
 
-		const baseActor = fromSourceData
-			? (this.#sourceData.actors?.find((a) => actor._id === a._id) ?? actor.toObject())
-			: actor._source.toObject();
+		let baseActor: any;
+
+		if (pack && packData) {
+			baseActor = packData.find((a) => actor._id === a._id) ?? actor._source.toObject();
+		} else if (fromSourceData) {
+			baseActor = this.#sourceData.actors?.find((a) => actor._id === a._id) ?? actor.toObject();
+		} else {
+			baseActor = actor._source.toObject();
+		}
 
 		const updatedActor = await (async () => {
 			try {
@@ -183,8 +191,6 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 			try {
 				await actor.deleteEmbeddedDocuments('Item', itemsDeleted, { noHook: true, pack });
 			} catch (error) {
-				// Output as a warning, since this merely means data preparation following the update
-				// (hopefully intermittently) threw an error
 				console.warn(error);
 			}
 		}
@@ -204,8 +210,6 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 			try {
 				await actor.deleteEmbeddedDocuments('ActiveEffect', effectsDeleted, { noHook: true, pack });
 			} catch (error) {
-				// Output as a warning, since this merely means data preparation following the update
-				// (hopefully intermittently) threw an error
 				console.warn(error);
 			}
 		}
@@ -221,11 +225,17 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		item: any,
 		options?: DocumentMigrationOptions,
 	): Promise<any | null> {
-		const { pack, isAdventure = false, fromSourceData = false } = options ?? {};
+		const { pack, packData, isAdventure = false, fromSourceData = false } = options ?? {};
 
-		const baseItem = fromSourceData
-			? (this.#sourceData.items?.find((i) => item._id === i._id) ?? item.toObject())
-			: item._source.toObject();
+		let baseItem: any;
+
+		if (pack && packData) {
+			baseItem = packData.find((i) => item._id === i._id) ?? item._source.toObject();
+		} else if (fromSourceData) {
+			baseItem = this.#sourceData.items?.find((i) => item._id === i._id) ?? item.toObject();
+		} else {
+			baseItem = item._source.toObject();
+		}
 
 		const updatedItem = await (() => {
 			try {
@@ -252,8 +262,6 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 			try {
 				await item.deleteEmbeddedDocuments('ActiveEffect', effectsDeleted, { noHook: true, pack });
 			} catch (error) {
-				// Output as a warning, since this merely means data preparation following the update
-				// (hopefully intermittently) threw an error
 				console.warn(error);
 			}
 		}
@@ -352,21 +360,24 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 	async runCompendiumMigration(
 		migrations: MigrationBase[],
 		pack: CompendiumCollection<CompendiumCollection.Metadata>,
+		options?: MigrateOptions,
 	): Promise<void> {
 		if (!['Adventure', 'Actor', 'Item'].includes(pack.documentName)) return;
 
-		// TODO: Progress Marker
-
-		// Load Documents
+		// Load Document
 		await pack.getDocuments();
+		const packData = await this.#getTruePackSource(pack);
+		if (!packData) return;
 
 		const wasLocked = pack.locked;
 		if (wasLocked) await pack.configure({ locked: false });
 
+		// TODO: Progress Marker
 		if (pack.documentName === 'Adventure') {
 			await this.#migrateAdventureDocuments(pack, migrations);
 		} else {
-			await this.#migrateDocuments(pack, migrations);
+			// @ts-expect-error
+			await this.#migrateDocuments(pack, migrations, { ...options, packData });
 		}
 
 		if (wasLocked) await pack.configure({ locked: true });
@@ -442,11 +453,35 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 			);
 
 			console.info(`A5E | Migrating ${pack.index.size} documents in ${pack.metadata.id}.`);
-			await this.runCompendiumMigration(migrations, pack);
+			await this.runCompendiumMigration(migrations, pack, options);
 			ui.notifications.info(
 				localize('A5E.migration.compendium.finished', { packName: pack.metadata.label }),
 			);
 		}
+	}
+
+	async runDocumentMigration(source: any) {
+		const docVersion =
+			source.system.migrationData?.version ?? MigrationRunnerFoundry.RECOMMENDED_SAFE_VERSION;
+
+		if (docVersion >= MigrationRunnerFoundry.LATEST_MIGRATION_VERSION) return false;
+		if (!['Actor', 'Item'].includes(source.documentName)) return false;
+
+		const options = {
+			fromSourceData: true, // Marked as true for world data
+			inPreCreate: false,
+		};
+
+		await this.#setupSourceData();
+
+		const updated =
+			'items' in source
+				? await this.#migrateActor(this.migrations, source, options)
+				: await this.#migrateItem(this.migrations, source, options);
+
+		await source.update(updated);
+
+		return true;
 	}
 
 	async runMigration(force = false): Promise<void> {
@@ -482,13 +517,30 @@ class MigrationRunnerFoundry extends MigrationRunnerBase {
 		ui.notifications.info(localize('A5E.migration.world.finished', { version: systemVersion }));
 	}
 
+	async #getTruePackSource(pack) {
+		const cls = pack.documentClass;
+		const operation = {
+			broadcast: false,
+			modifiedTime: Date.now(),
+			parent: null,
+			query: {},
+			pack: pack.collection,
+		};
+
+		// Build Database request
+		const request = { type: cls.documentName, action: 'get', operation };
+		// @ts-expect-error
+		const responseData = await SocketInterface.dispatch('modifyDocument', request);
+		// @ts-expect-error
+		const response = new foundry.abstract.DocumentSocketResponse(responseData);
+
+		return response.result;
+	}
+
 	async #setupSourceData() {
-		const socket = await Game.connect(game.sessionId);
+		// const socket = await Game.connect(game.sessionId);
+		const socket = game.socket;
 		this.#sourceData = await Game.getData(socket, 'game');
-
-		// TODO: Might need to close this socket.
-
-		return;
 	}
 }
 

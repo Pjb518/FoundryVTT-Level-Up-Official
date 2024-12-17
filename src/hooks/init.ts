@@ -64,8 +64,8 @@ import TemplatePreparationManager from '../managers/TemplatePreparationManager';
 // Migrations
 import { MigrationList } from '../migration/MigrationList';
 import { MigrationRunnerFoundry } from '../migration/runner/foundryRunner';
-import handleMigration from '../migration/handleMigration';
-import handlePackMigration from '../migration/handlePackMigration';
+import { handleMigration } from '../migration/handlers/handleMigration';
+import { handlePackMigration } from '../migration/handlers/handlePackMigration';
 
 // Utility functions
 import getDeterministicBonus from '../dice/getDeterministicBonus';

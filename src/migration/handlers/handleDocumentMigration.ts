@@ -1,36 +1,23 @@
 import { MigrationList } from '../MigrationList';
 import { MigrationRunnerFoundry } from '../runner/foundryRunner';
 
-// export default async function handleDocumentMigration(document) {
-// 	if (!game.user!.isGM) return;
-
-// 	const legacyVersion = game.settings.get('a5e', 'systemMigrationVersion') as number;
-// 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-// 	const legacyMigrate = foundry.utils.isNewerVersion('0.10.8', legacyVersion); // TODO: Migration - Fix where the goes
-
-// 	const migrationRunner = new MigrationRunnerFoundry(
-// 		MigrationList.constructFromVersion(document.system.migrationData?.version ?? 0.0),
-// 	);
-
-// 	const result = await migrationRunner.runDocumentMigration(document, migrationRunner.migrations);
-
-// 	if (result) {
-// 		ui.notifications.info(`Migrated ${document.name} to the latest version.`);
-// 	} else {
-// 		ui.notifications.info(`No migration for ${document.name} not available.`);
-// 	}
-// }
-
-export async function handleDocumentMigration(document) {
+export async function handleDocumentMigration(source) {
 	if (!game.user?.isGM) return false;
 
-	const currentVersion = document.system.migrationData.version ?? 0;
+	const currentVersion =
+		source.system.migrationData.version ?? MigrationRunnerFoundry.RECOMMENDED_SAFE_VERSION;
 
 	const migrationRunner = new MigrationRunnerFoundry(
 		MigrationList.constructFromVersion(currentVersion),
 	);
 
-	// TODO: Run Migration
+	const result = await migrationRunner.runDocumentMigration(source);
+
+	if (result) {
+		ui.notifications.info(`Migrated ${source.name} to the latest version.`);
+	} else {
+		ui.notifications.info(`No migration for ${source.name} not available.`);
+	}
 }
 
 export async function handleDocumentImportMigration(document, forcedVersion: number | null = null) {

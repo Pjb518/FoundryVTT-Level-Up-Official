@@ -1,7 +1,7 @@
 import { localize } from '#runtime/util/i18n';
 
 import { handleDocumentMigration } from '../migration/handlers/handleDocumentMigration';
-import handlePackMigration from '../migration/handlePackMigration';
+import { handlePackMigration } from '../migration/handlers/handlePackMigration';
 
 export default function getDocumentDirectoryContext(dialog, html, data, type) {
 	if (!game.user.isGM) return;

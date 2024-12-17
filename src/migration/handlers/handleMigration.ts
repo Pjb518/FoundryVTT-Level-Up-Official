@@ -1,7 +1,7 @@
-import { MigrationList } from './MigrationList';
-import { MigrationRunnerFoundry } from './runner/foundryRunner';
+import { MigrationList } from '../MigrationList';
+import { MigrationRunnerFoundry } from '../runner/foundryRunner';
 
-export default async function handleMigration() {
+export async function handleMigration() {
 	if (!game.user!.isGM) return;
 
 	// Determine whether a system migration is required

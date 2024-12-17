@@ -21,7 +21,7 @@ class MigrationRunnerBase {
 
 	static LATEST_MIGRATION_VERSION = 0.02;
 
-	static RECOMMENDED_SAFE_VERSION = 0.014; // TODO: Update this
+	static RECOMMENDED_SAFE_VERSION = 0.019;
 
 	static MINIMUM_SAFE_VERSION = 0.014;
 
@@ -139,7 +139,7 @@ class MigrationRunnerBase {
 			const latestMigration = migrations.at(-1)!;
 			itemData.system.migrationData ??= { version: null, lastMigration: null };
 			// @ts-expect-error
-			this.#updateMigrationRecord(actorData.system.migration, latestMigration);
+			this.#updateMigrationRecord(itemData.system.migration, latestMigration);
 
 			for (const effectData of itemData.effects) {
 				effectData.system._migration ??= { version: null, previous: null };
