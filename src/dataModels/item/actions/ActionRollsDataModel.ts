@@ -11,13 +11,13 @@ const baseSchema = () => ({
 });
 
 const abilityCheckSchema = () => ({
-	ability: new fields.StringField({ required: true, nullable: false, initial: '' }), // TODO: Action - Set to proper
+	ability: new fields.StringField({ required: true, nullable: false, initial: 'str' }),
 	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	...baseSchema(),
 });
 
 const attackRollSchema = () => ({
-	ability: new fields.StringField({ required: true, nullable: false, initial: '' }), // TODO: Action - Set to proper
+	ability: new fields.StringField({ required: true, nullable: false, initial: 'default' }),
 	attackType: new fields.StringField({
 		required: true,
 		nullable: false,
@@ -47,27 +47,27 @@ const genericRollSchema = () => ({
 
 const healingRollSchema = () => ({
 	formula: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	healingType: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	healingType: new fields.StringField({ required: true, nullable: false, initial: 'healing' }),
 	scaling: new fields.ObjectField({ required: true, nullable: false }), // TODO: Make this proper
 	...baseSchema(),
 });
 
 const savingThrowSchema = () => ({
-	ability: new fields.StringField({ required: true, nullable: false, initial: '' }), // TODO: Action - Set to proper
+	ability: new fields.StringField({ required: true, nullable: false, initial: 'str' }),
 	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	...baseSchema(),
 });
 
 const skillCheckRollSchema = () => ({
 	ability: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	skill: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	skill: new fields.StringField({ required: true, nullable: false, initial: 'acr' }),
 	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	...baseSchema(),
 });
 
 const toolCheckRollSchema = () => ({
 	ability: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	tool: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	tool: new fields.StringField({ required: true, nullable: false, initial: 'airVehicles' }),
 	bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	...baseSchema(),
 });

@@ -11,15 +11,15 @@ const baseSchema = () => ({
 });
 
 const abilityCheckSchema = () => ({
-	ability: new fields.StringField({ required: true, nullable: false, initial: '' }), // TODO: Action - Set to proper
+	ability: new fields.StringField({ required: true, nullable: false, initial: 'str' }),
 	...baseSchema(),
 });
 
 const abilitySaveSchema = () => ({
-	ability: new fields.StringField({ required: true, nullable: false, initial: '' }), // TODO: Action - Set to proper
+	ability: new fields.StringField({ required: true, nullable: false, initial: 'str' }),
 	saveDC: new fields.SchemaField({
 		bonus: new fields.StringField({ required: true, nullable: false, initial: '' }),
-		type: new fields.StringField({ required: true, nullable: false, initial: '' }),
+		type: new fields.StringField({ required: true, nullable: false, initial: 'spellcasting' }),
 	}),
 	onSave: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	...baseSchema(),
@@ -32,7 +32,7 @@ const genericSchema = () => ({
 
 const skillCheckSchema = () => ({
 	ability: new fields.StringField({ required: true, nullable: false, initial: '' }),
-	skill: new fields.StringField({ required: true, nullable: false, initial: '' }),
+	skill: new fields.StringField({ required: true, nullable: false, initial: 'acr' }),
 	...baseSchema(),
 });
 
