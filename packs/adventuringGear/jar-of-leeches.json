@@ -6,18 +6,17 @@
 		{
 			"origin": "Item.bVtodnYj9UyIMlfW",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "F88edt6ev053GUxr"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Ongoing Damage (Jar of Leeches)",
 			"img": "icons/consumables/food/soup-broth-bowl-tentacle.webp",
 			"_id": "wfeFA8FnA2AE3YQ6",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -108,13 +107,7 @@
 						"canCrit": false
 					}
 				},
-				"prompts": {
-					"ekH1gATBlHAXQlvl": {
-						"type": "effect",
-						"default": true,
-						"effectId": "wfeFA8FnA2AE3YQ6"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -140,7 +133,10 @@
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"wfeFA8FnA2AE3YQ6"
+				]
 			}
 		},
 		"description": "<p>This jar contains bloodthirsty medicinal worms useful for curing many maladies. You can expend one use of this jar during a short rest to administer leeches to yourself or a willing creature. A creature who has leeches administered to them cannot regain hit points during this short rest due to blood loss, but it may repeat a saving throw to remove the poisoned condition or a blood-borne disease (DC equal to the original effect).</p><p>Alternatively, as an action you can throw this jar up to 20 feet, shattering it on impact. Make a ranged attack against a creature or object, treating the jar as an improvised weapon. On a hit, if the target is a Large or smaller creature it takes 1d4 ongoing damage. A creature can end this damage by using its action to remove the leeches.</p>",

@@ -7,9 +7,6 @@
 			"origin": "Item.jqAi0LrDoZxOrOSv",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "WVbVRxERAWLJ1kfd",
 					"duration": {
 						"unit": "hours"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/weapons/staves/staff-obsidian.webp",
 			"_id": "ejDC5cpefe21mRBx",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -100,14 +100,12 @@
 							"bonus": "15"
 						},
 						"type": "savingThrow"
-					},
-					"ZuG79Mw6eeJ7uy5S": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ejDC5cpefe21mRBx"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"effects": [
+					"ejDC5cpefe21mRBx"
+				]
 			}
 		},
 		"description": "<p>Once per dawn, while holding this rod you can use an action to command obedience. Each creature of your choice that you can see within 120 feet makes a DC 15 Wisdom saving throw. On a failure, a creature is charmed by you for 8 hours. A creature charmed by you regards you as its trusted leader. The charm is broken if you or your companions either command a charmed creature to do something contrary to its nature, or cause the creature harm.</p>",

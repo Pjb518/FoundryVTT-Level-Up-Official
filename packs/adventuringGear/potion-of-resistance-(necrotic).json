@@ -26,13 +26,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"Vt7ys8IahPPxrLGk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "VvlXcvaGEAZrvzlG"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -43,7 +37,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"VvlXcvaGEAZrvzlG"
+				]
 			}
 		},
 		"description": "<p>After you drink this potion, for the next hour you gain resistance to Necrotic damage.</p>",
@@ -110,10 +107,6 @@
 			"origin": "Item.SiIxQ1kfewS0lrYr",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "N8RnDuIcAIgywV67",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -124,7 +117,10 @@
 			"img": "icons/consumables/potions/bottle-conical-corked-labeled-shell-cyan.webp",
 			"_id": "VvlXcvaGEAZrvzlG",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",

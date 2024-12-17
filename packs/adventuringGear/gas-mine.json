@@ -59,11 +59,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"WnOGirlObwebC4FI": {
-						"type": "effect",
-						"default": true,
-						"effectId": "fc22fxDWa3mBMSBl"
 					}
 				},
 				"uses": {
@@ -91,7 +86,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"fc22fxDWa3mBMSBl"
+				]
 			}
 		},
 		"description": "<p>Unlike grenades, which explode shortly after being thrown, mines are designed to detonate once a specific trigger occurs. As an action, you can set a mine in an unoccupied space within 5 feet of you. When you set a mine, determine the circumstances under which the mine will detonate. For example, you can set the mine to detonate on a timer, when a creature enters the mine’s space, or under other specific circumstances (such as when a door opens or a vehicle activates). You can also rig the mine to detonate remotely using a remote detonator.</p>\n<p>When detonated, a mine functions identically to the grenade it emulates.</p>\n<h2>Gas</h2>\n<p>When detonated, a gas grenade creates a 10-foot-radius sphere of poisonous gas. A creature that enters the cloud for the first time on a turn, or that starts its turn inside the cloud, makes a Constitution saving throw. Creatures that don’t need to breathe automatically succeed on the saving throw. On a failure, the creature is poisoned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. The gas spreads around corners, and its area is heavily obscured. It lasts for 1 minute or until dispersed by a moderate wind (at least 10 miles per hour).</p>",
@@ -156,9 +154,6 @@
 			"origin": "Item.zQ684TTtnN2WXCZF",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "cM6IgfJRamgmsfn2",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -169,7 +164,10 @@
 			"img": "icons/weapons/thrown/grenade-round.webp",
 			"_id": "fc22fxDWa3mBMSBl",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

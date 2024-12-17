@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"YkygnYYUvrJ2XLI7": {
-						"type": "effect",
-						"default": true,
-						"effectId": "q1DaoxDB2Bje6pUZ"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -47,7 +41,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"q1DaoxDB2Bje6pUZ"
+				]
 			}
 		},
 		"description": "<p>This amber liquid helps sharpen focus. After injecting this compound you gain an expertise die on Intelligence saving throws for 2 hours.</p>",
@@ -116,9 +113,6 @@
 			"origin": "Item.XRDzQiLFnFfqoZS2",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "sMBMCIPvg9TYqlCJ",
 					"duration": {
 						"unit": "hours"
 					}
@@ -129,7 +123,10 @@
 			"img": "icons/consumables/potions/potion-vial-tube-yellow.webp",
 			"_id": "q1DaoxDB2Bje6pUZ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.abilities.int.save.expertiseDice",

@@ -100,13 +100,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"v1aDdafEkIFXWVQ7": {
-						"type": "effect",
-						"default": true,
-						"effectId": "sFWNX9HCVaBUedBm"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -117,7 +111,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"sFWNX9HCVaBUedBm"
+				]
 			},
 			"rEjwnhgARLPCjqUh": {
 				"name": "Parry",
@@ -219,10 +216,6 @@
 			"origin": "Item.ksahKp0B3ZdZIWjw",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "X6xkRv5yy8YLrA6Z",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -234,7 +227,10 @@
 			"img": "icons/weapons/swords/greatsword-evil-green.webp",
 			"_id": "sFWNX9HCVaBUedBm",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",

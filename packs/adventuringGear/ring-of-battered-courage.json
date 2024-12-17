@@ -47,13 +47,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"CaDAdRhmfevdFmt4": {
-						"type": "effect",
-						"default": true,
-						"effectId": "r15DlHQHD1WMQTQR"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -64,20 +58,17 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"r15DlHQHD1WMQTQR"
+				]
 			},
 			"QBC0iMSF1CAiYRo0": {
 				"name": "Coward's Bane",
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"8i88u1QmNNjEVmwY": {
-						"type": "effect",
-						"default": true,
-						"effectId": "QJJ7ncCX9SEdqEjX"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -88,7 +79,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"QJJ7ncCX9SEdqEjX"
+				]
 			}
 		},
 		"description": "<p>This jagged black ring made of volcanic rock is streaked with orange veins and uncomfortable to wear. While wearing this ring, you are immune to the frightened condition. Additionally, while you are bloodied, it grows hotter and grants the following benefits:</p><ul><li>Your AC increases by 1 for each hostile creature (squads and swarms count as single creatures for this purpose) within 5 feet of you, to a maximum of +5.</li><li>When you hit a creature with a melee weapon attack, roll 1d8. Add the result to the attack&rsquo;s damage and gain the same amount of temporary hit points.</li></ul><p><strong>Curse.</strong> You fail death saving throws on a roll of 12 or lower. Additionally, this ring despises what it sees as cowardice. If you don armor or use a shield defensively, you lose all benefits of this ring for 1 week.</p><p><strong>Escalation. </strong>When you show extraordinary courage in the face of certain death and emerge victorious, this ring&rsquo;s power can evolve, gaining one of the following features. For each power it gains, the threshold for successful death saving throws increases by 2.</p><p><em>Charge Into Danger.</em> As a bonus action while bloodied, you can move up to your movement speed toward a hostile creature.</p><p><em>Coward&rsquo;s Bane.</em> Creatures never gain advantage from being unseen on attack rolls against you and you always have resistance to poison damage.</p>",
@@ -150,10 +144,7 @@
 			"icon": "icons/equipment/finger/ring-band-notched-gold.webp",
 			"origin": "Item.gkpu21shq1bhjc5e",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Ring of Battered Courage",
@@ -189,18 +180,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		},
 		{
 			"icon": "icons/equipment/finger/ring-band-notched-gold.webp",
 			"origin": "Item.gkpu21shq1bhjc5e",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "QBC0iMSF1CAiYRo0",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Coward’s Bane",
@@ -236,18 +226,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
 			}
 		},
 		{
 			"icon": "icons/equipment/finger/ring-band-notched-gold.webp",
 			"origin": "Item.gkpu21shq1bhjc5e",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CaeJqhzgP3NZJLmB",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Charge Into Danger",
@@ -277,6 +266,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
 			}
 		}
 	],

@@ -7,10 +7,6 @@
 			"origin": "Item.tITVlaFfKCJgWouA",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "EKAkBGHMAuPuiTS0",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -21,7 +17,10 @@
 			"img": "icons/sundries/lights/lantern-iron-yellow.webp",
 			"_id": "xqeZDgm01IgFtS4n",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",
@@ -61,10 +60,6 @@
 			"origin": "Item.tITVlaFfKCJgWouA",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nNYoMASCBmxkUNnU",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -75,7 +70,10 @@
 			"img": "icons/sundries/lights/lantern-iron-yellow.webp",
 			"_id": "MubN5IGOQsTTxMA1",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",
@@ -130,13 +128,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"K7Lo3yOQFiO0mdtL": {
-						"type": "effect",
-						"default": true,
-						"effectId": "xqeZDgm01IgFtS4n"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -147,7 +139,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"xqeZDgm01IgFtS4n"
+				]
 			},
 			"nNYoMASCBmxkUNnU": {
 				"name": "Lower Hood",
@@ -157,13 +152,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"0ksIlUsGDWXqBwus": {
-						"type": "effect",
-						"default": true,
-						"effectId": "MubN5IGOQsTTxMA1"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -174,7 +163,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"MubN5IGOQsTTxMA1"
+				]
 			}
 		},
 		"description": "<p>Once lit, a lantern burns for 6 hours on a flask of oil (1 pint).</p><p>Hooded: Casts bright light in a 30-foot radius and dim light for an additional 30 feet. As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius.</p>",

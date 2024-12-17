@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"jdWbYoPw1Cq8RtAC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "MEySxyiMu7sBZ1V9"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -51,7 +45,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 10
-				}
+				},
+				"effects": [
+					"MEySxyiMu7sBZ1V9"
+				]
 			}
 		},
 		"description": "<p>Anti-rad flushes radiation from a creature’s body. A dose is administered via airhypo as an action and takes 10 minutes to take effect, but then immediately flushes all radiation from the patient’s body. The process is exhausting, and leaves the patient with two levels of fatigue.</p>",
@@ -119,18 +116,17 @@
 		{
 			"origin": "Item.XY1mZPWnVdgOT3qK",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "4is8nL39cd3dUOtQ"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Anti-Rad",
 			"img": "icons/consumables/potions/bottle-metal-yellow-gray.webp",
 			"_id": "MEySxyiMu7sBZ1V9",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.fatigue",

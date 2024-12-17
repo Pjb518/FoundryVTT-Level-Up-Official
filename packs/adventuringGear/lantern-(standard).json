@@ -7,10 +7,6 @@
 			"origin": "Item.7HwBBQgycODa6AJ2",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "kswZeDoUOhgTVcgj",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -21,7 +17,10 @@
 			"img": "icons/sundries/lights/lantern-iron-lit-yellow.webp",
 			"_id": "jTTiaTyc8JrMyxEQ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",
@@ -76,13 +75,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"sWUTL5AkyBJnlQd8": {
-						"type": "effect",
-						"default": true,
-						"effectId": "jTTiaTyc8JrMyxEQ"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -93,7 +86,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"jTTiaTyc8JrMyxEQ"
+				]
 			}
 		},
 		"description": "<p>Once lit, a lantern burns for 6 hours on a flask of oil (1 pint).</p><p>Standard: Casts bright light in a 15-foot radius and dim light for an additional 30 feet.</p>",

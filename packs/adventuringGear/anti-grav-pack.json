@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"ixuH8x37zCdroLZg": {
-						"type": "effect",
-						"default": true,
-						"effectId": "atUDvoHjdhyuRVdQ"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"atUDvoHjdhyuRVdQ"
+				]
 			}
 		},
 		"description": "<p>An ultra-tech descendent of the standard jetpack, an Anti-Grav pack uses antigravity technology to maneuver. The user is surrounded by a very lightweight protective field while the pack is active (AC becomes 12 if it would otherwise be lower) which protects the user from the high winds and allows much faster flight speeds. An Anti-Grav pack grants its user a flight speed of 60 feet. Another variant that uses boots or anklets also exists; it works in the same manner. This is an advanced item.</p>",
@@ -105,19 +102,17 @@
 		{
 			"origin": "Item.mOUM4GH0hUa3wt7P",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "53KINTM5E26MzMrl",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Anti-Grav Pack",
 			"img": "icons/containers/bags/pouch-gold-grey.webp",
 			"_id": "atUDvoHjdhyuRVdQ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.value",

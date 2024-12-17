@@ -8,9 +8,6 @@
 			"origin": "Item.5qu8qebspypr3iue",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LfiU8RBp5laBi6jt",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],
@@ -103,7 +104,8 @@
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"LfiU8RBp5laBi6jt": {
 				"name": "AC +1",
@@ -113,18 +115,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"VzXK3rJS1p0jCl6M": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PiHWvQKjPGNpP7A7"
-					},
-					"aihw6klbt8X6LdFS": {
-						"type": "effect",
-						"default": true,
-						"effectId": "o3RplnB3d2bgc5Cs"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -138,7 +129,11 @@
 					"unit": "turn",
 					"value": 1
 				},
-				"img": "icons/weapons/swords/shortsword-guard-worn.webp"
+				"img": "icons/weapons/swords/shortsword-guard-worn.webp",
+				"effects": [
+					"PiHWvQKjPGNpP7A7",
+					"o3RplnB3d2bgc5Cs"
+				]
 			},
 			"vQTQD7tzjEVIJLR0": {
 				"name": "Parry",

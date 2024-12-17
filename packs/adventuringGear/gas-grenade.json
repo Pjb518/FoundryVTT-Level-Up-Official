@@ -37,11 +37,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"WnOGirlObwebC4FI": {
-						"type": "effect",
-						"default": true,
-						"effectId": "MS4HfjCdEG3ZuwuJ"
 					}
 				},
 				"uses": {
@@ -69,7 +64,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"MS4HfjCdEG3ZuwuJ"
+				]
 			}
 		},
 		"description": "<p>Grenades are simple, thrown weapons that detonate upon impact. As an action, you can throw a grenade at a point you choose within 30 feet of you. The grenade explodes once it lands, creating an effect determined by its type. Most grenades require creatures caught in their area of effect to make a saving throw. Unless otherwise noted, the DC of this save is equal to your maneuver save DC.</p>\n<p>Certain weapons, such as grenade launchers (see Ranged Weapons), allow you to launch grenades longer distances without throwing them.</p>\n<h2>Gas</h2>\n<p>When detonated, a gas grenade creates a 10-foot-radius sphere of poisonous gas. A creature that enters the cloud for the first time on a turn, or that starts its turn inside the cloud, makes a Constitution saving throw. Creatures that don’t need to breathe automatically succeed on the saving throw. On a failure, the creature is poisoned for 1 minute. A creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success. The gas spreads around corners, and its area is heavily obscured. It lasts for 1 minute or until dispersed by a moderate wind (at least 10 miles per hour).</p>",
@@ -134,9 +132,6 @@
 			"origin": "Item.bXySAnLg4RGTZZ3h",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "SeKnu34LE5x9GN0S",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -147,7 +142,10 @@
 			"img": "icons/weapons/thrown/grenade-round.webp",
 			"_id": "MS4HfjCdEG3ZuwuJ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

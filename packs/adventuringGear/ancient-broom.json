@@ -8,9 +8,6 @@
 			"origin": "Item.lbwpnu6fylnekhsq",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ZdX1rqHn29jj57xS",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -48,16 +45,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		},
 		{
 			"icon": "icons/weapons/clubs/club-simple-black.webp",
 			"origin": "Item.lbwpnu6fylnekhsq",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Attuned",
@@ -88,6 +86,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],
@@ -142,13 +144,10 @@
 					}
 				},
 				"consumers": {},
-				"prompts": {
-					"ClZDtbTuOxofRYzi": {
-						"type": "effect",
-						"default": true,
-						"effectId": "meovN7b3LuJzCOR6"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"meovN7b3LuJzCOR6"
+				]
 			},
 			"VTK2FgZ7IdcdCwuO": {
 				"name": "Nondetection",

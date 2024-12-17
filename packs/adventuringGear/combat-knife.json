@@ -209,13 +209,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"6vTxxULjrW59xfFB": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ITaqnVswTiX96x4K"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -226,7 +220,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"ITaqnVswTiX96x4K"
+				]
 			}
 		},
 		"description": "<p>These simple, mass-manufactured duranium blades are sturdy and practical, often carried by military forces as a backup weapon.</p>",
@@ -296,10 +293,6 @@
 			"origin": "Item.c6AOCsXpF3LOWI4A",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "clOLms1CoF9uQC7Y",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -311,7 +304,10 @@
 			"img": "icons/weapons/thrown/dagger-ringed-hollow.webp",
 			"_id": "ITaqnVswTiX96x4K",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",

@@ -7,12 +7,9 @@
 			"origin": "Item.53ZZL214dRxmECz9",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "dRwr0kqgFLBGD8TG"
+					}
 				}
 			},
 			"transfer": false,
@@ -41,7 +38,10 @@
 			"tint": "#ffffff",
 			"img": "icons/consumables/nuts/acorn-glowing-brown.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"sort": 0,
 			"folder": null,
 			"_stats": {
@@ -91,14 +91,10 @@
 					}
 				},
 				"consumers": {},
-				"prompts": {
-					"EzMRfJElf2ajIQ7U": {
-						"type": "effect",
-						"default": true,
-						"effectId": "MNbXerTv9JZE0c0M",
-						"label": "Ironwood Acorn"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"MNbXerTv9JZE0c0M"
+				]
 			}
 		},
 		"description": "<p>This tough acorn must be swallowed whole to fortify your muscles and sinews, and after you eat it you gain an expertise die on Strength saving throws for 1 hour.</p>",

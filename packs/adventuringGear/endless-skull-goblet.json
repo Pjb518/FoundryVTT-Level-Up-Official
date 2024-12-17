@@ -26,23 +26,7 @@
 						"ability": "cha"
 					}
 				},
-				"prompts": {
-					"qvezROyiG5OcLV9l": {
-						"type": "effect",
-						"default": true,
-						"effectId": "MiHCkVRSZHQUlOl4"
-					},
-					"hBS367OGCf3das6X": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3OuVHQqLr87TYW7j"
-					},
-					"5LeSaQ069XJaLJ5j": {
-						"type": "effect",
-						"default": true,
-						"effectId": "WEJwPHD2ONuUS30m"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +37,12 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"MiHCkVRSZHQUlOl4",
+					"3OuVHQqLr87TYW7j",
+					"WEJwPHD2ONuUS30m"
+				]
 			}
 		},
 		"description": "<p>This opulent receptacle looks as though it is made from expertly worked gold, but its weight betrays that the grimacing skull which makes up its bowl is merely coated in precious metal. When you use this spellcasting focus to consume Supply during a long rest, you gain 20 temporary hit points. While you have these temporary hit points, you gain an expertise die on your first attack roll each turn.</p><p>In addition, you make a Charisma saving throw (DC 4 + 2 per previous successful save). On a failed save, you gain the Evil trait and radiate an evil aura. On a successful saving throw, you gain an expertise die on your next Wisdom saving throw.</p>",
@@ -115,12 +104,7 @@
 			"icon": "icons/containers/kitchenware/goblet-skeletal-black.webp",
 			"origin": "Item.qj1zuvb7n9ils4tg",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "hiboUduqgfBKT9xn",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Consume Supply",
@@ -150,18 +134,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
 			}
 		},
 		{
 			"icon": "icons/containers/kitchenware/goblet-skeletal-black.webp",
 			"origin": "Item.qj1zuvb7n9ils4tg",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "hiboUduqgfBKT9xn",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Endless Skull Goblet - Failure",
@@ -191,18 +174,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
 			}
 		},
 		{
 			"icon": "icons/containers/kitchenware/goblet-skeletal-black.webp",
 			"origin": "Item.qj1zuvb7n9ils4tg",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "hiboUduqgfBKT9xn",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Endless Skull Goblet - Success",
@@ -232,6 +214,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
 			}
 		}
 	],

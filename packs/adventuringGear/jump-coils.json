@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"pJuONZDHBtJ2LcUf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BeuFq7ZccFXPwrAV"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"BeuFq7ZccFXPwrAV"
+				]
 			}
 		},
 		"description": "<p>You do not need to move to make a long jump, and your jumping distances are tripled. You also can safely fall up to 100 feet without taking damage as long as you are not incapacitated.</p>\n<p><strong>Hacking.</strong> If hacked, the system locks, dramatically hampering your movement. Your walking speed decreases by 20 feet and for every 10 minutes of walking, you suffer a level of fatigue. Repairing the system requires a DC 15 check with a cybernetics kit and a short rest.</p>",
@@ -106,19 +103,17 @@
 		{
 			"origin": "Item.tY8Di6xn60N1W5wV",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "dgpLA6uRyPGn2uKz",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "New Effect",
 			"img": "icons/commodities/tech/coil-steel.webp",
 			"_id": "BeuFq7ZccFXPwrAV",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",

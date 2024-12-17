@@ -67,11 +67,6 @@
 							"type": "maneuver"
 						},
 						"onSave": "Half damage, not prone"
-					},
-					"c9soJW68x3vixg6O": {
-						"type": "effect",
-						"default": true,
-						"effectId": "YGtuNjWDa64mpQ3l"
 					}
 				},
 				"uses": {
@@ -95,7 +90,10 @@
 					"quantity": 1,
 					"radius": 10,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"YGtuNjWDa64mpQ3l"
+				]
 			}
 		},
 		"description": "<p>Unlike grenades, which explode shortly after being thrown, mines are designed to detonate once a specific trigger occurs. As an action, you can set a mine in an unoccupied space within 5 feet of you. When you set a mine, determine the circumstances under which the mine will detonate. For example, you can set the mine to detonate on a timer, when a creature enters the mine’s space, or under other specific circumstances (such as when a door opens or a vehicle activates). You can also rig the mine to detonate remotely using a remote detonator.</p>\n<p>When detonated, a mine functions identically to the grenade it emulates.</p>\n<h2>Concussion</h2>\n<p>Each creature within 10 feet makes a Dexterity saving throw. On a failed save, the target takes 1d6 thunder damage and is knocked prone. On a success, the target takes half as much damage and isn’t knocked prone.</p>",
@@ -159,18 +157,17 @@
 		{
 			"origin": "Item.94FVyhEy8ZwpRSi4",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "pskrbwTxjmmS1Fqa"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"img": "icons/weapons/thrown/grenade-round.webp",
 			"_id": "YGtuNjWDa64mpQ3l",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

@@ -36,11 +36,6 @@
 							"type": "custom",
 							"bonus": "10"
 						}
-					},
-					"x3po7kb0RbrCVm6z": {
-						"type": "effect",
-						"default": true,
-						"effectId": "uwiKBZAWkphmx6zO"
 					}
 				},
 				"uses": {
@@ -53,7 +48,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"uwiKBZAWkphmx6zO"
+				]
 			},
 			"ViRjmSou9JBRVOTW": {
 				"name": "Damage",
@@ -148,9 +146,6 @@
 			"origin": "Item.2hOodsPVwvRParOs",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "4C6Vj9JcZxoCWUmQ",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -161,7 +156,10 @@
 			"img": "icons/commodities/gems/gem-fragments-turquoise.webp",
 			"_id": "uwiKBZAWkphmx6zO",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.fatigue",

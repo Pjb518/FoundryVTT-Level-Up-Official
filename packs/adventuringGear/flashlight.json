@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"1SkI0bPsGUHndOpB": {
-						"type": "effect",
-						"default": true,
-						"effectId": "rprHHNSmQ28um8Qb"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"rprHHNSmQ28um8Qb"
+				]
 			}
 		},
 		"description": "<p>The default source of portable light from the discovery of electricity onward. Provides bright light in a 20-foot cone and dim light in a 30-foot one. Alternate versions based on head bands or gloves provide light in more specific areas or hands-free, but only to half the range.</p>",
@@ -105,19 +102,17 @@
 		{
 			"origin": "Item.vtoQY9kvTdQgbMuP",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "W6E8lwfDcRoFwFRh",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Flashlight",
 			"img": "icons/magic/light/beam-layered-teal.webp",
 			"_id": "rprHHNSmQ28um8Qb",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",

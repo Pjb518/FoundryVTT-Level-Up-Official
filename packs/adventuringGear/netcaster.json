@@ -36,11 +36,6 @@
 					}
 				},
 				"prompts": {
-					"6SlTBAtNmpV5LRLF": {
-						"type": "effect",
-						"default": true,
-						"effectId": "t1Zz4wFjCbiwmS4G"
-					},
 					"8rs5yw078Ml2JsmJ": {
 						"type": "abilityCheck",
 						"default": true,
@@ -69,7 +64,10 @@
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"t1Zz4wFjCbiwmS4G"
+				]
 			}
 		},
 		"description": "<p>Netcasters fire cartridges that break apart mid-flight, deploying a net made of sturdy carbon fiber. A corporeal Large or smaller creature that cannot move through a space one inch or smaller who is hit by ranged attack made with a netcaster is restrained until it is freed. A creature can use its action to make a DC 15 Strength check, freeing itself or another creature within its reach on a success. A net has AC 10, 15 hit points, and is immune to bludgeoning, poison, and psychic damage.</p>",
@@ -138,18 +136,17 @@
 		{
 			"origin": "Item.5Vb9BWNxmw7CRrav",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "KggpWaOPeHrciQW7"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Restrained",
 			"img": "icons/magic/control/debuff-chains-ropes-net-purple-blue.webp",
 			"_id": "t1Zz4wFjCbiwmS4G",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

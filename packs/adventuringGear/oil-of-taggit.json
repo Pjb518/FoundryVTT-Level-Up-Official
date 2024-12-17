@@ -37,11 +37,6 @@
 							"bonus": "13"
 						},
 						"onSave": "half damage"
-					},
-					"DX6VSb75uQrxR7G0": {
-						"type": "effect",
-						"default": true,
-						"effectId": "dDKukCX2YSt7Tw4X"
 					}
 				},
 				"uses": {
@@ -52,7 +47,10 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"dDKukCX2YSt7Tw4X"
+				]
 			}
 		},
 		"description": "<p><em>Uncommon, Contact, Instantaneous</em></p><p>The roots of the taggit plant can be concentrated into this slick, gray, odorless oil. A creature makes a DC 13 Constitution saving throw when subjected to this poison, and on a failure it becomes poisoned for 24 hours. Creatures poisoned in this way are also knocked unconscious. The creature wakes up if it takes damage.</p>",
@@ -115,9 +113,6 @@
 			"origin": "Item.tycmy6jbdx4czdze",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "iXiD5Xl8MPahhMgR",
 					"duration": {
 						"unit": "hours"
 					}
@@ -155,6 +150,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

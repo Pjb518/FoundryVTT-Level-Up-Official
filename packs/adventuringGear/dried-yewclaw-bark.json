@@ -7,13 +7,9 @@
 			"origin": "Item.SjbVwmJy6DGqHbZs",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "HQBjc9Xo0LGAHKnA",
-					"applyToSelf": false
+					}
 				}
 			},
 			"transfer": false,
@@ -42,7 +38,10 @@
 			"tint": "#ffffff",
 			"img": "icons/consumables/plants/leaf-stem-tree-bud-green-brown.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"sort": 0,
 			"folder": null,
 			"_stats": {
@@ -80,14 +79,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"QE42Fs5BBmuH8Mry": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PioiinfhcPVDWypr",
-						"label": "Dried Yewclaw Bark"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -100,7 +92,10 @@
 				"duration": {
 					"unit": "hour",
 					"value": 1
-				}
+				},
+				"effects": [
+					"PioiinfhcPVDWypr"
+				]
 			}
 		},
 		"description": "<p>Eating strips of this dried yellow bark calms and clarifies the mind, and after consuming this bark you gain an expertise die on Intelligence saving throws for 1 hour.</p>",

@@ -58,11 +58,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"btxwTr7FuuUXAajv": {
-						"type": "effect",
-						"default": true,
-						"effectId": "xSRJ0GhA2Nh5tvb5"
 					}
 				},
 				"uses": {
@@ -86,7 +81,10 @@
 					"quantity": 1,
 					"radius": 10,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"xSRJ0GhA2Nh5tvb5"
+				]
 			}
 		},
 		"description": "<p>Unlike grenades, which explode shortly after being thrown, mines are designed to detonate once a specific trigger occurs. As an action, you can set a mine in an unoccupied space within 5 feet of you. When you set a mine, determine the circumstances under which the mine will detonate. For example, you can set the mine to detonate on a timer, when a creature enters the mine’s space, or under other specific circumstances (such as when a door opens or a vehicle activates). You can also rig the mine to detonate remotely using a remote detonator.</p>\n<p>When detonated, a mine functions identically to the grenade it emulates.</p>\n<h2>Flash</h2>\n<p>Each creature within 10 feet makes a Constitution saving throw, and is blinded for 1 minute on a failure. A blinded creature can repeat the saving throw at the end of each of its turns, ending the effect on itself on a success.</p>",
@@ -151,9 +149,6 @@
 			"origin": "Item.YfVsXJjtWZEuBdd8",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "H51h6lRP2fY8WoZQ",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -164,7 +159,10 @@
 			"img": "icons/weapons/thrown/grenade-round.webp",
 			"_id": "xSRJ0GhA2Nh5tvb5",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

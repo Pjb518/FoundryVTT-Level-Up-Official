@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"KDoSrBk1Qm8khwwT": {
-						"type": "effect",
-						"default": true,
-						"effectId": "rm8c2Z7bUjlwa0YU"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -47,7 +41,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"rm8c2Z7bUjlwa0YU"
+				]
 			}
 		},
 		"description": "<p>This bright blue liquid improves reaction time. After injecting it, you gain an expertise die on Dexterity saving throws for 2 hours.</p>",
@@ -116,9 +113,6 @@
 			"origin": "Item.BWUd2P9Zg5Aer3eC",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "QHORTSis5jKYD3Jn",
 					"duration": {
 						"unit": "hours"
 					}
@@ -129,7 +123,10 @@
 			"img": "icons/consumables/potions/bottle-pear-corked-blue.webp",
 			"_id": "rm8c2Z7bUjlwa0YU",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.abilities.dex.save.expertiseDice",

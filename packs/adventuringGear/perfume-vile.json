@@ -65,11 +65,6 @@
 							"bonus": ""
 						},
 						"label": "DC = Remaining Uses"
-					},
-					"tBCcZY6qLvHORoUp": {
-						"type": "effect",
-						"default": true,
-						"effectId": "6OjwXLb7ABG2rqkv"
 					}
 				},
 				"uses": {
@@ -91,7 +86,10 @@
 					"quantity": 1,
 					"radius": 20,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"6OjwXLb7ABG2rqkv"
+				]
 			}
 		},
 		"description": "",
@@ -154,9 +152,6 @@
 			"origin": "Item.jfy28wbd0wfqxb42",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ECNiLuYAP8vPrK7J",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -194,6 +189,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

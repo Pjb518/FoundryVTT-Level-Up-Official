@@ -66,11 +66,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"9A5kBSON9ffNQaTV": {
-						"type": "effect",
-						"default": true,
-						"effectId": "M2iLxfq4RX6bXlhB"
 					}
 				},
 				"uses": {
@@ -94,7 +89,10 @@
 					"quantity": 1,
 					"radius": 10,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"M2iLxfq4RX6bXlhB"
+				]
 			}
 		},
 		"description": "<p>Unlike grenades, which explode shortly after being thrown, mines are designed to detonate once a specific trigger occurs. As an action, you can set a mine in an unoccupied space within 5 feet of you. When you set a mine, determine the circumstances under which the mine will detonate. For example, you can set the mine to detonate on a timer, when a creature enters the mine’s space, or under other specific circumstances (such as when a door opens or a vehicle activates). You can also rig the mine to detonate remotely using a remote detonator.</p>\n<p>When detonated, a mine functions identically to the grenade it emulates.</p>\n<h2>EMP</h2>\n<p>Each creature within 10 feet makes a Dexterity saving throw. On a failure, any electronic devices the creature is wearing or carrying cease to function until the end of the creature’s next turn. Unattended devices in that area automatically fail the save. Constructs in the area also take 1d6 lightning damage on a failed save.</p>",
@@ -159,9 +157,6 @@
 			"origin": "Item.7rHeAqM2CahpaQKK",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "uBPvrgmDSGD210WO",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -173,7 +168,10 @@
 			"img": "icons/weapons/thrown/grenade-round.webp",
 			"_id": "M2iLxfq4RX6bXlhB",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

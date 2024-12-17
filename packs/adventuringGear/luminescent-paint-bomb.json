@@ -41,12 +41,6 @@
 						},
 						"onSave": "negates",
 						"label": "Saving Throw"
-					},
-					"53tfnGyZ88K3L3Gs": {
-						"type": "effect",
-						"default": true,
-						"effectId": "uX9YtNgILm7pWh4f",
-						"label": "Luminescent Paint Bomb"
 					}
 				},
 				"uses": {
@@ -74,7 +68,10 @@
 						"range": 20,
 						"unit": "feet"
 					}
-				}
+				},
+				"effects": [
+					"uX9YtNgILm7pWh4f"
+				]
 			}
 		},
 		"description": "<p>You can use an action to throw this fragile clay pot up to 20 feet, where it shatters, splashing luminescent paint over a 5-foot radius. Creatures in the radius must make a DC 13 Dexterity saving throw or be unable to benefit from invisibility and suffer disadvantage on Stealth checks until 10 minutes is taken to scrub the paint off. Affected creatures also cast dim light in a 5-foot radius.</p>",
@@ -134,11 +131,7 @@
 		{
 			"origin": "Item.FkgieOdqoRbuS9lj",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "6vfEWH8GjWJjc0L6"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Luminescent Paint Bomb",
@@ -176,7 +169,10 @@
 			},
 			"img": "icons/tools/cooking/mortar-black.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

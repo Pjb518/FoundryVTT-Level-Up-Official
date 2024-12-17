@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"nyBz0cTSp1LfYezM": {
-						"type": "effect",
-						"default": true,
-						"effectId": "M5KV0PsQHdtYpefQ"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"M5KV0PsQHdtYpefQ"
+				]
 			}
 		},
 		"description": "<p>A scaled-up version of a flashlight, a floodlight can light up a much larger area. They are typically either mounted on vehicles or on a tripod. They provide bright light in a 300-foot cone and dim light in a 600-foot cone.</p>",
@@ -105,19 +102,17 @@
 		{
 			"origin": "Item.hzd7RTA5uYyh7M6H",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "fCW4JTVk5FfBDBD0",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Floodlight",
 			"img": "icons/magic/light/beams-explosion-blue.webp",
 			"_id": "M5KV0PsQHdtYpefQ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",

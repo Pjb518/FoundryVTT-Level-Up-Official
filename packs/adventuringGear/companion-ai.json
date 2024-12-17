@@ -28,13 +28,7 @@
 						"damageType": "psychic"
 					}
 				},
-				"prompts": {
-					"tahignWYgucF3rnf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kjdoAR5pTeD4Y9C4"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -45,7 +39,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"kjdoAR5pTeD4Y9C4"
+				]
 			}
 		},
 		"description": "<p>You have a non-sentient AI integrated with your brain. You recall everything you have experienced in the past week in perfect detail and can opt to manually store specific memories on more permanent storage (costing 50 credits per hour of memory) if desired. You also make all Intelligence checks and saving throws with advantage and Intelligence-based checks take you half as long.</p>\n<p><strong>Hacking.</strong> If the AI is hacked, you immediately suffer 2d8 psychic damage and gain two levels of strife that persist until the implant is reset, which requires a short rest and a cybernetics kit.</p>",
@@ -114,17 +111,17 @@
 		{
 			"origin": "Item.1c1prsH5RV7sih8P",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Companion AI",
 			"img": "icons/creatures/magical/spirit-undead-masked-blue.webp",
 			"_id": "c9ElMqh3Npl1ncWy",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.abilityCheck.int",
@@ -168,19 +165,17 @@
 		{
 			"origin": "Item.1c1prsH5RV7sih8P",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "IoPfPps0v7zHoLWk",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Companion AI",
 			"img": "icons/creatures/magical/spirit-undead-masked-blue.webp",
 			"_id": "kjdoAR5pTeD4Y9C4",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.strife",

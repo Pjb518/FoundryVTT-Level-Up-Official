@@ -38,11 +38,6 @@
 							"type": "custom",
 							"bonus": "19"
 						}
-					},
-					"vDpzbijVkZDlDWIU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "23hzKh8Gner1y7da"
 					}
 				},
 				"uses": {
@@ -55,7 +50,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"23hzKh8Gner1y7da"
+				]
 			}
 		},
 		"description": "<p>A super-slick sprayed compound, Zero-friction lubricant can make any surface incredibly slippery. It doesn’t quite remove all friction (the name is hyperbole) but any creature attempting to cross a surface coated with the lubricant or hold onto an item sprayed with it makes a DC 19 Dexterity saving throw each round. Failing the save results in the creature falling prone (and needing another check at the same DC to stand up or move from their position) in the case of a surface or drop the item in the case of an item. Spraying a grappling creature with the lubricant gives advantage on checks to escape a grapple. A spray canister contains enough lubricant to cover 25 square feet. Spraying a creature or 5 foot square takes an action.</p>",
@@ -123,18 +121,17 @@
 		{
 			"origin": "Item.k41YSbCq5RZ2nwgn",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Lcvzef6699ZyN8o5"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"img": "icons/commodities/materials/liquid-blue.webp",
 			"_id": "23hzKh8Gner1y7da",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

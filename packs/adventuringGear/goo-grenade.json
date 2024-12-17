@@ -37,11 +37,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"Y81OiUgnsq0Liqhp": {
-						"type": "effect",
-						"default": true,
-						"effectId": "mWJFXi70f1rgh8uq"
 					}
 				},
 				"uses": {
@@ -65,7 +60,10 @@
 					"quantity": 1,
 					"radius": 10,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"mWJFXi70f1rgh8uq"
+				]
 			}
 		},
 		"description": "<p>Grenades are simple, thrown weapons that detonate upon impact. As an action, you can throw a grenade at a point you choose within 30 feet of you. The grenade explodes once it lands, creating an effect determined by its type. Most grenades require creatures caught in their area of effect to make a saving throw. Unless otherwise noted, the DC of this save is equal to your maneuver save DC.</p>\n<p>Certain weapons, such as grenade launchers (see Ranged Weapons), allow you to launch grenades longer distances without throwing them.</p>\n<h2>Goo</h2>\n<p>When detonated, a goo grenade fills a 10-foot-radius sphere with a quick-hardening, adhesive foam. For the next minute, the ground in the area is difficult terrain. A creature in this area makes a Dexterity saving throw, becoming grappled on a failure (escape DC 10).</p>",
@@ -129,18 +127,17 @@
 		{
 			"origin": "Item.PeQIYANy4UtkVpnp",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "SeKnu34LE5x9GN0S"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Grappled",
 			"img": "icons/weapons/thrown/grenade-round.webp",
 			"_id": "mWJFXi70f1rgh8uq",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

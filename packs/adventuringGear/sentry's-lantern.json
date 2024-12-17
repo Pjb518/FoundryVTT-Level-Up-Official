@@ -23,13 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"9mE0de8DbSAgU3M9": {
-						"type": "effect",
-						"default": true,
-						"effectId": "4MKJ5RAQn6it2BY1"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -40,7 +34,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"4MKJ5RAQn6it2BY1"
+				]
 			}
 		},
 		"description": "<p>This heavy, tripod-mounted, hooded lantern ignites when the hood is raised as an action. It casts bright light to a range of 90 feet and dim light for a further 90 feet. When folded for transport it is a bulky item.</p>",
@@ -101,10 +98,6 @@
 			"origin": "Item.BaMpz3fFqIVJiE7l",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "MC3DPOtqUy7koqvl",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -115,7 +108,10 @@
 			"img": "icons/sundries/lights/lantern-iron-lit-yellow.webp",
 			"_id": "4MKJ5RAQn6it2BY1",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",

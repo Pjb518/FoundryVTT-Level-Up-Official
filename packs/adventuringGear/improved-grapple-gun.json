@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"VRjyLuhRgXZ8NpcY": {
-						"type": "effect",
-						"default": true,
-						"effectId": "uctvWsNJ8MP0UGWX"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -49,7 +43,10 @@
 				"target": {
 					"type": "object",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"uctvWsNJ8MP0UGWX"
+				]
 			}
 		},
 		"description": "<p>This device is roughly the same size as a heavy pistol. It fires a sturdy line (AC 15, 30 hp, capable of supporting 1000 lbs) which is attached to a grappling hook up to 60/120 feet. The grapple needs some sort of protrusion to latch onto; common ones are architectural features like railings, ornamental statuary, pipes, and so on. The line can then be retracted, reeling the user toward the hook, granting an effective climb speed of 60 feet. Improved versions (which cost double the cost) have a nanomachine-paste anchor instead which can bond to any surface able to support the weight on the line. This version does not need to “catch” on anything and can adhere to even sheer surfaces and is considered an advanced item.</p>",
@@ -117,18 +114,17 @@
 		{
 			"origin": "Item.Npk3YQ1JoL2VOrSP",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "UJeTis88Lbo5PkCG"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Grapple Gun",
 			"img": "icons/weapons/crossbows/handcrossbow-green.webp",
 			"_id": "uctvWsNJ8MP0UGWX",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.climb.distance",

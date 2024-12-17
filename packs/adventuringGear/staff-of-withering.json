@@ -7,9 +7,6 @@
 			"origin": "Item.331OQkAkob0KCTfR",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ek8vkszla7je0HmJ",
 					"duration": {
 						"unit": "hours"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/weapons/staves/staff-animal-skull.webp",
 			"_id": "epu2UOH4xkKIHe4S",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
@@ -124,7 +124,8 @@
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"EdEh8AlK47o38xJw": {
 				"name": "Parry",
@@ -179,11 +180,6 @@
 							"type": "custom",
 							"bonus": "15"
 						}
-					},
-					"Or9rKPNHMXkrrqVx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "epu2UOH4xkKIHe4S"
 					}
 				},
 				"uses": {
@@ -196,7 +192,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"epu2UOH4xkKIHe4S"
+				]
 			},
 			"4ef4tgHa2kdh65wA": {
 				"name": "Regain Charges",

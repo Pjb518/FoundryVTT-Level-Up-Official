@@ -7,12 +7,9 @@
 			"origin": "Item.caI9Csa2hIppc8CB",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "j7cskYa9vhsoUEUv"
+					}
 				}
 			},
 			"transfer": false,
@@ -41,7 +38,10 @@
 			"tint": "#ffffff",
 			"img": "icons/commodities/flowers/bouquet-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"sort": 0,
 			"folder": null,
 			"_stats": {
@@ -79,14 +79,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"s9d3dzDdpg3VzfaL": {
-						"type": "effect",
-						"default": true,
-						"effectId": "49FNBQGy1uB1hMIj",
-						"label": "Pressed Spiderbulb"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -99,7 +92,10 @@
 				"duration": {
 					"unit": "hour",
 					"value": 1
-				}
+				},
+				"effects": [
+					"49FNBQGy1uB1hMIj"
+				]
 			}
 		},
 		"description": "<p>Consuming this dried flower grants you energy and tightens your reflexes, and after you eat it you gain an expertise die on Dexterity saving throws for 1 hour.</p>",

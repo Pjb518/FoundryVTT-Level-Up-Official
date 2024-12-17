@@ -8,10 +8,6 @@
 			"origin": "Item.19oc64en7c6kmk1w",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PwrEe2BhzH8Ia3ZA",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -47,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
 			}
 		}
 	],
@@ -164,16 +164,6 @@
 						"type": "effect",
 						"default": true,
 						"effectId": ""
-					},
-					"uoPg8EUOGKhSBNjo": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ee5CTKqflPMaNhE9"
-					},
-					"rBVLiQalkwbq3POK": {
-						"type": "effect",
-						"default": true,
-						"effectId": "R4H9hwQqrcReSUg6"
 					}
 				},
 				"uses": {
@@ -190,7 +180,11 @@
 						"range": "self"
 					}
 				},
-				"img": "icons/equipment/shield/heater-steel-worn.webp"
+				"img": "icons/equipment/shield/heater-steel-worn.webp",
+				"effects": [
+					"ee5CTKqflPMaNhE9",
+					"R4H9hwQqrcReSUg6"
+				]
 			}
 		},
 		"description": "<p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",

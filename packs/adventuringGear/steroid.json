@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"xnE4GNb4jewXSNTK": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3szQSxYnMkdWJk6m"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -47,7 +41,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"3szQSxYnMkdWJk6m"
+				]
 			}
 		},
 		"description": "<p>This iron-gray liquid increases a patient’s physical prowess. After injecting it, you gain an expertise die on Strength saving throws for 2 hours.</p>",
@@ -116,9 +113,6 @@
 			"origin": "Item.pgZ4YcNVtYGTuNCg",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "rv0pK328MDvX7qf3",
 					"duration": {
 						"unit": "hours"
 					}
@@ -129,7 +123,10 @@
 			"img": "icons/consumables/potions/potion-bottle-corked-fancy-blue.webp",
 			"_id": "3szQSxYnMkdWJk6m",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.abilities.str.save.expertiseDice",

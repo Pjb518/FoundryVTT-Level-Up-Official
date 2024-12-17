@@ -34,13 +34,7 @@
 						"formula": "1d6"
 					}
 				},
-				"prompts": {
-					"pNffB4ZM9AvMl3qp": {
-						"type": "effect",
-						"default": true,
-						"effectId": "1ZRDlHgxNGM1gcaE"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -51,7 +45,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"1ZRDlHgxNGM1gcaE"
+				]
 			}
 		},
 		"description": "<p>A cyberlink allows you to bypass all conventional forms of input in terms of direct mental interface with any connected device. Cyberlink cables are typically only about a foot long, requiring you to hold the item you are interfacing with or touch it. If the item is a weapon, you count as proficient with it, even if you normally would not be. At the Narrator’s discretion, you may gain additional benefits if you also have an augmented reality system.</p>\n<p><strong>Hacking.</strong> If the implant is hacked, you suffer 2d8 lightning damage and are slowed for 1d6 rounds.</p>",
@@ -120,18 +117,17 @@
 		{
 			"origin": "Item.b6RN7C0zCnoRb6IH",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "UhAvi5buVUcOHCmf"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Slowed",
 			"img": "icons/commodities/tech/cable-end.webp",
 			"_id": "1ZRDlHgxNGM1gcaE",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

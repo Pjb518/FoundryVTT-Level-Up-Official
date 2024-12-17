@@ -26,14 +26,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"A4eE8StaMIemvr4g": {
-						"type": "effect",
-						"default": true,
-						"effectId": "uPHSnzmEYjq1KqP5",
-						"label": "Darkvision"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -45,7 +38,10 @@
 						"threshold": 6
 					}
 				},
-				"description": "<p>Darkvision with a range of 60 feet for one<br>hour. If you already have darkvision, its range increases<br>by 30 feet instead.</p>"
+				"description": "<p>Darkvision with a range of 60 feet for one<br>hour. If you already have darkvision, its range increases<br>by 30 feet instead.</p>",
+				"effects": [
+					"uPHSnzmEYjq1KqP5"
+				]
 			},
 			"A6MTXN8VAnB4KjeC": {
 				"name": "Invisibility (2 Charges)",
@@ -62,14 +58,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"nc9sz9JiG1tnCxGU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2z7hVXdU5T4luoLm",
-						"label": "Invisibility"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -108,6 +97,9 @@
 				"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p>",
 				"descriptionOutputs": [
 					"action"
+				],
+				"effects": [
+					"2z7hVXdU5T4luoLm"
 				]
 			},
 			"GHrwwq5DU25BFZt1": {
@@ -176,14 +168,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"e22ZSxMmzELRQA0l": {
-						"type": "effect",
-						"default": true,
-						"effectId": "fSz9cXj76y665LqC",
-						"label": "True Seeing"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -218,6 +203,9 @@
 				"description": "<p>Until the spell ends, the target gains truesight to a range of 120 feet. The target also notices secret doors hidden by magic.</p>",
 				"descriptionOutputs": [
 					"action"
+				],
+				"effects": [
+					"fSz9cXj76y665LqC"
 				]
 			},
 			"6cZpyIiUAocg5rNk": {
@@ -305,10 +293,6 @@
 			"origin": "Item.42Rg5YkMv5zUqH1Z",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "A6MTXN8VAnB4KjeC",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -351,7 +335,10 @@
 			},
 			"img": "icons/equipment/head/helm-barbute-brass-steel.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -360,10 +347,6 @@
 			"origin": "Item.42Rg5YkMv5zUqH1Z",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "n64pZexVhC89MhWI",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -404,7 +387,10 @@
 			},
 			"img": "icons/equipment/head/helm-barbute-brass-steel.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -413,10 +399,6 @@
 			"origin": "Item.42Rg5YkMv5zUqH1Z",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "M2y6kLe7NGB5QDk2",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -457,7 +439,10 @@
 			},
 			"img": "icons/equipment/head/helm-barbute-brass-steel.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -465,17 +450,17 @@
 		{
 			"origin": "Item.42Rg5YkMv5zUqH1Z",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Helm of Vigilance",
 			"img": "icons/equipment/head/helm-barbute-brass-steel.webp",
 			"_id": "bIyGvJWObkWSwW2Y",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.skills",

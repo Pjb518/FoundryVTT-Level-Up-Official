@@ -8,9 +8,6 @@
 			"origin": "Item.xsnwq03ljucz4tke",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LfiU8RBp5laBi6jt",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		},
 		{
@@ -53,9 +54,6 @@
 			"origin": "Item.xsnwq03ljucz4tke",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LfiU8RBp5laBi6jt",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -91,6 +89,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],
@@ -148,7 +150,8 @@
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"LfiU8RBp5laBi6jt": {
 				"name": "AC +1",
@@ -158,18 +161,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"VzXK3rJS1p0jCl6M": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PiHWvQKjPGNpP7A7"
-					},
-					"aihw6klbt8X6LdFS": {
-						"type": "effect",
-						"default": true,
-						"effectId": "o3RplnB3d2bgc5Cs"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -183,7 +175,11 @@
 					"unit": "turn",
 					"value": 1
 				},
-				"img": "icons/weapons/swords/swords-short.webp"
+				"img": "icons/weapons/swords/swords-short.webp",
+				"effects": [
+					"PiHWvQKjPGNpP7A7",
+					"o3RplnB3d2bgc5Cs"
+				]
 			},
 			"vQTQD7tzjEVIJLR0": {
 				"name": "Parry",
@@ -247,7 +243,8 @@
 					}
 				},
 				"consumers": {},
-				"img": "icons/weapons/swords/swords-short.webp"
+				"img": "icons/weapons/swords/swords-short.webp",
+				"prompts": {}
 			}
 		},
 		"description": "<p>These use the statistics of @UUID[Compendium.a5e.a5e-adventuring-gear.Item.36k2tx29firrtrgl]{Shortswords}, and are usually wielded in pairs. They have the dual-wielding property.</p>",

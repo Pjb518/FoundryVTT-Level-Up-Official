@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"UN4Lb7KumSgRY0j4": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5M5pdXuJ9xy0uY0a"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"5M5pdXuJ9xy0uY0a"
+				]
 			},
 			"51mdvUFib731X6Ec": {
 				"name": "Psionic Power",
@@ -133,10 +130,6 @@
 			"origin": "Item.y6UBEPPIYQg5SEkf",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "uqa7Nls8O9SpvtVX",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -147,7 +140,10 @@
 			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
 			"_id": "5M5pdXuJ9xy0uY0a",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

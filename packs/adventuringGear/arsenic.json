@@ -45,11 +45,6 @@
 							"bonus": "16"
 						},
 						"onSave": "takes half damage and isn’t poisoned or incapacitated"
-					},
-					"AC61vsfVzSYyjLwr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5UaBqRqzFKFk9i84"
 					}
 				},
 				"uses": {
@@ -60,7 +55,10 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"5UaBqRqzFKFk9i84"
+				]
 			}
 		},
 		"description": "<p><em>Uncommon, Ingested, Onset (30 minutes)</em></p><p>While the simple mineral has many innocuous uses, it still numbers among the most prolifically used deadly poisons. A creature makes a DC 16 Constitution saving throw when subjected to this poison. On a failed saving throw, it takes 14 (4d6) poison damage and is poisoned and incapacitated for 24 hours. On a successful saving throw, the creature takes half damage and isn&rsquo;t poisoned or incapacitated.</p>",
@@ -123,9 +121,6 @@
 			"origin": "Item.vrnwjs6cu1dapyn3",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "xj033Ihp4ERkhV77",
 					"duration": {
 						"unit": "hours"
 					}
@@ -163,6 +158,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

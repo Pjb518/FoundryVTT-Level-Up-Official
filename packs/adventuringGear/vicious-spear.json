@@ -7,9 +7,6 @@
 			"origin": "Item.QBRMIxMNMmkRPm7o",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "JtplYF8JKilBpP4f",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -42,7 +39,10 @@
 			"tint": "#ffffff",
 			"img": "icons/weapons/polearms/spear-flared-wrapped.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"sort": 0,
 			"folder": null,
 			"_stats": {
@@ -132,7 +132,8 @@
 						"canCrit": false
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"MrV3YZriaZmI1ygT": {
 				"name": "Spear (Throw)",
@@ -187,7 +188,8 @@
 						"default": true,
 						"quantity": 1
 					}
-				}
+				},
+				"prompts": {}
 			}
 		},
 		"description": "<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",

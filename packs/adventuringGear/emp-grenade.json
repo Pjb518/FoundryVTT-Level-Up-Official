@@ -45,11 +45,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"9A5kBSON9ffNQaTV": {
-						"type": "effect",
-						"default": true,
-						"effectId": "yTFMc7pj8xQklKbD"
 					}
 				},
 				"uses": {
@@ -73,7 +68,10 @@
 					"quantity": 1,
 					"radius": 10,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"yTFMc7pj8xQklKbD"
+				]
 			}
 		},
 		"description": "<p>Grenades are simple, thrown weapons that detonate upon impact. As an action, you can throw a grenade at a point you choose within 30 feet of you. The grenade explodes once it lands, creating an effect determined by its type. Most grenades require creatures caught in their area of effect to make a saving throw. Unless otherwise noted, the DC of this save is equal to your maneuver save DC.</p>\n<p>Certain weapons, such as grenade launchers (see Ranged Weapons), allow you to launch grenades longer distances without throwing them.</p>\n<h2>EMP</h2>\n<p>Each creature within 10 feet makes a Dexterity saving throw. On a failure, any electronic devices the creature is wearing or carrying cease to function until the end of the creature’s next turn. Unattended devices in that area automatically fail the save. Constructs in the area also take 1d6 lightning damage on a failed save.</p>",
@@ -138,9 +136,6 @@
 			"origin": "Item.3UmwJy9xGs7NnP6q",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "SeKnu34LE5x9GN0S",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -152,7 +147,10 @@
 			"img": "icons/weapons/thrown/grenade-round.webp",
 			"_id": "yTFMc7pj8xQklKbD",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

@@ -58,11 +58,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"6nHZPdYBEUFYPa1W": {
-						"type": "effect",
-						"default": true,
-						"effectId": "834Q7GcAylEQ1aO9"
 					}
 				},
 				"uses": {
@@ -86,7 +81,10 @@
 					"quantity": 1,
 					"radius": 10,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"834Q7GcAylEQ1aO9"
+				]
 			}
 		},
 		"description": "<p>Unlike grenades, which explode shortly after being thrown, mines are designed to detonate once a specific trigger occurs. As an action, you can set a mine in an unoccupied space within 5 feet of you. When you set a mine, determine the circumstances under which the mine will detonate. For example, you can set the mine to detonate on a timer, when a creature enters the mine’s space, or under other specific circumstances (such as when a door opens or a vehicle activates). You can also rig the mine to detonate remotely using a remote detonator.</p>\n<p>When detonated, a mine functions identically to the grenade it emulates.</p>\n<h2>Foam</h2>\n<p>When detonated, a foam grenade fills a 10-foot-radius sphere with slippery, fire-retardant foam. Open flames in the area when the grenade explodes are immediately extinguished. For the next minute, the ground in the area is difficult terrain. A creature in the affected area or one that enters the area for the first time on a turn or begins its turn in the area, makes a DC 10 Dexterity saving throw, falling prone on a failure.</p>",
@@ -150,18 +148,17 @@
 		{
 			"origin": "Item.iHKBIGBM49jcI5bQ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "8zmbenkKbimLTxVY"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"img": "icons/weapons/thrown/grenade-round.webp",
 			"_id": "834Q7GcAylEQ1aO9",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

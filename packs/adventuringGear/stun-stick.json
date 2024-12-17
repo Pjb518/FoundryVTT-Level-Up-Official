@@ -42,21 +42,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"SZsD3fyjo3jofB5z": {
-						"type": "effect",
-						"default": true,
-						"effectId": "4Wa7CLBVOF6MVmGA"
-					},
-					"0DbAxPU0FWtBmaKL": {
-						"type": "effect",
-						"default": true,
-						"effectId": "dNPheC7H0XUzEI2R"
-					},
-					"msFbEp0sUmTQBdcu": {
-						"type": "effect",
-						"default": true,
-						"effectId": "gLnFAzf2fqVrfVPd"
 					}
 				},
 				"uses": {
@@ -78,7 +63,12 @@
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"4Wa7CLBVOF6MVmGA",
+					"dNPheC7H0XUzEI2R",
+					"gLnFAzf2fqVrfVPd"
+				]
 			}
 		},
 		"description": "<p>These hand-held devices deliver a powerful electric current that temporarily disrupts the target’s neuromuscular autonomy. A target damaged by a stun stick makes a Constitution saving throw against your maneuver save DC. On a failed save, the target is knocked prone and rattled until the end of your next turn. A target that fails the saving throw by 5 or more is stunned instead of rattled.</p>",
@@ -149,9 +139,6 @@
 			"origin": "Item.ND1vCOzxLJOOkjlB",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "bvCOIdOVd3KH27bz",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -163,7 +150,10 @@
 			"img": "icons/weapons/staves/staff-orb-purple.webp",
 			"_id": "4Wa7CLBVOF6MVmGA",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -203,18 +193,17 @@
 		{
 			"origin": "Item.ND1vCOzxLJOOkjlB",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "bvCOIdOVd3KH27bz"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"img": "icons/weapons/staves/staff-orb-purple.webp",
 			"_id": "dNPheC7H0XUzEI2R",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -255,9 +244,6 @@
 			"origin": "Item.ND1vCOzxLJOOkjlB",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "bvCOIdOVd3KH27bz",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -269,7 +255,10 @@
 			"img": "icons/weapons/staves/staff-orb-purple.webp",
 			"_id": "gLnFAzf2fqVrfVPd",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

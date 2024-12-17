@@ -48,21 +48,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"JxotcxUb3tCpskBx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PpgBbm2RgcvRLKSM"
-					},
-					"pPFZ9wcAVYkz0uv3": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2RzQ5myTBFbcbebt"
-					},
-					"BG5r9DNccsGpvJJh": {
-						"type": "effect",
-						"default": true,
-						"effectId": "N1oVS3CIsmg8aezM"
 					}
 				},
 				"uses": {
@@ -85,7 +70,12 @@
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"PpgBbm2RgcvRLKSM",
+					"2RzQ5myTBFbcbebt",
+					"N1oVS3CIsmg8aezM"
+				]
 			},
 			"Dqm0w1rTJmt6B2Mh": {
 				"name": "Reload",
@@ -187,18 +177,17 @@
 		{
 			"origin": "Item.7YjynG7hN1lVQuO1",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "BjZG2arqMpS9Q4sA"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"img": "icons/magic/lightning/bolt-forked-blue-yellow.webp",
 			"_id": "PpgBbm2RgcvRLKSM",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -239,9 +228,6 @@
 			"origin": "Item.7YjynG7hN1lVQuO1",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "BjZG2arqMpS9Q4sA",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -253,7 +239,10 @@
 			"img": "icons/magic/lightning/bolt-forked-blue-yellow.webp",
 			"_id": "2RzQ5myTBFbcbebt",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -294,9 +283,6 @@
 			"origin": "Item.7YjynG7hN1lVQuO1",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "BjZG2arqMpS9Q4sA",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -308,7 +294,10 @@
 			"img": "icons/magic/lightning/bolt-forked-blue-yellow.webp",
 			"_id": "N1oVS3CIsmg8aezM",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

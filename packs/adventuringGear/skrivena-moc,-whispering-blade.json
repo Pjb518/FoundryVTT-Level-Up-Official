@@ -8,9 +8,6 @@
 			"origin": "Item.lkxliinhoqr7l8as",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "v3bptQ9yjfEMnfwo",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -46,16 +43,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		},
 		{
 			"icon": "icons/weapons/swords/greatsword-crossguard-flanged-red.webp",
 			"origin": "Item.lkxliinhoqr7l8as",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Attached",
@@ -92,6 +90,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],
@@ -151,7 +153,8 @@
 						"damageType": "fire"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"zEtTCdT03tYo2eUn": {
 				"name": "Attack With Shield",
@@ -196,23 +199,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"VzXK3rJS1p0jCl6M": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PiHWvQKjPGNpP7A7"
-					},
-					"aihw6klbt8X6LdFS": {
-						"type": "effect",
-						"default": true,
-						"effectId": "o3RplnB3d2bgc5Cs"
-					},
-					"KsLi5Hf2I5z2N7dq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Llj5xb79gCEj7iz8"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -226,7 +213,12 @@
 					"unit": "turn",
 					"value": 1
 				},
-				"img": "icons/weapons/swords/greatsword-crossguard-flanged-red.webp"
+				"img": "icons/weapons/swords/greatsword-crossguard-flanged-red.webp",
+				"effects": [
+					"PiHWvQKjPGNpP7A7",
+					"o3RplnB3d2bgc5Cs",
+					"Llj5xb79gCEj7iz8"
+				]
 			},
 			"OYExmPbuqqWZpBmL": {
 				"name": "Longsword (Reaction)",
@@ -271,7 +263,8 @@
 						"damageType": "fire"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"VYITLvtCyduVLcCg": {
 				"name": "Corruption",

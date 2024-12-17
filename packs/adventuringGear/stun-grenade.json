@@ -46,11 +46,6 @@
 							"type": "maneuver"
 						},
 						"onSave": "Half damage, not rattled"
-					},
-					"USLnusqAqnLnm7Cw": {
-						"type": "effect",
-						"default": true,
-						"effectId": "7DuiAt3noY0wDAs7"
 					}
 				},
 				"uses": {
@@ -74,7 +69,10 @@
 					"quantity": 1,
 					"radius": 10,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"7DuiAt3noY0wDAs7"
+				]
 			}
 		},
 		"description": "<p>Grenades are simple, thrown weapons that detonate upon impact. As an action, you can throw a grenade at a point you choose within 30 feet of you. The grenade explodes once it lands, creating an effect determined by its type. Most grenades require creatures caught in their area of effect to make a saving throw. Unless otherwise noted, the DC of this save is equal to your maneuver save DC.</p>\n<p>Certain weapons, such as grenade launchers (see Ranged Weapons), allow you to launch grenades longer distances without throwing them.</p>\n<h2>Stun</h2>\n<p>Each creature within 10 feet of the grenade when it explodes makes a Constitution saving throw. On a failed save, the target takes 1d6 thunder damage and is rattled until the end of its next turn. A creature that fails the saving throw by 5 or more is stunned instead of rattled until the end of its next turn. On a success, the target takes half as much damage and isn’t rattled.</p>",
@@ -139,9 +137,6 @@
 			"origin": "Item.GVuhnRf49OLvmQTG",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "SeKnu34LE5x9GN0S",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -153,7 +148,10 @@
 			"img": "icons/weapons/thrown/grenade-round.webp",
 			"_id": "7DuiAt3noY0wDAs7",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

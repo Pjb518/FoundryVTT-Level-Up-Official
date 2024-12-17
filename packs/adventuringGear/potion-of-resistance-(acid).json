@@ -26,13 +26,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"1ICfJhKzLKyliRUE": {
-						"type": "effect",
-						"default": true,
-						"effectId": "mix6zVg5cSlAte23"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -43,7 +37,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"mix6zVg5cSlAte23"
+				]
 			}
 		},
 		"description": "<p>After you drink this potion, for the next hour you gain resistance to Acid damage.</p>",
@@ -110,10 +107,6 @@
 			"origin": "Item.U1pJKHdedq7LEJFm",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "D55wk73eZjjGBoMC",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -124,7 +117,10 @@
 			"img": "icons/consumables/potions/bottle-conical-corked-labeled-shell-cyan.webp",
 			"_id": "mix6zVg5cSlAte23",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",

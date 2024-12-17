@@ -7,12 +7,9 @@
 			"origin": "Item.8nRDqcD9vvexDxgk",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "euSU3ikhmCtNWgIn"
+					}
 				}
 			},
 			"transfer": false,
@@ -41,7 +38,10 @@
 			"tint": "#ffffff",
 			"img": "icons/consumables/mushrooms/convex-spotted-orange-white.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"sort": 0,
 			"folder": null,
 			"_stats": {
@@ -79,14 +79,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"HlvcXbDVIfqwrNrf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "LmqYAPiHJsG6Hgx4",
-						"label": "Fairy Cap"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -99,7 +92,10 @@
 				"duration": {
 					"unit": "hour",
 					"value": 1
-				}
+				},
+				"effects": [
+					"LmqYAPiHJsG6Hgx4"
+				]
 			}
 		},
 		"description": "<p>Consuming this small red mushroom cap removes inhibitions and creates confidence, and after you eat it you gain an expertise die on Charisma saving throws for 1 hour.</p>",

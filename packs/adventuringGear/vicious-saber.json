@@ -7,9 +7,6 @@
 			"origin": "Item.5LeQdiyzADMOf6fu",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "3Olf8LpZb1butJkC",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -42,7 +39,10 @@
 			"tint": "#ffffff",
 			"img": "icons/weapons/swords/scimitar-guard.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"sort": 0,
 			"folder": null,
 			"_stats": {
@@ -123,7 +123,8 @@
 						"canCrit": false
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			}
 		},
 		"description": "<p><strong>Vicious Weapon:&nbsp;</strong>When you roll a natural 20 on an attack roll using this weapon it deals an extra 2d6 damage of the weapon&rsquo;s type (this extra damage does not double).</p>",

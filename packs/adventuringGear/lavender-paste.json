@@ -7,10 +7,6 @@
 			"origin": "Item.p505zZtJ2xNgtkRN",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "2Iy0v1jbNJ0aTfDf",
-					"applyToSelf": false,
 					"duration": {
 						"unit": "hours"
 					}
@@ -21,7 +17,10 @@
 			"img": "icons/consumables/potions/potion-bottle-labeled-stopped-purple.webp",
 			"_id": "bHi6W3T5A8g1BW19",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -69,13 +68,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"t266cMf7sjBzfxGY": {
-						"type": "effect",
-						"default": true,
-						"effectId": "bHi6W3T5A8g1BW19"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -86,7 +79,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"bHi6W3T5A8g1BW19"
+				]
 			}
 		},
 		"description": "<p>Mixing lavender petals with herbs creates a natural insect repellent. You can use an action to apply the paste to yourself or a willing creature, granting immunity to insect-based hazards in swampy terrain. In addition, the creature gains benefits equivalent to mosquito netting for the next 24 hours.&nbsp;&nbsp;</p>",

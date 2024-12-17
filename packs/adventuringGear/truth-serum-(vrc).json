@@ -37,11 +37,6 @@
 							"bonus": "17"
 						}
 					},
-					"cElSHfMTgyxCFTYy": {
-						"type": "effect",
-						"default": true,
-						"effectId": "YzgmeM1AA7EstZ9x"
-					},
 					"H4KMbgED7EquU8xo": {
 						"type": "savingThrow",
 						"default": true,
@@ -62,7 +57,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"YzgmeM1AA7EstZ9x"
+				]
 			}
 		},
 		"description": "<p>A drug used by interrogators, a victim injected with truth serum makes a DC 17 Constitution save and on a failed save is unable to lie for an hour, and remaining silent or vague when asked questions requires a separate DC 14 Wisdom saving throw for each question asked.</p>",
@@ -131,9 +129,6 @@
 			"origin": "Item.jkJkrDKVcd9oKwh6",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "toEQEA7iiqyESl3O",
 					"duration": {
 						"unit": "hours"
 					}
@@ -144,7 +139,10 @@
 			"img": "icons/consumables/potions/potion-bottle-corked-white.webp",
 			"_id": "YzgmeM1AA7EstZ9x",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

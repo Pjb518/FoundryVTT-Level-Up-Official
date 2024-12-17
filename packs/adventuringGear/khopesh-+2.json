@@ -8,9 +8,6 @@
 			"origin": "Item.4ghzaj3aod9nx2og",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "1w6mZi0L5dJhv4TU",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],
@@ -99,7 +100,8 @@
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"gS4wMUqm6ItBBj90": {
 				"name": "Khopesh (Off-Hand)",
@@ -138,7 +140,8 @@
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"1w6mZi0L5dJhv4TU": {
 				"name": "AC +1",
@@ -148,13 +151,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"VzXK3rJS1p0jCl6M": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PiHWvQKjPGNpP7A7"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -167,7 +164,10 @@
 				"duration": {
 					"unit": "turn",
 					"value": 1
-				}
+				},
+				"effects": [
+					"PiHWvQKjPGNpP7A7"
+				]
 			}
 		},
 		"description": "<p>This sickleshaped sword uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.4wvjchmo31jngkyk]{Scimitar}.</p>",

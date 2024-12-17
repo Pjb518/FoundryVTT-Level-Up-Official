@@ -36,11 +36,6 @@
 					}
 				},
 				"prompts": {
-					"wbIeFaU45Jen6bWB": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Q4kBL3tAnfHeG0nF"
-					},
 					"4a6qrhwxniKrPl37": {
 						"type": "savingThrow",
 						"default": true,
@@ -60,7 +55,10 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"Q4kBL3tAnfHeG0nF"
+				]
 			}
 		},
 		"description": "<p>This pale white pumpkin is small enough to fit in the palm of a human hand. A macabre, grinning face is carved into one side, and a candle within burns an eerie purple flame. While its candle is lit, this pumpkin lantern shines dim light in a 10-foot radius. The lantern&rsquo;s candle burns for 1 minute, after which the pumpkin instantly rots and loses its magic.</p><p>Undead must make a DC 12 Wisdom saving throw when entering the radius or when beginning their turn within the pumpkin&rsquo;s light, taking 3d6 radiant damage on a failed save or half as much on a success. Incorporeal undead have disadvantage on this saving throw.</p>",
@@ -123,9 +121,6 @@
 			"origin": "Item.1h2a56qjmn4achg2",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "5EQah7RhqivOI0WO",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -166,6 +161,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

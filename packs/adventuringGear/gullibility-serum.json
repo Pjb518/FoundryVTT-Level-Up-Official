@@ -39,11 +39,6 @@
 							"type": "custom",
 							"bonus": "13"
 						}
-					},
-					"vyk5wL0MjebU2VdU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "4snJdR6spIKThGSJ"
 					}
 				},
 				"uses": {
@@ -56,7 +51,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"4snJdR6spIKThGSJ"
+				]
 			}
 		},
 		"description": "<p>This drug, administered via ingestion or injection, makes the victim extremely trusting. The victim makes a DC 13 Wisdom saving throw or Persuasion checks made against the target have advantage for the next hour.</p>",
@@ -125,9 +123,6 @@
 			"origin": "Item.Wfy2nmv2jDeaoduC",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "oBonB7rkJxffskmZ",
 					"duration": {
 						"unit": "hours"
 					}
@@ -138,7 +133,10 @@
 			"img": "icons/consumables/potions/flask-corked-blue.webp",
 			"_id": "4snJdR6spIKThGSJ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

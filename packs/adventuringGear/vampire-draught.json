@@ -57,11 +57,6 @@
 							"type": "custom",
 							"bonus": "13"
 						}
-					},
-					"kIjDJAsrcosWjSjm": {
-						"type": "effect",
-						"default": true,
-						"effectId": "o8ICo9Vs7BKgsSWN"
 					}
 				},
 				"uses": {
@@ -74,7 +69,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"o8ICo9Vs7BKgsSWN"
+				]
 			}
 		},
 		"description": "<p><em>Rare, Contact, Onset (1 hour)</em></p><p>This milky liquid gives living creatures the superficial appearance and weakness of being a vampire. A creature makes a DC 17 Constitution saving throw when subjected to this poison, and on a failure it becomes afflicted. The afflicted creature becomes pale, its canines grow long, and direct sunlight burns it like flame. When the afflicted creature ends its turn in an area of sunlight or first enters into an area of sunlight on a turn, it makes a DC 13 Constitution saving throw or becomes poisoned until it ends its turn in an area of dim light or darkness. At the end of each long rest, an afflicted creature can make a DC 17 Constitution saving throw, ending the effect on itself on a success.</p>",
@@ -136,11 +134,7 @@
 			"icon": "icons/consumables/potions/potion-bottle-corked-white.webp",
 			"origin": "Item.gru8qg2zqkv16kne",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "siCYKtvPrtnz9STJ"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Poisoned",
@@ -172,6 +166,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

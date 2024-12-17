@@ -8,9 +8,6 @@
 			"origin": "Item.bc61rvzctr7teti0",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Wj2wEtEOK3ej6uIH",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],
@@ -108,7 +109,8 @@
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"BzvjZocpxxPNJ6G1": {
 				"name": "Tomahawk (Off-Hand)",
@@ -156,7 +158,8 @@
 						"type": "damage"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"Hc25AqQi6G8oKSRs": {
 				"name": "Tomahawk (Throw)",
@@ -210,7 +213,8 @@
 						"default": true,
 						"quantity": 1
 					}
-				}
+				},
+				"prompts": {}
 			},
 			"UgW3vG1tEMnlllRe": {
 				"name": "Tomahawk (Throw, Off-Hand)",
@@ -264,7 +268,8 @@
 						"default": true,
 						"quantity": 1
 					}
-				}
+				},
+				"prompts": {}
 			},
 			"Wj2wEtEOK3ej6uIH": {
 				"name": "AC +1",
@@ -274,13 +279,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"gzZoa34x7C44v857": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2pzcilmmaypkTG8n"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -293,7 +292,10 @@
 				"duration": {
 					"unit": "turn",
 					"value": 1
-				}
+				},
+				"effects": [
+					"2pzcilmmaypkTG8n"
+				]
 			}
 		},
 		"description": "<p>A tomahawk uses the statistics of a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.h7r1ogzu9fairy71]{Handaxe}.</p>",

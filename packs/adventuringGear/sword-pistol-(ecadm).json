@@ -73,18 +73,7 @@
 						"formula": "1d20"
 					}
 				},
-				"prompts": {
-					"4TayXnMD6lr4qld4": {
-						"type": "effect",
-						"default": true,
-						"effectId": "mdWeiDJIXSiNacQW"
-					},
-					"PHmbClOmohummtWc": {
-						"type": "effect",
-						"default": true,
-						"effectId": "TKXouqZ6mEXhTGvv"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -108,7 +97,11 @@
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"mdWeiDJIXSiNacQW",
+					"TKXouqZ6mEXhTGvv"
+				]
 			},
 			"nq1w3AmGZKLKFp4m": {
 				"name": "Fire Into Air/Ground",
@@ -238,9 +231,6 @@
 			"origin": "Item.TLYyQ5SM3T4upaUs",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "mQ9qFUwoX6lVsqgm",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -252,7 +242,10 @@
 			"img": "icons/weapons/guns/rifle-bayonet.webp",
 			"_id": "mdWeiDJIXSiNacQW",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -293,9 +286,6 @@
 			"origin": "Item.TLYyQ5SM3T4upaUs",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "mQ9qFUwoX6lVsqgm",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -307,7 +297,10 @@
 			"img": "icons/weapons/guns/rifle-bayonet.webp",
 			"_id": "TKXouqZ6mEXhTGvv",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -348,9 +341,6 @@
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nq1w3AmGZKLKFp4m",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -362,7 +352,10 @@
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "98E5gNsg4yEt8tAl",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -403,9 +396,6 @@
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nq1w3AmGZKLKFp4m",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -417,7 +407,10 @@
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "EMhkwnTsGDOTjqos",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -457,19 +450,17 @@
 		{
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nq1w3AmGZKLKFp4m",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Intimidate",
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "gbR8wFt7Rh356otD",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.skills.itm.expertiseDice",
@@ -508,9 +499,6 @@
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nq1w3AmGZKLKFp4m",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -522,7 +510,10 @@
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "khlmKoAT3iEQFqBb",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -563,9 +554,6 @@
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nq1w3AmGZKLKFp4m",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -577,7 +565,10 @@
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "TcQXj1J4gfX1uyxV",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -618,9 +609,6 @@
 			"origin": "Item.d2CaNwhgCNlrsuzK",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nq1w3AmGZKLKFp4m",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -632,7 +620,10 @@
 			"img": "icons/weapons/guns/gun-green.webp",
 			"_id": "Vp15jb5gXN3vhLDJ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -673,9 +664,6 @@
 			"origin": "Item.d2CaNwhgCNlrsuzK",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nq1w3AmGZKLKFp4m",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -687,7 +675,10 @@
 			"img": "icons/weapons/guns/gun-green.webp",
 			"_id": "bCGnxcJm7T7pqbnz",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -728,9 +719,6 @@
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nq1w3AmGZKLKFp4m",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -742,7 +730,10 @@
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "f1KFk5UzdW0hEldj",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -783,9 +774,6 @@
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nq1w3AmGZKLKFp4m",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -797,7 +785,10 @@
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "KIMPqDC1J29AN6dm",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -837,19 +828,17 @@
 		{
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nq1w3AmGZKLKFp4m",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Intimidate",
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "lqiagry4mZArP6zZ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.skills.itm.expertiseDice",
@@ -888,9 +877,6 @@
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nq1w3AmGZKLKFp4m",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -902,7 +888,10 @@
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "uqYD0vOg7H0GDmqG",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -943,9 +932,6 @@
 			"origin": "Item.L8LVCv2yWHeOw6qn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nq1w3AmGZKLKFp4m",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -957,7 +943,10 @@
 			"img": "icons/weapons/guns/gun-pistol-brass.webp",
 			"_id": "JT1mFJdAszlGU0od",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

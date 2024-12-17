@@ -37,11 +37,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"6nHZPdYBEUFYPa1W": {
-						"type": "effect",
-						"default": true,
-						"effectId": "EM6krAMH0ZIbq9bw"
 					}
 				},
 				"uses": {
@@ -65,7 +60,10 @@
 					"quantity": 1,
 					"radius": 10,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"EM6krAMH0ZIbq9bw"
+				]
 			}
 		},
 		"description": "<p>Grenades are simple, thrown weapons that detonate upon impact. As an action, you can throw a grenade at a point you choose within 30 feet of you. The grenade explodes once it lands, creating an effect determined by its type. Most grenades require creatures caught in their area of effect to make a saving throw. Unless otherwise noted, the DC of this save is equal to your maneuver save DC.</p>\n<p>Certain weapons, such as grenade launchers (see Ranged Weapons), allow you to launch grenades longer distances without throwing them.</p>\n<h2>Foam</h2>\n<p>When detonated, a foam grenade fills a 10-foot-radius sphere with slippery, fire-retardant foam. Open flames in the area when the grenade explodes are immediately extinguished. For the next minute, the ground in the area is difficult terrain. A creature in the affected area or one that enters the area for the first time on a turn or begins its turn in the area, makes a DC 10 Dexterity saving throw, falling prone on a failure.</p>",
@@ -129,18 +127,17 @@
 		{
 			"origin": "Item.Q4zhm6VSI0LvEGsR",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "SeKnu34LE5x9GN0S"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"img": "icons/weapons/thrown/grenade-round.webp",
 			"_id": "EM6krAMH0ZIbq9bw",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

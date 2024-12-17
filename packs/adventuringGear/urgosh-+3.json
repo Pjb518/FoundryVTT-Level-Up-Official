@@ -8,9 +8,6 @@
 			"origin": "Item.c9iuc6niad6h9f22",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "JtplYF8JKilBpP4f",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],
@@ -119,7 +120,8 @@
 						"default": false
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"MrV3YZriaZmI1ygT": {
 				"name": "Urgosh (Throw)",
@@ -173,7 +175,8 @@
 						"default": true,
 						"quantity": 1
 					}
-				}
+				},
+				"prompts": {}
 			},
 			"JtplYF8JKilBpP4f": {
 				"name": "AC +1",
@@ -183,23 +186,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"VzXK3rJS1p0jCl6M": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PiHWvQKjPGNpP7A7"
-					},
-					"aihw6klbt8X6LdFS": {
-						"type": "effect",
-						"default": true,
-						"effectId": "o3RplnB3d2bgc5Cs"
-					},
-					"5ZcZcUdOlk0VoMQM": {
-						"type": "effect",
-						"default": true,
-						"effectId": "CzoRKz1aFF2zbPZy"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -213,7 +200,12 @@
 					"unit": "turn",
 					"value": 1
 				},
-				"img": "icons/weapons/polearms/halberd-engraved-black.webp"
+				"img": "icons/weapons/polearms/halberd-engraved-black.webp",
+				"effects": [
+					"PiHWvQKjPGNpP7A7",
+					"o3RplnB3d2bgc5Cs",
+					"CzoRKz1aFF2zbPZy"
+				]
 			},
 			"WQQdnltqTYFgsVOS": {
 				"name": "Urgosh (Off-Hand)",
@@ -263,7 +255,8 @@
 						"default": false
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"prompts": {}
 			},
 			"jq2KioesCDeAnSZ3": {
 				"name": "Urgosh (Throw, Off-Hand)",
@@ -319,7 +312,8 @@
 						"default": true,
 						"quantity": 1
 					}
-				}
+				},
+				"prompts": {}
 			},
 			"AVlzB7wxGLfH0VZi": {
 				"name": "Parry",

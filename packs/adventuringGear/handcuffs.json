@@ -20,18 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"pTqtGAGRDdWRLDhC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Gkh3RbG67aeJaCVA"
-					},
-					"c6EV2rmzfo1790zj": {
-						"type": "effect",
-						"default": true,
-						"effectId": "k40D99RkSSweuQt0"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -42,7 +31,11 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"Gkh3RbG67aeJaCVA",
+					"k40D99RkSSweuQt0"
+				]
 			}
 		},
 		"description": "<p>The prisoner restraints of choice in most sci-fi worlds, these metal restraints (AC 16, 20 hit points) can restrain a Small or Medium creature. You can restrain an unwilling creature which requires an action, and for the creature to be either restrained, or both grappled and prone. Escaping the manacles requires a DC 22 Dexterity check, and breaking them requires a DC 22 Strength check. Each set of handcuffs comes with one key. Without the key, a DC 15 thieves’ tools check can pick this lock.</p>",
@@ -110,18 +103,17 @@
 		{
 			"origin": "Item.XivbZXGeH2Wqk8Wk",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LiIoR6gjy58T8Ju7"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Restrained",
 			"img": "icons/sundries/survival/cuffs-shackles-steel.webp",
 			"_id": "Gkh3RbG67aeJaCVA",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -161,18 +153,17 @@
 		{
 			"origin": "Item.XivbZXGeH2Wqk8Wk",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LiIoR6gjy58T8Ju7"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Grappled and Prone",
 			"img": "icons/sundries/survival/cuffs-shackles-steel.webp",
 			"_id": "k40D99RkSSweuQt0",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

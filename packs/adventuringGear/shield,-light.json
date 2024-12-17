@@ -8,10 +8,6 @@
 			"origin": "Item.xy2bn4687azmkadw",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "AOJzRldBZFJqSsnD",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -47,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
 			}
 		}
 	],
@@ -205,21 +205,6 @@
 						"type": "effect",
 						"default": true,
 						"effectId": ""
-					},
-					"hhUcyCDWAO7SCqQg": {
-						"type": "effect",
-						"default": true,
-						"effectId": "coU7q0AVHPnylR39"
-					},
-					"uoPg8EUOGKhSBNjo": {
-						"type": "effect",
-						"default": true,
-						"effectId": "6kRlwrLhyZIeoGFg"
-					},
-					"mMMkXo28jayZyoba": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5AgG4EcAjssWedF2"
 					}
 				},
 				"uses": {
@@ -236,7 +221,12 @@
 						"range": "self"
 					}
 				},
-				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp"
+				"img": "icons/equipment/shield/buckler-wooden-round-hole.webp",
+				"effects": [
+					"coU7q0AVHPnylR39",
+					"6kRlwrLhyZIeoGFg",
+					"5AgG4EcAjssWedF2"
+				]
 			}
 		},
 		"description": "<p>You may throw this shield, treating it as an improvised weapon that deals 1d6 bludgeoning damage.</p><p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",

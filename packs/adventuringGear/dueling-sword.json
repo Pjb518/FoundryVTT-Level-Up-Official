@@ -72,13 +72,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"zcG20A7qRfel251V": {
-						"type": "effect",
-						"default": true,
-						"effectId": "v14g9vjf6DB3EI5y"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -89,7 +83,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"v14g9vjf6DB3EI5y"
+				]
 			},
 			"oRLO0pxrDELNOtxb": {
 				"name": "Parry",
@@ -189,10 +186,6 @@
 			"origin": "Item.EUCPnPw7lVdTzoBu",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jrSMuVnZwzNBgQSY",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -204,7 +197,10 @@
 			"img": "icons/weapons/swords/shortsword-guard-brass.webp",
 			"_id": "v14g9vjf6DB3EI5y",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",

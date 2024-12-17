@@ -39,13 +39,7 @@
 						"damageType": "poison"
 					}
 				},
-				"prompts": {
-					"VtOR1bxTyCXNR2pQ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "WFCiemvIeFXRTBhm"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -60,7 +54,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 10
-				}
+				},
+				"effects": [
+					"WFCiemvIeFXRTBhm"
+				]
 			}
 		},
 		"description": "<p>Administered to pilots and passengers on aircraft and spacecraft executing high-g maneuvers, these injected drugs are unpleasant, but potentially life-saving. A user gains an expertise die on saving throws for starship maneuvers, but also takes 1d4 poison damage. A dose lasts for 10 minutes. The delivery system is typically integrated into a vehicle seat, where it can be activated with the user’s reaction in response to starting a maneuver. If it needs to be administered manually with an airhypo, it takes an action.</p>",
@@ -129,10 +126,6 @@
 			"origin": "Item.IvTmVME7Aczt9sfD",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "dwhxcVmQ39dGCiRD",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -143,7 +136,10 @@
 			"img": "icons/consumables/potions/bottle-round-corked-yellow.webp",
 			"_id": "WFCiemvIeFXRTBhm",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

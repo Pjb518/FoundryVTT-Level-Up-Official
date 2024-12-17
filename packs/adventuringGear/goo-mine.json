@@ -59,11 +59,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"Y81OiUgnsq0Liqhp": {
-						"type": "effect",
-						"default": true,
-						"effectId": "fneJl3oycZp1Nv7X"
 					}
 				},
 				"uses": {
@@ -87,7 +82,10 @@
 					"quantity": 1,
 					"radius": 10,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"fneJl3oycZp1Nv7X"
+				]
 			}
 		},
 		"description": "<p>Unlike grenades, which explode shortly after being thrown, mines are designed to detonate once a specific trigger occurs. As an action, you can set a mine in an unoccupied space within 5 feet of you. When you set a mine, determine the circumstances under which the mine will detonate. For example, you can set the mine to detonate on a timer, when a creature enters the mine’s space, or under other specific circumstances (such as when a door opens or a vehicle activates). You can also rig the mine to detonate remotely using a remote detonator.</p>\n<p>When detonated, a mine functions identically to the grenade it emulates.</p>\n<h2>Goo</h2>\n<p>When detonated, a goo grenade fills a 10-foot-radius sphere with a quick-hardening, adhesive foam. For the next minute, the ground in the area is difficult terrain. A creature in this area makes a Dexterity saving throw, becoming grappled on a failure (escape DC 10).</p>",
@@ -151,18 +149,17 @@
 		{
 			"origin": "Item.JmjD5V9kuaLtTN9x",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "3Z1oSG3c8e105pDa"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Grappled",
 			"img": "icons/weapons/thrown/grenade-round.webp",
 			"_id": "fneJl3oycZp1Nv7X",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

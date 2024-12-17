@@ -56,13 +56,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"zzjqDAZHZeiomxWC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "QooNuiGXnWyL4cf4"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -77,7 +71,10 @@
 				"duration": {
 					"unit": "round",
 					"value": 1
-				}
+				},
+				"effects": [
+					"QooNuiGXnWyL4cf4"
+				]
 			}
 		},
 		"description": "<p>This small fire-starting device can be used to light anything with abundant, exposed fuel or highly-flammable objects such as paper as an action. You may also expend a use to cause the lighter to shed dim light in a 5-foot radius for one round.</p>",
@@ -146,10 +143,6 @@
 			"origin": "Item.7iJUaXW3cJ9JL1Yy",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LvmUVa06weEcwk9l",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -161,7 +154,10 @@
 			"img": "icons/magic/fire/flame-burning-hand-orange.webp",
 			"_id": "QooNuiGXnWyL4cf4",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "@token.light.dim",

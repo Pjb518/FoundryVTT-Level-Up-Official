@@ -39,11 +39,6 @@
 							"bonus": "15"
 						},
 						"onSave": "Immune to pipes of haunting for 24 hours"
-					},
-					"s4KSB55i00sgiOGM": {
-						"type": "effect",
-						"default": true,
-						"effectId": "CSBI2B4nN4L0Qt0z"
 					}
 				},
 				"uses": {
@@ -73,7 +68,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"CSBI2B4nN4L0Qt0z"
+				]
 			},
 			"ijCnlkuTozVNlK9z": {
 				"name": "Regain Charges",
@@ -161,9 +159,6 @@
 			"origin": "Item.4tf60zylsra97p3f",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "EAyJ8IDqpM07qkNV",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -200,6 +195,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

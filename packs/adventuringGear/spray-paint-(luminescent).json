@@ -34,16 +34,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"cq8lQZEOUtgZduJ7": {
-						"type": "effect",
-						"default": true,
-						"effectId": "zLPMKXUuMUdUJ0Zn"
-					},
-					"8to5OCEbZevtsckF": {
-						"type": "effect",
-						"default": true,
-						"effectId": "pda5CST0g8N2hxcQ"
 					}
 				},
 				"uses": {
@@ -66,7 +56,11 @@
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"zLPMKXUuMUdUJ0Zn",
+					"pda5CST0g8N2hxcQ"
+				]
 			}
 		},
 		"description": "<p>Used primarily for painting furniture, machine parts, and so on, spray paint is also used for graffiti and street or vehicle art and can blind creatures and cameras alike. It can be sprayed at a creature or camera within 10 feet. Cameras are automatically blinded until the paint is cleaned off (requiring 2 actions). Creatures make a Dexterity saving throw against the attacker's maneuver DC. Creatures that fail are blinded for 1 round if unprotected, or until 2 actions are spent to clean the lenses or visor of whatever eye or face protection they are wearing. A canister has 5 uses. Luminescent varieties exist that cast dim light within 5 feet of the area they are applied to; they cost twice as much.</p>",
@@ -135,9 +129,6 @@
 			"origin": "Item.mxlM0O6s4I0Jczav",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nzcgmTU8GI6cA1L1",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -149,7 +140,10 @@
 			"img": "icons/commodities/materials/liquid-green.webp",
 			"_id": "zLPMKXUuMUdUJ0Zn",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -189,18 +183,17 @@
 		{
 			"origin": "Item.mxlM0O6s4I0Jczav",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nzcgmTU8GI6cA1L1"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Luminescent",
 			"img": "icons/commodities/materials/liquid-green.webp",
 			"_id": "pda5CST0g8N2hxcQ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "@token.light.dim",

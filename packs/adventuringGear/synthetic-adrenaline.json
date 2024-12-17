@@ -27,18 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"PPOXyJ8Ht3qqTy8s": {
-						"type": "effect",
-						"default": true,
-						"effectId": "bHkKcjpEftRqaWBE"
-					},
-					"FyPBOmr8aeU6P7St": {
-						"type": "effect",
-						"default": true,
-						"effectId": "To2fc8Ed3i3fNyrJ"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -49,7 +38,11 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"bHkKcjpEftRqaWBE",
+					"To2fc8Ed3i3fNyrJ"
+				]
 			}
 		},
 		"description": "<p>Typically used as a combat drug, but sometimes used recreationally, synthetic adrenaline gives the user advantage on Strength, Dexterity, and Constitution checks and saves for one minute. Once the effect ends, the user immediately gains two levels of fatigue. It can only be injected.</p>",
@@ -118,9 +111,6 @@
 			"origin": "Item.98FbOtCpuVFiVngw",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "pKxYNjKCnqx2Ddte",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -131,7 +121,10 @@
 			"img": "icons/consumables/potions/potion-flask-capped-yellow-green.webp",
 			"_id": "bHkKcjpEftRqaWBE",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.abilityCheck.str",
@@ -199,18 +192,17 @@
 		{
 			"origin": "Item.98FbOtCpuVFiVngw",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "pKxYNjKCnqx2Ddte"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Fatigue",
 			"img": "icons/consumables/potions/potion-flask-capped-yellow-green.webp",
 			"_id": "To2fc8Ed3i3fNyrJ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.fatigue",

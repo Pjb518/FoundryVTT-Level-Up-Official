@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"O45R6qW2NgwuFEt5": {
-						"type": "effect",
-						"default": true,
-						"effectId": "KQghFZ1ka7oEpytr"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -47,7 +41,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"KQghFZ1ka7oEpytr"
+				]
 			}
 		},
 		"description": "<p>This dark liquid boosts your immune system. After injecting it, you gain an expertise die on Constitution saving throws for 2 hours.</p>",
@@ -116,9 +113,6 @@
 			"origin": "Item.qlwwdPsaGDd9qxKD",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "9Hz0NdQBErUEGf9e",
 					"duration": {
 						"unit": "hours"
 					}
@@ -129,7 +123,10 @@
 			"img": "icons/consumables/potions/potion-bottle-corked-blue.webp",
 			"_id": "KQghFZ1ka7oEpytr",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.abilities.con.save.expertiseDice",

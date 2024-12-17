@@ -52,11 +52,6 @@
 							"bonus": "15"
 						},
 						"onSave": "no damage"
-					},
-					"2OhFDun4PXOpbkwu": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PsZGIT5ziioLmJKn"
 					}
 				},
 				"uses": {
@@ -67,7 +62,10 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"PsZGIT5ziioLmJKn"
+				]
 			}
 		},
 		"description": "<p><em>Rare, Inhaled, Instantaneous</em></p><p>This ash black powder is rendered from the horns&nbsp;of powerful fiends. A creature makes a DC 15 Constitution&nbsp;saving throw when subjected to this poison.&nbsp;On a failed saving throw, a creature takes 11 (3d6)&nbsp;necrotic damage and 11 (3d6) poison damage, and it&nbsp;becomes poisoned for 1 minute. While poisoned in&nbsp;this way the creature becomes vulnerable to necrotic&nbsp;damage. A creature that succeeds on its saving&nbsp;throw takes no damage from this poison.</p>",
@@ -130,9 +128,6 @@
 			"origin": "Item.91203chk8mp8jfy5",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "iXiD5Xl8MPahhMgR",
 					"duration": {
 						"type": "seconds",
 						"unit": "minutes"
@@ -176,6 +171,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

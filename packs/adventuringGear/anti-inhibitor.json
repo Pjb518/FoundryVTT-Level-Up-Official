@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"RRxJX59Mm0gHftZN": {
-						"type": "effect",
-						"default": true,
-						"effectId": "jiDw7qSmwOBsNojr"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -47,7 +41,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"jiDw7qSmwOBsNojr"
+				]
 			}
 		},
 		"description": "<p>This reddish liquid fills you with confidence. After injecting it, you gain an expertise die on Charisma saving throws for 2 hours.</p>",
@@ -116,10 +113,6 @@
 			"origin": "Item.4ng1ibRsdK6eTtKH",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PHpOb7clfJZ1qnvO",
-					"applyToSelf": false,
 					"duration": {
 						"unit": "hours"
 					}
@@ -130,7 +123,10 @@
 			"img": "icons/consumables/potions/potion-tube-corked-glowing-red.webp",
 			"_id": "jiDw7qSmwOBsNojr",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"changes": [
 				{
 					"key": "system.abilities.cha.save.expertiseDice",
