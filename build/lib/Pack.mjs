@@ -35,7 +35,7 @@ export default class Pack {
 	cleanAndValidate() {
 		[...this.data.entries()].map(([file, source]) => {
 			this.#cleanDocument(source);
-			fs.writeFileSync(file, JSON.stringify(source, null, '\t'), { encoding: 'utf-8' });
+			fs.writeFileSync(file, `${JSON.stringify(source, null, '\t')}\n`, { encoding: 'utf-8' });
 
 			return source;
 		});
