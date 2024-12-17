@@ -29,13 +29,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"nTE43oPUl7KEjgBp": {
-						"type": "effect",
-						"default": true,
-						"effectId": "9GKN6YTXWGXr3CMr"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -50,7 +44,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"9GKN6YTXWGXr3CMr"
+				]
 			},
 			"UvzvtJkR0yzZMvj9": {
 				"name": "Fire Damage",
@@ -122,10 +119,6 @@
 			"origin": "Item.dGjxakeMs4CMjjim",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "7DA6cVlVumNNSdZN",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -136,7 +129,10 @@
 			"img": "icons/commodities/gems/pearl-rough-turquoise.webp",
 			"_id": "9GKN6YTXWGXr3CMr",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

@@ -8,9 +8,6 @@
 			"origin": "Item.hTTgSTxwQDk3YNXo",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "uOxn1vVFURYJAfQO",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -47,6 +44,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -92,14 +93,12 @@
 							"bonus": "8 + @prof + @con.mod"
 						},
 						"type": "savingThrow"
-					},
-					"eBuD06TT0B6e49ef": {
-						"type": "effect",
-						"default": true,
-						"effectId": "8fDbY7URzGgsGoyv"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"effects": [
+					"8fDbY7URzGgsGoyv"
+				]
 			}
 		},
 		"description": "<p>Your show of martial skill is so stunning that the target can only gape. When you score a critical hit, the target makes a Wisdom saving throw or is stunned until the end of your next turn.</p>",

@@ -8,9 +8,6 @@
 			"origin": "Item.pdvg7c9emjgnib07",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jqb7BKBuOfS5Z1n8",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -53,9 +54,6 @@
 			"origin": "Item.pdvg7c9emjgnib07",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jqb7BKBuOfS5Z1n8",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -92,6 +90,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -139,16 +141,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"ocpTg4Xds9x5O9f3": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2wGiliUjJKlBJYp3"
-					},
-					"BqXUbid7ECMSCHWT": {
-						"type": "effect",
-						"default": true,
-						"effectId": "gJe691nLuizKcGEa"
 					}
 				},
 				"consumers": {
@@ -158,7 +150,11 @@
 						"points": 6,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"2wGiliUjJKlBJYp3",
+					"gJe691nLuizKcGEa"
+				]
 			}
 		},
 		"description": "<p>You assault the minds of your targets, filling them with delusions and making them confused until the spell ends. On a successful saving throw, a target is rattled for 1 round. At the end of each of its turns, a confused target makes a Wisdom saving throw to end the spell's effects on it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's area increases by 5 feet for each slot level above 4th.</p>",

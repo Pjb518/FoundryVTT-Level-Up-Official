@@ -29,13 +29,7 @@
 						"label": "Improvised Weapon"
 					}
 				},
-				"prompts": {
-					"HBpBby6dnoINrG6C": {
-						"type": "effect",
-						"default": true,
-						"effectId": "zzk5izccdBTuxWIW"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -46,7 +40,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"zzk5izccdBTuxWIW"
+				]
 			}
 		},
 		"description": "<p>The extremely rapid delivery of food can be not only hilariously satisfying, but also give a warrior an edge in combat.</p><p>When you activate this maneuver, you take the Attack action and make a weapon attack</span>, as well as any additional attacks granted by Extra Attack. This weapon attack must target a creature and be made using an improvised weapon that includes food or is made out of Supply</span> (such as a pie, bowl of stew, flagon of mead, or other container filled with nourishment). On a hit, the creature is <span>blinded until either the start of its next turn or until it uses its reaction to wipe its eyes clean (whichever is first). Until the creature uses a bonus action to entirely clean its face, you gain an <span>expertise die on Intimidation checks made against the creature.</p>",
@@ -75,9 +72,6 @@
 			"origin": "Item.y6bc0fekc7nuinzs",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "xuxGz5lol1sE8dgH",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -114,6 +108,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

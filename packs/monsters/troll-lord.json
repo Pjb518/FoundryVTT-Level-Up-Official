@@ -250,7 +250,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "",
@@ -340,7 +341,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "",
@@ -1085,13 +1087,7 @@
 								"formula": "1d6"
 							}
 						},
-						"prompts": {
-							"HWnokdwmuQ1i1Zwx": {
-								"type": "effect",
-								"default": true,
-								"effectId": "XFnxFqjJiVc6Itrq"
-							}
-						},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
@@ -1102,7 +1098,10 @@
 								"rechargeAmount": "1",
 								"threshold": 6
 							}
-						}
+						},
+						"effects": [
+							"XFnxFqjJiVc6Itrq"
+						]
 					},
 					"5O7T2djeUMqj8m3p": {
 						"name": "Reattach",
@@ -1330,10 +1329,7 @@
 			"icon": "icons/svg/item-bag.svg",
 			"origin": "Actor.trwm9nbl4nsdbsnw.Item.6284C8zjz3OJecBQ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Four-Armed",
@@ -1363,6 +1359,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

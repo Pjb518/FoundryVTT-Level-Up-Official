@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"OMmImkTefU9YVe40": {
-						"type": "effect",
-						"default": true,
-						"effectId": "qm1ScuaKEG57X7U5"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +47,10 @@
 					"5pbHdPTgK5rhnmry": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"qm1ScuaKEG57X7U5"
+				]
 			}
 		},
 		"description": "<p>You cause a target creature to triple the range of its ranged weapon attack. The creature also has advantage to hit and does not receive disadvantage for long-range shots. Then, for the next minute, all of the creature&rsquo;s attacks with ranged weapons are reduced to one-third their usual distance and only add half of the creature&rsquo;s proficiency bonus to hit.</p>",
@@ -82,9 +79,6 @@
 			"origin": "Item.AvF2LfLu6f1uaxtb",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "DNG1zL4005PL7Q9B",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -95,7 +89,10 @@
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "qm1ScuaKEG57X7U5",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

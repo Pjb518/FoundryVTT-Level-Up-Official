@@ -27,11 +27,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"ZzXpIdTfLVTFUcxh": {
-						"type": "effect",
-						"default": true,
-						"effectId": "9ze4IoA8XTYMwBuW"
 					}
 				},
 				"uses": {
@@ -42,7 +37,10 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"9ze4IoA8XTYMwBuW"
+				]
 			}
 		},
 		"description": "<p>Also at 10th level, you bring the power of the sea along with you wherever you go. Whenever you take the Dash action, your movement speed increases by 10 feet and you summon an enormous wave of water that crashes over the area around you (if you are underwater, you instead create a powerful current around you with the same effects). All non-magical flames within 5 feet of your path are immediately extinguished, and creatures you become adjacent to while dashing must make a Strength saving throw against your spell save DC or be pushed 10 feet away from you. Your Tidal Surge activates automatically, but you may suppress it if you wish (no action required).</p>",
@@ -70,19 +68,17 @@
 		{
 			"origin": "Item.ApcdaMlQwXDqhF2k",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "TU7fClOZ8tOCVA4t",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Tidal Surge",
 			"img": "icons/magic/water/wave-water-explosion.webp",
 			"_id": "9ze4IoA8XTYMwBuW",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",

@@ -101,11 +101,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"ECjFqWzEWvzmljfy": {
-						"type": "effect",
-						"default": true,
-						"effectId": "eHTLQNHUlM6OICID"
 					}
 				},
 				"uses": {
@@ -146,7 +141,10 @@
 				"descriptionOutputs": [
 					"action"
 				],
-				"description": "<p>The senses of the targets are filled with phantom energies that make them more vulnerable and less capable. Until the spell ends, a d4 is subtracted from attack rolls and saving throws made by a target.</p>"
+				"description": "<p>The senses of the targets are filled with phantom energies that make them more vulnerable and less capable. Until the spell ends, a d4 is subtracted from attack rolls and saving throws made by a target.</p>",
+				"effects": [
+					"eHTLQNHUlM6OICID"
+				]
 			}
 		},
 		"description": "<p>You learn the @UUID[Compendium.a5e.a5e-spells.Item.dyd1hicnmkrj6vf8]{Enduring Bestow Curse} rare spell if you do not already know it. &nbsp;You always have @UUID[Compendium.a5e.a5e-spells.Item.339zx6f5jk81fobw]{Bestow Curse} and @UUID[Compendium.a5e.a5e-spells.Item.o94b50tj959v55mm]{Bane} prepared, they do not count against your number of witch spells prepared, and you may cast each of them at their lowest spell level once per long rest without expending a spell slot.</p>",
@@ -174,11 +172,7 @@
 			"icon": "icons/magic/unholy/hand-light-green.webp",
 			"origin": "Item.dbb8qguj58zu4nc8",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eYoBeDy7qYbkXOil"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Bane",
@@ -233,6 +227,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

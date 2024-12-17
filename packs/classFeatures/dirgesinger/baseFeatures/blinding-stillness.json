@@ -27,18 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"IhAJUfniKnp0eUuj": {
-						"type": "effect",
-						"default": true,
-						"effectId": "abF3tF2i0IsLfXZT"
-					},
-					"3M6nKF6VJuPefwkA": {
-						"type": "effect",
-						"default": true,
-						"effectId": "16sbWe8AFCKhRffD"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -58,7 +47,11 @@
 					"DDZAHlrdqZcqFj43": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"abF3tF2i0IsLfXZT",
+					"16sbWe8AFCKhRffD"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">You cause a creature to gain truesight for as far as it can see for the next minute. The creature only benefits from this truesight while willingly moving. At all other times it is Blinded in all of its senses, even senses that do not require sight. For example, while using a move action or a Cunning Action to move, the creature would have truesight. While using an action or reaction to attack or cast a spell, even if while splitting up a move action, the creature would be Blinded unless the creature is explicitly using an attack, maneuver, or spell that includes willing movement.</p>",
@@ -87,9 +80,6 @@
 			"origin": "Item.y1cr81iQA85pH1WP",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LDountDgkOgEWLmN",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -100,7 +90,10 @@
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "abF3tF2i0IsLfXZT",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.senses.truesight.distance",
@@ -138,18 +131,17 @@
 		{
 			"origin": "Item.y1cr81iQA85pH1WP",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LDountDgkOgEWLmN"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Blinded",
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "16sbWe8AFCKhRffD",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

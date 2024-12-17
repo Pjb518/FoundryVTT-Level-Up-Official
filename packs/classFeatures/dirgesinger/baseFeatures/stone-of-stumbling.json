@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"r1IKAsYDYXqfYizC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "8HgMRRs5KZk5kY0F"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +47,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"8HgMRRs5KZk5kY0F"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">You cause a creature to add an expertise die to its Armor Class against every attack for the next minute. During this time all of the creature&rsquo;s movement speeds are reduced to 0 and the creature may not willingly move. The target creature gains the ability to @UUID[Compendium.a5e.a5e-maneuvers.Item.zzg7j7cb0vkgctwi]{Knockdown} as a reaction when another creature enters or tries to leave its threatened area, but it must use its reaction to trip the first creature that triggers this effect.</p>",
@@ -82,9 +79,6 @@
 			"origin": "Item.aUw7f6pKcN8gZjdv",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qAz6zGYoFF1uzJp0",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -95,7 +89,10 @@
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "8HgMRRs5KZk5kY0F",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.movement.allDistances",

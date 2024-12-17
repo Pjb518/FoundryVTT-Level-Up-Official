@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"CIKWEZUpBYkohCIN": {
-						"type": "effect",
-						"default": true,
-						"effectId": "0FLpZqZpKCbgIpqi"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +47,10 @@
 					"GQw1s2MrHhsY3DNL": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"0FLpZqZpKCbgIpqi"
+				]
 			}
 		},
 		"description": "<p>You cause a target creature to double its proficiency bonus, expertise die roll, and skill speciality roll on one skill check. The creature then loses proficiency, all expertise die, and all skill specialties on that skill the end of its next short rest.</p>",
@@ -81,18 +78,17 @@
 		{
 			"origin": "Item.jqX1CFmAuPnFW3En",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "mrPx1QRA9zy0omrd"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Forgetful Genius",
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "0FLpZqZpKCbgIpqi",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

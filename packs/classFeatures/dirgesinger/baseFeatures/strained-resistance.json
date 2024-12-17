@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"QVhXC5tDvJ9q51HH": {
-						"type": "effect",
-						"default": true,
-						"effectId": "e6J9sF8OX7bRVfWH"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +47,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"e6J9sF8OX7bRVfWH"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">You cause a creature that failed a save to succeed instead, but gain a level of Fatigue and Strife.</p>",
@@ -81,18 +78,17 @@
 		{
 			"origin": "Item.V79fQewFeGa66NCR",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Hcnwiz9chU0ROP8U"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Strained Resistance",
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "e6J9sF8OX7bRVfWH",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.fatigue",

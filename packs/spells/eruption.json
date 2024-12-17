@@ -53,11 +53,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "half damage, not knocked prone"
-					},
-					"7GlevOnBkyS2EDqC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "l6W83c3f69Mtw4G1"
 					}
 				},
 				"uses": {
@@ -83,7 +78,10 @@
 					"radius": 40,
 					"height": 40,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"l6W83c3f69Mtw4G1"
+				]
 			},
 			"ieoAw8Zfjy6OckVr": {
 				"name": "Ground Burn",
@@ -166,11 +164,7 @@
 			"icon": "icons/magic/earth/lava-explosion-orange.webp",
 			"origin": "Item.8y0hx71xr0aj0lmp",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jDqLux3l2plPHagb"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -202,6 +196,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

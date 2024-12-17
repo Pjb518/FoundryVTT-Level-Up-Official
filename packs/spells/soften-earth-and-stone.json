@@ -68,11 +68,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"YqlYYWzlB5LsWHJ8": {
-						"type": "effect",
-						"default": true,
-						"effectId": "E0ITLiA8nGySp1lz"
 					}
 				},
 				"uses": {
@@ -85,7 +80,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"E0ITLiA8nGySp1lz"
+				]
 			},
 			"edJBm7n0j1jZZPt3": {
 				"name": "Cave-In",
@@ -109,11 +107,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Half damage, not restrained"
-					},
-					"7hZnBLnchCI5sPrx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "KryCLWO8ZICLlrxu"
 					}
 				},
 				"uses": {
@@ -126,7 +119,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"KryCLWO8ZICLlrxu"
+				]
 			},
 			"KaLKJcx1J6kafowN": {
 				"name": "Structural Damage",
@@ -218,9 +214,6 @@
 			"origin": "Item.ywon9rejcclo6t4c",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "89t7oSjVPfOQxLj3",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -257,17 +250,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/environment/wilderness/terrain-rocky-ground.webp",
 			"origin": "Item.ywon9rejcclo6t4c",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "edJBm7n0j1jZZPt3"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Restrained",
@@ -299,6 +292,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

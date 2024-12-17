@@ -45,11 +45,6 @@
 						"saveDC": {
 							"type": "con"
 						}
-					},
-					"1CvZ383xWGL7o9qy": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kOgri8evpCXzVAy5"
 					}
 				},
 				"uses": {
@@ -73,7 +68,10 @@
 					"quantity": 1,
 					"radius": 10,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"kOgri8evpCXzVAy5"
+				]
 			}
 		},
 		"description": "<p>As a bonus action you can emit the energy you consume as a spherical shockwave emanating from you. All creatures within 10 feet of you must make a Strength saving throw with a DC equal to 8 + your proficiency bonus + your Constitution modifier. On a failure, the target takes 6d8 force damage and is pushed 10 feet and knocked prone. On a success, the target takes half damage and is not pushed or knocked prone. Once you have used this feature you cannot use it again until you take a long rest.</p>",
@@ -101,18 +99,17 @@
 		{
 			"origin": "Item.IW8U4rSKRbq7bQFC",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "2pLCuD5pIBHUmcjD"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
 			"_id": "kOgri8evpCXzVAy5",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

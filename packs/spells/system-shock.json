@@ -38,16 +38,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "half damage, rattled instead of paralyzed"
-					},
-					"hc0bBYs1wejq7tr7": {
-						"type": "effect",
-						"default": true,
-						"effectId": "DwUz53I4OuPKjXUm"
-					},
-					"0EndLzidX20tat6T": {
-						"type": "effect",
-						"default": true,
-						"effectId": "q60AeGOFSMyjXhLB"
 					}
 				},
 				"uses": {
@@ -71,7 +61,11 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"DwUz53I4OuPKjXUm",
+					"q60AeGOFSMyjXhLB"
+				]
 			}
 		},
 		"description": "<p>You strike a target you can see within range with an arc of lightning that disrupts its nervous system. The target takes 4d8 lightning damage and is paralyzed for 1 round. On a successful Constitution save it takes half damage and is rattled rather than paralyzed.</p>",
@@ -124,9 +118,6 @@
 			"origin": "Item.khlohmxjpspq59ug",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "K8MhU5us14h78Uzf",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -163,6 +154,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -170,9 +165,6 @@
 			"origin": "Item.khlohmxjpspq59ug",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "K8MhU5us14h78Uzf",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -209,6 +201,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

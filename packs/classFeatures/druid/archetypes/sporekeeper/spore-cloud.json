@@ -7,9 +7,6 @@
 			"origin": "Item.eWmSYh6u2wtvQwkE",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "tYtleDVnvAdLqrkp",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -58,7 +55,10 @@
 			},
 			"img": "icons/magic/air/fog-gas-smoke-dense-brown.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -67,9 +67,6 @@
 			"origin": "Item.eWmSYh6u2wtvQwkE",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "tYtleDVnvAdLqrkp",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -119,7 +116,10 @@
 			},
 			"img": "icons/magic/air/fog-gas-smoke-dense-brown.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -163,16 +163,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"b8QExU8pQaSjAKBZ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ma66zQVK2772nx59"
-					},
-					"1RxGA62e4HhXU71Q": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Na3CSeZbfwIbtjUw"
 					}
 				},
 				"uses": {
@@ -200,7 +190,11 @@
 					"MI4B56Wq3F8bkQCl": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"ma66zQVK2772nx59",
+					"Na3CSeZbfwIbtjUw"
+				]
 			}
 		},
 		"description": "<p>Also at 6th level, you can release spores to impair your enemies. As an action, you may spend a use of your Wild Shape feature to release a cloud of spores that lasts for one hour. The spore cloud fills a 10-foot radius sphere emanating from you, and moves along with you. Creatures other than you that begin their turn in the cloud must make a Constitution saving throw against your spell save DC or be poisoned for one minute. While poisoned this way, a creature experiences bizarre and sometimes frightening hallucinations. It treats all targets as lightly obscured, and it has disadvantage on checks to maintain concentration. If the creature fails its save by 5 or more, it is also frightened until the end of its next turn. Creatures that succeed on their save are unaffected, but must repeat the saving throw each turn as long as they remain in the cloud. Once a creature exits the cloud, they may repeat their save at the end of each of their turns, ending all effects on a success.</p>\n<p>Undead, Constructs, and creatures immune to poison damage are unaffected by the spores.</p>",

@@ -40,12 +40,6 @@
 						},
 						"label": "Extreme Heat",
 						"onSave": "half damage & no fatigue"
-					},
-					"3ZjYUCVCTyqb0gRE": {
-						"type": "effect",
-						"default": true,
-						"effectId": "pfyFMRnf01BzLuh9",
-						"label": "Fatigue (max 2 levels)"
 					}
 				},
 				"uses": {
@@ -77,7 +71,10 @@
 						}
 					},
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"pfyFMRnf01BzLuh9"
+				]
 			},
 			"qDANS89YXbOJoExl": {
 				"name": "Change Temperature",
@@ -148,10 +145,7 @@
 			"icon": "icons/magic/air/fog-gas-smoke-swirling-orange.webp",
 			"origin": "Item.0jfkyisinn29kfc3",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Fatigue",
@@ -181,6 +175,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

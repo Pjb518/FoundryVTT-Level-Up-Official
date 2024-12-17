@@ -29,13 +29,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"315mlrjPkD4OiWGf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "iFkF0QSpWW4AJ5IC"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -52,7 +46,10 @@
 				"duration": {
 					"unit": "",
 					"value": 1
-				}
+				},
+				"effects": [
+					"iFkF0QSpWW4AJ5IC"
+				]
 			}
 		},
 		"description": "<p>At 11th level when you successfully grapple a creature of your size or smaller, you can spend an exertion point to restrain them for the duration of the grapple.</p>",
@@ -80,18 +77,17 @@
 		{
 			"origin": "Item.oyUfpf4zQWnIu9Zb",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "B8DkiLsrBhDMSNT4"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Restrained",
 			"img": "icons/magic/control/buff-strength-muscle-damage-orange.webp",
 			"_id": "iFkF0QSpWW4AJ5IC",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

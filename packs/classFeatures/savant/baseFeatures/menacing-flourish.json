@@ -42,14 +42,12 @@
 							"bonus": "8+@prof+@int.mod"
 						},
 						"type": "savingThrow"
-					},
-					"hVusc8raG2IoAel8": {
-						"type": "effect",
-						"default": true,
-						"effectId": "dJdVS0I2VIgtS0RH"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"effects": [
+					"dJdVS0I2VIgtS0RH"
+				]
 			}
 		},
 		"description": "<p>When you hit a creature with a melee attack, you can spend a bonus action to activate this trick and deliver a terrifying threat. The target makes a Wisdom saving throw . If it fails, for the next minute it is frightened of you.</p>",
@@ -78,9 +76,6 @@
 			"origin": "Item.H4cPumxaH4ntNCdT",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "oTnOBS7Y4cOOhboE",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -116,6 +111,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

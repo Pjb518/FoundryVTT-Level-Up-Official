@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"NiLzUaMwhccrLMAA": {
-						"type": "effect",
-						"default": true,
-						"effectId": "l5qL6PUyRUuHRku6"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"l5qL6PUyRUuHRku6"
+				]
 			}
 		},
 		"description": "<p>When you take cold damage you are slowed until the end of your next turn.</p>",
@@ -66,10 +63,6 @@
 			"origin": "Item.sFmkeMqEwmDlPkPc",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "dy42MVM1NxYy8e0x",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -81,7 +74,10 @@
 			"img": "icons/magic/water/barrier-ice-water-cube.webp",
 			"_id": "l5qL6PUyRUuHRku6",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

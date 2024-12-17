@@ -51,11 +51,6 @@
 						"type": "abilityCheck",
 						"default": true,
 						"ability": "str"
-					},
-					"NJ7kBTlbmBA42WCM": {
-						"type": "effect",
-						"default": true,
-						"effectId": "CiY4i0Xrp0P0yRml"
 					}
 				},
 				"uses": {
@@ -78,7 +73,10 @@
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"CiY4i0Xrp0P0yRml"
+				]
 			}
 		},
 		"description": "<p>At 11th level, at the end of each short rest, you can put together a number of bundles of such materials equal to your proficiency bonus, each costing 5 silver worth of raw materials. Alternatively, if the Narrator determines the environment is suitable, you can collect the maximum amount of such materials at no cost on a successful Survival check to Hunt and Gather, while gaining half the usual amount of supply (rounded down).</p><p>Once each turn, you can spend 1 exertion to make an entangling throw at a target within 20 feet with a ranged weapon attack you are considered proficient at, either expending a bundle of material or using what is available in the environment (at Narrator discretion). You do not have disadvantage from making an entangling throw at a creature you have hit with a melee weapon attack since the start of your last turn from being within its reach. On a hit, the target makes a Strength check against your maneuver DC or becomes grappled. At the start of each of its turns, the target repeats the check, ending the effect on itself on a success. The material from the entangling throw can also be destroyed (AC equal to your maneuver DC, hit points equal to your adept level).</p><p>Once you have used this feature a number of times equal to your Wisdom modifier, you cannot do so again until you finish a long rest.</p>",
@@ -106,18 +104,17 @@
 		{
 			"origin": "Item.TwJjNBf5Egkmaxxd",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zkbOqzjo57ioEoKR"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Grappled",
 			"img": "icons/commodities/materials/material-woven.webp",
 			"_id": "CiY4i0Xrp0P0yRml",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

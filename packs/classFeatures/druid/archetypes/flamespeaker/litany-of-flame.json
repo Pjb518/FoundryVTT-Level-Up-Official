@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"cHRBsGlF9ozgXKvD": {
-						"type": "effect",
-						"default": true,
-						"effectId": "qlqImJQ3XX79Q60F"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -51,7 +45,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 10
-				}
+				},
+				"effects": [
+					"qlqImJQ3XX79Q60F"
+				]
 			},
 			"6Lxch7c6jRaRuAFQ": {
 				"name": "Ignite Creature",
@@ -210,10 +207,6 @@
 			"origin": "Item.m7HPL4XWhqyyLmha",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "QhKJUVORrEsMbVy7",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -224,7 +217,10 @@
 			"img": "icons/magic/fire/beam-jet-stream-yellow.webp",
 			"_id": "qlqImJQ3XX79Q60F",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageImmunities",

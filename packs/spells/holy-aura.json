@@ -8,9 +8,6 @@
 			"origin": "Item.ego4vzicfhlcqdcu",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "OaCzA0ewDpS9v01w",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -50,6 +47,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -90,11 +91,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"j2YO2km7o2HtGQrt": {
-						"type": "effect",
-						"default": true,
-						"effectId": "FtdsJCGGLpJKoYQ5"
 					}
 				},
 				"consumers": {
@@ -104,7 +100,10 @@
 						"points": 11,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"FtdsJCGGLpJKoYQ5"
+				]
 			}
 		},
 		"description": "<p><strong>Target:</strong> Creatures you choose that are&nbsp;within the area</p><p>Holy radiance emanates from you and fills the area. Targets shed dim light in a 5-foot radius and have advantage on saving throws. Attacks made against a target have disadvantage. When a fiend or undead hits a target, the aura erupts into blinding light, forcing the attacker to make a Constitution saving throw or be blinded until the spell ends.</p>",

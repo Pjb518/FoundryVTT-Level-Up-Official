@@ -172,7 +172,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>The dragon makes a bite attack.</p>",
@@ -262,7 +263,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>The Dragon makes a claw attack.</p>",
@@ -352,7 +354,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>The dragon makes a tail attack. On a successful hit, the target is pushed 10 feet away.</p>",
@@ -446,7 +449,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon makes a tail attack against it.</p>",
@@ -1160,7 +1164,8 @@
 							"quantity": "",
 							"type": ""
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>The dragon ends one negative effect currently affecting it. It can do so as long as it has at least 1 hit point, even while unconscious or incapacitated.</p>",
@@ -1317,7 +1322,8 @@
 							"quantity": "",
 							"type": ""
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>The dragon recharges its breath weapon.</p>",
@@ -1390,7 +1396,8 @@
 							"quantity": "",
 							"type": ""
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>The dragon spits a snowball at a creature it can see within 90 feet. That creature is affected as if caught in the dragon’s breath weapon, rolling to save as usual.</p>",
@@ -2024,11 +2031,6 @@
 									"bonus": ""
 								},
 								"type": "savingThrow"
-							},
-							"iAOo77hey4Ti5huA": {
-								"type": "effect",
-								"default": true,
-								"effectId": "V3v15wAVtuObQUMj"
 							}
 						},
 						"consumers": {
@@ -2037,7 +2039,10 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"effects": [
+							"V3v15wAVtuObQUMj"
+						]
 					}
 				},
 				"description": "<p>You allow your inner beauty to shine through in song and dance whether to call a bird from its tree or a badger from its sett. Until the spell ends or one of your companions harms it (whichever is sooner), the target is charmed by you.</p><p><strong><em>Cast at Higher Levels.</em></strong> Choose one additional target for each slot level above 1st.</p>",
@@ -2437,11 +2442,6 @@
 									"bonus": ""
 								},
 								"type": "savingThrow"
-							},
-							"gWxjrLUzeFPCtpuy": {
-								"type": "effect",
-								"default": true,
-								"effectId": "kz08GwrHdeazSDPY"
 							}
 						},
 						"consumers": {
@@ -2450,7 +2450,10 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"effects": [
+							"kz08GwrHdeazSDPY"
+						]
 					}
 				},
 				"description": "<p>You assert control over the target beast's mind and it is charmed for the duration. If it is engaged in combat with you or creatures friendly to you, it has advantage on its saving throw.</p><p>Until the charmed condition ends, you establish a telepathic link with it while you are on the same plane. You may issue commands through this link and the target does its best to obey. No action is required to issue commands, which can be a simple and general course of action such as &quot;Attack that target, &quot; &quot;Go over there, &quot; or &quot;Bring me that object.&quot; Without commands the target only defends itself. The target continues to follow a command until its task is complete.</p><p>You can use your action to assume direct control of the target. Until the end of your next turn, you decide all of the target's actions and it does nothing you do not allow it to. While a target is directly controlled in this way, you can also cause it to use a reaction, but this requires you to use your own reaction as well.</p><p>Each time the target takes damage, it makes a new saving throw against the spell, ending the spell on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration is extended: 5th-level&mdash;Concentration (10 minutes), 6th-level&mdash;Concentration (1 hour), 7th-level&mdash;Concentration (8 hours).</p>",
@@ -2669,13 +2672,10 @@
 								"quantity": 1
 							}
 						},
-						"prompts": {
-							"8A7bCLYWUKn8XIzK": {
-								"type": "effect",
-								"default": true,
-								"effectId": "L1PFIRvBuubE1ulz"
-							}
-						}
+						"prompts": {},
+						"effects": [
+							"L1PFIRvBuubE1ulz"
+						]
 					},
 					"k6N2ivKWMzmRBBfA": {
 						"name": "Warm Shield",
@@ -2719,18 +2719,11 @@
 								"quantity": 1
 							}
 						},
-						"prompts": {
-							"8A7bCLYWUKn8XIzK": {
-								"type": "effect",
-								"default": true,
-								"effectId": "L1PFIRvBuubE1ulz"
-							},
-							"7xVXxUziNFOgbF9J": {
-								"type": "effect",
-								"default": true,
-								"effectId": "D1ImlLOyr9nE9nHx"
-							}
-						}
+						"prompts": {},
+						"effects": [
+							"L1PFIRvBuubE1ulz",
+							"D1ImlLOyr9nE9nHx"
+						]
 					}
 				},
 				"description": "<p>Until the spell ends, flames envelop your body, casting bright light in a 10-foot radius and dim light for an additional 10 feet. You can use an action to end the spell early. Choose one of the following options:</p><ul><li><p><strong>Chill Shield:</strong> You have resistance to fire damage. A creature within 5 feet of you takes 2d8 cold damage when it hits you with a melee attack.</p></li><li><p><strong>Warm Shield:</strong> You have resistance to cold damage. A creature within 5 feet of you takes 2d8 fire damage when it hits you with a melee attack.</p></li></ul><p><strong><em>Cast at Higher Levels.</em></strong> The duration increases to 1 hour when using a 6th-level spell slot, or 8 hours when using an 8th-level spell slot.</p>",
@@ -2960,7 +2953,8 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p><em><strong>Area:&nbsp;</strong>5-mile radius</em></p><p>You must be outdoors to cast this spell, and it ends early if you don't have a clear path to the sky.</p><p>Until the spell ends, you change the weather conditions in the area from what is normal for the current climate and season. Choose to increase or decrease each weather condition (precipitation, temperature, and wind) up or down by one stage on the following tables. Whenever you change the wind, you can also change its direction. The new conditions take effect after 1d4 &times; 10 minutes, at which point you can change the conditions again. The weather gradually returns to normal when the spell ends.</p>",

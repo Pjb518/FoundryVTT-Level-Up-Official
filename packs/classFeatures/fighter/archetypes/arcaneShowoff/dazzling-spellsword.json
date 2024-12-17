@@ -39,11 +39,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"uYCMMJqvgXt70Rj7": {
-						"type": "effect",
-						"default": true,
-						"effectId": "1liIoyNEhQKKwokF"
 					}
 				},
 				"uses": {
@@ -66,7 +61,10 @@
 					"yov7PQyeXVKnJGIl": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"1liIoyNEhQKKwokF"
+				]
 			}
 		},
 		"description": "<p>At 10th level, you have learned to weave together your combat prowess, flair for the dramatic, and magical acumen. When you take the Attack action, you can spend 2 exertion points to substitute one of your attacks with a spell with a casting time of 1 Action. When you do, you emit a flash of magical energy that jangles the equilibrium of those around you. Hostile creatures within 10 feet of you must make a Constitution saving throw against your spell save DC; creatures who fail are poisoned and deafened until the end of their next turn.</p>\n<p>You can cast a spell in this way only once per turn.</p>",
@@ -95,9 +93,6 @@
 			"origin": "Item.AG8Kc8CMqsRjmbqk",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qMSLcBIHGwW0kdxw",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -109,7 +104,10 @@
 			"img": "icons/magic/light/hand-sparks-smoke-teal.webp",
 			"_id": "1liIoyNEhQKKwokF",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

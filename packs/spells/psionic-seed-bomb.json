@@ -7,9 +7,6 @@
 			"origin": "Item.5TeWxH8VG6YN0a4w",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "tgBRHcGwkcOG5hc3",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -43,7 +40,10 @@
 			],
 			"img": "https://assets.forge-vtt.com/bazaar/core/icons/magic/nature/seed-acorn-glowing-green.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null,
@@ -57,9 +57,6 @@
 			"origin": "Item.5TeWxH8VG6YN0a4w",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "4oA2XXnERNEp2xne",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -93,7 +90,10 @@
 			],
 			"img": "https://assets.forge-vtt.com/bazaar/core/icons/magic/nature/seed-acorn-glowing-green.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null,
@@ -140,7 +140,8 @@
 						"points": 3,
 						"type": "spell"
 					}
-				}
+				},
+				"prompts": {}
 			},
 			"tgBRHcGwkcOG5hc3": {
 				"name": "Throw Pinecone",
@@ -171,11 +172,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": ""
-					},
-					"56isVR2YWyMqxbJT": {
-						"type": "effect",
-						"default": true,
-						"effectId": "sf5k7sDn5SyctJMh"
 					},
 					"XsQHpyftFS4CJlLG": {
 						"type": "savingThrow",
@@ -210,7 +206,10 @@
 					"quantity": 1,
 					"radius": 5,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"sf5k7sDn5SyctJMh"
+				]
 			},
 			"iHIoGobdEnVr5Tyi": {
 				"name": "Throw Sunflower Seed",
@@ -298,11 +297,6 @@
 						"onSave": "",
 						"label": "Avoid Damage"
 					},
-					"OuoXavBlGNrPcePg": {
-						"type": "effect",
-						"default": true,
-						"effectId": "L1yFHu1rSRECEVjY"
-					},
 					"5AjnbMVVbneqxD7C": {
 						"type": "savingThrow",
 						"default": true,
@@ -337,7 +331,10 @@
 					"quantity": 1,
 					"radius": 5,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"L1yFHu1rSRECEVjY"
+				]
 			}
 		},
 		"description": "<p>Up to four seeds appear in your hand and are infused with magic for the duration. As an action, a creature can throw one of these seeds at a point up to 60 feet away. Each creature within 5 feet of that point makes a Dexterity&nbsp;saving throw</span>&nbsp;or takes 4d6 piercing damage. Depending on the material component used, a seed bomb also causes one of the following additional effects:</p><p><em><strong>Pinecone.</strong></em>&nbsp;Seed shrapnel explodes outward. A creature in the area of the exploding seed bomb makes a Constitution&nbsp;saving throw</span>&nbsp;or it is&nbsp;blinded</span>&nbsp;until the end of its next turn.</p><p><em><strong>Sunflower.</strong></em>&nbsp;Seeds enlarge into a blanket of pointy needles. The area affected by the exploding seed bomb becomes&nbsp;<span>difficult terrain&nbsp;for the next minute.</p><p><em><strong>Tumbleweed.&nbsp;</strong></em>The weeds unravel to latch around creatures. A creature in the area of the exploding seed bomb makes a Dexterity&nbsp;<span>saving throw&nbsp;or it becomes&nbsp;<span>grappled until the end of its next turn.</p><p><em><strong>Cast at Higher Levels.</strong></em> The damage increases by 1d6 for each slot level above 2nd.</p><p><strong><em>Rare:</em> Psionic Seed Bomb. </strong>The seed bombs&nbsp;created by this spell explode with the cries of dying&nbsp;sproutlings and deal psychic damage instead of&nbsp;piercing damage.</p>",

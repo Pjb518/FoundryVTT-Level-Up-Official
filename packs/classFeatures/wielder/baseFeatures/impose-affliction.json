@@ -31,11 +31,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"sSb11dkY5iXW1iPi": {
-						"type": "effect",
-						"default": true,
-						"effectId": "EAFUJlvQlHNuUYtw"
 					}
 				},
 				"uses": {
@@ -57,7 +52,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"EAFUJlvQlHNuUYtw"
+				]
 			}
 		},
 		"description": "<p><em>bestow lesser curse</em> spell, suffering the effect from that spell of your choosing and the effect of your curse is neutralized for as long as you maintain concentration on the <em>bestow lesser curse</em> effect, but you cannot use or benefit from Twisted Affliction, Greater Twisted Affliction, Mastered Affliction, or Critical Twisted Affliction until the effects of your curse return.</p>",
@@ -84,11 +82,7 @@
 			"icon": "icons/magic/control/energy-stream-link-blue.webp",
 			"origin": "Item.7dnqar68gw3nszg5",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "MgkU04dulul3OcpM"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Afflicted",
@@ -111,6 +105,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

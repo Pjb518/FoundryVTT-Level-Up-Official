@@ -30,11 +30,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Only Rattled"
-					},
-					"i5e2i1rqarWDLDZt": {
-						"type": "effect",
-						"default": true,
-						"effectId": "H7nxaiyQeHGfmXLm"
 					}
 				},
 				"uses": {
@@ -58,7 +53,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"H7nxaiyQeHGfmXLm"
+				]
 			}
 		},
 		"description": "<p>You attempt to terrify a creature within range, who becomes <em>frightened</em> and <em>rattled</em>. On a successful save, the target does not become frightened. At the end of each of its turns, the target makes another saving throw, ending the spell&rsquo;s effects on a successful save.</p>",
@@ -109,9 +107,6 @@
 			"origin": "Item.ciwuvki3tuphwrkp",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "aDpSpfJDoZ06w4bM",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -148,6 +143,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -155,9 +154,6 @@
 			"origin": "Item.ciwuvki3tuphwrkp",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "aDpSpfJDoZ06w4bM",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -193,6 +189,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

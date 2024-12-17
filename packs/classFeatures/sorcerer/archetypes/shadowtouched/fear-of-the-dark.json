@@ -45,11 +45,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"r9xJwzlH7gWzDWWo": {
-						"type": "effect",
-						"default": true,
-						"effectId": "h7CdJzukDQJKRzKZ"
 					}
 				},
 				"uses": {
@@ -73,7 +68,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"h7CdJzukDQJKRzKZ"
+				]
 			},
 			"EFKtJbqwc2IMjDlY": {
 				"name": "Blinded/Darkness Damage",
@@ -128,9 +126,6 @@
 			"origin": "Item.Y0Tk70q1B8aGl81b",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "R7edNuhnroY1hxyC",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -141,7 +136,10 @@
 			"img": "icons/magic/death/skull-energy-light-purple.webp",
 			"_id": "h7CdJzukDQJKRzKZ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

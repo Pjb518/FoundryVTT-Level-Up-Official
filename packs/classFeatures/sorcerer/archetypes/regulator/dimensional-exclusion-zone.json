@@ -7,10 +7,6 @@
 			"origin": "Item.YTI8CkE4NhuNQ2lr",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LRMo479xrSu8xSbA",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -21,7 +17,10 @@
 			"img": "icons/magic/defensive/barrier-shield-dome-deflect-blue.webp",
 			"_id": "kwzkBDYIvhzKLdGK",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -79,13 +78,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"ORbmRgzsQjJDI7o6": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kwzkBDYIvhzKLdGK"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -107,7 +100,10 @@
 					"quantity": 1,
 					"radius": 60,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"kwzkBDYIvhzKLdGK"
+				]
 			}
 		},
 		"description": "<p>At 18th level, your ability to prevent the warping of reality reaches its apex. As a bonus action, you can spend 4 sorcery points and create a dimensional exclusion zone around yourself for 1 hour. The zone extends 60 feet from you. Nothing can teleport into or out of the zone, invisible creatures and objects instantly become visible upon entering the zone, and all creatures inside it are affected as if by a @UUID[Compendium.a5e.a5e-spells.Item.i0o4xqqd86vdkwwu]{Zone of Truth} spell.</p>",

@@ -21,16 +21,6 @@
 				},
 				"rolls": {},
 				"prompts": {
-					"CnMOWyCPBLYKKddk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "WGgZwBOR9seuMS3b"
-					},
-					"xrzX2XiXnYOIxSFo": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ACVEgWrYYZ5vOLQ9"
-					},
 					"xsxsOra5ULeRGnzL": {
 						"type": "generic",
 						"default": false,
@@ -42,11 +32,6 @@
 						"default": false,
 						"label": "Break A Nail",
 						"formula": "1"
-					},
-					"lm80VT6m4YKZyDXK": {
-						"type": "effect",
-						"default": true,
-						"effectId": "p02ubz96j5uKxlmh"
 					}
 				},
 				"uses": {
@@ -72,7 +57,12 @@
 					"HmJz04cBCIw6dNov": {
 						"range": "medium"
 					}
-				}
+				},
+				"effects": [
+					"WGgZwBOR9seuMS3b",
+					"ACVEgWrYYZ5vOLQ9",
+					"p02ubz96j5uKxlmh"
+				]
 			},
 			"h3mpXJfMTEPDm1vr": {
 				"name": "Cast Spell (Ritual)",
@@ -83,16 +73,6 @@
 				"consumers": {},
 				"rolls": {},
 				"prompts": {
-					"CnMOWyCPBLYKKddk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "h7cZ2JHhuWMB3tw7"
-					},
-					"xrzX2XiXnYOIxSFo": {
-						"type": "effect",
-						"default": true,
-						"effectId": "jT7IlydKFfOGWqZy"
-					},
 					"xsxsOra5ULeRGnzL": {
 						"type": "generic",
 						"default": false,
@@ -104,16 +84,6 @@
 						"default": false,
 						"label": "Break A Nail",
 						"formula": "1"
-					},
-					"lm80VT6m4YKZyDXK": {
-						"type": "effect",
-						"default": true,
-						"effectId": "qRU1aSG5zHYfSPkR"
-					},
-					"ma8ZhDKviUJzOs1I": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BEfT7JXoHVN9igqv"
 					}
 				},
 				"uses": {
@@ -135,7 +105,13 @@
 					"type": "creature",
 					"quantity": 1
 				},
-				"ranges": {}
+				"ranges": {},
+				"effects": [
+					"h7cZ2JHhuWMB3tw7",
+					"jT7IlydKFfOGWqZy",
+					"qRU1aSG5zHYfSPkR",
+					"BEfT7JXoHVN9igqv"
+				]
 			}
 		},
 		"description": "<p>You place a lesser curse on a creature you can see within range <strong>(no save).</strong> You choose one effect from the following:</p><ul><li><p>The target is rattled.</p></li><li><p>The target’s speed is reduced by 5 feet.</p></li><li><p>When you deal damage against the target, it takes an additional 1d4 necrotic damage.</p></li><li><p>Each time the target fails a saving throw it falls prone and breaks a nail, taking 1 necrotic damage.</p></li></ul><p>At the Narrator’s discretion you may create a different curse effect with this spell so long as it is weaker than the options above.</p><p>A creature already under a curse, such as your or another creature’s Diabolist Curse or another instance of this spell, cannot be targeted by this spell.</p><p><strong>Special:</strong> Warlocks who know this spell can cast it as a ritual even if they are otherwise unable to cast rituals. When you cast this spell as a ritual, you can instead target a creature you’ve seen within the past 24 hours, as long as they are on the same plane as you. To target this creature, you must also provide a material component strongly associated with that creature—such as a fingernail clipping, lock of hair, or article of clothing—which this spell consumes. When cast as a ritual, this spell instead has a duration of 1 hour (no concentration), and the effects can be as severe as the poisoned condition or indigestion. At the Narrator’s discretion, you can create even more powerful curse effects or longer durations with the use of rare or expensive components, as long as their effects are less than the power of <em>bestow curse</em>.</p>",
@@ -187,9 +163,6 @@
 			"origin": "Item.l0qor2e8kesgf97d",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Vus1OnEgGL04OuML",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -225,6 +198,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -232,9 +209,6 @@
 			"origin": "Item.l0qor2e8kesgf97d",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Vus1OnEgGL04OuML",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -268,6 +242,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -275,9 +253,6 @@
 			"origin": "Item.l0qor2e8kesgf97d",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Vus1OnEgGL04OuML",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -313,6 +288,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -320,9 +299,6 @@
 			"origin": "Item.l0qor2e8kesgf97d",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "h3mpXJfMTEPDm1vr",
 					"duration": {
 						"unit": "hours"
 					}
@@ -358,6 +334,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -365,9 +345,6 @@
 			"origin": "Item.l0qor2e8kesgf97d",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "h3mpXJfMTEPDm1vr",
 					"duration": {
 						"unit": "hours"
 					}
@@ -401,6 +378,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -408,9 +389,6 @@
 			"origin": "Item.l0qor2e8kesgf97d",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "h3mpXJfMTEPDm1vr",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -446,6 +424,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -453,9 +435,6 @@
 			"origin": "Item.l0qor2e8kesgf97d",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "h3mpXJfMTEPDm1vr",
 					"duration": {
 						"unit": "hours"
 					}
@@ -491,6 +470,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

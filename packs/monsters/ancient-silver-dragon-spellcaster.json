@@ -77,7 +77,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "",
@@ -305,7 +306,8 @@
 							"quantity": "",
 							"type": ""
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>The dragon suffers no harmful effects from high altitudes. When flying at high altitude, the dragon can, after 1 minute of concentration, discorporate into clouds. In this form, it has advantage on Stealth checks, its fly speed increases to 300 feet, it is immune to all nonmagical damage, it has resistance to magical damage, and it can’t take any actions except Hide. If it takes damage or descends more than 500 feet from where it transformed, it immediately returns to its corporeal form. It can revert to its true form as an action.</p>",
@@ -449,7 +451,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "",
@@ -526,7 +529,8 @@
 							"a7oPjbofqRYbsNP7": {
 								"type": "itemUses"
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, some of its scales dissipate into clouds. If it has no more uses of this ability, its Armor Class is reduced to 20 until it finishes a long rest.</p>",
@@ -621,7 +625,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>On hit, the dragon pushes the target 10 feet away.</p>",
@@ -788,7 +793,8 @@
 							"quantity": "",
 							"type": ""
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>The dragon magically takes the shape of a humanoid or beast, or changes back into its true form. It reverts to its true form if it dies. Any equipment it is wearing or carrying is absorbed or borne by the new form (dragon’s choice). In the new form, the dragon’s stats are unchanged except for its size. It can’t use Spit Frost, Breath Weapons, Tail Attack, or Wing Attack except in dragon form. In beast form, it can attack only with its bite and claws, if appropriate to its form. If the beast form is Large or smaller, the reach of these attacks is reduced to 5 feet. In humanoid form, it can attack only with its rapier.</p>",
@@ -866,7 +872,8 @@
 							"quantity": 1,
 							"type": "creature"
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon&nbsp; makes a tail attack against it.</p>",
@@ -1276,7 +1283,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "",
@@ -1880,7 +1888,8 @@
 							"value": 3,
 							"max": "3",
 							"per": "day"
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>You impart sentience in the target, granting it an Intelligence of 10 and proficiency in a language you know. A plant targeted by this spell gains the ability to move, as well as senses identical to those of a human. The Narrator assigns awakened plant statistics (such as an awakened shrub or awakened tree).</p><p>The target is charmed by you for 30 days or until you or your companions harm it. Depending on how you treated the target while it was charmed, when the condition ends the awakened creature may choose to remain friendly to you.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature for each slot level above 5th. Each target requires its own material component.</p>",
@@ -2029,11 +2038,6 @@
 									"bonus": ""
 								},
 								"type": "savingThrow"
-							},
-							"HYgPG21jiYdkvGIT": {
-								"type": "effect",
-								"default": true,
-								"effectId": "5yXypfbHYm721cZf"
 							}
 						},
 						"consumers": {},
@@ -2041,7 +2045,10 @@
 							"value": 3,
 							"max": "3",
 							"per": "day"
-						}
+						},
+						"effects": [
+							"5yXypfbHYm721cZf"
+						]
 					}
 				},
 				"description": "<p>You give a command to a target which can understand you. It becomes charmed by you.</p><p>While charmed in this way, it takes 5d10 psychic damage the first time each day that it disobeys your command. Your command can be any course of action or inaction that wouldn't result in the target's death. The spell ends if the command is suicidal or you use an action to dismiss the spell. Alternatively, a <em>remove curse</em>, <em>greater restoration</em>, or <em>wish</em> spell cast on the target using a spell slot at least as high as the slot used to cast this spell also ends it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration is 1 year when using a 7th-level spell slot, or permanent until dispelled when using a 9th-level spell slot.</p>",
@@ -2185,12 +2192,6 @@
 									"bonus": ""
 								},
 								"type": "savingThrow"
-							},
-							"QThaA0QZtap4PR4N": {
-								"type": "effect",
-								"default": true,
-								"effectId": "m8ZI2ALQ9jH4sptL",
-								"label": "Charm Person"
 							}
 						},
 						"consumers": {},
@@ -2198,7 +2199,10 @@
 							"value": 3,
 							"max": "3",
 							"per": "day"
-						}
+						},
+						"effects": [
+							"m8ZI2ALQ9jH4sptL"
+						]
 					}
 				},
 				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
@@ -2480,18 +2484,15 @@
 							"type": "none"
 						},
 						"consumers": {},
-						"prompts": {
-							"mWmnvguv6ur4nAhy": {
-								"type": "effect",
-								"default": true,
-								"effectId": "87TwYN3KnBRKektP"
-							}
-						},
+						"prompts": {},
 						"uses": {
 							"value": 1,
 							"max": "1",
 							"per": "day"
-						}
+						},
+						"effects": [
+							"87TwYN3KnBRKektP"
+						]
 					}
 				},
 				"description": "<p>The spell summons forth a sumptuous feast with a cuisine of your choosing that provides 1 Supply for a number of creatures equal to twice your proficiency bonus. Consuming the food takes 1 hour and leaves a creature feeling nourished&mdash;it immediately makes a saving throw with advantage against any disease or poison it is suffering from, and it is cured of any effect that frightens it.</p><p>For up to 24 hours afterward the feast's participants have advantage on Wisdom saving throws, advantage on saving throws made against disease and poison, resistance against damage from poison and disease, and each increases its hit point maximum by 2d10.</p>",

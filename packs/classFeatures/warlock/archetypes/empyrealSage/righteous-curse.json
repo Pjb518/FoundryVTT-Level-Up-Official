@@ -78,13 +78,7 @@
 						"formula": "1d6"
 					}
 				},
-				"prompts": {
-					"Nis4k0KY0YFCIlKA": {
-						"type": "effect",
-						"default": true,
-						"effectId": "LGiGvyR6nl5iV8rF"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -109,7 +103,10 @@
 					"scaling": {
 						"mode": null
 					}
-				}
+				},
+				"effects": [
+					"LGiGvyR6nl5iV8rF"
+				]
 			}
 		},
 		"description": "<p>You can use a bonus action to place a curse on a creature you can see within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated.</p><p>The curse has the following effects:</p><ul><li>When you deal damage against the cursed creature, it takes an additional 1d4 radiant damage. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</li><li>Whenever the cursed creature attacks you or targets only you with a spell, your suffering is rewarded and you regain 1d6 hit points.</li></ul><p>Once you have used this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
@@ -138,9 +135,6 @@
 			"origin": "Item.3eSDoihcGZ4IXCkA",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Aczuk3d2j5P1Cmxr",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -151,7 +145,10 @@
 			"img": "icons/magic/unholy/hand-light-green.webp",
 			"_id": "LGiGvyR6nl5iV8rF",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

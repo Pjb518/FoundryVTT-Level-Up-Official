@@ -35,13 +35,7 @@
 						"formula": "@prof + @spellcasting.mod + @classes.warlock.level"
 					}
 				},
-				"prompts": {
-					"hsWcV3PltQkKD7MF": {
-						"type": "effect",
-						"default": true,
-						"effectId": "bCmNtUIZ5hYD24L4"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -54,7 +48,10 @@
 				"target": {
 					"type": "",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"bCmNtUIZ5hYD24L4"
+				]
 			}
 		},
 		"description": "<p>At 10th level, you can call upon the spirits of the departed to protect you in combat. As an action, you call forth a swirling mass of spectral forms around yourself. You gain temporary hit points equal to your proficiency bonus + your spellcasting modifier + warlock level. While you have any of these temporary hit points remaining, you are lightly obscured. Once you have used this feature, you can’t do so again until you finish a short or long rest.</p>",
@@ -82,19 +79,17 @@
 		{
 			"origin": "Item.pgqU9aX2ivG6DMS8",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "GVBYC0uOL3SMIo03",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Ghostly Protection",
 			"img": "icons/magic/unholy/orb-stone-pink.webp",
 			"_id": "bCmNtUIZ5hYD24L4",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

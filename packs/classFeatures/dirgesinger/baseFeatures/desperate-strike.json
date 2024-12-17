@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"XxcFXbuX8pafuM54": {
-						"type": "effect",
-						"default": true,
-						"effectId": "N1qL8XTV1dH5OQO9"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +47,10 @@
 					"W6aUPkkcEXwx9nRS": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"N1qL8XTV1dH5OQO9"
+				]
 			}
 		},
 		"description": "<p>You cause the target creature&rsquo;s weapon attack, natural weapon attack, or unarmed strike to become a critical hit. For the next minute after, all creatures gain an expertise die on attacks that aren&rsquo;t spells against the target creature.</p>",
@@ -82,9 +79,6 @@
 			"origin": "Item.H35FMw8aalnaHoST",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "TKxEPrO6RcmWAiTu",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -95,7 +89,10 @@
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "N1qL8XTV1dH5OQO9",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

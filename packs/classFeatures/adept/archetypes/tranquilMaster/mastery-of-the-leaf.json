@@ -26,13 +26,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"RCVb7gV9LcIXLtqe": {
-						"type": "effect",
-						"default": true,
-						"effectId": "tQIkoY3fNwO7z2oj"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -43,7 +37,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"tQIkoY3fNwO7z2oj"
+				]
 			},
 			"S4FQxGsNY9JTTcR2": {
 				"name": "Serene Mind",
@@ -148,10 +145,6 @@
 			"origin": "Item.rficwdQacDw8xvQ5",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "fJj7BcBB0Ly415k2",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -192,7 +185,10 @@
 			},
 			"img": "icons/consumables/plants/leaf-hastate-glowing-green.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

@@ -7,13 +7,9 @@
 			"origin": "Item.NStrr44Kij8AswLn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "EqTNUUS3h1fJ1ydC",
 					"duration": {
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -21,7 +17,10 @@
 			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
 			"_id": "MAEAjWFLNQPvlo6O",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",
@@ -72,13 +71,9 @@
 			"origin": "Item.NStrr44Kij8AswLn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "EqTNUUS3h1fJ1ydC",
 					"duration": {
 						"unit": "minutes"
-					},
-					"applyToSelf": false
+					}
 				}
 			},
 			"transfer": false,
@@ -86,7 +81,10 @@
 			"img": "icons/magic/light/explosion-beam-impact-silhouette.webp",
 			"_id": "T9aHpfUe3VowGdEV",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.conditionImmunities",
@@ -150,13 +148,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"QIOLmppv7VwGN6L1": {
-						"type": "effect",
-						"default": true,
-						"effectId": "MAEAjWFLNQPvlo6O"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -167,7 +159,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"MAEAjWFLNQPvlo6O"
+				]
 			}
 		},
 		"description": "<p>You can use an action to shine the light of freedom so brightly that none can escape it. For one minute, you emit bright light to 100 feet and dim light for 100 feet beyond that. All creatures in the radius of your bright light are under a continuous @UUID[Compendium.a5e.a5e-spells.Item.adbxdvi3uj851e70]{Freedom of Movement} effect and are immune to the stunned and petrified conditions, and if either of these conditions are present they immediately end. All restraints and imprisoning structures (even magical ones) in the area of your bright light immediately spring open. If a creature is blinded, deafened, paralyzed, or missing limbs (whether by injury or birth), those afflictions are immediately healed as if by a regenerate spell unless the creature does not wish for them to be. At the Narrator's discretion, other afflictions such as chronic pain, cancer, and so on are also healed.</p>\n<p>Once you have used this feature, you cannot do so again until you finish a long rest.</p>",

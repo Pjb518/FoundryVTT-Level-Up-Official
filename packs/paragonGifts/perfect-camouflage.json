@@ -30,11 +30,6 @@
 				},
 				"rolls": {},
 				"prompts": {
-					"m26av8bvC4IhP2aN": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ZDHq2aKrI64s5vDM"
-					},
 					"sQhDEXUnop4qOMlD": {
 						"type": "savingThrow",
 						"default": true,
@@ -54,7 +49,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"ZDHq2aKrI64s5vDM"
+				]
 			}
 		},
 		"description": "<p>Your @UUID[Compendium.a5e.a5e-heritage-features.Item.PA0ZAxS47uNeC1Dy]{Camouflage} ability becomes more pronounced, enabling you to blend in perfectly with the environment. You can use a bonus action to become invisible. You remain invisible for as long as you continue to use your bonus actions to maintain your camouflage. If you take damage, you must make a Wisdom saving throw against a DC equal to 10 + the amount of damage, or your camouflage ends. Once you have used this feature you cannot use it again until you take a long rest.</p>",
@@ -82,19 +80,17 @@
 		{
 			"origin": "Item.08pC1vQBtMTIMXkA",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "olQgX7Sj7tfH4rob",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Invisible",
 			"img": "icons/magic/perception/shadow-stealth-eyes-purple.webp",
 			"_id": "ZDHq2aKrI64s5vDM",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

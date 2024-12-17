@@ -31,11 +31,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"CtusU01BZKDqzlFt": {
-						"type": "effect",
-						"default": true,
-						"effectId": "WjJoaV5ac4oVvh6J"
 					}
 				},
 				"uses": {
@@ -48,7 +43,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"WjJoaV5ac4oVvh6J"
+				]
 			}
 		},
 		"description": "<p>At 14th level you become a true master of the undead. You may use a bonus action to command one undead creature which can hear you. The target must make a Charisma saving throw vs. your spell DC. On a failure, the undead creature becomes unable to attack you for one minute, and obeys your commands for the duration. The creature can make a new saving throw at the end of each of its turns, ending the effect on a success.</p>\n<p>Once a creature succeeds in a saving throw against this feature, it becomes immune to the feature for 24 hours.</p>",
@@ -77,9 +75,6 @@
 			"origin": "Item.XWG1ZfqR6tEA6mKF",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "JKyK6x71RKR0Y0sd",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -90,7 +85,10 @@
 			"img": "icons/magic/death/undead-ghost-scream-teal.webp",
 			"_id": "WjJoaV5ac4oVvh6J",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

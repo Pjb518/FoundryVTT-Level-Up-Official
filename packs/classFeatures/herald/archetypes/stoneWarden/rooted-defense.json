@@ -32,11 +32,6 @@
 							"type": "custom",
 							"bonus": "10 + @prof"
 						}
-					},
-					"juim727a14qq5BMk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "YM1rgeoBlCw97hnN"
 					}
 				},
 				"uses": {
@@ -49,7 +44,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"YM1rgeoBlCw97hnN"
+				]
 			}
 		},
 		"description": "<p>At 7th level, while you are standing on a solid surface, you can use a bonus action to root yourself in place. While rooted, your Speed becomes 0, but whenever an effect would move you or knock you&nbsp;prone</span>, you ignore that effect, and the ground within 10 feet of you becomes&nbsp;difficult terrain. In addition, while you are rooted, a creature you hit with a&nbsp;<span>melee weapon attack must make a Strength save against a DC of 10 + your proficiency bonus. On a failure, the creature&rsquo;s Speed is reduced to 0 until the end of its next turn. You can end your rooted state as an action.</p>",
@@ -77,19 +75,17 @@
 		{
 			"origin": "Item.wG2YyNZhvQgR0WWN",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "9MGQjXLthESF3o0c",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Rooted",
 			"img": "icons/magic/earth/barrier-stone-pillar-purple.webp",
 			"_id": "YM1rgeoBlCw97hnN",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",

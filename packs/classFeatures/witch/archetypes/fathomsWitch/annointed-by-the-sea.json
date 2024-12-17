@@ -24,13 +24,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"n0wWlhMf4ibjA2Cc": {
-						"type": "effect",
-						"default": true,
-						"effectId": "FmHZFYE5AMA1X6HX"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -61,7 +55,10 @@
 					"quantity": "",
 					"type": "self"
 				},
-				"img": "icons/magic/water/wave-water-explosion.webp"
+				"img": "icons/magic/water/wave-water-explosion.webp",
+				"effects": [
+					"FmHZFYE5AMA1X6HX"
+				]
 			}
 		},
 		"description": "<p>When you take this archetype at 2nd level you add all spells of the <em>water </em>school to your list of witch spells.</p>\n<p>You may also cast the @UUID[Compendium.a5e.a5e-spells.Item.yav7747ibqje7nzm]{Alter Self} spell at will without expending a spell slot even if it isn't prepared, but only choosing the Amphibious option when doing so, and you may turn the benefits on and off for the duration as an action instead of being able to choose a different one. &nbsp;When you do so, the same benefits apply to your familiar.</p>",
@@ -90,9 +87,6 @@
 			"origin": "Item.FYLIBKY6XrGF4DCA",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ySZylPhaiJJirvkM",
 					"duration": {
 						"unit": "hours"
 					}
@@ -133,7 +127,10 @@
 			},
 			"img": "icons/magic/nature/wolf-paw-glow-orange.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

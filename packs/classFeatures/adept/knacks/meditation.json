@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"sffb8XwBEcnbe9en": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kHidXPsotTBzBF7C"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,20 +31,17 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"kHidXPsotTBzBF7C"
+				]
 			},
 			"VywWhhYaZI1XZ6m2": {
 				"name": "10 Minutes",
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"sffb8XwBEcnbe9en": {
-						"type": "effect",
-						"default": true,
-						"effectId": "7PBU71Ewu8aExdNY"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -61,7 +52,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"7PBU71Ewu8aExdNY"
+				]
 			}
 		},
 		"description": "<p>If you remain stationary for 1 minute while out of combat, you can enter a meditative state that grants advantage on perception checks made to perceive with senses other than sight. Additionally, If you remain in this state for an additional 10 minutes, you can reduce your strife by up to one level for 4 hours. Moving from your space or entering combat ends the state.</p>",
@@ -90,10 +84,6 @@
 			"origin": "Item.qxLhWjov48vVByon",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "1CyKh4LpVkW4zdMI",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -129,7 +119,10 @@
 			},
 			"img": "icons/magic/control/silhouette-aura-energy.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -138,10 +131,6 @@
 			"origin": "Item.qxLhWjov48vVByon",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "VywWhhYaZI1XZ6m2",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -177,7 +166,10 @@
 			},
 			"img": "icons/magic/control/silhouette-aura-energy.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

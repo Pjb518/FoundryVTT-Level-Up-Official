@@ -41,11 +41,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"ssK2ykydQKYsyrOt": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kCjq3ggz1uOCo0ut"
 					}
 				},
 				"uses": {
@@ -70,7 +65,10 @@
 				},
 				"duration": {
 					"unit": "instantaneous"
-				}
+				},
+				"effects": [
+					"kCjq3ggz1uOCo0ut"
+				]
 			}
 		},
 		"description": "<p>You fill the mind of one creature you can see within&nbsp;range with parasitic psychic energy.</p><p>The target must succeed on an Intelligence saving throw or take 1d4 psychic damage. Additionally, it has disadvantage on the next saving throw it makes before the end of your next turn.</p><p>This spell's damage increases by 1d4 when you reach certain levels: 5th level (2d4), 11th level (3d4), and 17th level (4d4).</p>",
@@ -119,9 +117,6 @@
 			"origin": "Item.kqcvsza188jaiom6",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "SrZEL3U0AvKTjRFo",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -156,6 +151,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -29,13 +29,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"CoYo8gpwIcXlAPBs": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Dq6tWHeiSQxFlUfc"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -50,7 +44,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"Dq6tWHeiSQxFlUfc"
+				]
 			}
 		},
 		"description": "<p>While all naato have some ability to alter their coloring, you can use a bonus action to change the color of your scales to match your surroundings for a period of up to one minute. You gain advantage on Stealth checks. Once you have used this feature you cannot use it again until you have taken a long rest.</p>",
@@ -79,10 +76,6 @@
 			"origin": "Item.uzC5iraaDWmNaZsY",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "rDif5uIfp2QM7A1N",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -93,7 +86,10 @@
 			"img": "icons/magic/perception/shadow-stealth-eyes-purple.webp",
 			"_id": "Dq6tWHeiSQxFlUfc",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.skillCheck.ste",

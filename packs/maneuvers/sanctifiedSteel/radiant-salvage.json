@@ -26,13 +26,7 @@
 						"damageType": "radiant"
 					}
 				},
-				"prompts": {
-					"1eoUlwciiXhrnn2Q": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kICRrLRUKWMzpL1y"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -51,7 +45,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"kICRrLRUKWMzpL1y"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\"><strong>Requirements</strong>: <em>a vial of holy water and a weapon that deals bludgeoning damage</em></p>\n<p dir=\"ltr\">You toss the vial into the air and violently smash it with your weapon, creating a 15-foot cone of splashed holy water and shards of glass. Creatures in the cone must make a Dexterity saving throw or take 1d8 points of piercing damage and be affected by the splashed with holy water (taking 2d6 radiant damage if they are an undead or fiend) on a failed save. Creatures that succeed on their save take half damage from both the glass shards and holy water.&nbsp;</p>",
@@ -79,10 +76,6 @@
 			"origin": "Item.yoT993utoWc9XD6g",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PwKS0LNzFv4W8in4",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -119,7 +112,10 @@
 			},
 			"img": "icons/weapons/swords/sword-winged-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

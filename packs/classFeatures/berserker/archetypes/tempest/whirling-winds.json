@@ -6,19 +6,17 @@
 		{
 			"origin": "Item.wBoO8lI4BEopoVIv",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "FhzzNkP78Ww5zK0Q",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Half-Cover",
 			"img": "icons/magic/air/wind-tornado-cyclone-purple-pink.webp",
 			"_id": "H5n53iGTcUCEnelC",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",
@@ -72,13 +70,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"3puqgdvwK5SSVHKv": {
-						"type": "effect",
-						"default": true,
-						"effectId": "H5n53iGTcUCEnelC"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -100,7 +92,10 @@
 					"quantity": 1,
 					"radius": 10,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"H5n53iGTcUCEnelC"
+				]
 			}
 		},
 		"description": "<p>Starting at 6th level, a gale whips up around you as you rage, kicking up grit and debris that &nbsp;make you difficult to see. These winds act as an aura extending 10 feet from you in every direction, but not through total cover. While you are raging, treat all attacks against you as though you had half cover (+2 to AC, Dexterity saving throws, and ability checks made to hide).</p><p>In addition, you gain resistance to either thunder or lightning damage, whichever you did not choose at 3rd level.</p>",

@@ -8,9 +8,6 @@
 			"origin": "Item.ma5iq3qjh0fa7ezb",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "rhpBwsEIHRb7RSL9",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -53,9 +54,6 @@
 			"origin": "Item.ma5iq3qjh0fa7ezb",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "coQFvp6Ufv9slOaq",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -91,6 +89,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -98,9 +100,6 @@
 			"origin": "Item.ma5iq3qjh0fa7ezb",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "0EAgulYlFzPzXch0",
 					"duration": {
 						"unit": "hours"
 					}
@@ -136,6 +135,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -143,9 +146,6 @@
 			"origin": "Item.ma5iq3qjh0fa7ezb",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "fRfgyY0HyDdWoP41",
 					"duration": {
 						"unit": "hours"
 					}
@@ -181,6 +181,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -222,11 +226,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"gWxjrLUzeFPCtpuy": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kz08GwrHdeazSDPY"
 					}
 				},
 				"consumers": {
@@ -236,7 +235,10 @@
 						"points": 6,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"kz08GwrHdeazSDPY"
+				]
 			},
 			"coQFvp6Ufv9slOaq": {
 				"name": "Dominate Beast (5th-Level)",
@@ -273,11 +275,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"xs8rBE1MRgyZHx8f": {
-						"type": "effect",
-						"default": true,
-						"effectId": "4ab3QK7o48R6LsYe"
 					}
 				},
 				"consumers": {
@@ -287,7 +284,10 @@
 						"points": 6,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"4ab3QK7o48R6LsYe"
+				]
 			},
 			"0EAgulYlFzPzXch0": {
 				"name": "Dominate Beast (6th-Level)",
@@ -324,11 +324,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"CS8k0RZXxAyYGvFi": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Jt4trSkATcduXBVA"
 					}
 				},
 				"consumers": {
@@ -338,7 +333,10 @@
 						"points": 6,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"Jt4trSkATcduXBVA"
+				]
 			},
 			"fRfgyY0HyDdWoP41": {
 				"name": "Dominate Beast (7th-Level)",
@@ -375,11 +373,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"NNNeRNBff5c4z29y": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PTGTdno9NcNHDtQc"
 					}
 				},
 				"consumers": {
@@ -389,7 +382,10 @@
 						"points": 6,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"PTGTdno9NcNHDtQc"
+				]
 			}
 		},
 		"description": "<p>You assert control over the target beast's mind and it is charmed for the duration. If it is engaged in combat with you or creatures friendly to you, it has advantage on its saving throw.</p><p>Until the charmed condition ends, you establish a telepathic link with it while you are on the same plane. You may issue commands through this link and the target does its best to obey. No action is required to issue commands, which can be a simple and general course of action such as &quot;Attack that target, &quot; &quot;Go over there, &quot; or &quot;Bring me that object.&quot; Without commands the target only defends itself. The target continues to follow a command until its task is complete.</p><p>You can use your action to assume direct control of the target. Until the end of your next turn, you decide all of the target's actions and it does nothing you do not allow it to. While a target is directly controlled in this way, you can also cause it to use a reaction, but this requires you to use your own reaction as well.</p><p>Each time the target takes damage, it makes a new saving throw against the spell, ending the spell on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration is extended: 5th-level&mdash;Concentration (10 minutes), 6th-level&mdash;Concentration (1 hour), 7th-level&mdash;Concentration (8 hours).</p>",

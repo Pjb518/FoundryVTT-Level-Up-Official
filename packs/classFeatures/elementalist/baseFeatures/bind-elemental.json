@@ -32,11 +32,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Immune for 24 hours"
-					},
-					"QwqaHPVskjZY8fEx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "CJOGTzMvpuaFDIVc"
 					}
 				},
 				"uses": {
@@ -55,7 +50,10 @@
 					"rnZgFthL10qm8lsK": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"CJOGTzMvpuaFDIVc"
+				]
 			}
 		},
 		"description": "<p><span id=\"docs-internal-guid-97cda387-7fff-854e-24d8-d2c5c31c2a9b\">Starting at 9th level, an elementalist can use their power over the elements to attempt to bind an elemental. As an action, you may target an elemental creature you can see within range of your Control Elements ability. The elemental makes a Constitution saving throw against your spell save DC, becoming paralyzed for 1 minute if it fails. It repeats this saving throw at the end of each of its turns. Once an elemental succeeds this save, it becomes immune to your control element ability for 24 hours.</span></p>",
@@ -84,9 +82,6 @@
 			"origin": "Item.ZygFuyiKZBqxCJWt",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qK6PAH58dW83iUU2",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -122,6 +117,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

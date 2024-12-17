@@ -19,18 +19,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"2PegWdnVES8Ptla0": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5zOuBvuNTVcix858"
-					},
-					"RS8xN3UK5Xmq3SG1": {
-						"type": "effect",
-						"default": true,
-						"effectId": "aV0cjgWaTL6YQHxK"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -41,7 +30,11 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"5zOuBvuNTVcix858",
+					"aV0cjgWaTL6YQHxK"
+				]
 			}
 		},
 		"description": "<p>At 10th level you gain an expertise die on saving throws against charm or fear effects. In addition, while raging you are resistant to your chosen damage type.</p>",
@@ -69,18 +62,17 @@
 		{
 			"origin": "Item.0Z0HCRg9oBMyoOqk",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "yMYZKiOXddCFVXC0"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Unwavering Devotion (Radiant)",
 			"img": "icons/magic/holy/prayer-hands-glowing-yellow-white.webp",
 			"_id": "5zOuBvuNTVcix858",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",
@@ -118,18 +110,17 @@
 		{
 			"origin": "Item.0Z0HCRg9oBMyoOqk",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "yMYZKiOXddCFVXC0"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Unwavering Devotion (Necrotic)",
 			"img": "icons/magic/holy/prayer-hands-glowing-yellow-white.webp",
 			"_id": "aV0cjgWaTL6YQHxK",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",

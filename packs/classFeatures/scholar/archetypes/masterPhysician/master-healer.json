@@ -42,13 +42,7 @@
 						"formula": "12 + @prof + @int.mod"
 					}
 				},
-				"prompts": {
-					"D4vebEQ1XUtzThpr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "JfNz5uu7fnysVwvc"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -64,7 +58,10 @@
 					"type": "creature",
 					"quantity": 1
 				},
-				"img": "icons/magic/life/heart-cross-strong-blue.webp"
+				"img": "icons/magic/life/heart-cross-strong-blue.webp",
+				"effects": [
+					"JfNz5uu7fnysVwvc"
+				]
 			}
 		},
 		"description": "<p>At 18th level when spending 10 minutes to do more intensive treatment with @UUID[Compendium.a5e.a5e-class-features.Item.ciax1oln0dgpq1vx]{Doctor's Skill}, you may also expend a hit die to automatically roll max on the doctor dice. Doing so is taxing and grants a level of fatigue to the scholar, and a single creature cannot benefit from this intensive care more than once per long rest.</p>",
@@ -92,19 +89,17 @@
 		{
 			"origin": "Item.pS4c3xYSsa8TTc3R",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "N73gFwcnYy42UnaN",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Master Healer",
 			"img": "icons/magic/life/heart-cross-strong-blue.webp",
 			"_id": "JfNz5uu7fnysVwvc",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.fatigue",

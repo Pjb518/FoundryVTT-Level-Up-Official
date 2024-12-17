@@ -61,11 +61,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "half damage, not knocked prone"
-					},
-					"7GlevOnBkyS2EDqC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "YFsrf3yjqtIrgg79"
 					}
 				},
 				"uses": {
@@ -94,7 +89,10 @@
 					"height": 40,
 					"placeTemplate": true
 				},
-				"img": "icons/magic/earth/lava-explosion-orange.webp"
+				"img": "icons/magic/earth/lava-explosion-orange.webp",
+				"effects": [
+					"YFsrf3yjqtIrgg79"
+				]
 			},
 			"9mDseR7Fk7MZuOx9": {
 				"name": "Ground Burn",
@@ -157,11 +155,7 @@
 			"icon": "icons/magic/earth/lava-explosion-orange.webp",
 			"origin": "Item.8y0hx71xr0aj0lmp",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "xQhOMWZNeDD66dgA"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -193,17 +187,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/magic/earth/lava-explosion-orange.webp",
 			"origin": "Item.8y0hx71xr0aj0lmp",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "9mDseR7Fk7MZuOx9"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -235,6 +229,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -1501,13 +1501,10 @@
 							}
 						},
 						"consumers": {},
-						"prompts": {
-							"GKzeiAKIE2qf79e8": {
-								"type": "effect",
-								"default": true,
-								"effectId": "6meIM37yip1QShpH"
-							}
-						}
+						"prompts": {},
+						"effects": [
+							"6meIM37yip1QShpH"
+						]
 					}
 				},
 				"description": "<p>An icy beam shoots from your outstretched fingers.</p><p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
@@ -1598,7 +1595,8 @@
 							"quantity": "",
 							"type": "none"
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>A faintly shimmering phantasmal hand appears at a point you choose within range. It remains until you dismiss it as an action, or until you move more than 30 feet from it.</p><p>You can use an action to control the hand and direct it to do any of the following:</p><ul><li>manipulate an object.</li><li>open an unlocked container or door.</li><li>stow or retrieve items from unlocked containers.</li></ul><p>The hand cannot attack, use magic items, or carry more than 10 pounds.</p>",
@@ -1743,12 +1741,6 @@
 									"bonus": ""
 								},
 								"type": "savingThrow"
-							},
-							"QThaA0QZtap4PR4N": {
-								"type": "effect",
-								"default": true,
-								"effectId": "m8ZI2ALQ9jH4sptL",
-								"label": "Charm Person"
 							}
 						},
 						"consumers": {
@@ -1758,7 +1750,10 @@
 								"points": 2,
 								"type": "spell"
 							}
-						}
+						},
+						"effects": [
+							"m8ZI2ALQ9jH4sptL"
+						]
 					}
 				},
 				"description": "<p>You only require line of sight to the target (not line of effect) and it has advantage on its saving throw to resist the spell if you or your companions are fighting it. Until the spell ends, the target is charmed by you and friendly towards you.</p><p>The spell ends if you or your companions do anything harmful towards the target. The target knows it was charmed by you when the spell ends.</p><p><strong><em>Cast at Higher Levels.</em></strong> For each slot level above 1st, you affect one additional target that is within 30 feet of other targets.</p>",
@@ -1904,13 +1899,10 @@
 								"type": "spell"
 							}
 						},
-						"prompts": {
-							"Gpw63XYtGOkkZmXp": {
-								"type": "effect",
-								"default": true,
-								"effectId": "3JSn5GwbNdSgD0oS"
-							}
-						}
+						"prompts": {},
+						"effects": [
+							"3JSn5GwbNdSgD0oS"
+						]
 					}
 				},
 				"description": "<p>You create a shimmering arcane barrier between yourself and an oncoming attack. Until the spell ends, you gain a +5 bonus to your AC (including against the triggering attack) and any magic missile targeting you is harmlessly deflected.</p>",
@@ -2131,7 +2123,8 @@
 								"points": 3,
 								"type": "spell"
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.</p><p>When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.</p>",
@@ -2276,11 +2269,6 @@
 									"bonus": ""
 								},
 								"type": "savingThrow"
-							},
-							"glKi9aJfjvxGEcHr": {
-								"type": "effect",
-								"default": true,
-								"effectId": "9QTmOApfjoZezikh"
 							}
 						},
 						"consumers": {
@@ -2290,7 +2278,10 @@
 								"points": 3,
 								"type": "spell"
 							}
-						}
+						},
+						"effects": [
+							"9QTmOApfjoZezikh"
+						]
 					}
 				},
 				"description": "<p>A black ray of necrotic energy shoots from your fingertip. Make a ranged spell attack against the target. On a hit, the target is weakened and only deals half damage with weapon attacks that use Strength.</p><p>At the end of each of the target's turns, it can make a Strength saving throw, ending the spell on a success.</p>",
@@ -2405,7 +2396,8 @@
 								"points": 5,
 								"type": "spell"
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>Shadows roil about your hand and heal you by siphoning away the life force from others. On the round you cast it, and as an action on subsequent turns until the spell ends, you can make a melee spell attack against a creature within your reach.</p><p>On a hit, you deal 3d6 necrotic damage and regain hit points equal to half the amount of necrotic damage dealt.</p><p><strong><em>Cast at Higher Levels.</em></strong> The damage increases by 1d6 for each slot level above 3rd.</p>",
@@ -2685,7 +2677,8 @@
 								"default": false
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "",
@@ -2753,10 +2746,7 @@
 			"icon": "icons/svg/item-bag.svg",
 			"origin": "Actor.fvr9r2uzp69emhsb.Item.2pGAOML0CTNjJlKD",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "United in Action",
@@ -2792,6 +2782,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

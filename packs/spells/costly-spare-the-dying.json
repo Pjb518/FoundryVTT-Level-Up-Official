@@ -8,9 +8,6 @@
 			"origin": "Item.3b5jvxp0kdcpfa97",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "M096lNDqettqPs4l",
 					"duration": {
 						"unit": "hours"
 					}
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -91,13 +92,11 @@
 						"default": true,
 						"label": "Next 3 Rounds",
 						"formula": "1d20"
-					},
-					"luApVv19efqKvjL2": {
-						"type": "effect",
-						"default": true,
-						"effectId": "l0pWhtSp1kS8lQq9"
 					}
-				}
+				},
+				"effects": [
+					"l0pWhtSp1kS8lQq9"
+				]
 			}
 		},
 		"description": "<p>A jolt of healing energy flows through the target and it becomes stable.</p><p><em><strong>Rare:&nbsp;</strong></em><strong>Costly Spare the Dying.&nbsp;</strong>For the&nbsp;next 3 rounds, at the start of its turn the target&nbsp;rolls 1d20, regaining 1 hit point on a result of 20.&nbsp;Whether or not it regains any hit points, for the&nbsp;next 24 hours the target is rattled.</p>",

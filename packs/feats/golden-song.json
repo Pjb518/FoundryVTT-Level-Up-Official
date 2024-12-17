@@ -42,11 +42,6 @@
 						"default": true,
 						"skill": "prf",
 						"ability": "cha"
-					},
-					"CVWK7UNHmWOmqH8P": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BtaLaDkSfiGGOmVL"
 					}
 				},
 				"uses": {
@@ -59,7 +54,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"BtaLaDkSfiGGOmVL"
+				]
 			},
 			"3I2as4PQ6QJWmYwZ": {
 				"name": "Enthrall",
@@ -150,19 +148,17 @@
 		{
 			"origin": "Item.osLnbYfEdkYebc8Q",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PBeILKO8DfhVdNYq",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Golden Song",
 			"img": "icons/skills/trades/music-notes-sound-blue.webp",
 			"_id": "BtaLaDkSfiGGOmVL",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.skills.prf.expertiseDice",
@@ -201,9 +197,6 @@
 			"origin": "Item.36x8lw8mhfigm7ti",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "3I2as4PQ6QJWmYwZ",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -237,7 +230,10 @@
 			},
 			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

@@ -52,11 +52,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"7WEVOOTXGVo8FYFE": {
-						"type": "effect",
-						"default": true,
-						"effectId": "sMZSvQ9uImah2ux8"
 					}
 				},
 				"consumers": {},
@@ -64,7 +59,10 @@
 					"9KejMjKpp1yrm4js": {
 						"range": "medium"
 					}
-				}
+				},
+				"effects": [
+					"sMZSvQ9uImah2ux8"
+				]
 			}
 		},
 		"description": "<p>Also at 2nd level, you can guide a foe to ruin with your words. You can use an action to insult a creature within 60 feet that can understand you, or undermine its confidence, goad it into exhausting itself, amuse it into giving up the fight, or similar verbal gambits. If the creature fails a Wisdom saving throw against your trick DC, it takes 1d6 psychic damage and its hit point maximum is reduced by an amount equal to the damage taken. The reduction lasts until the creature completes a short rest . A creature reduced to 0 hit points this way is not dying, but rather is conscious and incapacitated.</p>\n<p>The damage increases to 2d6 and 5th level, 3d6 at 11th level, and 4d6 at 17th level.</p>",
@@ -92,18 +90,17 @@
 		{
 			"origin": "Item.QDJtAlquNXGHDAhl",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "UVKKjYgZZBafGELK"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Weapon of Choice",
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"_id": "sMZSvQ9uImah2ux8",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

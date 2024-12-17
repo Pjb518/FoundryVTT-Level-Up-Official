@@ -7,9 +7,6 @@
 			"origin": "Item.S1FJOVFi3ejzmC0A",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "vKXdF8VcFhmNDvZs",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -21,7 +18,10 @@
 			"img": "icons/skills/melee/strike-axe-blood-red.webp",
 			"_id": "XswMK6CU7f6sJWWc",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -62,9 +62,6 @@
 			"origin": "Item.S1FJOVFi3ejzmC0A",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "QjYCrFA5Zsu6PIHG",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -76,7 +73,10 @@
 			"img": "icons/skills/melee/strike-axe-blood-red.webp",
 			"_id": "vKmkd7zi8disrmzL",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -147,11 +147,6 @@
 						"saveDC": {
 							"type": "custom"
 						}
-					},
-					"VRy0mUFfYDT054le": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XswMK6CU7f6sJWWc"
 					}
 				},
 				"uses": {
@@ -175,7 +170,10 @@
 					"quantity": 1,
 					"radius": 20,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"XswMK6CU7f6sJWWc"
+				]
 			},
 			"QjYCrFA5Zsu6PIHG": {
 				"name": "Glorious Flourish",
@@ -197,11 +195,6 @@
 						"saveDC": {
 							"type": "custom"
 						}
-					},
-					"fxE8QmaNbATfZ22h": {
-						"type": "effect",
-						"default": true,
-						"effectId": "vKmkd7zi8disrmzL"
 					}
 				},
 				"uses": {
@@ -225,7 +218,10 @@
 					"quantity": 1,
 					"radius": 20,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"vKmkd7zi8disrmzL"
+				]
 			}
 		},
 		"description": "<p>Also at 3rd level, you&rsquo;ve integrated your ability to please the crowd into ways to impress and intimidate your enemies. You treat any weapon you wield and any armor you wear as if it had the Flamboyant property. In addition, whenever you score a critical hit with a weapon attack you may choose to do a Bloody Flourish or Glorious Flourish.</p>\n<p><em><strong>Bloody Flourish. </strong></em>You make sure your strike is as bloody and gruesome as possible, making an Intimidation check. Each hostile creature within 20 feet of you makes a Wisdom saving throw against a DC equal to the result of your Intimidation check. On a failure, a creature becomes frightened of you until the end of your next turn.</p>\n<p><em><strong>Glorious Flourish. </strong></em>You and your weapons dance and shine with the glory of combat. Make a Performance check. Each hostile creature within 20 feet of you makes a Charisma saving throw against a DC equal to the result of your Performance check. On a failure, a creature becomes charmed by you until the end of your next turn.</p>",

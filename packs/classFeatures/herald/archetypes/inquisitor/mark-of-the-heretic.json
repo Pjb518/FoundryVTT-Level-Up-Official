@@ -7,13 +7,9 @@
 			"origin": "Item.8FULxHl1GSAdrMsz",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zkD0Yh65AJmCbNtP",
 					"duration": {
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -21,7 +17,10 @@
 			"img": "icons/skills/targeting/crosshair-arrowhead-blue.webp",
 			"_id": "VLbOhYu44DC80WJM",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -60,9 +59,6 @@
 			"origin": "Item.8FULxHl1GSAdrMsz",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zkD0Yh65AJmCbNtP",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -73,7 +69,10 @@
 			"img": "icons/skills/targeting/crosshair-arrowhead-blue.webp",
 			"_id": "Iv15MHBF8DY9E2mu",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.conditionImmunities",
@@ -111,18 +110,17 @@
 		{
 			"origin": "Item.8FULxHl1GSAdrMsz",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zkD0Yh65AJmCbNtP"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Not Killed or Captured",
 			"img": "icons/skills/targeting/crosshair-arrowhead-blue.webp",
 			"_id": "0hrt5gW15um0HQ62",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.attack.meleeWeaponAttack",
@@ -205,21 +203,6 @@
 							"bonus": null
 						},
 						"type": "savingThrow"
-					},
-					"Tu6dHSTp0v4JRvsS": {
-						"type": "effect",
-						"default": true,
-						"effectId": "VLbOhYu44DC80WJM"
-					},
-					"0P0AGyG4fZabP1Pa": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Iv15MHBF8DY9E2mu"
-					},
-					"opVha59Fo75AeqAS": {
-						"type": "effect",
-						"default": true,
-						"effectId": "0hrt5gW15um0HQ62"
 					}
 				},
 				"consumers": {
@@ -230,7 +213,12 @@
 						"resource": "classResource",
 						"quantity": 1
 					}
-				}
+				},
+				"effects": [
+					"VLbOhYu44DC80WJM",
+					"Iv15MHBF8DY9E2mu",
+					"0hrt5gW15um0HQ62"
+				]
 			}
 		},
 		"description": "<p>Beginning at 7th level, you gain the ability to mark your foes for judgment by speaking aloud their name and the crime they must answer for. As a bonus action, choose one creature you can see within 30 feet of you. The target is marked for 1 minute, or until either you or the target die. While the target is marked, you gain the following benefits:</p>\n<ul>\n<li>Damage rolls you make against the creature deal extra damage equal to your spell attack modifier.</li>\n<li>Attacks made by you or your allies score critical hits against the creature on a roll of 19&ndash;20.</li>\n<li>The creature makes a Dexterity saving throw or it becomes outlined in a nimbus of light (of a color chosen by you) for the duration. This nimbus of light negates the benefits of invisibility on the creature.</li>\n</ul>\n<p>If the marked target is not killed or captured within 1 hour, you have disadvantage on melee weapon attacks made against other creatures until you finish a short or long rest.</p>\n<p>You gain an additional use of this feature at 15th level. You regain all spent uses of this feature whenever you finish a short or long rest.</p>",

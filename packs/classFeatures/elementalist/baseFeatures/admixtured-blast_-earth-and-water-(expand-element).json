@@ -45,14 +45,7 @@
 						"label": ""
 					}
 				},
-				"prompts": {
-					"PKJJx6HfFkKJH0dk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "9MiQEIdgDgKP8dLd",
-						"label": "Slowing"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -75,7 +68,10 @@
 					}
 				},
 				"img": "icons/magic/acid/projectile-faceted-glob.webp",
-				"description": "<p><span id=\"docs-internal-guid-bbc35d25-7fff-2bdf-724a-2b35ee47d03b\"><strong>Slowing:</strong> On hit, the target's speeds are reduced by 10 ft.</span></p>"
+				"description": "<p><span id=\"docs-internal-guid-bbc35d25-7fff-2bdf-724a-2b35ee47d03b\"><strong>Slowing:</strong> On hit, the target's speeds are reduced by 10 ft.</span></p>",
+				"effects": [
+					"9MiQEIdgDgKP8dLd"
+				]
 			}
 		},
 		"description": "<p><span id=\"docs-internal-guid-3b9d0d13-7fff-b373-76db-c463e4ae3e8c\">An Admixtured Blast combines the power of two elements into one blast. If you have two or more Elemental Affinities, you gain access to Admixtured Blasts. Admixtured blasts deal two damage types and have their own properties. Admixtured blasts can utilize augments of any of their base elements.</span></p>\n<p>&nbsp;</p>\n<p><strong>Table: Admixtured Blasts</strong></p>\n<table style=\"width: 100%; height: 117.6px;\" border=\"1\"><colgroup><col style=\"width: 16.7315%;\"><col style=\"width: 18.0934%;\"><col style=\"width: 22.5877%;\"><col style=\"width: 42.5874%;\"></colgroup>\n<thead>\n<tr style=\"height: 16.8px;\">\n<td style=\"text-align: center; height: 16.8px;\">Affinity</td>\n<td style=\"text-align: center; height: 16.8px;\">Blast</td>\n<td style=\"text-align: center; height: 16.8px;\">Damage</td>\n<td style=\"text-align: center; height: 16.8px;\">Properties</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 16.8px;\">\n<td style=\"text-align: center; height: 16.8px;\">Earth/Water</td>\n<td style=\"text-align: center; height: 16.8px;\">Ooze Blast</td>\n<td style=\"text-align: center; height: 16.8px;\">Acid and<br>Bludgeoning</td>\n<td style=\"height: 16.8px;\">Slowing: On hit, the target's speeds are reduced by 10 ft.</td>\n</tr>\n</tbody>\n</table>",
@@ -103,10 +99,7 @@
 			"icon": "icons/magic/acid/projectile-faceted-glob.webp",
 			"origin": "Item.bvMX5bjWc59nG9tD",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Slowing",
@@ -136,6 +129,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

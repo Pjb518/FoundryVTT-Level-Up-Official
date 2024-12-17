@@ -43,11 +43,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"EWFhXQK3Qj3c680p": {
-						"type": "effect",
-						"default": true,
-						"effectId": "qYZ0d6txC60apGX7"
 					}
 				},
 				"consumers": {
@@ -56,7 +51,10 @@
 						"default": true,
 						"quantity": 1
 					}
-				}
+				},
+				"effects": [
+					"qYZ0d6txC60apGX7"
+				]
 			}
 		},
 		"description": "<p>At 6th level, you are able to keep people and creatures&rsquo; attention focused on you. Spend an action to cause creatures of your choice that can perceive you to make a Wisdom saving throw against your trick save DC. Creatures that don&rsquo;t understand your language have advantage on the saving throw. Creatures that cannot be charmed automatically succeed their saving throws, and if you or your companions are fighting a creature, it makes its saving throw with advantage.</p>\n<p>On a failure, a creature is charmed by you for as long as you continue talking (with reasonable pauses, perhaps even conversation back and forth) and for the next hour after. While charmed by you, the creature has disadvantage on Wisdom (Perception) checks made to perceive creatures other than you.</p>\n<p>The focus required for this mesmerism is mentally taxing. Once you use this feature, you must finish a short or long rest before you can use it again.</p>",
@@ -85,9 +83,6 @@
 			"origin": "Item.DBpQ0XAGwGBbrJBg",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "2HWU0yniFqcbCSfi",
 					"duration": {
 						"unit": "hours"
 					}
@@ -98,7 +93,10 @@
 			"img": "icons/magic/control/hypnosis-mesmerism-eye.webp",
 			"_id": "qYZ0d6txC60apGX7",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

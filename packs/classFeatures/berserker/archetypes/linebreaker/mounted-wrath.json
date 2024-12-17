@@ -6,18 +6,17 @@
 		{
 			"origin": "Item.KRPpVFcruuDFkDYk",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "8r0RtYev2f6yZLzm"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Mounted Wrath",
 			"img": "icons/environment/creatures/horse-tan.webp",
 			"_id": "eceGtCoIUc1h2oGO",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",
@@ -77,13 +76,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"mME6RokhYeSZcRti": {
-						"type": "effect",
-						"default": true,
-						"effectId": "eceGtCoIUc1h2oGO"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -94,7 +87,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"eceGtCoIUc1h2oGO"
+				]
 			}
 		},
 		"description": "<p>Also at 3rd level, you gain access to the Spirited Steed combat tradition and you may select a Spirited Steed maneuver that you qualify for. It does not count against your maneuvers known.</p><p>Additionally, while you are raging, your mount also gains resistance to bludgeoning, piercing, and slashing damage and its speed increases by 10 feet.</p>",

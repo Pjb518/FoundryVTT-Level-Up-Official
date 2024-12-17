@@ -7,9 +7,6 @@
 			"origin": "Item.8TkC1Y4cQWvMqcjB",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "noIfYYiQD8Y8MqI6",
 					"duration": {
 						"unit": "hours"
 					}
@@ -50,7 +47,10 @@
 			},
 			"img": "icons/magic/life/heart-cross-strong-flame-green.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -92,13 +92,7 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"yAaQvaVVrjAcgqd2": {
-						"type": "effect",
-						"default": true,
-						"effectId": "xccUhaWkw1iMsUuU"
-					}
-				},
+				"prompts": {},
 				"rolls": {
 					"3I8RjqkTAPTDddPL": {
 						"type": "healing",
@@ -109,7 +103,10 @@
 							"formula": "5"
 						}
 					}
-				}
+				},
+				"effects": [
+					"xccUhaWkw1iMsUuU"
+				]
 			}
 		},
 		"description": "<p>You draw upon divine power, imbuing the targets with fortitude. Until the spell ends, each target increases its hit point maximum and current hit points by 5.</p><p><strong><em>Cast at Higher Levels.</em></strong> The granted hit points increase by an additional 5 for each slot level above 2nd.</p>",

@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"2nIl8M8rZVccf5B6": {
-						"type": "effect",
-						"default": true,
-						"effectId": "0gBHhMQtJp3gY3Bl"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +47,10 @@
 					"zfpgDf2ahPq4bOIm": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"0gBHhMQtJp3gY3Bl"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">For a number of turns equal to half your proficiency bonus, you cause the target creature to take two bonus actions on its turn, each of which may be a single attack with a weapon, unarmed strike, natural weapon, cantrip, or other ability already usable with a bonus action. Then, for a number of turns equal to your proficiency bonus, the target creature may only take an action or bonus action, not both, on its turns and may not make more than one attack as an action or bonus action.</p>",
@@ -81,18 +78,17 @@
 		{
 			"origin": "Item.vXAzfoK5D4OUkkGK",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "UBL4zDtZCKBueTkv"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Frantic Activity",
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "0gBHhMQtJp3gY3Bl",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

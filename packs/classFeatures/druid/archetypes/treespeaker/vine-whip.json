@@ -6,18 +6,17 @@
 		{
 			"origin": "Item.wL14UzYMTZhO7jtw",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ABViPBzBlIwINSp4"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Restrained",
 			"img": "icons/magic/nature/root-vine-wood-blue.webp",
 			"_id": "9GUhgZGSeLcsmpka",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -120,14 +119,12 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"FGaJicB1hdCE0gD0": {
-						"type": "effect",
-						"default": true,
-						"effectId": "9GUhgZGSeLcsmpka"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"effects": [
+					"9GUhgZGSeLcsmpka"
+				]
 			},
 			"SKzMtxrXVSsD85DX": {
 				"name": "Dismiss",

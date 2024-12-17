@@ -8,9 +8,6 @@
 			"origin": "Item.crjcunjc1r21w2mv",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "NBdwiwQpwKU830P5",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -86,11 +87,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"T7cYGFpUAGxLg8kZ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "91XW2pNOHPU4ym4P"
 					}
 				},
 				"consumers": {
@@ -100,7 +96,10 @@
 						"points": 5,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"91XW2pNOHPU4ym4P"
+				]
 			}
 		},
 		"description": "<p>You project a phantasmal image into the minds of each creature in the area showing them what they fear most. On a failed save, a creature becomes frightened until the spell ends and must drop whatever it is holding.</p><p>On each of its turns, a creature frightened by this spell uses its action to take the Dash action and move away from you by the safest available route. If there is nowhere it can move, it remains stationary. When the creature ends its turn in a location where it doesn't have line of sight to you, the creature can repeat the saving throw, ending the spell's effects on it on a successful save.</p>",

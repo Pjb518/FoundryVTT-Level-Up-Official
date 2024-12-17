@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"xLtQT5x7eQGCSd5c": {
-						"type": "effect",
-						"default": true,
-						"effectId": "IQ9HbI2MLeQ3BudL"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"IQ9HbI2MLeQ3BudL"
+				]
 			}
 		},
 		"description": "<p>Starting at 7th level, when an ally falls unconscious while within range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence}, that ally has advantage on the next death saving throw they make (either as a result of taking damage or at the end of their next turn).</p>",
@@ -65,18 +62,17 @@
 		{
 			"origin": "Item.28xS4sysMluHZoIB",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CG2ujMJHuaT8uSXI"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Got Your Back",
 			"img": "icons/tools/navigation/map-chart-tan.webp",
 			"_id": "IQ9HbI2MLeQ3BudL",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.deathSave",

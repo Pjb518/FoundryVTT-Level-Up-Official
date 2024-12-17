@@ -37,11 +37,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"ffUJIhLxDZ4X8sZc": {
-						"type": "effect",
-						"default": true,
-						"effectId": "4Hsink2izWqUX5k3"
 					}
 				},
 				"uses": {
@@ -65,7 +60,10 @@
 					"quantity": 1,
 					"radius": 30,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"4Hsink2izWqUX5k3"
+				]
 			}
 		},
 		"description": "<p>Beginning at 15th level, you can make yourself impossible to ignore on the battlefield. As a bonus action, you can spend 3 exertion points to taunt all enemies within 30 feet. Affected creatures must make an Intelligence saving throw against your spell save DC. Creatures that fail their save zero in on you and you alone for one minute, causing them disadvantage on attacks against creatures other than you and on opposed checks they make to find hiding creatures other than you. A creature can repeat the save at the end of each of its turns, ending the effect on a success.&nbsp;</p>",
@@ -94,9 +92,6 @@
 			"origin": "Item.yzHDlqQhfdV4lWfF",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "4D8azndSLSC5tOaz",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -107,7 +102,10 @@
 			"img": "icons/skills/social/diplomacy-peace-alliance.webp",
 			"_id": "4Hsink2izWqUX5k3",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

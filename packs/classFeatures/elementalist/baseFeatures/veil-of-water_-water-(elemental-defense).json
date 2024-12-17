@@ -23,13 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"yh36qdWY0FhIOSi8": {
-						"type": "effect",
-						"default": true,
-						"effectId": "hm5SfrymkxATi7eC"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -40,7 +34,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"hm5SfrymkxATi7eC"
+				]
 			},
 			"xuXQJi3X0KbHln8P": {
 				"name": "Expend Veil",
@@ -73,13 +70,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"5VRgHUCzWna3BhEj": {
-						"type": "effect",
-						"default": true,
-						"effectId": "4R6K0tHHpOEusrCU"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -90,7 +81,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"4R6K0tHHpOEusrCU"
+				]
 			},
 			"eOnpfVPZnxhTZio9": {
 				"name": "Expend Veil (18th Level)",
@@ -102,11 +96,6 @@
 				"consumers": {},
 				"rolls": {},
 				"prompts": {
-					"5VRgHUCzWna3BhEj": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BYrUYvEJXR3hArRx"
-					},
 					"ztUlKvsaT2uuW8RD": {
 						"type": "savingThrow",
 						"default": true,
@@ -126,7 +115,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"BYrUYvEJXR3hArRx"
+				]
 			}
 		},
 		"description": "<p id=\"docs-internal-guid-2bf2452d-7fff-417a-c728-33d374a2e8bd\" dir=\"ltr\">You are able to protect yourself with a veil of flowing water. As an action, you can activate your veil of water, which grants you a +2 bonus to AC (this does not stack with the AC bonus from a shield) and an expertise die on saving throws against fire spells and effects.</p>\n<p dir=\"ltr\">Additionally, when you are hit by a weapon attack, you can use your reaction to add your spellcasting ability bonus to your AC, potentially causing the attack to miss you. This expends your veil of water, which can be reactivated on a subsequent round as an action.</p>\n<p dir=\"ltr\">At 10th level, when you use your veil of water reaction, you gain resistance to fire damage until the start of your next turn. You can use this reaction in response to taking fire damage as well as being targeted by a melee attack, gaining your spellcasting ability bonus to your AC or saving throw bonus.</p>\n<p dir=\"ltr\">At 18th level, when you use your veil of water reaction in response to a melee weapon attack, the triggering attacker must make a Strength saving throw against your spell save DC or be pushed 15 feet.</p>",
@@ -154,12 +146,7 @@
 			"icon": "icons/magic/water/barrier-ice-shield.webp",
 			"origin": "Item.oy50xxWeETnJg4aJ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ufKl5RF9qzc8iIoi",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Veil of Water",
@@ -189,6 +176,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -196,10 +187,6 @@
 			"origin": "Item.oy50xxWeETnJg4aJ",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "QDjpHgu6plcdYCFB",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -234,6 +221,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -241,10 +232,6 @@
 			"origin": "Item.oy50xxWeETnJg4aJ",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eOnpfVPZnxhTZio9",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -279,6 +266,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

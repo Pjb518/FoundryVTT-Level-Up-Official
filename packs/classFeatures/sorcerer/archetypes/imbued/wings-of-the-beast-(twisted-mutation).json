@@ -42,13 +42,7 @@
 						"damageType": "poison"
 					}
 				},
-				"prompts": {
-					"DcMuYRe5QF1jRP1q": {
-						"type": "effect",
-						"default": true,
-						"effectId": "OE4pNm5P4wuwzHLQ"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -76,7 +70,10 @@
 					"type": "creatureObject",
 					"quantity": 1
 				},
-				"img": "icons/magic/symbols/triangle-glow-purple.webp"
+				"img": "icons/magic/symbols/triangle-glow-purple.webp",
+				"effects": [
+					"OE4pNm5P4wuwzHLQ"
+				]
 			}
 		},
 		"description": "<p>At 6th level your power grows as your altered physiology adapts to the life you&rsquo;ve led up to this point. You may choose one of the following abilities and are not bound by your flesh and bone selection.</p>\n<p><strong>Wings of the Beast</strong>: You grow a pair of broad, leathery, wings not unlike those of a bat or a dragon. You gain a fly speed of 40ft. In addition, if you possess the @UUID[Compendium.a5e.a5e-class-features.Item.fu6smv03quuleegl]{Beastmantle} bonded power you may now make your tail attack as a ranged weapon attack. It has a range of 20/60 and flings poisoned spines. Your tail&rsquo;s damage increases to 1d10 piercing damage plus Constitution modifier poison damage and any creature damaged becomes poisoned for 1 minute.</p>",
@@ -140,9 +137,6 @@
 			"origin": "Item.ykqVWJqB9pbKkaMw",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LFW1brZ5SnEPu0Fz",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -153,7 +147,10 @@
 			"img": "icons/magic/symbols/triangle-glow-purple.webp",
 			"_id": "OE4pNm5P4wuwzHLQ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

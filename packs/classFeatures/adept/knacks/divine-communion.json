@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"GeQcwS8aaSIKF7fx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3oejp982ktIaRhgc"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"3oejp982ktIaRhgc"
+				]
 			},
 			"l8EaglHOWleWIPnt": {
 				"name": "Divination",
@@ -117,12 +114,7 @@
 		{
 			"origin": "Item.8lBuIyyhTFIELicq",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "343U6mbouiRGstKn",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Meditative State",
@@ -160,7 +152,10 @@
 			},
 			"img": "icons/magic/holy/meditation-chi-focus-blue.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

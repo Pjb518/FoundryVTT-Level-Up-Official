@@ -42,14 +42,12 @@
 							"bonus": "8+@prof+@int.mod"
 						},
 						"type": "savingThrow"
-					},
-					"Ihre6VkVlbF7L99o": {
-						"type": "effect",
-						"default": true,
-						"effectId": "1hM5tuUpOzM26FbW"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"effects": [
+					"1hM5tuUpOzM26FbW"
+				]
 			}
 		},
 		"description": "<p>When you stand up, or when you move at least 10 feet and enter a space adjacent to a creature no more than one size larger than you, you can try to trip it. If the creature fails a Dexterity saving throw, it falls prone. If it succeeds, instead your movement ends in the space you entered to use this ability. If you used this ability while standing up, you remain prone.</p>",
@@ -77,11 +75,7 @@
 			"icon": "icons/magic/movement/trail-streak-pink.webp",
 			"origin": "Item.3tYOIv83jKtara4U",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "KcJkydfU33MIVY4A"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -113,6 +107,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -27,13 +27,7 @@
 						"damageType": "piercing"
 					}
 				},
-				"prompts": {
-					"RjUTNnGREDHXhfRZ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "wjBME1mBSsxfKy2L"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -44,7 +38,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"wjBME1mBSsxfKy2L"
+				]
 			}
 		},
 		"description": "<p>Everything you touch is a weapon. Your actual weapons, your spells, and the armor you wear can all be brought to bear in pursuit of bringing down your foes. You gain the following benefits:</p>\n<ul>\n<li>You gain proficiency with the Cutting Omen combat tradition and learn a single first-degree maneuver from it, which does not count against your maneuvers known.</li>\n<li>When you cast a spell that deals fire or thunder damage and has an area, you can reduce the AC of a suit of metal or stone armor you are wearing by 1 to have the spell deal an additional number of d6es of piercing damage equal to half your proficiency bonus as pieces of the armor are stripped off and converted to shrapnel. Once you have used this benefit a number of times as indicated below, the armor breaks and you can&rsquo;t use this benefit with that suit of armor until it is repaired. Because this strips material away from the armor, repairing this AC reduction costs 10 gp in materials for each point of AC reduced. At the Narrator&rsquo;s discretion, armor made from expensive materials like mithral or adamantine may cost more to repair.\n<ul>\n<li>1 use: chain shirt</li>\n<li>2 uses: breastplate, cuirass, or half plate</li>\n<li>3 uses: hauberk or splint</li>\n<li>4 uses: full plate</li>\n</ul>\n</li>\n<li>When you deal damage with a spell, choose a weapon you are wielding to become infused with a type of damage the spell dealt. The next time you hit with a melee attack using that weapon, it deals additional damage of the selected type equal to your proficiency bonus. If you begin a rest with a weapon infused with damage this way, it dissipates harmlessly and is lost.</li>\n</ul>",
@@ -107,12 +104,7 @@
 		{
 			"origin": "Item.ccEJhUcICJNkviy3",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "KFcMY2J3O6dz7t5B",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Reduce AC",
@@ -149,7 +141,10 @@
 			},
 			"img": "icons/magic/fire/dagger-rune-enchant-flame-strong-orange.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

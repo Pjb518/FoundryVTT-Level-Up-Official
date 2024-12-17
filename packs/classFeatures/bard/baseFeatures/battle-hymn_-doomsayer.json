@@ -8,9 +8,6 @@
 			"origin": "Item.5bsdjx8VUh7xp5PX",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "9VdbINF0UXPoXE7a",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -38,6 +35,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -80,14 +81,10 @@
 					"type": "creature"
 				},
 				"consumers": {},
-				"prompts": {
-					"jowdgM0dMmh7BkOS": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3tn3sSNkrjrlvRCm",
-						"label": "Battle Hymn: Doomsayer"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"3tn3sSNkrjrlvRCm"
+				]
 			}
 		},
 		"description": "<p>The target takes a &ndash;1d8 penalty on attack rolls</p>",

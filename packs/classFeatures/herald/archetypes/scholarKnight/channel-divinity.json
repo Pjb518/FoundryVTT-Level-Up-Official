@@ -7,10 +7,6 @@
 			"origin": "Item.xO1awOZ5ObZCSUDq",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "wTYzWBUhOIFDglu9",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -21,7 +17,10 @@
 			"img": "icons/magic/perception/orb-crystal-ball-scrying-blue.webp",
 			"_id": "eIS9DWZSALn5XnKB",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.conditionImmunities",
@@ -86,13 +85,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"XbYIOqTIVKnAehun": {
-						"type": "effect",
-						"default": true,
-						"effectId": "eIS9DWZSALn5XnKB"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -103,7 +96,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"eIS9DWZSALn5XnKB"
+				]
 			},
 			"WgFxFjsc9mrggOgI": {
 				"name": "Channel Divinity: Mental Archives",

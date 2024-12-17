@@ -46,11 +46,6 @@
 							"type": "maneuver"
 						},
 						"onSave": "Half damage and remain standing"
-					},
-					"iPF3fU5C7Ic9ekRv": {
-						"type": "effect",
-						"default": true,
-						"effectId": "DUOtmtFIoOeS7XEV"
 					}
 				},
 				"uses": {
@@ -63,7 +58,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"DUOtmtFIoOeS7XEV"
+				]
 			}
 		},
 		"description": "<p>At 18th level, you can use an action and move at least 20 feet to make an epic charge. While making an epic charge, you can move through the spaces of creatures and objects of up to one size larger than you without provoking opportunity attacks. When you move into a creature&rsquo;s space it makes a Dexterity saving throw against your maneuver DC (with disadvantage if it is your size or smaller), taking 36 (8d8) bludgeoning damage and falling prone on a failed save, or half as much damage and remaining standing on a success.</p><p>Once you have used this feature, you cannot use it again until you finish a short or long rest.</p>",
@@ -91,11 +89,7 @@
 		{
 			"origin": "Item.ZT8kQ34bc2vx0Dcl",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "y1BOAEUOryvLECcK"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -134,7 +128,10 @@
 			},
 			"img": "icons/creatures/mammals/bull-horned-blue.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

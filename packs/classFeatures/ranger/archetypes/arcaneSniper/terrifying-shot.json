@@ -27,11 +27,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"kSAjnTdUDw1usrpw": {
-						"type": "effect",
-						"default": true,
-						"effectId": "iZLa79efWO5oJhq3"
 					}
 				},
 				"uses": {
@@ -55,7 +50,10 @@
 					"quantity": 1,
 					"radius": 30,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"iZLa79efWO5oJhq3"
+				]
 			}
 		},
 		"description": "<p>When fired, this ammunition emits an unearthly, baleful shriek audible up to 300 feet away which chills the blood of those close to you. Creatures other than you within 30 feet of you when you fire the ammunition who are not deafened must make a Wisdom saving throw against your spell save DC or be frightened of you for one minute. An affected creature may repeat the save at the end of each of its turn, ending the effect on a success. Once a creature has succeeded on a save against your Terrifying Shot, it is immune to its effects for 24 hours.</p>",
@@ -84,9 +82,6 @@
 			"origin": "Item.KQRhhN5pafSSG9Ph",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "5bHqoBhQRZuNzhDi",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -97,7 +92,10 @@
 			"img": "icons/magic/sonic/explosion-shock-sound-wave.webp",
 			"_id": "iZLa79efWO5oJhq3",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

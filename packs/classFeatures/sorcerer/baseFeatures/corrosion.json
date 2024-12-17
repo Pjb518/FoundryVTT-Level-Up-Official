@@ -7,10 +7,6 @@
 			"origin": "Item.Nm3YkTtNG9d8qKky",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nBPjzCP56VGas1CB",
-					"applyToSelf": false,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -52,7 +48,10 @@
 			},
 			"img": "icons/svg/item-bag.svg",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -101,13 +100,10 @@
 						"quantity": 1
 					}
 				},
-				"prompts": {
-					"7jGVPrzx4iXTegZf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "JsyJx2tzu9HhhuY0"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"JsyJx2tzu9HhhuY0"
+				]
 			}
 		},
 		"description": "<p>When you cast a spell that deals acid damage, you can spend 1 sorcery point and choose one creature you can see. If that creature takes acid damage from the spell, its Armor Class is reduced by 2 until the end of your next turn.</p>",

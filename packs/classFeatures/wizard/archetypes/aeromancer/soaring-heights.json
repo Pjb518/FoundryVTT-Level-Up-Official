@@ -19,13 +19,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"nf6Eunzn4nfitpBh": {
-						"type": "effect",
-						"default": true,
-						"effectId": "0uQc8UK3bCMSsSmD"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -36,7 +30,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"0uQc8UK3bCMSsSmD"
+				]
 			}
 		},
 		"description": "<p>At 14th level whenever you cast a spell of 1st level or higher, you gain a flying speed equal to your movement speed until the end of your next turn.</p><p>Finally, your insight into air magic deepens. If you can find a written record of it, you can copy any air, lightning, or thunder spell into your spellbook as if it were a wizard spell. Once you do, it is a wizard spell for you.</p>",
@@ -65,14 +62,10 @@
 			"origin": "Item.P4F2YcaSY5n7i8Mg",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "HfQT5w9Sybcrlpci",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -80,7 +73,10 @@
 			"img": "icons/creatures/abilities/wings-birdlike-blue.webp",
 			"_id": "0uQc8UK3bCMSsSmD",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.fly.distance",

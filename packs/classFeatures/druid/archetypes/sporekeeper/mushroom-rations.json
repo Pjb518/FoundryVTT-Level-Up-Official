@@ -7,9 +7,6 @@
 			"origin": "Item.qddoAuaXAvqQbFRe",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "eLHPNXFfbPVMsQPl",
 					"duration": {
 						"unit": "hours"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/consumables/mushrooms/ovate-thin-blue.webp",
 			"_id": "fKDJMsc8LxEh3xEj",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",
@@ -92,13 +92,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"WElIUKTWquld3EjU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "fKDJMsc8LxEh3xEj"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -113,7 +107,10 @@
 				"duration": {
 					"unit": "day",
 					"value": 1
-				}
+				},
+				"effects": [
+					"fKDJMsc8LxEh3xEj"
+				]
 			}
 		},
 		"description": "<p>Also at 2nd level, you learn to sprout edible mushrooms from any nearby organic material. As an action, as long as there is some dead organic material weighing at least 10 pounds around (including soil, bodies, wooden furniture or tools, etc.) you may spend a use of Wild Shape to create a number of edible mushrooms equal to your proficiency bonus. The mushrooms only stay nutritious for a day, but each counts as a unit of Supply and grants a creature that eats it resistance to poison damage and immunity to the poisoned condition for 8 hours.</p>",

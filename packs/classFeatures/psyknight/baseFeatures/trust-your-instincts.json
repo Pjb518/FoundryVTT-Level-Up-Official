@@ -31,25 +31,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"lRHxFLjYUJ7FVPie": {
-						"type": "effect",
-						"default": true,
-						"effectId": "gjDfp2ZOJVjtxxDv",
-						"label": "Advantage Attack Roll"
-					},
-					"laG5BoH5Q3tEC86d": {
-						"type": "effect",
-						"default": true,
-						"effectId": "uXyNiYTv5vH7MTns",
-						"label": "Advantage Ability Check"
-					},
-					"zO2ZpENb7EESlGsq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "VKNaEnQ5qyo0we9w"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -75,7 +57,12 @@
 				"id": "",
 				"default": false,
 				"description": "",
-				"ranges": {}
+				"ranges": {},
+				"effects": [
+					"gjDfp2ZOJVjtxxDv",
+					"uXyNiYTv5vH7MTns",
+					"VKNaEnQ5qyo0we9w"
+				]
 			}
 		},
 		"description": "<p>You clear your mind, and enter a calm state, allowing your psionic energies to wash over you.&nbsp;As a bonus action, you can gain advantage on your next ability check or attack roll.&nbsp;Once you have used this tactic, you may not use it again until you have taken a short or long rest.</p>",
@@ -103,19 +90,17 @@
 		{
 			"origin": "Item.HwdbBzqeSLmVf8J3",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "cSikdzwIJpa9tqqF",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Trust Your Instincts",
 			"img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
 			"_id": "VKNaEnQ5qyo0we9w",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.abilityCheck.all",

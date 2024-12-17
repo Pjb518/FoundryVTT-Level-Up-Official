@@ -7,12 +7,9 @@
 			"origin": "Item.7cUFyXU2xcIzSlB6",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "minutes"
-					},
-					"actionId": "JIVzmGs42u3D3DRi"
+					}
 				}
 			},
 			"transfer": false,
@@ -47,7 +44,10 @@
 			"tint": "#ffffff",
 			"img": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"sort": 0,
 			"folder": null,
 			"_stats": {
@@ -93,14 +93,10 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"MZYOTN7gQbSNOz5T": {
-						"type": "effect",
-						"default": true,
-						"effectId": "xg8HNqC7uYv33svs",
-						"label": "Beacon of Hope"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"xg8HNqC7uYv33svs"
+				]
 			}
 		},
 		"description": "<p><em><strong>Targets:&nbsp;</strong></em><em>any number of creatures</em></p>\n<p>The targets are filled with hope and vitality.</p>\n<p>Until the spell ends, each target gains advantage on Wisdom saving throws and death saving throws, and when a target receives healing it regains the maximum number of hit points possible.</p>",

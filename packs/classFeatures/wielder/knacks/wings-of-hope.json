@@ -20,18 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"Kw1wGkcCPH7CCVqY": {
-						"type": "effect",
-						"default": true,
-						"effectId": "PmKALlYrkvZe8nnd"
-					},
-					"TruDzzBFW9Qa6okk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "agjSUsj49GH2gEhl"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -42,7 +31,11 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"PmKALlYrkvZe8nnd",
+					"agjSUsj49GH2gEhl"
+				]
 			}
 		},
 		"description": "<p>When you cast @UUID[Compendium.a5e.a5e-spells.Item.aedq05b8pz7t02wd]{Fly} on yourself, you can choose to sprout wings of an appearance of your choosing, which last until the end of the spell. Your wings grant you an expertise die on Intimidation and Persuasion checks while they are visible, and while they are manifested, any creature that you restore hit points to with a spell or feature gains additional hit points equal to your proficiency modifier.</p>",
@@ -71,10 +64,6 @@
 			"origin": "Item.CWqZpBVdIDNM7zdS",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Fv2AlqfcMwdIjrUv",
-					"applyToSelf": false,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -85,7 +74,10 @@
 			"img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
 			"_id": "PmKALlYrkvZe8nnd",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.skills.itm.expertiseDice",
@@ -130,10 +122,6 @@
 			"origin": "Item.CWqZpBVdIDNM7zdS",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Fv2AlqfcMwdIjrUv",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -144,7 +132,10 @@
 			"img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
 			"_id": "agjSUsj49GH2gEhl",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.healing",

@@ -26,13 +26,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"jcgJkiSaJe5hEsOj": {
-						"type": "effect",
-						"default": true,
-						"effectId": "NT3ST89WXPNjxaBP"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -48,7 +42,10 @@
 					"DOYPJQDMQro7407b": {
 						"range": "touch"
 					}
-				}
+				},
+				"effects": [
+					"NT3ST89WXPNjxaBP"
+				]
 			}
 		},
 		"description": "<p>You can create a mental link between you and up to a number of willing creatures equal to your proficiency bonus. For the next hour, you and the targets can speak telepathically with each other. You need physical contact in order to create the bond, but once it is established it continues to operate no matter the distance, as long as you are on the same plane of existence. After you use this trait, you must complete a long rest before you can use it again.</p>",
@@ -77,9 +74,6 @@
 			"origin": "Item.LnFjYYDU3CIFv47P",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "0H3PldiOD8T6uu7E",
 					"duration": {
 						"unit": "hours"
 					}
@@ -90,7 +84,10 @@
 			"img": "icons/magic/control/energy-stream-link-teal.webp",
 			"_id": "NT3ST89WXPNjxaBP",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

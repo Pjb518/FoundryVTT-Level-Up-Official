@@ -8,12 +8,9 @@
 			"origin": "Item.smw2itvpdd2ciavo",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "aGtbNhnNUvIS29jA"
+					}
 				}
 			},
 			"transfer": false,
@@ -38,6 +35,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -66,21 +67,17 @@
 					"shape": "",
 					"size": ""
 				},
-				"prompts": {
-					"2Fc5YYkVhZhvYSNR": {
-						"type": "effect",
-						"default": true,
-						"effectId": "C7STh18yoXIvT8CP",
-						"label": "Blinding Blow Stance"
-					}
-				},
+				"prompts": {},
 				"consumers": {
 					"VPzGMygSs8C1cDr6": {
 						"quantity": 2,
 						"resource": "exertion",
 						"type": "resource"
 					}
-				}
+				},
+				"effects": [
+					"C7STh18yoXIvT8CP"
+				]
 			}
 		},
 		"description": "<p>You pace your attacks in a disruptive flow that makes it easy to follow a strike with maneuvering that temporarily blinds your foes.</p><p>After you hit a creature with a melee weapon attack, you can spend 1 exertion to make a Sleight of Hand check, blinding it if the result is higher than its AC.</p><p>At the beginning of each of its turns, the blinded creature can make a Wisdom saving throw to recover from its blindness.</p>",

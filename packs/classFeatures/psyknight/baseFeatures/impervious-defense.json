@@ -34,13 +34,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"Tzl0kg2mzi5khrgz": {
-						"type": "effect",
-						"default": true,
-						"effectId": "VlenWWtNRF0ZlA17"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -76,7 +70,10 @@
 				"id": "",
 				"default": false,
 				"description": "",
-				"img": ""
+				"img": "",
+				"effects": [
+					"VlenWWtNRF0ZlA17"
+				]
 			}
 		},
 		"description": "<p>While wielding a starglaive you can use a bonus action and spend 1 exertion point to enter a defensive state of mind. Your starglaive moves so fast, it forms a translucent sphere 5 feet in diameter centered on you until the start of your next turn. Neither matter nor energy can penetrate your shielding sphere, your speed is halved, and you cannot benefit from your extra attack feature, but you can otherwise move and take actions as normal.</p>",
@@ -105,10 +102,6 @@
 			"origin": "Item.YfxSRjjW3UcmhjIe",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "6YEcf8Oumxgi6UUE",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -120,7 +113,10 @@
 			"img": "icons/magic/defensive/barrier-shield-dome-blue-purple.webp",
 			"_id": "VlenWWtNRF0ZlA17",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",

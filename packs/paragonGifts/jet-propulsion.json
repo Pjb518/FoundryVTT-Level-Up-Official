@@ -27,13 +27,7 @@
 						"bonus": "1d4"
 					}
 				},
-				"prompts": {
-					"pEeVQxcbqDsotEOc": {
-						"type": "effect",
-						"default": true,
-						"effectId": "sDUQFliMGex5VjOG"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -44,7 +38,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"sDUQFliMGex5VjOG"
+				]
 			}
 		},
 		"description": "<p>You gain a fly speed of 30 feet. Maintaining this speed requires a check after the first minute and every minute after as though you were undertaking a forced march. You gain an expertise die on these checks to avoid fatigue from a forced march.</p>",
@@ -87,19 +84,17 @@
 		{
 			"origin": "Item.dK6K0USr8aiMKatJ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "sO8qLA1nrdYcVliq",
-					"applyToSelf": false
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Fatigue",
 			"img": "icons/commodities/tech/smoke-bomb-yellow.webp",
 			"_id": "sDUQFliMGex5VjOG",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.fatigue",

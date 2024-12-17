@@ -27,12 +27,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"RZA03Qe6kQ6ZijhK": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Ap2M87W13yMEpZQK",
-						"label": "Death Save Disadvantage"
 					}
 				},
 				"uses": {
@@ -45,7 +39,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"Ap2M87W13yMEpZQK"
+				]
 			}
 		},
 		"description": "<p>At level 10, creatures you kill tend to stay dead, even when magic is involved. Whenever you reduce a creature to 0 hit points, it must make a Constitution save against your maneuver DC. A creature that fails has disadvantage on death saving throws until it dies or stabilizes and it cannot be stabilized or healed by the Medicine skill or by magical healing unless it stabilizes on its own. At level 17, creatures affected by this feature also acquire the doomed condition.</p>",
@@ -73,11 +70,7 @@
 		{
 			"origin": "Item.38BIzujaX89bQ4eh",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "tSxbEKztDs9ltoa0"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Death Save Disadvantage (Staying Dead)",
@@ -114,7 +107,10 @@
 			},
 			"img": "icons/magic/death/gallows-hanged-humanoid.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -122,18 +118,17 @@
 		{
 			"origin": "Item.38BIzujaX89bQ4eh",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "tSxbEKztDs9ltoa0"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Doomed (Staying Alive)",
 			"img": "icons/magic/death/gallows-hanged-humanoid.webp",
 			"_id": "dW4nddRN9lzj8ZuU",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

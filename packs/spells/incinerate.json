@@ -43,11 +43,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "half damage, doesn't catch fire"
-					},
-					"FavcJNNQKLjoW9Jx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "NGtVvajPTIfjI7SL"
 					}
 				},
 				"uses": {
@@ -71,7 +66,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"NGtVvajPTIfjI7SL"
+				]
 			},
 			"6ljQQpcUYI7Es8WF": {
 				"name": "Burning",
@@ -150,9 +148,6 @@
 			"origin": "Item.bphper5g0s895tjv",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qtQg37r1zWmWRhhm",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -192,6 +187,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

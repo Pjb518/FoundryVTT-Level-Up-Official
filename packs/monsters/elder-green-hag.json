@@ -544,11 +544,6 @@
 								"saveDC": {
 									"type": "spellcasting"
 								}
-							},
-							"8SBMkZlu4bXvJesJ": {
-								"type": "effect",
-								"default": true,
-								"effectId": "7Vp3PGOhlT1nw9Gq"
 							}
 						},
 						"uses": {
@@ -570,7 +565,10 @@
 						"target": {
 							"type": "creature",
 							"quantity": 1
-						}
+						},
+						"effects": [
+							"7Vp3PGOhlT1nw9Gq"
+						]
 					}
 				},
 				"description": "<p>A creature within 60 feet that is not already under a hag&rsquo;s hex makes a DC 13 Wisdom saving throw. A creature under an obligation to the hag automatically fails this saving throw. On a failed saving throw, the target is cursed with a magical hex that lasts 30 days. The curse ends early if the target suffers harm from the hag or if the hag ends it as an action. Roll [[/r 1d4]]:</p>\n<p style=\"text-align: start;\">1. <em>Charm Hex.</em> The target is charmed by the hag.&nbsp;</p>\n<p style=\"text-align: start;\">2. <em>Fear Hex.</em> The target is frightened of the hag.&nbsp;</p>\n<p style=\"text-align: start;\">3. <em>Ill Fortune Hex. </em>The hag magically divines the target&rsquo;s activities. Whenever the target attempts a long-duration task such as a craft or downtime activity, the hag can cause the activity to fail.&nbsp;</p>\n<p style=\"text-align: start;\">4. <em>Sleep Hex.</em> The target falls unconscious. The curse ends early if the target takes damage or if a creature uses an action to shake it awake.</p>",
@@ -631,13 +629,7 @@
 								"formula": "5d4"
 							}
 						},
-						"prompts": {
-							"Rwl5Slwe3lPzRNkL": {
-								"type": "effect",
-								"default": true,
-								"effectId": "Sfjbwo4TOXOEXqVx"
-							}
-						},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
@@ -648,7 +640,10 @@
 								"rechargeAmount": "1",
 								"threshold": 6
 							}
-						}
+						},
+						"effects": [
+							"Sfjbwo4TOXOEXqVx"
+						]
 					}
 				},
 				"description": "<p>The hag magically transforms into a Large or smaller beast or back into its true form. When it does so, it gains 5d4 temporary hit points. While in beast form, it retains its game statistics, can’t cast spells, can’t use Hex, and can’t speak. The hag’s Speed increases by 10 feet, and when appropriate to its beast form it gains a climb, fly, or swim speed of 40 feet. Any equipment the hag is wearing or wielding merges into its new form.</p>",
@@ -1413,7 +1408,8 @@
 							"quantity": "",
 							"type": "none"
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>You create up to four hovering lights which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. Each sheds dim light in a 10-foot radius.</p><p>You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this spell. A dancing light winks out when it exceeds the spell's range.</p>",
@@ -1557,13 +1553,10 @@
 								"type": "spell"
 							}
 						},
-						"prompts": {
-							"I9ZzPFZJzBC5mLUA": {
-								"type": "effect",
-								"default": true,
-								"effectId": "kccGRUIN2X9rExb1"
-							}
-						}
+						"prompts": {},
+						"effects": [
+							"kccGRUIN2X9rExb1"
+						]
 					}
 				},
 				"description": "<p>Until the spell ends or you use an action to dismiss it, you and your gear are cloaked by an illusory disguise that makes you appear like another creature of your general size and body type, including but not limited to: your heritage, 1 foot of height, weight, clothing, tattoos, piercings, facial features, hair style and length, skin and eye coloration, sex, and any other distinguishing features. You cannot disguise yourself as a creature of a different size category, and your limb structure remains the same; for example if you're bipedal, you can't use this spell to appear as a quadruped.</p><p>The disguise does not hold up to physical inspection. A creature that tries to grab an illusory hat, for example, finds its hand passes straight through the figment. To see through your disguise without such an inspection, a creature must use its action to make an Investigation check against your spell save DC.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 3rd-level spell slot or higher, this spell functions identically to the seeming spell, except the spell's duration is 10 minutes.</p>",
@@ -1712,13 +1705,10 @@
 								"type": "spell"
 							}
 						},
-						"prompts": {
-							"G31vUlozIW3a3sPx": {
-								"type": "effect",
-								"default": true,
-								"effectId": "o1qvWrwid36w8yeW"
-							}
-						}
+						"prompts": {},
+						"effects": [
+							"o1qvWrwid36w8yeW"
+						]
 					}
 				},
 				"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p>",
@@ -1820,7 +1810,8 @@
 								"points": 5,
 								"type": "spell"
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>Until the spell ends, you create an image that appears completely real. The illusion includes sounds, smells, and temperature in addition to visual phenomena. None of the effects of the illusion are able to cause actual harm.</p><p>While within range you can use an action to move the illusion. As the image moves you may also change its appearance to make the movement seem natural (like a roc moving its wings to fly) and also change the nonvisual elements of the illusion for the same reason (like the sound of beating wings as the roc flies).</p><p>Any physical interaction immediately reveals the image is an illusion, as objects and creatures alike pass through it. An Investigation check against your spell save DC also reveals the image is an illusion.</p><p>When a creature realizes the image is an illusion, the effects become fainter for that creature.</p><p><strong><em>Cast at Higher Levels.</em></strong> When cast using a 6th-level spell slot the illusion lasts until dispelled without requiring concentration.</p>",
@@ -2080,11 +2071,6 @@
 									"bonus": ""
 								},
 								"type": "savingThrow"
-							},
-							"HYgPG21jiYdkvGIT": {
-								"type": "effect",
-								"default": true,
-								"effectId": "5yXypfbHYm721cZf"
 							}
 						},
 						"consumers": {
@@ -2099,7 +2085,10 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"effects": [
+							"5yXypfbHYm721cZf"
+						]
 					}
 				},
 				"description": "<p>You give a command to a target which can understand you. It becomes charmed by you.</p><p>While charmed in this way, it takes 5d10 psychic damage the first time each day that it disobeys your command. Your command can be any course of action or inaction that wouldn't result in the target's death. The spell ends if the command is suicidal or you use an action to dismiss the spell. Alternatively, a <em>remove curse</em>, <em>greater restoration</em>, or <em>wish</em> spell cast on the target using a spell slot at least as high as the slot used to cast this spell also ends it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell's duration is 1 year when using a 7th-level spell slot, or permanent until dispelled when using a 9th-level spell slot.</p>",

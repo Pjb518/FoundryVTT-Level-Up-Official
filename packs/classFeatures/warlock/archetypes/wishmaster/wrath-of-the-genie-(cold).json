@@ -27,11 +27,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"HRTjaz6amFuJwjlp": {
-						"type": "effect",
-						"default": true,
-						"effectId": "1e7VlenPtSCpzRmR"
 					}
 				},
 				"uses": {
@@ -44,7 +39,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"1e7VlenPtSCpzRmR"
+				]
 			}
 		},
 		"description": "<p>You can change the damage type of your @UUID[Compendium.a5e.a5e-class-features.Item.ulmcmf3ofmpzmgzf]{Eldritch Blast} to the damage type of the type of genie you chose. If you do so, it gains an additional effect.</p>\n<ul>\n<li><strong>Cold</strong>: The target must make a Constitution saving throw against your spell save DC or be slowed until the end of its next turn.</li>\n</ul>",
@@ -73,9 +71,6 @@
 			"origin": "Item.h9mGnE10ymMHzkge",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Ebm2MmUnEccPC7qT",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -87,7 +82,10 @@
 			"img": "icons/creatures/magical/spirit-fear-energy-pink.webp",
 			"_id": "1e7VlenPtSCpzRmR",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

@@ -35,11 +35,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"RvxsljqSzVZzTdAF": {
-						"type": "effect",
-						"default": true,
-						"effectId": "SKz8W0jlVLs30NdK"
 					}
 				},
 				"uses": {
@@ -52,7 +47,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"SKz8W0jlVLs30NdK"
+				]
 			},
 			"ielFTHdtiEsz9Fqm": {
 				"name": "Inquisitorial Challenge",
@@ -78,11 +76,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"ykofdl2cLfR2iVLY": {
-						"type": "effect",
-						"default": true,
-						"effectId": "6lLjzJHsbt70SGCP"
 					}
 				},
 				"uses": {
@@ -104,7 +97,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"6lLjzJHsbt70SGCP"
+				]
 			}
 		},
 		"description": "<p>At 3rd level when you choose this archetype, you gain the following two Channel Divinity options.</p>\n<h2>Compelling Inquiry</h2>\n<p>When questioning a creature with which you share a language, you can use your Channel Divinity to compel it to speak the truth. The creature makes a Constitution saving throw or finds itself unable to be dishonest for 1 minute. Regardless of whether it succeeds or fails, you know the outcome of the saving throw.</p>\n<h2>Inquisitorial Challenge</h2>\n<p>As a bonus action, you can use your Channel Divinity to issue a challenge of combat to one creature you can see within 30 feet. The creature makes a Wisdom saving throw. On a failed save, the creature can&rsquo;t move more than 30 feet away from you and has disadvantage on attacks against creatures other than you for 1 minute.</p>",
@@ -158,9 +154,6 @@
 			"origin": "Item.GzEFoBHWh9s095vP",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jqVCjrUaBtHiqr5V",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -171,7 +164,10 @@
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"_id": "SKz8W0jlVLs30NdK",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -203,9 +199,6 @@
 			"origin": "Item.GzEFoBHWh9s095vP",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ielFTHdtiEsz9Fqm",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -216,7 +209,10 @@
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"_id": "6lLjzJHsbt70SGCP",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

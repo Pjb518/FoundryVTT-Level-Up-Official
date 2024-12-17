@@ -1380,13 +1380,7 @@
 								"damageType": "slashing"
 							}
 						},
-						"prompts": {
-							"jpPsDUXOcVvo0J5X": {
-								"type": "effect",
-								"default": true,
-								"effectId": "iknXh1IjQQKH97g0"
-							}
-						},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
@@ -1410,7 +1404,10 @@
 						"target": {
 							"type": "creatureObject",
 							"quantity": 1
-						}
+						},
+						"effects": [
+							"iknXh1IjQQKH97g0"
+						]
 					}
 				},
 				"description": "<p>If the target is a Huge or smaller creature, it is grappled (escape DC 16). Until this grapple ends, the target is restrained, and the ankheg empress can&rsquo;t use her claws or Grabby on anyone else.</p>",
@@ -2061,9 +2058,7 @@
 			"icon": "icons/svg/aura.svg",
 			"origin": "Actor.mpAmArnfbX0qsTu5",
 			"flags": {
-				"a5e": {
-					"sort": 0
-				}
+				"a5e": {}
 			},
 			"name": "Prone",
 			"_id": "epASPiAhAQThlfqT",
@@ -2093,6 +2088,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

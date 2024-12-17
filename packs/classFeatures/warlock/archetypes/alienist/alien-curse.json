@@ -7,9 +7,6 @@
 			"origin": "Item.UqTc7XLdrJYpulbG",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "HnCJ8pg5sVTWjtrm",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/magic/unholy/hand-light-green.webp",
 			"_id": "Ci7ERygSIcnJGU0G",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -76,13 +76,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"hqZflTOyQ3ibet6z": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Ci7ERygSIcnJGU0G"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -102,7 +96,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"Ci7ERygSIcnJGU0G"
+				]
 			},
 			"W4agxOnF1RhXMZHZ": {
 				"name": "Use Beyond Dice",

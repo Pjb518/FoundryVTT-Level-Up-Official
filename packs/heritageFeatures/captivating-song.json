@@ -24,12 +24,6 @@
 				"consumers": {},
 				"rolls": {},
 				"prompts": {
-					"4s3O3sxGrkNRWAEZ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "FYhvibDFgFmbdNFT",
-						"label": "Captivate Target"
-					},
 					"dFHQfXjOchSECH0y": {
 						"type": "savingThrow",
 						"default": true,
@@ -64,7 +58,10 @@
 					"quantity": 1,
 					"radius": 30,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"FYhvibDFgFmbdNFT"
+				]
 			}
 		},
 		"description": "<p>You can use an action to emit a captivating song. Enemy creatures who can hear you within 30 feet must make a Wisdom saving throw (DC 8 + your proficiency bonus + either your Intelligence, Wisdom, or Charisma modifier) or become charmed by you for 1 minute, or until you or an ally deal damage to it. Creatures charmed in this way spend their movement to draw closer to you. Creatures that succeed at this save cannot be affected again by it for 24 hours. Once you use this trait, you can&rsquo;t use it again until you finish a long rest.</p><p><strong>Foundry Note: Will automatically use the highest ability score modifier possible for the Save DC, change if desired.</strong></p>",
@@ -93,9 +90,6 @@
 			"origin": "Item.bzspw30up84yinhv",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "urtm4UOh53sMrQJa",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -131,6 +125,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

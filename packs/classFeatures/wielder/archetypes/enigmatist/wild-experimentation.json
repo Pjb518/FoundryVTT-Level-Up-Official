@@ -156,13 +156,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"tjTXPmKGUgF3tKby": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Tq3qJL2zEvilCjEW"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -173,20 +167,17 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"Tq3qJL2zEvilCjEW"
+				]
 			},
 			"wnijNGaJY36iQA57": {
 				"name": "Arcane Power",
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"zjcSKYbCRyhmRJAu": {
-						"type": "effect",
-						"default": true,
-						"effectId": "fN6GN6LTm0i37aqh"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -197,7 +188,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"fN6GN6LTm0i37aqh"
+				]
 			}
 		},
 		"description": "<p>Starting at 6th level, even if you don&rsquo;t know how to work your artifact you can still press a few buttons and see what happens. As a bonus action you can perform a wild experiment using your artifact, if you do, expend 2 charges and roll 1d8 on the following table to determine the results:</p>\n<p>&nbsp;</p>\n<p><strong>Table: Wild Experiment</strong></p>\n<p>@Embed[Compendium.a5e.a5e-roll-tables.RollTable.Paq350DgQIHysKKU caption=false cite=false rollable=true]</p>",
@@ -226,10 +220,6 @@
 			"origin": "Item.7YNwjONdQzuiH7Tm",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "modU0w8hPky5eovt",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -240,7 +230,10 @@
 			"img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
 			"_id": "Tq3qJL2zEvilCjEW",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -272,10 +265,6 @@
 			"origin": "Item.7YNwjONdQzuiH7Tm",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "wnijNGaJY36iQA57",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -286,7 +275,10 @@
 			"img": "icons/magic/sonic/explosion-shock-wave-teal.webp",
 			"_id": "fN6GN6LTm0i37aqh",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

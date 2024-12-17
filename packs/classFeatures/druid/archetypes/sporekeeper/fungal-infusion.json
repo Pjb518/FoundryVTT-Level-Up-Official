@@ -8,9 +8,6 @@
 			"origin": "Item.5jrFzL8pKcnlPPDW",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "cyvM6uwbk2qlEOTi",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -76,11 +77,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"mU7UzWMhQ4c4Uvtw": {
-						"type": "effect",
-						"default": true,
-						"effectId": "GSMHNw3HD5xQhvMa"
 					}
 				},
 				"uses": {
@@ -93,7 +89,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"GSMHNw3HD5xQhvMa"
+				]
 			}
 		},
 		"description": "<p>At 2nd level, you have incorporated fungal colonies into your own physiology. You are resistant to poison damage and immune to the poisoned condition. Your weapon attacks deal an additional 1d4 poison damage. On a critical hit, your target must make a Constitution saving throw against your spell save DC or become confused for 1 minute. An affected creature can repeat the save at the end of each of its turns, ending the effect on a success.</p>",

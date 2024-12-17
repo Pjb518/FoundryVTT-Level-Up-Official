@@ -42,13 +42,7 @@
 					"unit": "hour",
 					"value": 1
 				},
-				"prompts": {
-					"VxjFaf4O5Fy2z0S4": {
-						"type": "effect",
-						"default": true,
-						"effectId": "pYMPYZTvXIV084sd"
-					}
-				},
+				"prompts": {},
 				"ranges": {},
 				"rolls": {},
 				"target": {
@@ -64,7 +58,10 @@
 						"formula": "",
 						"threshold": 0
 					}
-				}
+				},
+				"effects": [
+					"pYMPYZTvXIV084sd"
+				]
 			}
 		},
 		"description": "<p>For one hour, you may ignore environmental effects caused by heat or cold.&nbsp;This feature does not protect you from damage.&nbsp;Once you have used this feature, you may not do so again until you have taken a long rest.</p>",
@@ -93,10 +90,6 @@
 			"origin": "Item.4IYRingb18yMXv0i",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "9Ni3shx5fG9NMzR5",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -107,7 +100,10 @@
 			"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
 			"_id": "pYMPYZTvXIV084sd",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"NeliIyFostmvrqYk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "sN3K8y11JO7h64Dn"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -37,7 +31,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"sN3K8y11JO7h64Dn"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">At 14th level, your rage causes you to sprout a massive set of dragon wings that can carry you aloft. While raging, you gain a fly speed equal to double your walking speed. If you become bloodied while flying, your wings are too damaged to keep you aloft, and you descend as though under the effects of the @UUID[Compendium.a5e.a5e-spells.Item.ak4r2o5c5mrme5vk]{Feather Fall} spell instead of flying.&nbsp;</p>\n<p dir=\"ltr\">In addition, if you already possess the Draconian Wings heritage feature, you no longer suffer fatigue while using your wings. If you become bloodied while flying, your flying speed reduces to 30 feet instead of descending as noted above.</p>",
@@ -65,12 +62,7 @@
 		{
 			"origin": "Item.Y99hoenD7CZOBaDT",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "odUycIStdmHbHllB",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Dragon Wings",
@@ -107,7 +99,10 @@
 			},
 			"img": "icons/commodities/biological/wing-lizard-green.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

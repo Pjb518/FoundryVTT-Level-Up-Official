@@ -20,13 +20,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"fIMT8OYkp61OPMg4": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Zq0ICP57QuAuWkNZ"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -46,7 +40,10 @@
 					"BE9nhCqABiqC0Bm5": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"Zq0ICP57QuAuWkNZ"
+				]
 			}
 		},
 		"description": "<p><em><strong>Association:&nbsp;</strong>Marshal class</em></p><p>You can keep your allies&rsquo; guard up, even as you direct their attacks.&nbsp;While this spell is active, whenever you use your&nbsp;@UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} feature, when the affected creature attacks, it gains a bonus to its armor class equal to half your proficiency bonus until the beginning of its next turn.</p>",
@@ -98,9 +95,6 @@
 			"origin": "Item.q1q8ty6qjtg5gsqm",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ukVfg7xUjgYuhSm8",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -135,6 +129,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

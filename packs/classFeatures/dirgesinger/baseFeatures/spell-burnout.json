@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"quP9nx4guQo9fLLd": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Ilw13Hdy8bs4PkrE"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +47,10 @@
 					"XJfaobt9PNrwNq1n": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"Ilw13Hdy8bs4PkrE"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">You cause a creature casting a spell to cast it at the highest spell level available to the creature&rsquo;s class or archetype (even if the creature doesn&rsquo;t have access to spells of that level yet). The creature then loses hit dice equal to the level the spell was cast at, becomes vulnerable to damage from spells, and is unable to cast cantrips or spells as rituals until the end of its next long rest.</p>",
@@ -81,18 +78,17 @@
 		{
 			"origin": "Item.UWAFz78zdu9WVJ6e",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "7ENxRU3CHiuseETM"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Spell Burnout",
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "Ilw13Hdy8bs4PkrE",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

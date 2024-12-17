@@ -31,24 +31,6 @@
 							"type": "maneuver"
 						},
 						"onSave": ""
-					},
-					"wQHJlRLBCYr1obm5": {
-						"type": "effect",
-						"default": true,
-						"effectId": "31RfAy86gqrAeX76",
-						"label": "Rattled (Failed Save)"
-					},
-					"QeJMnsmHmyGvEjOq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BguH4FqB5p81wemu",
-						"label": "Frightened (Failed Save by 5 or More)"
-					},
-					"YS9xrmX7srslcdVJ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Bb0Pe1CQgjsvLjK5",
-						"label": "Immune to Death Mask"
 					}
 				},
 				"uses": {
@@ -77,7 +59,12 @@
 					"Y2z00Kdckger6hb9": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"31RfAy86gqrAeX76",
+					"BguH4FqB5p81wemu",
+					"Bb0Pe1CQgjsvLjK5"
+				]
 			}
 		},
 		"description": "<p>At 3rd level, your visage becomes supernaturally terrifying when you rage. Hostile creatures within 30 feet that see you raging must make a Wisdom save against your maneuver DC or become rattled for one minute. A creature that fails its save by 5 or more is instead frightened instead for the duration. An affected creature can repeat the save at the end of each of its turns. On a success, a frightened creature becomes rattled, and a rattled creature ends the effect. Once a creature succeeds on its initial save against this effect or recovers from it, that creature is immune to it for 24 hours.</p>",
@@ -106,9 +93,6 @@
 			"origin": "Item.iTBQZ8ZX71CiXT0j",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "01aVzZuEYTrjEVZe",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -119,7 +103,10 @@
 			"img": "icons/equipment/head/mask-carved-wood-pink.webp",
 			"_id": "BguH4FqB5p81wemu",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -160,9 +147,6 @@
 			"origin": "Item.iTBQZ8ZX71CiXT0j",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "01aVzZuEYTrjEVZe",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -173,7 +157,10 @@
 			"img": "icons/equipment/head/mask-carved-wood-pink.webp",
 			"_id": "31RfAy86gqrAeX76",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -214,9 +201,6 @@
 			"origin": "Item.iTBQZ8ZX71CiXT0j",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "01aVzZuEYTrjEVZe",
 					"duration": {
 						"unit": "hours"
 					}
@@ -227,7 +211,10 @@
 			"img": "icons/equipment/head/mask-carved-wood-pink.webp",
 			"_id": "Bb0Pe1CQgjsvLjK5",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

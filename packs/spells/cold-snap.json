@@ -30,12 +30,6 @@
 					}
 				},
 				"prompts": {
-					"ssg4oS12wvufC7RU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "SHBSBjdikHidgss6",
-						"label": "Fatigue (max of 2)"
-					},
 					"RaWEGBuDDHFJEsCC": {
 						"type": "savingThrow",
 						"default": true,
@@ -79,7 +73,10 @@
 				"target": {
 					"type": "",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"SHBSBjdikHidgss6"
+				]
 			},
 			"Rdz2eEIQaF6medpx": {
 				"name": "Rasie/Lower Temperature",
@@ -152,10 +149,7 @@
 			"icon": "icons/magic/death/skull-humanoid-worn-teal.webp",
 			"origin": "Item.adqj2q2p02fxyf3x",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Fatigue",
@@ -185,6 +179,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

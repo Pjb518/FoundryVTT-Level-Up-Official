@@ -8,9 +8,6 @@
 			"origin": "Item.5QmrpQBwC02dsitJ",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "TOEN3EhSQ8SeLAgy",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -38,6 +35,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -80,14 +81,10 @@
 					"type": "creature"
 				},
 				"consumers": {},
-				"prompts": {
-					"OheOP55VQI1hCMkW": {
-						"type": "effect",
-						"default": true,
-						"effectId": "9dTw1sBWD2V5kBbb",
-						"label": "Battle Hymn: Heaven's Blessing"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"9dTw1sBWD2V5kBbb"
+				]
 			}
 		},
 		"description": "<p>When the target benefits from your Bardic Inspiration, it rolls the&nbsp;Bardic Inspiration die twice and uses the higher result.</p>",

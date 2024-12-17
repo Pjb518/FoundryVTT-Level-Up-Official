@@ -21,13 +21,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"f98N9EIXHl5JzYho": {
-						"type": "effect",
-						"default": true,
-						"effectId": "T1g2kNYMcFwQdzSA"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -49,7 +43,10 @@
 					"aQQHCN8mEkp185ZL": {
 						"range": "touch"
 					}
-				}
+				},
+				"effects": [
+					"T1g2kNYMcFwQdzSA"
+				]
 			}
 		},
 		"description": "<p>You place a magical mark on a creature or yourself granting&nbsp;power to fight and win against your foes.</p><p>When you cast this spell, the target gains 4 points or exertion, may remove a level of fatigue or strife, and gains 20 temporary hit points.</p><p>In addition, while the mark remains visible, the target sheds dim light in a 5-foot area, gains a +2 bonus to AC, has an expertise die on Intimidation checks, and their weapon attacks deal an additional 1d4 points of radiant damage.</p>",
@@ -99,9 +96,6 @@
 			"origin": "Item.f8x3ftioys7nruz9",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "lObt3tuWsie2pxsp",
 					"duration": {
 						"unit": "hours"
 					}
@@ -153,6 +147,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

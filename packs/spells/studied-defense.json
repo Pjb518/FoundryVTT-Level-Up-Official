@@ -20,13 +20,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"fV6pHEr9IM0xFMoJ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Bl5C8JyCzCmMbFPz"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -46,7 +40,10 @@
 					"xlVyY7maxjWwP6Nd": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"Bl5C8JyCzCmMbFPz"
+				]
 			}
 		},
 		"description": "<p><em><strong>Association:</strong> Ranger class</em></p><p>You draw upon your research of a specific class of enemy and ward yourself against their attacks.</p><p>Until the spell ends, you gain a +2 bonus to AC against attacks made by your @UUID[Compendium.a5e.a5e-class-features.Item.t7ujv9cc4us40fj9]{Studied Adversary}. You also gain an expertise die on saving throws against effects your Studied Adversaries control.</p>",
@@ -97,10 +94,6 @@
 			"origin": "Item.80os8qp2wb385wf0",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "vhWQH6Ie4WsCmGe6",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -127,6 +120,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

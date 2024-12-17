@@ -6,18 +6,17 @@
 		{
 			"origin": "Item.CuAVa6GcdWRZPlIU",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "wOKLPnhKpnhU1kEj"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Grappled",
 			"img": "icons/skills/melee/unarmed-punch-fist.webp",
 			"_id": "x80lDS07noV5SPtH",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -100,12 +99,6 @@
 						},
 						"type": "savingThrow",
 						"label": "Dexterity Saving Throw"
-					},
-					"j2YI24cKNcfxSDGM": {
-						"type": "effect",
-						"default": true,
-						"effectId": "x80lDS07noV5SPtH",
-						"label": "Grappled Effect"
 					}
 				},
 				"consumers": {},
@@ -117,7 +110,10 @@
 						"label": "Basic Melee Damage",
 						"canCrit": false
 					}
-				}
+				},
+				"effects": [
+					"x80lDS07noV5SPtH"
+				]
 			}
 		},
 		"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p>\n<p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled. In addition to things that end the condition, you can release the target at any time (no action required).</p>\n<p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p>\n<p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p>\n<p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",

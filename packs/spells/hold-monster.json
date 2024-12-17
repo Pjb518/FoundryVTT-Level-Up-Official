@@ -8,9 +8,6 @@
 			"origin": "Item.geix9369vzozz4zm",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "prfWePmds6xnCq78",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -46,6 +43,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -86,11 +87,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"y03zGRjSlwc5ygGd": {
-						"type": "effect",
-						"default": true,
-						"effectId": "NQK3wIAZ9vLb28kh"
 					}
 				},
 				"consumers": {
@@ -100,7 +96,10 @@
 						"points": 7,
 						"type": "spell"
 					}
-				}
+				},
+				"effects": [
+					"NQK3wIAZ9vLb28kh"
+				]
 			}
 		},
 		"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the first target for each slot level above 5th.</p>",

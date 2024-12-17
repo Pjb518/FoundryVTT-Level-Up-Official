@@ -60,19 +60,13 @@
 						},
 						"label": "Eldritch Chant",
 						"onSave": "No damage and rattled instead of Confused"
-					},
-					"RJCGOYI0RdtLiukJ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "W1Xuza5mMfGJA8qK"
-					},
-					"0nYpUfz6wnYxeiok": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Fg5Gza7MteQhJWoi"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"effects": [
+					"W1Xuza5mMfGJA8qK",
+					"Fg5Gza7MteQhJWoi"
+				]
 			},
 			"9LrIZ5gO6BQNbc8x": {
 				"name": "Fail Save",
@@ -87,13 +81,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"oWifu0Ovcc0fKWp0": {
-						"type": "effect",
-						"default": true,
-						"effectId": "EgatHdSkNAdQvuLx"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -104,7 +92,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"EgatHdSkNAdQvuLx"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">You can use an action to focus mind-melting chanting and wailing on a creature within 60 feet. The creature must succeed on an Intelligence saving throw or take force damage equal to your Proficiency Bonus and become Confused until the beginning of your next turn. Creatures that succeed on this save are Rattled instead and take no damage.</p><p dir=\"ltr\">You must be able to speak and the target creature must be able to hear you for this effect to work.</p>",
@@ -133,9 +124,6 @@
 			"origin": "Item.mDS5KUcr486qP05K",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "powapQ266DInKunT",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -147,7 +135,10 @@
 			"img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
 			"_id": "W1Xuza5mMfGJA8qK",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -188,9 +179,6 @@
 			"origin": "Item.mDS5KUcr486qP05K",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "powapQ266DInKunT",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -202,7 +190,10 @@
 			"img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
 			"_id": "Fg5Gza7MteQhJWoi",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -242,18 +233,17 @@
 		{
 			"origin": "Item.mDS5KUcr486qP05K",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "9LrIZ5gO6BQNbc8x"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Confused",
 			"img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
 			"_id": "EgatHdSkNAdQvuLx",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

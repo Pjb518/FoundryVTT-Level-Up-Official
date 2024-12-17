@@ -23,13 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"nHfIGnFnryqcR6xv": {
-						"type": "effect",
-						"default": true,
-						"effectId": "8aLWqzbvuRsR3daT"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -45,7 +39,10 @@
 					"UNm7GI0NfTYwTu99": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"8aLWqzbvuRsR3daT"
+				]
 			}
 		},
 		"description": "<p><strong> </strong>On its turn as an action, the automaton can highlight a target within 30 feet, granting an expertise die to creatures targeting it with attacks.</p>",
@@ -73,18 +70,17 @@
 		{
 			"origin": "Item.BzdC6i3TRnoVc2Qg",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "WqxNqv36WfrNG183"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Target",
 			"img": "icons/skills/targeting/target-glowing-yellow.webp",
 			"_id": "8aLWqzbvuRsR3daT",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

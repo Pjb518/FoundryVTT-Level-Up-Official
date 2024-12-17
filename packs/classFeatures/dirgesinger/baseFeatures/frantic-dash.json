@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"8LXVFA9hSRgN2c14": {
-						"type": "effect",
-						"default": true,
-						"effectId": "WKsExhBASQF8Ida8"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +47,10 @@
 					"ONfApeFOm6FNnh7p": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"WKsExhBASQF8Ida8"
+				]
 			}
 		},
 		"description": "<p>You cause the target creature&rsquo;s movement, jump height, and jump distance to be tripled for one turn and you cause attacks of opportunity against the creature to be at disadvantage. The creature&rsquo;s movement speed then becomes 0 for two turns and the creature loses 2 hit dice.</p>",
@@ -82,9 +79,6 @@
 			"origin": "Item.9bjnp7tjM5gE8i6w",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "SquFHJhvb7PpFnpU",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -96,7 +90,10 @@
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "WKsExhBASQF8Ida8",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",

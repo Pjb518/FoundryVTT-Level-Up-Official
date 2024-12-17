@@ -7,9 +7,6 @@
 			"origin": "Item.1On3sX3t540D5UXj",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ww9W7RwpBp0SJhZW",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -21,7 +18,10 @@
 			"img": "icons/skills/melee/strike-axe-energy-pink.webp",
 			"_id": "t0BXbjYGLufPmJPN",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",
@@ -60,9 +60,6 @@
 			"origin": "Item.1On3sX3t540D5UXj",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ww9W7RwpBp0SJhZW",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -74,7 +71,10 @@
 			"img": "icons/skills/melee/strike-axe-energy-pink.webp",
 			"_id": "eCiuQDC9HisyADtG",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",
@@ -157,18 +157,7 @@
 						"label": "14th Level"
 					}
 				},
-				"prompts": {
-					"rzW17Zv3DDIxhTyy": {
-						"type": "effect",
-						"default": true,
-						"effectId": "t0BXbjYGLufPmJPN"
-					},
-					"3WO0sEMdL1avC6Hs": {
-						"type": "effect",
-						"default": true,
-						"effectId": "eCiuQDC9HisyADtG"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -179,7 +168,11 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"t0BXbjYGLufPmJPN",
+					"eCiuQDC9HisyADtG"
+				]
 			}
 		},
 		"description": "<p>You gain the ability to infuse your attacks with the power of judgment. Once per turn, when you hit a creature with a weapon attack, your attack deals an additional 1d6 psychic damage and the creature&rsquo;s movement speed is halved till the end of its next turn.</p>\n<p>At 14th level, this bonus damage increases to 2d6 and the creature is also rattled.</p>",

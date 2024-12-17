@@ -44,7 +44,8 @@
 							"quantity": "",
 							"type": "self"
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>The dragon can burrow through nonmagical, unworked earth and stone without disturbing it.</p>",
@@ -113,7 +114,8 @@
 							"quantity": "",
 							"type": "self"
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>While the dragon remains motionless within its linked area, it is indistinguishable from a natural rocky outcropping.</p>",
@@ -203,7 +205,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>Instead of dealing piercing damage, the dragon can grapple the target (escape DC 23), and a Large or smaller creature grappled in this way is restrained. While grappling a creature, the dragon can’t bite another target.</p>",
@@ -436,7 +439,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "",
@@ -513,7 +517,8 @@
 							"6vqotQYsXzTAfowH": {
 								"type": "itemUses"
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>When the dragon fails a saving throw, it can choose to succeed instead. When it does, it becomes more like rock. Its Speed, burrow speed, and flying speed are halved until the end of its next turn.</p>",
@@ -819,7 +824,8 @@
 							"quantity": "",
 							"type": ""
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>The dragon makes a slam attack.</p>",
@@ -1481,7 +1487,8 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>Name or describe in detail a specific kind of beast or plant. The natural magics in range reveal the closest example of the target within 5 miles, including its general direction (north, west, southeast, and so on) and how many miles away it currently is.</p>",
@@ -1684,7 +1691,8 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>You reshape the target into any form you choose.</p><p>For example, you could shape a large rock into a weapon, statue, or chest, make a small passage through a wall (as long as it isn't more than 5 feet thick), seal a stone door shut, or create a hiding place. The target can have up to two hinges and a latch, but finer mechanical detail isn't possible.</p><p><strong><em>Cast at Higher Levels.</em></strong> You may select one additional target for every slot level above 4th.</p>",
@@ -2068,11 +2076,6 @@
 								"skill": "ath",
 								"ability": "none",
 								"label": "Buried In Rubble"
-							},
-							"Ubxcz0OYGPFTjXj2": {
-								"type": "effect",
-								"default": true,
-								"effectId": "2NEiVNCJmfDVkvjN"
 							}
 						},
 						"uses": {
@@ -2083,7 +2086,10 @@
 								"formula": "1d6",
 								"threshold": 6
 							}
-						}
+						},
+						"effects": [
+							"2NEiVNCJmfDVkvjN"
+						]
 					}
 				},
 				"description": "<p>You create a seismic disturbance in the spell's area. Until the spell ends, an intense tremor rips through the ground and shakes anything in contact with it.</p><p>The ground in the spell's area becomes difficult terrain as it warps and cracks.</p><p>When you cast this spell and at the end of each turn you spend concentrating on it, each creature in contact with the ground in the spell's area must make a Dexterity saving throw or be knocked prone.</p><p>Additionally, any creature that is concentrating on a spell while in contact with the ground in the spell's area must make a Constitution saving throw or lose concentration.</p><p>At the Narrator's discretion, this spell may have additional effects depending on the terrain in the area.</p><p><strong>Fissures:</strong> Fissures open within the spell's area at the start of your next turn after you cast the spell. A total of 1d6 such fissures open in locations you choose. Each is [[1d10]] &times; 10 feet deep, 10 feet wide, and extends from one edge of the spell's area to the opposite side. A creature standing on a spot where a fissure opens makes a Dexterity saving throw or falls in. On a successful save, a creature moves with the fissure's edge as it opens.</p><p>A structure automatically collapses if a fissure opens beneath it (see below).</p><p><strong>Structures:</strong> A structure in contact with the ground in the spell's area takes 50 bludgeoning damage when you cast the spell and again at the start of each of your turns while the spell is active. A structure reduced to 0 hit points this way collapses.</p><p>Creatures within half the distance of a collapsing structure's height make a Dexterity saving throw or take 5d6 bludgeoning damage, are knocked prone, and are buried in the rubble, requiring a DC 20 Acrobatics or Athletics check as an action to escape. A creature inside (instead of near) a collapsing structure has disadvantage on its saving throw. The Narrator can adjust the DC higher or lower depending on the composition of the rubble. On a successful save, the creature takes half as much damage and doesn't fall prone or become buried.</p>",
@@ -2175,7 +2181,8 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>You reshape the area, changing its elevation or creating and eliminating holes, walls, and pillars.</p><p>The only limitation is that the elevation change may not exceed half the area's horizontal dimensions.</p><p>For example, affecting a 40-by-40 area allows you to include 20 foot high pillars, holes 20 feet deep, and changes in terrain elevation of 20 feet or less.</p><p>Changes that result in unstable terrain are subject to collapse.</p><p>Changes take 10 minutes to complete, after which you can choose another area to affect. Due to the slow speed of transformation, it is nearly impossible for creatures to be hurt or captured by the spell.</p><p>This spell has no effect on stone, objects crafted from stone, or plants, though these objects will shift based on changes in the area.</p>",

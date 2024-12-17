@@ -19,13 +19,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"GR7T7WqBMLsfpRDk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "7dvbX1HdnZQQTyzK"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -36,20 +30,17 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"7dvbX1HdnZQQTyzK"
+				]
 			},
 			"tkthMakFNeAUL4zf": {
 				"name": "Wielder Spells",
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"PK5qswmOXKwjqdZM": {
-						"type": "effect",
-						"default": true,
-						"effectId": "blIpohTjBSCcCzfD"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -60,7 +51,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"blIpohTjBSCcCzfD"
+				]
 			}
 		},
 		"description": "<p>Starting at 10th level, your artifact bestows your innate physical prowess and mental faculties with the talents of those that came before. Whenever you enter your torch bearer form, choose either your combat maneuvers or wielder spells. The DC of your selection is increased by 2 for as long as you remain in your torch bearer form.</p>",
@@ -88,10 +82,7 @@
 		{
 			"origin": "Item.v6MG6jht4I5B64HN",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Torch Bearer Form: Ancestral Talents (Maneuver DC)",
@@ -128,7 +119,10 @@
 			},
 			"img": "icons/svg/aura.svg",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -136,10 +130,7 @@
 		{
 			"origin": "Item.v6MG6jht4I5B64HN",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Torch Bearer Form: Ancestral Talents (Wielder Spell DC)",
@@ -176,7 +167,10 @@
 			},
 			"img": "icons/svg/aura.svg",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -184,19 +178,17 @@
 		{
 			"origin": "Item.v6MG6jht4I5B64HN",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "n9hlTcg6TfihcLEI",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Ancestral Talents",
 			"img": "icons/magic/light/swords-light-glowing-white.webp",
 			"_id": "7dvbX1HdnZQQTyzK",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.bonuses.maneuverDC",
@@ -234,19 +226,17 @@
 		{
 			"origin": "Item.v6MG6jht4I5B64HN",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "tkthMakFNeAUL4zf",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Ancestral Talents",
 			"img": "icons/magic/light/swords-light-glowing-white.webp",
 			"_id": "blIpohTjBSCcCzfD",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.bonuses.spellDC",

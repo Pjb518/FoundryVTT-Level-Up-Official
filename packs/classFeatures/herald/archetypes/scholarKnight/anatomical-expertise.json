@@ -7,10 +7,6 @@
 			"origin": "Item.ltU0N033uY1be6Wh",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "1XVYrU5VzchudLJN",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -21,7 +17,10 @@
 			"img": "icons/skills/wounds/bone-broken-knee-beam.webp",
 			"_id": "S3a3t7O2jkB5MJ5S",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -78,13 +77,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"48cgBuOyOyjOXrc1": {
-						"type": "effect",
-						"default": true,
-						"effectId": "S3a3t7O2jkB5MJ5S"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -101,7 +94,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"S3a3t7O2jkB5MJ5S"
+				]
 			},
 			"WTUHfHXE2LGIu2tf": {
 				"name": "Change Focus",

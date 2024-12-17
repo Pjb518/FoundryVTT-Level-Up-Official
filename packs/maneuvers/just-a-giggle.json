@@ -27,13 +27,7 @@
 						"ability": "cha"
 					}
 				},
-				"prompts": {
-					"MKqnP35275PyU8E9": {
-						"type": "effect",
-						"default": true,
-						"effectId": "xrQzfn5kfZGlERPx"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -48,7 +42,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"xrQzfn5kfZGlERPx"
+				]
 			}
 		},
 		"description": "<p>Inversion is at the heart of humor, and nothing upends a no-holdsbarred fight faster than a solid joke.</p><p>Choose a creature able to see you and make a nonmusical Performance check opposed by its Insight check. On a success, your antics force it to laugh uncontrollably, making it incapacitated</span> until the start of your next turn. After you have used Just a Giggle against a creature, until the end of combat it has <span>advantage on Insight checks to resist this maneuver.</p>",
@@ -77,9 +74,6 @@
 			"origin": "Item.ek6olmucuv9o5ojl",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "7Vegs5Bk3HIEmWSw",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -116,6 +110,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

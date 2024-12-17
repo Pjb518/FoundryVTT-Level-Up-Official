@@ -21,13 +21,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"XiNLbWWZJEiHYWJ2": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Xyr8uif0d5AwfesR"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -38,7 +32,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"Xyr8uif0d5AwfesR"
+				]
 			},
 			"DFZ2y6MDokEkabV2": {
 				"name": "Learn",
@@ -88,19 +85,17 @@
 		{
 			"origin": "Item.2NwVCrDqXhZYIIHF",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "19xEsaHGU0qM1RoW",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Local Primer",
 			"img": "icons/environment/settlement/tent-flag.webp",
 			"_id": "Xyr8uif0d5AwfesR",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",

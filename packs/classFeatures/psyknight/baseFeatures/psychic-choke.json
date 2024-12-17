@@ -56,16 +56,6 @@
 						},
 						"label": "",
 						"onSave": "Unaffected, but is aware of your attempt"
-					},
-					"bcBtgNp0iRXyM0Vq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "UkWAkC5wILtVww1b"
-					},
-					"HOJLnnycJ2M943g8": {
-						"type": "effect",
-						"default": true,
-						"effectId": "66g7LXgL05T2Pitz"
 					}
 				},
 				"uses": {
@@ -98,7 +88,11 @@
 				"duration": {
 					"unit": "",
 					"value": 0
-				}
+				},
+				"effects": [
+					"UkWAkC5wILtVww1b",
+					"66g7LXgL05T2Pitz"
+				]
 			}
 		},
 		"description": "<p>You can squeeze the breath out of a humanoid target you can see within 30 feet of you. Use an action and spend 1 exertion point. The target must make a Constitution saving throw against your psionics save DC. On a successful save, the target is unaffected by the attack but is aware of your attempt. On a failed save, the target is paralyzed and levitated 5 feet into the air until the start of your next turn, and suffers bludgeoning damage equal to 1 + your psionic ability modifier.</p>\n<p>While you are choking your target, you may not move, you must maintain line of sight with your target, attacks against you are made with advantage, and you make saving throws at disadvantage.</p>",
@@ -127,9 +121,6 @@
 			"origin": "Item.0ebh0eD7mkbqHhaM",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ugfbJE1UHKoiOr5f",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -141,7 +132,10 @@
 			"img": "icons/magic/unholy/hand-grasping-green.webp",
 			"_id": "UkWAkC5wILtVww1b",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -188,10 +182,6 @@
 			"origin": "Item.0ebh0eD7mkbqHhaM",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ugfbJE1UHKoiOr5f",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -203,7 +193,10 @@
 			"img": "icons/magic/unholy/hand-grasping-green.webp",
 			"_id": "66g7LXgL05T2Pitz",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.abilitySave.all",

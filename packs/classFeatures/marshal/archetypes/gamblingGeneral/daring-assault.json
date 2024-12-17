@@ -6,18 +6,17 @@
 		{
 			"origin": "Item.MByWbPy1Sduzo27Y",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "4gya63S4OTXZYDPT"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Daring Assault",
 			"img": "icons/environment/people/infantry.webp",
 			"_id": "ioS1eFbp3abTYtrA",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.attacks",
@@ -61,18 +60,17 @@
 		{
 			"origin": "Item.MByWbPy1Sduzo27Y",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "4gya63S4OTXZYDPT"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Daring Assault (15th Level)",
 			"img": "icons/environment/people/infantry.webp",
 			"_id": "Uebtg01Xaf0sUJdG",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.attacks",
@@ -149,13 +147,10 @@
 					"type": ""
 				},
 				"consumers": {},
-				"prompts": {
-					"4Q1YiucDNtHcLxio": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ioS1eFbp3abTYtrA"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"ioS1eFbp3abTYtrA"
+				]
 			}
 		},
 		"description": "<p>While you are conscious, any ally within range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} that makes an attack roll can choose to roll with a &ndash;5 penalty. If the attack hits, the attack deals an extra 2d6 damage. At 15th level, the amount of extra damage increases to 3d6.</p>",

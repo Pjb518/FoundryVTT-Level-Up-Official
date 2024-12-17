@@ -19,13 +19,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"vPM5bCODEdZDOXMk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "YLAYHQ1TnPHaCGio"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -36,7 +30,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"YLAYHQ1TnPHaCGio"
+				]
 			},
 			"TvYHEJiYchxaMN7S": {
 				"name": "Glow",
@@ -46,13 +43,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"lZ55cDaHMY18Maen": {
-						"type": "effect",
-						"default": true,
-						"effectId": "gvAzStVZKoC36kq3"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -63,7 +54,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"gvAzStVZKoC36kq3"
+				]
 			}
 		},
 		"description": "<p>Beginning at 6th level, you clearly contain the essence of something beyond mortal ken, and it provokes awe and wonder in those who witness your magic. Whenever you cast a spell from the divine school of 1st-level or higher, you are surrounded by an aura of awe that persists for a number of minutes equal to the spell level. This aura may subtly provoke powerful feelings, or it could be overtly visible and fantastical; either way the effect is clearly magical. While this aura is active, you gain an expertise die on all Persuasion and Intimidation checks. While this aura is active, you may choose to glow, shedding bright light in a 30-foot radius and dim light an additional 30 feet beyond that (beginning or ending the glow is a bonus action).</p>",
@@ -91,19 +85,17 @@
 		{
 			"origin": "Item.JjQQMdjUwQFsqwLe",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "tyP8tIB6aaNSrLDL",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Aura of Awe",
 			"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
 			"_id": "YLAYHQ1TnPHaCGio",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.skills.per.expertiseDice",
@@ -147,19 +139,17 @@
 		{
 			"origin": "Item.JjQQMdjUwQFsqwLe",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "TvYHEJiYchxaMN7S",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Glow",
 			"img": "icons/magic/holy/saint-glass-portrait-halo.webp",
 			"_id": "gvAzStVZKoC36kq3",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",

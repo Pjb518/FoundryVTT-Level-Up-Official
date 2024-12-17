@@ -18,18 +18,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"Kvn46wKyfooFUNz4": {
-						"type": "effect",
-						"default": true,
-						"effectId": "mlPAg4y5OFn8rb6T"
-					},
-					"EuFiNOTECDgFlNOs": {
-						"type": "effect",
-						"default": true,
-						"effectId": "4BvZzVu15qOHKlON"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -40,7 +29,11 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"mlPAg4y5OFn8rb6T",
+					"4BvZzVu15qOHKlON"
+				]
 			}
 		},
 		"description": "<p>At 11th level, you and creatures friendly to you within the area of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} do an additional 1d4 of necrotic damage with their weapon attacks, and any creature reduced to 0 hit points by an affected creature immediately accrues one failed death save.</p>\n<p>In addition, as long as you have at least two allied creatures in the area of your Commanding Presence, you all gain an expertise die on Intimidation checks.</p>\n<p>Finally, you and your allies within your Commanding Presence gain advantage on all attacks made against incapacitated creatures and noncombatants. If ayou or an ally would already have advantage on the attack, you deal an additional 1d4 of necrotic damage instead, which stack with the bonus damage above.</p>",
@@ -69,19 +62,17 @@
 		{
 			"origin": "Item.FrS0cHWBu0oKRWWZ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "hGZfPIR23HHBlPDk",
-					"applyToSelf": false
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Bloodthirsty",
 			"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
 			"_id": "mlPAg4y5OFn8rb6T",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -119,18 +110,17 @@
 		{
 			"origin": "Item.FrS0cHWBu0oKRWWZ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "hGZfPIR23HHBlPDk"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Two Allied Creatures",
 			"img": "icons/skills/wounds/blood-drip-droplet-red.webp",
 			"_id": "4BvZzVu15qOHKlON",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.skills.itm.expertiseDice",

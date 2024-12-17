@@ -45,16 +45,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "negates effect"
-					},
-					"HPd9CbMXf5Dzji2R": {
-						"type": "effect",
-						"default": true,
-						"effectId": "q3O5advtUKtEG13b"
-					},
-					"dsFyr3XlHpksDyDU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "MSm9Ug32DP7ayJ4e"
 					}
 				},
 				"uses": {
@@ -80,7 +70,11 @@
 					"quantity": 1,
 					"radius": 5,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"q3O5advtUKtEG13b",
+					"MSm9Ug32DP7ayJ4e"
+				]
 			},
 			"ZpxNnNBF25qUW9ly": {
 				"name": "Move Sphere",
@@ -98,16 +92,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"YBLVo9AFxM5gmKAU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "R2AGHyf35tBgPJmh"
-					},
-					"OKmE9OlLxoGjUPXx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Lsw7h23pRWZ5cRn0"
 					}
 				},
 				"uses": {
@@ -125,7 +109,11 @@
 					"8jq0EFqlBKvzvNi6": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"R2AGHyf35tBgPJmh",
+					"Lsw7h23pRWZ5cRn0"
+				]
 			}
 		},
 		"description": "<p>You conjure a rolling sphere of water at a point within range up to 10 feet off the ground. Any creature in the sphere&rsquo;s space must make a Strength saving throw; it can move to the nearest occupied space of its choosing if it succeeds. Huge or larger creatures automatically succeed. A creature fully engulfed is restrained and must hold its breath, taking 2d6 bludgeoning and 2d6 psychic damage from the current and pain of holding its breath. At the end of each of its turns, a restrained creature can make another Strength saving throw, swimming free of the sphere on a success.</p><p>The sphere can hold up to four Medium or smaller creatures or one Large creature. If you try to engulf any additional creatures exceeding this amount, choose one or more to be ejected, falling prone beside the sphere.</p><p>As an action, you can direct the sphere to move up to 30 feet. If it moves over an edge, it descends at a rate of 60 feet per round until it is 10 feet above the ground again. Any creature restrained by the sphere moves with it. Any creature whose space the sphere enters must make a Strength saving throw or be engulfed and restrained on a failure.</p>",
@@ -177,9 +165,6 @@
 			"origin": "Item.ctnvjb2f09i45ivt",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PL1mBeVilFX0lMsT",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -215,17 +200,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/magic/water/orb-water-bubbles.webp",
 			"origin": "Item.ctnvjb2f09i45ivt",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PL1mBeVilFX0lMsT"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -257,6 +242,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -264,9 +253,6 @@
 			"origin": "Item.ctnvjb2f09i45ivt",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ZpxNnNBF25qUW9ly",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -302,17 +288,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/magic/water/orb-water-bubbles.webp",
 			"origin": "Item.ctnvjb2f09i45ivt",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ZpxNnNBF25qUW9ly"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -344,6 +330,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

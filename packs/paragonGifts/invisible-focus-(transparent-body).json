@@ -23,13 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"FAnkBlCwCcMcy3qL": {
-						"type": "effect",
-						"default": true,
-						"effectId": "L67R4G68jsmTcvuU"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -42,7 +36,10 @@
 				"target": {
 					"type": "self",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"L67R4G68jsmTcvuU"
+				]
 			}
 		},
 		"description": "<p>You can use an action to focus, spreading your transparent qualities to your equipment and any items you are carrying. You become&nbsp;invisible</span>&nbsp;for 1 minute or until you lose&nbsp;concentration&nbsp;(as if concentrating on a spell). Once you have used this trait, you can&rsquo;t use it again until you finish a&nbsp;<span>short or long rest.</p>",
@@ -71,13 +68,9 @@
 			"origin": "Item.4qtrm4k61zvspiy2",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "R1w6QzzeCTxPn0MC",
 					"duration": {
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -110,6 +103,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

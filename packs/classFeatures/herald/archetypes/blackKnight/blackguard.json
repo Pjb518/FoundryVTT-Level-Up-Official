@@ -63,11 +63,6 @@
 							"type": "maneuver"
 						}
 					},
-					"7eUeX4x6WhBSwEgc": {
-						"type": "effect",
-						"default": true,
-						"effectId": "gsBYPQ5LRk8F2wbT"
-					},
 					"v3tXRcLMYdMC4vFg": {
 						"type": "savingThrow",
 						"default": true,
@@ -87,7 +82,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"gsBYPQ5LRk8F2wbT"
+				]
 			},
 			"I5Dr9ifD5VjbwuIb": {
 				"name": "Menacing Countenance",
@@ -121,11 +119,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"qw1bE6gDYlOLc0wg": {
-						"type": "effect",
-						"default": true,
-						"effectId": "saDdfJ59hiTuWPdg"
 					}
 				},
 				"uses": {
@@ -143,7 +136,10 @@
 					"unit": "minute",
 					"value": 1
 				},
-				"img": "icons/magic/perception/eye-ringed-glow-angry-small-red.webp"
+				"img": "icons/magic/perception/eye-ringed-glow-angry-small-red.webp",
+				"effects": [
+					"saDdfJ59hiTuWPdg"
+				]
 			}
 		},
 		"description": "<p>At 20th level, you fully become a terrifying figure out of nightmare and legend. You gain the following abilities:</p>\n<ul>\n<li>\n<p>Your fell physiology becomes incredibly durable. You gain immunity to ongoing damage, and you gain resistance to bludgeoning, slashing, and piercing damage from non-magical sources.</p>\n</li>\n<li>\n<p>Your blood becomes a poisonous black ichor. You may inflict 2 points of necrotic damage to yourself to poison a weapon with your blood for one round. A creature struck by a weapon so poisoned takes 2d6 additional necrotic damage per hit and must make a constitution saving throw or gain the poisoned condition for one minute. Creatures must save against each hit separately. Creatures within 5 feet of you that deal more than 10 points of piercing or slashing damage to you must make a dexterity save against your maneuver DC or suffer 2d6 necrotic damage. Each applicable instance of damage triggers this effect separately.</p>\n</li>\n<li>\n<p>Your @UUID[Compendium.a5e.a5e-class-features.Item.k25cbr3kk1rdtq3j]{Menacing Countenance} becomes so terrible that it tears at the minds of those who witness you. Creatures that fail their save against your Menacing Countenance take 2d4 of psychic damage and are rattled until they can shake off the effects. Creatures that fail their saves by 10 or more instead become supernaturally terrified, and will flee from you at maximum speed by the most direct route possible, heedless of hazards along their path, until you are out of sight.</p>\n</li>\n</ul>",
@@ -190,9 +186,6 @@
 			"origin": "Item.C1SR1G3qJwg7cOIw",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "dvyDDBVnTiqTRB9S",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -203,7 +196,10 @@
 			"img": "icons/commodities/metal/clasp-skull-jeweled-red.webp",
 			"_id": "gsBYPQ5LRk8F2wbT",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -243,18 +239,17 @@
 		{
 			"origin": "Item.QDpX9H9P4zV8BwDr",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "I5Dr9ifD5VjbwuIb"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Daunted",
 			"img": "icons/magic/perception/eye-ringed-glow-angry-small-red.webp",
 			"_id": "saDdfJ59hiTuWPdg",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"pwwL7aw4HA11T7Fr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "vXw2iVSVTGRwR3Ff"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +47,10 @@
 					"RJZrCOSSC0ACxuQg": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"vXw2iVSVTGRwR3Ff"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">You cause a creature to gain the benefits of a short rest instantly. The creature may not benefit from short rests and recovers only the minimum amount from all healing effects until the end of its next long rest.</p>",
@@ -81,18 +78,17 @@
 		{
 			"origin": "Item.80n3vR7oCj8VvW7G",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "1ryz9VNq1Yd2hLto"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Rested Burnout",
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "vXw2iVSVTGRwR3Ff",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

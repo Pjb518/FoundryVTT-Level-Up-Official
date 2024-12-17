@@ -20,13 +20,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"NbrLaeMINKZwxKBj": {
-						"type": "effect",
-						"default": true,
-						"effectId": "G7aS5misFxOHYnxW"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -35,7 +29,10 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"G7aS5misFxOHYnxW"
+				]
 			}
 		},
 		"description": "<p>While within 5 feet of a solid wall, you gain +2 AC.</p>",
@@ -63,19 +60,17 @@
 		{
 			"origin": "Item.Wm6lG7NOaj7tXuVl",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "OIu5PQpeCkBOjD6v",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Tunnel Guardian",
 			"img": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
 			"_id": "G7aS5misFxOHYnxW",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.ac.changes.bonuses.value",

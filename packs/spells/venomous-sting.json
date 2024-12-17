@@ -30,13 +30,7 @@
 						"damageType": "poison"
 					}
 				},
-				"prompts": {
-					"MANLdxix8IhbsxzG": {
-						"type": "effect",
-						"default": true,
-						"effectId": "z6CnHw89qM6D9esI"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -58,7 +52,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"z6CnHw89qM6D9esI"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">You lash out with poisoned barbs which flood the target&rsquo;s body with toxins. Make a melee spell attack. On a hit, you deal 1d8 poison damage, and the target is poisoned until the start of your next turn.&nbsp;</p><p dir=\"ltr\">This spell&rsquo;s damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
@@ -111,9 +108,6 @@
 			"origin": "Item.ne5fiqa3pojgbbhx",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "llkIcK0GYiW5TBS2",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -150,6 +144,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

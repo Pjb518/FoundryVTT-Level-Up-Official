@@ -7,10 +7,6 @@
 			"origin": "Item.uNPwqkFFkTosMn91",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "9GX1tZEbmHCZIMpq",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -52,7 +48,10 @@
 			},
 			"img": "icons/skills/trades/music-notes-sound-blue.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -93,13 +92,10 @@
 					"type": "self"
 				},
 				"consumers": {},
-				"prompts": {
-					"AMoqTgyPON4G9O6z": {
-						"type": "effect",
-						"default": true,
-						"effectId": "AGvkVrGZnrMhV85w"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"AGvkVrGZnrMhV85w"
+				]
 			},
 			"gvT3uB6HpoRZ2Vwa": {
 				"name": "Unarmed Strike",

@@ -38,11 +38,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Disadvantage on Perception checks relying on hearing"
-					},
-					"7Ir1dOTfyqYM55NM": {
-						"type": "effect",
-						"default": true,
-						"effectId": "bkxYdR2z67y7UTqh"
 					}
 				},
 				"uses": {
@@ -66,7 +61,10 @@
 					"length": 5,
 					"width": 5,
 					"height": 10
-				}
+				},
+				"effects": [
+					"bkxYdR2z67y7UTqh"
+				]
 			}
 		},
 		"description": "<p>At 14th level, you gain the most potent sound sculptor ability: the creation of walls of sound. As an action, you can create a wall of solid sound. The wall is composed of twenty 5-foot-square, 10-foot-tall sections of solid sound. The sections must be contiguous, and all sections must be within 120 feet of your position; otherwise, you can form the wall in any shape you desire. The wall&rsquo;s space is&nbsp;difficult terrain</span>, and reverberations in the air make objects on the opposite side of the wall lightly obscured. Ranged attacks fired through the wall are made at&nbsp;disadvantage</span>&nbsp;. A creature that enters the wall&rsquo;s space for the first time on a turn or that starts its turn inside the wall must make a Constitution&nbsp;saving throw&nbsp;against your spell save DC. On a failed save, the target loses&nbsp;<span>concentration&nbsp;(if applicable) on any spell or effect they are concentrating on and is deafened for one minute. On a success, the target has disadvantage on Perception checks relying on hearing until it exits the section of wall, but is not deafened and does not lose concentration. You must concentrate to maintain the wall (as if concentrating on a spell), and it vanishes if you lose concentration. You can use this feature a number of times equal to your proficiency bonus, regaining all uses when you finish a&nbsp;<span>long rest .</p>",
@@ -95,9 +93,6 @@
 			"origin": "Item.2KQsnBHm9Ygk0ZQI",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "DRJgdzb5YGecf8OR",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -108,7 +103,10 @@
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"_id": "bkxYdR2z67y7UTqh",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

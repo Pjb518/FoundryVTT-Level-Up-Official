@@ -27,13 +27,7 @@
 						"formula": "floor(@prof/2)"
 					}
 				},
-				"prompts": {
-					"GQh7FRBWy9LgJOVq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "7DOkcF4aJXrOj2Tw"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -44,7 +38,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"7DOkcF4aJXrOj2Tw"
+				]
 			}
 		},
 		"description": "<p>Starting at 3rd level, when you are raging, your flesh takes on the thick, protective qualities of dragon scales. While you are raging, any damage you take except psychic damage is reduced by an amount equal to half your proficiency bonus.</p>",
@@ -72,12 +69,7 @@
 		{
 			"origin": "Item.Vkk43KwdXmVlZdAq",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ujdn1tphDmP1Sapk",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Scaly Hide",
@@ -107,7 +99,10 @@
 			},
 			"img": "icons/commodities/leather/scales-brown.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

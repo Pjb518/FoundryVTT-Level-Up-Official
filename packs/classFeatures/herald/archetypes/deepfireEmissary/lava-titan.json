@@ -28,13 +28,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"AlpMx1uvdwzRZ8Tm": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ueGxdMfN2BTmVnT6"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -51,7 +45,10 @@
 				"target": {
 					"type": "",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"ueGxdMfN2BTmVnT6"
+				]
 			},
 			"jBfJpQtcmyOeA9xe": {
 				"name": "Retaliatory Damage",
@@ -167,10 +164,6 @@
 			"origin": "Item.q1zVwahMFYoqrpwV",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "cLE0jSrXsWQfmLn7",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -181,7 +174,10 @@
 			"img": "icons/creatures/magical/construct-iron-stomping-yellow.webp",
 			"_id": "ueGxdMfN2BTmVnT6",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.size",

@@ -8,9 +8,6 @@
 			"origin": "Item.WKxBYokGwfmE975x",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "9rCM5a3Q69pO7XEk",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -38,6 +35,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -80,14 +81,10 @@
 					"type": "creature"
 				},
 				"consumers": {},
-				"prompts": {
-					"9SwsSgAKxWLpfbyE": {
-						"type": "effect",
-						"default": true,
-						"effectId": "UqhJFCA1yMTLMXLA",
-						"label": "Battle Hymn: Placid Tones"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"UqhJFCA1yMTLMXLA"
+				]
 			}
 		},
 		"description": "<p>The target gains an expertise die on Intelligence, Wisdom, and&nbsp;Charisma checks.</p>",

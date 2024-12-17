@@ -22,13 +22,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"lkO16jd5DRdiTbik": {
-						"type": "effect",
-						"default": true,
-						"effectId": "xgR8EMaZ1niCoHpL"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -45,7 +39,10 @@
 				"target": {
 					"type": "self",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"xgR8EMaZ1niCoHpL"
+				]
 			},
 			"kac158H6Aon2WihT": {
 				"name": "Force Damage",
@@ -78,13 +75,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"Nou2aQLXhspkhKij": {
-						"type": "effect",
-						"default": true,
-						"effectId": "iVXsC2WMpDoPseXY"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -95,7 +86,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"iVXsC2WMpDoPseXY"
+				]
 			}
 		},
 		"description": "<p>At 6th level, you can take on some aspects of the undeparted dead. As a bonus action, you can become insubstantial, allowing you to walk through solid objects for one minute. You take 1d10 force damage if you end your turn inside a solid object and are immediately shunted to the nearest unoccupied space. This process is draining, and when you end the effect, either by dismissing it (no action required) or by its duration expiring, you suffer a level of fatigue.</p>",
@@ -124,10 +118,6 @@
 			"origin": "Item.O1lasVL4J4hQI93t",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "5NJlM0DPlUHuAVrW",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -138,7 +128,10 @@
 			"img": "icons/magic/death/undead-ghost-scream-teal.webp",
 			"_id": "xgR8EMaZ1niCoHpL",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -169,19 +162,17 @@
 		{
 			"origin": "Item.O1lasVL4J4hQI93t",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "QptQ6xu9y8tEMTZm",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "End Ghostly Passage",
 			"img": "icons/magic/death/undead-ghost-scream-teal.webp",
 			"_id": "iVXsC2WMpDoPseXY",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.fatigue",

@@ -51,11 +51,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Half damage"
-					},
-					"fPc6fRxPcGtryDmU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3Ly91PDB0fJL3zvM"
 					}
 				},
 				"uses": {
@@ -82,7 +77,10 @@
 					"quantity": 1,
 					"radius": 30
 				},
-				"img": "icons/magic/fire/projectile-feathers-embers-gold.webp"
+				"img": "icons/magic/fire/projectile-feathers-embers-gold.webp",
+				"effects": [
+					"3Ly91PDB0fJL3zvM"
+				]
 			},
 			"dNDj85cJvIZatWz8": {
 				"name": "Rebirth",
@@ -139,12 +137,7 @@
 			"icon": "icons/magic/fire/projectile-feathers-embers-gold.webp",
 			"origin": "Item.8fve58oe1aaaldmx",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "iEU332tZcAGD1ICb",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Ash",
@@ -174,18 +167,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/magic/fire/projectile-feathers-embers-gold.webp",
 			"origin": "Item.8fve58oe1aaaldmx",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "dNDj85cJvIZatWz8",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Ash",
@@ -215,6 +207,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

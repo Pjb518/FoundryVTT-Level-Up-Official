@@ -47,11 +47,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"glKi9aJfjvxGEcHr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "bJu5oaYFvqkhy2QE"
 					}
 				},
 				"uses": {
@@ -84,7 +79,10 @@
 					"quantity": "",
 					"type": "creature"
 				},
-				"img": "icons/magic/unholy/projectile-missile-green.webp"
+				"img": "icons/magic/unholy/projectile-missile-green.webp",
+				"effects": [
+					"bJu5oaYFvqkhy2QE"
+				]
 			}
 		},
 		"description": "<p id=\"docs-internal-guid-64d3f256-7fff-b002-69be-a787624054c1\" dir=\"ltr\">Finally, at 6th level you have learned to direct some of the power of your curse outward. What form this takes depends on your Artifact Affliction:</p><ul><li dir=\"ltr\"><strong>Unmoored:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.05w9nzp0kvu94k3h]{Mirror Image} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Paranoid:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.i7sh0e2wqmql4cac]{See Invisibility} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Troubled:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.36x8lw8mhfigm7ti]{Enthrall} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Fettered:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.9mdbn49lbvsc3r01]{Deadweight} without using a spell slot once per long rest.</li><li dir=\"ltr\" role=\"presentation\"><strong>Gravebound:</strong> You can cast @UUID[Compendium.a5e.a5e-spells.Item.9eojtnhu5ptcipov]{Ray of Enfeeblement} without using a spell slot once per long rest.</li></ul>",
@@ -113,9 +111,6 @@
 			"origin": "Item.uohmo3ibj3mbt6c0",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "V8Mow1LinKc9f1OC",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -142,6 +137,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

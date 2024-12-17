@@ -67,11 +67,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Constitution negates"
-					},
-					"y6cthZ3ylcjQ9wGr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "7imwV82FiardIyO6"
 					}
 				},
 				"uses": {
@@ -89,7 +84,10 @@
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"7imwV82FiardIyO6"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">The next time you hit a creature with a weapon attack during this spell&rsquo;s duration, your weapon encrusts with frost, and the attack deals an extra 1d6 cold damage to the target. The target must make a Constitution saving throw. On a failed save, its speed is reduced by half for the remainder of this spell&rsquo;s duration, or until it succeeds on a Constitution saving throw made at the start of each of its turns.</p><p dir=\"ltr\"><strong>Casting At Higher Levels:</strong> If you cast this spell using a spell slot of 2nd level or higher, the damage increases by 1d6 for each slot level above 1st.</p>",
@@ -142,9 +140,6 @@
 			"origin": "Item.b3t1nu2d4iq635e4",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PWtrtGOmx0EpnVkW",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -178,6 +173,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

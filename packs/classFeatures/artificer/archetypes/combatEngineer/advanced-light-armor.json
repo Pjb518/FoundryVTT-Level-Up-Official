@@ -29,13 +29,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"nh6GqVtrIDiSHK0a": {
-						"type": "effect",
-						"default": true,
-						"effectId": "iFGvvAy73rS3E98m"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -44,7 +38,10 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"iFGvvAy73rS3E98m"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\" role=\"presentation\">The armor&rsquo;s stealth system improves. As a bonus action, you can become invisible until the beginning of your next turn. Once you have used this feature a number of times equal to your Intelligence modifier (minimum once) you can&rsquo;t do so again until you finish a short or long rest.</p>",
@@ -73,10 +70,6 @@
 			"origin": "Item.XJxyGZzBuo0Ejnwx",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "YwE0saNBU5HklOIr",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -120,7 +113,10 @@
 			},
 			"img": "icons/equipment/chest/vest-leather-brown.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

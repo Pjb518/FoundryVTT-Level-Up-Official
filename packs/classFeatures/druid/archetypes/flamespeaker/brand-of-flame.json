@@ -28,13 +28,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"9QEbB7i5kft6BvK7": {
-						"type": "effect",
-						"default": true,
-						"effectId": "1hSVV1OyX19L8MMk"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -61,7 +55,10 @@
 					"type": "creature",
 					"quantity": 1
 				},
-				"description": "<p>The creature gains resistance to fire and its melee attacks deal an additional 1d6 points of fire damage. The blessing lasts for a number of minutes equal to half your proficiency bonus.</p>"
+				"description": "<p>The creature gains resistance to fire and its melee attacks deal an additional 1d6 points of fire damage. The blessing lasts for a number of minutes equal to half your proficiency bonus.</p>",
+				"effects": [
+					"1hSVV1OyX19L8MMk"
+				]
 			},
 			"0fm09asF41PGf3KY": {
 				"name": "Curse of Fire",
@@ -77,13 +74,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"QjvvJWRr3wE9iDOb": {
-						"type": "effect",
-						"default": true,
-						"effectId": "nB0ROaVaBE2ndGAc"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -110,7 +101,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"nB0ROaVaBE2ndGAc"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">Also at 6th level, as a bonus action, you may place a blessing or curse of fire on a creature you can see within 30 feet of you. The blessing or curse lasts for a number of minutes equal to half your proficiency bonus.</p>\n<ul>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>Blessing of Fire.</strong> The creature gains resistance to fire and its melee attacks deal an additional 1d6 points of fire damage.&nbsp;</p>\n</li>\n<li dir=\"ltr\" aria-level=\"1\">\n<p dir=\"ltr\" role=\"presentation\"><strong>Curse of Fire.</strong> The creature loses any resistance to fire damage it had, and if it is immune to fire, it is treated as resistant instead. Any time the creature takes fire damage, it also takes an additional 1d6 of ongoing fire damage until it or one of its allies spends an action to extinguish the flames.&nbsp;</p>\n</li>\n</ul>\n<p dir=\"ltr\">You may use Brand of Flame a number of times equal to half your proficiency bonus, regaining all uses on completion of a long rest.</p>\n<p>&nbsp;</p>",
@@ -140,11 +134,7 @@
 			"icon": "icons/magic/symbols/rune-sigil-red-orange.webp",
 			"origin": "Item.pa4bxztjT8rnn42J",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qvoqFLZkIwLdVrji"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Blessing of Fire",
@@ -180,17 +170,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/magic/symbols/rune-sigil-red-orange.webp",
 			"origin": "Item.pa4bxztjT8rnn42J",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "0fm09asF41PGf3KY"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Curse of Fire",
@@ -220,6 +210,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

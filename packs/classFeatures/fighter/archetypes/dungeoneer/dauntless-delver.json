@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"KKhaIMvBht0DQzwf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "lcVownLLljKq6Prh"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -49,7 +43,10 @@
 				"target": {
 					"type": "",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"lcVownLLljKq6Prh"
+				]
 			}
 		},
 		"description": "<p>Starting at 18th level, you have become better at withstanding common attacks you encounter when exploring the depths, shrugging off blows that would severely harm other adventurers. When you take damage, you can use your reaction to gain&nbsp;resistance</span>&nbsp;to bludgeoning, piercing, and slashing damage, as well as to acid, necrotic, and poison damage, until the start of your next turn. You can use this feature a number of times equal to your proficiency bonus, regaining all uses when you finish a&nbsp;<span>long rest.</p></div><div>&nbsp;",
@@ -78,10 +75,6 @@
 			"origin": "Item.bDPybbT5SvIqCYnn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "2XAruFxTpwe1wUZn",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -123,7 +116,10 @@
 			},
 			"img": "icons/magic/earth/barrier-stone-explosion-spiked.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

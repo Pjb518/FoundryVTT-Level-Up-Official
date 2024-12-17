@@ -6,18 +6,17 @@
 		{
 			"origin": "Item.v6yzj0QSnMAoQqJ1",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "k1ZFJIKyP09q6rqx"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Difficult Terrain",
 			"img": "icons/environment/wilderness/cave-entrance-mountain.webp",
 			"_id": "zwJM5U7bCq0Lj4W5",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -48,18 +47,17 @@
 		{
 			"origin": "Item.v6yzj0QSnMAoQqJ1",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "k1ZFJIKyP09q6rqx"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Extremes",
 			"img": "icons/environment/wilderness/cave-entrance-mountain.webp",
 			"_id": "vtN7xHuWGRPjhDx4",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -90,18 +88,17 @@
 		{
 			"origin": "Item.v6yzj0QSnMAoQqJ1",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "k1ZFJIKyP09q6rqx"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Swimming",
 			"img": "icons/environment/wilderness/cave-entrance-mountain.webp",
 			"_id": "BJcPqi2Q2YKRnOfH",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.swim.distance",
@@ -139,18 +136,17 @@
 		{
 			"origin": "Item.v6yzj0QSnMAoQqJ1",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "k1ZFJIKyP09q6rqx"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Difficult Surfaces",
 			"img": "icons/environment/wilderness/cave-entrance-mountain.webp",
 			"_id": "Avfa012eW6ultP1Q",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -182,10 +178,6 @@
 			"origin": "Item.v6yzj0QSnMAoQqJ1",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "QhAotxWMYb9wmZP3",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -196,7 +188,10 @@
 			"img": "icons/environment/wilderness/cave-entrance-mountain.webp",
 			"_id": "X39TiSzrtikgVACu",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.fly.distance",
@@ -256,32 +251,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"YtMUHaUQ1VPVvohB": {
-						"type": "effect",
-						"default": true,
-						"effectId": "zwJM5U7bCq0Lj4W5",
-						"label": "Difficult Terrain"
-					},
-					"RX7X663DAfI2tFk0": {
-						"type": "effect",
-						"default": true,
-						"effectId": "vtN7xHuWGRPjhDx4",
-						"label": "Extremes"
-					},
-					"lJKEulZZEerKyEr6": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BJcPqi2Q2YKRnOfH",
-						"label": "Swimming"
-					},
-					"YPIMaxxR55Te1sXP": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Avfa012eW6ultP1Q",
-						"label": "Difficult Surfaces"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -292,7 +262,13 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"zwJM5U7bCq0Lj4W5",
+					"vtN7xHuWGRPjhDx4",
+					"BJcPqi2Q2YKRnOfH",
+					"Avfa012eW6ultP1Q"
+				]
 			},
 			"QhAotxWMYb9wmZP3": {
 				"name": "Flying",
@@ -312,13 +288,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"yqLPvQEhGWvFUUvE": {
-						"type": "effect",
-						"default": true,
-						"effectId": "X39TiSzrtikgVACu"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -329,7 +299,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"X39TiSzrtikgVACu"
+				]
 			}
 		},
 		"description": "<p>At 14th level, choose one of the following boons:</p>\n<ul>\n<li>\n<p>You ignore difficult terrain.</p>\n</li>\n<li>\n<p>You ignore the effects of extreme heat, extreme cold, and high altitude.</p>\n</li>\n<li>\n<p>You gain a swim speed equal to your Speed.</p>\n</li>\n<li>\n<p>You can climb difficult surfaces, including upside down on ceilings, without needing to make an ability check.</p>\n</li>\n<li>\n<p>You can spend 1 sorcery point to gain a fly speed equal to your Speed for 1 hour.</p>\n</li>\n</ul>\n<p>When you finish a long rest, you may switch out your active boon with one other boon from this list.</p>",

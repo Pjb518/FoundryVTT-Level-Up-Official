@@ -41,11 +41,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "half damage, negates prone"
-					},
-					"vKyJSm9nJszyFPcc": {
-						"type": "effect",
-						"default": true,
-						"effectId": "puw57dYOC8gEe0mq"
 					}
 				},
 				"uses": {
@@ -70,7 +65,10 @@
 					"quantity": 1,
 					"radius": 10,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"puw57dYOC8gEe0mq"
+				]
 			}
 		},
 		"description": "<p>With a stomp, you send a tremor through the ground. Each target (other than you) in the area in contact with the ground that fails its save takes 1d4 bludgeoning damage and falls prone. The area becomes difficult terrain if it was stone or earth.</p><p><strong>Cast at Higher Levels.</strong> Increase the damage by 1d4 for every slot level above 1st.</p>",
@@ -123,11 +121,7 @@
 			"icon": "icons/magic/earth/projectile-stone-landslide.webp",
 			"origin": "Item.re9c8pp58ro7py37",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "QideSPrJmcnBN06K"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -159,6 +153,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

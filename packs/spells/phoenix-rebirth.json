@@ -43,11 +43,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Half damage"
-					},
-					"fPc6fRxPcGtryDmU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2lxNntsDTsQRl39k"
 					}
 				},
 				"uses": {
@@ -71,7 +66,10 @@
 					"shape": "sphere",
 					"quantity": 1,
 					"radius": 30
-				}
+				},
+				"effects": [
+					"2lxNntsDTsQRl39k"
+				]
 			},
 			"ihimJG9rrbqFaUfS": {
 				"name": "Rebirth",
@@ -149,12 +147,7 @@
 			"icon": "icons/magic/fire/projectile-feathers-embers-gold.webp",
 			"origin": "Item.8fve58oe1aaaldmx",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "oAu9bobozwjoiHQ3",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Ash",
@@ -184,6 +177,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],

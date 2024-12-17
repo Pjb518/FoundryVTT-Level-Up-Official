@@ -22,13 +22,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"PDHlRnR6ao0ZHioT": {
-						"type": "effect",
-						"default": true,
-						"effectId": "j0GXQyWCaxZ1JoEP"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 1,
 					"max": "1",
@@ -39,7 +33,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"j0GXQyWCaxZ1JoEP"
+				]
 			},
 			"5r0y28mfkvDcayFX": {
 				"name": "Gain Mortality Die",
@@ -142,9 +139,6 @@
 			"origin": "Item.aHRgz87HZmUAjPC9",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PVUZCjYUHm6LStjp",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -155,7 +149,10 @@
 			"img": "icons/magic/death/hand-undead-skeleton-fire-pink.webp",
 			"_id": "j0GXQyWCaxZ1JoEP",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

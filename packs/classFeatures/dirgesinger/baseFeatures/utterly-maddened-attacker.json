@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"eln3zVMTi4p5Ox6h": {
-						"type": "effect",
-						"default": true,
-						"effectId": "LnCaLyLPk38WC8Zw"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +47,10 @@
 					"173vLllEPfGmB0ce": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"LnCaLyLPk38WC8Zw"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">You cause a creature to gain advantage on all its attacks and have its critical hit range with all attacks increase by 1 for the next minute. However, the creature must use every type of action available to it to attack creatures within its reach or range; if there are no creatures within its reach or range to attack, it must move toward the nearest creature to it and begin attacking.</p><p dir=\"ltr\">Whenever the target creature misses with an attack, it takes damage equal to its proficiency bonus.</p>",
@@ -82,9 +79,6 @@
 			"origin": "Item.CMg4MabfLeVWBSQR",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "hfPPbVuKU5dnkOQC",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -95,7 +89,10 @@
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "LnCaLyLPk38WC8Zw",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.attack.all",

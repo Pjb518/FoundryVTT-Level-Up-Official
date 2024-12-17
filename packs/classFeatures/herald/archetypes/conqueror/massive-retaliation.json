@@ -27,11 +27,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"EXq36RerriOi1dqg": {
-						"type": "effect",
-						"default": true,
-						"effectId": "G8BKUJC6WTHS09SQ"
 					}
 				},
 				"uses": {
@@ -44,7 +39,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"G8BKUJC6WTHS09SQ"
+				]
 			},
 			"mm1jxnS3bzJhwhtF": {
 				"name": "0 Hit Points",
@@ -59,11 +57,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"EXq36RerriOi1dqg": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kvc9snFhmHN8bFgo"
 					}
 				},
 				"uses": {
@@ -87,7 +80,10 @@
 					"quantity": 1,
 					"radius": 30,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"kvc9snFhmHN8bFgo"
+				]
 			},
 			"38nlOqupmpetMn1w": {
 				"name": "Attack Back",
@@ -149,9 +145,6 @@
 			"origin": "Item.wy7ph4Srjw7hYWrg",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "quN5HnujHfGH2KlN",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -163,7 +156,10 @@
 			"img": "icons/skills/melee/strike-axe-blood-red.webp",
 			"_id": "G8BKUJC6WTHS09SQ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -204,9 +200,6 @@
 			"origin": "Item.wy7ph4Srjw7hYWrg",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "mm1jxnS3bzJhwhtF",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -218,7 +211,10 @@
 			"img": "icons/skills/melee/strike-axe-blood-red.webp",
 			"_id": "kvc9snFhmHN8bFgo",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

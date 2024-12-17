@@ -19,13 +19,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"jq6TBtafHHy04aP7": {
-						"type": "effect",
-						"default": true,
-						"effectId": "psBHO5LAba2h2K8c"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -36,7 +30,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"psBHO5LAba2h2K8c"
+				]
 			}
 		},
 		"description": "<p>At 15th level the thrill of danger drives you to new heights. While bloodied can grant yourself advantage on weapon attack rolls until the start of your next turn. If you do so, all attack rolls against you have advantage for the same duration. Also while bloodied your chance to critically hit with weapon attacks is 19-20. If you already critically hit on better than a natural 20 you instead increase your critical hit range by 1 to a maximum of 17-20.</p><p>In addition, if you die all allies within 60 feet that see you fall gain inspiration.</p>",
@@ -65,10 +62,6 @@
 			"origin": "Item.PglDPE9WjwBG7G8A",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "9eONv8ymuSjXLNvV",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -80,7 +73,10 @@
 			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
 			"_id": "psBHO5LAba2h2K8c",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.attack.meleeWeaponAttack",

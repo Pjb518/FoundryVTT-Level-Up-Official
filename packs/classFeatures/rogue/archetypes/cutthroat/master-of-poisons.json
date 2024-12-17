@@ -6,19 +6,17 @@
 		{
 			"origin": "Item.jkqNNkZXo3FXmzWT",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ahJUuMIOUhPrDswb",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Blackblade",
 			"img": "icons/consumables/potions/flask-ornate-skull-green.webp",
 			"_id": "QZAnxkB7JmrHsGFI",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -56,19 +54,17 @@
 		{
 			"origin": "Item.jkqNNkZXo3FXmzWT",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "bR3aDb7oQZqk2FNU",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Blackblade",
 			"img": "icons/consumables/potions/flask-ornate-skull-green.webp",
 			"_id": "iWaa5By156k3mGCg",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -128,13 +124,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"vlpFEFwfeqCRQeRo": {
-						"type": "effect",
-						"default": true,
-						"effectId": "QZAnxkB7JmrHsGFI"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -145,7 +135,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"QZAnxkB7JmrHsGFI"
+				]
 			},
 			"bR3aDb7oQZqk2FNU": {
 				"name": "Apply Poison (Cunning Action)",
@@ -168,13 +161,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"5wPxzUPXQHLoohmm": {
-						"type": "effect",
-						"default": true,
-						"effectId": "iWaa5By156k3mGCg"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -185,7 +172,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"iWaa5By156k3mGCg"
+				]
 			}
 		},
 		"description": "<p>Starting at 3rd level, you learn the recipe for a special injury poison called Blackblade. During a short or long rest, you can use your @UUID[Compendium.a5e.a5e-adventuring-gear.Item.0egxwnp3fyh6lelv]{Poisoner's Kit} to brew a number of doses of this poison equal to your proficiency bonus without spending money or resources doing so. These poisons lose their effectiveness at the start of your next short or long rest.</p>\n<p>This poison can be applied to a weapon or piece of ammunition before combat or as a Cunning Action. The first time a poisoned weapon or ammunition deals damage, it deals an additional 3d6 poison damage.</p>",

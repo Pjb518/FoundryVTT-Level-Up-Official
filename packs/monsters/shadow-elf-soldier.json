@@ -1370,7 +1370,8 @@
 								"type": "healing"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>When you drink the pure red concoction in this flask, you regain 4d4 + 4 hit points.</p>",
@@ -1584,7 +1585,8 @@
 							"quantity": "",
 							"type": "none"
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>You create up to four hovering lights which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. Each sheds dim light in a 10-foot radius.</p><p>You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this spell. A dancing light winks out when it exceeds the spell's range.</p>",
@@ -1682,7 +1684,8 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.</p><p>When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.</p>",
@@ -2261,7 +2264,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "",
@@ -2424,7 +2428,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					},
 					"vQTQD7tzjEVIJLR0": {
 						"name": "Parry",
@@ -2578,7 +2583,8 @@
 								"quantity": 1,
 								"type": "ammunition"
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "",
@@ -2661,13 +2667,7 @@
 						},
 						"consumers": {},
 						"rolls": {},
-						"prompts": {
-							"0SmHwlwpdu25vuc1": {
-								"type": "effect",
-								"default": true,
-								"effectId": "AL0HabkepzfvfTjM"
-							}
-						},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
@@ -2678,7 +2678,10 @@
 								"rechargeAmount": "1",
 								"threshold": 6
 							}
-						}
+						},
+						"effects": [
+							"AL0HabkepzfvfTjM"
+						]
 					}
 				},
 				"description": "<p>Until the end of the veteran&rsquo;s turn, their Speed is halved and their movement doesn&rsquo;t provoke opportunity attacks.</p>",
@@ -2909,10 +2912,7 @@
 			"icon": "icons/svg/item-bag.svg",
 			"origin": "Actor.cn68cn5jutv3nmlk.Item.YLoqLhmKUQENDXyB",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Sunlight",
@@ -2948,6 +2948,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

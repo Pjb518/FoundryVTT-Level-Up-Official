@@ -27,13 +27,7 @@
 						"healingType": "temporaryHealing"
 					}
 				},
-				"prompts": {
-					"FOR7jwptUe2yJz6X": {
-						"type": "effect",
-						"default": true,
-						"effectId": "k3MFxtLg2kFhc6BW"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -44,7 +38,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"k3MFxtLg2kFhc6BW"
+				]
 			}
 		},
 		"description": "<p>At 10th level whenever you cast a spell that summons a beast, plant, elemental, or fey, any creatures summoned gain temporary hit points equal to a roll of a number of d4s equal to your proficiency bonus. If multiple creatures are summoned by one spell, they all gain the same number of temporary hit points. They also gain an expertise die on saving throws and attack rolls.</p>",
@@ -72,18 +69,17 @@
 		{
 			"origin": "Item.TvfoAM5c9kp2Z007",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zKYXLG4BGSFitqkA"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Come to my Aid",
 			"img": "icons/magic/life/heart-area-circle-red-green.webp",
 			"_id": "k3MFxtLg2kFhc6BW",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.abilities.str.save.expertiseDice",

@@ -42,11 +42,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"bPP3ZGDoc78ipnhn": {
-						"type": "effect",
-						"default": true,
-						"effectId": "1eVwyB1jkunBWrdJ"
 					}
 				},
 				"uses": {
@@ -59,7 +54,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"1eVwyB1jkunBWrdJ"
+				]
 			}
 		},
 		"description": "<p>Your horns are particularly sharp and are considered to be natural weapons with which you are proficient. You can make a horn attack which deals piercing damage equal to 1d6 + your Strength bonus, and if your target is a creature of your Size or smaller it must succeed on a Strength saving throw vs. your maneuver DC or be knocked prone.</p>",
@@ -87,18 +85,17 @@
 		{
 			"origin": "Item.GlucXwosIEdPzAme",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PQr0FofFz4J37wqO"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"img": "icons/creatures/abilities/stinger-spine-horn-blood.webp",
 			"_id": "1eVwyB1jkunBWrdJ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

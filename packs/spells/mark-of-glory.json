@@ -21,18 +21,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"1LanOzuiaz5M48us": {
-						"type": "effect",
-						"default": true,
-						"effectId": "mIHNd7Fqk9W1NwP6"
-					},
-					"sqJyDVwX3W9HHjOs": {
-						"type": "effect",
-						"default": true,
-						"effectId": "lKN75NPQ3n5bJzim"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -54,7 +43,11 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"mIHNd7Fqk9W1NwP6",
+					"lKN75NPQ3n5bJzim"
+				]
 			}
 		},
 		"description": "<p>You place a mark on the target that covers them with supernatural glory. For the duration, the creature can choose to shed bright light to a range of 30 feet and dim light to a range of 60, their effective prestige level rises by 2, they gain a fly speed of 40 feet, and they can spend a bonus action to walk through a solid surface no more than one foot thick.</p>",
@@ -106,9 +99,6 @@
 			"origin": "Item.t1ltikrq2jeykukt",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "VVlsDSnXqpzDWdTS",
 					"duration": {
 						"unit": "hours"
 					}
@@ -142,17 +132,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/commodities/treasure/crown-gold-laurel-wreath.webp",
 			"origin": "Item.t1ltikrq2jeykukt",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "VVlsDSnXqpzDWdTS"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Glorious Light",
@@ -188,6 +178,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

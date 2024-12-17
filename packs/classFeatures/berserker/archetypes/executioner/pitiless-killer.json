@@ -18,18 +18,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"A5RhYQbPWxHBCB0E": {
-						"type": "effect",
-						"default": true,
-						"effectId": "jwHsQLJoUemoRM6L"
-					},
-					"Z8TnPmeFSeCf2erq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "YaLUwkw6uqDX0AVQ"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -40,7 +29,11 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"jwHsQLJoUemoRM6L",
+					"YaLUwkw6uqDX0AVQ"
+				]
 			},
 			"6vMUQ10ToTt2aqT1": {
 				"name": "Doomed",
@@ -93,19 +86,17 @@
 		{
 			"origin": "Item.hGrzx43mbR7CWFGJ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "hXrwlhcuc8orS13m",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Pitiless Killer",
 			"img": "icons/skills/melee/maneuver-greatsword-yellow.webp",
 			"_id": "jwHsQLJoUemoRM6L",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.conditionImmunities",
@@ -143,18 +134,17 @@
 		{
 			"origin": "Item.hGrzx43mbR7CWFGJ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "hXrwlhcuc8orS13m"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Public Spectacle",
 			"img": "icons/skills/social/intimidation-impressing.webp",
 			"_id": "YaLUwkw6uqDX0AVQ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.strife",

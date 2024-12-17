@@ -19,14 +19,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"GP5xo6IwGOeUVMmv": {
-						"type": "effect",
-						"default": true,
-						"label": "Darkstalker's Stance",
-						"effectId": "ajJZFbFuQ1yXRw7e"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -43,7 +36,10 @@
 					"n9edktdbb7ybZLGO": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"ajJZFbFuQ1yXRw7e"
+				]
 			}
 		},
 		"description": "<p>You draw forth the unquiet dead and force them to your bidding. Choose a number of squares equal to your Charisma modifier within 30 feet. Each square becomes occupied by a spirit entity with an AC equal to 10 + your Charisma modifier, 20 hit points, and vulnerability to radiant damage. Each entity also has a reach of 5 feet and its own reaction for the purposes of making opportunity attacks , which it makes using your attack bonus and base melee damage. The entities cannot use any movement and cannot flank. The squares they occupy are considered difficult terrain to any creature except you.</p><p>Additionally, while this stance is active, as part of the Attack action you can forgo any number of weapon attacks available to you to instead direct a chosen entity to attack using your attack modifier and weapon damage. This stance ends early if all entities are destroyed.</p>",
@@ -72,12 +68,9 @@
 			"origin": "Item.ijtqedwm8c9l29n1",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "0UQ4718L2Cc8X44E"
+					}
 				}
 			},
 			"transfer": false,
@@ -102,6 +95,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

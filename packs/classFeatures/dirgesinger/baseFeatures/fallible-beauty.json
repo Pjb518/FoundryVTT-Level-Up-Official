@@ -27,18 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"mz2UytZQmnJhMZi5": {
-						"type": "effect",
-						"default": true,
-						"effectId": "wiXofLf0GtNsFaOH"
-					},
-					"FsyrpfFVUFJBzScf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XCPss0CcrVujLEZM"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -58,7 +47,11 @@
 					"PRutTJNvOX9AYPaf": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"wiXofLf0GtNsFaOH",
+					"XCPss0CcrVujLEZM"
+				]
 			}
 		},
 		"description": "<p>You cause a creature to have advantage on all Culture, Deception, Intimidation, and Persuasion checks for the next minute. The creature then is treated as if it were Charmed by all other creatures for the next 10 minutes.</p>",
@@ -87,9 +80,6 @@
 			"origin": "Item.pZvblTv6v1EKzRsM",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ETZxImPawnvBtiiI",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -100,7 +90,10 @@
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "wiXofLf0GtNsFaOH",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.skillCheck.cul",
@@ -157,9 +150,6 @@
 			"origin": "Item.pZvblTv6v1EKzRsM",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ETZxImPawnvBtiiI",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -170,7 +160,10 @@
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "XCPss0CcrVujLEZM",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

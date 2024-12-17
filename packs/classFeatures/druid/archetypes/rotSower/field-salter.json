@@ -30,11 +30,6 @@
 				},
 				"rolls": {},
 				"prompts": {
-					"PnuJxczontU2Wxer": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ZOojgYOMxSRXfMGj"
-					},
 					"2qPyn9K9l94H02Ac": {
 						"type": "savingThrow",
 						"default": true,
@@ -42,11 +37,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"blM428p4cpjr3E8u": {
-						"type": "effect",
-						"default": true,
-						"effectId": "l5nNnjfKkei941xn"
 					}
 				},
 				"uses": {
@@ -65,7 +55,11 @@
 						"range": 5,
 						"unit": "miles"
 					}
-				}
+				},
+				"effects": [
+					"ZOojgYOMxSRXfMGj",
+					"l5nNnjfKkei941xn"
+				]
 			}
 		},
 		"description": "<p>At 10th level, your connection to undeath allows you to forcibly tear the life from the earth. Once a month, you can perform a special ritual requiring you to take 2 levels of fatigue and 2 levels of strife and 8 hours of uninterrupted work to blight a wide swath of territory. Upon the successful completion of the ritual, all of the vegetation and creatures weighing less than 5 pounds within a 5-mile radius immediately die and begin decomposing into putrid, toxic ichor. Creatures weighing more than 5 pounds must make a Constitution save against your spell save DC or gain a level of fatigue. Nothing will grow in this area again for a year unless it is ritually purified, which takes a 100gp of reagents and a month of 8-hour days of ritual work from trained spellcasters per affected square mile. At the Narrator&rsquo;s discretion, other methods such as divine intervention, the @UUID[Compendium.a5e.a5e-spells.Item.r6eshb9jaeqc70mp]{Hallow}<em>&nbsp;</em>spell, or similar means may also be able to end the curse.</p>",
@@ -93,19 +87,17 @@
 		{
 			"origin": "Item.4QohnohmfxG7gObG",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zvceLoeSaAXSixeu",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Field Salter (Self)",
 			"img": "icons/magic/death/grave-tombstone-glow-teal.webp",
 			"_id": "ZOojgYOMxSRXfMGj",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.fatigue",
@@ -149,18 +141,17 @@
 		{
 			"origin": "Item.4QohnohmfxG7gObG",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zvceLoeSaAXSixeu"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Field Salter",
 			"img": "icons/magic/death/grave-tombstone-glow-teal.webp",
 			"_id": "l5nNnjfKkei941xn",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.fatigue",

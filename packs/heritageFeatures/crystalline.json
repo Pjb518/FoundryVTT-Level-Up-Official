@@ -26,13 +26,7 @@
 						"ability": "con"
 					}
 				},
-				"prompts": {
-					"DTM30EDO4qtvsrEY": {
-						"type": "effect",
-						"default": true,
-						"effectId": "zzMsIcBydM2DWdIw"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -43,7 +37,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"zzMsIcBydM2DWdIw"
+				]
 			}
 		},
 		"description": "<p>As a crystalline creature, you do not need to breathe, and are unaffected by vacuum. Additionally, you are immune to poisons and poison damage, but when you take thunder damage you make a DC 10 Constitution saving throw or become rattled until the end of your next turn.</p>",
@@ -103,9 +100,6 @@
 			"origin": "Item.4Ly6tzwAKhceZfrX",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "QI1rm2nuVpXqlspF",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -117,7 +111,10 @@
 			"img": "icons/commodities/gems/gem-cluster-teal.webp",
 			"_id": "zzMsIcBydM2DWdIw",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

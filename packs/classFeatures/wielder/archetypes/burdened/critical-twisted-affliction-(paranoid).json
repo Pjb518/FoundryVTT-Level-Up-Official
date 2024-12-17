@@ -21,11 +21,6 @@
 				"consumers": {},
 				"rolls": {},
 				"prompts": {
-					"koYMDX8DJCCaJ7Cu": {
-						"type": "effect",
-						"default": true,
-						"effectId": "tnMwzXTBB7LbjqfA"
-					},
 					"ogqFrmscF4GqcaMI": {
 						"type": "savingThrow",
 						"default": true,
@@ -45,7 +40,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"tnMwzXTBB7LbjqfA"
+				]
 			}
 		},
 		"description": "<p id=\"docs-internal-guid-6279ed4a-7fff-d888-30df-67572cca37e8\" dir=\"ltr\">Also at 18th level, when you score a critical hit, you can choose to spend two artifact charges to impose one of the following conditions on the target, based on your affliction:</p><ul><li dir=\"ltr\"><strong>Unmoored:</strong> Confused</li><li dir=\"ltr\" role=\"presentation\"><strong>Paranoid:</strong> Frightened</li><li dir=\"ltr\" role=\"presentation\"><strong>Troubled:</strong>&nbsp; Unconscious - the target is asleep and wakes if it takes any damage or an action is taken to shake it awake.</li><li dir=\"ltr\" role=\"presentation\"><strong>Fettered:</strong> Encumbered</li><li dir=\"ltr\" role=\"presentation\"><strong>Gravebound:</strong> Blinded</li></ul><p dir=\"ltr\" role=\"presentation\">The condition lasts for one minute, but the target can make a Constitution save against your spell save DC at the end of each of its turns, ending the condition early on a success.</p>",
@@ -74,9 +72,6 @@
 			"origin": "Item.cugxq2d8roq6bf0i",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "4Y1lneo8EmRSyyGB",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -112,6 +107,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

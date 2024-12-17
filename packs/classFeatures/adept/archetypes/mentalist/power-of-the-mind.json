@@ -54,13 +54,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"bh0PsFgpzGVcbmfv": {
-						"type": "effect",
-						"default": true,
-						"effectId": "6KfnTi9TILeoPHY6"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -71,7 +65,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"6KfnTi9TILeoPHY6"
+				]
 			},
 			"9f4QF3NuuWfolaXj": {
 				"name": "Patient Defense",
@@ -134,10 +131,6 @@
 			"origin": "Item.BNtJLKt3Kj076YA8",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "6AAv5PjUTXCieGEn",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -149,7 +142,10 @@
 			"img": "icons/magic/control/debuff-energy-hold-levitate-yellow.webp",
 			"_id": "6KfnTi9TILeoPHY6",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.fly.distance",

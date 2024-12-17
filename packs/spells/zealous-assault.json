@@ -20,13 +20,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"YjSohehEWCZKrQvt": {
-						"type": "effect",
-						"default": true,
-						"effectId": "jSa2IsdzyiMesi6O"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -46,7 +40,10 @@
 					"Ifc2HO5x0iENy7fn": {
 						"range": "self"
 					}
-				}
+				},
+				"effects": [
+					"jSa2IsdzyiMesi6O"
+				]
 			}
 		},
 		"description": "<p><em><strong>Association:&nbsp;</strong>Marshal class</em></p><p>You can call upon a higher power to assist your allies.</p><p>While this spell is active, when a creature is affected by your&nbsp;@UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} feature, it can change the damage dealt by its attack and spell to your choice of radiant or necrotic damage. The amount of damage dealt does not change, only the type.</p><p>If the creature is wielding a ranged weapon, this attack conjures a single shot of ammunition made from the selected energy type and does not consume a piece of ammunition.</p>",
@@ -99,9 +96,6 @@
 			"origin": "Item.nku35dd8nkrio5k8",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "usVfFEiwfCmIeKDP",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -128,6 +122,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

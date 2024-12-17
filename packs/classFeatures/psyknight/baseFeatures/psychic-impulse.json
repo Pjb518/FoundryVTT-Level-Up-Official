@@ -179,13 +179,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"iJOe2Tz9LYUG7M7p": {
-						"type": "effect",
-						"default": true,
-						"effectId": "b2qXxUheZrZ2ulrX"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -211,7 +205,10 @@
 					"quantity": 0,
 					"scaling": {},
 					"type": ""
-				}
+				},
+				"effects": [
+					"b2qXxUheZrZ2ulrX"
+				]
 			}
 		},
 		"description": "<div class=\"flex max-w-full flex-col flex-grow\">\n<div class=\"min-h-8 text-message flex w-full flex-col items-end gap-2 whitespace-normal break-words [.text-message+&amp;]:mt-5\" dir=\"auto\" data-message-author-role=\"assistant\" data-message-id=\"a27749f6-abc7-40cf-8a79-c1c31ae6216b\" data-message-model-slug=\"gpt-4o\">\n<div class=\"flex w-full flex-col gap-1 empty:hidden first:pt-[3px]\">\n<div class=\"markdown prose w-full break-words dark:prose-invert light\">\n<p><span style=\"font-size: 10.5pt;\">Also at 1st level, you gain the following abilities. Once you have used any ability granted by this feature, you can’t use this feature again until you finish a long rest.</span></p>\n<p><strong>Psychic Detonation.</strong> When an enemy moves to flank you, you can use your reaction to send a concussive force outward; enemies in flanking positions make a Strength saving throw or be knocked back 5 feet.</p>\n<p><strong>Mind Share.</strong> As a bonus action, you can share a brief thought of up to 10 words with one person you know or can see within 60 feet.</p>\n<p><strong>Snap Reflex.</strong> If you use your reaction to make an attack of opportunity, you can immediately make a second attack against the same target.</p>\n<p><strong>Gut Feeling.</strong> You gain an expertise die on your next Perception check.</p>\n</div>\n</div>\n</div>\n</div>",
@@ -239,19 +236,17 @@
 		{
 			"origin": "Item.T5Zh0jIwVDb5s0rM",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "nsbhvmeb4sgW6nAy",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Gut Feeling",
 			"img": "icons/magic/perception/eye-ringed-green.webp",
 			"_id": "b2qXxUheZrZ2ulrX",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.skills.prc.expertiseDice",

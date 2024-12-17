@@ -7,12 +7,7 @@
 			"icon": "icons/skills/toxins/symbol-poison-drop-skull-green.webp",
 			"origin": "Item.z7jwmjgw2qb68gnt",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "44zW9Niso0UwQDYT",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Weapon Coated (Curare Poison)",
@@ -35,17 +30,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/skills/toxins/symbol-poison-drop-skull-green.webp",
 			"origin": "Item.z7jwmjgw2qb68gnt",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "S326TE9OKdTKQjCq"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Stunned",
@@ -77,18 +72,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/skills/toxins/symbol-poison-drop-skull-green.webp",
 			"origin": "Item.z7jwmjgw2qb68gnt",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "44zW9Niso0UwQDYT",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Weapon Coated (Curare Poison)",
@@ -111,17 +105,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/skills/toxins/symbol-poison-drop-skull-green.webp",
 			"origin": "Item.z7jwmjgw2qb68gnt",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "S326TE9OKdTKQjCq"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Stunned",
@@ -153,17 +147,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/skills/toxins/symbol-poison-drop-skull-green.webp",
 			"origin": "Item.z7jwmjgw2qb68gnt",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "dPP3aM0yiNpZP5XW"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Stunned",
@@ -195,17 +189,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/skills/toxins/symbol-poison-drop-skull-green.webp",
 			"origin": "Item.z7jwmjgw2qb68gnt",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "oEajawdnf2O876DY"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Stunned",
@@ -237,6 +231,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -268,13 +266,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"ux7h0jRNfguHiwcT": {
-						"type": "effect",
-						"default": true,
-						"effectId": "fTElxyOHMmTH1eMN"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -284,7 +276,10 @@
 						"threshold": 6
 					}
 				},
-				"description": "<p>As a bonus action, you can coat one weapon or piece of ammunition with your curare sweat. The first creature struck by the coated weapon is subject to your curare sweat.</p>"
+				"description": "<p>As a bonus action, you can coat one weapon or piece of ammunition with your curare sweat. The first creature struck by the coated weapon is subject to your curare sweat.</p>",
+				"effects": [
+					"fTElxyOHMmTH1eMN"
+				]
 			},
 			"S326TE9OKdTKQjCq": {
 				"name": "Attack with Coated Weapon",
@@ -302,11 +297,6 @@
 						},
 						"label": "Curare Sweat Saving Throw",
 						"onSave": "Target is unaffected"
-					},
-					"qfI69gudQpCkDAyq": {
-						"type": "effect",
-						"default": true,
-						"effectId": "CZEZUvIEgGcFkZDm"
 					}
 				},
 				"uses": {
@@ -327,7 +317,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"CZEZUvIEgGcFkZDm"
+				]
 			},
 			"dPP3aM0yiNpZP5XW": {
 				"name": "Curare Poison (Touch)",
@@ -355,11 +348,6 @@
 						},
 						"onSave": "Target is unaffected",
 						"label": "Curare Sweat Saving Throw"
-					},
-					"EuMALrOlfdXbGljf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "4tqlhpGBoUMYfTt2"
 					}
 				},
 				"uses": {
@@ -382,7 +370,10 @@
 					"quantity": 1
 				},
 				"img": "icons/skills/toxins/symbol-poison-drop-skull-green.webp",
-				"description": "<p>When a creature touches you against your will, and the member touching you is not protected by clothing or armor, you can use your reaction to subject the creature to your curare sweat.</p>"
+				"description": "<p>When a creature touches you against your will, and the member touching you is not protected by clothing or armor, you can use your reaction to subject the creature to your curare sweat.</p>",
+				"effects": [
+					"4tqlhpGBoUMYfTt2"
+				]
 			},
 			"oEajawdnf2O876DY": {
 				"name": "Curare Poison (Grapple)",
@@ -410,12 +401,6 @@
 						},
 						"onSave": "Target is unaffected",
 						"label": "Curare Sweat Saving Throw"
-					},
-					"EuMALrOlfdXbGljf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5Sc8GUPbfkL9h7JA",
-						"label": "Stunned"
 					}
 				},
 				"uses": {
@@ -438,7 +423,10 @@
 					"quantity": 1
 				},
 				"img": "icons/skills/toxins/symbol-poison-drop-skull-green.webp",
-				"description": "<p>At the start of your turn, if you are grappling or are grappled by a creature and you are physically touching<strong>&nbsp;</strong>them, you can subject them to your curare sweat.</p>"
+				"description": "<p>At the start of your turn, if you are grappling or are grappled by a creature and you are physically touching<strong>&nbsp;</strong>them, you can subject them to your curare sweat.</p>",
+				"effects": [
+					"5Sc8GUPbfkL9h7JA"
+				]
 			}
 		},
 		"description": "<p>Your body is covered in a toxic film called curare sweat, which is a contact poison functioning much like ordinary curare poison. You can use it in one of several ways, and once you do you cannot use your curare sweat again until you complete a short or long rest. You can use your curare sweat to do one of the following:</p><ul><li><p>As a bonus action, you can coat one weapon or piece of ammunition with your curare sweat. The first creature struck by the coated weapon is subject to your curare sweat.</p></li><li><p>When a creature touches you against your will, and the member touching you is not protected by clothing or armor, you can use your reaction to subject the creature to your curare sweat.</p></li><li><p>At the start of your turn, if you are grappling or are grappled by a creature and you are physically touching<strong> </strong>them, you can subject them to your curare sweat.</p></li></ul><p>A creature subject to your curare sweat makes a Constitution saving throw against your curare sweat save DC or else it becomes stunned until the end of its next turn. The save DC for your curare sweat is 8 + your proficiency bonus + your Constitution modifier, or 13, whichever is higher.</p><p><strong>Foundry Note: </strong>Use Coat Weapon or Ammunition when the Curare Sweat is applied to the weapon or ammunition and then Attack with Coated Weapon when you make an attack with the previously Coated weapon or ammunition. Make sure to turn off the Weapon Coated effect after the first successful attack.</p>",

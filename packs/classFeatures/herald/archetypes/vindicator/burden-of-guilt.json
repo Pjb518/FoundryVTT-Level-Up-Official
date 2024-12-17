@@ -43,16 +43,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"dZiqFdw8biyKA8jK": {
-						"type": "effect",
-						"default": true,
-						"effectId": "z6hpYaZgI67tLtE3"
-					},
-					"Vi7ctJK3MCDgZb9T": {
-						"type": "effect",
-						"default": true,
-						"effectId": "l8YnaHAPHR21MjPl"
 					}
 				},
 				"uses": {
@@ -65,7 +55,11 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"z6hpYaZgI67tLtE3",
+					"l8YnaHAPHR21MjPl"
+				]
 			}
 		},
 		"description": "<p>At 15th level, you can cause the weight of a creature&rsquo;s misdeeds to weigh on it&mdash;literally. As a bonus action, you can proclaim a creature&rsquo;s crimes, which must be serious as per the @UUID[Compendium.a5e.a5e-class-features.Item.cifl6rt7nj962c7a]{Warrant Bearer} feature. The creature must be one you have evidence of serious crimes against. It must make a Charisma saving throw against your spell save DC. A creature that fails is slowed for one minute. A creature that succeeds has its movement speeds reduced by 10 for the same duration. An affected creature can repeat the save at the end of each of its turns, ending the effect on a success.</p>\n<p>If you attempt to use this ability on a creature that is truly innocent of the crimes you accuse it of, the creature is unaffected and you take 4d4 points of psychic damage from the backlash. Once you have used this feature a number of times equal to your Charisma modifier (minimum once), you can&rsquo;t do so again until you finish a long rest.</p>",
@@ -95,9 +89,6 @@
 			"origin": "Item.bWkWhXaF4Fa4DRlb",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "wDVKFCAHJq9QttYJ",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -108,7 +99,10 @@
 			"img": "icons/magic/control/debuff-chains-shackles-movement-purple.webp",
 			"_id": "z6hpYaZgI67tLtE3",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -149,9 +143,6 @@
 			"origin": "Item.bWkWhXaF4Fa4DRlb",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "wDVKFCAHJq9QttYJ",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -162,7 +153,10 @@
 			"img": "icons/magic/control/debuff-chains-shackles-movement-purple.webp",
 			"_id": "l8YnaHAPHR21MjPl",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",

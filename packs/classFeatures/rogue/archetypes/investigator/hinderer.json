@@ -7,9 +7,6 @@
 			"origin": "Item.Yghn1yNcyuKknYRM",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "DBQN18h7FvqWZbEK",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -21,7 +18,10 @@
 			"img": "icons/skills/social/intimidation-impressing.webp",
 			"_id": "kds0EZJTFMwkDLNb",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.abilityCheck.all",
@@ -84,13 +84,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"FLEvApSOH7qg3pjy": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kds0EZJTFMwkDLNb"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -110,7 +104,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"kds0EZJTFMwkDLNb"
+				]
 			}
 		},
 		"description": "<p>By distracting an enemy, you can reduce its ability to harm you and your allies. You can use a bonus action and choose a creature within 30 feet who can see or hear you, giving it disadvantage on the next ability check or attack roll it makes before the start of your next turn.</p>",

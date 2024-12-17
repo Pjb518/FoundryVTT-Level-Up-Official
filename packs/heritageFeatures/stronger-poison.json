@@ -88,11 +88,6 @@
 						"saveDC": {
 							"type": "con"
 						}
-					},
-					"nF854QM62EyJS86K": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Wh5o6aFYCIxxfaaw"
 					}
 				},
 				"uses": {
@@ -106,7 +101,10 @@
 						"threshold": 6
 					}
 				},
-				"img": "icons/creatures/abilities/stinger-poison-green.webp"
+				"img": "icons/creatures/abilities/stinger-poison-green.webp",
+				"effects": [
+					"Wh5o6aFYCIxxfaaw"
+				]
 			}
 		},
 		"description": "<p>Your poisonous bite is even more toxic. Your target makes their saving throw against it at disadvantage, and additionally gains the slowed condition upon a failed save. The target may make a saving throw at the end of each turn to end the condition. If you do not already have the @UUID[Compendium.a5e.a5e-heritage-features.Item.4o50Ym3Bk33vakZo]{Venomous Mandibles} trait, you gain the Venomous Mandibles trait instead.</p>",
@@ -134,18 +132,17 @@
 		{
 			"origin": "Item.0tgiyi9lEapmtOqQ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "W2zfFji5MxuqhOHP"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Slowed",
 			"img": "icons/creatures/abilities/stinger-poison-green.webp",
 			"_id": "Wh5o6aFYCIxxfaaw",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

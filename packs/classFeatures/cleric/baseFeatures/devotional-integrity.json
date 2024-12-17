@@ -8,10 +8,6 @@
 			"origin": "Item.ofugczcz0tf3jbkl",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "98MMz5OOsgpoxkkG",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -46,6 +42,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -67,13 +67,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"j311b7JBHjLDtQ2B": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XmQmUj2HRqA1Mpk6"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -84,7 +78,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"XmQmUj2HRqA1Mpk6"
+				]
 			}
 		},
 		"description": "<p>You adhere to a strict code of morality and ethics. When an action you take is honest and non-violent, until the end of your turn you are immune to the rattled condition and you do not suffer disadvantage or penalties on Intelligence, Wisdom, or Charisma checks made as part of that action.</p>",

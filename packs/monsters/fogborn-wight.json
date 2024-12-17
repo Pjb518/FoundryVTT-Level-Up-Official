@@ -1671,7 +1671,8 @@
 								"damageType": "cold"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "",
@@ -1805,7 +1806,8 @@
 								"quantity": 1,
 								"type": "ammunition"
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "",
@@ -1916,11 +1918,6 @@
 								"skill": "ath",
 								"ability": "str",
 								"label": "Athletics"
-							},
-							"oWh6itBFjl5RWdPu": {
-								"type": "effect",
-								"default": true,
-								"effectId": "ABDskPCE0EQ02aK5"
 							}
 						},
 						"uses": {
@@ -1942,7 +1939,10 @@
 						"target": {
 							"type": "creature",
 							"quantity": 1
-						}
+						},
+						"effects": [
+							"ABDskPCE0EQ02aK5"
+						]
 					}
 				},
 				"description": "<p>The target is grappled (escape DC 12). Until this grapple ends, the target is restrained and the only attack the wight can make is Life Drain against the grappled target.</p>",
@@ -2126,10 +2126,7 @@
 			"icon": "icons/svg/item-bag.svg",
 			"origin": "Actor.1cfx9nu394fjp9bi.Item.vPsx7vUczjf9wo8W",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Sunlight",
@@ -2165,6 +2162,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

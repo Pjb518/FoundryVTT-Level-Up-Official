@@ -29,13 +29,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"5e42yePNdAIgNefK": {
-						"type": "effect",
-						"default": true,
-						"effectId": "d5cuoojQXl6jDdq8"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -59,7 +53,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"d5cuoojQXl6jDdq8"
+				]
 			}
 		},
 		"description": "<p>You can use a bonus action to place a curse on a creature you can see within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated. The curse has the following effects:</p>\n<p>Choose cold or piercing damage. When you deal damage against the cursed creature, it takes an additional 1d4 damage of the chosen type. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level.</p>\n<p>The cursed creature&rsquo;s speed is reduced by half, and they have disadvantage on Strength, Dexterity, and Constitution checks. They halve the duration they can hold their breath and they double the rate at which they sink.</p>\n<p>Once you have used this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
@@ -136,9 +133,6 @@
 			"origin": "Item.u8vpzzSVigVTYbL4",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "afy665nn08yyIPAW",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -149,7 +143,10 @@
 			"img": "icons/magic/water/projectile-water-rings.webp",
 			"_id": "d5cuoojQXl6jDdq8",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",

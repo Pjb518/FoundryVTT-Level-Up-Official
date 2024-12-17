@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"uA3IB9ZnHqSvBBA1": {
-						"type": "effect",
-						"default": true,
-						"effectId": "bZs22kxBpaXEaL4q"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +47,10 @@
 				"duration": {
 					"unit": "",
 					"value": 1
-				}
+				},
+				"effects": [
+					"bZs22kxBpaXEaL4q"
+				]
 			},
 			"CjwhchoQtj9rAXvc": {
 				"name": "Kneel",
@@ -80,11 +77,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": ""
-					},
-					"Dgjf6Pa3Z3hKNvTl": {
-						"type": "effect",
-						"default": true,
-						"effectId": "NqdWq1srpxGgOX33"
 					}
 				},
 				"uses": {
@@ -118,7 +110,10 @@
 					"quantity": 1,
 					"radius": 30,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"NqdWq1srpxGgOX33"
+				]
 			}
 		},
 		"description": "<p>At 3rd level you gain the following channel divinity options:</p>\n<h2>Invoke the Crown</h2>\n<p>As an action, you invoke the authority of those you serve. For the next hour, you gain advantage and an expertise die on all charisma Checks made with those who recognize that authority.</p>\n<h2>Kneel</h2>\n<p>As an action, you command others to kneel in respect. All creatures within 30 feet except constructs that can hear and understand you must make a Wisdom saving throw. On a failure they must spend their next turn going prone and taking no other action.</p>",
@@ -147,10 +142,6 @@
 			"origin": "Item.1OZSUGOxbOAQI4Sn",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "1xVT0N2PdABfVLt2",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -161,7 +152,10 @@
 			"img": "icons/commodities/treasure/crown-gold-satin-gems-red.webp",
 			"_id": "bZs22kxBpaXEaL4q",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -192,18 +186,17 @@
 		{
 			"origin": "Item.1OZSUGOxbOAQI4Sn",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CjwhchoQtj9rAXvc"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"img": "icons/commodities/treasure/crown-gold-satin-gems-red.webp",
 			"_id": "NqdWq1srpxGgOX33",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

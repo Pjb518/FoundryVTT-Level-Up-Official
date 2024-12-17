@@ -7,12 +7,7 @@
 			"icon": "icons/skills/melee/strike-dagger-white-orange.webp",
 			"origin": "Item.1iAx6jzmk2al3H2X",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "u8kC5Nbar90Xfcau",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Engineering Expertise",
@@ -42,18 +37,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/skills/melee/strike-dagger-white-orange.webp",
 			"origin": "Item.1iAx6jzmk2al3H2X",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "u8kC5Nbar90Xfcau",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Survival Expertise",
@@ -83,6 +77,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -111,18 +109,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"B1umhZg4BD53HDXH": {
-						"type": "effect",
-						"default": true,
-						"effectId": "qAcNWZV37snKyAZ5"
-					},
-					"wihRymefL9H5XkoB": {
-						"type": "effect",
-						"default": true,
-						"effectId": "FdXnQJAwrvJRcD91"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -133,7 +120,11 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"qAcNWZV37snKyAZ5",
+					"FdXnQJAwrvJRcD91"
+				]
 			}
 		},
 		"description": "<p>Knowledge of the terrain can be the difference between victory and defeat. By spending 10 minutes observing the area in a 2-mile radius you can spend 2 exertion points to pick out where there are choke points, large swathes of cover,  watercourses, vegetations that can offer concealment, ridgelines, and so on. You gain an expertise die on Engineering and Survival checks made within the area, and on checks made to prepare an ambush or realize you are being ambushed.</p>",

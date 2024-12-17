@@ -53,13 +53,7 @@
 						"label": "20th Level"
 					}
 				},
-				"prompts": {
-					"I1uosP54YdnMH9w7": {
-						"type": "effect",
-						"default": true,
-						"effectId": "zxfiT9KdQbbhymOs"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -81,7 +75,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"zxfiT9KdQbbhymOs"
+				]
 			}
 		},
 		"description": "<p>You can use a bonus action to place a curse on a creature you can see within 30 feet. The curse lasts for 1 minute, and ends early if the target dies, you die, or you become incapacitated.</p>\n<p>The curse has the following effects:</p>\n<ul>\n<li>When you deal damage against the cursed creature, it takes an additional 1d4. This bonus increases by 1d4 at 10th level, and again at 15th and 20th level. The damage is the damage type associated with the type of genie you chose.</li>\n<li>When a cursed target dies, your patron grants you a minor wish, restoring proficiency bonus spell points.</li>\n</ul>\n<p>Once you have used this feature, you can&rsquo;t use it again until you finish a short or long rest.</p>",
@@ -110,9 +107,6 @@
 			"origin": "Item.Q5fTgqUymQrDIXQc",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "NTAmL5liWmGWnIZ8",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -123,7 +117,10 @@
 			"img": "icons/magic/unholy/silhouette-light-fire-blue.webp",
 			"_id": "zxfiT9KdQbbhymOs",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

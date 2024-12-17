@@ -7,9 +7,6 @@
 			"origin": "Item.p68GIhEjhTUXnkN9",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "yDvsYnJrX4hVUZOF",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -21,7 +18,10 @@
 			"img": "icons/magic/acid/dissolve-drip-droplet-smoke.webp",
 			"_id": "Fmysct2HgUv7OYTk",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -102,11 +102,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"1IATVJAbsP2kwLdU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Fmysct2HgUv7OYTk"
 					}
 				},
 				"consumers": {
@@ -117,7 +112,10 @@
 						"resource": "classResource",
 						"quantity": 1
 					}
-				}
+				},
+				"effects": [
+					"Fmysct2HgUv7OYTk"
+				]
 			}
 		},
 		"description": "<p>Miasmic ichor runs through you and that which you grow. As an action you can expend a use of @UUID[Compendium.a5e.a5e-class-features.Item.3jdfihvtbyhbv9ez]{Wild Shape} to cause yourself or a creature you&rsquo;ve summoned to give off a noxious miasma in a 10-foot radius for the next minute. Whenever a non-plant creature other than you starts its turn within the miasma&rsquo;s radius or moves there for the first time on its turn, it must make a Constitution saving throw against your spell save DC or be poisoned until the start of its next turn.</p>",

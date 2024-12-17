@@ -19,13 +19,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"CuT0kF5jhownycTc": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ZQCkP2b9Ha6eKl3y"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -36,7 +30,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"ZQCkP2b9Ha6eKl3y"
+				]
 			}
 		},
 		"description": "<p>You can change the damage type of your @UUID[Compendium.a5e.a5e-class-features.Item.ulmcmf3ofmpzmgzf]{Eldritch Blast} to the damage type of the type of genie you chose. If you do so, it gains an additional effect.</p>\n<ul>\n<li><strong>Bludgeoning</strong>: the target is knocked back up to 10ft and knocked prone.</li>\n</ul>",
@@ -64,18 +61,17 @@
 		{
 			"origin": "Item.AJEokX2nSwfU9CHy",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "mYCoI9AedlBhhXYp"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"img": "icons/creatures/magical/spirit-fear-energy-pink.webp",
 			"_id": "ZQCkP2b9Ha6eKl3y",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

@@ -48,11 +48,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"L6jF15w9cMfPL8JR": {
-						"type": "effect",
-						"default": true,
-						"effectId": "T4mBWeKaI1h0bYP9"
 					}
 				},
 				"consumers": {
@@ -63,7 +58,10 @@
 						"resource": "classResource",
 						"quantity": 1
 					}
-				}
+				},
+				"effects": [
+					"T4mBWeKaI1h0bYP9"
+				]
 			},
 			"6hRsp0nkCQdGRdL3": {
 				"name": "Channel Divinity: Unnatural Dread",
@@ -91,11 +89,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"rXOpw3RWmdfEYq4u": {
-						"type": "effect",
-						"default": true,
-						"effectId": "gftdS11JkywGjAUX"
 					}
 				},
 				"uses": {
@@ -128,7 +121,10 @@
 					"quantity": 1,
 					"type": ""
 				},
-				"img": "icons/magic/control/fear-fright-shadow-monster-green.webp"
+				"img": "icons/magic/control/fear-fright-shadow-monster-green.webp",
+				"effects": [
+					"gftdS11JkywGjAUX"
+				]
 			},
 			"A1qdKJs2RsVikQSE": {
 				"name": "Command Undead",
@@ -177,18 +173,17 @@
 		{
 			"origin": "Item.V9v4sOMDXpVu8BA3",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "MTgZyj7iIFxecOEy"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Loyal",
 			"img": "icons/magic/control/debuff-energy-hold-green.webp",
 			"_id": "T4mBWeKaI1h0bYP9",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -220,9 +215,6 @@
 			"origin": "Item.V9v4sOMDXpVu8BA3",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "6hRsp0nkCQdGRdL3",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -233,7 +225,10 @@
 			"img": "icons/magic/control/fear-fright-shadow-monster-green.webp",
 			"_id": "gftdS11JkywGjAUX",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

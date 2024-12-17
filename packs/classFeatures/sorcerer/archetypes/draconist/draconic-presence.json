@@ -7,9 +7,6 @@
 			"origin": "Item.AQnOW2u89wJQlUFI",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "47fPSLI7NAWqay5r",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
 			"_id": "hGv4RcbkczOfgGTQ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -61,9 +61,6 @@
 			"origin": "Item.AQnOW2u89wJQlUFI",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "47fPSLI7NAWqay5r",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -74,7 +71,10 @@
 			"img": "icons/magic/sonic/projectile-sound-rings-wave.webp",
 			"_id": "kqz0dBqDPsD9C8QQ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -149,16 +149,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"eQUqdvX086F5yZdl": {
-						"type": "effect",
-						"default": true,
-						"effectId": "hGv4RcbkczOfgGTQ"
-					},
-					"lC2QcPXcd9xK3cdV": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kqz0dBqDPsD9C8QQ"
 					}
 				},
 				"uses": {
@@ -186,7 +176,11 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"hGv4RcbkczOfgGTQ",
+					"kqz0dBqDPsD9C8QQ"
+				]
 			}
 		},
 		"description": "<p>Starting at 18th level, you can draw upon your draconic nature to inspire awe and terror in those who see you. You can use an action and spend 5 sorcery points to exude an aura of awe or fear (your choice) to a distance of 60 feet. For 1 minute, when a hostile creature starts its turn in this aura it makes a Wisdom saving throw or becomes charmed (if&nbsp; you chose awe) or frightened (if you chose fear) until the aura ends. An affected creature can repeat the saving throw at the end of each of its turns, ending the effect on a success. A creature that succeeds on the saving throw is immune to your Draconic Presence for 24 hours.</p>",

@@ -42,13 +42,7 @@
 					"unit": "",
 					"value": 0
 				},
-				"prompts": {
-					"LNjg3PqU5xyqV6X7": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Hj7VMonuWG9ucerV"
-					}
-				},
+				"prompts": {},
 				"ranges": {},
 				"rolls": {},
 				"target": {
@@ -64,7 +58,10 @@
 						"formula": "",
 						"threshold": 0
 					}
-				}
+				},
+				"effects": [
+					"Hj7VMonuWG9ucerV"
+				]
 			}
 		},
 		"description": "<p>Your combat skill is unparalleled. You can use your action and forgo your bonus action and reaction to leap, flip, sunder, and strike in quick succession all over the battlefield performing a bladed victory. While performing a bladed victory your Speed doubles, and your movement does not provoke opportunity attacks until the start of your next turn.</p>\n<p>While performing a bladed victory you may move, make an attack against a single target, move, and attack a second target. You may repeat this process until you have no movement speed remaining. You cannot attack any target more than once, and you must move at least 5 feet between attacks. Once you use this feature you cannot do so again until you finish a long rest.</p>",
@@ -93,10 +90,6 @@
 			"origin": "Item.ZfEmad7LLJIET000",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "7TIuOdxIpEJe8ACi",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -108,7 +101,10 @@
 			"img": "icons/magic/movement/trail-streak-zigzag-yellow.webp",
 			"_id": "Hj7VMonuWG9ucerV",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.walk.distance",

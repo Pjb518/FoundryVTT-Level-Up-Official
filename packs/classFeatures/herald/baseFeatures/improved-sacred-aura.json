@@ -7,11 +7,7 @@
 			"icon": "icons/magic/light/explosion-glow-spiral-yellow.webp",
 			"origin": "Item.44kRge4bBO950nLZ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "mNraxJ6xWCqCMCul"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Aura of Healing",
@@ -34,17 +30,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/magic/light/explosion-glow-spiral-yellow.webp",
 			"origin": "Item.44kRge4bBO950nLZ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "mNraxJ6xWCqCMCul"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Aura of Overcoming",
@@ -67,17 +63,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/magic/light/explosion-glow-spiral-yellow.webp",
 			"origin": "Item.44kRge4bBO950nLZ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "mNraxJ6xWCqCMCul"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Aura of Smiting",
@@ -100,6 +96,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -127,23 +127,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"yF1d6dGniLW6aClv": {
-						"type": "effect",
-						"default": true,
-						"effectId": "zN58i5ttyUgAAqEd"
-					},
-					"MlKrCXqSD9iYnug7": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ZkOMUdtjitCqH00E"
-					},
-					"IgF3sLOPbuoMghl4": {
-						"type": "effect",
-						"default": true,
-						"effectId": "1BMmR476ITiNa4CO"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -154,7 +138,12 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"zN58i5ttyUgAAqEd",
+					"ZkOMUdtjitCqH00E",
+					"1BMmR476ITiNa4CO"
+				]
 			}
 		},
 		"description": "<p>At 10th level, you gain a more powerful aura that is active alongside your Sacred Aura. The range of this aura is the same, and you can only have one Improved Sacred Aura active at a time. You can swap your active improved aura upon finishing a long rest.</p>\n<h2>Aura of Healing</h2>\n<p>Whenever you or an ally cast a spell to heal yourself or another ally while both are within your aura, both the spellcaster and target gain additional hit points equal to your Charisma modifier.</p>\n<h2>Aura of Overcoming</h2>\n<p>Weapon attacks made by allies within your aura are considered magical for the purpose of overcoming damage resistances and immunities.</p>\n<h2>Aura of Smiting</h2>\n<p>Whenever an ally within your aura scores a critical hit with a weapon attack, they deal additional radiant damage equal to half your herald level.</p>",

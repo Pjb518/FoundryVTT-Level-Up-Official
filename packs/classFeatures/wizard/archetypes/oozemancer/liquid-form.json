@@ -29,18 +29,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"sGQYJlc3MLcTJsZJ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Lac3TkJjUst6oqMd"
-					},
-					"gA5OYJz10bkoRDDs": {
-						"type": "effect",
-						"default": true,
-						"effectId": "3voqLfBFylf9SC3J"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -55,7 +44,11 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"Lac3TkJjUst6oqMd",
+					"3voqLfBFylf9SC3J"
+				]
 			}
 		},
 		"description": "<p>At 10th level, you learn revolting arcane secrets that allow you to transform your body into slime. As a bonus action, you can adopt a liquid form. You revert to your normal form after 1 minute, if you are&nbsp;incapacitated</span>, or if you use another bonus action to end the effect early. Once you have used this ability, you must finish a&nbsp;short or long rest&nbsp;before you can do so again. In liquid form, your statistics are unchanged except for one of the following options, which you choose when you transform:</p><ul><li>You liquefy your bones, organs, and equipment to gain an amorphous form. While you are amorphous, you can pass through an opening as narrow as 1 inch wide without squeezing. While in this form, you can&rsquo;t use or gain any benefit from your equipment.</li><li>You liquefy your skin, causing your body and equipment to become covered with a viscous, sticky slime. While you are coated in this way, you leave slimy, wet prints on objects and surfaces you touch or walk upon. You gain a climb speed equal to your Speed and can walk on walls and upside down on ceilings.&nbsp; Additionally, when a creature within 5 feet hits you with a melee attack, it is covered with slime. The creature has&nbsp;<span>disadvantage on the next attack it makes before the end of its next turn.</li></ul>",
@@ -84,10 +77,6 @@
 			"origin": "Item.ffU1LMo2W9vgT84m",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "abMBQe0J6AZSe2Ny",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -98,7 +87,10 @@
 			"img": "icons/creatures/slimes/slime-movement-pseudopods-teal.webp",
 			"_id": "Lac3TkJjUst6oqMd",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.climb.distance",
@@ -137,9 +129,6 @@
 			"origin": "Item.ffU1LMo2W9vgT84m",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "abMBQe0J6AZSe2Ny",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -151,7 +140,10 @@
 			"img": "icons/creatures/slimes/slime-movement-pseudopods-teal.webp",
 			"_id": "3voqLfBFylf9SC3J",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.attack.all",

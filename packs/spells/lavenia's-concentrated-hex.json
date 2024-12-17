@@ -21,31 +21,11 @@
 				},
 				"rolls": {},
 				"prompts": {
-					"2nzNqT2DeF3PUHvC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2ZvAToQbiEilyNbl"
-					},
-					"NeEK0bRRwo5r2gdD": {
-						"type": "effect",
-						"default": true,
-						"effectId": "n9fW7lFgpzY6K6aj"
-					},
 					"iP3MvmkBRI0gMFCt": {
 						"type": "generic",
 						"default": false,
 						"label": "Addtional Necrotic Damage",
 						"formula": "1d6"
-					},
-					"67c8CGRwjcOBK6NM": {
-						"type": "effect",
-						"default": true,
-						"effectId": "mz43KJqDii2Iz56B"
-					},
-					"pOtrpIY7RNrpXK2f": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kJoheHGJn3rw8VPl"
 					}
 				},
 				"uses": {
@@ -71,7 +51,13 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"2ZvAToQbiEilyNbl",
+					"n9fW7lFgpzY6K6aj",
+					"mz43KJqDii2Iz56B",
+					"kJoheHGJn3rw8VPl"
+				]
 			}
 		},
 		"description": "<p>You place a lesser curse on a creature you can see within range <strong>(no save)</strong>. You also gain this as an additional curse option:&nbsp;<br>You choose one effect from the following:</p><ul><li><p>The target is rattled.</p></li><li><p>The target’s speed is reduced by 5 feet.</p></li><li><p>When you deal damage against the target, it takes an additional 1d4 necrotic damage.</p></li><li><p>Each time the target fails a saving throw it falls prone and breaks a nail, taking 1 necrotic damage.</p></li></ul><p>At the Narrator’s discretion you may create a different curse effect with this spell so long as it is weaker than the options above.</p><p>A creature already under a curse, such as your or another creature’s Diabolist Curse or another instance of this spell, cannot be targeted by this spell.</p><p><strong>Special:</strong> Warlocks who know this spell can cast it as a ritual even if they are otherwise unable to cast rituals. When you cast this spell as a ritual, you can instead target a creature you’ve seen within the past 24 hours, as long as they are on the same plane as you. To target this creature, you must also provide a material component strongly associated with that creature—such as a fingernail clipping, lock of hair, or article of clothing—which this spell consumes. When cast as a ritual, this spell instead has a duration of 1 hour (no concentration), and the effects can be as severe as the poisoned condition or indigestion. At the Narrator’s discretion, you can create even more powerful curse effects or longer durations with the use of rare or expensive components, as long as their effects are less than the power of <em>bestow curse</em>.</p><hr class=\"a5e-rule u-my-md\"><p><strong><em>Lavenia’s Concentrated Hex</em></strong>: The spell’s duration is concentration (1 hour); if the target falls unconscious before the duration ends, you can use a bonus action to select a new target within range. You also gain this as an additional curse option:&nbsp;</p><ul><li><p>You deal an extra 1d6 necrotic damage against the target when you deal damage against the target. Also, choose an ability; the target has disadvantage on checks made with that ability</p></li></ul>",
@@ -121,9 +107,6 @@
 			"origin": "Item.4fIB6adSFl5MEN59",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qnM6Spk3Vhqv1IN1",
 					"duration": {
 						"unit": "hours"
 					}
@@ -156,7 +139,10 @@
 			],
 			"img": "icons/magic/unholy/barrier-fire-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null,
@@ -170,9 +156,6 @@
 			"origin": "Item.4fIB6adSFl5MEN59",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qnM6Spk3Vhqv1IN1",
 					"duration": {
 						"unit": "hours"
 					}
@@ -203,7 +186,10 @@
 			"statuses": [],
 			"img": "icons/magic/unholy/barrier-fire-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null,
@@ -217,9 +203,6 @@
 			"origin": "Item.4fIB6adSFl5MEN59",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qnM6Spk3Vhqv1IN1",
 					"duration": {
 						"unit": "hours"
 					}
@@ -250,7 +233,10 @@
 			"statuses": [],
 			"img": "icons/magic/unholy/barrier-fire-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null,
@@ -264,9 +250,6 @@
 			"origin": "Item.4fIB6adSFl5MEN59",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qnM6Spk3Vhqv1IN1",
 					"duration": {
 						"unit": "hours"
 					}
@@ -297,7 +280,10 @@
 			"statuses": [],
 			"img": "icons/magic/unholy/barrier-fire-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null,
@@ -311,9 +297,6 @@
 			"origin": "Item.4fIB6adSFl5MEN59",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qnM6Spk3Vhqv1IN1",
 					"duration": {
 						"unit": "hours"
 					}
@@ -344,7 +327,10 @@
 			"statuses": [],
 			"img": "icons/magic/unholy/barrier-fire-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null,
@@ -358,9 +344,6 @@
 			"origin": "Item.4fIB6adSFl5MEN59",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qnM6Spk3Vhqv1IN1",
 					"duration": {
 						"unit": "hours"
 					}
@@ -391,7 +374,10 @@
 			"statuses": [],
 			"img": "icons/magic/unholy/barrier-fire-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null,
@@ -405,9 +391,6 @@
 			"origin": "Item.4fIB6adSFl5MEN59",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qnM6Spk3Vhqv1IN1",
 					"duration": {
 						"unit": "hours"
 					}
@@ -438,7 +421,10 @@
 			"statuses": [],
 			"img": "icons/magic/unholy/barrier-fire-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null,
@@ -452,9 +438,6 @@
 			"origin": "Item.4fIB6adSFl5MEN59",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qnM6Spk3Vhqv1IN1",
 					"duration": {
 						"unit": "hours"
 					}
@@ -485,7 +468,10 @@
 			"statuses": [],
 			"img": "icons/magic/unholy/barrier-fire-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null,
@@ -498,11 +484,7 @@
 		{
 			"origin": "Item.4fIB6adSFl5MEN59",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "qnM6Spk3Vhqv1IN1"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
@@ -531,7 +513,10 @@
 			],
 			"img": "icons/magic/unholy/barrier-fire-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null,

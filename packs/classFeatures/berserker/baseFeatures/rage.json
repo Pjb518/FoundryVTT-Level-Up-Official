@@ -7,10 +7,6 @@
 			"origin": "Item.egyF5HkW6xs4T126",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "LWtrKhHATlDyv3lC",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -63,7 +59,10 @@
 			},
 			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -114,14 +113,11 @@
 						"quantity": 1
 					}
 				},
-				"prompts": {
-					"vM3hmaG1KV81ho6M": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BUM9Vlpn1Z7rJRzC"
-					}
-				},
-				"rolls": {}
+				"prompts": {},
+				"rolls": {},
+				"effects": [
+					"BUM9Vlpn1Z7rJRzC"
+				]
 			},
 			"Jg8KhNAlPEhfIZHH": {
 				"name": "Rage Hit Points",

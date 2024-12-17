@@ -63,11 +63,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"TBwrjdESUyHhLg4S": {
-						"type": "effect",
-						"default": true,
-						"effectId": "47sA2Lce0seR6hKQ"
 					}
 				},
 				"uses": {
@@ -80,7 +75,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"47sA2Lce0seR6hKQ"
+				]
 			}
 		},
 		"description": "<p><em><strong>Association:</strong> Berserker class</em></p><p>You still your hot-blooded fury and strike your enemy with icy, malicious calm.</p><p>The next time you hit with a melee weapon attack while the spell is active, it deals an additional 3d6 cold damage. The target must also make a Constitution saving throw against your spell save DC or have its movement speed halved for 1 minute. The spell then ends.</p><p>The creature may re-attempt the saving throw at the end of each of its turns, ending the effect on a success. Additionally, if the creature takes any fire damage, the effect ends early.</p><p>You cannot cast this spell while raging even if you normally could due to archetype features or feat benefits.</p>",
@@ -133,9 +131,6 @@
 			"origin": "Item.hhntbfcope8buohk",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "VGpZdhJpLl0mzO14",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -169,6 +164,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -38,13 +38,7 @@
 						"formula": "1d10"
 					}
 				},
-				"prompts": {
-					"4qZ3fvEJqr5xoPCB": {
-						"type": "effect",
-						"default": true,
-						"effectId": "DFq9x3BL5FzqZxlE"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -70,7 +64,10 @@
 					"quantity": 0,
 					"scaling": {},
 					"type": ""
-				}
+				},
+				"effects": [
+					"DFq9x3BL5FzqZxlE"
+				]
 			}
 		},
 		"description": "<p>You value knowledge and power, trusting in and relying on no one but yourself to excel; others are but footholds to boost you ever higher.&nbsp;As a bonus action, you can expend one of your hit dice and roll it. The next attack you make does additional damage equal to your roll.&nbsp;Additionally, you gain an expertise die with Intimidation checks.</p>",
@@ -150,19 +147,17 @@
 		{
 			"origin": "Item.G6BbjM0R1JMuzTvO",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "FJLTXf6G7nHu5xm6",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "The Steep Climb",
 			"img": "icons/magic/unholy/hand-weapon-glow-black-green.webp",
 			"_id": "DFq9x3BL5FzqZxlE",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

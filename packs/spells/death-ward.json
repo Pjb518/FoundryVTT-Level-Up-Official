@@ -8,9 +8,6 @@
 			"origin": "Item.3zt20n8mf29x3eju",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "RzbLNTfY5ieVKYGO",
 					"duration": {
 						"unit": "hours"
 					}
@@ -37,6 +34,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -76,13 +77,10 @@
 						"type": "spell"
 					}
 				},
-				"prompts": {
-					"duTGDqDBwcao2Qqa": {
-						"type": "effect",
-						"default": true,
-						"effectId": "YBeVjtiZho9RhQBP"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"YBeVjtiZho9RhQBP"
+				]
 			}
 		},
 		"description": "<p>The first time damage would reduce the target to 0 hit points, it instead drops to 1 hit point. If the target is subjected to an effect that would kill it instantaneously without dealing damage, that effect is negated. The spell ends immediately after either of these conditions occur.</p>",

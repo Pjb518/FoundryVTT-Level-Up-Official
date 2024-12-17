@@ -44,13 +44,7 @@
 						}
 					}
 				},
-				"prompts": {
-					"IYONe8t3YGf4PCAr": {
-						"type": "effect",
-						"default": true,
-						"effectId": "fUJ2AWuKQyuwC4XW"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -65,7 +59,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"fUJ2AWuKQyuwC4XW"
+				]
 			}
 		},
 		"description": "<p>Also at 3rd level, when you suffer damage, you can spend a spell slot as a reaction. You gain resistance to that damage type until the beginning of your next turn and you gain temporary hit points equal to your proficiency bonus times the spell slot spent. As long as you have these temporary hit points, your weapon attacks deal an additional 1d6 radiant damage. These temporary hit points last for 1 minute.</p><p>Additionally, any time you succeed at a death saving throw, you recover your lowest-level spent spell slot.</p>",
@@ -94,10 +91,6 @@
 			"origin": "Item.gC9LRrAqzq7TKVpw",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "iTbtGRwvi0vVgZEp",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -138,7 +131,10 @@
 			},
 			"img": "icons/magic/light/projectile-smoke-blue-light.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

@@ -21,18 +21,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"RkkEqwDJpYWzX0Gj": {
-						"type": "effect",
-						"default": true,
-						"effectId": "M1olMtQTKxlQgRm8"
-					},
-					"BlzkaoQV2TKEGLjZ": {
-						"type": "effect",
-						"default": true,
-						"effectId": "osJUgWySxtMp3C2f"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -55,7 +44,11 @@
 				},
 				"duration": {
 					"unit": "instantaneous"
-				}
+				},
+				"effects": [
+					"M1olMtQTKxlQgRm8",
+					"osJUgWySxtMp3C2f"
+				]
 			}
 		},
 		"description": "<p>By wrapping yourself in strands of chaotic energy,&nbsp;you gain advantage on the next attack roll or ability&nbsp;check that you make. Fate is a cruel mistress,&nbsp;however, and her scales must always be balanced.&nbsp;The second attack roll or ability check (whichever&nbsp;occurs first) that you make after casting shifting the&nbsp;odds is made with disadvantage.</p>",
@@ -106,12 +99,7 @@
 			"icon": "icons/magic/unholy/energy-smoke-pink.webp",
 			"origin": "Item.wUKzDtHDn1D1NK8I",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "i5WnuyWcrGpnSLv6",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "First Roll",
@@ -147,18 +135,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/magic/unholy/energy-smoke-pink.webp",
 			"origin": "Item.wUKzDtHDn1D1NK8I",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "i5WnuyWcrGpnSLv6",
-					"applyToSelf": false
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Second Roll",
@@ -194,6 +181,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

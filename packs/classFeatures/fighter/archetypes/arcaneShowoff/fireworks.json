@@ -19,13 +19,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"uMm2Hz62uVdAj0j1": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Ps7Ro3VyWbjNv06q"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -36,7 +30,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"Ps7Ro3VyWbjNv06q"
+				]
 			},
 			"Bju5kmmeCGs4mKo5": {
 				"name": "Demoralizing Prowess",
@@ -68,21 +65,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"dmgg5DxSIE0Dqx2D": {
-						"type": "effect",
-						"default": true,
-						"effectId": "KO2adB0WZPKvCh5G"
-					},
-					"HBB1GyoLzyMs8UxU": {
-						"type": "effect",
-						"default": true,
-						"effectId": "8KWiGbd7U7QYtJym"
-					},
-					"x4pPoTz4pxFBsQpY": {
-						"type": "effect",
-						"default": true,
-						"effectId": "G876RCDQlPjAwGPv"
 					}
 				},
 				"uses": {
@@ -96,7 +78,12 @@
 						"threshold": 6
 					}
 				},
-				"img": "icons/magic/control/voodoo-doll-pain-damage-red.webp"
+				"img": "icons/magic/control/voodoo-doll-pain-damage-red.webp",
+				"effects": [
+					"KO2adB0WZPKvCh5G",
+					"8KWiGbd7U7QYtJym",
+					"G876RCDQlPjAwGPv"
+				]
 			}
 		},
 		"description": "<p>Starting at 18th level, you infuse everything you do with spectacular magical ornamentation. When you roll initiative, you can activate your Fireworks (no action). This grants you advantage on Performance and Intimidation checks. While under the effects of Fireworks, you cannot make Stealth checks, you do not benefit from invisibility, and the noise of your magically-infused assault can be heard up to 300 feet away with no checks required. You shed bright light in a 30-foot radius around yourself and dim light a further 30 feet beyond that.&nbsp;</p>\n<p>Additionally, you can spend 2 exertion points as a bonus action to have all attacks you make until the end of your turn benefit from @UUID[Compendium.a5e.a5e-class-features.Item.s99zfj3tpfgt5gt4]{Demoralizing Prowess}. When you do, you must pick a different damage type each time Demoralizing Prowess triggers. In addition, the severity of the effects of your attacks increases. If a creature fails a second saving throw in the same round against your Demoralizing Prowess, it is also blinded until the end of its next turn. If it fails a third, it is also stunned for that duration.&nbsp;</p>",
@@ -124,12 +111,7 @@
 		{
 			"origin": "Item.PCvxQx8GdpKzt37k",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "CBY6zlxzliW4rSjM",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Fireworks",
@@ -190,7 +172,10 @@
 			},
 			"img": "icons/magic/light/projectile-smoke-blue-white.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -199,9 +184,6 @@
 			"origin": "Item.fPhA3YYn8X9AeqCO",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Bju5kmmeCGs4mKo5",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -213,7 +195,10 @@
 			"img": "icons/magic/control/voodoo-doll-pain-damage-red.webp",
 			"_id": "KO2adB0WZPKvCh5G",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -254,9 +239,6 @@
 			"origin": "Item.fPhA3YYn8X9AeqCO",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Bju5kmmeCGs4mKo5",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -268,7 +250,10 @@
 			"img": "icons/magic/control/voodoo-doll-pain-damage-red.webp",
 			"_id": "8KWiGbd7U7QYtJym",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -309,9 +294,6 @@
 			"origin": "Item.fPhA3YYn8X9AeqCO",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Bju5kmmeCGs4mKo5",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -323,7 +305,10 @@
 			"img": "icons/magic/control/voodoo-doll-pain-damage-red.webp",
 			"_id": "G876RCDQlPjAwGPv",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

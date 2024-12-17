@@ -45,13 +45,10 @@
 						"range": "touch"
 					}
 				},
-				"prompts": {
-					"sH3lyJ5xufemrtGW": {
-						"type": "effect",
-						"default": true,
-						"effectId": "ohkTS34yBoHXi7ER"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"ohkTS34yBoHXi7ER"
+				]
 			}
 		},
 		"description": "<p>Starting at 1st level when you choose this archetype, you can use an action to touch a willing creature and grant them a single premonition that they will remember for 1 hour. While they remember the premonition, the creature can choose to reroll an ability check, attack roll, or saving throw, after which the premonition is gone from its mind. Once you use this feature, you cannot do so again until you finish a long rest. </p>",
@@ -80,9 +77,6 @@
 			"origin": "Item.XjK1te0kRa7G8ZII",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "GN7qPkt8CiI4eCYb",
 					"duration": {
 						"unit": "hours"
 					}
@@ -93,7 +87,10 @@
 			"img": "icons/skills/social/trading-injustice-scale-gray.webp",
 			"_id": "ohkTS34yBoHXi7ER",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

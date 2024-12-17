@@ -26,11 +26,6 @@
 				},
 				"rolls": {},
 				"prompts": {
-					"aWfryvs1t1PTJAum": {
-						"type": "effect",
-						"default": true,
-						"effectId": "kaXQnqkA5sxTNita"
-					},
 					"hCshpU45Ns73WMw6": {
 						"type": "savingThrow",
 						"default": true,
@@ -50,7 +45,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"kaXQnqkA5sxTNita"
+				]
 			}
 		},
 		"description": "<p>At 6th level whenever you cast a spell that deals force, bludgeoning, acid, or cold damage that requires a saving throw, if the creature fails the save they are either pushed 10 feet away from you or knocked prone, your choice. If the spell instead requires a spell attack roll, you can force the target to make a Strength saving throw against your wizard spell DC or suffer the same. Using this ability on a spell causes the spell to benefit from @UUID[Compendium.a5e.a5e-class-features.Item.ht56rsdaxuaa74gs]{Inescapable Current}. You can do so a number of times equal to your proficiency bonus and regain all expended uses when you finish a long rest.</p>",
@@ -78,18 +76,17 @@
 		{
 			"origin": "Item.iPr4mXiTwpZMuhdV",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "z2hTzFVhIPCmQQyR"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"img": "icons/magic/water/wave-water-blue.webp",
 			"_id": "kaXQnqkA5sxTNita",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

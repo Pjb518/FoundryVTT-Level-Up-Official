@@ -1329,7 +1329,8 @@
 							"quantity": "",
 							"type": "none"
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>You create up to four hovering lights which appear as torches, lanterns, or glowing orbs that can be combined into a glowing Medium-sized humanoid form. Each sheds dim light in a 10-foot radius.</p><p>You can use a bonus action to move the lights up to 60 feet so long as each remains within 20 feet of another light created by this spell. A dancing light winks out when it exceeds the spell's range.</p>",
@@ -1427,7 +1428,8 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>Magical darkness heavily obscures darkvision and blocks nonmagical light in the area. The darkness spreads around corners. If any of the area overlaps with magical light created by a spell of 2nd-level or lower, the spell that created the light is dispelled.</p><p>When cast on an object that is in your possession or unattended, the darkness emanates from it and moves with it. Completely covering the object with something that is not transparent blocks the darkness.</p>",
@@ -1804,7 +1806,8 @@
 								"type": "healing"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>When you drink the pure red concoction in this flask, you regain 4d4 + 4 hit points.</p>",
@@ -2058,7 +2061,8 @@
 							"quantity": "",
 							"type": "none"
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>A faintly shimmering phantasmal hand appears at a point you choose within range. It remains until you dismiss it as an action, or until you move more than 30 feet from it.</p><p>You can use an action to control the hand and direct it to do any of the following:</p><ul><li>manipulate an object.</li><li>open an unlocked container or door.</li><li>stow or retrieve items from unlocked containers.</li></ul><p>The hand cannot attack, use magic items, or carry more than 10 pounds.</p>",
@@ -2149,7 +2153,8 @@
 							"quantity": "",
 							"type": "other"
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>You wield arcane energies to produce minor effects. Choose one of the following:</p><ul><li>create a single burst of magic that manifests to one of the senses (for example a burst of sound, sparks, or an odd odor).</li><li>clean or soil an object of 1 cubic foot or less.</li><li>light or snuff a flame.</li><li>chill, warm, or flavor nonliving material of 1 cubic foot or less for 1 hour.</li><li>color or mark an object or surface for 1 hour.</li><li>create an ordinary trinket or illusionary image that fits in your hand and lasts for 1 round.</li></ul><p>You may cast this spell multiple times, though only three effects may be active at a time. Dismissing each effect requires an action.</p>",
@@ -2331,13 +2336,10 @@
 							}
 						},
 						"consumers": {},
-						"prompts": {
-							"GKzeiAKIE2qf79e8": {
-								"type": "effect",
-								"default": true,
-								"effectId": "6meIM37yip1QShpH"
-							}
-						}
+						"prompts": {},
+						"effects": [
+							"6meIM37yip1QShpH"
+						]
 					}
 				},
 				"description": "<p>An icy beam shoots from your outstretched fingers.</p><p>Make a ranged spell attack. On a hit, you deal 1d8 cold damage and reduce the target's Speed by 10 feet until the start of your next turn.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
@@ -2557,7 +2559,8 @@
 								"points": 2,
 								"type": "spell"
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>Your familiar, a spirit that takes the form of any CR 0 beast of Small or Tiny size, appears in an unoccupied space within range. It has the statistics of the chosen form, but is your choice of a celestial, fey, or fiend (instead of a beast).</p><p>Your familiar is an independent creature that rolls its own initiative and acts on its own turn in combat (but cannot take the Attack action). However, it is loyal to you and always obeys your commands.</p><p>When the familiar drops to 0 hit points, it vanishes without a trace. Casting the spell again causes it to reappear.</p><p>You are able to communicate telepathically with your familiar when it is within 100 feet. As long as it is within this range, you can use an action to see through your familiar's eyes and hear through its ears until the beginning of your next turn, gaining the benefit of any special senses it has. During this time, you are blind and deaf to your body's surroundings.</p><p>You can use an action to either permanently dismiss your familiar or temporarily dismiss it to a pocket dimension where it awaits your summons. While it is temporarily dismissed, you can use an action to call it back, causing it to appear in any unoccupied space within 30 feet of you.</p><p>You can't have more than one familiar at a time, but if you cast this spell while you already have a familiar, you can cause it to adopt a different form.</p><p>Finally, when you cast a spell with a range of Touch and your familiar is within 100 feet of you, it can deliver the spell as if it was the spellcaster. Your familiar must use its reaction to deliver the spell when you cast it. If the spell requires an attack roll, use your attack bonus for the spell.</p>",
@@ -2698,13 +2701,7 @@
 								"type": "spell"
 							}
 						},
-						"prompts": {
-							"MQ1SDdXebc3wsNbs": {
-								"type": "effect",
-								"default": true,
-								"effectId": "xILhsp6xwaUWS7YT"
-							}
-						},
+						"prompts": {},
 						"rolls": {
 							"qNZuHQR7kv2EL80j": {
 								"type": "healing",
@@ -2716,7 +2713,10 @@
 								"healingType": "temporaryHealing",
 								"formula": "0"
 							}
-						}
+						},
+						"effects": [
+							"xILhsp6xwaUWS7YT"
+						]
 					}
 				},
 				"description": "<p>Until the spell ends, the target is protected by a shimmering magical force. Its AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor, or if you use an action to dismiss it.</p><p><strong><em>Cast at Higher Levels.</em></strong> The target gains 5 temporary hit points for each slot level above 1st. The temporary hit points last for the spell's duration.</p>",
@@ -2843,7 +2843,8 @@
 								"points": 2,
 								"type": "spell"
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>A trio of glowing darts of magical force unerringly and simultaneously strike the targets, each dealing 1d4+1 force damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Evoke one additional dart and target up to one additional creature for each slot level above 1st.</p>",
@@ -2986,13 +2987,10 @@
 								"type": "spell"
 							}
 						},
-						"prompts": {
-							"Gpw63XYtGOkkZmXp": {
-								"type": "effect",
-								"default": true,
-								"effectId": "3JSn5GwbNdSgD0oS"
-							}
-						}
+						"prompts": {},
+						"effects": [
+							"3JSn5GwbNdSgD0oS"
+						]
 					}
 				},
 				"description": "<p>You create a shimmering arcane barrier between yourself and an oncoming attack. Until the spell ends, you gain a +5 bonus to your AC (including against the triggering attack) and any magic missile targeting you is harmlessly deflected.</p>",
@@ -3181,16 +3179,6 @@
 									"bonus": ""
 								},
 								"type": "savingThrow"
-							},
-							"jfilEvms77itvFx1": {
-								"type": "effect",
-								"default": true,
-								"effectId": "tey9cUNf8o3CHPA6"
-							},
-							"qfwfaqBjsdJhptG8": {
-								"type": "effect",
-								"default": true,
-								"effectId": "0lA7vqfoDvlNfBe1"
 							}
 						},
 						"consumers": {
@@ -3200,7 +3188,11 @@
 								"points": 3,
 								"type": "spell"
 							}
-						}
+						},
+						"effects": [
+							"tey9cUNf8o3CHPA6",
+							"0lA7vqfoDvlNfBe1"
+						]
 					}
 				},
 				"description": "<p>Until the spell ends, the target is blinded or deafened (your choice). At the end of each of its turns the target can repeat its saving throw, ending the spell on a success.</p><p><strong><em>Cast at Higher Levels.</em></strong> You target one additional creature for each slot level above 2nd.</p>",
@@ -3352,13 +3344,10 @@
 								"type": "spell"
 							}
 						},
-						"prompts": {
-							"G31vUlozIW3a3sPx": {
-								"type": "effect",
-								"default": true,
-								"effectId": "o1qvWrwid36w8yeW"
-							}
-						}
+						"prompts": {},
+						"effects": [
+							"o1qvWrwid36w8yeW"
+						]
 					}
 				},
 				"description": "<p>You wreathe a creature in an illusory veil, making it invisible. Anything the target is carrying or wearing is also invisible as long as it remains in the target's possession. The spell's effects end for a target that attacks or casts a spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature for each slot level above 2nd.</p>",
@@ -3483,7 +3472,8 @@
 								"points": 3,
 								"type": "spell"
 							}
-						}
+						},
+						"prompts": {}
 					},
 					"sawf1qMNGtml3PPR": {
 						"name": "Additional Rays",
@@ -3531,7 +3521,8 @@
 								}
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>Three rays of blazing orange fire shoot from your fingertips. Make a ranged spell attack for each ray.&nbsp;On a hit, the target takes 2d6 fire damage.</p><p><strong><em>Cast at Higher Levels.</em></strong> Create an additional ray for each slot level above 2nd.</p>",
@@ -4057,7 +4048,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					},
 					"911iDf2vrTJjuO4V": {
 						"name": "Dagger (Off-Hand)",
@@ -4096,7 +4088,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "",
@@ -4226,7 +4219,8 @@
 								"quantity": 1,
 								"type": "ammunition"
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "",
@@ -4367,10 +4361,7 @@
 			"icon": "icons/svg/item-bag.svg",
 			"origin": "Actor.ah7mg4fjwylj4l26.Item.YLoqLhmKUQENDXyB",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Sunlight",
@@ -4406,6 +4397,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

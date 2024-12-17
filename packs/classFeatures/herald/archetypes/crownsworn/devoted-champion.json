@@ -30,11 +30,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"IejpSbvuXfSQONIf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "yMQtaJtWM1HhTfzz"
 					}
 				},
 				"uses": {
@@ -49,7 +44,10 @@
 				"duration": {
 					"unit": "minute",
 					"value": 1
-				}
+				},
+				"effects": [
+					"yMQtaJtWM1HhTfzz"
+				]
 			}
 		},
 		"description": "<p>At 20th level you gain the Lawful alignment. As a bonus action you may grant yourself the following benefits for 1 minute:</p>\n<ul>\n<li>You gain an additional reaction usable each turn in addition to your normal reaction. This may only be used on your @UUID[Compendium.a5e.a5e-class-features.Item.r9gtclbudfwki3u5]{Bodyguard} ability.</li>\n<li>At any point while this ability is active, you may issue a challenge to another creature. They must make a Charisma saving throw. On a failure they cannot willingly move more then 30 feet away from you. You have advantage on weapon attack rolls agaisnt them, deal an additional 1d8 damage against them with your divine smite, and they have disadvantage on attack rolls against anyone except you. This effect ends early if either of you start your turn more than 30 feet from each other.</li>\n</ul>",
@@ -95,9 +93,6 @@
 			"origin": "Item.QWPamJF0e3LWaXxv",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "OoCyva5EC8Vl1skw",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -108,7 +103,10 @@
 			"img": "icons/magic/holy/barrier-shield-winged-cross.webp",
 			"_id": "yMQtaJtWM1HhTfzz",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -140,13 +138,9 @@
 			"origin": "Item.QWPamJF0e3LWaXxv",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "OoCyva5EC8Vl1skw",
 					"duration": {
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -154,7 +148,10 @@
 			"img": "icons/magic/holy/barrier-shield-winged-cross.webp",
 			"_id": "knulvJglwoMP0Ghm",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.attack.meleeWeaponAttack",

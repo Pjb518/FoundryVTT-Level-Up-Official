@@ -31,13 +31,7 @@
 						"damageType": "necrotic"
 					}
 				},
-				"prompts": {
-					"4kzHJhd7v4Gbr32O": {
-						"type": "effect",
-						"default": true,
-						"effectId": "cU8K1siYIk66yl3K"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -48,7 +42,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"cU8K1siYIk66yl3K"
+				]
 			},
 			"YpBZwyx8Ic0Nofdv": {
 				"name": "Change Selected Creatures",
@@ -98,18 +95,17 @@
 		{
 			"origin": "Item.8FSdgV8vNNES7kJb",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "7LS51bTDwI2EXxms"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Will of the Divine (Radiant)",
 			"img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
 			"_id": "cU8K1siYIk66yl3K",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",
@@ -147,18 +143,17 @@
 		{
 			"origin": "Item.8FSdgV8vNNES7kJb",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "7LS51bTDwI2EXxms"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Will of the Divine (Necrotic)",
 			"img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
 			"_id": "AN4jMBKw1dK1Je3O",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.traits.damageResistances",

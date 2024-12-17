@@ -6,19 +6,17 @@
 		{
 			"origin": "Item.dW9Z88MW1XncKzkV",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Q4hp70YJoDVb9UTr",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "No Quarter",
 			"img": "icons/skills/wounds/blood-spurt-spray-red.webp",
 			"_id": "XmkTXboK5L26sO5d",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",
@@ -72,13 +70,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"HjMgQGCkAtvEPsS1": {
-						"type": "effect",
-						"default": true,
-						"effectId": "XmkTXboK5L26sO5d"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -89,7 +81,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"XmkTXboK5L26sO5d"
+				]
 			}
 		},
 		"description": "<p>If a creature is bloodied, weapon attacks from you and friendly creatures within the range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence} ability do additional damage to it equal to your Charisma modifier.</p>",

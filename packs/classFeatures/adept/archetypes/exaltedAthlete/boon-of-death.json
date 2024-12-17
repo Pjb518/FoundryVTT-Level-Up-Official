@@ -7,10 +7,6 @@
 			"origin": "Item.clZ5eexyMLzdrunL",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Dy13VlORZV6ivT7L",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -51,7 +47,10 @@
 			},
 			"img": "icons/magic/death/grave-tombstone-glow-teal.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
@@ -106,13 +105,10 @@
 						"quantity": 2
 					}
 				},
-				"prompts": {
-					"ZmdEEwSIDj5hsEV2": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2ZL7d41UtckiGrHv"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"2ZL7d41UtckiGrHv"
+				]
 			}
 		},
 		"description": "<p>When you reduce a living creature to 0 hit points, you can use your reaction to spend 2 exertion and gain a number of temporary hit points equal to your martial arts die plus your proficiency bonus. If you do, you have advantage on death saving throws for 1 minute.</p>",

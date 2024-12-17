@@ -23,13 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"Zu2UMdTE1y9bGrjC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "x9Bvn9oirP8cyepB"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -47,7 +41,10 @@
 				"duration": {
 					"unit": "round",
 					"value": 1
-				}
+				},
+				"effects": [
+					"x9Bvn9oirP8cyepB"
+				]
 			}
 		},
 		"description": "<p>At 3rd level, you learn to use sound to locate objects and creatures around you. As a bonus action, you can sing, stomp, or play a musical instrument, concentrating on your music as if it were a spell. Until the start of your next turn, any creature within 300 feet of you that can hear you automatically detects your presence, but you also gain blindsight with a range of 30 feet. If you already have blindsight, its range increases by 30 feet.</p>",
@@ -76,10 +73,6 @@
 			"origin": "Item.hJIF0GweePD4fd5t",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "RP0exI6XaG4rjTsi",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -121,7 +114,10 @@
 			},
 			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

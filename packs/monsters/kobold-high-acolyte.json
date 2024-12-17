@@ -837,7 +837,8 @@
 								}
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>You cast a streak of flame at the target. Make a ranged spell attack. On a hit, you deal 1d10 fire damage. An unattended flammable object is ignited.</p><p>This spell's damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).</p>",
@@ -1030,7 +1031,8 @@
 							"quantity": "",
 							"type": "none"
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>A faintly shimmering phantasmal hand appears at a point you choose within range. It remains until you dismiss it as an action, or until you move more than 30 feet from it.</p><p>You can use an action to control the hand and direct it to do any of the following:</p><ul><li>manipulate an object.</li><li>open an unlocked container or door.</li><li>stow or retrieve items from unlocked containers.</li></ul><p>The hand cannot attack, use magic items, or carry more than 10 pounds.</p>",
@@ -1167,13 +1169,10 @@
 						},
 						"rolls": {},
 						"consumers": {},
-						"prompts": {
-							"JWDP4S4Yjv2wE7xD": {
-								"type": "effect",
-								"default": true,
-								"effectId": "fX7ykJezw2Vd0NZv"
-							}
-						}
+						"prompts": {},
+						"effects": [
+							"fX7ykJezw2Vd0NZv"
+						]
 					},
 					"Y1hfvOpZHGQJ8Mn9": {
 						"name": "Fling Flame",
@@ -1212,7 +1211,8 @@
 								"damageType": "fire"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>You create a flame in your hand which lasts until the spell ends and does no harm to you or your equipment. The flame sheds bright light in a 10-foot radius and dim light for an additional 10 feet.</p><p>The spell ends when you dismiss it, cast it again, or attack with the flame. As part of casting the spell or as an action on a following turn, you can fling the flame at a creature within 30 feet, making a ranged spell attack that deals 1d8 fire damage.</p><p>This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th level (3d8), and 17th level (4d8).</p>",
@@ -1466,13 +1466,10 @@
 								"type": "spell"
 							}
 						},
-						"prompts": {
-							"fiECUX4VxicyLyVn": {
-								"type": "effect",
-								"default": true,
-								"effectId": "ekbRuKaLFm6ygsHw"
-							}
-						}
+						"prompts": {},
+						"effects": [
+							"ekbRuKaLFm6ygsHw"
+						]
 					}
 				},
 				"description": "<p>Until the spell ends, you're able to move with incredible speed. When you cast the spell and as a bonus action on subsequent turns, you can take the Dash action.</p><p><strong><em>Cast at Higher Levels.</em></strong> Your Speed increases by 10 feet for each slot level above 1st.</p>",
@@ -1682,16 +1679,6 @@
 									"bonus": ""
 								},
 								"type": "savingThrow"
-							},
-							"ihoRmBLotqfboXIo": {
-								"type": "effect",
-								"default": true,
-								"effectId": "fB0ob8QMcMyug2fP"
-							},
-							"VrklmmY8yOHCxBRO": {
-								"type": "effect",
-								"default": true,
-								"effectId": "6tEfvkxFPUZJ1Uwx"
 							}
 						},
 						"consumers": {
@@ -1701,7 +1688,11 @@
 								"points": 3,
 								"type": "spell"
 							}
-						}
+						},
+						"effects": [
+							"fB0ob8QMcMyug2fP",
+							"6tEfvkxFPUZJ1Uwx"
+						]
 					}
 				},
 				"description": "<p>You cause the target to grow or shrink. An unwilling target may attempt a saving throw to resist the spell.</p><p>If the target is a creature, all items worn or carried by it also change size with it, but an item dropped by the target immediately returns to normal size.</p><ul class=\"indentedSelection\"><li><strong>Enlarge:</strong> Until the spell ends, the target's size increases by one size category. Its size doubles in all dimensions and its weight increases eightfold. The target also has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 1d4 damage.</li><li><strong>Reduce:</strong> Until the spell ends, the target's size decreases one size category. Its size is halved in all dimensions and its weight decreases to one-eighth of its normal value. The target has disadvantage on Strength checks and Strength saving throws and its weapons shrink, dealing 1d4 less damage (its attacks deal a minimum of 1 damage).</li></ul><p><strong><em>Cast at Higher Levels.</em></strong> When using a spell slot of 4th-level, you can cause the target and its gear to increase by two size categories&mdash;from Medium to Huge, for example. Until the spell ends, the target's size is quadrupled in all dimensions, multiplying its weight twentyfold. The target has advantage on Strength checks and Strength saving throws. Its weapons also enlarge, dealing an extra 2d4 damage.</p>",
@@ -1848,11 +1839,6 @@
 									"bonus": ""
 								},
 								"type": "savingThrow"
-							},
-							"VjnRQ03IfTVv1Ni5": {
-								"type": "effect",
-								"default": true,
-								"effectId": "3JVj6W1lcRJTlRBV"
 							}
 						},
 						"consumers": {
@@ -1862,7 +1848,10 @@
 								"points": 3,
 								"type": "spell"
 							}
-						}
+						},
+						"effects": [
+							"3JVj6W1lcRJTlRBV"
+						]
 					}
 				},
 				"description": "<p>The target is paralyzed. At the end of each of its turns, the target makes another saving throw, ending the spell's effects on it on a successful save.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target an additional creature within 30 feet of the first target for each slot level above 2nd.</p>",
@@ -2142,10 +2131,7 @@
 			"icon": "icons/svg/item-bag.svg",
 			"origin": "Actor.59s9vi6w82bffh2v.Item.PbotVP3CvgJ69Vix",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Sunlight Sensitivity",
@@ -2181,6 +2167,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

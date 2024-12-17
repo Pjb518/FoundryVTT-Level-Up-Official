@@ -31,13 +31,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"3POk9lsxP9lWumVS": {
-						"type": "effect",
-						"default": true,
-						"effectId": "rtmtm4naFVGq5nsc"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -48,7 +42,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"rtmtm4naFVGq5nsc"
+				]
 			},
 			"yV5rG9gA0dwBojhq": {
 				"name": "Blindsense",
@@ -67,13 +64,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"3POk9lsxP9lWumVS": {
-						"type": "effect",
-						"default": true,
-						"effectId": "I7azFttcVhlPpM2S"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -84,7 +75,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"I7azFttcVhlPpM2S"
+				]
 			},
 			"mBa185gEr9vTy1Tw": {
 				"name": "Tremorsense",
@@ -103,13 +97,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"3POk9lsxP9lWumVS": {
-						"type": "effect",
-						"default": true,
-						"effectId": "cOoA6Z2xAo3pYfpJ"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -120,7 +108,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"cOoA6Z2xAo3pYfpJ"
+				]
 			}
 		},
 		"description": "<p>At level 13, you can use magic to enhance your senses. As a bonus action, you can spend spell slots to gain any of the following effects for one minute:</p>\n<ul>\n<li><strong>1st-level spell slot:</strong> You gain darkvision out to a range of 60 feet. This darkvision treats magical darkness as non- magical darkness. If you already have darkvision, its range is extended by 60 feet, but you are still only able to see through magical darkness up to 60 feet. This effect may be activated multiple times, extending the range of both effects by 30 feet for each use after the first.</li>\n<li><strong>2nd-level spell slot: </strong>you gain blindsense in a 20-foot radius around you.</li>\n<li><strong>3rd-level spell slot: </strong>you gain tremorsense in a 40-foot radius around you.</li>\n</ul>\n<p>You may use a higher-level spell slot for a lower-level effect if you wish. You may also have any number of these effects active at once, and may activate any number as part of the same bonus action, but you must pay for them all individually.</p>",
@@ -149,10 +140,6 @@
 			"origin": "Item.PweepZflAKBLBAIv",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "RgU8gBS0bdAUePAo",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -163,7 +150,10 @@
 			"img": "icons/magic/perception/third-eye-blue-red.webp",
 			"_id": "rtmtm4naFVGq5nsc",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.senses.darkvision.distance",
@@ -202,10 +192,6 @@
 			"origin": "Item.PweepZflAKBLBAIv",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "yV5rG9gA0dwBojhq",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -216,7 +202,10 @@
 			"img": "icons/magic/perception/third-eye-blue-red.webp",
 			"_id": "I7azFttcVhlPpM2S",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.senses.blindsight.distance",
@@ -255,10 +244,6 @@
 			"origin": "Item.PweepZflAKBLBAIv",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "mBa185gEr9vTy1Tw",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -269,7 +254,10 @@
 			"img": "icons/magic/perception/third-eye-blue-red.webp",
 			"_id": "cOoA6Z2xAo3pYfpJ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.senses.tremorsense.distance",

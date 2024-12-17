@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"4Ce05kjvxKbJ93IS": {
-						"type": "effect",
-						"default": true,
-						"effectId": "r4I1RkxPHNekFwzY"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +47,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"r4I1RkxPHNekFwzY"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">You cause a creature, for one round, to be able to take any number of reactions. The creature takes 2 damage when it takes its second reaction, which is doubled when it takes its third, doubled again for its fourth, and so on. When the creature has an opportunity to take a reaction, it is magically forced to, even if doing so would reduce it to 0 hit points.</p>",
@@ -82,9 +79,6 @@
 			"origin": "Item.PwiItfTrbrV6gmle",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "jMYH1GsjZo6HYlGP",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -96,7 +90,10 @@
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "r4I1RkxPHNekFwzY",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

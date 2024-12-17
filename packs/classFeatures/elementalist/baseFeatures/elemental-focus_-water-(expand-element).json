@@ -37,14 +37,7 @@
 						"damageType": "cold"
 					}
 				},
-				"prompts": {
-					"PKJJx6HfFkKJH0dk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "9MiQEIdgDgKP8dLd",
-						"label": "Slowing"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -67,7 +60,10 @@
 					}
 				},
 				"img": "icons/magic/water/projectile-ice-snowball.webp",
-				"description": "<p><span id=\"docs-internal-guid-bbc35d25-7fff-2bdf-724a-2b35ee47d03b\"><strong>Slowing:</strong> On hit, the target's speeds are reduced by 10 ft.</span></p>"
+				"description": "<p><span id=\"docs-internal-guid-bbc35d25-7fff-2bdf-724a-2b35ee47d03b\"><strong>Slowing:</strong> On hit, the target's speeds are reduced by 10 ft.</span></p>",
+				"effects": [
+					"9MiQEIdgDgKP8dLd"
+				]
 			}
 		},
 		"description": "<p><span id=\"docs-internal-guid-871610b8-7fff-e567-5108-722751463cde\">If you choose Elemental Focus for your element, you gain access to a Focused Blast.</span></p>\n<p id=\"docs-internal-guid-89a77d71-7fff-1d70-d659-03d2f02bc8cc\" dir=\"ltr\">You can gain this ability multiple times, but for a different element each time.</p>\n<p dir=\"ltr\">A Focused Blast is a more focused and powerful version of a pure Elemental Blast.. You must possess Elemental Focus in an element to use its Focused Blast. Focused Blasts have different damage types and properties than their basic counterparts.</p>\n<p dir=\"ltr\">&nbsp;</p>\n<p><strong>Table: Focused Blasts</strong></p>\n<table style=\"width: 100%; height: 84px;\" border=\"1\"><colgroup><col style=\"width: 11.284%;\"><col style=\"width: 22.3735%;\"><col style=\"width: 14.5971%;\"><col style=\"width: 51.7453%;\"></colgroup>\n<thead>\n<tr style=\"height: 16.8px;\">\n<td style=\"text-align: left; height: 16.8px;\">Affinity</td>\n<td style=\"text-align: center; height: 16.8px;\">Blast</td>\n<td style=\"text-align: center; height: 16.8px;\">Damage</td>\n<td style=\"text-align: center; height: 16.8px;\">Properties</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 16.8px;\">\n<td style=\"text-align: left; height: 16.8px;\">Water</td>\n<td style=\"text-align: center; height: 16.8px;\">Cold Blast</td>\n<td style=\"text-align: center; height: 16.8px;\">Cold</td>\n<td style=\"text-align: left; height: 16.8px;\">Slowing: On hit, the target's speeds are reduced by 10 ft.</td>\n</tr>\n</tbody>\n</table>",
@@ -95,10 +91,7 @@
 			"icon": "icons/magic/water/projectile-ice-snowball.webp",
 			"origin": "Item.1n2Ci2rtlJIH9Yan",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Slowing",
@@ -128,6 +121,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

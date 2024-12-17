@@ -39,11 +39,6 @@
 							"type": "custom",
 							"bonus": ""
 						}
-					},
-					"QvT0ekXwRjPI9Iiu": {
-						"type": "effect",
-						"default": true,
-						"effectId": "BqKfEORxl7aKJxBG"
 					}
 				},
 				"uses": {
@@ -65,7 +60,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"BqKfEORxl7aKJxBG"
+				]
 			}
 		},
 		"description": "<p>Your victory will be spoken of for years to come. Your Prestige rating increases by 2 points. Additionally, you have advantage on all Intimidation checks and as a bonus action you can force a creature within 30 feet of you which can see, hear, and understand you, to make a Wisdom saving throw against a DC equal to your Intimidation check. On a failure, the target is rattled until the end of its next turn.</p>",
@@ -110,9 +108,6 @@
 			"origin": "Item.icvmQfk0STpOO37D",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "xBqmhftMBnbFYfCN",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -124,7 +119,10 @@
 			"img": "icons/magic/control/fear-fright-monster-grin-purple-blue.webp",
 			"_id": "BqKfEORxl7aKJxBG",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

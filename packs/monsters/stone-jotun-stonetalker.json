@@ -1133,13 +1133,11 @@
 									"type": "custom",
 									"bonus": "19"
 								}
-							},
-							"CnNLLeJhM1frI6pb": {
-								"type": "effect",
-								"default": true,
-								"effectId": "TelcmHfd0JnvXcFH"
 							}
-						}
+						},
+						"effects": [
+							"TelcmHfd0JnvXcFH"
+						]
 					}
 				},
 				"description": "<p>If the target is a Large or smaller creature, it makes a DC 19 Strength saving throw, falling prone on a failure.</p>",
@@ -1297,11 +1295,6 @@
 									"type": "custom",
 									"bonus": "19"
 								}
-							},
-							"ix7Hvop83iLVIE0E": {
-								"type": "effect",
-								"default": true,
-								"effectId": "mWMlfADoaSi6lUyM"
 							}
 						},
 						"uses": {
@@ -1327,7 +1320,10 @@
 						"target": {
 							"type": "creatureObject",
 							"quantity": 1
-						}
+						},
+						"effects": [
+							"mWMlfADoaSi6lUyM"
+						]
 					}
 				},
 				"description": "<p>If the target is a Large or smaller creature, it makes a DC 19 Strength saving throw. On a failure, it is pushed 10 feet away from the jotun and knocked prone.</p>",
@@ -1445,13 +1441,7 @@
 								"damageType": "bludgeoning"
 							}
 						},
-						"prompts": {
-							"ix7Hvop83iLVIE0E": {
-								"type": "effect",
-								"default": true,
-								"effectId": "mWMlfADoaSi6lUyM"
-							}
-						},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
@@ -1472,7 +1462,10 @@
 						"target": {
 							"type": "creatureObject",
 							"quantity": 1
-						}
+						},
+						"effects": [
+							"mWMlfADoaSi6lUyM"
+						]
 					}
 				},
 				"description": "<p>In lieu of a rock, the jotun can throw a grappled Medium or smaller creature up to 40 feet. On a hit, the target and the thrown creature both take 15 (3d6+6) bludgeoning damage. On a miss, only the thrown creature takes the damage. The thrown creature falls prone in an unoccupied space 5 feet from the target.</p>",
@@ -1584,11 +1577,6 @@
 								"saveDC": {
 									"type": "dex"
 								}
-							},
-							"CerGhyyvRxxzsLiK": {
-								"type": "effect",
-								"default": true,
-								"effectId": "0x5gPZMx6AZPp9d8"
 							}
 						},
 						"uses": {
@@ -1601,7 +1589,10 @@
 								"rechargeAmount": "1",
 								"threshold": 6
 							}
-						}
+						},
+						"effects": [
+							"0x5gPZMx6AZPp9d8"
+						]
 					}
 				},
 				"description": "<p>One creature within 5 feet makes a DC 13 Dexterity saving throw. On a failure, it is grappled (escape DC 17). Until this grapple ends, the jotun can't grab another target, and it makes greatclub attacks with advantage against the grappled target.</p>",
@@ -1799,7 +1790,8 @@
 								"points": 6,
 								"type": "spell"
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>You reshape the target into any form you choose.</p><p>For example, you could shape a large rock into a weapon, statue, or chest, make a small passage through a wall (as long as it isn't more than 5 feet thick), seal a stone door shut, or create a hiding place. The target can have up to two hinges and a latch, but finer mechanical detail isn't possible.</p><p><strong><em>Cast at Higher Levels.</em></strong> You may select one additional target for every slot level above 4th.</p>",
@@ -1899,7 +1891,8 @@
 								"points": 7,
 								"type": "spell"
 							}
-						}
+						},
+						"prompts": {}
 					},
 					"lfXCjDtskpINGG8P": {
 						"name": "Move Creature",
@@ -2116,13 +2109,7 @@
 								"quantity": 1
 							}
 						},
-						"prompts": {
-							"iaJlntGmHcyzU3J0": {
-								"type": "effect",
-								"default": true,
-								"effectId": "htVmTfcczNtoGlkv"
-							}
-						},
+						"prompts": {},
 						"rolls": {
 							"BavCmd3xlQP5pxyo": {
 								"type": "damage",
@@ -2140,7 +2127,10 @@
 								"formula": "50",
 								"damageType": "bludgeoning"
 							}
-						}
+						},
+						"effects": [
+							"htVmTfcczNtoGlkv"
+						]
 					}
 				},
 				"description": "<p>Until the spell ends, you meld yourself and your carried equipment into the target stone. Using your movement, you may enter the stone from any point you can touch. No trace of your presence is visible or detectable by nonmagical senses.</p><p>Within the stone, you can't see outside it and have disadvantage on Perception checks made to hear beyond it. You are aware of time passing, and may cast spells upon yourself. You may use your movement only to step out of the target where you entered it, ending the spell.</p><p>If the target is damaged such that its shape changes and you no longer fit within it, you are expelled and take 6d6 bludgeoning damage. Complete destruction of the target, or its transmutation into another substance, expels you and you take 50 bludgeoning damage. When expelled you fall prone into the closest unoccupied space near your entrance point.</p><p><strong><em>Cast at Higher Levels.</em></strong> When using a 5th-level spell slot, you may reach out of the target to make spell attacks or ranged weapon attacks without ending the spell. You make these attacks with disadvantage.</p>",
@@ -2242,7 +2232,8 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>You reshape the area, changing its elevation or creating and eliminating holes, walls, and pillars.</p><p>The only limitation is that the elevation change may not exceed half the area's horizontal dimensions.</p><p>For example, affecting a 40-by-40 area allows you to include 20 foot high pillars, holes 20 feet deep, and changes in terrain elevation of 20 feet or less.</p><p>Changes that result in unstable terrain are subject to collapse.</p><p>Changes take 10 minutes to complete, after which you can choose another area to affect. Due to the slow speed of transformation, it is nearly impossible for creatures to be hurt or captured by the spell.</p><p>This spell has no effect on stone, objects crafted from stone, or plants, though these objects will shift based on changes in the area.</p>",
@@ -2345,7 +2336,8 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>Until the spell ends, you create a passage extending into the target surface. When creating the passage you define its dimensions, as long as they do not exceed 5 feet in width, 8 feet in height, or 20 feet in depth.</p><p>The appearance of the passage has no effect on the stability of the surrounding environment.</p><p>Any creatures or objects within the passage when the spell ends are expelled without harm into unoccupied spaces near where the spell was cast.</p>",
@@ -2446,7 +2438,8 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>With the aid of a divining tool, you receive an omen from beyond the Material Plane about the results of a specific course of action that you intend to take within the next 30 minutes. The Narrator chooses from the following:</p><ul><li>Fortunate omen (good results)</li><li>Calamity omen (bad results)</li><li>Ambivalence omen (both good and bad results)</li><li>No omen (results that aren't especially good or bad)</li></ul><p>This omen does not account for possible circumstances that could change the outcome, such as making additional preparations.<p>When you cast this spell again before finishing a long rest, the chance of getting a random reading from the above options increases. The Narrator makes the following roll in secret: second casting&mdash;25%, third casting&mdash;50%, fourth casting&mdash;75%, fifth casting&mdash;100%.</p>",
@@ -2892,11 +2885,6 @@
 									"bonus": "19"
 								},
 								"onSave": "Half damage"
-							},
-							"VfWBeRiif2b4DGFF": {
-								"type": "effect",
-								"default": true,
-								"effectId": "8cEYofh9fw3xqPfO"
 							}
 						},
 						"uses": {
@@ -2919,7 +2907,10 @@
 							"shape": "circle",
 							"quantity": 1,
 							"radius": 60
-						}
+						},
+						"effects": [
+							"8cEYofh9fw3xqPfO"
+						]
 					}
 				},
 				"description": "<p>The stone giant magically creates an avalanche on a hill or mountainside centered on a point within 120 feet. Stones cascade down sloped or sheer stone surfaces within 60 feet of that point. Each non-stone giant creature within the affected area makes a Strength saving throw. On a failure, a creature takes 17 (5d6) bludgeoning damage, is knocked prone, and moves with the avalanche until they reach a flat surface or the edge of the area. On a success, the creature takes half damage.</p>",

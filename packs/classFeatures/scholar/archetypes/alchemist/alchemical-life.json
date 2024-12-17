@@ -40,13 +40,7 @@
 						}
 					}
 				},
-				"prompts": {
-					"07SjoPGi2DB2oHvj": {
-						"type": "effect",
-						"default": true,
-						"effectId": "RhWV5oGWFpjw85LE"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -57,7 +51,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"RhWV5oGWFpjw85LE"
+				]
 			}
 		},
 		"description": "<p>At 10th level you gain the ability to create a @UUID[Compendium.a5e.a5e-monsters.Actor.p7xxhobhmcbtyk1q]{Homunculus}. This requires 8 hours of work and 2000 gp of reagents. It also requires you to shed some of your blood, dealing between 2d4 and 12d4 piercing damage chosen in multiples of 2d4. This damage cannot be reduced by any means, and your maximum hit points are reduced by this amount until the homunculus is destroyed. The homunculous uses the stats from the Monstrous Menagerie except its maximum hit points are increased by the amount of damage you took creating it. You can only have one homunculus at a time.</p>",
@@ -85,19 +82,17 @@
 		{
 			"origin": "Item.hKOfkqbxQetVfso7",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "lH678HDwMv11ze7n",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Alchemical Life",
 			"img": "icons/creatures/magical/construct-stone-earth-gray.webp",
 			"_id": "RhWV5oGWFpjw85LE",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

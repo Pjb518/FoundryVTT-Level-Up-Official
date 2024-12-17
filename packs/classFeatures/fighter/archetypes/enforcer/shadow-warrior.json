@@ -7,9 +7,6 @@
 			"origin": "Item.PjtdYA1i4erK3Rln",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "OsOV4DLvB4T9Bgwo",
 					"duration": {
 						"unit": "minutes"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/magic/unholy/silhouette-robe-evil-power.webp",
 			"_id": "KiwHTJ6Hdv9dd69B",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -61,9 +61,6 @@
 			"origin": "Item.PjtdYA1i4erK3Rln",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "OsOV4DLvB4T9Bgwo",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -75,7 +72,10 @@
 			"img": "icons/magic/unholy/silhouette-robe-evil-power.webp",
 			"_id": "oVvD41dtCrKdUnIU",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -146,16 +146,6 @@
 						"saveDC": {
 							"type": "maneuver"
 						}
-					},
-					"4QU6Ke3fVPOuD4up": {
-						"type": "effect",
-						"default": true,
-						"effectId": "KiwHTJ6Hdv9dd69B"
-					},
-					"ww4vzlKv41Bd4bzC": {
-						"type": "effect",
-						"default": true,
-						"effectId": "oVvD41dtCrKdUnIU"
 					}
 				},
 				"uses": {
@@ -168,7 +158,11 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"KiwHTJ6Hdv9dd69B",
+					"oVvD41dtCrKdUnIU"
+				]
 			}
 		},
 		"description": "<p>Your blending of the martial and the clandestine reaches its apex. When you hit with a weapon attack against a creature that is unaware of your presence, you deal an additional 1d8 of damage. Your critical hit range for attacks against a creature unaware of your presence increases to 17-20.</p>\n<p>A creature that suffers a critical hit from such an attack must make a Wisdom saving throw against your maneuver DC or become rattled for one minute. If they fail this save by more than 5, they are also stunned until the end of their next turn.</p>",

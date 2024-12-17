@@ -31,11 +31,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Not blinded"
-					},
-					"drZcgAu7Kk25cYWF": {
-						"type": "effect",
-						"default": true,
-						"effectId": "441VELCjrCLXMYaz"
 					}
 				},
 				"uses": {
@@ -60,7 +55,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"441VELCjrCLXMYaz"
+				]
 			}
 		},
 		"description": "<p id=\"docs-internal-guid-43f4e981-7fff-cdd4-ac38-280f130ff342\" dir=\"ltr\">You call upon the fiery oil and seeds of a hot pepper to punish your foes. When a creature hits you with a melee weapon attack, you may use your reaction to conjure forth the natural irritants of a spicy pepper and spray them into your attacker&rsquo;s face. The triggering creature must make a Constitution saving throw versus your spell save DC or become blinded until the start of its next turn.</p>",
@@ -108,9 +106,6 @@
 			"origin": "Item.j2wv5raygwcijiar",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "fazZMC5EhLlRpBNf",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -147,6 +142,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

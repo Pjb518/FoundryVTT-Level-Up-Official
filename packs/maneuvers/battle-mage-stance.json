@@ -30,14 +30,10 @@
 						"type": "resource"
 					}
 				},
-				"prompts": {
-					"4LooN7DBkVAi4ipa": {
-						"type": "effect",
-						"default": true,
-						"effectId": "VDbtb9Pop1s10luL",
-						"label": "Battle Mage Stance"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"VDbtb9Pop1s10luL"
+				]
 			}
 		},
 		"description": "<p>You call upon your latent magical power to infuse your weapon attacks.</p><p>When you use Extra Attack, you can replace any of the weapon attacks with a weaponry cantrip. However, each cantrip cast this way beyond the first each round costs you 2 points of exertion.</p>",
@@ -66,12 +62,9 @@
 			"origin": "Item.H8iz6NOnENGvzods",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "RiMb0DMlvjZHakGx"
+					}
 				}
 			},
 			"transfer": false,
@@ -96,6 +89,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

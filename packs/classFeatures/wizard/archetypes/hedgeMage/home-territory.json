@@ -7,12 +7,7 @@
 			"icon": "icons/environment/wilderness/altar-hidden.webp",
 			"origin": "Item.q6jmHztzffZCYANP",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "2e61WNZdmHigjUU4",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Fatigue",
@@ -42,6 +37,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -67,13 +66,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"nBK6xbIzb5elNBaj": {
-						"type": "effect",
-						"default": true,
-						"effectId": "MaNkxlBa1QOtBbe5"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -84,7 +77,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"MaNkxlBa1QOtBbe5"
+				]
 			},
 			"Z4t6HR8Qgk6jZrgO": {
 				"name": "Adjust Weather",

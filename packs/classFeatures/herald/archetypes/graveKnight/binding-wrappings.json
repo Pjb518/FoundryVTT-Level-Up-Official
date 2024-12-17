@@ -28,13 +28,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"0vf2Ha1TgyMMmsnc": {
-						"type": "effect",
-						"default": true,
-						"effectId": "VOYGtoE8cYRqde0w"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -50,7 +44,10 @@
 					"NLKfcXX8iNqm2e8S": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"VOYGtoE8cYRqde0w"
+				]
 			},
 			"ByJNYcgSAB4OtBkA": {
 				"name": "Drag Creature",
@@ -99,18 +96,17 @@
 		{
 			"origin": "Item.t7yepz9HxbLHBCej",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "WpCTTKNKDLZdi9YX"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Grappled",
 			"img": "icons/commodities/cloth/ribbon-green.webp",
 			"_id": "VOYGtoE8cYRqde0w",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

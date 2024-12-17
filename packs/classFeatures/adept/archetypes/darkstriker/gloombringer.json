@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"p9vkkfLHza4AZxnF": {
-						"type": "effect",
-						"default": true,
-						"effectId": "QiYJcelAKFXhHf4V"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -59,7 +53,10 @@
 					"shape": "emanation",
 					"quantity": 1,
 					"radius": 15
-				}
+				},
+				"effects": [
+					"QiYJcelAKFXhHf4V"
+				]
 			}
 		},
 		"description": "<p>At 6th level, you gain some control over darkness. As a bonus action, you can spend 1 exertion point to lower the ambient light in an area 15 feet from your position. Bright light becomes dim light, dim light becomes darkness, and darkness becomes magical darkness. This area remains centered on you as you move and lasts for one minute or until you dismiss it (no action required). If you attempt to activate this feature again while it is active, nothing additional happens.</p>",
@@ -88,10 +85,6 @@
 			"origin": "Item.dYza4rrhkRukNkOL",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "88Do6w6hvNjvqRHl",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -125,7 +118,10 @@
 			},
 			"img": "icons/magic/light/orbs-hand-gray.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

@@ -7,9 +7,6 @@
 			"origin": "Item.6LJMCxYoHsCPFtFa",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ue8a6eCTM4cThhlr",
 					"duration": {
 						"unit": "hours"
 					}
@@ -20,7 +17,10 @@
 			"img": "icons/magic/perception/eye-ringed-glow-angry-large-teal.webp",
 			"_id": "6Z1sU9GTb2Jic3WX",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.rollMode.skillCheck.prc",
@@ -90,13 +90,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"dJqgZ0pxOiK9oIfa": {
-						"type": "effect",
-						"default": true,
-						"effectId": "6Z1sU9GTb2Jic3WX"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -107,7 +101,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"6Z1sU9GTb2Jic3WX"
+				]
 			}
 		},
 		"description": "<p>As an action, designate a number of creatures up to your proficiency bonus within range of your @UUID[Compendium.a5e.a5e-class-features.Item.d71mc2057x7y6c08]{Commanding Presence}. You and the creatures you designate gain advantage on Perception and Investigation checks for one hour. Once you have used this ability, you may not use it again until you finish a short or long rest.</p>",

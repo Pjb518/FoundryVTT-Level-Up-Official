@@ -83,11 +83,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"Uvd6PkS6ksyptnSX": {
-						"type": "effect",
-						"default": true,
-						"effectId": "38mjVXfxPGgSdO3m"
 					}
 				},
 				"uses": {
@@ -100,7 +95,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"38mjVXfxPGgSdO3m"
+				]
 			},
 			"RZofVGuVL86sYf1u": {
 				"name": "Fire Damage (18th Level)",
@@ -124,11 +122,6 @@
 							"type": "spellcasting"
 						}
 					},
-					"Uvd6PkS6ksyptnSX": {
-						"type": "effect",
-						"default": true,
-						"effectId": "5dL3MMCaYrWkABBu"
-					},
 					"hY8FzwleHzwBeH3M": {
 						"type": "generic",
 						"default": true,
@@ -146,7 +139,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"5dL3MMCaYrWkABBu"
+				]
 			}
 		},
 		"description": "<p id=\"docs-internal-guid-ab087d17-7fff-9826-b4a1-a666d0722f3b\" dir=\"ltr\">You can defend yourself with searing flesh or protective flames. When you are hit by a melee attack, your attacker takes fire damage from your burning aura equal to your spellcasting ability bonus. You emanate bright light in a 30-foot radius, and dim light for another 30 feet. You can activate and deactivate this ability as an action.</p>\n<p dir=\"ltr\">At 10th level, when a creature is damaged by your Searing Flesh, it must make a Wisdom saving throw against your spell save DC or be frightened of you until the end of its next turn. The base damage of searing flesh increases to 1d6 + your spellcasting ability bonus.</p>\n<p dir=\"ltr\">At 18th level, when a creature is damaged by your Searing Flesh it catches fire. The creature takes 1d8 ongoing fire damage for 1 minute; it can continue to make this save to end the effect at the end of its turn, or end the effect with an action on its turn. Also, the base damage of searing flesh increases to 2d6 + your spellcasting ability bonus.</p>",
@@ -175,9 +171,6 @@
 			"origin": "Item.JU5T7jAboqJCqG3r",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "dEgSc1R7hzElbBdt",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -214,6 +207,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
@@ -221,9 +218,6 @@
 			"origin": "Item.JU5T7jAboqJCqG3r",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "RZofVGuVL86sYf1u",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -260,6 +254,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

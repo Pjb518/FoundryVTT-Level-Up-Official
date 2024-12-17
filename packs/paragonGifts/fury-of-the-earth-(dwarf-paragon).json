@@ -6,18 +6,17 @@
 		{
 			"origin": "Item.4dw171L3dIOThWYN",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "0rd5y6SLhG0yahtu"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone",
 			"img": "icons/magic/earth/barrier-stone-explosion-debris.webp",
 			"_id": "pYxuhIZ8DrYeoAq2",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -86,11 +85,6 @@
 							"type": "custom",
 							"bonus": "8 + @prof + @str.mod"
 						}
-					},
-					"QVb35P06GCjAHpe9": {
-						"type": "effect",
-						"default": true,
-						"effectId": "pYxuhIZ8DrYeoAq2"
 					}
 				},
 				"uses": {
@@ -114,7 +108,10 @@
 					"quantity": 1,
 					"radius": 30,
 					"placeTemplate": true
-				}
+				},
+				"effects": [
+					"pYxuhIZ8DrYeoAq2"
+				]
 			}
 		},
 		"description": "<p>As an action, you can strike the ground with a melee weapon you’re proficient with. The ground in a 30-foot burst centered on you becomes difficult terrain. Each creature on the ground in the area makes a Dexterity saving throw (DC 8 + your proficiency bonus + your Strength modifier) or is knocked prone. A creature concentrating on a spell makes a Constitution saving throw or its concentration is broken. You can't use this feature again until after you finish a long rest.</p>",

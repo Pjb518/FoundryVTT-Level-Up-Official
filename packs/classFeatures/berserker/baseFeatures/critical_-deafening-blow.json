@@ -7,11 +7,7 @@
 			"icon": "icons/magic/sonic/explosion-shock-wave-teal.webp",
 			"origin": "Item.pR57dzVKYyFjJbBS",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "g9OHQC9XMdPFF1lQ"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Deafened",
@@ -43,6 +39,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -88,14 +88,12 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"S1jkVLFgoxP8nXq5": {
-						"type": "effect",
-						"default": true,
-						"effectId": "iS3fgSubwzdIKpnW"
 					}
 				},
-				"consumers": {}
+				"consumers": {},
+				"effects": [
+					"iS3fgSubwzdIKpnW"
+				]
 			}
 		},
 		"description": "<p>The force of the blow leaves the target with a ringing sensation in their ears, muffling the world around them. When you score a critical hit, the target is deafened for a number of rounds equal to half your proficiency bonus. If the target attempts to cast a spell it must make a Constitution saving throw in order to do so successfully. The DC equals 10 or half the damage the creature took from the attack that inflicted the condition, whichever number is higher.</p>",

@@ -37,13 +37,7 @@
 						"damageType": "lightning"
 					}
 				},
-				"prompts": {
-					"sWjF1ADRvQinG9o5": {
-						"type": "effect",
-						"default": true,
-						"effectId": "SMsoMQ9f0EttNiJ7"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -70,7 +64,10 @@
 				"target": {
 					"type": "creatureObject",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"SMsoMQ9f0EttNiJ7"
+				]
 			}
 		},
 		"description": "<p><span id=\"docs-internal-guid-871610b8-7fff-e567-5108-722751463cde\">If you choose Elemental Focus for your element, you gain access to a Focused Blast.</span></p>\n<p id=\"docs-internal-guid-89a77d71-7fff-1d70-d659-03d2f02bc8cc\" dir=\"ltr\">You can gain this ability multiple times, but for a different element each time.</p>\n<p dir=\"ltr\">A Focused Blast is a more focused and powerful version of a pure Elemental Blast.. You must possess Elemental Focus in an element to use its Focused Blast. Focused Blasts have different damage types and properties than their basic counterparts.</p>\n<p dir=\"ltr\">&nbsp;</p>\n<p><strong>Table: Focused Blasts</strong></p>\n<table style=\"width: 100%; height: 84px;\" border=\"1\"><colgroup><col style=\"width: 11.284%;\"><col style=\"width: 22.3735%;\"><col style=\"width: 14.5971%;\"><col style=\"width: 51.7453%;\"></colgroup>\n<thead>\n<tr style=\"height: 16.8px;\">\n<td style=\"text-align: left; height: 16.8px;\">Affinity</td>\n<td style=\"text-align: center; height: 16.8px;\">Blast</td>\n<td style=\"text-align: center; height: 16.8px;\">Damage</td>\n<td style=\"text-align: center; height: 16.8px;\">Properties</td>\n</tr>\n</thead>\n<tbody>\n<tr style=\"height: 16.8px;\">\n<td style=\"text-align: left; height: 16.8px;\">Air</td>\n<td style=\"text-align: center; height: 16.8px;\">Lightning Blast</td>\n<td style=\"text-align: center; height: 16.8px;\">Lightning</td>\n<td style=\"text-align: left; height: 16.8px;\">Shocking: On hit, target loses reaction for 1 round. Gains +1d4 expertise die to hit against targets wearing metal armor or made of metal (or imposes a -1d4 penalty to saves for such targets)</td>\n</tr>\n</tbody>\n</table>",
@@ -99,9 +96,6 @@
 			"origin": "Item.QZz9Nq91N1M4OCzl",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Ni4aSdblPrHYr6zx",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -129,6 +123,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -30,11 +30,6 @@
 							"type": "spellcasting"
 						},
 						"onSave": "Not knocked prone"
-					},
-					"zuZxgXIgn2gafIHN": {
-						"type": "effect",
-						"default": true,
-						"effectId": "CuONxIzO0YzGTk5F"
 					}
 				},
 				"uses": {
@@ -61,7 +56,10 @@
 					"shape": "sphere",
 					"quantity": 1,
 					"radius": 50
-				}
+				},
+				"effects": [
+					"CuONxIzO0YzGTk5F"
+				]
 			}
 		},
 		"description": "<p id=\"docs-internal-guid-c5eede6d-7fff-4fb5-58d7-c756c32af8d8\" dir=\"ltr\">You magically flood the area with honey, jam, or some other sticky substance. For the duration of the spell, this area counts as difficult terrain and any creature entering the area for the first time must make a Strength saving throw versus your spell save DC or be knocked prone as they slip and fall. While a creature is knocked prone in this way, they are also restrained. Creatures knocked prone may repeat their saving throw at the beginning of their turn and are no longer prone or restrained on a success.</p><p dir=\"ltr\">Creatures that succeed on their Strength saving throw still have whatever limbs that came into contact with the sticky surface covered in the substance. On their turn they may make an Athletics check to adhere themselves to vertical surfaces and climb them, as per the spider climb spell. This effect lasts so long as you are able to maintain concentration. If a creature is adhered to a surface when the spell ends, they immediately fall.</p>",
@@ -110,11 +108,7 @@
 			"icon": "icons/consumables/food/preserves-jam-jelly-jar-brown-red.webp",
 			"origin": "Item.ue5kubb8gpr9emtk",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "zLduCTliOht3MWsu"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Prone and Restrained",
@@ -147,6 +141,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

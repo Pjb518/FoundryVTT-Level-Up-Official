@@ -8,10 +8,6 @@
 			"origin": "Item.U5OPegioht3f6YpW",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "XRBm6r1BISeY5q7V",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "hours"
 					}
@@ -45,6 +41,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -76,13 +76,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"G8WKFMb5bghwNqWf": {
-						"type": "effect",
-						"default": true,
-						"effectId": "MCx23V267dfULpV2"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -97,7 +91,10 @@
 				"duration": {
 					"unit": "hour",
 					"value": 1
-				}
+				},
+				"effects": [
+					"MCx23V267dfULpV2"
+				]
 			}
 		},
 		"description": "<p>Starting at 7th level, as an action, you can spend 1 exertion to enter a meditative empty mind state. This lasts for 1 hour. While in this state, Insight checks against you have disadvantage.</p>\n<p>In addition, you gain resistance to psychic damage and make saving throws against enchantment spells with advantage.</p>",

@@ -23,18 +23,7 @@
 				},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"ZvTAUx7AfQ96lE3E": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Dvxt2V58yflIWoXN"
-					},
-					"n0OT0O0TctNRrO6M": {
-						"type": "effect",
-						"default": true,
-						"effectId": "33osnLxfrdCMUBxP"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -45,7 +34,11 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"Dvxt2V58yflIWoXN",
+					"33osnLxfrdCMUBxP"
+				]
 			}
 		},
 		"description": "<p>You gain proficiency with your choice of either smith&rsquo;s tools or sewing kits and an expertise die on checks to repair weapons and armor. When you repair a suit of armor, you can spend a point from your @UUID[Compendium.a5e.a5e-class-features.Item.my42mip0qc35rcp2]{Lay on Hands} pool to bless it. The wearer can spend an action to invoke the blessing, gaining one of the following benefits:</p>\n<ul>\n<li>The armor sheds dim light in a 10-foot radius for one hour.</li>\n<li>The armor gains the Comfortable trait for one long rest.</li>\n</ul>\n<p>If the wearer is reduced to 0 hit points with the blessing in place, they receive an expertise die on their first death save. The blessing dissipates if the wearer removes the armor or finishes a long rest. Alternatively, you can spend an hour working with an intact suit of armor to impart the blessing. You may only have one such blessing active at a time.</p>",
@@ -92,9 +85,6 @@
 			"origin": "Item.9erpXkcnUrHgAN32",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "RwUysLt1DGfLmkAm",
 					"duration": {
 						"unit": "hours"
 					}
@@ -105,7 +95,10 @@
 			"img": "icons/equipment/chest/breastplate-layered-gilded-orange.webp",
 			"_id": "Dvxt2V58yflIWoXN",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "@token.light.dim",
@@ -138,18 +131,17 @@
 		{
 			"origin": "Item.9erpXkcnUrHgAN32",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "RwUysLt1DGfLmkAm"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Comfortable",
 			"img": "icons/equipment/chest/breastplate-layered-gilded-orange.webp",
 			"_id": "33osnLxfrdCMUBxP",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

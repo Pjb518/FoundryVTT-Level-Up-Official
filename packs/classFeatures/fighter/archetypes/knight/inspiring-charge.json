@@ -7,10 +7,6 @@
 			"origin": "Item.2RZoENUMoyWbXrP5",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "RwzbVsQou5xWxOVz",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -22,7 +18,10 @@
 			"img": "icons/skills/melee/hand-grip-sword-orange.webp",
 			"_id": "hqHVZYxhJkMz8yOm",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.attacks",
@@ -107,13 +106,10 @@
 						"range": "self"
 					}
 				},
-				"prompts": {
-					"lMxfEryu8hG9y6hk": {
-						"type": "effect",
-						"default": true,
-						"effectId": "hqHVZYxhJkMz8yOm"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"hqHVZYxhJkMz8yOm"
+				]
 			}
 		},
 		"description": "<p>At 7th level, you embrace the role of the knightly vanguard and learn to lead others into the fray. You can use an action and spend 1 exertion point to perform an Inspiring Charge. Move up to your Speed (or your mount’s Speed) in a straight line and make a melee weapon attack. You gain an expertise die on this attack. Until the end of your next turn, attacks made by you or allies within 10 feet gain an expertise die.</p>",

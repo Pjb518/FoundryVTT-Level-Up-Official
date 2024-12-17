@@ -30,13 +30,7 @@
 						"ability": "cha"
 					}
 				},
-				"prompts": {
-					"S4cly3zzmkhqVR4P": {
-						"type": "effect",
-						"default": true,
-						"effectId": "nL60M1aRKPn2eJR2"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -47,7 +41,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"nL60M1aRKPn2eJR2"
+				]
 			}
 		},
 		"description": "<p>At 13th level, you can hit someone from the upper classes where it hurts most: their social standing. To do so, you must spend a day spreading salacious rumors about your target, who must be a noble, royalty, or another person of significant wealth and status. Make a Deception check against the target&rsquo;s CR + 10. If the check is successful, the target suffers two levels of strife from the stress and has disadvantage on all Persuasion, Insight, and Deception checks for the next week as they and their people do frantic damage control. If the rumor you spread is true, you have advantage on this check.</p>",
@@ -76,9 +73,6 @@
 			"origin": "Item.GDCC180wuho9fLSK",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "8qJT35ImiOMfgelZ",
 					"duration": {
 						"unit": "hours"
 					}
@@ -137,7 +131,10 @@
 			},
 			"img": "icons/skills/social/trading-injustice-scale-gray.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

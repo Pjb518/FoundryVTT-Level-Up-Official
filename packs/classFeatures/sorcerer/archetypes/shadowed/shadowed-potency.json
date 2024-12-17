@@ -27,13 +27,7 @@
 						"formula": "@prof + @int.mod"
 					}
 				},
-				"prompts": {
-					"59nf4KgEYefYLwW4": {
-						"type": "effect",
-						"default": true,
-						"effectId": "tNt5DzATUx2NyCAS"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -44,7 +38,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"tNt5DzATUx2NyCAS"
+				]
 			}
 		},
 		"description": "<p>Also at 14th level, you draw strength from the darkness. At the start of your turn, if you are in darkness or magical darkness, you gain temporary hit points equal to your proficiency bonus + your Intelligence modifier and any movement speeds you have increase by 10 feet until the end of your turn.</p>",
@@ -73,10 +70,6 @@
 			"origin": "Item.i98mNxCzi7sYASFS",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "5i7NjBYLGOoPJ4Lc",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -118,7 +111,10 @@
 			},
 			"img": "icons/magic/unholy/hand-fire-skeleton-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null

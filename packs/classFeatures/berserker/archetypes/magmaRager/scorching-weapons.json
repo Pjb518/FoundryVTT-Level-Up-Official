@@ -19,13 +19,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"48wNzMzjLnph6sgz": {
-						"type": "effect",
-						"default": true,
-						"effectId": "6nR2XUfgVx6fGFj7"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -36,7 +30,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"6nR2XUfgVx6fGFj7"
+				]
 			}
 		},
 		"description": "<p>Beginning at 3rd level when you choose this archetype, you can infuse a melee weapon with lava-like heat. When you rage, for the duration of your rage, as long as you are holding it the weapon deals an extra 1d6 fire damage. The damage increases to 2d6 at 10th level, 3d6 at 15th level, and 4d6 at 20th level. Only one weapon can be infused at a time, though you can use a bonus action to transfer the effect to a different weapon.&nbsp;</p><p>In addition, you gain resistance to fire damage.</p>",
@@ -81,19 +78,17 @@
 		{
 			"origin": "Item.LNrsRxNErABPogYZ",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "aRE79C74w6QJJtfv",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Scorching Weapons",
 			"img": "icons/magic/fire/dagger-rune-enchant-flame-strong-red.webp",
 			"_id": "6nR2XUfgVx6fGFj7",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",

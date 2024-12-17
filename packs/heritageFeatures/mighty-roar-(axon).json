@@ -37,11 +37,6 @@
 						"saveDC": {
 							"type": "con"
 						}
-					},
-					"oTuTbOvibziExOpd": {
-						"type": "effect",
-						"default": true,
-						"effectId": "1FcCR2IR4tDzTRKj"
 					}
 				},
 				"uses": {
@@ -63,7 +58,10 @@
 				"target": {
 					"type": "creature",
 					"quantity": 1
-				}
+				},
+				"effects": [
+					"1FcCR2IR4tDzTRKj"
+				]
 			}
 		},
 		"description": "<p>As a bonus action you can bellow a loud and frightening roar. Choose a target you can see who can see and hear you within 30 feet. That target must make a Wisdom saving throw or become frightened of you until the end of its next turn. The DC of the saving throw is equal to 8 + your proficiency bonus + your Constitution modifier. Once you have used this feature you cannot use it again until you take a long rest.</p>",
@@ -92,9 +90,6 @@
 			"origin": "Item.BY9PF6We3mWUOhXe",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "g4NjNLvcFQc6kMnC",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -106,7 +101,10 @@
 			"img": "icons/creatures/abilities/lion-roar-yellow.webp",
 			"_id": "1FcCR2IR4tDzTRKj",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

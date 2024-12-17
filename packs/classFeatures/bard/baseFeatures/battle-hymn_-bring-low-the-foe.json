@@ -8,9 +8,6 @@
 			"origin": "Item.8nm9FtYDCSRy5vJR",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "DgOjl1hEqJX8s0vm",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -45,17 +42,17 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		},
 		{
 			"icon": "icons/skills/trades/music-notes-sound-blue.webp",
 			"origin": "Item.8nm9FtYDCSRy5vJR",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "DgOjl1hEqJX8s0vm"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Rattled",
@@ -87,6 +84,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -129,20 +130,7 @@
 					"type": "creature"
 				},
 				"consumers": {},
-				"prompts": {
-					"x8UQ0ef8JmSoQVdx": {
-						"type": "effect",
-						"default": true,
-						"effectId": "d9oFh6tOsbGhOS9B",
-						"label": "Battle Hymn: Bring Low the Foe"
-					},
-					"RemRCtcflURaf4cB": {
-						"type": "effect",
-						"default": true,
-						"effectId": "tUSRX5lzZUTfIu9y",
-						"label": "Rattled (1d4 rounds after the Hymn Ends)"
-					}
-				},
+				"prompts": {},
 				"rolls": {
 					"9UXJoVd1T4UmzsxK": {
 						"type": "generic",
@@ -150,7 +138,11 @@
 						"label": "Rattled Duration",
 						"formula": "1d4"
 					}
-				}
+				},
+				"effects": [
+					"d9oFh6tOsbGhOS9B",
+					"tUSRX5lzZUTfIu9y"
+				]
 			}
 		},
 		"description": "<p>The target takes a &ndash;1d8 penalty to saving throws. In addition, it is&nbsp;rattled for 1d4 rounds after the battle hymn ends.</p>",

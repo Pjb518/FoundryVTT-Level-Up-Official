@@ -27,13 +27,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"qe7MpfrpvfOKCERo": {
-						"type": "effect",
-						"default": true,
-						"effectId": "WVnmjV9QiBh2XylU"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -53,7 +47,10 @@
 					"PqVPonWSRqz0nM5Y": {
 						"range": "short"
 					}
-				}
+				},
+				"effects": [
+					"WVnmjV9QiBh2XylU"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\">You cause a creature casting a spell or using an ability or feature that heals to heal itself (or others) for twice the normal amount. Then, the next three spells (or abilities) that the creature uses to heal itself (or others) heal only the minimum amount possible.</p><p dir=\"ltr\">Spells of a lower spell level than the boosted spell, or abilities and features gained at a lower level than the boosted ability or feature, only add half a point toward the three needed to recover from this dirge.</p>",
@@ -81,18 +78,17 @@
 		{
 			"origin": "Item.Kfh6VvgoL6b6gioy",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "dXaoErmKHH8pT0IV"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Healing Overclock",
 			"img": "icons/skills/trades/music-singing-voice-blue.webp",
 			"_id": "WVnmjV9QiBh2XylU",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {

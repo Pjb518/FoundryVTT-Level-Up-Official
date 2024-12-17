@@ -172,7 +172,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>The dragon makes a bite attack.</p>",
@@ -262,7 +263,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>The Dragon makes a claw attack.</p>",
@@ -352,7 +354,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>The dragon makes a tail attack. On a successful hit, the target is pushed 10 feet away.</p>",
@@ -446,7 +449,8 @@
 								"type": "damage"
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>When a creature the dragon can see within 10 feet hits the dragon with a melee attack, the dragon makes a tail attack against it.</p>",
@@ -1957,14 +1961,10 @@
 								"quantity": 1
 							}
 						},
-						"prompts": {
-							"buIBuFeuQRwHM5mK": {
-								"type": "effect",
-								"default": true,
-								"effectId": "WRbkreWcyxoYrIGy",
-								"label": "Blur"
-							}
-						}
+						"prompts": {},
+						"effects": [
+							"WRbkreWcyxoYrIGy"
+						]
 					}
 				},
 				"description": "<p>Until the spell ends, you are shrouded in distortion and your image is blurred. Creatures make attack rolls against you with disadvantage unless they have senses that allow them to perceive without sight or to see through illusions (like blindsight or truesight).</p><p><strong><em>Cast at Higher Levels.</em></strong> You may target an additional willing creature you can see within range for each slot level above 2nd. Whenever an affected creature other than you is hit by an attack, the spell ends for that creature. When using a higher level spell slot, increase the spell's range to 30 feet.</p>",
@@ -2118,11 +2118,6 @@
 									"bonus": ""
 								},
 								"type": "savingThrow"
-							},
-							"BcMyt41d3VLdIKtS": {
-								"type": "effect",
-								"default": true,
-								"effectId": "TMK1Tbwva04SwRyb"
 							}
 						},
 						"consumers": {
@@ -2131,7 +2126,10 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"effects": [
+							"TMK1Tbwva04SwRyb"
+						]
 					}
 				},
 				"description": "<p>You conjure a swirling pattern of twisting hues that roils through the air, appearing for a moment and then vanishing. Creatures in the area that can perceive the pattern make a Wisdom saving throw or become charmed. A creature charmed by this spell becomes incapacitated and its Speed is reduced to 0.</p><p>The effect ends on a creature when it takes damage or when another creature uses an action to shake it out of its daze.</p>",
@@ -2527,7 +2525,8 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>You make terrain within the spell's area appear as another kind of terrain, tricking all senses (including touch).&nbsp;The general shape of the terrain remains the same, however. A small town could resemble a woodland, a smooth road could appear rocky and overgrown, a deep pit could resemble a shallow pond, and so on.</p><p>Structures may be altered in the similar way, or added where there are none. Creatures are not disguised, concealed, or added by the spell.</p><p>The illusion appears completely real in all aspects, including physical terrain, and can be physically interacted with. Clear terrain becomes difficult terrain, and vice versa. Any part of the illusory terrain such as a boulder, or water collected from an illusory stream, disappears immediately upon leaving the spell's area.</p><p>Creatures with truesight see through the illusion, but are not immune to its effects. They may know that the overgrown path is in fact a well maintained road, but are still impeded by illusory rocks and branches.</p>",

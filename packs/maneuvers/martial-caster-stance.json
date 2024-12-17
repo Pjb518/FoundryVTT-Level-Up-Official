@@ -30,14 +30,10 @@
 						"type": "resource"
 					}
 				},
-				"prompts": {
-					"SX59MpBdMy0YTG4f": {
-						"type": "effect",
-						"default": true,
-						"label": "Martial Caster Stance",
-						"effectId": "bWpeSnk8OrG5VRk9"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"bWpeSnk8OrG5VRk9"
+				]
 			}
 		},
 		"description": "<p>You steel your resolve and draw on your supernatural power, readying yourself for the battle to come.</p><p>You gain an expertise die on concentration checks. Additionally, you can cast spells with a casting time of 1 reaction during the same turn you cast a spell as a bonus action.</p>",
@@ -66,12 +62,9 @@
 			"origin": "Item.1mv0mryV5XcEzvSW",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
 					"duration": {
 						"unit": "hours"
-					},
-					"actionId": "LmuQIR12oggCpMM4"
+					}
 				}
 			},
 			"transfer": false,
@@ -96,6 +89,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

@@ -1396,28 +1396,7 @@
 						},
 						"consumers": {},
 						"rolls": {},
-						"prompts": {
-							"1RmCVO4QKQ9DZpDM": {
-								"type": "effect",
-								"default": true,
-								"effectId": ""
-							},
-							"hhUcyCDWAO7SCqQg": {
-								"type": "effect",
-								"default": true,
-								"effectId": ""
-							},
-							"uoPg8EUOGKhSBNjo": {
-								"type": "effect",
-								"default": true,
-								"effectId": "ee5CTKqflPMaNhE9"
-							},
-							"rBVLiQalkwbq3POK": {
-								"type": "effect",
-								"default": true,
-								"effectId": "R4H9hwQqrcReSUg6"
-							}
-						},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
@@ -1432,7 +1411,11 @@
 								"range": "self"
 							}
 						},
-						"img": "icons/equipment/shield/heater-steel-worn.webp"
+						"img": "icons/equipment/shield/heater-steel-worn.webp",
+						"effects": [
+							"ee5CTKqflPMaNhE9",
+							"R4H9hwQqrcReSUg6"
+						]
 					}
 				},
 				"description": "<p>When you take a critical hit, you can use your reaction to block it and sacrifice your shield, turning the critical hit into a regular hit. Afterwards your shield is broken, or if your shield is magical it instead becomes mundane for 1 hour.</p>",
@@ -1563,11 +1546,6 @@
 									"type": "dex"
 								},
 								"onSave": "Immune for 24 hours"
-							},
-							"QtL6SRZN01UpltCt": {
-								"type": "effect",
-								"default": true,
-								"effectId": "YlRRbdojKDO94762"
 							}
 						},
 						"uses": {
@@ -1591,7 +1569,10 @@
 							"4Egx9U1Q0C8hA13J": {
 								"range": "self"
 							}
-						}
+						},
+						"effects": [
+							"YlRRbdojKDO94762"
+						]
 					}
 				},
 				"description": "<p>Any creature hostile to the crypt thing that starts its turn within 20 feet of the crypt thing must make a DC 13 Wisdom saving throw , unless the crypt thing is incapacitated . On a failed save, the creature is frightened until the start of its next turn. If a creature&rsquo;s saving throw is successful, the creature is immune to the crypt thing&rsquo;s Fear Aura for the next 24 hours.</p>",
@@ -1755,7 +1736,8 @@
 							"quantity": "",
 							"type": "self"
 						},
-						"consumers": {}
+						"consumers": {},
+						"prompts": {}
 					}
 				},
 				"description": "<p>You teleport to an unoccupied space that you can see, disappearing and reappearing in a swirl of shimmering mist.</p>",
@@ -1856,7 +1838,8 @@
 								"default": true,
 								"quantity": 1
 							}
-						}
+						},
+						"prompts": {}
 					}
 				},
 				"description": "<p>You teleport to any place you can see, visualize, or describe by stating distance and direction such as 200 feet straight downward or 400 feet upward at a 30-degree angle to the southeast.</p><p>You can bring along objects if their weight doesn't exceed what you can carry. You can also bring one willing creature of your size or smaller, provided it isn't carrying gear beyond its carrying capacity and is within 5 feet.</p><p>If you would arrive in an occupied space the spell fails, and you and any creature with you each take 4d6 force damage.</p>",

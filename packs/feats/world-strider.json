@@ -6,19 +6,17 @@
 		{
 			"origin": "Item.B2Np4AviJILS9BNa",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "usXcHi2ZN9NQkGap",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Supernatural Vigor",
 			"img": "icons/magic/nature/tree-spirit-black.webp",
 			"_id": "0ecbFY8pnvahq2C8",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [],
 			"disabled": false,
 			"duration": {
@@ -81,13 +79,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"9g38wxoCpehrMtbI": {
-						"type": "effect",
-						"default": true,
-						"effectId": "0ecbFY8pnvahq2C8"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 1,
 					"max": "1",
@@ -98,7 +90,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"0ecbFY8pnvahq2C8"
+				]
 			},
 			"hcGPt82lQEGfdVcN": {
 				"name": "Tree Stride",
@@ -115,13 +110,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"xXI6p01vujMhr9YF": {
-						"type": "effect",
-						"default": true,
-						"effectId": "H7jIrH9LhmcCEoY2"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "@prof/2",
@@ -155,6 +144,9 @@
 				"description": "<p>Until the spell ends, once per round you can use 5 feet of movement to enter a living tree and move to inside another living tree of the same kind within 500 feet so long as you end your turn outside of a tree. Both trees must be at least your size. You instantly know the location of all other trees of the same kind within 500 feet. You may step back outside of the original tree or spend 5 more feet of movement to appear within a spot of your choice within 5 feet of the destination tree. If you have no movement left, you appear within 5 feet of the tree you entered.</p><p><strong><em>Cast at Higher Levels.</em></strong> Target one additional creature within reach for each slot level above 5th.</p>",
 				"descriptionOutputs": [
 					"action"
+				],
+				"effects": [
+					"H7jIrH9LhmcCEoY2"
 				]
 			},
 			"Al0x1FwQdNDn4gtG": {

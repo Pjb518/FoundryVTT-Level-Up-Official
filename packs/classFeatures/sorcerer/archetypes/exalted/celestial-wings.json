@@ -30,13 +30,7 @@
 					}
 				},
 				"rolls": {},
-				"prompts": {
-					"3iTCxC236DRNdm3c": {
-						"type": "effect",
-						"default": true,
-						"effectId": "7vN0U5AZhJRnNgv8"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -47,20 +41,17 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"7vN0U5AZhJRnNgv8"
+				]
 			},
 			"yvFKiHrdBBCMjsXR": {
 				"name": "Emit Light",
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"TtXAcC5arG2eNKps": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Jb351in4dYx5Zt6d"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -71,7 +62,10 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"Jb351in4dYx5Zt6d"
+				]
 			}
 		},
 		"description": "<p>Starting at 14th level, you can manifest a set of celestial wings from your back. Your wings have an appearance of your choice, chosen when you gain this feature. The wings are made of magical energy that harmlessly bypasses your armor and clothing. Manifesting your wings requires a bonus action and 3 sorcery points. While they are manifest, you gain a fly speed of 50 feet and can hover. At your option, the wings can emit bright light up to a range of 30 feet and dim light for an additional 30 feet (choose each time you use this feature). These wings remain manifested until you dismiss them as a bonus action or until you begin a long rest.</p>",
@@ -99,19 +93,17 @@
 		{
 			"origin": "Item.G1lbUgCj1QBmN8c3",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Yv7DvObWM2JorfLM",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Celestial Wings",
 			"img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
 			"_id": "7vN0U5AZhJRnNgv8",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "system.attributes.movement.fly.distance",
@@ -155,19 +147,17 @@
 		{
 			"origin": "Item.G1lbUgCj1QBmN8c3",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "yvFKiHrdBBCMjsXR",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Emit Light",
 			"img": "icons/magic/holy/angel-winged-humanoid-blue.webp",
 			"_id": "Jb351in4dYx5Zt6d",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",

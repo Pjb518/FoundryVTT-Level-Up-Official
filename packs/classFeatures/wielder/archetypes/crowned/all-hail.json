@@ -39,11 +39,6 @@
 							"bonus": ""
 						},
 						"type": "savingThrow"
-					},
-					"qPkJcfcxb0GG8ZHM": {
-						"type": "effect",
-						"default": true,
-						"effectId": "SXgyEHxq87H3mGCW"
 					}
 				},
 				"uses": {
@@ -80,6 +75,9 @@
 				"description": "<p>You assert control over the target creature's mind and it is charmed for the duration. If it is engaged in combat with you or creatures friendly to you, it has advantage on its saving throw.</p>\n<p>Until the charmed condition ends, you establish a telepathic link with it while you are on the same plane. You may issue commands through this link and the target does its best to obey. No action is required to issue commands, which can be a simple and general course of action such as \"Attack that target, \" \"Go over there, \" or \"Bring me that object.\" Without commands the target only defends itself. The target continues to follow a command until its task is complete.</p>\n<p>You can use your action to assume direct control of the target. Until the end of your next turn, you decide all of the target's actions and it does nothing you do not allow it to. While a target is directly controlled in this way, you can also cause it to use a reaction, but this requires you to use your own reaction as well.</p>\n<p>Each time the target takes damage, it makes a new saving throw against the spell, ending the spell on a success.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> The duration is Concentration (8 hours)</p>",
 				"descriptionOutputs": [
 					"action"
+				],
+				"effects": [
+					"SXgyEHxq87H3mGCW"
 				]
 			}
 		},
@@ -109,9 +107,6 @@
 			"origin": "Item.4sritBwOCG2PrXeQ",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "51vOW5drPMkegroj",
 					"duration": {
 						"unit": "hours"
 					}
@@ -147,6 +142,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
 			}
 		}
 	],

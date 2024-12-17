@@ -87,13 +87,7 @@
 				"activation": {},
 				"consumers": {},
 				"rolls": {},
-				"prompts": {
-					"dW2iIcZeXltCa13N": {
-						"type": "effect",
-						"default": true,
-						"effectId": "Pik2peNgKKNyDzUQ"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -102,7 +96,10 @@
 						"formula": "1d6",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"Pik2peNgKKNyDzUQ"
+				]
 			}
 		},
 		"description": "<p>When you select this archetype at 3rd level, you gain the ability to channel your fury in a manner that trolls find both terrifying and familiar. You learn a maneuver from the&nbsp;Tooth and Claw&nbsp;tradition that you meet the prerequisites for, and it does not count against your maneuvers known. When you enter a rage, choose one of the following options:</p><h3 class=\"Indent3\">Fiery Armaments</h3><p>Your melee weapon attacks deal an additional 1d6 fire damage. This damage increases to 2d6 at 15th level.</p><h3 class=\"Indent1\">Troll Claws</h3><p>You grow long, sharp claws like a troll, which allow your unarmed strikes to deal 1d6 slashing damage and count as weapons with the finesse and dual-wielding properties. At 10th level, the damage of your claws increases to 1d8. While your claws are manifested, Tooth and Claw maneuvers have their exertion cost reduced by 1, to a minimum of 1.</p><p>When you reach level 11, you can manifest both effects simultaneously.</p>",
@@ -130,19 +127,17 @@
 		{
 			"origin": "Item.ztIsTAvUANkbEKtB",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "Gz4zIEf8wZFeBVzB",
-					"applyToSelf": true
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Fiery Armaments",
 			"img": "icons/skills/wounds/anatomy-organ-heart-red.webp",
 			"_id": "Pik2peNgKKNyDzUQ",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.bonuses.damage",

@@ -8,14 +8,10 @@
 			"origin": "Item.nGtTC2w46Z1V2f27",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "D38WYaTFORoNrgZV",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
-					},
-					"applyToSelf": true
+					}
 				}
 			},
 			"transfer": false,
@@ -48,6 +44,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
 			}
 		}
 	],
@@ -93,11 +93,6 @@
 							"bonus": "8 + @prof + @wis.mod"
 						},
 						"type": "savingThrow"
-					},
-					"AABw0xD9BtF33JIp": {
-						"type": "effect",
-						"default": true,
-						"effectId": "RsE8FvEKM3uq04qF"
 					}
 				},
 				"consumers": {
@@ -107,7 +102,10 @@
 						"resource": "exertion",
 						"quantity": 2
 					}
-				}
+				},
+				"effects": [
+					"RsE8FvEKM3uq04qF"
+				]
 			}
 		},
 		"description": "<p>When you hit a creature with a melee weapon attack, you can spend 2 exertion to attempt a paralyzing strike. The target must succeed on a Constitution saving throw or be paralyzed until the end of your next turn.</p>",

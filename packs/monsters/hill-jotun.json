@@ -259,11 +259,6 @@
 								"saveDC": {
 									"type": "maneuver"
 								}
-							},
-							"lhcUCVFWPREBAk4E": {
-								"type": "effect",
-								"default": true,
-								"effectId": "ZBgF16Z29u4M7tJb"
 							}
 						},
 						"uses": {
@@ -287,7 +282,10 @@
 							"quantity": 1,
 							"radius": 10,
 							"placeTemplate": true
-						}
+						},
+						"effects": [
+							"ZBgF16Z29u4M7tJb"
+						]
 					}
 				},
 				"description": "<p>Each creature within 10 feet of the hill jotun makes a DC 16 Dexterity saving throw. On a failure, a creature takes 18 (3d8+5) bludgeoning, is pushed 10 feet away from the jotun, and falls prone.</p>",
@@ -399,11 +397,6 @@
 								"saveDC": {
 									"type": "dex"
 								}
-							},
-							"CerGhyyvRxxzsLiK": {
-								"type": "effect",
-								"default": true,
-								"effectId": "0x5gPZMx6AZPp9d8"
 							}
 						},
 						"uses": {
@@ -416,7 +409,10 @@
 								"rechargeAmount": "1",
 								"threshold": 6
 							}
-						}
+						},
+						"effects": [
+							"0x5gPZMx6AZPp9d8"
+						]
 					}
 				},
 				"description": "<p>One creature within 5 feet makes a DC 10 Dexterity saving throw. On a failure, it is grappled (escape DC 16). Until this grapple ends, the giant can’t grab another target, and it makes greatclub attacks with advantage against the grappled target.</p>",
@@ -1209,13 +1205,11 @@
 								"saveDC": {
 									"type": "maneuver"
 								}
-							},
-							"CnNLLeJhM1frI6pb": {
-								"type": "effect",
-								"default": true,
-								"effectId": "TelcmHfd0JnvXcFH"
 							}
-						}
+						},
+						"effects": [
+							"TelcmHfd0JnvXcFH"
+						]
 					}
 				},
 				"description": "<p>If the target is a Medium or smaller creature, it makes a DC 16 Strength saving throw, falling prone on a failure.</p>",
@@ -1372,11 +1366,6 @@
 								"saveDC": {
 									"type": "maneuver"
 								}
-							},
-							"ix7Hvop83iLVIE0E": {
-								"type": "effect",
-								"default": true,
-								"effectId": "mWMlfADoaSi6lUyM"
 							}
 						},
 						"uses": {
@@ -1402,7 +1391,10 @@
 						"target": {
 							"type": "creatureObject",
 							"quantity": 1
-						}
+						},
+						"effects": [
+							"mWMlfADoaSi6lUyM"
+						]
 					}
 				},
 				"description": "<p>If the target is a Medium or smaller creature, it makes a DC 16 Strength saving throw, falling prone on a failure.</p>",
@@ -1520,13 +1512,7 @@
 								"damageType": "bludgeoning"
 							}
 						},
-						"prompts": {
-							"ix7Hvop83iLVIE0E": {
-								"type": "effect",
-								"default": true,
-								"effectId": "mWMlfADoaSi6lUyM"
-							}
-						},
+						"prompts": {},
 						"uses": {
 							"value": 0,
 							"max": "",
@@ -1546,7 +1532,10 @@
 						"target": {
 							"type": "creatureObject",
 							"quantity": 1
-						}
+						},
+						"effects": [
+							"mWMlfADoaSi6lUyM"
+						]
 					}
 				},
 				"description": "<p>In lieu of a rock, the giant can throw a grappled Medium or smaller creature up to 30 feet. On a hit, the target and the thrown creature both take 15 (3d6 + 5) bludgeoning damage. On a miss, only the thrown creature takes the damage. The thrown creature falls prone in an unoccupied space 5 feet from the target.</p>",
@@ -1580,10 +1569,7 @@
 			"icon": "icons/svg/item-bag.svg",
 			"origin": "Actor.ctcxg6tcymggzorl.Item.umZLP2ZnFHtax9xj",
 			"flags": {
-				"a5e": {
-					"sort": 0,
-					"transferType": "passive"
-				}
+				"a5e": {}
 			},
 			"transfer": false,
 			"name": "Gullible",
@@ -1613,6 +1599,10 @@
 				"coreVersion": "12",
 				"systemId": "a5e",
 				"systemVersion": "0.19.17"
+			},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "passive"
 			}
 		}
 	],

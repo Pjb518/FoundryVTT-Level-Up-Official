@@ -34,26 +34,6 @@
 						"saveDC": {
 							"type": "spellcasting"
 						}
-					},
-					"TSkf1vzvwiLSiVbV": {
-						"type": "effect",
-						"default": true,
-						"effectId": "iDgJi4ZRLCIAaMu2"
-					},
-					"hmFiCTCN7mowA5ck": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2M2ZrFfTkNn2upPo"
-					},
-					"xFJ8NLzmadyj7e32": {
-						"type": "effect",
-						"default": true,
-						"effectId": "dENIzU5zi1CDd58X"
-					},
-					"bE4lKwMNEf00NAFe": {
-						"type": "effect",
-						"default": true,
-						"effectId": "SQRg8ppMY7bqq8EU"
 					}
 				},
 				"uses": {
@@ -66,7 +46,13 @@
 						"rechargeAmount": "1",
 						"threshold": 6
 					}
-				}
+				},
+				"effects": [
+					"iDgJi4ZRLCIAaMu2",
+					"2M2ZrFfTkNn2upPo",
+					"dENIzU5zi1CDd58X",
+					"SQRg8ppMY7bqq8EU"
+				]
 			}
 		},
 		"description": "<p>At 15th level, your knowledge of anatomical weak points reaches its apex. When you deal @UUID[Compendium.a5e.a5e-class-features.Item.iVCqHAs1zhXRATdT]{Hostile Anatomy} damage, the target must make a Constitution save against your spell save DC. If it fails, it suffers a condition until the end of its next turn. Roll on the following table to determine the condition inflicted:</p>\n<table style=\"width: 33.8432%;\" border=\"1\"><colgroup><col style=\"width: 23.0769%;\"><col style=\"width: 76.9231%;\"></colgroup>\n<thead>\n<tr style=\"text-align: center;\">\n<td style=\"text-align: center;\">1d4</td>\n<td style=\"text-align: center;\">CONDITION</td>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td style=\"text-align: center;\">1</td>\n<td style=\"text-align: center;\">Blinded</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">2</td>\n<td style=\"text-align: center;\">Deafened</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">3</td>\n<td style=\"text-align: center;\">Rattled</td>\n</tr>\n<tr>\n<td style=\"text-align: center;\">4</td>\n<td style=\"text-align: center;\">Poisoned</td>\n</tr>\n</tbody>\n</table>",
@@ -95,9 +81,6 @@
 			"origin": "Item.3KGj8nM17IWotBs4",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ULdQ4giqmTzK4eYl",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -109,7 +92,10 @@
 			"img": "icons/skills/wounds/injury-eyes-blood-red.webp",
 			"_id": "iDgJi4ZRLCIAaMu2",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -150,9 +136,6 @@
 			"origin": "Item.3KGj8nM17IWotBs4",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ULdQ4giqmTzK4eYl",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -164,7 +147,10 @@
 			"img": "icons/skills/wounds/injury-eyes-blood-red.webp",
 			"_id": "2M2ZrFfTkNn2upPo",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -205,9 +191,6 @@
 			"origin": "Item.3KGj8nM17IWotBs4",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ULdQ4giqmTzK4eYl",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -219,7 +202,10 @@
 			"img": "icons/skills/wounds/injury-eyes-blood-red.webp",
 			"_id": "dENIzU5zi1CDd58X",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",
@@ -260,9 +246,6 @@
 			"origin": "Item.3KGj8nM17IWotBs4",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "ULdQ4giqmTzK4eYl",
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -274,7 +257,10 @@
 			"img": "icons/skills/wounds/injury-eyes-blood-red.webp",
 			"_id": "SQRg8ppMY7bqq8EU",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": false,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "flags.a5e.effects.statusConditions",

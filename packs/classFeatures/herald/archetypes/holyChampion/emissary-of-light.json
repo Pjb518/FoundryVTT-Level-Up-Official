@@ -7,10 +7,6 @@
 			"origin": "Item.ZAPJ4Sv6XfCzF5GH",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "FcnFJ6Olyn5RUQFl",
-					"applyToSelf": true,
 					"duration": {
 						"unit": "minutes"
 					}
@@ -21,7 +17,10 @@
 			"img": "icons/magic/light/explosion-star-glow-silhouette.webp",
 			"_id": "2rdHI7PtRKsNxWml",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"changes": [
 				{
 					"key": "@token.light.bright",
@@ -93,13 +92,10 @@
 				},
 				"rolls": {},
 				"consumers": {},
-				"prompts": {
-					"NFatrQUg9VmvZtLN": {
-						"type": "effect",
-						"default": true,
-						"effectId": "2rdHI7PtRKsNxWml"
-					}
-				}
+				"prompts": {},
+				"effects": [
+					"2rdHI7PtRKsNxWml"
+				]
 			},
 			"1zrR0YRqwIJFFSJ6": {
 				"name": "Radiant Damage",

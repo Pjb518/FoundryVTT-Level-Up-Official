@@ -27,13 +27,7 @@
 						"damageType": "radiant"
 					}
 				},
-				"prompts": {
-					"ltH74h5MIQNe6lHR": {
-						"type": "effect",
-						"default": true,
-						"effectId": "eNHy3RLDQp2bKJpU"
-					}
-				},
+				"prompts": {},
 				"uses": {
 					"value": 0,
 					"max": "",
@@ -48,7 +42,10 @@
 				"duration": {
 					"unit": "",
 					"value": 1
-				}
+				},
+				"effects": [
+					"eNHy3RLDQp2bKJpU"
+				]
 			}
 		},
 		"description": "<p dir=\"ltr\"><strong id=\"docs-internal-guid-2a041619-7fff-7fc1-ceb7-4deac2b0b488\">Requirements: </strong><em>a silver object no smaller than a coin, a weapon with a metal striking surface, a spell of the transmutation school prepared, and either an unused first-level or higher spell slot or 2 or more spell points or artifact charges</em></p>\n<p dir=\"ltr\">You quickly plate the weapon with silver and take the Attack action with it (including any additional attacks from the Extra Attack or similar features). It counts as a silvered weapon for this Attack action and until the beginning of your next turn, at which point the silver flakes off and is lost. While the weapon is silvered this way, creatures with damage immunity or resistance that can be bypassed by silver take an additional d6 points of radiant damage from attacks made with it.</p>",
@@ -76,10 +73,6 @@
 			"origin": "Item.N63T59Km7XCavRxf",
 			"flags": {
 				"a5e": {
-					"sort": 0,
-					"transferType": "onUse",
-					"actionId": "PwKS0LNzFv4W8in4",
-					"applyToSelf": true,
 					"duration": {
 						"type": "rounds",
 						"unit": "minutes"
@@ -116,7 +109,10 @@
 			},
 			"img": "icons/weapons/swords/sword-winged-pink.webp",
 			"type": "base",
-			"system": {},
+			"system": {
+				"applyToSelf": true,
+				"effectType": "onUse"
+			},
 			"tint": "#ffffff",
 			"sort": 0,
 			"folder": null
