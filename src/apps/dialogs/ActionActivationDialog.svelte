@@ -129,7 +129,7 @@
         !!Object.values(consumers.hitDice ?? {}).flat().length &&
         selectedConsumers.includes(consumers?.hitDice?.[0]);
 
-    $: showConsumersSection = showSpellSection || showUsesSection || showHitDiceSection;
+    $: showConsumersSection = Object.values(consumers ?? {}).flat().length > 0;
 
     let attackRollData = {};
     let actionUsesData = {} as ResourceConsumptionManager.UsesConsumerData;
