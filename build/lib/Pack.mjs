@@ -59,6 +59,9 @@ export default class Pack {
 		// Reset ownership data
 		if (source.ownership) delete source.ownership;
 
+		// Remove schemaVersion
+		if (source.system?.schemaVersion) delete source.system.schemaVersion;
+
 		// Update _stats data
 		// const stats = {
 		//   coreVersion: systemJSON.compatibility.minimum,
