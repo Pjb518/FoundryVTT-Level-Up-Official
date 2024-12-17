@@ -10,6 +10,7 @@
     import ActionsRollsTab from "../components/pages/ActionsRollsTab.svelte";
     import ActionsResourceManagementTab from "../components/pages/ActionsResourceManagementTab.svelte";
     import ActionsTargetingTab from "../components/pages/ActionsTargetingTab.svelte";
+    import ItemMacroTab from "../components/pages/ItemMacroTab.svelte";
     import NavigationBar from "../components/navigation/NavigationBar.svelte";
 
     import editDocumentImage from "../handlers/editDocumentImage";
@@ -58,6 +59,11 @@
             name: "effects",
             label: "A5E.TabEffects",
             component: ActionsEffectsTab,
+        },
+        {
+            name: "macro",
+            label: "A5E.TabMacro",
+            component: ItemMacroTab,
         },
     ];
 

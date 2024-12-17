@@ -55,6 +55,10 @@ class ActionsManager extends Map<string, Action> {
 		return [...this.values()].some((action) => !!Object.values(action.consumers)?.length);
 	}
 
+	get hasMacro(): boolean {
+		return [...this.values()].some((action) => action.macro.trim().length > 0);
+	}
+
 	get hasPrompt(): boolean {
 		return [...this.values()].some((action) => !!Object.values(action.prompts)?.length);
 	}

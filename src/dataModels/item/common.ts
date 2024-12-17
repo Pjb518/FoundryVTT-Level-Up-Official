@@ -59,6 +59,15 @@ export const favorite = () => ({
 export type FavoriteData = ReturnType<typeof favorite>;
 
 // -----------------------------------------
+// Macro
+// -----------------------------------------
+export const macro = () => ({
+	macro: new fields.JavaScriptField({ required: true, nullable: false, initial: '', async: true }),
+});
+
+export type MacroData = ReturnType<typeof macro>;
+
+// -----------------------------------------
 // Source
 // -----------------------------------------
 export const source = () => ({

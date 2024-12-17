@@ -1,26 +1,24 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import Checkbox from '../Checkbox.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
-import Section from '../Section.svelte';
+    import Checkbox from "../Checkbox.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-const actor = getContext('actor');
-const settingsStore = game.a5e.settings.store;
+    const actor = getContext("actor");
+    const settingsStore = game.a5e.settings.store;
 
-let automateTokenSize = settingsStore.getStore('automatePrototypeTokenSize');
-$: flags = $actor.flags?.a5e ?? {};
+    let automateTokenSize = settingsStore.getStore("automatePrototypeTokenSize");
+    $: flags = $actor.flags?.a5e ?? {};
 </script>
 
 <Section heading="Sheet Customization" --a5e-section-body-gap="0.75rem">
     <FieldWrapper>
         <Checkbox
             label="A5E.settings.automatePrototypeTokenSize"
-            checked={flags?.automatePrototypeTokenSize ??
-                automateTokenSize ??
-                true}
+            checked={flags?.automatePrototypeTokenSize ?? automateTokenSize ?? true}
             on:updateSelection={({ detail }) => {
                 updateDocumentDataFromField(
                     $actor,
@@ -78,11 +76,7 @@ $: flags = $actor.flags?.a5e ?? {};
             label="A5E.settings.showManeuverTab"
             checked={flags?.showManeuverTab ?? true}
             on:updateSelection={({ detail }) => {
-                updateDocumentDataFromField(
-                    $actor,
-                    "flags.a5e.showManeuverTab",
-                    detail,
-                );
+                updateDocumentDataFromField($actor, "flags.a5e.showManeuverTab", detail);
             }}
         />
     </FieldWrapper>
@@ -106,11 +100,7 @@ $: flags = $actor.flags?.a5e ?? {};
             label="A5E.settings.showSpellTab"
             checked={flags?.showSpellTab ?? true}
             on:updateSelection={({ detail }) => {
-                updateDocumentDataFromField(
-                    $actor,
-                    "flags.a5e.showSpellTab",
-                    detail,
-                );
+                updateDocumentDataFromField($actor, "flags.a5e.showSpellTab", detail);
             }}
         />
     </FieldWrapper>
@@ -121,11 +111,7 @@ $: flags = $actor.flags?.a5e ?? {};
                 label="A5E.settings.showXP"
                 checked={flags?.showXP ?? true}
                 on:updateSelection={({ detail }) => {
-                    updateDocumentDataFromField(
-                        $actor,
-                        "flags.a5e.showXP",
-                        detail,
-                    );
+                    updateDocumentDataFromField($actor, "flags.a5e.showXP", detail);
                 }}
             />
         </FieldWrapper>
@@ -133,10 +119,7 @@ $: flags = $actor.flags?.a5e ?? {};
 </Section>
 
 {#if $actor.type === "character"}
-    <Section
-        heading="Automation Customization"
-        --a5e-section-body-gap="0.75rem"
-    >
+    <Section heading="Automation Customization" --a5e-section-body-gap="0.75rem">
         <FieldWrapper>
             <Checkbox
                 label="A5E.settings.automateHitDice"
@@ -159,6 +142,20 @@ $: flags = $actor.flags?.a5e ?? {};
                     updateDocumentDataFromField(
                         $actor,
                         "flags.a5e.automateSpellResources",
+                        detail,
+                    );
+                }}
+            />
+        </FieldWrapper>
+
+        <FieldWrapper>
+            <Checkbox
+                label="A5E.settings.automaticallyExecuteAvailableMacros"
+                checked={flags?.automaticallyExecuteAvailableMacros ?? true}
+                on:updateSelection={({ detail }) => {
+                    updateDocumentDataFromField(
+                        $actor,
+                        "flags.a5e.automaticallyExecuteAvailableMacros",
                         detail,
                     );
                 }}

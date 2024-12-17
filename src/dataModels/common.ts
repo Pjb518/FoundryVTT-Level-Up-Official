@@ -17,7 +17,7 @@ export const migrationData = () => ({
 	}),
 });
 
-export type SchemaData = ReturnType<typeof migrationData>;
+export type MigrationData = ReturnType<typeof migrationData>;
 
 // -----------------------------------------
 // Source

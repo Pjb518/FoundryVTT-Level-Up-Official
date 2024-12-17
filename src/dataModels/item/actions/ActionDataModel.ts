@@ -33,6 +33,8 @@ const actionSchema = () => ({
 		{ required: true, nullable: false },
 	),
 
+	macro: new fields.JavaScriptField({ required: true, nullable: false, initial: '', async: true }),
+
 	consumers: new RecordField(
 		new fields.DocumentIdField({
 			required: true,

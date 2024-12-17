@@ -106,9 +106,14 @@ class ItemA5e extends BaseItemA5e {
 		// not have owner permissions for the actor.
 		if (!this.actor || !this?.actor.isOwner) return;
 
+		if (this.actor?.getFlag('a5e', 'automaticallyExecuteAvailableMacros') ?? true) {
+			// @ts-expect-error
+			options.executeMacro ??= this.system.macro.trim().length > 0 || this.actions.hasMacro;
+		}
+
 		if (this.actions.count === 0) {
 			// If no actions are defined, default to outputting just the item description.
-			this.shareItemDescription();
+			this.shareItemDescription(null, options);
 		} else if (this.actions.count === 1) {
 			// If there is a single defined action, use that action.
 			this.#activateAction(this.actions.first!.id, options);
@@ -149,7 +154,7 @@ class ItemA5e extends BaseItemA5e {
 	}
 
 	async #activateAction(actionId: string, options: ActionActivationOptions = {}) {
-		let activationData;
+		let activationData: any;
 		const action = this.actions.get(actionId)!;
 
 		if (options.skipRollDialog) {
@@ -254,18 +259,15 @@ class ItemA5e extends BaseItemA5e {
 		};
 
 		ChatMessage.applyRollMode(
-			// @ts-expect-error
 			chatData,
 			activationData.visibilityMode ?? game.settings.get('core', 'rollMode'),
 		);
-		// @ts-expect-error
 		const chatCard = await ChatMessage.create(chatData);
 
 		// Apply onUse effects to self
 		const selfAppliedEffects = activationData.effects.reduce((acc, id) => {
 			const effect = this.effects.get(id);
 			if (!effect) return acc;
-			// @ts-expect-error
 			if (effect.system.applyToSelf) acc.push(effect);
 
 			return acc;
@@ -277,10 +279,52 @@ class ItemA5e extends BaseItemA5e {
 			actionId,
 			action,
 			dialog: activationData,
+			// @ts-expect-error
+			macro: this.system.macro,
 			options,
 			rolls,
 			validTemplate,
 		});
+
+		// Trigger Macros
+		if (options.executeMacro) {
+			// Execute System Macro
+			// @ts-expect-error
+			if (this.system.macro?.trim().length > 0) {
+				try {
+					// @ts-expect-error
+					const { macro } = this.system;
+
+					const AsyncFunction = async function _() {}.constructor;
+					AsyncFunction('actor', 'item', 'options', macro)(this.actor, this, { options });
+				} catch (err) {
+					ui.notifications?.error(
+						`Could not execute the macro for ${this.name}. See the browser console for more details.`,
+					);
+					console.error(err);
+				}
+			}
+
+			// Execute Action Macro
+			if (action.macro.trim().length > 0) {
+				try {
+					const { macro } = action;
+
+					const AsyncFunction = async function _() {}.constructor;
+					AsyncFunction(
+						'actor',
+						'item',
+						'options',
+						macro,
+					)(this.actor, this, { actionId, action, options, rolls, validTemplate });
+				} catch (err) {
+					ui.notifications?.error(
+						`Could not execute the macro for ${this.name}. See the browser console for more details.`,
+					);
+					console.error(err);
+				}
+			}
+		}
 
 		return chatCard;
 	}
@@ -326,8 +370,8 @@ class ItemA5e extends BaseItemA5e {
 			prompts,
 			rolls: otherRolls,
 			selectedConsumers: ResourceConsumptionManager.getDefaultConsumerSelection(
-        RollPreparationManager.prepareConsumers(this, actionId)
-      ),
+				RollPreparationManager.prepareConsumers(this, actionId),
+			),
 		};
 	}
 
@@ -405,7 +449,6 @@ class ItemA5e extends BaseItemA5e {
 		const promptsByType = RollPreparationManager.preparePrompts(this, actionId);
 
 		return Object.entries(promptsByType).reduce((defaultPrompts, [promptType, promptGroup]) => {
-			// @ts-expect-error
 			defaultPrompts.push(
 				...promptGroup.reduce((acc, [, prompt]) => {
 					if (promptType === 'savingThrow')
@@ -414,19 +457,19 @@ class ItemA5e extends BaseItemA5e {
 					if (prompt.default ?? true) acc.push(prompt);
 
 					return acc;
-				}, []),
+				}, [] as any[]),
 			);
 
 			return defaultPrompts;
-		}, []);
+		}, [] as any[]);
 	}
 
 	#getDefaultRollData(rolls: RollHandlerReturnType) {
 		return Object.entries(rolls).reduce((defaultRolls, [rollType, rollGroup]) => {
 			if (rollType === 'attack') return defaultRolls;
 
-			// @ts-expect-error
 			defaultRolls.push(
+				// @ts-expect-error
 				...rollGroup.reduce((acc, [, roll]) => {
 					if (roll.default ?? true) acc.push(roll);
 					return acc;
@@ -486,7 +529,7 @@ class ItemA5e extends BaseItemA5e {
 		}
 	}
 
-	/** @inheritdoc */
+	// biome-ignore lint/suspicious/noConfusingVoidType: <explanation>
 	override async _preCreate(data, options, user): Promise<boolean | void> {
 		await super._preCreate(data, options, user);
 	}

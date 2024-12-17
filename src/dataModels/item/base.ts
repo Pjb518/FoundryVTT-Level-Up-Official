@@ -1,7 +1,13 @@
-import type { DescriptionData, FavoriteData, SecretDescriptionData, SourceData } from './common';
-import type { SchemaData } from '../common';
+import type {
+	DescriptionData,
+	FavoriteData,
+	MacroData,
+	SecretDescriptionData,
+	SourceData,
+} from './common';
+import type { MigrationData } from '../common';
 
-import { description, favorite, secretDescription, source } from './common';
+import { description, favorite, macro, secretDescription, source } from './common';
 import { migrationData } from '../common';
 
 declare namespace A5EBaseItemData {
@@ -9,11 +15,12 @@ declare namespace A5EBaseItemData {
 		extends DataSchema,
 			DescriptionData,
 			FavoriteData,
+			MacroData,
+			MigrationData,
 			SecretDescriptionData,
-			SchemaData,
 			SourceData {}
-	type BaseData = {};
-	type DerivedData = {};
+	type BaseData = Record<string, any>;
+	type DerivedData = Record<string, any>;
 }
 
 class A5EBaseItemData<
@@ -26,8 +33,9 @@ class A5EBaseItemData<
 		return {
 			...description(),
 			...favorite(),
-			...secretDescription(),
+			...macro(),
 			...migrationData(),
+			...secretDescription(),
 			...source(),
 		};
 	}

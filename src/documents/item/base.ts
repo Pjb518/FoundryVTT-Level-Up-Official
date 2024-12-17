@@ -98,10 +98,16 @@ class BaseItemA5e extends Item {
 		// Do not allow an item to activate if it not attached to an actor or if the user does
 		// not have owner permissions for the actor.
 		if (!this.actor || !this?.actor.isOwner) return;
-		this.shareItemDescription(null);
+
+		if (this.actor?.getFlag('a5e', 'automaticallyExecuteAvailableMacros') ?? true) {
+      // @ts-expect-error
+			options.executeMacro ??= this.system.macro.trim().length > 0;
+		}
+
+		this.shareItemDescription(null, options);
 	}
 
-	async shareItemDescription(action: Action | null = null) {
+	async shareItemDescription(action: Action | null, options: Record<string, any>) {
 		const chatData = {
 			author: (game as Game).user?.id,
 			speaker: ChatMessage.getSpeaker({ actor: this.actor }),
@@ -146,8 +152,29 @@ class BaseItemA5e extends Item {
 
 		// @ts-expect-error
 		ChatMessage.applyRollMode(chatData, game.settings.get('core', 'rollMode'));
-		// @ts-expect-error
 		const chatCard = ChatMessage.create(chatData);
+
+		// Execute Macro
+		if (options.executeMacro) {
+			// @ts-expect-error
+			if (!(this.system.macro?.trim().length > 0)) {
+				ui.notifications?.error(`There is no macro configured for ${this.name}.`);
+				return chatCard;
+			}
+
+			try {
+				// @ts-expect-error
+				const { macro } = this.system;
+
+				const AsyncFunction = async function _() {}.constructor;
+				AsyncFunction('actor', 'item', 'options', macro)(this.actor, this, { options });
+			} catch (err) {
+				ui.notifications?.error(
+					`Could not execute the macro for ${this.name}. See the browser console for more details.`,
+				);
+				console.error(err);
+			}
+		}
 
 		Hooks.callAll('a5e.itemActivate', this, { action });
 		return chatCard;

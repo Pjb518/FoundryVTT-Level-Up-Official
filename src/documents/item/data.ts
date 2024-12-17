@@ -23,6 +23,7 @@ export interface RevitalizeOptions {
 /** Roll Interfaces                         */
 /** --------------------------------------- */
 export interface ActionActivationOptions {
+	executeMacro?: boolean;
 	expertiseDie?: number | undefined;
 	rollMode?: number | undefined;
 	situationalMods?: string | undefined;
