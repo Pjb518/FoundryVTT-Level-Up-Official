@@ -1,0 +1,444 @@
+{
+	"folder": null,
+	"name": "Chroniton Grenade",
+	"type": "feature",
+	"img": "icons/weapons/thrown/bomb-gas-grey-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"1UXpYvSrO8Wtah2h": {
+				"name": "Explode",
+				"consumers": {
+					"UiQhwmC6dkA2cMvh": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"ranges": {
+					"oIRzAxfahdcSOi8M": {
+						"range": "short"
+					}
+				},
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 10,
+					"placeTemplate": true
+				},
+				"prompts": {
+					"WU57QUDXLlJtDuhc": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "int",
+							"bonus": ""
+						},
+						"onSave": "Rattled",
+						"label": ""
+					}
+				},
+				"effects": [
+					"NqdQBYuHNa94csx0",
+					"GiwpwWLmPtZDMXdS"
+				],
+				"id": "1UXpYvSrO8Wtah2h",
+				"img": "icons/weapons/thrown/bomb-gas-grey-purple.webp",
+				"default": true,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"hCw5wD2GEXxNUMSW": {
+				"name": "Implode",
+				"consumers": {
+					"AUNjyc1lhyV4ONyW": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"ranges": {
+					"xE2ZLmn6b9nHUofk": {
+						"range": "short"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"effects": [
+					"FkY272ynTb3mkiej",
+					"CjhDYjvXlBIJFH4p"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"prompts": {},
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<div class=\"flex max-w-full flex-col flex-grow\">\n<div class=\"min-h-8 text-message flex w-full flex-col items-end gap-2 whitespace-normal break-words [.text-message+&amp;]:mt-5\" dir=\"auto\" data-message-author-role=\"assistant\" data-message-id=\"a24d18bf-7904-42a5-bba7-54023de9f41c\" data-message-model-slug=\"gpt-4o\">\n<div class=\"flex w-full flex-col gap-1 empty:hidden first:pt-[3px]\">\n<div class=\"markdown prose w-full break-words dark:prose-invert light\">\n<p>You have a chroniton grenade, whose explosion slows the flow of time in that area. You can use it once between long rests.</p>\n<p>You can deploy the grenade as an action, throwing it up to 30 feet, after which it explodes in a 10 foot radius sphere. Creatures and devices in the explosion radius make Constitution saving throws against your Science save DC.&nbsp;On a successful saving throw, a target is rattled until the end of its next turn. On a failure, the target becomes slowed for 1 minute. At the end of each of its turns, a slowed target repeats the saving throw to end the effect on it.</p>\n<p>Alternatively, as an action you can cause the grenade to implode, increasing the flow of time for a single creature in your line of effect within 30 feet. For 1 minute, the target’s Speed is doubled, it gains a +2 bonus to AC, it has advantage on Dexterity saving throws, and it gains one additional action on each of its turns. This action can be used to make a single weapon attack, or to take the Dash, Disengage, Hide, or Use an Object action.&nbsp;Such an effect is taxing, however. At the end of the duration, the target can’t use movement or take actions until after its next turn.</p>\n</div>\n</div>\n</div>\n</div>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "6th level",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "scientist",
+		"migrationData": {
+			"version": 0.019,
+			"lastMigration": {
+				"system": null,
+				"foundry": null,
+				"schema": null
+			},
+			"type": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.AxxKcRguwIlKlvY7",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Rattled",
+			"img": "icons/weapons/thrown/bomb-gas-grey-purple.webp",
+			"_id": "NqdQBYuHNa94csx0",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733522400079,
+				"modifiedTime": 1733522449288,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.AxxKcRguwIlKlvY7",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Slowed",
+			"img": "icons/weapons/thrown/bomb-gas-grey-purple.webp",
+			"_id": "GiwpwWLmPtZDMXdS",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"slowed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A slowed creature's Speed is halved.</li>\n<li>A slowed creature takes a −2 penalty to AC and Dexterity saving throws.</li>\n<li>A slowed creature cannot take reactions.</li>\n<li>On its turn, a slowed creature can take either an action or a bonus action, not both. In addition, it can't make more than one melee or ranged attack during its turn.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"slowed"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "seconds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733522458549,
+				"modifiedTime": 1733522493289,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.AxxKcRguwIlKlvY7",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Implode",
+			"img": "icons/weapons/thrown/bomb-gas-grey-purple.webp",
+			"_id": "FkY272ynTb3mkiej",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "@attributes.movement.walk.distance",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "system.attributes.ac.changes.bonuses.value",
+					"value": "2",
+					"mode": 2,
+					"priority": null
+				},
+				{
+					"key": "flags.a5e.effects.rollMode.abilitySave.dex",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>For 1 minute, the target’s Speed is doubled, it gains a +2 bonus to AC, it has advantage on Dexterity saving throws, and it gains one additional action on each of its turns. This action can be used to make a single weapon attack, or to take the Dash, Disengage, Hide, or Use an Object action. Such an effect is taxing, however. At the end of the duration, the target can’t use movement or take actions until after its next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733522705455,
+				"modifiedTime": 1733522765986,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.AxxKcRguwIlKlvY7",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Implode After Effects",
+			"img": "icons/weapons/thrown/bomb-gas-grey-purple.webp",
+			"_id": "CjhDYjvXlBIJFH4p",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "0",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>The target can’t use movement or take actions until after its next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733522779035,
+				"modifiedTime": 1733522809663,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733520377050,
+		"modifiedTime": 1733668633228,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "eikJNcZZ8ZdFnomH"
+}

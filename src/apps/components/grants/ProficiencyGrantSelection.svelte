@@ -1,81 +1,78 @@
 <script lang="ts">
-    import type { ProficiencyGrant } from "types/itemGrants";
+import type { ProficiencyGrant } from 'types/itemGrants';
 
-    import { createEventDispatcher } from "svelte";
+import { createEventDispatcher } from 'svelte';
 
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
-    import prepareProficiencyConfigObject from "../../../utils/prepareProficiencyConfigObject";
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
+import prepareProficiencyConfigObject from '../../../utils/prepareProficiencyConfigObject';
 
-    export let grant: ProficiencyGrant;
-    export let base: string[];
-    export let choices: string[];
-    export let count: number;
-    export let proficiencyType: string;
-    export let selected: string[];
+export let grant: ProficiencyGrant;
+export let base: string[];
+export let choices: string[];
+export let count: number;
+export let proficiencyType: string;
+export let selected: string[];
 
-    function getGrantSummary(selected) {
-        // return ` This grant provides a bonus of ${bonus} to ${selected
-        //     .map((s) => configObject[s])
-        //     .join(", ")}.`;
-        return "";
-    }
+function getGrantSummary(selected) {
+	// return ` This grant provides a bonus of ${bonus} to ${selected
+	//     .map((s) => configObject[s])
+	//     .join(", ")}.`;
+	return '';
+}
 
-    function onUpdateSelection({ detail }) {
-        selected = detail;
-        dispatch("updateSelection", { selected, summary });
-    }
+function onUpdateSelection({ detail }) {
+	selected = detail;
+	dispatch('updateSelection', { selected, summary });
+}
 
-    function getOptions(choicesLocked: boolean): string[][] {
-        const options: string[][] = [];
-        let optionKeys: string[];
+function getOptions(choicesLocked: boolean): string[][] {
+	const options: string[][] = [];
+	let optionKeys: string[];
 
-        if (["weapon", "tool"].includes(proficiencyType)) {
-            const config: Record<string, string>[] = Object.values(
-                configObject[proficiencyType]?.config ?? {},
-            );
+	if (['weapon', 'tool'].includes(proficiencyType)) {
+		const config: Record<string, string>[] = Object.values(
+			configObject[proficiencyType]?.config ?? {},
+		);
 
-            optionKeys = config.flatMap((category) => {
-                return Object.entries(category).map(([key]) => key);
-            });
-        } else {
-            optionKeys = configObject[proficiencyType]?.config.map(([key]) => key) ?? [];
-        }
+		optionKeys = config.flatMap((category) => {
+			return Object.entries(category).map(([key]) => key);
+		});
+	} else {
+		optionKeys = configObject[proficiencyType]?.config.map(([key]) => key) ?? [];
+	}
 
-        const extra = choices.filter((c) => !optionKeys.includes(c));
-        const totalOptions = [
-            ...(["weapon", "tool"].includes(proficiencyType)
-                ? Object.values(
-                      (configObject[proficiencyType]?.config ?? {}) as Record<
-                          string,
-                          string
-                      >,
-                  ).flatMap((category) => Object.entries(category))
-                : configObject[proficiencyType]?.config ?? []),
-            ...extra.map((e) => [e, e]),
-        ];
+	const extra = choices.filter((c) => !optionKeys.includes(c));
+	const totalOptions = [
+		...(['weapon', 'tool'].includes(proficiencyType)
+			? Object.values(
+					(configObject[proficiencyType]?.config ?? {}) as Record<string, string>,
+				).flatMap((category) => Object.entries(category))
+			: (configObject[proficiencyType]?.config ?? [])),
+		...extra.map((e) => [e, e]),
+	];
 
-        if (!choicesLocked) return totalOptions;
+	if (!choicesLocked) return totalOptions;
 
-        for (const [value, label] of totalOptions) {
-            if (choices.includes(value)) {
-                options.push([value, label]);
-            }
-        }
+	for (const [value, label] of totalOptions) {
+		if (choices.includes(value)) {
+			options.push([value, label]);
+		}
+	}
 
-        return options;
-    }
+	return options;
+}
 
-    const dispatch = createEventDispatcher();
-    const configObject = prepareProficiencyConfigObject();
+const dispatch = createEventDispatcher();
+const configObject = prepareProficiencyConfigObject();
 
-    let choicesLocked = true;
+let choicesLocked = true;
 
-    $: selected = [...new Set(base.concat(selected))];
-    $: totalCount = base.length + count;
-    $: remainingSelections = totalCount - selected.length;
-    $: summary = getGrantSummary(selected);
+$: selected = [...new Set(base.concat(selected))];
+$: totalCount = base.length + count;
+$: remainingSelections = totalCount - selected.length;
+$: summary = getGrantSummary(selected);
 </script>
 
 <Section

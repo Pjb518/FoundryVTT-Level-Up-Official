@@ -1,10 +1,10 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
+import { createEventDispatcher } from 'svelte';
 
-    export let uuid: string = "";
-    const dispatch = createEventDispatcher();
+export let uuid: string = '';
+const dispatch = createEventDispatcher();
 
-    $: doc = fromUuidSync(uuid);
+$: doc = fromUuidSync(uuid);
 </script>
 
 <section class="drop-container">

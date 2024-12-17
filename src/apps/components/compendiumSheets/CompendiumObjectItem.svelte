@@ -1,69 +1,67 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import ImportButton from "../ImportButton.svelte";
+import ImportButton from '../ImportButton.svelte';
 
-    import getDocumentSourceTooltip from "../../../utils/getDocumentSourceTooltip";
-    import CompendiumDeleteButton from "../CompendiumDeleteButton.svelte";
+import getDocumentSourceTooltip from '../../../utils/getDocumentSourceTooltip';
+import CompendiumDeleteButton from '../CompendiumDeleteButton.svelte';
 
-    export let document;
+export let document;
 
-    function getAttunementLabel(object) {
-        return object.system.requiresAttunement
-            ? localize("A5E.AttunementRequiredPrompt")
-            : null;
-    }
+function getAttunementLabel(object) {
+	return object.system.requiresAttunement ? localize('A5E.AttunementRequiredPrompt') : null;
+}
 
-    function getObjectDetailsLabel(item) {
-        const attunement = getAttunementLabel(item);
-        const { price } = item.system;
-        const rarity = getRarityLabel(item);
+function getObjectDetailsLabel(item) {
+	const attunement = getAttunementLabel(item);
+	const { price } = item.system;
+	const rarity = getRarityLabel(item);
 
-        if (rarity) {
-            if (price && attunement) return `${rarity} (${attunement}; Cost ${price})`;
-            if (price) return `${rarity} (Cost ${price})`;
-            if (attunement) return `${rarity} (${attunement})`;
+	if (rarity) {
+		if (price && attunement) return `${rarity} (${attunement}; Cost ${price})`;
+		if (price) return `${rarity} (Cost ${price})`;
+		if (attunement) return `${rarity} (${attunement})`;
 
-            return rarity;
-        }
+		return rarity;
+	}
 
-        if (price && attunement) return `${attunement}; Cost ${price}`;
-        if (price) return `Cost ${price}`;
-        if (attunement) return attunement;
+	if (price && attunement) return `${attunement}; Cost ${price}`;
+	if (price) return `Cost ${price}`;
+	if (attunement) return attunement;
 
-        return null;
-    }
+	return null;
+}
 
-    function getObjectSource(item) {
-        if (typeof item.system.source !== "string") return null;
+function getObjectSource(item) {
+	if (typeof item.system.source !== 'string') return null;
 
-        const source = CONFIG.A5E.products[item.system.source];
+	const source = CONFIG.A5E.products[item.system.source];
 
-        return source || null;
-    }
+	return source || null;
+}
 
-    function getRarityLabel(object) {
-        const { rarity } = object.system;
+function getRarityLabel(object) {
+	const { rarity } = object.system;
 
-        if (!rarity || rarity === "mundane") return null;
+	if (!rarity || rarity === 'mundane') return null;
 
-        return itemRarity[rarity] ?? rarity;
-    }
+	return itemRarity[rarity] ?? rarity;
+}
 
-    function onDragStart(event) {
-        const data = {
-            type: collection.documentName,
-            uuid: collection.getUuid(document._id),
-        };
-        return event.dataTransfer.setData("text/plain", JSON.stringify(data));
-    }
+function onDragStart(event) {
+	const data = {
+		type: collection.documentName,
+		uuid: collection.getUuid(document._id),
+	};
+	return event.dataTransfer.setData('text/plain', JSON.stringify(data));
+}
 
-    const collection = getContext("collection");
-    const { itemRarity } = CONFIG.A5E;
+const collection = getContext('collection');
+const { itemRarity } = CONFIG.A5E;
 
-    $: objectDetails = getObjectDetailsLabel(document);
-    $: objectSource = getObjectSource(document);
+$: objectDetails = getObjectDetailsLabel(document);
+$: objectSource = getObjectSource(document);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->

@@ -1,32 +1,32 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
+import { createEventDispatcher } from 'svelte';
 
-    import FieldWrapper from "../FieldWrapper.svelte";
+import FieldWrapper from '../FieldWrapper.svelte';
 
-    export let type = "";
-    export let documentType = "";
+export let type = '';
+export let documentType = '';
 
-    function onDrop(dragEvent: DragEvent) {
-        if (!type) dispatch("document-dropped", dragEvent);
+function onDrop(dragEvent: DragEvent) {
+	if (!type) dispatch('document-dropped', dragEvent);
 
-        if (type === "uuid") {
-            try {
-                const dataTransfer = dragEvent.dataTransfer;
-                if (!dataTransfer) return;
+	if (type === 'uuid') {
+		try {
+			const dataTransfer = dragEvent.dataTransfer;
+			if (!dataTransfer) return;
 
-                const { uuid, type }: { uuid: string; type: string } = JSON.parse(
-                    dataTransfer.getData("text/plain"),
-                );
+			const { uuid, type }: { uuid: string; type: string } = JSON.parse(
+				dataTransfer.getData('text/plain'),
+			);
 
-                if (type !== documentType) return;
-                dispatch("document-dropped", { dragEvent, uuid });
-            } catch (err) {
-                console.error(err);
-            }
-        }
-    }
+			if (type !== documentType) return;
+			dispatch('document-dropped', { dragEvent, uuid });
+		} catch (err) {
+			console.error(err);
+		}
+	}
+}
 
-    const dispatch = createEventDispatcher();
+const dispatch = createEventDispatcher();
 </script>
 
 <FieldWrapper>

@@ -1,0 +1,182 @@
+{
+	"folder": null,
+	"name": "Core Child",
+	"type": "feature",
+	"img": "icons/commodities/gems/pearl-rough-turquoise.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"7DA6cVlVumNNSdZN": {
+				"name": "Core Child",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"cz1DXaSl6vGNA0mq": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"nTE43oPUl7KEjgBp": {
+						"type": "effect",
+						"default": true,
+						"effectId": "9GKN6YTXWGXr3CMr"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				}
+			},
+			"UvzvtJkR0yzZMvj9": {
+				"name": "Fire Damage",
+				"activation": {},
+				"consumers": {},
+				"rolls": {
+					"PIox0JCMNAxEFGa5": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "1d6",
+						"damageType": "fire"
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>A sipher born particularly close to a planet’s core amidst the heat, may have a particular kind of connection to such places. You have resistance to fire damage.</p>\n<p>Additionally, you are able to superheat yourself for one minute as a bonus action. While superheated, your skin glows red, and your unarmed attacks do fire damage. Any creature which touches you or which hits you with a natural weapon or unarmed attack automatically takes 1d6 fire damage. Once you have superheated yourself, you cannot do so again until you finish a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {
+			"JVpLocChFj63sxf7": {
+				"grantType": "trait",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "JVpLocChFj63sxf7",
+				"label": "Core Child",
+				"traits": {
+					"base": [
+						"fire"
+					],
+					"options": [],
+					"total": 0,
+					"traitType": "damageResistances"
+				}
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.dGjxakeMs4CMjjim",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "7DA6cVlVumNNSdZN",
+					"applyToSelf": true,
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Superheated",
+			"img": "icons/commodities/gems/pearl-rough-turquoise.webp",
+			"_id": "9GKN6YTXWGXr3CMr",
+			"type": "base",
+			"system": {},
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While superheated, your skin glows red, and your unarmed attacks do fire damage. Any creature which touches you or which hits you with a natural weapon or unarmed attack automatically takes 1d6 fire damage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.30",
+				"createdTime": 1731791039502,
+				"modifiedTime": 1731791059059,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1731790916125,
+		"modifiedTime": 1731791172928,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "oSI5JIKBzJ7Aq9LE"
+}

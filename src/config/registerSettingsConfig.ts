@@ -1,7 +1,5 @@
 export default function registerSettingsConfig() {
-  return {
-    refreshableSettings: new Set([
-      'automatedConditions'
-    ])
-  };
+	return {
+		refreshableSettings: new Set(['automatedConditions']),
+	};
 }

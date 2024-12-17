@@ -3,6 +3,7 @@
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
+    import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
 
     export let consumer;
@@ -36,10 +37,20 @@
     />
 </FieldWrapper>
 
-<FieldWrapper
-    heading="Default Consumption Amount"
-    --a5e-field-wrapper-width="14rem"
->
+<FieldWrapper>
+    <Checkbox
+        label="Select Consumer Automatically in Roll Prompt"
+        checked={consumer.default ?? true}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.consumers.${consumerId}.default`,
+                detail,
+            )}
+    />
+</FieldWrapper>
+
+<FieldWrapper heading="Default Consumption Amount" --a5e-field-wrapper-width="14rem">
     <input
         type="number"
         d-type="Number"

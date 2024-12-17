@@ -1,26 +1,26 @@
 <script>
-    import { localize } from "#runtime/util/i18n";
+import { localize } from '#runtime/util/i18n';
 
-    import updateAssociatedValues from "../../handlers/updateAssociatedValues";
+import updateAssociatedValues from '../../handlers/updateAssociatedValues';
 
-    export let action;
-    export let actionId;
-    export let item;
-    export let key;
-    export let name;
+export let action;
+export let actionId;
+export let item;
+export let key;
+export let name;
 
-    const A5E = CONFIG.A5E;
+const A5E = CONFIG.A5E;
 
-    function removeArea() {
-        $item.update({
-            [`system.actions.${actionId}.area`]: {
-                "-=width": null,
-                "-=radius": null,
-                "-=height": null,
-                "-=length": null,
-            },
-        });
-    }
+function removeArea() {
+	$item.update({
+		[`system.actions.${actionId}.area`]: {
+			'-=width': null,
+			'-=radius': null,
+			'-=height': null,
+			'-=length': null,
+		},
+	});
+}
 </script>
 
 <input

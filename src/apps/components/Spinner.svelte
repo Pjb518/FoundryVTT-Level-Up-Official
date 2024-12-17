@@ -1,9 +1,9 @@
 <script>
-    export let color = "var(--a5e-color-primary)";
-    export let unit = "px";
-    export let duration = "3s";
-    export let size = "30";
-    export let pause = false;
+export let color = 'var(--a5e-color-primary)';
+export let unit = 'px';
+export let duration = '3s';
+export let size = '30';
+export let pause = false;
 </script>
 
 <div

@@ -1,59 +1,55 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
+import { createEventDispatcher } from 'svelte';
 
-    import FieldWrapper from "./FieldWrapper.svelte";
+import FieldWrapper from './FieldWrapper.svelte';
 
-    export let uuids: string[] = [];
-    export let embeddedData: any[] = [];
-    export let type = "feature";
+export let uuids: string[] = [];
+export let embeddedData: any[] = [];
+export let type = 'feature';
 
-    const dispatch = createEventDispatcher();
+const dispatch = createEventDispatcher();
 
-    function onClick(idx: number) {
-        if (type === "feature") {
-            uuids = uuids.filter((_, i) => i !== idx);
-            dispatch("updateSelection", uuids);
-        }
+function onClick(idx: number) {
+	if (type === 'feature') {
+		uuids = uuids.filter((_, i) => i !== idx);
+		dispatch('updateSelection', uuids);
+	}
 
-        if (type === "item") {
-            embeddedData = embeddedData.filter((_, i) => i !== idx);
-            dispatch("updateSelection", embeddedData);
-        }
-    }
+	if (type === 'item') {
+		embeddedData = embeddedData.filter((_, i) => i !== idx);
+		dispatch('updateSelection', embeddedData);
+	}
+}
 
-    function onUpdateQuantity(idx: number, value: number) {
-        if (type === "item") {
-            embeddedData[idx].quantityOverride = value;
-            dispatch("updateSelection", embeddedData);
+function onUpdateQuantity(idx: number, value: number) {
+	if (type === 'item') {
+		embeddedData[idx].quantityOverride = value;
+		dispatch('updateSelection', embeddedData);
 
-            embeddedData = embeddedData;
-        }
-    }
+		embeddedData = embeddedData;
+	}
+}
 
-    function getDocuments(type: string) {
-        if (type === "feature") {
-            return uuids.map((uuid) => {
-                const i = fromUuidSync(uuid);
-                return [i.img, i.name];
-            });
-        }
+function getDocuments(type: string) {
+	if (type === 'feature') {
+		return uuids.map((uuid) => {
+			const i = fromUuidSync(uuid);
+			return [i.img, i.name];
+		});
+	}
 
-        if (type === "item") {
-            return embeddedData.map(({ uuid, quantityOverride }) => {
-                const i = fromUuidSync(uuid);
-                return [
-                    i.img,
-                    i.name,
-                    quantityOverride || i.system.quantity || 1,
-                ];
-            });
-        }
+	if (type === 'item') {
+		return embeddedData.map(({ uuid, quantityOverride }) => {
+			const i = fromUuidSync(uuid);
+			return [i.img, i.name, quantityOverride || i.system.quantity || 1];
+		});
+	}
 
-        return [];
-    }
+	return [];
+}
 
-    // @ts-ignore
-    $: documents = getDocuments(type, uuids, embeddedData);
+// @ts-ignore
+$: documents = getDocuments(type, uuids, embeddedData);
 </script>
 
 <FieldWrapper --a5e-field-wrapper-direction="row">

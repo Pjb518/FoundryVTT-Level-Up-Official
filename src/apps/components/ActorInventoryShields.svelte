@@ -4,7 +4,11 @@
 
     import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
+    const { A5E } = CONFIG;
     const actor = getContext("actor");
+
+    const showVRCImplants = game.settings.get("a5e", "showVRCImplants") ?? false;
+    const useCredits = game.settings.get("a5e", "useCredits") ?? false;
 
     function getBulkyTooltip(actor) {
         let bulkyLimit;
@@ -27,14 +31,29 @@
 
         if (excessSupply) {
             return `Free Supply: ${freeSupplyLimit} &nbsp;&nbsp;|&nbsp;&nbsp; Additional Supply: ${excessSupply}`;
-        } else {
-            return `Free Supply: ${supply} &nbsp;&nbsp;|&nbsp;&nbsp; Additional Supply: 0`;
         }
+
+        return `Free Supply: ${supply} &nbsp;&nbsp;|&nbsp;&nbsp; Additional Supply: 0`;
     }
 
     $: bulkyItems = $actor.items.reduce((bulkyCount, item) => {
-        if (item.system.bulky && item.system.equippedState) bulkyCount += 1;
+        if (item.system.bulky && item.system.equippedState) {
+            if (item.system.objectType === "armor" && item.system.equippedState === 2) {
+            } else bulkyCount += 1;
+        }
         return bulkyCount;
+    }, 0);
+
+    $: implantItems = $actor.items.reduce((implantCount, item) => {
+        if (item.system.implant && item.system.equippedState) {
+            implantCount += 1;
+        }
+        return implantCount;
+    }, 0);
+
+    $: supplyItems = $actor.items.reduce((supplyCount, item) => {
+        if (item.system.supply && item.system.equippedState) supplyCount += 1;
+        return supplyCount;
     }, 0);
 
     $: sheetIsLocked = !$actor.isOwner
@@ -46,6 +65,8 @@
     $: currency = $actor.system.currency;
     $: supply = $actor.system.supply;
     $: supplyTooltip = getSupplyTooltip($actor);
+    $: totalSupply = $actor.system.supply + supplyItems;
+    $: implantMax = $actor.system.attributes.prof;
 </script>
 
 <section class="shield-container">
@@ -89,21 +110,40 @@
                 {localize("A5E.Supply")}
             </h3>
 
-            <input
-                class="shield-input a5e-footer-group__input"
-                class:disable-pointer-events={!$actor.isOwner}
-                type="number"
-                name="system.supply"
-                value={supply}
-                placeholder="0"
-                min="0"
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        Number(target.value),
-                    )}
-            />
+            {#if !sheetIsLocked}
+                <input
+                    class="shield-input a5e-footer-group__input"
+                    class:disable-pointer-events={!$actor.isOwner}
+                    type="number"
+                    name="system.supply"
+                    value={supply}
+                    placeholder="0"
+                    min="0"
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value),
+                        )}
+                />
+            {:else}
+                <input
+                    class="shield-input a5e-footer-group__input"
+                    class:disable-pointer-events={!$actor.isOwner}
+                    type="number"
+                    name="system.supply"
+                    value={totalSupply}
+                    placeholder="0"
+                    min="0"
+                    disabled={sheetIsLocked}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value),
+                        )}
+                />
+            {/if}
         </div>
     {/if}
 
@@ -122,6 +162,37 @@
         </span>
     </div>
 
+    <!-- Implants -->
+    {#if showVRCImplants}
+        <div class="shield shield--implants">
+            <h3 class="footer-shield-header">
+                {localize("A5E.Implant")}
+            </h3>
+
+            <span class="a5e-footer-group__value a5e-footer-group__value--implants">
+                {implantItems}
+            </span>
+            /
+            <input
+                class="shield-input a5e-footer-group__input"
+                class:disable-pointer-events={!$actor.isOwner}
+                type="number"
+                name="system.attributes.prof"
+                value={implantMax}
+                placeholder="0"
+                min="0"
+                max="9"
+                disabled={sheetIsLocked}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
+            />
+        </div>
+    {/if}
+
     <!-- Currencies -->
     <div
         class="
@@ -134,31 +205,59 @@
     >
         <ol class="currency__list">
             {#each Object.entries(currency) as [label, value]}
-                <li class="currency__item" data-type={label}>
-                    <label
-                        class="currency__label"
-                        class:disable-pointer-events={!$actor.isOwner}
-                        for="currency-{label}"
-                    >
-                        {localize(label)}
-                    </label>
+                {#if useCredits && label == "cr"}
+                    <li class="currency__item" data-type={label}>
+                        <label
+                            class="currency__label"
+                            class:disable-pointer-events={!$actor.isOwner}
+                            for="currency-{label}"
+                        >
+                            {localize(label)}
+                        </label>
 
-                    <input
-                        class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
-                        class:disable-pointer-events={!$actor.isOwner}
-                        id="currency-{label}"
-                        type="number"
-                        name="system.currency.{label}"
-                        {value}
-                        min="0"
-                        on:change={({ target }) =>
-                            updateDocumentDataFromField(
-                                $actor,
-                                target.name,
-                                Number(target.value),
-                            )}
-                    />
-                </li>
+                        <input
+                            class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
+                            class:disable-pointer-events={!$actor.isOwner}
+                            id="currency-{label}"
+                            type="number"
+                            name="system.currency.{label}"
+                            {value}
+                            min="0"
+                            on:change={({ target }) =>
+                                updateDocumentDataFromField(
+                                    $actor,
+                                    target.name,
+                                    Number(target.value),
+                                )}
+                        />
+                    </li>
+                {:else if !useCredits && label != "cr"}
+                    <li class="currency__item" data-type={label}>
+                        <label
+                            class="currency__label"
+                            class:disable-pointer-events={!$actor.isOwner}
+                            for="currency-{label}"
+                        >
+                            {localize(label)}
+                        </label>
+
+                        <input
+                            class="a5e-footer-group__input a5e-footer-group__input--currency shield-input"
+                            class:disable-pointer-events={!$actor.isOwner}
+                            id="currency-{label}"
+                            type="number"
+                            name="system.currency.{label}"
+                            {value}
+                            min="0"
+                            on:change={({ target }) =>
+                                updateDocumentDataFromField(
+                                    $actor,
+                                    target.name,
+                                    Number(target.value),
+                                )}
+                        />
+                    </li>
+                {/if}
             {/each}
         </ol>
     </div>

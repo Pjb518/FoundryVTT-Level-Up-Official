@@ -1,0 +1,359 @@
+{
+	"folder": null,
+	"name": "Jolt Pistol",
+	"type": "object",
+	"img": "icons/magic/lightning/bolt-forked-blue-yellow.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"BjZG2arqMpS9Q4sA": {
+				"name": "Jolt Pistol",
+				"activation": {},
+				"consumers": {
+					"qEG08M3TeT0Kdcp2": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {
+					"MPH6bRqvEajnfreS": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default"
+					},
+					"L94Y6XdeKthKhhiE": {
+						"type": "damage",
+						"default": true,
+						"formula": "1d4 + @dex.mod",
+						"damageType": "lightning"
+					}
+				},
+				"prompts": {
+					"9UACnCke55MBgBHe": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver"
+						}
+					},
+					"JxotcxUb3tCpskBx": {
+						"type": "effect",
+						"default": true,
+						"effectId": "PpgBbm2RgcvRLKSM"
+					},
+					"pPFZ9wcAVYkz0uv3": {
+						"type": "effect",
+						"default": true,
+						"effectId": "2RzQ5myTBFbcbebt"
+					},
+					"BG5r9DNccsGpvJJh": {
+						"type": "effect",
+						"default": true,
+						"effectId": "N1oVS3CIsmg8aezM"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				},
+				"ranges": {
+					"nSMiOlbrr2VGfpmF": {
+						"range": 15,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1
+				}
+			},
+			"Dqm0w1rTJmt6B2Mh": {
+				"name": "Reload",
+				"activation": {
+					"type": "action",
+					"cost": 1
+				},
+				"consumers": {
+					"spBXS20TR4LSeop3": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -20
+					},
+					"na5XTHQX0Dj72NaO": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Originally designed for personal protection, jolt pistols fire short-range arcs of electricity that shock the target’s nervous system. A target damaged by a jolt pistol makes a Constitution saving throw against your maneuver save DC. On a failed save, the target is knocked prone and rattled until the end of your next turn. A target that fails the saving throw by 5 or more is stunned instead of rattled. Energy batteries designed for shock weapons (see Ammunition) are also used to power jolt pistols.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 20,
+			"max": "20",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"craftingComponents": "",
+		"containerId": "",
+		"damagedState": 0,
+		"equippedState": 0,
+		"items": {},
+		"materialProperties": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "40 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"weaponProperties": [
+			"ammunition",
+			"reload",
+			"exotic",
+			"simple"
+		],
+		"weight": 2,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"defensiveProperties": "",
+		"energyProperties": "",
+		"flaws": [],
+		"mounted": [],
+		"supply": false,
+		"techLevel": "standard",
+		"versatile": "",
+		"weaponAugments": []
+	},
+	"effects": [
+		{
+			"origin": "Item.7YjynG7hN1lVQuO1",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "BjZG2arqMpS9Q4sA"
+				}
+			},
+			"transfer": false,
+			"name": "Prone",
+			"img": "icons/magic/lightning/bolt-forked-blue-yellow.webp",
+			"_id": "PpgBbm2RgcvRLKSM",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732315497167,
+				"modifiedTime": 1732315506422,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.7YjynG7hN1lVQuO1",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "BjZG2arqMpS9Q4sA",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Rattled",
+			"img": "icons/magic/lightning/bolt-forked-blue-yellow.webp",
+			"_id": "2RzQ5myTBFbcbebt",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice .</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732315518140,
+				"modifiedTime": 1732315552024,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.7YjynG7hN1lVQuO1",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "BjZG2arqMpS9Q4sA",
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"transfer": false,
+			"name": "Stunned",
+			"img": "icons/magic/lightning/bolt-forked-blue-yellow.webp",
+			"_id": "N1oVS3CIsmg8aezM",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1732315555036,
+				"modifiedTime": 1732315589296,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1732315337431,
+		"modifiedTime": 1732393229523,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "W41ZwSz4Z9Tlp1O2"
+}

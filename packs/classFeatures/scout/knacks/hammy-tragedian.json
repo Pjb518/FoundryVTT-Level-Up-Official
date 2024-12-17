@@ -1,0 +1,164 @@
+{
+	"folder": null,
+	"name": "Hammy Tragedian",
+	"type": "feature",
+	"img": "icons/skills/wounds/injury-pain-body-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"jnuKw07vqBkyHaSu": {
+				"name": "Hammy Tragedian",
+				"activation": {
+					"type": "reaction",
+					"reactionTrigger": "Hit by an attack",
+					"cost": 1
+				},
+				"effects": [
+					"GVRLhPdXVtrNe4pJ"
+				],
+				"prompts": {
+					"JXaSpTpuUpmAWzp2": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "prc",
+						"ability": "wis",
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"consumers": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p>When you are hit by an attack, you can use your reaction to pretend to die. When you do so, you scream, gurgle, and perhaps utter a few poignant final words before falling prone and appearing to die. So long as you remain in the space where you seem to die, creatures believe you to be dead.</p>\n<p>While playing dead in this way, you can perform minor actions without breaking your ruse, such as retrieving or stowing items, applying medical aid, or reloading weapons. Creatures can see through your ruse by using an action to interact with you directly, if their passive Perception score is equal to or higher than your clever tricks save DC, or if they similarly succeed on a Perception check against your clever tricks save DC.<br>You can cease playing dead at any time. Once a creature sees you die and revive from your faked death, it is immune to this feature’s effects for the next 24 hours.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "scout",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.hmiKnGMW2gqcFCqw",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Prone",
+			"img": "icons/skills/wounds/injury-pain-body-orange.webp",
+			"_id": "GVRLhPdXVtrNe4pJ",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1734278352060,
+				"modifiedTime": 1734278367761,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1734207068356,
+		"modifiedTime": 1734278395594,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "VL5jHrn2wIib5t9Q"
+}

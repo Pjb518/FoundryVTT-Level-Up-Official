@@ -1,102 +1,102 @@
-<script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+<script lang="ts">
+import type { Writable } from 'svelte/store';
+import type { ItemA5e } from '../../../documents/item/item';
 
-    import ActionsManager from "../../../managers/ActionsManager";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import AbilityCheckRollConfig from "../itemActionsConfig/AbilityCheckRollConfig.svelte";
-    import AttackRollConfig from "../itemActionsConfig/AttackRollConfig.svelte";
-    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
-    import DamageRollConfig from "../itemActionsConfig/DamageRollConfig.svelte";
-    import GenericRollConfig from "../itemActionsConfig/GenericRollConfig.svelte";
-    import HealingRollConfig from "../itemActionsConfig/HealingRollConfig.svelte";
-    import SavingThrowRollConfig from "../itemActionsConfig/SavingThrowRollConfig.svelte";
-    import Section from "../Section.svelte";
-    import SkillCheckRollConfig from "../itemActionsConfig/SkillCheckRollConfig.svelte";
-    import ToolCheckRollConfig from "../itemActionsConfig/ToolCheckRollConfig.svelte";
+import { ActionsManager } from '../../../managers/ActionsManager';
 
-    async function deleteRoll(actionId, rollId) {
-        // Close dialog
-        const dialog = $item.dialogs.rollScaling[rollId];
-        await dialog?.close();
-        delete $item.dialogs.rollScaling[rollId];
+import AbilityCheckRollConfig from '../itemActionsConfig/AbilityCheckRollConfig.svelte';
+import AttackRollConfig from '../itemActionsConfig/AttackRollConfig.svelte';
+import CreateMenu from '../actorUtilityBar/CreateMenu.svelte';
+import DamageRollConfig from '../itemActionsConfig/DamageRollConfig.svelte';
+import GenericRollConfig from '../itemActionsConfig/GenericRollConfig.svelte';
+import HealingRollConfig from '../itemActionsConfig/HealingRollConfig.svelte';
+import SavingThrowRollConfig from '../itemActionsConfig/SavingThrowRollConfig.svelte';
+import Section from '../Section.svelte';
+import SkillCheckRollConfig from '../itemActionsConfig/SkillCheckRollConfig.svelte';
+import ToolCheckRollConfig from '../itemActionsConfig/ToolCheckRollConfig.svelte';
 
-        $item.update({
-            [`system.actions.${actionId}.rolls`]: {
-                [`-=${rollId}`]: null,
-            },
-        });
-    }
+async function deleteRoll(actionId: string, rollId: string) {
+	// Close dialog
+	const dialog = $item.dialogs.rollScaling[rollId];
+	await dialog?.close();
+	delete $item.dialogs.rollScaling[rollId];
 
-    function duplicateRoll(actionId, roll) {
-        const newRoll = foundry.utils.duplicate(roll);
+	$item.update({
+		[`system.actions.${actionId}.rolls`]: {
+			[`-=${rollId}`]: null,
+		},
+	});
+}
 
-        $item.update({
-            [`system.actions.${actionId}.rolls`]: {
-                [foundry.utils.randomID()]: newRoll,
-            },
-        });
-    }
+function duplicateRoll(actionId: string, roll: string) {
+	const newRoll = foundry.utils.duplicate(roll);
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+	$item.update({
+		[`system.actions.${actionId}.rolls`]: {
+			[foundry.utils.randomID()]: newRoll,
+		},
+	});
+}
 
-    const rollTypes = {
-        attack: {
-            heading: "A5E.ItemAttackRoll",
-            singleLabel: "A5E.ItemAttackRoll",
-            component: AttackRollConfig,
-        },
-        damage: {
-            heading: "A5E.ItemDamageRollPlural",
-            buttonLabel: "A5E.Damage",
-            singleLabel: "A5E.ItemDamageRoll",
-            component: DamageRollConfig,
-        },
-        healing: {
-            heading: "A5E.ItemHealingRollPlural",
-            singleLabel: "A5E.Healing",
-            component: HealingRollConfig,
-        },
-        abilityCheck: {
-            heading: "A5E.AbilityCheckPlural",
-            singleLabel: "A5E.AbilityCheck",
-            component: AbilityCheckRollConfig,
-        },
-        skillCheck: {
-            heading: "A5E.SkillCheckPlural",
-            singleLabel: "A5E.SkillCheckSingular",
-            component: SkillCheckRollConfig,
-        },
-        toolCheck: {
-            heading: "A5E.ToolCheckPlural",
-            singleLabel: "A5E.ToolCheck",
-            component: ToolCheckRollConfig,
-        },
-        savingThrow: {
-            heading: "A5E.SavingThrowPlural",
-            singleLabel: "A5E.SavingThrow",
-            component: SavingThrowRollConfig,
-        },
-        generic: {
-            heading: "A5E.OtherPlural",
-            singleLabel: "A5E.Other",
-            component: GenericRollConfig,
-        },
-    };
+const item: Writable<ItemA5e> = getContext('item');
+const actionId: string = getContext('actionId');
 
-    $: action = $item.actions[actionId];
-    $: rolls = action.rolls ?? {};
+const rollTypes = {
+	attack: {
+		heading: 'A5E.ItemAttackRoll',
+		singleLabel: 'A5E.ItemAttackRoll',
+		component: AttackRollConfig,
+	},
+	damage: {
+		heading: 'A5E.ItemDamageRollPlural',
+		buttonLabel: 'A5E.Damage',
+		singleLabel: 'A5E.ItemDamageRoll',
+		component: DamageRollConfig,
+	},
+	healing: {
+		heading: 'A5E.ItemHealingRollPlural',
+		singleLabel: 'A5E.Healing',
+		component: HealingRollConfig,
+	},
+	abilityCheck: {
+		heading: 'A5E.AbilityCheckPlural',
+		singleLabel: 'A5E.AbilityCheck',
+		component: AbilityCheckRollConfig,
+	},
+	skillCheck: {
+		heading: 'A5E.SkillCheckPlural',
+		singleLabel: 'A5E.SkillCheckSingular',
+		component: SkillCheckRollConfig,
+	},
+	toolCheck: {
+		heading: 'A5E.ToolCheckPlural',
+		singleLabel: 'A5E.ToolCheck',
+		component: ToolCheckRollConfig,
+	},
+	savingThrow: {
+		heading: 'A5E.SavingThrowPlural',
+		singleLabel: 'A5E.SavingThrow',
+		component: SavingThrowRollConfig,
+	},
+	generic: {
+		heading: 'A5E.OtherPlural',
+		singleLabel: 'A5E.Other',
+		component: GenericRollConfig,
+	},
+};
 
-    $: attackRolls = Object.entries(action.rolls ?? {}).filter(
-        ([_, roll]) => roll.type === "attack",
-    );
+$: action = $item.actions.get(actionId)!;
+$: rolls = action.rolls ?? {};
 
-    $: menuList = Object.entries(rollTypes).reduce((acc, [rollType, { singleLabel }]) => {
-        if (!(rollType === "attack" && attackRolls.length > 0))
-            acc.push([rollType, singleLabel]);
-        return acc;
-    }, []);
+$: attackRolls = Object.entries(action.rolls ?? {}).filter(([_, roll]) => roll.type === 'attack');
+
+$: menuList = Object.entries(rollTypes).reduce((acc, [rollType, { singleLabel }]) => {
+	if (!(rollType === 'attack' && attackRolls.length > 0)) acc.push([rollType, singleLabel]);
+	return acc;
+}, [] as string[][]);
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">

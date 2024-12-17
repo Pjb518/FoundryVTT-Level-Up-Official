@@ -13,9 +13,9 @@
     const charChoicesLabel = {
         classes: "A5E.ClassPlural",
         archetype: "A5E.Archetype",
-        // background: "A5E.Background",
-        // culture: "A5E.Culture",
-        // destiny: "A5E.Destiny",
+        background: "A5E.Background",
+        culture: "A5E.Culture",
+        destiny: "A5E.Destiny",
         heritage: "A5E.Heritage",
         prestige: "A5E.Prestige",
     };

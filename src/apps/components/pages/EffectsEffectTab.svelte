@@ -1,51 +1,50 @@
 <script>
-    import { getContext } from "svelte";
-    import { TJSIconButton } from "#standard/component/button";
+import { getContext } from 'svelte';
+import { TJSIconButton } from '#standard/component/button';
 
-    import ChangeConfiguration from "../effectChanges/ChangeConfiguration.svelte";
-    import ChangeValue from "../effectChanges/ChangeValue.svelte";
+import ChangeConfiguration from '../effectChanges/ChangeConfiguration.svelte';
+import ChangeValue from '../effectChanges/ChangeValue.svelte';
 
-    const effect = getContext("effect");
-    const sheet = getContext("sheet");
+const effect = getContext('effect');
+const sheet = getContext('sheet');
 
-    function addChange() {
-        const change = {
-            key: "",
-            mode: null,
-            value: "",
-            priority: null,
-        };
+function addChange() {
+	const change = {
+		key: '',
+		mode: null,
+		value: '',
+		priority: null,
+	};
 
-        changes = [...changes, change];
+	changes = [...changes, change];
 
-        $effect.update({ changes });
-    }
+	$effect.update({ changes });
+}
 
-    function deleteChange(id) {
-        changes = changes.filter((_, idx) => idx !== id);
-        $effect.update({ changes });
-    }
+function deleteChange(id) {
+	changes = changes.filter((_, idx) => idx !== id);
+	$effect.update({ changes });
+}
 
-    function updateChange(idx, key, value) {
-        changes[idx] ??= {};
-        changes[idx][key] = value;
+function updateChange(idx, key, value) {
+	changes[idx] ??= {};
+	changes[idx][key] = value;
 
-        // Change mode and reset value if key has changed
-        if (key === "key") {
-            changes[idx]["value"] = "";
-            changes[idx]["mode"] =
-                MODES[optionsList[changes[idx]?.key]?.modes?.[0]] ?? null;
-        }
+	// Change mode and reset value if key has changed
+	if (key === 'key') {
+		changes[idx]['value'] = '';
+		changes[idx]['mode'] = MODES[optionsList[changes[idx]?.key]?.modes?.[0]] ?? null;
+	}
 
-        // Update Document
-        $effect.update({ changes });
-    }
+	// Update Document
+	$effect.update({ changes });
+}
 
-    const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
-    const optionsList = sheet.optionsList;
+const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
+const optionsList = sheet.optionsList;
 
-    /** @type {Array<Object>}*/
-    $: changes = $effect.changes;
+/** @type {Array<Object>}*/
+$: changes = $effect.changes;
 </script>
 
 <section class="a5e-page-wrapper a5e-page-wrapper--scrollable">

@@ -4,101 +4,95 @@ import SkillSpecialtyConfig from '../../../apps/components/grants/SkillSpecialty
 import SkillSpecialtyGrantSelectionDialog from '../../../apps/components/grants/SkillSpecialtyGrantSelectionDialog.svelte';
 
 export default class SkillSpecialtyGrant extends BaseGrant {
-  #component = SkillSpecialtyGrantSelectionDialog;
+	#component = SkillSpecialtyGrantSelectionDialog;
 
-  #configComponent = SkillSpecialtyConfig;
+	#configComponent = SkillSpecialtyConfig;
 
-  #type = 'skillSpecialty';
+	#type = 'skillSpecialty';
 
-  static defineSchema() {
-    const { fields } = foundry.data;
+	static override defineSchema() {
+		const { fields } = foundry.data;
 
-    return this.mergeSchema(super.defineSchema(), {
-      grantType: new fields.StringField({ required: true, initial: 'skillSpecialty' }),
-      skill: new fields.StringField({ required: true, initial: 'acr' }),
-      specialties: new fields.SchemaField({
-        base: new fields.ArrayField(
-          new fields.StringField({ required: true, initial: '' }),
-          { required: true, initial: [] }
-        ),
-        options: new fields.ArrayField(
-          new fields.StringField({ required: true, initial: '' }),
-          { required: true, initial: [] }
-        ),
-        total: new fields.NumberField({ required: true, initial: 0, integer: true })
-      }),
-      label: new fields.StringField({ required: true, initial: 'New Skill Specialty Grant' })
-    });
-  }
+		return this.mergeSchema(super.defineSchema(), {
+			grantType: new fields.StringField({ required: true, initial: 'skillSpecialty' }),
+			skill: new fields.StringField({ required: true, initial: 'acr' }),
+			specialties: new fields.SchemaField({
+				base: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+					required: true,
+					initial: [],
+				}),
+				options: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+					required: true,
+					initial: [],
+				}),
+				total: new fields.NumberField({ required: true, initial: 0, integer: true }),
+			}),
+			label: new fields.StringField({ required: true, initial: 'New Skill Specialty Grant' }),
+		});
+	}
 
-  getApplyData(actor: any, data: any) {
-    if (!actor) return {};
-    const selected: string[] = data?.selected ?? this.specialties.base ?? [];
-    const skill: string = data?.skill ?? this.skill ?? 'acr';
-    const count: number = this.specialties.total;
+	override getApplyData(actor: any, data: any) {
+		if (!actor) return {};
+		const selected: string[] = data?.selected ?? this.specialties.base ?? [];
+		const skill: string = data?.skill ?? this.skill ?? 'acr';
+		const count: number = this.specialties.total;
 
-    if (!skill) return {};
+		if (!skill) return {};
 
-    // Construct grant
-    const grantData = {
-      specialtyData: {
-        specialties: selected,
-        skill,
-        total: count
-      },
-      itemUuid: this.parent.uuid,
-      grantId: this._id,
-      grantType: this.#type,
-      level: this.level
-    };
+		// Construct grant
+		const grantData = {
+			specialtyData: {
+				specialties: selected,
+				skill,
+				total: count,
+			},
+			itemUuid: this.parent.uuid,
+			grantId: this._id,
+			grantType: this.#type,
+			level: this.level,
+		};
 
-    // Construct specialty update
-    const key = `system.skills.${skill}.specialties`;
-    const existing = foundry.utils.getProperty(actor, key) as string[] ?? [];
-    const specialties = new Set([
-      ...selected,
-      ...existing
-    ]);
+		// Construct specialty update
+		const key = `system.skills.${skill}.specialties`;
+		const existing = (foundry.utils.getProperty(actor, key) as string[]) ?? [];
+		const specialties = new Set([...selected, ...existing]);
 
-    return {
-      [key]: [...specialties],
-      'system.grants': {
-        ...actor.system.grants,
-        [this._id]: grantData
-      }
-    };
-  }
+		return {
+			[key]: [...specialties],
+			'system.grants': {
+				...actor.system.grants,
+				[this._id]: grantData,
+			},
+		};
+	}
 
-  getSelectionComponent() {
-    return this.#component;
-  }
+	override getSelectionComponent() {
+		return this.#component;
+	}
 
-  getSelectionComponentProps(data: any) {
-    return {
-      base: this.specialties.base ?? [],
-      choices: this.specialties.options,
-      count: this.specialties.total,
-      skill: this.skill,
-      selected: data?.selected ?? []
-    };
-  }
+	override getSelectionComponentProps(data: any) {
+		return {
+			base: this.specialties.base ?? [],
+			choices: this.specialties.options,
+			count: this.specialties.total,
+			skill: this.skill,
+			selected: data?.selected ?? [],
+		};
+	}
 
-  requiresConfig(): boolean {
-    return this.specialties.options.length;
-  }
+	override requiresConfig(): boolean {
+		return this.specialties.options.length;
+	}
 
-  override async configureGrant(): Promise<any> {
-    const dialogData = {
-      document: this.parent,
-      grantId: this._id,
-      grantType: this.#type
-    };
+	override async configureGrant(): Promise<any> {
+		const dialogData = {
+			document: this.parent,
+			grantId: this._id,
+			grantType: this.#type,
+		};
 
-    super.configureGrant(
-      'Configure Skill Specialty Grant',
-      dialogData,
-      this.#configComponent,
-      { width: 400 }
-    );
-  }
+		super.configureGrant('Configure Skill Specialty Grant', dialogData, this.#configComponent, {
+			width: 400,
+		});
+	}
 }

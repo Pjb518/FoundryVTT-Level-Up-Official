@@ -1,31 +1,31 @@
 <script lang="ts">
-    import { createEventDispatcher } from "svelte";
+import { createEventDispatcher } from 'svelte';
 
-    import FieldWrapper from "./FieldWrapper.svelte";
-    import Tag from "./Tag.svelte";
+import FieldWrapper from './FieldWrapper.svelte';
+import Tag from './Tag.svelte';
 
-    export let allowDeselect = true;
-    export let buttons: any[] = [];
-    export let disabled: string[] = [];
-    export let heading = "";
-    export let hint = "";
-    export let listClasses = "";
-    export let optionStyles = "";
-    export let options: string[][] = [];
-    export let selected = "";
-    export let showWarning = false;
-    export let tooltipData: Record<string, string> = {};
-    export let warning = "";
+export let allowDeselect = true;
+export let buttons: any[] = [];
+export let disabled: string[] = [];
+export let heading = '';
+export let hint = '';
+export let listClasses = '';
+export let optionStyles = '';
+export let options: string[][] = [];
+export let selected = '';
+export let showWarning = false;
+export let tooltipData: Record<string, string> = {};
+export let warning = '';
 
-    const dispatch = createEventDispatcher();
+const dispatch = createEventDispatcher();
 
-    function updateSelection(value: string) {
-        if (allowDeselect) {
-            dispatch("updateSelection", value === selected ? "" : value);
-        } else {
-            dispatch("updateSelection", value);
-        }
-    }
+function updateSelection(value: string) {
+	if (allowDeselect) {
+		dispatch('updateSelection', value === selected ? '' : value);
+	} else {
+		dispatch('updateSelection', value);
+	}
+}
 </script>
 
 <FieldWrapper

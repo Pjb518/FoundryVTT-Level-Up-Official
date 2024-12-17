@@ -1,61 +1,61 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
+import CompendiumFilterCategory from './CompendiumFilterCategory.svelte';
 
-    export let compendiumType = "magicItem";
+export let compendiumType = 'magicItem';
 
-    const filterStore = getContext("filterStore");
-    const { itemRarity, objectTypes } = CONFIG.A5E;
+const filterStore = getContext('filterStore');
+const { itemRarity, objectTypes } = CONFIG.A5E;
 
-    const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
-        acc[key] = value.title;
-        return acc;
-    }, {});
+const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
+	acc[key] = value.title;
+	return acc;
+}, {});
 
-    function getFormSections() {
-        const formSectionMap = [
-            {
-                filterKey: "objectType",
-                heading: "Object Type",
-                options: objectTypes,
-            },
-            {
-                filterKey: "rarity",
-                heading: "Item Rarity",
-                options: itemRarity,
-                display: compendiumType === "magicItem",
-            },
-            {
-                filterKey: "miscellaneous",
-                heading: "Miscellaneous",
-                options: {
-                    bulky: "Bulky",
-                },
-            },
-            {
-                filterKey: "source",
-                heading: "Source",
-                options: products,
-            },
-        ];
+function getFormSections() {
+	const formSectionMap = [
+		{
+			filterKey: 'objectType',
+			heading: 'Object Type',
+			options: objectTypes,
+		},
+		{
+			filterKey: 'rarity',
+			heading: 'Item Rarity',
+			options: itemRarity,
+			display: compendiumType === 'magicItem',
+		},
+		{
+			filterKey: 'miscellaneous',
+			heading: 'Miscellaneous',
+			options: {
+				bulky: 'Bulky',
+			},
+		},
+		{
+			filterKey: 'source',
+			heading: 'Source',
+			options: products,
+		},
+	];
 
-        if (compendiumType === "magicItem") {
-            const miscellaneousSection = formSectionMap.find(
-                (filterSection) => filterSection.filterKey === "miscellaneous",
-            );
+	if (compendiumType === 'magicItem') {
+		const miscellaneousSection = formSectionMap.find(
+			(filterSection) => filterSection.filterKey === 'miscellaneous',
+		);
 
-            miscellaneousSection.options.requiresAttunement = "Requires Attunement";
-        }
+		miscellaneousSection.options.requiresAttunement = 'Requires Attunement';
+	}
 
-        return formSectionMap;
-    }
+	return formSectionMap;
+}
 
-    let filterSelections = {};
+let filterSelections = {};
 
-    filterStore.subscribe((store) => {
-        filterSelections = store;
-    });
+filterStore.subscribe((store) => {
+	filterSelections = store;
+});
 </script>
 
 {#each getFormSections() as { display, heading, filterKey, options }}

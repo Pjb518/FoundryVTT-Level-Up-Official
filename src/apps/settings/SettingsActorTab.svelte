@@ -1,40 +1,40 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
-    import Section from "../components/Section.svelte";
-    import { A5E } from "../../config";
+import Checkbox from '../components/Checkbox.svelte';
+import FieldWrapper from '../components/FieldWrapper.svelte';
+import RadioGroup from '../components/RadioGroup.svelte';
+import Section from '../components/Section.svelte';
+import { A5E } from '../../config';
 
-    export let reload;
+export let reload;
 
-    const settings = getContext("settings");
-    const updates = getContext("updates");
+const settings = getContext('settings');
+const updates = getContext('updates');
 
-    const isGM = game.user.isGM;
+const isGM = game.user.isGM;
 
-    const skillListFlowDirectionChoices = game.settings.settings.get(
-        "a5e.skillListFlowDirection",
-    ).choices;
+const skillListFlowDirectionChoices = game.settings.settings.get(
+	'a5e.skillListFlowDirection',
+).choices;
 
-    // Stores
-    let trackCurrency = settings.getStore("currencyWeight");
-    let randomHP = settings.getStore("randomizeNPCHitPoints");
+// Stores
+let trackCurrency = settings.getStore('currencyWeight');
+let randomHP = settings.getStore('randomizeNPCHitPoints');
 
-    let automateTokenSize = settings.getStore("automatePrototypeTokenSize");
-    let blindDeathSaves = settings.getStore("blindDeathSaves");
-    let hideActionList = settings.getStore("collapseActionList");
-    let hideDeleteDialog = settings.getStore("hideDeleteConfirmation");
-    let hideCompendiumSelection = settings.getStore("hideActorCompendiumSelectionDialog");
-    let rightClickConfig = settings.getStore("itemRightClickConfigure");
-    let reverseAlt = settings.getStore("reverseAltBehavior");
-    let reverseInitAlt = settings.getStore("reverseInitiativeAltBehavior");
-    let skillListFlowDirection = settings.getStore("skillListFlowDirection");
-    let useNPCPassive = settings.getStore("useNPCExpertisePassiveRulesForCharacters");
+let automateTokenSize = settings.getStore('automatePrototypeTokenSize');
+let blindDeathSaves = settings.getStore('blindDeathSaves');
+let hideActionList = settings.getStore('collapseActionList');
+let hideDeleteDialog = settings.getStore('hideDeleteConfirmation');
+let hideCompendiumSelection = settings.getStore('hideActorCompendiumSelectionDialog');
+let rightClickConfig = settings.getStore('itemRightClickConfigure');
+let reverseAlt = settings.getStore('reverseAltBehavior');
+let reverseInitAlt = settings.getStore('reverseInitiativeAltBehavior');
+let skillListFlowDirection = settings.getStore('skillListFlowDirection');
+let useNPCPassive = settings.getStore('useNPCExpertisePassiveRulesForCharacters');
 
-    let selectedSkillListFlowDirection =
-        updates.get("skillListFlowDirection") ?? $skillListFlowDirection;
+let selectedSkillListFlowDirection =
+	updates.get('skillListFlowDirection') ?? $skillListFlowDirection;
 </script>
 
 {#if isGM}

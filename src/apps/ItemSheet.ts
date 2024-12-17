@@ -1,3 +1,5 @@
+import type { BaseItemA5e } from '../documents/item/base';
+
 import { SvelteApplication } from '#runtime/svelte/application';
 
 import ItemDocument from './ItemDocument';
@@ -12,295 +14,308 @@ import ItemSheetComponent from './sheets/ItemSheet.svelte';
 import LimitedSheetComponent from './sheets/LimitedSheet.svelte';
 
 import getDocumentSourceTooltip from '../utils/getDocumentSourceTooltip';
+import type { ItemA5e } from '../documents/item/item';
+import type FeatureItemA5e from '../documents/item/feature';
+import type SpellItemA5e from '../documents/item/spell';
 
 export default class ItemSheet extends SvelteApplication {
-  public item: any;
+	public item: BaseItemA5e;
 
-  declare public options: any;
+	public declare options: any;
 
-  /**
-   * @inheritDoc
-   */
-  constructor(item, options: any = {}) {
-    options.svelte ??= {};
+	/**
+	 * @inheritDoc
+	 */
+	constructor(item, options: any = {}) {
+		options.svelte ??= {};
 
-    if ([
-      CONST.DOCUMENT_OWNERSHIP_LEVELS.NONE,
-      CONST.DOCUMENT_OWNERSHIP_LEVELS.LIMITED
-    ].includes(item.permission)) {
-      options.classes = ['a5e-sheet', 'a5e-sheet--item', 'a5e-actor-sheet--limited'];
-      options.svelte.class = LimitedSheetComponent;
-      options.width = 512;
-      options.resizable = false;
-    } else {
-      options.svelte.class = ItemSheet.getSheetComponent(item.type);
-      options.classes = ['a5e-sheet', 'a5e-sheet--item'];
-      options.width = 555;
-      options.height = 592;
-      options.resizable = true;
-    }
+		if (
+			[CONST.DOCUMENT_OWNERSHIP_LEVELS.NONE, CONST.DOCUMENT_OWNERSHIP_LEVELS.LIMITED].includes(
+				item.permission,
+			)
+		) {
+			options.classes = ['a5e-sheet', 'a5e-sheet--item', 'a5e-actor-sheet--limited'];
+			options.svelte.class = LimitedSheetComponent;
+			options.width = 512;
+			options.resizable = false;
+		} else {
+			options.svelte.class = ItemSheet.getSheetComponent(item.type);
+			options.classes = ['a5e-sheet', 'a5e-sheet--item'];
+			options.width = 555;
+			options.height = 592;
+			options.resizable = true;
+		}
 
-    // eslint-disable-next-line no-nested-ternary
-    const parentId = item.parent
-      ? item?.parent?.isToken
-        ? (item?.parent?.parent.id ?? item.parent.id)
-        : item.parent.id
-      : null;
+		// eslint-disable-next-line no-nested-ternary
+		const parentId = item.parent
+			? item?.parent?.isToken
+				? (item?.parent?.parent.id ?? item.parent.id)
+				: item.parent.id
+			: null;
 
-    super(foundry.utils.mergeObject(
-      options,
-      {
-        baseApplication: 'ItemSheet',
-        id: parentId ? `item-sheet-${parentId}-${item.id}` : `item-sheet-${item.id}`,
-        classes: ['a5e-sheet', 'a5e-sheet--item'],
-        title: item.name,
-        focusAuto: item.type !== 'heritage',
-        svelte: {
-          props: {}
-        }
-      }
-    ));
+		super(
+			foundry.utils.mergeObject(options, {
+				baseApplication: 'ItemSheet',
+				id: parentId ? `item-sheet-${parentId}-${item.id}` : `item-sheet-${item.id}`,
+				classes: ['a5e-sheet', 'a5e-sheet--item'],
+				title: item.name,
+				focusAuto: item.type !== 'heritage',
+				svelte: {
+					props: {},
+				},
+			}),
+		);
 
-    this.item = item;
+		this.item = item;
 
-    this.options.svelte.props.document = new ItemDocument(
-      this.item,
-      { delete: this.close.bind(this) }
-    );
+		this.options.svelte.props.document = new ItemDocument(
+			this.item,
+			// @ts-expect-error
+			{ delete: this.close.bind(this) },
+		);
 
-    this.options.svelte.props.sheet = this;
-  }
+		this.options.svelte.props.sheet = this;
+	}
 
-  /**
-   * Default Application options
-   *
-   * @returns {object} options - Application options.
-   * @see https://foundryvtt.com/api/Application.html#options
-   */
-  static get defaultOptions(): any {
-    return foundry.utils.mergeObject(super.defaultOptions, {
-      baseApplication: 'ItemSheet',
-      classes: ['a5e-sheet', 'a5e-item-sheet'],
-      minimizable: true,
-      svelte: {
-        target: document.body
-      }
-    });
-  }
+	/**
+	 * Default Application options
+	 *
+	 * @returns {object} options - Application options.
+	 * @see https://foundryvtt.com/api/Application.html#options
+	 */
+	static get defaultOptions(): any {
+		// @ts-expect-error
+		return foundry.utils.mergeObject(super.defaultOptions, {
+			baseApplication: 'ItemSheet',
+			classes: ['a5e-sheet', 'a5e-item-sheet'],
+			minimizable: true,
+			svelte: {
+				target: document.body,
+			},
+		});
+	}
 
-  get object() {
-    return this.item;
-  }
+	get object() {
+		return this.item;
+	}
 
-  get document() {
-    return this.item;
-  }
+	get document() {
+		return this.item;
+	}
 
-  _getHeaderButtons() {
-    const buttons = super._getHeaderButtons();
+	_getHeaderButtons() {
+		// @ts-expect-error
+		const buttons = super._getHeaderButtons();
 
-    if (!this.item.pack) {
-      buttons.unshift({
-        label: 'Sheet Configuration',
-        class: 'configure-sheet',
-        icon: 'fas fa-cog fa-fw',
-        title: 'Configure Sheet',
-        onclick: ({ event }) => this._onConfigureSheet(event)
-      });
+		if (!this.item.pack) {
+			buttons.unshift({
+				label: 'Sheet Configuration',
+				class: 'configure-sheet',
+				icon: 'fas fa-cog fa-fw',
+				title: 'Configure Sheet',
+				onclick: ({ event }) => this._onConfigureSheet(event),
+			});
 
-      buttons.unshift({
-        label: 'Revitalize',
-        icon: 'fa-solid fa-arrows-rotate',
-        onclick: () => this.item.revitalize()
-      });
-    }
+			buttons.unshift({
+				label: 'Revitalize',
+				icon: 'fa-solid fa-arrows-rotate',
+				onclick: () => this.item.revitalize(),
+			});
+		}
 
-    if (this.item.pack) {
-      buttons.unshift({
-        label: 'Import',
-        class: 'import',
-        icon: 'fas fa-download',
-        onclick: ({ event }) => this._onImport(event)
-      });
-    }
-    return buttons;
-  }
+		if (this.item.pack) {
+			buttons.unshift({
+				label: 'Import',
+				class: 'import',
+				icon: 'fas fa-download',
+				onclick: ({ event }) => this._onImport(event),
+			});
+		}
+		return buttons;
+	}
 
-  _onImport(event) {
-    if (event) event.preventDefault();
-    return this.item.collection
-      .importFromCompendium(this.item.compendium, this.item.id);
-  }
+	_onImport(event) {
+		if (event) event.preventDefault();
+		return (
+			this.item.collection
+				// @ts-expect-error
+				.importFromCompendium(this.item.compendium, this.item.id)
+		);
+	}
 
-  _onConfigureSheet(event) {
-    if (event) event.preventDefault();
+	_onConfigureSheet(event) {
+		if (event) event.preventDefault();
 
-    const sheetConfigDialog = new DocumentSheetConfig(this.item, { top: this.position.top + 40 });
-    sheetConfigDialog.render(true);
-  }
+		const sheetConfigDialog = new DocumentSheetConfig(this.item, { top: this.position.top + 40 });
+		sheetConfigDialog.render(true);
+	}
 
-  async _onDropDocument(dragData) {
-    const types = ['archetype', 'background', 'class', 'culture', 'heritage'];
-    if (types.includes(this.item.type)) {
-      if (dragData.type === 'Grant') await this.#onDropGrant(dragData);
-    } else {
-      if (dragData.type === 'Action') await this.#onDropAction(dragData);
-      if (dragData.type === 'Grant') await this.#onDropGrant(dragData);
-      if (dragData.type === 'Item') await this.#onDropItem(dragData);
-    }
-  }
+	async _onDropDocument(dragData) {
+		const types = ['archetype', 'background', 'class', 'culture', 'heritage'];
+		if (types.includes(this.item.type)) {
+			if (dragData.type === 'Grant') await this.#onDropGrant(dragData);
+		} else {
+			if (dragData.type === 'Action') await this.#onDropAction(dragData);
+			if (dragData.type === 'Grant') await this.#onDropGrant(dragData);
+			if (dragData.type === 'Item') await this.#onDropItem(dragData);
+		}
+	}
 
-  async #onDropAction(dragData: any) {
-    const { actionId, itemUuid } = dragData;
-    if (!actionId || !itemUuid) return;
+	async #onDropAction(dragData: any) {
+		const { actionId, itemUuid } = dragData;
+		if (!actionId || !itemUuid) return;
 
-    const document = await fromUuid(itemUuid);
-    const action = foundry.utils.duplicate(document.actions.get(actionId));
-    if (!action) return;
+		const document = (await fromUuid(itemUuid)) as ItemA5e;
+		const action = document?.actions.get(actionId)?.toObject();
+		if (!action) return;
 
-    // Change image
-    action.img ??= document.img;
+		// Change image
+		// @ts-expect-error
+		action.img = document?.img;
 
-    const [newActionId] = await this.item.actions.add(action, true, true);
-    if (!newActionId) return;
+		// Copy over effects from old item to new item
+		const effects = [...action.effects]
+			.map((id) => document.effects.get(id)?.toObject())
+			.filter((e) => !!e);
 
-    // Copy over effects from old item to new item
-    const effects = Array.from(document.effects)
-      .filter((e: any) => e.flags?.a5e?.transferType === 'onUse' && e.flags?.a5e?.actionId);
+		if (effects.length) {
+			const effectIds = (await this.item.createEmbeddedDocuments('ActiveEffect', effects)).map(
+				(e) => e.id,
+			);
 
-    if (!effects.length) return;
+			action.effects = effectIds;
+		}
 
-    let newEffects = effects.map((e: any) => {
-      const newEffect = e.toObject();
-      newEffect.flags.a5e.actionId = newActionId;
-      return newEffect;
-    });
+		(this.item as ItemA5e).actions.add(action);
+	}
 
-    newEffects = await this.item.createEmbeddedDocuments('ActiveEffect', newEffects);
+	async #onDropGrant(dragData: Record<string, any>) {
+		const { grantId, itemUuid } = dragData;
+		if (!grantId || !itemUuid) return;
 
-    const effectPrompts = Object.entries(action.prompts ?? {})
-      .filter(([, prompt]: [string, any]) => prompt.type === 'effect');
+		const document = (await fromUuid(itemUuid)) as FeatureItemA5e;
+		const grant = foundry.utils.duplicate(document?.grants.get(grantId));
+		if (!grant) return;
 
-    const idMapping = effectPrompts.reduce((acc, [promptId, prompt]: [string, any]) => {
-      const effect = effects.find((e: any) => e._id === prompt.effectId);
-      if (!effect) return acc;
+		// Change image
+		// @ts-expect-error
+		grant.img ??= document?.img;
 
-      const newEffect: any = newEffects.find((e) => e.equals(effect));
-      if (!newEffect) return acc;
+		await (this.item as FeatureItemA5e).grants.add(grant);
+	}
 
-      acc[promptId] = newEffect._id;
-      return acc;
-    }, {});
+	async #onDropItem(dragData) {
+		const { uuid } = dragData;
+		const document = (await fromUuid(uuid)) as BaseItemA5e;
+		if (!document) return;
 
-    const updates = {};
-    effectPrompts.forEach(([promptId]) => {
-      updates[`system.actions.${newActionId}.prompts.${promptId}.effectId`] = idMapping[promptId] ?? '';
-    });
+		if (document.isType('spell')) this.#onDropSpell(document as SpellItemA5e);
+	}
 
-    this.item.update(updates);
-  }
+	async #onDropSpell(spell: SpellItemA5e) {
+		// Get all actions from spell
+		const actions = [...spell.actions.values()];
 
-  async #onDropGrant(dragData: Record<string, any>) {
-    const { grantId, itemUuid } = dragData;
-    if (!grantId || !itemUuid) return;
+		// Create copies of all the actions.
+		for await (const action of actions) {
+			const actionData = action.toObject();
 
-    const document = await fromUuid(itemUuid);
-    const grant = foundry.utils.duplicate(document.grants.get(grantId));
-    if (!grant) return;
+			// @ts-expect-error
+			actionData.img = spell.img;
+			actionData.description ??= spell.system.description;
+			actionData.descriptionOutputs = ['action'];
 
-    // Change image
-    grant.img ??= document.img;
+			// Copy over effects from old item to new item
+			const effects = [...actionData.effects]
+				.map((id) => spell.effects.get(id)?.toObject())
+				.filter((e) => !!e);
 
-    await this.item.grants.add(grant);
-  }
+			if (effects.length) {
+				const effectIds = (await this.item.createEmbeddedDocuments('ActiveEffect', effects)).map(
+					(e) => e.id,
+				);
 
-  async #onDropItem(dragData) {
-    const { uuid } = dragData;
-    const document = await fromUuid(uuid);
-    if (!document) return;
+				actionData.effects = effectIds;
+			}
 
-    if (document.type === 'spell') this.#onDropSpell(document);
-  }
+			// @ts-expect-error
+			this.item.actions.add(actionData);
+		}
+	}
 
-  async #onDropSpell(spell) {
-    // Get all actions from spell
-    const actions = spell.actions.values();
+	static getSheetComponent(type) {
+		if (type === 'archetype') return ArchetypeSheetComponent;
+		if (type === 'background') return BackgroundSheetComponent;
+		if (type === 'class') return ClassSheetComponent;
+		if (type === 'culture') return CultureSheetComponent;
+		if (type === 'destiny') return DestinySheetComponent;
+		if (type === 'heritage') return HeritageSheetComponent;
+		return ItemSheetComponent;
+	}
 
-    // Create copies of all the actions.
-    const data = actions.map((action) => {
-      action.img ??= spell.img;
-      action.description ??= spell.system.description;
-      action.descriptionOutputs = ['action'];
-      return action;
-    });
+	async _render(force = false, options = {}) {
+		// @ts-expect-error
+		await super._render(force, options);
 
-    data.forEach((a) => {
-      this.item.actions.add(foundry.utils.duplicate(a));
-    });
-  }
+		// @ts-expect-error
+		const sheet = this.element[0];
+		const sheetTitle = sheet.querySelector('.window-header .window-title');
 
-  static getSheetComponent(type) {
-    if (type === 'archetype') return ArchetypeSheetComponent;
-    if (type === 'background') return BackgroundSheetComponent;
-    if (type === 'class') return ClassSheetComponent;
-    if (type === 'culture') return CultureSheetComponent;
-    if (type === 'destiny') return DestinySheetComponent;
-    if (type === 'heritage') return HeritageSheetComponent;
-    return ItemSheetComponent;
-  }
+		const existingIdLink = sheetTitle.querySelector('.document-id-link');
+		if (existingIdLink) return;
 
-  async _render(force = false, options = {}) {
-    await super._render(force, options);
+		const documentID = this.item.id;
+		const documentUUID = this.item.uuid;
+		const documentSource = CONFIG.A5E.products[this.item?.system?.source];
 
-    const sheet = this.element[0];
-    const sheetTitle = sheet.querySelector('.window-header .window-title');
+		if (documentSource?.abbreviation) {
+			const sourceLink = document.createElement('a');
+			sourceLink.classList.add('a5e-document-source-link');
+			sourceLink.setAttribute('alt', documentSource?.title);
+			sourceLink.dataset.tooltip = getDocumentSourceTooltip(documentSource);
+			sourceLink.dataset.tooltipClass =
+				'a5e-tooltip a5e-tooltip--dark a5e-tooltip--document-source';
+			sourceLink.dataset.tooltipDirection = 'DOWN';
+			sourceLink.innerHTML = `<i class="fa-solid fa-book-open"></i> ${documentSource?.abbreviation}`;
+			sourceLink.href = documentSource?.url;
+			sourceLink.target = '_blank';
 
-    const existingIdLink = sheetTitle.querySelector('.document-id-link');
-    if (existingIdLink) return;
+			sheetTitle.append(sourceLink);
+		}
 
-    const documentID = this.item.id;
-    const documentUUID = this.item.uuid;
-    const documentSource = CONFIG.A5E.products[this.item?.system?.source];
+		const idLink = document.createElement('a');
+		idLink.classList.add('document-id-link');
+		idLink.setAttribute('alt', 'Copy Document ID');
+		idLink.dataset.tooltip = 'Copy Document ID';
+		idLink.dataset.tooltipDirection = 'UP';
+		idLink.innerHTML = '<i class="fa-solid fa-passport"></i>';
 
-    if (documentSource?.abbreviation) {
-      const sourceLink = document.createElement('a');
-      sourceLink.classList.add('a5e-document-source-link');
-      sourceLink.setAttribute('alt', documentSource?.title);
-      sourceLink.dataset.tooltip = getDocumentSourceTooltip(documentSource);
-      sourceLink.dataset.tooltipClass = 'a5e-tooltip a5e-tooltip--dark a5e-tooltip--document-source';
-      sourceLink.dataset.tooltipDirection = 'DOWN';
-      sourceLink.innerHTML = `<i class="fa-solid fa-book-open"></i> ${documentSource?.abbreviation}`;
-      sourceLink.href = documentSource?.url;
-      sourceLink.target = '_blank';
+		idLink.addEventListener('click', (event) => {
+			event.preventDefault();
+			// @ts-expect-error
+			game.clipboard.copyPlainText(documentID);
+			ui.notifications.info(
+				game.i18n.format('DOCUMENT.IdCopiedClipboard', {
+					label: 'Item',
+					type: 'id',
+					id: documentID,
+				}),
+			);
+		});
 
-      sheetTitle.append(sourceLink);
-    }
+		idLink.addEventListener('contextmenu', (event) => {
+			event.preventDefault();
+			// @ts-expect-error
+			game.clipboard.copyPlainText(documentUUID);
+			ui.notifications.info(
+				game.i18n.format('DOCUMENT.IdCopiedClipboard', {
+					label: 'Item',
+					type: 'uuid',
+					id: documentUUID,
+				}),
+			);
+		});
 
-    const idLink = document.createElement('a');
-    idLink.classList.add('document-id-link');
-    idLink.setAttribute('alt', 'Copy Document ID');
-    idLink.dataset.tooltip = 'Copy Document ID';
-    idLink.dataset.tooltipDirection = 'UP';
-    idLink.innerHTML = '<i class="fa-solid fa-passport"></i>';
-
-    idLink.addEventListener('click', (event) => {
-      event.preventDefault();
-      game.clipboard.copyPlainText(documentID);
-      ui.notifications.info(game.i18n.format(
-        'DOCUMENT.IdCopiedClipboard',
-        { label: 'Item', type: 'id', id: documentID }
-      ));
-    });
-
-    idLink.addEventListener('contextmenu', (event) => {
-      event.preventDefault();
-      game.clipboard.copyPlainText(documentUUID);
-      ui.notifications.info(game.i18n.format(
-        'DOCUMENT.IdCopiedClipboard',
-        { label: 'Item', type: 'uuid', id: documentUUID }
-      ));
-    });
-
-    sheetTitle.append(idLink);
-  }
+		sheetTitle.append(idLink);
+	}
 }

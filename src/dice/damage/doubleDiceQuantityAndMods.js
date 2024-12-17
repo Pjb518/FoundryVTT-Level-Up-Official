@@ -1,30 +1,34 @@
 export default async function doubleDiceQuantityAndMods(baseRoll) {
-  const Terms = foundry.dice.terms;
+	const Terms = foundry.dice.terms;
 
-  const terms = [];
+	const terms = [];
 
-  for await (const term of baseRoll.terms) {
-    if (!(term instanceof Terms.FunctionTerm || term instanceof Terms.NumericTerm)) {
-      terms.push(term);
-      continue;
-    }
+	for await (const term of baseRoll.terms) {
+		if (!(term instanceof Terms.FunctionTerm || term instanceof Terms.NumericTerm)) {
+			terms.push(term);
+			continue;
+		}
 
-    const die = await new Terms
-      .NumericTerm({ number: term.total * 2, options: term.options })
-      .evaluate();
+		const die = await new Terms.NumericTerm({
+			number: term.total * 2,
+			options: term.options,
+		}).evaluate();
 
-    terms.push(die);
-  }
+		terms.push(die);
+	}
 
-  for await (const die of baseRoll.dice) {
-    const operator = await new Terms.OperatorTerm({ operator: '+' }).evaluate();
+	for await (const die of baseRoll.dice) {
+		const operator = await new Terms.OperatorTerm({ operator: '+' }).evaluate();
 
-    const newDie = await new Terms.Die({
-      faces: die.faces, number: die.number, modifiers: die.modifiers, options: die.options
-    }).evaluate();
+		const newDie = await new Terms.Die({
+			faces: die.faces,
+			number: die.number,
+			modifiers: die.modifiers,
+			options: die.options,
+		}).evaluate();
 
-    terms.push(operator, newDie);
-  }
+		terms.push(operator, newDie);
+	}
 
-  return terms;
+	return terms;
 }

@@ -1,12 +1,12 @@
 <script>
-    import { createEventDispatcher } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { createEventDispatcher } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    export let currentTab;
-    export let index;
-    export let tab;
+export let currentTab;
+export let index;
+export let tab;
 
-    const dispatch = createEventDispatcher();
+const dispatch = createEventDispatcher();
 </script>
 
 <li>

@@ -1,3 +1,1 @@
-export default class RevitalizeManager {
-
-}
+export default class RevitalizeManager {}

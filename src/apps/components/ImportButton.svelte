@@ -1,21 +1,21 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    export let document;
+export let document;
 
-    async function importDocument() {
-        const doc = await collection.getDocument(document._id);
+async function importDocument() {
+	const doc = await collection.getDocument(document._id);
 
-        if (customImporter) {
-            customImporter([doc.toObject()]);
-            return;
-        }
+	if (customImporter) {
+		customImporter([doc.toObject()]);
+		return;
+	}
 
-        doc.collection.importFromCompendium(doc.compendium, doc._id);
-    }
+	doc.collection.importFromCompendium(doc.compendium, doc._id);
+}
 
-    const collection = getContext("collection");
-    const customImporter = getContext("customImporter");
+const collection = getContext('collection');
+const customImporter = getContext('customImporter');
 </script>
 
 <button

@@ -1,39 +1,39 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { getContext, setContext } from "svelte";
-    import { ApplicationShell } from "#runtime/svelte/component/application";
+import { getContext, setContext } from 'svelte';
+import { ApplicationShell } from '#runtime/svelte/component/application';
 
-    import DestinyFeaturesTab from "../components/pages/DestinyFeaturesTab.svelte";
-    import ItemDescriptionTab from "../components/pages/ItemDescriptionTab.svelte";
-    import ItemSheetHeader from "../components/itemSheetsHeader/ItemSheetHeader.svelte";
-    import NavigationBar from "../components/navigation/NavigationBar.svelte";
+import DestinyFeaturesTab from '../components/pages/DestinyFeaturesTab.svelte';
+import ItemDescriptionTab from '../components/pages/ItemDescriptionTab.svelte';
+import ItemSheetHeader from '../components/itemSheetsHeader/ItemSheetHeader.svelte';
+import NavigationBar from '../components/navigation/NavigationBar.svelte';
 
-    export let { document } = getContext("#external").application;
-    export let elementRoot;
+export let { document } = getContext('#external').application;
+export let elementRoot;
 
-    const item = document;
+const item = document;
 
-    function updateCurrentTab(event) {
-        currentTab = tabs[event.detail];
-    }
+function updateCurrentTab(event) {
+	currentTab = tabs[event.detail];
+}
 
-    const tabs = [
-        {
-            name: "description",
-            label: "A5E.Description",
-            component: ItemDescriptionTab,
-        },
-        {
-            name: "features",
-            label: "A5E.TabFeatures",
-            component: DestinyFeaturesTab,
-        },
-    ];
+const tabs = [
+	{
+		name: 'description',
+		label: 'A5E.Description',
+		component: ItemDescriptionTab,
+	},
+	{
+		name: 'features',
+		label: 'A5E.TabFeatures',
+		component: DestinyFeaturesTab,
+	},
+];
 
-    let currentTab = tabs[0];
+let currentTab = tabs[0];
 
-    setContext("item", item);
+setContext('item', item);
 </script>
 
 <ApplicationShell bind:elementRoot>

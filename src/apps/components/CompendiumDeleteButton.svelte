@@ -1,30 +1,30 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import DeletionConfirmationDialog from "../dialogs/initializers/DeletionConfirmationDialog";
+import DeletionConfirmationDialog from '../dialogs/initializers/DeletionConfirmationDialog';
 
-    export let document;
+export let document;
 
-    async function deleteDocument() {
-        const itemDocument = {
-            name: document.name,
-            type: "Document",
-        };
+async function deleteDocument() {
+	const itemDocument = {
+		name: document.name,
+		type: 'Document',
+	};
 
-        const dialog = new DeletionConfirmationDialog(itemDocument, true);
-        await dialog.render(true);
-        const dialogData = await dialog.promise;
+	const dialog = new DeletionConfirmationDialog(itemDocument, true);
+	await dialog.render(true);
+	const dialogData = await dialog.promise;
 
-        if (!dialogData || !dialogData?.confirmDeletion) return;
+	if (!dialogData || !dialogData?.confirmDeletion) return;
 
-        const doc = await collection.getDocument(document._id);
-        await doc.delete();
+	const doc = await collection.getDocument(document._id);
+	await doc.delete();
 
-        await sheet.render(true);
-    }
+	await sheet.render(true);
+}
 
-    const collection = getContext("collection");
-    const sheet = getContext("sheet");
+const collection = getContext('collection');
+const sheet = getContext('sheet');
 </script>
 
 <button

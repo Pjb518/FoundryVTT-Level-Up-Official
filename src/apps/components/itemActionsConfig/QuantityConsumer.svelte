@@ -4,6 +4,7 @@
 
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
+    import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
 
@@ -66,6 +67,19 @@
     />
 </FieldWrapper>
 
+<FieldWrapper>
+    <Checkbox
+        label="Select Consumer Automatically in Roll Prompt"
+        checked={consumer.default ?? true}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.consumers.${consumerId}.default`,
+                detail,
+            )}
+    />
+</FieldWrapper>
+
 <Section
     --a5e-section-body-direction="row"
     --a5e-section-body-padding="0"
@@ -112,3 +126,16 @@
         />
     </FieldWrapper>
 </Section>
+
+<FieldWrapper>
+    <Checkbox
+        label="Delete item when quantity reaches zero"
+        checked={consumer.deleteOnZero ?? false}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.consumers.${consumerId}.deleteOnZero`,
+                detail,
+            )}
+    />
+</FieldWrapper>

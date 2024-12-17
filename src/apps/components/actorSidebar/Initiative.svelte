@@ -1,37 +1,35 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import pressedKeysStore from "../../../stores/pressedKeysStore";
-    import getKeyPressAsOptions from "../../handlers/getKeyPressAsOptions";
+import pressedKeysStore from '../../../stores/pressedKeysStore';
+import getKeyPressAsOptions from '../../handlers/getKeyPressAsOptions';
 
-    const actor = getContext("actor");
-    const { settings } = game;
+const actor = getContext('actor');
+const { settings } = game;
 
-    function getRollOptions() {
-        const options = getKeyPressAsOptions($pressedKeysStore, {
-            reverseAlt: settings.get("a5e", "reverseInitiativeAltBehavior"),
-        });
+function getRollOptions() {
+	const options = getKeyPressAsOptions($pressedKeysStore, {
+		reverseAlt: settings.get('a5e', 'reverseInitiativeAltBehavior'),
+	});
 
-        console.log(options);
+	console.log(options);
 
-        options.expertiseDie = $actor.RollOverrideManager.getExpertiseDice(
-            "initiative",
-            options.expertiseDie ?? 0,
-            { ability: abilityKey },
-        );
+	options.expertiseDie = $actor.RollOverrideManager.getExpertiseDice(
+		'initiative',
+		options.expertiseDie ?? 0,
+		{ ability: abilityKey },
+	);
 
-        options.rollMode = $actor.RollOverrideManager.getRollOverride(
-            "initiative",
-            options.rollMode,
-            { ability: abilityKey },
-        );
+	options.rollMode = $actor.RollOverrideManager.getRollOverride('initiative', options.rollMode, {
+		ability: abilityKey,
+	});
 
-        return options;
-    }
+	return options;
+}
 
-    let abilityKey = $actor.system.attributes.initiative.ability ?? "dex";
+let abilityKey = $actor.system.attributes.initiative.ability ?? 'dex';
 
-    $: sheetIsLocked = !$actor.isOwner ? true : $actor.flags?.a5e?.sheetIsLocked ?? true;
+$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 <li>

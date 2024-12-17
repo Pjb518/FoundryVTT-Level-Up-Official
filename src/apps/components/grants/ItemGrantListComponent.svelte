@@ -1,37 +1,36 @@
 <script lang="ts">
-    import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
-    import type { Grant } from "../../../../types/itemGrants";
+import type { TJSDocument } from '@typhonjs-fvtt/runtime/svelte/store/fvtt/document';
+import type { Grant } from '../../../../types/itemGrants';
 
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    export let grant: Grant;
-    const item: TJSDocument = getContext("item");
+export let grant: Grant;
+const item: TJSDocument = getContext('item');
 
-    function onGrantActivate() {}
+function onGrantActivate() {}
 
-    function _onDragStart(
-        event: DragEvent & {
-            currentTarget: EventTarget & HTMLLIElement;
-        },
-    ) {
-        const dragData = {
-            grantId: grant._id,
-            itemUuid: $item.uuid,
-            type: "Grant",
-        };
+function _onDragStart(
+	event: DragEvent & {
+		currentTarget: EventTarget & HTMLLIElement;
+	},
+) {
+	const dragData = {
+		grantId: grant._id,
+		itemUuid: $item.uuid,
+		type: 'Grant',
+	};
 
-        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
-    }
+	return event.dataTransfer?.setData('text/plain', JSON.stringify(dragData));
+}
 
-    async function onAuxClick() {
-        if (!rightClickConfigure) return;
-        grant.configureGrant();
-    }
+async function onAuxClick() {
+	if (!rightClickConfigure) return;
+	grant.configureGrant();
+}
 
-    let rightClickConfigure =
-        game.settings.get("a5e", "itemRightClickConfigure") ?? false;
+let rightClickConfigure = game.settings.get('a5e', 'itemRightClickConfigure') ?? false;
 
-    $: sheetIsLocked = !$item.isOwner ? true : false;
+$: sheetIsLocked = !$item.isOwner ? true : false;
 </script>
 
 <li

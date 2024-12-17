@@ -1,7 +1,7 @@
 <script>
-    import Section from "../components/Section.svelte";
+import Section from '../components/Section.svelte';
 
-    const { premiumContent } = CONFIG.A5E;
+const { premiumContent } = CONFIG.A5E;
 </script>
 
 <p>

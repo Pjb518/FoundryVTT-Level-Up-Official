@@ -1,130 +1,128 @@
 <svelte:options accessors={true} />
 
 <script>
-    import { getContext, onDestroy, setContext } from "svelte";
+import { getContext, onDestroy, setContext } from 'svelte';
 
-    import { ApplicationShell } from "#runtime/svelte/component/application";
-    import { DynMapReducer } from "#runtime/svelte/store/reducer";
-    import { TJSInput } from "#standard/component/form";
+import { ApplicationShell } from '#runtime/svelte/component/application';
+import { DynMapReducer } from '#runtime/svelte/store/reducer';
+import { TJSInput } from '#standard/component/form';
 
-    import GenericDialog from "../dialogs/initializers/GenericDialog";
+import GenericDialog from '../dialogs/initializers/GenericDialog';
 
-    import CompendiumFilters from "../components/compendiumSheets/CompendiumFilters.svelte";
-    import CompendiumItemList from "../components/compendiumSheets/CompendiumItemList.svelte";
-    import ExportToRollTableDialog from "../dialogs/ExportToRollTableDialog.svelte";
+import CompendiumFilters from '../components/compendiumSheets/CompendiumFilters.svelte';
+import CompendiumItemList from '../components/compendiumSheets/CompendiumItemList.svelte';
+import ExportToRollTableDialog from '../dialogs/ExportToRollTableDialog.svelte';
 
-    import { addSearchFilter, removeSearchFilter } from "../handlers/handleSearchFilter";
-    import constructReducerFilters from "../handlers/constructReducerFilters";
+import { addSearchFilter, removeSearchFilter } from '../handlers/handleSearchFilter';
+import constructReducerFilters from '../handlers/constructReducerFilters';
 
-    export let { compendiumType, customImporter, document, filterStore, sheet } =
-        getContext("#external").application;
+export let { compendiumType, customImporter, document, filterStore, sheet } =
+	getContext('#external').application;
 
-    export let elementRoot;
+export let elementRoot;
 
-    function showDescriptionToggle() {
-        return true;
-    }
+function showDescriptionToggle() {
+	return true;
+}
 
-    function showGroupingToggle() {
-        if (["classFeature", "archetype"].includes(compendiumType)) return false;
-        return true;
-    }
+function showGroupingToggle() {
+	if (['classFeature', 'archetype'].includes(compendiumType)) return false;
+	return true;
+}
 
-    function showRollTableToggle() {
-        if (["classFeature", "archetype"].includes(compendiumType)) return false;
-        return true;
-    }
+function showRollTableToggle() {
+	if (['classFeature', 'archetype'].includes(compendiumType)) return false;
+	return true;
+}
 
-    function showFilterToggle() {
-        return true;
-    }
+function showFilterToggle() {
+	return true;
+}
 
-    async function exportToActor() {
-        const collection = document;
+async function exportToActor() {
+	const collection = document;
 
-        const documents = (
-            await Promise.all(
-                [...$reducer].map(async (doc) => collection.getDocument(doc._id)),
-            )
-        ).map((doc) => doc.toObject());
+	const documents = (
+		await Promise.all([...$reducer].map(async (doc) => collection.getDocument(doc._id)))
+	).map((doc) => doc.toObject());
 
-        customImporter(documents);
-    }
+	customImporter(documents);
+}
 
-    async function exportToRollTable() {
-        // Create a dialog to fetch the name of the roll table
-        let dialog = new GenericDialog("Export to RollTable", ExportToRollTableDialog);
+async function exportToRollTable() {
+	// Create a dialog to fetch the name of the roll table
+	let dialog = new GenericDialog('Export to RollTable', ExportToRollTableDialog);
 
-        dialog.render(true);
-        const { rollTableName } = (await dialog.promise) ?? {};
+	dialog.render(true);
+	const { rollTableName } = (await dialog.promise) ?? {};
 
-        if (!rollTableName) return;
+	if (!rollTableName) return;
 
-        const rollTableData = {
-            name: `${rollTableName}`,
-            formula: `1d${[...$reducer].length}`,
-            replacement: true,
-            results: [...$reducer].map((doc, idx) => ({
-                documentCollection: document.metadata.id,
-                documentId: doc._id,
-                img: doc.img,
-                text: doc.name,
-                range: [idx + 1, idx + 1],
-                type: 2,
-                weight: 1,
-            })),
-        };
+	const rollTableData = {
+		name: `${rollTableName}`,
+		formula: `1d${[...$reducer].length}`,
+		replacement: true,
+		results: [...$reducer].map((doc, idx) => ({
+			documentCollection: document.metadata.id,
+			documentId: doc._id,
+			img: doc.img,
+			text: doc.name,
+			range: [idx + 1, idx + 1],
+			type: 2,
+			weight: 1,
+		})),
+	};
 
-        RollTable.create(rollTableData);
-    }
+	RollTable.create(rollTableData);
+}
 
-    function getDocuments(docList) {
-        // Sort the documents into alphabetical order
-        docList.sort((a, b) => a.name.localeCompare(b.name));
+function getDocuments(docList) {
+	// Sort the documents into alphabetical order
+	docList.sort((a, b) => a.name.localeCompare(b.name));
 
-        const validDocs = new Map();
-        docList.forEach((doc) => validDocs.set(doc._id, doc));
-        return validDocs;
-    }
+	const validDocs = new Map();
+	docList.forEach((doc) => validDocs.set(doc._id, doc));
+	return validDocs;
+}
 
-    function handleScroll(scrollPosition) {
-        if (scrollPosition > 80) visibleDocumentCount += 50;
-    }
+function handleScroll(scrollPosition) {
+	if (scrollPosition > 80) visibleDocumentCount += 50;
+}
 
-    let tab = "items";
-    let includeDescriptions = false;
-    let reducer = new DynMapReducer();
-    let visibleDocumentCount = 100;
+let tab = 'items';
+let includeDescriptions = false;
+let reducer = new DynMapReducer();
+let visibleDocumentCount = 100;
 
-    reducer.setData(getDocuments([...document.index]), true);
+reducer.setData(getDocuments([...document.index]), true);
 
-    $: searchInput = addSearchFilter(reducer, includeDescriptions);
+$: searchInput = addSearchFilter(reducer, includeDescriptions);
 
-    // Set contexts and unsubscribes
-    setContext("collection", document);
-    setContext("customImporter", customImporter);
-    setContext("filterStore", filterStore);
-    setContext("reducer", reducer);
-    setContext("sheet", sheet);
+// Set contexts and unsubscribes
+setContext('collection', document);
+setContext('customImporter', customImporter);
+setContext('filterStore', filterStore);
+setContext('reducer', reducer);
+setContext('sheet', sheet);
 
-    const reducerUnsubscribe = reducer.subscribe(() => (visibleDocumentCount = 100));
+const reducerUnsubscribe = reducer.subscribe(() => (visibleDocumentCount = 100));
 
-    // Construct filters for the reducer
-    let filterSelections = {};
-    const filterStoreUnsubscribe = filterStore.subscribe((store) => {
-        filterSelections = store;
-    });
+// Construct filters for the reducer
+let filterSelections = {};
+const filterStoreUnsubscribe = filterStore.subscribe((store) => {
+	filterSelections = store;
+});
 
-    $: filterCount = constructReducerFilters(reducer, filterSelections, compendiumType);
+$: filterCount = constructReducerFilters(reducer, filterSelections, compendiumType);
 
-    // On Destroy
-    onDestroy(() => {
-        removeSearchFilter(reducer);
-        reducerUnsubscribe();
-        filterStoreUnsubscribe();
-    });
+// On Destroy
+onDestroy(() => {
+	removeSearchFilter(reducer);
+	reducerUnsubscribe();
+	filterStoreUnsubscribe();
+});
 
-    $: enableGrouping = false;
+$: enableGrouping = false;
 </script>
 
 <ApplicationShell bind:elementRoot>

@@ -1,42 +1,42 @@
 type EffectOptionOptions = {
-  modes?: any[];
-  options?: any[];
-  phase?: 'afterDerived' | 'applyAEs';
-  type?: string;
+	modes?: any[];
+	options?: any[];
+	phase?: 'afterDerived' | 'applyAEs';
+	type?: string;
 };
 
 export default class EffectOption {
-  effectKey: string;
+	effectKey: string;
 
-  label: string;
+	label: string;
 
-  modes: any[];
+	modes: any[];
 
-  options: any[];
+	options: any[];
 
-  phase: 'afterDerived' | 'applyAEs';
+	phase: 'afterDerived' | 'applyAEs';
 
-  sampleValue: any;
+	sampleValue: any;
 
-  type: string;
+	type: string;
 
-  constructor(
-    effectKey: string,
-    sampleValue: any,
-    options: EffectOptionOptions = {
-      modes: [],
-      options: [],
-      phase: 'afterDerived',
-      type: ''
-    }
-  ) {
-    this.effectKey = effectKey;
-    this.label = CONFIG.A5E.effectsKeyLocalizations?.[effectKey] ?? effectKey;
-    this.sampleValue = sampleValue;
+	constructor(
+		effectKey: string,
+		sampleValue: any,
+		options: EffectOptionOptions = {
+			modes: [],
+			options: [],
+			phase: 'afterDerived',
+			type: '',
+		},
+	) {
+		this.effectKey = effectKey;
+		this.label = CONFIG.A5E.effectsKeyLocalizations?.[effectKey] ?? effectKey;
+		this.sampleValue = sampleValue;
 
-    this.modes = options.modes ?? [];
-    this.options = options.options ?? [];
-    this.phase = options.phase ?? 'afterDerived';
-    this.type = options.type ?? 'DEFAULT';
-  }
+		this.modes = options.modes ?? [];
+		this.options = options.options ?? [];
+		this.phase = options.phase ?? 'afterDerived';
+		this.type = options.type ?? 'DEFAULT';
+	}
 }

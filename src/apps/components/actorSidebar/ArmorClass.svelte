@@ -1,15 +1,13 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import getACComponents from "../../../utils/getACComponents";
+import getACComponents from '../../../utils/getACComponents';
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : $actor.flags?.a5e?.sheetIsLocked ?? true;
+$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 
-    $: acFormula = getACComponents($actor);
+$: acFormula = getACComponents($actor);
 </script>
 
 <li class="ac-wrapper">

@@ -1,68 +1,67 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import CompendiumFilterCategory from "./CompendiumFilterCategory.svelte";
+import CompendiumFilterCategory from './CompendiumFilterCategory.svelte';
 
-    export let compendiumType = "spell";
+export let compendiumType = 'spell';
 
-    const filterStore = getContext("filterStore");
-    const { classSpellLists, spellLevels, spellSchools, spellComponents } = CONFIG.A5E;
+const filterStore = getContext('filterStore');
+const { classSpellLists, spellLevels, spellSchools, spellComponents } = CONFIG.A5E;
 
-    const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
-        acc[key] = value.title;
-        return acc;
-    }, {});
+const products = Object.entries(CONFIG.A5E.products).reduce((acc, [key, value]) => {
+	acc[key] = value.title;
+	return acc;
+}, {});
 
-    let filterSelections = {};
+let filterSelections = {};
 
-    filterStore.subscribe((store) => {
-        filterSelections = store;
-    });
+filterStore.subscribe((store) => {
+	filterSelections = store;
+});
 
-    const formSectionMap = [
-        {
-            filterKey: "spellLists",
-            heading: "Spell Lists",
-            options: classSpellLists,
-            display: compendiumType === "spell",
-        },
-        {
-            filterKey: "spellLevels",
-            heading: "Spell Levels",
-            options: spellLevels,
-        },
-        {
-            filterKey: "primarySpellSchools",
-            heading:
-                compendiumType === "spell" ? "Primary Spell Schools" : "Spell Schools",
-            options: spellSchools.primary,
-        },
-        {
-            filterKey: "secondarySpellSchools",
-            heading: "Secondary Spell Schools",
-            options: spellSchools.secondary,
-            display: compendiumType === "spell",
-        },
-        {
-            filterKey: "components",
-            heading: "Components",
-            options: spellComponents,
-        },
-        {
-            filterKey: "miscellaneous",
-            heading: "Miscellaneous",
-            options: {
-                concentration: "Concentration",
-                rare: "Rare",
-                ritual: "Ritual",
-            },
-        },
-        {
-            filterKey: "source",
-            heading: "Source",
-            options: products,
-        },
-    ];
+const formSectionMap = [
+	{
+		filterKey: 'spellLists',
+		heading: 'Spell Lists',
+		options: classSpellLists,
+		display: compendiumType === 'spell',
+	},
+	{
+		filterKey: 'spellLevels',
+		heading: 'Spell Levels',
+		options: spellLevels,
+	},
+	{
+		filterKey: 'primarySpellSchools',
+		heading: compendiumType === 'spell' ? 'Primary Spell Schools' : 'Spell Schools',
+		options: spellSchools.primary,
+	},
+	{
+		filterKey: 'secondarySpellSchools',
+		heading: 'Secondary Spell Schools',
+		options: spellSchools.secondary,
+		display: compendiumType === 'spell',
+	},
+	{
+		filterKey: 'components',
+		heading: 'Components',
+		options: spellComponents,
+	},
+	{
+		filterKey: 'miscellaneous',
+		heading: 'Miscellaneous',
+		options: {
+			concentration: 'Concentration',
+			rare: 'Rare',
+			ritual: 'Ritual',
+		},
+	},
+	{
+		filterKey: 'source',
+		heading: 'Source',
+		options: products,
+	},
+];
 </script>
 
 {#each formSectionMap as { display, heading, filterKey, options }}

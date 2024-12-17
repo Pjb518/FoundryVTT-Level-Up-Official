@@ -1,24 +1,24 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import Checkbox from "../Checkbox.svelte";
-    import RadioGroup from "../RadioGroup.svelte";
-    import Section from "../Section.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
+import Checkbox from '../Checkbox.svelte';
+import RadioGroup from '../RadioGroup.svelte';
+import Section from '../Section.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
 
-    function getClassSummary() {
-        const parentClass = $item.system.classes;
-	
-        return localize(classes[parentClass] ?? classes5e[parentClass]) || parentClass;
-    }
+function getClassSummary() {
+	const parentClass = $item.system.classes;
 
-    const item = getContext("item");
-    const { classes, classes5e, featureTypes } = CONFIG.A5E;
+	return localize(classes[parentClass] ?? classes5e[parentClass]) || parentClass;
+}
 
-    let editMode = false;
+const item = getContext('item');
+const { classes, classes5e, featureTypes } = CONFIG.A5E;
+
+let editMode = false;
 </script>
 
 <Section

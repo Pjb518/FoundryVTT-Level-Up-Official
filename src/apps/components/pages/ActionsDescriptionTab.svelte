@@ -1,28 +1,32 @@
-<script>
-    import { getContext } from "svelte";
+<script lang="ts">
+import type { Writable } from 'svelte/store';
+import type { ItemA5e } from '../../../documents/item/item';
 
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import Editor from "../Editor.svelte";
-    import ItemSummary from "../itemSummaries/ItemSummary.svelte";
+import { getContext } from 'svelte';
 
-    import getSummaryData from "../../../utils/summaries/getSummaryData";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import Editor from '../Editor.svelte';
+import ItemSummary from '../itemSummaries/ItemSummary.svelte';
 
-    export let summaryData = {};
+import getSummaryData from '../../../utils/summaries/getSummaryData';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+export let summaryData = {};
 
-    const descriptionOutputOptions = [
-        ["action", "A5E.ActionActivationAction"],
-        ["item", "A5E.Item"],
-    ];
+const item: Writable<ItemA5e> = getContext('item');
+const actionId: string = getContext('actionId');
 
-    $: content = $item.system.actions[actionId]?.description;
-    $: descriptionOutputs = $item.system.actions[actionId]
-        ?.descriptionOutputs ?? ["item"];
+const descriptionOutputOptions = [
+	['action', 'A5E.ActionActivationAction'],
+	['item', 'A5E.Item'],
+];
 
-    $: summaryData = getSummaryData($item, $item.actions.get(actionId));
+$: content = $item.system.actions[actionId]?.description;
+$: descriptionOutputs = ($item.system.actions[actionId]?.descriptionOutputs as string[]) ?? [
+	'item',
+];
+
+$: summaryData = getSummaryData($item, $item.actions.get(actionId));
 </script>
 
 {#if Object.values(summaryData ?? {}).some(Boolean)}

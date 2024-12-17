@@ -1,7 +1,8 @@
 export default function getLanguageProficiencies(data) {
-  const languageProficiencies = data.system.proficiencies.languages.map((language) => (
-    game.i18n.localize(CONFIG.A5E.languages[language]) ?? language));
+	const languageProficiencies = data.system.proficiencies.languages.map(
+		(language) => game.i18n.localize(CONFIG.A5E.languages[language]) ?? language,
+	);
 
-  languageProficiencies.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
-  return languageProficiencies;
+	languageProficiencies.sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
+	return languageProficiencies;
 }

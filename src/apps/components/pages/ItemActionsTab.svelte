@@ -1,37 +1,46 @@
-<script>
-    import { getContext } from "svelte";
+<script lang="ts">
+import type { Writable } from 'svelte/store';
+import type { ItemA5e } from '../../../documents/item/item';
 
-    import Section from "../Section.svelte";
+import { getContext } from 'svelte';
 
-    const item = getContext("item");
+import Section from '../Section.svelte';
 
-    function addAction() {
-        $item.actions.add();
-    }
+const item: Writable<ItemA5e> = getContext('item');
 
-    function duplicateAction(actionId) {
-        $item.actions.duplicate(actionId);
-    }
+function addAction() {
+	$item.actions.add();
+}
 
-    function configureAction(actionId) {
-        $item.actions.configure(actionId);
-    }
+function duplicateAction(actionId: string) {
+	$item.actions.duplicate(actionId);
+}
 
-    function deleteAction(actionId) {
-        $item.actions.remove(actionId);
-    }
+function configureAction(actionId: string) {
+	$item.actions.configure(actionId);
+}
 
-    // **********************************************
-    // Drag Drop Handlers
-    async function _onDragStart(event, actionId) {
-        const dragData = {
-            actionId,
-            itemUuid: $item.uuid,
-            type: "Action",
-        };
+function deleteAction(actionId: string) {
+	$item.actions.remove(actionId);
+}
 
-        return event.dataTransfer.setData("text/plain", JSON.stringify(dragData));
-    }
+function setDefault(actionId: string) {
+	$item.actions.setDefaultAction(actionId);
+}
+
+// **********************************************
+// Drag Drop Handlers
+async function _onDragStart(event: DragEvent, actionId: string) {
+	const dragData = {
+		actionId,
+		itemUuid: $item.uuid,
+		type: 'Action',
+	};
+
+	return event.dataTransfer?.setData('text/plain', JSON.stringify(dragData));
+}
+
+$: defaultAction = $item.actions.default?.id;
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
@@ -64,6 +73,14 @@
                     {action?.name}
 
                     <div class="action-buttons">
+                        <button
+                            class="action-button fas fa-shield"
+                            class:default={id === defaultAction}
+                            data-tooltip="Set Default"
+                            data-tooltip-direction="UP"
+                            on:click={() => setDefault(id)}
+                        />
+
                         <button
                             class="action-button fas fa-cog"
                             data-tooltip="A5E.ButtonToolTipConfigure"
@@ -113,6 +130,15 @@
         gap: 0.5rem;
         color: #999;
         margin-left: auto;
+    }
+
+    .default {
+        color: var(--a5e-color-primary);
+
+        &:hover,
+        &:focus {
+            color: var(--a5e-color-primary);
+        }
     }
 
     .delete-button:hover {

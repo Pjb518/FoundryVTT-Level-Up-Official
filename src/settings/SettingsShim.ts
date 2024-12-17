@@ -1,17 +1,16 @@
 import SystemSettings from './SystemSettings';
 
 export default class SettingsShim extends FormApplication {
-  constructor() {
-    super({});
-    SystemSettings.show();
-  }
+	constructor() {
+		super({});
+		SystemSettings.show();
+	}
 
-  /** @override */
-  async updateObject(): void {
-    //
-  }
+	async _updateObject(): Promise<void> {
+		//
+	}
 
-  render(): void {
-    this.close();
-  }
+	override render(): void {
+		this.close();
+	}
 }

@@ -8,13 +8,13 @@
  * Returns array of error messages resulting from validating the terms.
  */
 export default function validateTerms(terms: any[]): string[] {
-  return terms.reduce((errors: string[], { value, message }: { value: any, message: string }) => {
-    try {
-      if (value && !Roll.validate(value.toString())) throw Error(message);
-    } catch (err) {
-      errors.push(err.message);
-    }
+	return terms.reduce((errors: string[], { value, message }: { value: any; message: string }) => {
+		try {
+			if (value && !Roll.validate(value.toString())) throw Error(message);
+		} catch (err: any) {
+			errors.push(err.message);
+		}
 
-    return errors;
-  }, []);
+		return errors;
+	}, []);
 }

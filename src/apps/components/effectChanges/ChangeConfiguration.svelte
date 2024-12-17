@@ -1,24 +1,24 @@
 <script>
-    import { createEventDispatcher, getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { createEventDispatcher, getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import getEffectOptionGroups from "../../handlers/getEffectOptionGroups";
+import getEffectOptionGroups from '../../handlers/getEffectOptionGroups';
 
-    import Select from "svelte-select";
+import Select from 'svelte-select';
 
-    export let idx;
-    export let key;
-    export let optionsList;
-    export let clearable = true;
+export let idx;
+export let key;
+export let optionsList;
+export let clearable = true;
 
-    const dispatch = createEventDispatcher();
-    const effect = getContext("effect");
+const dispatch = createEventDispatcher();
+const effect = getContext('effect');
 
-    const effectKeyLocalizations = CONFIG.A5E.effectsKeyLocalizations;
-    const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
-    const items = getEffectOptionGroups(optionsList);
+const effectKeyLocalizations = CONFIG.A5E.effectsKeyLocalizations;
+const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
+const items = getEffectOptionGroups(optionsList);
 
-    const groupBy = (item) => item.group;
+const groupBy = (item) => item.group;
 </script>
 
 <div class="change-section u-flex-grow">

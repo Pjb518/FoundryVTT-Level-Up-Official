@@ -1,82 +1,82 @@
 <script>
-    import { getContext, createEventDispatcher } from "svelte";
+import { getContext, createEventDispatcher } from 'svelte';
 
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import Section from "../components/Section.svelte";
+import Checkbox from '../components/Checkbox.svelte';
+import CheckboxGroup from '../components/CheckboxGroup.svelte';
+import FieldWrapper from '../components/FieldWrapper.svelte';
+import Section from '../components/Section.svelte';
 
-    export let { document, bonusID } = getContext("#external").application;
-    export let jsonValue = null;
+export let { document, bonusID } = getContext('#external').application;
+export let jsonValue = null;
 
-    const actor = document;
-    const dispatch = createEventDispatcher();
+const actor = document;
+const dispatch = createEventDispatcher();
 
-    function updateImage() {
-        const current = initiativeBonus?.img;
+function updateImage() {
+	const current = initiativeBonus?.img;
 
-        const filePicker = new FilePicker({
-            type: "image",
-            current,
-            callback: (path) => {
-                onUpdateValue("img", path);
-            },
-        });
+	const filePicker = new FilePicker({
+		type: 'image',
+		current,
+		callback: (path) => {
+			onUpdateValue('img', path);
+		},
+	});
 
-        return filePicker.browse();
-    }
+	return filePicker.browse();
+}
 
-    function onUpdateValue(key, value) {
-        if (jsonValue === null) {
-            key = `system.bonuses.initiative.${bonusID}.${key}`;
-            updateDocumentDataFromField($actor, key, value);
-            return;
-        }
+function onUpdateValue(key, value) {
+	if (jsonValue === null) {
+		key = `system.bonuses.initiative.${bonusID}.${key}`;
+		updateDocumentDataFromField($actor, key, value);
+		return;
+	}
 
-        const newObj = foundry.utils.expandObject({
-            ...initiativeBonus,
-            [key]: value,
-        });
-        dispatch("change", JSON.stringify(newObj));
-    }
+	const newObj = foundry.utils.expandObject({
+		...initiativeBonus,
+		[key]: value,
+	});
+	dispatch('change', JSON.stringify(newObj));
+}
 
-    function getAbilityBonus() {
-        if (jsonValue === null) return $actor.system.bonuses.initiative[bonusID];
+function getAbilityBonus() {
+	if (jsonValue === null) return $actor.system.bonuses.initiative[bonusID];
 
-        try {
-            const obj = JSON.parse(jsonValue || '""') ?? {};
-            if (typeof obj !== "object") throw new Error();
-            obj.label = obj.label ?? "";
-            obj.formula = obj.formula ?? "";
-            obj.context = obj.context ?? {
-                abilities: Object.keys(CONFIG.A5E.abilities),
-                skills: Object.keys(CONFIG.A5E.skills),
-            };
-            obj.default = obj.default ?? true;
-            obj.img = obj.img || "icons/svg/upgrade.svg";
-            return obj;
-        } catch (error) {
-            return {
-                label: "",
-                formula: "",
-                damageType: "",
-                context: {
-                    abilities: Object.keys(CONFIG.A5E.abilities),
-                    skills: Object.keys(CONFIG.A5E.skills),
-                },
-                default: true,
-                img: "icons/svg/upgrade.svg",
-            };
-        }
-    }
+	try {
+		const obj = JSON.parse(jsonValue || '""') ?? {};
+		if (typeof obj !== 'object') throw new Error();
+		obj.label = obj.label ?? '';
+		obj.formula = obj.formula ?? '';
+		obj.context = obj.context ?? {
+			abilities: Object.keys(CONFIG.A5E.abilities),
+			skills: Object.keys(CONFIG.A5E.skills),
+		};
+		obj.default = obj.default ?? true;
+		obj.img = obj.img || 'icons/svg/upgrade.svg';
+		return obj;
+	} catch (error) {
+		return {
+			label: '',
+			formula: '',
+			damageType: '',
+			context: {
+				abilities: Object.keys(CONFIG.A5E.abilities),
+				skills: Object.keys(CONFIG.A5E.skills),
+			},
+			default: true,
+			img: 'icons/svg/upgrade.svg',
+		};
+	}
+}
 
-    const { abilities, skills } = CONFIG.A5E;
+const { abilities, skills } = CONFIG.A5E;
 
-    $: initiativeBonus = getAbilityBonus($actor, jsonValue) ?? {};
-    $: abilitiesContext = initiativeBonus.context?.abilities ?? [];
-    $: skillsContext = initiativeBonus.context?.skills ?? [];
+$: initiativeBonus = getAbilityBonus($actor, jsonValue) ?? {};
+$: abilitiesContext = initiativeBonus.context?.abilities ?? [];
+$: skillsContext = initiativeBonus.context?.skills ?? [];
 </script>
 
 <form>

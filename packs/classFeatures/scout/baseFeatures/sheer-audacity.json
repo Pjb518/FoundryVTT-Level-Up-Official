@@ -1,0 +1,201 @@
+{
+	"folder": null,
+	"name": "Sheer Audacity",
+	"type": "feature",
+	"img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ZMoiGlq8gyeGk6EF": {
+				"name": "Dastardly Gambit",
+				"activation": {
+					"type": "reaction",
+					"cost": 1,
+					"reactionTrigger": "A creature that can hear or see you or a device you are piloting makes an ability check, attack roll, or saving throw"
+				},
+				"consumers": {
+					"AQzNLjhXW2IAQFB9": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "dastardly-gambit-die-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"wkEOiaYcSBr8sFIp": {
+						"type": "generic",
+						"default": true,
+						"formula": "@classResources.dastardly-gambit-die-size",
+						"label": ""
+					}
+				},
+				"prompts": {
+					"0DfrZu9quQ2mZwFA": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "cha",
+							"bonus": ""
+						},
+						"label": "",
+						"onSave": ""
+					},
+					"M3RXdlefpzY8rSFW": {
+						"type": "effect",
+						"default": true
+					},
+					"dJE5XqEpGu0Px26E": {
+						"type": "effect",
+						"default": true,
+						"effectId": "0rBSHu2gQWQw68zY"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/sundries/gaming/dice-pair-white-green.webp",
+				"effects": [
+					"MEI8toJhz2KS6rlQ"
+				],
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>Starting at 18th level, your dastardly gambits have gotten so bold and so ridiculous that your enemies are often left completely stunned at your sheer audacity. Whenever you use @UUID[Compendium.a5e.a5e-class-features.Item.b5B9FWPQ77ULdvBa]{Dastardly Gambit} to reduce a creature’s roll, it makes a Wisdom saving throw against your clever tricks save DC. On a failed save, the creature is stunned until the beginning of its next turn or until it takes damage. Once a creature makes a successful save against this feature, it is immune to your Sheer Audacity for the next 24 hours.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "scout",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.KmyXFjP5EpmM6OA7",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Stunned",
+			"img": "icons/sundries/gaming/dice-pair-white-green.webp",
+			"_id": "MEI8toJhz2KS6rlQ",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"stunned\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A stunned creature is incapacitated (see the condition), can't move, and can speak only falteringly.</li>\n<li>The creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against the creature have advantage.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"stunned"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1734187780538,
+				"modifiedTime": 1734302848169,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1734126810740,
+		"modifiedTime": 1734302842448,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "dXSahNeVNFliO8t4"
+}

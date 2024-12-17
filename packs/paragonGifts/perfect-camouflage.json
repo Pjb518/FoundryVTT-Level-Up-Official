@@ -1,0 +1,149 @@
+{
+	"folder": null,
+	"name": "Perfect Camouflage",
+	"type": "feature",
+	"img": "icons/magic/perception/shadow-stealth-eyes-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"olQgX7Sj7tfH4rob": {
+				"name": "Perfect Camouflage",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1
+				},
+				"consumers": {
+					"ZS6yC2wyY62aVjpA": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"m26av8bvC4IhP2aN": {
+						"type": "effect",
+						"default": true,
+						"effectId": "ZDHq2aKrI64s5vDM"
+					},
+					"sQhDEXUnop4qOMlD": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "custom"
+						}
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"rechargeType": "custom",
+						"rechargeAmount": "1",
+						"threshold": 6
+					}
+				}
+			}
+		},
+		"description": "<p>Your @UUID[Compendium.a5e.a5e-heritage-features.Item.PA0ZAxS47uNeC1Dy]{Camouflage} ability becomes more pronounced, enabling you to blend in perfectly with the environment. You can use a bonus action to become invisible. You remain invisible for as long as you continue to use your bonus actions to maintain your camouflage. If you take damage, you must make a Wisdom saving throw against a DC equal to 10 + the amount of damage, or your camouflage ends. Once you have used this feature you cannot use it again until you take a long rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "heritage",
+		"grants": {},
+		"prerequisite": "Camouflage",
+		"requiresBloodied": false,
+		"schemaVersion": {
+			"version": 0.019,
+			"lastMigration": null
+		},
+		"class": "",
+		"classes": ""
+	},
+	"effects": [
+		{
+			"origin": "Item.08pC1vQBtMTIMXkA",
+			"flags": {
+				"a5e": {
+					"sort": 0,
+					"transferType": "onUse",
+					"actionId": "olQgX7Sj7tfH4rob",
+					"applyToSelf": true
+				}
+			},
+			"transfer": false,
+			"name": "Invisible",
+			"img": "icons/magic/perception/shadow-stealth-eyes-purple.webp",
+			"_id": "ZDHq2aKrI64s5vDM",
+			"type": "base",
+			"system": {},
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"invisible\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>An invisible creature is impossible to see without the aid of magic or a special sense (it gains no benefits from this condition against creatures still able to see it).</li>\n<li>An invisible creature is heavily obscured for the purpose of hiding. </li>\n<li>An invisible creature's location can be detected by noises it makes or tracks it leaves.</li>\n<li>Attack rolls against an invisible creature are made with disadvantage.</li>\n<li>An invisible creature makes attack rolls with advantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"invisible"
+			],
+			"sort": 0,
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.30",
+				"createdTime": 1731790092235,
+				"modifiedTime": 1731790145823,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.30",
+		"createdTime": 1731790006533,
+		"modifiedTime": 1731794101306,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "Gpk5s6s1FySfxk9Q"
+}

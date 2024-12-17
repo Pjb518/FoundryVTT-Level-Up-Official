@@ -1,16 +1,16 @@
-export default function getSpellBookAbility(
-  actor: typeof Actor,
-  item: typeof Item
-): string {
-  let spellBook: any;
+import type { BaseActorA5e } from '../documents/actor/base';
+import type SpellItemA5e from '../documents/item/spell';
 
-  const actorData: any = actor.system;
-  const spellBookId = item.system.spellBook;
+export default function getSpellBookAbility(actor: BaseActorA5e, item: SpellItemA5e): string {
+	let spellBook: any; // TODO: Types - Update this
 
-  if (spellBookId) spellBook = actor.spellBooks.get(item.system.spellBook);
+	const actorData: any = actor.system;
+	const spellBookId = item.system.spellBook;
 
-  if (!spellBook) return actorData.attributes.spellcasting ?? 'int';
-  if (spellBook.stats.ability === 'default') return actorData.attributes.spellcasting ?? 'int';
+	if (spellBookId) spellBook = actor.spellBooks.get(item.system.spellBook);
 
-  return spellBook.stats.ability || 'int';
+	if (!spellBook) return actorData.attributes.spellcasting ?? 'int';
+	if (spellBook.stats.ability === 'default') return actorData.attributes.spellcasting ?? 'int';
+
+	return spellBook.stats.ability || 'int';
 }

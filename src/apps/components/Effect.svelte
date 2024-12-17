@@ -13,7 +13,7 @@
     }
 
     function onDuplicate() {
-        effect.duplicateEffect();
+        effect.duplicateEffect(actionId);
     }
 
     async function onDelete() {
@@ -41,15 +41,11 @@
         // Remove Prompt config
         if (!actionId || $doc.documentName !== "Item") return;
 
-        const action = $doc.system.actions[actionId];
-        const prompt = Object.entries(action?.prompts ?? {}).find(
-            ([, prompt]) => prompt.type === "effect" && prompt.effectId === effectId,
-        );
-
-        if (!prompt?.[0]) return;
+        const action = $doc.actions.get(actionId);
+        const updatedEffects = [...action.effects].filter((id) => id !== effectId);
 
         $doc.update({
-            [`system.actions.${actionId}.prompts.-=${prompt[0]}`]: null,
+            [`system.actions.${actionId}.effects`]: updatedEffects,
         });
     }
 
@@ -63,13 +59,13 @@
     }
 
     const doc = getContext("actor") ?? getContext("item");
-    const actionId = getContext("actionId");
+    const actionId = getContext("actionId") ?? null;
 
     let rightClickConfigure =
         game.settings.get("a5e", "itemRightClickConfigure") ?? false;
 
     $: allowTransfer =
-        effect.getFlag("a5e", "transferType") === "passive" &&
+        effect.system.effectType === "passive" &&
         $doc.documentName === "Item" &&
         ["Actor", "ActorDelta"].includes($doc.parent?.documentName);
 

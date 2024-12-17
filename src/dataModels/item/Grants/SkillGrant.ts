@@ -6,98 +6,100 @@ import NumericalGrantSelectionDialog from '../../../apps/components/grants/Numer
 import { getSkillBonusContext } from '../../actor/Contexts';
 
 export default class SkillGrant extends BaseGrant {
-  #component = NumericalGrantSelectionDialog;
+	#component = NumericalGrantSelectionDialog;
 
-  #configComponent = NumericalGrantConfig;
+	#configComponent = NumericalGrantConfig;
 
-  #type = 'skill';
+	#type = 'skill';
 
-  static defineSchema() {
-    const { fields } = foundry.data;
+	static override defineSchema() {
+		const { fields } = foundry.data;
 
-    return this.mergeSchema(super.defineSchema(), {
-      grantType: new fields.StringField({ required: true, initial: 'skill' }),
-      skills: new fields.SchemaField({
-        base: new fields.ArrayField(
-          new fields.StringField({ required: true, initial: '' }),
-          { required: true, initial: [] }
-        ),
-        options: new fields.ArrayField(
-          new fields.StringField({ required: true, initial: '' }),
-          { required: true, initial: [] }
-        ),
-        total: new fields.NumberField({ required: true, initial: 0, integer: true })
-      }),
-      bonus: new fields.StringField({ required: true, initial: '' }),
-      context: new fields.SchemaField(getSkillBonusContext('grant')),
-      label: new fields.StringField({ required: true, initial: 'New Skill Grant' })
-    });
-  }
+		return this.mergeSchema(super.defineSchema(), {
+			grantType: new fields.StringField({ required: true, initial: 'skill' }),
+			skills: new fields.SchemaField({
+				base: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+					required: true,
+					initial: [],
+				}),
+				options: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
+					required: true,
+					initial: [],
+				}),
+				total: new fields.NumberField({ required: true, initial: 0, integer: true }),
+			}),
+			bonus: new fields.StringField({ required: true, initial: '' }),
+			context: new fields.SchemaField(getSkillBonusContext('grant')),
+			label: new fields.StringField({ required: true, initial: 'New Skill Grant' }),
+		});
+	}
 
-  getApplyData(actor: typeof Actor, data: any = {}): any {
-    if (!actor) return {};
-    const selected = data?.selected ?? this.skills.base ?? [];
+	override getApplyData(actor: typeof Actor, data: any = {}): any {
+		if (!actor) return {};
+		const selected = data?.selected ?? this.skills.base ?? [];
 
-    // Construct bonus
-    const bonusId = foundry.utils.randomID();
-    const bonus = {
-      context: {
-        skills: selected,
-        ...this.context
-      },
-      formula: this.bonus,
-      label: this.label || this.parent?.name || 'Skill Grant',
-      default: this.context.default ?? true,
-      img: this.img || this?.parent?.img
-    };
+		// Construct bonus
+		const bonusId = foundry.utils.randomID();
+		const bonus = {
+			context: {
+				skills: selected,
+				...this.context,
+			},
+			formula: this.bonus,
+			label: this.label || this.parent?.name || 'Skill Grant',
+			default: this.context.default ?? true,
+			img: this.img || this?.parent?.img,
+		};
 
-    delete bonus.context.default;
+		delete bonus.context.default;
 
-    const grantData = {
-      itemUuid: this.parent.uuid,
-      grantId: this._id,
-      bonusId,
-      type: 'skills',
-      grantType: 'bonus',
-      level: this.level
-    };
+		const grantData = {
+			itemUuid: this.parent.uuid,
+			grantId: this._id,
+			bonusId,
+			type: 'skills',
+			grantType: 'bonus',
+			level: this.level,
+		};
 
-    return {
-      [`system.bonuses.skills.${bonusId}`]: bonus,
-      'system.grants': {
-        ...actor.system.grants,
-        [this._id]: grantData
-      }
-    };
-  }
+		return {
+			[`system.bonuses.skills.${bonusId}`]: bonus,
+			'system.grants': {
+				...actor.system.grants,
+				[this._id]: grantData,
+			},
+		};
+	}
 
-  getSelectionComponent() {
-    return this.#component;
-  }
+	override getSelectionComponent() {
+		return this.#component;
+	}
 
-  getSelectionComponentProps(data: any) {
-    return {
-      base: this.skills.base,
-      bonus: this.bonus,
-      choices: this.skills.options,
-      configObject: CONFIG.A5E.skills,
-      count: this.skills.total,
-      heading: 'Skill Grant Selection',
-      selected: data?.selected ?? []
-    };
-  }
+	override getSelectionComponentProps(data: any) {
+		return {
+			base: this.skills.base,
+			bonus: this.bonus,
+			choices: this.skills.options,
+			configObject: CONFIG.A5E.skills,
+			count: this.skills.total,
+			heading: 'Skill Grant Selection',
+			selected: data?.selected ?? [],
+		};
+	}
 
-  requiresConfig() {
-    return this.skills.options.length;
-  }
+	override requiresConfig() {
+		return this.skills.options.length;
+	}
 
-  override async configureGrant() {
-    const dialogData = {
-      document: this.parent,
-      grantId: this._id,
-      grantType: 'skills'
-    };
+	override async configureGrant() {
+		const dialogData = {
+			document: this.parent,
+			grantId: this._id,
+			grantType: 'skills',
+		};
 
-    super.configureGrant('Configure Skill Grant', dialogData, this.#configComponent, { width: 400 });
-  }
+		super.configureGrant('Configure Skill Grant', dialogData, this.#configComponent, {
+			width: 400,
+		});
+	}
 }

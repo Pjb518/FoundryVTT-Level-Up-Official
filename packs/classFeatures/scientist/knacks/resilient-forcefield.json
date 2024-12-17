@@ -1,0 +1,203 @@
+{
+	"folder": null,
+	"name": "Resilient Forcefield",
+	"type": "feature",
+	"img": "icons/magic/defensive/barrier-shield-dome-blue-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"1UiXJ7zSn78Sqida": {
+				"name": "Resilient Forcefield",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"rQXwMh3ptaw5kQlE": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {
+					"LlgQOa4Ki8Zh3Idh": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "int",
+							"bonus": ""
+						},
+						"label": "",
+						"onSave": ""
+					},
+					"kut11hmyaaBxlgJB": {
+						"type": "effect",
+						"default": true,
+						"effectId": "LujQnnOlmWz19cJu",
+						"label": "Forcefield Damage Immunities"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "minute",
+					"value": 1
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"ranges": {
+					"bECXvcejrUbOir2c": {
+						"range": "short"
+					}
+				},
+				"description": "",
+				"id": "",
+				"default": false,
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [
+					"cjlicLIZiRkKZiSZ"
+				],
+				"area": {
+					"shape": "sphere",
+					"quantity": 1,
+					"radius": 5,
+					"placeTemplate": true
+				}
+			}
+		},
+		"description": "<p>Once between long rests, you can use an action to project a spherical forcefield around a target within 30 feet (or in space combat, within 1 combat zone). Unwilling or enemy targets can make a Dexterity saving throw against your Science save DC to negate the effect.</p>\n<p>The forcefield lasts for 1 minute, during which time the target’s speed is halved. The forcefield can be destroyed without harming anyone inside by being dealt at least 15 force damage at once. It can also be hacked. Other attacks and effects do not pass in or out. The forcefield is immune to all damage besides force, it is proofed against hard vacuum, and atmospheric effects do not enter.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "8th level",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "scientist",
+		"migrationData": {
+			"version": 0.019,
+			"lastMigration": {
+				"system": null,
+				"foundry": null,
+				"schema": null
+			},
+			"type": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.advNy0X7309Fjyrz",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Resilient Forcefield",
+			"img": "icons/magic/defensive/barrier-shield-dome-blue-purple.webp",
+			"_id": "cjlicLIZiRkKZiSZ",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "@attributes.movement.walk.distance * 0.5",
+					"mode": 6,
+					"priority": null
+				},
+				{
+					"key": "system.traits.damageImmunities",
+					"value": "[\"acid\",\"bludgeoning\",\"cold\",\"fire\",\"lightning\",\"necrotic\",\"piercing\",\"poison\",\"psychic\",\"radiant\",\"slashing\",\"thunder\"]",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 60,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Target’s speed is halved.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "0.19.32",
+				"createdTime": 1733588124658,
+				"modifiedTime": 1733588194497,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733520377376,
+		"modifiedTime": 1733668633557,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "wkyp5dyqrlKvIl0Z"
+}

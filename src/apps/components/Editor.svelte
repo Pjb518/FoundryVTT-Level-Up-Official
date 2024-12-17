@@ -21,7 +21,7 @@
     }
 
     async function getEnrichedContent() {
-        return await TextEditor.enrichHTML($document[updatePath]);
+        return await TextEditor.enrichHTML($document[updatePath], enrichOptions);
     }
 
     let newLabel;
@@ -36,8 +36,18 @@
     editorOptions.toolbar =
         "styles | fontfamily | table | bullist | numlist | image | superscript | subscript | hr | save | link | removeformat | code ";
 
+    const enrichOptions = {
+        secrets: $document.isOwner,
+        relativeTo: $document,
+        rollData:
+            $document.documentName === "Actor"
+                ? $document.getRollData()
+                : ($document.actor?.getRollData($document) ?? undefined),
+    };
+
     const options = {
         editable: game.user.isGM || $document.isOwner || false,
+        enrichOptions,
         mceConfig: editorOptions,
     };
 

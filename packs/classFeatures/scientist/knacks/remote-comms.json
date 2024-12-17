@@ -1,0 +1,149 @@
+{
+	"folder": null,
+	"name": "Remote Comms",
+	"type": "feature",
+	"img": "icons/commodities/tech/antenna-powered-purple.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"YS7S01PkqDo4qSgM": {
+				"name": "Distress Beacon",
+				"activation": {
+					"type": "minute",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"foYtRSYmraOYrGrP": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"descriptionOutputs": [
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"ranges": {
+					"jOpyCmqjg6t397Ig": {
+						"range": 10,
+						"unit": "feet"
+					}
+				},
+				"target": {
+					"type": "creatureObject",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"id": "YS7S01PkqDo4qSgM",
+				"default": false,
+				"description": "",
+				"img": "icons/commodities/tech/antenna-powered-purple.webp",
+				"effects": []
+			},
+			"Lc76aOLQNMpQL1hz": {
+				"name": "Remote Comms Station",
+				"consumers": {},
+				"activation": {
+					"type": "hour",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"description": "<p>Once between long rests, you can spend 1 minute to create a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.ccdVfe4I8le9bAPu]{Distress Beacon}.</p>\n<p>Also, while you have access to your tools of science, you can spend 1 hour establishing a remote comms station. The remote comms station is a Tiny-sized device that targets one location you know in the same star system, such as a planetary capital, lunar base, or known spacecraft. Distress beacons and other devices within 10 feet of your remote comms station can communicate with the target’s reception devices, even if communications are otherwise lost or blacked out.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "scientist",
+		"migrationData": {
+			"version": 0.019,
+			"lastMigration": {
+				"system": null,
+				"foundry": null,
+				"schema": null
+			},
+			"type": ""
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "0.19.32",
+		"createdTime": 1733520377371,
+		"modifiedTime": 1733668633557,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "6T6SOmgLqRNefrmv"
+}

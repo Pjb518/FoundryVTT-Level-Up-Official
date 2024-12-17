@@ -17,8 +17,8 @@
         const jackOfAllTrades = actor.flags.a5e?.jackOfAllTrades;
 
         if (skill.proficient === 2) return "expertise";
-        else if (skill.proficient) return "proficient";
-        else if (jackOfAllTrades) return "jack";
+        if (skill.proficient) return "proficient";
+        if (jackOfAllTrades) return "jack";
     }
 
     function getProficiencyTooltip(proficiencyLevel) {
@@ -55,13 +55,13 @@
 
         if (showDeterministicBonus) {
             return skillBonus;
-        } else {
-            const checkBonus = getDeterministicBonus(
-                $actor.BonusesManager.getAbilityBonusesFormula(skill.ability, "check"),
-                $actor.getRollData(),
-            );
-            return skillBonus - checkBonus;
         }
+
+        const checkBonus = getDeterministicBonus(
+            $actor.BonusesManager.getAbilityBonusesFormula(skill.ability, "check"),
+            $actor.getRollData(),
+        );
+        return skillBonus - checkBonus;
     }
 
     const actor = getContext("actor");
@@ -124,7 +124,7 @@
     <div class="skill__mod-wrapper">
         <span class="skill__mod">
             {replaceHyphenWithMinusSign(
-                showDeterministicBonus ? skillBonus + abilityBonus : skillBonus
+                showDeterministicBonus ? skillBonus + abilityBonus : skillBonus,
             )}
         </span>
 

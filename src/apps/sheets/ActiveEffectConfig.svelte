@@ -19,7 +19,7 @@
         currentTab = tabs[event.detail];
     }
 
-    let effectType = foundry.utils.getProperty($effect, "flags.a5e.transferType");
+    let effectType = $effect.system.effectType;
 
     const tabs = [
         {

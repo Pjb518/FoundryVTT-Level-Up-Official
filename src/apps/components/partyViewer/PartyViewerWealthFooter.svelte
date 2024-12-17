@@ -1,6 +1,6 @@
 <script>
-    export let totalPartyWealth = {};
-    export let showActorImagesInPartyViewer = true;
+export let totalPartyWealth = {};
+export let showActorImagesInPartyViewer = true;
 </script>
 
 <footer class="wealth-footer">

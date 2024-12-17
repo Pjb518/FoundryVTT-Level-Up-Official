@@ -27,6 +27,7 @@
         if (initialSpellBookQuantity === 0) {
             updateCurrentSpellBook(newSpellBookId);
         } else {
+            // biome-ignore lint/correctness/noSelfAssign: <explanation>
             currentSpellBook = currentSpellBook; // This is stupid, but it works
         }
 
@@ -38,7 +39,9 @@
             $actor,
             "Configure Spell Book",
             SpellbookConfigDialog,
-            { spellBookId },
+            {
+                spellBookId,
+            },
         );
 
         await dialog.render(true);
@@ -138,6 +141,8 @@
     );
 
     $: spellPointMax = getMaxSpellResource("points", spellResources, sheetIsLocked);
+
+    $: exertion = $actor.system.attributes.exertion;
 
     let currentSpellBook =
         tempSettings[$actor?.uuid]?.currentSpellBook ??
@@ -289,18 +294,65 @@
     {/if}
 
     <!-- Spell Points -->
-    {#if $actor.spellBooks?.get(currentSpellBook)?.showSpellPoints ?? false}
-        <div class="u-flex u-flex-wrap u-align-center u-gap-md">
-            <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
-                {localize("A5E.SpellPoints")}
+    {#if $actor.system.classes.startingClass !== "psyknight"}
+        {#if $actor.spellBooks?.get(currentSpellBook)?.showSpellPoints ?? false}
+            <div class="u-flex u-flex-wrap u-align-center u-gap-md">
+                <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
+                    {localize("A5E.SpellPoints")}
+                </h3>
+
+                <input
+                    class="a5e-footer-group__input"
+                    class:disable-pointer-events={!$actor.isOwner}
+                    type="number"
+                    name="system.spellResources.points.current"
+                    value={spellResources.points.current}
+                    placeholder="0"
+                    min="0"
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value),
+                        )}
+                />
+                /
+                <input
+                    class="a5e-footer-group__input"
+                    type="number"
+                    name="system.spellResources.points.max"
+                    value={spellPointMax ?? 0}
+                    disabled={sheetIsLocked}
+                    placeholder="0"
+                    min="0"
+                    on:change={({ target }) =>
+                        updateMaxSpellResource("points", Number(target.value))}
+                />
+
+                {#if spellResources.points.current < spellPointMax && spellPointMax && $actor.system.classes.startingClass == "psion"}
+                    <button
+                        class="recharge-button"
+                        data-tooltip="A5E.PsionicPointsRechargeFromHitDice"
+                        data-tooltip-direction="UP"
+                        on:click={() => $actor.recoverPsionicPointsUsingHitDice()}
+                    >
+                        <i class="fa-solid fa-brain" />
+                    </button>
+                {/if}
+            </div>
+        {/if}
+    {:else}
+        <div class="u-flex u-align-center u-gap-md">
+            <h3 class="u-mb-0 u-text-sm u-text-bold">
+                {localize("A5E.ExertionPool")}
             </h3>
 
             <input
                 class="a5e-footer-group__input"
                 class:disable-pointer-events={!$actor.isOwner}
                 type="number"
-                name="system.spellResources.points.current"
-                value={spellResources.points.current}
+                name="system.attributes.exertion.current"
+                value={exertion.current}
                 placeholder="0"
                 min="0"
                 on:change={({ target }) =>
@@ -314,14 +366,29 @@
             <input
                 class="a5e-footer-group__input"
                 type="number"
-                name="system.spellResources.points.max"
-                value={spellPointMax ?? 0}
-                disabled={sheetIsLocked}
+                name="system.attributes.exertion.max"
+                value={exertion.max}
+                disabled={$actor.automationAvailable}
                 placeholder="0"
                 min="0"
                 on:change={({ target }) =>
-                    updateMaxSpellResource("points", Number(target.value))}
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
             />
+
+            {#if exertion.current < exertion.max && exertion.max}
+                <button
+                    class="recharge-button"
+                    data-tooltip="A5E.ExertionRechargeFromHitDice"
+                    data-tooltip-direction="UP"
+                    on:click={() => $actor.recoverExertionUsingHitDice()}
+                >
+                    <i class="fa-solid fa-bolt" />
+                </button>
+            {/if}
         </div>
     {/if}
 
@@ -407,6 +474,29 @@
 
         &:hover {
             transform: scale(1.2);
+        }
+    }
+
+    .recharge-button {
+        flex-grow: 0;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+        margin-left: 0.25rem;
+        background: none;
+        color: #999;
+        border: 0;
+
+        transition: var(--a5e-transition-standard);
+
+        &:hover {
+            color: #555;
+            transform: scale(1.2);
+        }
+
+        &:hover,
+        &:focus {
+            box-shadow: none;
         }
     }
 </style>

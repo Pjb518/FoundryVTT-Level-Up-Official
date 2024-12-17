@@ -44,10 +44,7 @@
     </FieldWrapper>
 </Section>
 
-<Section
-    heading="Miscellaneous Spell Settings"
-    --a5e-section-body-gap="0.75rem"
->
+<Section heading="Miscellaneous Spell Settings" --a5e-section-body-gap="0.75rem">
     <RadioGroup
         heading="A5E.DefaultSpellcastingAbilityScore"
         optionStyles="min-width:2rem; text-align: center;"

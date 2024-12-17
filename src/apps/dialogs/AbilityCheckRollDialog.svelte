@@ -1,83 +1,77 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
+import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
 
-    import CheckboxGroup from "../components/CheckboxGroup.svelte";
-    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import OutputVisibilitySection from "../components/activationDialog/OutputVisibilitySection.svelte";
+import CheckboxGroup from '../components/CheckboxGroup.svelte';
+import ExpertiseDiePicker from '../components/ExpertiseDiePicker.svelte';
+import FieldWrapper from '../components/FieldWrapper.svelte';
+import OutputVisibilitySection from '../components/activationDialog/OutputVisibilitySection.svelte';
 
-    import getRollFormula from "../../utils/getRollFormula";
-    import RollModePicker from "../components/RollModePicker.svelte";
+import getRollFormula from '../../utils/getRollFormula';
+import RollModePicker from '../components/RollModePicker.svelte';
 
-    export let { document, abilityKey, dialog, options } =
-        getContext("#external").application;
+export let { document, abilityKey, dialog, options } = getContext('#external').application;
 
-    function getInitialExpertiseDieSelection() {
-        if (hideExpertiseDice) return 0;
+function getInitialExpertiseDieSelection() {
+	if (hideExpertiseDice) return 0;
 
-        return $actor.RollOverrideManager.getExpertiseDice(
-            `system.abilities.${abilityKey}.check`,
-            $actor.system.abilities[abilityKey].check.expertiseDice ||
-                options.expertiseDice ||
-                0,
-        );
-    }
+	return $actor.RollOverrideManager.getExpertiseDice(
+		`system.abilities.${abilityKey}.check`,
+		$actor.system.abilities[abilityKey].check.expertiseDice || options.expertiseDice || 0,
+	);
+}
 
-    function onSubmit() {
-        dialog.submit({ expertiseDie, rollFormula, rollMode, visibilityMode });
-    }
+function onSubmit() {
+	dialog.submit({ expertiseDie, rollFormula, rollMode, visibilityMode });
+}
 
-    const actor = new TJSDocument(document);
-    const appId = dialog.id;
-    const abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(
-        abilityKey,
-        "check",
-    );
-    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
+const actor = new TJSDocument(document);
+const appId = dialog.id;
+const abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(abilityKey, 'check');
+const hideExpertiseDice = game.settings.get('a5e', 'hideExpertiseDice');
 
-    const localizedAbility = localize(CONFIG.A5E.abilities[abilityKey]);
-    const buttonText = localize("A5E.RollPromptAbilityCheck", {
-        ability: localizedAbility,
-    });
+const localizedAbility = localize(CONFIG.A5E.abilities[abilityKey]);
+const buttonText = localize('A5E.RollPromptAbilityCheck', {
+	ability: localizedAbility,
+});
 
-    let expertiseDie = getInitialExpertiseDieSelection();
-    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+let expertiseDie = getInitialExpertiseDieSelection();
+let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
-    let expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
-        `system.abilities.${abilityKey}.check`,
-        options.expertiseDie ?? 0,
-    );
+let expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
+	`system.abilities.${abilityKey}.check`,
+	options.expertiseDie ?? 0,
+);
 
-    let rollMode = $actor.RollOverrideManager.getRollOverride(
-        `system.abilities.${abilityKey}.check`,
-        selectedRollMode,
-    );
+let rollMode = $actor.RollOverrideManager.getRollOverride(
+	`system.abilities.${abilityKey}.check`,
+	selectedRollMode,
+);
 
-    let rollModeString = $actor.RollOverrideManager?.getRollOverridesSource(
-        `system.abilities.${abilityKey}.check`,
-        selectedRollMode,
-    );
+let rollModeString = $actor.RollOverrideManager?.getRollOverridesSource(
+	`system.abilities.${abilityKey}.check`,
+	selectedRollMode,
+);
 
-    let visibilityMode = options.visibilityMode ?? game.settings.get("core", "rollMode");
+let visibilityMode = options.visibilityMode ?? game.settings.get('core', 'rollMode');
 
-    let rollFormula;
-    let situationalMods = options.situationalMods ?? "";
+let rollFormula;
+let situationalMods = options.situationalMods ?? '';
 
-    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections("abilities", {
-        abilityKey,
-        abilityType: "check",
-    });
+$: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections('abilities', {
+	abilityKey,
+	abilityType: 'check',
+});
 
-    $: rollFormula = getRollFormula($actor, {
-        ability: abilityKey,
-        expertiseDie,
-        rollMode,
-        situationalMods,
-        selectedAbilityBonuses,
-        type: "abilityCheck",
-    });
+$: rollFormula = getRollFormula($actor, {
+	ability: abilityKey,
+	expertiseDie,
+	rollMode,
+	situationalMods,
+	selectedAbilityBonuses,
+	type: 'abilityCheck',
+});
 </script>
 
 <form>

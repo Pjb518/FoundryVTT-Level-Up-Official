@@ -1,19 +1,17 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import Checkbox from "../Checkbox.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
+import Checkbox from '../Checkbox.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    const actor = getContext("actor");
-    const settingsStore = game.a5e.settings.store;
+const actor = getContext('actor');
+const settingsStore = game.a5e.settings.store;
 
-    let automateTokenSize = settingsStore.getStore(
-        "automatePrototypeTokenSize",
-    );
-    $: flags = $actor.flags?.a5e ?? {};
+let automateTokenSize = settingsStore.getStore('automatePrototypeTokenSize');
+$: flags = $actor.flags?.a5e ?? {};
 </script>
 
 <Section heading="Sheet Customization" --a5e-section-body-gap="0.75rem">

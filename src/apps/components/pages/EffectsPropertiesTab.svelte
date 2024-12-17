@@ -47,13 +47,22 @@
 </script>
 
 <article>
-    {#if $effect.flags?.a5e?.transferType === "onUse"}
+    {#if $effect.system.effectType === "onUse"}
+        <FieldWrapper>
+            <Checkbox
+                label="A5E.effects.default"
+                checked={$effect.system.default ?? true}
+                on:updateSelection={({ detail }) =>
+                    $effect.update({ "system.default": detail })}
+            />
+        </FieldWrapper>
+
         <FieldWrapper>
             <Checkbox
                 label="A5E.effects.applyToSelf"
-                checked={$effect.flags?.a5e?.applyToSelf ?? false}
+                checked={$effect.system.applyToSelf ?? false}
                 on:updateSelection={({ detail }) =>
-                    $effect.update({ "flags.a5e.applyToSelf": detail })}
+                    $effect.update({ "system.applyToSelf": detail })}
             />
         </FieldWrapper>
 

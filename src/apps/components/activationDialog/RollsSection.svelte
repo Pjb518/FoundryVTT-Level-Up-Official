@@ -1,46 +1,26 @@
-<script>
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
+<script lang="ts">
+import type { RollHandlerReturnType } from '../../dataPreparationHelpers/itemActivationRolls/prepareRolls';
 
-    export let selectedRolls;
-    export let rolls;
+import { RollPreparationManager } from '../../../managers/RollPreparationManager';
 
-    function getInvalidSelections(property) {
-        return Object.values(property ?? {})
-            .flat()
-            .reduce((acc, [key, value]) => {
-                if (
-                    ["generic", "healing", "damage"].includes(value.type) &&
-                    !value.formula
-                ) {
-                    acc.push(key);
-                }
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
 
-                return acc;
-            }, []);
-    }
+export let selectedRolls: string[];
+export let rolls: RollHandlerReturnType;
 
-    const rollHeadingMap = {
-        abilityCheck: "Ability Checks",
-        damage: "Damage Rolls",
-        generic: "Generic Rolls",
-        healing: "Healing Rolls",
-        savingThrow: "Saving Throws",
-        skillCheck: "Skill Checks",
-        toolCheck: "Tool Checks",
-    };
+const rollHeadingMap = {
+	abilityCheck: 'Ability Checks',
+	damage: 'Damage Rolls',
+	generic: 'Generic Rolls',
+	healing: 'Healing Rolls',
+	savingThrow: 'Saving Throws',
+	skillCheck: 'Skill Checks',
+	toolCheck: 'Tool Checks',
+};
 
-    const otherRolls = Object.entries(rolls).reduce(
-        (acc, [rollType, rolls]) => {
-            if (rollType === "attack") return acc;
-            acc[rollType] = rolls;
-
-            return acc;
-        },
-        {},
-    );
-
-    let disabledRolls = getInvalidSelections(rolls);
+const { invalidSelections: disabledRolls, otherRolls } =
+	RollPreparationManager.prepareOtherRollData(rolls);
 </script>
 
 <FieldWrapper hint="A5E.RollsHint">
@@ -55,8 +35,7 @@
                     ])}
                     disabledOptions={disabledRolls}
                     selected={selectedRolls}
-                    on:updateSelection={(event) =>
-                        (selectedRolls = event.detail)}
+                    on:updateSelection={(event) => (selectedRolls = event.detail)}
                 />
             {/if}
         {/each}

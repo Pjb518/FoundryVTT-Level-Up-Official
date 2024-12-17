@@ -1,4 +1,4 @@
 interface EffectFlags {
-  sort: number;
-  phase: 'applyAEs' | 'beforeDerived' | 'afterDerived';
+	sort: number;
+	phase: 'applyAEs' | 'beforeDerived' | 'afterDerived';
 }

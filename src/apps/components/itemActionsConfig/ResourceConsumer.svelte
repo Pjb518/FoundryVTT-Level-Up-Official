@@ -49,6 +49,19 @@
     />
 </FieldWrapper>
 
+<FieldWrapper>
+    <Checkbox
+        label="Select Consumer Automatically in Roll Prompt"
+        checked={consumer.default ?? true}
+        on:updateSelection={({ detail }) =>
+            updateDocumentDataFromField(
+                $item,
+                `system.actions.${actionId}.consumers.${consumerId}.default`,
+                detail,
+            )}
+    />
+</FieldWrapper>
+
 <div class="a5e-field-group u-flex-row u-gap-md">
     <FieldWrapper heading="A5E.Resource">
         <select

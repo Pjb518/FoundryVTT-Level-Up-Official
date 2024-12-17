@@ -1,40 +1,38 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    export let hp;
-    export let hpFields;
+export let hp;
+export let hpFields;
 
-    $: hpFields = [
-        {
-            key: "temp",
-            label: "Temp. HP",
-            value: hp.temp,
-        },
-        {
-            key: "value",
-            label: "Curr. HP",
-            value: hp.value,
-        },
-        {
-            key: "max",
-            label: "Max HP",
-            value: hp.max,
-        },
-        {
-            key: "bonus",
-            label: "Bonus HP",
-            value: hp.bonus,
-        },
-    ];
+$: hpFields = [
+	{
+		key: 'temp',
+		label: 'Temp. HP',
+		value: hp.temp,
+	},
+	{
+		key: 'value',
+		label: 'Curr. HP',
+		value: hp.value,
+	},
+	{
+		key: 'max',
+		label: 'Max HP',
+		value: hp.max,
+	},
+	{
+		key: 'bonus',
+		label: 'Bonus HP',
+		value: hp.bonus,
+	},
+];
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    $: sheetIsLocked = !$actor.isOwner
-        ? true
-        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 {#if sheetIsLocked}

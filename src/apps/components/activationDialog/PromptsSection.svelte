@@ -1,34 +1,23 @@
-<script>
-    import CheckboxGroup from "../CheckboxGroup.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
+<script lang="ts">
+import type { PromptHandlerReturnType } from '../../dataPreparationHelpers/itemActivationPrompts/preparePrompts';
 
-    export let selectedPrompts;
-    export let prompts;
+import { RollPreparationManager } from '../../../managers/RollPreparationManager';
 
-    function getInvalidSelections(property) {
-        return Object.values(property ?? {})
-            .flat()
-            .reduce((acc, [key, value]) => {
-                if (
-                    ["generic", "healing", "damage"].includes(value.type) &&
-                    !value.formula
-                ) {
-                    acc.push(key);
-                }
+import CheckboxGroup from '../CheckboxGroup.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
 
-                return acc;
-            }, []);
-    }
+export let selectedPrompts: string[];
+export let prompts: PromptHandlerReturnType;
 
-    const promptHeadingMap = {
-        abilityCheck: "Ability Check Prompts",
-        effect: "Effect Prompts",
-        savingThrow: "Saving Throw Prompts",
-        skillCheck: "Skill Check Prompts",
-        generic: "Generic Roll Prompts",
-    };
+const promptHeadingMap = {
+	abilityCheck: 'Ability Check Prompts',
+	effect: 'Effect Prompts',
+	savingThrow: 'Saving Throw Prompts',
+	skillCheck: 'Skill Check Prompts',
+	generic: 'Generic Roll Prompts',
+};
 
-    let disabledPrompts = getInvalidSelections(prompts);
+let disabledPrompts = RollPreparationManager.preparePromptsData(prompts).invalidSelections;
 </script>
 
 <FieldWrapper hint="A5E.PromptsHint">
@@ -39,12 +28,11 @@
                     heading={promptHeadingMap[promptType]}
                     options={_prompts.map(([key, prompt]) => [
                         key,
-                        prompt.label || prompt.defaultLabel,
+                        prompt.label || prompt.defaultLabel || "",
                     ])}
                     disabledOptions={disabledPrompts}
                     selected={selectedPrompts}
-                    on:updateSelection={(event) =>
-                        (selectedPrompts = event.detail)}
+                    on:updateSelection={(event) => (selectedPrompts = event.detail)}
                 />
             {/if}
         {/each}

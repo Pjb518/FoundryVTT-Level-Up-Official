@@ -1,22 +1,19 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import prepareAbilityOptions from "../dataPreparationHelpers/prepareAbilityOptions";
-    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+import prepareAbilityOptions from '../dataPreparationHelpers/prepareAbilityOptions';
+import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import RadioGroup from "../components/RadioGroup.svelte";
-    import Section from "../components/Section.svelte";
+import Checkbox from '../components/Checkbox.svelte';
+import FieldWrapper from '../components/FieldWrapper.svelte';
+import RadioGroup from '../components/RadioGroup.svelte';
+import Section from '../components/Section.svelte';
 
-    export let { document, appId, spellBookId } = getContext("#external").application;
+export let { document, appId, spellBookId } = getContext('#external').application;
 
-    const abilityOptions = [
-        ["default", "A5E.abilities.default"],
-        ...prepareAbilityOptions(),
-    ];
+const abilityOptions = [['default', 'A5E.abilities.default'], ...prepareAbilityOptions()];
 
-    $: book = $document.spellBooks?.get(spellBookId);
+$: book = $document.spellBooks?.get(spellBookId);
 </script>
 
 <form>

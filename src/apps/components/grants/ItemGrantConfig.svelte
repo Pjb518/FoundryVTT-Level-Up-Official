@@ -1,69 +1,69 @@
 <script>
-    import { getContext, onDestroy, setContext } from "svelte";
-    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+import { getContext, onDestroy, setContext } from 'svelte';
+import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    import DropArea from "../dropAreas/DropArea.svelte";
-    import DropTag from "../DropTag.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
-    import GrantConfig from "./GrantConfig.svelte";
+import DropArea from '../dropAreas/DropArea.svelte';
+import DropTag from '../DropTag.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
+import GrantConfig from './GrantConfig.svelte';
 
-    export let { document, grantId, grantType } = getContext("#external").application;
+export let { document, grantId, grantType } = getContext('#external').application;
 
-    function updateImage() {
-        const current = grant?.img;
+function updateImage() {
+	const current = grant?.img;
 
-        const filePicker = new FilePicker({
-            type: "image",
-            current,
-            callback: (path) => {
-                onUpdateValue("img", path);
-            },
-        });
+	const filePicker = new FilePicker({
+		type: 'image',
+		current,
+		callback: (path) => {
+			onUpdateValue('img', path);
+		},
+	});
 
-        return filePicker.browse();
-    }
+	return filePicker.browse();
+}
 
-    function onUpdateValue(key, value) {
-        key = `system.grants.${grantId}.${key}`;
-        updateDocumentDataFromField($item, key, value);
-    }
+function onUpdateValue(key, value) {
+	key = `system.grants.${grantId}.${key}`;
+	updateDocumentDataFromField($item, key, value);
+}
 
-    function onDropUpdate(key, value) {
-        if (key === "items.base") {
-            if (baseUuids.includes(value)) return;
+function onDropUpdate(key, value) {
+	if (key === 'items.base') {
+		if (baseUuids.includes(value)) return;
 
-            const updateArray = [...(grant.items.base ?? [])];
-            const doc = fromUuidSync(value);
-            updateArray.push({ uuid: value, quantity: doc.system.quantity });
-            onUpdateValue(key, updateArray);
-        }
+		const updateArray = [...(grant.items.base ?? [])];
+		const doc = fromUuidSync(value);
+		updateArray.push({ uuid: value, quantity: doc.system.quantity });
+		onUpdateValue(key, updateArray);
+	}
 
-        if (key === "items.options") {
-            if (optionalUuids.includes(value)) return;
+	if (key === 'items.options') {
+		if (optionalUuids.includes(value)) return;
 
-            const updateArray = [...(grant.items.options ?? [])];
-            const doc = fromUuidSync(value);
-            updateArray.push({ uuid: value, quantity: doc.system.quantity });
-            onUpdateValue(key, updateArray);
-        }
-    }
+		const updateArray = [...(grant.items.options ?? [])];
+		const doc = fromUuidSync(value);
+		updateArray.push({ uuid: value, quantity: doc.system.quantity });
+		onUpdateValue(key, updateArray);
+	}
+}
 
-    onDestroy(() => {
-        item.destroy();
-    });
+onDestroy(() => {
+	item.destroy();
+});
 
-    const item = new TJSDocument(document);
+const item = new TJSDocument(document);
 
-    $: grant = $item.system.grants[grantId];
-    $: baseUuids = grant.items.base.map((i) => i.uuid) ?? [];
-    $: optionalUuids = grant.items.options.map((i) => i.uuid) ?? [];
+$: grant = $item.system.grants[grantId];
+$: baseUuids = grant.items.base.map((i) => i.uuid) ?? [];
+$: optionalUuids = grant.items.options.map((i) => i.uuid) ?? [];
 
-    setContext("item", item);
-    setContext("grantId", grantId);
-    setContext("grantType", grantType);
+setContext('item', item);
+setContext('grantId', grantId);
+setContext('grantType', grantType);
 </script>
 
 <form>

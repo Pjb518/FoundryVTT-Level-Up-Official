@@ -1,16 +1,16 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import Checkbox from "../Checkbox.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
+import Checkbox from '../Checkbox.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
 
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    const actor = getContext("actor");
+const actor = getContext('actor');
 
-    $: flags = $actor.flags;
+$: flags = $actor.flags;
 </script>
 
 <Section heading="Roll Modifiers" --a5e-section-body-gap="0.75rem">

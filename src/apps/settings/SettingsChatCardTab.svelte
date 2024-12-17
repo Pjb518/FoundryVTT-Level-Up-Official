@@ -1,22 +1,22 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import Section from "../components/Section.svelte";
+import Checkbox from '../components/Checkbox.svelte';
+import FieldWrapper from '../components/FieldWrapper.svelte';
+import Section from '../components/Section.svelte';
 
-    export let reload;
+export let reload;
 
-    const settings = getContext("settings");
-    const updates = getContext("updates");
+const settings = getContext('settings');
+const updates = getContext('updates');
 
-    const isGM = game.user.isGM;
+const isGM = game.user.isGM;
 
-    let enableDamageRollColors = settings.getStore("enableDamageRollColors");
-    let hideDescription = settings.getStore("hideChatDescriptionsByDefault");
-    let hideHpRolls = settings.getStore("hideRandomizedHPRolls");
-    let protectRolls = settings.getStore("protectRolls");
-    let terseRolls = settings.getStore("terseRollFormulae");
+let enableDamageRollColors = settings.getStore('enableDamageRollColors');
+let hideDescription = settings.getStore('hideChatDescriptionsByDefault');
+let hideHpRolls = settings.getStore('hideRandomizedHPRolls');
+let protectRolls = settings.getStore('protectRolls');
+let terseRolls = settings.getStore('terseRollFormulae');
 </script>
 
 <Section heading="Chat Card Display Settings" --a5e-section-body-gap="0.5rem">

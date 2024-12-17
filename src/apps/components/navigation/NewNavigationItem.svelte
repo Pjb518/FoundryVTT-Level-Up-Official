@@ -1,13 +1,13 @@
 <script>
-    import { createEventDispatcher } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { createEventDispatcher } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    export let currentTab;
-    export let name;
-    export let icon;
-    export let label;
+export let currentTab;
+export let name;
+export let icon;
+export let label;
 
-    const dispatch = createEventDispatcher();
+const dispatch = createEventDispatcher();
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->

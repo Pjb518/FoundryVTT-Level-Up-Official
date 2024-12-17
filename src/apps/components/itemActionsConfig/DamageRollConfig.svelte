@@ -1,108 +1,108 @@
 <script>
-    import { getContext } from "svelte";
-    import { localize } from "#runtime/util/i18n";
+import { getContext } from 'svelte';
+import { localize } from '#runtime/util/i18n';
 
-    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
+import GenericConfigDialog from '../../dialogs/initializers/GenericConfigDialog';
 
-    import Checkbox from "../Checkbox.svelte";
-    import RollScalingDialog from "../../dialogs/RollScalingDialog.svelte";
-    import FieldWrapper from "../FieldWrapper.svelte";
-    import Section from "../Section.svelte";
+import Checkbox from '../Checkbox.svelte';
+import RollScalingDialog from '../../dialogs/RollScalingDialog.svelte';
+import FieldWrapper from '../FieldWrapper.svelte';
+import Section from '../Section.svelte';
 
-    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+import getOrdinalNumber from '../../../utils/getOrdinalNumber';
+import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
 
-    function getScalingSummary(roll) {
-        const mode = roll.scaling?.mode;
-        const formula = roll.scaling?.formula ?? 0;
-        const damageType = damageTypes[roll.damageType];
+function getScalingSummary(roll) {
+	const mode = roll.scaling?.mode;
+	const formula = roll.scaling?.formula ?? 0;
+	const damageType = damageTypes[roll.damageType];
 
-        // TODO: Class Documents - Provide some means of getting a base spell level for non-spell items.
-        const level = getOrdinalNumber($item.system.level ?? 1);
-        const step = roll.scaling?.step;
+	// TODO: Class Documents - Provide some means of getting a base spell level for non-spell items.
+	const level = getOrdinalNumber($item.system.level ?? 1);
+	const step = roll.scaling?.step;
 
-        if (mode === "cantrip") {
-            return localize("A5E.scaling.summaries.cantrip.damage", {
-                formula,
-                damageType,
-            });
-        }
+	if (mode === 'cantrip') {
+		return localize('A5E.scaling.summaries.cantrip.damage', {
+			formula,
+			damageType,
+		});
+	}
 
-        if (mode === "spellLevel") {
-            if (!step || step === 1) {
-                return localize("A5E.scaling.summaries.spellLevel.damage", {
-                    formula,
-                    level,
-                    damageType,
-                });
-            } else {
-                return localize("A5E.scaling.summaries.steppedSpellLevel.damage", {
-                    formula,
-                    step,
-                    level,
-                    damageType,
-                });
-            }
-        }
+	if (mode === 'spellLevel') {
+		if (!step || step === 1) {
+			return localize('A5E.scaling.summaries.spellLevel.damage', {
+				formula,
+				level,
+				damageType,
+			});
+		} else {
+			return localize('A5E.scaling.summaries.steppedSpellLevel.damage', {
+				formula,
+				step,
+				level,
+				damageType,
+			});
+		}
+	}
 
-        if (mode === "spellPoints") {
-            if (!roll.scaling?.step || roll.scaling?.step === 1) {
-                return localize("A5E.scaling.summaries.spellPoint.damage", {
-                    formula,
-                });
-            } else {
-                return localize("A5E.scaling.summaries.steppedSpellPoint.damage", {
-                    formula,
-                    step,
-                });
-            }
-        }
+	if (mode === 'spellPoints') {
+		if (!roll.scaling?.step || roll.scaling?.step === 1) {
+			return localize('A5E.scaling.summaries.spellPoint.damage', {
+				formula,
+			});
+		} else {
+			return localize('A5E.scaling.summaries.steppedSpellPoint.damage', {
+				formula,
+				step,
+			});
+		}
+	}
 
-        if (["actionUses", "itemUses"].includes(mode)) {
-            if (!roll.scaling?.step || roll.scaling?.step === 1) {
-                return localize("A5E.scaling.summaries.uses.damage", {
-                    formula,
-                });
-            } else {
-                return localize("A5E.scaling.summaries.steppedUses.damage", {
-                    formula,
-                    step,
-                });
-            }
-        }
+	if (['actionUses', 'itemUses'].includes(mode)) {
+		if (!roll.scaling?.step || roll.scaling?.step === 1) {
+			return localize('A5E.scaling.summaries.uses.damage', {
+				formula,
+			});
+		} else {
+			return localize('A5E.scaling.summaries.steppedUses.damage', {
+				formula,
+				step,
+			});
+		}
+	}
 
-        return null;
-    }
+	return null;
+}
 
-    function onClickScalingButton() {
-        let dialog = $item.dialogs.rollScaling[rollId];
+function onClickScalingButton() {
+	let dialog = $item.dialogs.rollScaling[rollId];
 
-        if (!dialog) {
-            $item.dialogs.rollScaling[rollId] = new GenericConfigDialog(
-                $item,
-                `${$item.name} Damage Scaling Configuration`,
-                RollScalingDialog,
-                { actionId, rollId },
-                { width: 432 },
-            );
+	if (!dialog) {
+		$item.dialogs.rollScaling[rollId] = new GenericConfigDialog(
+			$item,
+			`${$item.name} Damage Scaling Configuration`,
+			RollScalingDialog,
+			{ actionId, rollId },
+			{ width: 432 },
+		);
 
-            dialog = $item.dialogs.rollScaling[rollId];
-        }
+		dialog = $item.dialogs.rollScaling[rollId];
+	}
 
-        dialog.render(true);
-    }
+	dialog.render(true);
+}
 
-    const item = getContext("item");
-    const actionId = getContext("actionId");
+const item = getContext('item');
+const actionId = getContext('actionId');
 
-    const { damageTypes } = CONFIG.A5E;
+const { damageTypes } = CONFIG.A5E;
 
-    export let deleteRoll;
-    export let duplicateRoll;
-    export let roll;
-    export let rollId;
+export let deleteRoll;
+export let duplicateRoll;
+export let roll;
+export let rollId;
 
-    $: scalingSummary = getScalingSummary(roll);
+$: scalingSummary = getScalingSummary(roll);
 </script>
 
 <FieldWrapper

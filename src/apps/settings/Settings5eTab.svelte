@@ -1,26 +1,26 @@
 <script>
-    import { getContext } from "svelte";
+import { getContext } from 'svelte';
 
-    import Checkbox from "../components/Checkbox.svelte";
-    import FieldWrapper from "../components/FieldWrapper.svelte";
-    import Section from "../components/Section.svelte";
+import Checkbox from '../components/Checkbox.svelte';
+import FieldWrapper from '../components/FieldWrapper.svelte';
+import Section from '../components/Section.svelte';
 
-    export let reload;
+export let reload;
 
-    const settings = getContext("settings");
-    const updates = getContext("updates");
+const settings = getContext('settings');
+const updates = getContext('updates');
 
-    let deathSaves = settings.getStore("5eStyleDeathSaves");
-    let exhaustion = settings.getStore("replaceFatigueAndStrife");
-    let expertise = settings.getStore("5eStyleExpertise");
-    let jackOfAllTrades = settings.getStore("5eStyleJackOfAllTrades");
-    let hideA5eSkills = settings.getStore("hideA5eSkills");
-    let hideBrokenAndDamaged = settings.getStore("hideBrokenAndDamaged");
-    let hideExpertiseDice = settings.getStore("hideExpertiseDice");
-    let hideSkillCriticalPrompt = settings.getStore("hideSkillCriticalPrompt");
-    let hideSkillSpecialties = settings.getStore("hideSkillSpecialties");
-    let simpleInitiative = settings.getStore("simpleInitiative");
-    let simpleRests = settings.getStore("simpleRests");
+let deathSaves = settings.getStore('5eStyleDeathSaves');
+let exhaustion = settings.getStore('replaceFatigueAndStrife');
+let expertise = settings.getStore('5eStyleExpertise');
+let jackOfAllTrades = settings.getStore('5eStyleJackOfAllTrades');
+let hideA5eSkills = settings.getStore('hideA5eSkills');
+let hideBrokenAndDamaged = settings.getStore('hideBrokenAndDamaged');
+let hideExpertiseDice = settings.getStore('hideExpertiseDice');
+let hideSkillCriticalPrompt = settings.getStore('hideSkillCriticalPrompt');
+let hideSkillSpecialties = settings.getStore('hideSkillSpecialties');
+let simpleInitiative = settings.getStore('simpleInitiative');
+let simpleRests = settings.getStore('simpleRests');
 </script>
 
 <Section
