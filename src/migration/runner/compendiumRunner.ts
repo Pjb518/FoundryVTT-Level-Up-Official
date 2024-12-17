@@ -19,7 +19,6 @@ class MigrationRunnerCompendium extends MigrationRunnerBase {
 	}
 
 	#getFiles(dirPath: string) {
-		// @ts-expect-error
 		const filenames = fs.globSync(`${dirPath}/**/*.json`);
 		const files = new Map<string, Record<string, any>>();
 

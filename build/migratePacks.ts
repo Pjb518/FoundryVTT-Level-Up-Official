@@ -50,7 +50,7 @@ console.log(`[INFO] - Migrating to version ${CURRENT_VERSION}...`);
 
 for (const dirPath of dirPaths) {
 	console.log(`[INFO] - Running Migration for ${dirPath.split('\\').at(-1)}...`);
-	await migrationRunner.runMigration(dirPaths[0]);
+	await migrationRunner.runMigration(dirPath);
 }
 
 console.log(`[INFO] - Successfully Migrated to version ${CURRENT_VERSION}.`);
