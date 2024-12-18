@@ -612,6 +612,7 @@ const knackTypes = {
 	scientist: 'Scientific Praxes',
 	scout: 'Clever Trick',
 	sorcerer: 'Arcane Innovation',
+  trooper: 'Drill',
 	warlock: 'Secret of Arcana',
 	wielder: 'Artifact Whisper',
 	witch: 'Magical Mystery',

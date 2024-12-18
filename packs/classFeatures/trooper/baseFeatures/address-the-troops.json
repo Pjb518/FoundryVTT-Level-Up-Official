@@ -1,0 +1,189 @@
+{
+	"folder": null,
+	"name": "Address the Troops",
+	"type": "feature",
+	"img": "icons/creatures/abilities/mouth-teeth-human.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"sIlT9kJMeYJ7Xa3y": {
+				"name": "Address the Troops",
+				"activation": {
+					"type": "minute",
+					"cost": 10,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"ZMK6KS9tFTJPyq5e": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"Q6T7qYESH9JATPCg": {
+						"type": "healing",
+						"default": true,
+						"formula": "20",
+						"healingType": "temporaryHealing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"prompts": {
+					"m1J2Yo7axgBaQYZ8": {
+						"type": "effect",
+						"default": true,
+						"effectId": "jc7x7RzBOFF6Av4V",
+						"label": "Address the Troops"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+				"description": "<p>Affected creatures gain 20 temporary hit points.</p>\n<p>While the temporary hit points last, the creature gains an expertise die on saving throws against becoming frightened.</p>",
+				"id": "",
+				"default": false,
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [
+					"vBZldqOCdku384NW"
+				],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				}
+			}
+		},
+		"description": "<p>Your words inspire those under your command to fight without fear. You gain proficiency in Persuasion. If you’re already proficient in Persuasion, you instead gain an expertise die.</p>\n<p>In addition, if you spend 10 minutes giving an inspiring speech, each creature you choose with an Intelligence of 4 or greater that can hear and understand you is filled with courage and resolve. Affected creatures gain 20 temporary hit points. While the temporary hit points last, the creature gains an expertise die on saving throws against becoming frightened.</p>\n<p>With the right technology on hand, you can greatly extend the number of creatures you can affect and the distance at which you can do so, even on a galactic scale.</p>\n<p>Once you’ve used this ability, you must finish a short or long rest before you can do so again.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"9sW6QdN9tzYqXI9h": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "9sW6QdN9tzYqXI9h",
+				"label": "Address the Troops",
+				"keys": {
+					"base": [
+						"per"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "trooper",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.QhnCtTTcwJeki5EK",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Address the Troops",
+			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+			"_id": "vBZldqOCdku384NW",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>While the temporary hit points last, the creature gains an expertise die on saving throws against becoming frightened.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.2",
+				"createdTime": 1734531856960,
+				"modifiedTime": 1734531868142,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.2",
+		"createdTime": 1734472906579,
+		"modifiedTime": 1734531895390,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "I59UmJFprWLxs0jK"
+}

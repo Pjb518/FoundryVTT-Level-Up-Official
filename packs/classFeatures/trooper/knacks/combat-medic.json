@@ -1,0 +1,119 @@
+{
+	"folder": null,
+	"name": "Combat Medic",
+	"type": "feature",
+	"img": "icons/magic/life/cross-yellow-green.webp",
+	"system": {
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"actions": {
+			"ugXTfKg0upwmgPD4": {
+				"name": "Combat Medic",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"V6i6AXMZ1g1siJeg": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"jRxvl7jKZFPdOVDf": {
+						"type": "healing",
+						"default": true,
+						"label": "",
+						"formula": "2 * @prof",
+						"healingType": "healing",
+						"scaling": {}
+					}
+				},
+				"prompts": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "1d6",
+						"threshold": 6
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {
+					"uE8HggoH7EmIqrBI": {
+						"range": "touch"
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creature"
+				}
+			}
+		},
+		"description": "<p>Even under the worst conditions, you can apply first aid to keep your allies alive. You can use an action to restore a number of hit points to an ally within reach equal to twice your proficiency bonus. You can use this drill a number of times equal to your proficiency bonus. Your expended uses are restored when you take a long or short rest.</p>",
+		"favorite": false,
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"concentration": false,
+		"featureType": "knack",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false,
+		"class": "",
+		"classes": "trooper",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.2",
+		"createdTime": 1734472906635,
+		"modifiedTime": 1734532437386,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "CLHymLhLUNRMiM0N"
+}
