@@ -144,6 +144,8 @@
 
     $: exertion = $actor.system.attributes.exertion;
 
+    $: startingClass = $actor.system.classes?.startingClass;
+
     let currentSpellBook =
         tempSettings[$actor?.uuid]?.currentSpellBook ??
         Object.keys($actor.system.spellBooks ?? {})?.[0];
@@ -294,7 +296,7 @@
     {/if}
 
     <!-- Spell Points -->
-    {#if $actor.system.classes.startingClass !== "psyknight"}
+    {#if startingClass !== "psyknight"}
         {#if $actor.spellBooks?.get(currentSpellBook)?.showSpellPoints ?? false}
             <div class="u-flex u-flex-wrap u-align-center u-gap-md">
                 <h3 class="u-mb-0 u-text-bold u-text-sm u-flex-grow-1">
@@ -329,7 +331,7 @@
                         updateMaxSpellResource("points", Number(target.value))}
                 />
 
-                {#if spellResources.points.current < spellPointMax && spellPointMax && $actor.system.classes.startingClass == "psion"}
+                {#if spellResources.points.current < spellPointMax && spellPointMax && startingClass === "psion"}
                     <button
                         class="recharge-button"
                         data-tooltip="A5E.PsionicPointsRechargeFromHitDice"
