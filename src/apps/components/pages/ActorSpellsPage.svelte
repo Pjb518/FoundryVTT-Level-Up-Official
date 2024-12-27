@@ -122,6 +122,8 @@
         return true;
     }).length;
 
+    $: maxPrepared = $actor.system.spellResources.maxPrepared ?? 0;
+
     $: sheetIsLocked = !$actor.isOwner
         ? true
         : ($actor.flags?.a5e?.sheetIsLocked ?? true);
@@ -218,6 +220,24 @@
             <span class="a5e-footer-group__input">
                 {preparedSpellCount}
             </span>
+            {#if !sheetIsLocked || maxPrepared}
+                /
+                <input
+                    class="a5e-footer-group__input"
+                    class:disable-pointer-events={!$actor.isOwner}
+                    type="number"
+                    name="system.spellResources.maxPrepared"
+                    value={maxPrepared}
+                    placeholder="0"
+                    min="0"
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField(
+                            $actor,
+                            target.name,
+                            Number(target.value),
+                        )}
+                />
+            {/if}
         </div>
     {/if}
 
