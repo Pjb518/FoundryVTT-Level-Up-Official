@@ -12,9 +12,12 @@
     import SpellbookDeletionConfirmationDialog from "../../dialogs/initializers/SpellbookDeletionConfirmationDialog";
 
     import ActorSheetTempSettingsStore from "../../../stores/ActorSheetTempSettingsStore";
+    import { getDefaultResultOrder } from "dns";
+    import getMaxPrepared from "../../../utils/getMaxPrepared";
 
     const actor = getContext("actor");
     let { spells } = actor;
+    let maxPrepared = 0;
 
     async function addSpellBook() {
         const initialSpellBookQuantity = Object.keys(
@@ -122,7 +125,7 @@
         return true;
     }).length;
 
-    $: maxPrepared = $actor.system.spellResources.maxPrepared ?? 0;
+    $: maxPrepared = getMaxPrepared($actor);
 
     $: sheetIsLocked = !$actor.isOwner
         ? true

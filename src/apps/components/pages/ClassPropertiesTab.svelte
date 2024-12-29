@@ -297,6 +297,21 @@ $: hpData = getHpData($item.actor);
                     detail,
                 )}
         />
+
+        {#if $item.system.spellcasting.casterType !== "none"}
+            <FieldWrapper
+                heading="Spell Prepared Max Formula"
+                hint="If this class does not have a maximum to prepared spells, leave at 0."
+                --a5e-field-wrapper-header-gap="0.5rem"
+            >
+                <input
+                    type="text"
+                    value={$item.system.spellcasting.maxPreparedFormula}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField($item, "system.spellcasting.maxPreparedFormula", target.value)}
+                />
+            </FieldWrapper>
+        {/if}
     </Section>
 
     <Section heading="Wealth" --a5e-section-body-gap="0.75rem">
