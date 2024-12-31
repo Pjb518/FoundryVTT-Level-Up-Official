@@ -1,0 +1,367 @@
+{
+	"folder": null,
+	"name": "Psychic Daggers",
+	"type": "feature",
+	"img": "icons/skills/melee/strike-axe-red.webp",
+	"system": {
+		"description": "<p>When you choose this archetype at 3rd level you gain the ability to use a bonus action to manifest up to two psychic daggers which require concentration to maintain. These psychic daggers deal 2d4 psychic damage, have the thrown (10/30) and dual-wielding properties, and you are proficient in their use. You use your Wisdom modifier for attack and damage rolls made with them. When wielding two psychic daggers, you can make a melee or ranged attack with the psychic dagger in your off-hand as a bonus action, including as part of the bonus action used to manifest your psychic daggers.</p>\n<p>If you throw a psychic dagger, it reappears in your hand immediately after it hits or misses your target. The psychic daggers remain until you lose concentration.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"FvRAPxGN24S4YHJC": {
+				"name": "Manifest Daggers",
+				"id": "FvRAPxGN24S4YHJC",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/melee/strike-axe-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"xCFhrNhjSntC7sMh": {
+				"name": "Psychic Daggers",
+				"id": "xCFhrNhjSntC7sMh",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/melee/strike-axe-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"5b6hAveQ2o2sDioz": {
+						"range": "fiveFeet"
+					}
+				},
+				"rolls": {
+					"93KCsGaoszfpLrtr": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "wis",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"Ck0WTBJ2qlK149aT": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "psychic",
+						"formula": "2d4 + @wis.mod",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"CCtWLASEnEWq4GTN": {
+				"name": "Psychic Daggers (Off-Hand)",
+				"id": "CCtWLASEnEWq4GTN",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/melee/strike-axe-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"5b6hAveQ2o2sDioz": {
+						"range": "fiveFeet"
+					}
+				},
+				"rolls": {
+					"93KCsGaoszfpLrtr": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "wis",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"Ck0WTBJ2qlK149aT": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "psychic",
+						"formula": "2d4 + min(@wis.mod,0)",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"efYYkVSiekzZAK10": {
+				"name": "Psychic Daggers (Throw)",
+				"id": "efYYkVSiekzZAK10",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/melee/strike-axe-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"5b6hAveQ2o2sDioz": {
+						"range": 10,
+						"unit": "feet"
+					},
+					"MP26HbSSfT3HbU9v": {
+						"range": "short"
+					}
+				},
+				"rolls": {
+					"93KCsGaoszfpLrtr": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "wis",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"Ck0WTBJ2qlK149aT": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "psychic",
+						"formula": "2d4 + @wis.mod",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"HFMZdOAEuDpvJU9U": {
+				"name": "Psychic Daggers (Throw, Off-Hand)",
+				"id": "CCtWLASEnEWq4GTN",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/melee/strike-axe-red.webp",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {
+					"5b6hAveQ2o2sDioz": {
+						"range": 10,
+						"unit": "feet"
+					},
+					"HTpGRt5aFSXtbqBj": {
+						"range": "short"
+					}
+				},
+				"rolls": {
+					"93KCsGaoszfpLrtr": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "wis",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"Ck0WTBJ2qlK149aT": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "psychic",
+						"formula": "2d4 + min(@wis.mod,0)",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creatureObject"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "psyknight",
+		"concentration": true,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.3",
+		"createdTime": 1735571477472,
+		"modifiedTime": 1735655402084,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "tt6SYjILhfzQ3kwx"
+}
