@@ -707,6 +707,7 @@ const materialProperties = {
 	rust: 'A5E.MaterialPropertyRust',
 	silvered: 'A5E.MaterialPropertySilvered',
 	spacefaring: 'A5E.MaterialPropertySpacefaring',
+	strength: 'A5E.MaterialPropertyStrength',
 	underarmor: 'A5E.MaterialPropertyUnderarmor',
 	weighty: 'A5E.MaterialPropertyWeighty',
 	wild: 'A5E.MaterialPropertyWild',
@@ -726,6 +727,8 @@ const modPorts = {
 	4: '4',
 	5: '5',
 	6: '6',
+	7: '7',
+	8: '8'
 };
 
 /**
@@ -856,6 +859,7 @@ const repairTools = {
 	notRepairable: 'A5E.repairTools.notRepairable',
 	sewingKit: 'A5E.repairTools.sewingKit',
 	smithsTools: 'A5E.repairTools.smithsTools',
+	tinkersTools: 'A5E.repairTools.tinkersTools',
 };
 
 const resourceRecoveryOptions = {
