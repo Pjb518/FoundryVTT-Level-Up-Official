@@ -4,7 +4,7 @@
 	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
 	"effects": [
 		{
-			"origin": "Item.egyF5HkW6xs4T126",
+			"origin": "Item.ciX9VSgWRxcxMkvG",
 			"flags": {
 				"a5e": {
 					"duration": {
@@ -50,18 +50,26 @@
 			"_stats": {
 				"compendiumSource": null,
 				"duplicateSource": null,
-				"coreVersion": "12.329",
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.18",
+				"systemVersion": "1.0.3",
 				"createdTime": null,
-				"modifiedTime": 1721846137845,
+				"modifiedTime": 1735937605711,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
 			"type": "base",
 			"system": {
 				"applyToSelf": true,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"tint": "#ffffff",
 			"sort": 0,
@@ -101,8 +109,7 @@
 				"target": {
 					"quantity": 1,
 					"type": "",
-					"shape": "",
-					"size": ""
+					"scaling": {}
 				},
 				"consumers": {
 					"HvXmIXhp9gi2ReO5": {
@@ -110,23 +117,49 @@
 						"default": true,
 						"classIdentifier": "@classResources.rage",
 						"resource": "classResource",
-						"quantity": 1
+						"quantity": 1,
+						"restore": false,
+						"label": ""
 					}
 				},
 				"prompts": {},
 				"rolls": {},
 				"effects": [
 					"BUM9Vlpn1Z7rJRzC"
-				]
+				],
+				"id": "LWtrKhHATlDyv3lC",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+				"macro": "",
+				"ranges": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			},
 			"Jg8KhNAlPEhfIZHH": {
 				"name": "Rage Hit Points",
-				"activation": {},
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
 				"consumers": {
 					"f4rZOpUALTJwJ6lu": {
 						"type": "actionUses",
 						"default": true,
-						"quantity": 1
+						"quantity": 1,
+						"label": ""
 					}
 				},
 				"rolls": {
@@ -134,7 +167,9 @@
 						"type": "healing",
 						"default": true,
 						"healingType": "temporaryHealing",
-						"formula": "@classResources.rage-hit-points"
+						"formula": "@classResources.rage-hit-points",
+						"scaling": {},
+						"label": ""
 					}
 				},
 				"prompts": {},
@@ -144,9 +179,78 @@
 					"per": "round",
 					"recharge": {
 						"formula": "1d6",
-						"rechargeType": "custom",
-						"rechargeAmount": "1",
 						"threshold": 6
+					}
+				},
+				"id": "Jg8KhNAlPEhfIZHH",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"kcfSrfFvh7LEsRT2": {
+				"name": "Remove Rage Hit Points",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"w5SKC7RCiLHl9y6h": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "",
+						"formula": "@attributes.hp.temp",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
 					}
 				}
 			}
@@ -170,15 +274,23 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"classes": "berserker",
-		"class": ""
+		"class": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		}
 	},
 	"folder": null,
 	"_stats": {
-		"coreVersion": "12.329",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.18",
-		"createdTime": 1721846137815,
-		"modifiedTime": 1721846528454,
+		"systemVersion": "1.0.3",
+		"createdTime": 1735937605680,
+		"modifiedTime": 1735937649434,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
 	"_id": "htgvror5v9twusgs"
