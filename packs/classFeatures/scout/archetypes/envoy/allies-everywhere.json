@@ -1,0 +1,118 @@
+{
+	"folder": null,
+	"name": "Allies Everywhere",
+	"type": "feature",
+	"img": "icons/skills/social/diplomacy-unity-alliance.webp",
+	"system": {
+		"description": "<p>At 14th level, you have allies–or those in your debt–everywhere. You may ‘reveal’ an undisclosed ally, who might be a member of an enemy’s retinue, a government official, or somebody with access to important facilities or resources, but it cannot be the leader of those who oppose you.</p>\n<p>As an action, target a creature with whom you can communicate and who can understand you. Your prospective ally must make a Wisdom saving throw with a DC equal to your clever tricks save DC. On a failed save, that ally will immediately begin to work with you, even turning on their employers or supposed former allies. Your ally will work with you until you next take a long rest, after which their obligation to you is fulfilled and you cannot recruit them again. As part of this feature, your ally may have secretly performed an action in the past 24 hours which they would have been capable of and had opportunity to carry out.</p>\n<p>Once you have successfully used this feature you cannot use it again until you have finished a long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"T21L5DsClyKJSdte": {
+				"name": "Allies Everywhere",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "day",
+					"value": 1
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {
+					"XTiZRJRNKrYdGa73": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"3qEHfi3QxkK3PbnR": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "wis",
+						"saveDC": {
+							"type": "cha",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": "creature"
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "scout",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.3",
+		"createdTime": 1735933899022,
+		"modifiedTime": 1735934089250,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "vI4BWChDnfSZ3cvn"
+}
