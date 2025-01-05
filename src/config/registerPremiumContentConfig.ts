@@ -627,6 +627,14 @@ export default function registerPremiumContentConfig() {
 			title: 'Stranger Sights: Challenges for 5e and Advanced 5e',
 			url: 'https://bit.ly/3SmPaEv',
 		},
+		systemReferenceDocument: {
+			abbreviation: 'SRD',
+			affiliate: true,
+			publisher: 'wizardsOfTheCoast',
+			systems: ['a5e'],
+			title: 'Dungeons & Dragons 5th Edition System Reference Document',
+			url: 'http://bit.ly/3DUPt5G',
+		},
 		theHauntingOfCalrowRuins: {
 			abbreviation: 'THoCR',
 			affiliate: false,
