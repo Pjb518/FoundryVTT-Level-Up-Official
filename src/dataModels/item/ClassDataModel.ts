@@ -160,7 +160,7 @@ const schema = {
 			value: new fields.StringField({ nullable: false, initial: 'none' }),
 		}),
 		casterType: new fields.StringField({ nullable: false, initial: 'none' }),
-		maxPreparedFormula: new fields.StringField({ nullable: false, initial: '0' }),
+		maxPreparedFormula: new fields.StringField({ required: true, nullable: false, initial: '0' }),
 	}),
 	wealth: new fields.StringField({ nullable: false, initial: '' }),
 };
