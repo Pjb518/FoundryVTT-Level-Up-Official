@@ -12,7 +12,6 @@
     import SpellbookDeletionConfirmationDialog from "../../dialogs/initializers/SpellbookDeletionConfirmationDialog";
 
     import ActorSheetTempSettingsStore from "../../../stores/ActorSheetTempSettingsStore";
-    import { getDefaultResultOrder } from "dns";
     import getMaxPrepared from "../../../utils/getMaxPrepared";
 
     const actor = getContext("actor");
@@ -115,7 +114,6 @@
     $: spellResources = $actor.system.spellResources;
 
     $: preparedSpellCount = $actor.items.filter((item) => {
-        if (item.type !== "spell") return false;
         if (
             !item.system.prepared ||
             item.system.prepared === CONFIG.A5E.PREPARED_STATES.ALWAYS_PREPARED
@@ -223,24 +221,25 @@
             <span class="a5e-footer-group__input">
                 {preparedSpellCount}
             </span>
-            {#if !sheetIsLocked || maxPrepared}
-                /
-                <input
-                    class="a5e-footer-group__input"
-                    class:disable-pointer-events={!$actor.isOwner}
-                    type="number"
-                    name="system.spellResources.maxPrepared"
-                    value={maxPrepared}
-                    placeholder="0"
-                    min="0"
-                    on:change={({ target }) =>
-                        updateDocumentDataFromField(
-                            $actor,
-                            target.name,
-                            Number(target.value),
-                        )}
-                />
-            {/if}
+
+            /
+
+            <input
+                class="a5e-footer-group__input"
+                class:disable-pointer-events={!$actor.isOwner || sheetIsLocked}
+                type="number"
+                name="system.spellResources.maxPrepared"
+                value={maxPrepared}
+                placeholder="0"
+                min="0"
+                disabled={sheetIsLocked}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
+            />
         </div>
     {/if}
 
