@@ -1,59 +1,59 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import getHPComponents from '../../../utils/getHPComponents';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import getHPComponents from "../../../utils/getHPComponents";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import Section from '../Section.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
-import RadioGroup from '../RadioGroup.svelte';
-import getDeterministicBonus from '../../../dice/getDeterministicBonus';
-import CheckboxGroup from '../CheckboxGroup.svelte';
+    import Section from "../Section.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
+    import getDeterministicBonus from "../../../dice/getDeterministicBonus";
+    import CheckboxGroup from "../CheckboxGroup.svelte";
 
-const item = getContext('item');
-const abilities = { none: 'None', ...CONFIG.A5E.abilities };
-const abilitiesWithoutNone = CONFIG.A5E.abilities;
-const casterTypes = CONFIG.A5E.casterTypes;
+    const item = getContext("item");
+    const abilities = { none: "None", ...CONFIG.A5E.abilities };
+    const abilitiesWithoutNone = CONFIG.A5E.abilities;
+    const casterTypes = CONFIG.A5E.casterTypes;
 
-function getHpData() {
-	const actor = $item.actor;
-	if (!actor) {
-		return { totalHp: 0, hpBonusPerLevel: 0, otherHpBonuses: 0 };
-	}
+    function getHpData() {
+        const actor = $item.actor;
+        if (!actor) {
+            return { totalHp: 0, hpBonusPerLevel: 0, otherHpBonuses: 0 };
+        }
 
-	const totalHp = getHPComponents($item.parent);
-	const hpBonusPerLevel =
-		getDeterministicBonus(
-			actor.BonusesManager.getHitPointsBonusPerLevelFormula() ?? 0,
-			actor?.getRollData(),
-		) ?? 0;
+        const totalHp = getHPComponents($item.parent);
+        const hpBonusPerLevel =
+            getDeterministicBonus(
+                actor.BonusesManager.getHitPointsBonusPerLevelFormula() ?? 0,
+                actor?.getRollData(),
+            ) ?? 0;
 
-	const allHpBonuses =
-		getDeterministicBonus(
-			actor.BonusesManager.getHitPointsBonusFormula() ?? 0,
-			actor.getRollData(),
-		) ?? 0;
+        const allHpBonuses =
+            getDeterministicBonus(
+                actor.BonusesManager.getHitPointsBonusFormula() ?? 0,
+                actor.getRollData(),
+            ) ?? 0;
 
-	const otherHpBonuses = allHpBonuses - hpBonusPerLevel * actor.levels.character;
+        const otherHpBonuses = allHpBonuses - hpBonusPerLevel * actor.levels.character;
 
-	const tempBonuses = actor.system.attributes.hp.bonus;
+        const tempBonuses = actor.system.attributes.hp.bonus;
 
-	return {
-		totalHp,
-		hpBonusPerLevel,
-		otherHpBonuses: otherHpBonuses + tempBonuses,
-	};
-}
+        return {
+            totalHp,
+            hpBonusPerLevel,
+            otherHpBonuses: otherHpBonuses + tempBonuses,
+        };
+    }
 
-const hitDiceSize = [
-	[6, 'd6'],
-	[8, 'd8'],
-	[10, 'd10'],
-	[12, 'd12'],
-];
+    const hitDiceSize = [
+        [6, "d6"],
+        [8, "d8"],
+        [10, "d10"],
+        [12, "d12"],
+    ];
 
-$: classLevel = $item.system.classLevels;
-$: hpData = getHpData($item.actor);
+    $: classLevel = $item.system.classLevels;
+    $: hpData = getHpData($item.actor);
 </script>
 
 <article class="a5e-page-wrapper a5e-page-wrapper--scrollable">
@@ -105,10 +105,7 @@ $: hpData = getHpData($item.actor);
             />
         </FieldWrapper>
 
-        <FieldWrapper
-            heading="Max Class Level"
-            --a5e-field-wrapper-header-gap="0.5rem"
-        >
+        <FieldWrapper heading="Max Class Level" --a5e-field-wrapper-header-gap="0.5rem">
             <input
                 class="a5e-input a5e-input--slim a5e-input--small"
                 type="number"
@@ -122,7 +119,6 @@ $: hpData = getHpData($item.actor);
                     )}
             />
         </FieldWrapper>
-
     </Section>
 
     <Section heading="Hit Dice" --a5e-section-body-gap="0.75rem">
@@ -308,7 +304,11 @@ $: hpData = getHpData($item.actor);
                     type="text"
                     value={$item.system.spellcasting.maxPreparedFormula}
                     on:change={({ target }) =>
-                        updateDocumentDataFromField($item, "system.spellcasting.maxPreparedFormula", target.value)}
+                        updateDocumentDataFromField(
+                            $item,
+                            "system.spellcasting.maxPreparedFormula",
+                            target.value,
+                        )}
                 />
             </FieldWrapper>
         {/if}
@@ -349,10 +349,10 @@ $: hpData = getHpData($item.actor);
 
         &__field--input {
             border: 1px solid #7a7971;
-  	    border-radius: var(--a5e-border-radius-standard);
-	    margin-bottom: 0.25rem;
-	    padding-inline: 1rem;
-	    text-align: center;
+            border-radius: var(--a5e-border-radius-standard);
+            margin-bottom: 0.25rem;
+            padding-inline: 1rem;
+            text-align: center;
         }
 
         &__field--total {
