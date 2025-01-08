@@ -14,6 +14,12 @@
     const item = getContext("item");
     const actionId = getContext("actionId");
     const A5E = CONFIG.A5E;
+    const { resourceConsumerConfig } = A5E;
+
+    const showFavorPoints = game.settings.get("a5e", "showFavorPoints") ?? false;
+    if (!showFavorPoints) {
+        delete resourceConsumerConfig?.favorPoints;
+    }
 
     function updateResourceSelection() {
         updateDocumentDataFromField(
