@@ -12,6 +12,7 @@
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
     import showActivationDialogSection from "../../utils/showActivationDialogSection";
+    import validateTemplateData from "../../utils/measuredTemplates/validateTemplateData";
 
     import CheckboxGroup from "../components/CheckboxGroup.svelte";
     import FieldWrapper from "../components/FieldWrapper.svelte";
@@ -25,6 +26,7 @@
     import UsesSection from "../components/activationDialog/UsesSection.svelte";
     import HitDiceSection from "../components/activationDialog/HitDiceSection.svelte";
     import ConsumptionValidator from "../../utils/validators/ConsumptionValidator";
+    import Checkbox from "../components/Checkbox.svelte";
 
     export let { application } = getContext("#external") as { application: any };
     export let {
@@ -69,6 +71,7 @@
                 selectedRolls,
             ),
             selectedConsumers,
+            placeTemplate,
             visibilityMode,
         });
     }
@@ -107,7 +110,6 @@
 
     // Show Config
     const showAttackRoll = !isEmpty(attackRoll);
-    const showAreaSection = false;
     const showOtherRolls = !!Object.values(rolls).flat().length;
     const showDamageBonuses = !!Object.values(damageBonuses).flat().length;
     const showHealingBonuses = !!Object.values(healingBonuses).flat().length;
@@ -127,7 +129,7 @@
     );
     $: showHitDiceSection =
         !!Object.values(consumers.hitDice ?? {}).flat().length &&
-        selectedConsumers.includes(consumers?.hitDice?.[0]);
+        selectedConsumers.includes(consumers?.hitDice?.[0]!);
 
     $: showConsumersSection = Object.values(consumers ?? {}).flat().length > 0;
 
@@ -147,11 +149,13 @@
     let selectedEffects = RollPreparationManager.getDefaultSelectedEffects(effects);
     let visibilityMode = game.settings?.get("core", "rollMode")!;
 
-    // TODO: Place Template
     let placeTemplate =
         (game.settings.get("a5e", "placeItemTemplateDefault") as boolean) ||
         (action?.area?.placeTemplate as boolean) ||
         false;
+
+    // @ts-expect-error
+    const isValidTemplate = validateTemplateData(action.area);
 
     // Validator
     const validator = new ConsumptionValidator($actor, $item, action, consumers);
@@ -264,18 +268,16 @@
         </Section>
     {/if}
 
-    <!-- TODO: Template Areas and Placement options -->
-    <!-- {#if validateTemplateData($item.actions.get(actionId)?.area)}
-        <FieldWrapper>
+    <!-- Template Placement -->
+    {#if isValidTemplate}
+        <Section heading="Template Config" --a5e-section-body-gap="0.5rem">
             <Checkbox
                 label="A5E.ItemPlaceTemplate"
                 checked={placeTemplate}
-                on:updateSelection={({ detail }) => {
-                    placeTemplate = detail;
-                }}
+                on:updateSelection={({ detail }) => (placeTemplate = detail)}
             />
-        </FieldWrapper>
-    {/if} -->
+        </Section>
+    {/if}
 
     {#if effects.length}
         <Section heading="Effects Config" --a5e-section-body-gap="0.5rem">
