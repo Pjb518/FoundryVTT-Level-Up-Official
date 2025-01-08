@@ -390,6 +390,7 @@ const conditions = {
 	blinded: 'A5E.ConditionBlinded',
 	bloodied: 'A5E.ConditionBloodied',
 	charmed: 'A5E.ConditionCharmed',
+	concentration: 'A5E.ConditionConcentration',
 	confused: 'A5E.ConditionConfused',
 	corruption: 'A5E.ConditionCorruption',
 	dazzled: 'A5E.ConditionDazzled',
