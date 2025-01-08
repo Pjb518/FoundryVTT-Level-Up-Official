@@ -1,105 +1,108 @@
 <script>
-import { localize } from '#runtime/util/i18n';
-import { getContext } from 'svelte';
+    import { localize } from "#runtime/util/i18n";
+    import { getContext } from "svelte";
 
-import getExpertiseDieSize from '../../../utils/getExpertiseDieSize';
-import prepareRollTooltip from '../../dataPreparationHelpers/cardRollTooltips/prepareRollTooltip';
+    import getExpertiseDieSize from "../../../utils/getExpertiseDieSize";
+    import prepareRollTooltip from "../../dataPreparationHelpers/cardRollTooltips/prepareRollTooltip";
 
-import DamageButtons from './DamageButtons.svelte';
-import RollConfigurationOptions from './RollConfigurationOptions.svelte';
+    import DamageButtons from "./DamageButtons.svelte";
+    import RollConfigurationOptions from "./RollConfigurationOptions.svelte";
 
-export let roll;
-export let rollData = {};
-export let isAction = true;
+    export let roll;
+    export let rollData = {};
+    export let isAction = true;
 
-function determineIfCriticalFailure(roll) {
-	const d20Roll = roll.terms.find((term) => term.faces === 20);
+    function determineIfCriticalFailure(roll) {
+        const d20Roll = roll.terms.find((term) => term.faces === 20);
 
-	if (!d20Roll) return false;
+        if (!d20Roll) return false;
 
-	return d20Roll.results.some(({ result, active }) => active && result === 1);
-}
+        return d20Roll.results.some(({ result, active }) => active && result === 1);
+    }
 
-function determineIfCriticalSuccess(roll) {
-	const d20Roll = roll.terms.find((term) => term.faces === 20);
+    function determineIfCriticalSuccess(roll) {
+        const d20Roll = roll.terms.find((term) => term.faces === 20);
 
-	if (!d20Roll) return false;
+        if (!d20Roll) return false;
 
-	return d20Roll.results.some(
-		({ result, active }) => active && result >= (rollData.critThreshold ?? 20),
-	);
-}
+        return d20Roll.results.some(
+            ({ result, active }) => active && result >= (rollData.critThreshold ?? 20),
+        );
+    }
 
-function getRollModeLabel({ rollMode }) {
-	if (!rollMode) return null;
+    function getRollModeLabel({ rollMode }) {
+        if (!rollMode) return null;
 
-	return localize(rollMode === 1 ? 'A5E.RollModeAdvantage' : 'A5E.RollModeDisadvantage');
-}
+        return localize(
+            rollMode === 1 ? "A5E.RollModeAdvantage" : "A5E.RollModeDisadvantage",
+        );
+    }
 
-function getExpertiseLabel({ expertiseDice }) {
-	if (!expertiseDice) return null;
+    function getExpertiseLabel({ expertiseDice }) {
+        if (!expertiseDice) return null;
 
-	return localize('A5E.ExpertiseDieSpecific', {
-		dieSize: getExpertiseDieSize(expertiseDice),
-	});
-}
+        return localize("A5E.ExpertiseDieSpecific", {
+            dieSize: getExpertiseDieSize(expertiseDice),
+        });
+    }
 
-async function rollOnSkillTable(skillKey, resultType) {
-	console.log('Here');
-	const tableKey = resultType === 'critical' ? 'skillCriticalTables' : 'skillFumbleTables';
+    async function rollOnSkillTable(skillKey, resultType) {
+        console.log("Here");
+        const tableKey =
+            resultType === "critical" ? "skillCriticalTables" : "skillFumbleTables";
 
-	const critTableUUID = CONFIG.A5E[tableKey]?.[skillKey];
-	const critTable = await fromUuid(critTableUUID);
+        const critTableUUID = CONFIG.A5E[tableKey]?.[skillKey];
+        const critTable = await fromUuid(critTableUUID);
 
-	if (!critTable) return;
+        if (!critTable) return;
 
-	const rollOutcome = await critTable.roll();
-	const result = rollOutcome?.results?.[0];
+        const rollOutcome = await critTable.roll();
+        const result = rollOutcome?.results?.[0];
 
-	const chatData = {
-		author: game.user?.id,
-		speaker: ChatMessage.getSpeaker({ actor }),
-		rolls: [rollOutcome.roll],
-		system: {
-			actorId: actor.uuid,
-			actorName: actor.name,
-			description: result?.text,
-			img: critTable?.img,
-			tableName: critTable?.name,
-			tableId: critTable.uuid,
-			resultTitle: result?.flags?.title,
-		},
-		type: 'rollTableOutput',
-	};
+        const chatData = {
+            author: game.user?.id,
+            speaker: ChatMessage.getSpeaker({ actor }),
+            rolls: [rollOutcome.roll],
+            system: {
+                actorId: actor.uuid,
+                actorName: actor.name,
+                description: result?.text,
+                img: critTable?.img,
+                tableName: critTable?.name,
+                tableId: critTable.uuid,
+                resultTitle: result?.flags?.title,
+            },
+            type: "rollTableOutput",
+        };
 
-	ChatMessage.applyRollMode(chatData, game.settings.get('core', 'rollMode'));
+        ChatMessage.applyRollMode(chatData, game.settings.get("core", "rollMode"));
 
-	return ChatMessage.create(chatData);
-}
+        return ChatMessage.create(chatData);
+    }
 
-async function toggleRollConfig() {
-	showRollConfig = !showRollConfig;
+    async function toggleRollConfig() {
+        showRollConfig = !showRollConfig;
 
-	if (showRollConfig) {
-		const messages = [...(game.messages ?? [])];
-		const lastMessage = messages[messages.length - 1];
+        if (showRollConfig) {
+            const messages = [...(game.messages ?? [])];
+            const lastMessage = messages[messages.length - 1];
 
-		if ($message.id === lastMessage?.id) {
-			setTimeout(() => ui.chat.scrollBottom(), 0);
-		}
-	}
-}
+            if ($message.id === lastMessage?.id) {
+                setTimeout(() => ui.chat.scrollBottom(), 0);
+            }
+        }
+    }
 
-let hideSkillCriticalPrompt = game.settings.get('a5e', 'hideSkillCriticalPrompt');
+    let hideSkillCriticalPrompt = game.settings.get("a5e", "hideSkillCriticalPrompt");
 
-let showRollConfig = false;
+    let showRollConfig = false;
 
-const message = getContext('message');
-const actor = fromUuidSync($message?.system.actorId);
-const { user } = game;
+    const message = getContext("message");
+    const actor = fromUuidSync($message?.system.actorId);
+    const { user } = game;
 
-$: isCriticalFailure = determineIfCriticalFailure(roll);
-$: isCriticalSuccess = determineIfCriticalSuccess(roll);
+    $: isCriticalFailure = determineIfCriticalFailure(roll);
+    $: isCriticalSuccess = determineIfCriticalSuccess(roll);
 </script>
 
 <div class="roll-container">
@@ -156,6 +159,10 @@ $: isCriticalSuccess = determineIfCriticalSuccess(roll);
     {/if}
 </div>
 
+{#if showRollConfig}
+    <RollConfigurationOptions {rollData} on:toggleRollMode on:toggleExpertiseDice />
+{/if}
+
 {#if !hideSkillCriticalPrompt && rollData.type === "skillCheck" && rollData.skillKey}
     {#if isCriticalSuccess}
         <button on:click={() => rollOnSkillTable(rollData.skillKey, "critical")}>
@@ -170,10 +177,6 @@ $: isCriticalSuccess = determineIfCriticalSuccess(roll);
             Roll on the skill critical failure table
         </button>
     {/if}
-{/if}
-
-{#if showRollConfig}
-    <RollConfigurationOptions {rollData} on:toggleRollMode on:toggleExpertiseDice />
 {/if}
 
 <style lang="scss">

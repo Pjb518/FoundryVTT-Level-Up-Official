@@ -1,42 +1,46 @@
 <script>
-import { localize } from '#runtime/util/i18n';
-import { getContext, onDestroy } from 'svelte';
+    import { localize } from "#runtime/util/i18n";
+    import { getContext, onDestroy } from "svelte";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import CreateMenu from '../actorUtilityBar/CreateMenu.svelte';
-import Filter from '../actorUtilityBar/Filter.svelte';
-import ItemCategory from '../ItemCategory.svelte';
-import Search from '../actorUtilityBar/Search.svelte';
-import ShowDescription from '../actorUtilityBar/ShowDescription.svelte';
-import Sort from '../actorUtilityBar/Sort.svelte';
-import TabFooter from '../TabFooter.svelte';
-import UtilityBar from '../actorUtilityBar/UtilityBar.svelte';
+    import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
+    import Filter from "../actorUtilityBar/Filter.svelte";
+    import ItemCategory from "../ItemCategory.svelte";
+    import Search from "../actorUtilityBar/Search.svelte";
+    import ShowDescription from "../actorUtilityBar/ShowDescription.svelte";
+    import Sort from "../actorUtilityBar/Sort.svelte";
+    import TabFooter from "../TabFooter.svelte";
+    import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
-import usesRequired from '../../../utils/usesRequired';
+    import usesRequired from "../../../utils/usesRequired";
 
-const actor = getContext('actor');
-const { features } = actor;
-const { A5E } = CONFIG;
+    const actor = getContext("actor");
+    const { features } = actor;
+    const { A5E } = CONFIG;
 
-const reducerType = 'features';
-const subTypes = A5E.featureTypes;
-const sortMap = CONFIG.A5E.reducerSortMap.features;
+    const reducerType = "features";
+    const subTypes = A5E.featureTypes;
+    const sortMap = CONFIG.A5E.reducerSortMap.features;
 
-let showDescription = false;
-let showUses = usesRequired(features);
+    const showFavorPoints = game.settings.get("a5e", "showFavorPoints") ?? false;
 
-$: favorPoints = $actor.system.attributes.favorPoints;
-$: menuList = Object.entries(subTypes);
-$: sortedFeatures = Object.entries($features._types).sort((a, b) => sortMap[a[0]] - sortMap[b[0]]);
+    let showDescription = false;
+    let showUses = usesRequired(features);
 
-const unsubscribe = features.subscribe((_) => {
-	showUses = usesRequired(features);
-});
+    $: favorPoints = $actor.system.attributes.favorPoints;
+    $: menuList = Object.entries(subTypes);
+    $: sortedFeatures = Object.entries($features._types).sort(
+        (a, b) => sortMap[a[0]] - sortMap[b[0]],
+    );
 
-onDestroy(() => {
-	unsubscribe();
-});
+    const unsubscribe = features.subscribe((_) => {
+        showUses = usesRequired(features);
+    });
+
+    onDestroy(() => {
+        unsubscribe();
+    });
 </script>
 
 {#if $actor.isOwner}
@@ -76,7 +80,7 @@ onDestroy(() => {
 </section>
 
 <TabFooter --padding-right="1rem">
-    {#if $actor.type === "character"}
+    {#if $actor.type === "character" && showFavorPoints}
         <div class="u-flex u-align-center u-gap-md">
             <h3 class="u-mb-0 u-text-sm u-text-bold">
                 {localize("A5E.FavorPoints")}
@@ -97,7 +101,9 @@ onDestroy(() => {
                         Number(target.value),
                     )}
             />
+
             /
+
             <span class="a5e-footer-group__value">
                 {favorPoints.max}
             </span>

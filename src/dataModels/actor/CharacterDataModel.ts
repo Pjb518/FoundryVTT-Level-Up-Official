@@ -174,6 +174,12 @@ const characterSchema = () => ({
 				return acc;
 			}, {}),
 		),
+		maxPrepared: new fields.NumberField({
+			required: true,
+			nullable: false,
+			initial: 0,
+			integer: true,
+		}),
 	}),
 	supply: new fields.NumberField({
 		required: true,

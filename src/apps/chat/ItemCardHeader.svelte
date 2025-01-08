@@ -1,37 +1,42 @@
 <script>
-import { createEventDispatcher, getContext } from 'svelte';
+    import { createEventDispatcher, getContext } from "svelte";
 
-import calculateHeaderTextColor from '../../utils/calculateHeaderTextColor';
-import zip from '../../utils/zip';
+    import calculateHeaderTextColor from "../../utils/calculateHeaderTextColor";
+    import zip from "../../utils/zip";
 
-export let actorName;
-export let img;
-export let messageDocument;
-export let subtitle = null;
+    export let actorName;
+    export let img;
+    export let messageDocument;
+    export let subtitle = null;
 
-const message = getContext('message');
+    const message = getContext("message");
 
-const headerBackgroundColor = messageDocument.author.color;
-const headerTextColor = calculateHeaderTextColor(headerBackgroundColor);
+    const headerBackgroundColor = messageDocument.author.color;
+    const headerTextColor = calculateHeaderTextColor(headerBackgroundColor);
 
-const { timeSince } = foundry.utils;
-const dispatch = createEventDispatcher();
+    const { timeSince } = foundry.utils;
+    const dispatch = createEventDispatcher();
 
-$: showCritDamageToggle = ($message?.system?.rollData ?? []).some(
-	(roll) => roll.type === 'damage' && (roll.canCrit ?? true) && roll.critRoll && roll.baseRoll,
-);
+    $: showCritDamageToggle = ($message?.system?.rollData ?? []).some(
+        (roll) =>
+            roll.type === "damage" &&
+            (roll.canCrit ?? true) &&
+            roll.critRoll &&
+            roll.baseRoll,
+    );
 
-$: critDamageEnabled = zip($message.rolls ?? [], $message?.system?.rollData ?? []).some(
-	([roll, rollData]) => {
-		if (rollData.type !== 'damage') return false;
-		if (!rollData.canCrit ?? true) return false;
-		if (!rollData.critRoll || !rollData.baseRoll) return false;
+    $: critDamageEnabled = zip(
+        $message.rolls ?? [],
+        $message?.system?.rollData ?? [],
+    ).some(([roll, rollData]) => {
+        if (rollData.type !== "damage") return false;
+        if (!rollData.canCrit ?? true) return false;
+        if (!rollData.critRoll || !rollData.baseRoll) return false;
 
-		if (rollData.baseRoll.formula === roll.formula) return false;
+        if (rollData.baseRoll.formula === roll.formula) return false;
 
-		return true;
-	},
-);
+        return true;
+    });
 </script>
 
 <header
