@@ -40,13 +40,12 @@ $: if ($item.system.interactionType === '') $item.system.interactionType = 'othe
         />
 
         {#if ["journey"].includes($item.system.interactionType)}
-            <FieldWrapper
-                heading="Critical Failure"
-            >
+            <FieldWrapper heading="Critical Failure">
                 <input
                     class="a5e-input a5e-input--slim"
                     type="text"
                     value={$item.system.journeyProperties.criticalFailure || ""}
+                    id={`${appId}-criticalFailure`}
                     on:change={({ target }) =>
                         updateDocumentDataFromField(
                             $item,

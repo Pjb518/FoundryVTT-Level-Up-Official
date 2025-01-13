@@ -5,6 +5,7 @@ import type SpellItemA5e from '../../documents/item/spell';
 
 import getBaseActionSummaryData from './getBaseActionSummaryData';
 import getFeatureSummaryData from './getFeatureSummaryData';
+import getJourneyActivitySummaryData from './getJourneyActivitySummaryData';
 import getManeuverSummaryData from './getManeuverSummaryData';
 import getObjectSummaryData from './getObjectSummaryData';
 import getSpellSummaryData from './getSpellSummaryData';
@@ -31,6 +32,8 @@ export default function getSummaryData(
 			mergeObject(summaryData, getObjectSummaryData(item as ObjectItemA5e, options));
 		else if (item.isType('spell'))
 			mergeObject(summaryData, getSpellSummaryData(item as SpellItemA5e, options));
+		else if (item.isType('interaction'))
+			mergeObject(summaryData, getJourneyActivitySummaryData(item, options));
 	}
 
 	return summaryData;

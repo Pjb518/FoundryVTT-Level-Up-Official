@@ -38,6 +38,22 @@
             field: "savingThrow",
             label: "A5E.ItemSavingThrow",
         },
+        {
+            field: "criticalFailure",
+            label: "A5E.InteractionJourneyCriticalFailure",
+        },
+        {
+            field: "failure",
+            label: "A5E.InteractionJourneyFailure",
+        },
+        {
+            field: "success",
+            label: "A5E.InteractionJourneySuccess",
+        },
+        {
+            field: "criticalSuccess",
+            label: "A5E.InteractionJourneyCriticalSuccess",
+        },
     ];
 
     export let summaryData = {};
