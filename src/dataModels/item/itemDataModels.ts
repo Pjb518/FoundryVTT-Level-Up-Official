@@ -5,6 +5,7 @@ import { A5ECultureData } from './CultureDataModel';
 import { A5EDestinyData } from './DestinyDataModel';
 import { A5EHeritageData } from './HeritageDataModel';
 
+import { A5EActivityData } from './ActivityDataModel';
 import { A5EFeatureData } from './FeatureDataModel';
 import { A5EManeuverData } from './ManeuverDataModel';
 import { A5EObjectData } from './ObjectDataModel';
@@ -18,6 +19,7 @@ const itemDataModels = {
 	destiny: A5EDestinyData,
 	heritage: A5EHeritageData,
 
+	activity: A5EActivityData,
 	feature: A5EFeatureData,
 	maneuver: A5EManeuverData,
 	object: A5EObjectData,
@@ -37,6 +39,7 @@ declare global {
 			destiny: A5EDestinyData;
 			heritage: A5EHeritageData;
 
+			activity: A5EActivityData;
 			feature: A5EFeatureData;
 			maneuver: A5EManeuverData;
 			object: A5EObjectData;

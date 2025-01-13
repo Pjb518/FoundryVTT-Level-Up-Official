@@ -93,7 +93,7 @@
             name: "macro",
             label: "A5E.TabMacro",
             component: ItemMacroTab,
-            display: ["feature", "maneuver", "object", "spell"].includes($item.type),
+            display: ["activity", "feature", "maneuver", "object", "spell"].includes($item.type),
         },
     ];
 

@@ -1,6 +1,7 @@
 <script>
 import { getContext } from 'svelte';
 
+import ActivityConfiguration from '../itemPropertiesConfig/ActivityConfiguration.svelte';
 import AmmunitionConfiguration from '../itemPropertiesConfig/AmmunitionConfiguration.svelte';
 import ArmorClassConfiguration from '../itemPropertiesConfig/ArmorClassConfiguration.svelte';
 import ArmorConfiguration from '../itemPropertiesConfig/ArmorConfiguration.svelte';
@@ -21,6 +22,8 @@ const item = getContext('item');
     {#if $item.type === "feature"}
         <FeatureConfiguration />
         <ArmorClassConfiguration />
+    {:else if $item.type === "activity"}
+        <ActivityConfiguration />
     {:else if $item.type === "maneuver"}
         <ManeuverConfiguration />
     {:else if $item.type === "object"}

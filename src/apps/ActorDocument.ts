@@ -1,6 +1,7 @@
 import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
 
 import { ActorActiveEffectMapReducer } from './reducers/ActiveEffectMapReducer';
+import ActivityMapReducer from './reducers/ActivityMapReducer';
 import FavoriteMapReducer from './reducers/FavoriteMapReducer';
 import FeatureMapReducer from './reducers/FeatureMapReducer';
 import ManeuverMapReducer from './reducers/ManeuverMapReducer';
@@ -9,6 +10,8 @@ import SpellMapReducer from './reducers/SpellMapReducer';
 
 export default class ActorDocument extends TJSDocument {
 	#activeEffects;
+
+	#activities;
 
 	#favorites;
 
@@ -24,6 +27,7 @@ export default class ActorDocument extends TJSDocument {
 		super(doc, options);
 
 		this.#activeEffects = this.embedded.create(ActiveEffect, ActorActiveEffectMapReducer);
+		this.#activities = this.embedded.create(Item, ActivityMapReducer);
 		this.#favorites = this.embedded.create(Item, FavoriteMapReducer);
 		this.#features = this.embedded.create(Item, FeatureMapReducer);
 		this.#maneuvers = this.embedded.create(Item, ManeuverMapReducer);
@@ -33,6 +37,10 @@ export default class ActorDocument extends TJSDocument {
 
 	get activeEffects() {
 		return this.#activeEffects;
+	}
+
+	get activities() {
+		return this.#activities;
 	}
 
 	get favorites() {

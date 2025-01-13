@@ -521,6 +521,11 @@ const expertiseDiceSidesMap = {
 	6: 20,
 };
 
+const activityTypes = {
+	journey: 'A5E.ActivityJourney',
+	other: 'A5E.ActivityOther',
+};
+
 const featureTypes = {
 	background: 'A5E.FeatureBackground',
 	boon: 'A5E.FeatureBoon',
@@ -2049,6 +2054,7 @@ const A5E = {
 	defaultActorImportCompendia,
 	equippedStates,
 	expertiseDiceSidesMap,
+	activityTypes,
 	featureTypes,
 	healingTypes,
 	healingColors,
