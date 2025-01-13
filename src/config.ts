@@ -521,11 +521,6 @@ const expertiseDiceSidesMap = {
 	6: 20,
 };
 
-const activityTypes = {
-	journey: 'A5E.ActivityJourney',
-	other: 'A5E.ActivityOther',
-};
-
 const featureTypes = {
 	background: 'A5E.FeatureBackground',
 	boon: 'A5E.FeatureBoon',
@@ -583,9 +578,15 @@ const itemTypes = {
 	culture: 'TYPES.Item.culture',
 	destiny: 'TYPES.Item.destiny',
 	feature: 'TYPES.Item.feature',
+	interaction: 'TYPES.Item.interaction',
 	maneuver: 'TYPES.Item.maneuver',
 	object: 'TYPES.Item.object',
 	spell: 'TYPES.Item.spell',
+};
+
+const interactionTypes = {
+	journey: 'A5E.InteractionJourney',
+	other: 'A5E.InteractionOther',
 };
 
 /**
@@ -2054,13 +2055,13 @@ const A5E = {
 	defaultActorImportCompendia,
 	equippedStates,
 	expertiseDiceSidesMap,
-	activityTypes,
 	featureTypes,
 	healingTypes,
 	healingColors,
 	itemRarity,
 	itemTechLevels,
 	itemTypes,
+	interactionTypes,
 	inventoryFilters,
 	knackTypes,
 	languages,

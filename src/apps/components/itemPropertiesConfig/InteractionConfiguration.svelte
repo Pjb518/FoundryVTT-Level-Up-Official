@@ -2,7 +2,6 @@
 import { getContext } from 'svelte';
 import { localize } from '#runtime/util/i18n';
 
-import Checkbox from '../Checkbox.svelte';
 import FieldWrapper from '../FieldWrapper.svelte';
 import RadioGroup from '../RadioGroup.svelte';
 
@@ -11,13 +10,15 @@ import Section from '../Section.svelte';
 
 const item = getContext('item');
 const appId = getContext('appId');
-const { activityTypes } = CONFIG.A5E;
+const { interactionTypes } = CONFIG.A5E;
 
 let editMode = false;
+
+$: if ($item.system.interactionType === '') $item.system.interactionType = 'other';
 </script>
 
 <Section
-    heading="A5E.TabActivityProperties"
+    heading="A5E.TabInteractionProperties"
     headerButtons={[
         {
             classes: `fa-solid ${editMode ? "fa-chevron-up" : "fa-edit"}`,
@@ -30,15 +31,15 @@ let editMode = false;
 >
     {#if editMode}
         <RadioGroup
-            heading="A5E.ActivityTypePrompt"
-            options={Object.entries(activityTypes)}
-            selected={$item.system.activityType}
+            heading="A5E.InteractionTypePrompt"
+            options={Object.entries(interactionTypes)}
+            selected={$item.system.interactionType}
             allowDeselect={true}
             on:updateSelection={(event) =>
-                updateDocumentDataFromField($item, "system.activityType", event.detail)}
+                updateDocumentDataFromField($item, "system.interactionType", event.detail)}
         />
 
-        {#if ["journey"].includes($item.system.activityType)}
+        {#if ["journey"].includes($item.system.interactionType)}
             <FieldWrapper
                 heading="Critical Failure"
             >
@@ -107,11 +108,11 @@ let editMode = false;
         <dl class="a5e-box u-flex u-flex-col u-gap-sm u-m-0 u-p-md u-text-sm">
             <div class="u-flex u-gap-md">
                 <dt class="u-text-bold">
-                    {localize("A5E.ActivityTypePrompt")}:
+                    {localize("A5E.InteractionTypePrompt")}:
                 </dt>
 
                 <dd class="u-m-0 u-p-0">
-                    {localize(activityTypes[$item.system.activityType]) ?? localize("A5E.None")}
+                    {localize(interactionTypes[$item.system.interactionType]) ?? localize("A5E.None")}
                 </dd>
             </div>
         </dl>

@@ -6,7 +6,7 @@ import { actions, uses } from './common';
 const { fields } = foundry.data;
 
 const schema = {
-	activityType: new fields.StringField({ required: true, initial: '' }),
+	interactionType: new fields.StringField({ required: true, initial: 'other' }),
 	journeyProperties: new fields.ArrayField(
 		new fields.SchemaField({
 			criticalFailure: new fields.StringField({ required: false, initial: '' }),
@@ -17,19 +17,19 @@ const schema = {
 	),
 };
 
-declare namespace A5EActivityData {
+declare namespace A5EInteractionData {
 	type Schema = A5EBaseItemData.Schema & ActionsData & UsesData & typeof schema;
 	type BaseData = A5EBaseItemData.BaseData;
 	type DerivedData = A5EBaseItemData.DerivedData;
 }
 
-class A5EActivityData extends A5EBaseItemData<
-	A5EActivityData.Schema,
-	A5EActivityData.BaseData,
-	A5EActivityData.DerivedData
+class A5EInteractionData extends A5EBaseItemData<
+	A5EInteractionData.Schema,
+	A5EInteractionData.BaseData,
+	A5EInteractionData.DerivedData
 > {
 	/** @inheritDoc */
-	static override defineSchema(): A5EActivityData.Schema {
+	static override defineSchema(): A5EInteractionData.Schema {
 		return {
 			...super.defineSchema(),
 			...actions(),
@@ -40,4 +40,4 @@ class A5EActivityData extends A5EBaseItemData<
 }
 
 // eslint-disable-next-line import/prefer-default-export
-export { A5EActivityData };
+export { A5EInteractionData };

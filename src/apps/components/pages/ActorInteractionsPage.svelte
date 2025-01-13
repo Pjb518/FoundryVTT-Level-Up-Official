@@ -16,13 +16,13 @@
             ...currentSettings,
             [uuid]: {
                 ...(currentSettings[uuid] ?? {}),
-                currentActivityTab: name,
+                currentInteractionTab: name,
             },
         }));
     }
     
     const actor = getContext('actor');
-    const { activities } = actor;
+    const { interactions } = actor;
     
     const tabs = {
         journey: {
@@ -35,11 +35,11 @@
     };
 
     let showDescription = false;
-    let showUses = usesRequired(activities);
+    let showUses = usesRequired(interactions);
     let tempSettings = {};
 
-    const unsubscribe = activities.subscribe((_) => {
-	    showUses = usesRequired(activities);
+    const unsubscribe = interactions.subscribe((_) => {
+	    showUses = usesRequired(interactions);
     });
 
     onDestroy(() => {
@@ -51,7 +51,7 @@
     });
 
     let currentTab =
-        tempSettings[$actor?.uuid]?.currentActivityTab ?? 'journey';
+        tempSettings[$actor?.uuid]?.currentInteractionTab ?? 'journey';
 
 </script>
 
@@ -61,10 +61,10 @@
     <section class="a5e-page-wrapper a5e-page-wrapper--item-list">
         <ItemCategory
             label={tabs[currentTab].label}
-            items={[...$activities].filter((activity) => activity.system.activityType === currentTab).sort((a, b) => a.sort - b.sort)}
+            items={[...$interactions].filter((interaction) => interaction.system.interactionType === currentTab).sort((a, b) => a.sort - b.sort)}
             {showDescription}
             {showUses}
-            type="activity"
+            type="interaction"
         />
     </section>
 </div>
