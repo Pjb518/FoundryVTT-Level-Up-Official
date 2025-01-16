@@ -1,0 +1,155 @@
+{
+	"folder": null,
+	"name": "Hunt and Gather",
+	"type": "interaction",
+	"img": "icons/skills/trades/fishing-rod-gray.webp",
+	"system": {
+		"description": "<p>It’s often fruitful for an adventurer to track and kill game, or forage for food and water, along the road with a Survival check.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "trialsAndTreasures",
+		"actions": {
+			"gUHZxO77Z7LhHkmc": {
+				"name": "Hunt and Gather",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "day",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [
+					"yMqLOnB04RuFn1wq"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"dsguK2sX4X3O9h80": {
+						"type": "skillCheck",
+						"default": true,
+						"skill": "sur",
+						"ability": "wis",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "journey",
+		"journeyProperties": {
+			"criticalFailure": "The adventurer gains toxic Supply, and the entire party suffers a level of fatigue.",
+			"failure": "The adventurer gains no Supply.",
+			"success": "The adventurer gains 1 Supply per day spent doing this journey activity.",
+			"criticalSuccess": "The adventurer gains double the Supply."
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.M172EZB6hTucbEz0",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Hunt and Gather Critical Failure",
+			"img": "icons/skills/trades/fishing-rod-gray.webp",
+			"_id": "yMqLOnB04RuFn1wq",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737058599938,
+				"modifiedTime": 1737058615838,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.4",
+		"createdTime": 1737058533144,
+		"modifiedTime": 1737058978106,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "W4f0evzCnTV6jR8U"
+}
