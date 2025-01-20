@@ -1,0 +1,148 @@
+{
+	"folder": null,
+	"name": "Prone",
+	"type": "interaction",
+	"img": "icons/skills/ranged/projectile-strike-impale-gray.webp",
+	"system": {
+		"description": "<p>Falling down on the ground is often a consequence of action, but it can also be an effective strategy in the heat of the moment while bolts of lightning whiz overhead. You can drop [[/condition id=prone]] without using any movement. You can also drop prone as a reaction to being targeted by a ranged attack you can see.</p>\n<p>While you are prone:</p>\n<ul>\n<li>Your only movement option is to crawl (every 1 foot of movement while crawling costs 1 extra foot) until you stand up.</li>\n<li>Standing up requires half your movement.</li>\n<li>You have disadvantage on melee attack rolls.</li>\n<li>An attack roll against you is made with advantage if the attacker is within 5 feet. Otherwise, the attack roll is made with disadvantage.</li>\n</ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "",
+		"actions": {
+			"Dq1KrdDYRIk8oRoP": {
+				"name": "Prone",
+				"activation": {
+					"type": "reaction",
+					"reactionTrigger": "Targeted by a ranged attack you can see",
+					"cost": 1
+				},
+				"effects": [
+					"sZeJZGJ7j8Nzf4PH"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "basicAction",
+		"journeyProperties": {
+			"criticalFailure": "",
+			"failure": "",
+			"success": "",
+			"criticalSuccess": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.ayS9uapUzpDhDPVd",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Prone",
+			"img": "icons/skills/ranged/projectile-strike-impale-gray.webp",
+			"_id": "sZeJZGJ7j8Nzf4PH",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>Your only movement option is to crawl (every 1 foot of movement while crawling costs 1 extra foot) until you stand up.</li>\n<li>Standing up requires half your movement.</li>\n<li>You have disadvantage on melee attack rolls.</li>\n<li>An attack roll against you is made with advantage if the attacker is within 5 feet. Otherwise, the attack roll is made with disadvantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737126042184,
+				"modifiedTime": 1737126058679,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.4",
+		"createdTime": 1737125900313,
+		"modifiedTime": 1737126042239,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "oWSbMQvA4srtcMEa"
+}

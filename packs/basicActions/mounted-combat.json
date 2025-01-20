@@ -1,0 +1,308 @@
+{
+	"folder": null,
+	"name": "Mounted Combat",
+	"type": "interaction",
+	"img": "icons/environment/people/cavalry.webp",
+	"system": {
+		"description": "<p>A creature can ride on top of another creature at least one size larger than its own, provided the bigger creature can support its weight. Mounting or dismounting a creature costs half your movement and can be performed once per turn.</p>\n<p><strong>While you are mounted on a creature:</strong></p>\n<ul>\n<li>You have half cover (+2 to AC, Dexterity saving throws, and ability checks made to hide) against melee attacks.</li>\n<li>You have advantage on ability checks to leap off the creature you’re riding.</li>\n<li>If you are knocked [[/condition id=prone]], you must succeed on a [[/save dc=10 ability=dex]] or fall prone in a space within 5 feet of the creature you’re riding.</li>\n<li>If the creature you’re riding is knocked prone, you can use your reaction to dismount and land on your feet. Otherwise, you also fall prone.</li>\n</ul>\n<p><strong>While you are being ridden by another creature:</strong></p>\n<ul>\n<li>You have advantage on ability checks to throw the creature riding you.</li>\n</ul>\n<p>If you’re riding another creature that you have control of, you use its Speed instead of your own, and you and your mount share movement on your turn. When moving after you’ve jumped onto or off the creature, remember that mounting or dismounting costs half your Speed .</p>\n<p>A mounted creature under your control can take the Dash, Disengage, or Dodge action during your movement on your turn.</p>\n<p>Alternatively, you can use a bonus action to command the creature to make an ability check or take the Attack action (this does not include Multiattack). You can read more about these actions later in this chapter.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "",
+		"actions": {
+			"vzgGnaq4xirEXXX9": {
+				"name": "Mounting",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "turn",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"effects": [
+					"s8HeAowEIWyZoKl3"
+				],
+				"id": "vzgGnaq4xirEXXX9",
+				"img": "icons/environment/people/cavalry.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"Armv2BT1Hny7pyha": {
+				"name": "Dismounting",
+				"uses": {
+					"value": 1,
+					"max": "1",
+					"per": "turn",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				},
+				"id": "Armv2BT1Hny7pyha",
+				"img": "icons/environment/people/cavalry.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				}
+			},
+			"hd2whoBF9EZJuQj8": {
+				"name": "Ridden",
+				"effects": [
+					"Cl4MddecHkCXYLJp"
+				],
+				"id": "hd2whoBF9EZJuQj8",
+				"img": "icons/environment/people/cavalry.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"SwBCAavlefd1l4lF": {
+				"name": "Command Creature",
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "basicAction",
+		"journeyProperties": {
+			"criticalFailure": "",
+			"failure": "",
+			"success": "",
+			"criticalSuccess": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.b0Uq4Q80CFJB2NL1",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Mounted",
+			"img": "icons/environment/people/cavalry.webp",
+			"_id": "s8HeAowEIWyZoKl3",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>You have half cover (+2 to AC, Dexterity saving throws, and ability checks made to hide) against melee attacks.</li>\n<li>You have advantage on ability checks to leap off the creature you’re riding.</li>\n<li>If you are knocked prone, you must succeed on a DC 10 Dexterity saving throw or fall prone in a space within 5 feet of the creature you’re riding.</li>\n<li>If the creature you’re riding is knocked prone, you can use your reaction to dismount and land on your feet. Otherwise, you also fall prone.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737063467377,
+				"modifiedTime": 1737063529896,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.b0Uq4Q80CFJB2NL1",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Ridden",
+			"img": "icons/environment/people/cavalry.webp",
+			"_id": "Cl4MddecHkCXYLJp",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You have advantage on ability checks to throw the creature riding you.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737063606317,
+				"modifiedTime": 1737063618932,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.4",
+		"createdTime": 1737063232019,
+		"modifiedTime": 1737063774977,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ZO3klo3vCYSGBuDu"
+}
