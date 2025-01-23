@@ -3,7 +3,7 @@ import { localize } from '#runtime/util/i18n';
 import { ActionsManager } from '../managers/ActionsManager';
 
 export default async function createEffect(document, { effectType, actionId }) {
-	const action = document?.actions.get(actionId) ?? {};
+	const action = document?.actions?.get(actionId) ?? {};
 
 	const updateData = {
 		label: localize('A5E.effects.new'),
