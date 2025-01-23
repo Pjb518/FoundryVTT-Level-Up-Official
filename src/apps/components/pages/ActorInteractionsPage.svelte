@@ -38,6 +38,10 @@
         basicAction: {
             label: 'Basic Actions',
         },
+        downtime: {
+            label: 'Downtime Activities',
+            display: $actor.type === 'character',
+        },
         journey: {
             label: 'Journey Activities',
             display: $actor.type === 'character',

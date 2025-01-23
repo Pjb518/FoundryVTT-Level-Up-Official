@@ -586,6 +586,7 @@ const itemTypes = {
 
 const interactionTypes = {
 	basicAction: 'A5E.InteractionBasicAction',
+	downtime: 'A5E.InteractionDowntime',
 	journey: 'A5E.InteractionJourney',
 	other: 'A5E.InteractionOther',
 };
