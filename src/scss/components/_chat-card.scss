@@ -1,6 +1,7 @@
 .a5e-chat-card {
   padding: 0;
-  color: var(--a5e-color-text-dark);
+  background: var(--a5e-color-background-light) !important;
+  color: var(--a5e-color-text-dark) !important;
   border: 0;
 
   &--hidden {
@@ -8,7 +9,6 @@
   }
 
   &__body {
-    background-color: var(--a5e-color-background-light);
     border: 1px solid var(--a5e-user-background-color);
     border-top: 0;
     padding-top: 0.5rem;
@@ -52,6 +52,15 @@
         text-overflow: ellipsis;
       }
     }
+  }
+
+  &__footer {
+    // background-color: var(--a5e-color-background-light);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-inline: 0.25rem;
+    padding-bottom: 0.25rem;
   }
 
   &__header {
