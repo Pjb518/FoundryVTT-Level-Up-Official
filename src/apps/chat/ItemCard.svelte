@@ -227,7 +227,7 @@
     const { isGM } = game.user;
     const { A5E } = CONFIG;
 
-    const item = $message.item;
+    const item = $message?.item;
     const prompts = preparePrompts($message);
     const hasPrompts = Object.values(prompts).flat().length;
     const rolls = prepareRolls($message);
@@ -240,16 +240,16 @@
 
     let hideDescription =
         game.settings.get("a5e", "hideChatDescriptionsByDefault") ?? false;
-    let backgroundColor = $message.blind
+    let backgroundColor = $message?.blind
         ? "#f5eaf5"
-        : $message.whisper.length
+        : $message?.whisper?.length
           ? "#e8e8ef"
           : "#f6f1ea";
 
     setContext("message", message);
 
     $: hoverColor = getHoverColor($pressedKeysStore);
-    $: summaryData = $message.system.summaryData;
+    $: summaryData = $message?.system?.summaryData;
 </script>
 
 <ItemCardHeader
@@ -346,7 +346,7 @@
                         {#each prompts[promptType] as prompt}
                             <PromptButton
                                 {prompt}
-                                title={getPromptTitle(prompt, $message?.system.actorId)}
+                                title={getPromptTitle(prompt, $message?.system?.actorId)}
                                 subtitle={getPromptSubtitle(prompt)}
                                 --hover-color={hoverColor}
                                 on:triggerPrompt={() => triggerPrompt(prompt)}

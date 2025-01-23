@@ -14,10 +14,10 @@
     const { timeSince } = foundry.utils;
     const dispatch = createEventDispatcher();
     const isGM = game.user.isGM;
-    const isOwner = $message.author.id === game.userId;
+    const isOwner = $message?.author.id === game.userId;
 
-    $: actor = $message.actor;
-    $: token = $message.token;
+    $: actor = $message?.actor;
+    $: token = $message?.token;
 
     $: img = token?.texture?.src ?? actor?.img ?? "";
     $: actorName = token?.name ?? actor?.name ?? "";
@@ -31,7 +31,7 @@
     );
 
     $: critDamageEnabled = zip(
-        $message.rolls ?? [],
+        $message?.rolls ?? [],
         $message?.system?.rollData ?? [],
     ).some(([roll, rollData]) => {
         if (rollData.type !== "damage") return false;
@@ -62,7 +62,7 @@
     </span>
 
     <time class="message-timestamp a5e-chat-card__header__time">
-        {timeSince(messageDocument.timestamp)}
+        {timeSince(messageDocument?.timestamp)}
     </time>
 
     {#if isGM || isOwner}
