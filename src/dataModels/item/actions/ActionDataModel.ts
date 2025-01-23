@@ -25,7 +25,7 @@ const actionSchema = () => ({
 
 	duration: new fields.SchemaField({
 		unit: new fields.StringField({ required: true, nullable: false, initial: '' }),
-		value: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		value: new fields.StringField({ required: true, nullable: false, initial: '0' }),
 	}),
 
 	effects: new fields.SetField(
