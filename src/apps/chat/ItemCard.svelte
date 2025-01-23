@@ -196,13 +196,18 @@
     const { actionDescription, itemDescription, unidentifiedDescription } = system;
 
     const { isGM } = game.user;
-    const item = fromUuidSync($message.system.itemId ?? "");
+
+    const item = $message.item;
     const prompts = preparePrompts($message);
     const hasPrompts = Object.values(prompts).flat().length;
     const rolls = prepareRolls($message);
     const hasRolls = rolls.length;
-    const effects = system.effects.map((id) => item.effects.get(id));
+    const effects = system.effects.map((id) => item?.effects.get(id));
     const hasEffects = !!effects.length;
+
+    const itemName = item.name ?? "";
+    let subtitle = getSubtitle(itemName, actionName);
+
     let hideDescription =
         game.settings.get("a5e", "hideChatDescriptionsByDefault") ?? false;
     let backgroundColor = $message.blind
@@ -218,16 +223,32 @@
 </script>
 
 <ItemCardHeader
-    {actorName}
-    {img}
     messageDocument={$message}
-    subtitle={getSubtitle(actorName, actionName)}
     on:repeatCard={repeatRoll}
     on:toggleDescription={() => (hideDescription = !hideDescription)}
     on:toggleCriticalDamage={toggleCriticalDamage}
 />
 
 <article class="a5e-chat-card__body" style="background-color: {backgroundColor};">
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <header
+        class="a5e-chat-card__body__header a5e-chat-card__body__header--clickable"
+        class:a5e-chat-card__body__header--subtitle={!!subtitle}
+        role="button"
+        tabindex="0"
+        on:click={() => (hideDescription = !hideDescription)}
+    >
+        <img class="a5e-chat-card__body__header__img" src={img} alt={itemName} />
+
+        <span class="a5e-chat-card__body__header__title-container">
+            <h2 class="a5e-chat-card__body__header__title">{itemName}</h2>
+
+            {#if subtitle}
+                <h3 class="a5e-chat-card__body__header__subtitle">{subtitle}</h3>
+            {/if}
+        </span>
+    </header>
+
     {#if Object.values(summaryData ?? {}).some(Boolean)}
         <ItemSummary {summaryData} />
     {/if}

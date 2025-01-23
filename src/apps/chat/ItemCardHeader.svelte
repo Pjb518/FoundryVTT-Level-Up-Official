@@ -4,10 +4,7 @@
     import calculateHeaderTextColor from "../../utils/calculateHeaderTextColor";
     import zip from "../../utils/zip";
 
-    export let actorName;
-    export let img;
     export let messageDocument;
-    export let subtitle = null;
 
     const message = getContext("message");
 
@@ -16,6 +13,12 @@
 
     const { timeSince } = foundry.utils;
     const dispatch = createEventDispatcher();
+
+    $: actor = $message.actor;
+    $: token = $message.token;
+
+    $: img = token?.texture?.src ?? actor?.img ?? "";
+    $: actorName = token?.name ?? actor?.name ?? "";
 
     $: showCritDamageToggle = ($message?.system?.rollData ?? []).some(
         (roll) =>
@@ -39,9 +42,9 @@
     });
 </script>
 
+<!-- TODO: Display Token when hovered -->
 <header
     class="a5e-chat-card__header a5e-chat-card__header--item"
-    class:a5e-chat-card__header--item-subtitle={!!subtitle}
     style="--a5e-user-background-color: {headerBackgroundColor}; --a5e-user-text-color: {headerTextColor};"
 >
     <img class="a5e-chat-card__header__img" src={img} alt={actorName} />
@@ -55,10 +58,6 @@
     >
         {actorName}
     </span>
-
-    {#if subtitle}
-        <span class="a5e-chat-card__header__subtitle">{subtitle}</span>
-    {/if}
 
     <time class="message-timestamp a5e-chat-card__header__time">
         {timeSince(messageDocument.timestamp)}

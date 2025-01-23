@@ -36,7 +36,7 @@ class ChatMessageA5e extends ChatMessage {
 		const { actor } = this;
 		if (!actor) return undefined;
 
-		return actor.token ?? undefined;
+		return actor.token ?? actor.getActiveTokens()?.[0]?.document ?? undefined;
 	}
 
 	/** ------------------------------------------------------ */
