@@ -188,6 +188,10 @@
         </section>
     {/if}
 
+    <Section --a5e-section-body-gap="0.5rem">
+        <OutputVisibilitySection bind:visibilityMode />
+    </Section>
+
     {#if showAttackRoll}
         <Section heading="Attack Roll Config" --a5e-section-body-gap="0.5rem">
             <OutputVisibilitySection bind:visibilityMode />

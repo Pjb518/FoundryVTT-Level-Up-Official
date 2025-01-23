@@ -10,6 +10,7 @@ import TokenDocumentA5e from '../documents/tokenDocument';
 
 import ActorProxy from '../documents/actor/actorProxy';
 import ItemProxy from '../documents/item/itemProxy';
+import { ChatMessageA5e } from '../documents/chatMessage';
 
 // Canvas
 import prepareDetectionModes from '../pixi/visionModes/prepareDetectionModes';
@@ -81,6 +82,7 @@ export default function init() {
 	// @ts-expect-error
 	CONFIG.Actor.documentClass = ActorProxy;
 	CONFIG.Actor.trackableAttributes = trackableAttributes;
+	CONFIG.ChatMessage.documentClass = ChatMessageA5e;
 	CONFIG.Item.documentClass = ItemProxy;
 	CONFIG.Token.documentClass = TokenDocumentA5e;
 	CONFIG.Token.objectClass = TokenA5e;
