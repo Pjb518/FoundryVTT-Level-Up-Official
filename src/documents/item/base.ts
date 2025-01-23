@@ -100,7 +100,7 @@ class BaseItemA5e extends Item {
 		if (!this.actor || !this?.actor.isOwner) return;
 
 		if (this.actor?.getFlag('a5e', 'automaticallyExecuteAvailableMacros') ?? true) {
-      // @ts-expect-error
+			// @ts-expect-error
 			options.executeMacro ??= this.system.macro.trim().length > 0;
 		}
 
@@ -206,15 +206,17 @@ class BaseItemA5e extends Item {
 	}
 
 	async revitalize(options: RevitalizeOptions = {}): Promise<Record<string, any> | null> {
-		// Confirmation Dialog
-		const confirm = await foundry.applications.api.DialogV2.confirm({
-			// @ts-expect-error
-			window: { title: `Confirm Revitalize - ${this.name}` },
-			content: '<p>Confirm updating item from compendium source?</p>',
-			modal: true,
-		});
+		if (!options.skipDialog) {
+			// Confirmation Dialog
+			const confirm = await foundry.applications.api.DialogV2.confirm({
+				// @ts-expect-error
+				window: { title: `Confirm Revitalize - ${this.name}` },
+				content: '<p>Confirm updating item from compendium source?</p>',
+				modal: true,
+			});
 
-		if (!confirm) return null;
+			if (!confirm) return null;
+		}
 
 		options.notify ??= true;
 		options.update ??= true;

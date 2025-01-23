@@ -13,6 +13,7 @@ export interface ClassCastingData {
 export interface RevitalizeOptions {
 	nameMatch?: boolean;
 	notify?: boolean;
+	skipDialog?: boolean;
 	update?: boolean;
 	updateEffects?: boolean;
 	updateImg?: boolean;
