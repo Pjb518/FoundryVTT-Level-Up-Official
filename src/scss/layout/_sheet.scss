@@ -1,14 +1,23 @@
 .a5e-sheet {
+  background-image: unset;
+
   main {
-    background: var(--a5e-color-background-sheet);
     height: 100%;
+  }
+
+  input {
+    color: var(--a5e-color-text-dark);
+
+    &::placeholder {
+      color: var(--a5e-color-text-medium);
+    }
   }
 
   .dialog-content {
     height: 100%;
   }
 
-  &--actor {
+  --actor {
     min-width: 50rem;
     min-height: 43.25rem;
   }
@@ -32,7 +41,13 @@
     min-width: 40rem;
   }
 
+  .window-header {
+    background-image: url('ui/denim075.png');
+  }
+
   .window-content {
+    background: var(--a5e-sheet-background-color);
+    color: var(--a5e-color-text-dark);
     padding: 0;
     overflow-y: hidden;
   }
