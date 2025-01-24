@@ -74,11 +74,11 @@
         box-shadow: none;
 
         &:hover .die {
-            color: var(--a5e-chat-card-color-dark);
+            color: var(--a5e-chat-card-color);
         }
 
         &:hover .die--generic-prompt {
-            color: var(--a5e-chat-card-color-dark);
+            color: var(--a5e-chat-card-color);
         }
     }
 
