@@ -17,18 +17,12 @@
     const { tableName, tableId, resultTitle, img, description } = system;
     const rolls = prepareRolls($message);
 
-    let backgroundColor = $message.blind
-        ? "#f5eaf5"
-        : $message.whisper.length
-          ? "#e8e8ef"
-          : "#f6f1ea";
-
     setContext("message", message);
 </script>
 
 <RollTableCardHeader {tableName} {img} messageDocument={$message} />
 
-<article class="a5e-chat-card__body" style="background-color: {backgroundColor};">
+<article class="a5e-chat-card__body">
     <h3 class="">{resultTitle}</h3>
 
     <hr class="a5e-rule a5e-rule--card" />

@@ -53,18 +53,13 @@
 
     const { actorName, img } = system;
     const rolls = prepareRolls($message);
-    let backgroundColor = $message.blind
-        ? "#f5eaf5"
-        : $message.whisper.length
-          ? "#e8e8ef"
-          : "#f6f1ea";
 
     setContext("message", message);
 </script>
 
 <RollCardHeader {actorName} {img} messageDocument={$message} on:repeatCard={repeatRoll} />
 
-<article class="a5e-chat-card__body" style="background-color: {backgroundColor};">
+<article class="a5e-chat-card__body">
     <section class="rolls">
         {#each rolls ?? [] as [roll, rollData], i}
             <RollSummary
