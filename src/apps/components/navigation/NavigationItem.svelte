@@ -1,12 +1,12 @@
 <script>
-import { createEventDispatcher } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { createEventDispatcher } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-export let currentTab;
-export let index;
-export let tab;
+    export let currentTab;
+    export let index;
+    export let tab;
 
-const dispatch = createEventDispatcher();
+    const dispatch = createEventDispatcher();
 </script>
 
 <li>
@@ -26,6 +26,7 @@ const dispatch = createEventDispatcher();
 <style lang="scss">
     .nav {
         &-icon {
+            color: var(--a5e-primary-nav-item-color);
             font-size: var(--a5e-text-size-sm);
         }
 
@@ -47,7 +48,7 @@ const dispatch = createEventDispatcher();
             }
 
             &-active {
-                color: #fedd9e;
+                color: var(--a5e-primary-nav-item-color);
                 position: relative;
 
                 &:after {
@@ -59,7 +60,7 @@ const dispatch = createEventDispatcher();
                     height: 0;
                     border-left: 3px solid transparent;
                     border-right: 3px solid transparent;
-                    border-bottom: 3px solid #fedd9e;
+                    border-bottom: 3px solid var(--a5e-primary-nav-item-color);
                     transform: translateX(-50%);
                 }
 
