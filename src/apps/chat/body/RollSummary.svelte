@@ -190,7 +190,7 @@
         width: 2.5rem;
         font-size: var(--a5e-text-size-lg);
         font-weight: 700;
-        border: 0.5px solid var(--a5e-roll-color, #ccc);
+        border: 0.5px solid var(--a5e-roll-color, var(--a5e-chat-card-border-color));
         border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
 
@@ -254,7 +254,7 @@
         line-height: 1;
         color: var(--a5e-color-text-medium);
         background: rgba(0, 0, 0, 0.05);
-        border: 1px solid #ccc;
+        border: 1px solid var(--a5e-chat-card-border-color);
         border-radius: var(--a5e-border-radius-standard);
 
         transition: var(--a5e-transition-standard);

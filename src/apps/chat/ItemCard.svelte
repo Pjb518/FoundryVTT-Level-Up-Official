@@ -241,11 +241,12 @@
 
     let hideDescription =
         game.settings.get("a5e", "hideChatDescriptionsByDefault") ?? false;
+
     let backgroundColor = $message?.blind
-        ? "#f5eaf5"
+        ? "blind"
         : $message?.whisper?.length
-          ? "#e8e8ef"
-          : "#f6f1ea";
+          ? "whisper"
+          : "regular";
 
     setContext("message", message);
 
@@ -260,7 +261,7 @@
     on:toggleCriticalDamage={toggleCriticalDamage}
 />
 
-<article class="a5e-chat-card__body" style="background-color: {backgroundColor};">
+<article class="a5e-chat-card__body a5e-chat-card--background-{backgroundColor}">
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <header
         class="a5e-chat-card__body__header a5e-chat-card__body__header--clickable"
