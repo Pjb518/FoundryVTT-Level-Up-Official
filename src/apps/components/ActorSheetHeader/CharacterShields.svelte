@@ -1,41 +1,41 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import getRequiredExperiencePoints from '../../../utils/getRequiredExperiencePoints';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import getRequiredExperiencePoints from "../../../utils/getRequiredExperiencePoints";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-const actor = getContext('actor');
+    const actor = getContext("actor");
 
-function isLevelLocked() {
-	if (sheetIsLocked) return true;
-	if (Object.keys($actor.classes ?? {}).length) return true;
+    function isLevelLocked() {
+        if (sheetIsLocked) return true;
+        if (Object.keys($actor.classes ?? {}).length) return true;
 
-	return false;
-}
+        return false;
+    }
 
-function getCharacterLevel() {
-	if (!Object.keys($actor.classes ?? {}).length) return $actor.system.details.level;
+    function getCharacterLevel() {
+        if (!Object.keys($actor.classes ?? {}).length) return $actor.system.details.level;
 
-	return $actor.levels.character;
-}
+        return $actor.levels.character;
+    }
 
-function getLevelSource() {
-	if (!Object.keys($actor.classes ?? {}).length) return '';
+    function getLevelSource() {
+        if (!Object.keys($actor.classes ?? {}).length) return "";
 
-	const data = Object.values($actor.classes ?? {}).map((cls) => {
-		return `${cls.name} (${cls.classLevels})`;
-	}, []);
+        const data = Object.values($actor.classes ?? {}).map((cls) => {
+            return `${cls.name} (${cls.classLevels})`;
+        }, []);
 
-	return data.join(' / ');
-}
+        return data.join(" / ");
+    }
 
-$: characterLevel = getCharacterLevel($actor);
-$: levelSource = getLevelSource($actor);
-$: hasInspiration = $actor.system.attributes.inspiration;
-$: requiredXP = getRequiredExperiencePoints($actor);
-$: sheetIsLocked = $actor.flags.a5e?.sheetIsLocked ?? true;
-$: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
+    $: characterLevel = getCharacterLevel($actor);
+    $: levelSource = getLevelSource($actor);
+    $: hasInspiration = $actor.system.attributes.inspiration;
+    $: requiredXP = getRequiredExperiencePoints($actor);
+    $: sheetIsLocked = $actor.flags.a5e?.sheetIsLocked ?? true;
+    $: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
 </script>
 
 <div class="character-shields__container">
@@ -149,10 +149,10 @@ $: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
         width: 4rem;
         padding: 0.125rem 0;
         color: var(--a5e-color-text-medium);
-        border: 1px solid #ccc;
+        border: 1px solid var(--a5e-border-color);
         border-radius: 4px;
         background: var(--a5e-color-background-light);
-        box-shadow: 0 0 5px #ccc inset;
+        box-shadow: 0 0 5px var(--a5e-border-color) inset;
         z-index: 4;
     }
 
@@ -185,7 +185,7 @@ $: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
 
     .shield-inspiration {
         font-size: var(--a5e-text-size-md);
-        color: #bbbaba;
+        color: var(--a5e-button-gray);
         border: 0;
         padding: 0.125rem;
         transition: var(--a5e-transition-standard);
@@ -193,14 +193,14 @@ $: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
 
         &:hover {
             transform: scale(1.2);
-            color: #444;
+            color: var(--a5e-button-gray-hover);
         }
 
         &--active {
-            color: color.adjust(#2b6537, $lightness: -10%);
+            color: var(--a5e-button-primary);
 
             &:hover {
-                color: #2b6537;
+                color: var(--a5e-button-primary);
             }
         }
     }
