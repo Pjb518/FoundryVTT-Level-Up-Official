@@ -1,18 +1,18 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import RadioGroup from '../components/RadioGroup.svelte';
+    import RadioGroup from "../components/RadioGroup.svelte";
 
-export let { dialog, item } = getContext('#external').application;
+    export let { dialog, item } = getContext("#external").application;
 
-function onSubmit() {
-	dialog.submit({ actionId: selectedAction });
-}
+    function onSubmit() {
+        dialog.submit({ actionId: selectedAction });
+    }
 
-let selectedAction = item.actions.default.id;
-let options = [...item.actions.entries()]
-	.map(([id, action]) => [id, action.name])
-	.sort((a, b) => a[1].localeCompare(b[1]));
+    let selectedAction = item.actions.default.id;
+    let options = [...item.actions.entries()]
+        .map(([id, action]) => [id, action.name])
+        .sort((a, b) => a[1].localeCompare(b[1]));
 </script>
 
 <form>
@@ -34,6 +34,5 @@ let options = [...item.actions.entries()]
         width: 100%;
         padding: 0.75rem;
         gap: 0.5rem;
-        background: var(--a5e-color-background-sheet);
     }
 </style>

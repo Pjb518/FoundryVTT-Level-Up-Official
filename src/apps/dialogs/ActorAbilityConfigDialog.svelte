@@ -1,19 +1,19 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import Checkbox from '../components/Checkbox.svelte';
-import ExpertiseDiePicker from '../components/ExpertiseDiePicker.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import Section from '../components/Section.svelte';
+    import Checkbox from "../components/Checkbox.svelte";
+    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import Section from "../components/Section.svelte";
 
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-export let { document, appId, abilityKey } = getContext('#external').application;
+    export let { document, appId, abilityKey } = getContext("#external").application;
 
-const actor = document;
-const hideExpertiseDice = game.settings.get('a5e', 'hideExpertiseDice');
+    const actor = document;
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
 
-$: ability = $actor.system.abilities[abilityKey];
+    $: ability = $actor.system.abilities[abilityKey];
 </script>
 
 <article>
@@ -94,6 +94,5 @@ $: ability = $actor.system.abilities[abilityKey];
         padding: 0.75rem;
         gap: 1rem;
         overflow: auto;
-        background: var(--a5e-color-background-sheet);
     }
 </style>

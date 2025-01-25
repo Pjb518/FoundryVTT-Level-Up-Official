@@ -1,16 +1,16 @@
 <script>
-import { getContext } from 'svelte';
-import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
+    import { getContext } from "svelte";
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-import Editor from '../components/Editor.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
+    import Editor from "../components/Editor.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
 
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-export let { actorDocument, updatePath } = getContext('#external').application;
+    export let { actorDocument, updatePath } = getContext("#external").application;
 
-const actor = new TJSDocument(actorDocument);
-const getProperty = foundry.utils.getProperty;
+    const actor = new TJSDocument(actorDocument);
+    const getProperty = foundry.utils.getProperty;
 </script>
 
 <article>
@@ -43,7 +43,6 @@ const getProperty = foundry.utils.getProperty;
         padding: 0.75rem;
         gap: 0.5rem;
         overflow: auto;
-        background: var(--a5e-color-background-sheet);
     }
 
     .editor-wrapper {
