@@ -1,39 +1,39 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
-import FieldWrapper from '../FieldWrapper.svelte';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+    import FieldWrapper from "../FieldWrapper.svelte";
 
-export let consumer;
-export let consumerId;
-export let deleteConsumer;
+    export let consumer;
+    export let consumerId;
+    export let deleteConsumer;
 
-const item = getContext('item');
-const actionId = getContext('actionId');
-const A5E = CONFIG.A5E;
+    const item = getContext("item");
+    const actionId = getContext("actionId");
+    const A5E = CONFIG.A5E;
 
-function updateMode() {
-	updateDocumentDataFromField(
-		$item,
-		`system.actions.${actionId}.consumers.${consumerId}.mode`,
-		mode,
-	);
-}
+    function updateMode() {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.consumers.${consumerId}.mode`,
+            mode,
+        );
+    }
 
-function updateSpellLevel() {
-	updateDocumentDataFromField(
-		$item,
-		`system.actions.${actionId}.consumers.${consumerId}.spellLevel`,
-		Number(spellLevel),
-	);
-}
+    function updateSpellLevel() {
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.consumers.${consumerId}.spellLevel`,
+            Number(spellLevel),
+        );
+    }
 
-let mode = consumer.mode ?? 'variable';
-let spellLevel = consumer.spellLevel ?? 1;
-let hintToggle = false;
-$: mode, updateMode();
-$: spellLevel, updateSpellLevel();
+    let mode = consumer.mode ?? "variable";
+    let spellLevel = consumer.spellLevel ?? 1;
+    let hintToggle = false;
+    $: mode, updateMode();
+    $: spellLevel, updateSpellLevel();
 </script>
 
 <FieldWrapper
@@ -44,8 +44,6 @@ $: spellLevel, updateSpellLevel();
             handler: () => deleteConsumer(actionId, consumerId),
         },
     ]}
-    --a5e-header-button-color="rgba(0, 0, 0, 0.2)"
-    --a5e-header-button-color-hover="#555"
 >
     <input
         type="text"
