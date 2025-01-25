@@ -14,7 +14,7 @@
         gap: 0.75rem;
         padding-right: 0.25rem;
         font-size: var(--a5e-text-size-md);
-        color: rgba(0 0 0 / 0.2);
+        color: var(--a5e-button-gray);
     }
 
     :global {
