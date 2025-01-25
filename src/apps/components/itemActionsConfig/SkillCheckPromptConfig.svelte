@@ -1,40 +1,40 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import prepareAbilityOptions from '../../dataPreparationHelpers/prepareAbilityOptions';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import Checkbox from '../Checkbox.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
-import RadioGroup from '../RadioGroup.svelte';
+    import Checkbox from "../Checkbox.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
 
-export let deletePrompt;
-export let duplicatePrompt;
-export let prompt;
-export let promptId;
+    export let deletePrompt;
+    export let duplicatePrompt;
+    export let prompt;
+    export let promptId;
 
-const item = getContext('item');
-const actionId = getContext('actionId');
+    const item = getContext("item");
+    const actionId = getContext("actionId");
 
-const skills = { ...CONFIG.A5E.skills };
+    const skills = { ...CONFIG.A5E.skills };
 
-if (game.settings.get('a5e', 'hideA5eSkills')) {
-	delete skills.cul;
-	delete skills.eng;
-}
+    if (game.settings.get("a5e", "hideA5eSkills")) {
+        delete skills.cul;
+        delete skills.eng;
+    }
 
-function updateAbility(ability) {
-	selectedAbility = ability;
-	updateDocumentDataFromField(
-		$item,
-		`system.actions.${actionId}.prompts.${promptId}.ability`,
-		selectedAbility,
-	);
-}
+    function updateAbility(ability) {
+        selectedAbility = ability;
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.prompts.${promptId}.ability`,
+            selectedAbility,
+        );
+    }
 
-$: prompt = prompt;
-$: selectedAbility = prompt.ability ?? 'none';
+    $: prompt = prompt;
+    $: selectedAbility = prompt.ability ?? "none";
 </script>
 
 <FieldWrapper
@@ -49,8 +49,6 @@ $: selectedAbility = prompt.ability ?? 'none';
             handler: () => deletePrompt(actionId, promptId),
         },
     ]}
-    --a5e-header-button-color="#bebdb5"
-    --a5e-header-button-color-hover="#555"
     --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input

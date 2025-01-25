@@ -48,8 +48,6 @@
             handler: () => deleteRoll(actionId, rollId),
         },
     ]}
-    --a5e-header-button-color="#bebdb5"
-    --a5e-header-button-color-hover="#555"
     --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input

@@ -1,26 +1,25 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import Checkbox from '../Checkbox.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
+    import Checkbox from "../Checkbox.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-const item = getContext('item');
-const actionId = getContext('actionId');
+    const item = getContext("item");
+    const actionId = getContext("actionId");
 
-export let deletePrompt;
-export let duplicatePrompt;
-export let prompt;
-export let promptId;
+    export let deletePrompt;
+    export let duplicatePrompt;
+    export let prompt;
+    export let promptId;
 </script>
 
 <FieldWrapper
     heading="A5E.Label"
     buttons={[
         {
-            classes:
-                "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
+            classes: "fa-solid fa-clone a5e-field-wrapper__header-button--scale",
             handler: () => duplicatePrompt(actionId, prompt),
         },
         {
@@ -28,8 +27,6 @@ export let promptId;
             handler: () => deletePrompt(actionId, promptId),
         },
     ]}
-    --a5e-header-button-color="#bebdb5"
-    --a5e-header-button-color-hover="#555"
     --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input

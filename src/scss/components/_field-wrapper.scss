@@ -12,6 +12,7 @@
   padding: var(--a5e-field-wrapper-padding, 0);
   background: var(--a5e-field-wrapper-background, transparent);
   border: var(--a5e-field-wrapper-border, none);
+  border-color: var(--a5e-field-wrapper-border-color);
   border-radius: var(--a5e-field-wrapper-border-radius, var(--a5e-border-radius-standard), initial);
 
   &__header {
@@ -33,7 +34,7 @@
     line-height: 1;
     padding: 0;
     margin: 0;
-    color: var(--a5e-header-button-color, inherit);
+    color: var(--a5e-header-button-color, var(--a5e-field-wrapper-header-button-color, inherit));
     transition: var(--a5e-transition-standard);
 
     &--scale:hover {
@@ -43,7 +44,7 @@
     &:focus,
     &:hover {
       box-shadow: none;
-      color: var(--a5e-header-button-color-hover, initial);
+      color: var(--a5e-header-button-color-hover, var(--a5e-field-wrapper-header-button-color-hover, initial));
     }
   }
 
