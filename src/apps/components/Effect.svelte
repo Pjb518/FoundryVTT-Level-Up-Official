@@ -272,7 +272,7 @@
         padding: 0;
         margin: 0;
         background: none;
-        color: #999;
+        color: var(--a5e-button-gray);
         border: 0;
         font-size: var(--a5e-text-size-lg);
         transition: var(--a5e-transition-standard);
@@ -292,20 +292,20 @@
     }
 
     .active {
-        color: var(--a5e-color-primary);
+        color: var(--a5e-button-primary);
     }
 
     .locked {
         cursor: not-allowed;
 
         &:hover {
-            color: #999;
+            color: var(--a5e-button-gray);
         }
     }
 
     .action-button {
         padding: 0.25rem;
-        color: #999;
+        color: var(--a5e-button-gray);
         border: 0;
         background: none;
 
@@ -315,7 +315,7 @@
         transition: var(--a5e-transition-standard);
 
         &:hover {
-            color: #555;
+            color: var(--a5e-button-gray-hover);
             transform: scale(1.2);
         }
 
@@ -338,7 +338,7 @@
         height: 1.5rem;
         margin-inline: 0.5rem 0.5rem;
         border-radius: 50%;
-        color: #999;
+        color: var(--a5e-track-color);
         grid-area: menu;
 
         transition: width 0.3s ease;
@@ -351,8 +351,8 @@
             flex-shrink: 0;
             align-items: center;
             justify-content: center;
-            border: 1px solid #ccc;
-            background: #ebe9e0;
+            border: 1px solid var(--a5e-track-icon-border);
+            background: var(--a5e-track-icon-background);
             border-radius: 50%;
             cursor: pointer;
             font-size: var(--a5e-text-size-md);
@@ -368,10 +368,10 @@
             gap: 0.25rem;
             height: 1.5rem;
             padding: 0 1rem 0 0.5rem;
-            border: 1px solid #ccc;
+            border: 1px solid var(--a5e-track-icon-border);
             border-left: 0;
             margin: 0;
-            background: #ebe9e0;
+            background: var(--a5e-track-icon-background);
             border-radius: 0.75rem 0 0 0.75rem;
             list-style: none;
             opacity: 0;
@@ -389,7 +389,7 @@
             }
 
             .track-icon {
-                color: #555;
+                color: var(--a5e-track-color-hover);
             }
         }
     }
