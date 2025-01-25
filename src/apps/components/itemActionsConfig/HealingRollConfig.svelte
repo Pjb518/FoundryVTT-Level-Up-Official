@@ -1,115 +1,115 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import Checkbox from '../Checkbox.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
-import RollScalingDialog from '../../dialogs/RollScalingDialog.svelte';
-import Section from '../Section.svelte';
+    import Checkbox from "../Checkbox.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import RollScalingDialog from "../../dialogs/RollScalingDialog.svelte";
+    import Section from "../Section.svelte";
 
-import getOrdinalNumber from '../../../utils/getOrdinalNumber';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
-import GenericConfigDialog from '../../dialogs/initializers/GenericConfigDialog';
+    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
+    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 
-function getScalingSummary(roll) {
-	const mode = roll.scaling?.mode;
-	const formula = roll.scaling?.formula ?? 0;
+    function getScalingSummary(roll) {
+        const mode = roll.scaling?.mode;
+        const formula = roll.scaling?.formula ?? 0;
 
-	const healingType = (
-		healingTypes[roll.healingType] ?? healingTypes['healing']
-	).toLocaleLowerCase();
+        const healingType = (
+            healingTypes[roll.healingType] ?? healingTypes["healing"]
+        ).toLocaleLowerCase();
 
-	// TODO: Class Documents - Provide some means of getting a base spell level for non-spell items.
-	const level = getOrdinalNumber($item.system.level ?? 1);
-	const step = roll.scaling?.step;
+        // TODO: Class Documents - Provide some means of getting a base spell level for non-spell items.
+        const level = getOrdinalNumber($item.system.level ?? 1);
+        const step = roll.scaling?.step;
 
-	if (mode === 'cantrip') {
-		return localize('A5E.scaling.summaries.cantrip.healing', {
-			formula,
-			healingType,
-		});
-	}
+        if (mode === "cantrip") {
+            return localize("A5E.scaling.summaries.cantrip.healing", {
+                formula,
+                healingType,
+            });
+        }
 
-	if (mode === 'spellLevel') {
-		if (!step || step === 1) {
-			return localize('A5E.scaling.summaries.spellLevel.healing', {
-				formula,
-				level,
-				healingType,
-			});
-		} else {
-			return localize('A5E.scaling.summaries.steppedSpellLevel.healing', {
-				formula,
-				step,
-				level,
-				healingType,
-			});
-		}
-	}
+        if (mode === "spellLevel") {
+            if (!step || step === 1) {
+                return localize("A5E.scaling.summaries.spellLevel.healing", {
+                    formula,
+                    level,
+                    healingType,
+                });
+            }
 
-	if (mode === 'spellPoints') {
-		if (!roll.scaling?.step || roll.scaling?.step === 1) {
-			return localize('A5E.scaling.summaries.spellPoint.healing', {
-				formula,
-				healingType,
-			});
-		} else {
-			return localize('A5E.scaling.summaries.steppedSpellPoint.healing', {
-				formula,
-				step,
-				healingType,
-			});
-		}
-	}
+            return localize("A5E.scaling.summaries.steppedSpellLevel.healing", {
+                formula,
+                step,
+                level,
+                healingType,
+            });
+        }
 
-	if (['actionUses', 'itemUses'].includes(mode)) {
-		if (!roll.scaling?.step || roll.scaling?.step === 1) {
-			return localize('A5E.scaling.summaries.uses.healing', {
-				formula,
-				healingType,
-			});
-		} else {
-			return localize('A5E.scaling.summaries.steppedUses.healing', {
-				formula,
-				step,
-				healingType,
-			});
-		}
-	}
+        if (mode === "spellPoints") {
+            if (!roll.scaling?.step || roll.scaling?.step === 1) {
+                return localize("A5E.scaling.summaries.spellPoint.healing", {
+                    formula,
+                    healingType,
+                });
+            }
 
-	return null;
-}
+            return localize("A5E.scaling.summaries.steppedSpellPoint.healing", {
+                formula,
+                step,
+                healingType,
+            });
+        }
 
-function onClickScalingButton() {
-	let dialog = $item.dialogs.rollScaling[rollId];
+        if (["actionUses", "itemUses"].includes(mode)) {
+            if (!roll.scaling?.step || roll.scaling?.step === 1) {
+                return localize("A5E.scaling.summaries.uses.healing", {
+                    formula,
+                    healingType,
+                });
+            }
 
-	if (!dialog) {
-		$item.dialogs.rollScaling[rollId] = new GenericConfigDialog(
-			$item,
-			`${$item.name} Healing Scaling Configuration`,
-			RollScalingDialog,
-			{ actionId, rollId },
-			{ width: 432 },
-		);
+            return localize("A5E.scaling.summaries.steppedUses.healing", {
+                formula,
+                step,
+                healingType,
+            });
+        }
 
-		dialog = $item.dialogs.rollScaling[rollId];
-	}
+        return null;
+    }
 
-	dialog.render(true);
-}
+    function onClickScalingButton() {
+        let dialog = $item.dialogs.rollScaling[rollId];
 
-const item = getContext('item');
-const actionId = getContext('actionId');
+        if (!dialog) {
+            $item.dialogs.rollScaling[rollId] = new GenericConfigDialog(
+                $item,
+                `${$item.name} Healing Scaling Configuration`,
+                RollScalingDialog,
+                { actionId, rollId },
+                { width: 432 },
+            );
 
-const { A5E } = CONFIG;
-const { healingTypes } = A5E;
+            dialog = $item.dialogs.rollScaling[rollId];
+        }
 
-export let deleteRoll;
-export let duplicateRoll;
-export let roll;
-export let rollId;
+        dialog.render(true);
+    }
 
-$: scalingSummary = getScalingSummary(roll);
+    const item = getContext("item");
+    const actionId = getContext("actionId");
+
+    const { A5E } = CONFIG;
+    const { healingTypes } = A5E;
+
+    export let deleteRoll;
+    export let duplicateRoll;
+    export let roll;
+    export let rollId;
+
+    $: scalingSummary = getScalingSummary(roll);
 </script>
 
 <FieldWrapper
@@ -211,8 +211,8 @@ $: scalingSummary = getScalingSummary(roll);
         margin: 0;
         font-size: var(--a5e-text-size-md);
         background: transparent;
-        color: #999;
-        border: 1px solid #7a7971;
+        color: var(--a5e-button-gray);
+        border: 1px solid var(--a5e-button-gray-border);
         border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
 
@@ -224,7 +224,7 @@ $: scalingSummary = getScalingSummary(roll);
 
         &:focus,
         &:hover {
-            color: #555;
+            color: var(--a5e-button-gray-hover);
         }
     }
 </style>

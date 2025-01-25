@@ -27,12 +27,12 @@
         .tjs-icon-button,
         .tjs-toggle-icon-button {
             a:hover {
-                color: #555;
+                color: var(--a5e-button-gray-hover);
                 transform: scale(1.2);
             }
 
             a.selected {
-                color: #555;
+                color: var(--a5e-button-gray-hover);
                 transform: scale(1.2);
 
                 :hover {
