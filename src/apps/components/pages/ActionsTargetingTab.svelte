@@ -229,8 +229,8 @@
         margin: 0;
         font-size: var(--a5e-text-size-md);
         background: transparent;
-        color: #999;
-        border: 1px solid #7a7971;
+        color: var(--a5e-button-gray);
+        border: 1px solid var(--a5e-button-gray-border);
         border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
 
@@ -242,7 +242,7 @@
 
         &:focus,
         &:hover {
-            color: #555;
+            color: var(--a5e-button-gray-hover);
         }
     }
 

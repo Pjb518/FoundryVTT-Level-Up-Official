@@ -1,76 +1,77 @@
 <script>
-import { localize } from '#runtime/util/i18n';
+    import { localize } from "#runtime/util/i18n";
 
-import TemplatePreparationManager from '../../../managers/TemplatePreparationManager';
+    import TemplatePreparationManager from "../../../managers/TemplatePreparationManager";
 
-import getOrdinalNumber from '../../../utils/getOrdinalNumber';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import GenericConfigDialog from '../../dialogs/initializers/GenericConfigDialog';
+    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 
-import AreaShape from './AreaShape.svelte';
-import Checkbox from '../Checkbox.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
-import Section from '../Section.svelte';
-import TemplateScalingDialog from '../../dialogs/TemplateScalingDialog.svelte';
+    import AreaShape from "./AreaShape.svelte";
+    import Checkbox from "../Checkbox.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
+    import TemplateScalingDialog from "../../dialogs/TemplateScalingDialog.svelte";
 
-export let action;
-export let actionId;
-export let item;
+    export let action;
+    export let actionId;
+    export let item;
 
-function onClickScalingButton() {
-	let dialog = $item.dialogs.areaScaling[actionId];
+    function onClickScalingButton() {
+        let dialog = $item.dialogs.areaScaling[actionId];
 
-	if (!dialog) {
-		$item.dialogs.areaScaling[actionId] = new GenericConfigDialog(
-			$item,
-			`${$item.name} Target Scaling Configuration`,
-			TemplateScalingDialog,
-			{ actionId },
-		);
+        if (!dialog) {
+            $item.dialogs.areaScaling[actionId] = new GenericConfigDialog(
+                $item,
+                `${$item.name} Target Scaling Configuration`,
+                TemplateScalingDialog,
+                { actionId },
+            );
 
-		dialog = $item.dialogs.areaScaling[actionId];
-	}
+            dialog = $item.dialogs.areaScaling[actionId];
+        }
 
-	dialog.render(true);
-}
+        dialog.render(true);
+    }
 
-function getLocalization(type) {
-	if (properties.length === 1)
-		return localize(`A5E.scaling.summaries.${type}.template`, {
-			shape: action?.area.shape,
-			formula: action?.area.scaling?.formula?.[properties[0]] ?? 0,
-			property: properties[0],
-			unit: 'feet',
-			level: getOrdinalNumber($item.system.level ?? 0),
-			step: action.area?.scaling?.step,
-		});
-	else if (properties.length === 2)
-		return localize(`A5E.scaling.summaries.${type}.templateMulti`, {
-			shape: action?.area.shape,
-			formula1: action.area.scaling?.formula?.[properties[0]] ?? 0,
-			formula2: action.area.scaling?.formula?.[properties[1]] ?? 0,
-			property1: properties[0],
-			property2: properties[1],
-			unit: 'feet',
-			level: getOrdinalNumber($item.system.level ?? 0),
-			step: action.area?.scaling?.step,
-		});
-}
+    function getLocalization(type) {
+        if (properties.length === 1)
+            return localize(`A5E.scaling.summaries.${type}.template`, {
+                shape: action?.area.shape,
+                formula: action?.area.scaling?.formula?.[properties[0]] ?? 0,
+                property: properties[0],
+                unit: "feet",
+                level: getOrdinalNumber($item.system.level ?? 0),
+                step: action.area?.scaling?.step,
+            });
 
-function removeArea() {
-	$item.update({
-		[`system.actions.${actionId}`]: {
-			'-=area': null,
-		},
-	});
-}
+        if (properties.length === 2)
+            return localize(`A5E.scaling.summaries.${type}.templateMulti`, {
+                shape: action?.area.shape,
+                formula1: action.area.scaling?.formula?.[properties[0]] ?? 0,
+                formula2: action.area.scaling?.formula?.[properties[1]] ?? 0,
+                property1: properties[0],
+                property2: properties[1],
+                unit: "feet",
+                level: getOrdinalNumber($item.system.level ?? 0),
+                step: action.area?.scaling?.step,
+            });
+    }
 
-const { A5E } = CONFIG;
-const getShapeProperties = TemplatePreparationManager.getShapeProperties;
-const { isEmpty } = foundry.utils;
+    function removeArea() {
+        $item.update({
+            [`system.actions.${actionId}`]: {
+                "-=area": null,
+            },
+        });
+    }
 
-$: properties = [...getShapeProperties(action.area?.shape)];
+    const { A5E } = CONFIG;
+    const getShapeProperties = TemplatePreparationManager.getShapeProperties;
+    const { isEmpty } = foundry.utils;
+
+    $: properties = [...getShapeProperties(action.area?.shape)];
 </script>
 
 <Section
@@ -256,13 +257,13 @@ $: properties = [...getShapeProperties(action.area?.shape)];
             display: none;
 
             &:checked + .area-shape-label {
-                background: var(--a5e-color-primary);
-                border-color: darken-color(var(--a5e-color-primary), 5);
-                box-shadow: 0 0 10px darken-color(var(--a5e-color-primary), 10) inset;
-                color: var(--a5e-color-text-light);
+                background: var(--a5e-action-area-button-checked);
+                border-color: var(--a5e-action-area-button-checked-border);
+                box-shadow: 0 0 10px var(--a5e-action-area-button-checked-shadow) inset;
+                color: var(--a5e-action-area-button-checked-color);
 
                 &:hover {
-                    background: var(--a5e-color-primary);
+                    background: var(--a5e-action-area-button-checked-hover);
                 }
             }
         }
@@ -272,15 +273,16 @@ $: properties = [...getShapeProperties(action.area?.shape)];
             align-items: center;
             flex-grow: 1;
             gap: 0.5rem;
+            background-color: var(--a5e-action-area-label-background);
             border-radius: var(--a5e-border-radius-standard);
-            border: 1px solid #bbb;
+            border: 1px solid var(--a5e-action-area-label-border);
             font-size: var(--a5e-text-size-sm);
             padding: 0.375rem 0.5rem;
             cursor: pointer;
             transition: var(--a5e-transition-standard);
 
             &:hover {
-                background-color: rgba(0, 0, 0, 0.1);
+                background-color: var(--a5e-action-area-label-background-hover);
             }
         }
 
@@ -303,8 +305,8 @@ $: properties = [...getShapeProperties(action.area?.shape)];
         margin: 0;
         font-size: var(--a5e-text-size-md);
         background: transparent;
-        color: #999;
-        border: 1px solid #7a7971;
+        color: var(--a5e-button-gray);
+        border: 1px solid var(--a5e-button-gray-border);
         border-radius: var(--a5e-border-radius-standard);
         cursor: pointer;
 
@@ -316,7 +318,7 @@ $: properties = [...getShapeProperties(action.area?.shape)];
 
         &:focus,
         &:hover {
-            color: #555;
+            color: var(--a5e-button-gray-hover);
         }
     }
 
