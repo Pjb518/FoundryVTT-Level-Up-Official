@@ -11,11 +11,9 @@
   font-size: var(--a5e-text-size-sm);
   border: solid transparent;
   border-width: 0 0 1px;
-  border-image: linear-gradient(
-      90deg,
-      var(--item-border-color-start, transparent) 0%,
-      var(--item-border-color-end, #d5cac1) 55%
-    )
+  border-image: linear-gradient(90deg,
+  var(--item-border-color-start, transparent) 0%,
+  var(--item-border-color-end, var(--a5e-item-list-item-border-end)) 55%)
     1 repeat;
   border-radius: 0;
   background: linear-gradient(90deg, transparent, var(--item-background, transparent) 70%);
@@ -43,15 +41,15 @@
 
   &--compendium-document {
     grid-template-areas:
-      "img name import delete"
-      "img details import delete";
+      'img name import delete'
+      'img details import delete';
     grid-template-columns: max-content 1fr min-content;
   }
 
   &--compendium-spell-document {
     grid-template-areas:
-      "img name components import delete"
-      "img details components import delete";
+      'img name components import delete'
+      'img details components import delete';
     grid-template-columns: max-content 1fr max-content min-content min-content;
   }
 

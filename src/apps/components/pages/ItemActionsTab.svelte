@@ -1,46 +1,46 @@
 <script lang="ts">
-import type { Writable } from 'svelte/store';
-import type { ItemA5e } from '../../../documents/item/item';
+    import type { Writable } from "svelte/store";
+    import type { ItemA5e } from "../../../documents/item/item";
 
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import Section from '../Section.svelte';
+    import Section from "../Section.svelte";
 
-const item: Writable<ItemA5e> = getContext('item');
+    const item: Writable<ItemA5e> = getContext("item");
 
-function addAction() {
-	$item.actions.add();
-}
+    function addAction() {
+        $item.actions.add();
+    }
 
-function duplicateAction(actionId: string) {
-	$item.actions.duplicate(actionId);
-}
+    function duplicateAction(actionId: string) {
+        $item.actions.duplicate(actionId);
+    }
 
-function configureAction(actionId: string) {
-	$item.actions.configure(actionId);
-}
+    function configureAction(actionId: string) {
+        $item.actions.configure(actionId);
+    }
 
-function deleteAction(actionId: string) {
-	$item.actions.remove(actionId);
-}
+    function deleteAction(actionId: string) {
+        $item.actions.remove(actionId);
+    }
 
-function setDefault(actionId: string) {
-	$item.actions.setDefaultAction(actionId);
-}
+    function setDefault(actionId: string) {
+        $item.actions.setDefaultAction(actionId);
+    }
 
-// **********************************************
-// Drag Drop Handlers
-async function _onDragStart(event: DragEvent, actionId: string) {
-	const dragData = {
-		actionId,
-		itemUuid: $item.uuid,
-		type: 'Action',
-	};
+    // **********************************************
+    // Drag Drop Handlers
+    async function _onDragStart(event: DragEvent, actionId: string) {
+        const dragData = {
+            actionId,
+            itemUuid: $item.uuid,
+            type: "Action",
+        };
 
-	return event.dataTransfer?.setData('text/plain', JSON.stringify(dragData));
-}
+        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
+    }
 
-$: defaultAction = $item.actions.default?.id;
+    $: defaultAction = $item.actions.default?.id;
 </script>
 
 <div class="a5e-page-wrapper a5e-page-wrapper--scrollable">
@@ -114,11 +114,11 @@ $: defaultAction = $item.actions.default?.id;
         background: none;
         border: 0;
         transition: var(--a5e-transition-standard);
-        color: #999;
+        color: var(--a5e-button-gray);
 
         &:hover,
         &:focus {
-            color: #555;
+            color: var(--a5e-button-gray-hover);
             transform: scale(1.2);
             box-shadow: none;
         }
@@ -128,16 +128,16 @@ $: defaultAction = $item.actions.default?.id;
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        color: #999;
+        color: var(--a5e-button-gray);
         margin-left: auto;
     }
 
     .default {
-        color: var(--a5e-color-primary);
+        color: var(--a5e-button-primary);
 
         &:hover,
         &:focus {
-            color: var(--a5e-color-primary);
+            color: var(--a5e-button-primary);
         }
     }
 
