@@ -135,7 +135,7 @@
                 {#if ["creature", "object", "creatureObject"].includes(action?.target?.type)}
                     <div class="a5e-field-group scaling-button-wrapper">
                         <button
-                            class="scaling-button"
+                            class="a5e-scaling-button"
                             on:click|preventDefault={onClickTargetScalingButton}
                         >
                             <i
@@ -217,33 +217,6 @@
         margin-right: -0.375rem;
         padding: 0;
         padding-right: 0.375rem;
-    }
-
-    .scaling-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        height: 1.625rem;
-        width: 1.625rem;
-        padding: 0;
-        margin: 0;
-        font-size: var(--a5e-text-size-md);
-        background: transparent;
-        color: var(--a5e-button-gray);
-        border: 1px solid var(--a5e-button-gray-border);
-        border-radius: var(--a5e-border-radius-standard);
-        cursor: pointer;
-
-        transition: var(--a5e-transition-standard);
-
-        i {
-            margin: 0;
-        }
-
-        &:focus,
-        &:hover {
-            color: var(--a5e-button-gray-hover);
-        }
     }
 
     .scaling-button-wrapper {
