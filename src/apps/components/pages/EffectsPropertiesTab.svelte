@@ -5,6 +5,7 @@
     import FieldWrapper from "../FieldWrapper.svelte";
     import RadioGroup from "../RadioGroup.svelte";
     import Checkbox from "../Checkbox.svelte";
+    import Section from "../Section.svelte";
 
     const effect = getContext("effect");
     const { A5E } = CONFIG;
@@ -48,95 +49,105 @@
 
 <article>
     {#if $effect.system.effectType === "onUse"}
-        <FieldWrapper>
-            <Checkbox
-                label="A5E.effects.default"
-                checked={$effect.system.default ?? true}
-                on:updateSelection={({ detail }) =>
-                    $effect.update({ "system.default": detail })}
-            />
-        </FieldWrapper>
+        <Section>
+            <FieldWrapper>
+                <Checkbox
+                    label="A5E.effects.default"
+                    checked={$effect.system.default ?? true}
+                    on:updateSelection={({ detail }) =>
+                        $effect.update({ "system.default": detail })}
+                />
+            </FieldWrapper>
 
-        <FieldWrapper>
-            <Checkbox
-                label="A5E.effects.applyToSelf"
-                checked={$effect.system.applyToSelf ?? false}
-                on:updateSelection={({ detail }) =>
-                    $effect.update({ "system.applyToSelf": detail })}
-            />
-        </FieldWrapper>
+            <FieldWrapper>
+                <Checkbox
+                    label="A5E.effects.applyToSelf"
+                    checked={$effect.system.applyToSelf ?? false}
+                    on:updateSelection={({ detail }) =>
+                        $effect.update({ "system.applyToSelf": detail })}
+                />
+            </FieldWrapper>
+        </Section>
 
-        <FieldWrapper heading="Effect Duration" --a5e-field-wrapper-gap="0.75rem">
-            <RadioGroup
-                options={Object.entries(A5E.effectDurationTypes)}
-                selected={durationType}
-                on:updateSelection={({ detail }) =>
-                    $effect.update({
-                        "flags.a5e.duration.type": detail,
-                    })}
-            />
+        <Section>
+            <FieldWrapper heading="Effect Duration" --a5e-field-wrapper-gap="0.75rem">
+                <RadioGroup
+                    options={Object.entries(A5E.effectDurationTypes)}
+                    selected={durationType}
+                    on:updateSelection={({ detail }) =>
+                        $effect.update({
+                            "flags.a5e.duration.type": detail,
+                        })}
+                />
 
-            {#if durationType === "seconds"}
-                <div class="u-flex u-gap-md">
-                    <input
-                        class="a5e-input a5e-input--small a5e-input--slim"
-                        type="number"
-                        value={parsedSecondsValue}
-                        on:change={({ target }) =>
-                            updateEffectDuration(durationType, Number(target.value))}
-                    />
-
-                    <select
-                        class="u-w-fit"
-                        on:change={({ target }) =>
-                            updateEffectDuration(
-                                "seconds",
-                                parsedSecondsValue,
-                                target.value,
-                            )}
-                    >
-                        {#each Object.entries(A5E.effectDurationUnits) as [durationUnit, label]}
-                            <option value={durationUnit} selected={durationUnit === unit}>
-                                {localize(label)}
-                            </option>
-                        {/each}
-                    </select>
-                </div>
-            {:else if durationType === "rounds"}
-                <div class="u-flex u-gap-xl">
-                    <div class="u-flex u-flex-col u-gap-md">
-                        <label for="{$effect.id}-rounds" class="u-pointer u-text-bold">
-                            {localize("A5E.effects.durationTypes.plural.rounds")}
-                        </label>
-
+                {#if durationType === "seconds"}
+                    <div class="u-flex u-gap-md">
                         <input
-                            type="number"
                             class="a5e-input a5e-input--small a5e-input--slim"
-                            id="{$effect.id}-rounds"
-                            value={$effect.duration.rounds ?? 0}
-                            on:change={({ target }) =>
-                                updateEffectDuration("rounds", Number(target.value))}
-                        />
-                    </div>
-
-                    <div class="u-flex u-flex-col u-gap-md">
-                        <label for="{$effect.id}-turns" class="u-pointer u-text-bold">
-                            {localize("A5E.effects.durationTypes.plural.turns")}
-                        </label>
-
-                        <input
                             type="number"
-                            class="a5e-input a5e-input--small a5e-input--slim"
-                            name=""
-                            id="{$effect.id}-turns"
-                            value={$effect.duration.turns ?? 0}
+                            value={parsedSecondsValue}
                             on:change={({ target }) =>
-                                updateEffectDuration("turns", Number(target.value))}
+                                updateEffectDuration(durationType, Number(target.value))}
                         />
+
+                        <select
+                            class="u-w-fit"
+                            on:change={({ target }) =>
+                                updateEffectDuration(
+                                    "seconds",
+                                    parsedSecondsValue,
+                                    target.value,
+                                )}
+                        >
+                            {#each Object.entries(A5E.effectDurationUnits) as [durationUnit, label]}
+                                <option
+                                    value={durationUnit}
+                                    selected={durationUnit === unit}
+                                >
+                                    {localize(label)}
+                                </option>
+                            {/each}
+                        </select>
                     </div>
-                </div>
-            {/if}
-        </FieldWrapper>
+                {:else if durationType === "rounds"}
+                    <div class="u-flex u-gap-xl">
+                        <div class="u-flex u-flex-col u-gap-md">
+                            <label
+                                for="{$effect.id}-rounds"
+                                class="u-pointer u-text-bold"
+                            >
+                                {localize("A5E.effects.durationTypes.plural.rounds")}
+                            </label>
+
+                            <input
+                                type="number"
+                                class="a5e-input a5e-input--small a5e-input--slim"
+                                id="{$effect.id}-rounds"
+                                value={$effect.duration.rounds ?? 0}
+                                on:change={({ target }) =>
+                                    updateEffectDuration("rounds", Number(target.value))}
+                            />
+                        </div>
+
+                        <div class="u-flex u-flex-col u-gap-md">
+                            <label for="{$effect.id}-turns" class="u-pointer u-text-bold">
+                                {localize("A5E.effects.durationTypes.plural.turns")}
+                            </label>
+
+                            <input
+                                type="number"
+                                class="a5e-input a5e-input--small a5e-input--slim"
+                                name=""
+                                id="{$effect.id}-turns"
+                                value={$effect.duration.turns ?? 0}
+                                on:change={({ target }) =>
+                                    updateEffectDuration("turns", Number(target.value))}
+                            />
+                        </div>
+                    </div>
+                {/if}
+            </FieldWrapper>
+        </Section>
     {/if}
 </article>
 

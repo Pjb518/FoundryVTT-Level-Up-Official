@@ -1,24 +1,24 @@
 <script>
-import { createEventDispatcher, getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { createEventDispatcher, getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import getEffectOptionGroups from '../../handlers/getEffectOptionGroups';
+    import getEffectOptionGroups from "../../handlers/getEffectOptionGroups";
 
-import Select from 'svelte-select';
+    import Select from "svelte-select";
 
-export let idx;
-export let key;
-export let optionsList;
-export let clearable = true;
+    export let idx;
+    export let key;
+    export let optionsList;
+    export let clearable = true;
 
-const dispatch = createEventDispatcher();
-const effect = getContext('effect');
+    const dispatch = createEventDispatcher();
+    const effect = getContext("effect");
 
-const effectKeyLocalizations = CONFIG.A5E.effectsKeyLocalizations;
-const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
-const items = getEffectOptionGroups(optionsList);
+    const effectKeyLocalizations = CONFIG.A5E.effectsKeyLocalizations;
+    const MODES = CONFIG.A5E.ACTIVE_EFFECT_MODES;
+    const items = getEffectOptionGroups(optionsList);
 
-const groupBy = (item) => item.group;
+    const groupBy = (item) => item.group;
 </script>
 
 <div class="change-section u-flex-grow">
@@ -33,7 +33,9 @@ const groupBy = (item) => item.group;
         {groupBy}
         on:change={({ detail }) => dispatch("changeKey", detail.key)}
         on:clear={() => dispatch("changeKey", "")}
-        --background="rgba(0, 0, 0, 0.05)"
+        --border="1px solid var(--a5e-border-color)"
+        --border-focused="1px solid var(--a5e-border-color)"
+        --border-hover="1px solid var(--a5e-border-color)"
         --height="calc(var(--form-field-height) + 1px)"
         --padding="0 3px"
         --item-padding="0.25rem"
@@ -41,10 +43,17 @@ const groupBy = (item) => item.group;
         --border-radius="var(--a5e-border-radius-standard)"
         --font-size="var(--a5e-text-size-sm)"
         --font-family="inherit"
-        --input-color="black"
+        --input-color="var(--a5e-text-color-dark)"
         --group-title-font-size="var(--a5e-text-size-sm)"
         --group-title-font-weight="bold"
         --text-overflow="ellipsis"
+        --list-background="var(--a5e-svelte-select-list-background)"
+        --group-title="var(--a5e-svelte-select-list-group-title-color)"
+        --item-color="var(--a5e-svelte-select-list-item-color)"
+        --item--active-background="var(--a5e-svelte-select-list-item-active-background-color)"
+        --item-active-color="var(--a5e-svelte-select-list-item-active-color)"
+        --item-hover-bg="var(--a5e-svelte-select-list-item-hover-background)"
+        --item-hover-color="var(--a5e-svelte-select-list-item-hover-color)"
     />
 </div>
 
