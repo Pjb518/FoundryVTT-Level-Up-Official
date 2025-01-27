@@ -5,6 +5,7 @@
     import { slide } from "svelte/transition";
 
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    import { localize } from "@typhonjs-fvtt/runtime/util/i18n";
 
     import constructRollFormula from "../../dice/constructRollFormula";
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";

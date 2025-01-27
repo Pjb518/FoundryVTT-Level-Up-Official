@@ -66,7 +66,7 @@ const actionSchema = () => ({
 	),
 
 	target: new fields.SchemaField({
-		quantity: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
+		quantity: new fields.NumberField({ required: true, nullable: false, initial: 1 }),
 		scaling: new fields.ObjectField({ required: true, nullable: false }),
 		type: new fields.StringField({ required: true, nullable: false, initial: '' }),
 	}),
