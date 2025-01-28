@@ -1,8 +1,5 @@
 <script>
-    import { localize } from "#runtime/util/i18n";
     import { getContext, onDestroy } from "svelte";
-
-    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import CreateMenu from "../actorUtilityBar/CreateMenu.svelte";
     import Filter from "../actorUtilityBar/Filter.svelte";
@@ -10,7 +7,6 @@
     import Search from "../actorUtilityBar/Search.svelte";
     import ShowDescription from "../actorUtilityBar/ShowDescription.svelte";
     import Sort from "../actorUtilityBar/Sort.svelte";
-    import TabFooter from "../TabFooter.svelte";
     import UtilityBar from "../actorUtilityBar/UtilityBar.svelte";
 
     import usesRequired from "../../../utils/usesRequired";
@@ -23,12 +19,9 @@
     const subTypes = A5E.featureTypes;
     const sortMap = CONFIG.A5E.reducerSortMap.features;
 
-    const showFavorPoints = game.settings.get("a5e", "showFavorPoints") ?? false;
-
     let showDescription = false;
     let showUses = usesRequired(features);
 
-    $: favorPoints = $actor.system.attributes.favorPoints;
     $: menuList = Object.entries(subTypes);
     $: sortedFeatures = Object.entries($features._types).sort(
         (a, b) => sortMap[a[0]] - sortMap[b[0]],
@@ -78,43 +71,3 @@
         {/each}
     {/if}
 </section>
-
-<TabFooter --padding-right="1rem">
-    {#if $actor.type === "character" && showFavorPoints}
-        <div class="u-flex u-align-center u-gap-md">
-            <h3 class="u-mb-0 u-text-sm u-text-bold">
-                {localize("A5E.FavorPoints")}
-            </h3>
-
-            <input
-                class="a5e-footer-group__input"
-                class:disable-pointer-events={!$actor.isOwner}
-                type="number"
-                name="system.attributes.favorPoints.current"
-                value={favorPoints.current}
-                placeholder="0"
-                min="0"
-                on:change={({ target }) =>
-                    updateDocumentDataFromField(
-                        $actor,
-                        target.name,
-                        Number(target.value),
-                    )}
-            />
-
-            /
-
-            <span class="a5e-footer-group__value">
-                {favorPoints.max}
-            </span>
-        </div>
-    {/if}
-</TabFooter>
-
-<footer class="features-footer" />
-
-<style lang="scss">
-    .disable-pointer-events {
-        pointer-events: none;
-    }
-</style>

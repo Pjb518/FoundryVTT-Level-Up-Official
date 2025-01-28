@@ -93,6 +93,25 @@ const characterSchema = () => ({
 	classes: new fields.SchemaField({
 		startingClass: new fields.StringField({ required: true, initial: '' }),
 	}),
+	keyKnowledge: new fields.NumberField({
+		required: true,
+		initial: 0,
+		integer: true,
+		nullable: false,
+	}),
+	projectName: new fields.StringField({ required: true, initial: '' }),
+	projectTime: new fields.NumberField({
+		required: true,
+		initial: 0,
+		integer: true,
+		nullable: false,
+	}),
+	religiousFavors: new fields.NumberField({
+		required: true,
+		initial: 0,
+		integer: true,
+		nullable: false,
+	}),
 	resources: new fields.SchemaField(
 		{
 			classResources: new fields.ObjectField({ required: true, nullable: false }),
