@@ -1,0 +1,163 @@
+{
+	"folder": null,
+	"name": "Network",
+	"type": "interaction",
+	"img": "icons/skills/social/diplomacy-handshake.webp",
+	"system": {
+		"description": "<p><em><strong>Note:</strong> To perform this journey activity, the party must be in a populated area such as a Country Shire, Open Roads, or Urban Township.</em></p>\n<p>Success on a Deception or Persuasion check allows an adventurer to make connections that will come in handy later. You can gain an expertise die on this check by making a bribe (or equivalent gift) of a number of gold pieces equal to 5 × twice the region’s tier (minimum 5 gold).</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "gpg3",
+		"actions": {
+			"2tK6G0OqK94NWf4I": {
+				"name": "Network",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "day",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [
+					"aqeSS5lkmI6Ct4vA"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"7gizegS5K43HHlFA": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "dec",
+						"ability": "cha",
+						"bonus": "",
+						"label": ""
+					},
+					"V86Fjef5nSeFoFqE": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "per",
+						"ability": "cha",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "journey",
+		"journeyProperties": {
+			"criticalFailure": "The adventurer commits some taboo or crosses a serious social line and is firmly reprimanded or ostracized, suffering a level of strife.",
+			"failure": "The adventurer simply isn’t engaging enough to be memorable.",
+			"success": "The adventurer has made or reinforced a meaningful social connection or attained some level of influence, gaining 1 favor point.",
+			"criticalSuccess": "The adventurer has proven themselves exceptionally well-connected, competent, or generous, gaining 2 favor points."
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.uCZlKBeSSTXWSfVA",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Network Critical Failure",
+			"img": "icons/skills/social/diplomacy-handshake.webp",
+			"_id": "aqeSS5lkmI6Ct4vA",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.strife",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737060054788,
+				"modifiedTime": 1737060071099,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.4",
+		"createdTime": 1737059794929,
+		"modifiedTime": 1737060054828,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "F3hpOQuuGOunq7SF"
+}

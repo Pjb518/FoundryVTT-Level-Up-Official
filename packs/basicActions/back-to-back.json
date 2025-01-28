@@ -1,0 +1,157 @@
+{
+	"folder": null,
+	"name": "Back-To-Back",
+	"type": "interaction",
+	"img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
+	"system": {
+		"description": "<p>When you are within 5 feet of an ally, you can use a bonus action to stand back-to-back. While back-to-back with an ally, it is harder to be caught off guard, and you cannot be flanked. As long as neither you nor your ally move, your passive Perception is increased by 2 until either the start of your next turn or when one of you moves.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"actions": {
+			"xEQkp92Bzt0MMTJm": {
+				"name": "Back-To-Back",
+				"ranges": {
+					"dbGho9R8m4WA4G4v": {
+						"range": "fiveFeet"
+					}
+				},
+				"target": {
+					"type": "creature",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"activation": {
+					"type": "bonusAction",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"effects": [
+					"L0YLlQrQYZYq0INW"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"rolls": {},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "basicAction",
+		"journeyProperties": {
+			"criticalFailure": "",
+			"failure": "",
+			"success": "",
+			"criticalSuccess": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.ERrN820jShYNcmIG",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Back-To-Back",
+			"img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
+			"_id": "L0YLlQrQYZYq0INW",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.skills",
+					"value": "{\"label\":\"Back-To-Back\",\"formula\":\"2\",\"damageType\":\"\",\"context\":{\"skills\":[\"prc\"],\"requiresProficiency\":false,\"passiveOnly\":true},\"default\":true,\"img\":\"icons/skills/melee/maneuver-daggers-paired-orange.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>You cannot be flanked. As long as neither you nor your ally move, your passive Perception is increased by 2 until either the start of your next turn or when one of you moves.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737063973989,
+				"modifiedTime": 1737064030721,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.4",
+		"createdTime": 1737063924905,
+		"modifiedTime": 1737063974031,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "NP3OETYvKDKta6Ek"
+}

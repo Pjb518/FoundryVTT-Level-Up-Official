@@ -7,6 +7,7 @@ import { ApplicationShell } from '#runtime/svelte/component/application';
 import type { TJSDocument } from '@typhonjs-fvtt/runtime/svelte/store/fvtt/document';
 import type { ActorSheetApplicationProps } from '../../../types/applicationProps';
 
+import ActorInteractionsPage from '../components/pages/ActorInteractionsPage.svelte';
 import ActorBonusesPage from '../components/pages/ActorBonusesPage.svelte';
 import ActorCorePage from '../components/pages/ActorCorePage.svelte';
 import ActorEffectsPage from '../components/pages/ActorEffectsPage.svelte';
@@ -91,6 +92,12 @@ function getTabs(actor: TJSDocument): Tab[] {
 			icon: 'fa-solid fa-wand-sparkles',
 			component: ActorSpellsPage,
 			display: actor.flags?.a5e?.showSpellTab,
+		},
+		{
+			name: 'interactions',
+			label: 'A5E.TabInteractions',
+			icon: 'fa-solid fa-star-of-life',
+			component: ActorInteractionsPage,
 		},
 		// {
 		//     name: "biography",

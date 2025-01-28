@@ -578,9 +578,17 @@ const itemTypes = {
 	culture: 'TYPES.Item.culture',
 	destiny: 'TYPES.Item.destiny',
 	feature: 'TYPES.Item.feature',
+	interaction: 'TYPES.Item.interaction',
 	maneuver: 'TYPES.Item.maneuver',
 	object: 'TYPES.Item.object',
 	spell: 'TYPES.Item.spell',
+};
+
+const interactionTypes = {
+	basicAction: 'A5E.InteractionBasicAction',
+	downtime: 'A5E.InteractionDowntime',
+	journey: 'A5E.InteractionJourney',
+	other: 'A5E.InteractionOther',
 };
 
 /**
@@ -2055,6 +2063,7 @@ const A5E = {
 	itemRarity,
 	itemTechLevels,
 	itemTypes,
+	interactionTypes,
 	inventoryFilters,
 	knackTypes,
 	languages,

@@ -1,0 +1,260 @@
+{
+	"folder": null,
+	"name": "Help",
+	"type": "interaction",
+	"img": "icons/skills/social/wave-halt-stop.webp",
+	"system": {
+		"description": "<p>When you take the Help action, you aid another creature in a task. The creature gains advantage on the next ability check it makes to perform that task before the start of your next turn.</p>\n<p>You can also help a friendly creature in attacking a creature. The creature must be within 5 feet of you and you must be able to target the creature with an attack, or otherwise threaten it. If your ally attacks the target before your next turn, its next attack roll against the target is made with advantage.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"actions": {
+			"MMEOasMbw1Z0vDal": {
+				"name": "Ability Check Help",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"effects": [
+					"PW5VPubWLnDsA6pA"
+				],
+				"ranges": {},
+				"id": "MMEOasMbw1Z0vDal",
+				"img": "icons/skills/social/wave-halt-stop.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"LYEozbH7pVH1BLws": {
+				"name": "Attack Help",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"ranges": {
+					"KLKiJmRkWo2eYj1P": {
+						"range": "fiveFeet"
+					}
+				},
+				"effects": [
+					"E2iDK9LTjPTFtfvm"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "basicAction",
+		"journeyProperties": {
+			"criticalFailure": "",
+			"failure": "",
+			"success": "",
+			"criticalSuccess": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.l19jLOGuSYSGdZvb",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Ability Check Help",
+			"img": "icons/skills/social/wave-halt-stop.webp",
+			"_id": "PW5VPubWLnDsA6pA",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.abilityCheck.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Gains advantage on the next ability check it makes to perform that task before the start of your next turn.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737064837452,
+				"modifiedTime": 1737064872986,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.l19jLOGuSYSGdZvb",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Attack Help",
+			"img": "icons/skills/social/wave-halt-stop.webp",
+			"_id": "E2iDK9LTjPTFtfvm",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.rollMode.attack.all",
+					"value": "1",
+					"mode": 6,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>If your ally attacks the target before your next turn, its next attack roll against the target is made with advantage.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737064905463,
+				"modifiedTime": 1737064955603,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.4",
+		"createdTime": 1737064774037,
+		"modifiedTime": 1737064905506,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "49pXYv8PZ8YixKo4"
+}

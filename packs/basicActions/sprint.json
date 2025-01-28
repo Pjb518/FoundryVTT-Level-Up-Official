@@ -1,0 +1,366 @@
+{
+	"folder": null,
+	"name": "Sprint",
+	"type": "interaction",
+	"img": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
+	"system": {
+		"description": "<p>When you take the Sprint action, you focus all your effort on moving as fast as possible to the exclusion of everything else.</p>\n<ul>\n<li>You can’t take any other actions, bonus actions, or reactions other than to move your Speed for the turn.</li>\n<li>If you are unencumbered, your&nbsp;Speed is quadrupled for one turn; if you are encumbered or wearing heavy armor, your Speed is tripled for one turn.</li>\n<li>You must Sprint in a straight line each turn, although you can change direction each time you Sprint.</li>\n<li>You can Sprint a number of turns equal to your Constitution modifier. Each turn you Sprint after that, you make a [[/check skill=ath ability=con label=\"Constitution (Athletics) check\"]] (DC 10 + 1 per previous check made in the last minute) or you suffer a level of fatigue from either tiredness or a minor sprain or injury. You recover fatigue suffered from sprinting 1 minute after you stop sprinting.</li>\n<li>You can’t Sprint or Dash if you are suffering from one or more levels of fatigue.</li>\n<li>Attacks against you are made with advantage until the start of your next turn.</li>\n</ul>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"actions": {
+			"lpnB9B5u7dGJ6x7Z": {
+				"name": "Sprint (Unencumbered)",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"effects": [
+					"1iCYTQSU7JJRQ3TL",
+					"R9dGIhpgkymRwiVD"
+				],
+				"id": "lpnB9B5u7dGJ6x7Z",
+				"img": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"4trHgVi1KDmKM3ZI": {
+				"name": "Sprint (Encumbered)",
+				"id": "",
+				"default": true,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [
+					"J0N0DsgqlD0MTd3d",
+					"rwvVaL1SkLF1lmOY"
+				],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "basicAction",
+		"journeyProperties": {
+			"criticalFailure": "",
+			"failure": "",
+			"success": "",
+			"criticalSuccess": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.3J7M6SewZlnQ0smW",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Sprint",
+			"img": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
+			"_id": "1iCYTQSU7JJRQ3TL",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "4",
+					"mode": 1,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>You can’t take any other actions, bonus actions, or reactions other than to move your Speed for the turn.</li>\n<li>If you are unencumbered, your Speed is quadrupled for one turn; if you are encumbered or wearing heavy armor, your Speed is tripled for one turn.</li>\n<li>You must Sprint in a straight line each turn, although you can change direction each time you Sprint.</li>\n<li>You can Sprint a number of turns equal to your Constitution modifier. Each turn you Sprint after that, you make a Constitution (Athletics) check (DC 10 + 1 per previous check made in the last minute) or you suffer a level of fatigue from either tiredness or a minor sprain or injury. You recover fatigue suffered from sprinting 1 minute after you stop sprinting.</li>\n<li>You can’t Sprint or Dash if you are suffering from one or more levels of fatigue.</li>\n<li>Attacks against you are made with advantage until the start of your next turn.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737067364307,
+				"modifiedTime": 1737067590024,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.3J7M6SewZlnQ0smW",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Fatigue",
+			"img": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
+			"_id": "R9dGIhpgkymRwiVD",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737067518152,
+				"modifiedTime": 1737067529323,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.3J7M6SewZlnQ0smW",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Sprint",
+			"img": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
+			"_id": "J0N0DsgqlD0MTd3d",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.movement.walk.distance",
+					"value": "3",
+					"mode": 1,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>You can’t take any other actions, bonus actions, or reactions other than to move your Speed for the turn.</li>\n<li>If you are unencumbered, your Speed is quadrupled for one turn; if you are encumbered or wearing heavy armor, your Speed is tripled for one turn.</li>\n<li>You must Sprint in a straight line each turn, although you can change direction each time you Sprint.</li>\n<li>You can Sprint a number of turns equal to your Constitution modifier. Each turn you Sprint after that, you make a Constitution (Athletics) check (DC 10 + 1 per previous check made in the last minute) or you suffer a level of fatigue from either tiredness or a minor sprain or injury. You recover fatigue suffered from sprinting 1 minute after you stop sprinting.</li>\n<li>You can’t Sprint or Dash if you are suffering from one or more levels of fatigue.</li>\n<li>Attacks against you are made with advantage until the start of your next turn.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737067538974,
+				"modifiedTime": 1737067573763,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.3J7M6SewZlnQ0smW",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Fatigue",
+			"img": "icons/skills/movement/feet-winged-boots-glowing-yellow.webp",
+			"_id": "rwvVaL1SkLF1lmOY",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737067538974,
+				"modifiedTime": 1737067538974,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.4",
+		"createdTime": 1737067225521,
+		"modifiedTime": 1737067580689,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "jow2ZcFwGPNAMH9Y"
+}

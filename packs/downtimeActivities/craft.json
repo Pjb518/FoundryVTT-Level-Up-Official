@@ -1,0 +1,139 @@
+{
+	"folder": null,
+	"name": "Craft",
+	"type": "interaction",
+	"img": "icons/skills/trades/woodcutting-logging-saw.webp",
+	"system": {
+		"description": "<p>Adventurers with tool proficiencies may use their downtime to create weapons, armor, or other items. The Craft activity can be used to create weapons, armor, tools, clothing, other equipment, or a work of art.</p>\n<p>All crafted items require materials. Poor quality items can be made with materials equal to 1/8th the base cost of the item that the character wishes to create. Normal quality work requires materials equal to 1/4th the base cost. If a character wishes to craft a fine item, they must acquire fine materials equal to 1/2 the item’s base cost. If a character wishes to craft a masterwork item, the materials cost is equal to the base cost of the item.</p>\n<p><em><strong>Special Materials.</strong></em> Rarely a smith might happen upon special materials. These materials can only rarely be purchased and must often be found. When attempting to craft using adamantine, mithral, or other wondrous materials, increase the DC to craft the item by 2.</p>\n<p><em><strong>Time Required.</strong></em> The time required varies depending upon what a character is attempting to craft, as per <strong>Table:&nbsp;Crafting Time</strong>. At the end of the required time, the character makes a check based upon the desired quality level. On a success, the materials are consumed and they create the item. On a failure, they create an item of one quality level lower than they desired or may salvage the materials. When a character fails by 5 or more, they produce a poor quality item and the materials are consumed.</p>\n<p>&nbsp;</p>\n<p><strong>Table: Crafting Time</strong></p>\n<table style=\"width: 49.8212%;\" border=\"1\"><colgroup><col style=\"width: 40.7655%;\"><col style=\"width: 59.2385%;\"></colgroup>\n<thead>\n<tr>\n<td>Item</td>\n<td>Craft Time</td>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Dual-wielding weapon*</td>\n<td>2 per week</td>\n</tr>\n<tr>\n<td>Martial or simple weapon*</td>\n<td>1 week</td>\n</tr>\n<tr>\n<td>Heavy weapon*</td>\n<td>2 weeks</td>\n</tr>\n<tr>\n<td>Ammunition</td>\n<td>50 per week</td>\n</tr>\n<tr>\n<td>Light armor</td>\n<td>1 week</td>\n</tr>\n<tr>\n<td>Medium armor</td>\n<td>2 weeks</td>\n</tr>\n<tr>\n<td>Heavy armor</td>\n<td>4 weeks</td>\n</tr>\n<tr>\n<td>Tool or equipment</td>\n<td>2 per week</td>\n</tr>\n</tbody>\n</table>\n<p><em>* Rare weapons may require longer crafting times determined by the Narrator.</em></p>\n<p>&nbsp;</p>\n<p><em><strong>Quality.</strong></em> The quality of an item affects the time, cost, and difficulty of crafting it. Items of fine quality or masterwork quality also offer special benefits. A fine item also costs an additional 25 gold to produce, and a masterwork item 125 gold.</p>\n<p>&nbsp;</p>\n<p><strong>Table: Crafting Items</strong></p>\n<table style=\"width: 100%;\" border=\"1\"><colgroup><col style=\"width: 9.30788%;\"><col style=\"width: 4.65394%;\"><col style=\"width: 3.34129%;\"><col style=\"width: 7.51719%;\"><col style=\"width: 9.90525%;\"><col style=\"width: 15.9905%;\"><col style=\"width: 49.4033%;\"></colgroup>\n<thead>\n<tr>\n<td>Quality</td>\n<td style=\"text-align: center;\">Time</td>\n<td style=\"text-align: center;\">DC</td>\n<td style=\"text-align: center;\">Materials</td>\n<td style=\"text-align: center;\">Production Cost</td>\n<td style=\"text-align: center;\">Sell Price</td>\n<td>Benefit</td>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Poor</td>\n<td style=\"text-align: center;\">x 1/2</td>\n<td style=\"text-align: center;\">10</td>\n<td style=\"text-align: center;\">x 1/8th</td>\n<td style=\"text-align: center;\">-</td>\n<td style=\"text-align: center;\">Half</td>\n<td>Gains the Broken condition after each use</td>\n</tr>\n<tr>\n<td>Normal</td>\n<td style=\"text-align: center;\">Base</td>\n<td style=\"text-align: center;\">15</td>\n<td style=\"text-align: center;\">x 1/4</td>\n<td style=\"text-align: center;\">-</td>\n<td style=\"text-align: center;\">Up to full</td>\n<td>-</td>\n</tr>\n<tr>\n<td>Fine</td>\n<td style=\"text-align: center;\">x 2</td>\n<td style=\"text-align: center;\">20</td>\n<td style=\"text-align: center;\">x 1/2</td>\n<td style=\"text-align: center;\">+ 25 gp</td>\n<td style=\"text-align: center;\">At least full price</td>\n<td>Can be enchanted to become a magic item of up to uncommon rarity</td>\n</tr>\n<tr>\n<td>Masterwork</td>\n<td style=\"text-align: center;\">x 5</td>\n<td style=\"text-align: center;\">25</td>\n<td style=\"text-align: center;\">x 1</td>\n<td style=\"text-align: center;\">+&nbsp; 125 gp</td>\n<td style=\"text-align: center;\">No less than double full price</td>\n<td>Never has damage vulnerabilities, and can be enchanted to become a magic item of any rarity</td>\n</tr>\n</tbody>\n</table>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"actions": {
+			"RQ1WNO4DLLDde3gw": {
+				"name": "Craft",
+				"consumers": {
+					"bDDIuCx79EBXGF8Q": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "day",
+					"cost": 5,
+					"reactionTrigger": ""
+				},
+				"rolls": {
+					"NFvS68Sw7FmJUamT": {
+						"type": "abilityCheck",
+						"default": false,
+						"ability": "str",
+						"label": "Strength Tool Check",
+						"bonus": "@prof"
+					},
+					"8UwUCRnvcO1sQUal": {
+						"type": "abilityCheck",
+						"default": false,
+						"ability": "dex",
+						"bonus": "@prof",
+						"label": "Dexterity Tool Check"
+					},
+					"C1SiI0q0lPjiarqA": {
+						"type": "abilityCheck",
+						"default": false,
+						"ability": "con",
+						"bonus": "@prof",
+						"label": "Constitution Tool Check"
+					},
+					"HKoDdrKT7QhMUbzo": {
+						"type": "abilityCheck",
+						"default": false,
+						"ability": "int",
+						"bonus": "@prof",
+						"label": "Intelligence Tool Check"
+					},
+					"FBMAEFxlktGvdbak": {
+						"type": "abilityCheck",
+						"default": false,
+						"ability": "wis",
+						"bonus": "@prof",
+						"label": "Wisdom Tool Check"
+					},
+					"2FzkgA6UvBdoGiQM": {
+						"type": "abilityCheck",
+						"default": false,
+						"ability": "cha",
+						"bonus": "@prof",
+						"label": "Charisma Tool Check"
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": "0"
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "week",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "downtime",
+		"journeyProperties": {
+			"criticalFailure": "",
+			"failure": "",
+			"success": "",
+			"criticalSuccess": ""
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.4",
+		"createdTime": 1737401217393,
+		"modifiedTime": 1737402721846,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "OwEmLdNSrO6yuvp0"
+}

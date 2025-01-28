@@ -22,6 +22,12 @@ export default function registerFilterConfig(A5E) {
 				filters: { ...abilityActionFilters },
 			},
 		},
+		interactions: {
+			activationCost: {
+				label: 'A5E.FilterLabelActivationCost',
+				filters: { ...abilityActionFilters },
+			},
+		},
 		maneuvers: {
 			activationCost: {
 				label: 'A5E.FilterLabelActivationCost',

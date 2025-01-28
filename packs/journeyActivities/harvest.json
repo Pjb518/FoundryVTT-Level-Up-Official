@@ -1,0 +1,106 @@
+{
+	"folder": null,
+	"name": "Harvest",
+	"type": "interaction",
+	"img": "icons/skills/trades/farming-sickle-harvest-wheat.webp",
+	"system": {
+		"description": "<p>An adventurer that succeeds on a Medicine or Nature check finds plants to refill a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.067o6hjosd8nrjs8]{Healer's Satchel}.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "trialsAndTreasures",
+		"actions": {
+			"gUHZxO77Z7LhHkmc": {
+				"name": "Harvest",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "day",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"dsguK2sX4X3O9h80": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "med",
+						"ability": "wis",
+						"bonus": "",
+						"label": ""
+					},
+					"WgtSrLEqCnlvEboc": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "nat",
+						"ability": "int",
+						"bonus": "",
+						"label": ""
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "journey",
+		"journeyProperties": {
+			"criticalFailure": "The adventurer accidentally picks plants about to decay or rot, destroying 1 use of their healer’s satchel before realizing it.",
+			"failure": "The adventurer finds no plants.",
+			"success": "The adventurer finds plants to refill 1 use of a healer’s satchel for each day spent doing this journey activity.",
+			"criticalSuccess": "As a success, and the adventurer finds plants which duplicate the effects of a potion of healing. This benefit can only be gained once per week."
+		}
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.4",
+		"createdTime": 1737058383624,
+		"modifiedTime": 1737058499501,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "2l3T7qxF0UzVzji9"
+}

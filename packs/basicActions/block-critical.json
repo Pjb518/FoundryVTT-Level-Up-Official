@@ -1,0 +1,153 @@
+{
+	"folder": null,
+	"name": "Block Critical",
+	"type": "interaction",
+	"img": "icons/skills/melee/shield-block-gray-orange.webp",
+	"system": {
+		"description": "<p>When you take a critical hit, you can use your reaction to block it, turning the critical hit into a regular hit and suffering a level of fatigue (if you have a shield, you can Sacrifice Shield instead). Once you have turned a critical hit into a regular hit in this way, you cannot do so again until you finish a short or long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "adventurersGuide",
+		"actions": {
+			"kCb4B05i62nccEuN": {
+				"name": "Block Critical",
+				"consumers": {
+					"QTjgOweVpSplDJCx": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"activation": {
+					"type": "reaction",
+					"reactionTrigger": "Take a critical hit",
+					"cost": 1
+				},
+				"effects": [
+					"DoVmwaClurDDBfUv"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "shortRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"interactionType": "basicAction",
+		"journeyProperties": {
+			"criticalFailure": "",
+			"failure": "",
+			"success": "",
+			"criticalSuccess": ""
+		}
+	},
+	"effects": [
+		{
+			"origin": "Item.JDye9bzD984psMn3",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Block Critical",
+			"img": "icons/skills/melee/shield-block-gray-orange.webp",
+			"_id": "DoVmwaClurDDBfUv",
+			"type": "base",
+			"changes": [
+				{
+					"key": "system.attributes.fatigue",
+					"value": "1",
+					"mode": 2,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.4",
+				"createdTime": 1737068243883,
+				"modifiedTime": 1737068251293,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.4",
+		"createdTime": 1737068178516,
+		"modifiedTime": 1737068243947,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "RTv6AFj9ArifhFRQ"
+}
