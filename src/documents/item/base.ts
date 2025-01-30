@@ -205,6 +205,14 @@ class BaseItemA5e extends Item {
 		});
 	}
 
+	async toggleHidden() {
+		if (!this.actor) return;
+
+		await this.update({
+			'system.hidden': !this.system.hidden,
+		});
+	}
+
 	async revitalize(options: RevitalizeOptions = {}): Promise<Record<string, any> | null> {
 		if (!options.skipDialog) {
 			// Confirmation Dialog

@@ -11,6 +11,7 @@ const schema = {
 	concentration: new fields.BooleanField({ required: true, initial: false }),
 	featureType: new fields.StringField({ required: true, initial: '' }),
 	grants: new fields.ObjectField({ required: true, initial: {} }),
+	hidden: new fields.BooleanField({ required: true, initial: false }),
 	prerequisite: new fields.StringField({ required: true, initial: '' }),
 	requiresBloodied: new fields.BooleanField({ required: true, initial: false }),
 };

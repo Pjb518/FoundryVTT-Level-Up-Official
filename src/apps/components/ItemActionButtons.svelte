@@ -56,6 +56,7 @@ function showDescription() {
 const actor = getContext('actor');
 
 $: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+$: hidden = item.system.hidden ?? false;
 </script>
 
 {#if sheetIsLocked}
@@ -76,6 +77,28 @@ $: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ??
         <i class="track-icon fa-solid fa-ellipsis-vertical" />
 
         <ul class="track-items">
+            {#if item.type === "feature" && !hidden}
+                <li>
+                    <button
+                        class="action-button fas fa-eye"
+                        data-tooltip="A5E.ButtonToolTipHide"
+                        data-tooltip-direction="UP"
+                        on:click|stopPropagation={() => item.toggleHidden()}
+                    />
+                </li>
+            {/if}
+
+            {#if item.type === "feature" && hidden}
+                <li>
+                    <button
+                        class="action-button fas fa-eye-slash"
+                        data-tooltip="A5E.ButtonToolTipUnhide"
+                        data-tooltip-direction="UP"
+                        on:click|stopPropagation={() => item.toggleHidden()}
+                    />
+                </li>
+            {/if}
+
             <li>
                 <button
                     class="action-button fas fa-cog"

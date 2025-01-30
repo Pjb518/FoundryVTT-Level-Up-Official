@@ -52,6 +52,10 @@ async function onDropObject(event, items) {
 	);
 }
 
+function checkForVisibleItem (feature) {
+    return !feature.item.system.hidden ?? true;
+}
+
 function getHeadingTemplateConfiguration(showUses, showQuantity) {
 	let areas = 'name';
 	let columns = '1fr';
@@ -101,6 +105,8 @@ function getItemTemplateConfiguration(showUses, showQuantity) {
 $: headingTemplateConfiguration = getHeadingTemplateConfiguration(showUses, showQuantity);
 
 $: itemTemplateConfiguration = getItemTemplateConfiguration(showUses, showQuantity);
+
+$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 <section class="category-container">
@@ -169,13 +175,23 @@ $: itemTemplateConfiguration = getItemTemplateConfiguration(showUses, showQuanti
 
     <ul class="a5e-item-list">
         {#each [...items] as item (item?.id)}
-            <Item
-                {item}
-                {showDescription}
-                --itemTemplateAreas={itemTemplateConfiguration.areas}
-                --itemTemplateColumns={itemTemplateConfiguration.columns}
-                on:dropObject={({ detail }) => onDropObject(detail, [...items])}
-            />
+            {#if sheetIsLocked && checkForVisibleItem({item})}
+                <Item
+                    {item}
+                    {showDescription}
+                    --itemTemplateAreas={itemTemplateConfiguration.areas}
+                    --itemTemplateColumns={itemTemplateConfiguration.columns}
+                    on:dropObject={({ detail }) => onDropObject(detail, [...items])}
+                />
+            {:else if !sheetIsLocked}
+                <Item
+                    {item}
+                    {showDescription}
+                    --itemTemplateAreas={itemTemplateConfiguration.areas}
+                    --itemTemplateColumns={itemTemplateConfiguration.columns}
+                    on:dropObject={({ detail }) => onDropObject(detail, [...items])}
+                />
+            {/if}
         {/each}
     </ul>
 </section>

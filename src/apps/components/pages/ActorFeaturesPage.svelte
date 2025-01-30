@@ -33,7 +33,7 @@
     $: sortedFeatures = Object.entries($features._types).sort(
         (a, b) => sortMap[a[0]] - sortMap[b[0]],
     );
-
+    
     const unsubscribe = features.subscribe((_) => {
         showUses = usesRequired(features);
     });
@@ -75,7 +75,7 @@
                     type="featureTypes"
                 />
             {/if}
-        {/each}
+        {/each}            
     {/if}
 </section>
 
