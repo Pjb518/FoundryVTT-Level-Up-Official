@@ -20,7 +20,7 @@ const schema = {
 		initial: [],
 	}),
 	attuned: new fields.BooleanField({ required: true, initial: false }),
-	attunementRequirement: new fields.StringField({ required: true, initial: '' }),
+	attunementHint: new fields.StringField({ required: true, initial: '' }),
 	bulky: new fields.BooleanField({ required: true, initial: false }),
 	breakerProperties: new fields.ArrayField(
 		new fields.StringField({ required: true, initial: '' }),

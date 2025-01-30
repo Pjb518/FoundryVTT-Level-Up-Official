@@ -116,13 +116,13 @@
         </Section>
 
         {#if $item.system.requiresAttunement}
-            <FieldWrapper heading="A5E.AttunementRequirement">
+            <FieldWrapper heading="A5E.AttunementHint">
                 <input
                     class="u-pl-lg"
                     type="text"
-                    name="system.attunementRequirement"
-                    value={$item.system.attunementRequirement}
-                    id={`${appId}-attunementRequirement`}
+                    name="system.attunementHint"
+                    value={$item.system.attunementHint}
+                    id={`${appId}-attunementHint`}
                     on:change={({ target }) =>
                         updateDocumentDataFromField($item, target.name, target.value)}
                 />
@@ -275,11 +275,11 @@
                 </dd>
             </div>
 
-            {#if $item.system.attunementRequirement !== ""}
+            {#if $item.system.attunementHint !== ""}
                 <div class="u-flex u-gap-md">
-                    <dt class="u-text-bold">{localize("A5E.AttunementRequirement")}:</dt>
+                    <dt class="u-text-bold">{localize("A5E.AttunementHint")}:</dt>
                     <dd class="u-m-0 u-p-0">
-                        {$item.system.attunementRequirement}
+                        {$item.system.attunementHint}
                     </dd>
                 </div>
             {/if}
