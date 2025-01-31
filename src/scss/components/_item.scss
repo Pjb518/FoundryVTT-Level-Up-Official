@@ -1,4 +1,17 @@
 .a5e-item {
+  /** Variables**/
+  --icon-color: var(--a5e-item-list-item-icon-color);
+  --icon-color-active: var(--a5e-item-list-item-icon-color-active);
+  --indicator-background: var(--a5e-item-list-item-indicator-background);
+  --indicator-text-color: var(--a5e-item-list-item-indicator-color);
+  --input-border-color: var(--a5e-item-list-item-input-border-color);
+  --item-background: var(--a5e-item-list-item-background-end);
+  --item-border-color-end: var(--a5e-item-list-item-border-color-end);
+  --item-border-color-start: var(--a5e-item-list-item-border-color-start);
+  --track-background: var(--a5e-item-list-item-track-background);
+  --track-border-color: var(--a5e-item-list-item-track-border-color);
+
+  /** CSS**/
   position: relative;
   display: grid;
   grid-template-areas: var(--itemTemplateAreas);
@@ -12,8 +25,8 @@
   border: solid transparent;
   border-width: 0 0 1px;
   border-image: linear-gradient(90deg,
-  var(--item-border-color-start, transparent) 0%,
-  var(--item-border-color-end, var(--a5e-item-list-item-border-end)) 55%)
+  var(--item-border-color-start) 0%,
+  var(--item-border-color-end) 55%)
     1 repeat;
   border-radius: 0;
   background: linear-gradient(90deg, transparent, var(--item-background, transparent) 70%);
@@ -70,29 +83,51 @@
   }
 
   &--highlight {
-    --icon-color: hsla(145, 100%, 15%, 0.302);
-    --icon-color-active: hsla(145, 100%, 15%, 0.75);
-    --indicator-background: hsla(145, 100%, 32%, 0.302);
-    --indicator-text-color: #000;
-    --input-border-color: hsla(145, 100%, 15%, 0.302);
-    --item-background: hsla(145, 100%, 42%, 0.302);
-    --item-border-color-end: hsla(145, 100%, 25%, 0.302);
-    --item-border-color-start: hsla(145, 100%, 42%, 0);
-    --track-background: hsl(120, 43%, 87%);
-    --track-border-color: hsla(145, 100%, 25%, 0.302);
+    // --icon-color: hsla(145, 100%, 15%, 0.302);
+    // --icon-color-active: hsla(145, 100%, 15%, 0.75);
+    // --indicator-background: hsla(145, 100%, 32%, 0.302);
+    // --indicator-text-color: #000;
+    // --input-border-color: hsla(145, 100%, 15%, 0.302);
+    // --item-background: hsla(145, 100%, 42%, 0.302);
+    // --item-border-color-end: hsla(145, 100%, 25%, 0.302);
+    // --item-border-color-start: hsla(145, 100%, 42%, 0);
+    // --track-background: hsl(120, 43%, 87%);
+    // --track-border-color: hsla(145, 100%, 25%, 0.302);
+
+    --icon-color: var(--a5e-item-list-item-icon-color-highlight);
+    --icon-color-active: var(--a5e-item-list-item-icon-color-active-highlight);
+    --indicator-background: var(--a5e-item-list-item-indicator-background-highlight);
+    --indicator-text-color: var(--a5e-item-list-item-indicator-color-highlight);
+    --input-border-color: var(--a5e-item-list-item-input-border-color-highlight);
+    --item-background: var(--a5e-item-list-item-background-end-highlight);
+    --item-border-color-end: var(--a5e-item-list-item-border-color-end-highlight);
+    --item-border-color-start: var(--a5e-item-list-item-border-color-start-highlight);
+    --track-background: var(--a5e-item-list-item-track-background-highlight);
+    --track-border-color: var(--a5e-item-list-item-track-border-color-highlight);
   }
 
   &--purple-highlight {
-    --icon-color: hsla(260, 50%, 40%, 0.302);
-    --icon-color-active: hsla(280, 35%, 30%, 0.75);
-    --indicator-background: hsla(280, 55%, 50%, 0.302);
-    --indicator-text-color: #000;
-    --input-border-color: hsla(280, 75%, 60%, 0.302);
-    --item-background: hsla(280, 75%, 60%, 0.22);
-    --item-border-color-end: hsla(280, 30%, 40%, 0.302);
-    --item-border-color-start: hsla(280, 75%, 60%, 0);
-    --track-background: hsl(280, 30%, 90%);
-    --track-border-color: hsla(280, 30%, 40%, 0.302);
+    // --icon-color: hsla(260, 50%, 40%, 0.302);
+    // --icon-color-active: hsla(280, 35%, 30%, 0.75);
+    // --indicator-background: hsla(280, 55%, 50%, 0.302);
+    // --indicator-text-color: #000;
+    // --input-border-color: hsla(280, 75%, 60%, 0.302);
+    // --item-background: hsla(280, 75%, 60%, 0.22);
+    // --item-border-color-end: hsla(280, 30%, 40%, 0.302);
+    // --item-border-color-start: hsla(280, 75%, 60%, 0);
+    // --track-background: hsl(280, 30%, 90%);
+    // --track-border-color: hsla(280, 30%, 40%, 0.302);
+
+    --icon-color: var(--a5e-item-list-item-icon-color-highlight-purple);
+    --icon-color-active: var(--a5e-item-list-item-icon-color-active-highlight-purple);
+    --indicator-background: var(--a5e-item-list-item-indicator-background-highlight-purple);
+    --indicator-text-color: var(--a5e-item-list-item-indicator-color-highlight-purple);
+    --input-border-color: var(--a5e-item-list-item-input-border-color-highlight-purple);
+    --item-background: var(--a5e-item-list-item-background-end-highlight-purple);
+    --item-border-color-end: var(--a5e-item-list-item-border-color-end-highlight-purple);
+    --item-border-color-start: var(--a5e-item-list-item-border-color-start-highlight-purple);
+    --track-background: var(--a5e-item-list-item-track-background-highlight-purple);
+    --track-border-color: var(--a5e-item-list-item-track-border-color-highlight-purple);
   }
 
   &--red-highlight {
@@ -106,6 +141,17 @@
     --item-border-color-start: hsla(0, 55%, 55%, 0);
     --track-background: hsl(0, 30%, 90%);
     --track-border-color: hsla(0, 40%, 50%, 0.302);
+
+    --icon-color: var(--a5e-item-list-item-icon-color-highlight-red);
+    --icon-color-active: var(--a5e-item-list-item-icon-color-active-highlight-red);
+    --indicator-background: var(--a5e-item-list-item-indicator-background-highlight-red);
+    --indicator-text-color: var(--a5e-item-list-item-indicator-color-highlight-red);
+    --input-border-color: var(--a5e-item-list-item-input-border-color-highlight-red);
+    --item-background: var(--a5e-item-list-item-background-end-highlight-red);
+    --item-border-color-end: var(--a5e-item-list-item-border-color-end-highlight-red);
+    --item-border-color-start: var(--a5e-item-list-item-border-color-start-highlight-red);
+    --track-background: var(--a5e-item-list-item-track-background-highlight-red);
+    --track-border-color: var(--a5e-item-list-item-track-border-color-highlight-red);
   }
 
   &__details {

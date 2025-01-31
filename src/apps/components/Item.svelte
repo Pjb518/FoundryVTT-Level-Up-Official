@@ -1,116 +1,120 @@
 <script lang="ts">
-import type { Action } from 'types/action';
-import type { ItemA5e } from '../../documents/item/item';
+    import type { Action } from "types/action";
+    import type { ItemA5e } from "../../documents/item/item";
 
-import { createEventDispatcher, getContext } from 'svelte';
-import { slide } from 'svelte/transition';
-import { localize } from '#runtime/util/i18n';
+    import { createEventDispatcher, getContext } from "svelte";
+    import { slide } from "svelte/transition";
+    import { localize } from "#runtime/util/i18n";
 
-import pressedKeysStore from '../../stores/pressedKeysStore';
-import getKeyPressAsOptions from '../handlers/getKeyPressAsOptions';
-import getSummaryData from '../../utils/summaries/getSummaryData';
+    import pressedKeysStore from "../../stores/pressedKeysStore";
+    import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
+    import getSummaryData from "../../utils/summaries/getSummaryData";
 
-import ItemActionButtons from './ItemActionButtons.svelte';
-import ItemInnerWrapper from './ItemInnerWrapper.svelte';
-import ItemSummary from './itemSummaries/ItemSummary.svelte';
-import type { BaseItemA5e } from '../../documents/item/base';
+    import ItemActionButtons from "./ItemActionButtons.svelte";
+    import ItemInnerWrapper from "./ItemInnerWrapper.svelte";
+    import ItemSummary from "./itemSummaries/ItemSummary.svelte";
+    import type { BaseItemA5e } from "../../documents/item/base";
 
-export let item: ItemA5e;
-export let action: Action | null = null;
-export let actionId: string | null = null;
-export let showDescription: boolean = false;
+    export let item: ItemA5e;
+    export let action: Action | null = null;
+    export let actionId: string | null = null;
+    export let showDescription = false;
 
-const actor = getContext('actor');
-const { A5E } = CONFIG;
+    const actor = getContext("actor");
+    const { A5E } = CONFIG;
 
-const dispatch = createEventDispatcher();
+    const dispatch = createEventDispatcher();
 
-let rightClickConfigure = game.settings?.get('a5e', 'itemRightClickConfigure') ?? false;
+    let rightClickConfigure =
+        game.settings?.get("a5e", "itemRightClickConfigure") ?? false;
 
-let isGM = game.user?.isGM;
+    let isGM = game.user?.isGM;
 
-function determineActionListVisibility(
-	action: Action | null,
-	item: ItemA5e,
-	sheetIsLocked: boolean,
-) {
-	if (action) return false;
+    function determineActionListVisibility(
+        action: Action | null,
+        item: ItemA5e,
+        sheetIsLocked: boolean,
+    ) {
+        if (action) return false;
 
-	if (item.actions?.count < 2) {
-		return [...(item.actions?.values() ?? [])]?.some(
-			(action) => action.uses?.value || action.uses?.max,
-		);
-	}
+        if (item.actions?.count < 2) {
+            return [...(item.actions?.values() ?? [])]?.some(
+                (action) => action.uses?.value || action.uses?.max,
+            );
+        }
 
-	if (item.getFlag('a5e', 'showActionList') === false) return false;
+        if (item.getFlag("a5e", "showActionList") === false) return false;
 
-	if (game.settings.get('a5e', 'collapseActionList') && sheetIsLocked) return false;
+        if (game.settings.get("a5e", "collapseActionList") && sheetIsLocked) return false;
 
-	return true;
-}
+        return true;
+    }
 
-function onItemActivate() {
-	const options = getKeyPressAsOptions($pressedKeysStore);
-	item.activate(actionId, options);
-}
+    function onItemActivate() {
+        const options = getKeyPressAsOptions($pressedKeysStore);
+        item.activate(actionId, options);
+    }
 
-async function onConfigure() {
-	if (actionId) {
-		item.actions?.configure(actionId);
-		return;
-	}
+    async function onConfigure() {
+        if (actionId) {
+            item.actions?.configure(actionId);
+            return;
+        }
 
-	item.configureItem();
-}
+        item.configureItem();
+    }
 
-function onDragStart(
-	event: DragEvent & {
-		currentTarget: EventTarget & HTMLLIElement;
-	},
-) {
-	const dragData = item.toDragData();
-	if (!dragData) return;
+    function onDragStart(
+        event: DragEvent & {
+            currentTarget: EventTarget & HTMLLIElement;
+        },
+    ) {
+        const dragData = item.toDragData();
+        if (!dragData) return;
 
-	// @ts-expect-error
-	dragData.actorId = item?.parent.id;
-	// @ts-expect-error
-	if (actionId) dragData.actionId = actionId;
+        // @ts-expect-error
+        dragData.actorId = item?.parent.id;
+        // @ts-expect-error
+        if (actionId) dragData.actionId = actionId;
 
-	return event.dataTransfer?.setData('text/plain', JSON.stringify(dragData));
-}
+        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
+    }
 
-async function getDescription(item: BaseItemA5e) {
-	const data =
-		(await TextEditor.enrichHTML(
-			actionId && action ? action.description : item.system.description,
-			{
-				async: true,
-				secrets: item.isOwner,
-				relativeTo: item,
-				rollData: $actor?.getRollData(item) ?? {},
-			},
-		)) ?? localize('A5E.NoDescription');
+    async function getDescription(item: BaseItemA5e) {
+        const data =
+            (await TextEditor.enrichHTML(
+                actionId && action ? action.description : item.system.description,
+                {
+                    async: true,
+                    secrets: item.isOwner,
+                    relativeTo: item,
+                    rollData: $actor?.getRollData(item) ?? {},
+                },
+            )) ?? localize("A5E.NoDescription");
 
-	return data;
-}
+        return data;
+    }
 
-// @ts-expect-error // TODO: Make this is an object type check
-$: containerItems = (item?.contents ?? []).reduce((acc, i) => {
-	if (!i) return acc;
-	if (i.parent?.id !== $actor.id) return acc;
+    // @ts-expect-error // TODO: Make this is an object type check
+    $: containerItems = (item?.contents ?? []).reduce((acc, i) => {
+        if (!i) return acc;
+        if (i.parent?.id !== $actor.id) return acc;
 
-	acc.push([i?.id ?? foundry.utils.randomID(), i]);
-	return acc;
-}, []);
+        acc.push([i?.id ?? foundry.utils.randomID(), i]);
+        return acc;
+    }, []);
 
-$: description = getDescription(item)
-	.then((data) => (description = data))
-	.catch((err) => (description = err));
+    $: description = getDescription(item)
+        .then((data) => (description = data))
+        .catch((err) => (description = err));
 
-$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
-$: showActionList = determineActionListVisibility(action, item, sheetIsLocked);
-$: showContainerItems = item.getFlag('a5e', 'showContainer') ?? containerItems.length > 0;
-$: summaryData = getSummaryData(item, action);
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+    $: showActionList = determineActionListVisibility(action, item, sheetIsLocked);
+    $: showContainerItems =
+        item.getFlag("a5e", "showContainer") ?? containerItems.length > 0;
+    $: summaryData = getSummaryData(item, action);
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->

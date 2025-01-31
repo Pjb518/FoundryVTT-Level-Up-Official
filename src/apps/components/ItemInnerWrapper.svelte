@@ -1,253 +1,271 @@
 <script lang="ts">
-import type { Action } from 'types/action';
-import type { ItemA5e } from '../../documents/item/item';
+    import type { Action } from "types/action";
+    import type { ItemA5e } from "../../documents/item/item";
 
-import { getContext, createEventDispatcher } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext, createEventDispatcher } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import formulaIsClassResource from '../../utils/formulaIsClassResource';
-import getDeterministicBonus from '../../dice/getDeterministicBonus';
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
-import type ObjectItemA5e from '../../documents/item/object';
+    import formulaIsClassResource from "../../utils/formulaIsClassResource";
+    import getDeterministicBonus from "../../dice/getDeterministicBonus";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
+    import type ObjectItemA5e from "../../documents/item/object";
 
-export let item: ItemA5e;
-export let action: Action | null;
-export let actionId: string | null;
+    export let item: ItemA5e;
+    export let action: Action | null;
+    export let actionId: string | null;
 
-function getActivationCost(item: ItemA5e, action: Action) {
-	let _action = action;
+    function getActivationCost(item: ItemA5e, action: Action) {
+        let _action = action;
 
-	if (!item.actions) return '';
-	if (item.actions?.count === 0) return '';
+        if (!item.actions) return "";
+        if (item.actions?.count === 0) return "";
 
-	if (item.actions?.count === 1) {
-		_action = item.actions.first!;
-	}
+        if (item.actions?.count === 1) {
+            _action = item.actions.first!;
+        }
 
-	switch (_action?.activation?.type) {
-		case 'action':
-			return 'A';
-		case 'bonusAction':
-			return 'B';
-		case 'legendaryAction':
-			const cost = _action?.activation?.cost;
+        switch (_action?.activation?.type) {
+            case "action":
+                return "A";
+            case "bonusAction":
+                return "B";
+            case "legendaryAction":
+                const cost = _action?.activation?.cost;
 
-			if (cost === 1 || cost === 0) return 'L';
-			else return `${cost}L`;
-		case 'reaction':
-			return 'R';
-		default:
-			return '';
-	}
-}
+                if (cost === 1 || cost === 0) return "L";
+                else return `${cost}L`;
+            case "reaction":
+                return "R";
+            default:
+                return "";
+        }
+    }
 
-// TODO: Cleanup - Fix up this gross mess
-function getActivationCostLabel(item: ItemA5e, action: Action, cost: string) {
-	let _action = action;
+    // TODO: Cleanup - Fix up this gross mess
+    function getActivationCostLabel(item: ItemA5e, action: Action, cost: string) {
+        let _action = action;
 
-	if (item.actions?.count === 1) {
-		_action = item.actions.first!;
-	}
+        if (item.actions?.count === 1) {
+            _action = item.actions.first!;
+        }
 
-	switch (cost) {
-		case 'A':
-			return 'Action';
-		case 'B':
-			return 'Bonus Action';
-		case 'L':
-			return 'Legendary Action';
-		case 'R':
-			return _action?.activation?.reactionTrigger
-				? `Reaction (${_action.activation.reactionTrigger})`
-				: 'Reaction';
-		default:
-			return '';
-	}
-}
+        switch (cost) {
+            case "A":
+                return "Action";
+            case "B":
+                return "Bonus Action";
+            case "L":
+                return "Legendary Action";
+            case "R":
+                return _action?.activation?.reactionTrigger
+                    ? `Reaction (${_action.activation.reactionTrigger})`
+                    : "Reaction";
+            default:
+                return "";
+        }
+    }
 
-function getSelectedAmmo(item: ItemA5e, action: Action) {
-	let _action = action;
+    function getSelectedAmmo(item: ItemA5e, action: Action) {
+        let _action = action;
 
-	if (!item.actions) return '';
-	if (item.actions?.count === 0) return '';
+        if (!item.actions) return "";
+        if (item.actions?.count === 0) return "";
 
-	if (item.actions?.count === 1) {
-		_action = item.actions.first!;
-	}
+        if (item.actions?.count === 1) {
+            _action = item.actions.first!;
+        }
 
-	const ammoConsumer = Object.entries(_action?.consumers ?? {}).find(
-		([_, consumer]) => consumer?.type === 'ammunition',
-	);
+        const ammoConsumer = Object.entries(_action?.consumers ?? {}).find(
+            ([_, consumer]) => consumer?.type === "ammunition",
+        );
 
-	if (!ammoConsumer) return '';
+        if (!ammoConsumer) return "";
 
-	return ammoConsumer[1].itemId;
-}
+        return ammoConsumer[1].itemId;
+    }
 
-function hasAmmunition(item: ItemA5e, action: Action) {
-	let _action = action;
+    function hasAmmunition(item: ItemA5e, action: Action) {
+        let _action = action;
 
-	if (!item.actions) return false;
-	if (item.actions.count === 0) return false;
+        if (!item.actions) return false;
+        if (item.actions.count === 0) return false;
 
-	if (item.actions.count === 1) {
-		_action = item.actions.first!;
-	}
+        if (item.actions.count === 1) {
+            _action = item.actions.first!;
+        }
 
-	return Object.entries(_action?.consumers ?? {}).filter(
-		([_, consumer]) => consumer?.type === 'ammunition',
-	).length;
-}
+        return Object.entries(_action?.consumers ?? {}).filter(
+            ([_, consumer]) => consumer?.type === "ammunition",
+        ).length;
+    }
 
-function updateAmmunition(event) {
-	let _actionId = actionId;
-	const selectedOption = event.target?.selectedOptions[0]?.value;
+    function updateAmmunition(event) {
+        let _actionId = actionId;
+        const selectedOption = event.target?.selectedOptions[0]?.value;
 
-	if (!item.actions) return;
-	if (item.actions.count === 0) return;
+        if (!item.actions) return;
+        if (item.actions.count === 0) return;
 
-	if (item.actions.count === 1) {
-		_actionId = item.actions.keys()[0];
-	}
+        if (item.actions.count === 1) {
+            _actionId = item.actions.keys()[0];
+        }
 
-	const [consumerId] = Object.entries(item.actions.get(_actionId || '')?.consumers ?? {}).find(
-		([_, consumer]) => consumer?.type === 'ammunition',
-	);
+        const [consumerId] = Object.entries(
+            item.actions.get(_actionId || "")?.consumers ?? {},
+        ).find(([_, consumer]) => consumer?.type === "ammunition");
 
-	if (!consumerId) return;
+        if (!consumerId) return;
 
-	updateDocumentDataFromField(
-		item,
-		`system.actions.${_actionId}.consumers.${consumerId}.itemId`,
-		selectedOption,
-	);
-}
+        updateDocumentDataFromField(
+            item,
+            `system.actions.${_actionId}.consumers.${consumerId}.itemId`,
+            selectedOption,
+        );
+    }
 
-function hasRecharge(item: ItemA5e) {
-	if (actionId && action) return action.uses?.per === 'recharge';
-	return item.system?.uses?.per === 'recharge';
-}
+    function hasRecharge(item: ItemA5e) {
+        if (actionId && action) return action.uses?.per === "recharge";
+        return item.system?.uses?.per === "recharge";
+    }
 
-function updateField(event) {
-	event.preventDefault();
+    function updateField(event) {
+        event.preventDefault();
 
-	const { target } = event;
-	updateDocumentDataFromField(item, target.name, Number(target.value));
-}
+        const { target } = event;
+        updateDocumentDataFromField(item, target.name, Number(target.value));
+    }
 
-function updateUsesValue(event) {
-	event.preventDefault();
+    function updateUsesValue(event) {
+        event.preventDefault();
 
-	const { target } = event;
-	if (isClassResource) {
-		updateDocumentDataFromField($actor, target.name, Number(target.value));
-	} else {
-		updateDocumentDataFromField(item, target.name, Number(target.value));
-	}
-}
+        const { target } = event;
+        if (isClassResource) {
+            updateDocumentDataFromField($actor, target.name, Number(target.value));
+        } else {
+            updateDocumentDataFromField(item, target.name, Number(target.value));
+        }
+    }
 
-function onConfigure() {
-	if (!rightClickConfigure) return;
+    function onConfigure() {
+        if (!rightClickConfigure) return;
 
-	if (actionId) {
-		item.actions?.configure(actionId);
-		return;
-	}
+        if (actionId) {
+            item.actions?.configure(actionId);
+            return;
+        }
 
-	const id = [...(item.actions.keys() ?? [])].at(0);
-	if (!id) {
-		item.configureItem();
-		return;
-	}
+        const id = [...(item.actions.keys() ?? [])].at(0);
+        if (!id) {
+            item.configureItem();
+            return;
+        }
 
-	item.actions?.configure(id);
-}
+        item.actions?.configure(id);
+    }
 
-function getCapacity(item: ObjectItemA5e): number {
-	if (!item.isType('object')) return 0;
-	if (item.system?.objectType !== 'container') return 0;
+    function getCapacity(item: ObjectItemA5e): number {
+        if (!item.isType("object")) return 0;
+        if (item.system?.objectType !== "container") return 0;
 
-	const capacity = item.containerItems
-		?.capacity()
-		.then((c) => (containerCapacity = c.percentage))
-		.catch((e) => console.error(e));
+        const capacity = item.containerItems
+            ?.capacity()
+            .then((c) => (containerCapacity = c.percentage))
+            .catch((e) => console.error(e));
 
-	return capacity?.percentage ?? 0;
-}
+        return capacity?.percentage ?? 0;
+    }
 
-function generateUsesConfig() {
-	const uses = {
-		action: {
-			value: action ? action.uses?.value : 0,
-			max: action ? getDeterministicBonus(action.uses?.max ?? 0, $actor.getRollData(item)) : 0,
-			updatePath: `system.actions.${actionId}.uses`,
-		},
-		item: {
-			value: item.system?.uses?.value ?? 0,
-			max: getDeterministicBonus(item.system?.uses?.max ?? 0, $actor.getRollData(item)),
-			updatePath: 'system.uses',
-		},
-	};
+    function generateUsesConfig() {
+        const uses = {
+            action: {
+                value: action ? action.uses?.value : 0,
+                max: action
+                    ? getDeterministicBonus(
+                          action.uses?.max ?? 0,
+                          $actor.getRollData(item),
+                      )
+                    : 0,
+                updatePath: `system.actions.${actionId}.uses`,
+            },
+            item: {
+                value: item.system?.uses?.value ?? 0,
+                max: getDeterministicBonus(
+                    item.system?.uses?.max ?? 0,
+                    $actor.getRollData(item),
+                ),
+                updatePath: "system.uses",
+            },
+        };
 
-	const maxFormula =
-		usesType === 'action' && action ? (action.uses?.max ?? '') : (item.system.uses?.max ?? '');
+        const maxFormula =
+            usesType === "action" && action
+                ? (action.uses?.max ?? "")
+                : (item.system.uses?.max ?? "");
 
-	if (!maxFormula) return uses;
+        if (!maxFormula) return uses;
 
-	isClassResource = formulaIsClassResource(maxFormula);
+        isClassResource = formulaIsClassResource(maxFormula);
 
-	if (isClassResource) {
-		const reg = new RegExp(/@classResources.(\S+)/gm);
-		const slug = reg.exec(maxFormula)?.[1];
+        if (isClassResource) {
+            const reg = new RegExp(/@classResources.(\S+)/gm);
+            const slug = reg.exec(maxFormula)?.[1];
 
-		if (!slug) return uses;
+            if (!slug) return uses;
 
-		const resource =
-			foundry.utils.getProperty($actor._source, `system.resources.classResources.${slug}`) ??
-			getDeterministicBonus(maxFormula, $actor.getRollData(item));
+            const resource =
+                foundry.utils.getProperty(
+                    $actor._source,
+                    `system.resources.classResources.${slug}`,
+                ) ?? getDeterministicBonus(maxFormula, $actor.getRollData(item));
 
-		uses[usesType].value = resource;
-		uses[usesType].updatePath = `system.resources.classResources.${slug}`;
-	}
+            uses[usesType].value = resource;
+            uses[usesType].updatePath = `system.resources.classResources.${slug}`;
+        }
 
-	return uses;
-}
+        return uses;
+    }
 
-const actor = getContext('actor');
-const dispatch = createEventDispatcher();
+    const actor = getContext("actor");
+    const dispatch = createEventDispatcher();
 
-const {
-	damagedStates,
-	DAMAGED_STATES,
-	equippedStates,
-	EQUIPPED_STATES,
-	preparedStates,
-	PREPARED_STATES,
-} = CONFIG.A5E;
+    const {
+        damagedStates,
+        DAMAGED_STATES,
+        equippedStates,
+        EQUIPPED_STATES,
+        preparedStates,
+        PREPARED_STATES,
+    } = CONFIG.A5E;
 
-let hideBrokenAndDamaged = game.settings.get('a5e', 'hideBrokenAndDamaged') as boolean;
-let usesType: 'action' | 'item' = actionId ? 'action' : 'item';
+    let hideBrokenAndDamaged = game.settings.get(
+        "a5e",
+        "hideBrokenAndDamaged",
+    ) as boolean;
+    let usesType: "action" | "item" = actionId ? "action" : "item";
 
-let rightClickConfigure = (game.settings.get('a5e', 'itemRightClickConfigure') ?? false) as boolean;
+    let rightClickConfigure = (game.settings.get("a5e", "itemRightClickConfigure") ??
+        false) as boolean;
 
-$: flags = $actor.flags;
+    $: flags = $actor.flags;
 
-$: isClassResource = false;
-$: uses = generateUsesConfig($actor, item, action);
+    $: isClassResource = false;
+    $: uses = generateUsesConfig($actor, item, action);
 
-$: ammunitionItems = $actor.items
-	.filter((i: ItemA5e) => i.isType('object') && i.system.objectType === 'ammunition')
-	.map((i) => ({ name: i.name, id: i.id }))
-	.sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
+    $: ammunitionItems = $actor.items
+        .filter(
+            (i: ItemA5e) => i.isType("object") && i.system.objectType === "ammunition",
+        )
+        .map((i) => ({ name: i.name, id: i.id }))
+        .sort((a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()));
 
-$: rechargeState = actionId
-	? action.uses?.max == action.uses?.value
-	: item.system?.uses?.max == item.system?.uses?.value;
+    $: rechargeState = actionId
+        ? action.uses?.max == action.uses?.value
+        : item.system?.uses?.max == item.system?.uses?.value;
 
-$: activationCost = getActivationCost(item, action);
-$: activationCostLabel = getActivationCostLabel(item, action, activationCost);
-$: containerCapacity = getCapacity(item as ObjectItemA5e);
-$: selectedAmmo = getSelectedAmmo(item, action);
+    $: activationCost = getActivationCost(item, action);
+    $: activationCostLabel = getActivationCostLabel(item, action, activationCost);
+    $: containerCapacity = getCapacity(item as ObjectItemA5e);
+    $: selectedAmmo = getSelectedAmmo(item, action);
 </script>
 
 <div class="name-wrapper" class:name-wrapper--ammunition={hasAmmunition(item, action)}>
@@ -697,12 +715,12 @@ $: selectedAmmo = getSelectedAmmo(item, action);
 
     .number-input {
         background: transparent;
-        border: 1px solid var(--input-border-color, #bbb);
+        border: 1px solid var(--input-border-color, var(--a5e-border-color));
         height: 1.125rem;
         width: 7ch;
 
         &:hover {
-            border: 1px solid var(--input-border-color, #bbb);
+            border: 1px solid var(--input-border-color, var(--a5e-border-color));
         }
     }
 
