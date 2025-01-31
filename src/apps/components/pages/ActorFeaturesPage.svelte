@@ -81,7 +81,7 @@
 
 <TabFooter --padding-right="1rem">
     {#if $actor.type === "character" && showFavorPoints}
-        <div class="u-flex u-align-center u-gap-md">
+        <div class="u-flex u-flex-wrap u-align-center u-gap-md">
             <h3 class="u-mb-0 u-text-sm u-text-bold">
                 {localize("A5E.FavorPoints")}
             </h3>
@@ -110,8 +110,6 @@
         </div>
     {/if}
 </TabFooter>
-
-<footer class="features-footer" />
 
 <style lang="scss">
     .disable-pointer-events {
