@@ -1,21 +1,21 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-export let icon;
-export let tooltipText;
-export let trackProperty;
-export let options;
-export let selectedOption;
+    export let icon;
+    export let tooltipText;
+    export let trackProperty;
+    export let options;
+    export let selectedOption;
 
-function handleStatusEffectChange(value) {
-	updateDocumentDataFromField($actor, `system.attributes.${trackProperty}`, value);
-}
+    function handleStatusEffectChange(value) {
+        updateDocumentDataFromField($actor, `system.attributes.${trackProperty}`, value);
+    }
 
-const actor = getContext('actor');
+    const actor = getContext("actor");
 
-let replaceFatigueAndStrife = game.settings.get('a5e', 'replaceFatigueAndStrife');
+    let replaceFatigueAndStrife = game.settings.get("a5e", "replaceFatigueAndStrife");
 </script>
 
 <div
@@ -88,11 +88,11 @@ let replaceFatigueAndStrife = game.settings.get('a5e', 'replaceFatigueAndStrife'
             flex-shrink: 0;
             align-items: center;
             justify-content: center;
-            border: 1px solid #ccc;
-            background: var(--a5e-color-background-light);
+            border: 1px solid var(--a5e-border-color);
+            background: var(--a5e-status-track-icon-background);
             border-radius: 50%;
-            box-shadow: 0 0 10px #ccc inset;
-            color: rgba(0, 0, 0, 0.2);
+            box-shadow: 0 0 10px var(--a5e-status-track-icon-shadow) inset;
+            color: var(--a5e-status-track-icon-color);
             cursor: pointer;
             font-size: var(--a5e-text-size-lg);
             transform: translateX(-1px);
@@ -115,17 +115,20 @@ let replaceFatigueAndStrife = game.settings.get('a5e', 'replaceFatigueAndStrife'
             padding: 0 0.5rem;
             background: transparent;
             border-radius: 0;
+            color: var(--a5e-status-track-item-color);
 
             transition: var(--a5e-transition-standard);
 
             &:focus,
             &:hover {
-                background: color.adjust(#dddace, $lightness: -2.5%);
+                background: var(--a5e-status-track-item-background-hover);
+                color: var(--a5e-status-track-item-color-hover);
                 box-shadow: none;
             }
 
             &-selected {
-                background: color.adjust(#dddace, $lightness: -2.5%);
+                background: var(--a5e-status-track-item-background-selected);
+                color: var(--a5e-status-track-item-color-selected);
             }
         }
 
@@ -134,10 +137,10 @@ let replaceFatigueAndStrife = game.settings.get('a5e', 'replaceFatigueAndStrife'
             display: flex;
             height: 2rem;
             padding: 0 0.75rem 0 1.5rem;
-            border: 1px solid #ccc;
+            border: 1px solid var(--a5e-status-track-items-border);
             border-left: 0;
             margin: 0;
-            background: var(--a5e-color-background-light);
+            background: var(--a5e-status-track-items-background);
             border-radius: 0 1rem 1rem 0;
             list-style: none;
             opacity: 0;
