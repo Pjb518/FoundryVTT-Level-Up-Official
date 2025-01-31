@@ -1,3 +1,36 @@
-.a5e-details.box {
+/* stylelint-disable selector-no-qualifying-type */
+.a5e-details-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 3.5rem;
+  padding: 0.125rem 0;
+  font-family: var(--a5e-font-primary);
+  color: var(--a5e-color-text-medium);
+  border: 1px solid var(--a5e-border-color);
+  border-radius: 4px;
+  background: var(--a5e-color-background-light);
+  box-shadow: 0 0 5px var(--a5e-shadow-color) inset;
+  z-index: 4;
 
+  &__label {
+    font-size: var(--a5e-text-size-xs);
+  }
+
+  &__input,
+  input[type='number'] {
+    height: unset;
+    text-align: center;
+    border: 0;
+    background: transparent;
+    padding-inline: 0.25rem;
+    font-size: var(--a5e-text-size-md);
+
+    &:active,
+    &:focus {
+      outline: 0;
+      box-shadow: none;
+    }
+  }
 }

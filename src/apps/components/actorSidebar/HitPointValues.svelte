@@ -1,49 +1,53 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-export let hp;
-export let hpFields;
+    export let hp;
+    export let hpFields;
 
-$: hpFields = [
-	{
-		key: 'temp',
-		label: 'Temp. HP',
-		value: hp.temp,
-	},
-	{
-		key: 'value',
-		label: 'Curr. HP',
-		value: hp.value,
-	},
-	{
-		key: 'max',
-		label: 'Max HP',
-		value: hp.max,
-	},
-	{
-		key: 'bonus',
-		label: 'Bonus HP',
-		value: hp.bonus,
-	},
-];
+    $: hpFields = [
+        {
+            key: "temp",
+            label: "Temp. HP",
+            value: hp.temp,
+        },
+        {
+            key: "value",
+            label: "Curr. HP",
+            value: hp.value,
+        },
+        {
+            key: "max",
+            label: "Max HP",
+            value: hp.max,
+        },
+        {
+            key: "bonus",
+            label: "Bonus HP",
+            value: hp.bonus,
+        },
+    ];
 
-const actor = getContext('actor');
+    const actor = getContext("actor");
 
-$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 {#if sheetIsLocked}
     <div class="hp-container">
         {#each hpFields as { key, label, value }}
-            <div class="hp-box">
-                <label class="hp-label" for="{$actor.id}-hp-{key}">{label}</label>
+            <div class="a5e-details-box">
+                <label class="a5e-details-box__label" for="{$actor.id}-hp-{key}">
+                    {label}
+                </label>
 
                 <input
                     id="{$actor.id}-hp-{key}"
-                    class="hp-input"
+                    class="a5e-details-box__input"
                     class:disable-pointer-events={!$actor.isOwner}
                     type="number"
                     name="system.attributes.hp.{key}"
@@ -81,49 +85,15 @@ $: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ??
         gap: 0.25rem;
     }
 
-    .hp-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 3.5rem;
-        padding: 0.125rem 0;
-        font-family: var(--a5e-font-primary);
-        color: var(--a5e-color-text-medium);
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        background: var(--a5e-color-background-light);
-        box-shadow: 0 0 5px #ccc inset;
-        z-index: 4;
-    }
-
-    .hp-label {
-        font-size: var(--a5e-text-size-xs);
-    }
-
-    .hp-input {
-        height: unset;
-        text-align: center;
-        border: 0;
-        background: transparent;
-        padding-inline: 0.25rem;
-        font-size: var(--a5e-text-size-md);
-
-        &:active,
-        &:focus {
-            outline: 0;
-            box-shadow: none;
-        }
-    }
-
     .hp-config__container {
         padding-block: 0.275rem;
         button {
             padding: 0.125rem 0;
-            background: transparent;
-            border: 1px solid #ccc;
+            background: var(--a5e-button-regular);
+            color: var(--a5e-color-text-dark);
+            border: 2px solid var(--a5e-border-color);
             border-radius: 4px;
-            box-shadow: 0 0 5px #ccc inset;
+            box-shadow: 0 0 5px var(--a5e-shadow-color) inset;
         }
     }
 </style>
