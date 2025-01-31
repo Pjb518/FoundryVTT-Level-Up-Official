@@ -1,34 +1,34 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-export let passiveFields;
+    export let passiveFields;
 
-const actor = getContext('actor');
+    const actor = getContext("actor");
 
-$: passiveFields = [
-	{
-		label: 'A5E.ManeuverDC',
-		value: $actor.system.attributes.maneuverDC,
-	},
-	{
-		label: 'A5E.SpellDC',
-		value: $actor.system.attributes.spellDC,
-		tooltip: $actor.spellBooks.getSpellDCString(true),
-	},
-	{
-		label: 'Passive Percep.',
-		value: $actor.system.skills.prc.passive,
-	},
-];
+    $: passiveFields = [
+        {
+            label: "A5E.ManeuverDC",
+            value: $actor.system.attributes.maneuverDC,
+        },
+        {
+            label: "A5E.SpellDC",
+            value: $actor.system.attributes.spellDC,
+            tooltip: $actor.spellBooks.getSpellDCString(true),
+        },
+        {
+            label: "Passive Percep.",
+            value: $actor.system.skills.prc.passive,
+        },
+    ];
 </script>
 
 {#each passiveFields as { label, value, tooltip }}
-    <div class="passive-box">
-        <h4 class="passive-label">{localize(label)}</h4>
+    <div class="a5e-details-box">
+        <h4 class="a5e-details-box__label">{localize(label)}</h4>
 
         <div
-            class="passive-value"
+            class="a5e-details-box__input"
             data-tooltip={tooltip ?? ""}
             data-tooltip-direction="UP"
         >
@@ -38,28 +38,4 @@ $: passiveFields = [
 {/each}
 
 <style lang="scss">
-    .passive-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        flex: 1;
-        padding: 0.125rem 0;
-        font-family: var(--a5e-font-primary);
-        color: var(--a5e-color-text-medium);
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        background-color: --a5e-color-background-light;
-        box-shadow: 0 0 5px #ccc inset;
-    }
-
-    .passive-label {
-        font-size: var(--a5e-text-size-xs);
-    }
-
-    .passive-value {
-        color: black;
-        text-align: center;
-        padding-inline: 0.25rem;
-        font-size: var(--a5e-text-size-md);
-    }
 </style>

@@ -175,5 +175,6 @@
     .actor-sidebar-footer {
         display: flex;
         gap: 0.25rem;
+        justify-content: space-around;
     }
 </style>
