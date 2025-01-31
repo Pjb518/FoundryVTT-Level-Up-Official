@@ -167,7 +167,7 @@ export default function modifyBaseOptions(options: Object) {
 	options['system.proficiencies.traditions'] = [
 		'',
 		MODES.DEFAULT_STRING_MODES,
-		Object.values(CONFIG.A5E.maneuverTraditions),
+		Object.entries(CONFIG.A5E.maneuverTraditions),
 		'TAG_GROUP',
 	];
 	// @ts-ignore
