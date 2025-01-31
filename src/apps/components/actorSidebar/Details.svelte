@@ -169,10 +169,10 @@
                         value={tag}
                         tight={true}
                         optionStyles="
-                            color: black;
-                            background-color: rgba(0 0 0 / 0.05);
+                            color: var(--a5e-color-dark);
+                            background-color: var(--a5e-color-background-medium);
                             max-width: 98%;
-                            border: 1px solid #ccc;
+                            border: 1px solid var(--a5e-border-color);
                         "
                         disabled={true}
                     />
