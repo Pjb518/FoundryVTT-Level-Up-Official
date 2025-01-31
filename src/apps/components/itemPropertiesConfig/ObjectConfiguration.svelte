@@ -115,6 +115,20 @@
             {/if}
         </Section>
 
+        {#if $item.system.requiresAttunement}
+            <FieldWrapper heading="A5E.AttunementHint">
+                <input
+                    class="u-pl-lg"
+                    type="text"
+                    name="system.attunementHint"
+                    value={$item.system.attunementHint}
+                    id={`${appId}-attunementHint`}
+                    on:change={({ target }) =>
+                        updateDocumentDataFromField($item, target.name, target.value)}
+                />
+            </FieldWrapper>
+        {/if}
+
         <FieldWrapper
             heading="A5E.ItemWeight"
             --a5e-field-wrapper-gap="0.375rem 1rem"
@@ -260,6 +274,15 @@
                     {/if}
                 </dd>
             </div>
+
+            {#if $item.system.attunementHint !== ""}
+                <div class="u-flex u-gap-md">
+                    <dt class="u-text-bold">{localize("A5E.AttunementHint")}:</dt>
+                    <dd class="u-m-0 u-p-0">
+                        {$item.system.attunementHint}
+                    </dd>
+                </div>
+            {/if}
 
             <hr class="a5e-rule u-my-sm" />
 
