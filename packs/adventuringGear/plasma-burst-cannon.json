@@ -1,0 +1,385 @@
+{
+	"folder": null,
+	"name": "Plasma Burst-Cannon",
+	"type": "object",
+	"img": "icons/magic/fire/blast-jet-stream-splash.webp",
+	"system": {
+		"description": "<p><em><strong>Prerequisite:</strong> Strength 13+</em></p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"aLiyV16YPQIqKyDD": {
+				"name": "Plasma Burst-Cannon",
+				"consumers": {
+					"NohX658IyCo77Lkr": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "aLiyV16YPQIqKyDD",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/fire/blast-jet-stream-splash.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {
+					"8kXUnhIWvqomV0E5": {
+						"range": 150,
+						"unit": "feet"
+					},
+					"M0H9nis5zb9brMdL": {
+						"range": 600,
+						"unit": "feet"
+					}
+				},
+				"rolls": {
+					"QXcTVt81i1DsSa1Q": {
+						"type": "attack",
+						"default": true,
+						"attackType": "rangedWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": ""
+					},
+					"LEmQ4bZJZzX5csLu": {
+						"type": "damage",
+						"default": true,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "2d8 + @dex.mod",
+						"scaling": {},
+						"label": ""
+					},
+					"e8sVBt2ALH237z9n": {
+						"type": "damage",
+						"default": false,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "1d6",
+						"scaling": {},
+						"label": "Supercharged"
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"kbeXs2nddHatYaQQ": {
+				"name": "Supercharge",
+				"consumers": {},
+				"id": "kbeXs2nddHatYaQQ",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/fire/blast-jet-stream-splash.webp",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"AcjV7Na3a8cTR5Dr": {
+				"name": "Burst",
+				"consumers": {
+					"Wz8vVWZNgyICfZJY": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 10,
+						"label": ""
+					}
+				},
+				"id": "AcjV7Na3a8cTR5Dr",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "icons/magic/fire/blast-jet-stream-splash.webp",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"area": {
+					"-=width": null,
+					"-=radius": null,
+					"-=height": null,
+					"-=length": null,
+					"shape": "cube",
+					"quantity": 1,
+					"width": 10,
+					"placeTemplate": true
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {
+					"AyS9xXSyr3jC2knd": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {
+					"13YuxJIzJ3Ntt2ca": {
+						"range": 150,
+						"unit": "feet"
+					},
+					"YxSzPAHKMxm89tCo": {
+						"range": "600",
+						"unit": "feet"
+					}
+				},
+				"rolls": {
+					"OvEweM5jGXUPHyvo": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "2d8 + @dex.mod",
+						"scaling": {},
+						"label": ""
+					},
+					"huec1goMe6o183yz": {
+						"type": "damage",
+						"default": false,
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "fire",
+						"formula": "1d6",
+						"scaling": {},
+						"label": "Supercharged"
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"DiwJ3psgudmFJTWt": {
+				"name": "Reload",
+				"consumers": {
+					"Fhn3JWTeSLUZRJoC": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": -10,
+						"label": ""
+					},
+					"LXJY5ve1sB2S28tN": {
+						"type": "ammunition",
+						"default": true,
+						"itemId": "",
+						"quantity": 1,
+						"deleteOnZero": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 10,
+			"max": "10",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"ammunitionProperties": [],
+		"armorCategory": "",
+		"armorMods": [],
+		"armorProperties": [],
+		"attuned": false,
+		"bulky": false,
+		"breakerProperties": [],
+		"capacity": {
+			"type": "weight",
+			"value": 0,
+			"weightlessContents": false
+		},
+		"containerId": "",
+		"craftingComponents": "",
+		"damagedState": 0,
+		"defensiveProperties": "",
+		"energyProperties": "plasma",
+		"equippedState": 0,
+		"flaws": [],
+		"items": {},
+		"implant": false,
+		"materialProperties": [],
+		"modPorts": "",
+		"mounted": [],
+		"objectType": "weapon",
+		"plotItem": false,
+		"price": "235 cr",
+		"proficient": false,
+		"quantity": 1,
+		"rarity": "mundane",
+		"repairabilityDC": 0,
+		"repairTools": [],
+		"requiresAttunement": false,
+		"shieldCategory": "",
+		"shieldProperties": [],
+		"supply": false,
+		"techLevel": "standard",
+		"unidentified": false,
+		"unidentifiedDescription": "",
+		"unidentifiedName": "",
+		"versatile": "",
+		"weaponAugments": [
+			"burst",
+			"energy"
+		],
+		"weaponProperties": [
+			"ammunition",
+			"heavy",
+			"reload",
+			"twoHanded"
+		],
+		"weight": 25
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.2",
+		"createdTime": 1734544485805,
+		"modifiedTime": 1734544910484,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "SNBf0LAqrqCcHeQT"
+}

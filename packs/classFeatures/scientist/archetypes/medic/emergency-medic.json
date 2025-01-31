@@ -1,0 +1,115 @@
+{
+	"folder": null,
+	"name": "Emergency Medic",
+	"type": "feature",
+	"img": "icons/skills/wounds/injury-stapled-flesh-tan.webp",
+	"system": {
+		"description": "<p>At 1st level you can use a @UUID[Compendium.a5e.a5e-adventuring-gear.Item.XwFoOsu629aMYBTl]{Medical Pouch} to spend an action to restore hit points to a creature within reach. You have a number of uses of this feature equal to your proficiency modifier, regaining any spent uses when you complete a long rest. When you use this feature on a humanoid or beast within reach as an action, the creature regains 2d6 hit points.</p>\n<p>At 6th level, the creature regains 4d6 hit points, at 12th level it regains 6d6 hit points, and at 18th level it regains 8d6 hit points.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"bGQlxCZY8RecWgxl": {
+				"name": "Emergency Medic",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"consumers": {
+					"QRSjCfNK2f321Xlp": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"inmoUpZgd0ltC4kw": {
+						"type": "healing",
+						"default": true,
+						"formula": "@classResources.emergency-medic",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@prof",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "scientist",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.3",
+		"createdTime": 1735856494423,
+		"modifiedTime": 1735856648277,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "lfonYS62HJxKAawA"
+}

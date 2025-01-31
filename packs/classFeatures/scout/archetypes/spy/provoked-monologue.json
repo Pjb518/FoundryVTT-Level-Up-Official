@@ -1,0 +1,185 @@
+{
+	"folder": null,
+	"name": "Provoked Monologue",
+	"type": "feature",
+	"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+	"system": {
+		"description": "<p>At 14th level, you’ve dealt with inflated egos and know how to trick them into telling too much. As an action, you may choose a hostile creature that can hear you and understand a language you can speak. The creature makes a Charisma saving throw against your clever tricks save DC or becomes charmed by you. While charmed in this way the creature monologues its plans while utterly convinced of its inevitable victory. It cannot perform actions or bonus actions, but may still make reactions. At the Narrator’s discretion, creatures may reveal important information while monologuing, particularly if bragging about that information would serve the creature’s ego. A creature remains charmed for 1d6 rounds, or until a hostile action is taken against it or an ally it can see. Creatures that cannot be charmed are immune to this feature. Once you use this feature, you cannot do so again until after you finish a long rest.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"VLBmXHMddtEmpu82": {
+				"name": "Provoked Monologue",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "action",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [
+					"YTjmtrdZC2aXUHUS"
+				],
+				"macro": "",
+				"consumers": {
+					"Ah1gVlQp7vFrEKl9": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"prompts": {
+					"5rHzPvIy9hkcbyYF": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "cha",
+						"saveDC": {
+							"type": "cha",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"ranges": {},
+				"rolls": {
+					"6lrjqtDeIUnfpR71": {
+						"type": "generic",
+						"default": true,
+						"formula": "1d6",
+						"scaling": {},
+						"label": "Charmed Duration (Rounds)"
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "scout",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.5QvP5gbVWuPHfYt6",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Charmed",
+			"img": "icons/magic/sonic/scream-wail-shout-teal.webp",
+			"_id": "YTjmtrdZC2aXUHUS",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"charmed\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A charmed creature can't take any hostile action against the charmer.</li>\n<li>Ability checks the charmer makes to socially interact with the charmed creature have advantage.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"charmed"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": 1735922089143,
+				"modifiedTime": 1735922116487,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.3",
+		"createdTime": 1735922020183,
+		"modifiedTime": 1735922164629,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "O7H01lh0a4tIGS22"
+}

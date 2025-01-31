@@ -1,0 +1,175 @@
+{
+	"folder": null,
+	"name": "Regenerative Nanites",
+	"type": "feature",
+	"img": "icons/skills/wounds/injury-stitched-flesh-red.webp",
+	"system": {
+		"description": "<p>At 14th level, you've developed or obtained a swarm of high end experimental medical nanites. Once between long rests, you can direct the nanites to a creature within reach, a process that takes 1 minute. The target immediately regains 4d8 + 15 hit points and regains 1 hit point at the start of each of its turns (10 hit points per minute) for 1 hour. If the target is missing any body parts, they are restored after 2 minutes and any severed body part can be instantly reattached. This does not allow a creature to attach a severed body part from another creature.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"PrNrlJjaSlAlKj6D": {
+				"name": "Regenerative Nanites",
+				"consumers": {
+					"IyD8Zn2RiBtD8uiw": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"ranges": {
+					"5pvYtwMziJduYa2R": {
+						"range": "touch"
+					}
+				},
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"rolls": {
+					"M4aMPuHlvoWvhYPL": {
+						"type": "healing",
+						"default": true,
+						"formula": "4d8 + 15",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"id": "PrNrlJjaSlAlKj6D",
+				"img": "icons/skills/wounds/injury-stitched-flesh-red.webp",
+				"activation": {
+					"type": "minute",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			},
+			"fUWz4W3uq1hzQsAT": {
+				"name": "Additional Healing",
+				"consumers": {
+					"Rib1Hqv9gpHRpWgR": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"rolls": {
+					"43MVn0IXEHyBZgnn": {
+						"type": "healing",
+						"default": true,
+						"formula": "1",
+						"healingType": "healing",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"duration": {
+					"unit": "hour",
+					"value": 1
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 1,
+			"max": "1",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "scientist",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.3",
+		"createdTime": 1735857089701,
+		"modifiedTime": 1735857213491,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "pVMpKynCNyzrmDW3"
+}

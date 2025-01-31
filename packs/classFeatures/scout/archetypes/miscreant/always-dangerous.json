@@ -1,0 +1,140 @@
+{
+	"folder": null,
+	"name": "Always Dangerous",
+	"type": "feature",
+	"img": "icons/skills/melee/maneuver-daggers-paired-orange.webp",
+	"system": {
+		"description": "<p>Beginning at 6th level, you learn to make the most out of practically nothing. Attacks you make with improvised weapons deal an additional 1d6 damage. This die changes as you gain scout levels, improving to 1d8 when you reach 12th level, and 1d10 when you reach 17th level. In addition, you have advantage on checks made to conceal an improvised weapon on your person or to pass it off as not dangerous.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"jJeeMwuEL7BlNhzN": {
+				"name": "Always Dangerous",
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"rolls": {
+					"xrzkKEXKSKt86yuS": {
+						"type": "attack",
+						"default": true,
+						"attackType": "meleeWeaponAttack",
+						"proficient": true,
+						"ability": "default",
+						"bonus": "",
+						"critThreshold": 20,
+						"label": "Improvised Weapon"
+					},
+					"N5l0CX9RyDQfCuVa": {
+						"type": "damage",
+						"default": false,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "bludgeoning",
+						"formula": "@classResources.always-dangerous + @str.mod",
+						"scaling": {},
+						"label": "Bludgeoning"
+					},
+					"31azzAeUfMf870qG": {
+						"type": "damage",
+						"default": false,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "piercing",
+						"formula": "@classResources.always-dangerous + @str.mod",
+						"scaling": {},
+						"label": "Piercing"
+					},
+					"X83DVunryX5mQocx": {
+						"type": "damage",
+						"default": false,
+						"canCrit": true,
+						"critBonus": "",
+						"damageType": "slashing",
+						"formula": "@classResources.always-dangerous + @str.mod",
+						"scaling": {},
+						"label": "Slashing"
+					}
+				},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "scout",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.3",
+		"createdTime": 1735928800889,
+		"modifiedTime": 1735929065407,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "uR4v2XHFbkfqiujx"
+}

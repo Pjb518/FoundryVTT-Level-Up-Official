@@ -1,0 +1,176 @@
+{
+	"folder": null,
+	"name": "Exposing Shove",
+	"type": "feature",
+	"img": "icons/skills/melee/shield-block-bash-blue.webp",
+	"system": {
+		"description": "<p>Your attack staggers your target, exposing it to follow-up attacks. If the target is one size category larger than you or smaller, it makes a Strength saving throw against your maneuver DC. On a failure, you deal your @UUID[Compendium.a5e.a5e-class-features.Item.vKckTQevhrZgeJJ9]{Favored Ordnance} damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. In addition, the target is [[/condition id=rattled]] until the end of your next turn. While rattled, attack rolls against the target are made with advantage.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"pkx3w1eilwPJ6Ohw": {
+				"name": "Exposing Shove",
+				"rolls": {
+					"zQyICar93tvmNbjs": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "@classResources.favored-ordnance",
+						"critBonus": "",
+						"damageType": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"effects": [
+					"KxS0i35MV3IIPTlu"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"macro": "",
+				"consumers": {},
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "trooper",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.0fhb05saO7hzQhFC",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Rattled",
+			"img": "icons/skills/melee/shield-block-bash-blue.webp",
+			"_id": "KxS0i35MV3IIPTlu",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>\n<p> </p>\n<p>While rattled, attack rolls against the target are made with advantage.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": 1734709809476,
+				"modifiedTime": 1734709849476,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.3",
+		"createdTime": 1734709675810,
+		"modifiedTime": 1734709809503,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "e4qCxwImgSSDkVLr"
+}

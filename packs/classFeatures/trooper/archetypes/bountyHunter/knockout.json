@@ -1,0 +1,176 @@
+{
+	"folder": null,
+	"name": "Knockout",
+	"type": "feature",
+	"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+	"system": {
+		"description": "<p>At 10th level you start to appreciate that the “alive” part of dead or alive takes more effort but usually pays better. Whenever you deal your @UUID[Compendium.a5e.a5e-class-features.Item.vKckTQevhrZgeJJ9]{Favored Ordnance} damage to a creature while it is bloodied, it makes a Constitution saving throw against your maneuver DC. On a failed save the creature is knocked [[/condition id=unconscious]] for 1 hour. A creature knocked unconscious in this way can repeat the saving throw when it takes damage or if another adjacent creature uses an action to wake it. Once a creature successfully saves against this feature it is immune to Knockout for the next 24 hours.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"sBy3BLYMlVgHbSGR": {
+				"name": "Knockout",
+				"prompts": {
+					"KTaSoBF0Syd1pkxR": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "con",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"effects": [
+					"KPUoHj6iQIlMYVEg"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"macro": "",
+				"consumers": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "trooper",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.XOzpZaOuA9czkY52",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Unconscious",
+			"img": "icons/skills/wounds/injury-face-impact-orange.webp",
+			"_id": "KPUoHj6iQIlMYVEg",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"unconscious\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": 3600,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>An unconscious creature is incapacitated, can't move or speak, and is unaware of its surroundings.</li>\n<li>An unconscious creature drops whatever it's holding and falls prone.</li>\n<li>An unconscious creature automatically fails Strength and Dexterity saving throws.</li>\n<li>Attack rolls against an unconscious creature are made with advantage.</li>\n<li>Any attack that hits an unconscious creature is a critical hit if the attacker is within 5 feet.</li>\n</ul>",
+			"tint": "#ffffff",
+			"statuses": [
+				"unconscious"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"unit": "hours"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": 1734733382488,
+				"modifiedTime": 1734733426781,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.3",
+		"createdTime": 1734733279832,
+		"modifiedTime": 1734733382552,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "qsji2Rj6Ym0dk1RX"
+}
