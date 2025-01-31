@@ -39,8 +39,8 @@
 </script>
 
 <div class="character-shields__container">
-    <div class="character-shields__box">
-        <label class="xp-label" for="{$actor.id}-inspiration">
+    <div class="a5e-details-box character-shields__box">
+        <label class="a5e-details-box__label" for="{$actor.id}-inspiration">
             {localize("A5E.Inspiration")}
         </label>
 
@@ -54,12 +54,12 @@
         />
     </div>
 
-    <div class="character-shields__box">
-        <label class="xp-label" for="{$actor.id}-level">Level</label>
+    <div class="a5e-details-box character-shields__box">
+        <label class="a5e-details-box__label" for="{$actor.id}-level">Level</label>
 
         <input
             id="{$actor.id}-level"
-            class="xp-input"
+            class="a5e-details-box__input"
             class:disable-pointer-events={!$actor.isOwner}
             data-tooltip={levelSource}
             data-tooltip-direction="DOWN"
@@ -75,12 +75,12 @@
         />
     </div>
 
-    <div class="character-shields__box">
-        <label class="xp-label" for="{$actor.id}-prof"> Prof. </label>
+    <div class="a5e-details-box character-shields__box">
+        <label class="a5e-details-box__label" for="{$actor.id}-prof"> Prof. </label>
 
         <input
             id="{$actor.id}-prof"
-            class="xp-input"
+            class="a5e-details-box__input"
             type="number"
             value={$actor.system.attributes.prof}
             placeholder="0"
@@ -90,12 +90,14 @@
     </div>
 
     {#if $actor.flags?.a5e?.showXP ?? true}
-        <div class="xp-box">
-            <label class="xp-label" for="{$actor.id}-current-xp"> Current XP </label>
+        <div class="a5e-details-box character-shields__box">
+            <label class="a5e-details-box__label" for="{$actor.id}-current-xp">
+                Current XP
+            </label>
 
             <input
                 id="{$actor.id}-current-xp"
-                class="xp-input"
+                class="a5e-details-box__input"
                 class:disable-pointer-events={!$actor.isOwner}
                 type="number"
                 name="system.details.xp"
@@ -112,12 +114,14 @@
             />
         </div>
 
-        <div class="xp-box">
-            <label class="xp-label" for="{$actor.id}-required-xp"> Required XP </label>
+        <div class="a5e-details-box character-shields__box">
+            <label class="a5e-details-box__label" for="{$actor.id}-required-xp">
+                Required XP
+            </label>
 
             <input
                 id="{$actor.id}-required-xp"
-                class="xp-input"
+                class="a5e-details-box__input"
                 type="number"
                 value={requiredXP}
                 placeholder="0"
@@ -140,47 +144,12 @@
         font-family: var(--a5e-font-primary);
     }
 
-    .character-shields__box,
-    .xp-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 4rem;
-        padding: 0.125rem 0;
-        color: var(--a5e-color-text-medium);
-        border: 1px solid var(--a5e-border-color);
-        border-radius: 4px;
-        background: var(--a5e-color-background-light);
-        box-shadow: 0 0 5px var(--a5e-border-color) inset;
-        z-index: 4;
-    }
-
     .character-shields__box {
         width: 3rem;
     }
 
     .disable-pointer-events {
         pointer-events: none;
-    }
-
-    .xp-input {
-        height: unset;
-        text-align: center;
-        border: 0;
-        background: transparent;
-        padding-inline: 0.125rem;
-        font-size: var(--a5e-text-size-md);
-
-        &:active,
-        &:focus {
-            outline: 0;
-            box-shadow: none;
-        }
-    }
-
-    .xp-label {
-        font-size: var(--a5e-text-size-xs);
     }
 
     .shield-inspiration {

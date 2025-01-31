@@ -35,8 +35,8 @@
 
 <div class="level-container">
     {#if isElite || !sheetIsLocked}
-        <div class="level-box">
-            <label class="xp-label" for="{$actor.id}-elite">Elite</label>
+        <div class="a5e-details-box">
+            <label class="a5e-details-box__label" for="{$actor.id}-elite">Elite</label>
 
             <!-- svelte-ignore a11y-click-events-have-key-events -->
             <!-- svelte-ignore a11y-no-static-element-interactions -->
@@ -49,12 +49,12 @@
         </div>
     {/if}
 
-    <div class="level-box">
-        <label class="xp-label" for="{$actor.id}-cr">CR</label>
+    <div class="a5e-details-box">
+        <label class="a5e-details-box__label" for="{$actor.id}-cr">CR</label>
 
         <input
             id="{$actor.id}-cr"
-            class="xp-input"
+            class="a5e-details-box__input"
             type="text"
             name="system.details.cr"
             value={cr}
@@ -66,20 +66,20 @@
         />
     </div>
 
-    <div class="level-box">
-        <label class="xp-label" for="{$actor.id}-xp"> XP </label>
+    <div class="a5e-details-box">
+        <label class="a5e-details-box__label" for="{$actor.id}-xp"> XP </label>
 
-        <span class="xp-input" value={xp}>
+        <span class="a5e-details-box__input" value={xp}>
             {xp}
         </span>
     </div>
 
-    <div class="level-box">
-        <label class="xp-label" for="{$actor.id}-prof"> Prof. </label>
+    <div class="a5e-details-box">
+        <label class="a5e-details-box__label" for="{$actor.id}-prof"> Prof. </label>
 
         <input
             id="{$actor.id}-prof"
-            class="xp-input"
+            class="a5e-details-box__input"
             type="number"
             value={$actor.system.attributes.prof}
             placeholder="0"
@@ -97,46 +97,6 @@
         border-radius: 4px;
         height: 100%;
         font-family: var(--a5e-font-primary);
-    }
-
-    .level-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        height: 100%;
-        width: 4rem;
-        padding: 0.125rem 0;
-        color: var(--a5e-color-text-medium);
-        border: 1px solid var(--a5e-border-color);
-        border-radius: 4px;
-        background: var(--a5e-color-background-light);
-        box-shadow: 0 0 5px var(--a5e-border-color) inset;
-        z-index: 4;
-    }
-
-    .level-box {
-        width: 3rem;
-    }
-
-    .xp-input {
-        display: block;
-        height: unset;
-        text-align: center;
-        border: 0;
-        background: transparent;
-        padding-inline: 0.125rem;
-        font-size: var(--a5e-text-size-sm);
-
-        &:active,
-        &:focus {
-            outline: 0;
-            box-shadow: none;
-        }
-    }
-
-    .xp-label {
-        font-size: var(--a5e-text-size-xs);
     }
 
     .shield-elite {

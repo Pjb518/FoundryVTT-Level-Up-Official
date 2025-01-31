@@ -14,8 +14,6 @@
     import Details from "./Details.svelte";
     import DeathSaveOverlay from "./DeathSaveOverlay.svelte";
 
-    export let hp;
-
     const actor = getContext("actor");
 
     let fatigueOptions = [
