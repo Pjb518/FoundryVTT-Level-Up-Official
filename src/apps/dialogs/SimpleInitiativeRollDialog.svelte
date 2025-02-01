@@ -1,80 +1,88 @@
 <script>
-import { getContext } from 'svelte';
-import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
+    import { getContext } from "svelte";
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-import CheckboxGroup from '../components/CheckboxGroup.svelte';
-import ExpertiseDiePicker from '../components/ExpertiseDiePicker.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import RadioGroup from '../components/RadioGroup.svelte';
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
-import getRollFormula from '../../utils/getRollFormula';
-import RollModePicker from '../components/RollModePicker.svelte';
+    import getRollFormula from "../../utils/getRollFormula";
+    import RollModePicker from "../components/RollModePicker.svelte";
 
-export let { document, dialog, options } = getContext('#external').application;
+    export let { document, dialog, options } = getContext("#external").application;
 
-function getInitialExpertiseDieSelection() {
-	if (hideExpertiseDice) return 0;
+    function getInitialExpertiseDieSelection() {
+        if (hideExpertiseDice) return 0;
 
-	return options.expertiseDice ?? $actor.system.attributes.initiative.expertiseDice;
-}
+        return options.expertiseDice ?? $actor.system.attributes.initiative.expertiseDice;
+    }
 
-const actor = new TJSDocument(document.actor);
-const appId = dialog.id;
-const abilities = CONFIG.A5E.abilities;
-const hideExpertiseDice = game.settings.get('a5e', 'hideExpertiseDice');
+    const actor = new TJSDocument(document.actor);
+    const appId = dialog.id;
+    const abilities = CONFIG.A5E.abilities;
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
 
-function onSubmit() {
-	dialog.submit({ rollFormula });
-}
+    function onSubmit() {
+        dialog.submit({ rollFormula });
+    }
 
-let abilityKey = options.abilityKey ?? $actor.system.attributes.initiative.ability ?? 'dex';
+    let abilityKey =
+        options.abilityKey ?? $actor.system.attributes.initiative.ability ?? "dex";
 
-let expertiseDie = getInitialExpertiseDieSelection();
-let rollFormula;
-let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-let situationalMods = options.situationalMods ?? '';
+    let expertiseDie = getInitialExpertiseDieSelection();
+    let rollFormula;
+    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
+    let situationalMods = options.situationalMods ?? "";
 
-let rollMode = $actor.RollOverrideManager.getRollOverride(`initiative`, selectedRollMode, {
-	ability: abilityKey,
-});
+    let rollMode = $actor.RollOverrideManager.getRollOverride(
+        "initiative",
+        selectedRollMode,
+        {
+            ability: abilityKey,
+        },
+    );
 
-let rollModeString = $actor.RollOverrideManager.getRollOverridesSource(
-	`initiative`,
-	selectedRollMode,
-	{ ability: abilityKey },
-);
+    $: rollModeString = $actor.RollOverrideManager.getRollOverridesSource(
+        "initiative",
+        selectedRollMode,
+        { ability: abilityKey },
+    );
 
-$: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(abilityKey, 'check');
+    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(abilityKey, "check");
 
-$: initiativeBonuses = $actor.BonusesManager.prepareInitiativeBonuses({
-	abilityKey,
-});
+    $: initiativeBonuses = $actor.BonusesManager.prepareInitiativeBonuses({
+        abilityKey,
+    });
 
-$: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections('abilities', {
-	abilityKey,
-	abilityType: 'check',
-});
+    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections("abilities", {
+        abilityKey,
+        abilityType: "check",
+    });
 
-$: selectedInitiativeBonuses = $actor.BonusesManager.getDefaultSelections('initiative', {
-	abilityKey,
-});
+    $: selectedInitiativeBonuses = $actor.BonusesManager.getDefaultSelections(
+        "initiative",
+        {
+            abilityKey,
+        },
+    );
 
-$: rollFormula = getRollFormula($actor, {
-	ability: abilityKey,
-	expertiseDie,
-	rollMode,
-	situationalMods,
-	selectedAbilityBonuses,
-	selectedInitiativeBonuses,
-	type: 'initiative',
-});
+    $: rollFormula = getRollFormula($actor, {
+        ability: abilityKey,
+        expertiseDie,
+        rollMode,
+        situationalMods,
+        selectedAbilityBonuses,
+        selectedInitiativeBonuses,
+        type: "initiative",
+    });
 </script>
 
 <form>
     <RollModePicker
-        selected={selectedRollMode}
+        selected={rollMode}
         source={rollModeString}
-        on:updateSelection={({ detail }) => (selectedRollMode = detail)}
+        on:updateSelection={({ detail }) => (rollMode = detail)}
     />
 
     <RadioGroup

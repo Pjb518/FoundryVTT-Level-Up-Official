@@ -1,0 +1,143 @@
+{
+	"folder": null,
+	"name": "Clandestine",
+	"type": "feature",
+	"img": "icons/magic/perception/silhouette-stealth-shadow.webp",
+	"system": {
+		"description": "<p>At 3rd level when you choose this archetype, you gain an expertise die on Deception checks and Stealth checks. In addition, you can use @UUID[Compendium.a5e.a5e-class-features.Item.b5B9FWPQ77ULdvBa]{Dastardly Gambit} on yourself when making a Stealth check or Charisma check, adding the die roll to your check.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"GdnSVYNXFBKuiV5m": {
+				"name": "Clandestine",
+				"rolls": {
+					"tPTVpoj8euc7z5EE": {
+						"type": "skillCheck",
+						"default": false,
+						"skill": "ste",
+						"ability": "dex",
+						"bonus": "@classResources.dastardly-gambit-die-size",
+						"label": "Stealth"
+					},
+					"iu0Jy7qsp7qYYlwZ": {
+						"type": "abilityCheck",
+						"default": false,
+						"ability": "cha",
+						"label": "Charisma",
+						"bonus": "@classResources.dastardly-gambit-die-size"
+					}
+				},
+				"consumers": {
+					"SoOlWB9FuxUk7Npu": {
+						"type": "resource",
+						"default": true,
+						"classIdentifier": "dastardly-gambit-die-uses",
+						"resource": "classResource",
+						"quantity": 1,
+						"restore": false,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"effects": [],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "scout",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {
+			"bmdZGTFufemXEMSS": {
+				"grantType": "expertiseDice",
+				"level": 1,
+				"levelType": "character",
+				"optional": false,
+				"_id": "bmdZGTFufemXEMSS",
+				"label": "Clandestine",
+				"keys": {
+					"base": [
+						"dec",
+						"ste"
+					],
+					"options": [],
+					"total": 0
+				},
+				"expertiseType": "skill"
+			}
+		},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.3",
+		"createdTime": 1735919878662,
+		"modifiedTime": 1735920055709,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "ZB1zXHidmNDNb5a5"
+}

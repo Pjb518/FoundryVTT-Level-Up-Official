@@ -10,6 +10,7 @@
     const settings = getContext("settings");
     const updates = getContext("updates");
 
+    let showFavorPoints = settings.getStore("showFavorPoints");
     let showVRCImplants = settings.getStore("showVRCImplants");
     let showVRCProficiencies = settings.getStore("showVRCProficiencies");
     let showVRCPsionicDisciplines = settings.getStore("showVRCPsionicDisciplines");
@@ -18,6 +19,19 @@
     let showVRCTechLevel = settings.getStore("showVRCTechLevel");
     let useCredits = settings.getStore("useCredits");
 </script>
+
+<Section heading="A5E.settings.sectionHeader.gpg" --a5e-section-body-gap="0.5rem">
+    <FieldWrapper hint="A5E.settings.hints.showFavourPoints">
+        <Checkbox
+            label="A5E.settings.showFavorPoints"
+            checked={updates.get("showFavorPoints") ?? $showFavorPoints ?? false}
+            on:updateSelection={({ detail }) => {
+                updates.set("showFavorPoints", detail);
+                reload = true;
+            }}
+        />
+    </FieldWrapper>
+</Section>
 
 <Section heading="A5E.settings.sectionHeader.vrc" --a5e-section-body-gap="0.5rem">
     <FieldWrapper hint="A5E.settings.hints.showVRCImplants">

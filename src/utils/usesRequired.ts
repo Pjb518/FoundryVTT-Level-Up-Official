@@ -4,6 +4,6 @@ export default function usesRequired(items: any[]): boolean {
 	return [...items].some((item) => {
 		if (item?.system?.uses?.max) return true;
 
-		return item?.actions?.values().some((action) => action?.uses?.max);
+		return [...(item?.actions?.values() ?? [])].some((action) => action?.uses?.max);
 	});
 }

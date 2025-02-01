@@ -390,6 +390,7 @@ const conditions = {
 	blinded: 'A5E.ConditionBlinded',
 	bloodied: 'A5E.ConditionBloodied',
 	charmed: 'A5E.ConditionCharmed',
+	concentration: 'A5E.ConditionConcentration',
 	confused: 'A5E.ConditionConfused',
 	corruption: 'A5E.ConditionCorruption',
 	dazzled: 'A5E.ConditionDazzled',
@@ -612,6 +613,7 @@ const knackTypes = {
 	scientist: 'Scientific Praxes',
 	scout: 'Clever Trick',
 	sorcerer: 'Arcane Innovation',
+  trooper: 'Drill',
 	warlock: 'Secret of Arcana',
 	wielder: 'Artifact Whisper',
 	witch: 'Magical Mystery',
@@ -706,6 +708,7 @@ const materialProperties = {
 	rust: 'A5E.MaterialPropertyRust',
 	silvered: 'A5E.MaterialPropertySilvered',
 	spacefaring: 'A5E.MaterialPropertySpacefaring',
+	strength: 'A5E.MaterialPropertyStrength',
 	underarmor: 'A5E.MaterialPropertyUnderarmor',
 	weighty: 'A5E.MaterialPropertyWeighty',
 	wild: 'A5E.MaterialPropertyWild',
@@ -725,6 +728,8 @@ const modPorts = {
 	4: '4',
 	5: '5',
 	6: '6',
+	7: '7',
+	8: '8'
 };
 
 /**
@@ -855,6 +860,7 @@ const repairTools = {
 	notRepairable: 'A5E.repairTools.notRepairable',
 	sewingKit: 'A5E.repairTools.sewingKit',
 	smithsTools: 'A5E.repairTools.smithsTools',
+	tinkersTools: 'A5E.repairTools.tinkersTools',
 };
 
 const resourceRecoveryOptions = {

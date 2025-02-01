@@ -1,0 +1,199 @@
+{
+	"folder": null,
+	"name": "Disquieting Disarm",
+	"type": "feature",
+	"img": "icons/skills/melee/swords-parry-block-blue.webp",
+	"system": {
+		"description": "<p>You attempt to knock an item or weapon from a creature’s hand. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal your @UUID[Compendium.a5e.a5e-class-features.Item.vKckTQevhrZgeJJ9]{Favored Ordnance} damage and the target drops the item in its space. In addition, the target is [[/condition id=rattled]] until the end of your next turn. Creatures that are a size category larger than you or that are holding the item with at least two hands have advantage on this save, while a creature of a size category smaller than you has disadvantage. While rattled, the target must use an action to recover its weapon or draw a new one.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"lwZqsSIzZ75DmHLQ": {
+				"name": "Disquieting Disarm",
+				"prompts": {
+					"GLhrbVhxmurnGi0P": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "str",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					},
+					"IW5bqcz8h2ziubPr": {
+						"type": "savingThrow",
+						"default": false,
+						"ability": "dex",
+						"saveDC": {
+							"type": "maneuver",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
+					}
+				},
+				"rolls": {
+					"OlOkB2JExotEUOsP": {
+						"type": "damage",
+						"default": true,
+						"canCrit": false,
+						"formula": "@classResources.favored-ordnance",
+						"critBonus": "",
+						"damageType": "",
+						"scaling": {},
+						"label": ""
+					}
+				},
+				"effects": [
+					"3S5aW1EyXtQBg7kI"
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "",
+					"value": 0
+				},
+				"macro": "",
+				"consumers": {},
+				"ranges": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "trooper",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.C8gDgqVEDqykprXv",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Rattled",
+			"img": "icons/skills/melee/swords-parry-block-blue.webp",
+			"_id": "3S5aW1EyXtQBg7kI",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"rattled\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": 1,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<ul>\n<li>A rattled creature cannot benefit from expertise dice.</li>\n<li>A creature that is immune to being stunned is immune to being rattled.</li>\n<li>A rattled creature cannot take reactions.</li>\n</ul>\n<p> </p>\n<p>While rattled, the target must use an action to recover its weapon or draw a new one.</p>",
+			"tint": "#ffffff",
+			"statuses": [
+				"rattled"
+			],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.3",
+				"createdTime": 1734709598044,
+				"modifiedTime": 1734709642384,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.3",
+		"createdTime": 1734709059363,
+		"modifiedTime": 1734709598079,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "mIEQZQxFHnWKyzlH"
+}

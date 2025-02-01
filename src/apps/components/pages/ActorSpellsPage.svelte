@@ -12,6 +12,7 @@
     import SpellbookDeletionConfirmationDialog from "../../dialogs/initializers/SpellbookDeletionConfirmationDialog";
 
     import ActorSheetTempSettingsStore from "../../../stores/ActorSheetTempSettingsStore";
+    import getMaxPreparedSpells from "../../../utils/getMaxPreparedSpells";
 
     const actor = getContext("actor");
     let { spells } = actor;
@@ -112,7 +113,6 @@
     $: spellResources = $actor.system.spellResources;
 
     $: preparedSpellCount = $actor.items.filter((item) => {
-        if (item.type !== "spell") return false;
         if (
             !item.system.prepared ||
             item.system.prepared === CONFIG.A5E.PREPARED_STATES.ALWAYS_PREPARED
@@ -121,6 +121,8 @@
 
         return true;
     }).length;
+
+    $: maxPrepared = getMaxPreparedSpells($actor);
 
     $: sheetIsLocked = !$actor.isOwner
         ? true
@@ -218,6 +220,25 @@
             <span class="a5e-footer-group__input">
                 {preparedSpellCount}
             </span>
+
+            /
+
+            <input
+                class="a5e-footer-group__input"
+                class:disable-pointer-events={!$actor.isOwner || sheetIsLocked}
+                type="number"
+                name="system.spellResources.maxPrepared"
+                value={maxPrepared}
+                placeholder="0"
+                min="0"
+                disabled={sheetIsLocked}
+                on:change={({ target }) =>
+                    updateDocumentDataFromField(
+                        $actor,
+                        target.name,
+                        Number(target.value),
+                    )}
+            />
         </div>
     {/if}
 

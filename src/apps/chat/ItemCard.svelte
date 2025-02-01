@@ -5,6 +5,7 @@
     import { slide } from "svelte/transition";
 
     import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    import { localize } from "@typhonjs-fvtt/runtime/util/i18n";
 
     import constructRollFormula from "../../dice/constructRollFormula";
     import getKeyPressAsOptions from "../handlers/getKeyPressAsOptions";
@@ -25,15 +26,44 @@
 
     export let messageDocument;
 
+    function getEffectIcon(effect) {
+        return effect?.img ?? "icons/svg/hazard.svg";
+    }
+
+    function getSpellComponents(item) {
+        if (!item?.system?.components) return [];
+
+        const { spellComponents, spellComponentAbbreviations } = CONFIG.A5E;
+
+        const components = Object.entries(item.system.components)
+            .filter(([, hasComponent]) => hasComponent)
+            .map(([component]) => ({
+                label: spellComponentAbbreviations[component] ?? component,
+                tooltip: spellComponents[component] ?? component,
+            }));
+
+        if (item.system.concentration) {
+            components.push({
+                label: localize("A5E.SpellConcentrationAbbr"),
+                tooltip: localize("A5E.SpellConcentration"),
+            });
+        }
+
+        if (item.system.ritual) {
+            components.push({
+                label: localize("A5E.SpellRitualAbbr"),
+                tooltip: localize("A5E.SpellRitual"),
+            });
+        }
+
+        return components;
+    }
+
     function getSubtitle(name, actionName) {
         if (!actionName || typeof actionName !== "string") return null;
         if (name.trim() === actionName.trim()) return null;
 
         return actionName;
-    }
-
-    function getEffectIcon(effect) {
-        return effect?.img ?? "icons/svg/hazard.svg";
     }
 
     function getHoverColor(pressedKeysStore) {
@@ -196,33 +226,60 @@
     const { actionDescription, itemDescription, unidentifiedDescription } = system;
 
     const { isGM } = game.user;
-    const item = fromUuidSync($message.system.itemId ?? "");
+    const { A5E } = CONFIG;
+
+    const item = $message?.item;
     const prompts = preparePrompts($message);
     const hasPrompts = Object.values(prompts).flat().length;
     const rolls = prepareRolls($message);
     const hasRolls = rolls.length;
-    const effects = system.effects.map((id) => item.effects.get(id));
+    const effects = system.effects.map((id) => item?.effects.get(id));
     const hasEffects = !!effects.length;
+
+    const itemName = item.name ?? "";
+    let subtitle = getSubtitle(itemName, actionName);
+
     let hideDescription =
         game.settings.get("a5e", "hideChatDescriptionsByDefault") ?? false;
+    let backgroundColor = $message?.blind
+        ? "#f5eaf5"
+        : $message?.whisper?.length
+          ? "#e8e8ef"
+          : "#f6f1ea";
 
     setContext("message", message);
 
     $: hoverColor = getHoverColor($pressedKeysStore);
-    $: summaryData = $message.system.summaryData;
+    $: summaryData = $message?.system?.summaryData;
 </script>
 
 <ItemCardHeader
-    {actorName}
-    {img}
     messageDocument={$message}
-    subtitle={getSubtitle(actorName, actionName)}
     on:repeatCard={repeatRoll}
     on:toggleDescription={() => (hideDescription = !hideDescription)}
     on:toggleCriticalDamage={toggleCriticalDamage}
 />
 
-<article class="a5e-chat-card__body">
+<article class="a5e-chat-card__body" style="background-color: {backgroundColor};">
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <header
+        class="a5e-chat-card__body__header a5e-chat-card__body__header--clickable"
+        class:a5e-chat-card__body__header--subtitle={!!subtitle}
+        role="button"
+        tabindex="0"
+        on:click={() => (hideDescription = !hideDescription)}
+    >
+        <img class="a5e-chat-card__body__header__img" src={img} alt={itemName} />
+
+        <span class="a5e-chat-card__body__header__title-container">
+            <h2 class="a5e-chat-card__body__header__title">{itemName}</h2>
+
+            {#if subtitle}
+                <h3 class="a5e-chat-card__body__header__subtitle">{subtitle}</h3>
+            {/if}
+        </span>
+    </header>
+
     {#if Object.values(summaryData ?? {}).some(Boolean)}
         <ItemSummary {summaryData} />
     {/if}
@@ -290,7 +347,7 @@
                         {#each prompts[promptType] as prompt}
                             <PromptButton
                                 {prompt}
-                                title={getPromptTitle(prompt, $message?.system.actorId)}
+                                title={getPromptTitle(prompt, $message?.system?.actorId)}
                                 subtitle={getPromptSubtitle(prompt)}
                                 --hover-color={hoverColor}
                                 on:triggerPrompt={() => triggerPrompt(prompt)}
@@ -316,6 +373,38 @@
     {/if}
 </article>
 
+{#if item.type === "spell"}
+    <hr class="a5e-rule a5e-rule--card" style="margin-block: 0.5rem;" />
+
+    {@const spellComponents = getSpellComponents(item)}
+    {@const spellLevel = A5E.spellLevels[item?.system?.level]}
+    {@const castingLevel = A5E.spellLevels[$message?.system?.castingLevel ?? ""]}
+
+    <footer class="a5e-chat-card__footer">
+        <span class="spell-level">
+            {spellLevel}
+
+            {#if castingLevel && spellLevel !== castingLevel}
+                (Cast at {castingLevel})
+            {/if}
+        </span>
+
+        {#if spellComponents.length}
+            <ul class="component-wrapper">
+                {#each spellComponents as component}
+                    <li
+                        class="component"
+                        data-tooltip={component.tooltip}
+                        data-tooltip-direction="UP"
+                    >
+                        {component.label}
+                    </li>
+                {/each}
+            </ul>
+        {/if}
+    </footer>
+{/if}
+
 <style lang="scss">
     article {
         display: flex;
@@ -340,5 +429,28 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
+    }
+
+    .component-wrapper {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        gap: 0.25rem;
+    }
+
+    .component {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 1rem;
+        width: 1rem;
+        border-radius: var(--a5e-border-radius-standard);
+        font-size: var(--a5e-text-size-xxs);
+        background: var(--indicator-background, #c6c5bc);
+    }
+
+    .spell-level {
+        font-size: var(--a5e-text-size-xs);
     }
 </style>

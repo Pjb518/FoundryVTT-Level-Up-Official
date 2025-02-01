@@ -1,28 +1,34 @@
 <svelte:options accessors={true} />
 
 <script lang="ts">
-import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
-import { setContext } from 'svelte';
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
+    import { setContext } from "svelte";
 
-import prepareRolls from '../dataPreparationHelpers/cardRolls/prepareRolls';
+    import prepareRolls from "../dataPreparationHelpers/cardRolls/prepareRolls";
 
-import RollTableCardHeader from './RollTableCardHeader.svelte';
-import RollSummary from './body/RollSummary.svelte';
+    import RollTableCardHeader from "./RollTableCardHeader.svelte";
+    import RollSummary from "./body/RollSummary.svelte";
 
-export let messageDocument;
+    export let messageDocument;
 
-const message = new TJSDocument(messageDocument);
-const { system } = $message;
+    const message = new TJSDocument(messageDocument);
+    const { system } = $message;
 
-const { tableName, tableId, resultTitle, img, description } = system;
-const rolls = prepareRolls($message);
+    const { tableName, tableId, resultTitle, img, description } = system;
+    const rolls = prepareRolls($message);
 
-setContext('message', message);
+    let backgroundColor = $message.blind
+        ? "#f5eaf5"
+        : $message.whisper.length
+          ? "#e8e8ef"
+          : "#f6f1ea";
+
+    setContext("message", message);
 </script>
 
 <RollTableCardHeader {tableName} {img} messageDocument={$message} />
 
-<article class="a5e-chat-card__body">
+<article class="a5e-chat-card__body" style="background-color: {backgroundColor};">
     <h3 class="">{resultTitle}</h3>
 
     <hr class="a5e-rule a5e-rule--card" />

@@ -654,6 +654,19 @@ class A5eGameSettings extends TJSGameSettings {
 					type: String,
 				},
 			},
+			// GPG Settings
+			{
+				namespace,
+				key: 'showFavorPoints',
+				options: {
+					name: 'A5E.settings.showFavorPoints',
+					hint: 'A5E.settings.hints.showFavorPoints',
+					scope: scope.world,
+					config: true,
+					default: false,
+					type: Boolean,
+				},
+			},
 			// VRC Settings
 			{
 				namespace,

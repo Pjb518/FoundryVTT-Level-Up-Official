@@ -32,6 +32,7 @@ const schema = {
 			value: new fields.StringField({ nullable: false, initial: 'none' }),
 		}),
 		casterType: new fields.StringField({ nullable: false, initial: 'none' }),
+		maxPreparedFormula: new fields.StringField({ required: true, nullable: false, initial: '0' }),
 	}),
 };
 

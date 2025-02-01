@@ -1,102 +1,114 @@
 <script>
-import { getContext } from 'svelte';
-import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
+    import { getContext } from "svelte";
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-import CheckboxGroup from '../components/CheckboxGroup.svelte';
-import ExpertiseDiePicker from '../components/ExpertiseDiePicker.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
-import RadioGroup from '../components/RadioGroup.svelte';
+    import CheckboxGroup from "../components/CheckboxGroup.svelte";
+    import ExpertiseDiePicker from "../components/ExpertiseDiePicker.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
+    import RadioGroup from "../components/RadioGroup.svelte";
 
-import getRollFormula from '../../utils/getRollFormula';
-import RollModePicker from '../components/RollModePicker.svelte';
+    import getRollFormula from "../../utils/getRollFormula";
+    import RollModePicker from "../components/RollModePicker.svelte";
 
-export let { document, dialog, options } = getContext('#external').application;
+    export let { document, dialog, options } = getContext("#external").application;
 
-function getInitialExpertiseDieSelection() {
-	if (hideExpertiseDice) return 0;
+    function getInitialExpertiseDieSelection() {
+        if (hideExpertiseDice) return 0;
 
-	return $actor.RollOverrideManager.getExpertiseDice(`initiative`, options.expertiseDice ?? 0, {
-		ability: abilityKey,
-		skill: skillKey,
-	});
-}
+        return $actor.RollOverrideManager.getExpertiseDice(
+            "initiative",
+            options.expertiseDice ?? 0,
+            {
+                ability: abilityKey,
+                skill: skillKey,
+            },
+        );
+    }
 
-const actor = new TJSDocument(document.actor);
-const appId = dialog.id;
-const abilities = CONFIG.A5E.abilities;
-const hideExpertiseDice = game.settings.get('a5e', 'hideExpertiseDice');
-const skills = { none: 'None', ...CONFIG.A5E.skills };
+    const actor = new TJSDocument(document.actor);
+    const appId = dialog.id;
+    const abilities = CONFIG.A5E.abilities;
+    const hideExpertiseDice = game.settings.get("a5e", "hideExpertiseDice");
+    const skills = { none: "None", ...CONFIG.A5E.skills };
 
-if (game.settings.get('a5e', 'hideA5eSkills')) {
-	delete skills.cul;
-	delete skills.eng;
-}
+    if (game.settings.get("a5e", "hideA5eSkills")) {
+        delete skills.cul;
+        delete skills.eng;
+    }
 
-function onSubmit() {
-	dialog.submit({ rollFormula });
-}
+    function onSubmit() {
+        dialog.submit({ rollFormula });
+    }
 
-let abilityKey = options.abilityKey ?? $actor.system.attributes.initiative.ability ?? 'dex';
+    let abilityKey =
+        options.abilityKey ?? $actor.system.attributes.initiative.ability ?? "dex";
 
-let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
-let skillKey = options.skillKey ?? 'none';
-let rollFormula;
-let situationalMods = options.situationalMods ?? '';
+    let skillKey = options.skillKey ?? "none";
+    let rollFormula;
+    let situationalMods = options.situationalMods ?? "";
+    let selectedRollMode = options.rollMode ?? CONFIG.A5E.ROLL_MODE.NORMAL;
 
-$: expertiseDie = getInitialExpertiseDieSelection();
+    $: expertiseDie = getInitialExpertiseDieSelection();
 
-$: expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
-	`initiative`,
-	options.expertiseDie ?? 0,
-	{ ability: abilityKey, skill: skillKey },
-);
+    $: expertiseDieSource = $actor.RollOverrideManager.getExpertiseDiceSource(
+        "initiative",
+        options.expertiseDie ?? 0,
+        { ability: abilityKey, skill: skillKey },
+    );
 
-$: rollMode = $actor.RollOverrideManager.getRollOverride(`initiative`, selectedRollMode, {
-	ability: abilityKey,
-	skill: skillKey,
-});
+    $: rollMode = $actor.RollOverrideManager.getRollOverride(
+        "initiative",
+        selectedRollMode,
+        {
+            ability: abilityKey,
+            skill: skillKey,
+        },
+    );
 
-$: rollModeString = $actor.RollOverrideManager.getRollOverridesSource(
-	`initiative`,
-	selectedRollMode,
-	{ ability: abilityKey, skill: skillKey },
-);
+    $: rollModeString = $actor.RollOverrideManager.getRollOverridesSource(
+        "initiative",
+        selectedRollMode,
+        { ability: abilityKey, skill: skillKey },
+    );
 
-$: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(abilityKey, 'check');
+    $: abilityBonuses = $actor.BonusesManager.prepareAbilityBonuses(abilityKey, "check");
 
-$: skillBonuses = $actor.BonusesManager.prepareSkillBonuses(skillKey, abilityKey);
+    $: skillBonuses = $actor.BonusesManager.prepareSkillBonuses(skillKey, abilityKey);
 
-$: initiativeBonuses = $actor.BonusesManager.prepareInitiativeBonuses({
-	abilityKey,
-	skillKey,
-});
+    $: initiativeBonuses = $actor.BonusesManager.prepareInitiativeBonuses({
+        abilityKey,
+        skillKey,
+    });
 
-$: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections('abilities', {
-	abilityKey,
-	abilityType: 'check',
-});
+    $: selectedAbilityBonuses = $actor.BonusesManager.getDefaultSelections("abilities", {
+        abilityKey,
+        abilityType: "check",
+    });
 
-$: selectedSkillBonuses = $actor.BonusesManager.getDefaultSelections('skills', {
-	skillKey,
-	abilityKey,
-});
+    $: selectedSkillBonuses = $actor.BonusesManager.getDefaultSelections("skills", {
+        skillKey,
+        abilityKey,
+    });
 
-$: selectedInitiativeBonuses = $actor.BonusesManager.getDefaultSelections('initiative', {
-	abilityKey,
-	skillKey,
-});
+    $: selectedInitiativeBonuses = $actor.BonusesManager.getDefaultSelections(
+        "initiative",
+        {
+            abilityKey,
+            skillKey,
+        },
+    );
 
-$: rollFormula = getRollFormula($actor, {
-	ability: abilityKey,
-	expertiseDie,
-	rollMode,
-	situationalMods,
-	skill: skillKey,
-	selectedAbilityBonuses,
-	selectedSkillBonuses,
-	selectedInitiativeBonuses,
-	type: 'initiative',
-});
+    $: rollFormula = getRollFormula($actor, {
+        ability: abilityKey,
+        expertiseDie,
+        rollMode,
+        situationalMods,
+        skill: skillKey,
+        selectedAbilityBonuses,
+        selectedSkillBonuses,
+        selectedInitiativeBonuses,
+        type: "initiative",
+    });
 </script>
 
 <form>

@@ -25,6 +25,16 @@ export default function renderChatMessage(message, html) {
 			return;
 	}
 
+	const isBlind = message.blind;
+	const isWhisper = message.whisper.length && !message.whisper.includes(game.userId);
+	const isSelfRoll = message.whisper.length === 1 && message.whisper?.[0] !== game.userId;
+
+	// Don't render card if it shouldn't be visible
+	if (((isBlind || isWhisper) && !game.user?.isGM) || isSelfRoll) {
+		target.classList.add('a5e-chat-card--hidden');
+		return;
+	}
+
 	target.classList.add('a5e-chat-card');
 	$(html).find('.message-header')[0]?.remove();
 	$(html).find('.message-content')[0]?.remove();

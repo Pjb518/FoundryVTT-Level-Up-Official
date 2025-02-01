@@ -1,0 +1,522 @@
+{
+	"folder": null,
+	"name": "Energization",
+	"type": "feature",
+	"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+	"system": {
+		"description": "<p>When you take this archetype at 3rd level, you learn to momentarily transform matter into energy and back again. You can use a&nbsp;bonus action to transmute a melee weapon, piece of ammunition, natural weapon, or unarmed strike which you can see into a specific energy type of your choice, inflicting damage of the chosen type on a hit, as well as an additional effect as shown on the following table.</p>\n<p>The energy reverts to its original matter immediately after a successful hit or at the beginning of next turn, whichever comes first. You can use this feature a number of times equal to your psionic ability modifier. Your expended uses reset when you finish a long rest.</p>\n<p><strong>Table: Energization</strong></p>\n<table>\n<thead>\n<tr>\n<th>Energy Type</th>\n<th>Effect</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td>Fire</td>\n<td>Deals an additional 1d6 fire damage and ignites flammable materials, requiring an action and a free hand to put out.</td>\n</tr>\n<tr>\n<td>Cold</td>\n<td>Deals an additional 1d6 cold damage and delays the target’s initiative count for its next turn by a number equal to the additional cold damage done. Its initiative remains at the new value for the remainder of the encounter.</td>\n</tr>\n<tr>\n<td>Lightning</td>\n<td>Deals an additional 2d4 lightning damage (increases to 3d4 if the target is wearing metal armor) and disarms a creature wielding a metal weapon if they fail a Strength saving throw vs. your psionics save DC.</td>\n</tr>\n<tr>\n<td>Force</td>\n<td>Deals an additional 1d4 force damage and pushes a Medium or smaller sized creature back 10 feet.</td>\n</tr>\n<tr>\n<td>Psychic</td>\n<td>Deals an additional 1d4 psychic damage and causes the target to suffer disadvantage on its next attack.</td>\n</tr>\n</tbody>\n</table>\n<p>&nbsp;</p>\n<p>The damage from this feature increases by 1 die when you reach 7th, 12th, and 15th level in this class.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"h00RJu41cZvBIlMJ": {
+				"name": "Energization",
+				"consumers": {
+					"mlOSLbuRjJqzPdUr": {
+						"type": "itemUses",
+						"default": true,
+						"quantity": 1,
+						"label": ""
+					}
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"activation": {
+					"cost": 1,
+					"type": "bonusAction",
+					"reactionTrigger": ""
+				},
+				"duration": {
+					"unit": "round",
+					"value": 1
+				},
+				"effects": [
+					"iMKZhG9Hkizm5wVo,cuVIzCLwzt65jKQU,ds2j5wMnpOfaI61j,pBLfOdY8O9v6M80T,DGC6O3X0ozWFCcgy,NblTLbL7xEk5PdQc,z8S6mUz93FM89J4G"
+				],
+				"macro": "",
+				"prompts": {},
+				"ranges": {},
+				"rolls": {},
+				"target": {
+					"quantity": 0,
+					"scaling": {},
+					"type": ""
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "@spellcasting.mod",
+			"per": "longRest",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "psion",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.GNku1OSJ3S33xToy",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Fire",
+			"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+			"_id": "iMKZhG9Hkizm5wVo",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Energization\",\"formula\":\"1d6\",\"damageType\":\"fire\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/symbols/elements-air-earth-fire-water.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an additional 1d6 fire damage and ignites flammable materials, requiring an action and a free hand to put out.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.2",
+				"createdTime": 1734625901159,
+				"modifiedTime": 1734625972969,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.GNku1OSJ3S33xToy",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Cold",
+			"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+			"_id": "cuVIzCLwzt65jKQU",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Energization\",\"formula\":\"1d6\",\"damageType\":\"cold\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/symbols/elements-air-earth-fire-water.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an additional 1d6 cold damage and delays the target’s initiative count for its next turn by a number equal to the additional cold damage done. Its initiative remains at the new value for the remainder of the encounter.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.2",
+				"createdTime": 1734626029524,
+				"modifiedTime": 1734626054865,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.GNku1OSJ3S33xToy",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Cold (Copy)",
+			"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+			"_id": "ds2j5wMnpOfaI61j",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Energization\",\"formula\":\"1d6\",\"damageType\":\"cold\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/symbols/elements-air-earth-fire-water.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an additional 1d6 cold damage and delays the target’s initiative count for its next turn by a number equal to the additional cold damage done. Its initiative remains at the new value for the remainder of the encounter.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.2",
+				"createdTime": 1734626081226,
+				"modifiedTime": 1734626081226,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.GNku1OSJ3S33xToy",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Cold (Copy) (Copy)",
+			"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+			"_id": "pBLfOdY8O9v6M80T",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Energization\",\"formula\":\"1d6\",\"damageType\":\"cold\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/symbols/elements-air-earth-fire-water.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an additional 1d6 cold damage and delays the target’s initiative count for its next turn by a number equal to the additional cold damage done. Its initiative remains at the new value for the remainder of the encounter.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.2",
+				"createdTime": 1734626442893,
+				"modifiedTime": 1734626442893,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.GNku1OSJ3S33xToy",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Cold (Copy) (Copy) (Copy)",
+			"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+			"_id": "DGC6O3X0ozWFCcgy",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Energization\",\"formula\":\"1d6\",\"damageType\":\"cold\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/symbols/elements-air-earth-fire-water.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an additional 1d6 cold damage and delays the target’s initiative count for its next turn by a number equal to the additional cold damage done. Its initiative remains at the new value for the remainder of the encounter.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.2",
+				"createdTime": 1734626457005,
+				"modifiedTime": 1734626457005,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.GNku1OSJ3S33xToy",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": true,
+				"default": false,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Cold (Copy) (Copy) (Copy) (Copy)",
+			"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+			"_id": "NblTLbL7xEk5PdQc",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.bonuses.damage",
+					"value": "{\"label\":\"Energization\",\"formula\":\"1d6\",\"damageType\":\"cold\",\"context\":{\"attackTypes\":[\"meleeWeaponAttack\",\"rangedWeaponAttack\"],\"damageTypes\":[],\"spellLevels\":[],\"isCritBonus\":false},\"default\":true,\"img\":\"icons/magic/symbols/elements-air-earth-fire-water.webp\"}",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": 1,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "<p>Deals an additional 1d6 cold damage and delays the target’s initiative count for its next turn by a number equal to the additional cold damage done. Its initiative remains at the new value for the remainder of the encounter.</p>",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {
+				"a5e": {
+					"duration": {
+						"type": "rounds",
+						"unit": "minutes"
+					}
+				}
+			},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.2",
+				"createdTime": 1734626469922,
+				"modifiedTime": 1734626469922,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		},
+		{
+			"origin": "Item.GNku1OSJ3S33xToy",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "New Effect",
+			"img": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+			"_id": "z8S6mUz93FM89J4G",
+			"type": "base",
+			"changes": [],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.2",
+				"createdTime": 1734626478420,
+				"modifiedTime": 1734626478420,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.2",
+		"createdTime": 1734559242375,
+		"modifiedTime": 1734626560931,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "hYFhl8JpdVKviwLA"
+}

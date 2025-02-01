@@ -1,0 +1,210 @@
+{
+	"folder": null,
+	"name": "Vortex",
+	"type": "feature",
+	"img": "icons/magic/air/wind-tornado-funnel-damage-blue.webp",
+	"system": {
+		"description": "<p>At 7th level, you can create a vortex of wind and energy that captures creatures and objects within it. You use an action to form a vortex within 30 feet of you and direct it to move up to 30 feet. When a creature shares its space with the vortex for the first time during this movement, that creature makes a Strength saving throw. On a failure, the creature is carried inside the vortex, taking 1d6 bludgeoning damage for each 10 feet it is carried, and falls prone into the nearest unoccupied square at the end of the movement as the vortex dissipates. The vortex can carry either one Large creature, two Medium creatures, or up to four Small or smaller creatures.</p>",
+		"favorite": false,
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"secretDescription": "",
+		"source": "voidrunnersCodex",
+		"actions": {
+			"vXePQ3xaahILNZkv": {
+				"name": "Vortex",
+				"activation": {
+					"type": "action",
+					"cost": 1,
+					"reactionTrigger": ""
+				},
+				"area": {
+					"shape": "cone",
+					"quantity": 1,
+					"placeTemplate": false
+				},
+				"target": {
+					"type": "",
+					"quantity": 1,
+					"scaling": {}
+				},
+				"prompts": {
+					"oXwDwONOMUKK39w8": {
+						"type": "savingThrow",
+						"default": true,
+						"ability": "str",
+						"saveDC": {
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"label": "",
+						"onSave": ""
+					}
+				},
+				"rolls": {
+					"3F3MlEpqpgLZhfNX": {
+						"type": "damage",
+						"default": false,
+						"label": "10 feet",
+						"damageType": "bludgeoning",
+						"formula": "1d6",
+						"canCrit": false,
+						"critBonus": "",
+						"scaling": {}
+					},
+					"NphFLuN5xHcUq1S8": {
+						"type": "damage",
+						"default": false,
+						"label": "20 feet",
+						"formula": "2d6",
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "bludgeoning",
+						"scaling": {}
+					},
+					"iaiSVYagTmxdNkjz": {
+						"type": "damage",
+						"default": false,
+						"label": "30 feet",
+						"formula": "3d6",
+						"canCrit": false,
+						"critBonus": "",
+						"damageType": "bludgeoning",
+						"scaling": {}
+					}
+				},
+				"effects": [
+					"ROQxPgGw4Kpdm6gx"
+				],
+				"duration": {
+					"unit": "",
+					"value": 1
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"macro": "",
+				"consumers": {},
+				"ranges": {
+					"vLdi8fc7tDvYfQRq": {
+						"range": "short"
+					}
+				},
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
+			}
+		},
+		"ac": {
+			"baseFormula": "",
+			"formula": "",
+			"grantsDisadvantage": false,
+			"maxDex": 0,
+			"minStr": 0,
+			"mode": 2,
+			"requiresNoShield": false,
+			"requiresUnarmored": false
+		},
+		"uses": {
+			"value": 0,
+			"max": "",
+			"per": "",
+			"recharge": {
+				"formula": "",
+				"threshold": 0
+			}
+		},
+		"class": "",
+		"classes": "psion",
+		"concentration": false,
+		"featureType": "class",
+		"grants": {},
+		"prerequisite": "",
+		"requiresBloodied": false
+	},
+	"effects": [
+		{
+			"origin": "Item.hNSxShccjqXxK0M7",
+			"transfer": false,
+			"system": {
+				"effectType": "onUse",
+				"applyToSelf": false,
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
+			},
+			"name": "Prone",
+			"img": "icons/magic/air/wind-tornado-funnel-damage-blue.webp",
+			"_id": "ROQxPgGw4Kpdm6gx",
+			"type": "base",
+			"changes": [
+				{
+					"key": "flags.a5e.effects.statusConditions",
+					"value": "[\"prone\"]",
+					"mode": 0,
+					"priority": null
+				}
+			],
+			"disabled": false,
+			"duration": {
+				"startTime": null,
+				"seconds": null,
+				"combat": null,
+				"rounds": null,
+				"turns": null,
+				"startRound": null,
+				"startTurn": null
+			},
+			"description": "",
+			"tint": "#ffffff",
+			"statuses": [
+				"prone"
+			],
+			"sort": 0,
+			"flags": {},
+			"_stats": {
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
+				"systemId": "a5e",
+				"systemVersion": "1.0.2",
+				"createdTime": null,
+				"modifiedTime": 1734631621377,
+				"lastModifiedBy": "Glw114cHAVexdKTu"
+			},
+			"folder": null
+		}
+	],
+	"flags": {},
+	"_stats": {
+		"coreVersion": "12.331",
+		"systemId": "a5e",
+		"systemVersion": "1.0.2",
+		"createdTime": 1734559242567,
+		"modifiedTime": 1734631705533,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "dLxgcS4H52yUxB14"
+}

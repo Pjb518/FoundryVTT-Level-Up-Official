@@ -1,76 +1,76 @@
 <script lang="ts">
-import type { Writable } from 'svelte/store';
-import type { ItemA5e } from '../../../documents/item/item';
+    import type { Writable } from "svelte/store";
+    import type { ItemA5e } from "../../../documents/item/item";
 
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import GenericConfigDialog from '../../dialogs/initializers/GenericConfigDialog';
+    import GenericConfigDialog from "../../dialogs/initializers/GenericConfigDialog";
 
-import getOrdinalNumber from '../../../utils/getOrdinalNumber';
-import updateAssociatedValues from '../../handlers/updateAssociatedValues';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import getOrdinalNumber from "../../../utils/getOrdinalNumber";
+    import updateAssociatedValues from "../../handlers/updateAssociatedValues";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import AreaConfig from '../itemActionsConfig/AreaConfig.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
-import Section from '../Section.svelte';
-import TargetRangeIncrement from '../itemActionsConfig/TargetRangeIncrement.svelte';
-import TargetScalingDialog from '../../dialogs/TargetScalingDialog.svelte';
+    import AreaConfig from "../itemActionsConfig/AreaConfig.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import Section from "../Section.svelte";
+    import TargetRangeIncrement from "../itemActionsConfig/TargetRangeIncrement.svelte";
+    import TargetScalingDialog from "../../dialogs/TargetScalingDialog.svelte";
 
-const actionId: string = getContext('actionId');
-const item: Writable<ItemA5e> = getContext('item');
-const { A5E } = CONFIG;
-const { isEmpty } = foundry.utils;
+    const actionId: string = getContext("actionId");
+    const item: Writable<ItemA5e> = getContext("item");
+    const { A5E } = CONFIG;
+    const { isEmpty } = foundry.utils;
 
-function onClickTargetScalingButton() {
-	let dialog = $item.dialogs.targetScaling[actionId];
+    function onClickTargetScalingButton() {
+        let dialog = $item.dialogs.targetScaling[actionId];
 
-	if (!dialog) {
-		$item.dialogs.targetScaling[actionId] = new GenericConfigDialog(
-			$item,
-			`${$item.name} Target Scaling Configuration`,
-			TargetScalingDialog,
-			{ actionId },
-		);
+        if (!dialog) {
+            $item.dialogs.targetScaling[actionId] = new GenericConfigDialog(
+                $item,
+                `${$item.name} Target Scaling Configuration`,
+                TargetScalingDialog,
+                { actionId },
+            );
 
-		dialog = $item.dialogs.targetScaling[actionId];
-	}
+            dialog = $item.dialogs.targetScaling[actionId];
+        }
 
-	dialog.render(true);
-}
+        dialog.render(true);
+    }
 
-function addRangeIncrement() {
-	const newRange = {
-		range: '',
-	};
+    function addRangeIncrement() {
+        const newRange = {
+            range: "",
+        };
 
-	$item.update({
-		[`system.actions.${actionId}.ranges`]: {
-			...action.ranges,
-			[foundry.utils.randomID()]: newRange,
-		},
-	});
-}
+        $item.update({
+            [`system.actions.${actionId}.ranges`]: {
+                ...action.ranges,
+                [foundry.utils.randomID()]: newRange,
+            },
+        });
+    }
 
-function selectTarget(event) {
-	const selectedOption = event.target?.selectedOptions[0]?.value;
-	if (selectedOption === 'null') {
-		$item.update({
-			[`system.actions.${actionId}`]: {
-				'-=target': null,
-			},
-		});
-	} else {
-		updateAssociatedValues(
-			$item,
-			`system.actions.${actionId}.target.type`,
-			selectedOption,
-			`system.actions.${actionId}.target.quantity`,
-		);
-	}
-}
+    function selectTarget(event) {
+        const selectedOption = event.target?.selectedOptions[0]?.value;
+        if (selectedOption === "null") {
+            $item.update({
+                [`system.actions.${actionId}`]: {
+                    "-=target": null,
+                },
+            });
+        } else {
+            updateAssociatedValues(
+                $item,
+                `system.actions.${actionId}.target.type`,
+                selectedOption,
+                `system.actions.${actionId}.target.quantity`,
+            );
+        }
+    }
 
-$: action = $item.actions.get(actionId)!;
+    $: action = $item.actions.get(actionId)!;
 </script>
 
 <section class="a5e-page-wrapper">
@@ -102,6 +102,7 @@ $: action = $item.actions.get(actionId)!;
                 {#if ["creature", "object", "creatureObject"].includes(action.target?.type)}
                     <input
                         class="small-input"
+                        style="width: 5rem;"
                         type="number"
                         name="targetQuantity"
                         value={action.target?.quantity ?? 1}

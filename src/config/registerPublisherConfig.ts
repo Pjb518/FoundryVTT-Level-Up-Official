@@ -15,6 +15,7 @@ export default function registerPublisherConfig() {
 			roguesCollection: "The Rogue's Collection",
 			speaksAndSpells: 'Speaks and Spells Publishing',
 			steampunkette: 'Steampunkette',
+			wizardsOfTheCoast: "Wizards of the Coast",
 			wolfworksPress: 'Wolfworks Press',
 		},
 	};

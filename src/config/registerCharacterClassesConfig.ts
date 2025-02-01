@@ -40,6 +40,7 @@ export default function registerCharacterClassesConfig() {
 		scientist: 'A5E.characterClasses.scientist',
 		scout: 'A5E.characterClasses.scout',
 		sorcerer: 'A5E.characterClasses.sorcerer',
+		trooper: 'A5E.characterClasses.trooper',
 		warlock: 'A5E.characterClasses.warlock',
 		wielder: 'A5E.characterClasses.wielder',
 		witch: 'A5E.characterClasses.witch',
