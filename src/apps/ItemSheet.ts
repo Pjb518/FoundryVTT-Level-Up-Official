@@ -115,28 +115,12 @@ export default class ItemSheet extends SvelteApplication {
 				title: 'Configure Sheet',
 				onclick: ({ event }) => this._onConfigureSheet(event),
 			});
-
-			const { sourceId } = this.item;
-
-			if (sourceId && this.item.uuid !== sourceId) {
-				if (this.item.system.revitalizeLock) {
-					buttons.unshift({
-						icon: 'fa-solid fa-unlock',
-						onclick: () => this.item.toggleRevitalizeLock(),
-					});
-				} else {
-					buttons.unshift({
-						icon: 'fa-solid fa-lock',
-						onclick: () => this.item.toggleRevitalizeLock(),
-					});
-				}
 				
-				buttons.unshift({
-					label: 'Revitalize',
-					icon: 'fa-solid fa-arrows-rotate',
-					onclick: () => this.item.revitalize(),
-				});
-			}
+			buttons.unshift({
+				label: 'Revitalize',
+				icon: 'fa-solid fa-arrows-rotate',
+				onclick: () => this.item.revitalize(),
+			});
 		}
 
 		if (this.item.pack) {

@@ -68,15 +68,6 @@ export const macro = () => ({
 export type MacroData = ReturnType<typeof macro>;
 
 // -----------------------------------------
-// Revitalize Lock
-// -----------------------------------------
-export const revitalizeLock = () => ({
-	revitalizeLock: new fields.BooleanField({ required: true, initial: false }),
-});
-
-export type RevitalizeLockData = ReturnType<typeof revitalizeLock>;
-
-// -----------------------------------------
 // Source
 // -----------------------------------------
 export const source = () => ({
