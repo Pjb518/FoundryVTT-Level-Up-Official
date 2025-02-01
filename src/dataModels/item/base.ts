@@ -2,12 +2,13 @@ import type {
 	DescriptionData,
 	FavoriteData,
 	MacroData,
+	RevitalizeLockData,
 	SecretDescriptionData,
 	SourceData,
 } from './common';
 import type { MigrationData } from '../common';
 
-import { description, favorite, macro, secretDescription, source } from './common';
+import { description, favorite, macro, revitalizeLock, secretDescription, source } from './common';
 import { migrationData } from '../common';
 
 declare namespace A5EBaseItemData {
@@ -17,6 +18,7 @@ declare namespace A5EBaseItemData {
 			FavoriteData,
 			MacroData,
 			MigrationData,
+			RevitalizeLockData,
 			SecretDescriptionData,
 			SourceData {}
 	type BaseData = Record<string, any>;
@@ -35,6 +37,7 @@ class A5EBaseItemData<
 			...favorite(),
 			...macro(),
 			...migrationData(),
+			...revitalizeLock(),
 			...secretDescription(),
 			...source(),
 		};
