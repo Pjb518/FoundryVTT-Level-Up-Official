@@ -41,12 +41,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -87,11 +102,33 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The devil makes one bite attack and one claws attack.</p>",
@@ -111,12 +148,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -157,34 +209,64 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"rolls": {
 							"l1JZv12d3ZvCSoSM": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": ""
+								"ability": "str",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"8s4pNuuAvDmHL6NR": {
 								"canCrit": true,
 								"damageType": "bludgeoning",
 								"formula": "2d6+@str.mod",
-								"name": "Tail",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							},
 							"pcUm8jAB4CwQkGUd": {
 								"canCrit": true,
 								"damageType": "cold",
 								"formula": "2d6",
-								"name": "Cold",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "",
@@ -204,12 +286,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": 1738301799382,
+				"lastModifiedBy": "yJDfDGWSqyOOsGj1"
 			}
 		},
 		{
@@ -217,7 +314,70 @@
 			"name": "Spear",
 			"type": "object",
 			"img": "icons/weapons/polearms/spear-ice-crystal-blue.webp",
-			"effects": [],
+			"effects": [
+				{
+					"origin": "Actor.r79PPt3H0fkbi1lx.Item.zlMJUgCWpruit9BX",
+					"transfer": false,
+					"system": {
+						"effectType": "onUse",
+						"applyToSelf": false,
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"name": "Slowed",
+					"img": "icons/weapons/polearms/spear-ice-crystal-blue.webp",
+					"_id": "KLev3ciaBKjlz0rH",
+					"type": "base",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"slowed\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": 60,
+						"combat": null,
+						"rounds": null,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"tint": "#ffffff",
+					"statuses": [
+						"slowed"
+					],
+					"sort": 0,
+					"flags": {
+						"a5e": {
+							"duration": {
+								"unit": "minutes"
+							}
+						}
+					},
+					"_stats": {
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.331",
+						"systemId": "a5e",
+						"systemVersion": "1.0.6",
+						"createdTime": 1738301922414,
+						"modifiedTime": 1738301934847,
+						"lastModifiedBy": "yJDfDGWSqyOOsGj1"
+					},
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 0,
 			"flags": {},
@@ -236,7 +396,7 @@
 					"VSQ3T7ByVz9zGMlV": {
 						"name": "Spear",
 						"activation": {
-							"cost": "",
+							"cost": 0,
 							"type": "",
 							"reactionTrigger": ""
 						},
@@ -250,30 +410,40 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"rolls": {
 							"H85LwXyU7DFou0tX": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "str",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"4KnwTgpRNuKszbrC": {
 								"canCrit": true,
 								"damageType": "piercing",
 								"formula": "2d8+@str.mod",
-								"name": "Spear",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							},
 							"svHt8zCyIh4dYr0v": {
 								"canCrit": true,
 								"damageType": "cold",
 								"formula": "3d6",
-								"name": "Cold",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -281,10 +451,12 @@
 								"ability": "con",
 								"onSave": "",
 								"saveDC": {
-									"type": "custom",
-									"bonus": "16"
+									"type": "cha",
+									"bonus": ""
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
@@ -292,6 +464,27 @@
 							"ldX8VhqZG51DO0Q0": {
 								"range": 10,
 								"unit": "feet"
+							}
+						},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [
+							"KLev3ciaBKjlz0rH"
+						],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
 							}
 						}
 					}
@@ -338,12 +531,39 @@
 				"defensiveProperties": "",
 				"flaws": [],
 				"mounted": [],
-				"versatile": ""
+				"versatile": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"armorMods": [],
+				"capacity": {
+					"type": "weight",
+					"value": 0,
+					"weightlessContents": false
+				},
+				"energyProperties": "",
+				"implant": false,
+				"modPorts": "",
+				"repairabilityDC": 0,
+				"repairTools": [],
+				"supply": false,
+				"techLevel": "archaic",
+				"weaponAugments": []
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": 1738301951445,
+				"lastModifiedBy": "yJDfDGWSqyOOsGj1"
 			}
 		},
 		{
@@ -384,34 +604,68 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"rolls": {
 							"I7KJ8WvsaAerXZiK": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "str",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"N445JesJhM80oVq6": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "2d6+@str.mod",
-								"name": "Bite",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							},
 							"EAQVyYAwSxNAymEG": {
 								"canCrit": true,
 								"damageType": "cold",
 								"formula": "2d6",
-								"name": "Cold",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {
+							"yz7v4pUMn6UlfMI6": {
+								"range": "fiveFeet"
+							}
+						},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "",
@@ -431,12 +685,27 @@
 				"featureType": "naturalWeapon",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": 1738301841955,
+				"lastModifiedBy": "yJDfDGWSqyOOsGj1"
 			}
 		},
 		{
@@ -477,34 +746,64 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"rolls": {
 							"8RUhg2I5RbgccGSy": {
 								"bonus": "",
-								"critThreshold": "20",
+								"critThreshold": 20,
 								"type": "attack",
 								"attackType": "meleeWeaponAttack",
-								"ability": "str"
+								"ability": "str",
+								"proficient": true,
+								"default": true,
+								"label": ""
 							},
 							"ZWnbCJskJh2t6Eql": {
 								"canCrit": true,
 								"damageType": "slashing",
 								"formula": "2d4+@str.mod",
-								"name": "Claws",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							},
 							"ENYOi6r0pSedtvxU": {
 								"canCrit": true,
 								"damageType": "cold",
 								"formula": "2d6",
-								"name": "Cold",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"consumers": {},
-						"prompts": {}
+						"prompts": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "",
@@ -524,12 +823,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -570,16 +884,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"rolls": {
 							"7759OSRbC1T8Y1Dv": {
 								"canCrit": false,
 								"damageType": "cold",
 								"formula": "14d6",
-								"name": "Ice Wall",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -587,13 +905,35 @@
 								"ability": "dex",
 								"onSave": "",
 								"saveDC": {
-									"type": "custom",
-									"bonus": "16"
+									"type": "cha",
+									"bonus": ""
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>The devil magically creates a wall of ice on a solid surface it can see within 60 feet. The wall is flat, 1 foot thick, and can be up to 50 feet long and 15 feet high. The wall lasts for 1 minute or until destroyed. Each 10-foot section has AC 12, 30 hit points, vulnerability to fire damage, and immunity to cold, necrotic, poison, and psychic damage.&nbsp;</p><p>If the wall enters a creature’s space when it appears, the creature is pushed to one side of the wall (creature’s choice). The creature then makes a DC 16 Dexterity saving throw, taking 49 (14d6) cold damage on a successful save or half damage on a success.</p>",
@@ -613,12 +953,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": 1738301727958,
+				"lastModifiedBy": "yJDfDGWSqyOOsGj1"
 			}
 		},
 		{
@@ -626,7 +981,71 @@
 			"name": "Freezing Blood",
 			"type": "feature",
 			"img": "icons/magic/water/heart-ice-freeze.webp",
-			"effects": [],
+			"effects": [
+				{
+					"origin": "Actor.r79PPt3H0fkbi1lx.Item.MvOFrzRZFPcMygJR",
+					"transfer": false,
+					"system": {
+						"effectType": "onUse",
+						"applyToSelf": false,
+						"default": true,
+						"migrationData": {
+							"version": null,
+							"type": "",
+							"lastMigration": {
+								"schema": null
+							}
+						}
+					},
+					"name": "Slowed",
+					"img": "icons/magic/water/heart-ice-freeze.webp",
+					"_id": "B4r37VSump2vkS8y",
+					"type": "base",
+					"changes": [
+						{
+							"key": "flags.a5e.effects.statusConditions",
+							"value": "[\"slowed\"]",
+							"mode": 0,
+							"priority": null
+						}
+					],
+					"disabled": false,
+					"duration": {
+						"startTime": null,
+						"seconds": null,
+						"combat": null,
+						"rounds": 1,
+						"turns": null,
+						"startRound": null,
+						"startTurn": null
+					},
+					"description": "",
+					"tint": "#ffffff",
+					"statuses": [
+						"slowed"
+					],
+					"sort": 0,
+					"flags": {
+						"a5e": {
+							"duration": {
+								"type": "rounds",
+								"unit": "minutes"
+							}
+						}
+					},
+					"_stats": {
+						"compendiumSource": null,
+						"duplicateSource": null,
+						"coreVersion": "12.331",
+						"systemId": "a5e",
+						"systemVersion": "1.0.6",
+						"createdTime": 1738301756291,
+						"modifiedTime": 1738301784396,
+						"lastModifiedBy": "yJDfDGWSqyOOsGj1"
+					},
+					"folder": null
+				}
+			],
 			"folder": null,
 			"sort": 3,
 			"flags": {},
@@ -659,16 +1078,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
-							"type": ""
+							"quantity": 0,
+							"type": "",
+							"scaling": {}
 						},
 						"rolls": {
 							"7CbLlwRQiSwbCovh": {
 								"canCrit": false,
 								"damageType": "cold",
 								"formula": "3d6",
-								"name": "Cold Damage",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -676,13 +1099,37 @@
 								"ability": "con",
 								"onSave": "",
 								"saveDC": {
-									"type": "custom",
-									"bonus": "16"
+									"type": "con",
+									"bonus": ""
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [
+							"B4r37VSump2vkS8y"
+						],
+						"macro": "",
+						"ranges": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>When a creature within 60 feet that the devil can see hits it with a ranged attack or includes it in a spell’s area, the creature makes a DC 16 Constitution saving throw. On a failure, the creature takes 10 (3d6) cold damage and is slowed until the end of its next turn.</p>",
@@ -702,12 +1149,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": 1738301756310,
+				"lastModifiedBy": "yJDfDGWSqyOOsGj1"
 			}
 		},
 		{
@@ -731,7 +1193,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"0YwZlwc64O7XoL6b": {
@@ -744,18 +1206,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": null,
+							"quantity": 1,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"wUVSM1mC4AFW3Q9r": {
 								"canCrit": false,
 								"damageType": "bludgeoning",
 								"formula": "1 + @str.mod",
-								"name": "Default",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -766,10 +1230,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Shove maneuver to push a creature away. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and push the target a number of feet away from you equal to 5 + 5 for every 5 points it failed its saving throw by. You can move the creature in any direction away from you (to the side, forward, or diagonally away).</p><p>A creature that is shoved off of a precipice is propelled off of whatever it is standing on -- it does not receive any saving throw or ability check to grab onto something to avoid falling down below.</p>",
@@ -790,15 +1275,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "6PsTuVxdnLRkrIY4",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.md35qozzy2fxy2o6",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -822,7 +1320,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"0AhOutPY10sW7K7X": {
@@ -835,18 +1333,20 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"rolls": {
 							"0MTLRQNKiK0PqcRg": {
 								"canCrit": false,
 								"damageType": "",
 								"formula": "1 + @str.mod",
-								"name": "",
-								"type": "damage"
+								"type": "damage",
+								"critBonus": "",
+								"scaling": {},
+								"default": true,
+								"label": ""
 							}
 						},
 						"prompts": {
@@ -857,10 +1357,31 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Disarm maneuver to attempt to knock an item or weapon from a creature's hand. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be holding an item (either carried or wielded). The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target drops the item in its space. The target has advantage if it is larger than you or holding the item with two or more hands, and a target smaller than you has disadvantage.</p>",
@@ -881,15 +1402,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "XcOSFgWjLDXSfQT7",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.c0bv7fsy2akld5lp",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -913,7 +1447,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"jFaJHKfIZiWmcrAN": {
@@ -926,10 +1460,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"qcaV5GdFXCk7RMz5": {
@@ -939,10 +1472,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>While you cannot grapple a creature two or more size categories larger than you, you can grab onto it. By jumping onto its back or climbing up a limb, you can make a Strength or Dexterity saving throw against the creature's maneuver DC to cling to or balance upon its body. On a success, you move into the creature's space and can move upon its body as if it is difficult terrain.</p><p>While grabbing onto a larger creature, you gain advantage on attack rolls against it. The larger creature may be able to attack you as normal, depending on its limbs or attacks. It can also use an action or replace one of its attacks on its turn to try to dislodge you, such as shaking you loose or bashing you against a wall, forcing you to make a Strength or Dexterity saving throw against its maneuver DC or fall prone into the nearest space adjacent to the creature, taking its basic melee damage in the process.</p><p>If the creature chooses to roll over in order to dislodge you, it becomes prone, but you have disadvantage on the saving throw to hang on.</p>",
@@ -963,15 +1518,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "9e0I76pcYXk7YOtP",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.jewmp4pzrg9cdui9",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -995,7 +1563,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"tK8ZFTIHroDD1IC3": {
@@ -1008,10 +1576,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"NazbWyzmBIleSmks": {
@@ -1021,10 +1588,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Knockdown maneuver to trip or push a creature down. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>The target must be within your reach and be no more than one size category larger than you. The target makes a Strength saving throw against your maneuver DC. On a failure, you deal basic melee damage and knock the target prone.</p>",
@@ -1045,15 +1634,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "6HqDKBSlagLGOQOg",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.zzg7j7cb0vkgctwi",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1077,7 +1679,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"393Co1Q4Jzfq0bXb": {
@@ -1090,10 +1692,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"td8jWSU1jJ0vwcPZ": {
@@ -1103,10 +1704,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use the Grapple maneuver to grab or wrestle a creature. If you are able to make multiple attacks with the Attack action, this maneuver replaces one of them.</p><p>You must have at least one free hand to attempt a grapple, your target must be within your reach, and the target must be no more than one size category larger than you. The target makes a Strength or Dexterity saving throw against your maneuver DC. On a failure, you deal basic melee damage and the target becomes grappled (see Appendix A: Conditions on page 616). In addition to things that end the condition, you can release the target at any time (no action required).</p><p><em>Escaping a Grapple.</em> While grappled, a creature can use its action to attempt to escape. It must succeed on a Strength or Dexterity saving throw against your maneuver DC.</p><p><em>Moving a Grappled Creature. </em>When you move, you can drag or carry the grappled creature with you. When you do so, your Speed is halved, unless the creature's weight is within your carrying capacity and you are not encumbered by bulky items.</p><p><em>Freeing a Grappled Creature.</em> You can use the Grapple maneuver to try to free another grappled or restrained creature. The creature grappling or restraining the target makes a Strength saving throw against your maneuver DC. If it fails the saving throw, the grappled or restrained creature is freed. Additionally, you may move the freed creature 5 feet in any direction.</p>",
@@ -1127,15 +1750,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "61m4XdwpRgNhGxJs",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.9umrahwm68f81d7l",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1159,7 +1795,7 @@
 						},
 						"duration": {
 							"unit": "instantaneous",
-							"value": null
+							"value": "0"
 						},
 						"ranges": {
 							"39Yrkddr6VJLs3yh": {
@@ -1172,10 +1808,9 @@
 							"placeTemplate": false
 						},
 						"target": {
-							"quantity": "",
+							"quantity": 0,
 							"type": "creature",
-							"shape": "",
-							"size": ""
+							"scaling": {}
 						},
 						"prompts": {
 							"wks5S2jpAmzBtF9a": {
@@ -1185,10 +1820,32 @@
 									"type": "custom",
 									"bonus": "@maneuverDC"
 								},
-								"type": "savingThrow"
+								"type": "savingThrow",
+								"default": true,
+								"label": ""
 							}
 						},
-						"consumers": {}
+						"consumers": {},
+						"id": "",
+						"default": false,
+						"description": "",
+						"descriptionOutputs": [
+							"item",
+							"action"
+						],
+						"img": "",
+						"effects": [],
+						"macro": "",
+						"rolls": {},
+						"uses": {
+							"value": 0,
+							"max": "",
+							"per": "",
+							"recharge": {
+								"formula": "",
+								"threshold": 0
+							}
+						}
 					}
 				},
 				"description": "<p>You can use an action or bonus action to make an Overrun maneuver to move through a hostile creature's space by forcing your way past. Make a Strength saving throw against the target's maneuver DC. On a success, you deal basic melee damage and can move through the hostile creature's space once this turn. The creature can choose to just let you pass instead of rolling. You have advantage if you are larger than the target, or disadvantage if you are smaller. If you are two or more sizes smaller than the target, you can move through the hostile creature's space without making a save. You still provoke opportunity attacks if you move beyond a creature's reach.</p>",
@@ -1209,15 +1866,28 @@
 				"exertionCost": 0,
 				"isStance": false,
 				"prerequisite": "",
-				"tradition": ""
+				"tradition": "",
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"folder": null,
 			"sort": 0,
 			"_id": "w8oi4B5TfGDFH44p",
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": "Compendium.a5e.a5e-maneuvers.210ihnnejao46r20",
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1258,12 +1928,27 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		},
 		{
@@ -1304,19 +1989,34 @@
 				"featureType": "",
 				"grants": {},
 				"prerequisite": "",
-				"requiresBloodied": false
+				"requiresBloodied": false,
+				"macro": "",
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				},
+				"class": "",
+				"classes": ""
 			},
 			"_stats": {
-				"coreVersion": "12",
+				"compendiumSource": null,
+				"duplicateSource": null,
+				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.17"
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": null,
+				"lastModifiedBy": null
 			}
 		}
 	],
 	"effects": [],
 	"flags": {
 		"a5e": {
-			"sheetIsLocked": true,
+			"sheetIsLocked": false,
 			"featureActivationCostFilters": {
 				"inclusive": [],
 				"exclusive": []
@@ -1622,6 +2322,17 @@
 					"check": "",
 					"passive": 0
 				}
+			},
+			"sci": {
+				"ability": "int",
+				"proficient": 0,
+				"specialties": [],
+				"expertiseDice": 0,
+				"minRoll": 1,
+				"bonuses": {
+					"check": "",
+					"passive": 0
+				}
 			}
 		},
 		"spellResources": {
@@ -1674,7 +2385,8 @@
 			"inventions": {
 				"current": 0,
 				"max": 0
-			}
+			},
+			"maxPrepared": 0
 		},
 		"attributes": {
 			"ac": {
@@ -1758,11 +2470,11 @@
 					"unit": "feet"
 				},
 				"tremorsense": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet"
 				},
 				"truesight": {
-					"distance": null,
+					"distance": 0,
 					"unit": "feet"
 				}
 			},
@@ -1770,7 +2482,9 @@
 			"fatigue": 0,
 			"strife": 0,
 			"spellcasting": "int",
-			"casterLevel": 0
+			"casterLevel": 0,
+			"corruption": 0,
+			"inebriated": 0
 		},
 		"bonuses": {
 			"abilities": {},
@@ -1795,7 +2509,8 @@
 			"gp": 0,
 			"ep": 0,
 			"sp": 0,
-			"cp": 0
+			"cp": 0,
+			"cr": 0
 		},
 		"details": {
 			"bio": "<h2><strong>COMBAT</strong></h2><p>The ice devil prefers melee combat, dropping its ice wall on melee attackers in a way that blocks ranged attackers from participating in the battle. The ice devil uses its spear attack first to slow one or two opponents, and then attacks slowed opponents with bite and claws. The ice devil rarely retreats from melee, though it may do so if threatened by ranged attackers it can’t counter.</p><hr class=\"a5e-rule u-my-md\"><h2><strong>DEVIL NAMES</strong></h2><p>Abathon, Alashel, Arcaxes, Asardel, Atha-Xul, Barashiel, Bel Nakari, Beleth, Besthelias, Bethegar, Brimstone, Calderax, Cenereth, Damaceus, Decimeth, Demedal, Elthodrath, Gethen, Glibris, Gur-Toras, Heleph, Ibaris, Kamien, Kush, Lorza, Machem, Maethiel, Meltis, Nensis, Silithis, Thaxes, Turel, Vish-Alatith, Zethayn, Zir</p><hr class=\"a5e-rule u-my-md\"><h2><strong>LEGENDS AND LORE</strong></h2><p>With an Arcana or Religion check, characters can learn the following:</p><p><strong>DC 10</strong> Many scholars believe that devils are angels that fell from grace. When touched by evil, mortal souls may transform into devils, as well.</p><p><strong>DC 15</strong> Neither fire nor poison harms a devil, and even magical darkness doesn’t impede a devil’s vision. They are supernaturally resistant to mundane damage, although magical and silvered weapons wound them normally.</p><p><strong>DC 20</strong> Though irredeemably evil, devils can be bargained with at the bargainer’s peril. They generally keep their word.</p><p><strong>DESCRIPTION</strong></p><p>Barbed devils are the untiring sentinels of hell. They protect treasure vaults, serve more powerful devils as bodyguards, and patrol the halls of infernal citadels looking for intruders. Needle-sharp spines cover their bodies, and their eyes—which seem to burn with penetrating flame—continually shift about as they keep watch over their charges.</p><p><strong>BEHAVIOR</strong></p><p>1 Whispering poison into a mortal’s ear</p><p>2 Engaging the pious in philosophical debate, so as to sow doubt</p><p>3 Offers the party the information they seek, for a price</p><p>4 Indulging pleasures of the flesh: enjoying a meal, listening to music, flirting with mortals</p><p>5 Hunting a mortal who defaulted on a deal</p><p>6 Imprisoned by ancient runes and seals; can’t leave its current general area</p><p>7 Guarding or otherwise serving a summoner</p><p>8 Guarding a sinister treasure, such as a forbidden book or cursed weapon</p><p><strong>SIGNS</strong></p><p><strong>Wilderness and Underground Signs</strong></p><p>1 A shrine to an archdevil, lit with black candles</p><p>2 Footprints, strangely warm to the touch</p><p>3 A waft of brimstone at a lonely crossroads</p><p>4 The remains of a humanoid who was clearly tortured to death</p><hr class=\"a5e-rule u-my-md\"><p><strong>Settlement Signs</strong></p><p>1 Statues of saints crying blood</p><p>2 Church bells magically fall silent</p><p>3 An infernal contract, as yet unsigned</p><p>4 Animals gather in large numbers, become aggressive, or die unexpectedly</p><p><strong>ENCOUNTERS</strong></p><p>Most devils are imprisoned in Hell but some are loosed upon the world by wicked spellcasters.&nbsp;</p><p><strong>CR 0–2</strong> imp; 1d8 lemures</p><p><strong>CR 3–4</strong> bearded devil; 2 lemure bands; imp leading lemure band</p><p><strong>CR 5–10</strong> 1 or 2 barbed devils; bone devil; chain devil; 2 or 3 bearded devils; bearded devil, barbed devil, or night hag leading 2 lemure bands</p><p><strong>Treasure</strong> a silver cup etched with a blasphemous word (the first three times the word is spoken, the cup fills with a <em>greater healing potion</em>; the fourth time, the cup breaks)</p><p><strong>CR 11–16 </strong>horned devil, erinyes, ice devil, or chained one, possibly with 1 or 2 lemure bands; 3 barbed devils; &nbsp; barbed devil with 3 bearded devils</p><p><strong>Treasure</strong> signed infernal contract that frees an evil soul from Hell if destroyed, <em>manual of quickness of action</em></p><p><strong>CR 17–22</strong> pit fiend; bone devil, chain devil, horned devil, erinyes, or ice devil with 3 bearded devils; erinyes with 1d6 + 3 harpies; chain devil with chained one</p><p><strong>Treasure</strong> 3 rubies (5,000 gp each), <em>spell scrolls</em> of <em>magic circle</em> and <em>raise dead</em>, <em>rope of entanglement</em></p><p><strong>CR 23–30</strong> pit fiend with 1 to 3 bearded devils or hellhounds; 4 bearded devils or barbed devils with bone devil, chain devil, or horned devil;&nbsp; 2 erinyes or ice devils; ice devil with 1d4 + 2 winter wolves&nbsp;</p><p><strong>Treasure</strong> 1,300 pp, 2 <em>potions of flying</em>, <em>+3 trident</em> (named <em>Artifice</em>; acts as a <em>hat of disguise</em> but the trident can’t be disguised)</p><p><strong>CR 31+</strong> Belethias, possibly with 1d4 + 2 lemure bands or bearded devils; pit fiend with 3 or 4 barbed devils; 3 or 4 erinyes</p><p><strong>Treasure </strong>gold and ruby scepter (25,000 gp), forbidden book with gold and diamond binding (25,000 gp), 13 star rubies (1,000 gp each), <em>spell scroll</em> of <em>gate</em>, <em>animated shield</em>, <em>deck of many things</em></p>",
@@ -1819,7 +2534,8 @@
 				"Telepathy 120 ft"
 			],
 			"tools": [],
-			"weapons": []
+			"weapons": [],
+			"traditions": []
 		},
 		"resources": {
 			"primary": {
@@ -1869,7 +2585,7 @@
 		},
 		"source": "monstrousMenagerie",
 		"traits": {
-			"size": "med",
+			"size": "lg",
 			"conditionImmunities": [
 				"poisoned"
 			],
@@ -1879,11 +2595,13 @@
 				"cold"
 			],
 			"damageResistances": [
-				"cold",
 				"Non-Magical, Non-Silvered Weapons"
 			],
 			"damageVulnerabilities": [],
-			"alignment": []
+			"alignment": [
+				"lawful",
+				"evil"
+			]
 		},
 		"grants": {},
 		"spellBooks": {
@@ -1896,14 +2614,21 @@
 				"showSpellPoints": false,
 				"showSpellSlots": true
 			}
+		},
+		"migrationData": {
+			"version": 0.02,
+			"type": "Actor",
+			"lastMigration": {
+				"schema": null
+			}
 		}
 	},
 	"prototypeToken": {
 		"name": "Ice Devil",
 		"displayName": 0,
 		"actorLink": false,
-		"width": 1,
-		"height": 1,
+		"width": 2,
+		"height": 2,
 		"lockRotation": false,
 		"rotation": 0,
 		"alpha": 1,
@@ -1928,7 +2653,9 @@
 				"max": 1
 			},
 			"attenuation": 0.5,
-			"color": null
+			"color": null,
+			"negative": false,
+			"priority": 0
 		},
 		"disposition": -1,
 		"displayBars": 0,
@@ -1947,7 +2674,11 @@
 			"offsetX": 0,
 			"offsetY": 0,
 			"rotation": 0,
-			"tint": "#ffffff"
+			"tint": "#ffffff",
+			"anchorX": 0.5,
+			"anchorY": 0.5,
+			"fit": "contain",
+			"alphaThreshold": 0.75
 		},
 		"sight": {
 			"angle": 360,
@@ -1962,13 +2693,32 @@
 		},
 		"detectionModes": [],
 		"appendNumber": false,
-		"prependAdjective": false
+		"prependAdjective": false,
+		"hexagonalShape": 0,
+		"occludable": {
+			"radius": 0
+		},
+		"ring": {
+			"enabled": false,
+			"colors": {
+				"ring": null,
+				"background": null
+			},
+			"effects": 1,
+			"subject": {
+				"scale": 1,
+				"texture": null
+			}
+		}
 	},
 	"folder": null,
-	"_id": "o28n687i0hv2e4y3",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.6",
+		"createdTime": 1738301607147,
+		"modifiedTime": 1738301677231,
+		"lastModifiedBy": "yJDfDGWSqyOOsGj1"
+	},
+	"_id": "o28n687i0hv2e4y3"
 }
