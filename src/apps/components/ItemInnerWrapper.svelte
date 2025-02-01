@@ -715,12 +715,12 @@
 
     .number-input {
         background: transparent;
-        border: 1px solid var(--input-border-color, var(--a5e-border-color));
+        border: 1px solid var(--item-input-border-color);
         height: 1.125rem;
         width: 7ch;
 
         &:hover {
-            border: 1px solid var(--input-border-color, var(--a5e-border-color));
+            border: 1px solid var(--item-input-border-color, var(--a5e-border-color));
         }
     }
 
