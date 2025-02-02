@@ -207,12 +207,12 @@
 
         &--max {
             --a5e-roll-color: #97ae8f;
-            color: #18520b;
+            color: var(--a5e-chat-card-roll-color-max);
         }
 
         &--min {
             --a5e-roll-color: #f0b5b5;
-            color: #aa0200;
+            color: var(--a5e-chat-card-roll-color-min);
         }
 
         &--wide {
