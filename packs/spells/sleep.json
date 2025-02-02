@@ -1,7 +1,7 @@
 {
 	"name": "Sleep",
 	"type": "spell",
-	"img": "icons/magic/control/sleep-bubble-purple.webp",
+	"img": "https://assets.forge-vtt.com/bazaar/core/icons/magic/control/sleep-bubble-purple.webp",
 	"effects": [],
 	"flags": {},
 	"system": {
@@ -15,7 +15,7 @@
 				},
 				"duration": {
 					"unit": "minute",
-					"value": "1"
+					"value": 1
 				},
 				"ranges": {
 					"cA0IchggPVESz2fd": {
@@ -28,8 +28,9 @@
 					"placeTemplate": false
 				},
 				"target": {
-					"quantity": "",
-					"type": ""
+					"quantity": 1,
+					"type": "",
+					"scaling": {}
 				},
 				"rolls": {
 					"u6JJwOxLGB1KSrz8": {
@@ -48,13 +49,35 @@
 						"mode": "variable",
 						"spellLevel": 1,
 						"points": 2,
-						"type": "spell"
+						"type": "spell",
+						"charges": 0,
+						"default": true,
+						"label": ""
 					}
 				},
-				"prompts": {}
+				"prompts": {},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
-		"description": "<p>You send your enemies into a magical slumber.</p><p>Starting with the target with the lowest hit points (ignoring unconscious creatures), targets within the area fall unconscious in ascending order according to their hit points. Slumbering creatures stay asleep until the spell ends, they take damage, or someone uses an action to physically wake them.</p><p>As each target falls asleep, subtract its hit points from the total before moving on to the next target.</p><p>A target's hit points must be equal to or less than the total remaining for the spell to have any effect.</p><p>If the spell puts no creatures to sleep, the creature in the area with the lowest hit point total is rattled until the beginning of its next turn.</p><p>Constructs and undead are not affected by this spell.</p><p><strong><em>Cast at Higher Levels.</em></strong> The spell affects an additional 2d10 hit points worth of creatures for each slot level above 1st.</p>",
+		"description": "<p>You send 4d10 hit points worth of creatures <span style=\"font-size: 10.5pt;\">into a magical slumber.</span></p>\n<p>Starting with the target with the lowest hit points (ignoring unconscious creatures), targets within the area fall unconscious in ascending order according to their hit points. Slumbering creatures stay asleep until the spell ends, they take damage, or someone uses an action to physically wake them.</p>\n<p>As each target falls asleep, subtract its hit points from the total before moving on to the next target.</p>\n<p>A target's hit points must be equal to or less than the total remaining for the spell to have any effect.</p>\n<p>If the spell puts no creatures to sleep, the creature in the area with the lowest hit point total is rattled until the beginning of its next turn.</p>\n<p>Constructs and undead are not affected by this spell.</p>\n<p><strong><em>Cast at Higher Levels.</em></strong> The spell affects an additional 2d10 hit points worth of creatures for each slot level above 1st.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventurersGuide",
@@ -93,13 +116,25 @@
 				"compulsion"
 			]
 		},
-		"spellBook": ""
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"discipline": ""
 	},
 	"folder": null,
-	"_id": "qwng28nro7eme3nh",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.4",
+		"createdTime": 1736970969722,
+		"modifiedTime": 1736971300693,
+		"lastModifiedBy": "KETQhyurhfOziSPr"
+	},
+	"_id": "qwng28nro7eme3nh"
 }
