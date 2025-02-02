@@ -38,7 +38,7 @@ export default class GenericConfigDialog extends TJSDialog {
 
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
-			classes: ['a5e-sheet', 'a5e-sheet--action'],
+			classes: ['a5e-sheet'],
 			minimizable: true,
 			svelte: {
 				target: document.body,

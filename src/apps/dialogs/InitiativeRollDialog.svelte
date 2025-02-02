@@ -206,7 +206,7 @@
     .roll-formula-preview {
         padding: 0.5rem;
         font-size: var(--a5e-text-size-sm);
-        border: 1px solid #7a7971;
+        border: 1px solid var(--a5e-border-color);
         border-radius: 4px;
     }
 </style>
