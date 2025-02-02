@@ -23,7 +23,7 @@
 				},
 				"duration": {
 					"unit": "",
-					"value": 1
+					"value": "1"
 				},
 				"area": {
 					"shape": "",
@@ -31,16 +31,19 @@
 				},
 				"target": {
 					"quantity": 1,
-					"type": "creature"
+					"type": "creature",
+					"scaling": {}
 				},
 				"rolls": {
 					"0ZXKoS3ynjCTMpnp": {
 						"canCrit": false,
 						"damageType": "psychic",
-						"defaultSelection": true,
 						"formula": "((floor((@details.level+1)/6)+1)d6)",
-						"name": "Force",
-						"type": "damage"
+						"type": "damage",
+						"critBonus": "",
+						"scaling": {},
+						"default": true,
+						"label": ""
 					}
 				},
 				"prompts": {
@@ -51,7 +54,9 @@
 							"type": "int",
 							"bonus": ""
 						},
-						"type": "savingThrow"
+						"type": "savingThrow",
+						"default": true,
+						"label": ""
 					}
 				},
 				"consumers": {},
@@ -62,10 +67,28 @@
 				},
 				"effects": [
 					"sMZSvQ9uImah2ux8"
-				]
+				],
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"macro": "",
+				"uses": {
+					"value": 0,
+					"max": "",
+					"per": "",
+					"recharge": {
+						"formula": "",
+						"threshold": 0
+					}
+				}
 			}
 		},
-		"description": "<p>Also at 2nd level, you can guide a foe to ruin with your words. You can use an action to insult a creature within 60 feet that can understand you, or undermine its confidence, goad it into exhausting itself, amuse it into giving up the fight, or similar verbal gambits. If the creature fails a Wisdom saving throw against your trick DC, it takes 1d6 psychic damage and its hit point maximum is reduced by an amount equal to the damage taken. The reduction lasts until the creature completes a short rest . A creature reduced to 0 hit points this way is not dying, but rather is conscious and incapacitated.</p>\n<p>The damage increases to 2d6 and 5th level, 3d6 at 11th level, and 4d6 at 17th level.</p>",
+		"description": "<p>Also at 2nd level, you can guide a foe to ruin with your words. You can use an action to insult a creature within 60 feet that can understand you, or undermine its confidence, goad it into exhausting itself, amuse it into giving up the fight, or similar verbal gambits. If the creature fails a Wisdom saving throw against your trick DC, it takes 1d6 psychic damage and its hit point maximum is reduced by an amount equal to the damage taken. The reduction lasts until the creature completes a short or long rest. A creature reduced to 0 hit points this way is not dying, but rather is conscious and incapacitated.</p>\n<p>The damage increases to 2d6 and 5th level, 3d6 at 11th level, and 4d6 at 17th level.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "adventuresInZeitgeist",
@@ -84,11 +107,20 @@
 		"prerequisite": "",
 		"requiresBloodied": false,
 		"classes": "savant",
-		"class": ""
+		"class": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"revitalizeLock": false
 	},
 	"effects": [
 		{
-			"origin": "Item.QDJtAlquNXGHDAhl",
+			"origin": "Item.drkNscaLM9DxTies",
 			"flags": {
 				"a5e": {}
 			},
@@ -99,7 +131,15 @@
 			"type": "base",
 			"system": {
 				"applyToSelf": false,
-				"effectType": "onUse"
+				"effectType": "onUse",
+				"default": true,
+				"migrationData": {
+					"version": null,
+					"type": "",
+					"lastMigration": {
+						"schema": null
+					}
+				}
 			},
 			"changes": [
 				{
@@ -130,9 +170,9 @@
 				"duplicateSource": null,
 				"coreVersion": "12.331",
 				"systemId": "a5e",
-				"systemVersion": "0.19.25",
-				"createdTime": 1725046553632,
-				"modifiedTime": 1725046575752,
+				"systemVersion": "1.0.6",
+				"createdTime": null,
+				"modifiedTime": 1738414248540,
 				"lastModifiedBy": "Glw114cHAVexdKTu"
 			},
 			"folder": null
@@ -143,9 +183,9 @@
 	"_stats": {
 		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.25",
-		"createdTime": 1725046455940,
-		"modifiedTime": 1725046553688,
+		"systemVersion": "1.0.6",
+		"createdTime": 1738414248475,
+		"modifiedTime": 1738414292058,
 		"lastModifiedBy": "Glw114cHAVexdKTu"
 	},
 	"_id": "tde88mv3dbruvyti"

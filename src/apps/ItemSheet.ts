@@ -115,7 +115,7 @@ export default class ItemSheet extends SvelteApplication {
 				title: 'Configure Sheet',
 				onclick: ({ event }) => this._onConfigureSheet(event),
 			});
-
+				
 			buttons.unshift({
 				label: 'Revitalize',
 				icon: 'fa-solid fa-arrows-rotate',

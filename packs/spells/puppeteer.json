@@ -9,7 +9,8 @@
 				"name": "Cast Spell",
 				"activation": {
 					"type": "action",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {
 					"7PduKsnu03i1E6BT": {
@@ -17,7 +18,9 @@
 						"default": true,
 						"mode": "variable",
 						"spellLevel": 2,
-						"points": 10
+						"points": 10,
+						"charges": 0,
+						"label": ""
 					}
 				},
 				"rolls": {},
@@ -33,7 +36,8 @@
 				},
 				"target": {
 					"type": "creature",
-					"quantity": 1
+					"quantity": 1,
+					"scaling": {}
 				},
 				"ranges": {
 					"YREXxZcTsb32fmbZ": {
@@ -42,14 +46,25 @@
 				},
 				"duration": {
 					"unit": "minute",
-					"value": 1
-				}
+					"value": "1"
+				},
+				"id": "",
+				"default": false,
+				"description": "",
+				"descriptionOutputs": [
+					"item",
+					"action"
+				],
+				"img": "",
+				"effects": [],
+				"macro": ""
 			},
 			"Bgadu3EbBw3K4xyA": {
 				"name": "Control",
 				"activation": {
 					"type": "bonusAction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {},
@@ -59,8 +74,11 @@
 						"default": true,
 						"ability": "cha",
 						"saveDC": {
-							"type": "spellcasting"
-						}
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -73,18 +91,31 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "instantaneous",
+					"value": "0"
 				},
 				"descriptionOutputs": [
 					"action"
 				],
-				"description": "<p>By sharply turning the doll in your hand, you force the target of your spell to lash out, making a weapon attack against a target of your choosing with any weapon the creature has readied.</p>"
+				"description": "<p>By sharply turning the doll in your hand, you force the target of your spell to lash out, making a weapon attack against a target of your choosing with any weapon the creature has readied.</p>",
+				"id": "",
+				"default": false,
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
 			},
 			"8eMUuIXv0mBnlZ48": {
 				"name": "Jerk",
 				"activation": {
 					"type": "bonusAction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {},
@@ -94,8 +125,11 @@
 						"default": true,
 						"ability": "cha",
 						"saveDC": {
-							"type": "spellcasting"
-						}
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -108,44 +142,43 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "instantaneous",
+					"value": "0"
 				},
 				"descriptionOutputs": [
 					"action"
 				],
-				"description": "<p>By jerking the effigy sharply you cause your target to move, jerkily and as if not under their own control, up to half their movement rate.</p>"
+				"description": "<p>By jerking the effigy sharply you cause your target to move, jerkily and as if not under their own control, up to half their movement rate.</p>",
+				"id": "",
+				"default": false,
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
 			},
 			"ka9WqAx8kmc7u91X": {
 				"name": "Stab",
 				"activation": {
 					"type": "bonusAction",
-					"cost": 1
+					"cost": 1,
+					"reactionTrigger": ""
 				},
 				"consumers": {},
 				"rolls": {
 					"3n2CFKSIkIVUzUWL": {
 						"type": "damage",
-						"default": false,
-						"formula": "1d8 + @int.mod",
-						"damageType": "necrotic",
-						"canCrit": false,
-						"label": "Minor Damage"
-					},
-					"ffx0SIRDvhvvmcm9": {
-						"type": "damage",
-						"default": false,
-						"formula": "2d8 + @int.mod",
-						"canCrit": false,
-						"label": "Moderate Damage",
-						"damageType": "necrotic"
-					},
-					"LQQ1ofBRH2cI18z4": {
-						"type": "damage",
 						"default": true,
-						"formula": "3d8 + @int.mod",
+						"formula": "1d8 + @int.mod",
+						"damageType": "psychic",
 						"canCrit": false,
-						"label": "Severe Damage",
-						"damageType": "necrotic"
+						"label": "",
+						"critBonus": "",
+						"scaling": {}
 					}
 				},
 				"prompts": {
@@ -154,8 +187,11 @@
 						"default": true,
 						"ability": "cha",
 						"saveDC": {
-							"type": "spellcasting"
-						}
+							"type": "spellcasting",
+							"bonus": ""
+						},
+						"onSave": "",
+						"label": ""
 					}
 				},
 				"uses": {
@@ -168,15 +204,27 @@
 					}
 				},
 				"duration": {
-					"unit": "instantaneous"
+					"unit": "instantaneous",
+					"value": "0"
 				},
 				"descriptionOutputs": [
 					"action"
 				],
-				"description": "<p>Using a hatpin, dagger, or other sharp implement, you may stab the doll, dealing between 1d8+Int modifier and 3d8+Int modifier piercing or necrotic damage to your target. You may choose to do more or less damage by aiming for more or less sensitive parts of the effigy.</p>"
+				"description": "<p>Using a hatpin, dagger, or other sharp implement, you may stab the doll, dealing between 1d8+Int modifier and 3d8+Int modifier piercing or necrotic damage to your target. You may choose to do more or less damage by aiming for more or less sensitive parts of the effigy.</p>",
+				"id": "",
+				"default": false,
+				"img": "",
+				"effects": [],
+				"macro": "",
+				"ranges": {},
+				"target": {
+					"quantity": 1,
+					"scaling": {},
+					"type": ""
+				}
 			}
 		},
-		"description": "<p dir=\"ltr\">Holding a small doll or figure that you created to resemble your target, you strike at it, put it into danger, or otherwise do harm which translates from the effigy to your target. As an action on each of your turns, and as part of the action casting this spell, you may choose one of the following options.</p><p dir=\"ltr\" role=\"presentation\"><strong>Control: </strong>By sharply turning the doll in your hand, you force the target of your spell to lash out, making a weapon attack against a target of your choosing with any weapon the creature has readied.</p><p dir=\"ltr\" role=\"presentation\"><strong>Jerk: </strong>By jerking the effigy sharply you cause your target to move, jerkily and as if not under their own control, up to half their movement rate.</p><p dir=\"ltr\" role=\"presentation\"><strong>Stab: </strong>Using a hatpin, dagger, or other sharp implement, you may stab the doll, dealing between 1d8 + Int modifier and 3d8 + Int modifier piercing or necrotic damage to your target. You may choose to do more or less damage by aiming for more or less sensitive parts of the effigy.</p><p dir=\"ltr\">The creature may make charisma saving throws against any action you attempt to force them to perform. If you have created this effigy by spending ten minutes of preparation using an item owned by or body part (such as hair or fingernails) of your target, they have disadvantage on a charisma save to resist any of the individual effects. The spell can be ended early with remove curse or similar magic. If you created an effigy using the create likeness spell, the target makes their saves normally.The spell does not end on a successful save, but the effect does not take hold.</p>",
+		"description": "<p dir=\"ltr\">Holding a small doll or figure that you created to resemble your target, you strike at it, put it into danger, or otherwise do harm which translates from the effigy to your target. As an action on each of your turns, and as part of the action casting this spell, you may choose one of the following options.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Control: </strong>By sharply turning the doll in your hand, you force the target of your spell to lash out, making a weapon attack against a target of your choosing with any weapon the creature has readied.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Jerk: </strong>By jerking the effigy sharply you cause your target to move, jerkily and as if not under their own control, up to half their movement rate. This movement does not provoke opportunity attacks.</p>\n<p dir=\"ltr\" role=\"presentation\"><strong>Stab:&nbsp;</strong>By striking the effigy with a hat pin, dagger, or other sharp implement you can deal 1d8+Int Psychic damage to your target.</p>\n<p dir=\"ltr\">The creature may make charisma saving throws against any action you attempt to force them to perform. If you have created this effigy by spending ten minutes of preparation using an item owned by or body part (such as hair or fingernails) of your target, they have disadvantage on a charisma save to resist any of the individual effects. The spell can be ended early with @UUID[Compendium.a5e.a5e-spells.Item.l16wg9h1z9s16exb]{Remove Curse} or similar magic. If you created an effigy using the create likeness spell, the target makes their saves normally.The spell does not end on a successful save, but the effect does not take hold.</p>",
 		"favorite": false,
 		"secretDescription": "",
 		"source": "spellsFromTheForgottenVault",
@@ -216,14 +264,27 @@
 				"evil"
 			]
 		},
-		"spellBook": ""
+		"spellBook": "",
+		"macro": "",
+		"migrationData": {
+			"version": null,
+			"type": "",
+			"lastMigration": {
+				"schema": null
+			}
+		},
+		"revitalizeLock": false,
+		"discipline": ""
 	},
 	"effects": [],
 	"flags": {},
-	"_id": "tfvgxjedimke0m1u",
 	"_stats": {
-		"coreVersion": "12",
+		"coreVersion": "12.331",
 		"systemId": "a5e",
-		"systemVersion": "0.19.17"
-	}
+		"systemVersion": "1.0.6",
+		"createdTime": 1738446242377,
+		"modifiedTime": 1738446410377,
+		"lastModifiedBy": "Glw114cHAVexdKTu"
+	},
+	"_id": "tfvgxjedimke0m1u"
 }
