@@ -47,7 +47,6 @@
     }
 
     async function rollOnSkillTable(skillKey, resultType) {
-        console.log("Here");
         const tableKey =
             resultType === "critical" ? "skillCriticalTables" : "skillFumbleTables";
 
