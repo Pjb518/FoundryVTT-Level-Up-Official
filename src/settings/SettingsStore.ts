@@ -667,6 +667,19 @@ class A5eGameSettings extends TJSGameSettings {
 					type: Boolean,
 				},
 			},
+			// PoS Settings
+			{
+				namespace,
+				key: 'usePoSTables',
+				options: {
+					name: 'A5E.settings.usePoSTables',
+					hint: 'A5E.settings.hints.usePoSTables',
+					scope: scope.world,
+					config: true,
+					default: true,
+					type: Boolean,
+				},
+			},
 			// VRC Settings
 			{
 				namespace,
