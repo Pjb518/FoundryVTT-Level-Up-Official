@@ -1,16 +1,10 @@
 <script>
     import { localize } from "#runtime/util/i18n";
-    import { TJSTinyMCE, TinyMCEHelper } from "#standard/component/fvtt/editor";
+    import { TJSProseMirror } from "#standard/component/fvtt/editor";
 
     export let document;
     export let content;
     export let updatePath;
-
-    const descriptionTypes = {
-        secretDescription: "A5E.NoSecretDescription",
-        unidentifiedDescription: "A5E.NoUnidentifiedDescription",
-        description: "A5E.NoDescription",
-    };
 
     function updateEditorContent(event) {
         const { content } = event.detail;
@@ -19,22 +13,6 @@
             [updatePath]: content === "" ? "" : content,
         });
     }
-
-    async function getEnrichedContent() {
-        return await TextEditor.enrichHTML($document[updatePath], enrichOptions);
-    }
-
-    let newLabel;
-
-    Object.entries(descriptionTypes).forEach(([type, label]) => {
-        if (updatePath.includes(type)) {
-            newLabel = localize(label);
-        }
-    });
-
-    const editorOptions = TinyMCEHelper.configStandard();
-    editorOptions.toolbar =
-        "styles | fontfamily | table | bullist | numlist | image | superscript | subscript | hr | save | link | removeformat | code ";
 
     const enrichOptions = {
         secrets: $document.isOwner,
@@ -45,23 +23,42 @@
                 : ($document.actor?.getRollData($document) ?? undefined),
     };
 
-    const options = {
-        editable: game.user.isGM || $document.isOwner || false,
-        enrichOptions,
-        mceConfig: editorOptions,
+    // const options = {
+    //     editable: game.user.isGM || $document.isOwner || false,
+    //     enrichOptions,
+    //     mceConfig: editorOptions,
+    // };
+
+    const descriptionTypes = {
+        secretDescription: "A5E.NoSecretDescription",
+        unidentifiedDescription: "A5E.NoUnidentifiedDescription",
+        description: "A5E.NoDescription",
     };
 
-    $: (content = content || newLabel) || localize("A5E.NoDescription");
-    $: enrichedContent = Promise.resolve(getEnrichedContent())
-        .then((content) => content)
-        .catch(() => "Error Enriching Content");
+    let newLabel;
+
+    Object.entries(descriptionTypes).forEach(([type, label]) => {
+        if (updatePath.includes(type)) {
+            newLabel = localize(label);
+        }
+    });
+
+    const options = {
+        enrichOptions,
+        styles: {
+            "--tjs-editor-toolbar-background": "var(--a5e-editor-toolbar-background)",
+        },
+    };
+
+    content = content || newLabel || localize("A5E.NoDescription");
+    let enrichedContent;
 </script>
 
-<div class="editor">
-    <TJSTinyMCE
-        {content}
-        {enrichedContent}
+<div class="a5e-editor">
+    <TJSProseMirror
         {options}
+        bind:content
+        bind:enrichedContent
         on:editor:save={updateEditorContent}
     />
 </div>
@@ -75,7 +72,11 @@
         --tjs-editor-content-padding: 0rem 0.25rem;
     }
 
-    .editor {
+    :global(.a5e-editor .tjs-editor .editor-menu button) {
+        --color-control-bg: var(--a5e-editor-toolbar-button-background);
+    }
+
+    .a5e-editor {
         height: 100%;
 
         // Nudges the edit icon down 1px. Removing this hides the top border for the button.
