@@ -144,8 +144,6 @@
         min-height: 30rem;
         padding: 0.75rem;
         gap: 0.5rem;
-
-        background: var(--a5e-color-background-sheet);
     }
 
     .submit {

@@ -1,46 +1,46 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import getRequiredExperiencePoints from '../../../utils/getRequiredExperiencePoints';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import getRequiredExperiencePoints from "../../../utils/getRequiredExperiencePoints";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-const actor = getContext('actor');
+    const actor = getContext("actor");
 
-function isLevelLocked() {
-	if (sheetIsLocked) return true;
-	if (Object.keys($actor.classes ?? {}).length) return true;
+    function isLevelLocked() {
+        if (sheetIsLocked) return true;
+        if (Object.keys($actor.classes ?? {}).length) return true;
 
-	return false;
-}
+        return false;
+    }
 
-function getCharacterLevel() {
-	if (!Object.keys($actor.classes ?? {}).length) return $actor.system.details.level;
+    function getCharacterLevel() {
+        if (!Object.keys($actor.classes ?? {}).length) return $actor.system.details.level;
 
-	return $actor.levels.character;
-}
+        return $actor.levels.character;
+    }
 
-function getLevelSource() {
-	if (!Object.keys($actor.classes ?? {}).length) return '';
+    function getLevelSource() {
+        if (!Object.keys($actor.classes ?? {}).length) return "";
 
-	const data = Object.values($actor.classes ?? {}).map((cls) => {
-		return `${cls.name} (${cls.classLevels})`;
-	}, []);
+        const data = Object.values($actor.classes ?? {}).map((cls) => {
+            return `${cls.name} (${cls.classLevels})`;
+        }, []);
 
-	return data.join(' / ');
-}
+        return data.join(" / ");
+    }
 
-$: characterLevel = getCharacterLevel($actor);
-$: levelSource = getLevelSource($actor);
-$: hasInspiration = $actor.system.attributes.inspiration;
-$: requiredXP = getRequiredExperiencePoints($actor);
-$: sheetIsLocked = $actor.flags.a5e?.sheetIsLocked ?? true;
-$: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
+    $: characterLevel = getCharacterLevel($actor);
+    $: levelSource = getLevelSource($actor);
+    $: hasInspiration = $actor.system.attributes.inspiration;
+    $: requiredXP = getRequiredExperiencePoints($actor);
+    $: sheetIsLocked = $actor.flags.a5e?.sheetIsLocked ?? true;
+    $: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
 </script>
 
 <div class="character-shields__container">
-    <div class="character-shields__box">
-        <label class="xp-label" for="{$actor.id}-inspiration">
+    <div class="a5e-details-box character-shields__box">
+        <label class="a5e-details-box__label" for="{$actor.id}-inspiration">
             {localize("A5E.Inspiration")}
         </label>
 
@@ -54,12 +54,12 @@ $: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
         />
     </div>
 
-    <div class="character-shields__box">
-        <label class="xp-label" for="{$actor.id}-level">Level</label>
+    <div class="a5e-details-box character-shields__box">
+        <label class="a5e-details-box__label" for="{$actor.id}-level">Level</label>
 
         <input
             id="{$actor.id}-level"
-            class="xp-input"
+            class="a5e-details-box__input"
             class:disable-pointer-events={!$actor.isOwner}
             data-tooltip={levelSource}
             data-tooltip-direction="DOWN"
@@ -75,12 +75,12 @@ $: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
         />
     </div>
 
-    <div class="character-shields__box">
-        <label class="xp-label" for="{$actor.id}-prof"> Prof. </label>
+    <div class="a5e-details-box character-shields__box">
+        <label class="a5e-details-box__label" for="{$actor.id}-prof"> Prof. </label>
 
         <input
             id="{$actor.id}-prof"
-            class="xp-input"
+            class="a5e-details-box__input"
             type="number"
             value={$actor.system.attributes.prof}
             placeholder="0"
@@ -90,12 +90,14 @@ $: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
     </div>
 
     {#if $actor.flags?.a5e?.showXP ?? true}
-        <div class="xp-box">
-            <label class="xp-label" for="{$actor.id}-current-xp"> Current XP </label>
+        <div class="a5e-details-box character-shields__box">
+            <label class="a5e-details-box__label" for="{$actor.id}-current-xp">
+                Current XP
+            </label>
 
             <input
                 id="{$actor.id}-current-xp"
-                class="xp-input"
+                class="a5e-details-box__input"
                 class:disable-pointer-events={!$actor.isOwner}
                 type="number"
                 name="system.details.xp"
@@ -112,12 +114,14 @@ $: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
             />
         </div>
 
-        <div class="xp-box">
-            <label class="xp-label" for="{$actor.id}-required-xp"> Required XP </label>
+        <div class="a5e-details-box character-shields__box">
+            <label class="a5e-details-box__label" for="{$actor.id}-required-xp">
+                Required XP
+            </label>
 
             <input
                 id="{$actor.id}-required-xp"
-                class="xp-input"
+                class="a5e-details-box__input"
                 type="number"
                 value={requiredXP}
                 placeholder="0"
@@ -140,22 +144,6 @@ $: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
         font-family: var(--a5e-font-primary);
     }
 
-    .character-shields__box,
-    .xp-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 4rem;
-        padding: 0.125rem 0;
-        color: var(--a5e-color-text-medium);
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        background: var(--a5e-color-background-light);
-        box-shadow: 0 0 5px #ccc inset;
-        z-index: 4;
-    }
-
     .character-shields__box {
         width: 3rem;
     }
@@ -164,28 +152,9 @@ $: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
         pointer-events: none;
     }
 
-    .xp-input {
-        height: unset;
-        text-align: center;
-        border: 0;
-        background: transparent;
-        padding-inline: 0.125rem;
-        font-size: var(--a5e-text-size-md);
-
-        &:active,
-        &:focus {
-            outline: 0;
-            box-shadow: none;
-        }
-    }
-
-    .xp-label {
-        font-size: var(--a5e-text-size-xs);
-    }
-
     .shield-inspiration {
         font-size: var(--a5e-text-size-md);
-        color: #bbbaba;
+        color: var(--a5e-button-gray);
         border: 0;
         padding: 0.125rem;
         transition: var(--a5e-transition-standard);
@@ -193,14 +162,14 @@ $: levelIsLocked = isLevelLocked($actor, sheetIsLocked);
 
         &:hover {
             transform: scale(1.2);
-            color: #444;
+            color: var(--a5e-button-gray-hover);
         }
 
         &--active {
-            color: color.adjust(#2b6537, $lightness: -10%);
+            color: var(--a5e-button-primary);
 
             &:hover {
-                color: #2b6537;
+                color: var(--a5e-button-primary);
             }
         }
     }

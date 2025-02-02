@@ -1,8 +1,20 @@
 .a5e-chat-card {
   padding: 0;
-  background: var(--a5e-color-background-light) !important;
-  color: var(--a5e-color-text-dark) !important;
+  background: var(--a5e-chat-card-background) !important;
+  color: var(--a5e-chat-card-color) !important;
   border: 0;
+
+  &--background-regular {
+    background: var(--a5e-chat-card-background) !important;
+  }
+
+  &--background-blind {
+    background: var(--a5e-chat-card-background-blind) !important;
+  }
+
+  &--background-whisper {
+    background: var(--a5e-chat-card-background-whisper) !important;
+  }
 
   &--hidden {
     display: none;
@@ -23,7 +35,7 @@
       width: 100%;
       align-items: center;
       padding-bottom: 0.275rem;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 1px solid var(--a5e-chat-card-border-color);
 
       &__img {
         width: 3rem;
@@ -36,7 +48,7 @@
       }
 
       &__title {
-        color: var(--a5e-user-text-color);
+        color: var(--a5e-chat-card-color);
         margin-bottom: 0;
         border-bottom: 0;
         text-overflow: ellipsis;
@@ -44,7 +56,7 @@
 
       &__subtitle {
         font-size: var(--a5e-text-size-sm);
-        color: darken-color(var(--a5e-user-text-color), 5);
+        color: darken-color(var(--a5e-chat-card-color), 5);
         margin-block: 0;
         margin-left: 0.5rem;
         font-style: italic;
@@ -55,7 +67,7 @@
   }
 
   &__footer {
-    // background-color: var(--a5e-color-background-light);
+    /** background-color: var(--a5e-color-background-light); **/
     display: flex;
     align-items: center;
     gap: 0.75rem;
@@ -65,17 +77,17 @@
 
   &__header {
     display: grid;
-    grid-template-areas: "image title time deleteButton";
+    grid-template-areas: 'image title time deleteButton';
     grid-template-columns: 2rem 1fr max-content max-content;
     align-items: center;
     gap: 0.5rem;
     width: 100%;
     margin-bottom: 0;
-    background: url("/systems/pf2e/assets/sheet/background.webp");
+    background: url('/systems/pf2e/assets/sheet/background.webp');
     background-size: cover;
     background-color: var(--a5e-user-background-color);
     background-blend-mode: multiply;
-    // padding: 0.25rem 0.5rem;
+    /** padding: 0.25rem 0.5rem; **/
     padding-left: 0.25rem;
     padding-right: 0.5rem;
     padding-block: 0.25rem;
@@ -86,21 +98,21 @@
     border: 1px solid var(--a5e-user-background-color);
 
     &--item {
-      grid-template-areas: "image title time buttons";
+      grid-template-areas: 'image title time buttons';
       grid-template-columns: 2rem 1fr max-content max-content;
       row-gap: 0;
     }
 
     &--item-subtitle {
       grid-template-areas:
-        "image title time buttons"
-        "image subtitle time buttons";
+        'image title time buttons'
+        'image subtitle time buttons';
       grid-template-columns: 2rem 1fr max-content max-content;
       row-gap: 0;
     }
 
     &--roll {
-      grid-template-areas: "image title time buttons";
+      grid-template-areas: 'image title time buttons';
       grid-template-columns: 2rem 1fr max-content max-content;
     }
 
@@ -145,7 +157,7 @@
       background: transparent;
       border: 0;
       color: var(--a5e-user-text-color);
-      // grid-area: critToggle;
+      /** grid-area: critToggle; **/
       padding: 0;
       transition: var(--a5e-transition-standard);
 
@@ -155,7 +167,7 @@
       }
 
       &--crit {
-        // TODO: Update this style
+        /** TODO: Update this style **/
         color: lighten-color(var(--a5e-color-error), 45);
 
         &:hover {

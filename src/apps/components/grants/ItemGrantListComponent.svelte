@@ -1,36 +1,37 @@
 <script lang="ts">
-import type { TJSDocument } from '@typhonjs-fvtt/runtime/svelte/store/fvtt/document';
-import type { Grant } from '../../../../types/itemGrants';
+    import type { TJSDocument } from "@typhonjs-fvtt/runtime/svelte/store/fvtt/document";
+    import type { Grant } from "../../../../types/itemGrants";
 
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-export let grant: Grant;
-const item: TJSDocument = getContext('item');
+    export let grant: Grant;
+    const item: TJSDocument = getContext("item");
 
-function onGrantActivate() {}
+    function onGrantActivate() {}
 
-function _onDragStart(
-	event: DragEvent & {
-		currentTarget: EventTarget & HTMLLIElement;
-	},
-) {
-	const dragData = {
-		grantId: grant._id,
-		itemUuid: $item.uuid,
-		type: 'Grant',
-	};
+    function _onDragStart(
+        event: DragEvent & {
+            currentTarget: EventTarget & HTMLLIElement;
+        },
+    ) {
+        const dragData = {
+            grantId: grant._id,
+            itemUuid: $item.uuid,
+            type: "Grant",
+        };
 
-	return event.dataTransfer?.setData('text/plain', JSON.stringify(dragData));
-}
+        return event.dataTransfer?.setData("text/plain", JSON.stringify(dragData));
+    }
 
-async function onAuxClick() {
-	if (!rightClickConfigure) return;
-	grant.configureGrant();
-}
+    async function onAuxClick() {
+        if (!rightClickConfigure) return;
+        grant.configureGrant();
+    }
 
-let rightClickConfigure = game.settings.get('a5e', 'itemRightClickConfigure') ?? false;
+    let rightClickConfigure =
+        game.settings.get("a5e", "itemRightClickConfigure") ?? false;
 
-$: sheetIsLocked = !$item.isOwner ? true : false;
+    $: sheetIsLocked = !$item.isOwner ? true : false;
 </script>
 
 <li
@@ -155,7 +156,7 @@ $: sheetIsLocked = !$item.isOwner ? true : false;
 
     .action-button {
         padding: 0.25rem;
-        color: #999;
+        color: var(--a5e-button-gray);
         border: 0;
         background: none;
 
@@ -165,7 +166,7 @@ $: sheetIsLocked = !$item.isOwner ? true : false;
         transition: var(--a5e-transition-standard);
 
         &:hover {
-            color: #555;
+            color: var(--a5e-button-gray-hover);
             transform: scale(1.2);
         }
 
@@ -188,7 +189,7 @@ $: sheetIsLocked = !$item.isOwner ? true : false;
         height: 1.5rem;
         margin-inline: 0.5rem 0.5rem;
         border-radius: 50%;
-        color: #999;
+        color: var(--a5e-track-color);
         grid-area: menu;
 
         transition: width 0.3s ease;
@@ -201,8 +202,8 @@ $: sheetIsLocked = !$item.isOwner ? true : false;
             flex-shrink: 0;
             align-items: center;
             justify-content: center;
-            border: 1px solid #ccc;
-            background: #ebe9e0;
+            border: 1px solid var(--a5e-track-icon-border);
+            background: var(--a5e-track-icon-background);
             border-radius: 50%;
             cursor: pointer;
             font-size: var(--a5e-text-size-md);
@@ -218,10 +219,10 @@ $: sheetIsLocked = !$item.isOwner ? true : false;
             gap: 0.25rem;
             height: 1.5rem;
             padding: 0 1rem 0 0.5rem;
-            border: 1px solid #ccc;
+            border: 1px solid var(--a5e-track-icon-border);
             border-left: 0;
             margin: 0;
-            background: #ebe9e0;
+            background: var(--a5e-track-icon-background);
             border-radius: 0.75rem 0 0 0.75rem;
             list-style: none;
             opacity: 0;
@@ -239,7 +240,7 @@ $: sheetIsLocked = !$item.isOwner ? true : false;
             }
 
             .track-icon {
-                color: #555;
+                color: var(--a5e-button-gray-hover);
             }
         }
     }

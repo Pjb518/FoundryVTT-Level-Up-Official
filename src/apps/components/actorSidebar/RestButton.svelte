@@ -1,9 +1,9 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-const actor = getContext('actor');
+    const actor = getContext("actor");
 
-let replaceFatigueAndStrife = game.settings.get('a5e', 'replaceFatigueAndStrife');
+    let replaceFatigueAndStrife = game.settings.get("a5e", "replaceFatigueAndStrife");
 </script>
 
 <div
@@ -54,11 +54,11 @@ let replaceFatigueAndStrife = game.settings.get('a5e', 'replaceFatigueAndStrife'
             flex-shrink: 0;
             align-items: center;
             justify-content: center;
-            border: 1px solid #ccc;
-            background-color: var(--a5e-color-background-light);
+            border: 1px solid var(--a5e-border-color);
+            background: var(--a5e-status-track-icon-background);
             border-radius: 50%;
-            box-shadow: 0 0 10px #ccc inset;
-            color: rgba(0 0 0 / 0.2);
+            box-shadow: 0 0 10px var(--a5e-status-track-icon-shadow) inset;
+            color: var(--a5e-status-track-icon-color);
             cursor: pointer;
             font-size: var(--a5e-text-size-lg);
             transform: translateX(-1px);
@@ -67,10 +67,10 @@ let replaceFatigueAndStrife = game.settings.get('a5e', 'replaceFatigueAndStrife'
         }
 
         &:hover {
-            background-color: color.adjust(#dddace, $lightness: -2.5%);
+            background: var(--a5e-status-track-item-background-hover);
 
             .rest__icon {
-                color: lighten-color(var(--a5e-color-text-dark), 35);
+                color: var(--a5e-status-track-item-color-hover);
             }
         }
     }

@@ -1,17 +1,30 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import getACComponents from '../../../utils/getACComponents';
+    import getACComponents from "../../../utils/getACComponents";
 
-const actor = getContext('actor');
+    const actor = getContext("actor");
 
-$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 
-$: acFormula = getACComponents($actor);
+    $: acFormula = getACComponents($actor);
 </script>
 
 <li class="ac-wrapper">
-    <h4 class="ac-label">AC</h4>
+    <div class="ac-label__wrapper">
+        <h4 class="ac-label">AC</h4>
+
+        {#if !sheetIsLocked}
+            <button
+                class="fas fa-cog ac__config-button"
+                data-tooltip="A5E.ArmorClassConfigurationTitle"
+                data-tooltip-direction="DOWN"
+                on:click={() => $actor.configureArmorClass()}
+            />
+        {/if}
+    </div>
 
     <input
         class="ac-value"
@@ -37,15 +50,6 @@ $: acFormula = getACComponents($actor);
                 c2.6,0.5,4.4,2.4,4.4,4.6C90,12.6,92.6,79.3,45,100L45,100z"
         />
     </svg>
-
-    {#if !sheetIsLocked}
-        <button
-            class="fas fa-cog ac__config-button"
-            data-tooltip="A5E.ArmorClassConfigurationTitle"
-            data-tooltip-direction="DOWN"
-            on:click={() => $actor.configureArmorClass()}
-        />
-    {/if}
 </li>
 
 <style lang="scss">
@@ -76,6 +80,13 @@ $: acFormula = getACComponents($actor);
         text-align: center;
     }
 
+    .ac-label__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.25rem;
+    }
+
     .ac-wrapper {
         position: relative;
         font-family: var(--a5e-font-serif);
@@ -87,7 +98,7 @@ $: acFormula = getACComponents($actor);
         top: 0.0675rem;
         left: 50%;
         transform: translate(-50%, 50%);
-        fill: rgba(0, 0, 0, 0.15);
+        fill: var(--a5e-color-background-medium);
         z-index: 0;
     }
 
@@ -96,17 +107,13 @@ $: acFormula = getACComponents($actor);
         margin: 0;
         padding: 0;
         background: transparent;
-        color: rgba(0, 0, 0, 0.25);
-
-        position: absolute;
-        top: 0.175rem;
-        right: -0.25rem;
+        color: var(--a5e-button-gray);
 
         transition: var(--a5e-transition-standard);
 
         &:focus,
         &:hover {
-            color: #555;
+            color: var(--a5e-button-gray-hover);
             box-shadow: none;
             transform: scale(1.2);
         }

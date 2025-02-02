@@ -1,6 +1,3 @@
-/* eslint-disable no-continue */
-/* eslint-disable no-unused-vars */
-
 import type { Action } from 'types/action';
 import type { BaseActorA5e } from '../actor/base';
 import type { RevitalizeOptions } from './data';

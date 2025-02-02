@@ -1,21 +1,21 @@
 <svelte:options accessors={true} />
 
 <script lang="ts">
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import RadioGroup from '../components/RadioGroup.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
+    import RadioGroup from "../components/RadioGroup.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
 
-export let { dialog, packOptions, defaultSelection } =
-	// @ts-ignore
-	getContext('#external').application;
+    export let { dialog, packOptions, defaultSelection } =
+        // @ts-ignore
+        getContext("#external").application;
 
-function onSubmit() {
-	dialog.submit({ pack: selected });
-}
+    function onSubmit() {
+        dialog.submit({ pack: selected });
+    }
 
-const selections: string[][] = packOptions;
-let selected = defaultSelection;
+    const selections: string[][] = packOptions;
+    let selected = defaultSelection;
 </script>
 
 <article>
@@ -38,6 +38,5 @@ let selected = defaultSelection;
         width: 100%;
         padding: 0.75rem;
         gap: 1rem;
-        background: var(--a5e-color-background-sheet);
     }
 </style>

@@ -1,61 +1,64 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import DeletionConfirmationDialog from '../dialogs/initializers/DeletionConfirmationDialog';
+    import DeletionConfirmationDialog from "../dialogs/initializers/DeletionConfirmationDialog";
 
-export let item;
-export let action = null;
+    export let item;
+    export let action = null;
 
-async function onConfigure() {
-	if (action) {
-		await item.actions.configure(action);
-		return;
-	}
+    async function onConfigure() {
+        if (action) {
+            await item.actions.configure(action);
+            return;
+        }
 
-	item.configureItem();
-}
+        item.configureItem();
+    }
 
-async function onDelete() {
-	let dialogData;
+    async function onDelete() {
+        let dialogData;
 
-	if (action) {
-		await item.actions.remove(action);
-		return;
-	}
+        if (action) {
+            await item.actions.remove(action);
+            return;
+        }
 
-	if (!game.settings.get('a5e', 'hideDeleteConfirmation')) {
-		const dialog = new DeletionConfirmationDialog(item);
-		await dialog.render(true);
-		dialogData = await dialog.promise;
+        if (!game.settings.get("a5e", "hideDeleteConfirmation")) {
+            const dialog = new DeletionConfirmationDialog(item);
+            await dialog.render(true);
+            dialogData = await dialog.promise;
 
-		if (!dialogData || !dialogData.confirmDeletion) return;
-	}
+            if (!dialogData || !dialogData.confirmDeletion) return;
+        }
 
-	await game.settings.set(
-		'a5e',
-		'hideDeleteConfirmation',
-		dialogData?.hideDeleteConfirmation ?? game.settings.get('a5e', 'hideDeleteConfirmation'),
-	);
+        await game.settings.set(
+            "a5e",
+            "hideDeleteConfirmation",
+            dialogData?.hideDeleteConfirmation ??
+                game.settings.get("a5e", "hideDeleteConfirmation"),
+        );
 
-	item.delete();
-}
+        item.delete();
+    }
 
-async function onDuplicate() {
-	if (action) {
-		await item.actions.duplicate(action);
-		return;
-	}
+    async function onDuplicate() {
+        if (action) {
+            await item.actions.duplicate(action);
+            return;
+        }
 
-	item.duplicateItem();
-}
+        item.duplicateItem();
+    }
 
-function showDescription() {
-	item.shareItemDescription(item.actions.get(action));
-}
+    function showDescription() {
+        item.shareItemDescription(item.actions.get(action));
+    }
 
-const actor = getContext('actor');
+    const actor = getContext("actor");
 
-$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 </script>
 
 {#if sheetIsLocked}

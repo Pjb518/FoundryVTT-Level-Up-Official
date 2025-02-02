@@ -87,7 +87,7 @@ export default class ItemSheet extends SvelteApplication {
 		// @ts-expect-error
 		return foundry.utils.mergeObject(super.defaultOptions, {
 			baseApplication: 'ItemSheet',
-			classes: ['a5e-sheet', 'a5e-item-sheet'],
+			classes: ['a5e-sheet', 'a5e-sheet--item'],
 			minimizable: true,
 			svelte: {
 				target: document.body,

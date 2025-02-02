@@ -35,6 +35,10 @@ export default function renderChatMessage(message, html) {
 		return;
 	}
 
+	target.classList.add('a5e-chat-card--background-regular');
+	if (isBlind) target.classList.add('a5e-chat-card--background-blind');
+	if (isWhisper || isSelfRoll) target.classList.add('a5e-chat-card--background-regular');
+
 	target.classList.add('a5e-chat-card');
 	$(html).find('.message-header')[0]?.remove();
 	$(html).find('.message-content')[0]?.remove();

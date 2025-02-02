@@ -163,7 +163,7 @@
         align-items: center;
         gap: 0.5rem;
         padding-inline: 0.5rem;
-        border: 1px solid #ccc;
+        border: 1px solid var(--a5e-border-color);
         border-top: 0;
         font-family: var(--a5e-font-serif);
         font-size: var(--a5e-text-size-sm);
@@ -173,7 +173,7 @@
             border-right: 0;
 
             &:nth-last-child(2) {
-                border-bottom: 1px solid #ccc;
+                border-bottom: 1px solid var(--a5e-border-color);
             }
         }
 
@@ -189,12 +189,12 @@
         // Select elements in pairs to produce a striped pattern in the table
         &:nth-child(4n + 1),
         &:nth-child(4n + 2) {
-            background: rgba(0, 0, 0, 0.05);
+            background: var(--a5e-skill-background-alternate);
         }
 
         &--column-flow {
             &:nth-child(even) {
-                background: rgba(0, 0, 0, 0.05);
+                background: var(--a5e-skill-background-alternate);
                 border-left: none;
             }
 
@@ -204,7 +204,7 @@
             }
 
             &:nth-child(-n + 10) {
-                border-right: 1px solid #ccc;
+                border-right: 1px solid var(--a5e-border-color);
             }
 
             &:nth-child(10) {
@@ -212,7 +212,7 @@
             }
 
             &:nth-child(19) {
-                border-bottom: 1px solid #ccc;
+                border-bottom: 1px solid var(--a5e-border-color);
             }
         }
 
@@ -221,13 +221,13 @@
             margin: 0;
             padding: 0;
             background: transparent;
-            color: rgba(0, 0, 0, 0.25);
+            color: var(--a5e-button-gray);
 
             transition: var(--a5e-transition-standard);
 
             &:focus,
             &:hover {
-                color: #555;
+                color: var(--a5e-button-gray-hover);
                 box-shadow: none;
                 transform: scale(1.2);
             }
@@ -256,13 +256,13 @@
         }
 
         &__passive {
-            color: #999;
+            color: var(--a5e-color-text-medium);
             min-width: 3ch;
         }
 
         &__proficiency-icon {
             display: flex;
-            color: rgba(0, 0, 0, 0.25);
+            color: var(--a5e-button-gray);
             cursor: pointer;
 
             &--expertise,
@@ -295,7 +295,7 @@
 
         &__roll-icon {
             display: none;
-            color: #555;
+            color: var(--a5e-button-gray);
             transition: var(--a5e-transition-standard);
 
             &--ctrl {

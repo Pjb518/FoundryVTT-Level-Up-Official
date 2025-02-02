@@ -1,4 +1,3 @@
-/* eslint-disable no-restricted-syntax */
 import type { TJSDialog } from '@typhonjs-fvtt/runtime/svelte/application';
 import type {
 	AbilityCheckRollOptions,

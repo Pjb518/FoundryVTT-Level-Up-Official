@@ -1,23 +1,23 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import Checkbox from '../components/Checkbox.svelte';
-import FieldWrapper from '../components/FieldWrapper.svelte';
+    import Checkbox from "../components/Checkbox.svelte";
+    import FieldWrapper from "../components/FieldWrapper.svelte";
 
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-export let { document, appId } = getContext('#external').application;
+    export let { document, appId } = getContext("#external").application;
 
-const actor = document;
-const { A5E } = CONFIG;
+    const actor = document;
+    const { A5E } = CONFIG;
 
-const headings = {
-	blindsight: 'A5E.SenseBlindsightRange',
-	darkvision: 'A5E.SenseDarkvisionRange',
-	tremorsense: 'A5E.SenseTremorsenseRange',
-	truesight: 'A5E.SenseTruesightRange',
-};
+    const headings = {
+        blindsight: "A5E.SenseBlindsightRange",
+        darkvision: "A5E.SenseDarkvisionRange",
+        tremorsense: "A5E.SenseTremorsenseRange",
+        truesight: "A5E.SenseTruesightRange",
+    };
 </script>
 
 <article>
@@ -88,6 +88,5 @@ const headings = {
         padding: 0.75rem;
         gap: 0.5rem;
         overflow: auto;
-        background: var(--a5e-color-background-sheet);
     }
 </style>

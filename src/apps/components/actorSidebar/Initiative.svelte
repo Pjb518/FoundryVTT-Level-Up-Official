@@ -79,7 +79,7 @@
         width: 2.5rem;
         margin: auto;
         font-size: var(--a5e-text-size-xl);
-        color: var(--a5e-color-text-medium);
+        color: var(--a5e-button-gray);
         background: transparent;
         border: 0;
         cursor: pointer;
@@ -88,7 +88,7 @@
 
         &:hover {
             transform: scale(1.2);
-            color: #555;
+            color: var(--a5e-button-gray-hover);
             box-shadow: none;
         }
 

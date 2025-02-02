@@ -1,47 +1,29 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
 
-import calculateCarryCapacity from '../handlers/calculateCarryCapacity';
-import calculateInventoryWeight from '../handlers/calculateInventoryWeight';
+    import calculateCarryCapacity from "../handlers/calculateCarryCapacity";
+    import calculateInventoryWeight from "../handlers/calculateInventoryWeight";
 
-const actor = getContext('actor');
+    const actor = getContext("actor");
 
-$: inventoryWeight = calculateInventoryWeight($actor);
-$: carryCapacity = calculateCarryCapacity($actor);
-$: encumbrancePercentage = Math.min((inventoryWeight / carryCapacity) * 100, 100);
+    $: inventoryWeight = calculateInventoryWeight($actor);
+    $: carryCapacity = calculateCarryCapacity($actor);
+    $: encumbrancePercentage = Math.min((inventoryWeight / carryCapacity) * 100, 100);
 </script>
 
 <div
-    class="
-		track-container
-		u-border
-        u-border-thin
-        u-border-light-gray
-        u-h-4
-        u-pos-relative
-        u-rounded
-        u-w-full
-    "
-    style="background-color: #a9a594;"
+    class="track-container"
+    style="background-color: var(--a5e-inventory-track-container-background);"
 >
     <div
-        class="u-h-full u-rounded"
-        style="color: #eee; text-shadow: 0 0 2px #000"
+        class="track-container--color"
         style:background-color={encumbrancePercentage === 100
             ? "var(--a5e-color-error)"
             : "#0b5a2f"}
         style:width={`${Math.min(encumbrancePercentage, 100)}%`}
     >
-        <div
-            class="
-        u-flex
-        u-gap-md
-        u-pos-absolute
-        u-pos-center
-        u-text-light
-            u-text-sm"
-        >
+        <div class="track-text-container">
             <span>
                 {inventoryWeight?.toFixed(1)}
                 {localize("A5E.MeasurementPoundsAbbr")}
@@ -65,6 +47,31 @@ $: encumbrancePercentage = Math.min((inventoryWeight / carryCapacity) * 100, 100
 
 <style lang="scss">
     .track-container {
+        border: 1px solid var(--a5e-border-color);
         flex: 0 0 100%;
+        position: relative;
+        height: 1rem;
+        width: 100%;
+        border-radius: var(--a5e-border-radius-standard);
+        background-color: var(--a5e-inventory-track-container-background);
+
+        &--color {
+            height: 100%;
+            border-radius: var(--a5e-border-radius-standard);
+            text-shadow: 0 0 2px var(--a5e-inventory-track-shadow);
+        }
+    }
+
+    .track-text-container {
+        display: flex;
+        gap: 0.5rem;
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+
+        color: var(--a5e-inventory-track-color);
+        font-size: var(--a5e-text-size-sm);
     }
 </style>

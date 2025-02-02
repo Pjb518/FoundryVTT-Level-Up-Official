@@ -1,30 +1,33 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import FieldWrapper from '../components/FieldWrapper.svelte';
+    import FieldWrapper from "../components/FieldWrapper.svelte";
 
-import prepareHitDice from '../dataPreparationHelpers/prepareHitDice';
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
+    import prepareHitDice from "../dataPreparationHelpers/prepareHitDice";
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-export let { document, appId } = getContext('#external').application;
+    export let { document, appId } = getContext("#external").application;
 
-const hpFields = [
-	{ label: 'A5E.HitPointsCurrent', updateAttribute: 'value' },
-	{ label: 'A5E.HitPointsBaseMaximum', updateAttribute: 'baseMax' },
-	{ label: 'A5E.HitPointsTemporary', updateAttribute: 'temp' },
-	{ label: 'A5E.HitPointsMaxModifier', updateAttribute: 'bonus' },
-];
+    const hpFields = [
+        { label: "A5E.HitPointsCurrent", updateAttribute: "value" },
+        { label: "A5E.HitPointsBaseMaximum", updateAttribute: "baseMax" },
+        { label: "A5E.HitPointsTemporary", updateAttribute: "temp" },
+        { label: "A5E.HitPointsMaxModifier", updateAttribute: "bonus" },
+    ];
 
-const actor = document;
-const hitDice = prepareHitDice($actor);
+    const actor = document;
+    const hitDice = prepareHitDice($actor);
 
-$: hp = $actor.system.attributes.hp;
-$: disableHitDice = Object.keys($actor.classes ?? {}).length ?? false;
+    $: hp = $actor.system.attributes.hp;
+    $: disableHitDice = Object.keys($actor.classes ?? {}).length ?? false;
 
-$: hitDieClasses = $actor.type === 'character' ? 'u-flex u-gap-md' : 'u-grid u-grid-3 u-gap-lg';
+    $: hitDieClasses =
+        $actor.type === "character" ? "u-flex u-gap-md" : "u-grid u-grid-3 u-gap-lg";
 
-$: disableMaxHp =
-	Object.keys($actor.classes ?? {}).length ?? !$actor.classAutomationFlags?.hitPoints ?? false;
+    $: disableMaxHp =
+        Object.keys($actor.classes ?? {}).length ??
+        !$actor.classAutomationFlags?.hitPoints ??
+        false;
 </script>
 
 <article>
@@ -117,6 +120,5 @@ $: disableMaxHp =
         padding: 0.75rem;
         gap: 0.5rem;
         overflow: auto;
-        background: var(--a5e-color-background-sheet);
     }
 </style>

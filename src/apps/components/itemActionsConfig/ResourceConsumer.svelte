@@ -41,8 +41,6 @@
             handler: () => deleteConsumer(actionId, consumerId),
         },
     ]}
-    --a5e-header-button-color="rgba(0, 0, 0, 0.2)"
-    --a5e-header-button-color-hover="#555"
 >
     <input
         type="text"

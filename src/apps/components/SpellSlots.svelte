@@ -1,46 +1,48 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import updateDocumentDataFromField from '../../utils/updateDocumentDataFromField';
+    import updateDocumentDataFromField from "../../utils/updateDocumentDataFromField";
 
-export let level = 0;
+    export let level = 0;
 
-const actor = getContext('actor');
+    const actor = getContext("actor");
 
-function getMaxSpellSlots() {
-	if ($actor.type !== 'character') {
-		return spellResources.slots[level.toString()]?.max;
-	}
+    function getMaxSpellSlots() {
+        if ($actor.type !== "character") {
+            return spellResources.slots[level.toString()]?.max;
+        }
 
-	if (sheetIsLocked) return spellResources.slots[level.toString()]?.max;
-	return spellResources.slots[level.toString()]?.override;
-}
+        if (sheetIsLocked) return spellResources.slots[level.toString()]?.max;
+        return spellResources.slots[level.toString()]?.override;
+    }
 
-function updateSpellSlotMax(value) {
-	const key =
-		$actor.type === 'character'
-			? `system.spellResources.slots.${level}.override`
-			: `system.spellResources.slots.${level}.max`;
+    function updateSpellSlotMax(value) {
+        const key =
+            $actor.type === "character"
+                ? `system.spellResources.slots.${level}.override`
+                : `system.spellResources.slots.${level}.max`;
 
-	updateDocumentDataFromField($actor, key, value);
-}
+        updateDocumentDataFromField($actor, key, value);
+    }
 
-function updateSpellSlots(level, slot) {
-	let newCurrentSlots = slot;
+    function updateSpellSlots(level, slot) {
+        let newCurrentSlots = slot;
 
-	if (slot <= spellResources.slots[level.toString()].current) {
-		newCurrentSlots = slot - 1;
-	}
+        if (slot <= spellResources.slots[level.toString()].current) {
+            newCurrentSlots = slot - 1;
+        }
 
-	$actor.update({
-		[`system.spellResources.slots.${level}.current`]: newCurrentSlots,
-	});
-}
+        $actor.update({
+            [`system.spellResources.slots.${level}.current`]: newCurrentSlots,
+        });
+    }
 
-$: spellResources = $actor.system.spellResources;
-$: sheetIsLocked = !$actor.isOwner ? true : ($actor.flags?.a5e?.sheetIsLocked ?? true);
+    $: spellResources = $actor.system.spellResources;
+    $: sheetIsLocked = !$actor.isOwner
+        ? true
+        : ($actor.flags?.a5e?.sheetIsLocked ?? true);
 
-$: maxSpellSlots = getMaxSpellSlots(spellResources, sheetIsLocked);
+    $: maxSpellSlots = getMaxSpellSlots(spellResources, sheetIsLocked);
 </script>
 
 {#if level && level !== "0"}
@@ -141,6 +143,7 @@ $: maxSpellSlots = getMaxSpellSlots(spellResources, sheetIsLocked);
         border: 1px solid rgba(255, 255, 255, 0.1);
         text-align: center;
         font-size: var(--a5e-text-size-xs);
+        color: var(--a5e-color-text-white);
 
         &:active,
         &:focus {

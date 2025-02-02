@@ -1,66 +1,67 @@
 <script>
-import { getContext } from 'svelte';
-import { localize } from '#runtime/util/i18n';
-import { TJSDocument } from '#runtime/svelte/store/fvtt/document';
+    import { getContext } from "svelte";
+    import { localize } from "#runtime/util/i18n";
+    import { TJSDocument } from "#runtime/svelte/store/fvtt/document";
 
-import computeSaveDC from '../../../utils/computeSaveDC';
-import prepareAbilityOptions from '../../dataPreparationHelpers/prepareAbilityOptions';
-import updateDocumentDataFromField from '../../../utils/updateDocumentDataFromField';
+    import computeSaveDC from "../../../utils/computeSaveDC";
+    import prepareAbilityOptions from "../../dataPreparationHelpers/prepareAbilityOptions";
+    import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
-import Checkbox from '../Checkbox.svelte';
-import FieldWrapper from '../FieldWrapper.svelte';
-import RadioGroup from '../RadioGroup.svelte';
-import Section from '../Section.svelte';
+    import Checkbox from "../Checkbox.svelte";
+    import FieldWrapper from "../FieldWrapper.svelte";
+    import RadioGroup from "../RadioGroup.svelte";
+    import Section from "../Section.svelte";
 
-function updateAbility(ability) {
-	selectedAbility = ability;
+    function updateAbility(ability) {
+        selectedAbility = ability;
 
-	updateDocumentDataFromField(
-		$item,
-		`system.actions.${actionId}.prompts.${promptId}.ability`,
-		selectedAbility,
-	);
-}
+        updateDocumentDataFromField(
+            $item,
+            `system.actions.${actionId}.prompts.${promptId}.ability`,
+            selectedAbility,
+        );
+    }
 
-function selectSaveDCCalculationType(event) {
-	const selectedOption = event.target?.selectedOptions[0]?.value;
+    function selectSaveDCCalculationType(event) {
+        const selectedOption = event.target?.selectedOptions[0]?.value;
 
-	$item.update({
-		[`system.actions.${actionId}.prompts.${promptId}.saveDC.type`]: selectedOption,
-	});
-}
+        $item.update({
+            [`system.actions.${actionId}.prompts.${promptId}.saveDC.type`]:
+                selectedOption,
+        });
+    }
 
-function onSaveDCUpdate(actor) {
-	try {
-		const saveDC = computeSaveDC(actor, $item, {
-			type: prompt?.saveDC?.type,
-			bonus: saveDCBonus,
-		});
+    function onSaveDCUpdate(actor) {
+        try {
+            const saveDC = computeSaveDC(actor, $item, {
+                type: prompt?.saveDC?.type,
+                bonus: saveDCBonus,
+            });
 
-		saveDCIsValid = true;
-		return saveDC;
-	} catch {
-		saveDCIsValid = false;
-	}
-}
+            saveDCIsValid = true;
+            return saveDC;
+        } catch {
+            saveDCIsValid = false;
+        }
+    }
 
-export let deletePrompt;
-export let duplicatePrompt;
-export let prompt;
-export let promptId;
+    export let deletePrompt;
+    export let duplicatePrompt;
+    export let prompt;
+    export let promptId;
 
-const item = getContext('item');
-const actor = $item.actor && new TJSDocument($item.actor);
-const actionId = getContext('actionId');
+    const item = getContext("item");
+    const actor = $item.actor && new TJSDocument($item.actor);
+    const actionId = getContext("actionId");
 
-const { saveDCOptions } = CONFIG.A5E;
+    const { saveDCOptions } = CONFIG.A5E;
 
-let saveDCIsValid = true;
-let saveDCBonus = prompt?.saveDC?.bonus;
+    let saveDCIsValid = true;
+    let saveDCBonus = prompt?.saveDC?.bonus;
 
-$: saveDC = onSaveDCUpdate($actor, prompt?.saveDC?.type, saveDCBonus);
+    $: saveDC = onSaveDCUpdate($actor, prompt?.saveDC?.type, saveDCBonus);
 
-$: selectedAbility = prompt.ability ?? 'none';
+    $: selectedAbility = prompt.ability ?? "none";
 </script>
 
 <FieldWrapper
@@ -75,8 +76,6 @@ $: selectedAbility = prompt.ability ?? 'none';
             handler: () => deletePrompt(actionId, promptId),
         },
     ]}
-    --a5e-header-button-color="#bebdb5"
-    --a5e-header-button-color-hover="#555"
     --a5e-field-wrapper-button-wrapper-gap="0.75rem"
 >
     <input

@@ -1,18 +1,18 @@
 .a5e-ability-score {
   display: grid;
   grid-template-areas:
-    "header"
-    "body";
+    'header'
+    'body';
   overflow: hidden;
-  background: rgba(246, 242, 235, 0.15);
+  background: var(--a5e-ability-score-background);
 
   &__body {
     display: grid;
     grid-template-areas:
-      "value value"
-      "check save";
+      'value value'
+      'check save';
     grid-template-columns: repeat(2, 1fr);
-    border: 1px solid #ccc;
+    border: 1px solid var(--a5e-ability-score-border);
     border-top: 0;
     border-bottom-left-radius: 3px;
     border-bottom-right-radius: 3px;
@@ -29,11 +29,11 @@
     padding: 0.25rem;
     font-size: var(--a5e-text-size-sm);
     background: transparent;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--a5e-button-gray);
     transition: var(--a5e-transition-standard);
 
     &:hover {
-      color: var(--color-text-light);
+      color: var(--a5e-button-gray-hover);
       box-shadow: none;
     }
   }
@@ -43,12 +43,12 @@
     grid-area: header;
     padding: 0.25rem 0.5rem;
     font-size: var(--a5e-text-size-sm);
-    color: var(--a5e-color-text-light);
+    color: var(--a5e-ability-score-header-color);
     background: var(--a5e-color-primary);
-    border: 1px solid #3e4240;
+    border: 1px solid var(--a5e-ability-score-header-border);
     border-top-right-radius: 3px;
     border-top-left-radius: 3px;
-    box-shadow: 0 0 10px #2e4246 inset;
+    box-shadow: 0 0 10px var(--a5e-ability-score-header-shadow) inset;
     text-align: center;
     text-transform: uppercase;
   }
@@ -58,7 +58,7 @@
     font-family: inherit;
   }
 
-  &__value[type="number"] {
+  &__value[type='number'] {
     grid-area: value;
     height: fit-content;
     width: 100%;
@@ -66,7 +66,7 @@
     font-size: var(--a5e-text-size-lg);
     line-height: 1;
     text-align: center;
-    color: var(--color-text);
+    color: var(--a5e-text-color-dark);
     background: transparent;
     border: 0;
     border-radius: 0;
@@ -90,6 +90,7 @@
     text-align: center;
     font-family: inherit;
     font-size: var(--a5e-text-size-sm);
+    color: var(--a5e-color-text-dark);
 
     &:focus,
     &:hover {
@@ -103,14 +104,14 @@
       transform: translate(-50%, -50%);
       font: var(--fa-font-solid);
       font-size: var(--a5e-text-size-xxl);
-      color: rgba(0, 0, 0, 0.15);
+      color: var(--a5e-ability-score-roll-button-background);
     }
 
     &--check {
       grid-area: check;
 
       &::after {
-        content: "\f111";
+        content: '\f111';
       }
     }
 
@@ -122,12 +123,12 @@
       grid-area: save;
 
       &::after {
-        content: "\f132";
+        content: '\f132';
       }
     }
 
     &--proficient {
-      color: var(--a5e-color-text-light);
+      color: var(--a5e-ability-score-proficient);
 
       &::after {
         color: var(--a5e-color-primary);

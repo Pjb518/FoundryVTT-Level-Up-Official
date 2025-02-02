@@ -22,7 +22,7 @@ export default class GenericConfigDialog extends TJSDialog {
 				zIndex: null,
 			},
 			{
-				classes: ['a5e-sheet'],
+				// classes: ['a5e-sheet'],
 				width: options.width ?? 420,
 				height: options.height ?? 'auto',
 				resizable: options.resizable ?? false,
@@ -33,6 +33,16 @@ export default class GenericConfigDialog extends TJSDialog {
 
 		this.promise = new Promise((resolve) => {
 			this.resolve = resolve;
+		});
+	}
+
+	static get defaultOptions() {
+		return foundry.utils.mergeObject(super.defaultOptions, {
+			classes: ['a5e-sheet'],
+			minimizable: true,
+			svelte: {
+				target: document.body,
+			},
 		});
 	}
 

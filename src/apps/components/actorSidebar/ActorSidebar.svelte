@@ -1,64 +1,62 @@
 <script>
-import { getContext } from 'svelte';
+    import { getContext } from "svelte";
 
-import editDocumentImage from '../../handlers/editDocumentImage';
+    import editDocumentImage from "../../handlers/editDocumentImage";
 
-import ArmorClass from './ArmorClass.svelte';
-import HitDice from './HitDice.svelte';
-import HitPointBar from './HitPointBar.svelte';
-import HitPointValues from './HitPointValues.svelte';
-import Initiative from './Initiative.svelte';
-import Passives from './Passives.svelte';
-import RestButton from './RestButton.svelte';
-import StatusTrack from './StatusTrack.svelte';
-import Details from './Details.svelte';
-import DeathSaveOverlay from './DeathSaveOverlay.svelte';
+    import ArmorClass from "./ArmorClass.svelte";
+    import HitDice from "./HitDice.svelte";
+    import HitPointBar from "./HitPointBar.svelte";
+    import HitPointValues from "./HitPointValues.svelte";
+    import Initiative from "./Initiative.svelte";
+    import Passives from "./Passives.svelte";
+    import RestButton from "./RestButton.svelte";
+    import StatusTrack from "./StatusTrack.svelte";
+    import Details from "./Details.svelte";
+    import DeathSaveOverlay from "./DeathSaveOverlay.svelte";
 
-export let hp;
+    const actor = getContext("actor");
 
-const actor = getContext('actor');
+    let fatigueOptions = [
+        { value: 0, hint: null },
+        { value: 1, hint: "A5E.tracks.fatigue.hints.1" },
+        { value: 2, hint: "A5E.tracks.fatigue.hints.2" },
+        { value: 3, hint: "A5E.tracks.fatigue.hints.3" },
+        { value: 4, hint: "A5E.tracks.fatigue.hints.4" },
+        { value: 5, hint: "A5E.tracks.fatigue.hints.5" },
+        { value: 6, hint: "A5E.tracks.fatigue.hints.6" },
+        { value: 7, hint: "A5E.tracks.fatigue.hints.7" },
+    ];
 
-let fatigueOptions = [
-	{ value: 0, hint: null },
-	{ value: 1, hint: 'A5E.tracks.fatigue.hints.1' },
-	{ value: 2, hint: 'A5E.tracks.fatigue.hints.2' },
-	{ value: 3, hint: 'A5E.tracks.fatigue.hints.3' },
-	{ value: 4, hint: 'A5E.tracks.fatigue.hints.4' },
-	{ value: 5, hint: 'A5E.tracks.fatigue.hints.5' },
-	{ value: 6, hint: 'A5E.tracks.fatigue.hints.6' },
-	{ value: 7, hint: 'A5E.tracks.fatigue.hints.7' },
-];
+    const strifeOptions = [
+        { value: 0, hint: null },
+        { value: 1, hint: "A5E.tracks.strife.hints.1" },
+        { value: 2, hint: "A5E.tracks.strife.hints.2" },
+        { value: 3, hint: "A5E.tracks.strife.hints.3" },
+        { value: 4, hint: "A5E.tracks.strife.hints.4" },
+        { value: 5, hint: "A5E.tracks.strife.hints.5" },
+        { value: 6, hint: "A5E.tracks.strife.hints.6" },
+        { value: 7, hint: "A5E.tracks.strife.hints.7" },
+    ];
 
-const strifeOptions = [
-	{ value: 0, hint: null },
-	{ value: 1, hint: 'A5E.tracks.strife.hints.1' },
-	{ value: 2, hint: 'A5E.tracks.strife.hints.2' },
-	{ value: 3, hint: 'A5E.tracks.strife.hints.3' },
-	{ value: 4, hint: 'A5E.tracks.strife.hints.4' },
-	{ value: 5, hint: 'A5E.tracks.strife.hints.5' },
-	{ value: 6, hint: 'A5E.tracks.strife.hints.6' },
-	{ value: 7, hint: 'A5E.tracks.strife.hints.7' },
-];
+    const replaceFatigueAndStrife = game.settings.get("a5e", "replaceFatigueAndStrife");
 
-const replaceFatigueAndStrife = game.settings.get('a5e', 'replaceFatigueAndStrife');
+    if (replaceFatigueAndStrife) {
+        fatigueOptions = [
+            { value: 0, hint: null },
+            { value: 1, hint: "A5E.tracks.exhaustion.hints.1" },
+            { value: 2, hint: "A5E.tracks.exhaustion.hints.2" },
+            { value: 3, hint: "A5E.tracks.exhaustion.hints.3" },
+            { value: 4, hint: "A5E.tracks.exhaustion.hints.4" },
+            { value: 5, hint: "A5E.tracks.exhaustion.hints.5" },
+            { value: 6, hint: "A5E.tracks.exhaustion.hints.6" },
+        ];
+    }
 
-if (replaceFatigueAndStrife) {
-	fatigueOptions = [
-		{ value: 0, hint: null },
-		{ value: 1, hint: 'A5E.tracks.exhaustion.hints.1' },
-		{ value: 2, hint: 'A5E.tracks.exhaustion.hints.2' },
-		{ value: 3, hint: 'A5E.tracks.exhaustion.hints.3' },
-		{ value: 4, hint: 'A5E.tracks.exhaustion.hints.4' },
-		{ value: 5, hint: 'A5E.tracks.exhaustion.hints.5' },
-		{ value: 6, hint: 'A5E.tracks.exhaustion.hints.6' },
-	];
-}
+    async function onEditImage(event) {
+        await editDocumentImage($actor, { shiftKey: event.shiftKey });
+    }
 
-async function onEditImage(event) {
-	await editDocumentImage($actor, { shiftKey: event.shiftKey });
-}
-
-$: hp = $actor.system.attributes.hp;
+    $: hp = $actor.system.attributes.hp;
 </script>
 
 <div class="actor-sidebar">
@@ -127,7 +125,7 @@ $: hp = $actor.system.attributes.hp;
         height: 100%;
         width: 12.5rem;
         padding: 0.5rem;
-        border-right: 1px solid #ccc;
+        border-right: 1px solid var(--a5e-border-color);
     }
 
     .actor-portrait-wrapper {
@@ -177,5 +175,6 @@ $: hp = $actor.system.attributes.hp;
     .actor-sidebar-footer {
         display: flex;
         gap: 0.25rem;
+        justify-content: space-around;
     }
 </style>
