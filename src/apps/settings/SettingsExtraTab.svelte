@@ -18,7 +18,21 @@
     let showVRCSpecialties = settings.getStore("showVRCSpecialties");
     let showVRCTechLevel = settings.getStore("showVRCTechLevel");
     let useCredits = settings.getStore("useCredits");
+    let usePoSTables = settings.getStore("usePoSTables");
 </script>
+
+<Section heading="A5E.settings.sectionHeader.pos" --a5e-section-body-gap="0.5rem">
+    <FieldWrapper hint="A5E.settings.hints.usePoSTables">
+        <Checkbox
+            label="A5E.settings.usePoSTables"
+            checked={updates.get("usePoSTables") ?? $usePoSTables ?? false}
+            on:updateSelection={({ detail }) => {
+                updates.set("usePoSTables", detail);
+                reload = true;
+            }}
+        />
+    </FieldWrapper>
+</Section>
 
 <Section heading="A5E.settings.sectionHeader.gpg" --a5e-section-body-gap="0.5rem">
     <FieldWrapper hint="A5E.settings.hints.showFavourPoints">
