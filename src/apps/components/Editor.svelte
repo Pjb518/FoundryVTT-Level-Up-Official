@@ -45,6 +45,7 @@
 
     const options = {
         enrichOptions,
+        editable: game.user.isGM || $document.isOwner || false,
         styles: {
             "--tjs-editor-toolbar-background": "var(--a5e-editor-toolbar-background)",
         },
