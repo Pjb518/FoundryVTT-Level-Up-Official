@@ -77,10 +77,16 @@
         --color-control-bg: var(--a5e-editor-toolbar-button-background);
     }
 
-    .a5e-editor {
-        height: 100%;
+    :global(.a5e-editor .editor-enriched) {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+        overflow-y: scroll;
+    }
 
-        // Nudges the edit icon down 1px. Removing this hides the top border for the button.
-        --tjs-editor-edit-top: 1px;
+    .a5e-editor {
+        position: relative;
+        overflow-y: hidden;
+        height: 100%;
     }
 </style>
