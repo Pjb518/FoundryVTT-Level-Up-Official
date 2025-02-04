@@ -267,7 +267,7 @@
 
             &--expertise,
             &--proficient {
-                color: var(--a5e-color-primary);
+                color: var(--a5e-skill-proficient-icon-color);
             }
 
             &--locked {
