@@ -12,8 +12,8 @@ export default actorDataModels;
 declare global {
 	interface DataModelConfig {
 		Actor: {
-			character: A5ECharacterData;
-			npc: A5ENPCData;
+			character: typeof A5ECharacterData;
+			npc: typeof A5ENPCData;
 		};
 	}
 }

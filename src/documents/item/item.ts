@@ -21,23 +21,13 @@ import getSummaryData from '../../utils/summaries/getSummaryData';
 
 // *****************************************************************************************
 
-type SystemItemTypes = Exclude<
-	foundry.documents.BaseItem.TypeNames,
-	'base' | 'archetype' | 'background' | 'class' | 'culture' | 'destiny' | 'heritage'
->;
-
-interface ItemA5e<ItemType extends SystemItemTypes = SystemItemTypes> {
-	type: ItemType;
-	system: DataModelConfig['Item'][ItemType];
-}
-
 // *****************************************************************************************
 
 /**
  * Override and extend the basic Item implementation.
  * @extends {Item}
  */
-class ItemA5e extends BaseItemA5e {
+class ItemA5e<SubType extends Item.SubType = Item.SubType> extends BaseItemA5e<SubType> {
 	declare actions: ActionsManager;
 
 	/** ------------------------------------------------------ */

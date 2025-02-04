@@ -1,6 +1,3 @@
-import type { BaseActorA5e } from '../documents/actor/base';
-import type { BaseItemA5e } from '../documents/item/base';
-
 declare namespace A5eEnricherManager {
 	type EnricherTypes = 'check' | 'save' | 'condition' | 'choose';
 }
@@ -379,7 +376,7 @@ class A5eEnricherManager {
 
 				for (const selectedToken of selectedTokens) {
 					// @ts-expect-error
-					const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+					const { actor }: { actor: Actor | null } = selectedToken;
 					if (!actor) {
 						ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
 						continue;
@@ -393,7 +390,7 @@ class A5eEnricherManager {
 				const rollOptions = this.#getOptions(target, universalOptions);
 				for (const selectedToken of selectedTokens) {
 					// @ts-expect-error
-					const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+					const { actor }: { actor: Actor | null } = selectedToken;
 					if (!actor) {
 						ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
 						continue;
@@ -416,7 +413,7 @@ class A5eEnricherManager {
 			if (dataset.type === 'death') {
 				for (const selectedToken of selectedTokens) {
 					// @ts-expect-error
-					const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+					const { actor }: { actor: Actor | null } = selectedToken;
 					if (!actor) {
 						ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
 						continue;
@@ -430,7 +427,7 @@ class A5eEnricherManager {
 			if (dataset.type === 'concentration') {
 				for (const selectedToken of selectedTokens) {
 					// @ts-expect-error
-					const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+					const { actor }: { actor: Actor | null } = selectedToken;
 					if (!actor) {
 						ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
 						continue;
@@ -444,7 +441,7 @@ class A5eEnricherManager {
 			if (dataset.ability) {
 				for (const selectedToken of selectedTokens) {
 					// @ts-expect-error
-					const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+					const { actor }: { actor: Actor | null } = selectedToken;
 					if (!actor) {
 						ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
 						continue;
@@ -484,7 +481,7 @@ class A5eEnricherManager {
 
 		for (const selectedToken of selectedTokens) {
 			// @ts-expect-error
-			const { actor }: { actor: BaseActorA5e | null } = selectedToken;
+			const { actor }: { actor: Actor | null } = selectedToken;
 			if (!actor) {
 				ui.notifications?.error(`No actor found on given token "${selectedToken.name}"`);
 				continue;
@@ -512,7 +509,7 @@ class A5eEnricherManager {
 			if (arg.groups?.type === 'uuid') {
 				value = `@UUID[${arg.groups?.value}]`;
 				// eslint-disable-next-line no-await-in-loop
-				const item = (await fromUuid(arg.groups?.value)) as BaseItemA5e;
+				const item = (await fromUuid(arg.groups?.value)) as Item;
 				icons.push(item?.img as string);
 			} else {
 				value = `${arg.groups?.value}`;

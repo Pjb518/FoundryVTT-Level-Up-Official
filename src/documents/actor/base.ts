@@ -59,18 +59,9 @@ import { handleDocumentImportMigration } from '../../migration/handlers/handleDo
 
 // *****************************************************************************************
 
-type SystemActorTypes = Exclude<foundry.documents.BaseActor.TypeNames, 'base'>;
-
-// @ts-expect-error The type needs to be fixed in fvtt-types
-interface BaseActorA5e<ActorType extends SystemActorTypes = SystemActorTypes> {
-	type: ActorType;
-	system: DataModelConfig['Actor'][ActorType];
-	items: foundry.abstract.EmbeddedCollection<BaseItemA5e, Actor.ConfiguredInstance>;
-}
-
 // *****************************************************************************************
 
-class BaseActorA5e extends Actor {
+class BaseActorA5e<SubType extends Actor.SubType = Actor.SubType> extends Actor<SubType> {
 	// Defaults
 	#configDialogMap = {
 		ability: AbilityCheckConfigDialog,
@@ -141,8 +132,8 @@ class BaseActorA5e extends Actor {
 
 	// *****************************************************************************************
 
-	isType<TypeName extends SystemActorTypes>(type: TypeName): this is BaseActorA5e<TypeName> {
-		return type === (this.type as SystemActorTypes);
+	isType<Type extends Actor.SubType>(type: Type): this is BaseActorA5e<Type> {
+		return this.type === type;
 	}
 
 	// *****************************************************************************************

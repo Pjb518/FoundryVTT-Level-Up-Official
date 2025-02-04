@@ -1,24 +1,15 @@
 import type { Action } from 'types/action';
-import type { BaseActorA5e } from '../actor/base';
 import type { RevitalizeOptions } from './data';
 
 import { MigrationRunnerBase } from '../../migration/runner/base';
 import getSummaryData from '../../utils/summaries/getSummaryData';
 import { handleDocumentImportMigration } from '../../migration/handlers/handleDocumentMigration';
 
-type SystemItemTypes = Exclude<foundry.documents.BaseItem.TypeNames, 'base'>;
-
-interface BaseItemA5e<ItemType extends SystemItemTypes = SystemItemTypes> {
-	type: ItemType;
-	system: DataModelConfig['Item'][ItemType];
-	parent: BaseActorA5e;
-}
-
 /**
  * Override and extend the basic Item implementation.
  * @extends {Item}
  */
-class BaseItemA5e extends Item {
+class BaseItemA5e<SubType extends Item.SubType = Item.SubType> extends Item<SubType> {
 	declare initialized: boolean;
 
 	dialogs: {
@@ -40,8 +31,8 @@ class BaseItemA5e extends Item {
 	}
 
 	// *****************************************************************************************
-	isType<TypeName extends SystemItemTypes>(type: TypeName): this is BaseItemA5e<TypeName> {
-		return type === (this.type as SystemItemTypes);
+	isType<Type extends Item.SubType>(type: Type): this is BaseItemA5e<Type> {
+		return this.type === type;
 	}
 
 	// *****************************************************************************************
