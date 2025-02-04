@@ -39,7 +39,7 @@ export default class ItemCompendiumSheet extends SvelteApplication {
 	 */
 	static get defaultOptions() {
 		return foundry.utils.mergeObject(super.defaultOptions, {
-			classes: ['a5efc-compendium-sheet'],
+			classes: ['a5e-sheet', 'a5e-sheet--compendium'],
 			minimizable: true,
 			svelte: {
 				target: document.body,
