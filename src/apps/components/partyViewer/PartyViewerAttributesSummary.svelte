@@ -1,11 +1,11 @@
 <script>
-import replaceHyphenWithMinusSign from '../../../utils/replaceHyphenWithMinusSign';
+    import replaceHyphenWithMinusSign from "../../../utils/replaceHyphenWithMinusSign";
 
-export let actor;
-export const propData = {};
+    export let actor;
+    export const propData = {};
 
-$: actorData = $actor?.system;
-const abilities = CONFIG.A5E.abilities;
+    $: actorData = $actor?.system;
+    const abilities = CONFIG.A5E.abilities;
 </script>
 
 {#each Object.entries(actorData.abilities ?? {}) as [key, attribute]}
@@ -84,7 +84,7 @@ const abilities = CONFIG.A5E.abilities;
                 font: var(--fa-font-solid);
                 font-size: var(--a5e-text-size-xl);
                 transform: translate(-50%, -50%);
-                color: #e7e5db;
+                color: var(--a5e-ability-score-background);
                 z-index: 0;
                 text-shadow: #000 0 0 1px;
             }
@@ -100,7 +100,7 @@ const abilities = CONFIG.A5E.abilities;
             }
 
             &--proficient {
-                color: var(--a5e-color-text-light);
+                color: var(--a5e-color-text-white);
 
                 &::before {
                     color: var(--a5e-color-primary);
