@@ -1,6 +1,5 @@
-/* eslint-disable max-len */
-/* eslint-disable max-classes-per-file */
-/* eslint-disable no-param-reassign */
+import type { AnyObject } from '@league-of-foundry-developers/foundry-vtt-types/utils';
+
 import * as AreaData from './ActionAreaDataModels';
 import * as ConsumerData from './ActionConsumersDataModel';
 import * as PromptData from './ActionPromptsDataModel';
@@ -28,11 +27,17 @@ declare namespace ActionAreaField {
 }
 
 class ActionAreaField<
-	const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
+	const Options extends
+		foundry.data.fields.DataField.Options<AnyObject> = foundry.data.fields.ObjectField.DefaultOptions,
 	const AreaType extends ActionAreaField.AreaShapes = ActionAreaField.AreaShapes,
 	const AssignmentType = { type: AreaType },
 	const InitializedType = ActionAreaField.AreaShapesMap[AreaType] & { type: AreaType },
-	const PersistedType extends object | null | undefined = ActionAreaField.AreaShapesMap[AreaType],
+	const PersistedType extends
+		| AnyObject
+		| null
+		| undefined = foundry.data.fields.SchemaField.PersistedData<
+		ActionAreaField.AreaShapesMap[AreaType]
+	>,
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
 	getModelForType(type: ActionAreaField.AreaShapes) {
 		return areaShapesMap[type];
@@ -53,7 +58,7 @@ class ActionAreaField<
 
 	override initialize(
 		value: PersistedType,
-		model: foundry.abstract.DataModel<DataSchema, any>,
+		model: foundry.abstract.DataModel<foundry.data.fields.DataSchema, any>,
 		options = {},
 	): InitializedType {
 		// @ts-expect-error
@@ -85,14 +90,15 @@ declare namespace ActionConsumerField {
 }
 
 class ActionConsumerField<
-	const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
+	const Options extends
+		foundry.data.fields.DataField.Options<AnyObject> = foundry.data.fields.ObjectField.DefaultOptions,
 	const ConsumerType extends ActionConsumerField.ConsumerTypes = ActionConsumerField.ConsumerTypes,
 	const AssignmentType = { type: ConsumerType },
 	const InitializedType = ActionConsumerField.ConsumerShapesMap[ConsumerType] & {
 		type: ConsumerType;
 	},
 	const PersistedType extends
-		| object
+		| AnyObject
 		| null
 		| undefined = ActionConsumerField.ConsumerShapesMap[ConsumerType],
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
@@ -115,7 +121,7 @@ class ActionConsumerField<
 
 	override initialize(
 		value: PersistedType,
-		model: foundry.abstract.DataModel<DataSchema, any>,
+		model: foundry.abstract.DataModel<foundry.data.fields.DataSchema, any>,
 		options = {},
 	): InitializedType {
 		// @ts-expect-error
@@ -144,12 +150,13 @@ declare namespace ActionPromptField {
 }
 
 class ActionPromptField<
-	const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
+	const Options extends
+		foundry.data.fields.DataField.Options<AnyObject> = foundry.data.fields.ObjectField.DefaultOptions,
 	const PromptType extends ActionPromptField.PromptTypes = ActionPromptField.PromptTypes,
 	const AssignmentType = { type: PromptType },
 	const InitializedType = ActionPromptField.PromptTypesMap[PromptType] & { type: PromptType },
 	const PersistedType extends
-		| object
+		| AnyObject
 		| null
 		| undefined = ActionPromptField.PromptTypesMap[PromptType],
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
@@ -172,7 +179,7 @@ class ActionPromptField<
 
 	override initialize(
 		value: PersistedType,
-		model: foundry.abstract.DataModel<DataSchema, any>,
+		model: foundry.abstract.DataModel<foundry.data.fields.DataSchema, any>,
 		options = {},
 	): InitializedType {
 		// @ts-expect-error
@@ -205,11 +212,12 @@ declare namespace ActionRollField {
 }
 
 class ActionRollField<
-	const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
+	const Options extends
+		foundry.data.fields.DataField.Options<AnyObject> = foundry.data.fields.ObjectField.DefaultOptions,
 	const RollType extends ActionRollField.RollTypes = ActionRollField.RollTypes,
 	const AssignmentType = { type: RollType },
 	const InitializedType = ActionRollField.RollTypesMap[RollType] & { type: RollType },
-	const PersistedType extends object | null | undefined = ActionRollField.RollTypesMap[RollType],
+	const PersistedType extends AnyObject | null | undefined = ActionRollField.RollTypesMap[RollType],
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
 	getModelForType(type: ActionRollField.RollTypes) {
 		return rollTypesMap[type];
@@ -230,7 +238,7 @@ class ActionRollField<
 
 	override initialize(
 		value: PersistedType,
-		model: foundry.abstract.DataModel<DataSchema, any>,
+		model: foundry.abstract.DataModel<foundry.data.fields.DataSchema, any>,
 		options = {},
 	): InitializedType {
 		// @ts-expect-error

@@ -1,10 +1,9 @@
-/* eslint-disable no-restricted-syntax */
-/* eslint-disable max-len */
-
 export type SimpleMerge<Target, Override> = Omit<Target, keyof Override> & Override;
 
 declare namespace RecordField {
-	type Options<IValueField> = DataFieldOptions<Record<string, BaseAssignmentType<IValueField>>>;
+	type Options<IValueField> = foundry.data.fields.DataField.Options<
+		Record<string, BaseAssignmentType<IValueField>>
+	>;
 
 	type BaseAssignmentType<AssignmentElementType> =
 		foundry.data.fields.ArrayField.BaseAssignmentType<AssignmentElementType>;

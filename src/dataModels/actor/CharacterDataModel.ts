@@ -190,7 +190,7 @@ const characterSchema = () => ({
 });
 
 declare namespace A5ECharacterData {
-	type Schema = DataSchema &
+	type Schema = foundry.data.fields.DataSchema &
 		ReturnType<typeof abilities> &
 		ReturnType<typeof bonuses> &
 		ReturnType<typeof currency> &
@@ -211,7 +211,7 @@ declare namespace A5ECharacterData {
 
 class A5ECharacterData extends foundry.abstract.TypeDataModel<
 	A5ECharacterData.Schema,
-	Actor.ConfiguredInstance,
+	Actor.Implementation,
 	A5ECharacterData.BaseData,
 	A5ECharacterData.DerivedData
 > {

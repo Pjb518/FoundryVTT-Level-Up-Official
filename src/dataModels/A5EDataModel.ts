@@ -24,8 +24,8 @@ interface A5EDataModelMetaData {
 }
 
 export default class A5EDataModel<
-	Schema extends DataSchema,
-	Parent extends foundry.abstract.Document<DataSchema, any, any>,
+	Schema extends foundry.data.fields.DataSchema,
+	Parent extends foundry.abstract.Document<foundry.data.fields.DataSchema, any, any>,
 	BaseData extends Record<string, any> = Record<string, never>,
 	DerivedData extends Record<string, any> = Record<string, never>,
 > extends foundry.abstract.TypeDataModel<Schema, Parent, BaseData, DerivedData> {
@@ -72,7 +72,7 @@ export default class A5EDataModel<
 	 */
 	static get _schemaTemplateFields() {
 		const fieldNames = Object.freeze(
-			new Set(this._schemaTemplates.map((t) => t.schema.keys()).flat()),
+			new Set(this._schemaTemplates.flatMap((t) => t.schema.keys())),
 		);
 
 		Object.defineProperty(this, '_schemaTemplateFields', {
@@ -144,8 +144,8 @@ export default class A5EDataModel<
 	 */
 	static mixin(...templates: (typeof foundry.abstract.TypeDataModel)[]) {
 		const Base = class Base<
-			Schema extends DataSchema,
-			Parent extends foundry.abstract.Document<DataSchema, any, any>,
+			Schema extends foundry.data.fields.DataSchema,
+			Parent extends foundry.abstract.Document<foundry.data.fields.DataSchema, any, any>,
 			BaseData extends Record<string, any> = Record<string, never>,
 			DerivedData extends Record<string, any> = Record<string, never>,
 		> extends A5EDataModel<Schema, Parent, BaseData, DerivedData> {};

@@ -41,19 +41,19 @@ const skillCheckSchema = () => ({
 // ======================================================
 
 declare namespace AbilityCheckPromptData {
-	type Schema = DataSchema & ReturnType<typeof abilityCheckSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof abilityCheckSchema>;
 }
 
 declare namespace GenericPromptData {
-	type Schema = DataSchema & ReturnType<typeof genericSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof genericSchema>;
 }
 
 declare namespace SkillCheckPromptData {
-	type Schema = DataSchema & ReturnType<typeof skillCheckSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof skillCheckSchema>;
 }
 
 declare namespace SavingThrowPromptData {
-	type Schema = DataSchema & ReturnType<typeof abilitySaveSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof abilitySaveSchema>;
 }
 
 // ======================================================
@@ -62,7 +62,7 @@ declare namespace SavingThrowPromptData {
 
 class AbilityCheckPromptData extends foundry.abstract.DataModel<
 	AbilityCheckPromptData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): AbilityCheckPromptData.Schema {
 		return {
@@ -73,7 +73,7 @@ class AbilityCheckPromptData extends foundry.abstract.DataModel<
 
 class GenericPromptData extends foundry.abstract.DataModel<
 	GenericPromptData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): GenericPromptData.Schema {
 		return {
@@ -84,7 +84,7 @@ class GenericPromptData extends foundry.abstract.DataModel<
 
 class SkillCheckPromptData extends foundry.abstract.DataModel<
 	SkillCheckPromptData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): SkillCheckPromptData.Schema {
 		return {
@@ -95,7 +95,7 @@ class SkillCheckPromptData extends foundry.abstract.DataModel<
 
 class SavingThrowPromptData extends foundry.abstract.DataModel<
 	SavingThrowPromptData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): SavingThrowPromptData.Schema {
 		return {

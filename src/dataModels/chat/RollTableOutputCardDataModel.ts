@@ -10,14 +10,16 @@ const rollTableCardSchema = () => ({
 });
 
 declare namespace A5eRollTableOutputCardData {
-	type Schema = DataSchema & ReturnType<typeof metadata> & ReturnType<typeof rollTableCardSchema>;
+	type Schema = foundry.data.fields.DataSchema &
+		ReturnType<typeof metadata> &
+		ReturnType<typeof rollTableCardSchema>;
 	interface BaseData extends Record<string, unknown> {}
 	interface DerivedData extends Record<string, unknown> {}
 }
 
 class A5eRollTableOutputCardData extends foundry.abstract.TypeDataModel<
 	A5eRollTableOutputCardData.Schema,
-	ChatMessage.ConfiguredInstance,
+	ChatMessage.Implementation,
 	A5eRollTableOutputCardData.BaseData,
 	A5eRollTableOutputCardData.DerivedData
 > {

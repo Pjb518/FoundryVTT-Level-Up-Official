@@ -52,31 +52,31 @@ const spellSchema = () => ({
 //                      NameSpaces
 // ======================================================
 declare namespace ActionUsesConsumerData {
-	type Schema = DataSchema & ReturnType<typeof usesSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof usesSchema>;
 }
 
 declare namespace AmmunitionConsumerData {
-	type Schema = DataSchema & ReturnType<typeof quantitySchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof quantitySchema>;
 }
 
 declare namespace HitDiceConsumerData {
-	type Schema = DataSchema & ReturnType<typeof hitDiceSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof hitDiceSchema>;
 }
 
 declare namespace ItemUsesConsumerData {
-	type Schema = DataSchema & ReturnType<typeof usesSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof usesSchema>;
 }
 
 declare namespace QuantityConsumerData {
-	type Schema = DataSchema & ReturnType<typeof quantitySchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof quantitySchema>;
 }
 
 declare namespace ResourceConsumerData {
-	type Schema = DataSchema & ReturnType<typeof resourceSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof resourceSchema>;
 }
 
 declare namespace SpellConsumerData {
-	type Schema = DataSchema & ReturnType<typeof spellSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof spellSchema>;
 }
 
 // ======================================================
@@ -84,7 +84,7 @@ declare namespace SpellConsumerData {
 // ======================================================
 class ActionUsesConsumerData extends foundry.abstract.DataModel<
 	ActionUsesConsumerData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): ActionUsesConsumerData.Schema {
 		return {
@@ -95,7 +95,7 @@ class ActionUsesConsumerData extends foundry.abstract.DataModel<
 
 class AmmunitionConsumerData extends foundry.abstract.DataModel<
 	AmmunitionConsumerData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): AmmunitionConsumerData.Schema {
 		return {
@@ -106,7 +106,7 @@ class AmmunitionConsumerData extends foundry.abstract.DataModel<
 
 class HitDiceConsumerData extends foundry.abstract.DataModel<
 	HitDiceConsumerData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): HitDiceConsumerData.Schema {
 		return {
@@ -117,7 +117,7 @@ class HitDiceConsumerData extends foundry.abstract.DataModel<
 
 class ItemUsesConsumerData extends foundry.abstract.DataModel<
 	ItemUsesConsumerData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): ItemUsesConsumerData.Schema {
 		return {
@@ -128,7 +128,7 @@ class ItemUsesConsumerData extends foundry.abstract.DataModel<
 
 class QuantityConsumerData extends foundry.abstract.DataModel<
 	QuantityConsumerData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): QuantityConsumerData.Schema {
 		return {
@@ -139,7 +139,7 @@ class QuantityConsumerData extends foundry.abstract.DataModel<
 
 class ResourceConsumerData extends foundry.abstract.DataModel<
 	ResourceConsumerData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): ResourceConsumerData.Schema {
 		return {
@@ -150,7 +150,7 @@ class ResourceConsumerData extends foundry.abstract.DataModel<
 
 class SpellConsumerData extends foundry.abstract.DataModel<
 	SpellConsumerData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): SpellConsumerData.Schema {
 		return {

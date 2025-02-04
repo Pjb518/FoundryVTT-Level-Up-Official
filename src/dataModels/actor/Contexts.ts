@@ -5,7 +5,6 @@ export function getAbilitiesBonusContext(type: 'grant' | 'bonus') {
 		types: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 			initial: ['check', 'save'],
 		}),
-		// @ts-expect-error
 		requiresProficiency: new fields.BooleanField({ required: true, initial: false }),
 	};
 
@@ -17,7 +16,6 @@ export function getAbilitiesBonusContext(type: 'grant' | 'bonus') {
 	}
 
 	if (type === 'grant') {
-		// @ts-expect-error
 		schema.default = new fields.BooleanField({ required: true, initial: true });
 	}
 
@@ -31,7 +29,6 @@ export function getAttackBonusContext(type: 'grant' | 'bonus') {
 		spellLevels: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 			initial: [],
 		}),
-		// @ts-expect-error
 		requiresProficiency: new fields.BooleanField({ required: true, initial: false }),
 	};
 
@@ -43,7 +40,6 @@ export function getAttackBonusContext(type: 'grant' | 'bonus') {
 	}
 
 	if (type === 'grant') {
-		// @ts-expect-error
 		schema.default = new fields.BooleanField({ required: true, initial: true });
 	}
 
@@ -60,7 +56,6 @@ export function getDamageBonusContext(type: 'grant' | 'bonus') {
 		damageTypes: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 			initial: [],
 		}),
-		// @ts-expect-error
 		isCritBonus: new fields.BooleanField({ required: true, initial: false }),
 		spellLevels: new fields.ArrayField(new fields.StringField({ required: true, initial: '' }), {
 			initial: [],
@@ -68,7 +63,6 @@ export function getDamageBonusContext(type: 'grant' | 'bonus') {
 	};
 
 	if (type === 'grant') {
-		// @ts-expect-error
 		schema.default = new fields.BooleanField({ required: true, initial: true });
 	}
 
@@ -87,7 +81,6 @@ export function getHealingBonusContext(type: 'grant' | 'bonus') {
 	};
 
 	if (type === 'grant') {
-		// @ts-expect-error
 		schema.default = new fields.BooleanField({ required: true, initial: true });
 	}
 
@@ -98,7 +91,6 @@ export function getHitPointsBonusContext() {
 	const { fields } = foundry.data;
 
 	return {
-		// @ts-expect-error
 		perLevel: new fields.BooleanField({ required: true, initial: false }),
 	};
 }
@@ -116,7 +108,6 @@ export function getInitiativeBonusContext(type: 'grant' | 'bonus') {
 	};
 
 	if (type === 'grant') {
-		// @ts-expect-error
 		schema.default = new fields.BooleanField({ required: true, initial: true });
 	}
 
@@ -127,7 +118,6 @@ export function getMovementBonusContext(type: 'grant' | 'bonus') {
 	const { fields } = foundry.data;
 
 	const schema: any = {
-		// @ts-expect-error
 		isHover: new fields.BooleanField({ required: true, initial: false }),
 		// valueIfOriginalIsZero: new fields.StringField({ required: true, initial: '' })
 	};
@@ -146,7 +136,6 @@ export function getSensesBonusContext(type: 'grant' | 'bonus') {
 	const { fields } = foundry.data;
 
 	const schema: any = {
-		// @ts-expect-error
 		otherwiseBlind: new fields.BooleanField({ required: true, initial: false }),
 		// valueIfOriginalIsZero: new fields.StringField({ required: true, initial: '' })
 	};
@@ -164,9 +153,7 @@ export function getSkillBonusContext(type: 'grant' | 'bonus') {
 	const { fields } = foundry.data;
 
 	const schema: any = {
-		// @ts-expect-error
 		passiveOnly: new fields.BooleanField({ required: true, initial: false }),
-		// @ts-expect-error
 		requiresProficiency: new fields.BooleanField({ required: true, initial: false }),
 	};
 
@@ -177,7 +164,6 @@ export function getSkillBonusContext(type: 'grant' | 'bonus') {
 	}
 
 	if (type === 'grant') {
-		// @ts-expect-error
 		schema.default = new fields.BooleanField({ required: true, initial: true });
 	}
 

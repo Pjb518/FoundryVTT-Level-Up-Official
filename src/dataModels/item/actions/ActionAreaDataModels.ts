@@ -67,39 +67,39 @@ const wallAreaSchema = () => ({
 //                      NameSpaces
 // ======================================================
 declare namespace CircleAreaData {
-	type Schema = DataSchema & ReturnType<typeof circleAreaSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof circleAreaSchema>;
 }
 
 declare namespace ConeAreaData {
-	type Schema = DataSchema & ReturnType<typeof coneAreaSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof coneAreaSchema>;
 }
 
 declare namespace CubeAreaData {
-	type Schema = DataSchema & ReturnType<typeof cubeAreaSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof cubeAreaSchema>;
 }
 
 declare namespace CylinderAreaData {
-	type Schema = DataSchema & ReturnType<typeof cylinderAreaSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof cylinderAreaSchema>;
 }
 
 declare namespace EmanationAreaData {
-	type Schema = DataSchema & ReturnType<typeof emanationAreaSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof emanationAreaSchema>;
 }
 
 declare namespace LineAreaData {
-	type Schema = DataSchema & ReturnType<typeof lineAreaSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof lineAreaSchema>;
 }
 
 declare namespace SphereAreaData {
-	type Schema = DataSchema & ReturnType<typeof sphereAreaSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof sphereAreaSchema>;
 }
 
 declare namespace SquareAreaData {
-	type Schema = DataSchema & ReturnType<typeof squareAreaSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof squareAreaSchema>;
 }
 
 declare namespace WallAreaData {
-	type Schema = DataSchema & ReturnType<typeof wallAreaSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof wallAreaSchema>;
 }
 
 // ======================================================
@@ -107,7 +107,7 @@ declare namespace WallAreaData {
 // ======================================================
 class CircleAreaData extends foundry.abstract.DataModel<
 	CircleAreaData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): CircleAreaData.Schema {
 		return {
@@ -118,7 +118,7 @@ class CircleAreaData extends foundry.abstract.DataModel<
 
 class ConeAreaData extends foundry.abstract.DataModel<
 	ConeAreaData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): ConeAreaData.Schema {
 		return {
@@ -129,7 +129,7 @@ class ConeAreaData extends foundry.abstract.DataModel<
 
 class CubeAreaData extends foundry.abstract.DataModel<
 	CubeAreaData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): CubeAreaData.Schema {
 		return {
@@ -140,7 +140,7 @@ class CubeAreaData extends foundry.abstract.DataModel<
 
 class CylinderAreaData extends foundry.abstract.DataModel<
 	CylinderAreaData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): CylinderAreaData.Schema {
 		return {
@@ -151,7 +151,7 @@ class CylinderAreaData extends foundry.abstract.DataModel<
 
 class EmanationAreaData extends foundry.abstract.DataModel<
 	EmanationAreaData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): EmanationAreaData.Schema {
 		return {
@@ -162,7 +162,7 @@ class EmanationAreaData extends foundry.abstract.DataModel<
 
 class LineAreaData extends foundry.abstract.DataModel<
 	LineAreaData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): LineAreaData.Schema {
 		return {
@@ -173,7 +173,7 @@ class LineAreaData extends foundry.abstract.DataModel<
 
 class SphereAreaData extends foundry.abstract.DataModel<
 	SphereAreaData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): SphereAreaData.Schema {
 		return {
@@ -184,7 +184,7 @@ class SphereAreaData extends foundry.abstract.DataModel<
 
 class SquareAreaData extends foundry.abstract.DataModel<
 	SquareAreaData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): SquareAreaData.Schema {
 		return {
@@ -195,7 +195,7 @@ class SquareAreaData extends foundry.abstract.DataModel<
 
 class WallAreaData extends foundry.abstract.DataModel<
 	SquareAreaData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): WallAreaData.Schema {
 		return {

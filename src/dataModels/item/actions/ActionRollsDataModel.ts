@@ -76,35 +76,35 @@ const toolCheckRollSchema = () => ({
 //                      NameSpaces
 // ======================================================
 declare namespace AbilityCheckRollData {
-	type Schema = DataSchema & ReturnType<typeof abilityCheckSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof abilityCheckSchema>;
 }
 
 declare namespace AttackRollData {
-	type Schema = DataSchema & ReturnType<typeof attackRollSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof attackRollSchema>;
 }
 
 declare namespace DamageRollData {
-	type Schema = DataSchema & ReturnType<typeof damageRollSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof damageRollSchema>;
 }
 
 declare namespace GenericRollData {
-	type Schema = DataSchema & ReturnType<typeof genericRollSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof genericRollSchema>;
 }
 
 declare namespace HealingRollData {
-	type Schema = DataSchema & ReturnType<typeof healingRollSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof healingRollSchema>;
 }
 
 declare namespace SavingThrowRollData {
-	type Schema = DataSchema & ReturnType<typeof savingThrowSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof savingThrowSchema>;
 }
 
 declare namespace SkillCheckRollData {
-	type Schema = DataSchema & ReturnType<typeof skillCheckRollSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof skillCheckRollSchema>;
 }
 
 declare namespace ToolCheckRollData {
-	type Schema = DataSchema & ReturnType<typeof toolCheckRollSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof toolCheckRollSchema>;
 }
 
 // ======================================================
@@ -112,7 +112,7 @@ declare namespace ToolCheckRollData {
 // ======================================================
 class AbilityCheckRollData extends foundry.abstract.DataModel<
 	AbilityCheckRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): AbilityCheckRollData.Schema {
 		return {
@@ -123,7 +123,7 @@ class AbilityCheckRollData extends foundry.abstract.DataModel<
 
 class AttackRollData extends foundry.abstract.DataModel<
 	AttackRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): AttackRollData.Schema {
 		return {
@@ -134,7 +134,7 @@ class AttackRollData extends foundry.abstract.DataModel<
 
 class DamageRollData extends foundry.abstract.DataModel<
 	DamageRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): DamageRollData.Schema {
 		return {
@@ -145,7 +145,7 @@ class DamageRollData extends foundry.abstract.DataModel<
 
 class GenericRollData extends foundry.abstract.DataModel<
 	GenericRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): GenericRollData.Schema {
 		return {
@@ -156,7 +156,7 @@ class GenericRollData extends foundry.abstract.DataModel<
 
 class HealingRollData extends foundry.abstract.DataModel<
 	HealingRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): HealingRollData.Schema {
 		return {
@@ -167,7 +167,7 @@ class HealingRollData extends foundry.abstract.DataModel<
 
 class SavingThrowRollData extends foundry.abstract.DataModel<
 	SavingThrowRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): SavingThrowRollData.Schema {
 		return {
@@ -178,7 +178,7 @@ class SavingThrowRollData extends foundry.abstract.DataModel<
 
 class SkillCheckRollData extends foundry.abstract.DataModel<
 	SkillCheckRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): SkillCheckRollData.Schema {
 		return {
@@ -189,7 +189,7 @@ class SkillCheckRollData extends foundry.abstract.DataModel<
 
 class ToolCheckRollData extends foundry.abstract.DataModel<
 	ToolCheckRollData.Schema,
-	foundry.abstract.Document<DataSchema, any, any>
+	foundry.abstract.Document<'Item', any, any>
 > {
 	static override defineSchema(): ToolCheckRollData.Schema {
 		return {

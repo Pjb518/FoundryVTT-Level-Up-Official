@@ -1,5 +1,5 @@
-/* eslint-disable max-classes-per-file */
-import type { A5EObjectData } from '../ObjectDataModel';
+import type { AnyObject } from '@league-of-foundry-developers/foundry-vtt-types/utils';
+
 import { ActionConsumerField, ActionPromptField, ActionRollField } from './ActionFields';
 import { RecordField } from '../../fields/RecordField';
 
@@ -33,7 +33,6 @@ const actionSchema = () => ({
 		{ required: true, nullable: false },
 	),
 
-	// @ts-expect-error
 	macro: new fields.JavaScriptField({ required: true, nullable: false, initial: '', async: true }),
 
 	consumers: new RecordField(
@@ -86,10 +85,10 @@ const actionSchema = () => ({
 //                   Action Data Model
 // ======================================================
 declare namespace A5EActionData {
-	type Schema = DataSchema & ReturnType<typeof actionSchema>;
+	type Schema = foundry.data.fields.DataSchema & ReturnType<typeof actionSchema>;
 }
 
-class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5EObjectData> {
+class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, Item.Implementation> {
 	static override defineSchema(): A5EActionData.Schema {
 		return {
 			...actionSchema(),
@@ -110,7 +109,7 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 	}
 
 	prepareBaseData() {
-		this.img ||= this.parent.parent.img || '';
+		this.img ||= this.parent?.parent?.img || '';
 	}
 
 	prepareDerivedData() {}
@@ -120,16 +119,19 @@ class A5EActionData extends foundry.abstract.DataModel<A5EActionData.Schema, A5E
 //                   Action Field
 // ======================================================
 class ActionField<
-	const Options extends DataFieldOptions<object> = foundry.data.fields.ObjectField.DefaultOptions,
+	const Options extends
+		foundry.data.fields.DataField.Options<AnyObject> = foundry.data.fields.ObjectField.DefaultOptions,
 	const AssignmentType = typeof A5EActionData,
 	const InitializedType = A5EActionData,
-	const PersistedType extends object | null | undefined = A5EActionData,
+	const PersistedType extends
+		| AnyObject
+		| null
+		| undefined = foundry.data.fields.SchemaField.PersistedData<A5EActionData.Schema>,
 > extends foundry.data.fields.ObjectField<Options, AssignmentType, InitializedType, PersistedType> {
 	override _cleanType(
 		value: InitializedType,
 		options?: foundry.data.fields.DataField.CleanOptions,
 	): InitializedType {
-		// eslint-disable-next-line no-param-reassign
 		if (!(typeof value === 'object')) value = {} as InitializedType;
 
 		// @ts-expect-error
@@ -138,7 +140,7 @@ class ActionField<
 
 	override initialize(
 		value: PersistedType,
-		model: foundry.abstract.DataModel<DataSchema, any>,
+		model: foundry.abstract.DataModel<foundry.data.fields.DataSchema, any>,
 		options = {},
 	): InitializedType {
 		// @ts-expect-error

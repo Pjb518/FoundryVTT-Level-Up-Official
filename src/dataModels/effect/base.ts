@@ -9,14 +9,16 @@ const baseSchema = () => ({
 });
 
 declare namespace A5EBaseActiveEffectData {
-	type Schema = DataSchema & ReturnType<typeof baseSchema> & ReturnType<typeof migrationData>;
+	type Schema = foundry.data.fields.DataSchema &
+		ReturnType<typeof baseSchema> &
+		ReturnType<typeof migrationData>;
 	type BaseData = Record<string, unknown>;
 	type DerivedData = Record<string, unknown>;
 }
 
 class A5EBaseActiveEffectData extends foundry.abstract.TypeDataModel<
 	A5EBaseActiveEffectData.Schema,
-	ActiveEffect.ConfiguredInstance,
+	ActiveEffect.Implementation,
 	A5EBaseActiveEffectData.BaseData,
 	A5EBaseActiveEffectData.DerivedData
 > {

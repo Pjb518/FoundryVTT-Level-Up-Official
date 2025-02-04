@@ -42,11 +42,8 @@ const npcSchema = () => ({
 	}),
 	details: new fields.SchemaField({
 		cr: new fields.NumberField({ required: true, nullable: false, initial: 0 }),
-		// @ts-expect-error
 		elite: new fields.BooleanField({ required: true, initial: false }),
-		// @ts-expect-error
 		isSquad: new fields.BooleanField({ required: true, initial: false }),
-		// @ts-expect-error
 		isSwarm: new fields.BooleanField({ required: true, initial: false }),
 		notes: new fields.HTMLField({ required: true, initial: '' }),
 		privateNotes: new fields.HTMLField({ required: true, initial: '' }),
@@ -134,7 +131,7 @@ const npcSchema = () => ({
 });
 
 declare namespace A5ENPCData {
-	type Schema = DataSchema &
+	type Schema = foundry.data.fields.DataSchema &
 		ReturnType<typeof abilities> &
 		ReturnType<typeof bonuses> &
 		ReturnType<typeof currency> &
@@ -156,7 +153,7 @@ declare namespace A5ENPCData {
 
 class A5ENPCData extends foundry.abstract.TypeDataModel<
 	A5ENPCData.Schema,
-	Actor.ConfiguredInstance,
+	Actor.Implementation,
 	A5ENPCData.BaseData,
 	A5ENPCData.DerivedData
 > {

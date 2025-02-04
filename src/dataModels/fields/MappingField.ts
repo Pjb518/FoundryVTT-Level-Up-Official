@@ -54,7 +54,7 @@ export default class MappingField extends foundry.data.fields.ObjectField {
 		let keys = this.initialKeys;
 		const initial = super.getInitialValue(data);
 		if (!keys || !foundry.utils.isEmpty(initial)) return initial;
-		if (!(keys instanceof Array)) keys = Object.keys(keys);
+		if (!Array.isArray(keys)) keys = Object.keys(keys);
 		for (const key of keys) initial[key] = this._getInitialValueForKey(key);
 		return initial;
 	}
@@ -102,8 +102,9 @@ export default class MappingField extends foundry.data.fields.ObjectField {
 	override initialize(value, model, options = {}) {
 		if (!value) return value;
 		const obj = {};
-		const initialKeys =
-			this.initialKeys instanceof Array ? this.initialKeys : Object.keys(this.initialKeys ?? {});
+		const initialKeys = Array.isArray(this.initialKeys)
+			? this.initialKeys
+			: Object.keys(this.initialKeys ?? {});
 		const keys = this.initialKeysOnly ? initialKeys : Object.keys(value);
 		for (const key of keys) {
 			const data = value[key] ?? this._getInitialValueForKey(key, value);

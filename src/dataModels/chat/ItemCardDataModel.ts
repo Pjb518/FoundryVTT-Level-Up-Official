@@ -20,14 +20,16 @@ const itemCardSchema = () => ({
 });
 
 declare namespace A5eItemCardData {
-	type Schema = DataSchema & ReturnType<typeof metadata> & ReturnType<typeof itemCardSchema>;
+	type Schema = foundry.data.fields.DataSchema &
+		ReturnType<typeof metadata> &
+		ReturnType<typeof itemCardSchema>;
 	interface BaseData extends Record<string, unknown> {}
 	interface DerivedData extends Record<string, unknown> {}
 }
 
 class A5eItemCardData extends foundry.abstract.TypeDataModel<
 	A5eItemCardData.Schema,
-	ChatMessage.ConfiguredInstance,
+	ChatMessage.Implementation,
 	A5eItemCardData.BaseData,
 	A5eItemCardData.DerivedData
 > {
