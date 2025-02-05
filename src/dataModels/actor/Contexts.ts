@@ -87,7 +87,7 @@ export function getHealingBonusContext(type: 'grant' | 'bonus') {
 	return schema;
 }
 
-export function getHitPointsBonusContext() {
+export function getHitPointsBonusContext(type: 'grant' | 'bonus') {
 	const { fields } = foundry.data;
 
 	return {
