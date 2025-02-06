@@ -6,6 +6,7 @@ export default function registerPremiumContentConfig() {
 				{
 					title: "Ace's Guide to Necromancy",
 					url: 'https://bit.ly/3TWSVkh',
+					integrated: true,
 				},
 			],
 		},
@@ -13,12 +14,19 @@ export default function registerPremiumContentConfig() {
 			name: 'Anthony Alipio',
 			releases: [
 				{
+					title: "The Cult of Jai'crodah",
+					url: 'https://www.drivethrurpg.com/en/product/495402/the-cult-of-jai-crodah-a5e?affiliate_id=1388381',
+					integrated: false,
+				},
+				{
 					title: 'The Sugar Crumb Fairy',
 					url: 'https://bit.ly/3Zs8nI4',
+					integrated: false,
 				},
 				{
 					title: 'Til Undeath Do Us Part',
 					url: 'https://bit.ly/3SBRDwn',
+					integrated: false,
 				},
 			],
 		},
@@ -27,7 +35,8 @@ export default function registerPremiumContentConfig() {
 			releases: [
 				{
 					title: 'Stranger Sights: Challenges for 5e and Advanced 5e',
-					url: 'https://bit.ly/3zR5Uf0',
+					url: 'https://www.drivethrurpg.com/en/product/422595/stranger-sights-challenges-for-5e-and-advanced-5e?affiliate_id=1388381',
+					integrated: true,
 				},
 			],
 		},
@@ -35,8 +44,49 @@ export default function registerPremiumContentConfig() {
 			name: 'EN Publishing',
 			releases: [
 				{
+					title: "Adventurer's Guide",
+					url: 'https://www.drivethrurpg.com/en/product/376471/level-up-adventurer-s-guide-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: "Dungeon Delver's Guide",
+					url: 'https://www.drivethrurpg.com/en/product/405272/level-up-dungeon-delver-s-guide-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Gate Pass Gazette Issue #0',
+					url: 'https://www.drivethrurpg.com/en/product/381873/level-up-gate-pass-gazette-issue-0-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Gate Pass Gazette Issue #1',
+					url: 'https://www.drivethrurpg.com/en/product/389282/level-up-gate-pass-gazette-issue-1-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Gate Pass Gazette Issue #2',
+					url: 'https://www.drivethrurpg.com/en/product/393174/level-up-gate-pass-gazette-issue-2-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Gate Pass Gazette Issue #3',
+					url: 'https://www.drivethrurpg.com/en/product/396435/level-up-gate-pass-gazette-issue-3-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
 					title: 'Memories of Holdenshire',
-					url: 'https://bit.ly/3A8wlgq',
+					url: 'https://www.drivethrurpg.com/en/product/397169/level-up-memories-of-holdenshire-a5e-foundry-vtt-module?affiliate_id=1388381',
+					integrated: false,
+				},
+				{
+					title: 'Monstrous Menagerie',
+					url: 'https://www.drivethrurpg.com/en/product/376472/level-up-monstrous-menagerie-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Trials & Treasures',
+					url: 'https://www.drivethrurpg.com/en/product/376476/level-up-trials-treasures-a5e?affiliate_id=1388381',
+					integrated: true,
 				},
 			],
 		},
@@ -46,14 +96,32 @@ export default function registerPremiumContentConfig() {
 				{
 					title: 'Crests of Destiny',
 					url: 'https://bit.ly/3T1BE7O',
+					integrated: false,
 				},
 				{
 					title: 'Dose of Dungeonpunk - The Talos Heritage',
 					url: 'https://bit.ly/3fe9CaB',
+					integrated: false,
+				},
+				{
+					title: 'Ecology of Gravitas: The Green Witch',
+					url: 'https://www.drivethrurpg.com/en/product/412716/ecology-of-gravitas-the-green-witch-a5e?affiliate_id=1388381',
+					integrated: false,
+				},
+				{
+					title: 'Ecology of Gravitas: The Khalkos Conspiracy',
+					url: 'https://www.drivethrurpg.com/en/product/413368/ecology-of-gravitas-the-khalkos-conspiracy-a5e?affiliate_id=1388381',
+					integrated: false,
+				},
+				{
+					title: 'Hymn of the Hinterlands - The Harpy Heritage',
+					url: 'https://www.drivethrurpg.com/en/product/422146/hymn-of-the-hinterlands-the-harpy-heritage-a5e?affiliate_id=1388381',
+					integrated: false,
 				},
 				{
 					title: 'Slice of Psionics - The Elan Heritage',
 					url: 'https://bit.ly/3CDh3R1',
+					integrated: false,
 				},
 			],
 		},
@@ -63,6 +131,7 @@ export default function registerPremiumContentConfig() {
 				{
 					title: 'Advanced Artificers',
 					url: 'https://www.drivethrurpg.com/en/product/459022/advanced-artificers?affiliate_id=1388381',
+					integrated: true,
 				},
 			],
 		},
@@ -70,12 +139,24 @@ export default function registerPremiumContentConfig() {
 			name: 'Plant Witch Press',
 			releases: [
 				{
-					title: 'Toil and Trouble',
-					url: 'https://bit.ly/3HE10VQ',
+					title: 'Bloody Heretics',
+					url: 'https://www.drivethrurpg.com/en/product/498763/bloody-heretics?affiliate_id=1388381',
+					integrated: false,
 				},
 				{
 					title: 'Hearth & Home',
 					url: 'https://www.drivethrurpg.com/en/product/488835/Hearth--Home-Cozy-Cottage-Origins?affiliate_id=1388381',
+					integrated: false,
+				},
+				{
+					title: 'Paradigms of Skill: Expanded Skill Criticals',
+					url: 'https://www.drivethrurpg.com/en/product/474819/paradigms-of-skill-expanded-skill-criticals?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Toil and Trouble',
+					url: 'https://bit.ly/3HE10VQ',
+					integrated: true,
 				},
 			],
 		},
@@ -83,36 +164,194 @@ export default function registerPremiumContentConfig() {
 			name: 'Purple Martin Games',
 			releases: [
 				{
+					title: 'Arcane Sniper',
+					url: 'https://www.drivethrurpg.com/en/product/405664/arcane-sniper-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Confidence Mage',
+					url: 'https://www.drivethrurpg.com/en/product/403897/confidence-mage-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Field Engineer',
+					url: 'https://www.drivethrurpg.com/en/product/415068/field-engineer-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Fiery Justice',
+					url: 'https://www.drivethrurpg.com/en/product/409471/fiery-justice-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
 					title: 'MoAR: Battlemages',
 					url: 'https://bit.ly/41HQd4G',
+					integrated: true,
 				},
 				{
 					title: 'MoAR: Complete',
 					url: 'https://bit.ly/4b7Fsyi',
+					integrated: true,
 				},
 				{
 					title: 'MoAR: Elements',
 					url: 'https://bit.ly/3XIvKfE',
+					integrated: true,
 				},
 				{
 					title: 'MoAR: Intrigue',
 					url: 'https://bit.ly/3uIMyFQ',
+					integrated: true,
 				},
 				{
 					title: 'MoAR: Light & Dark',
 					url: 'https://bit.ly/3T9pQ3s',
+					integrated: true,
 				},
 				{
 					title: 'MoAR: Wilderness',
 					url: 'https://bit.ly/3xisyKN',
+					integrated: true,
+				},
+				{
+					title: 'Mortalist',
+					url: 'https://www.drivethrurpg.com/en/product/407260/mortalist-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: "Multiclasser's Manual, Volume 1",
+					url: 'https://www.drivethrurpg.com/en/product/480800/multiclasser-s-manual-volume-1-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: "Multiclasser's Manual, Volume 2",
+					url: 'https://www.drivethrurpg.com/en/product/500104/multiclasser-s-manual-volume-2-a5e?affiliate_id=1388381',
+					integrated: false,
+				},
+				{
+					title: 'Riding Parsnip',
+					url: 'https://www.drivethrurpg.com/en/product/475992/riding-parsnip-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Sinuous Sentinels',
+					url: 'https://www.drivethrurpg.com/en/product/471852/sinuous-sentinels-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Spells from the Forgotten Vault',
+					url: 'https://www.drivethrurpg.com/en/product/436769/spells-from-the-forgotten-vault-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Spiritualist',
+					url: 'https://www.drivethrurpg.com/en/product/424846/spiritualist-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'System Architecture: Motif Classes',
+					url: 'https://www.drivethrurpg.com/en/product/422606/system-architecture-motif-classes-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Thematic Toolkit: Arcane Avenger',
+					url: 'https://www.drivethrurpg.com/en/product/392599/thematic-toolkit-arcane-avenger-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Thematic Toolkit: Burning Gloom',
+					url: 'https://www.drivethrurpg.com/en/product/463912/thematic-toolkit-burning-gloom-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Thematic Toolkit: Carry the Darkness',
+					url: 'https://www.drivethrurpg.com/en/product/469542/thematic-toolkit-carry-the-darkness-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Thematic Toolkit: Cultist',
+					url: 'https://www.drivethrurpg.com/en/product/392588/thematic-toolkit-cultist-a5e?affiliate_id=1388381',
+					integrated: true,
 				},
 				{
 					title: 'Thematic Toolkit: Folk of the Court',
 					url: 'https://bit.ly/48SVn1R',
+					integrated: false,
+				},
+				{
+					title: 'Thematic Toolkit: Hazardous Knowledge',
+					url: 'https://www.drivethrurpg.com/en/product/441013/thematic-toolkit-hazardous-knowledge-a5e?affiliate_id=1388381',
+					integrated: true,
 				},
 				{
 					title: 'Thematic Toolkit: Itinerant',
 					url: 'https://bit.ly/3Sidh7p',
+					integrated: true,
+				},
+				{
+					title: 'Thematic Toolkit: Judge, Jury, and Executioner',
+					url: 'https://www.drivethrurpg.com/en/product/414622/thematic-toolkit-judge-jury-and-executioner-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Thematic Toolkit: Master of Ceremonies',
+					url: 'https://www.drivethrurpg.com/en/product/422460/thematic-toolkit-master-of-ceremonies-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Thematic Toolkit: Scrapper',
+					url: 'https://www.drivethrurpg.com/en/product/412017/thematic-toolkit-scrapper-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Thematic Toolkit: Storyteller',
+					url: 'https://www.drivethrurpg.com/en/product/407903/thematic-toolkit-storyteller-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Thematic Toolkit: Thunder of War',
+					url: 'https://www.drivethrurpg.com/en/product/404207/thematic-toolkit-thunder-of-war-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Thematic Toolkit: Venomous Shadow',
+					url: 'https://www.drivethrurpg.com/en/product/400541/thematic-toolkit-venomous-shadow-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Utility Spells Redux',
+					url: 'https://www.drivethrurpg.com/en/product/466232/utility-spells-redux-a5e?affiliate_id=1388381',
+					integrated: false,
+				},
+			],
+		},
+		ravine: {
+			name: "Ravine",
+			releases: [
+				{
+					title: 'Agent of the Magus',
+					url: 'https://ravine.itch.io/a5e-subclass01-magus',
+					integrated: true,
+				},
+				{
+					title: "Hakan's Pamphlet to Arcane Weaponry",
+					url: 'https://ravine.itch.io/a5e-spells01-arcaneweapon',
+					integrated: true,
+				},
+				{
+					title: "The Errant Seer",
+					url: 'https://ravine.itch.io/a5e-subclass03-errant-seer',
+					integrated: true,
+				},
+				{
+					title: "The Ruin Stider",
+					url: 'https://ravine.itch.io/a5e-subclass02-ruin-strider',
+					integrated: true,
+				},
+				{
+					title: "The Spellbreaker",
+					url: 'https://ravine.itch.io/a5e-subclass04-spellbreaker',
+					integrated: true,
 				},
 			],
 		},
@@ -122,14 +361,22 @@ export default function registerPremiumContentConfig() {
 				{
 					title: 'Eclipsa Records - Armaments: Confidential',
 					url: 'https://bit.ly/3Om8W1y',
+					integrated: false,
+				},
+				{
+					title: 'Epoch Armory: Wild West',
+					url: 'https://www.drivethrurpg.com/en/product/487094/epoch-armory-wild-west?affiliate_id=1388381',
+					integrated: false,
 				},
 				{
 					title: 'Legends of Strength',
 					url: 'https://bit.ly/3UnXINY',
+					integrated: false,
 				},
 				{
 					title: 'Primal Sorcery',
 					url: 'https://bit.ly/3SBPS24',
+					integrated: false,
 				},
 			],
 		},
@@ -139,6 +386,17 @@ export default function registerPremiumContentConfig() {
 				{
 					title: 'Extra Credit and Deeper Mysteries',
 					url: 'https://bit.ly/47UnJaV',
+					integrated: true,
+				},
+				{
+					title: 'Heroes Old and New',
+					url: 'https://www.drivethrurpg.com/en/product/415185/heroes-old-and-new?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
+					title: 'Mysterious and Marvelous Miscellanea',
+					url: 'https://www.drivethrurpg.com/en/product/423253/mysterious-and-marvelous-miscellanea?affiliate_id=1388381',
+					integrated: true,
 				},
 			],
 		},
@@ -146,8 +404,19 @@ export default function registerPremiumContentConfig() {
 			name: 'Speaks & Spells Publishing',
 			releases: [
 				{
+					title: 'Secrets of the Selkies',
+					url: 'https://www.drivethrurpg.com/en/product/471746/secrets-of-the-selkies-a5e?affiliate_id=1388381',
+					integrated: true,
+				},
+				{
 					title: 'The Arcane Exterminator: An Artificer Archetype and Magic Item Compendium',
 					url: 'https://bit.ly/49fTzA3',
+					integrated: false,
+				},
+				{
+					title: 'Venture Forth: Over 100 Knacks for the Core Classes',
+					url: 'https://www.drivethrurpg.com/en/product/475538/venture-forth-over-100-knacks-for-the-core-classes-a5e?affiliate_id=1388381',
+					integrated: true,
 				},
 			],
 		},
@@ -157,6 +426,32 @@ export default function registerPremiumContentConfig() {
 				{
 					title: 'Paranormal Power',
 					url: 'https://bit.ly/49bS1XH',
+					integrated: false,
+				},
+			],
+		},
+		variantCodexPress: {
+			name: 'Variant Codex Press',
+			releases: [
+				{
+					title: 'Obscure Medicinals',
+					url: 'https://www.drivethrurpg.com/en/product/507668/obscure-medicinals?affiliate_id=1388381',
+					integrated: false,
+				},
+				{
+					title: 'Road Worthy Pursuits: A5E Explorations Vol I',
+					url: 'https://www.drivethrurpg.com/en/product/510738/road-worthy-pursuits-a5e-explorations-vol-i?affiliate_id=1388381',
+					integrated: false,
+				},
+			],
+		},
+		wizardsOfTheCoast: {
+			name: 'Wizards of the Coast',
+			releases: [
+				{
+					title: 'Dungeons & Dragons 5th Edition System Reference Document',
+					url: 'http://bit.ly/3DUPt5G',
+					integrated: true,
 				},
 			],
 		},
@@ -166,6 +461,7 @@ export default function registerPremiumContentConfig() {
 				{
 					title: 'Handbook of Heritages',
 					url: 'https://bit.ly/3PPfarX',
+					integrated: false,
 				},
 			],
 		},

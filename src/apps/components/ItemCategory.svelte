@@ -39,6 +39,7 @@
 
         if (!items.includes(draggedItem)) return sheet._onDrop(event);
 
+
         const updates = SortingHelpers.performIntegerSort(draggedItem, {
             target: targetItem,
             siblings: items,

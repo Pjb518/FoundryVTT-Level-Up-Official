@@ -19,7 +19,7 @@ const dispatch = createEventDispatcher();
     when you purchase the original content. We've provided a handy list of these
     products in the <button
         class="false-link"
-        on:click={() => dispatch("change-tab", 1)}
+        on:click={() => dispatch("change-tab", 2)}
     >
         Premium Content
     </button>
@@ -35,7 +35,7 @@ const dispatch = createEventDispatcher();
     We've also started producing exclusive modules for our Patreon supporters.
     You can find more information about this in the <button
         class="false-link"
-        on:click={() => dispatch("change-tab", 2)}
+        on:click={() => dispatch("change-tab", 3)}
     >
         Patreon Exclusive
     </button> tab.

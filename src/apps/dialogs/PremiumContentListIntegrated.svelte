@@ -1,23 +1,20 @@
 <script>
 import Section from '../components/Section.svelte';
 
-function hasNonIntegratedContent(releases) {
+function hasIntegratedContent(releases) {
 
-    const flag = releases.some((release) => { 
-        return !release.integrated ?? true;
-    });
+const flag = releases.some((release) => { 
+    return release.integrated ?? false;
+});
 
-    return flag;
+return flag;
 }
 
 const { premiumContent } = CONFIG.A5E;
-
 </script>
 
 <p>
-    Below you'll find a list of premium content modules organized by publisher. Some of
-    these modules are included for free when you purchase the a PDF or physical book.
-    Others modules are sold as standalone products.
+    Below you'll find a list of premium content organized by publisher that is integrated into the system and do not require a separate module.
 </p>
 
 <p class="a5e-content-disclaimer">
@@ -27,11 +24,11 @@ const { premiumContent } = CONFIG.A5E;
 </p>
 
 {#each Object.values(premiumContent) as { name, releases }}
-    {#if hasNonIntegratedContent(releases)}
+    {#if hasIntegratedContent(releases)}
         <Section heading={name}>
             <ul class="content-list">
                 {#each releases as { title, url, integrated }}
-                    {#if !integrated}
+                    {#if integrated}
                         <li class="content-list__item">
                             <a href={url} target="_blank">{title}</a>
                         </li>

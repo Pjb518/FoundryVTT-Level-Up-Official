@@ -6,6 +6,7 @@ import { ApplicationShell } from '#runtime/svelte/component/application';
 
 import NavigationBar from '../components/navigation/NavigationBar.svelte';
 import PremiumContentListIntroduction from './PremiumContentListIntroduction.svelte';
+import PremiumContentListIntegrated from './PremiumContentListIntegrated.svelte';
 import PremiumContentListPatreon from './PremiumContentListPatreon.svelte';
 import PremiumContentListPremium from './PremiumContentListPremium.svelte';
 
@@ -15,6 +16,8 @@ function getCurrentTabComponent({ name }) {
 	switch (name) {
 		case 'intro':
 			return PremiumContentListIntroduction;
+        case 'integrated':
+            return PremiumContentListIntegrated;
 		case 'premiumContent':
 			return PremiumContentListPremium;
 		case 'patreon':
@@ -26,6 +29,7 @@ function getCurrentTabComponent({ name }) {
 
 const tabs = [
 	{ name: 'intro', label: 'Introduction' },
+    { name: 'integrated', label: 'Integrated Content' },
 	{ name: 'premiumContent', label: 'Premium Content' },
 	{ name: 'patreon', label: 'Patreon Exclusive' },
 ];
