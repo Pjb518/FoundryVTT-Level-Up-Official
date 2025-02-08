@@ -29,11 +29,12 @@
                 return "A";
             case "bonusAction":
                 return "B";
-            case "legendaryAction":
+            case "legendaryAction": {
                 const cost = _action?.activation?.cost;
 
                 if (cost === 1 || cost === 0) return "L";
-                else return `${cost}L`;
+                return `${cost}L`;
+            }
             case "reaction":
                 return "R";
             default:
@@ -107,7 +108,7 @@
         if (item.actions.count === 0) return;
 
         if (item.actions.count === 1) {
-            _actionId = item.actions.keys()[0];
+            _actionId = item.actions.first.id;
         }
 
         const [consumerId] = Object.entries(
