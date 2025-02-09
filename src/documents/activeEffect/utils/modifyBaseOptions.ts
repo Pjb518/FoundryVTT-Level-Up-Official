@@ -106,6 +106,12 @@ export default function modifyBaseOptions(options: Object) {
 	];
 
 	// Add options for traits
+	options['system.traits.alignment'] = [
+		'',
+		MODES.DEFAULT_STRING_MODES,
+		Object.entries(CONFIG.A5E.alignments),
+		'TAG_GROUP',
+	];
 	options['system.traits.conditionImmunities'] = [
 		'',
 		MODES.DEFAULT_STRING_MODES,
@@ -155,6 +161,13 @@ export default function modifyBaseOptions(options: Object) {
 		'',
 		MODES.DEFAULT_STRING_MODES,
 		Object.values(CONFIG.A5E.tools).flatMap((c) => Object.entries(c)),
+		'TAG_GROUP',
+	];
+	// @ts-ignore
+	options['system.proficiencies.traditions'] = [
+		'',
+		MODES.DEFAULT_STRING_MODES,
+		Object.entries(CONFIG.A5E.maneuverTraditions),
 		'TAG_GROUP',
 	];
 	// @ts-ignore
@@ -214,7 +227,13 @@ export default function modifyBaseOptions(options: Object) {
 	delete options['system.attributes.ac.baseFormula'];
 	delete options['system.attributes.ac.value'];
 
-	delete options['system.spellBooks'];
+	delete options['system.classes.startingClass'];
+
+	delete options['system.resources.classResources'];
+
+	//delete options['system.spellBooks.*'];
+	//delete options['system.spellResources.*.override'];
+
 	delete options['system.grants'];
 
 	// Delete deprecated options
@@ -231,24 +250,32 @@ export default function modifyBaseOptions(options: Object) {
 	// Delete text details like bio, class, etc.
 	delete options['system.details.age'];
 	delete options['system.details.appearance'];
+	delete options['system.details.archetype'];
 	delete options['system.details.background'];
-	delete options['system.details.bio'];
+	delete options['system.details.bio']
+	delete options['system.details.bonds'];
 	delete options['system.details.classes'];
 	delete options['system.details.culture'];
 	delete options['system.details.destiny'];
 	delete options['system.details.eyeColor'];
+	delete options['system.details.flaws'];
 	delete options['system.details.gender'];
+	delete options['system.details.goals'];
 	delete options['system.details.hairColor'];
 	delete options['system.details.height'];
 	delete options['system.details.heritage'];
+	delete options['system.details.ideals'];
+	delete options['system.details.isSquad'];
 	delete options['system.details.level'];
 	delete options['system.details.notes'];
 	delete options['system.details.prestige'];
 	delete options['system.details.skinColor'];
+	delete options['system.details.terrain'];
 	delete options['system.details.weight'];
 	delete options['system.details.notes'];
 	delete options['system.details.xp'];
 	delete options['system.details.privateNotes'];
+	delete options['system.source'];
 	delete options['system.source.link'];
 	delete options['system.source.name'];
 	delete options['system.source.publisher'];
@@ -281,4 +308,23 @@ export default function modifyBaseOptions(options: Object) {
 	// Delete schema information
 	delete options['system.schemaVersion.version'];
 	delete options['system.schemaVersion.lastMigration'];
+
+	// Delete migration data
+	delete options['system.migrationData.lastMigration.schema'];
+	delete options['system.migrationData.type'];
+	delete options['system.migrationData.version'];
+
+	// Delete spell books
+	Object.keys(options).forEach(key => {
+		if (key.startsWith('system.spellBooks.')) {
+			delete options[key];
+		}
+	});
+
+	// Delete spell resource overrides
+	Object.keys(options).forEach(key => {
+		if (key.startsWith('system.spellResources.') && key.endsWith('.override')) {
+			delete options[key];
+		}
+	});
 }

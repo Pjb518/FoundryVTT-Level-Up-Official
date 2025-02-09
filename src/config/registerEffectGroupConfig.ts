@@ -63,6 +63,8 @@ export default function registerEffectGroupConfig() {
 				'system.bonuses.abilities.check',
 				'system.bonuses.abilities.save',
 				'system.bonuses.abilities.skill',
+				'system.bonuses.hitPoint',
+				'system.bonuses.exertion',
 				'system.bonuses.maneuverDC',
 				'system.bonuses.spellDC',
 			],
@@ -85,11 +87,17 @@ export default function registerEffectGroupConfig() {
 				'system.currency.gp',
 				'system.currency.pp',
 				'system.currency.sp',
+				'system.currency.cr',
 			],
 		},
 		creatureTraits: {
 			label: 'A5E.effects.groups.creatureTraits',
-			items: ['system.traits.size', 'system.details.creatureTypes', 'system.details.isSwarm'],
+			items: [
+				'system.traits.alignment',
+				'system.traits.size',
+				'system.details.creatureTypes',
+				'system.details.isSwarm'
+			],
 		},
 		deathSaves: {
 			label: 'A5E.effects.groups.deathSaves',
@@ -168,6 +176,7 @@ export default function registerEffectGroupConfig() {
 				'system.proficiencies.armor',
 				'system.proficiencies.languages',
 				'system.proficiencies.tools',
+				'system.proficiencies.traditions',
 				'system.proficiencies.weapons',
 			],
 		},
@@ -187,6 +196,8 @@ export default function registerEffectGroupConfig() {
 		resources: {
 			label: 'A5E.effects.groups.resources',
 			items: [
+				'system.attributes.favorPoints.current',
+				'system.attributes.favorPoints.max',
 				'system.resources.primary.hideMax',
 				'system.resources.primary.label',
 				'system.resources.primary.max',
@@ -460,9 +471,20 @@ export default function registerEffectGroupConfig() {
 				'system.skills.sur.value',
 			],
 		},
+		spellcasting: {
+			label: 'A5E.effects.groups.spellcasting',
+			items: [
+				'system.spellResources.maxPrepared',
+				'system.attributes.spellDC',
+			],
+		},
 		spellResources: {
 			label: 'A5E.effects.groups.spellResources',
 			items: [
+				'system.spellResources.artifactCharges.current',
+				'system.spellResources.artifactCharges.max',
+				'system.spellResources.inventions.current',
+				'system.spellResources.inventions.max',
 				'system.spellResources.points.current',
 				'system.spellResources.points.max',
 				'system.spellResources.slots.1.current',

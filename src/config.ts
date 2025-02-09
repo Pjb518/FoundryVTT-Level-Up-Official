@@ -665,6 +665,10 @@ const maneuverDegrees = {
 	5: 'A5E.ManeuverDegree5',
 };
 
+/**
+ * Combat Traditions a character can learn.
+ * @enum {string}
+ */
 const maneuverTraditions = {
 	aceStarfighter: 'A5E.maneuverTraditions.aceStarfighter',
 	adamantMountain: 'A5E.maneuverTraditions.adamantMountain',
