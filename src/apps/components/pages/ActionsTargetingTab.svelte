@@ -12,12 +12,14 @@
     import updateDocumentDataFromField from "../../../utils/updateDocumentDataFromField";
 
     import AreaConfig from "../itemActionsConfig/AreaConfig.svelte";
+    import Checkbox from "../Checkbox.svelte";
     import FieldWrapper from "../FieldWrapper.svelte";
     import Section from "../Section.svelte";
     import TargetRangeIncrement from "../itemActionsConfig/TargetRangeIncrement.svelte";
     import TargetScalingDialog from "../../dialogs/TargetScalingDialog.svelte";
 
     const actionId: string = getContext("actionId");
+    const appId = getContext("appId");
     const item: Writable<ItemA5e> = getContext("item");
     const { A5E } = CONFIG;
     const { isEmpty } = foundry.utils;
@@ -120,6 +122,7 @@
                     />
                 {/if}
 
+
                 <select class="u-w-fit" on:change={selectTarget}>
                     <option value={null} selected={isEmpty(action?.target)}>
                         {localize("A5E.None")}
@@ -131,6 +134,24 @@
                         </option>
                     {/each}
                 </select>
+
+                {#if ["other"].includes(action?.target?.type)}
+                    <input
+                        class="small-input"
+                        style="width: 15rem;"
+                        type="text"
+                        name="otherText"
+                        value={action.target?.otherText}
+                        id={`${appId}-otherText`}
+                        on:change={({ target }) =>
+                            updateDocumentDataFromField(
+                                $item,
+                                `system.actions.${actionId}.target.otherText`,
+                                // @ts-expect-error
+                                target.value
+                            )}
+                    />
+                {/if}
 
                 {#if ["creature", "object", "creatureObject"].includes(action?.target?.type)}
                     <div class="a5e-field-group scaling-button-wrapper">
@@ -205,6 +226,25 @@
             </div>
         </FieldWrapper>
     </Section>
+
+    <Section --a5e-section-body-direction="row" --a5e-section-body-gap="0.75rem">
+        {#if ["creature", "object", "creatureObject", "other"].includes(action?.target?.type)}
+            <Checkbox
+                label="A5E.TargetHeard"
+                checked={action.target?.heard}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField($item, `system.actions.${actionId}.target.heard`, detail)}
+            />
+
+            <Checkbox
+                label="A5E.TargetSeen"
+                checked={action.target?.seen}
+                on:updateSelection={({ detail }) =>
+                    updateDocumentDataFromField($item, `system.actions.${actionId}.target.seen`, detail)}
+            />
+        {/if}
+    </Section>
+    
 </section>
 
 <style lang="scss">
